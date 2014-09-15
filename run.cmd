@@ -1,0 +1,1 @@
+c:\jdk1.6.0_19\bin\java -Xmx512M -cp build\classes;build\default\classes;oem\jorbis\jorbis0.0.17.jar %*

@@ -1,0 +1,60 @@
+name=Ghul
+template=Ghul
+attitude=0
+@
+name=Stick Men
+template=Stick Men
+attitude=50
+@
+name=Bel Ies
+template=Bel Ies
+attitude=0
+@
+name=Ichiba Chamber Of Commerce
+template=Ichiba Chamber Of Commerce
+attitude=50
+@
+name=Gnomes
+template=Gnomes
+attitude=50
+@
+name=Allies of Lorelei
+template=Allies of Lorelei
+attitude=50
+@
+name=White Order
+template=White Order
+attitude=50
+@
+name=Minions Of Usark
+template=Minions Of Usark
+attitude=50
+@
+name=Ichiba GSC
+template=Ichiba GSC
+attitude=50
+@
+name=Keepers Of Dalen
+template=Keepers Of Dalen
+attitude=0
+@
+name=Old Igor
+template=Old Igor
+attitude=0
+@
+name=Fangorn
+template=Fangorn
+attitude=0
+@
+name=Hags
+template=Hags
+attitude=0
+@
+name=Allies of Imogen
+template=Allies of Imogen
+attitude=50
+@
+name=Gnolls
+template=Gnolls
+attitude=100
+@

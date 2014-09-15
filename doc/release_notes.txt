@@ -1,0 +1,228 @@
+---------------------------------------
+v0.914 (30 June 2014)
+---------------------------------------
+Features
+ - Implemented DIYComboBox
+ - Redesigned player character Widget
+ - Rearranged zone info, movement options, and combat options
+ - Redesigned player character action selection in and out of combat
+ - Implemented the level ability progression code for character classes
+ - Renamed Yeti race to Mirka
+ - Renamed Troll race to Neotroll
+ - Renamed Salamander race to Hynobi
+ - Renamed Warrior class to Berserker
+ - Renamed Thief class to Burglar
+ - Renamed Gypsy class to Kitsune
+ - Renamed Illusionist class to Enchanter
+ - Renamed Adept class to Kamunushi
+ - Implemented StoryBoardEvent and added a new introduction sequence
+ - Implemented Quick Start with random party generation
+
+---------------------------------------
+v0.913 (22 December 2013)
+---------------------------------------
+
+Other
+ - Increased spell casting stats for Parched Vultures
+ - Flagged Goblin throwing knife attacks as ranged instead of melee
+#81 NPX in combat 
+#86 NPX when foe carries non-equipable item 
+#89 Editor: warning on close window 
+#90 NPX trading with Stenelaus 
+#95 Many bombs have infinite charges 
+#99 NPX climbing stairs in CoC 
+
+---------------------------------------
+v0.912 (1 December 2013)
+---------------------------------------
+Features
+ - Refactored Foe and PlayerCharacter to share common data model
+ - Added a proper Inventory class, for use by PCs and foes alike
+ - Added suggested names per race+gender to character creation
+ - Added alignment, font and text colour properties to text areas
+ - Redesigned the character creation wizard
+ - Refactored starting kits into a first class data item
+ - Detailed names and flavour text for class starting kits
+ - Improved searching by name on spell display widget
+ - Swapped available spellbooks of Sorcerer and Magician
+ - Swapped available spellbooks of Priest and Adept
+ - Swapped available spellbooks of Witch and Cultist
+ - Added font size config property
+ - Increased default screen resolution to 1024x768
+
+Other
+#53 Display class changing requirements in UI 
+#54 Monster counting bug 
+#57 Cannot edit some modifiers on level up
+#58 Chivalry never practised 
+#59 Combat modifiers not practised
+#60 Kepnasha encountered in COC
+#61 List things affecting a modifier
+#64 Spellbooks to indicate which magic school they belong to
+#65 Many spellbooks have "to equip" requirements 
+#68 Examine balance of combat modifier practise 
+#70 Steal modifier does not practise 
+#71 Critical hit modifiers do not practise 
+#72 Powercast not practising 
+#73 Golden apples and Magic Nectar crash the game 
+#74 Theft spell hangs the game 
+#75 NPC speech detection is case sensitive
+#76 Spell level limits to not work 
+#77 Cure poison spell crashes the game
+#78 Sporadic crash opening waterfront villa chest
+#80 Chamois Skirt has "reserved15 +1" modifier
+
+---------------------------------------
+v0.911 (4 June 2013)
+---------------------------------------
+Features
+ - Added 'forget' spell result that removes auto mapped area
+ - Character speech in NPC conversation now appears in speech bubbles
+ - Conversation dialogue for Ideaus and Stenelaus
+ - Added NPC: Pandarus the tobacconist in Aenen
+ - General Options event that presents a dialog of options to the player
+ - Numerous small content additions in various zones
+ - Renamed Merfolk race to Triton
+ - Added Amphibious property, assigned to Tritons
+ - Attribute modifiers are no longer editable on level up
+ - Increased race and class impact on attribute modifiers
+ - Introduced a level up bonus option to increase a base modifier by one
+ - Removed ATTACK RATE modifier, attacks and strikes are now explicit
+ - Removed Spell shortcuts, replaced by Display Name
+ - Source distro can now compile and package from scratch
+
+---------------------------------------
+v0.910 (28 December 2012)
+---------------------------------------
+Features
+ - Initial work on automated balancing
+ - Added configurable and persistent user settings, plus a Settings screen
+ - Added user settings: combat speed, music volume, personality chattiness
+ - Added Tip Of The Day to main menu
+ - Added an OK/Cancel dialog when the player quits to the main menu
+ - Initial implementation of the automap
+ - Moved difficulty level implementations into the default campaign module
+ - Difficulty level implementation can now swap in a new foe combat AI
+
+---------------------------------------
+v0.909 (28 July 2012)
+---------------------------------------
+Features:
+ - Music and musical instruments
+Other
+3545088: NPX in loot items widget
+
+---------------------------------------
+v0.908 (26 June 2012)
+---------------------------------------
+Features:
+ - Player character personality speech
+
+---------------------------------------
+v0.907 (19 May 2012)
+---------------------------------------
+Features:
+ - Normal damage split into Bludgeoning, Piercing and Slashing.
+ - Craft Recipes and Item Enchantments refactored into separate database table
+ - Implemented carrying capacity penalties
+ - Gadgeteer character class
+ - Engineering modifier, gadgets and gadget components
+ - Added axes, hammers and javelins as throwing weapons
+ - Added darts, knives and stars as recognised ammo types
+ - Implemented wild magic spells.
+Other
+3513860: Many modern weapons have bow type
+
+---------------------------------------
+v0.906 (31 March 2012)
+---------------------------------------
+Features:
+ - UI Refresh: main menu, character detail screens, all dialogs, mana display,
+   level up, character creation, crafting items
+ - Background music: main menu
+ - Non-castable spells can now still be queried for their details
+Other
+3277594: Random encounter interrupts NPC appearance
+3497105: linux .WAV incompatibility
+3477638: Linux: Invalid display mode, again
+3277593: Widget focus problem makes UI unresponsive
+3277584: Early resurrection powders
+3277581: More accessible loot in starting dungeon
+3510779: EmptyStackException on quitting to main menu
+3510781: NPX on save/load screen
+3511270: Merge item invokes the second item
+3495593: Implement item stack splitting
+
+---------------------------------------
+v0.905 (28 February 2012)
+---------------------------------------
+Features:
+ - UI Refresh: new font, widget renderers, movement screen, item details
+Other
+3482612: Sohei "Short Spear" kit bug
+3482613: Idenfity spell not working
+3483469: Crash while saving
+3483079: NPX selling items to Ideaus
+3484570: Hero class missing Melee Master modifier
+3484571: Remove Curse spell always fizzles
+3484572: Spell selection widget not updating casting cost
+3484609: Many foes have insufficient magic points
+
+---------------------------------------
+v0.904 (4 February 2012)
+---------------------------------------
+Features:
+ - Additional hints for quest Red Ear's Taxes
+ - Event display delay is configurable in maze.cfg
+Other
+3477194: Crash when saving and loading
+3477638: Linux: Invalid display mode
+3477642: Died while swimming in water and it crashed
+3477652: Magic modifiers not being practised
+3478229: Crash while fighting gnoll hunters
+3479204: Shopping bug: scroll pane to small
+3480742: Charm and Beguilement spells fizzle
+3480942: Broken chest in Ichiba Domain North
+3480946: Item enchantments not loaded from save games
+3481288: Invalid item in Ichiba villa chest
+3481715: Martial Arts not being practised
+3481725: Item enchantments include old modifiers
+
+---------------------------------------
+v0.903 (1 January 2012)
+---------------------------------------
+3467452: Broken maze.exe
+
+---------------------------------------
+v0.902 (26 June 2011)
+---------------------------------------
+Features
+ - Character Class Refactor
+ - Resistance/Saving Throw Refactor
+ - New special abilities: Lightning Strike, Berserker, Deadly Strike, Dodge,
+   Master Archer, Divine Protection, Ki Fury, Fey Affinity, Arcane Blood,
+   Displacer, Parry, Melee Master, Deadly Aim, Master Thief, Poison Touch,
+   Obfuscation, Shadowmaster, Charmed Destiny, Channelling
+Other
+3277586: Mouse click indicator for item movement
+3299359: Traps spells always fizzle
+3299363: Guild list box is broken
+
+---------------------------------------
+v0.901 (2 May 2011)
+---------------------------------------
+Features
+ - Stealth Point Refactor
+Other
+3277577: Start game warning on small party
+3277587: Array index out of bounds in Trading Widget
+3277589: Lower case item names in loot
+3277590: NPX in ChestOptionsWidget
+3281744: Bribe button broken
+3281778: Failed sale gives no user feedback
+3284077: NPX stealing from Three Eyes
+
+---------------------------------------
+v0.9 (10 March 2011)
+---------------------------------------
+Initial alpha release of Escape From The Maze.

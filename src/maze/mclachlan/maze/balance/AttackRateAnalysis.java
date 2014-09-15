@@ -1,0 +1,149 @@
+/*
+ * Copyright (c) 2013 Alan McLachlan
+ *
+ * This file is part of Escape From The Maze.
+ *
+ * Escape From The Maze is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package mclachlan.maze.balance;
+
+import mclachlan.maze.data.Database;
+import mclachlan.maze.data.Loader;
+import mclachlan.maze.data.Saver;
+import mclachlan.maze.data.v1.V1Loader;
+import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.game.Campaign;
+import mclachlan.maze.game.Launcher;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.AttackAction;
+import mclachlan.maze.stat.combat.AttackType;
+import mclachlan.maze.stat.combat.event.AttackEvent;
+
+/**
+ *
+ */
+public class AttackRateAnalysis
+{
+	public static void main(String[] args) throws Exception
+	{
+		Loader loader = new V1Loader();
+		Saver saver = new V1Saver();
+		Database db = new Database(loader, saver);
+		Campaign campaign = Maze.getStubCampaign();
+		loader.init(campaign);
+
+		Maze maze = new Maze(Launcher.getConfig(), campaign);
+
+//		maze.initLog();
+		maze.initState();
+//		maze.initDb();
+		maze.initSystems();
+//		maze.initUi();
+//		maze.startThreads();
+
+		CharacterBuilder cb = new CharacterBuilder(db);
+
+		int max = 30;
+		analyseWithConstantWeapon(db, cb, max, "Warrior", new PriorityModifierApproach(
+			Stats.Modifiers.CUT,
+			Stats.Modifiers.LUNGE,
+			Stats.Modifiers.SHOOT,
+			Stats.Modifiers.ARTIFACTS,
+			Stats.Modifiers.MYTHOLOGY));
+
+		analyseWithConstantWeapon(db, cb, max, "Thief", new PriorityModifierApproach(
+			Stats.Modifiers.BACKSTAB,
+			Stats.Modifiers.SNIPE,
+			Stats.Modifiers.SHOOT,
+			Stats.Modifiers.ARTIFACTS,
+			Stats.Modifiers.MYTHOLOGY));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void analyseWithConstantWeapon(Database db,
+		CharacterBuilder cb, int max, String characterClass,
+		PriorityModifierApproach modifierApproach)
+	{
+		System.out.println("-----"+characterClass);
+		Item weapon = db.getItemTemplate("Short Sword").create();
+		BodyPart torso = db.getBodyPart("human torso");
+
+		for (int level=1; level<=max; level++)
+		{
+			PlayerCharacter pc = cb.buildCharacter("Tester", characterClass, "Human", "Male", level,
+				modifierApproach);
+
+			pc.setPrimaryWeapon(weapon);
+
+			int nrAttacks = GameSys.getInstance().getNrAttacks(pc, true);
+
+			// calculate the average nr of strikes per attack
+			float nrStrikes = 0;
+			int iterations = 500;
+			for (int i=0; i< iterations; i++)
+			{
+				AttackAction aa = new AttackAction(null, weapon, -1, null, true, false, 0);
+				aa.setActor(pc);
+				aa.setDefender(pc);
+				AttackType attackType = GameSys.getInstance().getAttackType(aa);
+
+				nrStrikes += GameSys.getInstance().getNrStrikes(pc, null,
+					attackType, weapon);
+			}
+			nrStrikes /= iterations;
+
+			// calculate the average damage output per round
+			// assume 50% of strikes miss
+			// todo: stealth attacks
+			float damage = 0;
+			for (int i=0; i<iterations; i++)
+			{
+				for (int j=0; j<nrAttacks; j++)
+				{
+					AttackAction aa = new AttackAction(null, weapon, -1, null, true, false, 0);
+					aa.setActor(pc);
+					aa.setDefender(pc);
+					AttackType attackType = GameSys.getInstance().getAttackType(aa);
+					
+					int ns = GameSys.getInstance().getNrStrikes(pc, null,
+						attackType, weapon);
+
+					for (int k=0; k<ns; k++)
+					{
+						if (Dice.d100.roll() <= 50)
+						{
+							AttackEvent ae = new AttackEvent(pc, pc, weapon, attackType,
+								torso, 0, -1);
+							DamagePacket damagePacket = GameSys.getInstance().calcDamage(ae);
+
+							// todo: should be using DamageEvent instead?
+							damage += (damagePacket.getAmount()*damagePacket.getMultiplier());
+						}
+					}
+				}
+			}
+			damage /= iterations;
+
+			System.out.format("%2d: CUT%+3d LUN%+3d BAC%+3d nrAttacks %2d nrStrikes %5.2f damage %6.2f%n",
+				level,
+				pc.getModifier(Stats.Modifiers.CUT),
+				pc.getModifier(Stats.Modifiers.LUNGE),
+				pc.getModifier(Stats.Modifiers.BACKSTAB),
+				nrAttacks, nrStrikes, damage);
+		}
+	}
+
+}

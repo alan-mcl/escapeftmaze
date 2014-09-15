@@ -1,0 +1,144 @@
+
+# COMMON STRINGS
+common.ok = OK
+common.exit = Exit
+
+# the create character wizard
+cc.race.title = Character Race
+cc.gender.title = Character Gender
+cc.resources = Resources
+cc.attributes = Attributes
+cc.resistances = Resistances
+cc.other.modifiers = Other Modifiers
+cc.choose.race.and.gender = Choose a race and gender for your new character
+cc.choose.race.and.gender.flava = "Many and varied are the peoples of our exile. We are united by little other than our mutual captivity." \n~excerpt from "Races of the First Realm" by Theodorus of Kilin
+cc.class.title = Character Class
+cc.choose.class = Choose a character class for your
+cc.choose.class.flava = "What of the skills needed to walk undying through the perils of the Maze? Sit a while, and I will teach you what I can."\n~Azael the Half-Blind
+cc.choose.kit = Choose the starting kit for your
+cc.kit.title = Starting Kits
+cc.kit.items.title = Starting Items
+cc.choose.kit.flava = "Kneeling gracefully, he fastened tightly to his muscled shins a pair of worn and battered steel greaves. With barely a swift glance in the admiring mirror, he strode boldly forth meet his deadly fate."\n~excerpt from "Red Greave and the Bane of Sigil", author unknown
+cc.choose.spells = Choose starting spells for your
+cc.choose.spells.flava = "Magic? Perhaps I have a little. Perhaps you will not call it magic after you have seen it."\n ~Rainmaker
+cc.choose.personals = Choose a name, portrait and personality for your
+cc.personality = Character Personality
+cc.character.portrait = Character Portrait
+cc.character.name = Character Name
+cc.suggest.name = (suggest)
+cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me your name. You do not look like a creature of the Maze."\n~Keteswayo, Captain of the Iyala
+cc.show.lap = Show Ability Progression
+cc.level.ability.progression = Level Ability Progression
+
+# modifier display widget
+mdw.influence.base = Base
+mdw.influence.gender = Gender (%s)
+mdw.influence.race = Character Race (%s)
+mdw.influence.class = Character Class (%s, %s)
+mdw.influence.combat.intention = Combat Intention
+mdw.influence.combat.action = Combat Action
+mdw.influence.combatant.data = Combatant Data
+mdw.influence.current.tile = Current Tile
+mdw.influence.wielding.combo = Wielding Combo
+mdw.influence.encumbrance = Encumbrance
+
+# item details widget
+idw.weight = Weight: %skg
+idw.stack = Stack: %s of %s
+idw.teaches.spell = Teaches Spell: %s (%s)
+
+# craft items dialog
+cid.title = Choose two items to combine
+cid.crafting.skill = Crafting skill of %s is %s
+cid.craft = (C)raft
+cid.select.two.different = Please select two different items.
+cid.created = %s created %s!
+cid.cannot.merge = cannot merge those items.\n\nRequires:
+cid.cannot.be.merged = Those items cannot be merged.
+
+# combat options widget
+cow.attack = (A)ttack
+cow.defend = (D)efend
+cow.cast.spell = (C)ast Spell
+cow.hide = (H)ide
+cow.use.item = (U)se Item
+cow.equip = (E)quip
+cow.run = Ru(n)
+cow.backup = < Bac(k)up
+cow.cancel = << Cance(l)
+cow.repeat = (R)epeat >>
+cow.formation = (F)ormation
+cow.swap.hands = S(w)ap Hands
+cow.displace = Displace
+cow.race = Race
+cow.class = Class
+cow.start.round = (S)tart Round
+cow.terminate.game = Terminate Game
+cow.evade = (E)vade Foes
+cow.surprise = (S)urprise Foes
+cow.formation.changed = Formation will change at end of round
+
+# movement options widget
+mow.quit = (Q)uit
+mow.stats = Stats
+mow.inventory = (I)nventory
+mow.search = (S)earch
+mow.open = (O)pen
+mow.rest = (R)est
+mow.use.item = (U)se Item
+mow.cast.spell = (C)ast Spell
+mow.formation = (F)ormation
+mow.hide = (H)ide
+mow.save.load = Save/Loa(d)
+mow.settings = Settin(g)s
+mow.map = (M)ap
+mow.journal = (J)ournal
+mow.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
+
+# player character widget
+pcw.levelup = Level Up!
+pcw.take.an.action = Take An Action
+
+# modifier display action listener
+mdal.influences = INFLUENCES:
+mdal.practice = PRACTICE:
+
+# actor action options
+aao.use.item = Use Item ...
+aao.cast.spell = Cast Spell ...
+aao.spell.like.ability = %s
+aao.hide = Hide In Shadows
+aao.equip = Change Equipment
+aao.attack = Attack
+aao.defend = Defend
+aao.run.away = Run Away
+aao.intend.nothing = No Action
+
+# start game options
+sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.
+sgo.difficulty.level = Difficulty Level
+
+# class change requirements widget
+ccrw.namelabel = %s, level %s %s %s %s
+ccrw.current = Current:
+ccrw.eligible = Eligible Classes
+ccrw.ineligible = Ineligible Classes
+
+# level ability progression widget
+lapw.title = %s Level Ability Progression
+lapw.level = Level %s:
+
+# level ability action listener
+laal.modifiers = Modifiers:
+laal.banner.modifiers = Banner Modifiers:
+laal.spellpicks = Spellpicks:
+
+# main menu
+mm.start.game = (S)tart Game
+mm.create.character = (C)reate Character
+mm.add.character = (A)dd Character To Party
+mm.remove.character = (R)emove Character
+mm.load.game = Loa(d) Game
+mm.settings = Settin(g)s
+mm.quit = (Q)UIT
+mm.quick.start = Q(u)ick Start

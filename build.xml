@@ -1,0 +1,179 @@
+<!--
+  ~ Copyright (c) 2011 Alan McLachlan
+  ~
+  ~ This file is part of Escape From The Maze.
+  ~
+  ~ Escape From The Maze is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project name="Escape From The Maze" default="dist" basedir=".">
+
+	<description>Escape From The Maze</description>
+	
+	<!-- load these properties, to get at the version -->
+	<property file="maze.cfg"/>
+	
+	<!-- set global properties for this build -->
+	<property name="src" location="src"/>
+	<property name="build_base" location="./build"/>
+	<property name="build" location="${build_base}/classes"/>
+	<property name="default_campaign_build" location="${build_base}/default/classes"/>
+	<property name="default_campaign_src" location="./data/default/src"/>
+	<property name="dist" location="${build_base}/dist"/>
+	<property name="zipdist" location="${dist}/maze_${mclachlan.maze.version}/maze_${mclachlan.maze.version}"/>
+	<property name="zipdist_win" location="${dist}/maze_${mclachlan.maze.version}_win/maze_${mclachlan.maze.version}_win"/>
+	<property name="srcdist" location="${dist}/maze_${mclachlan.maze.version}_src/maze_${mclachlan.maze.version}_src"/>
+	
+	<!-- custom jsmooth task -->
+	<taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpath="./oem/jsmooth-0.9.9-7/lib/jsmoothgen-ant.jar"/>
+
+	<!--======================================================================-->	
+	<target name="clean">
+		<delete dir="${build_base}"/>
+	</target>
+
+	<!--======================================================================-->	
+	<target name="init" depends="clean">
+		<tstamp/>
+		<mkdir dir="${build}"/>
+		<mkdir dir="${default_campaign_build}"/>
+	</target>
+	
+	<!--======================================================================-->	
+	<target name="compile" depends="init">
+		<javac includeantruntime="false" 
+			srcdir="${src}" destdir="${build}"
+			classpath="${build};oem/jorbis/jorbis0.0.17.jar" debug="true" encoding="UTF-8"/>
+		<javac includeantruntime="false" 
+			srcdir="${default_campaign_src}" destdir="${default_campaign_build}"
+			classpath="${build};oem/jorbis/jorbis0.0.17.jar" debug="true" encoding="UTF-8"/>
+	</target>
+
+	<!--======================================================================-->	
+	<!-- Creates both ZIP'd up distros: platform-neutral and windows -->
+	<target name="zipdist" depends="compile">
+		
+		<!-- Create the distribution directory directories-->
+		<mkdir dir="${zipdist}/lib"/>
+		<mkdir dir="${zipdist}/log"/>
+		<mkdir dir="${zipdist_win}/lib"/>
+		<mkdir dir="${zipdist_win}/log"/>
+		
+		<!-- copy in the maze jar -->
+		<jar jarfile="${zipdist}/lib/maze.jar" basedir="${build}"/>
+		
+		<!-- jar up the default campaign -->
+		<jar jarfile="${zipdist}/data/default/lib/default.jar" basedir="${default_campaign_build}"/>
+		
+		<!-- copy in the jre -->
+		<copy todir="${zipdist}/jre">
+			<fileset dir="oem/jre"/>
+		</copy>
+		
+		<!-- copy in the libs -->
+		<copy todir="${zipdist}/lib">
+			<fileset dir="oem/jorbis"/>
+		</copy>
+
+		<!-- copy in the data for the default campaign (delete any save games and source code) -->
+		<copy todir="${zipdist}/data/default">
+			<fileset dir="./data/default"/>
+		</copy>
+		<delete includeemptydirs="true">
+			<fileset dir="${zipdist}/data/default/save">
+				<exclude name="**/guild.txt"/>
+			</fileset>
+			<fileset dir="${zipdist}/data/default/src"/>
+		</delete>
+		
+		<!-- copy in files in the base dist dir -->
+		<copy file="maze.cfg" todir="${zipdist}"/>
+		<copy file="dist.user.cfg" tofile="${zipdist}/user.cfg"/>
+		<copy file="maze.png" todir="${zipdist}"/>
+		<copy file="run2.cmd" tofile="${zipdist}/run.cmd"/>
+		<copy file="editor2.cmd" tofile="${zipdist}/editor.cmd"/>
+		<copy file="doc/release_notes.txt" todir="${zipdist}"/>
+		
+		<!-- duplicate all for the windows dist -->
+		<copydir src="${zipdist}" dest="${zipdist_win}"/>
+		
+		<!-- create windows executables -->
+		<copy file="./msvcr71.dll" todir="${zipdist_win}"/> <!-- required by JSmooth executables -->
+		<copy file="./launch/maze_exe.jsmooth" todir="${zipdist_win}"/>
+		<copy file="./launch/editor_exe.jsmooth" todir="${zipdist_win}"/>
+		<jsmoothgen project="${zipdist_win}/maze_exe.jsmooth" skeletonroot="./oem/jsmooth-0.9.9-7/skeletons"/>
+		<jsmoothgen project="${zipdist_win}/editor_exe.jsmooth" skeletonroot="./oem/jsmooth-0.9.9-7/skeletons"/>
+		<delete file="${zipdist_win}/maze_exe.jsmooth"/>
+		<delete file="${zipdist_win}/editor_exe.jsmooth"/>
+		
+		<!-- copy platform readmes -->
+		<copy file="doc/readme_win.txt" tofile="${zipdist_win}/readme.txt"/>
+		<copy file="doc/readme_nix.txt" tofile="${zipdist}/readme.txt"/>
+		
+		<!-- copy over *nix launch scripts -->
+		<copy file="run.sh" todir="${zipdist}"/>
+		<copy file="editor.sh" todir="${zipdist}"/>
+		
+		<!-- finally, create the distribution zip files -->
+		<zip destfile="${dist}/maze_${mclachlan.maze.version}.zip" basedir="${zipdist}/.." level="9"/>
+		<zip destfile="${dist}/maze_${mclachlan.maze.version}_win.zip" basedir="${zipdist_win}/.." level="9"/>
+			
+	</target>
+
+	<!--======================================================================-->	
+	<!-- Create the source code distro -->
+	<target name="srcdist" depends="compile">
+		
+		<!-- copy in the maze source -->
+		<copy todir="${srcdist}/src/maze"> <fileset dir="./src"/> </copy>
+		
+		<!-- copy in the libs -->
+		<copy todir="${srcdist}/oem"> <fileset dir="./oem"/> </copy>
+		
+		<!-- copy in the launch generator -->
+		<copy todir="${srcdist}/launch"> <fileset dir="./launch"/> </copy>
+		
+		<!-- copy in the data -->
+		<copy todir="${srcdist}/data"> <fileset dir="./data"/> </copy>
+
+        <!-- copy in some documents -->
+        <copy file="doc/readme_win.txt" tofile="${srcdist}/doc/readme_win.txt"/>
+        <copy file="doc/readme_nix.txt" tofile="${srcdist}/doc/readme_nix.txt"/>
+        <copy file="doc/release_notes.txt" tofile="${srcdist}/doc/release_notes.txt"/>
+
+		<!-- copy in misc files -->
+		<copy file="build.xml" todir="${srcdist}"/>
+		<copy file="dist.user.cfg" todir="${srcdist}"/>
+		<copy file="editor.sh" todir="${srcdist}"/>
+		<copy file="run.sh" todir="${srcdist}"/>
+        <copy file="editor.cmd" todir="${srcdist}"/>
+        <copy file="run.cmd" todir="${srcdist}"/>
+		<copy file="maze.cfg" todir="${srcdist}"/>
+		<copy file="maze.cmd" todir="${srcdist}"/>
+		<copy file="maze.png" todir="${srcdist}"/>
+		<copy file="msvcr71.dll" todir="${srcdist}"/>
+		<copy file="package.cmd" todir="${srcdist}"/>
+		<copy file="user.cfg" todir="${srcdist}"/>
+        <copy file="run2.cmd" todir="${srcdist}"/>
+        <copy file="editor2.cmd" todir="${srcdist}"/>
+
+		<!-- finally, create the distribution zip -->
+		<zip destfile="${dist}/maze_${mclachlan.maze.version}_src.zip" basedir="${srcdist}/.." level="9"/>
+			
+	</target>
+
+	<!--======================================================================-->	
+	<target name="dist" depends="zipdist,srcdist"/>
+
+</project>

@@ -1,0 +1,45 @@
+name=Ghul
+startingAttitude=0
+@
+name=Stick Men
+startingAttitude=50
+@
+name=Bel Ies
+startingAttitude=0
+@
+name=Ichiba Chamber Of Commerce
+startingAttitude=50
+@
+name=Gnomes
+startingAttitude=50
+@
+name=Allies of Lorelei
+startingAttitude=50
+@
+name=White Order
+startingAttitude=50
+@
+name=Minions Of Usark
+startingAttitude=50
+@
+name=Ichiba GSC
+startingAttitude=50
+@
+name=Keepers Of Dalen
+startingAttitude=0
+@
+name=Old Igor
+startingAttitude=0
+@
+name=Fangorn
+startingAttitude=0
+@
+name=Hags
+startingAttitude=0
+@
+name=Allies of Imogen
+startingAttitude=50
+@
+name=Gnolls
+startingAttitude=100
+@

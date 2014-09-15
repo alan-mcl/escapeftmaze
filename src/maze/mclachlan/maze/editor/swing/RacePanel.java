@@ -1,0 +1,359 @@
+/*
+ * Copyright (c) 2011 Alan McLachlan
+ *
+ * This file is part of Escape From The Maze.
+ *
+ * Escape From The Maze is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ */
+
+package mclachlan.maze.editor.swing;
+
+import java.awt.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Vector;
+import javax.swing.*;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.magic.Spell;
+
+/**
+ *
+ */
+public class RacePanel extends EditorPanel
+{
+	JSpinner startingHitPointPercent,
+		startingActionPointPercent,
+		startingMagicPointPercent;
+	StatModifierComponent startingModifiers,
+		constantModifiers,
+		bannerModifiers,
+		attributeCeilings;
+	JTextField leftHandIcon, rightHandIcon;
+	GenderSelection allowedGenders;
+	JCheckBox magicDead;
+	JComboBox specialAbility;
+	PlayerBodyPartTablePanel bodyParts;
+	JTextArea description;
+	StartingItemsPanel startingItems;
+	NaturalWeaponsWidget naturalWeapons;
+
+	/*-------------------------------------------------------------------------*/
+	public RacePanel()
+	{
+		super(SwingEditor.Tab.RACES);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public JPanel getEditControls()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 1.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		JPanel left = getLeftPanel();
+		result.add(left, gbc);
+
+		gbc.gridx++;
+		gbc.weightx = 1.0;
+
+		JPanel right = getRightPanel();
+		result.add(right, gbc);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getRightPanel()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 0.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		description = new JTextArea(20, 30);
+		description.setLineWrap(true);
+		description.setWrapStyleWord(true);
+		description.addKeyListener(this);
+		result.add(new JScrollPane(description), gbc);
+		
+		gbc.gridy++;
+		startingItems = new StartingItemsPanel(SwingEditor.Tab.RACES);
+		result.add(startingItems, gbc);
+
+		gbc.gridy++;
+		allowedGenders = new GenderSelection(dirtyFlag, true);
+		result.add(allowedGenders, gbc);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getLeftPanel()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 1.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		startingHitPointPercent = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		startingHitPointPercent.addChangeListener(this);
+		dodgyGridBagShite(result, new JLabel("Starting Hit Point %"), startingHitPointPercent, gbc);
+
+		startingActionPointPercent = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		startingActionPointPercent.addChangeListener(this);
+		dodgyGridBagShite(result, new JLabel("Starting Action Point %"), startingActionPointPercent, gbc);
+
+		startingMagicPointPercent = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		startingMagicPointPercent.addChangeListener(this);
+		dodgyGridBagShite(result, new JLabel("Starting Magic Point %"), startingMagicPointPercent, gbc);
+
+		startingModifiers = new StatModifierComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Starting Modifiers:"), startingModifiers, gbc);
+
+		constantModifiers = new StatModifierComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Constant Modifiers:"), constantModifiers, gbc);
+
+		bannerModifiers = new StatModifierComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Banner Modifiers:"), bannerModifiers, gbc);
+
+		attributeCeilings = new StatModifierComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Attribute Ceilings:"), attributeCeilings, gbc);
+
+		leftHandIcon = new JTextField(20);
+		leftHandIcon.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Left Hand Icon:"), leftHandIcon, gbc);
+
+		rightHandIcon = new JTextField(20);
+		rightHandIcon.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Right Hand Icon:"), rightHandIcon, gbc);
+
+		magicDead = new JCheckBox("Magic Dead?");
+		magicDead.addActionListener(this);
+		dodgyGridBagShite(result, magicDead, new JLabel(), gbc);
+
+		specialAbility = new JComboBox();
+		specialAbility.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Special Ability:"), specialAbility, gbc);
+
+		bodyParts = new PlayerBodyPartTablePanel("Body Parts", dirtyFlag);
+		gbc.weightx = 1.0;
+		gbc.weighty = 0.0;
+		gbc.gridx=0;
+		gbc.gridy++;
+		gbc.gridwidth=2;
+		result.add(bodyParts, gbc);
+
+		naturalWeapons = new NaturalWeaponsWidget(dirtyFlag);
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.gridx=0;
+		gbc.gridy++;
+		gbc.gridwidth=2;
+		result.add(naturalWeapons, gbc);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Vector loadData()
+	{
+		Vector<String> vec = new Vector<String>(Database.getInstance().getRaceList());
+		Collections.sort(vec);
+		return vec;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initForeignKeys()
+	{
+		Vector<String> spells = new Vector<String>(Database.getInstance().getSpells().keySet());
+		Collections.sort(spells);
+		spells.add(0, NONE);
+		specialAbility.setModel(new DefaultComboBoxModel(spells));
+
+		bodyParts.initForeignKeys();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refresh(String name)
+	{
+		Race race = Database.getInstance().getRace(name);
+
+		startingHitPointPercent.removeChangeListener(this);
+		startingActionPointPercent.removeChangeListener(this);
+		startingMagicPointPercent.removeChangeListener(this);
+		specialAbility.removeActionListener(this);
+
+		startingHitPointPercent.setValue(race.getStartingHitPointPercent());
+		startingActionPointPercent.setValue(race.getStartingActionPointPercent());
+		startingMagicPointPercent.setValue(race.getStartingMagicPointPercent());
+		startingModifiers.setModifier(race.getStartingModifiers());
+		constantModifiers.setModifier(race.getConstantModifiers());
+		bannerModifiers.setModifier(race.getBannerModifiers());
+		attributeCeilings.setModifier(race.getAttributeCeilings());
+		leftHandIcon.setText(race.getLeftHandIcon());
+		rightHandIcon.setText(race.getRightHandIcon());
+		magicDead.setSelected(race.isMagicDead());
+		Spell sa = race.getSpecialAbility();
+		this.specialAbility.setSelectedItem(sa==null?NONE:sa.getName());
+		description.setText(race.getDescription());
+		description.setCaretPosition(0);
+		allowedGenders.refreshGenders(race.getAllowedGenders(), race.getSuggestedNames());
+		startingItems.refresh(race.getStartingItems());
+
+		bodyParts.refresh(
+			race.getHead(),
+			race.getTorso(),
+			race.getLeg(),
+			race.getHand(),
+			race.getFoot());
+
+		naturalWeapons.refresh(race.getNaturalWeapons());
+
+		startingHitPointPercent.addChangeListener(this);
+		startingActionPointPercent.addChangeListener(this);
+		startingMagicPointPercent.addChangeListener(this);
+		specialAbility.addActionListener(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void newItem(String name)
+	{
+		Race race = new Race(
+			name,
+			"",
+			0,
+			0,
+			0,
+			new StatModifier(),
+			new StatModifier(),
+			new StatModifier(),
+			new StatModifier(),
+			null,
+			null,
+			null,
+			null,
+			null,
+			"",
+			"",
+			new ArrayList<Gender>(),
+			false,
+			null,
+			null,
+			null,
+			null);
+
+		Database.getInstance().getRaces().put(name, race);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void renameItem(String newName)
+	{
+		Race race = Database.getInstance().getRaces().remove(currentName);
+		race.setName(newName);
+		Database.getInstance().getRaces().put(newName, race);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void copyItem(String newName)
+	{
+		Race current = Database.getInstance().getRaces().get(currentName);
+
+		Race race = new Race(
+			newName,
+			current.getDescription(),
+			current.getStartingHitPointPercent(),
+			current.getStartingActionPointPercent(),
+			current.getStartingMagicPointPercent(),
+			new StatModifier(current.getStartingModifiers()),
+			new StatModifier(current.getConstantModifiers()),
+			new StatModifier(current.getBannerModifiers()),
+			new StatModifier(current.getAttributeCeilings()), 
+			current.getHead(),
+			current.getTorso(),
+			current.getLeg(),
+			current.getHand(),
+			current.getFoot(),
+			current.getLeftHandIcon(),
+			current.getRightHandIcon(),
+			new ArrayList<Gender>(current.getAllowedGenders()),
+			current.isMagicDead(),
+			current.getSpecialAbility(),
+			null, //todo: duplicate starting items
+			current.getNaturalWeapons(),
+			current.getSuggestedNames());
+
+		Database.getInstance().getRaces().put(newName, race);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void deleteItem()
+	{
+		Database.getInstance().getRaces().remove(currentName);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void commit(String name)
+	{
+		Race r = Database.getInstance().getRaces().get(name);
+
+		r.setDescription(description.getText());
+		r.setStartingHitPointPercent((Integer)startingHitPointPercent.getValue());
+		r.setStartingActionPointPercent((Integer)startingActionPointPercent.getValue());
+		r.setStartingMagicPointPercent((Integer)startingMagicPointPercent.getValue());
+		r.setStartingModifiers(startingModifiers.getModifier());
+		r.setConstantModifiers(constantModifiers.getModifier());
+		r.setBannerModifiers(bannerModifiers.getModifier());
+		r.setAttributeCeilings(attributeCeilings.getModifier());
+		r.setLeftHandIcon(leftHandIcon.getText());
+		r.setRightHandIcon(rightHandIcon.getText());
+		r.setMagicDead(magicDead.isSelected());
+		r.setAllowedGenders(allowedGenders.getAllowedGendersList());
+		r.setSuggestedNames(allowedGenders.getSuggestedNamesMap());
+		r.setStartingItems(startingItems.getStartingItems());
+
+		r.setHead(bodyParts.getHead());
+		r.setTorso(bodyParts.getTorso());
+		r.setLeg(bodyParts.getLeg());
+		r.setHand(bodyParts.getHand());
+		r.setFoot(bodyParts.getFoot());
+
+		r.setNaturalWeapons(naturalWeapons.getNaturalWeapons());
+
+		String spellName = (String)specialAbility.getSelectedItem();
+		r.setSpecialAbility(spellName.equals(NONE)?null:Database.getInstance().getSpell(spellName));
+	}
+}

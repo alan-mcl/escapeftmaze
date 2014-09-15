@@ -1,0 +1,26 @@
+conditionBearer=1~IG-87
+0=chameleon spell;15;7;5;;3;NONE;Ug
+1=bardic harp bless;29;8;8;;6;NONE;Brunswick
+@
+conditionBearer=1~Dwaf
+0=chameleon spell;15;7;5;;3;NONE;Ug
+1=bardic harp bless;29;8;8;;6;NONE;Brunswick
+@
+conditionBearer=1~Silvia
+0=chameleon spell;15;7;5;;3;NONE;Ug
+1=bardic harp bless;29;8;8;;6;NONE;Brunswick
+@
+conditionBearer=2~Ichiba City~16:16
+@
+conditionBearer=1~Ug
+0=chameleon spell;15;7;5;;3;NONE;Ug
+1=bardic harp bless;29;8;8;;6;NONE;Brunswick
+@
+conditionBearer=1~Gibby
+0=chameleon spell;15;7;5;;3;NONE;Ug
+1=bardic harp bless;29;8;8;;6;NONE;Brunswick
+@
+conditionBearer=1~Brunswick
+0=chameleon spell;15;7;5;;3;NONE;Ug
+1=bardic harp bless;29;8;8;;6;NONE;Brunswick
+@

@@ -1,0 +1,14 @@
+name=Mirka Claw
+ranged=false
+description=claws
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=1,1
+slaysFoeType=
+damage=2d4
+damageType=9
+spellEffects=
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
