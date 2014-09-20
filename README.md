@@ -8,4 +8,5 @@ revolution and there are far more influences, but the game still clearly shows i
 It's playable end to end, but there is a lot more to do before it's done. This repo hosts the source.
 
 Releases: https://sourceforge.net/projects/escapeftmaze/
+
 Dev Blog: http://escapeftmaze.blogspot.com/
