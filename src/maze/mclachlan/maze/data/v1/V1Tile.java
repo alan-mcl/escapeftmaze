@@ -64,6 +64,10 @@ public class V1Tile
 		s.append(t.getRandomEncounterChance());
 		s.append(SEP);
 		s.append(t.getRandomEncounters().getName());
+		s.append(SEP);
+		s.append(t.getRestingDanger().name());
+		s.append(SEP);
+		s.append(t.getRestingEfficiency().name());
 
 		return s.toString();
 	}
@@ -75,8 +79,6 @@ public class V1Tile
 		{
 			return null;
 		}
-
-		// todo: !!!
 
 		List<TileScript> scripts = new ArrayList<TileScript>();
 
@@ -92,10 +94,12 @@ public class V1Tile
 		}
 
 		StatModifier modifier = V1StatModifier.fromString(strs[i++]);
-		String terrainType = strs[i++];
+		Tile.TerrainType terrainType = Tile.TerrainType.valueOf(strs[i++]);
 		String terrainSubType = strs[i++];
 		int randomEncounterChance = Integer.parseInt(strs[i++]);
 		EncounterTable encounters = Database.getInstance().getEncounterTable(strs[i++]);
+		Tile.RestingDanger restingDanger = Tile.RestingDanger.valueOf(strs[i++]);
+		Tile.RestingEfficiency restingEfficiency = Tile.RestingEfficiency.valueOf(strs[i++]);
 
 		return new Tile(
 			scripts,
@@ -103,7 +107,9 @@ public class V1Tile
 			modifier,
 			terrainType,
 			terrainSubType,
-			randomEncounterChance);
+			randomEncounterChance,
+			restingDanger,
+			restingEfficiency);
 	}
 
 	/*-------------------------------------------------------------------------*/

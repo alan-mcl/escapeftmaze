@@ -27,31 +27,30 @@ import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.Tile;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.PlayerParty;
 
 /**
  *
  */
-public class GeneralOptionsDialog extends GeneralDialog implements ActionListener
+public class RestingDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton cancel;
-	private DIYButton[] optionButtons;
-	private GeneralOptionsCallback callback;
+	private DIYButton rest, cancel;
 
 	/*-------------------------------------------------------------------------*/
-	public GeneralOptionsDialog(
-		GeneralOptionsCallback callback,
-		String title,
-		String... options)
+	public RestingDialog(
+		String title)
 	{
 		super();
-		this.callback = callback;
 
 		int buttonHeight = 20;
 		int inset = 10;
 		int buttonPaneHeight = 18;
 
-		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/4;
-		int dialogHeight = buttonHeight*options.length +buttonPaneHeight*2 +inset*4;
+		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/3;
+		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/3;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -60,25 +59,46 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 
 		this.setBounds(dialogBounds);
 
-		DIYPane labelPane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
+		Tile tile = Maze.getInstance().getCurrentTile();
+		PlayerParty party = Maze.getInstance().getParty();
 
-		labelPane.setBounds(x, y + inset, width, buttonPaneHeight);
-		labelPane.add(new DIYLabel(title));
+		DIYPane infoPane = new DIYPane(new DIYGridLayout(2,12,0,0));
+		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
 
-		DIYPane optionsPane = new DIYPane(new DIYGridLayout(1,options.length,5,5));
-		optionsPane.setBounds(x+inset, y+buttonPaneHeight+inset,
-			width-inset*2, options.length*buttonHeight);
+		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.resting.danger"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(tile.getRestingDanger().toString(), DIYToolkit.Align.LEFT));
 
-		optionButtons = new DIYButton[options.length];
-		for (int i=0; i<options.length; i++)
+		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.resting.efficiency"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(tile.getRestingEfficiency().toString(), DIYToolkit.Align.LEFT));
+
+		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.available"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
+			String.valueOf(party.getSupplies())), DIYToolkit.Align.LEFT));
+
+		infoPane.add(new DIYLabel());
+		infoPane.add(new DIYLabel());
+
+		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.needed"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel());
+
+		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
-			optionButtons[i] = new DIYButton(options[i]);
-			optionButtons[i].addActionListener(this);
-			optionsPane.add(optionButtons[i]);
+			infoPane.add(new DIYLabel(pc.getDisplayName()));
+			infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
+				String.valueOf(GameSys.getInstance().getSuppliesNeededToRest(pc)))));
 		}
+
+		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
+
+		titlePane.setBounds(x, y + inset, width, buttonPaneHeight);
+		titlePane.add(new DIYLabel(title));
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
+
+		rest = new DIYButton(StringUtil.getUiLabel("rd.rest"));
+		rest.addActionListener(this);
+		buttonPane.add(rest);
 
 		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
 		cancel.addActionListener(this);
@@ -86,8 +106,8 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 
 		setBackground();
 
-		this.add(labelPane);
-		this.add(optionsPane);
+		this.add(titlePane);
+		this.add(infoPane);
 		this.add(buttonPane);
 		this.doLayout();
 	}
@@ -97,6 +117,9 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 	{
 		switch(e.getKeyCode())
 		{
+			case KeyEvent.VK_ENTER:
+				rest();
+				break;
 			case KeyEvent.VK_ESCAPE:
 				cancel();
 				break;
@@ -110,23 +133,23 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		{
 			cancel();
 		}
-		else
+		else if (event.getSource() == rest)
 		{
-			for (DIYButton b : optionButtons)
-			{
-				if (event.getSource() == b)
-				{
-					Maze.getInstance().getUi().clearDialog();
-					callback.optionChosen(b.getText());
-				}
-			}
+			rest();
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void rest()
+	{
+
+
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void cancel()
 	{
+		Maze.getInstance().setState(Maze.State.MOVEMENT);
 		Maze.getInstance().getUi().clearDialog();
-		callback.optionChosen(null);
 	}
 }

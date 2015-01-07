@@ -68,6 +68,9 @@ public class V1GameState
 		b.append("partyGold=");
 		b.append(gameState.getPartyGold());
 		b.append(V1Utils.NEWLINE);
+		b.append("partySupplies=");
+		b.append(gameState.getPartySupplies());
+		b.append(V1Utils.NEWLINE);
 		b.append("partyNames=");
 		b.append(V1Utils.stringList.toString(gameState.getPartyNames()));
 		b.append(V1Utils.NEWLINE);
@@ -89,10 +92,11 @@ public class V1GameState
 		Point playerPos = V1Point.fromString(p.getProperty("playerPos"));
 		int facing = Integer.parseInt(p.getProperty("facing"));
 		int partyGold = Integer.parseInt(p.getProperty("partyGold"));
+		int partySupplies = Integer.parseInt(p.getProperty("partySupplies"));
 		List<String> partyNames = V1Utils.stringList.fromString(p.getProperty("partyNames"));
 		int formation = Integer.parseInt(p.getProperty("formation"));
 		long turnNr = Long.parseLong(p.getProperty("turnNr"));
 
-		return new GameState(zone, dl, playerPos, facing, partyGold, partyNames, formation, turnNr);
+		return new GameState(zone, dl, playerPos, facing, partyGold, partySupplies, partyNames, formation, turnNr);
 	}
 }

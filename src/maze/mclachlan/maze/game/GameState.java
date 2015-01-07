@@ -32,6 +32,7 @@ public class GameState
 	private DifficultyLevel difficultyLevel;
 	private Point playerPos;
 	private int partyGold;
+	private int partySupplies;
 	private List<String> partyNames;
 	private int formation;
 	private int facing;
@@ -44,6 +45,7 @@ public class GameState
 		Point playerPos,
 		int facing,
 		int partyGold,
+		int partySupplies,
 		List<String> partyNames,
 		int formation,
 		long turnNr)
@@ -53,6 +55,7 @@ public class GameState
 		this.facing = facing;
 		this.playerPos = playerPos;
 		this.partyGold = partyGold;
+		this.partySupplies = partySupplies;
 		this.partyNames = partyNames;
 		this.formation = formation;
 		this.turnNr = turnNr;
@@ -139,4 +142,13 @@ public class GameState
 		this.difficultyLevel = difficultyLevel;
 	}
 
+	public int getPartySupplies()
+	{
+		return partySupplies;
+	}
+
+	public void setPartySupplies(int partySupplies)
+	{
+		this.partySupplies = partySupplies;
+	}
 }

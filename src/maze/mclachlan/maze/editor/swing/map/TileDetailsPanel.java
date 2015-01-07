@@ -31,6 +31,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.*;
+import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.crusader.EngineObject;
@@ -43,32 +44,34 @@ public class TileDetailsPanel extends JPanel
 	implements KeyListener, ChangeListener, ActionListener, 
 		StatModifierComponentCallback, TileScriptComponentCallback
 {
-	JLabel indexLabel;
-	Zone zone;
-	int index;
-	TileProxy tile;
+	private JLabel indexLabel;
+	private Zone zone;
+	private int index;
+	private TileProxy tile;
 	
 	// maze tile properties
-	JComboBox terrainType;
-	JTextField terrainSubType;
-	StatModifierComponent statModifier;
-	JSpinner randomEncounterChance;
-	JComboBox randomEncounterTable;
-	MultipleTileScriptComponent tileScript;
+	private JComboBox terrainType;
+	private JTextField terrainSubType;
+	private StatModifierComponent statModifier;
+	private JSpinner randomEncounterChance;
+	private JComboBox randomEncounterTable;
+	private JComboBox restingDanger;
+	private JComboBox restingEfficiency;
+	private MultipleTileScriptComponent tileScript;
 	
 	// crusader tile properties
-	JComboBox ceilingTexture, floorTexture;
-	JComboBox ceilingMaskTexture, floorMaskTexture;
-	JSpinner lightLevel;
+	private JComboBox ceilingTexture, floorTexture;
+	private JComboBox ceilingMaskTexture, floorMaskTexture;
+	private JSpinner lightLevel;
 	
 	// object properties
-	JCheckBox hasObject;
-	JTextField objectName;
-	JComboBox northTexture, southTexture, eastTexture, westTexture;
-	JCheckBox isLightSource;
-	SingleTileScriptComponent mouseClickScript;
-	List<JCheckBox> placementMask;
-	JButton quickObjectTexture;
+	private JCheckBox hasObject;
+	private JTextField objectName;
+	private JComboBox northTexture, southTexture, eastTexture, westTexture;
+	private JCheckBox isLightSource;
+	private SingleTileScriptComponent mouseClickScript;
+	private List<JCheckBox> placementMask;
+	private JButton quickObjectTexture;
 
 	/*-------------------------------------------------------------------------*/
 	public TileDetailsPanel(Zone zone, boolean multiSelect)
@@ -83,7 +86,7 @@ public class TileDetailsPanel extends JPanel
 		
 		dodgyGridBagShite(this, new JLabel("Maze Properties"), new JLabel(), gbc);
 		
-		terrainType = new JComboBox(ZonePanel.TERRAIN_TYPES);
+		terrainType = new JComboBox(Tile.TerrainType.values());
 		terrainType.addActionListener(this);
 		dodgyGridBagShite(this, new JLabel("Terrain Type:"), terrainType, gbc);
 		
@@ -93,6 +96,14 @@ public class TileDetailsPanel extends JPanel
 		
 		statModifier = new StatModifierComponent(null, -1, this);
 		dodgyGridBagShite(this, new JLabel("Stat Modifier:"), statModifier, gbc);
+
+		restingDanger = new JComboBox(Tile.RestingDanger.values());
+		restingDanger.addActionListener(this);
+		dodgyGridBagShite(this, new JLabel("Resting Danger:"), restingDanger, gbc);
+
+		restingEfficiency = new JComboBox(Tile.RestingEfficiency.values());
+		restingEfficiency.addActionListener(this);
+		dodgyGridBagShite(this, new JLabel("Resting Efficiency:"), restingEfficiency, gbc);
 		
 		randomEncounterChance = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
 		randomEncounterChance.addChangeListener(this);
@@ -223,6 +234,8 @@ public class TileDetailsPanel extends JPanel
 		
 		terrainType.removeKeyListener(this);
 		terrainSubType.removeKeyListener(this);
+		restingDanger.removeActionListener(this);
+		restingEfficiency.removeActionListener(this);
 		randomEncounterChance.removeChangeListener(this);
 		randomEncounterTable.removeActionListener(this);
 		floorTexture.removeActionListener(this);
@@ -243,8 +256,10 @@ public class TileDetailsPanel extends JPanel
 		}
 		
 		terrainType.setSelectedItem(tile.getTerrainType()==null?"":tile.getTerrainType());
-		terrainSubType.setText(tile.getTerrainSubType()==null?"":tile.getTerrainSubType());
+		terrainSubType.setText(tile.getTerrainSubType() == null ? "" : tile.getTerrainSubType());
 		statModifier.refresh(tile.getStatModifier());
+		restingDanger.setSelectedItem(tile.getRestingDanger() == null ? "" : tile.getRestingDanger());
+		restingEfficiency.setSelectedItem(tile.getRestingEfficiency()==null?"":tile.getRestingEfficiency());
 		randomEncounterChance.setValue(tile.getRandomEncounterChance());
 		randomEncounterTable.setSelectedItem(tile.getRandomEncounters()==null?EditorPanel.NONE:tile.getRandomEncounters().getName());
 		tileScript.refresh(tile.getScripts(), zone);
@@ -318,6 +333,8 @@ public class TileDetailsPanel extends JPanel
 		}
 		terrainType.addKeyListener(this);
 		terrainSubType.addKeyListener(this);
+		restingDanger.addActionListener(this);
+		restingEfficiency.addActionListener(this);
 		randomEncounterChance.addChangeListener(this);
 		randomEncounterTable.addActionListener(this);
 		floorTexture.addActionListener(this);
@@ -460,7 +477,21 @@ public class TileDetailsPanel extends JPanel
 		{
 			if (tile != null)
 			{
-				tile.setTerrainType((String)terrainType.getSelectedItem());
+				tile.setTerrainType((Tile.TerrainType)terrainType.getSelectedItem());
+			}
+		}
+		else if (e.getSource() == restingDanger)
+		{
+			if (tile != null)
+			{
+				tile.setRestingDanger((Tile.RestingDanger)restingDanger.getSelectedItem());
+			}
+		}
+		else if (e.getSource() == restingEfficiency)
+		{
+			if (tile != null)
+			{
+				tile.setRestingEfficiency((Tile.RestingEfficiency)restingEfficiency.getSelectedItem());
 			}
 		}
 		else if (e.getSource() == floorTexture)

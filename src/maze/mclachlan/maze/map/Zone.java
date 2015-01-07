@@ -124,7 +124,7 @@ public class Zone
 		}
 
 		// process any tile scripts present
-		List<TileScript> scripts = this.tiles[tile.x][tile.y].scripts;
+		List<TileScript> scripts = this.tiles[tile.x][tile.y].getScripts();
 
 		for (TileScript script : scripts)
 		{
@@ -144,7 +144,7 @@ public class Zone
 	public boolean processPlayerAction(
 		Maze maze, Point tile, int facing, int playerAction)
 	{
-		List<TileScript> scripts = this.tiles[tile.x][tile.y].scripts;
+		List<TileScript> scripts = this.tiles[tile.x][tile.y].getScripts();
 
 		// scripts take precedence over portals
 		for (TileScript script : scripts)
@@ -178,7 +178,7 @@ public class Zone
 	public boolean processUseItem(
 		Maze maze, Point tile, int facing, Item item, PlayerCharacter user)
 	{
-		List<TileScript> scripts = this.tiles[tile.x][tile.y].scripts;
+		List<TileScript> scripts = this.tiles[tile.x][tile.y].getScripts();
 
 		for (TileScript script : scripts)
 		{

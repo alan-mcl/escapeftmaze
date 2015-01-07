@@ -266,6 +266,7 @@ public class Maze implements Runnable
 			playerPos,
 			getFacing(),
 			party.getGold(),
+			party.getSupplies(),
 			party.getPartyNames(),
 			party.getFormation(),
 			getTurnNr());
@@ -277,6 +278,7 @@ public class Maze implements Runnable
 		GameTime.setTurnNr(gs.getTurnNr());
 		difficultyLevel = gs.getDifficultyLevel();
 		party.setGold(gs.getPartyGold());
+		party.setSupplies(gs.getPartySupplies());
 		party.setFormation(gs.getFormation());
 		changeZone(gs.getCurrentZone().getName(), gs.getPlayerPos(), gs.getFacing());
 	}
@@ -511,6 +513,7 @@ public class Maze implements Runnable
 			{
 				this.ui.draw();
 				
+/*
 				synchronized(stateMutex)
 				{
 					if (getState() == State.RESTING)
@@ -521,6 +524,7 @@ public class Maze implements Runnable
 						ui.refreshResting();
 					}
 				}
+*/
 			}
 		}
 		catch (Exception e)
@@ -1587,7 +1591,7 @@ public class Maze implements Runnable
 			ArrayList<UnifiedActor> chars = new ArrayList<UnifiedActor>();
 			chars.add(pc);
 	
-			party = new PlayerParty(chars, 0, 1);
+			party = new PlayerParty(chars, 0, 10, 1);
 			this.ui.setParty(party);
 			this.ui.characterSelected(pc);
 		}

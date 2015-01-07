@@ -90,7 +90,9 @@ public class V1ConditionBearer
 			{
 				// a condition on a tile in a zone that is not currently loaded
 				// fake it
-				Tile tile = new Tile(null, null, new StatModifier(), Tile.TerrainType.FAKE, Tile.TerrainType.FAKE, 0);
+				Tile tile = new Tile(null, null, new StatModifier(),
+					Tile.TerrainType.FAKE, "fake", 0,
+					Tile.RestingDanger.NONE, Tile.RestingEfficiency.POOR);
 				tile.setZone(name);
 				tile.setCoords(coords);
 				return tile;

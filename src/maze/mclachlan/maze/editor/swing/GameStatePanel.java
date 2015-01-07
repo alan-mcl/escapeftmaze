@@ -42,7 +42,7 @@ import mclachlan.maze.util.MazeException;
 public class GameStatePanel extends JPanel implements KeyListener, ActionListener, ChangeListener
 {
 	JComboBox zone, facing;
-	JSpinner playerX, playerY, partyGold, formation, turnNr;
+	JSpinner playerX, playerY, partyGold, partySupplies, formation, turnNr;
 	JComboBox p1, p2, p3 , p4 , p5, p6;
 	JComboBox difficultyLevel;
 	private String saveGameName;
@@ -85,6 +85,10 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 		partyGold = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
 		partyGold.addChangeListener(this);
 		dodgyGridBagShite(this, new JLabel("Party Gold:"), partyGold, gbc);
+
+		partySupplies = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
+		partySupplies.addChangeListener(this);
+		dodgyGridBagShite(this, new JLabel("Party Supplies:"), partySupplies, gbc);
 		
 		turnNr = new JSpinner(new SpinnerNumberModel(0, 0, Long.MAX_VALUE, 1));
 		turnNr.addChangeListener(this);
@@ -167,6 +171,7 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 		playerY.removeChangeListener(this);
 		formation.removeChangeListener(this);
 		partyGold.removeChangeListener(this);
+		partySupplies.removeChangeListener(this);
 		turnNr.removeChangeListener(this);
 		p1.removeActionListener(this);
 		p2.removeActionListener(this);
@@ -182,6 +187,7 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 		playerY.setValue(gs.getPlayerPos().y);
 		formation.setValue(gs.getFormation());
 		partyGold.setValue(gs.getPartyGold());
+		partySupplies.setValue(gs.getPartySupplies());
 		turnNr.setValue(gs.getTurnNr());
 		
 		List<String> list = gs.getPartyNames();
@@ -203,6 +209,7 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 		playerY.addChangeListener(this);
 		formation.addChangeListener(this);
 		partyGold.addChangeListener(this);
+		partySupplies.addChangeListener(this);
 		turnNr.addChangeListener(this);
 		p1.addActionListener(this);
 		p2.addActionListener(this);
@@ -220,6 +227,7 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 		int x = (Integer)playerX.getValue();
 		int y = (Integer)playerY.getValue();
 		int gold = (Integer)partyGold.getValue();
+		int supplies = (Integer)partySupplies.getValue();
 		int form = (Integer)formation.getValue();
 		int face = facing.getSelectedIndex()+1;
 		long tN = (Long)turnNr.getValue();
@@ -238,8 +246,9 @@ public class GameStatePanel extends JPanel implements KeyListener, ActionListene
 			dl,
 			new Point(x, y),
 			face, 
-			gold, 
-			characters, 
+			gold,
+			supplies,
+			characters,
 			form, 
 			tN);
 	}

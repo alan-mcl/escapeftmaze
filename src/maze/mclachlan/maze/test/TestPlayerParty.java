@@ -63,7 +63,7 @@ public class TestPlayerParty
 		if (p5!=null) chars.add(p5);
 		if (p6!=null) chars.add(p6);
 
-		party = new PlayerParty(chars, 0, 3);
+		party = new PlayerParty(chars, 0, 0, 3);
 		party.setFormation(3);
 
 		for (int eng=MELEE; eng<=LONG; eng++)

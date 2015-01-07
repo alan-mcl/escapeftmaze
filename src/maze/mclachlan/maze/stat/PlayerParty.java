@@ -29,34 +29,41 @@ import mclachlan.maze.util.MazeException;
 public class PlayerParty implements ActorGroup
 {
 	/** player characters in this party */
-	List<UnifiedActor> actors = new ArrayList<UnifiedActor>();
+	private List<UnifiedActor> actors = new ArrayList<UnifiedActor>();
 
 	/**
 	 * The index of the first character in the back row.
 	 */
-	int formation;
+	private int formation;
 
 	/**
 	 * Party gold.
 	 */
-	int gold;
+	private int gold;
+
+	/**
+	 * Units of supplies
+	 */
+	private int supplies;
 
 	/**
 	 * Cloud spells afflicting the party
 	 */
-	List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
+	private List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerParty(List<UnifiedActor> actors)
 	{
-		this(actors, 0, 3);
+		this(actors, 0, 0, 3);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public PlayerParty(List<UnifiedActor> actors, int gold, int formation)
+	public PlayerParty(List<UnifiedActor> actors, int gold, int supplies,
+		int formation)
 	{
 		this.actors = actors;
 		this.gold = gold;
+		this.supplies = supplies;
 		this.formation = formation;
 	}
 	
@@ -301,6 +308,18 @@ public class PlayerParty implements ActorGroup
 	public void setFormation(int formation)
 	{
 		this.formation = formation;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getSupplies()
+	{
+		return supplies;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setSupplies(int supplies)
+	{
+		this.supplies = supplies;
 	}
 
 	/*-------------------------------------------------------------------------*/

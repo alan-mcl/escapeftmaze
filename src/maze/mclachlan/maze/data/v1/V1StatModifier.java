@@ -333,5 +333,6 @@ public class V1StatModifier
 			WHITE_MAGIC_SPELLS,
 			DRUIDISM_SPELLS,
 			ELEMENTAL_SPELLS,
+			LARGE_SIZE,
 		};
 }

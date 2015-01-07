@@ -26,13 +26,11 @@ import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.Vector;
 import javax.swing.*;
+import mclachlan.crusader.Tile;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.editor.swing.map.MapEditor;
-import mclachlan.maze.map.DefaultZoneScript;
-import mclachlan.maze.map.Portal;
-import mclachlan.maze.map.Zone;
-import mclachlan.maze.map.ZoneScript;
+import mclachlan.maze.map.*;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.util.MazeException;
@@ -42,14 +40,6 @@ import mclachlan.maze.util.MazeException;
  */
 public class ZonePanel extends EditorPanel
 {
-	public static final String[] TERRAIN_TYPES =
-		{
-			mclachlan.maze.map.Tile.TerrainType.URBAN,
-			mclachlan.maze.map.Tile.TerrainType.DUNGEON,
-			mclachlan.maze.map.Tile.TerrainType.WILDERNESS,
-			mclachlan.maze.map.Tile.TerrainType.WASTELAND,
-		};
-
 	private JLabel width, length;
 	private JCheckBox isCustomZoneScript;
 	private JSpinner defaultZoneScriptTurns;
@@ -551,7 +541,7 @@ public class ZonePanel extends EditorPanel
 		
 		JComboBox initialEncounters = new JComboBox(encounters);
 		
-		JComboBox initialTerrainType = new JComboBox(TERRAIN_TYPES);
+		JComboBox initialTerrainType = new JComboBox(mclachlan.maze.map.Tile.TerrainType.values());
 		JTextField initialTerrainSubType = new JTextField(20);
 		
 		JPanel panel = new JPanel(new GridBagLayout());
@@ -622,9 +612,11 @@ public class ZonePanel extends EditorPanel
 					null,
 					Database.getInstance().getEncounterTable((String)initialEncounters.getSelectedItem()),
 					new StatModifier(),
-					(String)initialTerrainType.getSelectedItem(),
+					(mclachlan.maze.map.Tile.TerrainType)initialTerrainType.getSelectedItem(),
 					initialTerrainSubType.getText(),
-					5);
+					5,
+					mclachlan.maze.map.Tile.RestingDanger.MEDIUM,
+					mclachlan.maze.map.Tile.RestingEfficiency.AVERAGE);
 			}
 		}
 

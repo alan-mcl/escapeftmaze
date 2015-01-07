@@ -42,6 +42,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 	
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Texture getFloorTexture()
 	{
 		Texture txt = crusaderTiles.get(0).getFloorTexture();
@@ -59,6 +60,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Texture getFloorMaskTexture()
 	{
 		Texture txt = crusaderTiles.get(0).getFloorMaskTexture();
@@ -76,6 +78,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Texture getCeilingTexture()
 	{
 		Texture txt = crusaderTiles.get(0).getCeilingTexture();
@@ -93,6 +96,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Texture getCeilingMaskTexture()
 	{
 		Texture txt = crusaderTiles.get(0).getCeilingMaskTexture();
@@ -110,6 +114,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getLightLevel()
 	{
 		int ll = crusaderTiles.get(0).getLightLevel();
@@ -127,6 +132,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setCeilingTexture(Texture ceilingTexture)
 	{
 		for (mclachlan.crusader.Tile t : crusaderTiles)
@@ -136,6 +142,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setCeilingMaskTexture(Texture ceilingTexture)
 	{
 		for (mclachlan.crusader.Tile t : crusaderTiles)
@@ -145,6 +152,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setFloorTexture(Texture floorTexture)
 	{
 		for (mclachlan.crusader.Tile t : crusaderTiles)
@@ -154,6 +162,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setFloorMaskTexture(Texture floorTexture)
 	{
 		for (mclachlan.crusader.Tile t : crusaderTiles)
@@ -163,6 +172,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setLightLevel(int lightLevel)
 	{
 		for (mclachlan.crusader.Tile t : crusaderTiles)
@@ -170,8 +180,65 @@ public class MultipleTileProxy extends TileProxy
 			t.setLightLevel(lightLevel);
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public mclachlan.maze.map.Tile.RestingDanger getRestingDanger()
+	{
+		mclachlan.maze.map.Tile.RestingDanger x = mazeTiles.get(0).getRestingDanger();
+
+		for (mclachlan.maze.map.Tile t : mazeTiles)
+		{
+			if (!x.equals(t.getRestingDanger()))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public mclachlan.maze.map.Tile.RestingEfficiency getRestingEfficiency()
+	{
+		mclachlan.maze.map.Tile.RestingEfficiency x = mazeTiles.get(0).getRestingEfficiency();
+
+		for (mclachlan.maze.map.Tile t : mazeTiles)
+		{
+			if (!x.equals(t.getRestingEfficiency()))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void setRestingDanger(
+		mclachlan.maze.map.Tile.RestingDanger restingDanger)
+	{
+		for (mclachlan.maze.map.Tile t : mazeTiles)
+		{
+			t.setRestingDanger(restingDanger);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void setRestingEfficiency(
+		mclachlan.maze.map.Tile.RestingEfficiency restingEfficiency)
+	{
+		for (mclachlan.maze.map.Tile t : mazeTiles)
+		{
+			t.setRestingEfficiency(restingEfficiency);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public StatModifier getStatModifier()
 	{
 		StatModifier x = mazeTiles.get(0).getStatModifier();
@@ -188,6 +255,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public String getTerrainSubType()
 	{
 		String x = mazeTiles.get(0).getTerrainSubType();
@@ -204,13 +272,14 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getTerrainType()
+	@Override
+	public mclachlan.maze.map.Tile.TerrainType getTerrainType()
 	{
-		String x = mazeTiles.get(0).getTerrainType();
+		mclachlan.maze.map.Tile.TerrainType x = mazeTiles.get(0).getTerrainType();
 		
 		for (mclachlan.maze.map.Tile t : mazeTiles)
 		{
-			if (!x.equals(t.getStatModifier()))
+			if (!x.equals(t.getTerrainType()))
 			{
 				return null;
 			}
@@ -220,6 +289,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getRandomEncounterChance()
 	{
 		int x = mazeTiles.get(0).getRandomEncounterChance();
@@ -236,6 +306,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public EncounterTable getRandomEncounters()
 	{
 		EncounterTable x = mazeTiles.get(0).getRandomEncounters();
@@ -252,6 +323,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<TileScript> getScripts()
 	{
 		// todo??
@@ -259,6 +331,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setRandomEncounterChance(int randomEncounterChance)
 	{
 		for (mclachlan.maze.map.Tile t : mazeTiles)
@@ -268,6 +341,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setRandomEncounters(EncounterTable randomEncounters)
 	{
 		for (mclachlan.maze.map.Tile t : mazeTiles)
@@ -277,6 +351,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setScripts(List<TileScript> scripts)
 	{
 		for (mclachlan.maze.map.Tile t : mazeTiles)
@@ -286,6 +361,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setStatModifier(StatModifier statModifier)
 	{
 		for (mclachlan.maze.map.Tile t : mazeTiles)
@@ -295,6 +371,7 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setTerrainSubType(String terrainSubType)
 	{
 		for (mclachlan.maze.map.Tile t : mazeTiles)
@@ -304,7 +381,8 @@ public class MultipleTileProxy extends TileProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setTerrainType(String terrainType)
+	@Override
+	public void setTerrainType(mclachlan.maze.map.Tile.TerrainType terrainType)
 	{
 		for (mclachlan.maze.map.Tile t : mazeTiles)
 		{

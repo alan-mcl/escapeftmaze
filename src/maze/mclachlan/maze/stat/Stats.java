@@ -261,6 +261,7 @@ public class Stats
 		propertiesModifiers.add(Modifiers.AMPHIBIOUS);
 		propertiesModifiers.add(Modifiers.BONUS_ATTACKS);
 		propertiesModifiers.add(Modifiers.BONUS_STRIKES);
+		propertiesModifiers.add(Modifiers.LARGE_SIZE);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -601,6 +602,7 @@ public class Stats
 		public static final String AMPHIBIOUS = "amphibious";
 		public static final String BONUS_ATTACKS = "bonusAttacks";
 		public static final String BONUS_STRIKES = "bonusStrikes";
+		public static final String LARGE_SIZE = "largeSize";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -703,6 +705,7 @@ public class Stats
 			booleanModifiers.add(Modifiers.CHARMED_DESTINY);
 			booleanModifiers.add(Modifiers.SIGNATURE_WEAPON_ENGINEERING);
 			booleanModifiers.add(Modifiers.AMPHIBIOUS);
+			booleanModifiers.add(Modifiers.LARGE_SIZE);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

@@ -22,6 +22,7 @@ package mclachlan.maze.editor.swing.map;
 import java.util.*;
 import mclachlan.crusader.Texture;
 import mclachlan.maze.map.EncounterTable;
+import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.stat.StatModifier;
 
@@ -45,7 +46,7 @@ public abstract class TileProxy
 	// Maze tile properties
 	public abstract StatModifier getStatModifier();
 	public abstract String getTerrainSubType();
-	public abstract String getTerrainType();
+	public abstract Tile.TerrainType getTerrainType();
 	public abstract int getRandomEncounterChance();
 	public abstract EncounterTable getRandomEncounters();
 	public abstract List<TileScript> getScripts();
@@ -54,5 +55,9 @@ public abstract class TileProxy
 	public abstract void setScripts(List<TileScript> scripts);
 	public abstract void setStatModifier(StatModifier statModifier);
 	public abstract void setTerrainSubType(String terrainSubType);
-	public abstract void setTerrainType(String terrainType);
+	public abstract void setTerrainType(Tile.TerrainType terrainType);
+	public abstract Tile.RestingDanger getRestingDanger();
+	public abstract Tile.RestingEfficiency getRestingEfficiency();
+	public abstract void setRestingDanger(Tile.RestingDanger restingDanger);
+	public abstract void setRestingEfficiency(Tile.RestingEfficiency restingEfficiency);
 }

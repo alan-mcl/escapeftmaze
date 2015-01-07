@@ -164,7 +164,7 @@ public class MockCombat
 		maze.setParty(party);
 
 		GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
-			Arrays.asList("Tester"), 1, 0);
+			0, Arrays.asList("Tester"), 1, 0);
 		maze.setGameState(gs);
 
 		Foe foe = getReferenceFoeCombat(level);
@@ -266,7 +266,7 @@ public class MockCombat
 				maze.setParty(party);
 
 				GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
-					Arrays.asList("Tester"), 1, 0);
+					0, Arrays.asList("Tester"), 1, 0);
 				maze.setGameState(gs);
 
 				Foe foe = getReferenceFoeCombat(level);

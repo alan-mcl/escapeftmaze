@@ -29,6 +29,7 @@ public class MazeWalker
 			zone.getPlayerOrigin(),
 			ZoneChangeEvent.Facing.NORTH,
 			0,
+			0,
 			new ArrayList<String>(),
 			0,
 			0);

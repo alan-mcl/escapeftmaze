@@ -41,113 +41,161 @@ public class SingleTileProxy extends TileProxy
 	}
 	
 	// Crusader tile properties
+	@Override
 	public Texture getFloorTexture()
 	{
 		return crusaderTile.getFloorTexture();
 	}
 
+	@Override
 	public Texture getFloorMaskTexture()
 	{
 		return crusaderTile.getFloorMaskTexture();
 	}
 
+	@Override
 	public Texture getCeilingMaskTexture()
 	{
 		return crusaderTile.getCeilingMaskTexture();
 	}
 
+	@Override
 	public Texture getCeilingTexture()
 	{
 		return crusaderTile.getCeilingTexture();
 	}
 
+	@Override
 	public int getLightLevel()
 	{
 		return crusaderTile.getLightLevel();
 	}
 
+	@Override
 	public void setCeilingTexture(Texture ceilingTexture)
 	{
 		crusaderTile.setCeilingTexture(ceilingTexture);
 	}
 
+	@Override
 	public void setCeilingMaskTexture(Texture ceilingTexture)
 	{
 		crusaderTile.setCeilingMaskTexture(ceilingTexture);
 	}
 
+	@Override
 	public void setFloorTexture(Texture floorTexture)
 	{
 		crusaderTile.setFloorTexture(floorTexture);
 	}
 
+	@Override
 	public void setFloorMaskTexture(Texture floorTexture)
 	{
 		crusaderTile.setFloorMaskTexture(floorTexture);
 	}
 
+	@Override
 	public void setLightLevel(int lightLevel)
 	{
 		crusaderTile.setLightLevel(lightLevel);
 	}
-	
+
+	@Override
+	public mclachlan.maze.map.Tile.RestingDanger getRestingDanger()
+	{
+		return mazeTile.getRestingDanger();
+	}
+
+	@Override
+	public mclachlan.maze.map.Tile.RestingEfficiency getRestingEfficiency()
+	{
+		return mazeTile.getRestingEfficiency();
+	}
+
+	@Override
+	public void setRestingDanger(
+		mclachlan.maze.map.Tile.RestingDanger restingDanger)
+	{
+		mazeTile.setRestingDanger(restingDanger);
+	}
+
+	@Override
+	public void setRestingEfficiency(
+		mclachlan.maze.map.Tile.RestingEfficiency restingEfficiency)
+	{
+		mazeTile.setRestingEfficiency(restingEfficiency);
+	}
+
 	// Maze tile properties
+	@Override
 	public StatModifier getStatModifier()
 	{
 		return mazeTile.getStatModifier();
 	}
 
+	@Override
 	public String getTerrainSubType()
 	{
 		return mazeTile.getTerrainSubType();
 	}
 
-	public String getTerrainType()
+	@Override
+	public mclachlan.maze.map.Tile.TerrainType getTerrainType()
 	{
 		return mazeTile.getTerrainType();
 	}
 
+	@Override
 	public int getRandomEncounterChance()
 	{
 		return mazeTile.getRandomEncounterChance();
 	}
 
+	@Override
 	public EncounterTable getRandomEncounters()
 	{
 		return mazeTile.getRandomEncounters();
 	}
 
+	@Override
 	public List<TileScript> getScripts()
 	{
 		return mazeTile.getScripts();
 	}
 
+	@Override
 	public void setRandomEncounterChance(int randomEncounterChance)
 	{
 		mazeTile.setRandomEncounterChance(randomEncounterChance);
 	}
 
+	@Override
 	public void setRandomEncounters(EncounterTable randomEncounters)
 	{
 		mazeTile.setRandomEncounters(randomEncounters);
 	}
 
+	@Override
 	public void setScripts(List<TileScript> scripts)
 	{
 		mazeTile.setScripts(scripts);
 	}
 
+	@Override
 	public void setStatModifier(StatModifier statModifier)
 	{
 		mazeTile.setStatModifier(statModifier);
 	}
 
+	@Override
 	public void setTerrainSubType(String terrainSubType)
 	{
 		mazeTile.setTerrainSubType(terrainSubType);
 	}
 
-	public void setTerrainType(String terrainType)
+	@Override
+	public void setTerrainType(mclachlan.maze.map.Tile.TerrainType terrainType)
 	{
 		mazeTile.setTerrainType(terrainType);
 	}

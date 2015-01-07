@@ -58,24 +58,24 @@ name=web spell from foe
 0=13,generic spell woosh
 1=104,1:20:animation/brownCloudFromPlayer1;animation/brownCloudFromPlayer2;animation/brownCloudFromPlayer3
 @
+name=Ichiba Crossroad to Domain North
+0=1,Ichiba Domain North,28,26,0
+@
 name=shuriken from foe
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/shurikenFromFoe1
 @
-name=Ichiba Crossroad to Domain North
-0=1,Ichiba Domain North,28,26,0
-@
 name=Gnoll Village to Ichiba Depths
 0=1,Ichiba City Depths,21,4,0
-@
-name=Ichiba City Intro
-0=4,-1,true,Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.%n
-1=4,-1,true,The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the second Realm.
 @
 name=Stygios Forest intro
 0=4,-1,true,Dark gnarled trees crowd you from all sides, their presence somehow malevolent. Clumps of malignant fungi sprout from the mouldy forest floor. Smells of rot and decay fill your nostrils, reminding you of your own mortality.
 1=4,-1,true,The ominous silence of the Stygios Forest makes the hair on the back of your neck rise. Your skin tingles with danger and you hold your breath as your ears strain to detect movement in your surroundings, but the forest is quiet. Dead quiet.
 2=18,default.stygios.forest.intro,true
+@
+name=Ichiba City Intro
+0=4,-1,true,Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.%n
+1=4,-1,true,The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the second Realm.
 @
 name=Castle Fangorn intro
 0=4,-1,true,You survey the blasted and inhospitable landscape.%n%nShattered and tumbled rocks cover the ground and are piled up in impassable heaps around the level space that you are in. Tattered grey clouds race across an empty sky, driven by a freezing wind that moans relentlessly from the west. You shudder and draw your clothing closer around you.
@@ -187,24 +187,24 @@ name=bullet stone from player
 name=Ichiba Depths to City (gsc1)
 0=1,Ichiba City,5,19,0
 @
-name=sound - buzz
-0=138,35089__Erdie__bee_colony_1
-@
 name=Gatehouse pre widows cck
 0=18,default.gatehouse.malignant.widows,true
 @
+name=sound - buzz
+0=138,35089__Erdie__bee_colony_1
+@
 name=sound - accountant
 0=138,79774__engreitz__ManClearingThroat_2
-@
-name=Gnoll Village intro
-0=4,-1,true,There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.%n%nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.
-1=18,default.gnoll.village.intro,true
 @
 name=Ichiba Crossroad bones hidden stuff
 0=4,-1,true,A moldy pile of bones lies here, overgrown with moss and fungus.
 1=18,default.ichiba.crossroad.hidden.stuff.1,true
 2=6,200
 3=9,ichiba.crossroad.hidden.stuff.1
+@
+name=Gnoll Village intro
+0=4,-1,true,There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.%n%nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.
+1=18,default.gnoll.village.intro,true
 @
 name=Writhing Mire intro
 0=4,-1,true,You appear in a gloomy marsh. Small buzzing insects rise from pools of fetid water, and the air is hot and humid. The stench of rotting vegetation is pervasive.
@@ -217,6 +217,9 @@ name=pennywhistle animation
 name=_FORCE_PORTAL_
 0=138,31625__Srehpog__heavy_crate_smash
 1=10,500
+@
+name=_INVENTORY_MUSIC_
+0=149,paper_dolls
 @
 name=gigantopithecus taunt
 0=13,sound - ape
@@ -233,12 +236,12 @@ name=group curse from player
 name=Ichiba City to Depths (coc)
 0=1,Ichiba City Depths,6,14,4
 @
-name=Ichiba Depths to City (gnolls)
-0=1,Ichiba City,15,8,0
-@
 name=purple portrait animation
 0=138,22267__zeuss__The_Chime
 1=104,2:ff800080
+@
+name=Ichiba Depths to City (gnolls)
+0=1,Ichiba City,15,8,0
 @
 name=Caves Of Ilast to Hianbian
 0=138,24003__Erdie__mega_thunder
@@ -251,20 +254,20 @@ name=Aenen Outskirts charred stump
 name=sound - imogen
 0=138,15288_Hell_s_Sound_Guy_FEMALE_GIGGLE
 @
-name=Gatehouse first room
-0=18,default.gatehouse.1,true
-@
 name=Hianbian to Caves Of Ilast
 0=13,generic door creak
 1=10,500
 2=138,24003__Erdie__mega_thunder
 3=1,Caves Of Ilast,30,3,2
 @
-name=sound - dragon
-0=138,85568__JoelAudio__DRAGON_ROAR
+name=Gatehouse first room
+0=18,default.gatehouse.1,true
 @
 name=Ekirth's Tomb to Crypt Of Atrocities
 0=1,Crypt Of Atrocities,17,10,4
+@
+name=sound - dragon
+0=138,85568__JoelAudio__DRAGON_ROAR
 @
 name=Gatehouse bones2 hidden stuff
 0=4,-1,true,These remains are so ancient and desiccated as to be hardly recognisable. You find nothing.
@@ -273,23 +276,23 @@ name=bullet stone from foe
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/bulletStoneFromFoe1
 @
-name=Ichiba City to Depths (gsc1)
-0=1,Ichiba City Depths,2,16,0
-@
 name=white cloud from foe
 0=138,26722__Leady__women_singing_1
 1=104,1:20:animation/whiteCloudFromPlayer1;animation/whiteCloudFromPlayer2;animation/whiteCloudFromPlayer3
+@
+name=Ichiba City to Depths (gsc1)
+0=1,Ichiba City Depths,2,16,0
 @
 name=Aenen Outskirts solar array flava
 0=4,-1,true,Emerging from the ground is a bizarre metal contraption of poles and shiny panels.%n%nSome kind of sculpture perhaps?
 1=18,default.aenen.outskirts.solar.panel.discovery,true
 @
-name=_OUCH_
-0=138,34875__Sruddi1__Grunts_1/34875__Sruddi1__Grunts_2/34875__Sruddi1__Grunts_3
-@
 name=frontier phaser from player
 0=13,generic spell woosh
 1=104,1:0:animation/redBoltFromPlayer1;animation/redBoltFromPlayer2;animation/redBoltFromPlayer3
+@
+name=_OUCH_
+0=138,34875__Sruddi1__Grunts_1/34875__Sruddi1__Grunts_2/34875__Sruddi1__Grunts_3
 @
 name=burning hands from player
 0=138,25712_Erdie_fire_1
@@ -303,10 +306,6 @@ name=group curse from foe
 name=Goblin Magsman Death
 0=17,coc.quest.2.completed,true
 @
-name=blue portrait animation
-0=138,25074_FreqMan_whoosh06
-1=104,2:ff0000ff
-@
 name=Ichiba City wanted signboard
 0=8,WANTED%nDEAD OR ALIVE%nBounty collectable at C.O.C.
 1=4,-1,true,The signboard has several paper posters bearing sketched portraits nailed to it.
@@ -314,48 +313,52 @@ name=Ichiba City wanted signboard
 3=4,-1,true,"For Murder, Kidnapping, Banditry, Rape, Assault With Deadly Intent, VIRGILIO PATRICO. Reward 9000"%n%nThe portrait shows a sneering human male with sharp features and long dark hair.
 4=4,-1,true,"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS 'THE HAND'. Reward 10500"%n%nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.
 @
-name=throwing knife from player
-0=138,50773__smcameron__arrow_whoosh
-1=104,1:10:animation/throwingKnifeFromPlayer1
+name=blue portrait animation
+0=138,25074_FreqMan_whoosh06
+1=104,2:ff0000ff
 @
 name=white portrait animation
 0=138,26722__Leady__women_singing_1
 1=104,2:ffffffff
 @
-name=Tornado Mountain to Aenen City
-0=138,24003__Erdie__mega_thunder
-1=1,Aenen City,28,27,1
+name=throwing knife from player
+0=138,50773__smcameron__arrow_whoosh
+1=104,1:10:animation/throwingKnifeFromPlayer1
+@
+name=Isle Of The Gate ladder flava
+0=4,-1,true,Incongruous in the midst of these idyllic surroundings, a ladder and chute lead down into the earth. Approaching it, you peer into the shaft hoping to divine where it leads, but to no avail. Darkness is all you can see, darkness and menace.
 @
 name=Dalen to Ichiba City
 0=138,24003__Erdie__mega_thunder
 1=1,Ichiba City,9,10,3
 @
-name=Isle Of The Gate ladder flava
-0=4,-1,true,Incongruous in the midst of these idyllic surroundings, a ladder and chute lead down into the earth. Approaching it, you peer into the shaft hoping to divine where it leads, but to no avail. Darkness is all you can see, darkness and menace.
+name=Tornado Mountain to Aenen City
+0=138,24003__Erdie__mega_thunder
+1=1,Aenen City,28,27,1
 @
 name=Aenen Outskirts to City
 0=1,Aenen City,18,14,0
+@
+name=Corrosive Slime Death
+0=17,sir.kay.corrosive.slime.slain,true
 @
 name=Stygios Forest shrine to nergal
 0=4,-1,true,Luminous toadstools grow around this small carven stone shrine, which is covered in moss and lichen. Peering closer at the carvings, you make out the form of some squat, malignant godling hunched over a pile of bones.
 1=18,default.stygios.forest.shrine,true
 @
-name=Corrosive Slime Death
-0=17,sir.kay.corrosive.slime.slain,true
-@
-name=sound - vampire
-0=138,48688__Sea_Fury__Monster_4
-@
 name=Stygios Forest to Danaos Dungeon
 0=138,24003__Erdie__mega_thunder
 1=1,Danaos Castle Dungeon,8,5,2
 @
-name=Ichiba City to Depths (gsc2)
-0=1,Ichiba City Depths,28,8,0
+name=sound - vampire
+0=138,48688__Sea_Fury__Monster_4
 @
 name=paper tiger roar
 0=138,48709__Sea_Fury__Monster_5
 1=104,1:20:animation/whiteCloudFromPlayer1;animation/whiteCloudFromPlayer2;animation/whiteCloudFromPlayer3
+@
+name=Ichiba City to Depths (gsc2)
+0=1,Ichiba City Depths,28,8,0
 @
 name=generic weapon swish
 0=138,9509_petenice_whoosh/12657__mich3d__Whoosh_Swish_02
@@ -767,12 +770,12 @@ name=acid splash spell from foe
 1=104,1:10:animation/greenBoltFromFoe1;animation/greenBoltFromFoe2;animation/greenBoltFromFoe3
 2=138,9508__petenice__SPLASH_2
 @
+name=Ichiba Crossroad test load
+0=1,Ichiba Crossroad,19,12,4
+@
 name=willow arrow from foe
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/willowArrowFromFoe1
-@
-name=Ichiba Crossroad test load
-0=1,Ichiba Crossroad,19,12,4
 @
 name=Aenen City intro
 0=4,-1,true,You step into the shadowy halls of Aenen. Your footsteps echo from the tall vaulted ceilings and sturdy stone walls, many of which have been carven with strange mechanical looking reliefs. Here and there tar torches crackle and flicker, and in many places strange luminous globes on the ceiling provide light. Despite the gloom, the air smells surprisingly fresh and wholesome.
@@ -782,17 +785,17 @@ name=Aenen City intro
 name=test script
 0=18,hello world,true
 @
-name=shrill sound from foe
-0=138,4249__dobroide__knifegrinder.whistle
-1=104,1:20:animation/groupCurseFromPlayer1;animation/groupCurseFromPlayer2;animation/groupCurseFromPlayer3
-@
-name=Ichiba Crossroad pre mantis cck
-0=18,default.ichiba.crossroad.mantis.glen,true
-@
 name=Plain Of Pillars to Ruins Of Hail
 0=4,1500,true,The pillar feels warm beneath your hand...
 1=138,24003__Erdie__mega_thunder
 2=1,Ruins Of Hail,21,21,3
+@
+name=Ichiba Crossroad pre mantis cck
+0=18,default.ichiba.crossroad.mantis.glen,true
+@
+name=shrill sound from foe
+0=138,4249__dobroide__knifegrinder.whistle
+1=104,1:20:animation/groupCurseFromPlayer1;animation/groupCurseFromPlayer2;animation/groupCurseFromPlayer3
 @
 name=musket ball from player
 0=138,34708__Jon285__44_black_powder_1
@@ -805,6 +808,12 @@ name=sound - skeleton
 name=Castle Fangorn castle intro
 0=4,-1,true,The hall receeds into darkness. Flickering torches shed little light and less heat. The cold inside the castle momentarily makes you gasp. The temperature is well below freezing, to be sure. But something else about this place makes your gut clench and chills you to the bone, something unnatural and terrifying that seems to be flickering just at the edge of your vision and the back of your mind.%n%nYou wonder if exploring here is such a good idea...
 @
+name=Gatehouse hidden stuff 1 contents
+0=4,-1,true,Quelling any misgivings about disturbing the remains, you decide to have a closer look.
+1=18,default.gatehouse.hidden.stuff.1,true
+2=4,-1,true,Any clothing has long since rotted to pieces, but you do find two durable items.
+3=9,gatehouse.hiddenstuff.1
+@
 name=Gatehouse load
 0=1,Gatehouse,14,30,1
 1=149,shadows_in_an_empty_cathedral
@@ -816,12 +825,6 @@ name=Gatehouse load
 7=19,screen/default_intro_1,default.intro.6,CENTER
 8=149,
 @
-name=Gatehouse hidden stuff 1 contents
-0=4,-1,true,Quelling any misgivings about disturbing the remains, you decide to have a closer look.
-1=18,default.gatehouse.hidden.stuff.1,true
-2=4,-1,true,Any clothing has long since rotted to pieces, but you do find two durable items.
-3=9,gatehouse.hiddenstuff.1
-@
 name=Ichiba Depths to City (coc)
 0=1,Ichiba City,2,5,0
 @
@@ -830,20 +833,20 @@ name=acid splash spell from player
 1=104,1:10:animation/greenBoltFromPlayer1;animation/greenBoltFromPlayer2;animation/greenBoltFromPlayer3
 2=138,9508__petenice__SPLASH_2
 @
-name=Ichiba Domain South antenor loot
-0=4,-1,true,Your eyes are drawn to a bright gold ring on the finger of the skeleton.
-1=9,gnome.antenor.loot
-@
 name=generic spell woosh
 0=138,18397__inferno__smalllas
 @
-name=Default Campaign Intro
-0=13,_MAIN_MENU_MUSIC_
+name=Ichiba Domain South antenor loot
+0=4,-1,true,Your eyes are drawn to a bright gold ring on the finger of the skeleton.
+1=9,gnome.antenor.loot
 @
 name=Plain Of Pillars to Caves Of Ilast
 0=4,1500,true,The pillar feels warm beneath your hand...
 1=138,24003__Erdie__mega_thunder
 2=1,Caves Of Ilast,3,3,2
+@
+name=Default Campaign Intro
+0=13,_MAIN_MENU_MUSIC_
 @
 name=Ichiba Domain South antenor bones
 0=4,-1,true,Here lie the remains of some unfortunate traveller - a humanoid of small stature, perhaps a child or a dwarf. Grass and weeds grow tall around the remains.
@@ -868,12 +871,12 @@ name=throwing knife from foe
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/throwingKnifeFromFoe1
 @
-name=sound - panther
-0=138,63668__Miselaineous__elaine_growl
-@
 name=spine from foe
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/spineFromFoe1
+@
+name=sound - panther
+0=138,63668__Miselaineous__elaine_growl
 @
 name=Ruins Of Hail intro
 0=4,-1,true,You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitully through the devastation.
@@ -900,30 +903,30 @@ name=shuriken from player
 name=sound - yelp
 0=138,23387__ljudman__dog_2
 @
+name=sound - cicada
+0=138,15345__fotomacc__cicada1
+@
+name=Ichiba City to Crossroad
+0=1,Ichiba Crossroad,3,30,0
+@
 name=Ruins Of Hail to Tornado Mountain
 0=4,1500,true,The pillar feels slightly warm beneath your hand...
 1=138,24003__Erdie__mega_thunder
 2=1,Tornado Mountain,15,14,1
 @
-name=Ichiba City to Crossroad
-0=1,Ichiba Crossroad,3,30,0
+name=Ichiba Domain North to Crossroad
+0=1,Ichiba Crossroad,6,1,0
 @
-name=sound - cicada
-0=138,15345__fotomacc__cicada1
-@
-name=Temple Of The Gate endgame cck
-0=18,default.temple.of.the.gate.end,true
+name=Ichiba Crossroad to Domain South
+0=1,Ichiba Domain South,4,2,0
 @
 name=Ruins Of Hail to Hianbian
 0=4,1500,true,The pillar feels warm beneath your hand...
 1=138,24003__Erdie__mega_thunder
 2=1,Hianbian,11,13,4
 @
-name=Ichiba Crossroad to Domain South
-0=1,Ichiba Domain South,4,2,0
-@
-name=Ichiba Domain North to Crossroad
-0=1,Ichiba Crossroad,6,1,0
+name=Temple Of The Gate endgame cck
+0=18,default.temple.of.the.gate.end,true
 @
 name=generic door creak
 0=138,12652__mich3d__Door_Wood_Open_01/12741_Leady_opening_a_creaky_door/29690__HerbertBoland__Creak_3
@@ -932,13 +935,13 @@ name=generic door creak
 name=sound - reptile-screech
 0=138,25713__Wolfsinger__inhuman_screech
 @
-name=Onburi Death
-0=17,sir.kay.quest.3.complete,true
-@
 name=static bolt from player
 0=138,19486__Halleck__JacobsLadderSingle1
 1=104,1:10:animation/redBoltFromPlayer1;animation/redBoltFromPlayer2;animation/redBoltFromPlayer3
 2=13,_WEAPON_HIT_
+@
+name=Onburi Death
+0=17,sir.kay.quest.3.complete,true
 @
 name=Ichiba City Imogens tower lvl1
 0=4,-1,true,The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn't been used in a while.
@@ -955,11 +958,11 @@ name=Aenen Outskirts clearing intro
 0=4,-1,true,You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.
 1=4,-1,true,Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.%n%nSuddenly the open ground of the clearing feels very exposed...
 @
-name=Danaos Castle feasting hall flava
-0=4,-1,true,You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.
-@
 name=sound - puppet
 0=138,9557__thanvannispen__2gnomes
+@
+name=Danaos Castle feasting hall flava
+0=4,-1,true,You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.
 @
 name=Aenen City to Outskirts
 0=1,Aenen Outskirts,16,14,0

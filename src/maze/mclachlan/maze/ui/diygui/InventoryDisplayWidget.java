@@ -70,13 +70,14 @@ public class InventoryDisplayWidget extends ContainerWidget
 	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
 	private FilledBarWidget carrying = new FilledBarWidget(0,0);
 	private DIYLabel goldLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
+	private DIYLabel suppliesLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
 
-	private DIYButton castSpell = new DIYButton("(C)ast Spell");
-	private DIYButton useItem = new DIYButton("(U)se Item");
-	private DIYButton craftItem = new DIYButton("C(r)aft");
-	private DIYButton disassemble = new DIYButton("Disassem(b)le");
-	private DIYButton dropItem = new DIYButton("(D)rop Item");
-	private DIYButton splitStack = new DIYButton("Sp(l)it Stack");
+	private DIYButton castSpell = new DIYButton(StringUtil.getUiLabel("idw.cast.spell"));
+	private DIYButton useItem = new DIYButton(StringUtil.getUiLabel("idw.use.item"));
+	private DIYButton craftItem = new DIYButton(StringUtil.getUiLabel("idw.craft"));
+	private DIYButton disassemble = new DIYButton(StringUtil.getUiLabel("idw.disassemble"));
+	private DIYButton dropItem = new DIYButton(StringUtil.getUiLabel("idw.drop.item"));
+	private DIYButton splitStack = new DIYButton(StringUtil.getUiLabel("idw.split.stack"));
 
 	// horrible hackery
 	private Spell lastSpell;
@@ -165,21 +166,22 @@ public class InventoryDisplayWidget extends ContainerWidget
 		
 		left.add(getBlank());
 		left.add(nameLabel);
-		
-		left.add(getLabel("Carrying (kg):", Color.LIGHT_GRAY));
+
 		left.add(getBlank());
-		left.add(getLabel("Primary:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Secondary:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Alt primary:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Alt secondary:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Helm:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Torso:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Legs:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Gloves:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Boots:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Banner:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Misc Item #1:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getLabel("Misc Item #2:", Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.carrying"), Color.LIGHT_GRAY));
+		left.add(getBlank());
+		left.add(getLabel(StringUtil.getUiLabel("idw.primary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.secondary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.alt.primary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.alt.secondary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.helm"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.torso"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.legs"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.gloves"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.boots"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.banner"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.misc1"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
+		left.add(getLabel(StringUtil.getUiLabel("idw.misc2"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
 		left.add(castSpell);
 		left.add(useItem);
 		left.add(craftItem);
@@ -190,10 +192,12 @@ public class InventoryDisplayWidget extends ContainerWidget
 		right.add(getBlank());
 		right.add(getBlank());
 		right.add(getBlank());
+		right.add(suppliesLabel);
+		right.add(getBlank());
 		right.add(goldLabel);
 		right.add(carrying);
-		right.add(getLabel("Pack Items", Color.CYAN));
-		right.add(getLabel("Equipped Items", Color.CYAN));
+		right.add(getLabel(StringUtil.getUiLabel("idw.pack.items"), Color.LIGHT_GRAY));
+		right.add(getLabel(StringUtil.getUiLabel("idw.equipped.items"), Color.LIGHT_GRAY));
 		right.add(packItems[0]);
 		right.add(primaryWeapon);
 		right.add(packItems[1]);
@@ -257,15 +261,22 @@ public class InventoryDisplayWidget extends ContainerWidget
 	private void refreshData()
 	{
 		nameLabel.setForegroundColour(Color.WHITE);
-		nameLabel.setText(this.character.getName()+", "+
-			"level " + this.character.getLevel() + " " +
-			character.getGender().getName() + " " +
-			character.getRace().getName() + " " +
-			character.getCharacterClass().getName());
+		nameLabel.setText(StringUtil.getUiLabel(
+			"idw.character.details",
+			this.character.getName(),
+			String.valueOf(this.character.getLevel()),
+			character.getGender().getName(),
+			character.getRace().getName(),
+			character.getCharacterClass().getName()));
+
 		refreshCarryingCapacity();
 
+		PlayerParty party = Maze.getInstance().getParty();
 		goldLabel.setForegroundColour(Color.WHITE);
-		goldLabel.setText("Party gold: "+Maze.getInstance().getParty().getGold()+"gp");
+		goldLabel.setText(StringUtil.getUiLabel("idw.party.gold", String.valueOf(party.getGold())));
+
+		suppliesLabel.setForegroundColour(Color.WHITE);
+		suppliesLabel.setText(StringUtil.getUiLabel("idw.party.supplies", String.valueOf(party.getSupplies())));
 
 		refreshItemWidgets();
 
@@ -304,7 +315,8 @@ public class InventoryDisplayWidget extends ContainerWidget
 		int max = GameSys.getInstance().getCarryingCapacity(this.character);
 
 		carrying.setCustomText(
-			Constants.Format.formatWeight(cur)+" / "+Constants.Format.formatWeight(max));
+			StringUtil.getUiLabel(
+				"idw.carrying.label", Constants.Format.formatWeight(cur), Constants.Format.formatWeight(max)));
 
 		carrying.set(cur, max);
 
@@ -660,7 +672,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		{
 			setSpellStateHack(spell, caster, castingLevel);
 			// proceed with item selection
-			new UseItem("Cast Spell On Item", this, character);
+			new UseItem(StringUtil.getUiLabel("idw.cast.spell.on.item"), this, character);
 			return true;
 		}
 
@@ -726,7 +738,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 			// this is an item with an ITEM targeting effect
 			// (but not a spellbook! In that case the PC must learn the spell)
 			setItemStateHack(item);
-			new UseItem("Invoke Spell On Item", this, user);
+			new UseItem(StringUtil.getUiLabel("idw.invoke.spell.on item"), this, user);
 			return true;
 		}
 
@@ -751,21 +763,23 @@ public class InventoryDisplayWidget extends ContainerWidget
 		Item item = (Item)DIYToolkit.getInstance().getCursorContents();
 		if (item == null)
 		{
-			popupDialog("Please pick up the item to disassemble");
+			popupDialog(StringUtil.getUiLabel("idw.pick.up.to.disassemble"));
 			return;
 		}
 
 		if (item.getDisassemblyLootTable() == null)
 		{
-			popupDialog(item.getDisplayName()+" cannot be disassembled.");
+			popupDialog(StringUtil.getUiLabel("idw.cannot.disassemble",
+				item.getDisplayName()));
 			return;
 		}
 
 		StatModifier reqs = item.getUseRequirements();
 		if (!character.meetsRequirements(reqs))
 		{
-			StringBuilder sb = new StringBuilder(character.getName());
-			sb.append(" cannot disassemble that item.\n\nRequires: ");
+			StringBuilder sb = new StringBuilder(
+				StringUtil.getUiLabel(
+					"idw.cannot.disassemble.req",character.getDisplayName()));
 
 			boolean first = true;
 			for (String s : reqs.getModifiers().keySet())
@@ -802,19 +816,19 @@ public class InventoryDisplayWidget extends ContainerWidget
 		Item item = (Item)DIYToolkit.getInstance().getCursorContents();
 		if (item == null)
 		{
-			popupDialog("Please pick up the stack of items to split");
+			popupDialog(StringUtil.getUiLabel("idw.pick.up.to.split"));
 			return;
 		}
 
 		if (!item.isStackable())
 		{
-			popupDialog(item.getDisplayName()+" is not stackable");
+			popupDialog(StringUtil.getUiLabel("idw.not.stackable", item.getDisplayName()));
 			return;
 		}
 
 		if (item.getStack().getCurrent() == 1)
 		{
-			popupDialog("Cannot split that stack");
+			popupDialog(StringUtil.getUiLabel("idw.cannot.split"));
 			return;
 		}
 
@@ -832,7 +846,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 	public void use()
 	{
 		lastObj = useItem;
-		new UseItem("Use Item", InventoryDisplayWidget.this, character);
+		new UseItem(StringUtil.getUiLabel("idw.use.item.title"), InventoryDisplayWidget.this, character);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -851,7 +865,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		}
 		else
 		{
-			new UseItem("Drop Item", InventoryDisplayWidget.this, character);
+			new UseItem(StringUtil.getUiLabel("idw.drop.item.title"), InventoryDisplayWidget.this, character);
 		}
 	}
 

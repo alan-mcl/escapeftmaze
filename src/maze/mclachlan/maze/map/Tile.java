@@ -35,22 +35,34 @@ import mclachlan.maze.game.Maze;
  */
 public class Tile implements ConditionBearer
 {
-	List<TileScript> scripts;
-	/** Modifiers to any actor on this tile */
-	StatModifier statModifier;
-	String terrainType;
-	String terrainSubType;
-	/** chance of a random encounter per turn, expressed as a value out of 1000 */
-	int randomEncounterChance;
-	EncounterTable randomEncounters;
+	/** scripts attached to this tile */
+	private List<TileScript> scripts;
 
-	String zone;
-	Point coords;
-	
-	public static final int MAX_TILE_MAGIC = 13;
-	
+	/** Modifiers to any actor on this tile */
+	private StatModifier statModifier;
+
+	/** Terrain type of this tile, one of the enum */
+	private TerrainType terrainType;
+	/** Terrain sub type, free text*/
+	private String terrainSubType;
+
+	/** Chance of a random encounter per turn, expressed as a value out of 1000 */
+	private int randomEncounterChance;
+	/** Random encounter table for this tile */
+	private EncounterTable randomEncounters;
+
+	/** Zone to which this tile belongs */
+	private String zone;
+	/** X,Y coords of this tile */
+	private Point coords;
+
+	/** Danger of resting on this tile*/
+	private RestingDanger restingDanger;
+	private RestingEfficiency restingEfficiency;
+
 	private static Set<String> magicModifiers;
-	
+	public static final int MAX_TILE_MAGIC = 13;
+
 	/*-------------------------------------------------------------------------*/
 	static
 	{
@@ -65,13 +77,49 @@ public class Tile implements ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static enum TerrainType
+	{
+		FAKE("fake"),
+		URBAN(Stats.Modifiers.STREETWISE),
+		DUNGEON(Stats.Modifiers.DUNGEONEER),
+		WILDERNESS(Stats.Modifiers.WILDERNESS_LORE),
+		WASTELAND(Stats.Modifiers.SURVIVAL);
+
+		private String stealthModifier;
+
+		TerrainType(String stealthModifier)
+		{
+			this.stealthModifier = stealthModifier;
+		}
+
+		public String getStealthModifier()
+		{
+			return stealthModifier;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static enum RestingDanger
+	{
+		NONE, LOW, MEDIUM, HIGH, EXTREME
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static enum RestingEfficiency
+	{
+		POOR, AVERAGE, GOOD, EXCELLENT
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Tile(
 		List<TileScript> scripts,
 		EncounterTable randomEncounters,
 		StatModifier statModifier,
-		String terrainType,
+		TerrainType terrainType,
 		String terrainSubType,
-		int randomEncounterChance)
+		int randomEncounterChance,
+		RestingDanger restingDanger,
+		RestingEfficiency restingEfficiency)
 	{
 		this.randomEncounters = randomEncounters;
 		this.scripts = scripts;
@@ -79,6 +127,8 @@ public class Tile implements ConditionBearer
 		this.terrainType = terrainType;
 		this.terrainSubType = terrainSubType;
 		this.randomEncounterChance = randomEncounterChance;
+		this.restingDanger = restingDanger;
+		this.restingEfficiency = restingEfficiency;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -90,12 +140,12 @@ public class Tile implements ConditionBearer
 		{
 			result += c.getModifier(modifier, this);
 		}
-		
+
 		if (magicModifiers.contains(modifier) && result > MAX_TILE_MAGIC)
 		{
 			result = MAX_TILE_MAGIC;
 		}
-		
+
 		return result;
 	}
 
@@ -160,9 +210,19 @@ public class Tile implements ConditionBearer
 		return terrainSubType;
 	}
 
-	public String getTerrainType()
+	public TerrainType getTerrainType()
 	{
 		return terrainType;
+	}
+
+	public RestingDanger getRestingDanger()
+	{
+		return restingDanger;
+	}
+
+	public RestingEfficiency getRestingEfficiency()
+	{
+		return restingEfficiency;
 	}
 
 	public int getRandomEncounterChance()
@@ -225,24 +285,28 @@ public class Tile implements ConditionBearer
 		this.terrainSubType = terrainSubType;
 	}
 
-	public void setTerrainType(String terrainType)
+	public void setTerrainType(TerrainType terrainType)
 	{
 		this.terrainType = terrainType;
 	}
-	
-	/*-------------------------------------------------------------------------*/
+
+	public void setRestingDanger(RestingDanger restingDanger)
+	{
+		this.restingDanger = restingDanger;
+	}
+
+	public void setRestingEfficiency(RestingEfficiency restingEfficiency)
+	{
+		this.restingEfficiency = restingEfficiency;
+	}
+
 	/**
 	 * Returns the stealth modifier required by actors in this tile.
 	 */
 	public String getStealthModifierRequired()
 	{
-		String terrainType = this.getTerrainType();
-		String result = TerrainType.stealthModifiers.get(terrainType);
-		if (result == null)
-		{
-			throw new MazeException("Invalid terrain type ["+terrainType+"]");
-		}
-		return result;
+		TerrainType terrainType = this.getTerrainType();
+		return terrainType.stealthModifier;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -271,26 +335,5 @@ public class Tile implements ConditionBearer
 	public List<Condition> getConditions()
 	{
 		return ConditionManager.getInstance().getConditions(this);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static class TerrainType
-	{
-		public static final String FAKE = "fake";
-		public static final String URBAN = "Urban";
-		public static final String DUNGEON = "Dungeon";
-		public static final String WILDERNESS = "Wilderness";
-		public static final String WASTELAND = "Wasteland";
-
-		static Map<String, String> stealthModifiers = new HashMap<String, String>();
-
-		static
-		{
-			stealthModifiers.put(FAKE, "fake");
-			stealthModifiers.put(URBAN, Stats.Modifiers.STREETWISE);
-			stealthModifiers.put(DUNGEON, Stats.Modifiers.DUNGEONEER);
-			stealthModifiers.put(WILDERNESS, Stats.Modifiers.WILDERNESS_LORE);
-			stealthModifiers.put(WASTELAND, Stats.Modifiers.SURVIVAL);
-		}
 	}
 }

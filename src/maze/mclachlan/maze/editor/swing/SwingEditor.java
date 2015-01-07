@@ -87,13 +87,14 @@ public class SwingEditor extends JFrame implements WindowListener
 	/*-------------------------------------------------------------------------*/
 	public SwingEditor() throws Exception
 	{
-		super("Mazemaster");
 		instance = this;
 		this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 		this.setIconImage(ImageIO.read(new File("maze.png")));
 
 		config = Launcher.getConfig();
 		campaigns = Launcher.loadCampaigns();
+
+		setTitle("Mazemaster "+config.get(Maze.AppConfig.VERSION));
 
 		//
 		// if the maze.campaign config property is set, launch straight into

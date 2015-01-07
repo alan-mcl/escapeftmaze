@@ -2,6 +2,7 @@
 # COMMON STRINGS
 common.ok = OK
 common.exit = Exit
+common.cancel = Cancel
 
 # the create character wizard
 cc.race.title = Character Race
@@ -142,3 +143,50 @@ mm.load.game = Loa(d) Game
 mm.settings = Settin(g)s
 mm.quit = (Q)UIT
 mm.quick.start = Q(u)ick Start
+
+# resting dialog
+rd.title = Resting At This Location
+rd.rest = Begin Camping
+rd.resting.danger = Resting Danger
+rd.resting.efficiency = Resting Efficiency
+rd.supplies.available = Party Supplies
+rd.supplies.needed = Supplies Needed
+rd.supplies.units = %s units
+
+# inventory display widget
+idw.cast.spell = (C)ast Spell
+idw.use.item = (U)se Item
+idw.craft = C(r)aft
+idw.disassemble = Disassem(b)le
+idw.drop.item = (D)rop Item
+idw.split.stack = Sp(l)it Stack
+idw.carrying = Carrying (kg):
+idw.primary = Primary:
+idw.secondary = Secondary:
+idw.alt.primary = Alt primary:
+idw.alt.secondary = Alt secondary:
+idw.helm = Helm:
+idw.torso = Torso:
+idw.legs = Legs:
+idw.gloves = Gloves:
+idw.boots = Boots:
+idw.banner = Banner:
+idw.misc1 = Misc Item #1:
+idw.misc2 = Misc Item #2:
+idw.pack.items = Pack Items
+idw.equipped.items = Equipped Items
+idw.character.details = %s, level %s %s %s %s
+idw.party.gold = Party gold: %sgp
+idw.party.supplies = Party supplies: %s units
+idw.carrying.label = %s / %s
+idw.cast.spell.on.item = Cast Spell On Item
+idw.invoke.spell.on.item = Invoke Spell On Item
+idw.pick.up.to.disassemble = Please pick up the item to disassemble
+idw.cannot.disassemble = %s cannot be disassembled.
+idw.cannot.disassemble.req = %s cannot disassemble that item.\n\nRequires:
+idw.pick.up.to.split = Please pick up the stack of items to split
+idw.not.stackable = %s is not stackable
+idw.cannot.split = Cannot split that stack
+idw.use.item.title = Use Item
+idw.drop.item.title = Drop Item
+

@@ -1,8 +1,9 @@
-zone=Danaos Castle Dungeon
+zone=arena
 difficultyLevel=Normal
 playerPos=8:7
 facing=3
 partyGold=1000237
+partySupplies=99
 partyNames=Dwaf,IG-87,Ug,Gibby,Brunswick,Silvia
 formation=4
 turnNr=3249

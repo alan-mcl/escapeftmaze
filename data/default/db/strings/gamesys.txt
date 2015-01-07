@@ -199,6 +199,7 @@ modifier_name-signatureWeaponEngineering: Signature Weapon/Engineer
 modifier_name-amphibious: Amphibious
 modifier_name-bonusAttacks: Bonus Attacks
 modifier_name-bonusStrikes: Bonus Strikes
+modifier_name-largeSize: Size: Large
 
 # Modifier Descriptions
 
@@ -396,6 +397,7 @@ modifier_desc-signatureWeaponEngineering: On level up this character has a chanc
 modifier_desc-amphibious: This character is equally at home on land and in water.
 modifier_desc-bonusAttacks: Grants this character bonus attacks in combat.
 modifier_desc-bonusStrikes: Grants this character bonus strikes during each attack in combat.
+modifier_desc-largeSize: This character is physically larger than average.
 
 #
 # LEVEL ABILITY PROGRESSION

@@ -3917,6 +3917,25 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The number of units of supplies to be consumed when the given
+	 * 	character rests.
+	 */
+	public int getSuppliesNeededToRest(PlayerCharacter pc)
+	{
+		if (pc.getModifier(Stats.Modifiers.LARGE_SIZE) > 0)
+		{
+			return 3;
+		}
+		else
+		{
+			return 2;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static class DummyCaster extends AbstractActor
 	{
 		FoeGroup actorGroup;
@@ -3970,11 +3989,5 @@ public class GameSys
 			result.add(new SpellAction(((SpellIntention)actionIntention).getTarget(), spell, castingLevel));
 			return result;
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static void main(String[] args) throws Exception
-	{
-		
 	}
 }

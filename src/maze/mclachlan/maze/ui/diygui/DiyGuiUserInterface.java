@@ -39,6 +39,7 @@ import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -409,7 +410,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case LEVELLING_UP:
 				break;
 			case RESTING:
-				Maze.getInstance().startResting();
+//				Maze.getInstance().startResting();
 				showRestingScreen();
 				break;
 			case CREATE_CHARACTER:
@@ -779,6 +780,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 	public void showInventoryScreen()
 	{
+		if (!Maze.State.INVENTORY.name().equals(getMusic().getState()))
+		{
+			getMusic().setState(Maze.State.INVENTORY.name());
+			executeMazeScript("_INVENTORY_MUSIC_");
+		}
 		inventoryDisplay.setCharacter(partyDisplay.getSelectedCharacter());
 		this.mainLayout.show(this.inventoryScreen);
 	}
@@ -811,8 +817,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showRestingScreen()
 	{
 		this.mainLayout.show(this.movementScreen);
-		this.restingWidget.start();
-		this.movementCardLayout.show(this.restingWidget);
+//		this.restingWidget.start();
+//		this.movementCardLayout.show(this.restingWidget);
+
+		RestingDialog dialog = new RestingDialog(
+			StringUtil.getUiLabel("rd.title"));
+		showDialog(dialog);
 	}
 
 	public void showMainMenu()
