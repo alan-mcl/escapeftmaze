@@ -19,40 +19,32 @@
 
 package mclachlan.maze.game.event;
 
-import mclachlan.maze.game.MazeEvent;
+import java.util.*;
 import mclachlan.maze.game.Maze;
-import java.awt.*;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.ui.diygui.ProgressListener;
 
 /**
  *
  */
-public class MovePartyEvent extends MazeEvent
+public class RestingTurnEvent extends MazeEvent
 {
-	private Point pos;
-	private int facing;
+	private boolean checkRandomEncounters;
+	private ProgressListener progress;
 
 	/*-------------------------------------------------------------------------*/
-	public MovePartyEvent(Point pos, int facing)
+	public RestingTurnEvent(boolean checkRandomEncounters,
+		ProgressListener progress)
 	{
-		this.facing = facing;
-		this.pos = pos;
+		this.checkRandomEncounters = checkRandomEncounters;
+		this.progress = progress;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public java.util.List<MazeEvent> resolve()
+	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().setPlayerPos(pos, facing);
+		Maze.getInstance().incTurn(checkRandomEncounters);
+		progress.incProgress(1);
 		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getFacing()
-	{
-		return facing;
-	}
-
-	public Point getPos()
-	{
-		return pos;
 	}
 }

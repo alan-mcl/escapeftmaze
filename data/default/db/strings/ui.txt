@@ -152,6 +152,7 @@ rd.resting.efficiency = Resting Efficiency
 rd.supplies.available = Party Supplies
 rd.supplies.needed = Supplies Needed
 rd.supplies.units = %s units
+rd.resting.progress = Resting in %s
 
 # inventory display widget
 idw.cast.spell = (C)ast Spell

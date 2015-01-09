@@ -27,18 +27,19 @@ import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
 /**
  *
  */
-public class FilledBarWidget extends Widget
+public class FilledBarWidget extends Widget implements ProgressListener
 {
 	private int current;
 	private int max;
 	private InnerText text = InnerText.NONE;
 	private String customText;
 
+
+
 	public enum InnerText
 	{
-		NONE, CUR_MAX, PERCENT, CUSTOM
+		NONE, CUR_MAX, PERCENT, CUSTOM;
 	};
-
 	/*-------------------------------------------------------------------------*/
 	public FilledBarWidget(int current, int max)
 	{
@@ -51,9 +52,16 @@ public class FilledBarWidget extends Widget
 	protected FilledBarWidget(int x, int y, int width, int height, int current, int max)
 	{
 		super(x, y, width, height);
-		
+
 		this.current = current;
 		this.max = max;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void incProgress(int amount)
+	{
+		this.current += amount;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -131,4 +139,5 @@ public class FilledBarWidget extends Widget
 	{
 		return new Dimension(width, height);
 	}
+
 }

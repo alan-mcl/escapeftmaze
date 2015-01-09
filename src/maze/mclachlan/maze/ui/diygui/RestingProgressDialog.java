@@ -27,21 +27,19 @@ import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.event.RestingTurnEvent;
 import mclachlan.maze.map.Tile;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.PlayerParty;
 
 /**
  *
  */
-public class RestingDialog extends GeneralDialog implements ActionListener
+public class RestingProgressDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton rest, cancel;
+	private DIYButton ok;
+	private FilledBarWidget progress;
 
 	/*-------------------------------------------------------------------------*/
-	public RestingDialog(
+	public RestingProgressDialog(
 		String title)
 	{
 		super();
@@ -50,8 +48,8 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		int inset = 10;
 		int buttonPaneHeight = 18;
 
-		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/3;
-		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/3;
+		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2;
+		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/6;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -63,47 +61,24 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		Tile tile = Maze.getInstance().getCurrentTile();
 		PlayerParty party = Maze.getInstance().getParty();
 
-		DIYPane infoPane = new DIYPane(new DIYGridLayout(2,12,0,0));
-		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
-
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.resting.danger"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel(tile.getRestingDanger().toString(), DIYToolkit.Align.LEFT));
-
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.resting.efficiency"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel(tile.getRestingEfficiency().toString(), DIYToolkit.Align.LEFT));
-
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.available"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
-			String.valueOf(party.getSupplies())), DIYToolkit.Align.LEFT));
-
-		infoPane.add(new DIYLabel());
-		infoPane.add(new DIYLabel());
-
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.needed"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel());
-
-		for (PlayerCharacter pc : party.getPlayerCharacters())
-		{
-			infoPane.add(new DIYLabel(pc.getDisplayName()));
-			infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
-				String.valueOf(GameSys.getInstance().getSuppliesNeededToRest(pc)))));
-		}
-
 		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
 
 		titlePane.setBounds(x, y + inset, width, buttonPaneHeight);
 		titlePane.add(new DIYLabel(title));
 
+		DIYPane infoPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
+		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
+
+		progress = new FilledBarWidget(infoPane.x, infoPane.y, dialogWidth/2, buttonHeight, 0, 100);
+
+		infoPane.add(progress);
+
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
 
-		rest = new DIYButton(StringUtil.getUiLabel("rd.rest"));
-		rest.addActionListener(this);
-		buttonPane.add(rest);
-
-		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
-		cancel.addActionListener(this);
-		buttonPane.add(cancel);
+		ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
+		ok.addActionListener(this);
+		buttonPane.add(ok);
 
 		setBackground();
 
@@ -119,10 +94,8 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		switch(e.getKeyCode())
 		{
 			case KeyEvent.VK_ENTER:
-				rest();
-				break;
 			case KeyEvent.VK_ESCAPE:
-				cancel();
+				exit();
 				break;
 		}
 	}
@@ -130,40 +103,25 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == cancel)
+		if (event.getSource() == ok)
 		{
-			cancel();
-		}
-		else if (event.getSource() == rest)
-		{
-			rest();
+			exit();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void rest()
+	private void exit()
 	{
-		RestingProgressDialog dialog = new RestingProgressDialog(
-			StringUtil.getUiLabel("rd.resting.progress",
-				Maze.getInstance().getZone().getName()));
-
-		// clear this dialog
-		Maze.getInstance().getUi().clearDialog();
-
-		// show the new dialog
-		Maze.getInstance().getUi().showDialog(dialog);
-
-		for (int i=0; i<100; i++)
+		if (ok.isEnabled())
 		{
-			Maze.getInstance().appendEvents(
-				new RestingTurnEvent(false, dialog.getProgressListener()));
+			Maze.getInstance().setState(Maze.State.MOVEMENT);
+			Maze.getInstance().getUi().clearDialog();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void cancel()
+	public ProgressListener getProgressListener()
 	{
-		Maze.getInstance().setState(Maze.State.MOVEMENT);
-		Maze.getInstance().getUi().clearDialog();
+		return progress;
 	}
 }
