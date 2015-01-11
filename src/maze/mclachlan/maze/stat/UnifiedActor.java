@@ -1240,11 +1240,11 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			return;
 		}
 
-		int hpRegen = GameSys.getInstance().getHitPointsToRegenerate(
+		int hpRegen = GameSys.getInstance().getHitPointsToRegeneratePerTurn(
 			this, turnNr, resting, getActorGroup());
 		getHitPoints().incCurrent(hpRegen);
 
-		int magicRegen = GameSys.getInstance().getMagicPointsToRegenerate(
+		int magicRegen = GameSys.getInstance().getMagicPointsToRegeneratePerTurn(
 			this, turnNr, resting, getActorGroup());
 		getMagicPoints().incCurrent(magicRegen);
 

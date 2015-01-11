@@ -2667,9 +2667,9 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getHitPointsToRegenerate(
+	public int getHitPointsToRegeneratePerTurn(
 		UnifiedActor actor,
-		long turnNr, 
+		long turnNr,
 		boolean resting,
 		ActorGroup group)
 	{
@@ -2701,9 +2701,72 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getMagicPointsToRegenerate(
+
+	/**
+	 * @return
+	 * 	The total resources to regen over an entire period of rest
+	 */
+	public int getResourcesToRegenerateWhileResting(
 		UnifiedActor actor,
-		long turnNr, 
+		CurMax resource,
+		ActorGroup group,
+		Tile tile)
+	{
+		// find the best entertainer
+		int entertainer=0;
+		if (group != null)
+		{
+			for (UnifiedActor a : group.getActors())
+			{
+				if (a.getModifier(Stats.Modifiers.ENTERTAINER) > entertainer)
+				{
+					entertainer = a.getModifier(Stats.Modifiers.ENTERTAINER);
+				}
+			}
+		}
+
+		double regenPerc = getRestingRegenPercentage(tile);
+
+		// add the Entertainer modifier to the regen %
+		if (entertainer > 0)
+		{
+			regenPerc = regenPerc + (entertainer/100D);
+		}
+
+		int max = resource.getMaximum();
+
+		// regen at least 1 hp
+		return Math.max(1, (int)(max * regenPerc));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected double getRestingRegenPercentage(Tile tile)
+	{
+		double regenPerc;
+
+		switch (tile.getRestingEfficiency())
+		{
+			case POOR:
+				regenPerc = .2D;
+				break;
+			case AVERAGE:
+				regenPerc = .4D;
+				break;
+			case GOOD:
+				regenPerc = .6D;
+				break;
+			case EXCELLENT:
+				regenPerc = 1D;
+				break;
+			default: throw new MazeException(tile.getRestingEfficiency().toString());
+		}
+		return regenPerc;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getMagicPointsToRegeneratePerTurn(
+		UnifiedActor actor,
+		long turnNr,
 		boolean resting,
 		ActorGroup group)
 	{

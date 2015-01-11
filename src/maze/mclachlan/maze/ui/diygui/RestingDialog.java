@@ -26,6 +26,7 @@ import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.event.RestingTurnEvent;
 import mclachlan.maze.map.Tile;
@@ -153,10 +154,21 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		// show the new dialog
 		Maze.getInstance().getUi().showDialog(dialog);
 
-		for (int i=0; i<100; i++)
+		Tile tile = Maze.getInstance().getCurrentTile();
+		Maze.log(Log.MEDIUM, "Party begins resting @ ["+
+			Maze.getInstance().getZone().getName()+"] ["+tile.getCoords().x+","+tile.getCoords().y+"]");
+
+		int nrTurns = 100;
+		for (int i=0; i< nrTurns; i++)
 		{
 			Maze.getInstance().appendEvents(
-				new RestingTurnEvent(false, dialog.getProgressListener()));
+				new RestingTurnEvent(
+					nrTurns,
+					i,
+					false,
+					dialog.getProgressListener(),
+					Maze.getInstance().getParty(),
+					tile));
 		}
 	}
 
