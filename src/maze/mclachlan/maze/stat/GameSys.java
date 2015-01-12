@@ -2764,6 +2764,20 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public int getRestingDangerPercentage(Tile tile)
+	{
+		switch (tile.getRestingDanger())
+		{
+			case NONE: return 0;
+			case LOW: return 10;
+			case MEDIUM: return 25;
+			case HIGH: return 50;
+			case EXTREME: return 100;
+			default: throw new MazeException(tile.getRestingDanger().toString());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public int getMagicPointsToRegeneratePerTurn(
 		UnifiedActor actor,
 		long turnNr,

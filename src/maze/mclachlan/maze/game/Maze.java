@@ -862,6 +862,8 @@ public class Maze implements Runnable
 			}
 		}
 
+		getUi().clearDialog();
+
 		if (this.getState() == State.COMBAT)
 		{
 			// hack to avoid the problem when one of the "dummy" combats results in

@@ -153,6 +153,8 @@ rd.supplies.available = Party Supplies
 rd.supplies.needed = Supplies Needed
 rd.supplies.units = %s units
 rd.resting.progress = Resting in %s
+rd.encounter = An Encounter!
+rd.resting = Resting....
 
 # inventory display widget
 idw.cast.spell = (C)ast Spell

@@ -65,6 +65,13 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public void message(String msg)
+	{
+		System.out.println("msg = [" + msg + "]");
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void setFromCurMax(CurMax cm)
 	{
 		this.setMax(cm.getMaximum());

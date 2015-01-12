@@ -28,7 +28,7 @@ import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.event.RestingTurnEvent;
+import mclachlan.maze.game.event.RestingCheckpointEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -159,16 +159,25 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 			Maze.getInstance().getZone().getName()+"] ["+tile.getCoords().x+","+tile.getCoords().y+"]");
 
 		int nrTurns = 100;
+
+		ProgressListener prog = dialog.getProgressListener();
+		PlayerParty party = Maze.getInstance().getParty();
+		Maze.getInstance().appendEvents(
+			new RestingCheckpointEvent(10, 100, 0, false, prog, party, tile),
+			new RestingCheckpointEvent(40, 100, 10, true, prog, party, tile),
+			new RestingCheckpointEvent(40, 100, 50, true, prog, party, tile),
+			new RestingCheckpointEvent(10, 100, 90, true, prog, party, tile));
+
 		for (int i=0; i< nrTurns; i++)
 		{
-			Maze.getInstance().appendEvents(
+			/*Maze.getInstance().appendEvents(
 				new RestingTurnEvent(
 					nrTurns,
 					i,
 					false,
 					dialog.getProgressListener(),
 					Maze.getInstance().getParty(),
-					tile));
+					tile));*/
 		}
 	}
 
