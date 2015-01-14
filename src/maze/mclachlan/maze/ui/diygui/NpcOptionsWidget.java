@@ -274,7 +274,7 @@ public class NpcOptionsWidget extends DIYPane
 	{
 		Maze.getInstance().getUi().clearDialog();
 		Maze.getInstance().deductPartyGold(createPrice);
-		Maze.getInstance().pushState(Maze.State.CREATE_CHARACTER);
+		Maze.getInstance().setState(Maze.State.CREATE_CHARACTER);
 	}
 
 	public void transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice)

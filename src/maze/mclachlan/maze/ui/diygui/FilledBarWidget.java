@@ -33,13 +33,14 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	private int max;
 	private InnerText text = InnerText.NONE;
 	private String customText;
+	private ProgressListenerCallback callback;
 
-
-
+	/*-------------------------------------------------------------------------*/
 	public enum InnerText
 	{
 		NONE, CUR_MAX, PERCENT, CUSTOM;
 	};
+
 	/*-------------------------------------------------------------------------*/
 	public FilledBarWidget(int current, int max)
 	{
@@ -69,6 +70,13 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	public void message(String msg)
 	{
 		System.out.println("msg = [" + msg + "]");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void setCallback(ProgressListenerCallback callback)
+	{
+		this.callback = callback;
 	}
 
 	/*-------------------------------------------------------------------------*/

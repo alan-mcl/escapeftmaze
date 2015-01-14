@@ -167,7 +167,7 @@ public class PartyDisplayWidget extends ContainerWidget
 	{
 		public void actionPerformed(ActionEvent event)
 		{
-			if (Maze.getInstance().containsState(Maze.State.COMBAT))
+			if (Maze.getInstance().isInCombat())
 			{
 				// during an Equip in combat, only the current character can be edited
 				return;

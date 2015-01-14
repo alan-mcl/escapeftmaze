@@ -60,7 +60,7 @@ public class EquipEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().getUi().characterSelected((PlayerCharacter)actor);
-		Maze.getInstance().pushState(Maze.State.INVENTORY, this);
+		Maze.getInstance().setState(Maze.State.INVENTORY, this);
 		return null;
 	}
 

@@ -62,15 +62,14 @@ import static mclachlan.crusader.CrusaderEngine.Facing.*;
 public class Maze implements Runnable
 {
 	private static Maze instance;
-	private final Object stateMutex = new Object();
 	private Object statePopMutex;
 	private Map<String, String> appConfig;
 	private UserConfig userConfig;
 	private Campaign campaign;
 	private PlayerTilesVisited playerTilesVisited;
 
-	/** the current game state is on top of the stack */
-	private Stack<State> state = new Stack<State>();
+	/** the current game state */
+	private State state;
 
 	/** the current player party */
 	private PlayerParty party;
@@ -181,7 +180,7 @@ public class Maze implements Runnable
 
 	public void initState()
 	{
-		this.state.push(State.MAINMENU);
+		this.state = State.MAINMENU;
 	}
 
 	public void initDb() throws Exception
@@ -455,12 +454,9 @@ public class Maze implements Runnable
 			ItemCacheManager.getInstance().loadGame(name, loader);
 
 			// init state
-			synchronized(stateMutex)
-			{
-				setGameState(gs);
-				ui.setParty(party);
-				this.setState(State.MOVEMENT);
-			}
+			setGameState(gs);
+			ui.setParty(party);
+			this.setState(State.MOVEMENT);
 
 			// load conditions
 			// done last, so that conditions on tiles can be loaded after the zone has been loaded
@@ -509,7 +505,7 @@ public class Maze implements Runnable
 				}.start();
 			}
 
-			while (state.peek() != State.FINISHED)
+			while (getState() != State.FINISHED)
 			{
 				this.ui.draw();
 				
@@ -557,99 +553,26 @@ public class Maze implements Runnable
 	 */
 	public void setState(State state)
 	{
-		synchronized(stateMutex)
-		{
-			this.state.pop();
-			this.state.push(state);
-			changeState(state);
-		}
+		this.state = state;
+		changeState(state);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Pushes the given state onto the stack
+	 * Sets the given state onto the stack, and notifies the given mutex when
+	 * the state is changed.
 	 */
-	public void pushState(State state)
+	public void setState(State state, Object waiter)
 	{
-		synchronized(stateMutex)
-		{
-			this.state.push(state);
-			changeState(state);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * Pushes the given state onto the stack, and notifies the given mutex when
-	 * the state is popped.
-	 */
-	public void pushState(State state, Object waiter)
-	{
-		synchronized(stateMutex)
-		{
-			this.state.push(state);
-			this.statePopMutex = waiter;
-			changeState(state);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * Sets the game state to the previous state
-	 *
-	 * @return
-	 * 	The current game state.
-	 */
-	public State popState()
-	{
-		synchronized(stateMutex)
-		{
-			State s = this.state.pop();
-
-			if (this.state.isEmpty())
-			{
-				// haxor alert: we simply go back to movement
-				this.state.push(State.MOVEMENT);
-			}
-
-			if (this.statePopMutex != null)
-			{
-				synchronized(statePopMutex)
-				{
-					statePopMutex.notifyAll();
-				}
-			}
-
-			changeState(this.state.peek());
-			return s;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void clearState(State state)
-	{
-		synchronized(stateMutex)
-		{
-			this.state.remove(state);
-		}
+		this.state = state;
+		this.statePopMutex = waiter;
+		changeState(state);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public State getState()
 	{
-		synchronized(stateMutex)
-		{
-			return this.state.peek();
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public boolean containsState(State s)
-	{
-		synchronized(stateMutex)
-		{
-			return this.state.contains(s);
-		}
+		return this.state;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -705,31 +628,28 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void backToMain()
 	{
-		synchronized(stateMutex)
+		party = null;
+		ui.setParty(null);
+		zone = null;
+		if (currentCombat != null)
 		{
-			party = null;
-			ui.setParty(null);
-			zone = null;
-			if (currentCombat != null)
-			{
-				ui.setFoes(null);
-				ui.setAllies(null);
-				currentCombat.endCombat();
-				currentCombat = null;
-			}
-			currentChest = null;
-			currentNpc = null;
-			currentPortal = null;
-			MazeVariables.clearAll();
-			if (processor != null)
-			{
-				processor.queue.clear();
-			}
-			state.clear();
-			ui.resetMainMenuState();
-			ui.showMainMenu();
-			pushState(Maze.State.MAINMENU);
+			ui.setFoes(null);
+			ui.setAllies(null);
+			currentCombat.endCombat();
+			currentCombat = null;
 		}
+		currentChest = null;
+		currentNpc = null;
+		currentPortal = null;
+		MazeVariables.clearAll();
+		if (processor != null)
+		{
+			processor.queue.clear();
+		}
+		state = null;
+		ui.resetMainMenuState();
+		ui.showMainMenu();
+		setState(Maze.State.MAINMENU);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -864,18 +784,7 @@ public class Maze implements Runnable
 
 		getUi().clearDialog();
 
-		if (this.getState() == State.COMBAT)
-		{
-			// hack to avoid the problem when one of the "dummy" combats results in
-			// a real one: for eg, a failed Theft spell on an NPC resulting in the
-			// NPC deciding to attack the party.
-			this.setState(State.COMBAT);
-			this.pushState(State.COMBAT);
-		}
-		else
-		{
-			this.setState(State.COMBAT);
-		}
+		this.setState(State.COMBAT);
 
 		// play the encounter fanfare
 		MazeScript script = Database.getInstance().getScript("_ENCOUNTER_");
@@ -2009,14 +1918,14 @@ public class Maze implements Runnable
 			return;
 		}
 
-		appendEvents(new PushStateEvent(State.ENCOUNTER_TILE));
+		appendEvents(new SetStateEvent(State.ENCOUNTER_TILE));
 		appendEvents(events);
-		appendEvents(new ClearStateEvent(State.ENCOUNTER_TILE));
+		appendEvents(new SetStateEvent(State.MOVEMENT));
 		appendEvents(new MazeEvent()
 		{
 			public List<MazeEvent> resolve()
 			{
-				if (state.peek() == State.MOVEMENT)
+				if (getState() == State.MOVEMENT)
 				{
 					Maze.this.setState(State.MOVEMENT);
 				}
@@ -2029,7 +1938,7 @@ public class Maze implements Runnable
 	private void processNpcEventsInternal(List<MazeEvent> events)
 	{
 		resolveEvents(events);
-		if (this.state.peek() == State.ENCOUNTER_NPC)
+		if (getState() == State.ENCOUNTER_NPC)
 		{
 			this.ui.showNpcScreen(currentNpc);
 		}
@@ -2241,6 +2150,16 @@ public class Maze implements Runnable
 		return currentCombat;
 	}
 
+	public boolean isInCombat()
+	{
+		return getCurrentCombat() != null;
+	}
+
+	public boolean isInGame()
+	{
+		return getParty() != null;
+	}
+
 	public void setCurrentCombat(Combat currentCombat)
 	{
 		this.currentCombat = currentCombat;
@@ -2402,50 +2321,6 @@ public class Maze implements Runnable
 					Maze.getInstance().errorDialog(e);
 				}
 			}
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public class PushStateEvent extends MazeEvent
-	{
-		State state;
-
-		public PushStateEvent(State state)
-		{
-			this.state = state;
-		}
-
-		public List<MazeEvent> resolve()
-		{
-			Maze.this.pushState(state);
-			return null;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public class PopStateEvent extends MazeEvent
-	{
-		public List<MazeEvent> resolve()
-		{
-			Maze.this.popState();
-			return null;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public class ClearStateEvent extends MazeEvent
-	{
-		State state;
-
-		public ClearStateEvent(State state)
-		{
-			this.state = state;
-		}
-
-		public List<MazeEvent> resolve()
-		{
-			Maze.this.clearState(state);
-			return null;
 		}
 	}
 

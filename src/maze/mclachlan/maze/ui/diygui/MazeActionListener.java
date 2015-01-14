@@ -71,7 +71,7 @@ class MazeActionListener implements ActionListener
 
 		if (message.equals(Constants.Messages.BACK_TO_GAME))
 		{
-			Maze.getInstance().popState();
+			Maze.getInstance().setState(Maze.State.MOVEMENT);
 		}
 		else if (message.equals(Constants.Messages.DISPOSE_DIALOG))
 		{

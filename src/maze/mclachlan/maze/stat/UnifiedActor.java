@@ -1066,7 +1066,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			return false;
 		}
 		else if (s.getUsabilityType() == MagicSys.SpellUsabilityType.NPC_ONLY &&
-			!Maze.getInstance().containsState(Maze.State.ENCOUNTER_NPC))
+			Maze.getInstance().getCurrentNpc() == null)
 		{
 			Maze.log(Log.DEBUG, s.getName()+": cannot cast [" +
 				MagicSys.SpellUsabilityType.describe(s.getUsabilityType()) +

@@ -33,7 +33,8 @@ import mclachlan.maze.stat.PlayerParty;
 /**
  *
  */
-public class RestingProgressDialog extends GeneralDialog implements ActionListener
+public class RestingProgressDialog extends GeneralDialog
+	implements ActionListener, ProgressListenerCallback
 {
 	private DIYButton ok;
 	private FilledBarWidget progress;
@@ -78,6 +79,7 @@ public class RestingProgressDialog extends GeneralDialog implements ActionListen
 
 		ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		ok.addActionListener(this);
+		ok.setEnabled(false);
 		buttonPane.add(ok);
 
 		setBackground();
@@ -123,5 +125,15 @@ public class RestingProgressDialog extends GeneralDialog implements ActionListen
 	public ProgressListener getProgressListener()
 	{
 		return progress;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void callback(int progress)
+	{
+		if (progress == 100)
+		{
+			ok.setEnabled(true);
+		}
 	}
 }

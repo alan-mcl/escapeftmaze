@@ -284,14 +284,14 @@ public class PortalOptionsWidget extends DIYPane
 		}
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		maze.resolveEvents(events);
 
 //		combat.endRound();
 //		combat.endCombat();
-		maze.popState();
+		maze.setState(Maze.State.ENCOUNTER_PORTAL);
 
 	}
 
@@ -321,14 +321,14 @@ public class PortalOptionsWidget extends DIYPane
 		}
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		maze.resolveEvents(events);
 
 //		combat.endRound();
 //		combat.endCombat();
-		maze.popState();
+		maze.setState(Maze.State.ENCOUNTER_PORTAL);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -1768,7 +1768,7 @@ public class GameSys
 		foeIntentionList.add(foeIntentions);
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
@@ -1783,7 +1783,7 @@ public class GameSys
 		{
 			combat.endRound();
 			combat.endCombat();
-			maze.popState();
+			maze.setState(Maze.State.MOVEMENT);
 		}
 	}
 
@@ -1824,7 +1824,7 @@ public class GameSys
 		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
@@ -1838,7 +1838,7 @@ public class GameSys
 
 		combat.endRound();
 		combat.endCombat();
-		maze.popState();
+		maze.setState(Maze.State.MOVEMENT);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1877,7 +1877,7 @@ public class GameSys
 		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
@@ -1891,7 +1891,7 @@ public class GameSys
 
 		combat.endRound();
 		combat.endCombat();
-		maze.popState();
+		maze.setState(Maze.State.MOVEMENT);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1929,7 +1929,7 @@ public class GameSys
 		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
@@ -1943,7 +1943,7 @@ public class GameSys
 
 		combat.endRound();
 		combat.endCombat();
-		maze.popState();
+		maze.setState(Maze.State.MOVEMENT);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1992,7 +1992,7 @@ public class GameSys
 		foeIntentionList.add(foeIntentions);
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
@@ -2007,12 +2007,9 @@ public class GameSys
 
 		combat.endRound();
 		combat.endCombat();
-		maze.popState();
-		if (maze.getState() != Maze.State.COMBAT)
+		if (maze.getCurrentCombat() == null)
 		{
-			// hack to avoid showing this if one of the events has caused the NPC
-			// to start a fight with the party.
-			maze.getUi().showNpcScreen(npc);
+			maze.setState(Maze.State.ENCOUNTER_NPC);
 		}
 	}
 
@@ -2058,7 +2055,7 @@ public class GameSys
 		foeIntentionList.add(foeIntentions);
 
 		// Then, show the combat listener
-		maze.pushState(Maze.State.COMBAT);
+		maze.setState(Maze.State.COMBAT);
 		maze.getUi().showCombatDisplay();
 
 		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
@@ -2073,8 +2070,10 @@ public class GameSys
 
 		combat.endRound();
 		combat.endCombat();
-		maze.popState();
-		maze.getUi().showNpcScreen(npc);
+		if (maze.getCurrentCombat() == null)
+		{
+			maze.setState(Maze.State.ENCOUNTER_NPC);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

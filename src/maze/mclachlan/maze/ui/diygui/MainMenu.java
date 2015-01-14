@@ -182,7 +182,7 @@ public class MainMenu extends DIYPanel
 	{
 		if (loadGame.isEnabled())
 		{
-			Maze.getInstance().pushState(Maze.State.SAVE_LOAD);
+			Maze.getInstance().setState(Maze.State.SAVE_LOAD);
 		}
 	}
 
@@ -206,7 +206,7 @@ public class MainMenu extends DIYPanel
 	{
 		if (createCharacter.isEnabled())
 		{
-			Maze.getInstance().pushState(Maze.State.CREATE_CHARACTER);
+			Maze.getInstance().setState(Maze.State.CREATE_CHARACTER);
 		}
 	}
 

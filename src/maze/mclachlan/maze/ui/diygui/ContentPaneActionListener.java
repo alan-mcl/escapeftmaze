@@ -129,12 +129,12 @@ class ContentPaneActionListener implements ActionListener
 		{
 			switch (event.getKeyCode())
 			{
-				case KeyEvent.VK_1: ui.characterSelected(0); Maze.getInstance().pushState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); Maze.getInstance().pushState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); Maze.getInstance().pushState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); Maze.getInstance().pushState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); Maze.getInstance().pushState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); Maze.getInstance().pushState(Maze.State.INVENTORY); break;
+				case KeyEvent.VK_1: ui.characterSelected(0); Maze.getInstance().setState(Maze.State.INVENTORY); break;
+				case KeyEvent.VK_2: ui.characterSelected(1); Maze.getInstance().setState(Maze.State.INVENTORY); break;
+				case KeyEvent.VK_3: ui.characterSelected(2); Maze.getInstance().setState(Maze.State.INVENTORY); break;
+				case KeyEvent.VK_4: ui.characterSelected(3); Maze.getInstance().setState(Maze.State.INVENTORY); break;
+				case KeyEvent.VK_5: ui.characterSelected(4); Maze.getInstance().setState(Maze.State.INVENTORY); break;
+				case KeyEvent.VK_6: ui.characterSelected(5); Maze.getInstance().setState(Maze.State.INVENTORY); break;
 				case KeyEvent.VK_Q: ui.movementOptionsWidget.mainMenu(); break;
 //				case KeyEvent.VK_I: ui.movementOptionsWidget.inventory(); break;
 				case KeyEvent.VK_S: ui.movementOptionsWidget.search(); break;
@@ -167,7 +167,16 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
 				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
 				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE: Maze.getInstance().popState(); break;
+				case KeyEvent.VK_ESCAPE:
+					if (Maze.getInstance().isInCombat())
+					{
+						Maze.getInstance().setState(Maze.State.COMBAT);
+					}
+					else
+					{
+						Maze.getInstance().setState(Maze.State.MOVEMENT);
+					}
+					break;
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.STATSDISPLAY)
@@ -187,7 +196,16 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
 				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
 				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE: Maze.getInstance().popState(); break;
+				case KeyEvent.VK_ESCAPE:
+					if (Maze.getInstance().isInCombat())
+					{
+						Maze.getInstance().setState(Maze.State.COMBAT);
+					}
+					else
+					{
+						Maze.getInstance().setState(Maze.State.MOVEMENT);
+					}
+					break;
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.INVENTORY)
@@ -213,7 +231,16 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_L: ui.inventoryDisplay.split(); break;
 				case KeyEvent.VK_B: ui.inventoryDisplay.disassemble(); break;
 				case KeyEvent.VK_ENTER:
-				case KeyEvent.VK_ESCAPE: Maze.getInstance().popState(); break;
+				case KeyEvent.VK_ESCAPE:
+					if (Maze.getInstance().isInCombat())
+					{
+						Maze.getInstance().setState(Maze.State.COMBAT);
+					}
+					else
+					{
+						Maze.getInstance().setState(Maze.State.MOVEMENT);
+					}
+					break;
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.PROPERTIESDISPLAY)
@@ -233,7 +260,16 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
 				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
 				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE: Maze.getInstance().popState(); break;
+				case KeyEvent.VK_ESCAPE:
+					if (Maze.getInstance().isInCombat())
+					{
+						Maze.getInstance().setState(Maze.State.COMBAT);
+					}
+					else
+					{
+						Maze.getInstance().setState(Maze.State.MOVEMENT);
+					}
+					break;
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.MAGIC)
@@ -253,7 +289,16 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
 				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
 				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE: Maze.getInstance().popState(); break;
+				case KeyEvent.VK_ESCAPE:
+					if (Maze.getInstance().isInCombat())
+					{
+						Maze.getInstance().setState(Maze.State.COMBAT);
+					}
+					else
+					{
+						Maze.getInstance().setState(Maze.State.MOVEMENT);
+					}
+					break;
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.SIGNBOARD)

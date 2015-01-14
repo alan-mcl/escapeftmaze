@@ -316,10 +316,10 @@ public class ChestOptionsWidget extends DIYPane
 		}
 
 		// Then, show the combat listener
-		maze.appendEvents(maze.new PushStateEvent(Maze.State.COMBAT));
+		maze.appendEvents(maze.new SetStateEvent(Maze.State.COMBAT));
 		maze.appendEvents(maze.new ShowCombatDisplayEvent());
 		maze.appendEvents(events);
-		maze.appendEvents(maze.new PopStateEvent());
+		maze.appendEvents(maze.new SetStateEvent(Maze.State.MOVEMENT));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -348,10 +348,10 @@ public class ChestOptionsWidget extends DIYPane
 		}
 
 		// Then, show the combat listener
-		maze.appendEvents(maze.new PushStateEvent(Maze.State.COMBAT));
+		maze.appendEvents(maze.new SetStateEvent(Maze.State.COMBAT));
 		maze.appendEvents(maze.new ShowCombatDisplayEvent());
 		maze.appendEvents(events);
-		maze.appendEvents(maze.new PopStateEvent());
+		maze.appendEvents(maze.new SetStateEvent(Maze.State.MOVEMENT));
 	}
 
 	/*-------------------------------------------------------------------------*/

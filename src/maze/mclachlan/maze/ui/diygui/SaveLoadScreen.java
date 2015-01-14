@@ -112,7 +112,7 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	private void updateButtonState()
 	{
 		// can't save if there's no current game
-		save.setEnabled(Maze.getInstance().containsState(Maze.State.MOVEMENT));
+		save.setEnabled(Maze.getInstance().isInGame());
 		load.setEnabled(saveGames.contains(saveGameName.getText()));
 	}
 
@@ -147,7 +147,14 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void exit()
 	{
-		Maze.getInstance().popState();
+		if (Maze.getInstance().isInGame())
+		{
+			Maze.getInstance().setState(Maze.State.MOVEMENT);
+		}
+		else
+		{
+			Maze.getInstance().setState(Maze.State.MAINMENU);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

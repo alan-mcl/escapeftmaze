@@ -97,6 +97,6 @@ public class RestingWidget extends DIYPane implements ActionListener
 	public void done()
 	{
 		Maze.getInstance().stopResting();
-		Maze.getInstance().popState();
+		Maze.getInstance().setState(Maze.State.MOVEMENT);
 	}
 }

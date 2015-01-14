@@ -281,8 +281,8 @@ public class InventoryDisplayWidget extends ContainerWidget
 		refreshItemWidgets();
 
 		// do not allow cast spell or use item during combat
-		castSpell.setEnabled(!Maze.getInstance().containsState(Maze.State.COMBAT));
-		useItem.setEnabled(!Maze.getInstance().containsState(Maze.State.COMBAT));
+		castSpell.setEnabled(!Maze.getInstance().isInCombat());
+		useItem.setEnabled(!Maze.getInstance().isInCombat());
 	}
 
 	/*-------------------------------------------------------------------------*/

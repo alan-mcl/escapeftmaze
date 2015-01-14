@@ -654,7 +654,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void signBoard(String message, MazeEvent event)
 	{
-		Maze.getInstance().pushState(Maze.State.SIGNBOARD);
+		Maze.getInstance().setState(Maze.State.SIGNBOARD);
 		signBoardWidget.setText(message, event);
 		movementCardLayout.show(signBoardWidget);
 	}

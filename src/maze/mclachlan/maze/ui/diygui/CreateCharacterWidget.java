@@ -773,7 +773,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		if (state <= 0)
 		{
-			Maze.getInstance().popState();
+			finished();
 			return;
 		}
 		else if (state == CHOOSE_RACE_AND_GENDER)
@@ -912,8 +912,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				{
 					Maze.getInstance().addPlayerCharacterToGuild(playerCharacter, npc);
 				}
-				
-				Maze.getInstance().popState();
+
+				finished();
 
 				break;
 			default: throw new MazeException("Illegal state: "+state);
@@ -921,6 +921,18 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		this.next.setEnabled(this.canProceed());
 		this.random.setEnabled(isRandomSupported());
+	}
+
+	private void finished()
+	{
+		if (Maze.getInstance().getCurrentNpc() != null)
+		{
+			Maze.getInstance().setState(Maze.State.ENCOUNTER_NPC);
+		}
+		else
+		{
+			Maze.getInstance().setState(Maze.State.MAINMENU);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

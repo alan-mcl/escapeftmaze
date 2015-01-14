@@ -211,7 +211,7 @@ public class MovementOptionsWidget extends DIYPane
 			TileScript.PlayerAction.REST,
 			DiyGuiUserInterface.instance.raycaster.getPlayerFacing()))
 		{
-			Maze.getInstance().pushState(Maze.State.RESTING);
+			Maze.getInstance().setState(Maze.State.RESTING);
 		}
 	}
 
@@ -239,7 +239,7 @@ public class MovementOptionsWidget extends DIYPane
 
 	public void saveOrLoad()
 	{
-		Maze.getInstance().pushState(Maze.State.SAVE_LOAD);
+		Maze.getInstance().setState(Maze.State.SAVE_LOAD);
 	}
 
 	public void hide()

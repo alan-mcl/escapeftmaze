@@ -104,7 +104,14 @@ public class ButtonToolbar extends ContainerWidget implements ActionListener
 
 	public void exit()
 	{
-		Maze.getInstance().popState();
+		if (Maze.getInstance().isInCombat())
+		{
+			Maze.getInstance().setState(Maze.State.COMBAT);
+		}
+		else
+		{
+			Maze.getInstance().setState(Maze.State.MOVEMENT);
+		}
 	}
 
 	public void magic()

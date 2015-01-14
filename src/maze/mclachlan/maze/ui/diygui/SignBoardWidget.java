@@ -94,7 +94,7 @@ public class SignBoardWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	public void clearSignboard()
 	{
-		Maze.getInstance().popState();
+		Maze.getInstance().setState(Maze.State.MOVEMENT);
 		
 		synchronized(event)
 		{
