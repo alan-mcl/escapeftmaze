@@ -454,6 +454,22 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * Clears the topmost modal dialog.
+	 */
+	public void clearAllDialogs()
+	{
+		synchronized (dialog_mutex)
+		{
+			while(!this.dialogs.isEmpty())
+			{
+				this.dialogs.pop();
+			}
+			resetFocusAndHoverWidgets();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private void resetFocusAndHoverWidgets()
 	{
 		Point p = comp.getMousePosition();

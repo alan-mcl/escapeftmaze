@@ -99,4 +99,9 @@ public class DIYTextArea extends ContainerWidget
 	{
 		this.font = font;
 	}
+
+	public void addText(String s)
+	{
+		text = text+s;
+	}
 }

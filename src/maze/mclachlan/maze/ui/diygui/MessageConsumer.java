@@ -19,9 +19,7 @@
 
 package mclachlan.maze.ui.diygui;
 
-public interface ProgressListener extends MessageConsumer
+public interface MessageConsumer
 {
-	void incProgress(int amount);
-
-	void setCallback(ProgressListenerCallback callback);
+	void message(String msg);
 }

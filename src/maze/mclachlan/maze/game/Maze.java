@@ -178,11 +178,13 @@ public class Maze implements Runnable
 		return instance;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void initState()
 	{
 		this.state = State.MAINMENU;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void initDb() throws Exception
 	{
 		log("init db");
@@ -190,11 +192,13 @@ public class Maze implements Runnable
 		this.userConfig = db.getUserConfig();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void initLog(Log log) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		Maze.log = log;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void initUi(UserInterface ui) throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		log("init ui: "+ui.getClass());
@@ -203,6 +207,7 @@ public class Maze implements Runnable
 		this.ui.showMainMenu();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void initSystems() throws ClassNotFoundException, InstantiationException, IllegalAccessException
 	{
 		String magicsys_impl = this.appConfig.get(AppConfig.MAGIC_SYS_IMPL);
@@ -216,6 +221,7 @@ public class Maze implements Runnable
 		this.gameSys = (GameSys)gamesys_class.newInstance();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void initAudio(AudioPlayer player)
 	{
 		audioPlayer = player;
@@ -230,7 +236,7 @@ public class Maze implements Runnable
 		processor = new EventProcessor(q);
 		processor.start();
 
-		new Thread(this, "MAZE DRAW THREAD").start();
+		new Thread(this, "MAZE RENDER THREAD").start();
 
 		audioThread.start();
 	}
@@ -508,19 +514,6 @@ public class Maze implements Runnable
 			while (getState() != State.FINISHED)
 			{
 				this.ui.draw();
-				
-/*
-				synchronized(stateMutex)
-				{
-					if (getState() == State.RESTING)
-					{
-						// todo: should this really be done in the draw thread?
-						// todo: throttling
-						incTurn(true);
-						ui.refreshResting();
-					}
-				}
-*/
 			}
 		}
 		catch (Exception e)
@@ -535,15 +528,15 @@ public class Maze implements Runnable
 	{
 		e.printStackTrace();
 		log.log(e);
-		
+
 		StringBuilder s = new StringBuilder();
-		
+
 		s.append("FATAL ERROR\n\n");
 		s.append(e.getMessage());
 		s.append("\n\n");
 		s.append("See log file at:\n\n");
 		s.append(log.getLogPath());
-		
+
 		ui.errorDialog(s.toString());
 	}
 
@@ -655,7 +648,9 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void refreshCharacterData()
 	{
+		Maze.log("refreshing character data...");
 		this.ui.refreshCharacterData();
+		Maze.log("finished refreshing character data");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2299,7 +2294,7 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	private static class EventProcessor extends Thread
 	{
-		BlockingQueue<MazeEvent> queue;
+		private BlockingQueue<MazeEvent> queue;
 
 		public EventProcessor(BlockingQueue<MazeEvent> queue)
 		{

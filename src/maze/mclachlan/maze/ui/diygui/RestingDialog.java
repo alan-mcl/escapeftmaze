@@ -28,7 +28,10 @@ import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.event.ModifySuppliesEvent;
 import mclachlan.maze.game.event.RestingCheckpointEvent;
+import mclachlan.maze.game.event.StartRestingEvent;
+import mclachlan.maze.game.event.StopRestingEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -40,6 +43,7 @@ import mclachlan.maze.stat.PlayerParty;
 public class RestingDialog extends GeneralDialog implements ActionListener
 {
 	private DIYButton rest, cancel;
+	private int suppliesToConsume;
 
 	/*-------------------------------------------------------------------------*/
 	public RestingDialog(
@@ -86,8 +90,10 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
 			infoPane.add(new DIYLabel(pc.getDisplayName()));
+			int suppliesNeededToRest = GameSys.getInstance().getSuppliesNeededToRest(pc);
+			suppliesToConsume += suppliesNeededToRest;
 			infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
-				String.valueOf(GameSys.getInstance().getSuppliesNeededToRest(pc)))));
+				String.valueOf(suppliesNeededToRest))));
 		}
 
 		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
@@ -162,23 +168,25 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 
 		ProgressListener prog = dialog.getProgressListener();
 		PlayerParty party = Maze.getInstance().getParty();
-		Maze.getInstance().appendEvents(
-			new RestingCheckpointEvent(10, 100, 0, false, prog, party, tile),
-			new RestingCheckpointEvent(40, 100, 10, true, prog, party, tile),
-			new RestingCheckpointEvent(40, 100, 50, true, prog, party, tile),
-			new RestingCheckpointEvent(10, 100, 90, true, prog, party, tile));
 
-		for (int i=0; i< nrTurns; i++)
-		{
-			/*Maze.getInstance().appendEvents(
-				new RestingTurnEvent(
-					nrTurns,
-					i,
-					false,
-					dialog.getProgressListener(),
-					Maze.getInstance().getParty(),
-					tile));*/
-		}
+		RestingCheckpointEvent r4 = new RestingCheckpointEvent(
+			10, nrTurns, 90, true, prog, party, tile, new StopRestingEvent());
+		RestingCheckpointEvent r3 = new RestingCheckpointEvent(
+			40, nrTurns, 50, true, prog, party, tile, r4);
+		RestingCheckpointEvent r2 = new RestingCheckpointEvent(
+			40, nrTurns, 10, true, prog, party, tile, r3);
+		RestingCheckpointEvent r1 = new RestingCheckpointEvent(
+			10, nrTurns, 0, false, prog, party, tile, r2);
+
+		Maze.getInstance().appendEvents(
+			new ModifySuppliesEvent(
+				-suppliesToConsume,
+				prog,
+				StringUtil.getUiLabel(
+					"rd.supplies.consumed",
+					String.valueOf(suppliesToConsume))),
+			new StartRestingEvent(),
+			r1);
 	}
 
 	/*-------------------------------------------------------------------------*/

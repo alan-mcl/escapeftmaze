@@ -434,7 +434,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		try
 		{
-			long now = System.currentTimeMillis();
+			long now = System.nanoTime();
 
 			DiyGuiUserInterface.gui.draw(g);
 
@@ -466,7 +466,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				}
 			}
 
-			long renderTime = System.currentTimeMillis() - now;
+			long renderTime = (System.nanoTime() - now)/1000000;
 			counter++;
 			sumRenderTime += renderTime;
 		}
@@ -597,6 +597,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		stopAllAnimations();
 		DIYToolkit.getInstance().clearDialog();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void clearAllDialogs()
+	{
+		stopAllAnimations();
+		DIYToolkit.getInstance().clearAllDialogs();
 	}
 
 	/*-------------------------------------------------------------------------*/

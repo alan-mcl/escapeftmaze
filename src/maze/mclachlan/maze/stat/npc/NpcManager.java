@@ -178,6 +178,7 @@ public class NpcManager implements GameCache
 				npc.getInventoryTemplate().update(npc.getCurrentInventory());
 			}
 		}
+		Maze.log("finished updating NPCs");
 	}
 
 	/*-------------------------------------------------------------------------*/

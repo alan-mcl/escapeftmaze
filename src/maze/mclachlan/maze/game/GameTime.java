@@ -104,6 +104,8 @@ public class GameTime
 		}
 
 		// todo: regen NPC resources?
+
+		Maze.log("finished regenerating actor resources");
 	}
 
 	/*-------------------------------------------------------------------------*/

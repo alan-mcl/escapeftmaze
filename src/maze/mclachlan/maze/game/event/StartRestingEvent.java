@@ -17,11 +17,21 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.ui.diygui;
+package mclachlan.maze.game.event;
 
-public interface ProgressListener extends MessageConsumer
+import java.util.*;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
+
+/**
+ *
+ */
+public class StartRestingEvent extends MazeEvent
 {
-	void incProgress(int amount);
-
-	void setCallback(ProgressListenerCallback callback);
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		Maze.getInstance().startResting();
+		return null;
+	}
 }

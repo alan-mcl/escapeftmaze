@@ -24,11 +24,10 @@ import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.map.Tile;
-import mclachlan.maze.stat.PlayerParty;
 
 /**
  *
@@ -37,6 +36,7 @@ public class RestingProgressDialog extends GeneralDialog
 	implements ActionListener, ProgressListenerCallback
 {
 	private DIYButton ok;
+	private DIYTextArea text;
 	private FilledBarWidget progress;
 
 	/*-------------------------------------------------------------------------*/
@@ -49,8 +49,8 @@ public class RestingProgressDialog extends GeneralDialog
 		int inset = 10;
 		int buttonPaneHeight = 18;
 
-		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2;
-		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/6;
+		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2-inset;
+		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/5;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -59,20 +59,24 @@ public class RestingProgressDialog extends GeneralDialog
 
 		this.setBounds(dialogBounds);
 
-		Tile tile = Maze.getInstance().getCurrentTile();
-		PlayerParty party = Maze.getInstance().getParty();
-
 		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
 
 		titlePane.setBounds(x, y + inset, width, buttonPaneHeight);
-		titlePane.add(new DIYLabel(title));
+		DIYLabel label = new DIYLabel(title);
+		label.setForegroundColour(Constants.Colour.GOLD);
+		titlePane.add(label);
 
-		DIYPane infoPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
-		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
+		DIYPane infoPane = new DIYPane(new DIYBorderLayout(5,5));
+		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width-inset*2, dialogHeight-buttonPaneHeight*3);
 
 		progress = new FilledBarWidget(infoPane.x, infoPane.y, dialogWidth/2, buttonHeight, 0, 100);
+		progress.setCallback(this);
+		infoPane.add(progress, DIYBorderLayout.Constraint.NORTH);
 
-		infoPane.add(progress);
+		text = new DIYTextArea("");
+		text.setTransparent(true);
+		text.setAlignment(DIYToolkit.Align.CENTER);
+		infoPane.add(text, DIYBorderLayout.Constraint.CENTER);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
@@ -135,5 +139,12 @@ public class RestingProgressDialog extends GeneralDialog
 		{
 			ok.setEnabled(true);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void message(String msg)
+	{
+		text.addText(msg+"\n");
 	}
 }

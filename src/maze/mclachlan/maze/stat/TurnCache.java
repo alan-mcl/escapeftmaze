@@ -62,6 +62,7 @@ public class TurnCache implements GameCache
 	/*-------------------------------------------------------------------------*/
 	public void endOfTurn(long turnNr)
 	{
+		Maze.log("processing turn cache...");
 		synchronized (mutex)
 		{
 			// assess turn practise
@@ -82,6 +83,7 @@ public class TurnCache implements GameCache
 			// flush the cache
 			practise.clear();
 		}
+		Maze.log("finished processing turn cache");
 	}
 
 	/*-------------------------------------------------------------------------*/

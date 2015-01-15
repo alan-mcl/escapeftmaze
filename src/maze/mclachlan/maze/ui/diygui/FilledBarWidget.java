@@ -63,13 +63,14 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	public void incProgress(int amount)
 	{
 		this.current += amount;
+		callback.callback(this.current);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void message(String msg)
 	{
-		System.out.println("msg = [" + msg + "]");
+		callback.message(msg);
 	}
 
 	/*-------------------------------------------------------------------------*/

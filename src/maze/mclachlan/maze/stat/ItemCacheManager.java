@@ -139,6 +139,8 @@ public class ItemCacheManager implements GameCache
 				}
 			}
 		}
+
+		Maze.log("finished updating item caches");
 	}
 
 	/*-------------------------------------------------------------------------*/

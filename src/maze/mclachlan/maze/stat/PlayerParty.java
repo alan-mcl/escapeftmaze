@@ -323,6 +323,12 @@ public class PlayerParty implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void incSupplies(int amount)
+	{
+		this.supplies += amount;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public PlayerCharacter getPlayerCharacter(int i)
 	{
 		return (PlayerCharacter)this.actors.get(i);

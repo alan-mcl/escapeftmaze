@@ -40,11 +40,12 @@ public class RestingCheckpointEvent extends MazeEvent
 	private ProgressListener progress;
 	private ActorGroup group;
 	private Tile tile;
+	private MazeEvent toAppend;
 
 	/*-------------------------------------------------------------------------*/
 	public RestingCheckpointEvent(int nextNrTurns, int nrTurns, long turnNr,
 		boolean checkRandomEncounters,
-		ProgressListener progress, ActorGroup ag, Tile tile)
+		ProgressListener progress, ActorGroup ag, Tile tile, MazeEvent toAppend)
 	{
 		this.nextNrTurns = nextNrTurns;
 		this.nrTurns = nrTurns;
@@ -53,6 +54,7 @@ public class RestingCheckpointEvent extends MazeEvent
 		this.progress = progress;
 		this.group = ag;
 		this.tile = tile;
+		this.toAppend = toAppend;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,9 +76,8 @@ public class RestingCheckpointEvent extends MazeEvent
 		}
 
 		progress.message(StringUtil.getUiLabel("rd.resting"));
-		for (long i=turnNr+1; i<turnNr+nextNrTurns; i++)
+		for (long i=turnNr; i<turnNr+nextNrTurns; i++)
 		{
-
 			result.add(
 				new RestingTurnEvent(
 					nrTurns,
@@ -85,6 +86,11 @@ public class RestingCheckpointEvent extends MazeEvent
 					progress,
 					group,
 					tile));
+		}
+
+		if (toAppend != null)
+		{
+			result.add(toAppend);
 		}
 
 		return result;

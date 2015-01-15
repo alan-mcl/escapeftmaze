@@ -155,6 +155,7 @@ rd.supplies.units = %s units
 rd.resting.progress = Resting in %s
 rd.encounter = An Encounter!
 rd.resting = Resting....
+rd.supplies.consumed = Consumed %s units of supplies
 
 # inventory display widget
 idw.cast.spell = (C)ast Spell

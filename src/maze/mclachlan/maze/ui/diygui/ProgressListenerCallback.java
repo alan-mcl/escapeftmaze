@@ -22,4 +22,6 @@ package mclachlan.maze.ui.diygui;
 public interface ProgressListenerCallback
 {
 	void callback(int progress);
+
+	void message(String msg);
 }
