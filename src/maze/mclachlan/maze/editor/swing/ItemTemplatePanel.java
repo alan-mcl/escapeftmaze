@@ -24,13 +24,12 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;
 
-import static mclachlan.maze.stat.Item.Type.MAX_ITEM_TYPES;
+import static mclachlan.maze.stat.ItemTemplate.Type.MAX_ITEM_TYPES;
 import static mclachlan.maze.stat.ItemTemplate.WeaponSubType.MAX_SUBTYPES;
 
 /**
@@ -76,7 +75,7 @@ public class ItemTemplatePanel extends EditorPanel
 		validItemTypes = new String[MAX_ITEM_TYPES];
 		for (int i=0; i<MAX_ITEM_TYPES; i++)
 		{
-			validItemTypes[i] = Item.Type.describe(i);
+			validItemTypes[i] = ItemTemplate.Type.describe(i);
 		}
 
 		validItemSubTypes = new String[MAX_SUBTYPES];
@@ -685,7 +684,7 @@ public class ItemTemplatePanel extends EditorPanel
 			name,
 			"",
 			"",
-			Item.Type.OTHER,
+			ItemTemplate.Type.OTHER,
 			ItemTemplate.WeaponSubType.NONE,
 			"",
 			new StatModifier(),

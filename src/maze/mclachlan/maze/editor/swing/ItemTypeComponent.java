@@ -24,8 +24,9 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.util.BitSet;
 import javax.swing.*;
-import static mclachlan.maze.stat.Item.Type.MAX_ITEM_TYPES;
-import mclachlan.maze.stat.Item;
+import static mclachlan.maze.stat.ItemTemplate.Type.MAX_ITEM_TYPES;
+
+import mclachlan.maze.stat.ItemTemplate;
 
 /**
  *
@@ -45,7 +46,7 @@ public class ItemTypeComponent extends JPanel implements ActionListener
 
 		for (int i=0; i<MAX_ITEM_TYPES; i++)
 		{
-			boxes[i] = new JCheckBox(Item.Type.describe(i));
+			boxes[i] = new JCheckBox(ItemTemplate.Type.describe(i));
 			boxes[i].addActionListener(this);
 			this.add(boxes[i]);
 		}

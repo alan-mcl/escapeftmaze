@@ -32,6 +32,8 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
 
+import static mclachlan.maze.stat.ItemTemplate.*;
+
 /**
  * To be used as the popup dialog to display item details.
  */
@@ -214,7 +216,7 @@ public class ItemDetailsWidget extends DIYPanel
 				return false;
 			}
 
-			if (item.getType() == Item.Type.SPELLBOOK)
+			if (item.getType() == ItemTemplate.Type.SPELLBOOK)
 			{
 				String s = StringUtil.getUiLabel("idw.teaches.spell",
 					item.getInvokedSpell().getDisplayName(), item.getInvokedSpell().getBook().getName());
@@ -666,19 +668,19 @@ public class ItemDetailsWidget extends DIYPanel
 			String typeDesc = null;
 			switch (item.getType())
 			{
-				case Item.Type.BANNER_EQUIPMENT: typeDesc = "Banner Item"; break;
-				case Item.Type.BOMB: typeDesc = "Bomb"; break;
-				case Item.Type.DRINK: typeDesc = "Beverage"; break;
-				case Item.Type.FOOD: typeDesc = "Food"; break;
-				case Item.Type.KEY: typeDesc = "Key"; break;
-				case Item.Type.MISC_EQUIPMENT: typeDesc = "Miscellaneous Item"; break;
-				case Item.Type.MISC_MAGIC: typeDesc = "Magical Item"; break;
-				case Item.Type.OTHER: typeDesc = "Miscellaneous Item"; break;
-				case Item.Type.POTION: typeDesc = "Potion"; break;
-				case Item.Type.POWDER: typeDesc = "Powder"; break;
-				case Item.Type.SCROLL: typeDesc = "Scroll"; break;
-				case Item.Type.SPELLBOOK: typeDesc = "Spell Book"; break;
-				case Item.Type.WRITING: typeDesc = "Book"; break;
+				case Type.BANNER_EQUIPMENT: typeDesc = "Banner Item"; break;
+				case Type.BOMB: typeDesc = "Bomb"; break;
+				case Type.DRINK: typeDesc = "Beverage"; break;
+				case Type.FOOD: typeDesc = "Food"; break;
+				case Type.KEY: typeDesc = "Key"; break;
+				case Type.MISC_EQUIPMENT: typeDesc = "Miscellaneous Item"; break;
+				case Type.MISC_MAGIC: typeDesc = "Magical Item"; break;
+				case Type.OTHER: typeDesc = "Miscellaneous Item"; break;
+				case Type.POTION: typeDesc = "Potion"; break;
+				case Type.POWDER: typeDesc = "Powder"; break;
+				case Type.SCROLL: typeDesc = "Scroll"; break;
+				case Type.SPELLBOOK: typeDesc = "Spell Book"; break;
+				case Type.WRITING: typeDesc = "Book"; break;
 			}
 
 			if (typeDesc != null)

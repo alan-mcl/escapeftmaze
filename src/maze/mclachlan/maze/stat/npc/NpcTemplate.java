@@ -65,7 +65,7 @@ public class NpcTemplate
 	int maxPurchasePrice;
 
 	/** which item types this NPC will buy, a bitset over the values in {@link
-	 * mclachlan.maze.stat.Item.Type} */
+	 * mclachlan.maze.stat.ItemTemplate.Type} */
 	BitSet willBuyItemTypes;
 
 	/** how this NPCs inventory is populated */

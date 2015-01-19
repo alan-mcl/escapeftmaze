@@ -8,11 +8,11 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.stat.Stats.Modifiers.*;
+import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
  *
@@ -26,14 +26,14 @@ public class ItemScorer
 	{
 		switch (t.getType())
 		{
-			case Item.Type.SHORT_WEAPON:
-			case Item.Type.EXTENDED_WEAPON:
-			case Item.Type.RANGED_WEAPON:
-			case Item.Type.THROWN_WEAPON:
+			case Type.SHORT_WEAPON:
+			case Type.EXTENDED_WEAPON:
+			case Type.RANGED_WEAPON:
+			case Type.THROWN_WEAPON:
 				return scoreWeapon(t);
 			// todo: other types
 			default:
-				throw new MazeException("not implemented: " + Item.Type.describe(t.getType()));
+				throw new MazeException("not implemented: " + ItemTemplate.Type.describe(t.getType()));
 		}
 	}
 

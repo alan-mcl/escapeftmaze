@@ -25,7 +25,6 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 
@@ -53,7 +52,7 @@ public class UpdateItems
 		{
 			ItemTemplate item = items.get(s);
 
-			if (item.getType() == Item.Type.SPELLBOOK)
+			if (item.getType() == ItemTemplate.Type.SPELLBOOK)
 			{
 				if (item.getEquipRequirements() != null && !item.getEquipRequirements().isEmpty())
 				{

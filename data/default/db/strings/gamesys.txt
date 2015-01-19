@@ -682,3 +682,36 @@ lap_name_curse = Curse
 lap_desc_curse = The Witch can hurl a powerful curse at a single foe.
 lap_name_mystic_birthright = Mystic Birthright
 lap_desc_mystic_birthright = The Witch is a walking source of one Purple magic for the whole party.
+
+#
+# ITEM PROPERTIES
+#
+
+item.type.short_weapon = short weapon
+item.type.extended_weapon = extended weapon
+item.type.thrown_weapon = thrown weapon
+item.type.ranged_weapon = ranged weapon
+item.type.ammunition = ammunition
+item.type.shield = shield
+item.type.torso_armour = torso armour
+item.type.leg_armour = leg armour
+item.type.head_armour = head armour
+item.type.gloves = gloves
+item.type.boots = boots
+item.type.misc_equipment = misc equipment
+item.type.banner_equipment = banner equipment
+item.type.misc_magic = misc magic
+item.type.potion = potion
+item.type.bomb = bomb
+item.type.powder = powder
+item.type.spellbook = spellbook
+item.type.scroll = scroll
+item.type.food = food
+item.type.drink = drink
+item.type.key = key
+item.type.writing = writing
+item.type.gadget = gadget
+item.type.musical_instrument = musical instrument
+item.type.money = money
+item.type.supplies = supplies
+item.type.other = other

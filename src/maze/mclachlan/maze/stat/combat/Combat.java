@@ -742,7 +742,7 @@ public class Combat
 
 		// EARLY EXIT SPECIAL CASE SHIT: spellbooks attempt to teach the spell 
 		// to the character, failure means that nothing happens
-		if (item.getType() == Item.Type.SPELLBOOK && actor instanceof PlayerCharacter)
+		if (item.getType() == ItemTemplate.Type.SPELLBOOK && actor instanceof PlayerCharacter)
 		{
 			PlayerCharacter pc = (PlayerCharacter)actor;
 			

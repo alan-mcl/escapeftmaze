@@ -733,7 +733,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		}
 		else if (item.getInvokedSpell() != null &&
 			item.getInvokedSpell().getTargetType() == MagicSys.SpellTargetType.ITEM &&
-			item.getType() != Item.Type.SPELLBOOK)
+			item.getType() != ItemTemplate.Type.SPELLBOOK)
 		{
 			// this is an item with an ITEM targeting effect
 			// (but not a spellbook! In that case the PC must learn the spell)

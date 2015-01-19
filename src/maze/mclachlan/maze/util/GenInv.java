@@ -27,9 +27,10 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplate;
+
+import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
  * Generate a vendors inventory
@@ -58,17 +59,17 @@ public class GenInv
 			int clvl = getDefaultPartyLvlAppearing(item);
 			switch (item.getType())
 			{
-				case Item.Type.SHORT_WEAPON:
-				case Item.Type.EXTENDED_WEAPON:
-				case Item.Type.THROWN_WEAPON:
-				case Item.Type.RANGED_WEAPON:
-				case Item.Type.AMMUNITION:
-				case Item.Type.SHIELD:
-				case Item.Type.HEAD_ARMOUR:
-				case Item.Type.TORSO_ARMOUR:
-				case Item.Type.LEG_ARMOUR:
-				case Item.Type.GLOVES:
-				case Item.Type.BOOTS:
+				case Type.SHORT_WEAPON:
+				case Type.EXTENDED_WEAPON:
+				case Type.THROWN_WEAPON:
+				case Type.RANGED_WEAPON:
+				case Type.AMMUNITION:
+				case Type.SHIELD:
+				case Type.HEAD_ARMOUR:
+				case Type.TORSO_ARMOUR:
+				case Type.LEG_ARMOUR:
+				case Type.GLOVES:
+				case Type.BOOTS:
 					t.add(item.getName(), 10, clvl, 1, 20, Dice.d1);
 			}
 		}
@@ -84,19 +85,19 @@ public class GenInv
 
 		switch (item.getType())
 		{
-			case Item.Type.SHORT_WEAPON:
-			case Item.Type.EXTENDED_WEAPON:
-			case Item.Type.THROWN_WEAPON:
-			case Item.Type.RANGED_WEAPON:
-			case Item.Type.AMMUNITION:
+			case Type.SHORT_WEAPON:
+			case Type.EXTENDED_WEAPON:
+			case Type.THROWN_WEAPON:
+			case Type.RANGED_WEAPON:
+			case Type.AMMUNITION:
 				clvl = item.getDamage().getMaxPossible()/2+1;
 				break;
-			case Item.Type.SHIELD:
-			case Item.Type.HEAD_ARMOUR:
-			case Item.Type.TORSO_ARMOUR:
-			case Item.Type.LEG_ARMOUR:
-			case Item.Type.GLOVES:
-			case Item.Type.BOOTS:
+			case Type.SHIELD:
+			case Type.HEAD_ARMOUR:
+			case Type.TORSO_ARMOUR:
+			case Type.LEG_ARMOUR:
+			case Type.GLOVES:
+			case Type.BOOTS:
 				clvl = item.getDamagePrevention();
 				break;
 		}

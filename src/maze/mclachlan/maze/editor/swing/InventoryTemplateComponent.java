@@ -31,11 +31,12 @@ import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplateRow;
 import mclachlan.maze.util.GenInv;
 import mclachlan.maze.util.MazeException;
+
+import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
  *
@@ -43,10 +44,10 @@ import mclachlan.maze.util.MazeException;
 public class InventoryTemplateComponent extends JPanel implements ActionListener
 {
 	private int dirtyFlag;
-	JTable table;
-	JButton add, remove, quickFill, clear;
-	MyTableModel dataModel;
-	JComboBox itemTemplateCombo;
+	private JTable table;
+	private JButton add, remove, quickFill, clear;
+	private MyTableModel dataModel;
+	private JComboBox itemTemplateCombo;
 
 	/*-------------------------------------------------------------------------*/
 	protected InventoryTemplateComponent(int dirtyFlag, double scaleX, double scaleY)
@@ -234,11 +235,11 @@ public class InventoryTemplateComponent extends JPanel implements ActionListener
 	{
 		switch (type)
 		{
-			case Item.Type.AMMUNITION: return new Dice(3, 6, 35);
-			case Item.Type.BOMB: return new Dice(1,2,1);
-			case Item.Type.POTION: return new Dice(1,2,1);
-			case Item.Type.POWDER: return new Dice(2,2,0);
-			case Item.Type.THROWN_WEAPON: return new Dice(5,6,0);
+			case Type.AMMUNITION: return new Dice(3, 6, 35);
+			case Type.BOMB: return new Dice(1,2,1);
+			case Type.POTION: return new Dice(1,2,1);
+			case Type.POWDER: return new Dice(2,2,0);
+			case Type.THROWN_WEAPON: return new Dice(5,6,0);
 			default: return Dice.d1;
 		}
 	}
@@ -425,7 +426,7 @@ public class InventoryTemplateComponent extends JPanel implements ActionListener
 			buttons.add(cancel);
 			
 			JPanel mid = new JPanel();
-			mid.setLayout(new GridLayout(Item.Type.MAX_ITEM_TYPES+1, 1));
+			mid.setLayout(new GridLayout(ItemTemplate.Type.MAX_ITEM_TYPES+1, 1));
 
 			JPanel header = new JPanel(new GridLayout(1, 8));
 			header.add(new JLabel());
@@ -439,8 +440,8 @@ public class InventoryTemplateComponent extends JPanel implements ActionListener
 
 			mid.add(header);
 
-			comps = new ItemTypeComponent[Item.Type.MAX_ITEM_TYPES];
-			for (int i = 0; i < Item.Type.MAX_ITEM_TYPES; i++)
+			comps = new ItemTypeComponent[ItemTemplate.Type.MAX_ITEM_TYPES];
+			for (int i = 0; i < ItemTemplate.Type.MAX_ITEM_TYPES; i++)
 			{
 				comps[i] = new ItemTypeComponent(i);
 				mid.add(comps[i]);
@@ -481,7 +482,7 @@ public class InventoryTemplateComponent extends JPanel implements ActionListener
 			setLayout(new GridLayout(1, 8));
 
 			select = new JCheckBox("sells?");
-			name = new JLabel(Item.Type.describe(type));
+			name = new JLabel(ItemTemplate.Type.describe(type));
 			maxPrice = new JSpinner(new SpinnerNumberModel(-1,-1,9999999, 1));
 			chanceOfVanishing = new JTextField();
 			chanceOfSpawning = new JTextField();

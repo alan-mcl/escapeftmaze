@@ -403,10 +403,10 @@ public class Item implements AttackWith
 
 	public boolean isWeapon()
 	{
-		return getType() == Type.SHORT_WEAPON ||
-			getType() == Type.EXTENDED_WEAPON ||
-			getType() == Type.RANGED_WEAPON ||
-			getType() == Type.THROWN_WEAPON;
+		return getType() == ItemTemplate.Type.SHORT_WEAPON ||
+			getType() == ItemTemplate.Type.EXTENDED_WEAPON ||
+			getType() == ItemTemplate.Type.RANGED_WEAPON ||
+			getType() == ItemTemplate.Type.THROWN_WEAPON;
 	}
 
 	public int getDamagePreventionChance()
@@ -461,7 +461,7 @@ public class Item implements AttackWith
 
 	public boolean isAmmo()
 	{
-		return template.type == Type.AMMUNITION;
+		return template.type == ItemTemplate.Type.AMMUNITION;
 	}
 
 	public boolean isTwoHanded()
@@ -491,16 +491,16 @@ public class Item implements AttackWith
 	
 	public boolean isArmour()
 	{
-		return template.type == Type.HEAD_ARMOUR ||
-			template.type == Type.TORSO_ARMOUR ||
-			template.type == Type.LEG_ARMOUR ||
-			template.type == Type.BOOTS ||
-			template.type == Type.GLOVES;
+		return template.type == ItemTemplate.Type.HEAD_ARMOUR ||
+			template.type == ItemTemplate.Type.TORSO_ARMOUR ||
+			template.type == ItemTemplate.Type.LEG_ARMOUR ||
+			template.type == ItemTemplate.Type.BOOTS ||
+			template.type == ItemTemplate.Type.GLOVES;
 	}
 
 	public boolean isShield()
 	{
-		return template.type == Type.SHIELD;
+		return template.type == ItemTemplate.Type.SHIELD;
 	}
 
 	public ItemEnchantment getEnchantment()
@@ -521,95 +521,6 @@ public class Item implements AttackWith
 		sb.append("{name=").append(getName());
 		sb.append('}');
 		return sb.toString();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static class Type
-	{
-		public static final int MAX_ITEM_TYPES = 26;
-			
-		public static final int SHORT_WEAPON = 0;
-		public static final int EXTENDED_WEAPON = 1;
-		public static final int THROWN_WEAPON = 2;
-		public static final int RANGED_WEAPON = 3;
-		public static final int AMMUNITION = 4;
-		public static final int SHIELD = 5;
-		public static final int TORSO_ARMOUR = 6;
-		public static final int LEG_ARMOUR = 7;
-		public static final int HEAD_ARMOUR = 8;
-		public static final int GLOVES = 9;
-		public static final int BOOTS = 10;
-		public static final int MISC_EQUIPMENT = 11;
-		public static final int BANNER_EQUIPMENT = 12;
-		public static final int MISC_MAGIC = 13;
-		public static final int POTION = 14;
-		public static final int BOMB = 15;
-		public static final int POWDER = 16;
-		public static final int SPELLBOOK = 17;
-		public static final int SCROLL = 18;
-		public static final int FOOD = 19;
-		public static final int DRINK = 20;
-		public static final int KEY = 21;
-		public static final int WRITING = 22;
-		public static final int OTHER = 23;
-		public static final int GADGET = 24;
-		public static final int MUSICAL_INSTRUMENT = 25;
-
-		static Map<String, Integer> types = new HashMap<String, Integer>();
-
-		static
-		{
-			for (int i=0; i<MAX_ITEM_TYPES; i++)
-			{
-				types.put(describe(i), i);
-			}
-		}
-
-		public static int valueOf(String s)
-		{
-			if (types.containsKey(s))
-			{
-				return types.get(s);
-			}
-			else
-			{
-				throw new MazeException("Invalid type ["+s+"]");
-			}
-		}
-
-		public static String describe(int type)
-		{
-			switch(type)
-			{
-				case SHORT_WEAPON: return "short weapon";
-				case EXTENDED_WEAPON: return "extended weapon";
-				case THROWN_WEAPON: return "thrown weapon";
-				case RANGED_WEAPON: return "ranged weapon";
-				case AMMUNITION: return "ammunition";
-				case SHIELD: return "shield";
-				case TORSO_ARMOUR: return "torso armour";
-				case LEG_ARMOUR: return "leg armour";
-				case HEAD_ARMOUR: return "head armour";
-				case GLOVES: return "gloves";
-				case BOOTS: return "boots";
-				case MISC_EQUIPMENT: return "misc equipment";
-				case BANNER_EQUIPMENT: return "banner equipment";
-				case MISC_MAGIC: return "misc magic";
-				case POTION: return "potion";
-				case BOMB: return "bomb";
-				case POWDER: return "powder";
-				case SPELLBOOK: return "spellbook";
-				case SCROLL: return "scroll";
-				case FOOD: return "food";
-				case DRINK: return "drink";
-				case KEY: return "key";
-				case WRITING: return "writing";
-				case GADGET: return "gadget";
-				case MUSICAL_INSTRUMENT: return "musical instrument";
-				case OTHER: return "other";
-				default: throw new MazeException("Invalid type ["+type+"]");
-			}
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/

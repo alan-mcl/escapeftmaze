@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.magic.Spell;
@@ -53,7 +54,7 @@ public class ItemTemplate
 	String unidentifiedName;
 
 	/**
-	 * The type of the item, from {@link Item.Type}
+	 * The type of the item, from {@link mclachlan.maze.stat.ItemTemplate.Type}
 	 */
 	int type;
 
@@ -944,10 +945,10 @@ public class ItemTemplate
 	/*-------------------------------------------------------------------------*/
 	public boolean isWeapon()
 	{
-		return type == Item.Type.SHORT_WEAPON ||
-			type == Item.Type.EXTENDED_WEAPON ||
-			type == Item.Type.THROWN_WEAPON ||
-			type == Item.Type.RANGED_WEAPON;
+		return type == Type.SHORT_WEAPON ||
+			type == Type.EXTENDED_WEAPON ||
+			type == Type.THROWN_WEAPON ||
+			type == Type.RANGED_WEAPON;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1080,5 +1081,98 @@ public class ItemTemplate
 	{
 		STRAIGHT,
 		PARTY_LEVEL,
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class Type
+	{
+		public static final int MAX_ITEM_TYPES = 28;
+
+		public static final int SHORT_WEAPON = 0;
+		public static final int EXTENDED_WEAPON = 1;
+		public static final int THROWN_WEAPON = 2;
+		public static final int RANGED_WEAPON = 3;
+		public static final int AMMUNITION = 4;
+		public static final int SHIELD = 5;
+		public static final int TORSO_ARMOUR = 6;
+		public static final int LEG_ARMOUR = 7;
+		public static final int HEAD_ARMOUR = 8;
+		public static final int GLOVES = 9;
+		public static final int BOOTS = 10;
+		public static final int MISC_EQUIPMENT = 11;
+		public static final int BANNER_EQUIPMENT = 12;
+		public static final int MISC_MAGIC = 13;
+		public static final int POTION = 14;
+		public static final int BOMB = 15;
+		public static final int POWDER = 16;
+		public static final int SPELLBOOK = 17;
+		public static final int SCROLL = 18;
+		public static final int FOOD = 19;
+		public static final int DRINK = 20;
+		public static final int KEY = 21;
+		public static final int WRITING = 22;
+		public static final int OTHER = 23;
+		public static final int GADGET = 24;
+		public static final int MUSICAL_INSTRUMENT = 25;
+		public static final int MONEY = 26;
+		public static final int SUPPLIES = 27;
+
+		static Map<String, Integer> types = new HashMap<String, Integer>();
+
+		static
+		{
+			for (int i=0; i<MAX_ITEM_TYPES; i++)
+			{
+				types.put(describe(i), i);
+			}
+		}
+
+		public static int valueOf(String s)
+		{
+			if (types.containsKey(s))
+			{
+				return types.get(s);
+			}
+			else
+			{
+				throw new MazeException("Invalid type ["+s+"]");
+			}
+		}
+
+		public static String describe(int type)
+		{
+			switch(type)
+			{
+				case SHORT_WEAPON: return StringUtil.getGamesysString("item.type.short_weapon");
+				case EXTENDED_WEAPON: return StringUtil.getGamesysString("item.type.extended_weapon");
+				case THROWN_WEAPON: return StringUtil.getGamesysString("item.type.thrown_weapon");
+				case RANGED_WEAPON: return StringUtil.getGamesysString("item.type.ranged_weapon");
+				case AMMUNITION: return StringUtil.getGamesysString("item.type.ammunition");
+				case SHIELD: return StringUtil.getGamesysString("item.type.shield");
+				case TORSO_ARMOUR: return StringUtil.getGamesysString("item.type.torso_armour");
+				case LEG_ARMOUR: return StringUtil.getGamesysString("item.type.leg_armour");
+				case HEAD_ARMOUR: return StringUtil.getGamesysString("item.type.head_armour");
+				case GLOVES: return StringUtil.getGamesysString("item.type.gloves");
+				case BOOTS: return StringUtil.getGamesysString("item.type.boots");
+				case MISC_EQUIPMENT: return StringUtil.getGamesysString("item.type.misc_equipment");
+				case BANNER_EQUIPMENT: return StringUtil.getGamesysString("item.type.banner_equipment");
+				case MISC_MAGIC: return StringUtil.getGamesysString("item.type.misc_magic");
+				case POTION: return StringUtil.getGamesysString("item.type.potion");
+				case BOMB: return StringUtil.getGamesysString("item.type.bomb");
+				case POWDER: return StringUtil.getGamesysString("item.type.powder");
+				case SPELLBOOK: return StringUtil.getGamesysString("item.type.spellbook");
+				case SCROLL: return StringUtil.getGamesysString("item.type.scroll");
+				case FOOD: return StringUtil.getGamesysString("item.type.food");
+				case DRINK: return StringUtil.getGamesysString("item.type.drink");
+				case KEY: return StringUtil.getGamesysString("item.type.key");
+				case WRITING: return StringUtil.getGamesysString("item.type.writing");
+				case GADGET: return StringUtil.getGamesysString("item.type.gadget");
+				case MUSICAL_INSTRUMENT: return StringUtil.getGamesysString("item.type.musical_instrument");
+				case MONEY: return StringUtil.getGamesysString("item.type.money");
+				case SUPPLIES: return StringUtil.getGamesysString("item.type.supplies");
+				case OTHER: return StringUtil.getGamesysString("item.type.other");
+				default: throw new MazeException("Invalid type ["+type+"]");
+			}
+		}
 	}
 }

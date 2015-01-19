@@ -33,11 +33,12 @@ import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.map.LootEntryRow;
 import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplateRow;
 import mclachlan.maze.util.GenInv;
 import mclachlan.maze.util.MazeException;
+
+import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
  *
@@ -297,11 +298,11 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 	{
 		switch (type)
 		{
-			case Item.Type.AMMUNITION: return new Dice(3, 6, 35);
-			case Item.Type.BOMB: return new Dice(1,2,1);
-			case Item.Type.POTION: return new Dice(1,2,1);
-			case Item.Type.POWDER: return new Dice(2,2,0);
-			case Item.Type.THROWN_WEAPON: return new Dice(5,6,0);
+			case Type.AMMUNITION: return new Dice(3, 6, 35);
+			case Type.BOMB: return new Dice(1,2,1);
+			case Type.POTION: return new Dice(1,2,1);
+			case Type.POWDER: return new Dice(2,2,0);
+			case Type.THROWN_WEAPON: return new Dice(5,6,0);
 			default: return Dice.d1;
 		}
 	}
@@ -536,7 +537,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		JPanel getByItemTypePanel()
 		{
 			JPanel result = new JPanel();
-			result.setLayout(new GridLayout(Item.Type.MAX_ITEM_TYPES+2, 1));
+			result.setLayout(new GridLayout(ItemTemplate.Type.MAX_ITEM_TYPES+2, 1));
 
 			result.add(new JLabel("Enter integers or Dice in each field..."));
 
@@ -552,8 +553,8 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 
 			result.add(header);
 
-			itemTypeComps = new ItemTypeComponent[Item.Type.MAX_ITEM_TYPES];
-			for (int i = 0; i < Item.Type.MAX_ITEM_TYPES; i++)
+			itemTypeComps = new ItemTypeComponent[ItemTemplate.Type.MAX_ITEM_TYPES];
+			for (int i = 0; i < ItemTemplate.Type.MAX_ITEM_TYPES; i++)
 			{
 				itemTypeComps[i] = new ItemTypeComponent(i);
 				result.add(itemTypeComps[i]);
@@ -588,7 +589,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 			setLayout(new GridLayout(1, 8));
 
 			select = new JCheckBox("sells?");
-			name = new JLabel(Item.Type.describe(type));
+			name = new JLabel(ItemTemplate.Type.describe(type));
 			maxPrice = new JSpinner(new SpinnerNumberModel(-1,-1,9999999, 1));
 			chanceOfVanishing = new JTextField();
 			chanceOfSpawning = new JTextField();

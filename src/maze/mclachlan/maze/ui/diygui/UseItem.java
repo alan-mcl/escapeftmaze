@@ -20,10 +20,7 @@
 package mclachlan.maze.ui.diygui;
 
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.SpellTarget;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.util.MazeException;
 
@@ -116,7 +113,7 @@ public class UseItem implements ChooseCharacterCallback,
 		if (item.getInvokedSpell() != null)
 		{
 			if (item.getInvokedSpell().getTargetType() == MagicSys.SpellTargetType.ALLY &&
-				item.getType() != Item.Type.SPELLBOOK)
+				item.getType() != ItemTemplate.Type.SPELLBOOK)
 			{
 				// requires further work
 				// (spell books mean that the PC will attempt to learn the spell

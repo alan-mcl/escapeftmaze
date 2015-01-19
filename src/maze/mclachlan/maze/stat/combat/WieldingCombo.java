@@ -109,13 +109,13 @@ public class WieldingCombo
 		return ((Key.NONE.equals(hand) && item == null) ||
 			(Key.ANYTHING.equals(hand) && item != null) ||
 
-			(Key.SHORT_WEAPON.equals(hand) && item.getType() == Item.Type.SHORT_WEAPON) ||
-			(Key.EXTENDED_WEAPON.equals(hand) && item.getType() == Item.Type.EXTENDED_WEAPON) ||
-			(Key.THROWN_WEAPON.equals(hand) && item.getType() == Item.Type.THROWN_WEAPON) ||
+			(Key.SHORT_WEAPON.equals(hand) && item.getType() == ItemTemplate.Type.SHORT_WEAPON) ||
+			(Key.EXTENDED_WEAPON.equals(hand) && item.getType() == ItemTemplate.Type.EXTENDED_WEAPON) ||
+			(Key.THROWN_WEAPON.equals(hand) && item.getType() == ItemTemplate.Type.THROWN_WEAPON) ||
 			(Key.THROWN_WEAPON.equals(hand) && item.getSubType() == ItemTemplate.WeaponSubType.THROWN) ||
-			(Key.RANGED_WEAPON.equals(hand) && item.getType() == Item.Type.RANGED_WEAPON) ||
-			(Key.AMMUNITION.equals(hand) && item.getType() == Item.Type.AMMUNITION) ||
-			(Key.SHIELD.equals(hand) && item.getType() == Item.Type.SHIELD) ||
+			(Key.RANGED_WEAPON.equals(hand) && item.getType() == ItemTemplate.Type.RANGED_WEAPON) ||
+			(Key.AMMUNITION.equals(hand) && item.getType() == ItemTemplate.Type.AMMUNITION) ||
+			(Key.SHIELD.equals(hand) && item.getType() == ItemTemplate.Type.SHIELD) ||
 
 			(Key.SWORD.equals(hand) && item.getSubType() == ItemTemplate.WeaponSubType.SWORD) ||
 			(Key.AXE.equals(hand) && item.getSubType() == ItemTemplate.WeaponSubType.AXE) ||

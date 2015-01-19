@@ -38,6 +38,8 @@ import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.util.MazeException;
 
+import static mclachlan.maze.stat.ItemTemplate.*;
+
 public class GameSys
 {
 	private static Dice stealth2d2 = new Dice(2, 2, 0);
@@ -93,18 +95,18 @@ public class GameSys
 
 		ItemTemplate template = Database.getInstance().getItemTemplate(name);
 		Item result;
-		if (template.getType() == Item.Type.AMMUNITION)
+		if (template.getType() == ItemTemplate.Type.AMMUNITION)
 		{
 			result = template.create(Math.min(50, template.getMaxItemsPerStack()));
 		}
-		else if (template.getType() == Item.Type.THROWN_WEAPON)
+		else if (template.getType() == ItemTemplate.Type.THROWN_WEAPON)
 		{
 			result = template.create(Math.min(20, template.getMaxItemsPerStack()));
 		}
-		else if (template.getType() == Item.Type.BOMB ||
-			template.getType() == Item.Type.POTION ||
-			template.getType() == Item.Type.POWDER ||
-			template.getType() == Item.Type.FOOD)
+		else if (template.getType() == ItemTemplate.Type.BOMB ||
+			template.getType() == ItemTemplate.Type.POTION ||
+			template.getType() == ItemTemplate.Type.POWDER ||
+			template.getType() == ItemTemplate.Type.FOOD)
 		{
 			result = template.create(Math.min(5, template.getMaxItemsPerStack()));
 		}
@@ -291,7 +293,7 @@ public class GameSys
 		if (attacker.getModifier(Stats.Modifiers.MASTER_ARCHER) > 0)
 		{
 			if (attackWith instanceof Item &&
-				((Item)attackWith).getType() == Item.Type.RANGED_WEAPON)
+				((Item)attackWith).getType() == ItemTemplate.Type.RANGED_WEAPON)
 			{
 				// master archer bonus with bows
 				result += attacker.getLevel();
@@ -3033,7 +3035,7 @@ public class GameSys
 			"unarmed",
 			"unarmed",
 			"unarmed",
-			Item.Type.SHORT_WEAPON,
+			ItemTemplate.Type.SHORT_WEAPON,
 			ItemTemplate.WeaponSubType.MARTIAL_ARTS,
 			"unarmed weapon",
 			StatModifier.NULL_STAT_MODIFIER,
@@ -3474,16 +3476,16 @@ public class GameSys
 			Item item = (Item)attackWith;
 			switch (item.getType())
 			{
-				case Item.Type.SHORT_WEAPON:
-				case Item.Type.EXTENDED_WEAPON:
+				case Type.SHORT_WEAPON:
+				case Type.EXTENDED_WEAPON:
 					modifier = Stats.Modifiers.MELEE_CRITICALS;
 					percent += attacker.getModifier(modifier);
 					break;
-				case Item.Type.THROWN_WEAPON:
+				case Type.THROWN_WEAPON:
 					modifier = Stats.Modifiers.THROWN_CRITICALS;
 					percent += attacker.getModifier(modifier);
 					break;
-				case Item.Type.RANGED_WEAPON:
+				case Type.RANGED_WEAPON:
 					modifier = Stats.Modifiers.RANGED_CRITICALS;
 					percent += attacker.getModifier(modifier);
 					break;
@@ -3539,13 +3541,13 @@ public class GameSys
 			Item item = (Item)attackWith;
 			switch (item.getType())
 			{
-				case Item.Type.SHORT_WEAPON:
-				case Item.Type.EXTENDED_WEAPON:
+				case Type.SHORT_WEAPON:
+				case Type.EXTENDED_WEAPON:
 					percent += (attacker.getModifier(Stats.Modifiers.MELEE_CRITICALS)/2);
 					break;
-				case Item.Type.THROWN_WEAPON:
+				case Type.THROWN_WEAPON:
 					return false;
-				case Item.Type.RANGED_WEAPON:
+				case Type.RANGED_WEAPON:
 					return false;
 				default: // no op
 			}
@@ -3628,8 +3630,8 @@ public class GameSys
 	{
 		PlayerCharacter pc = (PlayerCharacter)defender;
 		return pc.getPrimaryWeapon() != null &&
-			(pc.getPrimaryWeapon().getType() == Item.Type.SHORT_WEAPON ||
-				pc.getPrimaryWeapon().getType() == Item.Type.EXTENDED_WEAPON);
+			(pc.getPrimaryWeapon().getType() == ItemTemplate.Type.SHORT_WEAPON ||
+				pc.getPrimaryWeapon().getType() == ItemTemplate.Type.EXTENDED_WEAPON);
 	}
 
 	/*-------------------------------------------------------------------------*/

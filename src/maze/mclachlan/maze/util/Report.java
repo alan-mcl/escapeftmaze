@@ -26,7 +26,6 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 
 /**
@@ -50,7 +49,7 @@ public class Report
 			ItemTemplate item = items.get(s);
 
 			String name = item.getName();
-			String type = Item.Type.describe(item.getType());
+			String type = ItemTemplate.Type.describe(item.getType());
 			int cost = item.getBaseCost();
 
 			System.out.println(name+","+type+","+cost);
