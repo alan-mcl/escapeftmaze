@@ -32,6 +32,7 @@ public class StringUtil
 	private static final String TIPS = "tips";
 	private static final String UI = "ui";
 	private static final String CAMPAIGN = "campaign";
+	private static final String EVENT = "event";
 
 	/*-------------------------------------------------------------------------*/
 	public static String getGamesysString(String key)
@@ -73,6 +74,12 @@ public class StringUtil
 	public static String getUiLabel(String key, Object... args)
 	{
 		return getString(UI, key, args);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String getEventText(String key, Object... args)
+	{
+		return getString(EVENT, key, args);
 	}
 
 	/*-------------------------------------------------------------------------*/

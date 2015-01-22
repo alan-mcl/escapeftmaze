@@ -1,0 +1,6 @@
+#
+# Event text descriptions
+#
+
+modify.supplies = Party receives %s units of supplies
+grant.gold = Party receives %sgp

@@ -57,6 +57,7 @@ public class ItemTemplatePanel extends EditorPanel
 	private SpellEffectGroupOfPossibilitiesPanel spellEffects;
 	private JSpinner enchantmentChance;
 	private JComboBox enchantmentCalculation, enchantmentScheme, disassemblyLootTable;
+	private JSpinner conversionRate;
 
 	private static String[] validItemTypes, validItemSubTypes;
 
@@ -403,9 +404,13 @@ public class ItemTemplatePanel extends EditorPanel
 		curseStrength.addChangeListener(this);
 		dodgyGridBagShite(left, new JLabel("Curse Strength:"), curseStrength, gbc);
 
-		maxItemsPerStack = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		maxItemsPerStack = new JSpinner(new SpinnerNumberModel(0, 0, 9999, 1));
 		maxItemsPerStack.addChangeListener(this);
 		dodgyGridBagShite(left, new JLabel("Max per Stack:"), maxItemsPerStack, gbc);
+
+		conversionRate = new JSpinner(new SpinnerNumberModel(0D, 0D, 99D, 0.1D));
+		conversionRate.addChangeListener(this);
+		dodgyGridBagShite(left, new JLabel("Conversion Rate:"), conversionRate, gbc);
 
 		baseCost = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
 		baseCost.addChangeListener(this);
@@ -515,6 +520,7 @@ public class ItemTemplatePanel extends EditorPanel
 		weight.removeChangeListener(this);
 		curseStrength.removeChangeListener(this);
 		maxItemsPerStack.removeChangeListener(this);
+		conversionRate.removeChangeListener(this);
 		baseCost.removeChangeListener(this);
 		invokedSpell.removeActionListener(this);
 		invokedSpellLevel.removeChangeListener(this);
@@ -561,6 +567,7 @@ public class ItemTemplatePanel extends EditorPanel
 		isQuestItem.setSelected(it.isQuestItem());
 		curseStrength.setValue(it.getCurseStrength());
 		maxItemsPerStack.setValue(it.getMaxItemsPerStack());
+		conversionRate.setValue((double)it.getConversionRate());
 		baseCost.setValue(it.getBaseCost());
 		if (it.getInvokedSpell() == null)
 		{
@@ -646,6 +653,7 @@ public class ItemTemplatePanel extends EditorPanel
 		weight.addChangeListener(this);
 		curseStrength.addChangeListener(this);
 		maxItemsPerStack.addChangeListener(this);
+		conversionRate.addChangeListener(this);
 		baseCost.addChangeListener(this);
 		invokedSpell.addActionListener(this);
 		invokedSpellLevel.addChangeListener(this);
@@ -733,7 +741,8 @@ public class ItemTemplatePanel extends EditorPanel
 			0,
 			ItemTemplate.EnchantmentCalculation.STRAIGHT,
 			null,
-			null);
+			null,
+			0F);
 
 		Database.getInstance().getItemTemplates().put(name, it);
 	}
@@ -804,7 +813,8 @@ public class ItemTemplatePanel extends EditorPanel
 			current.getEnchantmentChance(),
 			current.getEnchantmentCalculation(),
 			current.getEnchantmentScheme(),
-			current.getDisassemblyLootTable());
+			current.getDisassemblyLootTable(),
+			current.getConversionRate());
 
 		Database.getInstance().getItemTemplates().put(newName, it);
 	}
@@ -835,6 +845,9 @@ public class ItemTemplatePanel extends EditorPanel
 		it.setQuestItem(isQuestItem.isSelected());
 		it.setCurseStrength((Integer)curseStrength.getValue());
 		it.setMaxItemsPerStack((Integer)maxItemsPerStack.getValue());
+		Double cr = (Double)conversionRate.getValue();
+		float crf = cr.floatValue();
+		it.setConversionRate(crf);
 		it.setBaseCost((Integer)baseCost.getValue());
 		if (invokedSpell.getSelectedItem().equals(NONE))
 		{

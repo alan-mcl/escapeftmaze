@@ -123,7 +123,6 @@ public class LootEntryPanel extends EditorPanel
 	{
 		Vector<String> vec = new Vector<String>(Database.getInstance().getItemTemplates().keySet());
 		Collections.sort(vec);
-		vec.add(0, ItemTemplate.GOLD_PIECES);
 		itemTemplates.setModel(new DefaultComboBoxModel(vec));
 	}
 

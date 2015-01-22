@@ -21,8 +21,12 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-import mclachlan.diygui.*;
+import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYRadioButton;
 import mclachlan.diygui.toolkit.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.UserConfig;
 import mclachlan.maze.stat.SpeechUtil;
@@ -42,6 +46,7 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 	private DIYRadioButton musicOff, musicLow, musicMed, musicHigh;
 	private DIYRadioButton chatOff, chatLow, chatMed, chatHigh;
 	private DIYRadioButton eventDelayNone, eventDelaySmall, eventDelayLarge, eventDelayMedium;
+	private DIYRadioButton autoAddConsumablesNever, autoAddConsumablesAlways;
 
 	/*-------------------------------------------------------------------------*/
 	public SettingsDialog()
@@ -79,10 +84,10 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		//---
 
-		musicOff = new DIYRadioButton("Off");
-		musicLow = new DIYRadioButton("Low");
-		musicMed = new DIYRadioButton("Med");
-		musicHigh = new DIYRadioButton("High");
+		musicOff = new DIYRadioButton(StringUtil.getUiLabel("sd.music.off"));
+		musicLow = new DIYRadioButton(StringUtil.getUiLabel("sd.music.low"));
+		musicMed = new DIYRadioButton(StringUtil.getUiLabel("sd.music.med"));
+		musicHigh = new DIYRadioButton(StringUtil.getUiLabel("sd.music.high"));
 
 		DIYPane musicPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
 		musicPane.add(musicOff);
@@ -98,10 +103,10 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		//---
 
-		chatOff = new DIYRadioButton("Off");
-		chatLow = new DIYRadioButton("Low");
-		chatMed = new DIYRadioButton("Med");
-		chatHigh = new DIYRadioButton("High");
+		chatOff = new DIYRadioButton(StringUtil.getUiLabel("sd.chat.off"));
+		chatLow = new DIYRadioButton(StringUtil.getUiLabel("sd.chat.low"));
+		chatMed = new DIYRadioButton(StringUtil.getUiLabel("sd.chat.med"));
+		chatHigh = new DIYRadioButton(StringUtil.getUiLabel("sd.chat.high"));
 
 		DIYPane chattinessPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
 		chattinessPane.add(chatOff);
@@ -117,10 +122,10 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		//---
 
-		eventDelayNone = new DIYRadioButton("Instant");
-		eventDelaySmall = new DIYRadioButton("Fast");
-		eventDelayMedium = new DIYRadioButton("Med");
-		eventDelayLarge = new DIYRadioButton("Slow");
+		eventDelayNone = new DIYRadioButton(StringUtil.getUiLabel("sd.event.delay.instant"));
+		eventDelaySmall = new DIYRadioButton(StringUtil.getUiLabel("sd.event.delay.fast"));
+		eventDelayMedium = new DIYRadioButton(StringUtil.getUiLabel("sd.event.delay.med"));
+		eventDelayLarge = new DIYRadioButton(StringUtil.getUiLabel("sd.event.delay.slow"));
 
 		DIYPane eventDelayPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
 		eventDelayPane.add(eventDelayNone);
@@ -136,37 +141,57 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		//---
 
-		leftPane.add(new DIYLabel());
-		rightPane.add(new DIYLabel("Audio Settings", DIYToolkit.Align.LEFT));
+		autoAddConsumablesNever = new DIYRadioButton(StringUtil.getUiLabel("sd.auto.add.consumables.never"));
+		autoAddConsumablesAlways = new DIYRadioButton(StringUtil.getUiLabel("sd.auto.add.consumables.always"));
 
-		leftPane.add(new DIYLabel("Music Volume:", DIYToolkit.Align.LEFT));
+		DIYPane autoAddConsumables = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
+		autoAddConsumables.add(autoAddConsumablesAlways);
+		autoAddConsumables.add(autoAddConsumablesNever);
+
+		DIYButtonGroup aACBg = new DIYButtonGroup();
+		aACBg.addButton(autoAddConsumablesAlways);
+		aACBg.addButton(autoAddConsumablesNever);
+
+		//---
+
+		leftPane.add(new DIYLabel());
+		rightPane.add(new DIYLabel(StringUtil.getUiLabel("sd.audio.settings"), DIYToolkit.Align.LEFT));
+
+		leftPane.add(new DIYLabel(StringUtil.getUiLabel("sd.music.volume"), DIYToolkit.Align.LEFT));
 		rightPane.add(musicPane);
 
 		leftPane.add(new DIYLabel());
 		rightPane.add(new DIYLabel());
 
 		leftPane.add(new DIYLabel());
-		rightPane.add(new DIYLabel("UI Settings", DIYToolkit.Align.LEFT));
+		rightPane.add(new DIYLabel(StringUtil.getUiLabel("sd.ui.settings"), DIYToolkit.Align.LEFT));
 
-		leftPane.add(new DIYLabel("Event Display Speed:",  DIYToolkit.Align.LEFT));
+		leftPane.add(new DIYLabel(StringUtil.getUiLabel("sd.event.display.speed"),  DIYToolkit.Align.LEFT));
 		rightPane.add(eventDelayPane);
 
-		leftPane.add(new DIYLabel("Personality Chattiness:", DIYToolkit.Align.LEFT));
+		leftPane.add(new DIYLabel(StringUtil.getUiLabel("sd.personality.chattiness"), DIYToolkit.Align.LEFT));
 		rightPane.add(chattinessPane);
 
+		leftPane.add(new DIYLabel());
+		rightPane.add(new DIYLabel());
 
+		leftPane.add(new DIYLabel());
+		rightPane.add(new DIYLabel(StringUtil.getUiLabel("sd.gameplay.settings"), DIYToolkit.Align.LEFT));
+
+		leftPane.add(new DIYLabel(StringUtil.getUiLabel("sd.auto.add.consumables"), DIYToolkit.Align.LEFT));
+		rightPane.add(autoAddConsumables);
 
 		//---
 
 		refresh(userConfig);
 
-		DIYPane titlePane = getTitle("Settings");
+		DIYPane titlePane = getTitle(StringUtil.getUiLabel("sd.title"));
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y + height - buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		okButton.addActionListener(this);
-		cancel = new DIYButton("Cancel");
+		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
 		cancel.addActionListener(this);
 		
 		buttonPane.add(okButton);
@@ -209,6 +234,15 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 			case 400: eventDelayMedium.setSelected(true); break;
 			case 1000: eventDelayLarge.setSelected(true); break;
 			default: eventDelayMedium.setSelected(true); break;
+		}
+
+		if (userConfig.isAutoAddConsumables())
+		{
+			autoAddConsumablesAlways.setSelected(true);
+		}
+		else
+		{
+			autoAddConsumablesNever.setSelected(true);
 		}
 	}
 
@@ -295,6 +329,16 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 		else if (eventDelayLarge.isSelected())
 		{
 			this.userConfig.setCombatDelay(1000);
+		}
+
+		// auto add consumables
+		if (autoAddConsumablesAlways.isSelected())
+		{
+			this.userConfig.setAutoAddConsumables(true);
+		}
+		else if (autoAddConsumablesNever.isSelected())
+		{
+			this.userConfig.setAutoAddConsumables(false);
 		}
 	}
 

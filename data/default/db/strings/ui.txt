@@ -194,3 +194,26 @@ idw.cannot.split = Cannot split that stack
 idw.use.item.title = Use Item
 idw.drop.item.title = Drop Item
 
+# settings dialog
+sd.title = Settings
+sd.audio.settings = Audio Settings
+sd.music.volume = Music Volume:
+sd.ui.settings = UI Settings
+sd.event.display.speed = Event Display Speed:
+sd.personality.chattiness = Personality Chattiness:
+sd.gameplay.settings = Gameplay Settings
+sd.auto.add.consumables = Auto Add Consumables
+sd.music.off = Off
+sd.music.low = Low
+sd.music.med = Med
+sd.music.high = High
+sd.chat.off = Off
+sd.chat.low = Low
+sd.chat.med = Med
+sd.chat.high = High
+sd.event.delay.instant = Instant
+sd.event.delay.fast = Fast
+sd.event.delay.med = Med
+sd.event.delay.slow = Slow
+sd.auto.add.consumables.never = Never
+sd.auto.add.consumables.always = Always

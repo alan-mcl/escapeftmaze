@@ -20,6 +20,7 @@
 package mclachlan.maze.game.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.ui.diygui.MessageConsumer;
@@ -32,6 +33,12 @@ public class ModifySuppliesEvent extends MazeEvent
 	private int amount;
 	private MessageConsumer messageConsumer;
 	private String msg;
+
+	/*-------------------------------------------------------------------------*/
+	public ModifySuppliesEvent(int amount)
+	{
+		this(amount, null, null);
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public ModifySuppliesEvent(int amount, MessageConsumer messageConsumer,
@@ -47,7 +54,24 @@ public class ModifySuppliesEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().getParty().incSupplies(amount);
-		messageConsumer.message(msg);
+		if (messageConsumer != null)
+		{
+			messageConsumer.message(getText());
+		}
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public String getText()
+	{
+		if (msg != null)
+		{
+			return msg;
+		}
+		else
+		{
+			return StringUtil.getEventText("modify.supplies", amount);
+		}
 	}
 }

@@ -24,10 +24,11 @@ import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.event.ModifySuppliesEvent;
 import mclachlan.maze.map.script.GrantGoldEvent;
 import mclachlan.maze.map.script.GrantItemsEvent;
-import mclachlan.maze.stat.GoldPieces;
 import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.PlayerCharacter;
 
 /**
@@ -225,19 +226,30 @@ public abstract class TileScript
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param items
-	 * 	The list of loot items.  All {@link mclachlan.maze.stat.GoldPieces} will be removed.
+	 * 	The list of loot items.
 	 * @return
 	 * 	An array of events to give all the stuff to the player.
 	 */
 	public static List<MazeEvent> getLootingEvents(java.util.List<Item> items)
 	{
-		int totalGold = extractGold(items);
+		int totalGold = 0;
+		int totalSupplies = 0;
+
+		if (Maze.getInstance().getUserConfig().isAutoAddConsumables())
+		{
+			totalGold = extractGold(items);
+			totalSupplies = extractSupplies(items);
+		}
 
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		if (totalGold > 0)
 		{
 			result.add(new GrantGoldEvent(totalGold));
+		}
+		if (totalSupplies > 0)
+		{
+			result.add(new ModifySuppliesEvent(totalSupplies));
 		}
 		if (items.size() > 0)
 		{
@@ -250,25 +262,47 @@ public abstract class TileScript
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param loot
-	 * 	The list of loot items.  All {@link mclachlan.maze.stat.GoldPieces} will be removed.
+	 * 	The list of loot items. Money items will be removed.
 	 * @return
 	 * 	The amount of gold contained in the list.
 	 */
 	public static int extractGold(java.util.List<Item> loot)
 	{
-		int totalGold = 0;
+		int result = 0;
 		ListIterator<Item> lit = loot.listIterator();
 		while (lit.hasNext())
 		{
 			Item item = lit.next();
-			if (item instanceof GoldPieces)
+			if (item.getType() == ItemTemplate.Type.MONEY)
 			{
-				GoldPieces gp = (GoldPieces)item;
 				lit.remove();
-				totalGold += gp.getAmount();
+				result += item.applyConversionRate();
 			}
 		}
-		return totalGold;
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @param loot
+	 * 	The list of loot items. Supply items will be removed
+	 * @return
+	 * 	The amount of supplies contained in the list.
+	 */
+	public static int extractSupplies(java.util.List<Item> loot)
+	{
+		int result = 0;
+		ListIterator<Item> lit = loot.listIterator();
+		while (lit.hasNext())
+		{
+			Item item = lit.next();
+			if (item.getType() == ItemTemplate.Type.SUPPLIES)
+			{
+				lit.remove();
+				result += item.applyConversionRate();
+			}
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

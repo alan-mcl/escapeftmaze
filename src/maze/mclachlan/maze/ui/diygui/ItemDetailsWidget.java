@@ -108,7 +108,7 @@ public class ItemDetailsWidget extends DIYPanel
 			DIYLabel stackLabel = new DIYLabel(
 				StringUtil.getUiLabel("idw.stack", stack.getCurrent(), stack.getMaximum()));
 			Dimension ds = weightLabel.getPreferredSize();
-			stackLabel.setBounds(xx + width1 - ds.width, yy + rowHeight, ds.width, ds.height);
+			stackLabel.setBounds(xx +width1 -ds.width -inset -border, yy + rowHeight, ds.width, ds.height);
 			this.add(stackLabel);
 		}
 

@@ -323,6 +323,10 @@ public class V1ItemTemplate
 			b.append(obj.getDisassemblyLootTable()==null?"":obj.getDisassemblyLootTable());
 			b.append(V1Utils.NEWLINE);
 
+			b.append("conversionRate=");
+			b.append(Float.toString(obj.getConversionRate()));
+			b.append(V1Utils.NEWLINE);
+
 		}
 
 		return b.toString();
@@ -407,7 +411,7 @@ public class V1ItemTemplate
 				ItemTemplate.EnchantmentCalculation.valueOf(p.getProperty("enchantmentCalculation"));
 			String enchantmentScheme = "".equals(p.getProperty("enchantmentScheme")) ?null: p.getProperty("enchantmentScheme");
 			String disassemblyLootTable = "".equals(p.getProperty("disassemblyLootTable")) ?null: p.getProperty("disassemblyLootTable");
-
+			float conversionRate = Float.valueOf(p.getProperty("conversionRate"));
 
 			return new ItemTemplate(
 				name,
@@ -462,7 +466,8 @@ public class V1ItemTemplate
 				enchantmentChance,
 				enchantmentCalc,
 				enchantmentScheme,
-				disassemblyLootTable);
+				disassemblyLootTable,
+				conversionRate);
 		}
 	}
 }

@@ -19,13 +19,12 @@
 
 package mclachlan.maze.map;
 
+import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.GoldPieces;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.util.MazeException;
-import java.util.*;
 
 /**
  * Represents an row in a table of random loot.
@@ -76,22 +75,23 @@ public class LootEntry implements ILootEntry
 		String itemName = row.getItemName();
 		Item item;
 
-		if (itemName.equals(ItemTemplate.GOLD_PIECES))
+		// item entry
+		ItemTemplate itemTemplate = Database.getInstance().getItemTemplate(itemName);
+
+		if (row.getQuantity().getMaxPossible() > itemTemplate.getMaxItemsPerStack())
 		{
-			// gold pieces
-			item = new GoldPieces(row.getQuantity().roll());
+			throw new MazeException("Invalid stack size: "+itemName+", "+row.getQuantity());
 		}
-		else
+
+		item = itemTemplate.create(row.getQuantity().roll());
+
+		if (item.getType() == ItemTemplate.Type.MONEY || item.getType() == ItemTemplate.Type.SUPPLIES)
 		{
-			// item entry
-			ItemTemplate itemTemplate = Database.getInstance().getItemTemplate(itemName);
-
-			if (row.getQuantity().getMaxPossible() > itemTemplate.getMaxItemsPerStack())
+			// don't generate amounts that will convert to zero
+			while (item.applyConversionRate() == 0)
 			{
-				throw new MazeException("Invalid stack size: "+itemName+", "+row.getQuantity());
+				item.getStack().incCurrent(1);
 			}
-
-			item = itemTemplate.create(row.getQuantity().roll());
 		}
 
 		return item;

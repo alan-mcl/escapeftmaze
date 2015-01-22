@@ -108,7 +108,16 @@ public class Item implements AttackWith
 		switch(getIdentificationState())
 		{
 			case Item.IdentificationState.IDENTIFIED:
-				result = template.name;
+
+				if (isStackable() && getStack().getCurrent() > 1)
+				{
+					result = template.getPluralName();
+				}
+				else
+				{
+					result = template.getName();
+				}
+
 				if (enchantment != null)
 				{
 					if (enchantment.getPrefix() != null)
@@ -487,6 +496,16 @@ public class Item implements AttackWith
 	public String getDiscipline()
 	{
 		return template.discipline;
+	}
+
+	public float getConversionRate()
+	{
+		return template.getConversionRate();
+	}
+
+	public int applyConversionRate()
+	{
+		return (int)(getStack().getCurrent() * getConversionRate());
 	}
 	
 	public boolean isArmour()

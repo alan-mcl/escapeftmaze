@@ -836,6 +836,29 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean addInventoryItem(Item item)
+	{
+		if (item.getType() == ItemTemplate.Type.MONEY)
+		{
+			int amount = item.applyConversionRate();
+			((PlayerParty)getActorGroup()).incGold(amount);
+			return true;
+		}
+		else if (item.getType() == ItemTemplate.Type.SUPPLIES)
+		{
+			int amount = item.applyConversionRate();
+			((PlayerParty)getActorGroup()).incSupplies(amount);
+			return true;
+		}
+		else
+		{
+			return super.addInventoryItem(item);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public String getPortrait()
 	{
 		return portrait;

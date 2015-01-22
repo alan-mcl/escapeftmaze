@@ -36,8 +36,6 @@ public class ItemTemplate
 	protected static final BitSet SECONDARY_WEAPON =
 		new BitSet(PlayerCharacter.EquipableSlots.NUMBER_OF_SLOTS);
 
-	public static final String GOLD_PIECES = "Gold Pieces";
-
 	/**
 	 * Idenfitied name of this item, eg "Longsword"
 	 */
@@ -194,6 +192,12 @@ public class ItemTemplate
 	 */
 	String disassemblyLootTable;
 
+	/**
+	 * If this item is a consumable (money/supplies), what rate does it convert
+	 * to gold pieces/supply units.
+	 */
+	float conversionRate;
+
 	//--- weapons only
 	Dice damage;
 	int defaultDamageType;
@@ -310,7 +314,8 @@ public class ItemTemplate
 		int enchantmentChance,
 		EnchantmentCalculation enchantmentCalculation,
 		String enchantmentScheme,
-		String disassemblyLootTable)
+		String disassemblyLootTable,
+		float conversionRate)
 	{
 		this.name = name;
 		this.pluralName = pluralName;
@@ -365,6 +370,7 @@ public class ItemTemplate
 		this.enchantmentCalculation = enchantmentCalculation;
 		this.enchantmentScheme = enchantmentScheme;
 		this.disassemblyLootTable = disassemblyLootTable;
+		this.conversionRate = conversionRate;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -658,6 +664,11 @@ public class ItemTemplate
 		return disassemblyLootTable;
 	}
 
+	public float getConversionRate()
+	{
+		return conversionRate;
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	public void setToCritical(int toCritical)
@@ -924,6 +935,11 @@ public class ItemTemplate
 	public void setDisassemblyLootTable(String disassemblyLootTable)
 	{
 		this.disassemblyLootTable = disassemblyLootTable;
+	}
+
+	public void setConversionRate(float conversionRate)
+	{
+		this.conversionRate = conversionRate;
 	}
 
 	/*-------------------------------------------------------------------------*/

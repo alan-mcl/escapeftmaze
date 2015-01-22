@@ -2081,11 +2081,6 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public int getItemCost(Item item, int costMultiplier)
 	{
-		if (item instanceof GoldPieces)
-		{
-			return item.getBaseCost();
-		}
-
 		int result = item.getBaseCost();
 
 		// for enchanted items, add the enchantment cost modifier
@@ -2314,7 +2309,7 @@ public class GameSys
 	 */
 	public int forcePortal(PlayerCharacter pc, Portal portal)
 	{
-		if (pc.getHitPoints().current <= portal.getHitPointCostToForce())
+		if (pc.getHitPoints().getCurrent() <= portal.getHitPointCostToForce())
 		{
 			return Portal.ForceResult.FAILED_NO_DAMAGE;
 		}
@@ -3084,7 +3079,8 @@ public class GameSys
 			0,
 			ItemTemplate.EnchantmentCalculation.STRAIGHT,
 			null,
-			null);
+			null,
+			0F);
 
 		return new Item(result)
 		{

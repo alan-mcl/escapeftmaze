@@ -31,7 +31,8 @@ public class UserConfig
 		COMBAT_DELAY("mclachlan.maze.ui.combat_delay"),
 		PERSONALITY_CHATTINESS("mclachlan.maze.ui.personality_chattiness"),
 		MUSIC_VOLUME("mclachlan.maze.music.volume"),
-		CURRENT_TIP_INDEX ("mclachlan.maze.current.tip.index");
+		CURRENT_TIP_INDEX ("mclachlan.maze.current.tip.index"),
+		AUTO_ADD_CONSUMABLES ("mclachlan.maze.auto.add.consumables");
 
 		private String value;
 
@@ -51,6 +52,7 @@ public class UserConfig
 	private int personalityChattiness;
 	private int musicVolume;
 	private int currentTipIndex;
+	private boolean autoAddConsumables;
 
 	/*-------------------------------------------------------------------------*/
 	public UserConfig(Properties p)
@@ -67,6 +69,7 @@ public class UserConfig
 		result.setProperty(Key.PERSONALITY_CHATTINESS.getValue(), String.valueOf(personalityChattiness));
 		result.setProperty(Key.MUSIC_VOLUME.getValue(), String.valueOf(musicVolume));
 		result.setProperty(Key.CURRENT_TIP_INDEX.getValue(), String.valueOf(currentTipIndex));
+		result.setProperty(Key.AUTO_ADD_CONSUMABLES.getValue(), String.valueOf(autoAddConsumables));
 
 		return result;
 	}
@@ -78,6 +81,7 @@ public class UserConfig
 		personalityChattiness = Integer.parseInt(p.getProperty(Key.PERSONALITY_CHATTINESS.getValue()));
 		musicVolume = Integer.parseInt(p.getProperty(Key.MUSIC_VOLUME.getValue()));
 		currentTipIndex = Integer.parseInt(p.getProperty(Key.CURRENT_TIP_INDEX.getValue()));
+		autoAddConsumables = Boolean.valueOf(p.getProperty(Key.AUTO_ADD_CONSUMABLES.getValue()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -119,5 +123,15 @@ public class UserConfig
 	public void setCurrentTipIndex(int currentTipIndex)
 	{
 		this.currentTipIndex = currentTipIndex;
+	}
+
+	public boolean isAutoAddConsumables()
+	{
+		return autoAddConsumables;
+	}
+
+	public void setAutoAddConsumables(boolean autoAddConsumables)
+	{
+		this.autoAddConsumables = autoAddConsumables;
 	}
 }

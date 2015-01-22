@@ -24,7 +24,7 @@ package mclachlan.maze.stat;
  */
 public class CurMaxSub extends CurMax
 {
-	int sub;
+	private int sub;
 	
 	/*-------------------------------------------------------------------------*/
 	public CurMaxSub()
@@ -48,7 +48,7 @@ public class CurMaxSub extends CurMax
 	/*-------------------------------------------------------------------------*/
 	public CurMaxSub(CurMaxSub cms)
 	{
-		this(cms.current, cms.maximum, cms.sub);
+		this(cms.getCurrent(), cms.getMaximum(), cms.getSub());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -61,9 +61,9 @@ public class CurMaxSub extends CurMax
 	/*-------------------------------------------------------------------------*/
 	private void checkSub()
 	{
-		if (sub > current)
+		if (sub > getCurrent())
 		{
-			sub = current;
+			sub = getCurrent();
 		}
 
 		if (sub < 0)
@@ -124,12 +124,12 @@ public class CurMaxSub extends CurMax
 	/*-------------------------------------------------------------------------*/
 	public double getSubRatio()
 	{
-		return (double)sub/(double)maximum;
+		return (double)sub/(double)getMaximum();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public String toString()
 	{
-		return this.current+"/"+this.maximum;
+		return this.getCurrent()+"/"+this.getMaximum();
 	}
 }

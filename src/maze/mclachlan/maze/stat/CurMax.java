@@ -24,7 +24,7 @@ package mclachlan.maze.stat;
  */
 public class CurMax
 {
-	int current, maximum;
+	private int current, maximum;
 	
 	/*-------------------------------------------------------------------------*/
 	public CurMax()

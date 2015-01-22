@@ -390,7 +390,8 @@ public class MockCombat
 			0,
 			ItemTemplate.EnchantmentCalculation.STRAIGHT,
 			null,
-			null);
+			null,
+			0F);
 
 		return new Item(result)
 		{
@@ -476,7 +477,8 @@ public class MockCombat
 			0,
 			ItemTemplate.EnchantmentCalculation.STRAIGHT,
 			null,
-			null);
+			null,
+			0F);
 
 		return new Item(result)
 		{

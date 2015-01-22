@@ -19,9 +19,9 @@
 
 package mclachlan.maze.map.script;
 
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.ui.diygui.Constants;
 import java.util.*;
 
 /**
@@ -40,7 +40,7 @@ public class GrantGoldEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return "Party receives "+amount+"gp";
+		return StringUtil.getEventText("grant.gold", amount);
 	}
 
 	/*-------------------------------------------------------------------------*/
