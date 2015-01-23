@@ -33,9 +33,9 @@ import mclachlan.maze.stat.npc.Npc;
  */
 public class TheftSpellFailed extends MazeEvent
 {
-	PlayerCharacter pc;
-	Npc npc;
-	int strength;
+	private PlayerCharacter pc;
+	private Npc npc;
+	private int strength;
 
 	/*-------------------------------------------------------------------------*/
 	public TheftSpellFailed(PlayerCharacter pc, Npc npc, int strength)

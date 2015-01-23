@@ -19,12 +19,10 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.util.*;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.GoldPieces;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.Maze;
-import java.util.*;
 
 /**
  *
@@ -59,18 +57,11 @@ public class GiveItemToParty extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		if (item instanceof GoldPieces)
+		if (inInventory)
 		{
-			Maze.getInstance().getParty().incGold(item.getBaseCost());
+			npc.removeItem(item, true);
 		}
-		else
-		{
-			if (inInventory)
-			{
-				npc.removeItem(item, true);
-			}
-			pc.addInventoryItem(item);
-		}
+		pc.addInventoryItem(item);
 		return null;
 	}
 }

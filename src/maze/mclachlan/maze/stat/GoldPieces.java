@@ -42,9 +42,15 @@ public class GoldPieces extends Item
 	}
 
 	@Override
+	public int getType()
+	{
+		return ItemTemplate.Type.MONEY;
+	}
+
+	@Override
 	public String getUnidentifiedName()
 	{
-		return "Gold";
+		return "?coins";
 	}
 
 	@Override
