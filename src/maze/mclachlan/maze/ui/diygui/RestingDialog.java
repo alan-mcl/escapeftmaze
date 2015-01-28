@@ -25,7 +25,6 @@ import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
-import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.event.ModifySuppliesEvent;
@@ -37,6 +36,8 @@ import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.PlayerParty;
 
+import static mclachlan.maze.data.StringUtil.getUiLabel;
+
 /**
  *
  */
@@ -44,6 +45,7 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 {
 	private DIYButton rest, cancel;
 	private int suppliesToConsume;
+	private int actuallyConsumed = 0;
 
 	/*-------------------------------------------------------------------------*/
 	public RestingDialog(
@@ -67,34 +69,50 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 
 		Tile tile = Maze.getInstance().getCurrentTile();
 		PlayerParty party = Maze.getInstance().getParty();
+		int partySupplies = party.getSupplies();
 
-		DIYPane infoPane = new DIYPane(new DIYGridLayout(2,12,0,0));
+		DIYPane infoPane = new DIYPane(new DIYGridLayout(3,13,0,0));
 		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
 
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.resting.danger"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(getUiLabel("rd.resting.danger"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel(tile.getRestingDanger().toString(), DIYToolkit.Align.LEFT));
 
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.resting.efficiency"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(getUiLabel("rd.resting.efficiency"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel(tile.getRestingEfficiency().toString(), DIYToolkit.Align.LEFT));
 
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.available"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
-			String.valueOf(party.getSupplies())), DIYToolkit.Align.LEFT));
-
-		infoPane.add(new DIYLabel());
+		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.available"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units",
+			String.valueOf(partySupplies)), DIYToolkit.Align.LEFT));
 		infoPane.add(new DIYLabel());
 
-		infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.needed"), DIYToolkit.Align.LEFT));
 		infoPane.add(new DIYLabel());
+		infoPane.add(new DIYLabel());
+		infoPane.add(new DIYLabel());
+
+		infoPane.add(new DIYLabel(getUiLabel("rd.supplies"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel(getUiLabel("rd.needed")));
+		infoPane.add(new DIYLabel(getUiLabel("rd.available")));
 
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
 			infoPane.add(new DIYLabel(pc.getDisplayName()));
 			int suppliesNeededToRest = GameSys.getInstance().getSuppliesNeededToRest(pc);
 			suppliesToConsume += suppliesNeededToRest;
-			infoPane.add(new DIYLabel(StringUtil.getUiLabel("rd.supplies.units",
+
+			infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units",
 				String.valueOf(suppliesNeededToRest))));
+
+			int suppliesConsumedWhileResting = GameSys.getInstance().getSuppliesConsumedWhileResting(pc, party);
+			infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units",
+				suppliesConsumedWhileResting)));
+			actuallyConsumed += suppliesConsumedWhileResting;
 		}
+
+		infoPane.add(new DIYLabel(getUiLabel("rd.totals"),  DIYToolkit.Align.RIGHT));
+		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units", suppliesToConsume)));
+		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units", actuallyConsumed)));
 
 		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
 
@@ -104,11 +122,11 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
 
-		rest = new DIYButton(StringUtil.getUiLabel("rd.rest"));
+		rest = new DIYButton(getUiLabel("rd.rest"));
 		rest.addActionListener(this);
 		buttonPane.add(rest);
 
-		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
+		cancel = new DIYButton(getUiLabel("common.cancel"));
 		cancel.addActionListener(this);
 		buttonPane.add(cancel);
 
@@ -151,7 +169,7 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 	private void rest()
 	{
 		RestingProgressDialog dialog = new RestingProgressDialog(
-			StringUtil.getUiLabel("rd.resting.progress",
+			getUiLabel("rd.resting.progress",
 				Maze.getInstance().getZone().getName()));
 
 		// clear this dialog
@@ -180,11 +198,11 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 
 		Maze.getInstance().appendEvents(
 			new ModifySuppliesEvent(
-				-suppliesToConsume,
+				-actuallyConsumed,
 				prog,
-				StringUtil.getUiLabel(
+				getUiLabel(
 					"rd.supplies.consumed",
-					String.valueOf(suppliesToConsume))),
+					String.valueOf(actuallyConsumed))),
 			new StartRestingEvent(),
 			r1);
 	}

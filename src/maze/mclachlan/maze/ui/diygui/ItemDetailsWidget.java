@@ -32,6 +32,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
 
+import static mclachlan.maze.data.StringUtil.getUiLabel;
 import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
@@ -65,7 +66,7 @@ public class ItemDetailsWidget extends DIYPanel
 
 		wrapWidth = width1;
 
-		DIYButton ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
+		DIYButton ok = new DIYButton(getUiLabel("common.ok"));
 		ok.setBounds(new Rectangle(
 			bounds.x+ bounds.width/2 - okButtonWidth /2,
 			bounds.y+ bounds.height - okButtonHeight - inset - border,
@@ -95,7 +96,7 @@ public class ItemDetailsWidget extends DIYPanel
 
 		// Item weight
 		DIYLabel weightLabel = new DIYLabel(
-			StringUtil.getUiLabel("idw.weight",
+			getUiLabel("iw.weight",
 				Constants.Format.formatWeight(item.getWeight())));
 		Dimension dw = weightLabel.getPreferredSize();
 		weightLabel.setBounds(xx +width1 -dw.width, yy, dw.width, dw.height);
@@ -106,7 +107,7 @@ public class ItemDetailsWidget extends DIYPanel
 		{
 			CurMax stack = item.getStack();
 			DIYLabel stackLabel = new DIYLabel(
-				StringUtil.getUiLabel("idw.stack", stack.getCurrent(), stack.getMaximum()));
+				getUiLabel("iw.stack", stack.getCurrent(), stack.getMaximum()));
 			Dimension ds = weightLabel.getPreferredSize();
 			stackLabel.setBounds(xx +width1 -ds.width -inset -border, yy + rowHeight, ds.width, ds.height);
 			this.add(stackLabel);
@@ -218,7 +219,7 @@ public class ItemDetailsWidget extends DIYPanel
 
 			if (item.getType() == ItemTemplate.Type.SPELLBOOK)
 			{
-				String s = StringUtil.getUiLabel("idw.teaches.spell",
+				String s = getUiLabel("iw.teaches.spell",
 					item.getInvokedSpell().getDisplayName(), item.getInvokedSpell().getBook().getName());
 
 				addToRow(rows, getLabel(s));
@@ -227,24 +228,26 @@ public class ItemDetailsWidget extends DIYPanel
 			}
 			else
 			{
-				String s = "Invoked Spell: "+item.getInvokedSpell().getDisplayName();
+				String s = getUiLabel("iw.invoked.spell",
+					item.getInvokedSpell().getDisplayName());
 				int level = item.getInvokedSpellLevel();
+				s += " (";
 				if (level == 0)
 				{
-					s += " (variable level";
+					s += getUiLabel("iw.variable.level");
 				}
 				else
 				{
-					s += " (level "+ level;
+					s += getUiLabel("iw.level",level);
 				}
 				CurMax charges = item.getCharges();
 				if (charges != null && charges.getMaximum() > 0)
 				{
-					s += ", charges " + charges.getCurrent() + " of " + charges.getMaximum();
+					s += getUiLabel("iw.charges", charges.getCurrent(), charges.getMaximum());
 				}
 				else
 				{
-					s += ", charges infinite";
+					s += getUiLabel("iw.charges.infinite");
 				}
 				s += ")";
 				addToRow(rows, getLabel(s));
@@ -269,7 +272,8 @@ public class ItemDetailsWidget extends DIYPanel
 				return false;
 			}
 
-			StringBuilder sb = new StringBuilder("Effects: ");
+			StringBuilder sb = new StringBuilder(getUiLabel("iw.spell.effects"));
+			sb.append(" ");
 			getCommaString(sb, displayList);
 			wrapString(rows, sb);
 			return true;
@@ -322,7 +326,8 @@ public class ItemDetailsWidget extends DIYPanel
 				List<String> exceptions = new ArrayList<String>(all);
 				exceptions.removeAll(users);
 				Collections.sort(exceptions);
-				sb.append("all except ");
+				sb.append(getUiLabel("iw.all.except"));
+				sb.append(" ");
 				getCommaString(sb, exceptions);
 			}
 			else
@@ -368,7 +373,8 @@ public class ItemDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private boolean addUsableByRaces(List<Widget> rows, Item item)
 	{
-		StringBuilder sb = new StringBuilder("Usable by races: ");
+		StringBuilder sb = new StringBuilder(getUiLabel("iw.usable.by.races"));
+		sb.append(" ");
 		return buildUsability(rows, sb,
 			Database.getInstance().getRaceList(), item.getUsableByRace());
 	}
@@ -376,7 +382,8 @@ public class ItemDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private boolean addUsableByGenders(List<Widget> rows, Item item)
 	{
-		StringBuilder sb = new StringBuilder("Usable by genders: ");
+		StringBuilder sb = new StringBuilder(getUiLabel("iw.usable.by.genders"));
+		sb.append(" ");
 		return buildUsability(rows, sb,
 			Database.getInstance().getGenderList(), item.getUsableByGender());
 	}
@@ -384,7 +391,8 @@ public class ItemDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private boolean addUsableByClasses(List<Widget> rows, Item item)
 	{
-		StringBuilder sb = new StringBuilder("Usable by classes: ");
+		StringBuilder sb = new StringBuilder(getUiLabel("iw.usable.by.classes"));
+		sb.append(" ");
 		return buildUsability(rows, sb,
 			Database.getInstance().getCharacterClassList(), item.getUsableByCharacterClass());
 	}
@@ -399,7 +407,7 @@ public class ItemDetailsWidget extends DIYPanel
 			return false;
 		}
 
-		addToRow(rows, getDescriptiveLabel("Slots:"));
+		addToRow(rows, getDescriptiveLabel(getUiLabel("iw.slots")));
 		addToRow(rows, getLabel(describeSlots(slots)));
 		newRow(rows);
 		return true;
@@ -419,7 +427,7 @@ public class ItemDetailsWidget extends DIYPanel
 		List<ItemTemplate.AmmoType> temp = new ArrayList<ItemTemplate.AmmoType>(ammoRequired);
 		Collections.sort(temp);
 
-		addToRow(rows, getDescriptiveLabel("Ammo Required:"));
+		addToRow(rows, getDescriptiveLabel(getUiLabel("iw.ammo.required")));
 
 		boolean first = true;
 		for (ItemTemplate.AmmoType at : temp)
@@ -467,13 +475,13 @@ public class ItemDetailsWidget extends DIYPanel
 	{
 		if (item != null && item.isWeapon())
 		{
-			addToRow(rows, getTypeLabel("Weapon: "));
+			addToRow(rows, getTypeLabel(getUiLabel("iw.weapon")));
 
 			if (item.getIdentificationState() == Item.IdentificationState.IDENTIFIED)
 			{
 				boolean curseDiscovered = item.getCursedState() == Item.CursedState.DISCOVERED;
 
-				addToRow(rows, getLabel(item.getDamage()+ " damage"));
+				addToRow(rows, getLabel(getUiLabel("iw.damage",item.getDamage())));
 
 				newRow(rows);
 
@@ -482,7 +490,7 @@ public class ItemDetailsWidget extends DIYPanel
 				StringBuilder attribs = new StringBuilder();
 				if (item.isTwoHanded())
 				{
-					attribs.append("Two Handed");
+					attribs.append(getUiLabel("iw.two.handed"));
 				}
 				if (item.isRanged())
 				{
@@ -490,7 +498,7 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						attribs.append(", ");
 					}
-					attribs.append("Ranged");
+					attribs.append(getUiLabel("iw.ranged"));
 				}
 				if (item.isReturning())
 				{
@@ -498,7 +506,7 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						attribs.append(", ");
 					}
-					attribs.append("Returning");
+					attribs.append(getUiLabel("iw.returning"));
 				}
 				if (item.isBackstabCapable())
 				{
@@ -506,7 +514,7 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						attribs.append(", ");
 					}
-					attribs.append("Backstabber");
+					attribs.append(getUiLabel("iw.backstabber"));
 				}
 				if (item.isSnipeCapable())
 				{
@@ -514,7 +522,7 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						attribs.append(", ");
 					}
-					attribs.append("Sniper");
+					attribs.append(getUiLabel("iw.sniper"));
 				}
 
 				if (attribs.length() > 0)
@@ -529,7 +537,7 @@ public class ItemDetailsWidget extends DIYPanel
 				int th = item.getToHit();
 				if (th > 0 || (th < 0 && curseDiscovered))
 				{
-					bonuses.append(descPlainModifier(th)).append(" to hit");
+					bonuses.append(getUiLabel("iw.to.hit", descPlainModifier(th)));
 				}
 
 				int tp = item.getToPenetrate();
@@ -539,7 +547,7 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						bonuses.append(", ");
 					}
-					bonuses.append(descPlainModifier(tp)).append(" to penetrate");
+					bonuses.append(getUiLabel("iw.to.penetrate", descPlainModifier(tp)));
 				}
 
 				int tc = item.getToCritical();
@@ -549,7 +557,7 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						bonuses.append(", ");
 					}
-					bonuses.append(descPlainModifier(tc)).append(" to criticals");
+					bonuses.append(getUiLabel("iw.to.criticals", descPlainModifier(tc)));
 				}
 
 				int ti = item.getToInitiative();
@@ -559,11 +567,11 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						bonuses.append(", ");
 					}
-					bonuses.append(descPlainModifier(ti)).append(" to initiative");
+					bonuses.append(getUiLabel("iw.to.initiative", descPlainModifier(ti)));
 				}
 				if (bonuses.length() > 0)
 				{
-					addToRow(rows, getLabel("Attacks at "+bonuses.toString()));
+					addToRow(rows, getLabel(getUiLabel("iw.attacks.at",bonuses.toString())));
 					newRow(rows);
 				}
 
@@ -571,7 +579,7 @@ public class ItemDetailsWidget extends DIYPanel
 				int ba = item.getBonusAttacks();
 				if (ba > 0 || (ba < 0 && curseDiscovered))
 				{
-					bonusAttacks.append(descPlainModifier(ba)).append(" bonus attacks");
+					bonusAttacks.append(getUiLabel("iw.bonus.attacks", descPlainModifier(ba)));
 				}
 				int bs = item.getBonusStrikes();
 				if (bs > 0 || (bs < 0 && curseDiscovered))
@@ -580,18 +588,18 @@ public class ItemDetailsWidget extends DIYPanel
 					{
 						bonusAttacks.append(", ");
 					}
-					bonusAttacks.append(descPlainModifier(bs)).append(" bonus strikes");
+					bonusAttacks.append(getUiLabel("iw.bonus.strikes", descPlainModifier(bs)));
 				}
 				if (bonusAttacks.length() > 0)
 				{
-					addToRow(rows, getLabel("Attacks with "+bonusAttacks.toString()));
+					addToRow(rows, getLabel(getUiLabel("iw.attacks.with", bonusAttacks.toString())));
 					newRow(rows);
 				}
 
 				// attack modes and range
 
 				String[] attackTypes = item.getAttackTypes();
-				addToRow(rows, getDescriptiveLabel("Attack modes: "));
+				addToRow(rows, getDescriptiveLabel(getUiLabel("iw.attack.modes")+" "));
 				StringBuilder sb = new StringBuilder();
 				for (int i=0; i<attackTypes.length-1; i++)
 				{
@@ -603,14 +611,15 @@ public class ItemDetailsWidget extends DIYPanel
 				int minRange = item.getMinRange();
 				int maxRange = item.getMaxRange();
 
-				sb.append(" at ");
+				sb.append(" ").append(getUiLabel("iw.at")).append(" ");
 				sb.append(ItemTemplate.WeaponRange.describe(minRange));
 
 				if (minRange != maxRange)
 				{
-					sb.append(" to ").append(ItemTemplate.WeaponRange.describe(maxRange));
+					sb.append(" ").append(getUiLabel("iw.to")).append(" ").
+						append(ItemTemplate.WeaponRange.describe(maxRange));
 				}
-				sb.append(" range");
+				sb.append(" ").append(getUiLabel("iw.range"));
 				addToRow(rows, getLabel(sb.toString()));
 			}
 
@@ -618,16 +627,13 @@ public class ItemDetailsWidget extends DIYPanel
 		}
 		else if (item.isArmour())
 		{
-			addToRow(rows, getTypeLabel(("Armour: ")));
+			addToRow(rows, getTypeLabel((getUiLabel("iw.armour"))));
 
 			if (item.getIdentificationState() == Item.IdentificationState.IDENTIFIED)
 			{
-				String summary;
-
-				summary = item.getDamagePreventionChance()+"% chance of damage ";
-
-				// remember that damage reduction is positive ;-)
-				summary += descPlainModifier(-item.getDamagePrevention());
+				String summary = getUiLabel("iw.damage.prevention",
+					item.getDamagePreventionChance(),
+					descPlainModifier(-item.getDamagePrevention())); // remember that damage reduction is positive ;-)
 
 				addToRow(rows, getLabel((summary)));
 			}
@@ -636,16 +642,13 @@ public class ItemDetailsWidget extends DIYPanel
 		}
 		else if (item.isShield())
 		{
-			addToRow(rows, getTypeLabel(("Shield: ")));
+			addToRow(rows, getTypeLabel((getUiLabel("iw.shield"))));
 
 			if (item.getIdentificationState() == Item.IdentificationState.IDENTIFIED)
 			{
-				String summary;
-
-				summary = item.getDamagePreventionChance()+"% chance of damage ";
-
-				// remember that damage reduction is positive ;-)
-				summary += descPlainModifier(-item.getDamagePrevention());
+				String summary = getUiLabel("iw.damage.prevention",
+					item.getDamagePreventionChance(),
+					descPlainModifier(-item.getDamagePrevention())); // remember that damage reduction is positive ;-);
 
 				addToRow(rows, getLabel((summary)));
 			}
@@ -654,11 +657,35 @@ public class ItemDetailsWidget extends DIYPanel
 		}
 		else if (item.isAmmo())
 		{
-			addToRow(rows, getTypeLabel(("Ammunition: ")));
+			addToRow(rows, getTypeLabel((getUiLabel("iw.ammo"))));
 
 			if (item.getIdentificationState() == Item.IdentificationState.IDENTIFIED)
 			{
-				addToRow(rows, getLabel((item.getDamage()+" damage ")));
+				addToRow(rows, getLabel((getUiLabel("iw.damage", item.getDamage()))));
+			}
+
+			newRow(rows);
+		}
+		else if (item.getType() == Type.MONEY)
+		{
+			addToRow(rows, getTypeLabel((getUiLabel("iw.money"))));
+
+			if (item.getIdentificationState() == Item.IdentificationState.IDENTIFIED)
+			{
+				addToRow(rows, getLabel((getUiLabel("iw.conversion.rate.money",
+					item.applyConversionRate()))));
+			}
+
+			newRow(rows);
+		}
+		else if (item.getType() == Type.SUPPLIES)
+		{
+			addToRow(rows, getTypeLabel((getUiLabel("iw.supplies"))));
+
+			if (item.getIdentificationState() == Item.IdentificationState.IDENTIFIED)
+			{
+				addToRow(rows, getLabel((getUiLabel("iw.conversion.rate.supplies",
+					item.applyConversionRate()))));
 			}
 
 			newRow(rows);
@@ -668,24 +695,27 @@ public class ItemDetailsWidget extends DIYPanel
 			String typeDesc = null;
 			switch (item.getType())
 			{
-				case Type.BANNER_EQUIPMENT: typeDesc = "Banner Item"; break;
-				case Type.BOMB: typeDesc = "Bomb"; break;
-				case Type.DRINK: typeDesc = "Beverage"; break;
-				case Type.FOOD: typeDesc = "Food"; break;
-				case Type.KEY: typeDesc = "Key"; break;
-				case Type.MISC_EQUIPMENT: typeDesc = "Miscellaneous Item"; break;
-				case Type.MISC_MAGIC: typeDesc = "Magical Item"; break;
-				case Type.OTHER: typeDesc = "Miscellaneous Item"; break;
-				case Type.POTION: typeDesc = "Potion"; break;
-				case Type.POWDER: typeDesc = "Powder"; break;
-				case Type.SCROLL: typeDesc = "Scroll"; break;
-				case Type.SPELLBOOK: typeDesc = "Spell Book"; break;
-				case Type.WRITING: typeDesc = "Book"; break;
+				case Type.BANNER_EQUIPMENT: typeDesc = getUiLabel("iw.banner.item"); break;
+				case Type.BOMB: typeDesc = getUiLabel("iw.bomb"); break;
+				case Type.DRINK: typeDesc = getUiLabel("iw.drink"); break;
+				case Type.FOOD: typeDesc = getUiLabel("iw.food"); break;
+				case Type.KEY: typeDesc = getUiLabel("iw.key"); break;
+				case Type.MISC_EQUIPMENT: typeDesc = getUiLabel("iw.misc.item"); break;
+				case Type.MISC_MAGIC: typeDesc = getUiLabel("iw.misc.magic"); break;
+				case Type.OTHER: typeDesc = getUiLabel("iw.misc"); break;
+				case Type.POTION: typeDesc = getUiLabel("iw.potion"); break;
+				case Type.POWDER: typeDesc = getUiLabel("iw.powder"); break;
+				case Type.SCROLL: typeDesc = getUiLabel("iw.scroll"); break;
+				case Type.SPELLBOOK: typeDesc = getUiLabel("iw.spellbook"); break;
+				case Type.WRITING: typeDesc = getUiLabel("iw.writing"); break;
+				case Type.SUPPLIES: typeDesc = getUiLabel("iw.supplies"); break;
+				case Type.GADGET: typeDesc = getUiLabel("iw.gadget"); break;
+				case Type.MUSICAL_INSTRUMENT: typeDesc = getUiLabel("iw.music"); break;
 			}
 
 			if (typeDesc != null)
 			{
-				addToRow(rows, getTypeLabel((typeDesc + ":")));
+				addToRow(rows, getTypeLabel((typeDesc)));
 				newRow(rows);
 			}
 		}
@@ -700,7 +730,8 @@ public class ItemDetailsWidget extends DIYPanel
 		{
 			if (item.getModifiers() != null)
 			{
-				return addModifiers(item.getModifiers().getModifiers(), rows, "Modifiers: ", item, true);
+				return addModifiers(item.getModifiers().getModifiers(), rows,
+					getUiLabel("iw.modifiers"), item, true);
 			}
 		}
 
@@ -713,13 +744,15 @@ public class ItemDetailsWidget extends DIYPanel
 		boolean result = false;
 
 		if (item.getEquipRequirements() != null && addModifiers(
-				item.getEquipRequirements().getModifiers(), rows, "Required to equip: ", item, false))
+			item.getEquipRequirements().getModifiers(), rows,
+			getUiLabel("iw.equip.requirements"), item, false))
 		{
 			result = true;
 		}
 
 		if (item.getUseRequirements() != null && addModifiers(
-				item.getUseRequirements().getModifiers(), rows, "Required to use: ", item, false))
+			item.getUseRequirements().getModifiers(), rows,
+			getUiLabel("iw.use.requirements"), item, false))
 		{
 			result = true;
 		}
@@ -765,7 +798,7 @@ public class ItemDetailsWidget extends DIYPanel
 			}
 		}
 
-		StringBuilder sb = new StringBuilder(title);
+		StringBuilder sb = new StringBuilder(title+" ");
 		List<String> modDesc = new ArrayList<String>();
 
 		for (String modifier : sortedModifiers)
@@ -831,7 +864,7 @@ public class ItemDetailsWidget extends DIYPanel
 				}
 				else
 				{
-					return "Cancel "+modifierName;
+					return getUiLabel("iw.cancel")+" "+modifierName;
 				}
 			case PERCENTAGE:
 				return modifierName + " " + descPlainModifier(value)+"%";

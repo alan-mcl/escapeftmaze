@@ -2721,6 +2721,7 @@ public class GameSys
 			}
 		}
 
+		// base resting percentage
 		double regenPerc = getRestingRegenPercentage(tile);
 
 		// add the Entertainer modifier to the regen %
@@ -2729,9 +2730,17 @@ public class GameSys
 			regenPerc = regenPerc + (entertainer/100D);
 		}
 
-		int max = resource.getMaximum();
+		// reduce if there is a food shortage
+		int neededToRest = getSuppliesNeededToRest(actor);
+		int consumedWhileResting = getSuppliesConsumedWhileResting(actor, (PlayerParty)group);
+
+		if (neededToRest > consumedWhileResting)
+		{
+			regenPerc = regenPerc *consumedWhileResting /neededToRest;
+		}
 
 		// regen at least 1 hp
+		int max = resource.getMaximum();
 		return Math.max(1, (int)(max * regenPerc));
 	}
 
@@ -3997,15 +4006,55 @@ public class GameSys
 	 * 	The number of units of supplies to be consumed when the given
 	 * 	character rests.
 	 */
-	public int getSuppliesNeededToRest(PlayerCharacter pc)
+	public int getSuppliesNeededToRest(UnifiedActor actor)
 	{
-		if (pc.getModifier(Stats.Modifiers.LARGE_SIZE) > 0)
+		if (actor.getModifier(Stats.Modifiers.LARGE_SIZE) > 0)
 		{
 			return 3;
 		}
 		else
 		{
 			return 2;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The units of supplies consumed by this PC when resting
+	 */
+	public int getSuppliesConsumedWhileResting(UnifiedActor actor,
+		PlayerParty group)
+	{
+		int needed = getSuppliesNeededToRest(actor);
+
+		int totalNeeded = 0;
+		for (PlayerCharacter p : group.getPlayerCharacters())
+		{
+			totalNeeded += getSuppliesNeededToRest(actor);
+		}
+
+		if (totalNeeded < group.getSupplies())
+		{
+			// no food shortage
+			return needed;
+		}
+
+		// otherwise, work out the rationing
+		// front characters get the leftovers
+
+		int index = group.getPlayerCharacterIndex((PlayerCharacter)actor);
+		int minPerPerson = group.getSupplies() / group.getActors().size();
+		int remainder = group.getSupplies() % group.getActors().size();
+
+		if (index < remainder)
+		{
+			return minPerPerson + 1;
+		}
+		else
+		{
+			return minPerPerson;
 		}
 	}
 
