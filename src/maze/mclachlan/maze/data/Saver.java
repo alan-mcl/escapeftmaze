@@ -22,6 +22,7 @@ package mclachlan.maze.data;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
@@ -80,10 +81,12 @@ public abstract class Saver
 	public abstract void saveStartingKits(Map<String, StartingKit> kits) throws Exception;
 	public abstract void savePersonalities(Map<String, Personality> p) throws Exception;
 	public abstract void saveZone(Zone zone) throws Exception;
-
+	// bit of a special case
 	public abstract void deleteZone(String zoneName) throws Exception;
+
 	// guild files
 	public abstract void saveCharacterGuild(Map<String, PlayerCharacter> guild) throws Exception;
+
 	// saving a game
 	public abstract void saveGameState(String saveGameName, GameState gameState) throws Exception;
 	public abstract void savePlayerCharacters(String saveGameName, Map<String, PlayerCharacter> playerCharacters) throws Exception;
@@ -92,8 +95,9 @@ public abstract class Saver
 	public abstract void saveMazeVariables(String saveGameName) throws Exception;
 	public abstract void saveItemCaches(String saveGameName, Map<String, Map<Point, List<Item>>> caches) throws Exception;
 	public abstract void savePlayerTilesVisited(String name, PlayerTilesVisited playerTilesVisited) throws Exception;
-
 	public abstract void saveConditions(String saveGameName, Map<ConditionBearer, List<Condition>> conditions) throws Exception;
+	public abstract void saveJournal(String saveGameName, Journal journal) throws Exception;
 
+	// user config
 	public abstract void saveUserConfig(UserConfig userConfig) throws Exception;
 }

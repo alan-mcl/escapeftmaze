@@ -1632,6 +1632,21 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void waitingDialog(String s)
+	{
+		//center it
+		int x = DiyGuiUserInterface.SCREEN_WIDTH / 4;
+		int y = DiyGuiUserInterface.SCREEN_HEIGHT / 4;
+		Rectangle rectangle = new Rectangle(x, y,
+			DiyGuiUserInterface.SCREEN_WIDTH / 2, DiyGuiUserInterface.SCREEN_HEIGHT / 2);
+
+		TextDialogWidget d = new TextDialogWidget(
+			rectangle, null, s, true);
+
+		showDialog(d);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	void popupItemDetailsWidget(Item item)
 	{
 		//center it

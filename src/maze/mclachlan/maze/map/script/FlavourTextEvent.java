@@ -19,6 +19,8 @@
 
 package mclachlan.maze.map.script;
 
+import java.util.*;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
 
@@ -44,20 +46,31 @@ public class FlavourTextEvent extends MazeEvent
 		this.delay = delay;
 		this.shouldClearText = shouldClearText;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		Maze.getInstance().journalInContext(text);
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public String getText()
 	{
 		return text;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getDelay()
 	{
 		return delay;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean shouldClearText()
 	{
 		return shouldClearText;

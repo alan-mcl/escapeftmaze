@@ -57,12 +57,6 @@ public class BlockingScreen extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-//	public void notifyListeners(InputEvent e)
-//	{
-//		clear();
-//	}
-
-	/*-------------------------------------------------------------------------*/
 
 	@Override
 	public void processKeyTyped(KeyEvent e)

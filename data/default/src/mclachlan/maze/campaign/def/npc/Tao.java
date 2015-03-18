@@ -60,7 +60,7 @@ public class Tao extends NpcScript
 				new NpcSpeechEvent("My brother has warned you once. I, Tao, " +
 					"deliver the second warning. Leave this domain or you " +
 					"will be slain."),
-				new ChangeNpcLocationEvent(npc, new Point(0,0), Maze.getInstance().getZone().getName()),
+				new ChangeNpcLocationEvent(npc, new Point(0,0), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(TAO_LOCATION_VAR, "2"),
 				new NpcLeavesEvent());
 		}

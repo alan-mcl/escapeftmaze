@@ -54,7 +54,7 @@ public class RenSan extends NpcScript
 					"own secrets, you are not welcome. Leave, or you will come " +
 					"to grief."),
 				new NpcSpeechEvent("I am Ren San. You have been warned."),
-				new ChangeNpcLocationEvent(npc, new Point(14,5), Maze.getInstance().getZone().getName()),
+				new ChangeNpcLocationEvent(npc, new Point(14,5), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(REN_SAN_LOCATION_VAR, "2"),
 				new NpcLeavesEvent());
 		}

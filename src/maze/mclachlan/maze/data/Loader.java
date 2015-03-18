@@ -27,6 +27,7 @@ import java.util.*;
 import javax.sound.sampled.Clip;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
@@ -83,20 +84,20 @@ public abstract class Loader
 	public abstract Map<String, Personality> loadPersonalities();
 	public abstract Map<String, StartingKit> getStartingKits();
 	public abstract Map<String, NaturalWeapon> getNaturalWeapons();
-
 	public abstract StringManager getStringManager();
+
 	// stuff that can be optionally lazy loaded
 	public abstract BufferedImage getImage(String resourceName);
 	public abstract List<String> getPortraitNames();
 	public abstract Clip getClip(String clipName, AudioPlayer audioPlayer);
 	public abstract InputStream getMusic(String trackName);
-
 	public abstract List<String> getZoneNames();
-
 	public abstract Zone getZone(String name);
 	public abstract Font getFont(String name);
+
 	// guild files
 	public abstract Map<String, PlayerCharacter> loadCharacterGuild();
+
 	// saved games
 	public abstract List<String> getSaveGames();
 	public abstract GameState loadGameState(String saveGameName) throws Exception;
@@ -104,12 +105,11 @@ public abstract class Loader
 	public abstract Map<String, Npc> loadNpcs(String saveGameName) throws Exception;
 	public abstract Map<String, NpcFaction> loadNpcFactions(String saveGameName) throws Exception;
 	public abstract void loadMazeVariables(String saveGameName) throws Exception;
-
 	public abstract Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) throws Exception;
-
 	public abstract PlayerTilesVisited loadPlayerTilesVisited(String saveGameName) throws Exception;
-
 	public abstract Map<ConditionBearer, List<Condition>> loadConditions(String saveGameName) throws Exception;
+	public abstract Journal loadJournal(String saveGameName, String journalName) throws Exception;
 
+	// use config
 	public abstract UserConfig loadUserConfig() throws Exception;
 }

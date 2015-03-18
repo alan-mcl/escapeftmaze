@@ -92,7 +92,7 @@ public class MapDisplayWidget extends DIYPanel
 
 		g.setColor(Color.DARK_GRAY);
 
-		Zone zone = Maze.getInstance().getZone();
+		Zone zone = Maze.getInstance().getCurrentZone();
 
 		int tileSize = TILE_SIZE * zoomLevel;
 		int wallSize = WALL_SIZE + zoomLevel;

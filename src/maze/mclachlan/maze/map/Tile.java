@@ -324,7 +324,7 @@ public class Tile implements ConditionBearer
 	public void addCondition(Condition c)
 	{
 		ConditionManager.getInstance().addCondition(this, c);
-		Maze.getInstance().getUi().setTile(Maze.getInstance().getZone(), this, Maze.getInstance().getTile());
+		Maze.getInstance().getUi().setTile(Maze.getInstance().getCurrentZone(), this, Maze.getInstance().getTile());
 	}
 
 	public void removeCondition(Condition c)

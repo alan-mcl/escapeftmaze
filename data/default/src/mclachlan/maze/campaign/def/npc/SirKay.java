@@ -571,7 +571,7 @@ public class SirKay extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	private List<MazeEvent> moveSirKayTowardsParty()
 	{
-		String partyZone = Maze.getInstance().getZone().getName();
+		String partyZone = Maze.getInstance().getCurrentZone().getName();
 
 		if (!(ICHIBA_CITY.equals(partyZone) || ICHIBA_CROSSROAD.equals(partyZone)))
 		{

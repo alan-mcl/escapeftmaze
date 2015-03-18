@@ -56,7 +56,7 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 	{
 		super(bounds);
 
-		Zone zone = Maze.getInstance().getZone();
+		Zone zone = Maze.getInstance().getCurrentZone();
 
 		mapWidget = new MapDisplayWidget();
 		mapWidget.setBounds(mapBounds);

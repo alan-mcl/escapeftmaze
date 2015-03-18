@@ -81,10 +81,10 @@ public class V1ConditionBearer
 		else if (type == TILE)
 		{
 			Point coords = V1Point.fromString(strs[2]);
-			if (Maze.getInstance().getZone().getName().equals(name))
+			if (Maze.getInstance().getCurrentZone().getName().equals(name))
 			{
 				// a condition on a tile in the current zone
-				return Maze.getInstance().getZone().getTile(coords);
+				return Maze.getInstance().getCurrentZone().getTile(coords);
 			}
 			else
 			{

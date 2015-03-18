@@ -20,6 +20,7 @@
 package mclachlan.maze.game;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.stat.ItemCacheManager;
 import mclachlan.maze.stat.TurnCache;
@@ -32,6 +33,8 @@ import mclachlan.maze.stat.npc.NpcManager;
  */
 public class GameTime
 {
+	public static final int TURNS_PER_DAY = 300;
+
 	private static long turnNr = 0;
 
 	/*-------------------------------------------------------------------------*/
@@ -60,7 +63,7 @@ public class GameTime
 		ItemCacheManager.getInstance().endOfTurn(getTurnNr());
 		
 		// Update the current zone
-		Maze.getInstance().getZone().endOfTurn(getTurnNr());
+		Maze.getInstance().getCurrentZone().endOfTurn(getTurnNr());
 
 		// Refresh character options
 		Maze.getInstance().refreshCharacterData();
@@ -118,5 +121,43 @@ public class GameTime
 	public static void setTurnNr(long turnNr)
 	{
 		GameTime.turnNr = turnNr;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static GameDate getGameDate(long turnNr)
+	{
+		long dn = 1+ turnNr / TURNS_PER_DAY;
+		long tn = turnNr % TURNS_PER_DAY;
+
+		return new GameDate(dn, tn);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static GameDate getGameDate()
+	{
+		return getGameDate(getTurnNr());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void startGame()
+	{
+		setTurnNr(0);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class GameDate
+	{
+		private long dayNr, turnNr;
+
+		public GameDate(long dayNr, long turnNr)
+		{
+			this.dayNr = dayNr;
+			this.turnNr = turnNr;
+		}
+
+		public String toFormattedString()
+		{
+			return StringUtil.getUiLabel("common.gametime", dayNr, turnNr);
+		}
 	}
 }

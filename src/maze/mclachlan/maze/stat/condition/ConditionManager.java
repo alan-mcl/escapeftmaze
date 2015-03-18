@@ -35,7 +35,7 @@ public class ConditionManager implements GameCache
 	/**
 	 * Map of conditions by condition bearer
 	 */
-	Map<ConditionBearer, List<Condition>> conditions = new HashMap<ConditionBearer, List<Condition>>();
+	private Map<ConditionBearer, List<Condition>> conditions = new HashMap<ConditionBearer, List<Condition>>();
 	private static ConditionManager instance = new ConditionManager();
 	private final Object mutex = new Object();
 	private static List<Condition> emptyList = Collections.unmodifiableList(new ArrayList<Condition>());

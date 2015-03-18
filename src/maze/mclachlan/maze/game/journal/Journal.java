@@ -17,68 +17,76 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.npc;
+package mclachlan.maze.game.journal;
 
 import java.util.*;
-import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-
 
 /**
- *
+ * Data structure to represent a party journal.
  */
-public class NpcSpeechEvent extends MazeEvent
+public class Journal
 {
-	private String text;
-	private int delay;
+	/**
+	 * Name of this journal, e.g. "NPCs", "Quests".
+	 */
+	private String name;
+
+	/**
+	 * KEY: Name of a journal section, e.g. "Red Ear", "Main Quest" <br/>
+	 * VALUE: List of journal entries for that section, e.g. conversations
+	 * with Red Ear
+	 */
+	private Map<String, List<JournalEntry>> contents;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text)
+	public Journal(String name)
 	{
-		this(text, Delay.WAIT_ON_CLICK);
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text, int delay)
-	{
-		this.text = text;
-		this.delay = delay;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public List<MazeEvent> resolve()
-	{
-		/*Animation a = new SpeechBubbleAnimation(
-			Constants.Colour.STEALTH_GREEN,
-			text,
-			new Rectangle(DiyGuiUserInterface.SCREEN_WIDTH/2, DiyGuiUserInterface.SCREEN_HEIGHT/2,1,1),
-			3000);
-
-		Maze.getInstance().startAnimation(a, this, new AnimationContext(null));*/
-
-		Maze.getInstance().journalInContext(
-			StringUtil.getUiLabel("j.npc.speech", Maze.getInstance().getCurrentNpc().getName(), text));
-		
-		return null;
+		this.name = name;
+		this.contents = new HashMap<String, List<JournalEntry>>();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
+	public Journal(
+		String name, Map<String, List<JournalEntry>> contents)
 	{
-		return text;
+		this.name = name;
+		this.contents = contents;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getDelay()
+	public String getName()
 	{
-		return delay;
+		return name;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
+	public void setName(String name)
 	{
-		return true;
+		this.name = name;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, List<JournalEntry>> getContents()
+	{
+		return contents;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setContents(Map<String, List<JournalEntry>> contents)
+	{
+		this.contents = contents;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addJournalEntry(long turnNr, String key, String text)
+	{
+		if (!contents.containsKey(key))
+		{
+			contents.put(key, new ArrayList<JournalEntry>());
+		}
+
+		List<JournalEntry> journalEntries = contents.get(key);
+
+		journalEntries.add(new JournalEntry(turnNr, text));
 	}
 }

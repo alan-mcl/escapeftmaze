@@ -17,68 +17,55 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.npc;
+package mclachlan.maze.ui.diygui;
 
-import java.util.*;
-import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-
+import java.awt.Color;
+import mclachlan.diygui.DIYLabel;
 
 /**
  *
  */
-public class NpcSpeechEvent extends MazeEvent
+public class LoadingScreen extends BlockingScreen implements ProgressListenerCallback
 {
-	private String text;
-	private int delay;
+	private FilledBarWidget bar;
+	private DIYLabel message;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text)
+	public LoadingScreen(int maxProgress)
 	{
-		this(text, Delay.WAIT_ON_CLICK);
+		super("screen/loading_screen", BlockingScreen.Mode.UNINTERRUPTABLE, null);
+
+		bar = new FilledBarWidget(width/2-100, height-100, 200, 20, 0, maxProgress);
+		bar.setCallback(this);
+
+		message = new DIYLabel();
+		message.setForegroundColour(Color.WHITE);
+		message.setBounds(width / 2 - 100, height -100 +20 +2, 200, 20);
+
+		this.add(bar);
+		this.add(message);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text, int delay)
+	public ProgressListener getProgressListener()
 	{
-		this.text = text;
-		this.delay = delay;
+		return bar;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public List<MazeEvent> resolve()
+	public void callback(int progress)
 	{
-		/*Animation a = new SpeechBubbleAnimation(
-			Constants.Colour.STEALTH_GREEN,
-			text,
-			new Rectangle(DiyGuiUserInterface.SCREEN_WIDTH/2, DiyGuiUserInterface.SCREEN_HEIGHT/2,1,1),
-			3000);
-
-		Maze.getInstance().startAnimation(a, this, new AnimationContext(null));*/
-
-		Maze.getInstance().journalInContext(
-			StringUtil.getUiLabel("j.npc.speech", Maze.getInstance().getCurrentNpc().getName(), text));
-		
-		return null;
+		// no op
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
+	@Override
+	public void message(String msg)
 	{
-		return text;
+		message.setText(msg);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return delay;
-	}
 
-	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return true;
-	}
 }

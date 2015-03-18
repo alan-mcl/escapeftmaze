@@ -28,15 +28,13 @@ import mclachlan.maze.game.MazeVariables;
  */
 public class QuestManager
 {
-	Npc npc;
-	List<Quest> quests;
+	private List<Quest> quests;
 
 	private String counterVar, stateVar;
 
 	/*-------------------------------------------------------------------------*/
 	public QuestManager(Npc npc)
 	{
-		this.npc = npc;
 		this.quests = new ArrayList<Quest>();
 
 		String npcVarName = npc.getName().toLowerCase().replaceAll(" ", ".");

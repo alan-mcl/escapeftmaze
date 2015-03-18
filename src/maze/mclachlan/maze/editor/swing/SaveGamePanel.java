@@ -50,7 +50,8 @@ public class SaveGamePanel extends JPanel
 		tabs.add("NPC Factions", getNpcFactionsPanel());
 		tabs.add("NPCs", getNpcPanel());
 		tabs.add("Tiles Visited", getPlayerTilesVisitedPanel());
-		
+		tabs.add("Journals", getJournalsPanel());
+
 		this.add(tabs);
 	}
 
@@ -92,6 +93,12 @@ public class SaveGamePanel extends JPanel
 	}
 
 	private Component getConditionsPanel()
+	{
+		// todo (and remember to add to SwingEditor.addDynamicDataTab)
+		return new JLabel("todo");
+	}
+
+	private Component getJournalsPanel()
 	{
 		// todo (and remember to add to SwingEditor.addDynamicDataTab)
 		return new JLabel("todo");

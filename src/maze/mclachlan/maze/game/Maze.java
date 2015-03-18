@@ -30,8 +30,10 @@ import mclachlan.maze.audio.AudioThread;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.event.StartGameEvent;
 import mclachlan.maze.game.event.ZoneChangeEvent;
+import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.*;
@@ -48,9 +50,7 @@ import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.ui.UserInterface;
-import mclachlan.maze.ui.diygui.Animation;
-import mclachlan.maze.ui.diygui.BlockingScreen;
-import mclachlan.maze.ui.diygui.Constants;
+import mclachlan.maze.ui.diygui.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
@@ -263,6 +263,24 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Journal's the given text in the context of any current NPC or Zone
+	 */
+	public void journalInContext(String text)
+	{
+		if (getCurrentNpc() != null)
+		{
+			JournalManager.getInstance().npcJournal(text);
+		}
+
+		if (getCurrentZone() != null)
+		{
+			JournalManager.getInstance().zoneJournal(text);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public GameState getGameState()
 	{
 		return new GameState(
@@ -301,6 +319,7 @@ public class Maze implements Runnable
 			NpcManager.getInstance().saveGame(name, saver);
 			saver.saveMazeVariables(name);
 			ItemCacheManager.getInstance().saveGame(name, saver);
+			JournalManager.getInstance().saveGame(name, saver);
 			ConditionManager.getInstance().saveGame(name, saver);
 			
 			ui.addMessage("Game Saved");
@@ -314,6 +333,8 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void quickStart()
 	{
+		ui.waitingDialog(StringUtil.getUiLabel("mm.rolling.characters"));
+
 		// get the first dificulty level, by sort order
 		Map<String, DifficultyLevel> difficultyLevels = Database.getInstance().getDifficultyLevels();
 
@@ -355,11 +376,14 @@ public class Maze implements Runnable
 			}
 		});
 
-		// add to party and go go go
+		// add PC to the party and go go go!
 		for (PlayerCharacter pc : pcs)
 		{
 			this.addPlayerCharacterToParty(pc);
 		}
+
+		ui.clearDialog();
+
 		startGame(difficultyLevel.getName());
 	}
 
@@ -381,6 +405,7 @@ public class Maze implements Runnable
 
 			// load gamestate
 			//... not needed
+			GameTime.startGame();
 
 			// construct player party
 			//... already done
@@ -400,6 +425,9 @@ public class Maze implements Runnable
 			// load maze vars
 			// load item caches
 			//... not needed
+
+			// init journals
+			JournalManager.getInstance().startGame();
 
 			// start campaign
 			MazeScript startingScript = Database.getInstance().getScript(campaign.getStartingScript());
@@ -422,17 +450,22 @@ public class Maze implements Runnable
 			ui.getMusic().stop();
 			ui.getMusic().setState(null);
 
+			final int MAX_PROGRESS = 11;
+
 			// loading screen
-			ui.showBlockingScreen(
-				"screen/loading_screen", 
-				BlockingScreen.Mode.UNINTERRUPTABLE,
-				null);
+			LoadingScreen screen = new LoadingScreen(MAX_PROGRESS);
+			ui.showDialog(screen);
+
+			Loader loader = Database.getInstance().getLoader();
+			ProgressListener progress = screen.getProgressListener();
 
 			// load gamestate
-			Loader loader = Database.getInstance().getLoader();
+			progress.message(StringUtil.getUiLabel("ls.gamestate"));
 			GameState gs = loader.loadGameState(name);
+			progress.incProgress(1);
 
 			// construct player party
+			progress.message(StringUtil.getUiLabel("ls.party"));
 			playerCharacterCache = loader.loadPlayerCharacters(name);
 			List<UnifiedActor> list = new ArrayList<UnifiedActor>();
 			for (String s : gs.getPartyNames())
@@ -440,33 +473,55 @@ public class Maze implements Runnable
 				list.add(playerCharacterCache.get(s));
 			}
 			party = new PlayerParty(list);
+			progress.incProgress(1);
 
 			// set difficulty level
+			progress.message(StringUtil.getUiLabel("ls.difficulty"));
 			difficultyLevel = gs.getDifficultyLevel();
+			progress.incProgress(1);
 
 			// load tiles visited
+			progress.message(StringUtil.getUiLabel("ls.tiles.visited"));
 			playerTilesVisited = loader.loadPlayerTilesVisited(name);
+			progress.incProgress(1);
 
 			// clear maze vars
+			progress.message(StringUtil.getUiLabel("ls.clear.maze.vars"));
 			MazeVariables.clearAll();
+			progress.incProgress(1);
 
 			// load NPCs
+			progress.message(StringUtil.getUiLabel("ls.npc"));
 			NpcManager.getInstance().loadGame(name, loader);
+			progress.incProgress(1);
 
 			// load maze vars
+			progress.message(StringUtil.getUiLabel("ls.maze.vars"));
 			loader.loadMazeVariables(name);
+			progress.incProgress(1);
 
 			// load item caches
+			progress.message(StringUtil.getUiLabel("ls.item.caches"));
 			ItemCacheManager.getInstance().loadGame(name, loader);
+			progress.incProgress(1);
 
 			// init state
+			progress.message(StringUtil.getUiLabel("ls.init"));
 			setGameState(gs);
 			ui.setParty(party);
 			this.setState(State.MOVEMENT);
+			progress.incProgress(1);
+
+			// load journals
+			progress.message(StringUtil.getUiLabel("ls.journals"));
+			JournalManager.getInstance().loadGame(name, loader);
+			progress.incProgress(1);
 
 			// load conditions
 			// done last, so that conditions on tiles can be loaded after the zone has been loaded
+			progress.message(StringUtil.getUiLabel("ls.conditions"));
 			ConditionManager.getInstance().loadGame(name, loader);
+			progress.incProgress(1);
 
 			// set message
 			ui.addMessage("Game Loaded");
@@ -586,7 +641,7 @@ public class Maze implements Runnable
 		{
 			// do not trigger random encounters if there is an NPC on the tile
 			Npc[] npcs = NpcManager.getInstance().getNpcsOnTile(
-				this.getZone().getName(), this.getTile());
+				this.getCurrentZone().getName(), this.getTile());
 
 			if (npcs == null || npcs.length == 0)
 			{
@@ -1367,6 +1422,14 @@ public class Maze implements Runnable
 		// the event now.
 		this.ui.displayMazeEvent(event, displayEventText);
 
+		// journal the text
+//		if (displayEventText)
+//		{
+//			JournalManager.getInstance().getJournal(
+//				JournalManager.JournalType.ZONE).addJournalEntry(
+//				GameTime.getTurnNr(), getZone().getName(), event.getText());
+//		}
+
 		// only wait on delays and stuff if the event text needs to be shown
 		if (displayEventText)
 		{
@@ -2097,7 +2160,7 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Zone getZone()
+	public Zone getCurrentZone()
 	{
 		return zone;
 	}

@@ -168,6 +168,10 @@ public class MovementOptionsWidget extends DIYPane
 		{
 			showMap();
 		}
+		else if (obj == journal)
+		{
+			showJournal();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -193,6 +197,11 @@ public class MovementOptionsWidget extends DIYPane
 	{
 		FormationDialog formationDialog = new FormationDialog(this);
 		Maze.getInstance().getUi().showDialog(formationDialog);
+	}
+
+	public void showJournal()
+	{
+		Maze.getInstance().getUi().showDialog(new JournalDialog());
 	}
 
 	public void showSettingsDialog()

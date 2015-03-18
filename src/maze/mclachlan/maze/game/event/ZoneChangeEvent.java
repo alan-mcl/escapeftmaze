@@ -22,17 +22,19 @@ package mclachlan.maze.game.event;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.journal.JournalManager;
 
 /**
  *
  */
 public class ZoneChangeEvent extends MazeEvent
 {
-	String zone;
-	Point pos;
-	int facing;
+	private String zone;
+	private Point pos;
+	private int facing;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -49,7 +51,17 @@ public class ZoneChangeEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		if (Maze.getInstance().getCurrentZone() != null)
+		{
+			JournalManager.getInstance().zoneJournal(StringUtil.getUiLabel("j.depart.zone", zone));
+			JournalManager.getInstance().logbook(StringUtil.getUiLabel("j.depart.zone", zone));
+		}
+
 		Maze.getInstance().changeZone(zone, pos, facing);
+
+		JournalManager.getInstance().zoneJournal(StringUtil.getUiLabel("j.arrive.zone", zone));
+		JournalManager.getInstance().logbook(StringUtil.getUiLabel("j.arrive.zone", zone));
+
 		return null;
 	}
 

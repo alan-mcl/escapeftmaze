@@ -1,0 +1,12 @@
+npc
+-section-
+Red Ear
+55~You meet Red Ear for the first time.
+56~Red Ear: Hello!
+-end-section-
+-section-
+Other NPC
+999~First meeting text
+1000~NPC: speach
+1200~Next meeting text
+-end-section-

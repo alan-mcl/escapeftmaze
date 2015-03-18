@@ -1,4 +1,13 @@
 ---------------------------------------
+v0.915 (???)
+---------------------------------------
+Features
+ - Redesigned Resting as a more interesting encounter
+ - Introduced supplies as a party resource, consumed while resting
+ - New consumable items are automatically converted to party gold or supplies
+ - Added progress bar to load game screen
+
+---------------------------------------
 v0.914 (30 June 2014)
 ---------------------------------------
 Features

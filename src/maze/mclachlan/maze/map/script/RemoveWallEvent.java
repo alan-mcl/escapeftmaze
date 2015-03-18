@@ -46,7 +46,7 @@ public class RemoveWallEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		removeWall(Maze.getInstance().getZone().getMap(), horizontalWall, wallIndex);
+		removeWall(Maze.getInstance().getCurrentZone().getMap(), horizontalWall, wallIndex);
 		
 		return null;
 	}

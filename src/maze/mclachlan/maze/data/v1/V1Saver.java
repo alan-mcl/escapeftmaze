@@ -27,6 +27,7 @@ import java.util.*;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
@@ -52,6 +53,7 @@ public class V1Saver extends Saver
 	private String savePath = null;
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void init(Campaign c)
 	{
 		path = "data/"+ c.getName()+"/db/";
@@ -428,6 +430,7 @@ public class V1Saver extends Saver
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void saveConditions(String saveGameName, Map<ConditionBearer, java.util.List<Condition>> conditions) throws Exception
 	{
 		BufferedWriter writer = new BufferedWriter(new FileWriter(getSaveGamePath(saveGameName)+V1Utils.CONDITIONS));
@@ -437,6 +440,24 @@ public class V1Saver extends Saver
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public void saveJournal(String saveGameName,
+		Journal journal) throws Exception
+	{
+		File file = new File(getSaveGamePath(saveGameName)+V1Utils.JOURNALS+journal.getName()+".txt");
+		if (!file.getParentFile().exists())
+		{
+			file.getParentFile().mkdirs();
+		}
+		BufferedWriter writer = new BufferedWriter(
+			new FileWriter(file));
+		V1Journal.save(writer, journal);
+		writer.flush();
+		writer.close();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public void saveUserConfig(UserConfig userConfig) throws Exception
 	{
 		BufferedWriter writer = new BufferedWriter(new FileWriter(V1Utils.USER_CONFIG));

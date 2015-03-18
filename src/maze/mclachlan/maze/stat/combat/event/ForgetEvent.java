@@ -52,7 +52,7 @@ public class ForgetEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		PlayerTilesVisited ptv = Maze.getInstance().getPlayerTilesVisited();
-		String zone = Maze.getInstance().getZone().getName();
+		String zone = Maze.getInstance().getCurrentZone().getName();
 		List<Point> tilesVisited = ptv.getTilesVisited(zone);
 
 		for (Point p : tilesVisited)

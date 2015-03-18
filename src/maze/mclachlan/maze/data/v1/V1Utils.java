@@ -71,6 +71,7 @@ public class V1Utils
 	public static final String ITEM_CACHES = "itemcaches.txt";
 	public static final String TILES_VISITED = "tilesvisited.txt";
 	public static final String CONDITIONS = "conditions.txt";
+	public static final String JOURNALS = "journals/";
 
 	public static final String USER_CONFIG = "user.cfg";
 

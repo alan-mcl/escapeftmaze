@@ -121,10 +121,10 @@ public class ZoneDisplayWidget extends DIYPane implements ActionListener
 			if (cacheItem.item != null)
 			{
 				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(
-					Maze.getInstance().getZone(), Maze.getInstance().getTile());
+					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
 
 				ItemCacheManager.getInstance().clearItemsOnTile(
-					Maze.getInstance().getZone(), Maze.getInstance().getTile());
+					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
 
 				Maze.getInstance().grantItems(items);
 			}

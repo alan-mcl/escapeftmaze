@@ -31,6 +31,7 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.StringManager;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
@@ -601,6 +602,7 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Map<ConditionBearer, List<Condition>> loadConditions(String saveGameName) throws Exception
 	{
 		BufferedReader reader = null;
@@ -616,6 +618,24 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public Journal loadJournal(String saveGameName,
+		String journalName) throws Exception
+	{
+		BufferedReader reader = null;
+		try
+		{
+			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.JOURNALS+journalName+".txt");
+			return V1Journal.load(reader);
+		}
+		finally
+		{
+			reader.close();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public UserConfig loadUserConfig() throws Exception
 	{
 		Reader reader = getReader(V1Utils.USER_CONFIG);
@@ -626,6 +646,7 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) throws Exception
 	{
 		BufferedReader reader = null;
@@ -641,6 +662,7 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public PlayerTilesVisited loadPlayerTilesVisited(
 		String saveGameName) throws Exception
 	{
@@ -657,6 +679,7 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public BufferedImage getImage(String resourceName)
 	{
 		try
@@ -689,6 +712,7 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Clip getClip(String clipName, AudioPlayer audioPlayer)
 	{
 		try
@@ -730,6 +754,7 @@ public class V1Loader extends Loader
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<String> getPortraitNames()
 	{
 		List<String> result = new ArrayList<String>();

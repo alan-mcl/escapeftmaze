@@ -41,6 +41,7 @@ public class Quest
 		List<MazeEvent> encouragement)
 	{
 		this.completionVar = completionVar;
+		this.rewardedVar = rewardedVar;
 		this.introduction = introduction;
 		this.reward = reward;
 		this.encouragement = encouragement;

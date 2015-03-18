@@ -146,6 +146,7 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_H: ui.movementOptionsWidget.hide(); break;
 				case KeyEvent.VK_D: ui.movementOptionsWidget.saveOrLoad(); break;
 				case KeyEvent.VK_G: ui.movementOptionsWidget.showSettingsDialog(); break;
+				case KeyEvent.VK_J: ui.movementOptionsWidget.showJournal(); break;
 				case KeyEvent.VK_M:
 				case KeyEvent.VK_TAB: ui.movementOptionsWidget.showMap(); break;
 			}

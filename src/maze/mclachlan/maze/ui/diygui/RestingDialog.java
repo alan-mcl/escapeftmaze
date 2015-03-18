@@ -170,7 +170,7 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 	{
 		RestingProgressDialog dialog = new RestingProgressDialog(
 			getUiLabel("rd.resting.progress",
-				Maze.getInstance().getZone().getName()));
+				Maze.getInstance().getCurrentZone().getName()));
 
 		// clear this dialog
 		Maze.getInstance().getUi().clearDialog();
@@ -180,7 +180,7 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 
 		Tile tile = Maze.getInstance().getCurrentTile();
 		Maze.log(Log.MEDIUM, "Party begins resting @ ["+
-			Maze.getInstance().getZone().getName()+"] ["+tile.getCoords().x+","+tile.getCoords().y+"]");
+			Maze.getInstance().getCurrentZone().getName()+"] ["+tile.getCoords().x+","+tile.getCoords().y+"]");
 
 		int nrTurns = 100;
 

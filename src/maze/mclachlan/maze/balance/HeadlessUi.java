@@ -381,6 +381,12 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
+	@Override
+	public void waitingDialog(String s)
+	{
+
+	}
+
 	public Music getMusic()
 	{
 		return null;

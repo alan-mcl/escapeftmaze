@@ -3,6 +3,7 @@
 common.ok = OK
 common.exit = Exit
 common.cancel = Cancel
+common.gametime = Day %s, turn %s
 
 # the create character wizard
 cc.race.title = Character Race
@@ -201,6 +202,7 @@ mm.load.game = Loa(d) Game
 mm.settings = Settin(g)s
 mm.quit = (Q)UIT
 mm.quick.start = Q(u)ick Start
+mm.rolling.characters = Rolling characters...
 
 # resting dialog
 rd.title = Resting At This Location
@@ -278,3 +280,33 @@ sd.event.delay.med = Med
 sd.event.delay.slow = Slow
 sd.auto.add.consumables.never = Never
 sd.auto.add.consumables.always = Always
+
+# journal dialog
+jd.title.logbook = Logbook
+jd.title.zones = Journal: Zones
+jd.title.quests = Journal: Quests
+jd.title.npcs = Journal: NPCs
+jd.logbook = (L)ogbook
+jd.logbook.key = Logbook
+jd.zones = (Z)ones
+jd.quests = (Q)uests
+jd.npcs = (N)PCs
+jd.none.yet = <no entries yet>
+
+# journalling events
+j.depart.zone = Departed %s
+j.arrive.zone = Arrived in %s
+j.npc.speech = %s- "%s"
+
+# loading screen
+ls.gamestate = loading gamestate...
+ls.party = loading player party...
+ls.difficulty = loading difficulty level...
+ls.tiles.visited = loading tiles visited...
+ls.clear.maze.vars = clearing maze variables...
+ls.npc = loading npcs...
+ls.maze.vars = loading maze variables...
+ls.item.caches = loading item caches...
+ls.init = init game state...
+ls.conditions = loading conditions...
+ls.journals = loading journals...

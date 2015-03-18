@@ -149,7 +149,7 @@ class MazeActionListener implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void playerActivatesPortal(Point oldTile, Point newTile, int facing, Portal portal)
 	{
-		Zone oldZone = Maze.getInstance().getZone();
+		Zone oldZone = Maze.getInstance().getCurrentZone();
 
 		if (portal.getMazeScript() != null)
 		{
@@ -163,7 +163,7 @@ class MazeActionListener implements ActionListener
 			return;
 		}
 
-		if (oldZone != Maze.getInstance().getZone())
+		if (oldZone != Maze.getInstance().getCurrentZone())
 		{
 			// something in the script has changed the zone
 			Maze.getInstance().getUi().showMovementScreen();
