@@ -78,11 +78,8 @@ public class NaturalWeaponsPanel extends EditorPanel
 		description.addKeyListener(this);
 		dodgyGridBagShite(result, new JLabel("Description:"), description, gbc);
 
-		Vector<String> damageTypes = new Vector<String>();
-		for (int i=0; i< MagicSys.SpellEffectType.MAX; i++)
-		{
-			damageTypes.add(MagicSys.SpellEffectType.describe(i));
-		}
+		Vector<MagicSys.SpellEffectType> damageTypes = new Vector<MagicSys.SpellEffectType>();
+		Collections.addAll(damageTypes, MagicSys.SpellEffectType.values());
 		damageType = new JComboBox(damageTypes);
 		damageType.addActionListener(this);
 
@@ -172,7 +169,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		isRanged.removeActionListener(this);
 
 		damage.setText(V1Dice.toString(nw.getDamage()));
-		damageType.setSelectedIndex(nw.getDefaultDamageType());
+		damageType.setSelectedItem(nw.getDefaultDamageType());
 		attacks.setText(V1Utils.toStringInts(nw.getAttacks(), ","));
 		modifiers.setModifier(nw.getModifiers());
 		isRanged.setSelected(nw.isRanged());
@@ -269,7 +266,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		fa.setDescription(description.getText());
 
 		fa.setDamage(V1Dice.fromString(damage.getText()));
-		fa.setDamageType(damageType.getSelectedIndex());
+		fa.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
 		fa.setAttacks(V1Utils.fromStringInts(attacks.getText(), ","));
 		fa.setModifiers(modifiers.getModifier());
 		fa.setRanged(isRanged.isSelected());

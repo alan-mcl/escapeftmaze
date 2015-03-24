@@ -87,7 +87,7 @@ public class EkirthsTombWallOfFire extends TileScript
 			return Dice.d1;
 		}
 
-		public int getDefaultDamageType()
+		public MagicSys.SpellEffectType getDefaultDamageType()
 		{
 			return MagicSys.SpellEffectType.NONE;
 		}

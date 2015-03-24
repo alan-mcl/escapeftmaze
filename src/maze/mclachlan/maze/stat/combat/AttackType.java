@@ -33,10 +33,10 @@ public class AttackType
 	private String name;
 	private String verb;
 	private StatModifier modifiers;
-	private int damageType;
+	private MagicSys.SpellEffectType damageType;
 
 	/*-------------------------------------------------------------------------*/
-	public AttackType(String name, String verb, int damageType)
+	public AttackType(String name, String verb, MagicSys.SpellEffectType damageType)
 	{
 		this.name = name;
 		this.damageType = damageType;
@@ -45,7 +45,7 @@ public class AttackType
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public AttackType(String name, String verb, int damageType, StatModifier statModifier)
+	public AttackType(String name, String verb, MagicSys.SpellEffectType damageType, StatModifier statModifier)
 	{
 		this.name = name;
 		this.damageType = damageType;
@@ -85,12 +85,12 @@ public class AttackType
 		this.verb = verb;
 	}
 
-	public int getDamageType()
+	public MagicSys.SpellEffectType getDamageType()
 	{
 		return damageType;
 	}
 
-	public void setDamageType(int damageType)
+	public void setDamageType(MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
 	}

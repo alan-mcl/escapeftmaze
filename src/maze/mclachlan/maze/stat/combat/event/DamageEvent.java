@@ -40,14 +40,12 @@ public class DamageEvent extends MazeEvent
 	private UnifiedActor defender;
 	private UnifiedActor attacker;
 	private DamagePacket damagePacket;
-	/** A constant from {@link mclachlan.maze.stat.magic.MagicSys.SpellEffectType} */
-	private int type;
+	private MagicSys.SpellEffectType type;
 	private MagicSys.SpellEffectSubType subtype;
 	/** may be null in the case of spells/conditions */
 	private AttackWith attackWith;
 
 	private int finalDamage;
-
 	private CombatStatistics stats;
 
 	/*-------------------------------------------------------------------------*/
@@ -55,7 +53,7 @@ public class DamageEvent extends MazeEvent
 		UnifiedActor defender,
 		UnifiedActor attacker,
 		DamagePacket damagePacket,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype,
 		AttackWith attackWith,
 		CombatStatistics stats)

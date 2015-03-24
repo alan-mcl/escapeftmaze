@@ -1,6 +1,6 @@
 name=TestingSpellEffect3
 displayName=TEST
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_CHARACTER_LEVEL//false
 unsavedResult=3::BERSERK
@@ -10,7 +10,7 @@ application=AS_PER_SPELL
 @
 name=TestingSpellEffect4
 displayName=TEST
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_MODIFIER/brawn/false
 unsavedResult=3::RESTING_SLEEP
@@ -18,29 +18,9 @@ savedResult=
 targetType=2
 application=APPLY_ONCE_TO_CASTER
 @
-name=TestingSpellEffect2
-displayName=TEST
-type=2
-subtype=NONE
-saveAdjustment=1/1/SCALE_WITH_CASTING_LEVEL//false
-unsavedResult=3::FATIGUE_KO
-savedResult=
-targetType=2
-application=AS_PER_SPELL
-@
-name=skald taunt fatigue
-displayName=
-type=0
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
-savedResult=
-targetType=0
-application=APPLY_ONCE_TO_CASTER
-@
 name=spit venom damage
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=4/0/NONE//true/5
 unsavedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/herbal,1/1/SCALE_WITH_CASTING_LEVEL//false::::0.0:false
@@ -48,19 +28,29 @@ savedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/herbal::::0.5:false
 targetType=3
 application=AS_PER_SPELL
 @
-name=pneumatic lance kia
-displayName=pneumatic lance kia
-type=8
-subtype=NORMAL_DAMAGE
+name=skald taunt fatigue
+displayName=
+type=NONE
+subtype=NONE
 saveAdjustment=1/0/NONE//false
-unsavedResult=19::
+unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
 savedResult=
-targetType=3
+targetType=0
+application=APPLY_ONCE_TO_CASTER
+@
+name=TestingSpellEffect2
+displayName=TEST
+type=WATER
+subtype=NONE
+saveAdjustment=1/1/SCALE_WITH_CASTING_LEVEL//false
+unsavedResult=3::FATIGUE_KO
+savedResult=
+targetType=2
 application=AS_PER_SPELL
 @
 name=mindread spell
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=3/0/NONE//true/posture
 unsavedResult=7::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -68,9 +58,19 @@ savedResult=8::1/1/SCALE_WITH_CASTING_LEVEL//false
 targetType=8
 application=AS_PER_SPELL
 @
+name=pneumatic lance kia
+displayName=pneumatic lance kia
+type=PIERCING
+subtype=NORMAL_DAMAGE
+saveAdjustment=1/0/NONE//false
+unsavedResult=19::
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=vacuum pump
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=21::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -80,7 +80,7 @@ application=AS_PER_SPELL
 @
 name=staff of shritis drain
 displayName=drain
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/NONE//false/1d5+15:::0.0:false
@@ -90,7 +90,7 @@ application=AS_PER_SPELL
 @
 name=magicfood
 displayName=restore magic
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5:::::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6
@@ -100,7 +100,7 @@ application=AS_PER_SPELL
 @
 name=gruesome aspect spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::gruesome aspect spell
@@ -110,7 +110,7 @@ application=AS_PER_SPELL
 @
 name=exorcism fear - outsider
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3:outsider:SCALING_FEAR
@@ -120,7 +120,7 @@ application=AS_PER_SPELL
 @
 name=mortal allure spell poss vs outsiders
 displayName=possess
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3:outsider:SCALING_POSSESS
@@ -130,7 +130,7 @@ application=AS_PER_SPELL
 @
 name=exoskeleton self destruct damage
 displayName=exoskeleton self destruct damage
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/10d6::::0.0:false
@@ -140,7 +140,7 @@ application=AS_PER_SPELL
 @
 name=ghul laugh
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/2d6+5::2/0/NONE//false/2d6+5::0.0:true
@@ -150,7 +150,7 @@ application=AS_PER_SPELL
 @
 name=pain spell ko
 displayName=KO
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -160,7 +160,7 @@ application=AS_PER_SPELL
 @
 name=healing factor spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::healing factor spell
@@ -170,7 +170,7 @@ application=AS_PER_SPELL
 @
 name=armourplate spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::armourplate spell
@@ -180,7 +180,7 @@ application=AS_PER_SPELL
 @
 name=mandolin of the magus screen
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::mandolin of the magus screen
@@ -190,7 +190,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_POSSESS
 displayName=possess
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_POSSESS
@@ -200,7 +200,7 @@ application=AS_PER_SPELL
 @
 name=mephit army spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::mephit.army.spell.1/mephit.army.spell.1/mephit.army.spell.1/mephit.army.spell.2/mephit.army.spell.2/mephit.army.spell.3/mephit.army.spell.3/mephit.army.spell.4/mephit.army.spell.4/mephit.army.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -210,7 +210,7 @@ application=AS_PER_SPELL
 @
 name=rest all spell
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/4::
@@ -220,7 +220,7 @@ application=AS_PER_SPELL
 @
 name=deadly air poison
 displayName=poison
-type=4
+type=AIR
 subtype=POISON
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_POISON
@@ -230,7 +230,7 @@ application=AS_PER_SPELL
 @
 name=vampire vulture drain
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=15::2/0/NONE//false/1d4:hitPoints
@@ -240,7 +240,7 @@ application=AS_PER_SPELL
 @
 name=power word kill spell
 displayName=death or damage
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=19::
@@ -250,7 +250,7 @@ application=AS_PER_SPELL
 @
 name=entwine spell plyze
 displayName=paralyse
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/5
 unsavedResult=3::SCALING_PARALYSE
@@ -258,19 +258,9 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
-name=rally spell condition
-displayName=
-type=6
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::rally spell
-savedResult=
-targetType=0
-application=AS_PER_SPELL
-@
 name=boiling blood damage
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,4/0/SCALE_WITH_CASTING_LEVEL//false/0,3/0/NONE//false/thought::::0.0:false
@@ -278,9 +268,19 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,4/0/SCALE_WITH_CASTING_LE
 targetType=3
 application=AS_PER_SPELL
 @
+name=rally spell condition
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::rally spell
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=darkness spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3,4/0/NONE//false/1:
@@ -288,19 +288,9 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
-name=TOUCH_PARALYSE
-displayName=paralyse
-type=2
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::SCALING_PARALYSE
-savedResult=
-targetType=3
-application=AS_PER_SPELL
-@
 name=left handed bane insane
 displayName=insane
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_INSANE
@@ -308,9 +298,19 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=TOUCH_PARALYSE
+displayName=paralyse
+type=WATER
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::SCALING_PARALYSE
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=bolt of magma damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d8,3/0/NONE//false/thought::::0.0:false
@@ -320,7 +320,7 @@ application=AS_PER_SPELL
 @
 name=summon mephit
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::summon.mephit.spell.1/summon.mephit.spell.1/summon.mephit.spell.1/summon.mephit.spell.1/summon.mephit.spell.1/summon.mephit.spell.2/summon.mephit.spell.2/summon.mephit.spell.2/summon.mephit.spell.2/summon.mephit.spell.2:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -330,7 +330,7 @@ application=AS_PER_SPELL
 @
 name=rpg ko
 displayName=rpg ko
-type=7
+type=BLUDGEONING
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::mace ko
@@ -338,29 +338,9 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
-name=exorcism damage - undead
-displayName=
-type=6
-subtype=NONE
-saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
-unsavedResult=4:undead:2/0/SCALE_WITH_CASTING_LEVEL//true/1d4+1,4/0/SCALE_WITH_CASTING_LEVEL//true/4::::1.0:false
-savedResult=
-targetType=5
-application=AS_PER_SPELL
-@
-name=fire sword damage
-displayName=fire damage 1d8
-type=1
-subtype=HEAT
-saveAdjustment=1/0/NONE//false
-unsavedResult=4::2/0/NONE//false/1d8::::0.0:false
-savedResult=4::2/0/NONE//false/1d8::::0.5:false
-targetType=3
-application=AS_PER_SPELL
-@
 name=purify air spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=21::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -368,19 +348,29 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
-name=summon demon spell
-displayName=
-type=6
-subtype=NONE
+name=fire sword damage
+displayName=fire damage 1d8
+type=FIRE
+subtype=HEAT
 saveAdjustment=1/0/NONE//false
-unsavedResult=11::summon.demon.1/summon.demon.1/summon.demon.1/summon.demon.2/summon.demon.2/summon.demon.2/summon.demon.2/summon.demon.3/summon.demon.3/summon.demon.3:1/1/SCALE_WITH_CASTING_LEVEL//false
+unsavedResult=4::2/0/NONE//false/1d8::::0.0:false
+savedResult=4::2/0/NONE//false/1d8::::0.5:false
+targetType=3
+application=AS_PER_SPELL
+@
+name=exorcism damage - undead
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
+unsavedResult=4:undead:2/0/SCALE_WITH_CASTING_LEVEL//true/1d4+1,4/0/SCALE_WITH_CASTING_LEVEL//true/4::::1.0:false
 savedResult=
-targetType=0
+targetType=5
 application=AS_PER_SPELL
 @
 name=boulder dragon breath
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/3d10:2/0/NONE//false/3d10:2/0/NONE//false/3d10:2/0/NONE//false/3d10:0.0:false
@@ -388,9 +378,19 @@ savedResult=4::2/0/NONE//false/3d10:2/0/NONE//false/3d10:2/0/NONE//false/3d10:2/
 targetType=5
 application=AS_PER_SPELL
 @
+name=summon demon spell
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=11::summon.demon.1/summon.demon.1/summon.demon.1/summon.demon.2/summon.demon.2/summon.demon.2/summon.demon.2/summon.demon.3/summon.demon.3/summon.demon.3:1/1/SCALE_WITH_CASTING_LEVEL//false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=vanishing spell
 displayName=invisible
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::invisibility spell
@@ -400,7 +400,7 @@ application=AS_PER_SPELL
 @
 name=insect swarm
 displayName=irritate
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/5
 unsavedResult=3::SCALING_IRRITATE
@@ -410,7 +410,7 @@ application=AS_PER_SPELL
 @
 name=revitalise spell healing
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/NONE//false/1d6,3/0/NONE//false/herbal:2/0/NONE//false/1d6,1/1/SCALE_WITH_CASTING_LEVEL//false::
@@ -420,7 +420,7 @@ application=AS_PER_SPELL
 @
 name=forget trap
 displayName=forget trap
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=24::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2
@@ -430,7 +430,7 @@ application=AS_PER_SPELL
 @
 name=power of the pit swallowed
 displayName=swallow
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::power of the pit swallowed
@@ -440,7 +440,7 @@ application=AS_PER_SPELL
 @
 name=shrill shound spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3,4/0/NONE//false/2,1/1/SCALE_WITH_CASTING_LEVEL//false::::0.0:false
@@ -450,7 +450,7 @@ application=AS_PER_SPELL
 @
 name=mottled boa poison
 displayName=poison
-type=3
+type=EARTH
 subtype=POISON
 saveAdjustment=1/-1/NONE//false
 unsavedResult=3::mottled boa poison
@@ -460,7 +460,7 @@ application=AS_PER_SPELL
 @
 name=left handed bane damage
 displayName=damage
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10:0.0:false
@@ -470,7 +470,7 @@ application=AS_PER_SPELL
 @
 name=booze effect
 displayName=booze effect
-type=2
+type=WATER
 subtype=POISON
 saveAdjustment=1/33/NONE//true
 unsavedResult=23::
@@ -480,7 +480,7 @@ application=AS_PER_SPELL
 @
 name=crucible
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::crucible
@@ -490,7 +490,7 @@ application=AS_PER_SPELL
 @
 name=backstab spell damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/gesture::::0.0:false
@@ -500,7 +500,7 @@ application=AS_PER_SPELL
 @
 name=frostbite
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/thought,1/1/SCALE_WITH_CASTING_LEVEL//false::::1.0:false
@@ -510,7 +510,7 @@ application=AS_PER_SPELL
 @
 name=hexxer trap
 displayName=hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::hexxer trap
@@ -520,7 +520,7 @@ application=AS_PER_SPELL
 @
 name=charming wand
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=2::1/0/NONE//false,2/0/NONE//false/1d6
@@ -530,7 +530,7 @@ application=AS_PER_SPELL
 @
 name=bless party
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::bless
@@ -540,7 +540,7 @@ application=AS_PER_SPELL
 @
 name=power of the pit immolation
 displayName=damage health
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.0:false
@@ -550,7 +550,7 @@ application=AS_PER_SPELL
 @
 name=shadow bolt
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=4::2/0/NONE//false/1d2,3/0/NONE//false/rhyme,4/0/NONE//false/2::::0.0:false
@@ -560,7 +560,7 @@ application=AS_PER_SPELL
 @
 name=bolt of lightning spell
 displayName=
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d8,3/0/NONE//false/thought::::0.0:false
@@ -570,7 +570,7 @@ application=AS_PER_SPELL
 @
 name=phantom guardian spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::phantom guardian spell
@@ -580,7 +580,7 @@ application=AS_PER_SPELL
 @
 name=watchbells spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/rhyme:sleep
@@ -590,7 +590,7 @@ application=AS_PER_SPELL
 @
 name=chemical flash
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_BLIND
@@ -600,7 +600,7 @@ application=AS_PER_SPELL
 @
 name=poison gas payload spell
 displayName=
-type=4
+type=AIR
 subtype=POISON
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::poison gas spell
@@ -610,7 +610,7 @@ application=AS_PER_SPELL
 @
 name=curse spell ko
 displayName=KO
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -620,7 +620,7 @@ application=AS_PER_SPELL
 @
 name=phantasm spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::phantasm.spell.1/phantasm.spell.1/phantasm.spell.2/phantasm.spell.2/phantasm.spell.3/phantasm.spell.3/phantasm.spell.4/phantasm.spell.4/phantasm.spell.5/phantasm.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -630,7 +630,7 @@ application=AS_PER_SPELL
 @
 name=leverage spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=2::4/0/SCALE_WITH_CASTING_LEVEL//false/1
@@ -640,7 +640,7 @@ application=AS_PER_SPELL
 @
 name=phase shift condition
 displayName=invisible
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_INVISIBLE
@@ -650,7 +650,7 @@ application=AS_PER_SPELL
 @
 name=remedy spell condition removal
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,fear,irritate,nausea,poison,sleep
@@ -660,7 +660,7 @@ application=AS_PER_SPELL
 @
 name=mental blast insane
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::confusion spell
@@ -670,7 +670,7 @@ application=AS_PER_SPELL
 @
 name=gates of hell spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::gates.of.hell.spell.1/gates.of.hell.spell.1/gates.of.hell.spell.2/gates.of.hell.spell.2/gates.of.hell.spell.2/gates.of.hell.spell.3/gates.of.hell.spell.3/gates.of.hell.spell.3/gates.of.hell.spell.4/gates.of.hell.spell.4:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -680,7 +680,7 @@ application=AS_PER_SPELL
 @
 name=flare spell
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4,3/0/NONE//false/thought::::0.0:false
@@ -690,7 +690,7 @@ application=AS_PER_SPELL
 @
 name=magic to might damage
 displayName=magic to might
-type=6
+type=ENERGY
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6:0.0:false
@@ -700,7 +700,7 @@ application=AS_PER_SPELL
 @
 name=right handed bane poison
 displayName=poison
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::emerald spider poison
@@ -710,7 +710,7 @@ application=AS_PER_SPELL
 @
 name=mental attack insane
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::confusion spell
@@ -720,7 +720,7 @@ application=AS_PER_SPELL
 @
 name=fey voice spell possess
 displayName=possess
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=3::SCALING_POSSESS
@@ -730,7 +730,7 @@ application=AS_PER_SPELL
 @
 name=bane
 displayName=bane
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=3::bane spell
@@ -740,7 +740,7 @@ application=AS_PER_SPELL
 @
 name=left handed bane hex
 displayName=hex
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_HEX
@@ -750,7 +750,7 @@ application=AS_PER_SPELL
 @
 name=knock pick
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=14::1/0/NONE//false,2/0/NONE//false/1d6
@@ -760,7 +760,7 @@ application=AS_PER_SPELL
 @
 name=enchanted blade spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::enchanted blade spell
@@ -770,7 +770,7 @@ application=AS_PER_SPELL
 @
 name=old igor breath
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/3d12::::0.0:false
@@ -780,7 +780,7 @@ application=AS_PER_SPELL
 @
 name=blinding flash spell
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=3/0/NONE//true/alchemic
 unsavedResult=3::SCALING_BLIND
@@ -790,7 +790,7 @@ application=AS_PER_SPELL
 @
 name=invisibility spell condition
 displayName=invisible
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::invisibility spell
@@ -800,7 +800,7 @@ application=AS_PER_SPELL
 @
 name=poison gas spell
 displayName=
-type=4
+type=AIR
 subtype=POISON
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/poison:Poison Gas - Payload
@@ -810,7 +810,7 @@ application=AS_PER_SPELL
 @
 name=haste spell
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::haste spell
@@ -820,7 +820,7 @@ application=AS_PER_SPELL
 @
 name=force bolt
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/thought,1/1/SCALE_WITH_CASTING_LEVEL//false::::1.0:false
@@ -830,7 +830,7 @@ application=AS_PER_SPELL
 @
 name=soulful sax soul shield
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::soul shield spell
@@ -840,7 +840,7 @@ application=AS_PER_SPELL
 @
 name=static discharge damage
 displayName=
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2::::0.0:false
@@ -850,7 +850,7 @@ application=AS_PER_SPELL
 @
 name=steam blast blind
 displayName=steam blast blind
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_BLIND
@@ -860,7 +860,7 @@ application=AS_PER_SPELL
 @
 name=heroism spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::heroism spell
@@ -870,7 +870,7 @@ application=AS_PER_SPELL
 @
 name=exoskeleton self destruct death
 displayName=exoskeleton self destruct death
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=19::
@@ -880,7 +880,7 @@ application=APPLY_ONCE_TO_CASTER
 @
 name=TOUCH_IRRITATE
 displayName=irritate
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_IRRITATE
@@ -890,7 +890,7 @@ application=AS_PER_SPELL
 @
 name=lightning gun damage
 displayName=lightning gun damage
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10::::0.0:false
@@ -900,7 +900,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_SILENCE
 displayName=silence
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_SILENCE
@@ -910,7 +910,7 @@ application=AS_PER_SPELL
 @
 name=hidden snakebite damage
 displayName=hidden snakebite damage
-type=8
+type=PIERCING
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/6d3::::0.0:false
@@ -920,7 +920,7 @@ application=AS_PER_SPELL
 @
 name=courage spell removal
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/2/SCALE_WITH_CASTING_LEVEL//false:fear
@@ -930,7 +930,7 @@ application=AS_PER_SPELL
 @
 name=phase shift blink
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_BLINK
@@ -940,7 +940,7 @@ application=AS_PER_SPELL
 @
 name=power word blind spell
 displayName=blind or damage
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/thought
 unsavedResult=3::SCALING_BLIND
@@ -950,7 +950,7 @@ application=AS_PER_SPELL
 @
 name=call wyrm spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::call.wyrm.spell.1/call.wyrm.spell.1/call.wyrm.spell.1/call.wyrm.spell.1/call.wyrm.spell.1/call.wyrm.spell.2/call.wyrm.spell.2/call.wyrm.spell.2/call.wyrm.spell.3/call.wyrm.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -960,7 +960,7 @@ application=AS_PER_SPELL
 @
 name=left handed bane stone
 displayName=stone
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_STONE
@@ -970,7 +970,7 @@ application=AS_PER_SPELL
 @
 name=heal serious spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,3/0/NONE//false/chant,4/0/NONE//false/4:::
@@ -980,7 +980,7 @@ application=AS_PER_SPELL
 @
 name=gadget use fatigue
 displayName=gadget use fatigue
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/SCALE_WITH_CASTING_LEVEL//false/2d2:::0.0:false
@@ -990,7 +990,7 @@ application=APPLY_ONCE_TO_CASTER
 @
 name=right handed bane irritate
 displayName=irritate
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_IRRITATE
@@ -1000,7 +1000,7 @@ application=AS_PER_SPELL
 @
 name=icicle spell damage
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d5::::0.0:false
@@ -1010,7 +1010,7 @@ application=AS_PER_SPELL
 @
 name=soulful sax remove conditions
 displayName=remove conditions
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,fear,hex,irritate,nausea,paralyse,silence,sleep
@@ -1020,7 +1020,7 @@ application=AS_PER_SPELL
 @
 name=cure stone spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:stone
@@ -1030,7 +1030,7 @@ application=AS_PER_SPELL
 @
 name=music intrument use fatigue
 displayName=gadget use fatigue
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/SCALE_WITH_CASTING_LEVEL//false/2d2:::0.0:false
@@ -1038,19 +1038,9 @@ savedResult=
 targetType=0
 application=APPLY_ONCE_TO_CASTER
 @
-name=ruin spell damage
-displayName=
-type=1
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.0:false
-savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.5:false
-targetType=4
-application=AS_PER_SPELL
-@
 name=smelling salts
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/2/SCALE_WITH_CASTING_LEVEL//false:ko
@@ -1058,9 +1048,19 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
+name=ruin spell damage
+displayName=
+type=FIRE
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.0:false
+savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.5:false
+targetType=4
+application=AS_PER_SPELL
+@
 name=dazzling lights spell blind
 displayName=blind
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_BLIND
@@ -1070,7 +1070,7 @@ application=AS_PER_SPELL
 @
 name=summon vermin spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::summon.vermin.spell.1/summon.vermin.spell.1/summon.vermin.spell.1/summon.vermin.spell.1/summon.vermin.spell.1/summon.vermin.spell.2/summon.vermin.spell.2/summon.vermin.spell.2/summon.vermin.spell.2/summon.vermin.spell.2:1/1/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/chant
@@ -1080,7 +1080,7 @@ application=AS_PER_SPELL
 @
 name=ray of enfeeblement trap
 displayName=weakness
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=3::ray of enfeeblement trap
@@ -1090,7 +1090,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_FEAR
 displayName=fear
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -1098,19 +1098,9 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
-name=entwine spell damage
-displayName=damage
-type=3
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=4::4/0/SCALE_WITH_CASTING_LEVEL//false/5::::0.0:false
-savedResult=4::4/0/SCALE_WITH_CASTING_LEVEL//false/5::::0.5:false
-targetType=4
-application=AS_PER_SPELL
-@
 name=helpfood
 displayName=restore health
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::
@@ -1118,9 +1108,19 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=entwine spell damage
+displayName=damage
+type=EARTH
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=4::4/0/SCALE_WITH_CASTING_LEVEL//false/5::::0.0:false
+savedResult=4::4/0/SCALE_WITH_CASTING_LEVEL//false/5::::0.5:false
+targetType=4
+application=AS_PER_SPELL
+@
 name=astral gate spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=19:outsider:
@@ -1130,7 +1130,7 @@ application=AS_PER_SPELL
 @
 name=magic screen spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::magic screen spell
@@ -1140,7 +1140,7 @@ application=AS_PER_SPELL
 @
 name=null magic trap
 displayName=null magic trap
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::::2/0/NONE//false/10d10:0.0:false
@@ -1150,7 +1150,7 @@ application=AS_PER_SPELL
 @
 name=mind flay damage
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -1158,19 +1158,9 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.5:false
 targetType=5
 application=AS_PER_SPELL
 @
-name=enchanter invisibility
-displayName=invisible
-type=4
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::enchanter invisibility
-savedResult=
-targetType=0
-application=AS_PER_SPELL
-@
 name=bardic harp bless
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::bardic harp bless
@@ -1180,7 +1170,7 @@ application=AS_PER_SPELL
 @
 name=slow spell
 displayName=slow
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=3::slow spell
@@ -1188,19 +1178,9 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
-name=element shield
-displayName=
-type=3
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::element shield
-savedResult=
-targetType=0
-application=AS_PER_SPELL
-@
 name=TOUCH_INSANE
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_INSANE
@@ -1208,9 +1188,19 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=element shield
+displayName=
+type=EARTH
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::element shield
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=summon angel spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::summon.angel.spell.1/summon.angel.spell.1/summon.angel.spell.1/summon.angel.spell.1/summon.angel.spell.2/summon.angel.spell.2/summon.angel.spell.2/summon.angel.spell.2/summon.angel.spell.3/summon.angel.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -1220,7 +1210,7 @@ application=AS_PER_SPELL
 @
 name=hex spell
 displayName=hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::SCALING_HEX
@@ -1230,7 +1220,7 @@ application=AS_PER_SPELL
 @
 name=energy drain trap
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/NONE//false/10d10:::0.0:false
@@ -1240,7 +1230,7 @@ application=AS_PER_SPELL
 @
 name=resist elements
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::resist elements
@@ -1248,19 +1238,9 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
-name=turn undead fatigue
-displayName=
-type=0
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
-savedResult=
-targetType=0
-application=APPLY_ONCE_TO_CASTER
-@
 name=unholy ground
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::unholy ground
@@ -1268,19 +1248,19 @@ savedResult=
 targetType=6
 application=AS_PER_SPELL
 @
-name=ill repute
-displayName=ill repute
-type=5
+name=turn undead fatigue
+displayName=
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
-unsavedResult=3::ill repute
+unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
 savedResult=
 targetType=0
-application=AS_PER_SPELL
+application=APPLY_ONCE_TO_CASTER
 @
 name=decay spell plant damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:plant:2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -1288,9 +1268,19 @@ savedResult=4:plant:2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.5:false
 targetType=5
 application=AS_PER_SPELL
 @
+name=ill repute
+displayName=ill repute
+type=MENTAL
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::ill repute
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=asphixiation spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=19::
@@ -1300,7 +1290,7 @@ application=AS_PER_SPELL
 @
 name=automated lockpick
 displayName=
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=14::1/1/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/engineering
@@ -1310,7 +1300,7 @@ application=AS_PER_SPELL
 @
 name=cerebral hemorrhage damage
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10::::0.0:false
@@ -1320,7 +1310,7 @@ application=AS_PER_SPELL
 @
 name=stoneskin spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::stoneskin spell
@@ -1330,7 +1320,7 @@ application=AS_PER_SPELL
 @
 name=acid spray damage
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/alchemic::::0.0:false
@@ -1340,7 +1330,7 @@ application=AS_PER_SPELL
 @
 name=blizzard spell damage
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10,4/0/NONE//false/6::::0.0:false
@@ -1348,19 +1338,9 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10,4/0/NONE//false/6::::0.5
 targetType=4
 application=AS_PER_SPELL
 @
-name=TOUCH_SLOW
-displayName=paralyse
-type=2
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::SCALING_SLOW
-savedResult=
-targetType=3
-application=AS_PER_SPELL
-@
 name=sonic boom fear
 displayName=fear
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -1368,9 +1348,19 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=TOUCH_SLOW
+displayName=paralyse
+type=WATER
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::SCALING_SLOW
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=hurricane spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/6::::0.0:false
@@ -1380,7 +1370,7 @@ application=AS_PER_SPELL
 @
 name=flak blast
 displayName=flak blast
-type=9
+type=SLASHING
 subtype=NORMAL_DAMAGE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/3d6::::0.0:false
@@ -1390,7 +1380,7 @@ application=AS_PER_SPELL
 @
 name=blizzard spell blind
 displayName=blind
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=3/0/NONE//true/alchemic
 unsavedResult=3::GENERIC_BLIND
@@ -1398,39 +1388,9 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
-name=dazzling lights spell irritate
-displayName=irritate
-type=1
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::SCALING_IRRITATE
-savedResult=
-targetType=4
-application=AS_PER_SPELL
-@
-name=paper dragon roar ko
-displayName=
-type=4
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::GENERIC_KO
-savedResult=
-targetType=5
-application=AS_PER_SPELL
-@
-name=melt armour spell
-displayName=
-type=3
-subtype=NONE
-saveAdjustment=3/0/NONE//true/thought
-unsavedResult=3::melt armour spell
-savedResult=
-targetType=4
-application=AS_PER_SPELL
-@
 name=lightning cloud cloud
 displayName=
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/lightningcloud:Lightning Cloud - Payload
@@ -1438,9 +1398,39 @@ savedResult=
 targetType=10
 application=AS_PER_SPELL
 @
+name=melt armour spell
+displayName=
+type=EARTH
+subtype=NONE
+saveAdjustment=3/0/NONE//true/thought
+unsavedResult=3::melt armour spell
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
+name=paper dragon roar ko
+displayName=
+type=AIR
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::GENERIC_KO
+savedResult=
+targetType=5
+application=AS_PER_SPELL
+@
+name=dazzling lights spell irritate
+displayName=irritate
+type=FIRE
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::SCALING_IRRITATE
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=dazzling lights spell hex
 displayName=hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_HEX
@@ -1448,19 +1438,9 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
-name=goldfingers spell charm
-displayName=charm
-type=5
-subtype=PSYCHIC
-saveAdjustment=1/0/NONE//false
-unsavedResult=2::1/5/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/rhyme
-savedResult=2::1/-10/NONE//false
-targetType=8
-application=AS_PER_SPELL
-@
 name=soulstealer lifesteal
 displayName=lifesteal
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/2d6::::0.0:true
@@ -1468,9 +1448,19 @@ savedResult=4::2/0/NONE//false/2d6::::0.5:true
 targetType=3
 application=AS_PER_SPELL
 @
+name=goldfingers spell charm
+displayName=charm
+type=MENTAL
+subtype=PSYCHIC
+saveAdjustment=1/0/NONE//false
+unsavedResult=2::1/5/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/rhyme
+savedResult=2::1/-10/NONE//false
+targetType=8
+application=AS_PER_SPELL
+@
 name=call plants spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::call.plants.spell.1/call.plants.spell.1/call.plants.spell.1/call.plants.spell.1/call.plants.spell.1/call.plants.spell.2/call.plants.spell.2/call.plants.spell.2/call.plants.spell.3/call.plants.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false,4/0/NONE//false/5
@@ -1480,7 +1470,7 @@ application=AS_PER_SPELL
 @
 name=tsunami damage
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/3d6::::0.0:false
@@ -1490,7 +1480,7 @@ application=AS_PER_SPELL
 @
 name=deadly air damage
 displayName=
-type=4
+type=AIR
 subtype=ACID
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3,3/0/NONE//false/alchemic::::0.0:false
@@ -1500,7 +1490,7 @@ application=AS_PER_SPELL
 @
 name=tsurayogoshi meditate healing
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/10d10:::
@@ -1508,29 +1498,9 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
-name=TestingSpellEffect
-displayName=TEST
-type=2
-subtype=NONE
-saveAdjustment=1/1/SCALE_WITH_CLASS_LEVEL/Berserker/false
-unsavedResult=3::RESTING_SLEEP
-savedResult=
-targetType=2
-application=APPLY_ONCE_TO_CASTER
-@
-name=tag spell
-displayName=
-type=5
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::tag spell
-savedResult=
-targetType=0
-application=AS_PER_SPELL
-@
 name=whirlwind damage
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/5::::0.0:false
@@ -1538,9 +1508,29 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/6::::0.5:
 targetType=4
 application=AS_PER_SPELL
 @
+name=tag spell
+displayName=
+type=MENTAL
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::tag spell
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
+name=TestingSpellEffect
+displayName=TEST
+type=WATER
+subtype=NONE
+saveAdjustment=1/1/SCALE_WITH_CLASS_LEVEL/Berserker/false
+unsavedResult=3::RESTING_SLEEP
+savedResult=
+targetType=2
+application=APPLY_ONCE_TO_CASTER
+@
 name=witch curse fatigue
 displayName=
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
@@ -1548,19 +1538,9 @@ savedResult=
 targetType=0
 application=APPLY_ONCE_TO_CASTER
 @
-name=shadow warriors spell
-displayName=
-type=6
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=11::shadow.warriors.spell.1/shadow.warriors.spell.1/shadow.warriors.spell.1/shadow.warriors.spell.2/shadow.warriors.spell.2/shadow.warriors.spell.3/shadow.warriors.spell.3/shadow.warriors.spell.4/shadow.warriors.spell.4/shadow.warriors.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
-savedResult=
-targetType=0
-application=AS_PER_SPELL
-@
 name=confidence trick spell charm
 displayName=charm
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=2::1/5/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/rhyme
@@ -1568,9 +1548,19 @@ savedResult=2::1/-10/NONE//false
 targetType=8
 application=AS_PER_SPELL
 @
+name=shadow warriors spell
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=11::shadow.warriors.spell.1/shadow.warriors.spell.1/shadow.warriors.spell.1/shadow.warriors.spell.2/shadow.warriors.spell.2/shadow.warriors.spell.3/shadow.warriors.spell.3/shadow.warriors.spell.4/shadow.warriors.spell.4/shadow.warriors.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=draining cloud payload
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:::0.0:false
@@ -1580,7 +1570,7 @@ application=AS_PER_SPELL
 @
 name=lifestealer trap drain
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=15::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4:hitPoints
@@ -1590,7 +1580,7 @@ application=AS_PER_SPELL
 @
 name=treant spell summoning
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::treant.spell.1/treant.spell.1/treant.spell.1/treant.spell.1/treant.spell.1/treant.spell.2/treant.spell.2/treant.spell.2/treant.spell.3/treant.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -1600,7 +1590,7 @@ application=AS_PER_SPELL
 @
 name=entangle spell damage
 displayName=damage
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::4/0/SCALE_WITH_CASTING_LEVEL//false/5::::0.0:false
@@ -1610,7 +1600,7 @@ application=AS_PER_SPELL
 @
 name=paper dragon roar damage
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/2d5:::2/0/SCALE_WITH_CASTING_LEVEL//false/2d5:0.0:false
@@ -1620,7 +1610,7 @@ application=AS_PER_SPELL
 @
 name=superman spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::superman spell
@@ -1630,7 +1620,7 @@ application=AS_PER_SPELL
 @
 name=poison spell damage
 displayName=
-type=4
+type=AIR
 subtype=POISON
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::4/0/NONE//false/1::::0.0:false
@@ -1640,7 +1630,7 @@ application=AS_PER_SPELL
 @
 name=hades harp summoning
 displayName=hades harp summoning
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::hades.harp.summon.1/hades.harp.summon.1/hades.harp.summon.1/hades.harp.summon.2/hades.harp.summon.2/hades.harp.summon.2/hades.harp.summon.3/hades.harp.summon.3/hades.harp.summon.3/hades.harp.summon.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -1648,19 +1638,9 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
-name=might to magic spell damage
-displayName=
-type=5
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.0:false
-savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.5:false
-targetType=3
-application=AS_PER_SPELL
-@
 name=acid cloud spell
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=4/0/NONE//true/0
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/acidsplash:Acid Cloud - Payload
@@ -1668,9 +1648,19 @@ savedResult=
 targetType=10
 application=AS_PER_SPELL
 @
+name=might to magic spell damage
+displayName=
+type=MENTAL
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.0:false
+savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.5:false
+targetType=3
+application=AS_PER_SPELL
+@
 name=MARTIAL_ARTS_KO
 displayName=KO
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -1680,7 +1670,7 @@ application=AS_PER_SPELL
 @
 name=infernal horn berserk
 displayName=infernal horn foes berserk
-type=0
+type=NONE
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::BERSERK
@@ -1690,7 +1680,7 @@ application=AS_PER_SPELL
 @
 name=prismic missile spell damage
 displayName=damage
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -1700,7 +1690,7 @@ application=AS_PER_SPELL
 @
 name=chameleon spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::chameleon spell
@@ -1710,7 +1700,7 @@ application=AS_PER_SPELL
 @
 name=earthquake spell damage
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12::::0.0:false
@@ -1720,7 +1710,7 @@ application=AS_PER_SPELL
 @
 name=fey voice spell sleep
 displayName=sleep
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=3::SCALING_SLEEP
@@ -1730,7 +1720,7 @@ application=AS_PER_SPELL
 @
 name=insect plague damage
 displayName=damage
-type=3
+type=EARTH
 subtype=POISON
 saveAdjustment=3/0/NONE//true/chant
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2,4/0/NONE//false/5::::0.0:false
@@ -1740,7 +1730,7 @@ application=AS_PER_SPELL
 @
 name=firestorm spell damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.0:false
@@ -1750,7 +1740,7 @@ application=AS_PER_SPELL
 @
 name=mindread wand
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=7::1/0/NONE//false,2/0/NONE//false/1d6
@@ -1760,7 +1750,7 @@ application=AS_PER_SPELL
 @
 name=guardian angel spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GUARDIAN_ANGEL
@@ -1768,29 +1758,9 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
-name=deadly poison death
-displayName=
-type=4
-subtype=POISON
-saveAdjustment=4/0/NONE//true/1
-unsavedResult=19::
-savedResult=3::deadly poison spell
-targetType=3
-application=AS_PER_SPELL
-@
-name=mage blades spell
-displayName=
-type=4
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::mage blades spell
-savedResult=
-targetType=2
-application=AS_PER_SPELL
-@
 name=power word stun plyze
 displayName=paralyse or damage
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=3/0/NONE//true/thought
 unsavedResult=3::SCALING_PARALYSE
@@ -1798,19 +1768,29 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.0:false
 targetType=3
 application=AS_PER_SPELL
 @
-name=renewal spell healing
+name=mage blades spell
 displayName=
-type=6
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
-unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/2d10:::
+unsavedResult=3::mage blades spell
 savedResult=
-targetType=1
+targetType=2
+application=AS_PER_SPELL
+@
+name=deadly poison death
+displayName=
+type=AIR
+subtype=POISON
+saveAdjustment=4/0/NONE//true/1
+unsavedResult=19::
+savedResult=3::deadly poison spell
+targetType=3
 application=AS_PER_SPELL
 @
 name=mage strength spell
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::mage strength spell
@@ -1818,9 +1798,19 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=renewal spell healing
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/2d10:::
+savedResult=
+targetType=1
+application=AS_PER_SPELL
+@
 name=static discharge ko
 displayName=ko
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -1828,19 +1818,9 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
-name=blur spell
-displayName=
-type=1
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::blur spell
-savedResult=
-targetType=1
-application=AS_PER_SPELL
-@
 name=sonic boom ko
 displayName=KO
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::colour spray ko
@@ -1848,9 +1828,19 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=blur spell
+displayName=
+type=FIRE
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::blur spell
+savedResult=
+targetType=1
+application=AS_PER_SPELL
+@
 name=bolt of static
 displayName=
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/gesture,1/1/SCALE_WITH_CASTING_LEVEL//false::::0.0:false
@@ -1860,7 +1850,7 @@ application=AS_PER_SPELL
 @
 name=heatwave
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::heatwave
@@ -1870,7 +1860,7 @@ application=AS_PER_SPELL
 @
 name=fey bolt damage
 displayName=damage
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3,4/0/NONE//false/2::::0.0:false
@@ -1878,19 +1868,9 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3,4/0/NONE//false/2::::0.5:
 targetType=3
 application=AS_PER_SPELL
 @
-name=jinx spell hex
-displayName=hex
-type=5
-subtype=NONE
-saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
-unsavedResult=3::SCALING_HEX
-savedResult=
-targetType=3
-application=AS_PER_SPELL
-@
 name=entwine spell web
 displayName=web
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/5
 unsavedResult=3::entangle spell web
@@ -1898,9 +1878,19 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=jinx spell hex
+displayName=hex
+type=MENTAL
+subtype=NONE
+saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
+unsavedResult=3::SCALING_HEX
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=power of the pit forget
 displayName=damage magic
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=4:::::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6:0.0:false
@@ -1910,7 +1900,7 @@ application=AS_PER_SPELL
 @
 name=bolt of fire damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4,3/0/NONE//false/gesture::::0.0:false
@@ -1920,7 +1910,7 @@ application=AS_PER_SPELL
 @
 name=beguilement spell
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=3/0/NONE//true/posture,4/0/NONE//true/3
 unsavedResult=2::1/10/SCALE_WITH_CASTING_LEVEL//false
@@ -1930,7 +1920,7 @@ application=AS_PER_SPELL
 @
 name=elemental swarm spell summoning
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::elemental.swarm.spell.1/elemental.swarm.spell.1/elemental.swarm.spell.1/elemental.swarm.spell.1/elemental.swarm.spell.1/elemental.swarm.spell.2/elemental.swarm.spell.2/elemental.swarm.spell.2/elemental.swarm.spell.3/elemental.swarm.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -1940,7 +1930,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_SLEEP
 displayName=sleep
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_SLEEP
@@ -1950,7 +1940,7 @@ application=AS_PER_SPELL
 @
 name=rock dragon swallow
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/-3/NONE//false
 unsavedResult=3::rock dragon swallow
@@ -1960,7 +1950,7 @@ application=AS_PER_SPELL
 @
 name=cure paralysis spell
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:paralyse
@@ -1970,7 +1960,7 @@ application=AS_PER_SPELL
 @
 name=obfuscation spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::obfuscation spell
@@ -1980,7 +1970,7 @@ application=AS_PER_SPELL
 @
 name=mental blast damage
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/thought::::0.0:false
@@ -1990,7 +1980,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_POISON
 displayName=poison
-type=2
+type=WATER
 subtype=POISON
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_POISON
@@ -2000,7 +1990,7 @@ application=AS_PER_SPELL
 @
 name=daggers trap
 displayName=daggers trap
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.0:false
@@ -2010,7 +2000,7 @@ application=AS_PER_SPELL
 @
 name=pan pipes curing
 displayName=pan pipes curing
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,fear,irritate,nausea,silence,sleep
@@ -2020,7 +2010,7 @@ application=AS_PER_SPELL
 @
 name=exorcism fear - undead
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3:undead:SCALING_FEAR
@@ -2030,7 +2020,7 @@ application=AS_PER_SPELL
 @
 name=rpg damage
 displayName=rpg damage
-type=9
+type=SLASHING
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.0:false
@@ -2040,7 +2030,7 @@ application=AS_PER_SPELL
 @
 name=pennywhistle haste
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::pennywhistle haste
@@ -2050,7 +2040,7 @@ application=AS_PER_SPELL
 @
 name=invisibility spell stealth
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6:
@@ -2060,7 +2050,7 @@ application=AS_PER_SPELL
 @
 name=heal light wounds
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/NONE//false/1d6,3/0/NONE//false/chant,1/1/SCALE_WITH_CASTING_LEVEL//false:::
@@ -2070,7 +2060,7 @@ application=AS_PER_SPELL
 @
 name=pain spell damage
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//false/gesture
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.0:false
@@ -2080,7 +2070,7 @@ application=AS_PER_SPELL
 @
 name=curing spell condition removal
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,disease,fear,insane,irritate,nausea,paralyse,poison,sleep
@@ -2090,7 +2080,7 @@ application=AS_PER_SPELL
 @
 name=noxious fumes spell damage
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.0:false
@@ -2100,7 +2090,7 @@ application=AS_PER_SPELL
 @
 name=minor wound
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d4,3/0/NONE//false/gesture,1/1/SCALE_WITH_CASTING_LEVEL//false::::0.0:false
@@ -2110,7 +2100,7 @@ application=AS_PER_SPELL
 @
 name=searchlight stealth damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::0.0:false
@@ -2120,7 +2110,7 @@ application=AS_PER_SPELL
 @
 name=haunt drain
 displayName=drain magic
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=15::2/0/NONE//false/1d4:magicPoints
@@ -2130,7 +2120,7 @@ application=AS_PER_SPELL
 @
 name=acid bomb payload spell
 displayName=acid
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=4/0/NONE//true/0
 unsavedResult=3::acid bomb spell
@@ -2140,7 +2130,7 @@ application=AS_PER_SPELL
 @
 name=fizzle field trap
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::fizzle field trap
@@ -2150,7 +2140,7 @@ application=AS_PER_SPELL
 @
 name=mephit swarm
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::mephit.swarm.spell.1/mephit.swarm.spell.1/mephit.swarm.spell.1/mephit.swarm.spell.1/mephit.swarm.spell.1/mephit.swarm.spell.2/mephit.swarm.spell.2/mephit.swarm.spell.2/mephit.swarm.spell.2/mephit.swarm.spell.2:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -2160,7 +2150,7 @@ application=AS_PER_SPELL
 @
 name=hynobi fire breath fatigue
 displayName=
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/NONE//false/2d3:::0.0:false
@@ -2170,7 +2160,7 @@ application=APPLY_ONCE_TO_CASTER
 @
 name=holy ground
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::holy ground
@@ -2180,7 +2170,7 @@ application=AS_PER_SPELL
 @
 name=vampirism spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2::0.0:true
@@ -2190,7 +2180,7 @@ application=AS_PER_SPELL
 @
 name=moulder nausea
 displayName=nausea
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::moulder nausea
@@ -2200,7 +2190,7 @@ application=AS_PER_SPELL
 @
 name=hailstorm damage
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.0:false
@@ -2210,7 +2200,7 @@ application=AS_PER_SPELL
 @
 name=foxfire drain
 displayName=drain stealth
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=15::2/0/NONE//false/1d4:stealthPoints
@@ -2220,7 +2210,7 @@ application=AS_PER_SPELL
 @
 name=mage armour spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::mage armour spell
@@ -2230,7 +2220,7 @@ application=AS_PER_SPELL
 @
 name=rail gun damage
 displayName=rail gun damage
-type=8
+type=PIERCING
 subtype=NORMAL_DAMAGE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d12::::0.0:false
@@ -2240,7 +2230,7 @@ application=AS_PER_SPELL
 @
 name=freeze spell
 displayName=paralyse
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=3::SCALING_PARALYSE
@@ -2250,7 +2240,7 @@ application=AS_PER_SPELL
 @
 name=right handed bane fear
 displayName=fear
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -2260,7 +2250,7 @@ application=AS_PER_SPELL
 @
 name=wither plants spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:plant:2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,3/0/NONE//false/herbal::::0.0:false
@@ -2270,7 +2260,7 @@ application=AS_PER_SPELL
 @
 name=fey bolt hex
 displayName=hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_HEX
@@ -2280,7 +2270,7 @@ application=AS_PER_SPELL
 @
 name=hailstorm ko
 displayName=KO
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::colour spray ko
@@ -2290,7 +2280,7 @@ application=AS_PER_SPELL
 @
 name=pneumatic lance damage
 displayName=pneumatic lance damage
-type=8
+type=PIERCING
 subtype=NORMAL_DAMAGE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.0:false
@@ -2300,7 +2290,7 @@ application=AS_PER_SPELL
 @
 name=restoration spell healing
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/3d10:::
@@ -2310,7 +2300,7 @@ application=AS_PER_SPELL
 @
 name=power of the pit armourmelt
 displayName=melt armour
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::power of the pit armourmelt
@@ -2320,7 +2310,7 @@ application=AS_PER_SPELL
 @
 name=daylight undead damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=3/0/NONE//true/chant,4/0/NONE//true/4
 unsavedResult=4:undead:2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -2330,7 +2320,7 @@ application=AS_PER_SPELL
 @
 name=power word stone spell
 displayName=stone or damage
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_STONE
@@ -2340,7 +2330,7 @@ application=AS_PER_SPELL
 @
 name=mind flay insane
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_INSANE
@@ -2350,7 +2340,7 @@ application=AS_PER_SPELL
 @
 name=knock knock spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=14::1/1/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/engineering
@@ -2360,7 +2350,7 @@ application=AS_PER_SPELL
 @
 name=curing spell healing
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10:::
@@ -2370,7 +2360,7 @@ application=AS_PER_SPELL
 @
 name=stasis spell
 displayName=paralyse
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_PARALYSE
@@ -2380,7 +2370,7 @@ application=AS_PER_SPELL
 @
 name=rally spell stamina
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2,3/0/NONE//false/chant::
@@ -2390,7 +2380,7 @@ application=AS_PER_SPELL
 @
 name=paper dragon roar fear
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_FEAR
@@ -2400,7 +2390,7 @@ application=AS_PER_SPELL
 @
 name=clockwork beast
 displayName=clockwork beast
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1/clockwork.beast.1:1/1/NONE//false
@@ -2410,7 +2400,7 @@ application=AS_PER_SPELL
 @
 name=noxious fumes nausea
 displayName=nausea
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_NAUSEA
@@ -2420,7 +2410,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_SWALLOW
 displayName=swallow
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_SWALLOW
@@ -2430,7 +2420,7 @@ application=AS_PER_SPELL
 @
 name=fervour spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::fervour spell
@@ -2440,7 +2430,7 @@ application=AS_PER_SPELL
 @
 name=cerebral hemorrhage insane
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_INSANE
@@ -2450,7 +2440,7 @@ application=AS_PER_SPELL
 @
 name=call wyrms spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::call.wyrms.spell.1/call.wyrms.spell.1/call.wyrms.spell.1/call.wyrms.spell.2/call.wyrms.spell.3/call.wyrms.spell.3/call.wyrms.spell.4/call.wyrms.spell.4/call.wyrms.spell.5/call.wyrms.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -2460,7 +2450,7 @@ application=AS_PER_SPELL
 @
 name=divinity spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::divinity spell
@@ -2470,7 +2460,7 @@ application=AS_PER_SPELL
 @
 name=heal all spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/music,4/0/NONE//false/4:::
@@ -2480,7 +2470,7 @@ application=AS_PER_SPELL
 @
 name=starlight spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::starlight spell
@@ -2490,7 +2480,7 @@ application=AS_PER_SPELL
 @
 name=emerald spider poison
 displayName=poison
-type=3
+type=EARTH
 subtype=POISON
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::emerald spider poison
@@ -2500,7 +2490,7 @@ application=AS_PER_SPELL
 @
 name=jumpstarter recharge
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=9::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -2510,7 +2500,7 @@ application=AS_PER_SPELL
 @
 name=acid splash damage
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::4/0/NONE//false/1,1/1/SCALE_WITH_CASTING_LEVEL//false::::0.0:false
@@ -2520,7 +2510,7 @@ application=AS_PER_SPELL
 @
 name=cloud of fear trap
 displayName=fear
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::cloud of fear trap
@@ -2530,7 +2520,7 @@ application=AS_PER_SPELL
 @
 name=rune of destruction spell
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/thought::::0.0:false
@@ -2540,7 +2530,7 @@ application=AS_PER_SPELL
 @
 name=turncoat spell
 displayName=possess
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_POSSESS
@@ -2550,7 +2540,7 @@ application=AS_PER_SPELL
 @
 name=tsurayogoshi meditate condition removal
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,disease,fear,hex,insane,irritate,ko,nausea,paralyse,poison,possess,silence,sleep,slow,swallow,web
@@ -2560,7 +2550,7 @@ application=AS_PER_SPELL
 @
 name=melt into mist spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::blur spell
@@ -2570,7 +2560,7 @@ application=AS_PER_SPELL
 @
 name=dazzling lights spell plyze
 displayName=paralyse
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_PARALYSE
@@ -2580,7 +2570,7 @@ application=AS_PER_SPELL
 @
 name=vanishing spell stealth
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::::2/0/SCALE_WITH_CASTING_LEVEL//false/3d6:
@@ -2590,7 +2580,7 @@ application=AS_PER_SPELL
 @
 name=death cloud payload
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=19::
@@ -2600,7 +2590,7 @@ application=AS_PER_SPELL
 @
 name=force of nature spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::force of nature
@@ -2610,7 +2600,7 @@ application=AS_PER_SPELL
 @
 name=barbed net web
 displayName=web
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_WEB
@@ -2620,7 +2610,7 @@ application=AS_PER_SPELL
 @
 name=blades of fire
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::blades of fire
@@ -2630,7 +2620,7 @@ application=AS_PER_SPELL
 @
 name=twinkling cape spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::twinkling cape
@@ -2640,7 +2630,7 @@ application=AS_PER_SPELL
 @
 name=colour spray ko
 displayName=KO
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::colour spray ko
@@ -2650,7 +2640,7 @@ application=AS_PER_SPELL
 @
 name=curse spell damage
 displayName=damage
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d8::::0.0:false
@@ -2660,7 +2650,7 @@ application=AS_PER_SPELL
 @
 name=cherry bomb damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/3d6+1::::0.0:false
@@ -2670,7 +2660,7 @@ application=AS_PER_SPELL
 @
 name=demonic aspect spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::demonic aspect spell
@@ -2680,7 +2670,7 @@ application=AS_PER_SPELL
 @
 name=burning hands damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=4::2/0/NONE//false/1d2,4/0/NONE//false/6::::0.0:false
@@ -2690,7 +2680,7 @@ application=AS_PER_SPELL
 @
 name=dazzling lights spell damage
 displayName=damage
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.0:false
@@ -2700,7 +2690,7 @@ application=AS_PER_SPELL
 @
 name=curse spell hex
 displayName=hex
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_HEX
@@ -2710,7 +2700,7 @@ application=AS_PER_SPELL
 @
 name=flame blade damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=3/0/NONE//true/chant
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.0:false
@@ -2720,7 +2710,7 @@ application=AS_PER_SPELL
 @
 name=charm
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=2::1/5/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/rhyme
@@ -2730,7 +2720,7 @@ application=AS_PER_SPELL
 @
 name=right handed bane nausea
 displayName=nausea
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_NAUSEA
@@ -2740,7 +2730,7 @@ application=AS_PER_SPELL
 @
 name=recharging gem
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=9::1/0/NONE//false,1/2/NONE//false
@@ -2750,7 +2740,7 @@ application=AS_PER_SPELL
 @
 name=sunbeam spell damage
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=3/0/NONE//true/chant
 unsavedResult=4:undead:2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.0:false
@@ -2760,7 +2750,7 @@ application=AS_PER_SPELL
 @
 name=earthquake spell fear
 displayName=fear
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_FEAR
@@ -2770,7 +2760,7 @@ application=AS_PER_SPELL
 @
 name=faith spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::faith spell
@@ -2780,7 +2770,7 @@ application=AS_PER_SPELL
 @
 name=divine trap spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::divine trap spell
@@ -2790,7 +2780,7 @@ application=AS_PER_SPELL
 @
 name=full moon
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::full moon
@@ -2800,7 +2790,7 @@ application=AS_PER_SPELL
 @
 name=mental attack
 displayName=
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d6,3/0/NONE//false/thought,1/1/SCALE_WITH_CASTING_LEVEL//false::::1.0:false
@@ -2810,7 +2800,7 @@ application=AS_PER_SPELL
 @
 name=melt armour trap
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=3/0/NONE//true/thought
 unsavedResult=3::melt armour trap
@@ -2820,7 +2810,7 @@ application=AS_PER_SPELL
 @
 name=rock dragon breath
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/3d4:2/0/NONE//false/3d4:2/0/NONE//false/3d4:2/0/NONE//false/3d4:0.0:false
@@ -2830,7 +2820,7 @@ application=AS_PER_SPELL
 @
 name=dazzling lights spell fear
 displayName=fear
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -2840,7 +2830,7 @@ application=AS_PER_SPELL
 @
 name=dragon spell
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::dragon.spell.1/dragon.spell.1/dragon.spell.2/dragon.spell.2/dragon.spell.3/dragon.spell.3/dragon.spell.4/dragon.spell.4/dragon.spell.5/dragon.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -2850,7 +2840,7 @@ application=AS_PER_SPELL
 @
 name=curse spell fear
 displayName=fear
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -2860,7 +2850,7 @@ application=AS_PER_SPELL
 @
 name=pennywhistle remove conditions
 displayName=remove conditions
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,fear,hex,irritate,nausea,paralyse,silence,sleep,slow,web
@@ -2870,7 +2860,7 @@ application=AS_PER_SPELL
 @
 name=rpg armourmelt
 displayName=rpg armourmelt
-type=8
+type=PIERCING
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::melt armour spell
@@ -2880,7 +2870,7 @@ application=AS_PER_SPELL
 @
 name=cone of cold spell damage
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d5::::0.0:false
@@ -2890,7 +2880,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_WEB
 displayName=web
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_WEB
@@ -2900,7 +2890,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_HEX
 displayName=hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_HEX
@@ -2910,7 +2900,7 @@ application=AS_PER_SPELL
 @
 name=cure disease
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/herbal:disease
@@ -2920,7 +2910,7 @@ application=AS_PER_SPELL
 @
 name=fear spell
 displayName=fear
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -2930,7 +2920,7 @@ application=AS_PER_SPELL
 @
 name=fearsome aspect spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::fearsome aspect spell
@@ -2940,7 +2930,7 @@ application=AS_PER_SPELL
 @
 name=clockwork spider
 displayName=theft
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=12::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -2950,7 +2940,7 @@ application=AS_PER_SPELL
 @
 name=anti-magic spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::anti-magic spell
@@ -2960,7 +2950,7 @@ application=AS_PER_SPELL
 @
 name=sleep spell
 displayName=sleep
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=3::SCALING_SLEEP
@@ -2970,7 +2960,7 @@ application=AS_PER_SPELL
 @
 name=death cloud cloud
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/deathcloud:Death Cloud - Payload
@@ -2980,7 +2970,7 @@ application=AS_PER_SPELL
 @
 name=cure lesser cnd spell
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,fear,irritate,nausea,sleep
@@ -2990,7 +2980,7 @@ application=AS_PER_SPELL
 @
 name=daylight stealth damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=4/0/NONE//true/4
 unsavedResult=4::::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::0.0:false
@@ -3000,7 +2990,7 @@ application=AS_PER_SPELL
 @
 name=prismic missile spell stone
 displayName=stone
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_STONE
@@ -3010,7 +3000,7 @@ application=AS_PER_SPELL
 @
 name=disease spell
 displayName=disease
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::SCALING_DISEASE
@@ -3020,7 +3010,7 @@ application=AS_PER_SPELL
 @
 name=rune of death spell
 displayName=
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=19::
@@ -3030,7 +3020,7 @@ application=AS_PER_SPELL
 @
 name=paper tiger roar
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -3040,7 +3030,7 @@ application=AS_PER_SPELL
 @
 name=courage spell condition
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::courage spell
@@ -3050,7 +3040,7 @@ application=AS_PER_SPELL
 @
 name=naga spit poison fatigue
 displayName=
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/NONE//false/2d3:::0.0:false
@@ -3060,7 +3050,7 @@ application=APPLY_ONCE_TO_CASTER
 @
 name=scroll of identify
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=6::1/0/NONE//false,1/2/NONE//false:true
@@ -3070,7 +3060,7 @@ application=AS_PER_SPELL
 @
 name=ball of fire spell damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/thought::::0.0:false
@@ -3080,7 +3070,7 @@ application=AS_PER_SPELL
 @
 name=ruin spell fear
 displayName=fear
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_FEAR
@@ -3090,7 +3080,7 @@ application=AS_PER_SPELL
 @
 name=barbed net damage
 displayName=barbed net damage
-type=9
+type=SLASHING
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2::::0.0:false
@@ -3100,7 +3090,7 @@ application=AS_PER_SPELL
 @
 name=pickmeup
 displayName=pickmeup
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/NONE//false/3d4:2/0/NONE//false/3d4:2/0/NONE//false/3d4:2/0/NONE//false/3d4
@@ -3110,7 +3100,7 @@ application=AS_PER_SPELL
 @
 name=lifesteal spell damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d9::::0.0:true
@@ -3120,7 +3110,7 @@ application=AS_PER_SPELL
 @
 name=angel's tongue rest all
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4,3/0/NONE//false/music::
@@ -3130,7 +3120,7 @@ application=AS_PER_SPELL
 @
 name=paralysis spell
 displayName=paralyse
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_PARALYSE
@@ -3140,7 +3130,7 @@ application=AS_PER_SPELL
 @
 name=acid cloud payload spell
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=4/0/NONE//true/0
 unsavedResult=3::acid cloud spell
@@ -3150,7 +3140,7 @@ application=AS_PER_SPELL
 @
 name=concussion spell ko
 displayName=KO
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -3160,7 +3150,7 @@ application=AS_PER_SPELL
 @
 name=concussion spell damage
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/3d6::::0.0:false
@@ -3170,7 +3160,7 @@ application=AS_PER_SPELL
 @
 name=dehydrate spell
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/3d6,3/0/NONE//false/chant::::0.0:false
@@ -3180,7 +3170,7 @@ application=AS_PER_SPELL
 @
 name=goldfingers spell theft
 displayName=theft
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/posture
 unsavedResult=12::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3190,7 +3180,7 @@ application=AS_PER_SPELL
 @
 name=binding spell
 displayName=possess or hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_POSSESS
@@ -3200,7 +3190,7 @@ application=AS_PER_SPELL
 @
 name=barkskin spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::barkskin spell
@@ -3210,7 +3200,7 @@ application=AS_PER_SPELL
 @
 name=cloud of faeries cloud
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/cloudoffaeries:Cloud Of Faeries - Payload
@@ -3220,7 +3210,7 @@ application=AS_PER_SPELL
 @
 name=lava burst damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d8,3/0/NONE//false/thought,4/0/NONE//false/6::::0.0:false
@@ -3230,7 +3220,7 @@ application=AS_PER_SPELL
 @
 name=mortal allure spell plyze vs fey
 displayName=paralyse
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3:fey:SCALING_PARALYSE
@@ -3240,7 +3230,7 @@ application=AS_PER_SPELL
 @
 name=steam blast damage
 displayName=steam blast damage
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -3250,7 +3240,7 @@ application=AS_PER_SPELL
 @
 name=mortal allure spell plyze vs outsiders
 displayName=paralyse
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3:outsider:SCALING_PARALYSE
@@ -3260,7 +3250,7 @@ application=AS_PER_SPELL
 @
 name=mace ko
 displayName=KO
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::mace ko
@@ -3270,7 +3260,7 @@ application=AS_PER_SPELL
 @
 name=resurrection spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=22::
@@ -3280,7 +3270,7 @@ application=AS_PER_SPELL
 @
 name=subtle glamour
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::subtle glamour
@@ -3290,7 +3280,7 @@ application=AS_PER_SPELL
 @
 name=quicksand spell kill
 displayName=death
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_CASTING_LEVEL//true,1/7/NONE//false
 unsavedResult=19::
@@ -3300,7 +3290,7 @@ application=AS_PER_SPELL
 @
 name=web spell
 displayName=web
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=3/0/NONE//true/alchemic
 unsavedResult=3::SCALING_WEB
@@ -3310,7 +3300,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_NAUSEA
 displayName=nausea
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_NAUSEA
@@ -3320,7 +3310,7 @@ application=AS_PER_SPELL
 @
 name=draining cloud cloud
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/drainingcloud:Draining Cloud - Payload
@@ -3330,7 +3320,7 @@ application=AS_PER_SPELL
 @
 name=lightning cloud payload
 displayName=
-type=1
+type=FIRE
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -3340,7 +3330,7 @@ application=AS_PER_SPELL
 @
 name=confidence trick spell theft
 displayName=theft
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/posture
 unsavedResult=12::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3350,7 +3340,7 @@ application=AS_PER_SPELL
 @
 name=dazzling lights spell sleep
 displayName=sleep
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_SLEEP
@@ -3360,7 +3350,7 @@ application=AS_PER_SPELL
 @
 name=colour spray blind
 displayName=blind
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::colour spray blind
@@ -3370,7 +3360,7 @@ application=AS_PER_SPELL
 @
 name=acid bomb spell
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=4/0/NONE//true/0
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/acidsplash:Bomb Of Acid - Payload
@@ -3378,9 +3368,19 @@ savedResult=
 targetType=10
 application=AS_PER_SPELL
 @
+name=enchanter invisibility
+displayName=invisible
+type=AIR
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::enchanter invisibility
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=weakness spell
 displayName=weakness
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=3::weakness spell
@@ -3390,7 +3390,7 @@ application=AS_PER_SPELL
 @
 name=melt into mist spell stealth
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/2:
@@ -3400,7 +3400,7 @@ application=AS_PER_SPELL
 @
 name=power of the pit blight
 displayName=hex
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::SCALING_HEX
@@ -3410,7 +3410,7 @@ application=AS_PER_SPELL
 @
 name=snow spear cold damage
 displayName=cold damage 1d6
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d6::::0.0:false
@@ -3420,7 +3420,7 @@ application=AS_PER_SPELL
 @
 name=wall of force spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::wall of force spell
@@ -3430,7 +3430,7 @@ application=AS_PER_SPELL
 @
 name=death wish spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=19::
@@ -3440,7 +3440,7 @@ application=AS_PER_SPELL
 @
 name=noxious fumes ko
 displayName=KO
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -3450,7 +3450,7 @@ application=AS_PER_SPELL
 @
 name=blink spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::blink spell
@@ -3460,7 +3460,7 @@ application=AS_PER_SPELL
 @
 name=lyre of cakes renewal
 displayName=lyre of cakes renewal
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6:2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::
@@ -3470,7 +3470,7 @@ application=AS_PER_SPELL
 @
 name=angel's tongue armourplate
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::angel's tongue armourplate
@@ -3480,7 +3480,7 @@ application=AS_PER_SPELL
 @
 name=diplomacy spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::diplomacy spell
@@ -3490,7 +3490,7 @@ application=AS_PER_SPELL
 @
 name=deep freeze spell
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,4/0/NONE//false/6,3/0/NONE//false/thought::::0.0:false
@@ -3500,7 +3500,7 @@ application=AS_PER_SPELL
 @
 name=remove curse spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=10::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3510,7 +3510,7 @@ application=AS_PER_SPELL
 @
 name=sonic boom damage
 displayName=damage
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d4::::0.0:false
@@ -3520,7 +3520,7 @@ application=AS_PER_SPELL
 @
 name=exorcism damage - outsider
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
 unsavedResult=4:outsider:2/0/SCALE_WITH_CASTING_LEVEL//true/1d4+1,4/0/SCALE_WITH_CASTING_LEVEL//true/4::::1.0:false
@@ -3530,7 +3530,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_BLIND
 displayName=blind
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_BLIND
@@ -3540,7 +3540,7 @@ application=AS_PER_SPELL
 @
 name=petrify spell stone
 displayName=stone
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_STONE
@@ -3550,7 +3550,7 @@ application=AS_PER_SPELL
 @
 name=turn undead damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
 unsavedResult=4:undead:2/0/SCALE_WITH_CASTING_LEVEL//true/1d8+1,4/0/SCALE_WITH_CASTING_LEVEL//true/4::::1.0:false
@@ -3560,7 +3560,7 @@ application=AS_PER_SPELL
 @
 name=viridifid leeching
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::4/0/NONE//false/5,2/0/NONE//false/1d6::::0.0:true
@@ -3570,7 +3570,7 @@ application=AS_PER_SPELL
 @
 name=lyre of cakes heal all
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/music,4/0/NONE//false/4:::
@@ -3580,7 +3580,7 @@ application=AS_PER_SPELL
 @
 name=confusion spell
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::confusion spell
@@ -3590,7 +3590,7 @@ application=AS_PER_SPELL
 @
 name=remedy spell healing
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:::
@@ -3600,7 +3600,7 @@ application=AS_PER_SPELL
 @
 name=cure all spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,fear,hex,insane,irritate,nausea,paralyse,poison,sleep,slow,web
@@ -3610,7 +3610,7 @@ application=AS_PER_SPELL
 @
 name=napalm cloud
 displayName=napalm
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=20::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2:2/0/SCALE_WITH_CASTING_LEVEL//false/1d2:condition/firestorm:Napalm - Payload
@@ -3620,7 +3620,7 @@ application=AS_PER_SPELL
 @
 name=verdant growth
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::verdant growth
@@ -3630,7 +3630,7 @@ application=AS_PER_SPELL
 @
 name=searchlight undead damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:undead:2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -3640,7 +3640,7 @@ application=AS_PER_SPELL
 @
 name=bullroarer whirlwind damage
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/5::::0.0:false
@@ -3650,7 +3650,7 @@ application=AS_PER_SPELL
 @
 name=left handed bane possess
 displayName=possess
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_POSSESS
@@ -3660,7 +3660,7 @@ application=AS_PER_SPELL
 @
 name=witch curse damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//true/1d3::::1.0:false
@@ -3670,7 +3670,7 @@ application=AS_PER_SPELL
 @
 name=stunner trap
 displayName=paralyse
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=3::stunner trap
@@ -3680,7 +3680,7 @@ application=AS_PER_SPELL
 @
 name=earthquake spell ko
 displayName=KO
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::GENERIC_KO
@@ -3690,7 +3690,7 @@ application=AS_PER_SPELL
 @
 name=power word mute spell
 displayName=silence or damage
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=3/0/NONE//true/thought
 unsavedResult=3::SCALING_SILENCE
@@ -3700,7 +3700,7 @@ application=AS_PER_SPELL
 @
 name=entangle spell web
 displayName=web
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/5
 unsavedResult=3::entangle spell web
@@ -3710,7 +3710,7 @@ application=AS_PER_SPELL
 @
 name=mirror image spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::mirror.image.spell.1/mirror.image.spell.1/mirror.image.spell.1/mirror.image.spell.1/mirror.image.spell.1/mirror.image.spell.2/mirror.image.spell.2/mirror.image.spell.2/mirror.image.spell.2/mirror.image.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false,4/0/NONE//false/3
@@ -3720,7 +3720,7 @@ application=AS_PER_SPELL
 @
 name=sane mind spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:fear,insane,possess
@@ -3730,7 +3730,7 @@ application=AS_PER_SPELL
 @
 name=skald taunt condition
 displayName=
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::skald taunt
@@ -3740,7 +3740,7 @@ application=AS_PER_SPELL
 @
 name=mage missiles damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.0:false
@@ -3750,7 +3750,7 @@ application=AS_PER_SPELL
 @
 name=thorns spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::thorns spell
@@ -3760,7 +3760,7 @@ application=AS_PER_SPELL
 @
 name=hynobi fire breath damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/2d4::::1.0:false
@@ -3770,7 +3770,7 @@ application=AS_PER_SPELL
 @
 name=mortal allure spell poss vs fey
 displayName=possess
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3:fey:SCALING_POSSESS
@@ -3780,7 +3780,7 @@ application=AS_PER_SPELL
 @
 name=shield of force
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::shield of force
@@ -3790,7 +3790,7 @@ application=AS_PER_SPELL
 @
 name=theft spell
 displayName=theft
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/posture
 unsavedResult=12::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3800,7 +3800,7 @@ application=AS_PER_SPELL
 @
 name=crush damage
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,3/0/NONE//false/thought::::0.0:false
@@ -3810,7 +3810,7 @@ application=AS_PER_SPELL
 @
 name=elemental spell summoning
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::elemental.spell.1/elemental.spell.1/elemental.spell.1/elemental.spell.1/elemental.spell.1/elemental.spell.2/elemental.spell.2/elemental.spell.2/elemental.spell.3/elemental.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3820,7 +3820,7 @@ application=AS_PER_SPELL
 @
 name=faerie fire
 displayName=faerie fire
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=4/0/NONE//true/3
 unsavedResult=3::faerie fire
@@ -3830,7 +3830,7 @@ application=AS_PER_SPELL
 @
 name=hidden snakebite poison
 displayName=hidden snakebite poison
-type=3
+type=EARTH
 subtype=POISON
 saveAdjustment=1/-10/NONE//false
 unsavedResult=3::poison type C
@@ -3838,19 +3838,9 @@ savedResult=3::poison type B
 targetType=3
 application=AS_PER_SPELL
 @
-name=cone of cold spell plyze
-displayName=paralyse
-type=2
-subtype=COLD
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::SCALING_PARALYSE
-savedResult=
-targetType=4
-application=AS_PER_SPELL
-@
 name=stamina spell
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4,3/0/SCALE_WITH_CASTING_LEVEL//false/chant::
@@ -3858,9 +3848,19 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
+name=cone of cold spell plyze
+displayName=paralyse
+type=WATER
+subtype=COLD
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::SCALING_PARALYSE
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=prismic shield
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::prismic shield
@@ -3870,7 +3870,7 @@ application=AS_PER_SPELL
 @
 name=recharge spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=9::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3880,7 +3880,7 @@ application=AS_PER_SPELL
 @
 name=pandemonium spell
 displayName=insane or fear
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_INSANE
@@ -3890,7 +3890,7 @@ application=AS_PER_SPELL
 @
 name=decay spell damage
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:false
@@ -3900,7 +3900,7 @@ application=AS_PER_SPELL
 @
 name=cure poison spell
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:poison
@@ -3908,19 +3908,9 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
-name=dazzling lights spell nausea
-displayName=nausea
-type=1
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::SCALING_NAUSEA
-savedResult=
-targetType=4
-application=AS_PER_SPELL
-@
 name=power of the pit terror
 displayName=fear
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=4/0/NONE//true/1
 unsavedResult=3::SCALING_FEAR
@@ -3928,9 +3918,19 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=dazzling lights spell nausea
+displayName=nausea
+type=FIRE
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::SCALING_NAUSEA
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=spit venom poison
 displayName=poison
-type=2
+type=WATER
 subtype=POISON
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::spit venom poison
@@ -3940,7 +3940,7 @@ application=AS_PER_SPELL
 @
 name=renewal spell condition removal
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=18::1/1/SCALE_WITH_CASTING_LEVEL//false:blind,disease,fear,hex,insane,irritate,ko,nausea,paralyse,poison,possess,silence,sleep,slow,swallow,web
@@ -3950,7 +3950,7 @@ application=AS_PER_SPELL
 @
 name=call elemental spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::call.elemental.spell.1/call.elemental.spell.1/call.elemental.spell.2/call.elemental.spell.2/call.elemental.spell.3/call.elemental.spell.3/call.elemental.spell.4/call.elemental.spell.4/call.elemental.spell.5/call.elemental.spell.5:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -3958,29 +3958,9 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
-name=psionic bolt trap insane
-displayName=insane
-type=5
-subtype=PSYCHIC
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::psionic bolt trap
-savedResult=
-targetType=3
-application=AS_PER_SPELL
-@
-name=zap undead spell
-displayName=
-type=6
-subtype=NONE
-saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
-unsavedResult=19:undead:
-savedResult=4:undead:4/0/SCALE_WITH_CASTING_LEVEL//false/4::::0.0:false
-targetType=5
-application=AS_PER_SPELL
-@
 name=acid splash condition
 displayName=acid
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::acid splash
@@ -3988,9 +3968,29 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=zap undead spell
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
+unsavedResult=19:undead:
+savedResult=4:undead:4/0/SCALE_WITH_CASTING_LEVEL//false/4::::0.0:false
+targetType=5
+application=AS_PER_SPELL
+@
+name=psionic bolt trap insane
+displayName=insane
+type=MENTAL
+subtype=PSYCHIC
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::psionic bolt trap
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=left handed bane swallow
 displayName=swallow
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_SWALLOW
@@ -3998,19 +3998,9 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
-name=poison spell condition
-displayName=poison
-type=4
-subtype=POISON
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::poison spell
-savedResult=
-targetType=3
-application=AS_PER_SPELL
-@
 name=silence spell
 displayName=silence
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::silence spell
@@ -4018,9 +4008,19 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=poison spell condition
+displayName=poison
+type=AIR
+subtype=POISON
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::poison spell
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=magic to might healing
 displayName=healing
-type=6
+type=ENERGY
 subtype=PSYCHIC
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.0:true
@@ -4030,7 +4030,7 @@ application=AS_PER_SPELL
 @
 name=right handed bane blind
 displayName=blind
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_BLIND
@@ -4040,7 +4040,7 @@ application=AS_PER_SPELL
 @
 name=spotted boa poison
 displayName=poison
-type=3
+type=EARTH
 subtype=POISON
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::spotted boa poison
@@ -4050,7 +4050,7 @@ application=AS_PER_SPELL
 @
 name=bolt of acid damage
 displayName=
-type=2
+type=WATER
 subtype=ACID
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4,4/0/SCALE_WITH_CASTING_LEVEL//false/0::::0.0:false
@@ -4060,7 +4060,7 @@ application=AS_PER_SPELL
 @
 name=ball of ice damage
 displayName=
-type=2
+type=WATER
 subtype=COLD
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d7,3/0/NONE//false/thought::::0.0:false
@@ -4070,7 +4070,7 @@ application=AS_PER_SPELL
 @
 name=right handed bane damage
 displayName=damage
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.0:false
@@ -4078,19 +4078,9 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.5:false
 targetType=3
 application=AS_PER_SPELL
 @
-name=heal moderate spell
-displayName=
-type=6
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/chant,4/0/NONE//false/4:::
-savedResult=
-targetType=1
-application=AS_PER_SPELL
-@
 name=nuclear blast spell
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,4/0/NONE//false/6::::0.0:false
@@ -4098,9 +4088,19 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,4/0/NONE//false/6::::0.5:
 targetType=5
 application=AS_PER_SPELL
 @
+name=heal moderate spell
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=5::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/chant,4/0/NONE//false/4:::
+savedResult=
+targetType=1
+application=AS_PER_SPELL
+@
 name=exorcism fatigue
 displayName=
-type=0
+type=NONE
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
@@ -4110,7 +4110,7 @@ application=APPLY_ONCE_TO_CASTER
 @
 name=identify spell
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=6::1/1/SCALE_WITH_CASTING_LEVEL//false,3/0/NONE//false/artifacts:true
@@ -4118,19 +4118,9 @@ savedResult=
 targetType=9
 application=AS_PER_SPELL
 @
-name=telekinesis spell
-displayName=
-type=4
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12,4/0/NONE//false/2::::0.0:false
-savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12,4/0/NONE//false/2::::0.5:false
-targetType=4
-application=AS_PER_SPELL
-@
 name=confidence trick spell mindread
 displayName=mindread
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=3/0/NONE//true/posture
 unsavedResult=7::1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -4138,9 +4128,19 @@ savedResult=8::1/1/SCALE_WITH_CASTING_LEVEL//false
 targetType=8
 application=AS_PER_SPELL
 @
+name=telekinesis spell
+displayName=
+type=AIR
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12,4/0/NONE//false/2::::0.0:false
+savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d12,4/0/NONE//false/2::::0.5:false
+targetType=4
+application=AS_PER_SPELL
+@
 name=striking spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::striking spell
@@ -4150,7 +4150,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_STONE
 displayName=stone
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_STONE
@@ -4160,7 +4160,7 @@ application=AS_PER_SPELL
 @
 name=soul shield
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::soul shield spell
@@ -4170,7 +4170,7 @@ application=AS_PER_SPELL
 @
 name=fey voice spell plyze
 displayName=paralyse
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=3/0/NONE//true/rhyme
 unsavedResult=3::SCALING_PARALYSE
@@ -4180,7 +4180,7 @@ application=AS_PER_SPELL
 @
 name=firestorm cloud
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=20::1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false:1/1/SCALE_WITH_CASTING_LEVEL//false:condition/firestorm:Firestorm - Payload
@@ -4190,7 +4190,7 @@ application=AS_PER_SPELL
 @
 name=glowing curse trap
 displayName=glowing curse
-type=1
+type=FIRE
 subtype=NONE
 saveAdjustment=4/0/NONE//true/3
 unsavedResult=3::glowing curse trap
@@ -4200,7 +4200,7 @@ application=AS_PER_SPELL
 @
 name=TOUCH_DISEASE
 displayName=disease
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::SCALING_DISEASE
@@ -4210,7 +4210,7 @@ application=AS_PER_SPELL
 @
 name=invisible stalker summoning
 displayName=
-type=4
+type=AIR
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=11::invisible.stalker.spell.1/invisible.stalker.spell.1/invisible.stalker.spell.1/invisible.stalker.spell.1/invisible.stalker.spell.1/invisible.stalker.spell.2/invisible.stalker.spell.2/invisible.stalker.spell.2/invisible.stalker.spell.3/invisible.stalker.spell.3:1/1/SCALE_WITH_CASTING_LEVEL//false
@@ -4220,7 +4220,7 @@ application=AS_PER_SPELL
 @
 name=might to magic spell mp drain
 displayName=
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4:::::2/0/SCALE_WITH_CASTING_LEVEL//false/1d7:0.0:true
@@ -4230,7 +4230,7 @@ application=AS_PER_SPELL
 @
 name=jinx spell insane
 displayName=insane
-type=5
+type=MENTAL
 subtype=PSYCHIC
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=3::SCALING_INSANE
@@ -4240,7 +4240,7 @@ application=AS_PER_SPELL
 @
 name=electrified sword damage
 displayName=shock damage 1d8
-type=6
+type=ENERGY
 subtype=LIGHTNING
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/NONE//false/1d8::::0.0:false
@@ -4250,7 +4250,7 @@ application=AS_PER_SPELL
 @
 name=whipping rocks damage
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=4/0/NONE//true/6
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d5::::0.0:false
@@ -4260,7 +4260,7 @@ application=AS_PER_SPELL
 @
 name=napalm damage
 displayName=
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.0:false
@@ -4270,7 +4270,7 @@ application=AS_PER_SPELL
 @
 name=unleash power spell
 displayName=
-type=6
+type=ENERGY
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::unleash power spell
@@ -4280,7 +4280,7 @@ application=AS_PER_SPELL
 @
 name=falling stars spell damage
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.0:false
@@ -4288,19 +4288,9 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6::::0.5:false
 targetType=5
 application=AS_PER_SPELL
 @
-name=death spell
-displayName=death
-type=6
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=19::
-savedResult=
-targetType=3
-application=AS_PER_SPELL
-@
 name=jinx spell damage
 displayName=damage
-type=5
+type=MENTAL
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:0.0:false
@@ -4308,9 +4298,19 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:::2/0/NONE//false/1d3:0.5
 targetType=3
 application=AS_PER_SPELL
 @
+name=death spell
+displayName=death
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=19::
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=razor cloak spell
 displayName=
-type=3
+type=EARTH
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=3::razor cloak
@@ -4318,19 +4318,9 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
-name=cloak of magic spell
-displayName=
-type=4
-subtype=NONE
-saveAdjustment=1/0/NONE//false
-unsavedResult=3::cloak of magic
-savedResult=
-targetType=0
-application=AS_PER_SPELL
-@
 name=dire wasps damage
 displayName=
-type=3
+type=EARTH
 subtype=POISON
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=4::2/0/NONE//false/1d3,3/0/NONE//false/herbal,4/0/NONE//false/5::::0.0:false
@@ -4338,9 +4328,19 @@ savedResult=4::2/0/NONE//false/1d3,3/0/NONE//false/herbal,4/0/NONE//false/5::::0
 targetType=3
 application=AS_PER_SPELL
 @
+name=cloak of magic spell
+displayName=
+type=AIR
+subtype=NONE
+saveAdjustment=1/0/NONE//false
+unsavedResult=3::cloak of magic
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=colour spray damage
 displayName=damage
-type=1
+type=FIRE
 subtype=HEAT
 saveAdjustment=1/0/NONE//false
 unsavedResult=4::4/0/NONE//false/3::::0.0:false
@@ -4350,7 +4350,7 @@ application=AS_PER_SPELL
 @
 name=bone flute rest all
 displayName=
-type=2
+type=WATER
 subtype=NONE
 saveAdjustment=1/0/NONE//false
 unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/4::

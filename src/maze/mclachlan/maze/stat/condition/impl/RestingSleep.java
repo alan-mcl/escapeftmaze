@@ -88,7 +88,7 @@ public class RestingSleep extends Condition
 	}
 
 	@Override
-	public int getType()
+	public MagicSys.SpellEffectType getType()
 	{
 		return MagicSys.SpellEffectType.NONE;
 	}

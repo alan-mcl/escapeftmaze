@@ -31,6 +31,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackAction;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.magic.MagicSys;
 
 /**
  *
@@ -95,7 +96,8 @@ public class AttackRateAnalysis
 			int iterations = 500;
 			for (int i=0; i< iterations; i++)
 			{
-				AttackAction aa = new AttackAction(null, weapon, -1, null, true, false, 0);
+				AttackAction aa = new AttackAction(null, weapon, -1, null, true, false,
+					MagicSys.SpellEffectType.NONE);
 				aa.setActor(pc);
 				aa.setDefender(pc);
 				AttackType attackType = GameSys.getInstance().getAttackType(aa);
@@ -113,7 +115,8 @@ public class AttackRateAnalysis
 			{
 				for (int j=0; j<nrAttacks; j++)
 				{
-					AttackAction aa = new AttackAction(null, weapon, -1, null, true, false, 0);
+					AttackAction aa = new AttackAction(null, weapon, -1, null, true, false,
+						MagicSys.SpellEffectType.NONE);
 					aa.setActor(pc);
 					aa.setDefender(pc);
 					AttackType attackType = GameSys.getInstance().getAttackType(aa);

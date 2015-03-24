@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
@@ -45,7 +46,7 @@ public class FoeAttack implements AttackWith
 	
 	// for physical attacks
 	private Dice damage;
-	private int damageType;
+	private MagicSys.SpellEffectType damageType = MagicSys.SpellEffectType.NONE;
 	private String slaysFoeType;
 	private int[] attacks;
 	private GroupOfPossibilities<SpellEffect> spellEffects;
@@ -71,7 +72,7 @@ public class FoeAttack implements AttackWith
 		String description,
 		Type type,
 		Dice damage,
-		int damageType,
+		MagicSys.SpellEffectType damageType,
 		StatModifier modifiers,
 		int minRange,
 		int maxRange,
@@ -296,7 +297,7 @@ public class FoeAttack implements AttackWith
 		return type;
 	}
 
-	public int getDefaultDamageType()
+	public MagicSys.SpellEffectType getDefaultDamageType()
 	{
 		return damageType;
 	}
@@ -317,7 +318,7 @@ public class FoeAttack implements AttackWith
 		this.damage = damage;
 	}
 
-	public void setDamageType(int damageType)
+	public void setDamageType(MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
 	}

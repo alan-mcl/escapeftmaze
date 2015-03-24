@@ -511,7 +511,7 @@ public class PlayerCharacter extends UnifiedActor
 					for (int i = 0; i < nrAttacks; i++)
 					{
 						// ammo requirements ok.  Attack
-						int defaultDamageType = weapon.getDefaultDamageType();
+						MagicSys.SpellEffectType defaultDamageType = weapon.getDefaultDamageType();
 						if (weapon.getAmmoRequired() != null &&
 							getSecondaryWeapon() != null &&
 							weapon.getAmmoRequired().contains((getSecondaryWeapon()).isAmmoType()))

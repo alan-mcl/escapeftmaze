@@ -23,6 +23,7 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.ActorGroup;
 import mclachlan.maze.stat.AttackWith;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.magic.MagicSys;
 
 /**
  *
@@ -37,7 +38,7 @@ public class AttackAction extends CombatAction
 	private boolean isLightningStrike;
 	private UnifiedActor defender;
 	private AttackType attackType;
-	private int damageType;
+	private MagicSys.SpellEffectType damageType;
 
 	/*-------------------------------------------------------------------------*/
 	public AttackAction(
@@ -47,7 +48,7 @@ public class AttackAction extends CombatAction
 		MazeScript attackScript,
 		boolean isFirstAttack,
 		boolean lightningStrike,
-		int damageType)
+		MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
 		this.setTargetGroup(targetGroup);
@@ -140,12 +141,12 @@ public class AttackAction extends CombatAction
 		this.attackType = attackType;
 	}
 
-	public int getDamageType()
+	public MagicSys.SpellEffectType getDamageType()
 	{
 		return damageType;
 	}
 
-	public void setDamageType(int damageType)
+	public void setDamageType(MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
 	}

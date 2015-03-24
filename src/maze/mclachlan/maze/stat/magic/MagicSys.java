@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Gender;
 import mclachlan.maze.stat.Race;
@@ -252,9 +253,9 @@ public class MagicSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class SpellEffectType
+	public static enum SpellEffectType
 	{
-		public static final int NONE = 0;
+		/*public static finalintNONE = 0;
 		public static final int FIRE = 1;
 		public static final int WATER = 2;
 		public static final int EARTH = 3;
@@ -266,62 +267,52 @@ public class MagicSys
 		public static final int SLASHING = 9;
 
 		public static final int MAX = 10;
+		*/
+
+
+
+		NONE("set.none", null),
+		FIRE("set.fire", Stats.Modifiers.RESIST_FIRE),
+		WATER("set.water", Stats.Modifiers.RESIST_WATER),
+		EARTH("set.earth", Stats.Modifiers.RESIST_EARTH),
+		AIR("set.air", Stats.Modifiers.RESIST_AIR),
+		MENTAL("set.mental", Stats.Modifiers.RESIST_MENTAL),
+		ENERGY("set.energy", Stats.Modifiers.RESIST_ENERGY),
+		BLUDGEONING("set.bludgeon", Stats.Modifiers.RESIST_BLUDGEONING),
+		PIERCING("set.pierce", Stats.Modifiers.RESIST_PIERCING),
+		SLASHING("set.slash", Stats.Modifiers.RESIST_SLASHING);
+
+		private String descKey, resistanceModifier;
 
 		/*----------------------------------------------------------------------*/
-		public static String describe(int effectType)
+
+		SpellEffectType(String descKey, String resistanceModifier)
 		{
-			switch (effectType)
-			{
-				case NONE: return "none";
-				case FIRE: return "fire";
-				case WATER: return "water";
-				case EARTH: return "earth";
-				case AIR: return "air";
-				case MENTAL: return "mental";
-				case ENERGY: return "energy";
-				case BLUDGEONING: return "bludgeoning";
-				case PIERCING: return "piercing";
-				case SLASHING: return "slashing";
-				default: throw new MazeException("Invalid effect type: "+effectType);
-			}
+			this.descKey = descKey;
+			this.resistanceModifier = resistanceModifier;
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static int valueOf(String s)
+		public String describe()
 		{
-			if (s.equals("none")) { return NONE; }
-			else if (s.equals("bludgeoning")) {return BLUDGEONING; }
-			else if (s.equals("piercing")) {return PIERCING; }
-			else if (s.equals("slashing")) {return SLASHING; }
-			else if (s.equals("fire")) { return FIRE; }
-			else if (s.equals("water")) { return WATER; }
-			else if (s.equals("earth")) { return EARTH; }
-			else if (s.equals("air")) { return AIR; }
-			else if (s.equals("mental")) { return MENTAL; }
-			else if (s.equals("energy")) { return ENERGY; }
-			else
-			{
-				throw new MazeException("Invalid spell effect type ["+s+"]");
-			}
+			return StringUtil.getGamesysString(descKey);
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static String getResistanceModifier(int effectType)
+		public static String describe(SpellEffectType effectType)
 		{
-			switch (effectType)
-			{
-				case NONE: return null;
-				case BLUDGEONING: return Stats.Modifiers.RESIST_BLUDGEONING;
-				case PIERCING: return Stats.Modifiers.RESIST_PIERCING;
-				case SLASHING: return Stats.Modifiers.RESIST_SLASHING;
-				case FIRE: return Stats.Modifiers.RESIST_FIRE;
-				case WATER: return Stats.Modifiers.RESIST_WATER;
-				case EARTH: return Stats.Modifiers.RESIST_EARTH;
-				case AIR: return Stats.Modifiers.RESIST_AIR;
-				case MENTAL: return Stats.Modifiers.RESIST_MENTAL;
-				case ENERGY: return Stats.Modifiers.RESIST_ENERGY;
-				default: throw new MazeException("Invalid effect type: "+ effectType);
-			}
+			return effectType.describe();
+		}
+
+		public String getResistanceModifier()
+		{
+			return resistanceModifier;
+		}
+
+		/*----------------------------------------------------------------------*/
+		public static String getResistanceModifier(SpellEffectType effectType)
+		{
+			return effectType.getResistanceModifier();
 		}
 	}
 
@@ -333,6 +324,7 @@ public class MagicSys
 		HEAT,
 		COLD,
 		POISON,
+		
 		ACID,
 		LIGHTNING,
 		PSYCHIC;

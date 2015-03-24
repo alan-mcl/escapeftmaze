@@ -178,7 +178,7 @@ public class GameSys
 					else if (isSnipeCapable)
 					{
 						attackType = Database.getInstance().getAttackType(Stats.Modifiers.SNIPE);
-						int defaultDamageType = attackWith.getDefaultDamageType();
+						MagicSys.SpellEffectType defaultDamageType = attackWith.getDefaultDamageType();
 
 						// special case to get snipe damage type to be ammo default damage type
 						if (attackAction.getActor() instanceof PlayerCharacter)
@@ -745,24 +745,9 @@ public class GameSys
 	 * @return
 	 * 	The modifier to resistance to the given type of effect.
 	 */
-	public int getResistance(UnifiedActor defender, UnifiedActor attacker, int type)
+	public int getResistance(UnifiedActor defender, UnifiedActor attacker, MagicSys.SpellEffectType type)
 	{
-		String modifier;
-
-		switch (type)
-		{
-			case MagicSys.SpellEffectType.NONE: modifier = null; break;
-			case MagicSys.SpellEffectType.BLUDGEONING: modifier = Stats.Modifiers.RESIST_BLUDGEONING; break;
-			case MagicSys.SpellEffectType.PIERCING: modifier = Stats.Modifiers.RESIST_SLASHING; break;
-			case MagicSys.SpellEffectType.SLASHING: modifier = Stats.Modifiers.RESIST_PIERCING; break;
-			case MagicSys.SpellEffectType.FIRE: modifier = Stats.Modifiers.RESIST_FIRE; break;
-			case MagicSys.SpellEffectType.WATER: modifier = Stats.Modifiers.RESIST_WATER; break;
-			case MagicSys.SpellEffectType.AIR: modifier = Stats.Modifiers.RESIST_AIR; break;
-			case MagicSys.SpellEffectType.EARTH: modifier = Stats.Modifiers.RESIST_EARTH; break;
-			case MagicSys.SpellEffectType.MENTAL: modifier = Stats.Modifiers.RESIST_MENTAL; break;
-			case MagicSys.SpellEffectType.ENERGY: modifier = Stats.Modifiers.RESIST_ENERGY; break;
-			default: throw new MazeException("invalid type ["+type+"]");
-		}
+		String modifier = type.getResistanceModifier();
 
 		int power = attacker.getModifier(Stats.Modifiers.POWER);
 		power += (attacker.getModifier(Stats.Modifiers.POWER_CAST)*2);
@@ -786,7 +771,7 @@ public class GameSys
 	public boolean savingThrow(
 		UnifiedActor source,
 		UnifiedActor target,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subType,
 		int spellLevel,
 		int castingLevel,

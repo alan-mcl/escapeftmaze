@@ -36,7 +36,7 @@ public class SpellEffect
 	 * {@link MagicSys.SpellEffectType}. This determines which resistance
 	 * modifier on the target resists this spell.
 	 */ 
-	private int type;
+	private MagicSys.SpellEffectType type;
 
 	/**
 	 * The subtype of this spell effect. This may allow some actors immunity to
@@ -79,25 +79,25 @@ public class SpellEffect
 	 * @param displayName
 	 * 	The display name of this spell effect
 	 * @param type
- * 	A constant from {@link mclachlan.maze.stat.magic.MagicSys.SpellEffectType}
+	 * 	A constant from {@link mclachlan.maze.stat.magic.MagicSys.SpellEffectType}
 	 * @param subType
-* 	Subtype of the spell effect.
+	 * 	Subtype of the spell effect.
 	 * @param application
-* 	How to apply the spell effect.
+	 * 	How to apply the spell effect.
 	 * @param saveModifier
-* 	Any bonus or penalty applied to the victim's saves.
+	 * 	Any bonus or penalty applied to the victim's saves.
 	 * @param unsavedResult
-* 	The result of this spell on a failed save.
+	 * 	The result of this spell on a failed save.
 	 * @param savedResult
-* 	The result of this spell on a successful save.
+	 * 	The result of this spell on a successful save.
 	 * @param targetType
-* 	The target type for this spell effect, a constant from
-* 	{@link mclachlan.maze.stat.magic.MagicSys.SpellTargetType}.
+	 * 	The target type for this spell effect, a constant from
+	 * 	{@link mclachlan.maze.stat.magic.MagicSys.SpellTargetType}.
 	 */
 	public SpellEffect(
 		String name,
 		String displayName,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subType,
 		Application application,
 		Value saveModifier,
@@ -140,7 +140,7 @@ public class SpellEffect
 	/**
 	 * The type of this spell effect.  A constant from {@link MagicSys.SpellEffectType}
 	 */
-	public int getType()
+	public MagicSys.SpellEffectType getType()
 	{
 		return type;
 	}
@@ -195,7 +195,7 @@ public class SpellEffect
 		this.targetType = targetType;
 	}
 
-	public void setType(int type)
+	public void setType(MagicSys.SpellEffectType type)
 	{
 		this.type = type;
 	}

@@ -715,3 +715,18 @@ item.type.musical_instrument = musical instrument
 item.type.money = money
 item.type.supplies = supplies
 item.type.other = other
+
+#
+# Spell Effect Types
+#
+
+set.none = none
+set.fire = fire
+set.water = water
+set.earth = earth
+set.air = air
+set.mental = mental
+set.energy = energy
+set.bludgeon = bludgeoning
+set.pierce = piercing
+set.slash = slashing

@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.combat.event.AttackEvent;
@@ -165,7 +166,7 @@ public class Item implements AttackWith
 		return template.damage;
 	}
 
-	public int getDefaultDamageType()
+	public MagicSys.SpellEffectType getDefaultDamageType()
 	{
 		return template.getDefaultDamageType();
 	}

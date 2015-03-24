@@ -40,11 +40,11 @@ impl=mclachlan.maze.stat.condition.BlinkEffect
 name=nausea
 impl=mclachlan.maze.stat.condition.NauseaEffect
 @
-name=silence
-impl=mclachlan.maze.stat.condition.SilencedEffect
-@
 name=possess
 impl=mclachlan.maze.stat.condition.PossessionEffect
+@
+name=silence
+impl=mclachlan.maze.stat.condition.SilencedEffect
 @
 name=swallow
 impl=mclachlan.maze.stat.condition.SwallowedEffect

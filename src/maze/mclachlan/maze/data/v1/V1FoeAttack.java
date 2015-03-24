@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
@@ -142,7 +143,7 @@ public class V1FoeAttack
 			b.append(V1Utils.NEWLINE);
 
 			b.append("damageType=");
-			b.append(obj.getDefaultDamageType());
+			b.append(obj.getDefaultDamageType().name());
 			b.append(V1Utils.NEWLINE);
 
 			GroupOfPossibilities<SpellEffect> se = obj.getSpellEffects();
@@ -191,7 +192,7 @@ public class V1FoeAttack
 			int[] attacks = V1Utils.fromStringInts(p.getProperty("attacks"), ",");
 			String slaysFoeType = p.getProperty("slaysFoeType");
 			Dice damage = V1Dice.fromString(p.getProperty("damage"));
-			int damageType = Integer.parseInt(p.getProperty("damageType"));
+			MagicSys.SpellEffectType damageType = MagicSys.SpellEffectType.valueOf(p.getProperty("damageType"));
 			GroupOfPossibilities<SpellEffect> effects = spellEffects.fromString(p.getProperty("spellEffects"));
 			int spellEffectLevel = Integer.parseInt(p.getProperty("spellEffectLevel"));
 			PercentageTable<FoeAttack.FoeAttackSpell> spellz = spells.fromString(p.getProperty("spells"));

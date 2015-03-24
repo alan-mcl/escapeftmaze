@@ -55,7 +55,7 @@ public class DiseaseEffect extends ConditionEffect
 		// todo: give the pc a chance for a saving throw to remove the disease
 
 		// let disease never expire naturally
-		condition.duration++;
+		condition.decDuration(-1);
 
 		// check for spawning new conditions
 		if (Dice.d100.roll() <= 1)

@@ -41,7 +41,7 @@ public class DrainEvent extends MazeEvent
 	private UnifiedActor target;
 	private UnifiedActor source;
 	private int drain;
-	private int type;
+	private MagicSys.SpellEffectType type;
 	private String modifier;
 
 	/*-------------------------------------------------------------------------*/
@@ -49,7 +49,7 @@ public class DrainEvent extends MazeEvent
 		UnifiedActor target,
 		UnifiedActor source,
 		int drain, 
-		int type, 
+		MagicSys.SpellEffectType type,
 		String modifier)
 	{
 		super();
@@ -153,7 +153,7 @@ public class DrainEvent extends MazeEvent
 		return target;
 	}
 
-	public int getType()
+	public MagicSys.SpellEffectType getType()
 	{
 		return type;
 	}

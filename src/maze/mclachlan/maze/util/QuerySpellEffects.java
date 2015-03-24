@@ -76,7 +76,7 @@ public class QuerySpellEffects
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void countType(Map<String, SpellEffect> map, int type)
+	private static void countType(Map<String, SpellEffect> map, MagicSys.SpellEffectType type)
 	{
 		System.out.println("-----COUNTING "+ MagicSys.SpellEffectType.describe(type));
 		int count = 0;

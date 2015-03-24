@@ -36,18 +36,18 @@ import mclachlan.maze.util.MazeException;
  */
 public class ConditionTemplatePanel extends EditorPanel
 {
-	JCheckBox isCustom;
-	JTextField impl;
+	private JCheckBox isCustom;
+	private JTextField impl;
 
-	JTextField icon, displayName;
-	JTextField adjective;
-	JComboBox conditionEffect;
-	ValueComponent duration;
-	ValueComponent strength;
-	ValueComponent hpDamage, stamDamage, apDamage, mpDamage;
-	StatModifierComponent statModifier, bannerModifier;
-	JCheckBox scaleModifierWithStrength;
-	JCheckBox strengthWanes;
+	private JTextField icon, displayName;
+	private JTextField adjective;
+	private JComboBox conditionEffect;
+	private ValueComponent duration;
+	private ValueComponent strength;
+	private ValueComponent hpDamage, stamDamage, apDamage, mpDamage;
+	private StatModifierComponent statModifier, bannerModifier;
+	private JCheckBox scaleModifierWithStrength;
+	private JCheckBox strengthWanes;
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionTemplatePanel()
@@ -67,6 +67,7 @@ public class ConditionTemplatePanel extends EditorPanel
 		icon.addKeyListener(this);
 		displayName = new JTextField(30);
 		displayName.addActionListener(this);
+		displayName.addKeyListener(this);
 		adjective = new JTextField(30);
 		adjective.addKeyListener(this);
 		conditionEffect = new JComboBox();

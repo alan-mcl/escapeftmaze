@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
 
 /**
@@ -33,7 +34,7 @@ public class NaturalWeapon implements AttackWith
 	private String description;
 	private boolean isRanged;
 	private Dice damage;
-	private int damageType;
+	private MagicSys.SpellEffectType damageType;
 	private String slaysFoeType;
 	private int[] attacks;
 	private GroupOfPossibilities<SpellEffect> spellEffects;
@@ -49,7 +50,7 @@ public class NaturalWeapon implements AttackWith
 		String description,
 		boolean ranged,
 		Dice damage,
-		int damageType,
+		MagicSys.SpellEffectType damageType,
 		StatModifier modifiers,
 		int minRange,
 		int maxRange,
@@ -207,7 +208,7 @@ public class NaturalWeapon implements AttackWith
 		return slaysFoeType;
 	}
 
-	public int getDefaultDamageType()
+	public MagicSys.SpellEffectType getDefaultDamageType()
 	{
 		return damageType;
 	}
@@ -228,7 +229,7 @@ public class NaturalWeapon implements AttackWith
 		this.damage = damage;
 	}
 
-	public void setDamageType(int damageType)
+	public void setDamageType(MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
 	}

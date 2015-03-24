@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public interface AttackWith
 	int getToPenetrate();
 	int getToCritical();
 	Dice getDamage();
-	int getDefaultDamageType();
+	MagicSys.SpellEffectType getDefaultDamageType();
 
 	String describe(AttackEvent e);
 

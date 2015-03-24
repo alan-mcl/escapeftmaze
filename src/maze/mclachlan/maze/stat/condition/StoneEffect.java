@@ -120,7 +120,7 @@ public class StoneEffect extends ConditionEffect
 	public List<MazeEvent> endOfTurn(Condition condition, long turnNr)
 	{
 		// let stone never expire naturally
-		condition.duration++;
+		condition.decDuration(-1);
 		return null;
 	}
 }

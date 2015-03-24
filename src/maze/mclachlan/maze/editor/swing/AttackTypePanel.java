@@ -49,11 +49,8 @@ public class AttackTypePanel extends EditorPanel
 		verb.addActionListener(this);
 		verb.addKeyListener(this);
 
-		Vector<String> damageTypes = new Vector<String>();
-		for (int i=0; i< MagicSys.SpellEffectType.MAX; i++)
-		{
-			damageTypes.add(MagicSys.SpellEffectType.describe(i));
-		}
+		Vector<MagicSys.SpellEffectType> damageTypes = new Vector<MagicSys.SpellEffectType>();
+		Collections.addAll(damageTypes, MagicSys.SpellEffectType.values());
 		damageType = new JComboBox(damageTypes);
 		damageType.addActionListener(this);
 
@@ -151,7 +148,7 @@ public class AttackTypePanel extends EditorPanel
 		damageType.removeActionListener(this);
 
 		verb.setText(at.getVerb());
-		damageType.setSelectedIndex(at.getDamageType());
+		damageType.setSelectedItem(at.getDamageType());
 		modifiers.setModifier(at.getModifiers());
 		
 		verb.addActionListener(this);
@@ -165,6 +162,6 @@ public class AttackTypePanel extends EditorPanel
 		AttackType attackType = Database.getInstance().getAttackType(name);
 		attackType.setVerb(verb.getText());
 		attackType.setModifiers(modifiers.getModifier());
-		attackType.setDamageType(damageType.getSelectedIndex());
+		attackType.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
 	}
 }

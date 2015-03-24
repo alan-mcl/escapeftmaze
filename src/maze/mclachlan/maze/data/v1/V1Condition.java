@@ -52,7 +52,7 @@ public class V1Condition
 		s.append(SEP);
 		s.append(V1Value.toString(c.getHitPointDamage()));
 		s.append(SEP);
-		s.append(c.getType());
+		s.append(c.getType().name());
 		s.append(SEP);
 		s.append(c.getSubtype().name());
 		s.append(SEP);
@@ -75,7 +75,7 @@ public class V1Condition
 		int strength = Integer.parseInt(strs[2]);
 		int castingLevel = Integer.parseInt(strs[3]);
 		Value damage = V1Value.fromString(strs[4]);
-		int type = Integer.parseInt(strs[5]);
+		MagicSys.SpellEffectType type = MagicSys.SpellEffectType.valueOf(strs[5]);
 		MagicSys.SpellEffectSubType subtype = MagicSys.SpellEffectSubType.valueOf(strs[6]);
 		UnifiedActor source;
 		String sourceName = strs[7];

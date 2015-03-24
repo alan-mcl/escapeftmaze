@@ -85,11 +85,11 @@ public class V1SpellEffect
 			b.append(V1Utils.NEWLINE);
 
 			b.append("type=");
-			b.append(obj.getType());
+			b.append(obj.getType().name());
 			b.append(V1Utils.NEWLINE);
 
 			b.append("subtype=");
-			b.append(obj.getSubType().toString());
+			b.append(obj.getSubType().name());
 			b.append(V1Utils.NEWLINE);
 
 			b.append("saveAdjustment=");
@@ -133,7 +133,7 @@ public class V1SpellEffect
 			{
 				displayName = null;
 			}
-			int type = Integer.parseInt(p.getProperty("type"));
+			MagicSys.SpellEffectType type = MagicSys.SpellEffectType.valueOf(p.getProperty("type"));
 			Value saveAdjustment = V1Value.fromString(p.getProperty("saveAdjustment"));
 			SpellResult unsavedResult = V1SpellResult.fromString(p.getProperty("unsavedResult"));
 			SpellResult savedResult = V1SpellResult.fromString(p.getProperty("savedResult"));

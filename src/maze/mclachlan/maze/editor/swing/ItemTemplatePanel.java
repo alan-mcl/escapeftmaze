@@ -214,11 +214,8 @@ public class ItemTemplatePanel extends EditorPanel
 		damage.addKeyListener(this);
 		dodgyGridBagShite(result, new JLabel("Damage:"), damage, gbc);
 
-		Vector<String> damageTypes = new Vector<String>();
-		for (int i=0; i< MagicSys.SpellEffectType.MAX; i++)
-		{
-			damageTypes.add(MagicSys.SpellEffectType.describe(i));
-		}
+		Vector<MagicSys.SpellEffectType> damageTypes = new Vector<MagicSys.SpellEffectType>();
+		Collections.addAll(damageTypes, MagicSys.SpellEffectType.values());
 		defaultDamageType = new JComboBox(damageTypes);
 		defaultDamageType.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Default Damage Type:"), defaultDamageType, gbc);
@@ -593,7 +590,7 @@ public class ItemTemplatePanel extends EditorPanel
 			attackScript.setSelectedItem(it.getAttackScript().getName());
 		}
 		damage.setDice(it.getDamage());
-		defaultDamageType.setSelectedIndex(it.getDefaultDamageType());
+		defaultDamageType.setSelectedItem(it.getDefaultDamageType());
 		attackTypes.refresh(it.getAttackTypes());
 		isTwoHanded.setSelected(it.isTwoHanded());
 		isRanged.setSelected(it.isRanged());
@@ -873,7 +870,7 @@ public class ItemTemplatePanel extends EditorPanel
 			it.setAttackScript(Database.getInstance().getScript((String)attackScript.getSelectedItem()));
 		}
 		it.setDamage(damage.getDice());
-		it.setDefaultDamageType(defaultDamageType.getSelectedIndex());
+		it.setDefaultDamageType((MagicSys.SpellEffectType)defaultDamageType.getSelectedItem());
 		it.setAttackTypes(attackTypes.getAttackTypes());
 		it.setTwoHanded(isTwoHanded.isSelected());
 		it.setRanged(isRanged.isSelected());

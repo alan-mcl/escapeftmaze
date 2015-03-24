@@ -24,6 +24,7 @@ import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.combat.AttackType;
+import mclachlan.maze.stat.magic.MagicSys;
 
 /**
  *
@@ -85,7 +86,7 @@ public class V1AttackType
 			b.append(V1StatModifier.toString(obj.getModifiers()));
 			b.append(V1Utils.NEWLINE);
 			b.append("damageType=");
-			b.append(obj.getDamageType());
+			b.append(obj.getDamageType().name());
 			b.append(V1Utils.NEWLINE);
 		}
 
@@ -105,7 +106,7 @@ public class V1AttackType
 		{
 			String name = p.getProperty("name");
 			String verb = p.getProperty("verb");
-			int damageType = Integer.parseInt(p.getProperty("damageType"));
+			MagicSys.SpellEffectType damageType = MagicSys.SpellEffectType.valueOf(p.getProperty("damageType"));
 			StatModifier modifiers = V1StatModifier.fromString(p.getProperty("modifiers"));
 			return new AttackType(name, verb, damageType, modifiers);
 		}

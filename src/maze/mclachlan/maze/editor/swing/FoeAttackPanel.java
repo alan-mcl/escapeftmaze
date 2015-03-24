@@ -21,8 +21,7 @@ package mclachlan.maze.editor.swing;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.Collections;
-import java.util.Vector;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Dice;
@@ -163,10 +162,10 @@ public class FoeAttackPanel extends EditorPanel
 
 		GridBagConstraints gbc = createGridBagConstraints();
 
-		Vector<String> damageTypes = new Vector<String>();
-		for (int i=0; i< MagicSys.SpellEffectType.MAX; i++)
+		Vector<MagicSys.SpellEffectType> damageTypes = new Vector<MagicSys.SpellEffectType>();
+		for (MagicSys.SpellEffectType type : MagicSys.SpellEffectType.values())
 		{
-			damageTypes.add(MagicSys.SpellEffectType.describe(i));
+			damageTypes.add(type);
 		}
 		damageType = new JComboBox(damageTypes);
 		damageType.addActionListener(this);
@@ -385,7 +384,7 @@ public class FoeAttackPanel extends EditorPanel
 		if (fa.getType() == FoeAttack.Type.MELEE_ATTACK || fa.getType() == FoeAttack.Type.RANGED_ATTACK)
 		{
 			damage.setText(V1Dice.toString(fa.getDamage()));
-			damageType.setSelectedIndex(fa.getDefaultDamageType());
+			damageType.setSelectedItem(fa.getDefaultDamageType());
 			attacks.setText(V1Utils.toStringInts(fa.getAttacks(), ","));
 			modifiers.setModifier(fa.getModifiers());
 			minRange.setSelectedItem(ItemTemplate.WeaponRange.describe(fa.getMinRange()));
@@ -521,7 +520,7 @@ public class FoeAttackPanel extends EditorPanel
 			faType == FoeAttack.Type.RANGED_ATTACK)
 		{
 			fa.setDamage(V1Dice.fromString(damage.getText()));
-			fa.setDamageType(damageType.getSelectedIndex());
+			fa.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
 			fa.setAttacks(V1Utils.fromStringInts(attacks.getText(), ","));
 			fa.setModifiers(modifiers.getModifier());
 			fa.setMinRange(ItemTemplate.WeaponRange.valueOf((String)minRange.getSelectedItem()));

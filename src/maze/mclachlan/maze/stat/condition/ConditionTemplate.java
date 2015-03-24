@@ -306,7 +306,7 @@ public class ConditionTemplate
 		UnifiedActor source,
 		ConditionBearer target,
 		int castingLevel,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype)
 	{
 		if (impl != null)

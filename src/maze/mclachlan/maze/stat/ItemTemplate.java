@@ -24,6 +24,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
@@ -200,7 +201,7 @@ public class ItemTemplate
 
 	//--- weapons only
 	Dice damage;
-	int defaultDamageType;
+	MagicSys.SpellEffectType defaultDamageType;
 	String[] attackTypes;
 	boolean twoHanded;
 	boolean isRanged;
@@ -289,7 +290,7 @@ public class ItemTemplate
 		StatModifier useRequirements,
 		MazeScript attackScript,
 		Dice damage,
-		int damageType,
+		MagicSys.SpellEffectType damageType,
 		String[] attackTypes,
 		boolean twoHanded,
 		boolean isRanged,
@@ -469,7 +470,7 @@ public class ItemTemplate
 		return damage;
 	}
 
-	public int getDefaultDamageType()
+	public MagicSys.SpellEffectType getDefaultDamageType()
 	{
 		return defaultDamageType;
 	}
@@ -731,7 +732,7 @@ public class ItemTemplate
 		this.damage = damage;
 	}
 
-	public void setDefaultDamageType(int defaultDamageType)
+	public void setDefaultDamageType(MagicSys.SpellEffectType defaultDamageType)
 	{
 		this.defaultDamageType = defaultDamageType;
 	}

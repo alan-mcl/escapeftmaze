@@ -25,6 +25,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 
@@ -382,7 +383,7 @@ public class V1ItemTemplate
 			String attackScriptName = p.getProperty("attackScript");
 			MazeScript attackScript = attackScriptName.equals("")?null:Database.getInstance().getScript(attackScriptName);
 			Dice damage = V1Dice.fromString(p.getProperty("damage"));
-			int defaultDamageType = Integer.parseInt(p.getProperty("defaultDamageType"));
+			MagicSys.SpellEffectType defaultDamageType = MagicSys.SpellEffectType.valueOf(p.getProperty("defaultDamageType"));
 			String[] attackTypes = V1Utils.fromStringStrings(p.getProperty("attackTypes"), SEP);
 			boolean twoHanded = Boolean.valueOf(p.getProperty("twoHanded"));
 			boolean isRanged = Boolean.valueOf(p.getProperty("isRanged"));

@@ -36,15 +36,15 @@ import mclachlan.maze.stat.magic.Value;
  */
 public class Condition
 {
-	ConditionTemplate template;
-	UnifiedActor source;
-	ConditionBearer target;
-	int duration;
-	int strength;
-	int castingLevel;
-	Value hitPointDamage;
-	int type;
-	MagicSys.SpellEffectSubType subtype;
+	private ConditionTemplate template;
+	private UnifiedActor source;
+	private ConditionBearer target;
+	private int duration;
+	private int strength;
+	private int castingLevel;
+	private Value hitPointDamage;
+	private MagicSys.SpellEffectType type;
+	private MagicSys.SpellEffectSubType subtype;
 
 	/*-------------------------------------------------------------------------*/
 	protected Condition()
@@ -61,7 +61,7 @@ public class Condition
 		int strength,
 		int castingLevel,
 		Value damage,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype,
 		UnifiedActor source)
 	{
@@ -86,7 +86,7 @@ public class Condition
 		UnifiedActor source,
 		ConditionBearer target,
 		int castingLevel,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype)
 	{
 		this.template = template;
@@ -141,7 +141,7 @@ public class Condition
 		this.strength = strength;
 	}
 
-	public void setType(int type)
+	public void setType(MagicSys.SpellEffectType type)
 	{
 		this.type = type;
 	}
@@ -221,7 +221,7 @@ public class Condition
 		return source;
 	}
 
-	public int getType()
+	public MagicSys.SpellEffectType getType()
 	{
 		return type;
 	}

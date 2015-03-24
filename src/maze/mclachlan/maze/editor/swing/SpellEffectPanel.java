@@ -52,10 +52,10 @@ public class SpellEffectPanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public JPanel getEditControls()
 	{
-		Vector<String> validTypes = new Vector<String>();
-		for (int i=0; i<MagicSys.SpellEffectType.MAX; i++)
+		Vector<MagicSys.SpellEffectType> validTypes = new Vector<MagicSys.SpellEffectType>();
+		for (MagicSys.SpellEffectType set : MagicSys.SpellEffectType.values())
 		{
-			validTypes.addElement(MagicSys.SpellEffectType.describe(i));
+			validTypes.addElement(set);
 		}
 
 		Vector<String> validTargetTypes = new Vector<String>();
@@ -230,7 +230,7 @@ public class SpellEffectPanel extends EditorPanel
 			{
 				displayName.setText("");
 			}
-			type.setSelectedIndex(se.getType());
+			type.setSelectedItem(se.getType());
 			subType.setSelectedItem(se.getSubType().toString());
 			targetType.setSelectedIndex(se.getTargetType());
 			saveAdjustment.setValue(se.getSaveAdjustment());
@@ -252,8 +252,9 @@ public class SpellEffectPanel extends EditorPanel
 		SpellEffect se = new SpellEffect(
 			name,
 			name,
-			0,
-			MagicSys.SpellEffectSubType.NONE, SpellEffect.Application.AS_PER_SPELL,
+			MagicSys.SpellEffectType.NONE,
+			MagicSys.SpellEffectSubType.NONE,
+			SpellEffect.Application.AS_PER_SPELL,
 			null,
 			null,
 			null,
@@ -323,7 +324,7 @@ public class SpellEffectPanel extends EditorPanel
 			se.setDisplayName("".equals(dn)?null:dn);
 			se.setSaveAdjustment(saveAdjustment.getValue());
 			se.setTargetType(targetType.getSelectedIndex());
-			se.setType(type.getSelectedIndex());
+			se.setType((MagicSys.SpellEffectType)type.getSelectedItem());
 			se.setSubType(MagicSys.SpellEffectSubType.valueOf(subType.getSelectedItem().toString()));
 			se.setSavedResult(savedResult.getSpellResult());
 			se.setUnsavedResult(unsavedResult.getSpellResult());

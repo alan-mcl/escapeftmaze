@@ -39,8 +39,7 @@ public class FatigueEvent extends MazeEvent
 	private UnifiedActor defender;
 	private UnifiedActor attacker;
 	private int damage;
-	/** A constant from {@link mclachlan.maze.stat.magic.MagicSys.SpellEffectType} */
-	private int type;
+	private MagicSys.SpellEffectType type;
 	MagicSys.SpellEffectSubType subtype;
 
 	/*-------------------------------------------------------------------------*/
@@ -48,7 +47,7 @@ public class FatigueEvent extends MazeEvent
 		UnifiedActor defender,
 		UnifiedActor attacker,
 		int damage,
-		int type,
+		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype)
 	{
 		this.defender = defender;
