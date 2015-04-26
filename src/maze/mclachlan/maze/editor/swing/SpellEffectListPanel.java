@@ -36,10 +36,10 @@ import mclachlan.maze.stat.magic.SpellEffect;
  */
 public class SpellEffectListPanel extends JPanel implements ActionListener, MouseListener
 {
-	JList list;
-	JButton add, remove, edit;
-	int dirtyFlag;
-	DefaultListModel dataModel = new DefaultListModel();
+	private JList list;
+	private JButton add, remove, edit;
+	private int dirtyFlag;
+	private DefaultListModel dataModel = new DefaultListModel();
 
 	/*-------------------------------------------------------------------------*/
 	public SpellEffectListPanel(int dirtyFlag)

@@ -24,7 +24,7 @@ import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
-import mclachlan.maze.game.Maze;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -34,8 +34,7 @@ public class MazeLabelRenderer extends Renderer
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
 		DIYLabel label = (DIYLabel)widget;
-		String text = label.getText();
-		
+
 		if (DIYToolkit.debug)
 		{
 			g.setColor(Color.BLUE);
@@ -49,29 +48,51 @@ public class MazeLabelRenderer extends Renderer
 		}
 
 		Image icon = label.getIcon();
-		if (icon != null)
+		String text = label.getText();
+
+		Rectangle iconBounds = null;
+		Rectangle textBounds = null;
+
+		if (icon != null && text == null)
 		{
-			int iconWidth = icon.getWidth(Maze.getInstance().getComponent());
-			int iconHeight = icon.getHeight(Maze.getInstance().getComponent());
+			// only an icon to draw
+			iconBounds = new Rectangle(x, y, width, height);
+		}
+		else if (icon == null && text != null)
+		{
+			// only text to draw
+			textBounds = new Rectangle(x, y, width, height);
+		}
+		else if (icon != null && text != null)
+		{
+			FontMetrics fm = g.getFontMetrics();
 
-			// center the icon on the Y axis
-			int iconY = y + height/2 - iconHeight/2;
+			// both to draw
+			int iconWidth = (int)DIYToolkit.getDimension(icon).getWidth();
+			int textWidth = g.getFontMetrics().stringWidth(text);
+			int combinedWidth = iconWidth + textWidth;
 
-			int iconX = x;
-			if (label.getAlignment() == DIYToolkit.Align.CENTER)
+			int startX;
+			switch (label.getAlignment())
 			{
-				// center the text on the X axis
-				iconX = x + width/2 - iconWidth/2;
-			}
-			else if (label.getAlignment() == DIYToolkit.Align.RIGHT)
-			{
-				// align right
-				iconX = x + width - iconWidth;
+				case LEFT: startX = x; break;
+				case CENTER: startX = x+width/2-combinedWidth/2; break;
+				case RIGHT: startX = x+width-combinedWidth; break;
+				default: throw new MazeException(label.getAlignment().toString());
 			}
 
-			g.drawImage(icon, iconX, iconY, Maze.getInstance().getComponent());
+			iconBounds = new Rectangle(startX, y, iconWidth, height);
+			textBounds = new Rectangle(startX+iconWidth, y, textWidth, height);
 		}
 
+		// draw the icon
+		if (icon != null)
+		{
+			DIYToolkit.drawImageCentered(g, icon, iconBounds, label.getAlignment());
+		}
+
+
+		// draw the text
 		if (text != null)
 		{
 			Color foreground = label.getForegroundColour();
@@ -88,51 +109,10 @@ public class MazeLabelRenderer extends Renderer
 			DIYToolkit.drawStringCentered(
 				g,
 				text,
-				new Rectangle(x, y, width, height),
+				textBounds,
 				label.getAlignment(),
 				foreground,
 				label.getBackgroundColour());
-
-			/*FontMetrics fm = g.getFontMetrics();
-
-			int textHeight = fm.getAscent();
-			int textWidth = fm.stringWidth(text);
-
-			// center the text on the Y axis
-			int textY = y + height/2 + textHeight/2;
-
-			int textX = x;
-			if (label.getAlignment() == DIYToolkit.Align.CENTER)
-			{
-				// center the text on the X axis
-				textX = x + width/2 - textWidth/2;
-			}
-			else if (label.getAlignment() == DIYToolkit.Align.RIGHT)
-			{
-				// align right
-				textX = x + width - textWidth;
-			}
-
-			Color foreground = label.getForegroundColour();
-			if (foreground == null)
-			{
-				foreground = MazeRendererFactory.LABEL_FOREGROUND;
-
-				if (!label.isEnabled())
-				{
-					foreground = MazeRendererFactory.DISABLED_LABEL_FOREGROUND;
-				}
-			}
-
-			Color background = label.getBackgroundColour();
-			if (background != null)
-			{
-				g.setColor(background);
-				g.fillRect(x, y, width, height);
-			}
-
-			g.setColor(foreground);
-			g.drawString(text, textX, textY);*/
 		}
 
 		// reset the font

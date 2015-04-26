@@ -19,15 +19,12 @@
 
 package mclachlan.maze.data.v1;
 
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import mclachlan.maze.stat.magic.Value;
-import mclachlan.maze.stat.magic.DiceValue;
-import mclachlan.maze.stat.magic.ModifierValue;
-import mclachlan.maze.stat.magic.ManaPresentValue;
+import java.util.*;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.magic.DiceValue;
+import mclachlan.maze.stat.magic.ManaPresentValue;
+import mclachlan.maze.stat.magic.ModifierValue;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -62,61 +59,90 @@ public class V1Value
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String toString(Value v, String rowSep, String colSep)
+
+	/**
+	 * @return a simple list of values that makes sense out of the composition
+	 */
+	public static List<Value> simplify(Value v)
 	{
-		if (v == null)
+		List<Value> result = new ArrayList<Value>();
+
+		List<Value> values = v.getValues();
+		if (!v.isNullValue())
+		{
+			v.setValues(new ArrayList<Value>());
+			result.add(v);
+		}
+
+		for (Value value : values)
+		{
+			result.addAll(simplify(value));
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String toString(Value value, String rowSep, String colSep)
+	{
+		if (value == null)
 		{
 			return "";
 		}
 
 		StringBuilder s = new StringBuilder();
 
-		int type;
-		if (types.containsKey(v.getClass()))
-		{
-			type = types.get(v.getClass());
-		}
-		else
-		{
-			type = CUSTOM;
-		}
+		List<Value> values = simplify(value);
 
-		s.append(type);
-		s.append(colSep);
-		s.append(v.getValue());
-		s.append(colSep);
-		s.append(v.getScaling());
-		s.append(colSep);
-		s.append(v.getReference()==null?"":v.getReference());
-		s.append(colSep);
-		s.append(v.shouldNegate());
+		for (Value v : values)
+		{
+			int type;
+			if (types.containsKey(v.getClass()))
+			{
+				type = types.get(v.getClass());
+			}
+			else
+			{
+				type = CUSTOM;
+			}
 
-		if (type == CUSTOM)
-		{
+			s.append(type);
 			s.append(colSep);
-			s.append(v.getClass().getName());
-		}
-		else if (type == DICE_VALUE)
-		{
+			s.append(v.getValue());
 			s.append(colSep);
-			s.append(V1Dice.toString(((DiceValue)v).getDice()));
-		}
-		else if (type == MODIFIER_VALUE)
-		{
+			s.append(v.getScaling());
 			s.append(colSep);
-			s.append(((ModifierValue)v).getModifier());
-		}
-		else if (type == MANA_PRESENT_VALUE)
-		{
+			s.append(v.getReference()==null?"":v.getReference());
 			s.append(colSep);
-			s.append(((ManaPresentValue)v).getColour());
-		}
+			s.append(v.shouldNegate());
 
-		List<Value> values = v.getValues();
-		for (Value value : values)
-		{
+			if (type == CUSTOM)
+			{
+				s.append(colSep);
+				s.append(v.getClass().getName());
+			}
+			else if (type == DICE_VALUE)
+			{
+				s.append(colSep);
+				s.append(V1Dice.toString(((DiceValue)v).getDice()));
+			}
+			else if (type == MODIFIER_VALUE)
+			{
+				s.append(colSep);
+				s.append(((ModifierValue)v).getModifier());
+			}
+			else if (type == MANA_PRESENT_VALUE)
+			{
+				s.append(colSep);
+				s.append(((ManaPresentValue)v).getColour());
+			}
+
 			s.append(rowSep);
-			s.append(toString(value));
+		}
+
+		if (s.lastIndexOf(rowSep)>0)
+		{
+			s.deleteCharAt(s.lastIndexOf(rowSep));
 		}
 
 		return s.toString();
@@ -138,21 +164,20 @@ public class V1Value
 		
 		// since hierarchy doesn't matter, treat it as flat
 		String[] rows = s.split(rowSep);
-		String[] cols = rows[0].split(colSep);
+		String[] cols;
 
-		Value baseValue = getValue(cols);
+		// Always encapsulate in an empty base value. This avoids odd composition
+		// bugs when Value subclasses override methods like compute and toString
+		Value baseValue = new Value();
 
-		if (rows.length > 1)
+		ArrayList<Value> values = new ArrayList<Value>();
+
+		for (int i=0; i<rows.length; i++)
 		{
-			ArrayList<Value> values = new ArrayList<Value>();
-
-			for (int i=1; i<rows.length; i++)
-			{
-				cols = rows[i].split(colSep);
-				values.add(getValue(cols));
-			}
-			baseValue.setValues(values);
+			cols = rows[i].split(colSep);
+			values.add(getValue(cols));
 		}
+		baseValue.setValues(values);
 
 		return baseValue;
 	}

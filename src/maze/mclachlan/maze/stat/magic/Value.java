@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.v1.V1Value;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.util.MazeException;
 
@@ -106,6 +107,17 @@ public class Value
 		{
 			this.values.add(new Value(v));
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return true if this Value represents nothing other than a composition
+	 * 	of other Values
+	 */
+	public boolean isNullValue()
+	{
+		return getClass() == Value.class && value == 0;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -269,29 +281,33 @@ public class Value
 	}
 	
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public String toString()
 	{
-		StringBuilder result = new StringBuilder();
-		if (value != 0)
-		{
-			result.append("").append(value);
+		final StringBuilder sb = new StringBuilder("Value{");
+		sb.append("").append(value);
+		sb.append(",").append(scaling);
+		sb.append(",").append(reference);
+		sb.append(",").append(negate);
+		sb.append(",").append(values);
+		sb.append('}');
+		return sb.toString();
+	}
 
-			if (values.size() > 0)
-			{
-				result.append(" + ");
-			}
-		}
+	/*-------------------------------------------------------------------------*/
+	public static void main(String[] args) throws Exception
+	{
+		Value v = V1Value.fromString("1/0/NONE//false,1/0/NONE//false,1/0/NONE//false,1/0/NONE//false,1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false");
 
-		for (int i = 0; i < values.size(); i++)
-		{
-			result.append(values.get(i));
+		List<Value> simplify = V1Value.simplify(v);
+		System.out.println("simplify = [" + simplify + "]");
 
-			if (i < values.size()-1)
-			{
-				result.append(" + ");
-			}
-		}
+		System.out.println("v.getClass() = [" + v.getClass() + "]");
+		System.out.println("v = [" + v + "]");
+		System.out.println("v.values = [" + v.values + "]");
 
-		return result.toString();
+		int i = v.compute(new NullActor(), 1);
+
+		System.out.println("i = [" + i + "]");
 	}
 }

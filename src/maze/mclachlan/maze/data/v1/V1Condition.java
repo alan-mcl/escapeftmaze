@@ -21,14 +21,12 @@ package mclachlan.maze.data.v1;
 
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.AbstractActor;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Value;
-import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -52,15 +50,29 @@ public class V1Condition
 		s.append(SEP);
 		s.append(V1Value.toString(c.getHitPointDamage()));
 		s.append(SEP);
+		s.append(V1Value.toString(c.getActionPointDamage()));
+		s.append(SEP);
+		s.append(V1Value.toString(c.getMagicPointDamage()));
+		s.append(SEP);
+		s.append(V1Value.toString(c.getStaminaDamage()));
+		s.append(SEP);
 		s.append(c.getType().name());
 		s.append(SEP);
 		s.append(c.getSubtype().name());
 		s.append(SEP);
-		if (c.getSource() instanceof PlayerCharacter)
+		if (c.getSource() != null && c.getSource().getName() != null)
 		{
-			// the only case in which we're interested in linking up the source properly
+			// todo: better linking up of sources
 			s.append(c.getSource().getName());
 		}
+		s.append(SEP);
+		s.append(c.isIdentified());
+		s.append(SEP);
+		s.append(c.isStrengthIdentified());
+		s.append(SEP);
+		s.append(c.getCreatedTurn());
+		s.append(SEP);
+		s.append(c.isHostile());
 
 		return s.toString();
 	}
@@ -70,29 +82,29 @@ public class V1Condition
 	{
 		String[] strs = s.split(SEP, -1);
 
-		ConditionTemplate template = Database.getInstance().getConditionTemplate(strs[0]);
-		int duration = Integer.parseInt(strs[1]);
-		int strength = Integer.parseInt(strs[2]);
-		int castingLevel = Integer.parseInt(strs[3]);
-		Value damage = V1Value.fromString(strs[4]);
-		MagicSys.SpellEffectType type = MagicSys.SpellEffectType.valueOf(strs[5]);
-		MagicSys.SpellEffectSubType subtype = MagicSys.SpellEffectSubType.valueOf(strs[6]);
+		int i=0;
+		ConditionTemplate template = Database.getInstance().getConditionTemplate(strs[i++]);
+		int duration = Integer.parseInt(strs[i++]);
+		int strength = Integer.parseInt(strs[i++]);
+		int castingLevel = Integer.parseInt(strs[i++]);
+		Value hpDamage = V1Value.fromString(strs[i++]);
+		Value apDamage = V1Value.fromString(strs[i++]);
+		Value mpDamage = V1Value.fromString(strs[i++]);
+		Value staminaDamage = V1Value.fromString(strs[i++]);
+		MagicSys.SpellEffectType type = MagicSys.SpellEffectType.valueOf(strs[i++]);
+		MagicSys.SpellEffectSubType subtype = MagicSys.SpellEffectSubType.valueOf(strs[i++]);
 		UnifiedActor source;
-		String sourceName = strs[7];
-		if (sourceName.equals(""))
+		String sourceName = strs[i++];
+		source = Maze.getInstance().getPlayerCharacter(sourceName);
+		if (source == null)
 		{
 			// fake it
 			source = new AbstractActor(){};
 		}
-		else
-		{
-			// assume a player character
-			source = Maze.getInstance().getPlayerCharacter(sourceName);
-			if (source == null)
-			{
-				throw new MazeException("Invalid source ["+ sourceName +"]");
-			}
-		}
+		boolean isIdentified = Boolean.valueOf(strs[i++]);
+		boolean isStrengthIdentified = Boolean.valueOf(strs[i++]);
+		long createdTurn = Long.valueOf(strs[i++]);
+		boolean hostile = Boolean.valueOf(strs[i++]);
 
 		if (template.getImpl() != null)
 		{
@@ -106,10 +118,17 @@ public class V1Condition
 				duration,
 				strength,
 				castingLevel,
-				damage,
+				hpDamage,
+				apDamage,
+				mpDamage,
+				staminaDamage,
 				type,
 				subtype,
-				source);
+				source,
+				isIdentified,
+				isStrengthIdentified,
+				createdTurn,
+				hostile);
 		}
 	}
 }

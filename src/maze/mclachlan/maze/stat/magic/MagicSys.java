@@ -319,15 +319,24 @@ public class MagicSys
 	/*-------------------------------------------------------------------------*/
 	public static enum SpellEffectSubType
 	{
-		NONE,
-		NORMAL_DAMAGE,
-		HEAT,
-		COLD,
-		POISON,
-		
-		ACID,
-		LIGHTNING,
-		PSYCHIC;
+		NONE("sest.none"),
+		NORMAL_DAMAGE("sest.normal_damage"),
+		HEAT("sest.heat"),
+		COLD("sest.cold"),
+		POISON("sest.poison"),
+		DISEASE("sest.disease"),
+		CURSE("sest.curse"),
+		ACID("sest.acid"),
+		LIGHTNING("sest.lightning"),
+		PSYCHIC("sest.psychic");
+
+		private String descKey;
+
+		/*----------------------------------------------------------------------*/
+		SpellEffectSubType(String descKey)
+		{
+			this.descKey = descKey;
+		}
 
 		/*----------------------------------------------------------------------*/
 		public static String getImmunityModifier(SpellEffectSubType subType)
@@ -339,11 +348,19 @@ public class MagicSys
 				case HEAT: return Stats.Modifiers.IMMUNE_TO_HEAT;
 				case COLD: return Stats.Modifiers.IMMUNE_TO_COLD;
 				case POISON: return Stats.Modifiers.IMMUNE_TO_POISON;
+				case DISEASE: return Stats.Modifiers.IMMUNE_TO_DISEASE;
+				case CURSE: return Stats.Modifiers.IMMUNE_TO_HEX;
 				case ACID: return Stats.Modifiers.IMMUNE_TO_ACID;
 				case LIGHTNING: return Stats.Modifiers.IMMUNE_TO_LIGHTNING;
 				case PSYCHIC: return Stats.Modifiers.IMMUNE_TO_PSYCHIC;
 				default: throw new MazeException(subType.toString());
 			}
+		}
+
+		/*----------------------------------------------------------------------*/
+		public String describe()
+		{
+			return StringUtil.getGamesysString(descKey);
 		}
 	}
 

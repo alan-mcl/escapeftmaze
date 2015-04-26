@@ -71,6 +71,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		types.put(ResurrectionSpellResult.class, RESURRECTION);
 		types.put(BoozeSpellResult.class, BOOZE);
 		types.put(ForgetSpellResult.class, FORGET);
+		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
 	}
 
 	private SpellResult result;
@@ -111,6 +112,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JTextField cloudSpellIcon;
 	private ValueComponent purifyAirStrength;
 	private ValueComponent forgetStrength;
+	private ValueComponent conditionIdentificationStrength;
+	private JCheckBox canIdenfityConditionStrength;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellResultEditor(
@@ -299,7 +302,11 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				ForgetSpellResult fsr = (ForgetSpellResult)sr;
 				forgetStrength.setValue(fsr.getStrength());
 				break;
-
+			case CONDITION_IDENTIFICATION:
+				ConditionIdentificationSpellResult cisr = (ConditionIdentificationSpellResult)sr;
+				conditionIdentificationStrength.setValue(cisr.getStrength());
+				canIdenfityConditionStrength.setSelected(cisr.isCanIdentifyConditionStrength());
+				break;
 
 			default: throw new MazeException("Invalid type "+srType);
 		}
@@ -335,8 +342,19 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case RESURRECTION: return new JPanel();
 			case BOOZE: return new JPanel();
 			case FORGET: return getForgetPanel();
+			case CONDITION_IDENTIFICATION: return getConditionIdentificationPanel();
 			default: throw new MazeException("Invalid type "+type);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getConditionIdentificationPanel()
+	{
+		conditionIdentificationStrength = new ValueComponent(this.dirtyFlag);
+		canIdenfityConditionStrength = new JCheckBox("Can Identify Condition Strength?");
+		return dirtyGridLayoutCrap(
+			new JLabel("Strength:"), conditionIdentificationStrength,
+			canIdenfityConditionStrength, new JLabel());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -703,6 +721,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case RESURRECTION: return "Resurrection";
 			case BOOZE: return "Booze";
 			case FORGET: return "Forget";
+			case CONDITION_IDENTIFICATION: return "Condition Identification";
 			default: throw new MazeException("Invalid type "+type);
 		}
 	}
@@ -836,6 +855,11 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				break;
 			case FORGET:
 				result = new ForgetSpellResult(forgetStrength.getValue());
+				break;
+			case CONDITION_IDENTIFICATION:
+				result = new ConditionIdentificationSpellResult(
+					conditionIdentificationStrength.getValue(),
+					canIdenfityConditionStrength.isSelected());
 				break;
 			default: throw new MazeException("Invalid type "+srType);
 		}

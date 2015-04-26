@@ -132,7 +132,7 @@ public class Zone
 			{
 				if (script.shouldExecute(maze, tile, previousTile, facing, -1))
 				{
-					Maze.getInstance().processTileScriptEvents(
+					Maze.getInstance().appendEvents(
 						script.execute(maze, tile, previousTile, facing));
 				}
 			}
@@ -158,7 +158,7 @@ public class Zone
 					{
 						return false;
 					}
-					maze.processTileScriptEvents(events);
+					maze.appendEvents(events);
 				}
 			}
 		}
@@ -189,7 +189,7 @@ public class Zone
 				{
 					return false;
 				}
-				maze.processTileScriptEvents(events);
+				maze.appendEvents(events);
 			}
 		}
 

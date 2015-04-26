@@ -21,20 +21,33 @@ package mclachlan.maze.data.v1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import mclachlan.maze.stat.StatModifier;
-import mclachlan.maze.stat.magic.Value;
-import mclachlan.maze.stat.condition.ConditionTemplate;
-import mclachlan.maze.stat.condition.ConditionEffect;
+import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.condition.ConditionEffect;
+import mclachlan.maze.stat.condition.ConditionTemplate;
+import mclachlan.maze.stat.condition.RepeatedSpellEffect;
+import mclachlan.maze.stat.magic.Value;
 
 /**
  *
  */
 public class V1ConditionTemplate
 {
+	/*-------------------------------------------------------------------------*/
+	static V1List<RepeatedSpellEffect> repeatedSpellEffects = new V1List<RepeatedSpellEffect>(",")
+	{
+		public String typeToString(RepeatedSpellEffect rse)
+		{
+			return V1RepeatedSpellEffect.toString(rse);
+		}
+
+		public RepeatedSpellEffect typeFromString(String s)
+		{
+			return V1RepeatedSpellEffect.fromString(s);
+		}
+	};
+
 	/*-------------------------------------------------------------------------*/
 	public static Map<String, ConditionTemplate> load(BufferedReader reader) throws Exception
 	{
@@ -136,11 +149,23 @@ public class V1ConditionTemplate
 			b.append(V1Utils.NEWLINE);
 
 			b.append("scaleModifierWithStrength=");
-			b.append(obj.scaleModifierWithStrength());
+			b.append(obj.isScaleModifierWithStrength());
 			b.append(V1Utils.NEWLINE);
 
 			b.append("strengthWanes=");
-			b.append(obj.strengthWanes());
+			b.append(obj.isStrengthWanes());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("exitCondition=");
+			b.append(obj.getExitCondition());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("exitConditionChance=");
+			b.append(obj.getExitConditionChance());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("repeatedSpellEffects=");
+			b.append(repeatedSpellEffects.toString(obj.getRepeatedSpellEffects()));
 			b.append(V1Utils.NEWLINE);
 		}
 
@@ -183,6 +208,10 @@ public class V1ConditionTemplate
 			StatModifier bannerModifier = V1StatModifier.fromString(p.getProperty("bannerModifier"));
 			boolean scaleModifierWithStrength = Boolean.valueOf(p.getProperty("scaleModifierWithStrength"));
 			boolean strengthWanes = Boolean.valueOf(p.getProperty("strengthWanes"));
+			List<RepeatedSpellEffect> rse = repeatedSpellEffects.fromString(p.getProperty("repeatedSpellEffects"));
+			ConditionTemplate.ExitCondition exitCondition =
+				ConditionTemplate.ExitCondition.valueOf(p.getProperty("exitCondition"));
+			int exitConditionChance = Integer.valueOf(p.getProperty("exitConditionChance"));
 
 			return new ConditionTemplate(
 				name,
@@ -199,7 +228,10 @@ public class V1ConditionTemplate
 				icon,
 				adjective,
 				scaleModifierWithStrength,
-				strengthWanes);
+				strengthWanes,
+				exitCondition,
+				exitConditionChance,
+				rse);
 		}
 	}
 }

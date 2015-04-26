@@ -19,23 +19,22 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.util.*;
-import java.util.List;
-import java.awt.*;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
-import mclachlan.maze.stat.GroupOfPossibilities;
-import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.condition.RepeatedSpellEffect;
 import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements ActionListener
+public class RepeatedSpellEffectListPanel extends JPanel implements ActionListener
 {
 	private int dirtyFlag;
 	private JTable table;
@@ -44,7 +43,11 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 	private JComboBox spellEffectCombo;
 
 	/*-------------------------------------------------------------------------*/
-	protected SpellEffectGroupOfPossibilitiesPanel(int dirtyFlag, double scale)
+	protected RepeatedSpellEffectListPanel(
+		String title,
+		int dirtyFlag,
+		double horizScale,
+		double vertScale)
 	{
 		this.dirtyFlag = dirtyFlag;
 
@@ -54,12 +57,18 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 		table.setDefaultRenderer(Integer.TYPE, new DefaultTableCellRenderer());
 		table.getColumnModel().getColumn(0).setCellEditor(new DefaultCellEditor(new JTextField()));
-		table.getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(spellEffectCombo));
+		table.getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(new JTextField()));
+		table.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JTextField()));
+		table.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(new JTextField()));
+		table.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(spellEffectCombo));
 
 		table.getColumnModel().getColumn(0).setPreferredWidth(10);
+		table.getColumnModel().getColumn(1).setPreferredWidth(10);
+		table.getColumnModel().getColumn(2).setPreferredWidth(10);
+		table.getColumnModel().getColumn(3).setPreferredWidth(10);
 		Dimension d = table.getPreferredScrollableViewportSize();
 		table.setPreferredScrollableViewportSize(
-			new Dimension((int)(d.width*scale), (int)(d.height*scale)));
+			new Dimension((int)(d.width*horizScale), (int)(d.height*vertScale)));
 
 		add = new JButton("Add");
 		add.addActionListener(this);
@@ -72,7 +81,7 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		this.setLayout(new BorderLayout(3,3));
 		this.add(new JScrollPane(table), BorderLayout.CENTER);
 		this.add(buttons, BorderLayout.SOUTH);
-		this.setBorder(BorderFactory.createTitledBorder("Spell Effects"));
+		this.setBorder(BorderFactory.createTitledBorder(title));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -84,33 +93,39 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public GroupOfPossibilities<SpellEffect> getGroupOfPossibilties()
+	public List<RepeatedSpellEffect> getRepeatedSpellEffects()
 	{
-		GroupOfPossibilities<SpellEffect> result = new GroupOfPossibilities<SpellEffect>();
+		List<RepeatedSpellEffect> result = new ArrayList<RepeatedSpellEffect>();
 
 		for (int i=0; i<dataModel.percentages.size(); i++)
 		{
 			result.add(
-				Database.getInstance().getSpellEffect(dataModel.spellEffects.get(i)),
-				dataModel.percentages.get(i));
+				new RepeatedSpellEffect(
+					dataModel.startTurns.get(i),
+					dataModel.endTurns.get(i),
+					dataModel.turnMods.get(i),
+					dataModel.percentages.get(i),
+					dataModel.spellEffects.get(i)));
 		}
 
 		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(GroupOfPossibilities<SpellEffect> pt)
+	public void refresh(List<RepeatedSpellEffect> effects)
 	{
 		dataModel.clear();
 
-		if (pt != null)
+		if (effects != null)
 		{
-			List<Integer> percentages = pt.getPercentages();
-			List<SpellEffect> items = pt.getPossibilities();
-
-			for (int i=0; i<percentages.size(); i++)
+			for (RepeatedSpellEffect rse : effects)
 			{
-				dataModel.add(percentages.get(i), items.get(i));
+				dataModel.add(
+					rse.getStartTurn(),
+					rse.getEndTurn(),
+					rse.getTurnMod(),
+					rse.getProbability(),
+					rse.getSpellEffect());
 			}
 		}
 	}
@@ -120,7 +135,8 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 	{
 		if (e.getSource() == add)
 		{
-			dataModel.add(100, Database.getInstance().getSpellEffect((String)spellEffectCombo.getItemAt(0)));
+			dataModel.add(1,-1,1,100,
+				(String)spellEffectCombo.getItemAt(0));
 		}
 		else if (e.getSource() == remove)
 		{
@@ -135,8 +151,11 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 	/*-------------------------------------------------------------------------*/
 	class MyTableModel extends AbstractTableModel
 	{
-		java.util.List<Integer> percentages = new ArrayList<Integer>();
-		java.util.List<String> spellEffects = new ArrayList<String>();
+		List<Integer> startTurns = new ArrayList<Integer>();
+		List<Integer> endTurns = new ArrayList<Integer>();
+		List<Integer> turnMods = new ArrayList<Integer>();
+		List<Integer> percentages = new ArrayList<Integer>();
+		List<String> spellEffects = new ArrayList<String>();
 
 		/*----------------------------------------------------------------------*/
 		public MyTableModel()
@@ -148,8 +167,11 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		{
 			switch (column)
 			{
-				case 0: return "%";
-				case 1: return "Spell Effect";
+				case 0: return "Start Turn";
+				case 1: return "End Turn";
+				case 2: return "Turn Mod";
+				case 3: return "%";
+				case 4: return "Spell Effect";
 				default: throw new MazeException("Invalid column: "+column);
 			}
 		}
@@ -157,7 +179,7 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		/*----------------------------------------------------------------------*/
 		public int getColumnCount()
 		{
-			return 2;
+			return 5;
 		}
 
 		/*----------------------------------------------------------------------*/
@@ -171,8 +193,11 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		{
 			switch (columnIndex)
 			{
-				case 0: return percentages.get(rowIndex);
-				case 1: return spellEffects.get(rowIndex);
+				case 0: return startTurns.get(rowIndex);
+				case 1: return endTurns.get(rowIndex);
+				case 2: return turnMods.get(rowIndex);
+				case 3: return percentages.get(rowIndex);
+				case 4: return spellEffects.get(rowIndex);
 				default: throw new MazeException("Invalid column: "+columnIndex);
 			}
 		}
@@ -183,8 +208,11 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 			SwingEditor.instance.setDirty(dirtyFlag);
 			switch (columnIndex)
 			{
-				case 0: percentages.set(rowIndex, Integer.parseInt((String)aValue)); break;
-				case 1: spellEffects.set(rowIndex, (String)aValue); break;
+				case 0: startTurns.set(rowIndex, Integer.parseInt((String)aValue)); break;
+				case 1: endTurns.set(rowIndex, Integer.parseInt((String)aValue)); break;
+				case 2: turnMods.set(rowIndex, Integer.parseInt((String)aValue)); break;
+				case 3: percentages.set(rowIndex, Integer.parseInt((String)aValue)); break;
+				case 4: spellEffects.set(rowIndex, (String)aValue); break;
 				default: throw new MazeException("Invalid column: "+columnIndex);
 			}
 		}
@@ -194,7 +222,10 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		{
 			switch (columnIndex)
 			{
-				case 0: return Integer.TYPE;
+				case 0:
+				case 1:
+				case 2:
+				case 3: return Integer.TYPE;
 				default: return Object.class;
 			}
 		}
@@ -208,22 +239,31 @@ public class SpellEffectGroupOfPossibilitiesPanel extends JPanel implements Acti
 		/*----------------------------------------------------------------------*/
 		public void clear()
 		{
+			startTurns.clear();
+			endTurns.clear();
+			turnMods.clear();
 			percentages.clear();
 			spellEffects.clear();
 			fireTableDataChanged();
 		}
 
 		/*----------------------------------------------------------------------*/
-		public void add(int perc, SpellEffect se)
+		public void add(int startTurn, int endTurn, int turnMod, int perc, String se)
 		{
+			startTurns.add(startTurn);
+			endTurns.add(endTurn);
+			turnMods.add(turnMod);
 			percentages.add(perc);
-			spellEffects.add(se.getName());
+			spellEffects.add(se);
 			fireTableDataChanged();
 		}
 
 		/*----------------------------------------------------------------------*/
 		public void remove(int index)
 		{
+			startTurns.remove(index);
+			endTurns.remove(index);
+			turnMods.remove(index);
 			percentages.remove(index);
 			spellEffects.remove(index);
 			fireTableDataChanged();

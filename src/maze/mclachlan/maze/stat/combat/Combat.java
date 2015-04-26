@@ -1142,9 +1142,11 @@ public class Combat
 						targetType == MagicSys.SpellTargetType.LOCK_OR_TRAP ||
 						targetType == MagicSys.SpellTargetType.NPC ||
 						targetType == MagicSys.SpellTargetType.TILE ||
-						targetType == MagicSys.SpellTargetType.PARTY)
+						targetType == MagicSys.SpellTargetType.PARTY ||
+						getNrOfLivingEnemies(caster) == 0)
 					{
-						// these spell target types cannot backfire, simply fizzle
+						// these spell target types cannot backfire (or there are no
+						// foes to target), simply fizzle
 						// todo: may be amusing to provide various backfire effects here
 						appendEvent(new SpellFizzlesEvent(caster, s, castingLevel));
 						return;
@@ -1809,12 +1811,13 @@ public class Combat
 						{
 							if (ase.getSpellEffects() != null && ase.getSpellEffects().size() > 0)
 							{
-								SpellTargetUtils.applySpellToUnwillingVictim(this,
-									ase.getSpellEffects(),
-									defender,
-									attacker,
-									ase.getCastingLevel(),
-									ase.getSpellLevel());
+								appendEvents(
+									SpellTargetUtils.applySpellToUnwillingVictim(
+										ase.getSpellEffects(),
+										defender,
+										attacker,
+										ase.getCastingLevel(),
+										ase.getSpellLevel(), this.getAnimationContext()));
 							}
 						}
 					}

@@ -21,42 +21,28 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.combat.event.CuringEvent;
+import mclachlan.maze.stat.combat.event.ConditionIdentificationEvent;
 import mclachlan.maze.stat.condition.Condition;
-import mclachlan.maze.stat.condition.ConditionBearer;
-import mclachlan.maze.stat.condition.ConditionEffect;
 
 /**
- * A spell for curing a variety of ailments.
+ * A spell for identifying conditions and their strengths
  */
-public class ConditionRemovalSpellResult extends SpellResult
+public class ConditionIdentificationSpellResult extends SpellResult
 {
-	private List<ConditionEffect> effects;
 	private Value strength;
-	
+	private boolean canIdentifyConditionStrength;
+
 	/*-------------------------------------------------------------------------*/
-	public ConditionRemovalSpellResult(List<ConditionEffect> effects, Value strength)
+	public ConditionIdentificationSpellResult(Value strength,
+		boolean canIdentifyConditionStrength)
 	{
 		this.strength = strength;
-		this.effects = effects;
+		this.canIdentifyConditionStrength = canIdentifyConditionStrength;
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
-	{
-		return removeConditions(target, source, castingLevel);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, Tile tile, int castingLevel, SpellEffect parent)
-	{
-		return removeConditions(tile, source, castingLevel);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private List<MazeEvent> removeConditions(ConditionBearer target, UnifiedActor source, int castingLevel)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
@@ -66,29 +52,17 @@ public class ConditionRemovalSpellResult extends SpellResult
 			List<Condition> conditions = new ArrayList<Condition>(list);
 			for (Condition c : conditions)
 			{
-				if (c.isIdentified() && this.effects.contains(c.getEffect()))
-				{
-					// this condition is a candidate for removal
-					int curing = strength.compute(source, castingLevel);
-					result.add(new CuringEvent(target, c, curing));
-				}
+				int str = strength.compute(source, castingLevel);
+				result.add(
+					new ConditionIdentificationEvent(
+						target, c, str, canIdentifyConditionStrength));
 			}
 		}
 
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
-
-	public List<ConditionEffect> getEffects()
-	{
-		return effects;
-	}
-
-	public void setEffects(List<ConditionEffect> effects)
-	{
-		this.effects = effects;
-	}
 
 	public Value getStrength()
 	{
@@ -98,5 +72,16 @@ public class ConditionRemovalSpellResult extends SpellResult
 	public void setStrength(Value strength)
 	{
 		this.strength = strength;
+	}
+
+	public boolean isCanIdentifyConditionStrength()
+	{
+		return canIdentifyConditionStrength;
+	}
+
+	public void setCanIdentifyConditionStrength(
+		boolean canIdentifyConditionStrength)
+	{
+		this.canIdentifyConditionStrength = canIdentifyConditionStrength;
 	}
 }

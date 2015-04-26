@@ -41,6 +41,8 @@ public class FatigueKO extends Condition
 	{
 		setDuration(1);
 		setStrength(Integer.MAX_VALUE);
+		setIdentified(true);
+		setStrengthIdentified(false);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -81,7 +83,7 @@ public class FatigueKO extends Condition
 	}
 
 	@Override
-	public boolean strengthWanes()
+	public boolean isStrengthWanes()
 	{
 		return false;
 	}

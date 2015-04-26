@@ -29,9 +29,9 @@ import java.util.*;
  */
 public class CuringEvent extends MazeEvent
 {
-	ConditionBearer target;
-	int curing;
-	Condition condition;
+	private ConditionBearer target;
+	private int curing;
+	private Condition condition;
 
 	/*-------------------------------------------------------------------------*/
 	public CuringEvent(

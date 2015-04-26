@@ -48,6 +48,9 @@ public class ConditionTemplatePanel extends EditorPanel
 	private StatModifierComponent statModifier, bannerModifier;
 	private JCheckBox scaleModifierWithStrength;
 	private JCheckBox strengthWanes;
+	private JComboBox exitCondition;
+	private JSpinner exitConditionChance;
+	private RepeatedSpellEffectListPanel repeatedEffects;
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionTemplatePanel()
@@ -60,30 +63,50 @@ public class ConditionTemplatePanel extends EditorPanel
 	{
 		isCustom = new JCheckBox("Custom?");
 		isCustom.addActionListener(this);
+
 		impl = new JTextField(30);
 		impl.addKeyListener(this);
 
 		icon = new JTextField(30);
 		icon.addKeyListener(this);
+
 		displayName = new JTextField(30);
 		displayName.addActionListener(this);
 		displayName.addKeyListener(this);
+
 		adjective = new JTextField(30);
 		adjective.addKeyListener(this);
+
 		conditionEffect = new JComboBox();
 		conditionEffect.addActionListener(this);
+
 		duration = new ValueComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
 		strength = new ValueComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
 		hpDamage = new ValueComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
 		stamDamage = new ValueComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
 		apDamage = new ValueComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
 		mpDamage = new ValueComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
+
 		statModifier = new StatModifierComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
 		bannerModifier = new StatModifierComponent(SwingEditor.Tab.CONDITION_TEMPLATES);
+
 		scaleModifierWithStrength = new JCheckBox("Scale Modifiers With Strength?");
 		scaleModifierWithStrength.addActionListener(this);
+
 		strengthWanes = new JCheckBox("Strength Wanes?");
 		strengthWanes.addActionListener(this);
+
+		exitCondition = new JComboBox(ConditionTemplate.ExitCondition.values());
+		exitCondition.addActionListener(this);
+
+		exitConditionChance = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
+		exitConditionChance.addChangeListener(this);
+
+		repeatedEffects = new RepeatedSpellEffectListPanel(
+			"Repeated Spell Effects",
+			this.dirtyFlag,
+			1.0,
+			0.25);
 
 		JPanel editControls = new JPanel(new GridBagLayout());
 
@@ -234,14 +257,40 @@ public class ConditionTemplatePanel extends EditorPanel
 		gbc.gridwidth = 3;
 		editControls.add(scaleModifierWithStrength, gbc);
 
-		gbc.weighty = 1.0;
-
 		gbc.gridy++;
 		gbc.gridx=0;
 		gbc.weightx = 1.0;
 		gbc.gridx++;
 		gbc.gridwidth = 3;
 		editControls.add(strengthWanes, gbc);
+
+		gbc.gridy++;
+		gbc.gridx=0;
+		gbc.weightx = 0.0;
+		gbc.gridwidth = 1;
+		editControls.add(new JLabel("Exit Condition:"), gbc);
+		gbc.weightx = 1.0;
+		gbc.gridx++;
+		gbc.gridwidth = 2;
+		editControls.add(exitCondition, gbc);
+
+		gbc.gridy++;
+		gbc.gridx=0;
+		gbc.weightx = 0.0;
+		gbc.gridwidth = 1;
+		editControls.add(new JLabel("Exit Condition Chance:"), gbc);
+		gbc.weightx = 1.0;
+		gbc.gridx++;
+		gbc.gridwidth = 2;
+		editControls.add(exitConditionChance, gbc);
+
+		gbc.weighty = 1.0;
+
+		gbc.gridy++;
+		gbc.gridx=0;
+		gbc.weightx = 2.0;
+		gbc.gridwidth = 3;
+		editControls.add(repeatedEffects, gbc);
 
 		return editControls;
 	}
@@ -275,7 +324,10 @@ public class ConditionTemplatePanel extends EditorPanel
 			"",
 			"",
 			false,
-			true);
+			true,
+			ConditionTemplate.ExitCondition.DURATION_EXPIRES,
+			0,
+			null);
 
 		Database.getInstance().getConditionTemplates().put(name, ct);
 		refreshNames(name);
@@ -315,8 +367,11 @@ public class ConditionTemplatePanel extends EditorPanel
 			current.getMagicPointDamage(),
 			current.getIcon(),
 			current.getAdjective(),
-			current.scaleModifierWithStrength(),
-			current.strengthWanes());
+			current.isScaleModifierWithStrength(),
+			current.isStrengthWanes(),
+			current.getExitCondition(),
+			current.getExitConditionChance(),
+			current.getRepeatedSpellEffects());
 
 		Database.getInstance().getConditionTemplates().put(newName, ct);
 		refreshNames(newName);
@@ -367,10 +422,13 @@ public class ConditionTemplatePanel extends EditorPanel
 			checkCustom();
 			impl.setText("");
 
+			conditionEffect.removeActionListener(this);
+			exitCondition.removeActionListener(this);
+			exitConditionChance.removeChangeListener(this);
+
 			displayName.setText(ct.getDisplayName());
 			icon.setText(ct.getIcon());
 			adjective.setText(ct.getAdjective());
-			conditionEffect.removeActionListener(this);
 			if (ct.getConditionEffect().equals(ConditionEffect.NONE))
 			{
 				conditionEffect.setSelectedItem(NONE);
@@ -379,7 +437,6 @@ public class ConditionTemplatePanel extends EditorPanel
 			{
 				conditionEffect.setSelectedItem(ct.getConditionEffect().getName());
 			}
-			conditionEffect.addActionListener(this);
 			duration.setValue(ct.getDuration());
 			hpDamage.setValue(ct.getHitPointDamage());
 			stamDamage.setValue(ct.getStaminaDamage());
@@ -388,8 +445,15 @@ public class ConditionTemplatePanel extends EditorPanel
 			strength.setValue(ct.getStrength());
 			statModifier.setModifier(ct.getStatModifier());
 			bannerModifier.setModifier(ct.getBannerModifier());
-			scaleModifierWithStrength.setSelected(ct.scaleModifierWithStrength());
-			strengthWanes.setSelected(ct.strengthWanes());
+			scaleModifierWithStrength.setSelected(ct.isScaleModifierWithStrength());
+			strengthWanes.setSelected(ct.isStrengthWanes());
+			exitCondition.setSelectedItem(ct.getExitCondition());
+			exitConditionChance.setValue(ct.getExitConditionChance());
+			repeatedEffects.refresh(ct.getRepeatedSpellEffects());
+
+			conditionEffect.addActionListener(this);
+			exitCondition.addActionListener(this);
+			exitConditionChance.addChangeListener(this);
 		}
 	}
 
@@ -439,6 +503,9 @@ public class ConditionTemplatePanel extends EditorPanel
 			ct.setBannerModifier(bannerModifier.getModifier());
 			ct.setStrength(strength.getValue());
 			ct.setStrengthWanes(strengthWanes.isSelected());
+			ct.setExitCondition((ConditionTemplate.ExitCondition)exitCondition.getSelectedItem());
+			ct.setExitConditionChance((Integer)exitConditionChance.getValue());
+			ct.setRepeatedSpellEffects(repeatedEffects.getRepeatedSpellEffects());
 		}
 	}
 
@@ -450,6 +517,8 @@ public class ConditionTemplatePanel extends EditorPanel
 		vec.insertElementAt(NONE, 0);
 		Collections.sort(vec);
 		this.conditionEffect.setModel(new DefaultComboBoxModel(vec));
+
+		repeatedEffects.initForeignKeys();
 	}
 
 	/*-------------------------------------------------------------------------*/

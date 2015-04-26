@@ -82,7 +82,7 @@ public class RestingSleep extends Condition
 	}
 
 	@Override
-	public boolean strengthWanes()
+	public boolean isStrengthWanes()
 	{
 		return false;
 	}

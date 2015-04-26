@@ -80,21 +80,10 @@ public class BlindEffect extends ConditionEffect
 
 		if (bearer instanceof UnifiedActor)
 		{
-			if (bearer instanceof PlayerCharacter)
+			if (((UnifiedActor)bearer).getModifier(Stats.Modifiers.BLIND_FIGHTING, false) > 0)
 			{
-				if (((PlayerCharacter)bearer).getModifier(Stats.Modifiers.BLIND_FIGHTING, false) > 0)
-				{
-					// actor can fight unimpaired.
-					return 0;
-				}
-			}
-			else
-			{
-				if (((UnifiedActor)bearer).getModifier(Stats.Modifiers.BLIND_FIGHTING) > 0)
-				{
-					// actor can fight unimpaired.
-					return 0;
-				}
+				// actor can fight unimpaired.
+				return 0;
 			}
 		}
 

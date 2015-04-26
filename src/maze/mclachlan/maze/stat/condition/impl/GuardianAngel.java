@@ -81,7 +81,7 @@ public class GuardianAngel extends Condition
 	}
 
 	@Override
-	public boolean strengthWanes()
+	public boolean isStrengthWanes()
 	{
 		return false;
 	}

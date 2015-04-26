@@ -907,6 +907,8 @@ public class Maze implements Runnable
 
 		GameSys.getInstance().attemptManualIdentification(others, getParty(), 0);
 
+		log(Log.DEBUG, "ambushStatus="+currentCombat.getAmbushStatus());
+
 		switch (currentCombat.getAmbushStatus())
 		{
 			case PARTY_MAY_EVADE_FOES:
@@ -993,6 +995,7 @@ public class Maze implements Runnable
 				//------------------------------------------------------------------
 				// blocking call:
 				UserInterface.CombatOption finalCombatOption = this.ui.getFinalCombatOption();
+				log(Log.DEBUG, "finalCombatOption="+finalCombatOption);
 				//------------------------------------------------------------------
 
 				if (finalCombatOption == UserInterface.CombatOption.START_ROUND)
@@ -1966,30 +1969,6 @@ public class Maze implements Runnable
 				}
 			}
 		}.start();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void processTileScriptEvents(List<MazeEvent> events)
-	{
-		if (events == null || events.isEmpty())
-		{
-			return;
-		}
-
-		appendEvents(new SetStateEvent(State.ENCOUNTER_TILE));
-		appendEvents(events);
-		appendEvents(new SetStateEvent(State.MOVEMENT));
-		appendEvents(new MazeEvent()
-		{
-			public List<MazeEvent> resolve()
-			{
-				if (getState() == State.MOVEMENT)
-				{
-					Maze.this.setState(State.MOVEMENT);
-				}
-				return null;
-			}
-		});
 	}
 
 	/*-------------------------------------------------------------------------*/

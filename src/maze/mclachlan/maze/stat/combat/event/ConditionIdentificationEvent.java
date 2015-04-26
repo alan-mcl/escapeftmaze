@@ -17,48 +17,66 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.condition;
+package mclachlan.maze.stat.combat.event;
 
-import mclachlan.maze.stat.Personality;
-import mclachlan.maze.stat.Stats;
-
+import java.util.*;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.condition.Condition;
+import mclachlan.maze.stat.condition.ConditionBearer;
 
 /**
  *
  */
-public class PoisonedEffect extends ConditionEffect
+public class ConditionIdentificationEvent extends MazeEvent
 {
-	// todo: poisoned modifiers like wiz8?
+	private ConditionBearer target;
+	private int strength;
+	private boolean identifyConditionStrength;
+	private Condition condition;
 
 	/*-------------------------------------------------------------------------*/
-	public PoisonedEffect()
+	public ConditionIdentificationEvent(
+		ConditionBearer target,
+		Condition condition,
+		int strength,
+		boolean identifyConditionStrength)
 	{
+		this.condition = condition;
+		this.target = target;
+		this.strength = strength;
+		this.identifyConditionStrength = identifyConditionStrength;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public PoisonedEffect(String name)
+	public List<MazeEvent> resolve()
 	{
-		super(name);
+		if (strength > condition.getStrength())
+		{
+			condition.setIdentified(true);
+			if (identifyConditionStrength)
+			{
+				condition.setStrengthIdentified(true);
+			}
+		}
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Condition getCondition()
+	{
+		return condition;
+	}
+
+	public ConditionBearer getTarget()
+	{
+		return target;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
 	@Override
-	public boolean isMultiplesAllowed()
+	public String getText()
 	{
-		return true;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public String getImmunityModifier()
-	{
-		return Stats.Modifiers.IMMUNE_TO_POISON;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public String getSpeechKey()
-	{
-		return Personality.BasicSpeech.CONDITION_POISON.getKey();
+		return getTarget().getDisplayName()+" has condition "+condition.getDisplayName();
 	}
 }

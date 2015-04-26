@@ -67,6 +67,8 @@ public class Berserk extends Condition
 	{
 		setDuration(Integer.MAX_VALUE);
 		setStrength(Integer.MAX_VALUE);
+		setIdentified(true);
+		setStrengthIdentified(false);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -101,13 +103,19 @@ public class Berserk extends Condition
 	}
 
 	@Override
+	public Map<String, Integer> getModifiers()
+	{
+		return berserk.getModifiers();
+	}
+
+	@Override
 	public ConditionEffect getEffect()
 	{
 		return effect;
 	}
 
 	@Override
-	public boolean strengthWanes()
+	public boolean isStrengthWanes()
 	{
 		return false;
 	}

@@ -17,48 +17,46 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.condition;
+package mclachlan.maze.data.v1;
 
-import mclachlan.maze.stat.Personality;
-import mclachlan.maze.stat.Stats;
-
+import mclachlan.maze.stat.condition.RepeatedSpellEffect;
 
 /**
  *
  */
-public class PoisonedEffect extends ConditionEffect
+public class V1RepeatedSpellEffect
 {
-	// todo: poisoned modifiers like wiz8?
+	public static final String SEP=":";
 
 	/*-------------------------------------------------------------------------*/
-	public PoisonedEffect()
+	public static RepeatedSpellEffect fromString(String s)
 	{
+		String[] strs = s.split(SEP);
+
+		String spellEffect = strs[0];
+		int startTurn = Integer.parseInt(strs[1]);
+		int endTurn = Integer.parseInt(strs[2]);
+		int turnMod = Integer.parseInt(strs[3]);
+		int prob = Integer.parseInt(strs[4]);
+
+		return new RepeatedSpellEffect(startTurn, endTurn, turnMod, prob, spellEffect);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public PoisonedEffect(String name)
+	public static String toString(RepeatedSpellEffect rse)
 	{
-		super(name);
-	}
+		StringBuilder sb = new StringBuilder();
 
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public boolean isMultiplesAllowed()
-	{
-		return true;
-	}
+		sb.append(rse.getSpellEffect());
+		sb.append(SEP);
+		sb.append(rse.getStartTurn());
+		sb.append(SEP);
+		sb.append(rse.getEndTurn());
+		sb.append(SEP);
+		sb.append(rse.getTurnMod());
+		sb.append(SEP);
+		sb.append(rse.getProbability());
 
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public String getImmunityModifier()
-	{
-		return Stats.Modifiers.IMMUNE_TO_POISON;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public String getSpeechKey()
-	{
-		return Personality.BasicSpeech.CONDITION_POISON.getKey();
+		return sb.toString();
 	}
 }

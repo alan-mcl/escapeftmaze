@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.condition;
 
+import mclachlan.maze.game.GameTime;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.Dice;
@@ -50,6 +51,13 @@ public class DiseaseEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
+	public boolean isMultiplesAllowed()
+	{
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> endOfTurn(Condition condition, long turnNr)
 	{
 		// todo: give the pc a chance for a saving throw to remove the disease
@@ -75,9 +83,16 @@ public class DiseaseEffect extends ConditionEffect
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						new Value(1, Value.SCALE.NONE),
+						null,
+						null,
+						null,
 						MagicSys.SpellEffectType.EARTH,
 						MagicSys.SpellEffectSubType.POISON,
-						condition.getSource());
+						condition.getSource(),
+						false,
+						false,
+						GameTime.getTurnNr(),
+						true);
 					break;
 
 				case 4:
@@ -90,9 +105,16 @@ public class DiseaseEffect extends ConditionEffect
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
+						null,
+						null,
+						null,
 						condition.getType(),
 						MagicSys.SpellEffectSubType.NONE,
-						condition.getSource());
+						condition.getSource(),
+						true,
+						false,
+						GameTime.getTurnNr(),
+						true);
 					break;
 
 				case 7:
@@ -103,9 +125,16 @@ public class DiseaseEffect extends ConditionEffect
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
+						null,
+						null,
+						null,
 						condition.getType(),
 						MagicSys.SpellEffectSubType.NONE,
-						condition.getSource());
+						condition.getSource(),
+						true,
+						false,
+						GameTime.getTurnNr(),
+						true);
 					break;
 
 				case 8:
@@ -117,9 +146,16 @@ public class DiseaseEffect extends ConditionEffect
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
+						null,
+						null,
+						null,
 						condition.getType(),
-						MagicSys.SpellEffectSubType.NONE,
-						condition.getSource());
+						MagicSys.SpellEffectSubType.PSYCHIC,
+						condition.getSource(),
+						true,
+						false,
+						GameTime.getTurnNr(),
+						true);
 					break;
 
 				case 10:
@@ -130,9 +166,16 @@ public class DiseaseEffect extends ConditionEffect
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
+						null,
+						null,
+						null,
 						condition.getType(),
-						MagicSys.SpellEffectSubType.NONE,
-						condition.getSource());
+						MagicSys.SpellEffectSubType.PSYCHIC,
+						condition.getSource(),
+						true,
+						false,
+						GameTime.getTurnNr(),
+						true);
 					break;
 				default: throw new MazeException("oops: "+roll);
 			}

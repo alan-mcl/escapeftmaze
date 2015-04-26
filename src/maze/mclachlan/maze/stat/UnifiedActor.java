@@ -950,7 +950,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	{
 		//
 		// Prevent duplicates.  The rules are:
-		// 1. Only one of each specific type of condition.
+		// 1. Only one of each specific type of condition (except if multiples are allowed).
 		// 2. For untyped conditions, only one of each name.
 		// 3. In both cases the new condition must have strength > the old one
 		//    to replace it.
@@ -958,7 +958,9 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		for (Condition condition : ConditionManager.getInstance().getConditions(this))
 		{
-			if (condition.getEffect() == c.getEffect() && c.getEffect() != ConditionEffect.NONE)
+			if (condition.getEffect() == c.getEffect() &&
+				c.getEffect() != ConditionEffect.NONE &&
+				!c.getEffect().isMultiplesAllowed())
 			{
 				// conditions of the same type, just check strengths
 				if (condition.getStrength() < c.getStrength())
@@ -973,7 +975,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 					return;
 				}
 			}
-			else
+			else if (!c.getEffect().isMultiplesAllowed())
 			{
 				// untyped condition, check the name
 				if (condition.getName().equals(c.getName()))

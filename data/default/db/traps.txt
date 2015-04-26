@@ -1,12 +1,12 @@
-name=0 - Poison Darts
-difficulty=8,1,1,0,0,0,0,0
-required=011
-payload=1,,,false,Poison Darts,3,3
-@
 name=1 - Guardian
 difficulty=0,0,3,0,0,0,5,4
 required=00100011
 payload=3,,,false,guardian.trap,
+@
+name=0 - Poison Darts
+difficulty=8,1,1,0,0,0,0,0
+required=011
+payload=1,,,false,Poison Darts,3,3
 @
 name=4 - Vacuum
 difficulty=0,10,0,9,11,9,0,9
@@ -18,25 +18,25 @@ difficulty=7,0,0,7,7,0,6,6
 required=10011011
 payload=1,,,false,Acid Bomb - Trap,7,20
 @
-name=2 - Fire Bomb
-difficulty=6,6,0,0,0,6,0,6
-required=11000101
-payload=1,,,false,Fire Bomb - Trap,7,20
-@
 name=3 - Null Magic
 difficulty=9,0,8,0,8,8,8,7
 required=10101111
 payload=1,,,false,Null Magic - Trap,7,20
 @
-name=2 - Cloud Of Fear
-difficulty=0,0,0,0,7,6,7,0
-required=0000111
-payload=1,,,false,Cloud Of Fear - Trap,7,20
+name=2 - Fire Bomb
+difficulty=6,6,0,0,0,6,0,6
+required=11000101
+payload=1,,,false,Fire Bomb - Trap,7,20
 @
 name=1 - Glowing Curse
 difficulty=0,0,0,4,0,5,4,0
 required=0001011
 payload=1,,,false,Glowing Curse - Trap,7,20
+@
+name=2 - Cloud Of Fear
+difficulty=0,0,0,0,7,6,7,0
+required=0000111
+payload=1,,,false,Cloud Of Fear - Trap,7,20
 @
 name=2 - Boiling Blood
 difficulty=0,6,0,5,5,0,5,0
@@ -48,15 +48,15 @@ difficulty=0,0,5,5,6,0,5,5
 required=00111011
 payload=1,,,false,Ray Of Enfeeblement - Trap,7,20
 @
-name=3 - Forget
-difficulty=7,7,9,0,0,7,8,9
-required=11100111
-payload=1,,,false,Forget - Trap,10,20
-@
 name=3 - Toxic Gas
 difficulty=8,7,8,9,0,8,0,9
 required=11110101
 payload=1,,,false,Toxic Gas - Trap,7,20
+@
+name=3 - Forget
+difficulty=7,7,9,0,0,7,8,9
+required=11100111
+payload=1,,,false,Forget - Trap,10,20
 @
 name=2 - Stunner
 difficulty=5,6,0,0,0,0,7,0
@@ -123,15 +123,15 @@ difficulty=0,7,0,7,6,7,0,6
 required=01011101
 payload=1,,,false,Armourmelt - Trap,7,20
 @
-name=0 - Magic Sparks
-difficulty=1,0,0,1,0,0,0,0
-required=1001
-payload=1,,,false,Magic Sparks,3,3
-@
 name=1 - Hidden Snakebite
 difficulty=0,3,0,5,0,4,0,4
 required=01010101
 payload=1,,,false,Hidden Snakebite - Trap,15,5
+@
+name=0 - Magic Sparks
+difficulty=1,0,0,1,0,0,0,0
+required=1001
+payload=1,,,false,Magic Sparks,3,3
 @
 name=1 - Prismic Missile
 difficulty=3,0,0,3,0,5,0,0

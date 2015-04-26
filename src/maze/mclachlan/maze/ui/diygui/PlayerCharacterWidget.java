@@ -19,8 +19,10 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
+import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYComboBox;
 import mclachlan.diygui.toolkit.ActionEvent;
@@ -33,6 +35,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.EquipIntention;
+import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
 
 /**
@@ -49,6 +52,8 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	private DIYComboBox<ActorActionOption> action;
 	
 	private final Object pcMutex = new Object();
+
+	private Map<Rectangle, Condition> conditionBounds;
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerCharacterWidget(Rectangle bounds, int index)
@@ -98,6 +103,8 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	public void refresh()
 	{
+		conditionBounds = new HashMap<Rectangle, Condition>();
+
 		if (playerCharacter == null)
 		{
 			levelUp.setVisible(false);
@@ -176,11 +183,26 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 				playerCharacter.swapWeapons();
 			}
 		}
-		else
+		else if (!popupConditionDialog(e.getPoint()))
 		{
 			inventory();
 			super.processMouseClicked(e);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean popupConditionDialog(Point p)
+	{
+		for (Map.Entry<Rectangle, Condition> e : conditionBounds.entrySet())
+		{
+			if (e.getKey().contains(p))
+			{
+				DiyGuiUserInterface.instance.popupConditionDetailsDialog(e.getValue());
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -249,9 +271,22 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void clearConditionBounds()
+	{
+		conditionBounds.clear();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addConditionBounds(Rectangle r, Condition c)
+	{
+		conditionBounds.put(r, c);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void selected(ActorActionIntention intention)
 	{
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
+		if (Maze.getInstance().getState() == Maze.State.MOVEMENT &&
+			Maze.getInstance().getCurrentCombat() == null)
 		{
 			if (intention instanceof EquipIntention)
 			{

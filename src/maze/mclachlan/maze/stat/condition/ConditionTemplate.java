@@ -19,6 +19,9 @@
 
 package mclachlan.maze.stat.condition;
 
+import java.util.*;
+import mclachlan.maze.game.GameTime;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -30,52 +33,70 @@ import mclachlan.maze.util.MazeException;
 public class ConditionTemplate
 {
 	/** The name of this condition */
-	String name;
+	private String name;
 
 	/** The display name of this condition */
-	String displayName;
+	private String displayName;
 
 	/** The icon for this condition */
-	String icon;
+	private String icon;
 
 	/** How this condition is described in combat */
-	String adjective;
+	private String adjective;
 
 	/** Any special game effect that this condition has */
-	ConditionEffect conditionEffect;
+	private ConditionEffect conditionEffect;
 
 	/** The duration for this condition */
-	Value duration;
+	private Value duration;
 
 	/** The strength of this condition */
-	Value strength;
+	private Value strength;
 
 	/** The damage dealt by this condition every turn */
-	Value hitPointDamage;
+	private Value hitPointDamage;
 	
 	/** The stamina damage dealt by this condition every turn */
-	Value staminaDamage;
+	private Value staminaDamage;
 	
 	/** The stealth damage dealt by this condition every turn */
-	Value actionPointDamage;
+	private Value actionPointDamage;
 	
 	/** The magic damage dealt by this condition every turn */
-	Value magicPointDamage;
+	private Value magicPointDamage;
 
 	/** The modifiers to actors affected by this condition */
-	StatModifier statModifier;
+	private StatModifier statModifier;
 
 	/** The modifiers to other actors in the same group as the actor bearing this condition */
-	StatModifier bannerModifier;
+	private StatModifier bannerModifier;
 
 	/** true if the stat modifiers for the condition should be multiplied by it's strength */
-	boolean scaleModifierWithStrength;
+	private boolean scaleModifierWithStrength;
 
 	/** true if the strength of this condition wanes by 1 every turn */
-	boolean strengthWanes;
+	private boolean strengthWanes;
+
+	/** exit condition for this condition */
+	private ExitCondition exitCondition;
+
+	/** any exit condition probability, if needed. A number out of 1000 */
+	private int exitConditionChance;
+
+	/** any repeated spell effects applied to the bearer of the condition */
+	private List<RepeatedSpellEffect> repeatedSpellEffects;
 
 	/** an alternative, custom implementation */
-	Class impl;
+	private Class impl;
+
+	/*-------------------------------------------------------------------------*/
+	public static enum ExitCondition
+	{
+		NEVER,
+		DURATION_EXPIRES,
+		CHANCE_AT_EOT
+		// todo: chance at successful save
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionTemplate(
@@ -93,7 +114,10 @@ public class ConditionTemplate
 		String icon,
 		String adjective,
 		boolean scaleModifierWithStrength,
-		boolean strengthWanes)
+		boolean strengthWanes,
+		ExitCondition exitCondition,
+		int exitConditionChance,
+		List<RepeatedSpellEffect> repeatedSpellEffects)
 	{
 		this.displayName = displayName;
 		this.bannerModifier = bannerModifier;
@@ -110,6 +134,9 @@ public class ConditionTemplate
 		this.adjective = adjective;
 		this.scaleModifierWithStrength = scaleModifierWithStrength;
 		this.strengthWanes = strengthWanes;
+		this.exitCondition = exitCondition;
+		this.exitConditionChance = exitConditionChance;
+		this.repeatedSpellEffects = repeatedSpellEffects;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -117,12 +144,6 @@ public class ConditionTemplate
 	{
 		this.name = name;
 		this.impl = impl;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ConditionTemplate(String adjective)
-	{
-		this.adjective = adjective;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -168,7 +189,7 @@ public class ConditionTemplate
 		return impl;
 	}
 
-	public boolean scaleModifierWithStrength()
+	public boolean isScaleModifierWithStrength()
 	{
 		return scaleModifierWithStrength;
 	}
@@ -188,7 +209,7 @@ public class ConditionTemplate
 		return strength;
 	}
 
-	public boolean strengthWanes()
+	public boolean isStrengthWanes()
 	{
 		return strengthWanes;
 	}
@@ -211,6 +232,21 @@ public class ConditionTemplate
 	public String getDisplayName()
 	{
 		return displayName;
+	}
+
+	public ExitCondition getExitCondition()
+	{
+		return exitCondition;
+	}
+
+	public int getExitConditionChance()
+	{
+		return exitConditionChance;
+	}
+
+	public List<RepeatedSpellEffect> getRepeatedSpellEffects()
+	{
+		return repeatedSpellEffects;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -288,7 +324,23 @@ public class ConditionTemplate
 	{
 		this.actionPointDamage = actionPointDamage;
 	}
-	
+
+	public void setRepeatedSpellEffects(
+		List<RepeatedSpellEffect> repeatedSpellEffects)
+	{
+		this.repeatedSpellEffects = repeatedSpellEffects;
+	}
+
+	public void setExitCondition(ExitCondition exitCondition)
+	{
+		this.exitCondition = exitCondition;
+	}
+
+	public void setExitConditionChance(int exitConditionChance)
+	{
+		this.exitConditionChance = exitConditionChance;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param source
@@ -329,7 +381,60 @@ public class ConditionTemplate
 		else
 		{
 			// a bog standard condition
-			return new Condition(this, source, target, castingLevel, type, subtype);
+			int duration = getDuration().compute(source, castingLevel);
+			int strength = getStrength().compute(source, castingLevel);
+			Value hpDamage = getHitPointDamage() == null ? null :
+				getHitPointDamage().getSnapShotValue(source, castingLevel);
+			Value apDamage = getActionPointDamage() == null ? null :
+				getActionPointDamage().getSnapShotValue(source, castingLevel);
+			Value mpDamage = getMagicPointDamage() == null ? null :
+				getMagicPointDamage().getSnapShotValue(source, castingLevel);
+			Value staminaDamage = getStaminaDamage() == null ? null :
+				getStaminaDamage().getSnapShotValue(source, castingLevel);
+
+			// could use a smarter algorithm here
+			boolean hostile = true;
+			if (source instanceof PlayerCharacter && target instanceof PlayerCharacter)
+			{
+				hostile = false;
+			}
+
+			Condition result = new Condition(
+				this,
+				duration,
+				strength,
+				castingLevel,
+				hpDamage,
+				apDamage,
+				mpDamage,
+				staminaDamage,
+				type,
+				subtype,
+				source,
+				false,
+				false,
+				GameTime.getTurnNr(),
+				hostile);
+
+			// strength never begins identified
+			result.setStrengthIdentified(false);
+
+			//
+			if (result.isAffliction() && target instanceof PlayerCharacter)
+			{
+				// bit of a hack, but it's easy and safe to say that afflictions
+				// targeting PCs are the only things the need to be not identified
+				// at the moment.
+				result.setIdentified(false);
+			}
+			else
+			{
+				result.setIdentified(true);
+			}
+
+			result.setTarget(target);
+
+			return result;
 		}
 	}
 }

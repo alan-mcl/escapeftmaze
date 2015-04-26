@@ -32,6 +32,7 @@ import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.render.dflt.DefaultRendererFactory;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -809,16 +810,39 @@ public class DIYToolkit
 	public static void drawImageCentered(
 		Graphics2D g,
 		Image img,
-		Rectangle bounds)
+		Rectangle bounds,
+		Align alignment)
 	{
 		Dimension imgD = getDimension(img);
 
-		int imgOffsetX = (bounds.width-imgD.width)/2;
-		int imgOffsetY = (bounds.height-imgD.height)/2;
+		// center on the Y axis
+		int imgOffsetY = (bounds.height - imgD.height)/2;
+
+		// cater for various X axis alignment
+		int imgOffsetX;
+		if (alignment == Align.CENTER)
+		{
+			imgOffsetX = (bounds.width - imgD.width)/2;
+		}
+		else if (alignment == Align.LEFT)
+		{
+			imgOffsetX = 0;
+		}
+		else if (alignment == Align.RIGHT)
+		{
+			imgOffsetX = bounds.width - imgD.width;
+		}
+		else
+		{
+			throw new MazeException(alignment.toString());
+		}
+
+		int imgX = bounds.x + imgOffsetX;
+		int imgY = bounds.y + imgOffsetY;
 
 		g.drawImage(img,
-			bounds.x+imgOffsetX,
-			bounds.y+imgOffsetY,
+			imgX,
+			imgY,
 			Maze.getInstance().getComponent());
 	}
 

@@ -21,6 +21,7 @@ package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.GameTime;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
@@ -50,9 +51,16 @@ public class BlinkOutEvent extends MazeEvent
 			1,
 			1,
 			null,
+			null,
+			null,
+			null,
 			MagicSys.SpellEffectType.NONE,
 			MagicSys.SpellEffectSubType.NONE,
-			actor);
+			actor,
+			true,
+			true,
+			GameTime.getTurnNr(),
+			false);
 
 		ConditionManager.getInstance().addCondition(actor, blink);
 		return null;

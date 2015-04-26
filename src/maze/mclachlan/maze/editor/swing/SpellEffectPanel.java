@@ -64,15 +64,8 @@ public class SpellEffectPanel extends EditorPanel
 			validTargetTypes.addElement(MagicSys.SpellTargetType.describe(i));
 		}
 
-		Vector<String> validSubTypes = new Vector<String>();
-		validSubTypes.add(MagicSys.SpellEffectSubType.NONE.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.NORMAL_DAMAGE.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.HEAT.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.COLD.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.POISON.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.ACID.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.LIGHTNING.toString());
-		validSubTypes.add(MagicSys.SpellEffectSubType.PSYCHIC.toString());
+		Vector<MagicSys.SpellEffectSubType> validSubTypes = new Vector<MagicSys.SpellEffectSubType>();
+		Collections.addAll(validSubTypes, MagicSys.SpellEffectSubType.values());
 
 		custom = new JCheckBox("Custom?");
 		custom.addActionListener(this);
@@ -231,7 +224,7 @@ public class SpellEffectPanel extends EditorPanel
 				displayName.setText("");
 			}
 			type.setSelectedItem(se.getType());
-			subType.setSelectedItem(se.getSubType().toString());
+			subType.setSelectedItem(se.getSubType());
 			targetType.setSelectedIndex(se.getTargetType());
 			saveAdjustment.setValue(se.getSaveAdjustment());
 			this.unsavedResult.setResult(se.getUnsavedResult());
@@ -325,7 +318,7 @@ public class SpellEffectPanel extends EditorPanel
 			se.setSaveAdjustment(saveAdjustment.getValue());
 			se.setTargetType(targetType.getSelectedIndex());
 			se.setType((MagicSys.SpellEffectType)type.getSelectedItem());
-			se.setSubType(MagicSys.SpellEffectSubType.valueOf(subType.getSelectedItem().toString()));
+			se.setSubType((MagicSys.SpellEffectSubType)subType.getSelectedItem());
 			se.setSavedResult(savedResult.getSpellResult());
 			se.setUnsavedResult(unsavedResult.getSpellResult());
 			se.setApplication((SpellEffect.Application)application.getSelectedItem());

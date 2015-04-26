@@ -38,7 +38,7 @@ public class ItemTemplate
 		new BitSet(PlayerCharacter.EquipableSlots.NUMBER_OF_SLOTS);
 
 	/**
-	 * Idenfitied name of this item, eg "Longsword"
+	 * Identified name of this item, eg "Longsword"
 	 */
 	String name;
 
@@ -381,8 +381,8 @@ public class ItemTemplate
 	public Item create()
 	{
 		Item result = new Item(this);
-		result.identificationState = Item.IdentificationState.UNIDENTIFIED;
-		result.cursedState = Item.CursedState.UNDISCOVERED;
+		result.setIdentificationState(Item.IdentificationState.UNIDENTIFIED);
+		result.setCursedState(Item.CursedState.UNDISCOVERED);
 		return result;
 	}
 
@@ -393,8 +393,8 @@ public class ItemTemplate
 	public Item create(int stack)
 	{
 		Item result = new Item(this, stack);
-		result.identificationState = Item.IdentificationState.UNIDENTIFIED;
-		result.cursedState = Item.CursedState.UNDISCOVERED;
+		result.setIdentificationState(Item.IdentificationState.UNIDENTIFIED);
+		result.setCursedState(Item.CursedState.UNDISCOVERED);
 		return result;
 	}
 

@@ -6,6 +6,11 @@ Features
  - Introduced supplies as a party resource, consumed while resting
  - New consumable items are automatically converted to party gold or supplies
  - Added progress bar to load game screen
+ - Added Journals: Logbook, NPCs, Zones and Quests
+ - DIYLabels support drawing both an icon and a text string
+ - Defined Affliction conditions as Curse, Disease or Poison
+ - Hostile Affliction conditions begin unidentified
+ - Added support for conditions that repeatedly inflict spell effects
 
 ---------------------------------------
 v0.914 (30 June 2014)

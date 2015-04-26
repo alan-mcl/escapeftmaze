@@ -36,7 +36,7 @@ public class ConditionEffect
 {
 	public static final ConditionEffect NONE = new ConditionEffect("none");
 
-	String name;
+	private String name;
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionEffect()
@@ -86,6 +86,16 @@ public class ConditionEffect
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
 		return action;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	true if multiples of this condition effect are allowed
+	 */
+	public boolean isMultiplesAllowed()
+	{
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

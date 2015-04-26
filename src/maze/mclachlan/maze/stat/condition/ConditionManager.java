@@ -67,7 +67,7 @@ public class ConditionManager implements GameCache
 	/*-------------------------------------------------------------------------*/
 	private void updateConditions(long turnNr)
 	{
-		Maze.log("updating conditions...");
+		Maze.log("Updating conditions...");
 		synchronized (mutex)
 		{
 			ArrayList<MazeEvent> conditionEvents = new ArrayList<MazeEvent>();
@@ -89,21 +89,15 @@ public class ConditionManager implements GameCache
 					// Expire conditions
 					if (c.getDuration() < 0)
 					{
-						Maze.log("condition expired");
 						li.remove();
 						c.expire();
-					}
-					else
-					{
-						Maze.log("duration "+c.getDuration());
-						Maze.log("strength "+c.getStrength());
 					}
 				}
 			}
 			Maze.getInstance().resolveEvents(conditionEvents, false);
 		}
 
-		Maze.log("finished updating conditions");
+		Maze.log("Finished updating conditions");
 	}
 
 	/*-------------------------------------------------------------------------*/

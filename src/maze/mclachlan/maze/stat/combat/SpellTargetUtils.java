@@ -22,6 +22,7 @@ package mclachlan.maze.stat.combat;
 import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.ActorUnaffectedEvent;
@@ -33,6 +34,7 @@ import mclachlan.maze.stat.magic.CloudSpellResult;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.magic.SpellResult;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -114,7 +116,11 @@ public class SpellTargetUtils
 					result.add(se);
 					break;
 				case APPLY_ONCE_TO_CASTER:
-					applySpellEffectToWillingTarget(combat, se, caster, caster, castingLevel);
+					combat.appendEvents(
+						applySpellEffectToWillingTarget(
+							se,
+							caster, caster,
+							castingLevel));
 					break;
 				default: throw new MazeException("Invalid application ["+se.getApplication()+"]");
 			}
@@ -205,7 +211,13 @@ public class SpellTargetUtils
 		List<SpellEffect> spellEffects =
 			processSpellEffectApplication(combat, actor, castingLevel, effects);
 
-		applySpellToWillingTarget(combat, spellEffects, actor, actor, castingLevel);
+		combat.appendEvents(
+			applySpellToWillingTarget(
+				spellEffects,
+				actor,
+				actor,
+				castingLevel,
+				combat.getAnimationContext()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -231,7 +243,16 @@ public class SpellTargetUtils
 		// apply to all in the group
 		for (UnifiedActor victim : attackedGroup.getActors())
 		{
-			applySpellToUnwillingVictim(combat, s.getEffects().getRandom(), victim, caster, castingLevel, spellLevel);
+			List<MazeEvent> events =
+				applySpellToUnwillingVictim(
+					s.getEffects().getRandom(),
+					victim,
+					caster,
+					castingLevel,
+					spellLevel,
+					combat.getAnimationContext());
+
+			combat.appendEvents(events);
 		}
 	}
 
@@ -243,11 +264,21 @@ public class SpellTargetUtils
 		// such effects will be skipped later
 		processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getPossibilities());
 
+		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
+
 		ActorGroup castingParty = caster.getActorGroup();
 		for (UnifiedActor target : castingParty.getActors())
 		{
-			applySpellToWillingTarget(combat, s.getEffects().getRandom(), caster, target, castingLevel);
+			 mazeEvents.addAll(
+				 applySpellToWillingTarget(
+					 s.getEffects().getRandom(),
+					 caster,
+					 target,
+					 castingLevel,
+					 combat.getAnimationContext()));
 		}
+
+		combat.appendEvents(mazeEvents);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -258,7 +289,15 @@ public class SpellTargetUtils
 		// such effects will be skipped later
 		processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getPossibilities());
 
-		applySpellToWillingTarget(combat, s.getEffects().getRandom(), caster, (UnifiedActor)target, castingLevel);
+		List<MazeEvent> mazeEvents =
+			applySpellToWillingTarget(
+				s.getEffects().getRandom(),
+				caster,
+				(UnifiedActor)target,
+				castingLevel,
+				combat.getAnimationContext());
+
+		combat.appendEvents(mazeEvents);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -291,68 +330,94 @@ public class SpellTargetUtils
 			// spell is cast but nothing happens
 			return;
 		}
-		applySpellToUnwillingVictim(combat, s.getEffects().getRandom(), victim, caster, castingLevel, spellLevel);
+		List<MazeEvent> events =
+			applySpellToUnwillingVictim(
+				s.getEffects().getRandom(),
+				victim,
+				caster,
+				castingLevel,
+				spellLevel,
+				combat.getAnimationContext());
+
+		combat.appendEvents(events);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void applySpellToWillingTarget(
-		Combat combat,
+	public static List<MazeEvent> applySpellToWillingTarget(
 		List<SpellEffect> effects,
 		UnifiedActor caster,
 		UnifiedActor target,
-		int castingLevel)
+		int castingLevel,
+		AnimationContext animationContext)
 	{
-		if (combat.getAnimationContext() != null)
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		if (animationContext != null)
 		{
-			combat.getAnimationContext().addTarget(target);
+			animationContext.addTarget(target);
 		}
 
 		for (SpellEffect effect : effects)
 		{
 			if (effect.getApplication() == SpellEffect.Application.AS_PER_SPELL)
 			{
-				applySpellEffectToWillingTarget(combat, effect, caster, target, castingLevel);
+				result.addAll(
+					applySpellEffectToWillingTarget(
+						effect, target, caster, castingLevel));
 			}
 		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static  void applySpellEffectToWillingTarget(
-		Combat combat,
-		SpellEffect effect, UnifiedActor caster, UnifiedActor target, int castingLevel)
+	public static List<MazeEvent> applySpellEffectToWillingTarget(
+		SpellEffect effect,
+		UnifiedActor target,
+		UnifiedActor caster,
+		int castingLevel)
 	{
+		Maze.log(Log.DEBUG, "apply spell effect ["+
+					effect.getName()+"] to willing target ["+target.getName()+"]");
+
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
 		// no save applies
 		SpellResult sr = effect.getUnsavedResult();
 
 		if (sr.appliesTo(target))
 		{
-			combat.appendEvents(sr.apply(caster, target, castingLevel, effect));
+			result.addAll(sr.apply(caster, target, castingLevel, effect));
 		}
 		else
 		{
 			// no spell effect on target
-			combat.appendEvent(new ActorUnaffectedEvent(target));
+			result.add(new ActorUnaffectedEvent(target));
 		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void applySpellToUnwillingVictim(
-		Combat combat,
+	public static List<MazeEvent> applySpellToUnwillingVictim(
 		List<SpellEffect> effects,
 		UnifiedActor victim,
 		UnifiedActor caster,
 		int castingLevel,
-		int spellLevel)
+		int spellLevel,
+		AnimationContext animationContext)
 	{
 		if (victim.getHitPoints().getCurrent() <= 0)
 		{
 			// no effect to dead targets
-			return;
+			return new ArrayList<MazeEvent>();
 		}
 
-		if (combat.getAnimationContext() != null)
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		if (animationContext != null)
 		{
-			combat.getAnimationContext().addTarget(victim);
+			animationContext.addTarget(victim);
 		}
 
 		// iterate over spell effects
@@ -360,22 +425,36 @@ public class SpellTargetUtils
 		{
 			if (effect.getApplication() == SpellEffect.Application.AS_PER_SPELL)
 			{
-				applySpellEffectToUnwillingVictim(combat, effect, victim, spellLevel, caster, castingLevel);
+				result.addAll(
+					applySpellEffectToUnwillingVictim(
+						effect,
+						victim,
+						caster,
+						spellLevel,
+						castingLevel));
 			}
 		}
 
 		// kick in the Magic Absorption ability
 		if (victim.getModifier(Stats.Modifiers.MAGIC_ABSORPTION) > 0)
 		{
-			combat.appendEvent(new MagicAbsorptionEvent(victim));
+			result.add(new MagicAbsorptionEvent(victim));
 		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void applySpellEffectToUnwillingVictim(
-		Combat combat,
-		SpellEffect effect, UnifiedActor victim, int spellLevel, UnifiedActor caster, int castingLevel)
+	public static List<MazeEvent> applySpellEffectToUnwillingVictim(
+		SpellEffect effect,
+		UnifiedActor victim,
+		UnifiedActor caster,
+		int spellLevel,
+		int castingLevel)
 	{
+		Maze.log(Log.DEBUG, "apply spell effect ["+
+			effect.getName()+"] to unwilling victim ["+victim.getName()+"]");
+
 		SpellResult sr;
 		boolean saved = false;
 		saved = GameSys.getInstance().savingThrow(
@@ -396,14 +475,18 @@ public class SpellTargetUtils
 			sr = effect.getSavedResult();
 		}
 
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
 		if (sr != null && sr.appliesTo(victim))
 		{
-			combat.appendEvents(sr.apply(caster, victim, castingLevel, effect));
+			result.addAll(sr.apply(caster, victim, castingLevel, effect));
 		}
 		else
 		{
 			// no spell effect on victim
-			combat.appendEvent(new ActorUnaffectedEvent(victim));
+			result.add(new ActorUnaffectedEvent(victim));
 		}
+
+		return result;
 	}
 }

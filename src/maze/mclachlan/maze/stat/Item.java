@@ -33,11 +33,11 @@ import mclachlan.maze.util.MazeException;
  */
 public class Item implements AttackWith
 {
-	int cursedState = CursedState.UNDISCOVERED;
-	int identificationState = IdentificationState.UNIDENTIFIED;
-	ItemTemplate template;
-	CurMax stack, charges;
-	ItemEnchantment enchantment;
+	private int cursedState = CursedState.UNDISCOVERED;
+	private int identificationState = IdentificationState.UNIDENTIFIED;
+	private ItemTemplate template;
+	private CurMax stack, charges;
+	private ItemEnchantment enchantment;
 
 	/*-------------------------------------------------------------------------*/
 	public Item(

@@ -44,6 +44,7 @@ public class ConditionSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
 	{
 		Condition c = conditionTemplate.create(
@@ -60,6 +61,7 @@ public class ConditionSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> apply(UnifiedActor source, Tile target, int castingLevel, SpellEffect parent)
 	{
 		Condition c = conditionTemplate.create(

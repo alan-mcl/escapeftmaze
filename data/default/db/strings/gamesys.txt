@@ -684,7 +684,7 @@ lap_name_mystic_birthright = Mystic Birthright
 lap_desc_mystic_birthright = The Witch is a walking source of one Purple magic for the whole party.
 
 #
-# ITEM PROPERTIES
+# Item Properties
 #
 
 item.type.short_weapon = short weapon
@@ -730,3 +730,24 @@ set.energy = energy
 set.bludgeon = bludgeoning
 set.pierce = piercing
 set.slash = slashing
+
+#
+# Spell Effect Sub Types
+#
+
+sest.none = none
+sest.normal.damage = normal damage
+sest.heat = heat
+sest.cold = cold
+sest.poison = poison
+sest.disease = disease
+sest.curse = curse
+sest.acid = acid
+sest.lightning = lightning
+sest.psychic = psychic
+
+#
+# Condition Properties
+#
+cond.unknown.condition = ?unknown condition?
+cond.unknown.affliction = ?unknown affliction?

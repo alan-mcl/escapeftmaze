@@ -42,6 +42,13 @@ public class HexEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
+	public boolean isMultiplesAllowed()
+	{
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public String getImmunityModifier()
 	{
 		return Stats.Modifiers.IMMUNE_TO_HEX;

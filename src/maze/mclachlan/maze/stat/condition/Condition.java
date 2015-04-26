@@ -20,16 +20,24 @@
 package mclachlan.maze.stat.condition;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Log;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.DamagePacket;
+import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.SpellTargetUtils;
 import mclachlan.maze.stat.combat.event.DamageActionPointsEvent;
 import mclachlan.maze.stat.combat.event.DamageEvent;
 import mclachlan.maze.stat.combat.event.DamageMagicEvent;
 import mclachlan.maze.stat.combat.event.FatigueEvent;
 import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.magic.Value;
+
+import static mclachlan.maze.data.StringUtil.getGamesysString;
 
 /**
  * Conditions can be attached to: a PlayerCharacter, a Foe, a Tile
@@ -42,9 +50,17 @@ public class Condition
 	private int duration;
 	private int strength;
 	private int castingLevel;
-	private Value hitPointDamage;
+	private Value hitPointDamage, actionPointDamage, magicPointDamage, staminaDamage;
 	private MagicSys.SpellEffectType type;
 	private MagicSys.SpellEffectSubType subtype;
+
+	private boolean identified, strengthIdentified;
+
+	/** turn that this condition was created */
+	private long createdTurn;
+
+	/** is this a hostile condition or a friendly one? */
+	private boolean hostile;
 
 	/*-------------------------------------------------------------------------*/
 	protected Condition()
@@ -60,49 +76,34 @@ public class Condition
 		int duration,
 		int strength,
 		int castingLevel,
-		Value damage,
+		Value hpDamage,
+		Value apDamage,
+		Value mpDamage,
+		Value staminaDamage,
 		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype,
-		UnifiedActor source)
+		UnifiedActor source,
+		boolean identified,
+		boolean strengthIdentified,
+		long createdTurn,
+		boolean hostile)
 	{
-		// todo: this constructor should take stamina/action/magic damage values
-		
 		this.template = template;
-		this.hitPointDamage = damage;
+		this.hitPointDamage = hpDamage;
+		this.actionPointDamage = apDamage;
+		this.magicPointDamage = mpDamage;
+		this.hitPointDamage = hpDamage;
+		this.staminaDamage = staminaDamage;
 		this.subtype = subtype;
 		this.source = source;
 		this.type = type;
 		this.duration = duration;
 		this.strength = strength;
 		this.castingLevel = castingLevel;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * Creates a new Condition from the given template, with the given params
-	 */
-	protected Condition(
-		ConditionTemplate template,
-		UnifiedActor source,
-		ConditionBearer target,
-		int castingLevel,
-		MagicSys.SpellEffectType type,
-		MagicSys.SpellEffectSubType subtype)
-	{
-		this.template = template;
-		this.target = target;
-		this.source = source;
-		this.type = type;
-		this.subtype = subtype;
-		this.duration = template.duration.compute(source, castingLevel);
-		this.strength = template.strength.compute(source, castingLevel);
-		this.castingLevel = castingLevel;
-
-		if (template.hitPointDamage != null)
-		{
-			// snapshot the Value
-			this.hitPointDamage = template.hitPointDamage.getSnapShotValue(source, castingLevel);
-		}
+		this.identified = identified;
+		this.strengthIdentified = strengthIdentified;
+		this.createdTurn = createdTurn;
+		this.hostile = hostile;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -131,6 +132,21 @@ public class Condition
 		this.hitPointDamage = hitPointDamage;
 	}
 
+	public void setActionPointDamage(Value actionPointDamage)
+	{
+		this.actionPointDamage = actionPointDamage;
+	}
+
+	public void setMagicPointDamage(Value magicPointDamage)
+	{
+		this.magicPointDamage = magicPointDamage;
+	}
+
+	public void setStaminaDamage(Value staminaDamage)
+	{
+		this.staminaDamage = staminaDamage;
+	}
+
 	public void setDuration(int duration)
 	{
 		this.duration = duration;
@@ -151,11 +167,17 @@ public class Condition
 		this.subtype = subtype;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Value getHitPointDamage()
+	public void setHostile(boolean hostile)
 	{
-		return hitPointDamage;
+		this.hostile = hostile;
 	}
+
+	public void setCreatedTurn(long createdTurn)
+	{
+		this.createdTurn = createdTurn;
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	public int getDuration()
 	{
@@ -164,12 +186,12 @@ public class Condition
 
 	public String getIcon()
 	{
-		return template.icon;
+		return template.getIcon();
 	}
 
 	public String getName()
 	{
-		return template.name;
+		return template.getName();
 	}
 
 	public int getCastingLevel()
@@ -181,17 +203,17 @@ public class Condition
 	{
 		int result = 0;
 
-		if (template.statModifier != null)
+		if (template.getStatModifier() != null)
 		{
-			result += template.statModifier.getModifier(modifier);
+			result += template.getStatModifier().getModifier(modifier);
 		}
 		
-		if (template.scaleModifierWithStrength)
+		if (template.isScaleModifierWithStrength())
 		{
 			result *= strength;
 		}
 
-		result += template.conditionEffect.getModifier(modifier, this, bearer);
+		result += template.getConditionEffect().getModifier(modifier, this, bearer);
 		
 		return result;
 	}
@@ -203,13 +225,40 @@ public class Condition
 
 	public String getAdjective()
 	{
-		return template.adjective;
+		return template.getAdjective();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public String getDisplayName()
 	{
-		return template.displayName;
+		if (isIdentified())
+		{
+			return template.getDisplayName();
+		}
+		else if (isAffliction())
+		{
+			return getGamesysString("cond.unknown.affliction");
+		}
+		else
+		{
+			return getGamesysString("cond.unknown.condition");
+		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public String getDisplayIcon()
+	{
+		if (isIdentified())
+		{
+			return getIcon();
+		}
+		else
+		{
+			return "condition/unknown_condition";
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	public ConditionBearer getTarget()
 	{
@@ -233,7 +282,7 @@ public class Condition
 
 	public ConditionEffect getEffect()
 	{
-		return template.conditionEffect;
+		return template.getConditionEffect();
 	}
 
 	public void decDuration(int value)
@@ -248,32 +297,69 @@ public class Condition
 
 	public void expire()
 	{
+		Maze.log(Log.DEBUG, "condition ["+template.getName()+ "] on ["+
+			target.getName()+"] expires");
 		target.removeCondition(this);
 	}
 
-	public boolean strengthWanes()
+	public boolean isStrengthWanes()
 	{
-		return template.strengthWanes;
+		return template.isStrengthWanes();
 	}
 
 	public ConditionTemplate getTemplate()
 	{
 		return template;
 	}
+
+	public Value getHitPointDamage()
+	{
+		return hitPointDamage;
+	}
 	
 	public Value getMagicPointDamage()
 	{
-		return template.magicPointDamage;
+		return this.magicPointDamage;
 	}
 
 	public Value getStaminaDamage()
 	{
-		return template.staminaDamage;
+		return this.staminaDamage;
 	}
 
 	public Value getActionPointDamage()
 	{
-		return template.actionPointDamage;
+		return this.actionPointDamage;
+	}
+
+	public boolean isIdentified()
+	{
+		return identified;
+	}
+
+	public void setIdentified(boolean isIdentified)
+	{
+		this.identified = isIdentified;
+	}
+
+	public boolean isStrengthIdentified()
+	{
+		return strengthIdentified;
+	}
+
+	public void setStrengthIdentified(boolean strengthIdentified)
+	{
+		this.strengthIdentified = strengthIdentified;
+	}
+
+	public long getCreatedTurn()
+	{
+		return createdTurn;
+	}
+
+	public boolean isHostile()
+	{
+		return hostile;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -283,14 +369,73 @@ public class Condition
 	 */
 	public List<MazeEvent> endOfTurn(long turnNr)
 	{
+		Maze.log(Log.DEBUG, "End of turn processing for condition ["+
+			this.getName()+"] on ["+target.getName()+"]");
+
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
+		//
+		// Apply any condition effect events
+		//
 		List<MazeEvent> effectEvents = getEffect().endOfTurn(this, turnNr);
 		if (effectEvents != null)
 		{
 			for (MazeEvent effectEvent : effectEvents)
 			{
+				Maze.log(Log.DEBUG, " + "+effectEvent.toString());
 				result.add(effectEvent);
+			}
+		}
+
+		//
+		// Apply any repeated spell effects
+		//
+		if (target instanceof UnifiedActor &&
+			template.getRepeatedSpellEffects() != null &&
+			!template.getRepeatedSpellEffects().isEmpty())
+		{
+			long conditionTurnNr = turnNr - createdTurn;
+
+			Maze.log(Log.DEBUG, "Repeated spell effects / cond turn nr=["+conditionTurnNr+"]");
+
+			for (RepeatedSpellEffect rse : template.getRepeatedSpellEffects())
+			{
+				Maze.log(Log.DEBUG, " ... "+rse.getSpellEffect());
+
+				if (
+					(conditionTurnNr >= rse.getStartTurn() &&
+						(conditionTurnNr <= rse.getEndTurn() || rse.getEndTurn() == -1)
+					&&
+					(conditionTurnNr % rse.getTurnMod() == 0)))
+				{
+					// This RSE is within it's period of activity
+
+					if (Dice.d100.roll() <= rse.getProbability())
+					{
+						SpellEffect spellEffect =
+							Database.getInstance().getSpellEffect(rse.getSpellEffect());
+
+						if (isHostile())
+						{
+							result.addAll(
+								SpellTargetUtils.applySpellEffectToUnwillingVictim(
+									spellEffect,
+									(UnifiedActor)target,
+									source,
+									castingLevel,
+									castingLevel));
+						}
+						else
+						{
+							result.addAll(
+								SpellTargetUtils.applySpellEffectToWillingTarget(
+									spellEffect,
+									(UnifiedActor)target,
+									source,
+									castingLevel));
+						}
+					}
+				}
 			}
 		}
 
@@ -306,63 +451,105 @@ public class Condition
 				int damage = getHitPointDamage().compute(
 					target,
 					getCastingLevel());
-				result.add(
-					new DamageEvent(
-						target,
-						getSource(),
-						new DamagePacket(damage, 1), 
-						type,
-						subtype,
-						null, null));
+
+				DamageEvent event = new DamageEvent(
+					target,
+					getSource(),
+					new DamagePacket(damage, 1),
+					type,
+					subtype,
+					null, null);
+
+				Maze.log(Log.DEBUG, " + " + event.toString());
+
+				result.add(event);
 			}
 			
 			if (getStaminaDamage() != null)
 			{
 				UnifiedActor target = (UnifiedActor)getTarget();
-				result.add(
-					new FatigueEvent(
+
+				FatigueEvent event = new FatigueEvent(
+					target,
+					getSource(),
+					getStaminaDamage().compute(
 						target,
-						getSource(),
-						getStaminaDamage().compute(
-							target,
-							getCastingLevel()),
-						type,
-						subtype));
+						getCastingLevel()),
+					type,
+					subtype);
+
+				Maze.log(Log.DEBUG, " + "+event.toString());
+
+				result.add(event);
 			}
 			
 			if (getActionPointDamage() != null)
 			{
 				UnifiedActor target = (UnifiedActor)getTarget();
-				result.add(
-					new DamageActionPointsEvent(
+
+				DamageActionPointsEvent event = new DamageActionPointsEvent(
+					target,
+					getSource(),
+					getActionPointDamage().compute(
 						target,
-						getSource(),
-						getActionPointDamage().compute(
-							target,
-							getCastingLevel()),
-						type,
-						subtype));
+						getCastingLevel()),
+					type,
+					subtype);
+
+				Maze.log(Log.DEBUG, " + "+event.toString());
+
+				result.add(event);
 			}
 			
 			if (getMagicPointDamage() != null)
 			{
 				UnifiedActor target = (UnifiedActor)getTarget();
-				result.add(
-					new DamageMagicEvent(
+
+				DamageMagicEvent event = new DamageMagicEvent(
+					target,
+					getSource(),
+					getMagicPointDamage().compute(
 						target,
-						getSource(),
-						getMagicPointDamage().compute(
-							target,
-							getCastingLevel()),
-						type,
-						subtype));
+						getCastingLevel()),
+					type,
+					subtype);
+
+				Maze.log(Log.DEBUG, " + "+event.toString());
+
+				result.add(event);
 			}
 		}
 
-		decDuration(1);
-		if (strengthWanes())
+		// check condition exit conditions
+
+		if (template.getExitCondition() == ConditionTemplate.ExitCondition.DURATION_EXPIRES)
 		{
-			decStrength(1);
+			// Duration only matters for conditions with this exit condition
+
+			decDuration(1);
+			if (isStrengthWanes())
+			{
+				decStrength(1);
+			}
+
+			Maze.log(Log.DEBUG, "exit condition ["+template.getExitCondition()+
+				"] duration ["+getDuration()+"] strength ["+getStrength()+"]");
+		}
+		else if (template.getExitCondition() == ConditionTemplate.ExitCondition.CHANCE_AT_EOT)
+		{
+			// Check for EOT chance expiration
+
+			if (Dice.d1000.roll() <= template.getExitConditionChance())
+			{
+				//expire condition
+				setDuration(-1);
+				Maze.log(Log.DEBUG, "exit condition ["+template.getExitCondition()+ "] expires!");
+			}
+			else
+			{
+				Maze.log(Log.DEBUG, "exit condition ["+template.getExitCondition()+
+					"] does not expire!");
+			}
 		}
 
 		return result;
@@ -382,5 +569,20 @@ public class Condition
 		}
 
 		return text;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isAffliction()
+	{
+		return
+			MagicSys.SpellEffectSubType.CURSE.equals(subtype) ||
+			MagicSys.SpellEffectSubType.POISON.equals(subtype) ||
+			MagicSys.SpellEffectSubType.DISEASE.equals(subtype);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, Integer> getModifiers()
+	{
+		return getTemplate().getStatModifier().getModifiers();
 	}
 }

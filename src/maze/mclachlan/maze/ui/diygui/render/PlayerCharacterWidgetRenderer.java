@@ -127,7 +127,7 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 
 				// name label plate
 				Image nlp = Database.getInstance().getImage("screen/pcnamelabel");
-				DIYToolkit.drawImageCentered(g, nlp, namePlateBounds);
+				DIYToolkit.drawImageCentered(g, nlp, namePlateBounds, DIYToolkit.Align.CENTER);
 
 				// name labels
 				DIYToolkit.drawStringCentered(g, playerCharacter.getName(),
@@ -137,8 +137,8 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 
 				// hand item slots
 				Image slotImage = Database.getInstance().getImage("screen/itemslot");
-				DIYToolkit.drawImageCentered(g, slotImage, leftHandBounds);
-				DIYToolkit.drawImageCentered(g, slotImage, rightHandBounds);
+				DIYToolkit.drawImageCentered(g, slotImage, leftHandBounds, DIYToolkit.Align.CENTER);
+				DIYToolkit.drawImageCentered(g, slotImage, rightHandBounds, DIYToolkit.Align.CENTER);
 				widget.setLeftHandBounds(leftHandBounds);
 				widget.setRightHandBounds(rightHandBounds);
 
@@ -155,7 +155,7 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 					img = Database.getInstance().getImage(
 						playerCharacter.getLeftHandIcon());
 				}
-				DIYToolkit.drawImageCentered(g, img, leftHandBounds);
+				DIYToolkit.drawImageCentered(g, img, leftHandBounds, DIYToolkit.Align.CENTER);
 
 				// right hand item
 				if (playerCharacter.getPrimaryWeapon()!= null)
@@ -168,12 +168,12 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 					img = Database.getInstance().getImage(
 						playerCharacter.getRightHandIcon());
 				}
-				DIYToolkit.drawImageCentered(g, img, rightHandBounds);
+				DIYToolkit.drawImageCentered(g, img, rightHandBounds, DIYToolkit.Align.CENTER);
 
 				// Portrait
 				img = Database.getInstance().getImage(
 					playerCharacter.getPortrait());
-				DIYToolkit.drawImageCentered(g, img, portraitBounds);
+				DIYToolkit.drawImageCentered(g, img, portraitBounds, DIYToolkit.Align.CENTER);
 
 				//
 				// Conditions
@@ -208,10 +208,13 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 					}
 
 					int i = 0;
+					widget.clearConditionBounds();
 					for (Condition c : list)
 					{
-						img = Database.getInstance().getImage(c.getIcon());
-						g.drawImage(img, conditionBounds[i].x, conditionBounds[i].y,
+						Rectangle bounds = conditionBounds[i];
+						widget.addConditionBounds(bounds, c);
+						img = Database.getInstance().getImage(c.getDisplayIcon());
+						g.drawImage(img, bounds.x, bounds.y,
 							Maze.getInstance().getComponent());
 						if (++i == conditionBounds.length)
 						{

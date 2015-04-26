@@ -61,8 +61,9 @@ public class V1SpellResult
 	public static final int RESURRECTION = 22;
 	public static final int BOOZE = 23;
 	public static final int FORGET = 24;
+	public static final int CONDITION_IDENTIFICATION = 25;
 
-	public static final int MAX = 25;
+	public static final int MAX = 26;
 
 	static
 	{
@@ -89,6 +90,7 @@ public class V1SpellResult
 		types.put(ResurrectionSpellResult.class, RESURRECTION);
 		types.put(BoozeSpellResult.class, BOOZE);
 		types.put(ForgetSpellResult.class, FORGET);
+		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -239,6 +241,12 @@ public class V1SpellResult
 				ForgetSpellResult fsr = (ForgetSpellResult)sr;
 				s.append(V1Value.toString(fsr.getStrength()));
 				break;
+			case CONDITION_IDENTIFICATION:
+				ConditionIdentificationSpellResult cisr = (ConditionIdentificationSpellResult)sr;
+				s.append(V1Value.toString(cisr.getStrength()));
+				s.append(SEP);
+				s.append(cisr.isCanIdentifyConditionStrength());
+				break;
 
 			default: throw new MazeException("Invalid type: "+type+" ["+sr+"]");
 		}
@@ -375,6 +383,11 @@ public class V1SpellResult
 				break;
 			case FORGET:
 				result = new ForgetSpellResult(V1Value.fromString(strs[i++]));
+				break;
+			case CONDITION_IDENTIFICATION:
+				v = V1Value.fromString(strs[i++]);
+				boolean b = Boolean.valueOf(strs[i++]);
+				result = new ConditionIdentificationSpellResult(v, b);
 				break;
 
 			default: throw new MazeException(

@@ -49,6 +49,7 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.ui.UserInterface;
@@ -792,6 +793,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			getMusic().setState(Maze.State.INVENTORY.name());
 			executeMazeScript("_INVENTORY_MUSIC_");
 		}
+		stopAllAnimations();
 		inventoryDisplay.setCharacter(partyDisplay.getSelectedCharacter());
 		this.mainLayout.show(this.inventoryScreen);
 	}
@@ -1667,6 +1669,17 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			DiyGuiUserInterface.SCREEN_WIDTH / 3 * 2, DiyGuiUserInterface.SCREEN_HEIGHT / 3 * 2);
 
 		showDialog(new SpellDetailsDialog(rectangle, spell, pc));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	void popupConditionDetailsDialog(Condition condition)
+	{
+		int x = DiyGuiUserInterface.SCREEN_WIDTH / 6;
+		int y = DiyGuiUserInterface.SCREEN_HEIGHT / 6;
+		Rectangle rectangle = new Rectangle(x, y,
+			DiyGuiUserInterface.SCREEN_WIDTH / 3 * 2, DiyGuiUserInterface.SCREEN_HEIGHT / 3 * 2);
+
+		showDialog(new ConditionDetailsWidget(rectangle, condition));
 	}
 
 	/*-------------------------------------------------------------------------*/

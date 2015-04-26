@@ -24,10 +24,8 @@ import java.awt.Font;
 import java.awt.Rectangle;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYGridLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.toolkit.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Stats;
@@ -40,7 +38,7 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 /**
  *
  */
-public class PropertiesDisplayWidget extends ContainerWidget
+public class PropertiesDisplayWidget extends ContainerWidget implements ActionListener
 {
 	private PlayerCharacter character;
 
@@ -52,7 +50,7 @@ public class PropertiesDisplayWidget extends ContainerWidget
 	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
 	private DIYLabel propertiesHeader = getLabel("Properties", Constants.Colour.ATTRIBUTES_CYAN);
 	private DIYLabel conditionsHeader = getLabel("Conditions", Constants.Colour.ATTRIBUTES_CYAN);
-	private ActionListener listener;
+	private ActionListener modifiersListener;
 
 	Object[][] layout = new Object[][]
 	{
@@ -88,7 +86,7 @@ public class PropertiesDisplayWidget extends ContainerWidget
 	{
 		super(bounds);
 
-		this.listener = new ModifiersDisplayActionListener();
+		this.modifiersListener = new ModifiersDisplayActionListener();
 
 		this.buildGUI();
 	}
@@ -142,13 +140,16 @@ public class PropertiesDisplayWidget extends ContainerWidget
 	private void addLabel(DIYPane pane, DIYLabel label, int col, int row)
 	{
 		pane.add(label);
-		label.addActionListener(this.listener);
-		label.setActionPayload(this.character);
 		switch (col)
 		{
-			case 0: this.propertiesLabels[row] = label;
+			case 0:
+				this.propertiesLabels[row] = label;
+				label.addActionListener(this.modifiersListener);
+				label.setActionPayload(this.character);
 				break;
-			case 1: this.conditionLabels[row] = label;
+			case 1:
+				this.conditionLabels[row] = label;
+				label.addActionListener(this);
 				break;
 			case 2:
 			default:
@@ -186,6 +187,7 @@ public class PropertiesDisplayWidget extends ContainerWidget
 		{
 			propertiesLabels[i].setText("");
 			conditionLabels[i].setText("");
+			conditionLabels[i].setIcon(null);
 		}
 
 		int rowCount = STARTING_ROW;
@@ -205,7 +207,8 @@ public class PropertiesDisplayWidget extends ContainerWidget
 		for (Condition c : character.getConditions())
 		{
 			conditionLabels[rowCount].setText(c.getDisplayName() + " (level " + c.getCastingLevel() +")");
-			conditionLabels[rowCount].setActionPayload(character);
+			conditionLabels[rowCount].setIcon(Database.getInstance().getImage(c.getDisplayIcon()));
+			conditionLabels[rowCount].setActionPayload(c);
 			rowCount++;
 		}
 	}
@@ -268,4 +271,23 @@ public class PropertiesDisplayWidget extends ContainerWidget
 			return ""+value;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	private void popupConditionDetailsDialog(Condition condition)
+	{
+		DiyGuiUserInterface.instance.popupConditionDetailsDialog(condition);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void actionPerformed(ActionEvent event)
+	{
+		if (event.getPayload() instanceof Condition)
+		{
+			popupConditionDetailsDialog((Condition)event.getPayload());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
 }
