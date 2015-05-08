@@ -51,7 +51,8 @@ public class StatModifierDisplayWidget extends DIYPane
 		StatModifier current,
 		int nrRows,
 		List<String> toInclude,
-		boolean displayZeroes)
+		boolean displayZeroes,
+		boolean unknown)
 	{
 		this.toInclude = toInclude;
 		this.displayZeroes = displayZeroes;
@@ -83,11 +84,11 @@ public class StatModifierDisplayWidget extends DIYPane
 			this.add(values[i]);
 		}
 
-		this.setStatModifier(current);
+		this.setStatModifier(current, unknown);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setStatModifier(StatModifier current)
+	public void setStatModifier(StatModifier current, boolean unknown)
 	{
 		this.modifier = current;
 		
@@ -111,7 +112,14 @@ public class StatModifierDisplayWidget extends DIYPane
 					String modifierName = StringUtil.getModifierName(s);
 					labels[count].setText(modifierName);
 					labels[count].setActionMessage(s);
-					values[count].setText(descModifier(s, modifierValue));
+					if (unknown)
+					{
+						values[count].setText("?");
+					}
+					else
+					{
+						values[count].setText(descModifier(s, modifierValue));
+					}
 					values[count].setActionMessage(s);
 
 					count++;

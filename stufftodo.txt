@@ -18,6 +18,9 @@ sound: clockwork beast
 icon: tobacco/herb
 icon: bullwhip
 
+portrait: more gnome males
+portrait: gnome females
+
 data: body parts: leonal armour
 data: more wielding combos
 data: puzzle boxes: items that require brains to disassemble and contain loot

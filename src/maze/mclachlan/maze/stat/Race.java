@@ -20,6 +20,7 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.util.MazeException;
 
@@ -76,6 +77,12 @@ public class Race
 	/** Suggested names for this race, by gender */
 	private Map<String, List<String>> suggestedNames;
 
+	/** User config variable needing to be set to unlock this race */
+	private String unlockVariable;
+
+	/** Description displayed when a race is locked */
+	private String unlockDescription;
+
 	/*-------------------------------------------------------------------------*/
 	public Race(
 		String name,
@@ -99,7 +106,9 @@ public class Race
 		Spell specialAbility,
 		List<StartingKit> startingItems,
 		List<NaturalWeapon> naturalWeapons,
-		Map<String, List<String>> suggestedNames)
+		Map<String, List<String>> suggestedNames,
+		String unlockVariable,
+		String unlockDescription)
 	{
 		this.name = name;
 		this.description = description;
@@ -123,6 +132,8 @@ public class Race
 		this.startingItems = startingItems;
 		this.naturalWeapons = naturalWeapons;
 		this.suggestedNames = suggestedNames;
+		this.unlockVariable = unlockVariable;
+		this.unlockDescription = unlockDescription;
 
 		// todo: update the actual data model
 		bodyParts = new PercentageTable<BodyPart>();
@@ -131,6 +142,13 @@ public class Race
 		bodyParts.add(leg, 31);
 		bodyParts.add(hand, 8);
 		bodyParts.add(foot, 10);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isLocked()
+	{
+		return unlockVariable != null &&
+			!Maze.getInstance().getUserConfig().getBoolean(this.unlockVariable);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -270,6 +288,16 @@ public class Race
 		return suggestedNames;
 	}
 
+	public String getUnlockVariable()
+	{
+		return unlockVariable;
+	}
+
+	public String getUnlockDescription()
+	{
+		return unlockDescription;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void setAllowedGenders(List<Gender> allowedGenders)
 	{
@@ -384,5 +412,15 @@ public class Race
 	public void setSuggestedNames(Map<String, List<String>> suggestedNames)
 	{
 		this.suggestedNames = suggestedNames;
+	}
+
+	public void setUnlockVariable(String unlockVariable)
+	{
+		this.unlockVariable = unlockVariable;
+	}
+
+	public void setUnlockDescription(String unlockDescription)
+	{
+		this.unlockDescription = unlockDescription;
 	}
 }

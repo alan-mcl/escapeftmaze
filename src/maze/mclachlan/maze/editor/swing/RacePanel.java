@@ -33,21 +33,21 @@ import mclachlan.maze.stat.magic.Spell;
  */
 public class RacePanel extends EditorPanel
 {
-	JSpinner startingHitPointPercent,
+	private JSpinner startingHitPointPercent,
 		startingActionPointPercent,
 		startingMagicPointPercent;
-	StatModifierComponent startingModifiers,
+	private StatModifierComponent startingModifiers,
 		constantModifiers,
 		bannerModifiers,
 		attributeCeilings;
-	JTextField leftHandIcon, rightHandIcon;
-	GenderSelection allowedGenders;
-	JCheckBox magicDead;
-	JComboBox specialAbility;
-	PlayerBodyPartTablePanel bodyParts;
-	JTextArea description;
-	StartingItemsPanel startingItems;
-	NaturalWeaponsWidget naturalWeapons;
+	private JTextField leftHandIcon, rightHandIcon, unlockVariable;
+	private GenderSelection allowedGenders;
+	private JCheckBox magicDead;
+	private JComboBox specialAbility;
+	private PlayerBodyPartTablePanel bodyParts;
+	private JTextArea description, unlockDescription;
+	private StartingItemsPanel startingItems;
+	private NaturalWeaponsWidget naturalWeapons;
 
 	/*-------------------------------------------------------------------------*/
 	public RacePanel()
@@ -169,6 +169,17 @@ public class RacePanel extends EditorPanel
 		specialAbility.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Special Ability:"), specialAbility, gbc);
 
+		unlockVariable = new JTextField(20);
+		unlockVariable.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Unlock Variable:"), unlockVariable, gbc);
+
+		unlockDescription = new JTextArea(3, 20);
+		unlockDescription.setLineWrap(true);
+		unlockDescription.setWrapStyleWord(true);
+		unlockDescription.addKeyListener(this);
+		result.add(new JScrollPane(unlockDescription), gbc);
+		dodgyGridBagShite(result, new JLabel("Unlock Desc:"), unlockDescription, gbc);
+
 		bodyParts = new PlayerBodyPartTablePanel("Body Parts", dirtyFlag);
 		gbc.weightx = 1.0;
 		gbc.weighty = 0.0;
@@ -226,11 +237,14 @@ public class RacePanel extends EditorPanel
 		attributeCeilings.setModifier(race.getAttributeCeilings());
 		leftHandIcon.setText(race.getLeftHandIcon());
 		rightHandIcon.setText(race.getRightHandIcon());
+		unlockVariable.setText(race.getUnlockVariable());
 		magicDead.setSelected(race.isMagicDead());
 		Spell sa = race.getSpecialAbility();
 		this.specialAbility.setSelectedItem(sa==null?NONE:sa.getName());
 		description.setText(race.getDescription());
 		description.setCaretPosition(0);
+		unlockDescription.setText(race.getUnlockDescription());
+		unlockDescription.setCaretPosition(0);
 		allowedGenders.refreshGenders(race.getAllowedGenders(), race.getSuggestedNames());
 		startingItems.refresh(race.getStartingItems());
 
@@ -274,6 +288,8 @@ public class RacePanel extends EditorPanel
 			null,
 			null,
 			null,
+			null,
+			null,
 			null);
 
 		Database.getInstance().getRaces().put(name, race);
@@ -314,7 +330,9 @@ public class RacePanel extends EditorPanel
 			current.getSpecialAbility(),
 			null, //todo: duplicate starting items
 			current.getNaturalWeapons(),
-			current.getSuggestedNames());
+			current.getSuggestedNames(),
+			current.getUnlockVariable(),
+			current.getUnlockDescription());
 
 		Database.getInstance().getRaces().put(newName, race);
 	}
@@ -340,6 +358,8 @@ public class RacePanel extends EditorPanel
 		r.setAttributeCeilings(attributeCeilings.getModifier());
 		r.setLeftHandIcon(leftHandIcon.getText());
 		r.setRightHandIcon(rightHandIcon.getText());
+		r.setUnlockVariable(unlockVariable.getText());
+		r.setUnlockDescription(unlockDescription.getText());
 		r.setMagicDead(magicDead.isSelected());
 		r.setAllowedGenders(allowedGenders.getAllowedGendersList());
 		r.setSuggestedNames(allowedGenders.getSuggestedNamesMap());

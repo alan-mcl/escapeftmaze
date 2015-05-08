@@ -1,6 +1,6 @@
-zone=arena
+zone=Aenen City
 difficultyLevel=Normal
-playerPos=8:7
+playerPos=16:16
 facing=3
 partyGold=1000237
 partySupplies=9

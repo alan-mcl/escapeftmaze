@@ -37,19 +37,17 @@ public class ResourcesDisplayWidget extends DIYPane
 {
 	private DIYLabel[] labels;
 	private DIYLabel[] values;
-	private int hitPoints;
-	private int actionPoints;
-	private int magicPoints;
 	private final boolean percent;
 
 	/*-------------------------------------------------------------------------*/
 	public ResourcesDisplayWidget(
-		String title, int hitPoints, int actionPoints, int magicPoints,
-		boolean percent)
+		String title,
+		int hitPoints,
+		int actionPoints,
+		int magicPoints,
+		boolean percent,
+		boolean unknown)
 	{
-		this.hitPoints = hitPoints;
-		this.actionPoints = actionPoints;
-		this.magicPoints = magicPoints;
 		this.percent = percent;
 
 		int inset = 2;
@@ -80,11 +78,12 @@ public class ResourcesDisplayWidget extends DIYPane
 			this.add(values[i]);
 		}
 
-		this.display(hitPoints, actionPoints, magicPoints);
+		this.display(hitPoints, actionPoints, magicPoints, unknown);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void display(int hitPoints, int actionPoints, int magicPoints)
+	public void display(int hitPoints, int actionPoints, int magicPoints,
+		boolean unknown)
 	{
 		for (int i = 0; i < labels.length; i++)
 		{
@@ -96,17 +95,38 @@ public class ResourcesDisplayWidget extends DIYPane
 
 		labels[0].setText(StringUtil.getModifierName(Stats.Modifiers.HIT_POINTS));
 		labels[0].setActionMessage(Stats.Modifiers.HIT_POINTS);
-		values[0].setText(descValue(hitPoints));
+		if (unknown)
+		{
+			values[0].setText("?");
+		}
+		else
+		{
+			values[0].setText(descValue(hitPoints));
+		}
 		values[0].setActionMessage(Stats.Modifiers.HIT_POINTS);
 
 		labels[1].setText(StringUtil.getModifierName(Stats.Modifiers.ACTION_POINTS));
 		labels[1].setActionMessage(Stats.Modifiers.ACTION_POINTS);
-		values[1].setText(descValue(actionPoints));
+		if (unknown)
+		{
+			values[1].setText("?");
+		}
+		else
+		{
+			values[1].setText(descValue(actionPoints));
+		}
 		values[1].setActionMessage(Stats.Modifiers.ACTION_POINTS);
 
 		labels[2].setText(StringUtil.getModifierName(Stats.Modifiers.MAGIC_POINTS));
 		labels[2].setActionMessage(Stats.Modifiers.MAGIC_POINTS);
-		values[2].setText(descValue(magicPoints));
+		if (unknown)
+		{
+			values[2].setText("?");
+		}
+		else
+		{
+			values[2].setText(descValue(magicPoints));
+		}
 		values[2].setActionMessage(Stats.Modifiers.MAGIC_POINTS);
 	}
 

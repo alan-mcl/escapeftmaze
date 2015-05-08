@@ -31,6 +31,7 @@ cc.suggest.name = (suggest)
 cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me your name. You do not look like a creature of the Maze."\n~Keteswayo, Captain of the Iyala
 cc.show.lap = Show Ability Progression
 cc.level.ability.progression = Level Ability Progression
+cc.locked = ** LOCKED **
 
 # modifier display widget
 mdw.influence.base = Base

@@ -4,6 +4,7 @@ package mclachlan.maze.campaign.def.npc;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.SetUserConfigEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.GrantExperienceEvent;
@@ -40,6 +41,7 @@ public class Mnesus extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
+			new SetUserConfigEvent("unlock.race.gnome", "true"),
 			new NpcSpeechEvent("Greetings. I am Mnesus, King of the gnomes " +
 				"of Aenen. Welcome to my hall."),
 			new NpcSpeechEvent("I had heard tell that once again some " +

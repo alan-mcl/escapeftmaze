@@ -48,7 +48,17 @@ public class Leveler
 		List<String> raceList = Database.getInstance().getRaceList();
 		Dice raceD = new Dice(1, raceList.size(), -1);
 
-		return raceList.get(raceD.roll());
+		String result;
+		Race r;
+
+		do
+		{
+			result = raceList.get(raceD.roll());
+			r = Database.getInstance().getRace(result);
+		}
+		while (r.isLocked());
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

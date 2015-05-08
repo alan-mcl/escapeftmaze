@@ -58,7 +58,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private static final int FINISHED = 6;
 
 	private static final String SET_GENDER = "Set Gender";
-	private static final ContainerWidget EMPTY_PANE = new DIYPane();
 
 	private DIYPane raceAndGenderPane;
 	private DIYPane personalsPane;
@@ -301,13 +300,13 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		}
 
 		kitResourcesWidget = new ResourcesDisplayWidget(
-			getLabel("cc.resources"), 100, 100, 100, true);
+			getLabel("cc.resources"), 100, 100, 100, true, false);
 		kitModifiersWidget1 = new StatModifierDisplayWidget(
-			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true);
+			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		kitModifiersWidget2 = new StatModifierDisplayWidget(
-			getLabel("cc.resistances"), null, 9, Stats.resistances, true);
+			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
 		kitModifiersWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false);
+			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
 
 		kitResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
 		kitModifiersWidget1.setBounds(column4, headerOffset+50 +3*15, columnWidth, 6*15);
@@ -484,13 +483,13 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			column2, classDesc.y+classDesc.height, preferredSize.width, preferredSize.height);
 
 		classResourcesWidget = new ResourcesDisplayWidget(
-			getLabel("cc.resources"), 0, 0, 0, false);
+			getLabel("cc.resources"), 0, 0, 0, false, false);
 		classModifiersWidget1 = new StatModifierDisplayWidget(
-			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true);
+			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		classModifiersWidget2 = new StatModifierDisplayWidget(
-			getLabel("cc.resistances"), null, 9, Stats.resistances, true);
+			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
 		classModifiersWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false);
+			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
 
 		classResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
 		classModifiersWidget1.setBounds(column4, headerOffset + 50 + 3 * 15, columnWidth, 6 * 15);
@@ -578,13 +577,13 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		portraitWidget = new PortraitSelectionWidget(column2, headerOffset+50+25+20+20, columnWidth*2, 150);
 
 		resourcesSummaryWidget = new ResourcesDisplayWidget(
-			getLabel("cc.resources"), 0, 0, 0, false);
+			getLabel("cc.resources"), 0, 0, 0, false, false);
 		modifierSummaryWidget1 = new StatModifierDisplayWidget(
-			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true);
+			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		modifierSummaryWidget2 = new StatModifierDisplayWidget(
-			getLabel("cc.resistances"), null, 9, Stats.resistances, true);
+			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
 		modifierSummaryWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false);
+			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
 
 		resourcesSummaryWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
 		modifierSummaryWidget1.setBounds(column4, headerOffset+50 +3*15, columnWidth, 6*15);
@@ -697,13 +696,13 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		raceGenderChoices.doLayout();
 
 		raceResourcesWidget = new ResourcesDisplayWidget(
-			getLabel("cc.resources"), 0, 0, 0, true);
+			getLabel("cc.resources"), 0, 0, 0, true, false);
 		raceModifiersWidget1 = new StatModifierDisplayWidget(
-			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true);
+			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		raceModifiersWidget2 = new StatModifierDisplayWidget(
-			getLabel("cc.resistances"), null, 9, Stats.resistances, true);
+			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
 		raceModifiersWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false);
+			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
 
 		raceResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
 		raceModifiersWidget1.setBounds(column4, headerOffset+50 +3*15, columnWidth, 6*15);
@@ -859,25 +858,25 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				int hp = Leveler.calcStartingHitPoints(characterClass, race);
 				int ap = Leveler.calcStartingActionPoints(characterClass, race);
 				int mp = Leveler.calcStartingMagicPoints(characterClass, race);
-				resourcesSummaryWidget.display(hp, ap, mp);
+				resourcesSummaryWidget.display(hp, ap, mp, false);
 
 				StatModifier summary1 = new StatModifier();
 				summary1.addModifiers(raceModifiersWidget1.getStatModifier());
 				summary1.addModifiers(classModifiersWidget1.getStatModifier());
 				summary1.addModifiers(kitModifiersWidget1.getStatModifier());
-				modifierSummaryWidget1.setStatModifier(summary1);
+				modifierSummaryWidget1.setStatModifier(summary1, false);
 
 				StatModifier summary2 = new StatModifier();
 				summary2.addModifiers(raceModifiersWidget2.getStatModifier());
 				summary2.addModifiers(classModifiersWidget2.getStatModifier());
 				summary2.addModifiers(kitModifiersWidget2.getStatModifier());
-				modifierSummaryWidget2.setStatModifier(summary2);
+				modifierSummaryWidget2.setStatModifier(summary2, false);
 
 				StatModifier summary3 = new StatModifier();
 				summary3.addModifiers(raceModifiersWidget3.getStatModifier());
 				summary3.addModifiers(classModifiersWidget3.getStatModifier());
 				summary3.addModifiers(kitModifiersWidget3.getStatModifier());
-				modifierSummaryWidget3.setStatModifier(summary3);
+				modifierSummaryWidget3.setStatModifier(summary3, false);
 				
 				this.cardLayout.show(personalsPane);
 				break;
@@ -1169,10 +1168,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		this.classResourcesWidget.display(
 			characterClass.getStartingHitPoints(),
 			characterClass.getStartingActionPoints(),
-			characterClass.getStartingMagicPoints());
-		this.classModifiersWidget1.setStatModifier(mod);
-		this.classModifiersWidget2.setStatModifier(mod);
-		this.classModifiersWidget3.setStatModifier(mod);
+			characterClass.getStartingMagicPoints(),
+			false);
+		this.classModifiersWidget1.setStatModifier(mod, false);
+		this.classModifiersWidget2.setStatModifier(mod, false);
+		this.classModifiersWidget3.setStatModifier(mod, false);
 
 		if (race.getStartingItems() != null && !race.getStartingItems().isEmpty())
 		{
@@ -1193,17 +1193,25 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		this.race = Database.getInstance().getRace(raceName);
 
 		String desc = race.getDescription();
-		this.raceDesc.setText(desc);
+		if (race.isLocked())
+		{
+			this.raceDesc.setText(getLabel("cc.locked")+"\n\n"+race.getUnlockDescription());
+		}
+		else
+		{
+			this.raceDesc.setText(desc);
+		}
 		StatModifier mods = new StatModifier(race.getStartingModifiers());
 		mods.addModifiers(race.getConstantModifiers());
 		mods.addModifiers(race.getBannerModifiers());
 		this.raceResourcesWidget.display(
 			race.getStartingHitPointPercent(),
 			race.getStartingActionPointPercent(),
-			race.getStartingMagicPointPercent());
-		this.raceModifiersWidget1.setStatModifier(mods);
-		this.raceModifiersWidget2.setStatModifier(mods);
-		this.raceModifiersWidget3.setStatModifier(mods);
+			race.getStartingMagicPointPercent(),
+			race.isLocked());
+		this.raceModifiersWidget1.setStatModifier(mods, race.isLocked());
+		this.raceModifiersWidget2.setStatModifier(mods, race.isLocked());
+		this.raceModifiersWidget3.setStatModifier(mods, race.isLocked());
 
 		this.raceGenderChoices.show(this.raceGenderWidgets.get(raceName));
 		if (race.getAllowedGenders().contains(this.gender))
@@ -1302,9 +1310,9 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			default: throw new MazeException("Invalid focus "+characterClass.getFocus());
 		}
 
-		this.kitModifiersWidget1.setStatModifier(mod);
-		this.kitModifiersWidget2.setStatModifier(mod);
-		this.kitModifiersWidget3.setStatModifier(mod);
+		this.kitModifiersWidget1.setStatModifier(mod, false);
+		this.kitModifiersWidget2.setStatModifier(mod, false);
+		this.kitModifiersWidget3.setStatModifier(mod, false);
 
 		// clear starting item widgets
 		for (Widget w : kitItems.getChildren())
@@ -1343,7 +1351,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				return true;
 			case CHOOSE_RACE_AND_GENDER:
 			{
-				return races.isEnabled(races.getSelected());
+				return races.isEnabled(races.getSelected()) &&
+					!race.isLocked();
 			}
 			case CHOOSE_CLASS:
 			{

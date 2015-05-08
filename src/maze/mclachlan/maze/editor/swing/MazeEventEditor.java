@@ -90,6 +90,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JCheckBox modalSpeech;
 	private JTextField storyboardImageResource, storyboardTextKey;
 	private JComboBox storyboardTextPlacement;
+	private JTextField setUserConfigVar, setUserConfigValue;
 	private AnimationPanel animation;
 	private JComboBox mazeScript;
 	private JTextField removeWallMazeVariable;
@@ -261,6 +262,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				storyboardTextKey.setText(se.getTextResource());
 				storyboardTextPlacement.setSelectedItem(se.getTextPlacement());
 				break;
+			case _SetUserConfigEvent:
+				SetUserConfigEvent suce = (SetUserConfigEvent)e;
+				setUserConfigVar.setText(suce.getVar());
+				setUserConfigValue.setText(suce.getValue());
+				break;
+
 			case _MazeScript:
 				MazeScriptEvent mse = (MazeScriptEvent)e;
 				mazeScript.setSelectedItem(mse.getScript());
@@ -460,6 +467,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					storyboardTextKey.getText(),
 					(StoryboardEvent.TextPlacement)storyboardTextPlacement.getSelectedItem());
 				break;
+			case _SetUserConfigEvent:
+				this.result = new SetUserConfigEvent(
+					setUserConfigVar.getText(),
+					setUserConfigValue.getText());
+				break;
+
 			case _MazeScript:
 				this.result = new MazeScriptEvent((String)mazeScript.getSelectedItem());
 				break;
@@ -594,6 +607,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getSpeechBubbleEventPanel();
 			case _StoryboardEvent:
 				return getStoryboardEventPanel();
+			case _SetUserConfigEvent:
+				return getSetUserConfigEventPanel();
+
 			case _MazeScript:
 				return getMazeScriptEventPanel();
 			case _RemoveWall:
@@ -671,6 +687,17 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 			default: return null;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getSetUserConfigEventPanel()
+	{
+		setUserConfigVar = new JTextField(25);
+		setUserConfigValue = new JTextField(25);
+
+		return dirtyGridBagCrap(
+			new JLabel("User Config Key:"), setUserConfigVar,
+			new JLabel("Value:"), setUserConfigValue);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1136,6 +1163,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Speech Bubble";
 			case _StoryboardEvent:
 				return "Story Board Screen";
+			case _SetUserConfigEvent:
+				return "Set User Config Value";
+
 			case _MazeScript:
 				return "Execute Maze Script";
 			case _RemoveWall:

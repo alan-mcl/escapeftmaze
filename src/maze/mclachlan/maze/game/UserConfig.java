@@ -54,6 +54,8 @@ public class UserConfig
 	private int currentTipIndex;
 	private boolean autoAddConsumables;
 
+	private Properties properties;
+
 	/*-------------------------------------------------------------------------*/
 	public UserConfig(Properties p)
 	{
@@ -64,6 +66,8 @@ public class UserConfig
 	public Properties toProperties()
 	{
 		Properties result = new Properties();
+
+		result.putAll(properties);
 
 		result.setProperty(Key.COMBAT_DELAY.getValue(), String.valueOf(combatDelay));
 		result.setProperty(Key.PERSONALITY_CHATTINESS.getValue(), String.valueOf(personalityChattiness));
@@ -82,6 +86,30 @@ public class UserConfig
 		musicVolume = Integer.parseInt(p.getProperty(Key.MUSIC_VOLUME.getValue()));
 		currentTipIndex = Integer.parseInt(p.getProperty(Key.CURRENT_TIP_INDEX.getValue()));
 		autoAddConsumables = Boolean.valueOf(p.getProperty(Key.AUTO_ADD_CONSUMABLES.getValue()));
+
+		properties = p;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean getBoolean(String var)
+	{
+		if (var == null)
+		{
+			return false;
+		}
+
+		return Boolean.valueOf(properties.getProperty(var));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setProperty(String var, String value)
+	{
+		if (var == null)
+		{
+			return;
+		}
+
+		properties.put(var, value);
 	}
 
 	/*-------------------------------------------------------------------------*/

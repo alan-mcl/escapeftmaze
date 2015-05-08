@@ -58,6 +58,7 @@ public class V1MazeEvent
 	public static final int _SetMazeVariableEvent = 17;
 	public static final int _SpeechBubbleEvent = 18;
 	public static final int _StoryboardEvent = 19;
+	public static final int _SetUserConfigEvent = 20;
 
 	public static final int _ActorDiesEvent = 100;
 	public static final int _ActorUnaffectedEvent = 101;
@@ -165,6 +166,8 @@ public class V1MazeEvent
 		types.put(CharacterClassKnowledgeEvent.class, _CharacterClassKnowledgeEvent);
 		types.put(SpeechBubbleEvent.class, _SpeechBubbleEvent);
 		types.put(StoryboardEvent.class, _StoryboardEvent);
+		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
+
 		types.put(MazeScriptEvent.class, _MazeScript);
 		types.put(RemoveWallEvent.class, _RemoveWall);
 		types.put(BlockingScreenEvent.class, _BlockingScreen);
@@ -335,6 +338,13 @@ public class V1MazeEvent
 				s.append(se.getTextResource());
 				s.append(SEP);
 				s.append(se.getTextPlacement());
+				break;
+			case _SetUserConfigEvent:
+				SetUserConfigEvent suce = (SetUserConfigEvent)e;
+				s.append(suce.getVar());
+				s.append(SEP);
+				s.append(suce.getValue());
+				s.append(SEP);
 				break;
 			case _MazeScript:
 				MazeScriptEvent mse = (MazeScriptEvent)e;
@@ -528,6 +538,9 @@ public class V1MazeEvent
 				return new SpeechBubbleEvent(strs[1], Boolean.valueOf(strs[2]));
 			case _StoryboardEvent:
 				return new StoryboardEvent(strs[1], strs[2], StoryboardEvent.TextPlacement.valueOf(strs[3]));
+			case _SetUserConfigEvent:
+				return new SetUserConfigEvent(strs[1], strs[2]);
+
 			case _MazeScript:
 				return new MazeScriptEvent(strs[1]);
 			case _RemoveWall:

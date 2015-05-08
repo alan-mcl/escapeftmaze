@@ -246,6 +246,14 @@ public class V1Race
 			b.append("suggestedNames=");
 			b.append(suggestedNamesMap.toString(obj.getSuggestedNames()));
 			b.append(V1Utils.NEWLINE);
+
+			b.append("unlockVariable=");
+			b.append(obj.getUnlockVariable()==null?"":obj.getUnlockVariable());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("unlockDescription=");
+			b.append(obj.getUnlockDescription()==null?"":obj.getUnlockDescription());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -289,6 +297,14 @@ public class V1Race
 
 			Map<String, List<String>> suggestedNames = suggestedNamesMap.fromString(p.getProperty("suggestedNames"));
 
+			String unlockVariable = p.getProperty("unlockVariable");
+			if ("".equals(unlockVariable))
+			{
+				unlockVariable = null;
+			}
+
+			String unlockDescription = p.getProperty("unlockDescription");
+
 
 			return new Race(
 				name,
@@ -312,7 +328,9 @@ public class V1Race
 				specialAbility,
 				startingItems,
 				naturalWeapons,
-				suggestedNames);
+				suggestedNames,
+				unlockVariable,
+				unlockDescription);
 		}
 	}
 }
