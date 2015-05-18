@@ -1,158 +1,305 @@
-name=stygios.forest.chest.1
-lootEntries=batch.2.ammo:75,batch.2.banner.items:50,batch.2.bombs:75,batch.2.food:50,batch.2.magic.armour:75,batch.2.magic.trinkets:75,batch.2.magic.weapons:75,batch.2.mundane.armour:50,batch.2.mundane.weapons:50,batch.2.potions.healing:75,batch.2.potions.other:75,batch.2.powders:75,batch.2.scrolls:75,batch.2.spell.books:50,batch.2.stix:75,gold.500:100,batch.2.throwing.weapons:75,batch.2.musical.instruments:50
-@
-name=dalen.chest.1
-lootEntries=batch.4.spell.books:90,batch.4.magic.weapons:80,batch.3.scrolls:90,batch.3.powders:90,batch.4.ammo:90,batch.3.mundane.weapons:90,batch.3.magic.armour:90,batch.3.banner.items:90,gold.1000:100,batch.4.throwing.weapons:90
-@
-name=dalen.chest.2
-lootEntries=gold.1000:100,batch.4.magic.armour:90,batch.4.magic.trinkets:80,batch.3.potions.healing:90,batch.3.magic.weapons:80,batch.3.mundane.armour:90,batch.3.ammo:90,batch.3.bombs:80,batch.3.magic.trinkets:90,batch.3.potions.healing:90,batch.3.potions.other:90,batch.3.throwing.weapons:90
-@
-name=ruins.of.hail.old.igor.chest
-lootEntries=batch.2.ammo:50,batch.2.banner.items:50,batch.2.bombs:50,batch.2.food:50,batch.2.magic.armour:50,batch.2.magic.trinkets:50,batch.2.magic.weapons:50,batch.2.potions.healing:50,batch.2.potions.other:50,batch.2.powders:50,batch.2.scrolls:50,batch.2.spell.books:50,batch.2.stix:50,batch.3.ammo:50,batch.3.magic.armour:50,batch.3.magic.trinkets:50,batch.3.magic.weapons:50,batch.3.potions.healing:50,batch.3.potions.other:50,batch.4.spell.books:50,gold.1000:100,I~Dragon Rod:100
-@
-name=plain.of.pillars.chest.1
-lootEntries=batch.2.magic.armour:75,batch.2.magic.weapons:75,batch.2.magic.trinkets:75,batch.3.mundane.armour:100,batch.3.mundane.weapons:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:75,batch.2.potions.healing:75,batch.2.stix:100,batch.2.spell.books:75,batch.3.musical.instruments:50
-@
-name=imogen.loot
-lootEntries=batch.1.magic.trinkets:90,batch.2.magic.trinkets:90,exotic.starting.items:50,gold.1000:100,batch.2.magic.trinkets:50,batch.3.magic.trinkets:25,batch.4.magic.trinkets:5
-@
-name=gnome.elemental
-lootEntries=gnome.caster.items:100,batch.1.bombs:2,batch.1.potions.healing:2,batch.1.potions.other:2,batch.1.powders:2,batch.1.spell.books:2,batch.1.stix:2
-@
-name=danaos.castle.armoury.chest
-lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:90,batch.3.mundane.weapons:100,batch.3.mundane.armour:90,batch.3.magic.trinkets:75,batch.3.banner.items:50,batch.3.ammo:100,batch.3.ammo:75,batch.3.ammo:50,batch.3.bombs:100,batch.3.bombs:50,batch.3.potions.healing:100,batch.3.potions.healing:75,batch.3.stix:50,batch.3.throwing.weapons:100,batch.3.throwing.weapons:75,batch.3.throwing.weapons:50
-@
-name=rogue.clockwork.loot
-lootEntries=I~Clockwork Head:100
-@
-name=aenen.city.apothecary.chest
-lootEntries=batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.potions.other:100,batch.2.powders:50,batch.2.bombs:50,batch.2.stix:50,batch.2.spell.books:50,I~Aenen Sundew:100,I~Aenen Sundew:50,batch.3.potions.other:50
-@
-name=NO_LOOT
-lootEntries=low.level.gold:100
-@
-name=TestingFoeLoot
-lootEntries=I~Longsword:100,I~Dagger:100,I~Leather Helm:100,I~Leather Cuirass:100,I~Leather Gloves:100,I~Leather Boots:100,I~Leather Leggings:100,I~Brooch:100,I~Ambassador's Amulet:50,low.level.gold:100,mid.level.gold:100,high.level.gold:100
-@
-name=coc.sheriff
-lootEntries=coc.sheriff.items:3,coc.sheriff.items:3,coc.sheriff.items:3
-@
-name=hianbian.yenluo.chest
-lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.magic.trinkets:100,batch.3.potions.healing:100,batch.3.potions.healing:50,batch.3.potions.healing:50,batch.3.powders:100,batch.3.powders:50,batch.3.scrolls:50,batch.3.spell.books:50,batch.3.stix:50,batch.3.bombs:50,batch.3.ammo:100,batch.3.ammo:50,batch.3.ammo:50,batch.3.banner.items:10,batch.3.mundane.armour:50,batch.3.mundane.weapons:50,batch.3.gadgets:100,batch.3.throwing.weapons:100,batch.3.throwing.weapons:50,batch.3.throwing.weapons:50
-@
-name=bel.ies.personal.loot
-lootEntries=batch.1.magic.trinkets:20,batch.1.magic.trinkets:20
-@
-name=ichiba.crossroad.hidden.stuff.1
-lootEntries=batch.1.potions.healing:100,batch.1.mundane.weapons:100,batch.1.magic.weapons:15,batch.1.magic.trinkets:15,batch.1.magic.armour:15,batch.1.spell.books:15,batch.2.mundane.armour:75,batch.2.mundane.weapons:75,I~Resurrection Powder:100
-@
-name=fangorn.personal.loot
-lootEntries=I~Cold Iron Spike:100,batch.2.magic.trinkets:15,batch.2.magic.trinkets:15,batch.2.magic.trinkets:15,high.level.gold:100
-@
-name=ichiba.domain.north.chest.1
-lootEntries=low.level.gold:100,batch.1.mundane.weapons:100,batch.1.mundane.armour:100,batch.1.ammo:100,batch.1.ammo:100,batch.1.food:100,batch.1.food:100,batch.1.potions.healing:100,batch.1.potions.healing:50,batch.1.potions.other:10,batch.1.magic.trinkets:10,batch.1.magic.weapons:10,batch.1.booze:75,batch.1.throwing.weapons:100
-@
-name=gnome.shaman
-lootEntries=gnome.shaman.items:100
-@
-name=gnoll.basic
-lootEntries=gnoll.items.basic:10
-@
-name=tornado.mountain.chest.1
-lootEntries=batch.2.magic.armour:100,batch.2.magic.weapons:100,batch.2.magic.trinkets:100,batch.2.banner.items:40,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:75,batch.2.potions.healing:50,batch.2.potions.other:100,batch.2.potions.other:50,gold.500:100
-@
-name=human.hirebrand
-lootEntries=human.hirebrand.items:3,human.hirebrand.items:3,human.hirebrand.items:3
-@
-name=gnome.warlock
-lootEntries=gnome.warlock.items:100
-@
-name=A_FAIR_BIT_OF_GOLD
-lootEntries=high.level.gold:100
-@
-name=gatehouse.minor.loot.3
-lootEntries=batch.1.ammo:100,batch.1.ammo:25,batch.1.mundane.armour:100,batch.1.mundane.armour:25,batch.1.mundane.weapons:100,batch.1.mundane.weapons:25,batch.1.booze:75,batch.1.food:75,batch.1.ammo:75,gold.100:100,batch.1.throwing.weapons:50,batch.1.gadgets:50
-@
-name=gatehouse.potion.chest
-lootEntries=batch.1.magic.trinkets:50,batch.1.potions.healing:100,batch.1.potions.healing:100,batch.1.potions.healing:75,batch.1.potions.other:50,batch.1.potions.other:25,batch.1.powders:75,batch.1.stix:50,batch.1.bombs:25,vital.items.resurrection.powder:100
-@
-name=ichiba.city.imogen.room.chest
-lootEntries=I~Ebony Amulet:100
-@
-name=A_WEE_BIT_OF_GOLD
-lootEntries=low.level.gold:100
-@
-name=gatehouse.minor.loot.2
-lootEntries=low.level.gold:100,low.level.gold:50,exotic.starting.items:75,batch.1.magic.armour:50,batch.1.mundane.armour:100,batch.1.mundane.weapons:100,batch.1.gadgets:50,batch.1.throwing.weapons:50,batch.1.musical.intruments:50
-@
-name=plain.of.pillars.ghul.chest
-lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.mundane.armour:100,batch.3.mundane.weapons:100,batch.3.magic.trinkets:100,batch.3.magic.trinkets:50,batch.3.potions.healing:100,batch.3.potions.healing:75,batch.3.potions.other:100,batch.3.potions.other:75,batch.3.powders:100,batch.3.powders:75,batch.3.spell.books:100,batch.3.spell.books:75,batch.3.bombs:100,batch.3.bombs:90,batch.3.ammo:100,batch.3.ammo:75,batch.3.scrolls:75,batch.3.throwing.weapons:100,batch.3.throwing.weapons:50
-@
-name=ghul.personal.loot
-lootEntries=I~Ghola Coin:100,I~Robes (U):100,I~Robes (L):100
-@
-name=ruins.of.hail.black.dog.chest
-lootEntries=I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:50,batch.3.gadgets:100
-@
-name=danaos.castle.belisarius.chest
-lootEntries=batch.4.magic.weapons:75,batch.4.magic.armour:66,batch.4.ammo:66,batch.4.spell.books:66,batch.4.magic.trinkets:66,batch.3.banner.items:66,high.level.gold:100,batch.4.throwing.weapons:66
-@
-name=crag.faerie.loot
-lootEntries=batch.1.magic.trinkets:10,mid.level.gold:10,I~Gossamer Gown (L):10,I~Gossamer Gown (U):10,I~Fey Dart:10,I~Fey Needle:10,I~Feather Dart:10,batch.1.stix:10,batch.1.spell.books:10
-@
-name=accountant.loot
-lootEntries=I~Dagger:50,I~Feather Dart:50,mid.level.gold:100
-@
 name=castle.fangorn.eokil.loot
 lootEntries=I~Warlock's Blade:100,batch.1.magic.armour:15,batch.1.magic.weapons:15,batch.2.magic.armour:15,batch.2.magic.weapons:15,batch.2.magic.trinkets:15,I~throwing knife:100,high.level.gold:100,batch.1.mundane.armour:100,batch.3.gadgets:100
-@
-name=coloniser.omnifid.loot
-lootEntries=I~Taflen Seeds:100
-@
-name=gnome.primary
-lootEntries=gnome.caster.items:100,batch.1.bombs:3,batch.1.potions.healing:3,batch.1.potions.other:3,batch.1.powders:3,batch.1.spell.books:3,batch.1.stix:3
-@
-name=lorelei.loot
-lootEntries=batch.1.magic.trinkets:100,gold.500:100
-@
-name=ruins.of.hail.library.books
-lootEntries=I~Modern Astrology:100,I~The Compendium Of Classic Poetry:100,I~Metaphysics Of The Maze:100,I~Al-Khydr's Grimoire:100,I~The Guide To Runes:100,I~The Voyages Of Maranera:100
-@
-name=disassembly.electrified.sword
-lootEntries=I~High Voltage Transformer:100,I~Tarnished Sword:100
-@
-name=TestLootTable
-lootEntries=I~Anointed Flail:100,I~Acid Bomb:100,low.level.gold:100,mid.level.gold:100,high.level.gold:100
-@
-name=writhing.mire.bel.ies.chest
-lootEntries=batch.2.magic.armour:50,batch.2.magic.trinkets:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.potions.other:100,batch.2.potions.other:100,batch.2.potions.other:50,batch.2.powders:100,batch.2.powders:50,batch.2.scrolls:100,batch.2.scrolls:50,batch.2.spell.books:100,batch.2.stix:50,I~Medallion Of Bel:100,gold.1000:100
-@
-name=gatehouse.minor.loot
-lootEntries=low.level.gold:100,low.level.gold:50,batch.1.magic.trinkets:50,batch.1.mundane.weapons:50,batch.1.mundane.weapons:50,batch.1.mundane.armour:50,batch.1.mundane.armour:50,batch.1.ammo:50,batch.1.ammo:50,batch.1.throwing.weapons:50,batch.1.throwing.weapons:50,batch.1.gadgets:50
-@
-name=ichiba.city.incense.chest
-lootEntries=I~Camphor Incense:100
-@
-name=danaos.castle.armoury.floor
-lootEntries=I~Broadsword:100,I~Broadsword:90,I~Broadsword:75,I~Broadsword:50,I~Broadsword:25,I~Awl Pike:100,I~Awl Pike:90,I~Awl Pike:75,I~Awl Pike:50,I~Awl Pike:25,I~Steel Helm:50,I~Steel Guantlets:50,I~Breastplate:50,I~Bronze Greaves:50,I~Sollerets:50,I~Heater Shield:50,I~Shrike Arrow:100,I~Shrike Arrow:50,batch.1.ammo:50
-@
-name=ichiba.city.coc.chest
-lootEntries=gold.1000:100,I~Diamondtip:100,I~Silver Ring:100
-@
-name=ruins.of.hail.damla's.bones
-lootEntries=I~Sword Of Damla:100,batch.2.magic.armour:100,batch.2.magic.trinkets:100,batch.2.ammo:100,batch.3.throwing.weapons:100
 @
 name=dreamer.skull
 lootEntries=I~Dreamer Skull:100
 @
-name=three.eyes.personal.loot
-lootEntries=gnoll.items.basic:10,I~Dreamer Skull:100
+name=Gnoll.Hero.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100,I~Knife:100
+@
+name=Gnome.Knave.loot
+lootEntries=gnome.knave.items:100,I~Morningstar:100
+@
+name=ichiba.city.imogen.room.chest
+lootEntries=I~Ebony Amulet:100
+@
+name=Gnoll.Hunter.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100,I~Knife:100
+@
+name=Glaucus.loot
+lootEntries=gnome.beggar.items:10,I~Thorn Staff:100
+@
+name=rogue.clockwork.loot
+lootEntries=I~Clockwork Head:100
+@
+name=dalen.chest.2
+lootEntries=gold.1000:100,batch.4.magic.armour:90,batch.4.magic.trinkets:80,batch.3.potions.healing:90,batch.3.magic.weapons:80,batch.3.mundane.armour:90,batch.3.ammo:90,batch.3.bombs:80,batch.3.magic.trinkets:90,batch.3.potions.healing:90,batch.3.potions.other:90,batch.3.throwing.weapons:90
+@
+name=ichiba.depths.rhys.chest.loot
+lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.magic.trinkets:50,batch.3.magic.trinkets:50,batch.3.potions.healing:100,coc.sheriff.items:100,batch.3.spell.books:100,batch.3.spell.books:50,batch.3.mundane.armour:50,batch.3.mundane.weapons:50,batch.3.scrolls:100,batch.3.scrolls:75,batch.3.scrolls:50,batch.3.scrolls:25,I~Black Blood:100
+@
+name=Orngog.loot
+lootEntries=low.level.gold:100,I~Club:100
+@
+name=dalen.chest.1
+lootEntries=batch.4.spell.books:90,batch.4.magic.weapons:80,batch.3.scrolls:90,batch.3.powders:90,batch.4.ammo:90,batch.3.mundane.weapons:90,batch.3.magic.armour:90,batch.3.banner.items:90,gold.1000:100,batch.4.throwing.weapons:90
+@
+name=Avenging.Angel.loot
+lootEntries=high.level.gold:100,I~White Sword:100
+@
+name=gnome.machinist
+lootEntries=gnome.caster.items:100,batch.1.bombs:1,batch.1.potions.healing:1,batch.1.potions.other:1,batch.1.powders:1,batch.1.spell.books:1,batch.1.stix:1
+@
+name=ruins.of.hail.old.igor.chest
+lootEntries=batch.2.ammo:50,batch.2.banner.items:50,batch.2.bombs:50,batch.2.food:50,batch.2.magic.armour:50,batch.2.magic.trinkets:50,batch.2.magic.weapons:50,batch.2.potions.healing:50,batch.2.potions.other:50,batch.2.powders:50,batch.2.scrolls:50,batch.2.spell.books:50,batch.2.stix:50,batch.3.ammo:50,batch.3.magic.armour:50,batch.3.magic.trinkets:50,batch.3.magic.weapons:50,batch.3.potions.healing:50,batch.3.potions.other:50,batch.4.spell.books:50,gold.1000:100,I~Dragon Rod:100
+@
+name=aenen.city.chest.2
+lootEntries=batch.2.magic.armour:100,batch.2.magic.weapons:100,batch.2.magic.trinkets:75,batch.2.banner.items:50,batch.2.scrolls:100,batch.2.scrolls:75,batch.2.scrolls:50,mid.level.gold:100,batch.1.gadgets:100,batch.2.musical.instruments:75
+@
+name=human.hirebrand
+lootEntries=human.hirebrand.items:3,human.hirebrand.items:3,human.hirebrand.items:3
+@
+name=aenen.city.chest.1
+lootEntries=batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:100,batch.2.food:100,batch.2.food:100,batch.2.mundane.armour:100,batch.2.potions.healing:100,batch.2.mundane.weapons:100,batch.2.spell.books:50,batch.1.gadgets:100,batch.2.throwing.weapons:100
+@
+name=Rabid.Gnoll.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100,I~Knife:100
+@
+name=Goblin.Magsman.loot
+lootEntries=goblin.cutpurse.items:10,I~Kwai:100,I~Bite Dagger:100
+@
+name=Gnome.Scout.loot
+lootEntries=gnome.scout.items:100,I~Battleaxe:100,I~Willow Arrow:100,I~Long Bow:100
+@
+name=Prof.Therust.loot
+lootEntries=gnome.caster.items:100,batch.1.bombs:3,batch.1.potions.healing:3,batch.1.potions.other:3,batch.1.powders:3,batch.1.spell.books:3,batch.1.stix:3,I~Gnarled Staff:100
+@
+name=Gnome.Elemental.loot
+lootEntries=gnome.caster.items:100,batch.1.bombs:2,batch.1.potions.healing:2,batch.1.potions.other:2,batch.1.powders:2,batch.1.spell.books:2,batch.1.stix:2,I~Gnarled Staff:100
+@
+name=gnome.antenor.loot
+lootEntries=batch.1.magic.weapons:15,batch.1.magic.armour:15,batch.1.mundane.weapons:100,batch.1.mundane.armour:100,batch.1.potions.healing:100,batch.1.potions.other:100,batch.1.powders:100,batch.1.ammo:100,batch.1.ammo:50,I~Antenor's Ring:100,batch.1.throwing.weapons:50
+@
+name=Asius.loot
+lootEntries=gnome.scout.items:100,I~Battleaxe:100,I~Willow Arrow:100,I~Long Bow:100
+@
+name=NO_LOOT
+lootEntries=low.level.gold:100
+@
+name=Sir.Kay.loot
+lootEntries=master.thief.items:5,master.thief.items:5,master.thief.items:5,I~Thieves Dagger:100,I~Skull Dagger:100
+@
+name=lorelei.loot
+lootEntries=batch.1.magic.trinkets:100,gold.500:100
+@
+name=coloniser.omnifid.loot
+lootEntries=I~Taflen Seeds:100
+@
+name=Durek.Hammerhand.loot
+lootEntries=human.hirebrand.items:3,human.hirebrand.items:3,human.hirebrand.items:3,I~Bastard Sword:100
+@
+name=gnome.primary
+lootEntries=gnome.caster.items:100,batch.1.bombs:3,batch.1.potions.healing:3,batch.1.potions.other:3,batch.1.powders:3,batch.1.spell.books:3,batch.1.stix:3
+@
+name=writhing.mire.chest.2
+lootEntries=batch.2.magic.weapons:100,batch.2.magic.armour:100,batch.2.ammo:100,batch.2.banner.items:50,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.food:100,batch.2.food:50,gold.500:100,batch.2.throwing.weapons:100,batch.2.musical.instruments:50
+@
+name=A_WEE_BIT_MORE_GOLD
+lootEntries=mid.level.gold:100
+@
+name=stygios.forest.chest.1
+lootEntries=batch.2.ammo:75,batch.2.banner.items:50,batch.2.bombs:75,batch.2.food:50,batch.2.magic.armour:75,batch.2.magic.trinkets:75,batch.2.magic.weapons:75,batch.2.mundane.armour:50,batch.2.mundane.weapons:50,batch.2.potions.healing:75,batch.2.potions.other:75,batch.2.powders:75,batch.2.scrolls:75,batch.2.spell.books:50,batch.2.stix:75,gold.500:100,batch.2.throwing.weapons:75,batch.2.musical.instruments:50
+@
+name=writhing.mire.chest.1
+lootEntries=batch.2.ammo:100,batch.2.ammo:99,batch.2.ammo:95,batch.2.ammo:90,batch.2.ammo:80,batch.2.ammo:70,batch.2.ammo:60,batch.2.ammo:50,batch.2.ammo:50,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.mundane.armour:100,batch.2.mundane.weapons:100,batch.2.magic.weapons:10,gold.500:100,batch.2.throwing.weapons:100,batch.2.throwing.weapons:90,batch.2.throwing.weapons:75,batch.2.throwing.weapons:50
+@
+name=crypt.of.atrocities.chest
+lootEntries=batch.4.ammo:15,batch.4.magic.armour:15,batch.4.magic.trinkets:15,batch.4.magic.weapons:15,batch.4.spell.books:15,batch.3.ammo:33,batch.3.banner.items:33,batch.3.bombs:33,batch.3.magic.armour:33,batch.3.magic.trinkets:33,batch.3.magic.weapons:33,batch.3.mundane.armour:33,batch.3.mundane.weapons:33,batch.3.potions.healing:33,batch.3.potions.other:33,batch.3.powders:33,batch.3.scrolls:33,batch.3.spell.books:33,batch.3.stix:33,exotic.starting.items:33,batch.4.throwing.weapons:15,batch.3.throwing.weapons:15,batch.3.gadgets:15
+@
+name=fangorn.personal.loot
+lootEntries=I~Cold Iron Spike:100,batch.2.magic.trinkets:15,batch.2.magic.trinkets:15,batch.2.magic.trinkets:15,high.level.gold:100
+@
+name=Gnome.Trooper.loot
+lootEntries=gnome.trooper.items:100,I~Fauchard:100
+@
+name=Seraph.loot
+lootEntries=high.level.gold:100,I~Spear:100
+@
+name=Crag.Faerie.loot
+lootEntries=batch.1.magic.trinkets:10,mid.level.gold:10,I~Gossamer Gown (L):10,I~Gossamer Gown (U):10,I~Fey Dart:10,I~Fey Needle:10,I~Feather Dart:10,batch.1.stix:10,batch.1.spell.books:10,I~Fey Needle:100
+@
+name=Seress.Silverlock.loot
+lootEntries=batch.1.magic.trinkets:10,mid.level.gold:10,I~Gossamer Gown (L):10,I~Gossamer Gown (U):10,I~Fey Dart:10,I~Fey Needle:10,I~Feather Dart:10,batch.1.stix:10,batch.1.spell.books:10,I~Fey Needle:100
+@
+name=aenen.city.apothecary.chest
+lootEntries=batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.potions.other:100,batch.2.powders:50,batch.2.bombs:50,batch.2.stix:50,batch.2.spell.books:50,I~Aenen Sundew:100,I~Aenen Sundew:50,batch.3.potions.other:50
+@
+name=Gnome.Shaman.loot
+lootEntries=gnome.shaman.items:100,I~Short Spear:100
+@
+name=Gnome.Primary.loot
+lootEntries=gnome.caster.items:100,batch.1.bombs:3,batch.1.potions.healing:3,batch.1.potions.other:3,batch.1.powders:3,batch.1.spell.books:3,batch.1.stix:3,I~Gnarled Staff:100
+@
+name=Mnesus.loot
+lootEntries=gnome.trooper.items:100,I~Fauchard:100
+@
+name=Diomedes.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=hianbian.yenluo.chest
+lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.magic.trinkets:100,batch.3.potions.healing:100,batch.3.potions.healing:50,batch.3.potions.healing:50,batch.3.powders:100,batch.3.powders:50,batch.3.scrolls:50,batch.3.spell.books:50,batch.3.stix:50,batch.3.bombs:50,batch.3.ammo:100,batch.3.ammo:50,batch.3.ammo:50,batch.3.banner.items:10,batch.3.mundane.armour:50,batch.3.mundane.weapons:50,batch.3.gadgets:100,batch.3.throwing.weapons:100,batch.3.throwing.weapons:50,batch.3.throwing.weapons:50
+@
+name=gatehouse.minor.loot
+lootEntries=low.level.gold:100,low.level.gold:50,batch.1.magic.trinkets:50,batch.1.mundane.weapons:50,batch.1.mundane.weapons:50,batch.1.mundane.armour:50,batch.1.mundane.armour:50,batch.1.ammo:50,batch.1.ammo:50,batch.1.throwing.weapons:50,batch.1.throwing.weapons:50,batch.1.gadgets:50
+@
+name=gatehouse.hiddenstuff.1
+lootEntries=I~Mace:100,I~Silver Ring:100
+@
+name=hag.personal.loot
+lootEntries=batch.2.magic.trinkets:33,batch.2.magic.trinkets:33,high.level.gold:33
+@
+name=TestingFoeLoot
+lootEntries=I~Longsword:100,I~Dagger:100,I~Leather Helm:100,I~Leather Cuirass:100,I~Leather Gloves:100,I~Leather Boots:100,I~Leather Leggings:100,I~Brooch:100,I~Ambassador's Amulet:50,low.level.gold:100,mid.level.gold:100,high.level.gold:100
+@
+name=hianbian.chest.2
+lootEntries=batch.2.banner.items:100,batch.2.food:10,batch.2.bombs:100,batch.2.bombs:10,batch.2.mundane.armour:100,batch.2.mundane.weapons:100,batch.2.powders:100,batch.2.powders:100,batch.2.powders:10,batch.2.scrolls:100,batch.2.scrolls:100,batch.2.scrolls:10,batch.2.spell.books:100,batch.2.spell.books:10,batch.2.stix:100,batch.2.stix:10,batch.2.stix:10,gold.1000:10,gold.500:10
+@
+name=Ninja.loot
+lootEntries=mid.level.gold:100,I~Shuriken:100
+@
+name=hianbian.chest.1
+lootEntries=batch.2.magic.weapons:100,batch.2.magic.weapons:10,batch.2.magic.armour:100,batch.2.magic.armour:10,batch.2.magic.trinkets:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:10,batch.2.potions.other:100,batch.2.potions.other:10,gold.1000:100,batch.2.musical.instruments:100
+@
+name=gnome.scout
+lootEntries=gnome.scout.items:100
+@
+name=Human.Hirebrand.loot
+lootEntries=human.hirebrand.items:3,human.hirebrand.items:3,human.hirebrand.items:3,I~Longsword:100
+@
+name=hianbian.chest.3
+lootEntries=batch.3.magic.weapons:33,batch.3.magic.armour:33,batch.3.magic.trinkets:33,batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:50,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:75,batch.2.food:100,batch.1.food:10,batch.3.throwing.weapons:100,batch.2.throwing.weapons:100,batch.2.throwing.weapons:50,batch.2.gadgets:50
+@
+name=W.E.Pickett.loot
+lootEntries=I~Feather Dart:50,mid.level.gold:100,I~Dagger:100,I~Feather Dart:100
+@
+name=danaos.castle.belisarius.chest
+lootEntries=batch.4.magic.weapons:75,batch.4.magic.armour:66,batch.4.ammo:66,batch.4.spell.books:66,batch.4.magic.trinkets:66,batch.3.banner.items:66,high.level.gold:100,batch.4.throwing.weapons:66
+@
+name=belisarius.loot
+lootEntries=gold.1000:100,heavy.weapon:90,leonal.knight.items:90,leonal.knight.items:90,leonal.knight.items:90,batch.2.magic.armour:75,batch.2.magic.weapons:75,batch.1.spell.books:20,batch.1.mundane.armour:90
+@
+name=gnome.beggar
+lootEntries=gnome.beggar.items:10
+@
+name=Ideaus.loot
+lootEntries=gnome.warlock.items:100,I~Fauchard:100,I~Mystic Arrow:100,I~Long Bow:100
+@
+name=Leonal.Peer.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=Kudawu.Aku.loot
+lootEntries=gnome.warlock.items:100,I~Short Spear:100,I~Mystic Arrow:100,I~Long Bow:100
 @
 name=ichiba.city.coc.paper.slip
 lootEntries=I~C.O.C Paper Slip:100
 @
-name=stygios.forest.altar.of.nergal
-lootEntries=I~Spagyric Gem:100
+name=ren.san.personal.loot
+lootEntries=I~Bushido Blade:100,batch.2.magic.trinkets:20
+@
+name=ichiba.domain.north.chest.1
+lootEntries=low.level.gold:100,batch.1.mundane.weapons:100,batch.1.mundane.armour:100,batch.1.ammo:100,batch.1.ammo:100,batch.1.food:100,batch.1.food:100,batch.1.potions.healing:100,batch.1.potions.healing:50,batch.1.potions.other:10,batch.1.magic.trinkets:10,batch.1.magic.weapons:10,batch.1.booze:75,batch.1.throwing.weapons:100
+@
+name=ichiba.city.imogen.chest.loot
+lootEntries=batch.1.magic.trinkets:100,batch.2.magic.trinkets:50,batch.3.magic.trinkets:15,batch.1.magic.weapons:100,batch.2.magic.weapons:50,batch.3.magic.weapons:15,batch.1.magic.armour:100,batch.2.magic.armour:50,batch.3.magic.armour:15,batch.1.spell.books:100,batch.2.spell.books:90,batch.3.spell.books:75,batch.4.spell.books:50,batch.3.stix:75,batch.3.scrolls:75,batch.3.powders:75,batch.3.potions.other:75,batch.3.bombs:75,batch.1.banner.items:50,high.level.gold:100,batch.4.throwing.weapons:75
+@
+name=Red.Ear.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100
+@
+name=Stentor.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=Stenelaus.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=Gnoll.Brave.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100,I~Knife:100
+@
+name=ichiba.domain.south.chest.1
+lootEntries=gnome.scout.items:100,gnome.scout.items:100,gnome.scout.items:75,I~Aenen Sundew:100,I~Aenen Sundew:75,I~Aenen Sundew:50,batch.1.spell.books:75,batch.1.powders:50,batch.1.throwing.weapons:100,batch.1.musical.intruments:25
+@
+name=Leonal.Paladin.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=crag.faerie.loot
+lootEntries=batch.1.magic.trinkets:10,mid.level.gold:10,I~Gossamer Gown (L):10,I~Gossamer Gown (U):10,I~Fey Dart:10,I~Fey Needle:10,I~Feather Dart:10,batch.1.stix:10,batch.1.spell.books:10
+@
+name=goblin.cutpurse
+lootEntries=goblin.cutpurse.items:10
+@
+name=Onburi.loot
+lootEntries=master.thief.items:5,master.thief.items:5,master.thief.items:5,I~Kwai:100,I~Mystic Arrow:100,I~Long Bow:100
+@
+name=Ren.San.loot
+lootEntries=I~Bushido Blade:100,batch.2.magic.trinkets:20
+@
+name=Ineoth-Em-Risiss-Mar.loot
+lootEntries=I~Spear Of Ineoth:100,gold.1000:100,batch.2.magic.weapons:50,batch.2.magic.armour:50,batch.2.magic.trinkets:50
+@
+name=Skull.Crusher.loot
+lootEntries=low.level.gold:100,I~Club:100
+@
+name=Goblin.Cutpurse.loot
+lootEntries=goblin.cutpurse.items:10,I~Kwai:100,I~Knife:100
+@
+name=Human.Footpad.loot
+lootEntries=human.hirebrand.items:3,human.hirebrand.items:3,human.hirebrand.items:3,I~Kwai:100,I~Knife:100
+@
+name=Three.Eyes.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100
+@
+name=Leonal.Champion.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=getsel.gnawtooth.personal.loot
+lootEntries=batch.2.magic.trinkets:33,batch.2.magic.trinkets:33,high.level.gold:33,I~Getsel's Bone Comb:100
+@
+name=ekirths.tomb.chest.3
+lootEntries=batch.4.spell.books:20,batch.3.spell.books:20,batch.3.potions.healing:20,batch.3.potions.healing:20,batch.3.mundane.weapons:20,batch.3.mundane.armour:20,batch.3.magic.weapons:20,batch.3.magic.trinkets:20,batch.3.magic.trinkets:20,batch.3.banner.items:20,batch.2.banner.items:20,batch.1.banner.items:20,batch.4.magic.trinkets:20,batch.4.ammo:20,batch.3.ammo:20,batch.3.ammo:20,batch.3.ammo:20,gold.1000:100,batch.4.throwing.weapons:20,batch.3.throwing.weapons:20,batch.3.throwing.weapons:20,batch.3.throwing.weapons:20
+@
+name=Broken.Fang.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100
+@
+name=ekirths.tomb.chest.2
+lootEntries=batch.3.potions.healing:100,batch.3.potions.healing:100,batch.3.potions.healing:100,batch.3.potions.healing:50,batch.3.potions.other:100,batch.3.potions.other:75,batch.3.potions.other:50,batch.3.powders:75,batch.3.scrolls:75,batch.3.stix:75,batch.2.potions.healing:100,batch.2.potions.healing:90,batch.2.potions.healing:80,batch.2.potions.healing:70
+@
+name=bel.ies.personal.loot
+lootEntries=batch.1.magic.trinkets:20,batch.1.magic.trinkets:20
+@
+name=ekirths.tomb.chest.1
+lootEntries=batch.4.ammo:100,batch.4.magic.armour:100,batch.4.magic.trinkets:100,batch.4.magic.weapons:100,batch.4.spell.books:100,gold.1000:100,batch.4.throwing.weapons:100,batch.3.musical.instruments:100
+@
+name=gnome.trooper
+lootEntries=gnome.trooper.items:100
+@
+name=C.O.C..Sergeant.loot
+lootEntries=coc.sheriff.items:3,coc.sheriff.items:3,coc.sheriff.items:3,I~Bastard Sword:100
+@
+name=A_FAIR_BIT_OF_GOLD
+lootEntries=high.level.gold:100
+@
+name=gatehouse.potion.chest
+lootEntries=batch.1.magic.trinkets:50,batch.1.potions.healing:100,batch.1.potions.healing:100,batch.1.potions.healing:75,batch.1.potions.other:50,batch.1.potions.other:25,batch.1.powders:75,batch.1.stix:50,batch.1.bombs:25,vital.items.resurrection.powder:100
+@
+name=gnome.knave
+lootEntries=gnome.knave.items:100
+@
+name=Serra.Angel.loot
+lootEntries=high.level.gold:100,I~Singing Sword:100
+@
+name=Lord.Of.Eight.Banners.loot
+lootEntries=low.level.gold:100,I~Bushido Blade:100
+@
+name=Pandarus.loot
+lootEntries=gnome.trooper.items:100,I~Fauchard:100
+@
+name=ruins.of.hail.hidden.stuff.1
+lootEntries=I~Dagger:100,I~Robes (U):100,batch.1.magic.trinkets:75,I~Faded Diary:100
+@
+name=Archangel.loot
+lootEntries=high.level.gold:100,I~Angelic Blade:100
+@
+name=Gigantopithecus.loot
+lootEntries=low.level.gold:100,I~Club:100
 @
 name=gnome.clockwork.loot
 lootEntries=gnome.clockwork.loot:17
@@ -160,29 +307,65 @@ lootEntries=gnome.clockwork.loot:17
 name=yenluo.loot
 lootEntries=I~Yenluo's Eye:100,batch.3.magic.armour:15,batch.3.magic.weapons:15,batch.3.magic.trinkets:15
 @
-name=hianbian.chest.2
-lootEntries=batch.2.banner.items:100,batch.2.food:10,batch.2.bombs:100,batch.2.bombs:10,batch.2.mundane.armour:100,batch.2.mundane.weapons:100,batch.2.powders:100,batch.2.powders:100,batch.2.powders:10,batch.2.scrolls:100,batch.2.scrolls:100,batch.2.scrolls:10,batch.2.spell.books:100,batch.2.spell.books:10,batch.2.stix:100,batch.2.stix:10,batch.2.stix:10,gold.1000:10,gold.500:10
+name=Shadow.Warrior.loot
+lootEntries=low.level.gold:100,I~Longsword:100
 @
-name=hianbian.chest.1
-lootEntries=batch.2.magic.weapons:100,batch.2.magic.weapons:10,batch.2.magic.armour:100,batch.2.magic.armour:10,batch.2.magic.trinkets:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:10,batch.2.potions.other:100,batch.2.potions.other:10,gold.1000:100,batch.2.musical.instruments:100
+name=Mentes.loot
+lootEntries=gnome.trooper.items:100,I~Fauchard:100
 @
-name=gatehouse.hiddenstuff.1
-lootEntries=I~Mace:100,I~Silver Ring:100
+name=three.eyes.personal.loot
+lootEntries=gnoll.items.basic:10,I~Dreamer Skull:100
 @
-name=hianbian.chest.3
-lootEntries=batch.3.magic.weapons:33,batch.3.magic.armour:33,batch.3.magic.trinkets:33,batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:50,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:75,batch.2.food:100,batch.1.food:10,batch.3.throwing.weapons:100,batch.2.throwing.weapons:100,batch.2.throwing.weapons:50,batch.2.gadgets:50
+name=leonal.knight
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3
 @
-name=ichiba.city.imogen.chest.loot
-lootEntries=batch.1.magic.trinkets:100,batch.2.magic.trinkets:50,batch.3.magic.trinkets:15,batch.1.magic.weapons:100,batch.2.magic.weapons:50,batch.3.magic.weapons:15,batch.1.magic.armour:100,batch.2.magic.armour:50,batch.3.magic.armour:15,batch.1.spell.books:100,batch.2.spell.books:90,batch.3.spell.books:75,batch.4.spell.books:50,batch.3.stix:75,batch.3.scrolls:75,batch.3.powders:75,batch.3.potions.other:75,batch.3.bombs:75,batch.1.banner.items:50,high.level.gold:100,batch.4.throwing.weapons:75
+name=Gnome.Robber.loot
+lootEntries=gnome.scout.items:100,I~Battleaxe:100,I~Willow Arrow:100,I~Long Bow:100
 @
-name=ruins.of.hail.hidden.stuff.1
-lootEntries=I~Dagger:100,I~Robes (U):100,batch.1.magic.trinkets:75,I~Faded Diary:100
+name=coc.sheriff
+lootEntries=coc.sheriff.items:3,coc.sheriff.items:3,coc.sheriff.items:3
 @
-name=aenen.city.chest.2
-lootEntries=batch.2.magic.armour:100,batch.2.magic.weapons:100,batch.2.magic.trinkets:75,batch.2.banner.items:50,batch.2.scrolls:100,batch.2.scrolls:75,batch.2.scrolls:50,mid.level.gold:100,batch.1.gadgets:100,batch.2.musical.instruments:75
+name=gatehouse.minor.loot.2
+lootEntries=low.level.gold:100,low.level.gold:50,exotic.starting.items:75,batch.1.magic.armour:50,batch.1.mundane.armour:100,batch.1.mundane.weapons:100,batch.1.gadgets:50,batch.1.throwing.weapons:50,batch.1.musical.intruments:50
 @
-name=aenen.city.chest.1
-lootEntries=batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:100,batch.2.food:100,batch.2.food:100,batch.2.mundane.armour:100,batch.2.potions.healing:100,batch.2.mundane.weapons:100,batch.2.spell.books:50,batch.1.gadgets:100,batch.2.throwing.weapons:100
+name=gatehouse.minor.loot.3
+lootEntries=batch.1.ammo:100,batch.1.ammo:25,batch.1.mundane.armour:100,batch.1.mundane.armour:25,batch.1.mundane.weapons:100,batch.1.mundane.weapons:25,batch.1.booze:75,batch.1.food:75,batch.1.ammo:75,gold.100:100,batch.1.throwing.weapons:50,batch.1.gadgets:50
+@
+name=gnome.elemental
+lootEntries=gnome.caster.items:100,batch.1.bombs:2,batch.1.potions.healing:2,batch.1.potions.other:2,batch.1.powders:2,batch.1.spell.books:2,batch.1.stix:2
+@
+name=Sarij.bin.Abdullah.loot
+lootEntries=goblin.cutpurse.items:10,I~Kwai:100,I~Bite Dagger:100
+@
+name=disassembly.clockwork.head
+lootEntries=I~Electric Eye:100,I~Electrodes:100
+@
+name=puppet.loot
+lootEntries=exotic.starting.items:10,batch.2.magic.trinkets:5
+@
+name=Leonal.Knight.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=stygios.forest.altar.of.nergal
+lootEntries=I~Spagyric Gem:100
+@
+name=ruins.of.hail.library.books
+lootEntries=I~Modern Astrology:100,I~The Compendium Of Classic Poetry:100,I~Metaphysics Of The Maze:100,I~Al-Khydr's Grimoire:100,I~The Guide To Runes:100,I~The Voyages Of Maranera:100
+@
+name=disassembly.electrified.sword
+lootEntries=I~High Voltage Transformer:100,I~Tarnished Sword:100
+@
+name=Scrymgeour.loot
+lootEntries=coc.sheriff.items:3,coc.sheriff.items:3,coc.sheriff.items:3,I~Bastard Sword:100
+@
+name=C.O.C..Sheriff.loot
+lootEntries=coc.sheriff.items:3,coc.sheriff.items:3,coc.sheriff.items:3,I~Bastard Sword:100
+@
+name=danaos.castle.armoury.chest
+lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:90,batch.3.mundane.weapons:100,batch.3.mundane.armour:90,batch.3.magic.trinkets:75,batch.3.banner.items:50,batch.3.ammo:100,batch.3.ammo:75,batch.3.ammo:50,batch.3.bombs:100,batch.3.bombs:50,batch.3.potions.healing:100,batch.3.potions.healing:75,batch.3.stix:50,batch.3.throwing.weapons:100,batch.3.throwing.weapons:75,batch.3.throwing.weapons:50
+@
+name=Gnome.Machinist.loot
+lootEntries=gnome.caster.items:100,batch.1.bombs:1,batch.1.potions.healing:1,batch.1.potions.other:1,batch.1.powders:1,batch.1.spell.books:1,batch.1.stix:1,I~Gnarled Staff:100
 @
 name=ichiba.city.chest.2
 lootEntries=heavy.weapon:100,mid.level.gold:100,batch.1.magic.weapons:50,batch.1.magic.armour:50,batch.1.mundane.weapons:100,batch.1.mundane.armour:100,batch.1.throwing.weapons:100,batch.1.throwing.weapons:50,batch.1.musical.intruments:50,batch.2.musical.instruments:10
@@ -193,87 +376,105 @@ lootEntries=batch.1.magic.trinkets:100,batch.1.bombs:100,batch.1.bombs:75,batch.
 name=ichiba.city.chest.1
 lootEntries=I~Long Bow:100,only.arrows:100,I~Baselard:100,I~Phrygian Cap:100,I~Suede Doublet:100,I~Suede Pants:100,I~Buskins:100,mid.level.gold:100,batch.1.magic.trinkets:50,batch.1.throwing.weapons:50,batch.2.gadgets:50
 @
-name=ren.san.personal.loot
-lootEntries=I~Bushido Blade:100,batch.2.magic.trinkets:20
-@
 name=ichiba.city.chest.4
 lootEntries=gold.500:100,batch.1.magic.weapons:100,I~Bracers Of Defense:100,batch.1.gadgets:100
 @
-name=gnome.machinist
-lootEntries=gnome.caster.items:100,batch.1.bombs:1,batch.1.potions.healing:1,batch.1.potions.other:1,batch.1.powders:1,batch.1.spell.books:1,batch.1.stix:1
+name=imogen.loot
+lootEntries=batch.1.magic.trinkets:90,batch.2.magic.trinkets:90,exotic.starting.items:50,gold.1000:100,batch.2.magic.trinkets:50,batch.3.magic.trinkets:25,batch.4.magic.trinkets:5
 @
-name=A_WEE_BIT_MORE_GOLD
-lootEntries=mid.level.gold:100
-@
-name=goblin.cutpurse
-lootEntries=goblin.cutpurse.items:10
-@
-name=gnome.scout
-lootEntries=gnome.scout.items:100
+name=gnome.shaman
+lootEntries=gnome.shaman.items:100
 @
 name=caves.of.ilast.miriam.chest
 lootEntries=I~Miriam's Rag Doll:100
 @
-name=getsel.gnawtooth.personal.loot
-lootEntries=batch.2.magic.trinkets:33,batch.2.magic.trinkets:33,high.level.gold:33,I~Getsel's Bone Comb:100
+name=Tao.loot
+lootEntries=I~Bushido Blade:100,batch.2.magic.trinkets:20
 @
-name=gnome.beggar
-lootEntries=gnome.beggar.items:10
+name=Dog.Soldier.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100
 @
-name=ekirths.tomb.chest.3
-lootEntries=batch.4.spell.books:20,batch.3.spell.books:20,batch.3.potions.healing:20,batch.3.potions.healing:20,batch.3.mundane.weapons:20,batch.3.mundane.armour:20,batch.3.magic.weapons:20,batch.3.magic.trinkets:20,batch.3.magic.trinkets:20,batch.3.banner.items:20,batch.2.banner.items:20,batch.1.banner.items:20,batch.4.magic.trinkets:20,batch.4.ammo:20,batch.3.ammo:20,batch.3.ammo:20,batch.3.ammo:20,gold.1000:100,batch.4.throwing.weapons:20,batch.3.throwing.weapons:20,batch.3.throwing.weapons:20,batch.3.throwing.weapons:20
+name=Sarpedon.loot
+lootEntries=gnome.trooper.items:100,I~Fauchard:100
 @
-name=writhing.mire.chest.1
-lootEntries=batch.2.ammo:100,batch.2.ammo:99,batch.2.ammo:95,batch.2.ammo:90,batch.2.ammo:80,batch.2.ammo:70,batch.2.ammo:60,batch.2.ammo:50,batch.2.ammo:50,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.mundane.armour:100,batch.2.mundane.weapons:100,batch.2.magic.weapons:10,gold.500:100,batch.2.throwing.weapons:100,batch.2.throwing.weapons:90,batch.2.throwing.weapons:75,batch.2.throwing.weapons:50
+name=Gnome.Warlock.loot
+lootEntries=gnome.warlock.items:100,I~Jian:100,I~Mystic Arrow:100,I~Long Bow:100
 @
-name=ichiba.domain.south.chest.1
-lootEntries=gnome.scout.items:100,gnome.scout.items:100,gnome.scout.items:75,I~Aenen Sundew:100,I~Aenen Sundew:75,I~Aenen Sundew:50,batch.1.spell.books:75,batch.1.powders:50,batch.1.throwing.weapons:100,batch.1.musical.intruments:25
-@
-name=ekirths.tomb.chest.1
-lootEntries=batch.4.ammo:100,batch.4.magic.armour:100,batch.4.magic.trinkets:100,batch.4.magic.weapons:100,batch.4.spell.books:100,gold.1000:100,batch.4.throwing.weapons:100,batch.3.musical.instruments:100
-@
-name=ekirths.tomb.chest.2
-lootEntries=batch.3.potions.healing:100,batch.3.potions.healing:100,batch.3.potions.healing:100,batch.3.potions.healing:50,batch.3.potions.other:100,batch.3.potions.other:75,batch.3.potions.other:50,batch.3.powders:75,batch.3.scrolls:75,batch.3.stix:75,batch.2.potions.healing:100,batch.2.potions.healing:90,batch.2.potions.healing:80,batch.2.potions.healing:70
-@
-name=leonal.knight
-lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3
-@
-name=ineoth.loot
-lootEntries=I~Spear Of Ineoth:100,gold.1000:100,batch.2.magic.weapons:50,batch.2.magic.armour:50,batch.2.magic.trinkets:50
-@
-name=writhing.mire.chest.2
-lootEntries=batch.2.magic.weapons:100,batch.2.magic.armour:100,batch.2.ammo:100,batch.2.banner.items:50,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.food:100,batch.2.food:50,gold.500:100,batch.2.throwing.weapons:100,batch.2.musical.instruments:50
-@
-name=gnome.knave
-lootEntries=gnome.knave.items:100
-@
-name=ichiba.depths.rhys.chest.loot
-lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.magic.trinkets:50,batch.3.magic.trinkets:50,batch.3.potions.healing:100,coc.sheriff.items:100,batch.3.spell.books:100,batch.3.spell.books:50,batch.3.mundane.armour:50,batch.3.mundane.weapons:50,batch.3.scrolls:100,batch.3.scrolls:75,batch.3.scrolls:50,batch.3.scrolls:25,I~Black Blood:100
-@
-name=crypt.of.atrocities.chest
-lootEntries=batch.4.ammo:15,batch.4.magic.armour:15,batch.4.magic.trinkets:15,batch.4.magic.weapons:15,batch.4.spell.books:15,batch.3.ammo:33,batch.3.banner.items:33,batch.3.bombs:33,batch.3.magic.armour:33,batch.3.magic.trinkets:33,batch.3.magic.weapons:33,batch.3.mundane.armour:33,batch.3.mundane.weapons:33,batch.3.potions.healing:33,batch.3.potions.other:33,batch.3.powders:33,batch.3.scrolls:33,batch.3.spell.books:33,batch.3.stix:33,exotic.starting.items:33,batch.4.throwing.weapons:15,batch.3.throwing.weapons:15,batch.3.gadgets:15
-@
-name=master.thief
-lootEntries=master.thief.items:5,master.thief.items:5,master.thief.items:5
-@
-name=gnome.antenor.loot
-lootEntries=batch.1.magic.weapons:15,batch.1.magic.armour:15,batch.1.mundane.weapons:100,batch.1.mundane.armour:100,batch.1.potions.healing:100,batch.1.potions.other:100,batch.1.powders:100,batch.1.ammo:100,batch.1.ammo:50,I~Antenor's Ring:100,batch.1.throwing.weapons:50
-@
-name=gnome.trooper
-lootEntries=gnome.trooper.items:100
-@
-name=disassembly.clockwork.head
-lootEntries=I~Electric Eye:100,I~Electrodes:100
-@
-name=hag.personal.loot
-lootEntries=batch.2.magic.trinkets:33,batch.2.magic.trinkets:33,high.level.gold:33
-@
-name=puppet.loot
-lootEntries=exotic.starting.items:10,batch.2.magic.trinkets:5
+name=gnome.warlock
+lootEntries=gnome.warlock.items:100
 @
 name=disassembly.tesla.coil
 lootEntries=I~Capacitor:100,I~Coil Of Copper Wire:100,I~Capacitor:50
 @
-name=belisarius.loot
-lootEntries=gold.1000:100,heavy.weapon:90,leonal.knight.items:90,leonal.knight.items:90,leonal.knight.items:90,batch.2.magic.armour:75,batch.2.magic.weapons:75,batch.1.spell.books:20,batch.1.mundane.armour:90
+name=ichiba.city.incense.chest
+lootEntries=I~Camphor Incense:100
+@
+name=gnoll.basic
+lootEntries=gnoll.items.basic:10
+@
+name=ghul.personal.loot
+lootEntries=I~Ghola Coin:100,I~Robes (U):100,I~Robes (L):100
+@
+name=Gnome.Beggar.loot
+lootEntries=gnome.beggar.items:10,I~Gnarled Staff:100
+@
+name=plain.of.pillars.ghul.chest
+lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.mundane.armour:100,batch.3.mundane.weapons:100,batch.3.magic.trinkets:100,batch.3.magic.trinkets:50,batch.3.potions.healing:100,batch.3.potions.healing:75,batch.3.potions.other:100,batch.3.potions.other:75,batch.3.powders:100,batch.3.powders:75,batch.3.spell.books:100,batch.3.spell.books:75,batch.3.bombs:100,batch.3.bombs:90,batch.3.ammo:100,batch.3.ammo:75,batch.3.scrolls:75,batch.3.throwing.weapons:100,batch.3.throwing.weapons:50
+@
+name=accountant.loot
+lootEntries=I~Dagger:50,I~Feather Dart:50,mid.level.gold:100
+@
+name=danaos.castle.armoury.floor
+lootEntries=I~Broadsword:100,I~Broadsword:90,I~Broadsword:75,I~Broadsword:50,I~Broadsword:25,I~Awl Pike:100,I~Awl Pike:90,I~Awl Pike:75,I~Awl Pike:50,I~Awl Pike:25,I~Steel Helm:50,I~Steel Guantlets:50,I~Breastplate:50,I~Bronze Greaves:50,I~Sollerets:50,I~Heater Shield:50,I~Shrike Arrow:100,I~Shrike Arrow:50,batch.1.ammo:50
+@
+name=ruins.of.hail.damla's.bones
+lootEntries=I~Sword Of Damla:100,batch.2.magic.armour:100,batch.2.magic.trinkets:100,batch.2.ammo:100,batch.3.throwing.weapons:100
+@
+name=tornado.mountain.chest.1
+lootEntries=batch.2.magic.armour:100,batch.2.magic.weapons:100,batch.2.magic.trinkets:100,batch.2.banner.items:40,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:75,batch.2.potions.healing:50,batch.2.potions.other:100,batch.2.potions.other:50,gold.500:100
+@
+name=TestLootTable
+lootEntries=I~Anointed Flail:100,I~Acid Bomb:100,low.level.gold:100,mid.level.gold:100,high.level.gold:100
+@
+name=A_WEE_BIT_OF_GOLD
+lootEntries=low.level.gold:100
+@
+name=writhing.mire.bel.ies.chest
+lootEntries=batch.2.magic.armour:50,batch.2.magic.trinkets:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:50,batch.2.potions.other:100,batch.2.potions.other:100,batch.2.potions.other:50,batch.2.powders:100,batch.2.powders:50,batch.2.scrolls:100,batch.2.scrolls:50,batch.2.spell.books:100,batch.2.stix:50,I~Medallion Of Bel:100,gold.1000:100
+@
+name=master.thief
+lootEntries=master.thief.items:5,master.thief.items:5,master.thief.items:5
+@
+name=ichiba.crossroad.hidden.stuff.1
+lootEntries=batch.1.potions.healing:100,batch.1.mundane.weapons:100,batch.1.magic.weapons:15,batch.1.magic.trinkets:15,batch.1.magic.armour:15,batch.1.spell.books:15,batch.2.mundane.armour:75,batch.2.mundane.weapons:75,I~Resurrection Powder:100
+@
+name=ichiba.city.coc.chest
+lootEntries=gold.1000:100,I~Diamondtip:100,I~Silver Ring:100
+@
+name=Agenor.loot
+lootEntries=leonal.knight.items:3,leonal.knight.items:3,leonal.knight.items:3,I~Broadsword:100
+@
+name=ruins.of.hail.black.dog.chest
+lootEntries=I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:100,I~Hail Cider:50,batch.3.gadgets:100
+@
+name=Gnoll.Thug.loot
+lootEntries=gnoll.items.basic:10,I~Assegai:100
+@
+name=ineoth.loot
+lootEntries=I~Spear Of Ineoth:100,gold.1000:100,batch.2.magic.weapons:50,batch.2.magic.armour:50,batch.2.magic.trinkets:50
+@
+name=Ghoul.Sheriff.loot
+lootEntries=coc.sheriff.items:3,coc.sheriff.items:3,coc.sheriff.items:3,I~Bastard Sword:100
+@
+name=Belisarius.loot
+lootEntries=gold.1000:100,heavy.weapon:90,leonal.knight.items:90,leonal.knight.items:90,leonal.knight.items:90,batch.2.magic.armour:75,batch.2.magic.weapons:75,batch.1.spell.books:20,batch.1.mundane.armour:90,I~Broadsword:100
+@
+name=plain.of.pillars.chest.1
+lootEntries=batch.2.magic.armour:75,batch.2.magic.weapons:75,batch.2.magic.trinkets:75,batch.3.mundane.armour:100,batch.3.mundane.weapons:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:75,batch.2.potions.healing:75,batch.2.stix:100,batch.2.spell.books:75,batch.3.musical.instruments:50
+@
+name=testing.foe.loot
+lootEntries=I~Longsword:100,I~Dagger:100,I~Leather Helm:100,I~Leather Cuirass:100,I~Leather Gloves:100,I~Leather Boots:100,I~Leather Leggings:100,I~Brooch:100,I~Ambassador's Amulet:50,low.level.gold:100,mid.level.gold:100,high.level.gold:100,I~Longsword:100
+@
+name=Master.Thief.loot
+lootEntries=master.thief.items:5,master.thief.items:5,master.thief.items:5,I~Skull Dagger:100,I~Thieves Dagger:100
 @

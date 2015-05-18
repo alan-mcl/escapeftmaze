@@ -61,6 +61,14 @@ public class ItemTemplatePanel extends EditorPanel
 
 	private static String[] validItemTypes, validItemSubTypes;
 
+	static String[] ranges =
+	{
+		ItemTemplate.WeaponRange.describe(ItemTemplate.WeaponRange.MELEE),
+		ItemTemplate.WeaponRange.describe(ItemTemplate.WeaponRange.EXTENDED),
+		ItemTemplate.WeaponRange.describe(ItemTemplate.WeaponRange.THROWN),
+		ItemTemplate.WeaponRange.describe(ItemTemplate.WeaponRange.LONG),
+	};
+
 	/*-------------------------------------------------------------------------*/
 	private enum SortBy
 	{
@@ -252,11 +260,11 @@ public class ItemTemplatePanel extends EditorPanel
 		toInitiative.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("To Initiative:"), toInitiative, gbc);
 
-		minRange = new JComboBox(FoeAttackPanel.ranges);
+		minRange = new JComboBox(ranges);
 		minRange.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Min Range:"), minRange, gbc);
 
-		maxRange = new JComboBox(FoeAttackPanel.ranges);
+		maxRange = new JComboBox(ranges);
 		maxRange.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Max Range:"), maxRange, gbc);
 

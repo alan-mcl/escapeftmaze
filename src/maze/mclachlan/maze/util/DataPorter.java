@@ -106,9 +106,6 @@ public class DataPorter
 		System.out.println("porting textures...");
 		saver.saveMazeTextures(loader.loadMazeTextures());
 
-		System.out.println("porting foe attacks...");
-		saver.saveFoeAttacks(loader.loadFoeAttacks());
-
 		System.out.println("porting foe templates...");
 		saver.saveFoeTemplates(loader.loadFoeTemplates());
 
@@ -162,7 +159,6 @@ public class DataPorter
 		System.out.println("spells: "+test.loadSpells().size());
 		System.out.println("player spell books: "+test.loadPlayerSpellBooks().size());
 		System.out.println("maze textures: "+test.loadMazeTextures().size());
-		System.out.println("foe attacks: "+test.loadFoeAttacks().size());
 		System.out.println("foe templates: "+test.loadFoeTemplates().size());
 		System.out.println("traps: "+test.loadTraps().size());
 		System.out.println("foe entries: "+test.loadFoeEntries().size());

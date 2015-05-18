@@ -23,13 +23,14 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.ItemTemplate;
 
 /**
  *
  */
 public class SingleItemLootEntry implements ILootEntry
 {
-	String itemName;
+	private String itemName;
 
 	/*-------------------------------------------------------------------------*/
 	public SingleItemLootEntry(String itemName)
@@ -59,7 +60,37 @@ public class SingleItemLootEntry implements ILootEntry
 	public List<LootEntryRow> getContents()
 	{
 		ArrayList<LootEntryRow> result = new ArrayList<LootEntryRow>();
-		result.add(new LootEntryRow(itemName, Dice.d1));
+		ItemTemplate itemTemplate = Database.getInstance().getItemTemplate(itemName);
+		Dice quantity = Dice.d1;
+
+		if (itemTemplate.getMaxItemsPerStack() > 1)
+		{
+			switch (itemTemplate.getType())
+			{
+				case ItemTemplate.Type.AMMUNITION: quantity = new Dice(1,20,20);
+					break;
+				case ItemTemplate.Type.POTION: quantity = new Dice(2,3,-1);
+								break;
+				case ItemTemplate.Type.BOMB: quantity = new Dice(2,3,-1);
+								break;
+				case ItemTemplate.Type.MONEY: quantity = new Dice(1,20,5);
+								break;
+				case ItemTemplate.Type.SUPPLIES: quantity = new Dice(1,20,5);
+								break;
+				case ItemTemplate.Type.DRINK: quantity = new Dice(2,3,-1);
+								break;
+				case ItemTemplate.Type.FOOD: quantity = new Dice(2,3,-1);
+								break;
+				case ItemTemplate.Type.POWDER: quantity = new Dice(2,3,-1);
+								break;
+				case ItemTemplate.Type.THROWN_WEAPON: quantity = new Dice(1,15,5);
+								break;
+				default:
+					quantity = Dice.d1;
+			}
+		}
+
+		result.add(new LootEntryRow(itemName, quantity));
 		return result;
 	}
 }

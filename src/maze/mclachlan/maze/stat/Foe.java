@@ -21,14 +21,15 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.*;
 import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.LootTable;
-import mclachlan.maze.stat.combat.*;
+import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.event.AttackEvent;
-import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -68,7 +69,7 @@ public class Foe extends UnifiedActor
 			null,
 			null,
 			template.getBodyParts(),
-			template.getNaturalWeapons(),
+			null,
 			null,
 			new Stats(template.getStats()),
 			template.getSpellBook(),
@@ -76,9 +77,21 @@ public class Foe extends UnifiedActor
 
 		this.template = template;
 
+		// set level
 		HashMap<String, Integer> levels = new HashMap<String, Integer>();
 		levels.put(getName(), template.levelRange.roll());
 		this.setLevels(levels);
+
+		// set natural weapons
+		if (template.getNaturalWeapons() != null)
+		{
+			List<NaturalWeapon> naturalWeapons = new ArrayList<NaturalWeapon>();
+			for (String nw : template.getNaturalWeapons())
+			{
+				naturalWeapons.add(Database.getInstance().getNaturalWeapons().get(nw));
+			}
+			setNaturalWeapons(naturalWeapons);
+		}
 
 		// roll up this foes vitals
 		int maxHP = template.hitPointsRange.roll();
@@ -203,102 +216,6 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ActorActionIntention getFoeAttackIntention(int engagementRange,
-		Dice possDice, Combat combat)
-	{
-		FoeAttack fa = null;
-		FoeAttack.FoeAttackSpell spell = null;
-
-		while (fa == null)
-		{
-			fa = this.getAttacks().getRandomItem();
-			if (!isLegalAttack(fa, engagementRange))
-			{
-				fa = null;
-				continue;
-			}
-
-			switch (fa.getType())
-			{
-				case MELEE_ATTACK:
-				case RANGED_ATTACK:
-					ActorGroup target = combat.getFoesOf(this).get(possDice.roll());
-					return new AttackIntention(target, combat, fa);
-
-				case CAST_SPELL:
-					spell = fa.getSpells().getRandomItem();
-					SpellTarget spellTarget = chooseTarget(this, spell, combat);
-					return new SpellIntention(spellTarget, spell.getSpell(), spell.getCastingLevel().roll());
-
-				case SPECIAL_ABILITY:
-					spell = fa.getSpecialAbility();
-					SpellTarget abilityTarget = chooseTarget(this, spell, combat);
-					return new SpecialAbilityIntention(abilityTarget, spell.getSpell(), spell.getCastingLevel().roll());
-
-				default:
-					throw new MazeException("Invalid type: "+fa.getType());
-			}
-		}
-
-		throw new MazeException("could not find valid foe attack for ["+this.getName()+"]");
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public SpellTarget chooseTarget(Foe foe, FoeAttack.FoeAttackSpell spell, Combat combat)
-	{
-		SpellTarget target;
-		switch (spell.getSpell().getTargetType())
-		{
-			case MagicSys.SpellTargetType.ALL_FOES:
-			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
-				target = null;
-				break;
-
-			case MagicSys.SpellTargetType.PARTY:
-				target = combat.getActorGroup(foe);
-				break;
-
-			case MagicSys.SpellTargetType.TILE:
-				target = null;
-				break;
-
-			case MagicSys.SpellTargetType.CASTER:
-				target = foe;
-				break;
-
-			case MagicSys.SpellTargetType.ALLY:
-				List<UnifiedActor> allies = combat.getAllAlliesOf(foe);
-				Dice d = new Dice(1, allies.size(), -1);
-				target = allies.get(d.roll());
-				break;
-
-			case MagicSys.SpellTargetType.FOE:
-				List<UnifiedActor> enemies = combat.getAllFoesOf(foe);
-				d = new Dice(1, enemies.size(), -1);
-				target = enemies.get(d.roll());
-				break;
-
-			case MagicSys.SpellTargetType.FOE_GROUP:
-			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-				List<ActorGroup> groups = combat.getFoesOf(foe);
-				d = new Dice(1, groups.size(), -1);
-				target = groups.get(d.roll());
-				break;
-
-			// these should never really be cast be foes
-			case MagicSys.SpellTargetType.ITEM:
-			case MagicSys.SpellTargetType.NPC:
-			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				target = null;
-				break;
-
-			default: throw new MazeException("Invalid target type: "+
-				spell.getSpell().getTargetType());
-		}
-		return target;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getStealthBehaviour()
 	{
 		return template.getStealthBehaviour();
@@ -351,104 +268,6 @@ public class Foe extends UnifiedActor
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<CombatAction> getCombatActions(ActorActionIntention intention)
-	{
-		Maze.log(Log.DEBUG, "getting combat actions for "+this.getName());
-		if (intention instanceof AttackIntention)
-		{
-			List<CombatAction> result = new ArrayList<CombatAction>();
-
-			if (intention instanceof AttackIntention)
-			{
-				FoeAttack fa = (FoeAttack)((AttackIntention)intention).getAttackWith();
-
-				int[] attacks = fa.getAttacks();
-				int initiativePenalty = 0;
-				for (int attack : attacks)
-				{
-					CombatAction action = new AttackAction(
-						((AttackIntention)intention).getActorGroup(),
-						fa,
-						attack,
-						fa.getAttackScript(),
-						true,
-						GameSys.getInstance().isLightningStrike(this, fa),
-						fa.getDefaultDamageType());
-
-					action.setModifier(Stats.Modifiers.INITIATIVE, initiativePenalty);
-					initiativePenalty -= 5;
-					result.add(action);
-					Maze.log(Log.DEBUG, action.toString());
-				}
-
-				return result;
-			}
-			else if (intention instanceof SpellIntention)
-			{
-				SpellIntention si = (SpellIntention)intention;
-				CombatAction action = new SpellAction(
-					si.getTarget(),
-					si.getSpell(),
-					si.getCastingLevel());
-				result.add(action);
-				Maze.log(Log.DEBUG, action.toString());
-				return result;
-			}
-			else if (intention instanceof SpecialAbilityIntention)
-			{
-				SpecialAbilityIntention sai = (SpecialAbilityIntention)intention;
-				CombatAction action = new SpecialAbilityAction(
-					sai.getDisplayName(),
-					sai.getTarget(),
-					sai.getSpell(),
-					sai.getCastingLevel());
-				Maze.log(Log.DEBUG, action.toString());
-				result.add(action);
-				return result;
-			}
-			else
-			{
-				throw new MazeException("Invalid type: "+intention);
-			}
-		}
-		else if (intention instanceof DefendIntention)
-		{
-			List<CombatAction> result = new ArrayList<CombatAction>();
-			DefendAction action = new DefendAction();
-			Maze.log(Log.DEBUG, action.toString());
-			result.add(action);
-			return result;
-		}
-		else if (intention instanceof RunAwayIntention)
-		{
-			List<CombatAction> result = new ArrayList<CombatAction>();
-			RunAwayAction action = new RunAwayAction();
-			Maze.log(Log.DEBUG, action.toString());
-			result.add(action);
-			return result;
-		}
-		else if (intention instanceof HideIntention)
-		{
-			List<CombatAction> result = new ArrayList<CombatAction>();
-			HideAction action = new HideAction();
-			Maze.log(Log.DEBUG, action.toString());
-			result.add(action);
-			return result;
-		}
-		else
-		{
-			// todo: probably this masks a few bugs
-			List<CombatAction> result = new ArrayList<CombatAction>();
-			CombatAction action = CombatAction.DO_NOTHING;
-			Maze.log(Log.DEBUG, "!possible do-nothing bug here");
-			Maze.log(Log.DEBUG, action.toString());
-			result.add(action);
-			return result;
-//			throw new MazeException("Unrecognised combat intention: "+intention);
-		}
-	}
-
 	public void removeItem(Item item, boolean removeWholeStack)
 	{
 	}
@@ -475,6 +294,7 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void addAllies(List<FoeGroup> foeGroups)
 	{
 		Maze.getInstance().addFoeAllies(foeGroups);
@@ -485,18 +305,10 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean isActiveModifier(String modifier)
 	{
 		return true;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public List<AttackWith> getAttackWithOptions()
-	{
-		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
-		result.addAll(template.getNaturalWeapons());
-		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -507,24 +319,20 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public PercentageTable<FoeAttack> getAttacks()
-	{
-		return this.template.attacks;
-	}
-	
-	/*-------------------------------------------------------------------------*/
+	@Override
 	public PercentageTable<BodyPart> getBodyParts()
 	{
-		return this.template.bodyParts;
+		return this.template.getBodyParts();
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public PercentageTable<String> getPlayerBodyParts()
 	{
-		return this.template.playerBodyParts;
+		return this.template.getPlayerBodyParts();
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Item getArmour(BodyPart bodyPart)
 	{
 		// foes are only treated as having natural armour, on their BodyParts
@@ -532,6 +340,7 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void deductAmmo(AttackEvent event)
 	{
 		// Foes have no ammo restrictions ;-)
@@ -786,11 +595,11 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public boolean canAttack(int engagementRange)
 	{
-		List<FoeAttack> items = getAttacks().getItems();
+		List<AttackWith> items = getAttackWithOptions();
 
-		for (FoeAttack fa : items)
+		for (AttackWith aw : items)
 		{
-			if (isLegalAttack(fa, engagementRange))
+			if (isLegalAttack(aw, engagementRange))
 			{
 				return true;
 			}
@@ -800,10 +609,10 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean isLegalAttack(FoeAttack fa, int engagementRange)
+	public boolean isLegalAttack(AttackWith aw, int engagementRange)
 	{
-		return fa.getMinRange() <= engagementRange &&
-			fa.getMaxRange() >= engagementRange;
+		return aw.getMinRange() <= engagementRange &&
+			aw.getMaxRange() >= engagementRange;
 	}
 
 	/*-------------------------------------------------------------------------*/

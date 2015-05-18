@@ -189,31 +189,4 @@ public class V1NaturalWeapons
 				attackScript);
 		}
 	}
-
-	/*-------------------------------------------------------------------------*/
-	static String foeAttackSpellToString(FoeAttack.FoeAttackSpell f)
-	{
-		if (f == null)
-		{
-			return "";
-		}
-		StringBuilder s = new StringBuilder();
-		s.append(f.getName());
-		s.append("/");
-		s.append(V1Dice.toString(f.getCastingLevel()));
-		return s.toString();
-	}
-
-	static FoeAttack.FoeAttackSpell foeAttackSpellFromString(String s)
-	{
-		if (s.equals(""))
-		{
-			return null;
-		}
-		String[] strs = s.split("/");
-		return new FoeAttack.FoeAttackSpell(
-			Database.getInstance().getSpell(strs[0]),
-			V1Dice.fromString(strs[1]));
-	}
-
 }

@@ -212,15 +212,6 @@ public class V1Saver extends Saver
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void saveFoeAttacks(Map<String, FoeAttack> map) throws Exception
-	{
-		BufferedWriter writer = new BufferedWriter(new FileWriter(path+V1Utils.FOE_ATTACKS));
-		V1FoeAttack.save(writer, map);
-		writer.flush();
-		writer.close();
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception
 	{
 		BufferedWriter writer = new BufferedWriter(new FileWriter(path+V1Utils.FOE_TEMPLATES));

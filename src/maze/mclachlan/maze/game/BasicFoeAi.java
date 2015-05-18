@@ -19,13 +19,9 @@
 
 package mclachlan.maze.game;
 
-import mclachlan.maze.stat.ActorActionIntention;
-import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.stat.combat.DefendIntention;
-import mclachlan.maze.stat.combat.HideIntention;
-import mclachlan.maze.stat.combat.RunAwayIntention;
+import java.util.*;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.*;
 
 /**
  * Foe AI that simply picks a random attack with a random legal target, or
@@ -64,13 +60,87 @@ public class BasicFoeAi extends FoeCombatAi
 		}
 
 		// just attack, if possible
+		// todo: spells, SLAs
 		if (foe.canAttack(engagementRange))
 		{
-			return foe.getFoeAttackIntention(engagementRange, possDice, combat);
+			// pick a random attack
+			List<AttackWith> attackWithOptions = foe.getAttackWithOptions();
+
+			AttackWith aw;
+			do
+			{
+				aw = attackWithOptions.get(Dice.nextInt(attackWithOptions.size()));
+			}
+			while (!foe.isLegalAttack(aw,engagementRange));
+
+			// pick a random enemy group
+			List<ActorGroup> foesOf = combat.getFoesOf(foe);
+			ActorGroup group = foesOf.get(Dice.nextInt(foesOf.size()));
+
+			return new AttackIntention(group, combat, aw);
 		}
 		else
 		{
 			return new DefendIntention();
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public SpellTarget chooseTarget(Foe foe, /*FoeAttack.FoeAttackSpell spell,*/ Combat combat)
+	{
+		// todo
+
+		return null;
+
+		/*SpellTarget target;
+		switch (spell.getSpell().getTargetType())
+		{
+			case MagicSys.SpellTargetType.ALL_FOES:
+			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+				target = null;
+				break;
+
+			case MagicSys.SpellTargetType.PARTY:
+				target = combat.getActorGroup(foe);
+				break;
+
+			case MagicSys.SpellTargetType.TILE:
+				target = null;
+				break;
+
+			case MagicSys.SpellTargetType.CASTER:
+				target = foe;
+				break;
+
+			case MagicSys.SpellTargetType.ALLY:
+				List<UnifiedActor> allies = combat.getAllAlliesOf(foe);
+				Dice d = new Dice(1, allies.size(), -1);
+				target = allies.get(d.roll());
+				break;
+
+			case MagicSys.SpellTargetType.FOE:
+				List<UnifiedActor> enemies = combat.getAllFoesOf(foe);
+				d = new Dice(1, enemies.size(), -1);
+				target = enemies.get(d.roll());
+				break;
+
+			case MagicSys.SpellTargetType.FOE_GROUP:
+			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
+				List<ActorGroup> groups = combat.getFoesOf(foe);
+				d = new Dice(1, groups.size(), -1);
+				target = groups.get(d.roll());
+				break;
+
+			// these should never really be cast be foes
+			case MagicSys.SpellTargetType.ITEM:
+			case MagicSys.SpellTargetType.NPC:
+			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
+				target = null;
+				break;
+
+			default: throw new MazeException("Invalid target type: "+
+				spell.getSpell().getTargetType());
+		}
+		return target;*/
 	}
 }

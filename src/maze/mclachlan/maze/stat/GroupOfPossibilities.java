@@ -122,4 +122,17 @@ public class GroupOfPossibilities<T>
 
 		return percentages.get(index);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isEmpty()
+	{
+		return this.percentages.isEmpty();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addAll(GroupOfPossibilities<T> other)
+	{
+		this.percentages.addAll(other.getPercentages());
+		this.possibilities.addAll(other.getPossibilities());
+	}
 }

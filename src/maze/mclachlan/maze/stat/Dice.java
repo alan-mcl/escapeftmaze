@@ -122,6 +122,12 @@ public class Dice
 	}
 	
 	/*-------------------------------------------------------------------------*/
+	public static int nextInt(int lessThan)
+	{
+		return r.nextInt(lessThan);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static void main(String[] args)
 	{
 		Dice d = V1Dice.fromString(args[0]);

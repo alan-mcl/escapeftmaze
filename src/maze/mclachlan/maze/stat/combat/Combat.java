@@ -612,21 +612,11 @@ public class Combat
 		int targetGroup = GameSys.getInstance().nextInt(groups);
 
 		// get an attack action
-		ActorActionIntention intention;
-		if (actor instanceof Foe)
-		{
-			Foe foe = (Foe)actor;
-			intention = foe.getFoeAttackIntention(
-				ItemTemplate.WeaponRange.MELEE,
-				new Dice(1, 1, -1), this);
-		}
-		else
-		{
-			intention = new AttackIntention(
-				getAlliesOf(actor).get(targetGroup),
-				this,
-				action.getAttackWith());
-		}
+		ActorActionIntention intention = new AttackIntention(
+			getAlliesOf(actor).get(targetGroup),
+			this,
+			action.getAttackWith());
+
 		List<CombatAction> actions = getActorCombatActions(actor, intention);
 
 		for (CombatAction act : actions)

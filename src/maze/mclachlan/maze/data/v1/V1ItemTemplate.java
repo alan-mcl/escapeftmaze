@@ -65,6 +65,19 @@ public class V1ItemTemplate
 		}
 	};
 
+	static V1GroupOfPossibilties<SpellEffect> spellEffects = new V1GroupOfPossibilties<SpellEffect>()
+	{
+		public SpellEffect typeFromString(String s)
+		{
+			return Database.getInstance().getSpellEffect(s);
+		}
+
+		public String typeToString(SpellEffect spellEffect)
+		{
+			return spellEffect.getName();
+		}
+	};
+
 	/*-------------------------------------------------------------------------*/
 	public static Map<String, ItemTemplate> load(BufferedReader reader) throws Exception
 	{
@@ -277,7 +290,7 @@ public class V1ItemTemplate
 			b.append(V1Utils.NEWLINE);
 
 			b.append("spellEffects=");
-			b.append(V1FoeAttack.spellEffects.toString(obj.getSpellEffects()));
+			b.append(spellEffects.toString(obj.getSpellEffects()));
 			b.append(V1Utils.NEWLINE);
 
 			b.append("bonusAttacks=");
@@ -397,7 +410,7 @@ public class V1ItemTemplate
 			int minRange = Integer.parseInt(p.getProperty("minRange"));
 			int maxRange = Integer.parseInt(p.getProperty("maxRange"));
 			List<ItemTemplate.AmmoType> ammo = ammoTypeList.fromString(p.getProperty("ammo"));
-			GroupOfPossibilities<SpellEffect> spellEffects = V1FoeAttack.spellEffects.fromString(p.getProperty("spellEffects"));
+			GroupOfPossibilities<SpellEffect> se = spellEffects.fromString(p.getProperty("spellEffects"));
 			int bonusAttacks = Integer.parseInt(p.getProperty("bonusAttacks"));
 			int bonusStrikes = Integer.parseInt(p.getProperty("bonusStrikes"));
 			String discipline = p.getProperty("discipline").equals("")?null:p.getProperty("discipline");
@@ -456,7 +469,7 @@ public class V1ItemTemplate
 				minRange,
 				maxRange,
 				ammo,
-				spellEffects,
+				se,
 				bonusAttacks,
 				bonusStrikes,
 				discipline,

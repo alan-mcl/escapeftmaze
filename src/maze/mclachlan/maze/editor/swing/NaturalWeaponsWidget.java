@@ -76,6 +76,20 @@ public class NaturalWeaponsWidget extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void refreshStrings(List<String> list)
+	{
+		this.dataModel.clear();
+		if (list == null)
+		{
+			return;
+		}
+		for (String nw : list)
+		{
+			this.dataModel.add(Database.getInstance().getNaturalWeapons().get(nw));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent e)
 	{
 		SwingEditor.instance.setDirty(dirtyFlag);
@@ -117,6 +131,19 @@ public class NaturalWeaponsWidget extends JPanel
 	public List<NaturalWeapon> getNaturalWeapons()
 	{
 		return new ArrayList<NaturalWeapon>(dataModel.data);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<String> getNaturalWeaponsStrings()
+	{
+		ArrayList<String> result = new ArrayList<String>();
+
+		for (NaturalWeapon nw : dataModel.data)
+		{
+			result.add(nw.getName());
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

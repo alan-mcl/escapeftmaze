@@ -19,13 +19,11 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.BorderLayout;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
@@ -49,7 +47,10 @@ public class FoeTemplatePanel extends EditorPanel
 
 	private BodyPartPercentageTablePanel bodyParts;
 	private PlayerBodyPartAttackedPanel playerBodyParts;
-	private FoeAttackPercentageTablePanel foeAttacks;
+
+	private NaturalWeaponsWidget naturalWeapons;
+	private SpellListPanel spellBook;
+	private SpellLikeAbilitiesWidget spellLikeAbilitiesWidget;
 
 	static String[] evasionBehaviours =
 		{
@@ -73,7 +74,18 @@ public class FoeTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public JPanel getEditControls()
+	public Container getEditControls()
+	{
+		JTabbedPane tabs = new JTabbedPane();
+
+		tabs.add("Stats", getStatsPanel());
+		tabs.add("Attacks", getAttacksPanel());
+
+		return tabs;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private Component getAttacksPanel()
 	{
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -83,21 +95,45 @@ public class FoeTemplatePanel extends EditorPanel
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 		gbc.weightx = 0.0;
-		gbc.weighty = 1.0;
+		gbc.weighty = 0.0;
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 
-		result.add(getLeftPanel(), gbc);
+		naturalWeapons = new NaturalWeaponsWidget(this.dirtyFlag);
+		result.add(naturalWeapons, gbc);
 
 		gbc.gridx++;
-		gbc.weightx=1.0;
+		gbc.weightx = 1.0;
+		gbc.gridheight = 2;
 
-		result.add(getRightPanel(), gbc);
+		spellBook = new SpellListPanel(this.dirtyFlag);
+		result.add(spellBook, gbc);
+
+		gbc.gridx=0;
+		gbc.weightx = 0.0;
+		gbc.gridy++;
+		gbc.gridheight = 1;
+
+		spellLikeAbilitiesWidget = new SpellLikeAbilitiesWidget(this.dirtyFlag);
+		result.add(spellLikeAbilitiesWidget, gbc);
+
+		gbc.gridy++;
+		gbc.weighty = 1.0;
+
+		bodyParts = new BodyPartPercentageTablePanel("Foe Body Parts Hit", dirtyFlag, 0.75, 0.3);
+		result.add(bodyParts, gbc);
+
+		gbc.gridx++;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+
+		playerBodyParts = new PlayerBodyPartAttackedPanel("Player Body Parts Attacked", dirtyFlag);
+		result.add(playerBodyParts, gbc);
 
 		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private JPanel getRightPanel()
+	private JPanel getStatsPanel()
 	{
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -107,22 +143,10 @@ public class FoeTemplatePanel extends EditorPanel
 		gbc.gridwidth = 1;
 		gbc.gridheight = 1;
 		gbc.weightx = 1.0;
-		gbc.weighty = 0.0;
+		gbc.weighty = 1.0;
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 
-		foeAttacks = new FoeAttackPercentageTablePanel("Foe Attacks", dirtyFlag, 0.75, 0.3);
-		result.add(foeAttacks, gbc);
-
-		gbc.gridy++;
-
-		bodyParts = new BodyPartPercentageTablePanel("Foe Body Parts Hit", dirtyFlag, 0.75, 0.3);
-		result.add(bodyParts, gbc);
-
-		gbc.gridy++;
-		gbc.weighty = 1.0;
-
-		playerBodyParts = new PlayerBodyPartAttackedPanel("Player Body Parts Attacked", dirtyFlag);
-		result.add(playerBodyParts, gbc);
+		result.add(getLeftPanel(), gbc);
 
 		return result;
 	}
@@ -286,7 +310,7 @@ public class FoeTemplatePanel extends EditorPanel
 
 		bodyParts.initForeignKeys();
 		playerBodyParts.initForeignKeys();
-		foeAttacks.initForeignKeys();
+		spellBook.initForeignKeys();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -334,7 +358,9 @@ public class FoeTemplatePanel extends EditorPanel
 		isNpc.setSelected(ft.isNpc());
 		immuneToCriticals.setSelected(ft.isImmuneToCriticals());
 		cannotBeEvaded.setSelected(ft.cannotBeEvaded());
-		foeAttacks.refresh(ft.getAttacks());
+		naturalWeapons.refreshStrings(ft.getNaturalWeapons());
+		spellBook.refresh(ft.getSpellBook());
+		spellLikeAbilitiesWidget.refresh(ft.getSpellLikeAbilities());
 		bodyParts.refresh(ft.getBodyParts());
 		playerBodyParts.refresh(ft.getPlayerBodyParts());
 		MazeScript mazeScript = ft.getAppearanceScript();
@@ -388,7 +414,6 @@ public class FoeTemplatePanel extends EditorPanel
 			Dice.d1,
 			0,
 			new StatModifier(),
-			new PercentageTable<FoeAttack>(),
 			new PercentageTable<BodyPart>(),
 			getDefaultPlayerBodyPartsAttacked(),
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
@@ -407,6 +432,9 @@ public class FoeTemplatePanel extends EditorPanel
 			Foe.StealthBehaviour.NOT_STEALTHY,
 			"",
 			false,
+			null,
+			null,
+			null,
 			null,
 			null);
 		Database.getInstance().getFoeTemplates().put(name, ft);
@@ -451,7 +479,6 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getLevelRange(),
 			current.getExperience(),
 			new StatModifier(current.getStats()),
-			new PercentageTable<FoeAttack>(current.getAttacks()),
 			new PercentageTable<BodyPart>(current.getBodyParts()),
 			new PercentageTable<String>(current.getPlayerBodyParts()),
 			current.getBaseTexture(),
@@ -471,7 +498,10 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getFaction(),
 			current.isNpc(),
 			current.getAppearanceScript(),
-			current.getDeathScript());
+			current.getDeathScript(),
+			current.getNaturalWeapons(),
+			current.getSpellBook(),
+			current.getSpellLikeAbilities());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
 	}
@@ -519,7 +549,9 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setStats(stats.getModifier());
 		ft.setFoeGroupBannerModifiers(foeGroupBannerModifiers.getModifier());
 		ft.setAllFoesBannerModifiers(allFoesBannerModifiers.getModifier());
-		ft.setAttacks(foeAttacks.getPercentageTable());
+		ft.setNaturalWeapons(naturalWeapons.getNaturalWeaponsStrings());
+		ft.setSpellBook(spellBook.getSpellBook());
+		ft.setSpellLikeAbilities(spellLikeAbilitiesWidget.getSpellLikeAbilities());
 		ft.setBodyParts(bodyParts.getPercentageTable());
 		ft.setPlayerBodyParts(playerBodyParts.getPlayerBodyParts());
 		ft.setBaseTexture(Database.getInstance().getMazeTexture((String)baseTexture.getSelectedItem()));

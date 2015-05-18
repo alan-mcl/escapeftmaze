@@ -64,7 +64,6 @@ public class SwingEditor extends JFrame implements WindowListener
 	private SpellPanel spellPanel;
 	private RacePanel racePanel;
 	private MazeTexturePanel mazeTexturePanel;
-	private FoeAttackPanel foeAttackPanel;
 	private NaturalWeaponsPanel naturalWeaponsPanel;
 	private FoeTemplatePanel foeTemplatePanel;
 	private TrapsPanel trapsPanel;
@@ -146,7 +145,6 @@ public class SwingEditor extends JFrame implements WindowListener
 		addStaticDataTab("Player Spell Books", getPlayerSpellBooksPanel());
 		addStaticDataTab("Races", getRacesPanel());
 		addStaticDataTab("Maze Textures", getMazeTexturesPanel());
-		addStaticDataTab("Foe Attacks", getFoeAttacksPanel());
 		addStaticDataTab("Natural Weapons", getNaturalWeaponsPanel());
 		addStaticDataTab("Foe Templates", getFoeTemplatesPanel());
 		addStaticDataTab("Traps", getTrapsPanel());
@@ -323,12 +321,6 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		foeTemplatePanel = new FoeTemplatePanel();
 		return foeTemplatePanel;
-	}
-
-	private EditorPanel getFoeAttacksPanel()
-	{
-		foeAttackPanel = new FoeAttackPanel();
-		return foeAttackPanel;
 	}
 
 	private EditorPanel getNaturalWeaponsPanel()
@@ -543,7 +535,6 @@ public class SwingEditor extends JFrame implements WindowListener
 		if (dirty.get(Tab.PLAYER_SPELL_BOOKS)) Database.getInstance().getSaver().savePlayerSpellBooks(Database.getInstance().getPlayerSpellBooks());
 		if (dirty.get(Tab.RACES)) Database.getInstance().getSaver().saveRaces(Database.getInstance().getRaces());
 		if (dirty.get(Tab.TEXTURES)) Database.getInstance().getSaver().saveMazeTextures(Database.getInstance().getMazeTextures());
-		if (dirty.get(Tab.FOE_ATTACKS)) Database.getInstance().getSaver().saveFoeAttacks(Database.getInstance().getFoeAttacks());
 		if (dirty.get(Tab.FOE_TEMPLATES)) Database.getInstance().getSaver().saveFoeTemplates(Database.getInstance().getFoeTemplates());
 		if (dirty.get(Tab.TRAPS)) Database.getInstance().getSaver().saveTraps(Database.getInstance().getTraps());
 		if (dirty.get(Tab.FOE_ENTRIES)) Database.getInstance().getSaver().saveFoeEntries(Database.getInstance().getFoeEntries());
@@ -618,7 +609,6 @@ public class SwingEditor extends JFrame implements WindowListener
 		Database.getInstance().getSaver().savePlayerSpellBooks(Database.getInstance().getPlayerSpellBooks());
 		Database.getInstance().getSaver().saveRaces(Database.getInstance().getRaces());
 		Database.getInstance().getSaver().saveMazeTextures(Database.getInstance().getMazeTextures());
-		Database.getInstance().getSaver().saveFoeAttacks(Database.getInstance().getFoeAttacks());
 		Database.getInstance().getSaver().saveFoeTemplates(Database.getInstance().getFoeTemplates());
 		Database.getInstance().getSaver().saveTraps(Database.getInstance().getTraps());
 		Database.getInstance().getSaver().saveFoeEntries(Database.getInstance().getFoeEntries());
@@ -784,7 +774,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		public static final int PLAYER_SPELL_BOOKS = 14;
 		public static final int RACES = 15;
 		public static final int TEXTURES = 16;
-		public static final int FOE_ATTACKS = 17;
+//		public static final int FOE_ATTACKS = 17;
 		public static final int FOE_TEMPLATES = 18;
 		public static final int TRAPS = 19;
 		public static final int FOE_ENTRIES = 20;
@@ -826,7 +816,6 @@ public class SwingEditor extends JFrame implements WindowListener
 				case PLAYER_SPELL_BOOKS: return "player spell books";
 				case RACES: return "races";
 				case TEXTURES: return "textures";
-				case FOE_ATTACKS: return "foe attacks";
 				case FOE_TEMPLATES: return "foe templates";
 				case TRAPS: return "traps";
 				case FOE_ENTRIES: return "foe entries";

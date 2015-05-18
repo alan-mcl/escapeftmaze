@@ -27,9 +27,7 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.FoeAttack;
 import mclachlan.maze.stat.FoeTemplate;
-import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -56,7 +54,9 @@ public class FoeScorer
 	{
 		double result = 0D;
 
-		PercentageTable<FoeAttack> attacks = ft.getAttacks();
+		throw new MazeException("todo: implement this");
+
+		/*PercentageTable<FoeAttack> attacks = ft.getAttacks();
 
 		for (FoeAttack fa : attacks.getItems())
 		{
@@ -86,7 +86,7 @@ public class FoeScorer
 			}
 		}
 
-		return result;
+		return result; */
 	}
 
 	/*-------------------------------------------------------------------------*/

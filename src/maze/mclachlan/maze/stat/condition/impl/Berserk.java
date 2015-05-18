@@ -180,35 +180,9 @@ public class Berserk extends Condition
 			// todo: with melee weapons, drop anything else.
 			//
 
-			if (actor instanceof Foe)
-			{
-				Foe foe = (Foe)actor;
-
-				// try to find a melee attack
-				for (int i=0; i<100; i++)
-				{
-					ActorActionIntention actorActionOption = foe.getCombatIntention();
-
-					if (actorActionOption instanceof FoeAttackIntention)
-					{
-						FoeAttackIntention fai = (FoeAttackIntention)actorActionOption;
-
-						if (fai.getFoeAttack().getType() == FoeAttack.Type.MELEE_ATTACK)
-						{
-							return actorActionOption;
-						}
-					}
-				}
-
-				// otherwise just default to the original
-				return intention;
-			}
-			else
-			{
-				List<ActorGroup> foeGroups = combat.getFoesOf(actor);
-				ActorGroup actorGroup = foeGroups.get(0);
-				return new AttackIntention(actorGroup, combat, actor.getAttackWithOptions().get(0));
-			}
+			List<ActorGroup> foeGroups = combat.getFoesOf(actor);
+			ActorGroup actorGroup = foeGroups.get(0);
+			return new AttackIntention(actorGroup, combat, actor.getAttackWithOptions().get(0));
 		}
 	}
 }

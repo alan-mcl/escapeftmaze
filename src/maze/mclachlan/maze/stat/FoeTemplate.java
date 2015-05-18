@@ -23,7 +23,6 @@ import java.util.*;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
-import mclachlan.maze.stat.magic.DiceValue;
 import mclachlan.maze.stat.magic.SpellBook;
 
 /**
@@ -69,9 +68,6 @@ public class FoeTemplate
 	
 	/** Which parts of a player character this foe is likely to attack */
 	PercentageTable<String> playerBodyParts;
-	
-	/** Each attack that this foe has */
-	PercentageTable<FoeAttack> attacks;
 	
 	/** The base texture of this foe, what it does when it's just standing around */
 	MazeTexture baseTexture;
@@ -127,7 +123,16 @@ public class FoeTemplate
 
 	/** script to run each time one of this foe dies */
 	MazeScript deathScript;
-	
+
+	/** natural weapons of this foe (claw, bite, etc) */
+	private List<String> naturalWeapons;
+
+	/** spell book of this foe */
+	private SpellBook spellBook;
+
+	/** SLAs */
+	private List<SpellLikeAbility> spellLikeAbilities;
+
 	/*-------------------------------------------------------------------------*/
 	public FoeTemplate(
 		String name,
@@ -141,7 +146,6 @@ public class FoeTemplate
 		Dice levelRange,
 		int experience,
 		StatModifier stats,
-		PercentageTable<FoeAttack> attacks,
 		PercentageTable<BodyPart> bodyParts,
 		PercentageTable<String> playerBodyParts,
 		MazeTexture baseTexture,
@@ -161,13 +165,15 @@ public class FoeTemplate
 		String faction,
 		boolean isNpc,
 		MazeScript appearanceScript,
-		MazeScript deathScript)
+		MazeScript deathScript,
+		List<String> naturalWeapons,
+		SpellBook spellBook,
+		List<SpellLikeAbility> spellLikeAbilities)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
 		this.type = type;
 		this.experience = experience;
 		this.levelRange = levelRange;
-		this.attacks = attacks;
 		this.bodyParts = bodyParts;
 		this.hitPointsRange = hitPointsRange;
 		this.actionPointsRange = actionPointsRange;
@@ -195,6 +201,9 @@ public class FoeTemplate
 		this.isNpc = isNpc;
 		this.appearanceScript = appearanceScript;
 		this.deathScript = deathScript;
+		this.naturalWeapons = naturalWeapons;
+		this.spellBook = spellBook;
+		this.spellLikeAbilities = spellLikeAbilities;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -225,11 +234,6 @@ public class FoeTemplate
 	public StatModifier getAllFoesBannerModifiers()
 	{
 		return allFoesBannerModifiers;
-	}
-
-	public PercentageTable<FoeAttack> getAttacks()
-	{
-		return attacks;
 	}
 
 	public MazeTexture getBaseTexture()
@@ -371,11 +375,6 @@ public class FoeTemplate
 	public void setAllFoesBannerModifiers(StatModifier allFoesBannerModifiers)
 	{
 		this.allFoesBannerModifiers = allFoesBannerModifiers;
-	}
-
-	public void setAttacks(PercentageTable<FoeAttack> attacks)
-	{
-		this.attacks = attacks;
 	}
 
 	public void setBaseTexture(MazeTexture baseTexture)
@@ -528,70 +527,70 @@ public class FoeTemplate
 		this.deathScript = deathScript;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<NaturalWeapon> getNaturalWeapons()
+	public List<String> getNaturalWeapons()
 	{
-		List<NaturalWeapon> result = new ArrayList<NaturalWeapon>();
+		return naturalWeapons;
 
-		for (FoeAttack fa : attacks.getItems())
-		{
-			if (fa.getType() == FoeAttack.Type.MELEE_ATTACK ||
-				fa.getType() == FoeAttack.Type.RANGED_ATTACK)
-			{
-				result.add(new NaturalWeapon(
-					fa.getName(),
-					fa.getDescription(),
-					fa.isRanged(),
-					fa.getDamage(),
-					fa.getDefaultDamageType(),
-					fa.getModifiers(),
-					fa.getMinRange(),
-					fa.getMaxRange(),
-					fa.getSpellEffects(),
-					fa.getSpellEffectLevel(),
-					fa.getAttacks(),
-					fa.getSlaysFoeType(),
-					fa.getAttackScript()));
-			}
-		}
-
-		return result;
+//		for (FoeAttack fa : attacks.getItems())
+//		{
+//			if (fa.getType() == FoeAttack.Type.MELEE_ATTACK ||
+//				fa.getType() == FoeAttack.Type.RANGED_ATTACK)
+//			{
+//				naturalWeapons.add(new NaturalWeapon(
+//					fa.getName(),
+//					fa.getDescription(),
+//					fa.isRanged(),
+//					fa.getDamage(),
+//					fa.getDefaultDamageType(),
+//					fa.getModifiers(),
+//					fa.getMinRange(),
+//					fa.getMaxRange(),
+//					fa.getSpellEffects(),
+//					fa.getSpellEffectLevel(),
+//					fa.getAttacks(),
+//					fa.getSlaysFoeType(),
+//					fa.getAttackScript()));
+//			}
+//		}
+//
+//		return naturalWeapons;
 	}
 
-	/*-------------------------------------------------------------------------*/
 	public List<SpellLikeAbility> getSpellLikeAbilities()
 	{
-		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
-
-		for (FoeAttack fa : attacks.getItems())
-		{
-			if (fa.getType() == FoeAttack.Type.SPECIAL_ABILITY)
-			{
-				result.add(new SpellLikeAbility(
-					fa.getSpecialAbility().getSpell(),
-					new DiceValue(fa.getSpecialAbility().getCastingLevel())));
-			}
-		}
-
-		return result;
+		return spellLikeAbilities;
+//		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
+//
+//		for (FoeAttack fa : attacks.getItems())
+//		{
+//			if (fa.getType() == FoeAttack.Type.SPECIAL_ABILITY)
+//			{
+//				result.add(new SpellLikeAbility(
+//					fa.getSpecialAbility().getSpell(),
+//					new DiceValue(fa.getSpecialAbility().getCastingLevel())));
+//			}
+//		}
+//
+//		return result;
 	}
 
-	/*-------------------------------------------------------------------------*/
 	public SpellBook getSpellBook()
 	{
-		SpellBook result = new SpellBook();
+		return spellBook;
+	}
 
-		for (FoeAttack fa : attacks.getItems())
-		{
-			if (fa.getType() == FoeAttack.Type.CAST_SPELL)
-			{
-				for (FoeAttack.FoeAttackSpell s : fa.getSpells().getItems())
-				{
-					result.addSpell(s.getSpell());
-				}
-			}
-		}
+	public void setNaturalWeapons(List<String> naturalWeapons)
+	{
+		this.naturalWeapons = naturalWeapons;
+	}
 
-		return result;
+	public void setSpellBook(SpellBook spellBook)
+	{
+		this.spellBook = spellBook;
+	}
+
+	public void setSpellLikeAbilities(List<SpellLikeAbility> spellLikeAbilities)
+	{
+		this.spellLikeAbilities = spellLikeAbilities;
 	}
 }

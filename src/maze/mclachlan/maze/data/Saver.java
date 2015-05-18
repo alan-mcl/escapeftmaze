@@ -65,7 +65,6 @@ public abstract class Saver
 	public abstract void saveSpells(Map<String, Spell> map) throws Exception;
 	public abstract void savePlayerSpellBooks(Map<String, PlayerSpellBook> map) throws Exception;
 	public abstract void saveMazeTextures(Map<String, MazeTexture> map) throws Exception;
-	public abstract void saveFoeAttacks(Map<String, FoeAttack> map) throws Exception;
 	public abstract void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception;
 	public abstract void saveTraps(Map<String, Trap> map) throws Exception;
 	public abstract void saveFoeEntries(Map<String, FoeEntry> map) throws Exception;

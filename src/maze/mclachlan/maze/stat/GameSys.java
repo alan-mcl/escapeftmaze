@@ -1220,38 +1220,45 @@ public class GameSys
 	 * 	the length of the array is the number of attacks, and each element is
 	 * 	the number of strikes for that attack.
 	 */
-	public int getNrAttacks(PlayerCharacter pc, boolean primary)
+	public int getNrAttacks(UnifiedActor actor, boolean primary)
 	{
 		Item weapon;
 		if (primary)
 		{
-			weapon = pc.getPrimaryWeapon();
+			weapon = actor.getPrimaryWeapon();
 		}
 		else
 		{
-			weapon = pc.getSecondaryWeapon();
+			weapon = actor.getSecondaryWeapon();
 		}
 		if (weapon == null)
 		{
-			weapon = this.getUnarmedWeapon(pc, primary);
+			weapon = this.getUnarmedWeapon(actor, primary);
 		}
-		int bonusAttacks = calcBonusAttacks(pc, primary, weapon);
+		int bonusAttacks = calcBonusAttacks(actor, primary, weapon);
 
 		int result = 0;
 
-		switch (pc.getCharacterClass().getFocus())
+		if (actor.getCharacterClass() != null)
 		{
-			case COMBAT:
-				result = 1 + pc.getLevel()/10;
-				break;
-			case STEALTH:
-				result = 1 + pc.getLevel()/15;
-				break;
-			case MAGIC:
-				result = 1 + pc.getLevel()/20;
-				break;
-			default:
-				throw new MazeException(""+ pc.getCharacterClass().getFocus());
+			switch (actor.getCharacterClass().getFocus())
+			{
+				case COMBAT:
+					result = 1 + actor.getLevel()/10;
+					break;
+				case STEALTH:
+					result = 1 + actor.getLevel()/15;
+					break;
+				case MAGIC:
+					result = 1 + actor.getLevel()/20;
+					break;
+				default:
+					throw new MazeException(""+ actor.getCharacterClass().getFocus());
+			}
+		}
+		else
+		{
+			result = 1 + actor.getLevel()/15;
 		}
 
 		result += bonusAttacks;
@@ -1260,14 +1267,14 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected int calcBonusAttacks(PlayerCharacter pc, boolean primary, Item weapon)
+	protected int calcBonusAttacks(UnifiedActor actor, boolean primary, Item weapon)
 	{
-		int result = pc.getModifier(Stats.Modifiers.BONUS_ATTACKS);
+		int result = actor.getModifier(Stats.Modifiers.BONUS_ATTACKS);
 
 		//
 		// SKILL +15 grants a bonus attack
 		//
-		if (pc.getModifier(Stats.Modifiers.SKILL) >= 15)
+		if (actor.getModifier(Stats.Modifiers.SKILL) >= 15)
 		{
 			result++;
 		}
@@ -1276,7 +1283,7 @@ public class GameSys
 		// KENDO +5 grants an additional attack on the primary weapon, if it is
 		// a KENDO weapon
 		//
-		if (pc.getModifier(Stats.Modifiers.KENDO) > 5 &&
+		if (actor.getModifier(Stats.Modifiers.KENDO) > 5 &&
 			Stats.Modifiers.KENDO.equals(weapon.getDiscipline()) &&
 			primary)
 		{
@@ -1285,15 +1292,15 @@ public class GameSys
 
 		//
 		// MELEE MASTER grants an additional attack for each foe group beyond the
-		// second on primary weapon, if the character is armed
+		// second on primary weapon, if the character is armed with a melee weapon
 		//
 		if (Maze.getInstance().getCurrentCombat() != null)
 		{
-			if (pc.getModifier(Stats.Modifiers.MELEE_MASTER) > 0 &&
-				isPlayerCharacterArmedWithMeleeWeapon(pc))
+			if (actor.getModifier(Stats.Modifiers.MELEE_MASTER) > 0 &&
+				isActorArmedWithMeleeWeapon(actor))
 			{
 				int nrFoeGroups =
-					Maze.getInstance().getCurrentCombat().getNrOfEnemyGroups(pc);
+					Maze.getInstance().getCurrentCombat().getNrOfEnemyGroups(actor);
 				if (nrFoeGroups > 2)
 				{
 					result += nrFoeGroups-2;
@@ -2976,7 +2983,7 @@ public class GameSys
 	/**
 	 * Generates the unarmed weapon for this character
 	 */
-	public Item getUnarmedWeapon(PlayerCharacter pc, boolean isPrimary)
+	public Item getUnarmedWeapon(UnifiedActor actor, boolean isPrimary)
 	{
 		Dice damage = null;
 		int toHit = 0;
@@ -2991,10 +2998,10 @@ public class GameSys
 		// debatable if it should be character level or class level.  Leaving it
 		// at class level provides some protection against Ninjas turned Cultists
 		// being too powerful
-		int spellEffectLevel = pc.getCurrentClassLevel();
+		int spellEffectLevel = actor.getCurrentClassLevel();
 
-		int martialArts = pc.getModifier(Stats.Modifiers.MARTIAL_ARTS);
-		int brawn = pc.getModifier(Stats.Modifiers.BRAWN);
+		int martialArts = actor.getModifier(Stats.Modifiers.MARTIAL_ARTS);
+		int brawn = actor.getModifier(Stats.Modifiers.BRAWN);
 		if (martialArts <= 0)
 		{
 			damage = new Dice(1, Math.max(brawn, 1), 0);
@@ -3008,11 +3015,11 @@ public class GameSys
 		}
 		else
 		{
-			damage = new Dice(1, Math.max(brawn, 1), pc.getLevel()/3);
+			damage = new Dice(1, Math.max(brawn, 1), actor.getLevel()/3);
 			toPenetrate = martialArts;
 			toInitiative = martialArts/3;
 			attackTypes = new String[]{"punch", "kick"};
-			toCritical = pc.getLevel();
+			toCritical = actor.getLevel();
 
 			// todo: PARALYSE?
 			spellEffects = new GroupOfPossibilities<SpellEffect>();
@@ -3482,10 +3489,6 @@ public class GameSys
 				default: // no op
 			}
 		}
-		else if (attackWith instanceof FoeAttack)
-		{
-			// already taken into account
-		}
 		else
 		{
 			// no critical possible
@@ -3597,7 +3600,7 @@ public class GameSys
 		// PCs only parry with melee weapons
 		if (defender instanceof PlayerCharacter)
 		{
-			if (!isPlayerCharacterArmedWithMeleeWeapon((PlayerCharacter)defender))
+			if (!isActorArmedWithMeleeWeapon((PlayerCharacter)defender))
 			{
 				return false;
 			}
@@ -3615,13 +3618,11 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean isPlayerCharacterArmedWithMeleeWeapon(
-		PlayerCharacter defender)
+	private boolean isActorArmedWithMeleeWeapon(UnifiedActor actor)
 	{
-		PlayerCharacter pc = (PlayerCharacter)defender;
-		return pc.getPrimaryWeapon() != null &&
-			(pc.getPrimaryWeapon().getType() == ItemTemplate.Type.SHORT_WEAPON ||
-				pc.getPrimaryWeapon().getType() == ItemTemplate.Type.EXTENDED_WEAPON);
+		return actor.getPrimaryWeapon() != null &&
+			(actor.getPrimaryWeapon().getType() == ItemTemplate.Type.SHORT_WEAPON ||
+				actor.getPrimaryWeapon().getType() == ItemTemplate.Type.EXTENDED_WEAPON);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3723,7 +3724,7 @@ public class GameSys
 	 */
 	public void setDualWeaponPenalties(
 		CombatAction action, 
-		PlayerCharacter pc, 
+		UnifiedActor actor,
 		boolean isPrimaryWeapon)
 	{
 		//
@@ -3731,11 +3732,11 @@ public class GameSys
 		//
 		
 		int base = isPrimaryWeapon ? -5 : -10;
-		int modifier = pc.getModifier(Stats.Modifiers.DUAL_WEAPONS);
+		int modifier = actor.getModifier(Stats.Modifiers.DUAL_WEAPONS);
 
-		if (pc.isActiveModifier(Stats.Modifiers.DUAL_WEAPONS))
+		if (actor.isActiveModifier(Stats.Modifiers.DUAL_WEAPONS))
 		{
-			practice(pc, Stats.Modifiers.DUAL_WEAPONS, 1);
+			practice(actor, Stats.Modifiers.DUAL_WEAPONS, 1);
 		}
 
 		action.setModifier(Stats.Modifiers.ATTACK, Math.min(0, base+modifier));

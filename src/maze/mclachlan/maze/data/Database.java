@@ -56,7 +56,6 @@ public class Database
 	private Map<String, CharacterClass> characterClasses;
 	private List<String> portraitNames;
 	private Map<String, NpcFactionTemplate> npcFactions;
-	private Map<String, FoeAttack> foeAttacks;
 	private Map<String, NpcTemplate> npcTemplates;
 
 	private Map<String, PlayerCharacter> characterGuild;
@@ -726,25 +725,6 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public FoeAttack getFoeAttack(String name)
-	{
-		synchronized(mutex)
-		{
-			if (foeAttacks == null)
-			{
-				foeAttacks = loader.loadFoeAttacks();
-			}
-
-			FoeAttack result = this.foeAttacks.get(name);
-			if (result == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public Map<String, ExperienceTable> getExperienceTables()
 	{
 		synchronized(mutex)
@@ -934,20 +914,6 @@ public class Database
 			}
 
 			return textures;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, FoeAttack> getFoeAttacks()
-	{
-		synchronized(mutex)
-		{
-			if (foeAttacks == null)
-			{
-				foeAttacks = loader.loadFoeAttacks();
-			}
-
-			return foeAttacks;
 		}
 	}
 

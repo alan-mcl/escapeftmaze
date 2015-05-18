@@ -26,38 +26,32 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.SpellLikeAbility;
 
 /**
  *
  */
-public class SpellListPanel extends JPanel
+public class SpellLikeAbilitiesWidget extends JPanel
 	implements ActionListener, MouseListener
 {
 	private JList list;
-	private SpellListModel dataModel;
+	private SpellLikeAbilitiesListModel dataModel;
 	private JButton add, remove, edit;
-	private JComboBox spellCombo;
 	private int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
-	public SpellListPanel(int dirtyFlag)
+	public SpellLikeAbilitiesWidget(int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
-		dataModel = new SpellListPanel.SpellListModel(new ArrayList<Spell>());
+		dataModel = new SpellLikeAbilitiesListModel(new ArrayList<SpellLikeAbility>());
 		list = new JList(dataModel);
 		list.addMouseListener(this);
-		list.setVisibleRowCount(20);
 		add = new JButton("Add");
 		add.addActionListener(this);
 		edit = new JButton("Edit");
 		edit.addActionListener(this);
 		remove = new JButton("Remove");
 		remove.addActionListener(this);
-		
-		spellCombo = new JComboBox();
 
 		JPanel panel = new JPanel(new BorderLayout(3,3));
 		JScrollPane scroller = new JScrollPane(list);
@@ -69,34 +63,20 @@ public class SpellListPanel extends JPanel
 		panel.add(buttons, BorderLayout.SOUTH);
 
 		this.add(panel);
-		this.setBorder(BorderFactory.createTitledBorder("Spells"));
+		this.setBorder(BorderFactory.createTitledBorder("Spell-like Abilities"));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(List<Spell> spell)
+	public void refresh(List<SpellLikeAbility> list)
 	{
 		this.dataModel.clear();
-		if (spell == null)
+		if (list == null)
 		{
 			return;
 		}
-		for (Spell si : spell)
+		for (SpellLikeAbility nw : list)
 		{
-			this.dataModel.add(si);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void refresh(SpellBook spellBook)
-	{
-		this.dataModel.clear();
-		if (spellBook == null)
-		{
-			return;
-		}
-		for (Spell si : spellBook.getSpells())
-		{
-			this.dataModel.add(si);
+			this.dataModel.add(nw);
 		}
 	}
 
@@ -107,21 +87,19 @@ public class SpellListPanel extends JPanel
 
 		if (e.getSource() == add)
 		{
-			String[] spells = Database.getInstance().getSpellList().toArray(new String[]{});
-			Arrays.sort(spells);
-			Object spell = JOptionPane.showInputDialog(
-				this,
-				"Select Spell",
-				"Spell",
-				JOptionPane.INFORMATION_MESSAGE,
-				null,
-				spells,
-				spells[0]);
-			
-			if (spell != null)
+			SpellLikeAbilityEditor dialog = new SpellLikeAbilityEditor(
+				SwingEditor.instance, null, dirtyFlag);
+
+			SpellLikeAbility selected = dialog.getResult();
+
+			if (selected != null)
 			{
-				dataModel.add(Database.getInstance().getSpell((String)spell));
+				dataModel.add(selected);
 			}
+		}
+		else if (e.getSource() == edit)
+		{
+			editListItem();
 		}
 		else if (e.getSource() == remove)
 		{
@@ -132,58 +110,22 @@ public class SpellListPanel extends JPanel
 				dataModel.remove(index);
 			}
 		}
-		else if (e.getSource() == edit)
-		{
-			editListItem();
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void editListItem()
 	{
-		int index = list.getSelectedIndex();
-		if (index > -1)
+		SpellLikeAbilityEditor dialog = new SpellLikeAbilityEditor(
+			SwingEditor.instance,
+			(SpellLikeAbility)dataModel.getElementAt(list.getSelectedIndex()),
+			dirtyFlag);
+
+		SpellLikeAbility selected = dialog.getResult();
+
+		if (selected != null)
 		{
-			String[] spells = Database.getInstance().getSpellList().toArray(new String[]{});
-			Arrays.sort(spells);
-			Object spell = JOptionPane.showInputDialog(
-				this,
-				"Select Spell",
-				"Spell",
-				JOptionPane.INFORMATION_MESSAGE,
-				null,
-				spells,
-				spells[index]);
-
-			if (spell != null)
-			{
-				dataModel.update(Database.getInstance().getSpell((String)spell), index);
-			}
+			dataModel.update(selected, list.getSelectedIndex());
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public java.util.List<Spell> getSpells()
-	{
-		return new ArrayList<Spell>(dataModel.data);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public SpellBook getSpellBook()
-	{
-		SpellBook result = new SpellBook();
-
-		result.addSpells(dataModel.data);
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void initForeignKeys()
-	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getSpellList());
-		Collections.sort(vec);
-		spellCombo.setModel(new DefaultComboBoxModel(vec));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -220,19 +162,26 @@ public class SpellListPanel extends JPanel
 
 	}
 
-	/*-------------------------------------------------------------------------*/
-	static class SpellListModel extends AbstractListModel
-	{
-		List<Spell> data;
 
-		public SpellListModel(List<Spell> data)
+	/*-------------------------------------------------------------------------*/
+	public List<SpellLikeAbility> getSpellLikeAbilities()
+	{
+		return new ArrayList<SpellLikeAbility>(dataModel.data);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class SpellLikeAbilitiesListModel extends AbstractListModel
+	{
+		private List<SpellLikeAbility> data;
+
+		public SpellLikeAbilitiesListModel(List<SpellLikeAbility> data)
 		{
 			this.data = data;
 		}
 
 		public Object getElementAt(int index)
 		{
-			return data.get(index).getName();
+			return data.get(index);
 		}
 
 		public int getSize()
@@ -240,9 +189,9 @@ public class SpellListPanel extends JPanel
 			return data.size();
 		}
 
-		public void add(Spell si)
+		public void add(SpellLikeAbility sla)
 		{
-			data.add(si);
+			data.add(sla);
 			fireContentsChanged(this, data.size(), data.size());
 		}
 
@@ -252,9 +201,9 @@ public class SpellListPanel extends JPanel
 			fireIntervalRemoved(this, index, index);
 		}
 
-		public void update(Spell si, int index)
+		public void update(SpellLikeAbility sla, int index)
 		{
-			data.set(index, si);
+			data.set(index, sla);
 			fireContentsChanged(this, index, index);
 		}
 

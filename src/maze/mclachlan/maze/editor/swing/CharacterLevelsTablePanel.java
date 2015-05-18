@@ -36,10 +36,10 @@ import mclachlan.maze.util.MazeException;
 public class CharacterLevelsTablePanel extends JPanel implements ActionListener
 {
 	private int dirtyFlag;
-	JTable table;
-	JButton add, remove;
-	CharacterLevelsTablePanel.MyTableModel dataModel;
-	JComboBox characterClassCombo;
+	private JTable table;
+	private JButton add, remove;
+	private CharacterLevelsTablePanel.MyTableModel dataModel;
+	private JComboBox characterClassCombo;
 
 	/*-------------------------------------------------------------------------*/
 	protected CharacterLevelsTablePanel(String title, int dirtyFlag, double scaleX, double scaleY)

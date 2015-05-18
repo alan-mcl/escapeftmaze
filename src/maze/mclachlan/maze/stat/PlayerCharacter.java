@@ -23,7 +23,6 @@ import java.util.*;
 import mclachlan.diygui.util.HashMapMutableTree;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionManager;
@@ -454,356 +453,6 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<CombatAction> getCombatActions(ActorActionIntention intention)
-	{
-		List<CombatAction> result = new ArrayList<CombatAction>();
-
-		if (getHitPoints().getCurrent() <= 0)
-		{
-			return result;
-		}
-		else if (intention instanceof AttackIntention)
-		{
-			AttackIntention atkInt = (AttackIntention)intention;
-
-			ActorGroup targetGroup = atkInt.getActorGroup();
-
-			boolean canAttackWithPrimary =
-				getPrimaryWeapon() == null || (getPrimaryWeapon() != null && getPrimaryWeapon().isWeapon());
-
-			boolean canAttackWithSecondary =
-				getSecondaryWeapon() != null && getSecondaryWeapon().isWeapon()
-					&& (getPrimaryWeapon().getAmmoRequired() != null && !getPrimaryWeapon().getAmmoRequired().contains(getSecondaryWeapon().isAmmoType()))
-				||
-				getSecondaryWeapon() == null && getModifier(Stats.Modifiers.MARTIAL_ARTS) > 0;
-
-			Item weapon;
-			if (getPrimaryWeapon() != null)
-			{
-				weapon = getPrimaryWeapon();
-			}
-			else
-			{
-				weapon = GameSys.getInstance().getUnarmedWeapon(this, true);
-			}
-
-			// primary weapon
-			if (canAttackWithPrimary)
-			{
-				// basic attack with primary weapon, no modifiers
-				int nrAttacks = GameSys.getInstance().getNrAttacks(this, true);
-
-				if (weapon.getAmmoRequired() == null
-					|| weapon.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF)
-					|| getSecondaryWeapon() != null &&
-					weapon.getAmmoRequired().contains(getSecondaryWeapon().isAmmoType()))
-				{
-					MazeScript missileScript;
-					if (weapon.isRanged())
-					{
-						missileScript = getSecondaryWeapon().getAttackScript();
-					}
-					else
-					{
-						missileScript = weapon.getAttackScript();
-					}
-
-					for (int i = 0; i < nrAttacks; i++)
-					{
-						// ammo requirements ok.  Attack
-						MagicSys.SpellEffectType defaultDamageType = weapon.getDefaultDamageType();
-						if (weapon.getAmmoRequired() != null &&
-							getSecondaryWeapon() != null &&
-							weapon.getAmmoRequired().contains((getSecondaryWeapon()).isAmmoType()))
-						{
-							defaultDamageType = getSecondaryWeapon().getDefaultDamageType();
-						}
-
-						AttackAction action = new AttackAction(
-							targetGroup,
-							weapon,
-							-1,
-							missileScript,
-							true,
-							GameSys.getInstance().isLightningStrike(this, weapon),
-							defaultDamageType);
-						action.setModifier(Stats.Modifiers.INITIATIVE, -5 * i + weapon.getToInitiative());
-						if (canAttackWithSecondary && getSecondaryWeapon() != null)
-						{
-							GameSys.getInstance().setDualWeaponPenalties(action, this, true);
-						}
-						result.add(action);
-					}
-				}
-				else
-				{
-					// cannot attack
-					result.add(new DefendAction());
-					//todo: return from here?
-				}
-			}
-
-			if (canAttackWithSecondary)
-			{
-				Item attackWith;
-				if (getSecondaryWeapon() != null)
-				{
-					attackWith = getSecondaryWeapon();
-				}
-				else
-				{
-					attackWith = weapon;
-				}
-
-				// basic attack with secondary weapon:
-				// -5 intiative
-				// -5 to hit
-				int nrAttacks = GameSys.getInstance().getNrAttacks(this, false);
-
-				for (int i = 0; i < nrAttacks; i++)
-				{
-					AttackAction secAction = new AttackAction(
-						targetGroup,
-						attackWith,
-						-1,
-						attackWith.getAttackScript(),
-						true,
-						false,
-						attackWith.getDefaultDamageType());
-					secAction.setModifier(Stats.Modifiers.INITIATIVE, -5 * (i + 1) + weapon.getToInitiative());
-					if (getSecondaryWeapon() != null)
-					{
-						// dual weapon penalties do not apply to unarmed combat
-						GameSys.getInstance().setDualWeaponPenalties(secAction, this, false);
-					}
-					result.add(secAction);
-				}
-			}
-		}
-		else if (intention instanceof DefendIntention)
-		{
-			result.add(new DefendAction());
-		}
-		else if (intention instanceof HideIntention)
-		{
-			result.add(new HideAction());
-		}
-		else if (intention instanceof SpellIntention)
-		{
-			SpellIntention si = (SpellIntention)intention;
-
-			result.add(new SpellAction(si.getTarget(),
-				si.getSpell(),
-				si.getCastingLevel()));
-		}
-		else if (intention instanceof SpecialAbilityIntention)
-		{
-			SpecialAbilityIntention si = (SpecialAbilityIntention)intention;
-
-			result.add(new SpecialAbilityAction(
-				si.getSpell().getDescription(),
-				si.getTarget(),
-				si.getSpell(),
-				si.getCastingLevel()));
-		}
-		else if (intention instanceof UseItemIntention)
-		{
-			UseItemIntention ui = (UseItemIntention)intention;
-
-			Item item = ui.getItem();
-
-			result.add(new UseItemAction(item,
-				ui.getTarget()));
-		}
-		else if (intention instanceof EquipIntention)
-		{
-			result.add(new EquipAction());
-		}
-		else if (intention instanceof RunAwayIntention)
-		{
-			result.add(new RunAwayAction());
-		}
-		else
-		{
-			throw new MazeException("Unrecognised combat intention: " + intention);
-		}
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	//
-	// These methods here mostly for backwards compatibility of the interface.
-	//
-
-	public Item getPrimaryWeapon()
-	{
-		return getEquippedItem(PRIMARY_WEAPON, 0);
-	}
-
-	public void setPrimaryWeapon(Item primaryWeapon)
-	{
-		if (this.hasEquipableSlot(PRIMARY_WEAPON))
-		{
-			setEquippedItem(PRIMARY_WEAPON, primaryWeapon, 0);
-			this.updateCurseState(primaryWeapon, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public Item getSecondaryWeapon()
-	{
-		return getEquippedItem(SECONDARY_WEAPON, 0);
-	}
-
-	public void setSecondaryWeapon(Item secondaryWeapon)
-	{
-		if (this.hasEquipableSlot(SECONDARY_WEAPON))
-		{
-			setEquippedItem(SECONDARY_WEAPON, secondaryWeapon, 0);
-			updateCurseState(secondaryWeapon, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public Item getAltPrimaryWeapon()
-	{
-		return getEquippedItem(PRIMARY_WEAPON, 1);
-	}
-
-	public void setAltPrimaryWeapon(Item altPrimaryWeapon)
-	{
-		if (this.hasEquipableSlot(PRIMARY_WEAPON, 1))
-		{
-			// doesn't set the curse state
-			setEquippedItem(PRIMARY_WEAPON, altPrimaryWeapon, 1);
-		}
-	}
-
-	public Item getAltSecondaryWeapon()
-	{
-		return getEquippedItem(SECONDARY_WEAPON, 1);
-	}
-
-	public void setAltSecondaryWeapon(Item altSecondaryWeapon)
-	{
-		if (this.hasEquipableSlot(SECONDARY_WEAPON, 1))
-		{
-			// doesn't set the curse state
-			setEquippedItem(SECONDARY_WEAPON, altSecondaryWeapon, 1);
-		}
-	}
-
-	public Item getBannerItem()
-	{
-		return getEquippedItem(BANNER_ITEM, 0);
-	}
-
-	public void setBannerItem(Item bannerItem)
-	{
-		if (this.hasEquipableSlot(BANNER_ITEM))
-		{
-			setEquippedItem(BANNER_ITEM, bannerItem, 0);
-			updateCurseState(bannerItem, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public Item getMiscItem1()
-	{
-		return getEquippedItem(MISC_ITEM, 0);
-	}
-
-	public Item getMiscItem2()
-	{
-		return getEquippedItem(MISC_ITEM, 1);
-	}
-
-	public void setMiscItem1(Item miscItem1)
-	{
-		if (this.hasEquipableSlot(MISC_ITEM))
-		{
-			setEquippedItem(MISC_ITEM, miscItem1, 0);
-			updateCurseState(miscItem1, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public void setMiscItem2(Item miscItem2)
-	{
-		if (this.hasEquipableSlot(MISC_ITEM, 1))
-		{
-			setEquippedItem(MISC_ITEM, miscItem2, 1);
-			updateCurseState(miscItem2, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public Item getBoots()
-	{
-		return getEquippedItem(BOOTS, 0);
-	}
-
-	public Item getGloves()
-	{
-		return getEquippedItem(GLOVES, 0);
-	}
-
-	public Item getHelm()
-	{
-		return getEquippedItem(HELM, 0);
-	}
-
-	public Item getLegArmour()
-	{
-		return getEquippedItem(LEG_ARMOUR, 0);
-	}
-
-	public Item getTorsoArmour()
-	{
-		return getEquippedItem(TORSO_ARMOUR, 0);
-	}
-
-	public void setBoots(Item boots)
-	{
-		if (this.hasEquipableSlot(BOOTS))
-		{
-			setEquippedItem(BOOTS, boots, 0);
-			updateCurseState(boots, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public void setGloves(Item gloves)
-	{
-		if (this.hasEquipableSlot(GLOVES))
-		{
-			setEquippedItem(GLOVES, gloves, 0);
-			updateCurseState(gloves, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public void setHelm(Item helm)
-	{
-		if (this.hasEquipableSlot(HELM))
-		{
-			setEquippedItem(HELM, helm, 0);
-			updateCurseState(helm, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public void setLegArmour(Item legArmour)
-	{
-		if (this.hasEquipableSlot(LEG_ARMOUR))
-		{
-			setEquippedItem(LEG_ARMOUR, legArmour, 0);
-			updateCurseState(legArmour, Item.CursedState.DISCOVERED);
-		}
-	}
-
-	public void setTorsoArmour(Item torsoArmour)
-	{
-		if (this.hasEquipableSlot(TORSO_ARMOUR))
-		{
-			setEquippedItem(TORSO_ARMOUR, torsoArmour, 0);
-			updateCurseState(torsoArmour, Item.CursedState.DISCOVERED);
-		}
-	}
 
 	@Override
 	public Item getEquippedItem(EquipableSlot.Type type, int ordinal)
@@ -815,6 +464,18 @@ public class PlayerCharacter extends UnifiedActor
 		else
 		{
 			return null;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public void setEquippedItem(EquipableSlot.Type type, Item item, int ordinal)
+	{
+		if (this.hasEquipableSlot(type))
+		{
+			super.setEquippedItem(type, item, ordinal);
+			this.updateCurseState(item, Item.CursedState.DISCOVERED);
 		}
 	}
 
@@ -1323,31 +984,11 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Override
-	public List<AttackWith> getAttackWithOptions()
-	{
-		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
-		if (getPrimaryWeapon() != null)
-		{
-			result.add(getPrimaryWeapon());
-		}
-		else
-		{
-			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
-		}
-
-		if (getSecondaryWeapon() != null)
-		{
-			result.add(getSecondaryWeapon());
-		}
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MagicSys.SpellBook> getUnlockableSpellLevels()
 	{
 		List<MagicSys.SpellBook> result = new ArrayList<MagicSys.SpellBook>();
 
+		// todo????
 		/*if (this.getCharacterClass().getAvailableSpellBooks() != null)
 		{
 			for (StartingSpellBook ssb : this.getCharacterClass().getAvailableSpellBooks())

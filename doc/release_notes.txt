@@ -10,7 +10,9 @@ Features
  - DIYLabels support drawing both an icon and a text string
  - Defined Affliction conditions as Curse, Disease or Poison
  - Hostile Affliction conditions begin unidentified
- - Added support for conditions that repeatedly inflict spell effects
+ - Conditions can repeatedly inflict spell effects
+ - Unlockable character races
+ - Added Gnome race
 
 ---------------------------------------
 v0.914 (30 June 2014)

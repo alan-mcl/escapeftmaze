@@ -21,43 +21,46 @@ package mclachlan.maze.data.v1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import mclachlan.maze.stat.*;
+import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
-import mclachlan.maze.map.LootTable;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.map.LootTable;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.magic.SpellBook;
 
 /**
  *
  */
 public class V1FoeTemplate
 {
-	static V1PercentageTable<FoeAttack> attacks = new V1PercentageTable<FoeAttack>()
-	{
-		public FoeAttack typeFromString(String s)
-		{
-			return Database.getInstance().getFoeAttack(s);
-		}
-
-		public String typeToString(FoeAttack foeAttack)
-		{
-			return foeAttack.getName();
-		}
-	};
-	
 	static V1PercentageTable<String> playerBodyParts = new V1PercentageTable<String>()
 	{
+		@Override
 		public String typeFromString(String s)
 		{
 			return s;
 		}
 
+		@Override
 		public String typeToString(String s)
 		{
 			return s;
+		}
+	};
+
+	static V1List<SpellLikeAbility> spellLikeAbilities = new V1List<SpellLikeAbility>()
+	{
+		@Override
+		public String typeToString(SpellLikeAbility spellLikeAbility)
+		{
+			return V1SpellLikeAbility.toString(spellLikeAbility);
+		}
+
+		@Override
+		public SpellLikeAbility typeFromString(String s)
+		{
+			return V1SpellLikeAbility.fromString(s);
 		}
 	};
 
@@ -157,10 +160,6 @@ public class V1FoeTemplate
 			b.append(playerBodyParts.toString(obj.getPlayerBodyParts()));
 			b.append(V1Utils.NEWLINE);
 
-			b.append("attacks=");
-			b.append(attacks.toString(obj.getAttacks()));
-			b.append(V1Utils.NEWLINE);
-
 			b.append("baseTexture=");
 			b.append(obj.getBaseTexture().getName());
 			b.append(V1Utils.NEWLINE);
@@ -234,6 +233,18 @@ public class V1FoeTemplate
 			b.append("deathScript=");
 			b.append(obj.getDeathScript()==null?"":obj.getDeathScript().getName());
 			b.append(V1Utils.NEWLINE);
+
+			b.append("naturalWeapons=");
+			b.append(V1Utils.stringList.toString(obj.getNaturalWeapons()));
+			b.append(V1Utils.NEWLINE);
+
+			b.append("spellBook=");
+			b.append(V1SpellBook.toString(obj.getSpellBook()));
+			b.append(V1Utils.NEWLINE);
+
+			b.append("spellLikeAbilities=");
+			b.append(spellLikeAbilities.toString(obj.getSpellLikeAbilities()));
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -263,7 +274,6 @@ public class V1FoeTemplate
 			StatModifier stats = V1StatModifier.fromString(p.getProperty("stats"));
 			PercentageTable<BodyPart> bodyParts = V1Race.percTable.fromString(p.getProperty("bodyParts"));
 			PercentageTable<String> playerBodyParts = V1FoeTemplate.playerBodyParts.fromString(p.getProperty("playerBodyParts"));
-			PercentageTable<FoeAttack> attacks = V1FoeTemplate.attacks.fromString(p.getProperty("attacks"));
 			MazeTexture baseTexture = Database.getInstance().getMazeTexture(p.getProperty("baseTexture"));
 			MazeTexture meleeAttackTexture = Database.getInstance().getMazeTexture(p.getProperty("meleeAttackTexture"));
 			MazeTexture rangedAttackTexture = Database.getInstance().getMazeTexture(p.getProperty("rangedAttackTexture"));
@@ -302,6 +312,11 @@ public class V1FoeTemplate
 				deathScript = Database.getInstance().getScript(scriptName);
 			}
 
+			List<String> naturalWeapons = V1Utils.stringList.fromString(p.getProperty("naturalWeapons"));
+			SpellBook spellbook = V1SpellBook.fromString(p.getProperty("spellBook"));
+			List<SpellLikeAbility> spellLikeAbilityList = spellLikeAbilities.fromString(
+				p.getProperty("spellLikeAbilities"));
+
 			return new FoeTemplate(
 				name,
 				pluralName,
@@ -314,7 +329,6 @@ public class V1FoeTemplate
 				levelRange,
 				experience,
 				stats,
-				attacks,
 				bodyParts,
 				playerBodyParts,
 				baseTexture,
@@ -334,7 +348,10 @@ public class V1FoeTemplate
 				faction,
 				isNpc,
 				appearanceScript,
-				deathScript);
+				deathScript,
+				naturalWeapons,
+				spellbook,
+				spellLikeAbilityList);
 		}
 	}
 }

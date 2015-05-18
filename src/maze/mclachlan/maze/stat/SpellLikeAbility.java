@@ -62,10 +62,10 @@ public class SpellLikeAbility
 	public String toString()
 	{
 		final StringBuilder sb = new StringBuilder();
-		sb.append("SpellLikeAbility");
-		sb.append("{spell=").append(spell);
-		sb.append(", castingLevel=").append(castingLevel);
-		sb.append('}');
+		sb.append(spell.getName());
+		sb.append(" (");
+		sb.append(castingLevel);
+		sb.append(")");
 		return sb.toString();
 	}
 

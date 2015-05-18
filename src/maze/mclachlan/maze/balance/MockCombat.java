@@ -797,32 +797,7 @@ public class MockCombat
 		PercentageTable<BodyPart> bodyParts = new PercentageTable<BodyPart>();
 		bodyParts.add(new BodyPart("bp", "bp", new StatModifier(), 0, 0, 0, EquipableSlot.Type.MISC_ITEM), 100);
 
-		PercentageTable<FoeAttack> attacks = new PercentageTable<FoeAttack>();
 		/*GameSys.getInstance().getNrAttacks(level/4+10,0,0),*/
-		int[] nrAttacks;
-		if (level < 5)
-		{
-			nrAttacks = new int[]{2};
-		}
-		else
-		{
-			nrAttacks = new int[]{2,1};
-		}
-		attacks.add(new FoeAttack(
-			"test attack",
-			"test attack",
-			FoeAttack.Type.MELEE_ATTACK,
-			new Dice(3, level+level/2, level),
-			MagicSys.SpellEffectType.BLUDGEONING,
-			new StatModifier(),
-			ItemTemplate.WeaponRange.MELEE,
-			ItemTemplate.WeaponRange.MELEE,
-			null,
-			0,
-			nrAttacks,
-			null,
-			new MazeScript("stub script", new ArrayList<MazeEvent>())),
-			100);
 
 		PercentageTable<String> playerBodyParts = new PercentageTable<String>();
 		playerBodyParts.add("head", 18);
@@ -858,7 +833,6 @@ public class MockCombat
 			new Dice(level, 1, 0),
 			level * 100,
 			stats,
-			attacks,
 			bodyParts,
 			playerBodyParts,
 			null,
@@ -877,6 +851,9 @@ public class MockCombat
 			Foe.StealthBehaviour.NOT_STEALTHY,
 			null,
 			false,
+			null,
+			null,
+			null,
 			null,
 			null);
 

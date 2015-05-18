@@ -74,7 +74,6 @@ public class V1Loader extends Loader
 	private Map<String, Spell> spells;
 	private Map<String, PlayerSpellBook> playerSpellBooks;
 	private Map<String, MazeTexture> textures;
-	private Map<String, FoeAttack> foeAttacks;
 	private Map<String, FoeTemplate> foeTemplates;
 	private Map<String, Trap> traps;
 	private Map<String, FoeEntry> foeEntries;
@@ -173,10 +172,6 @@ public class V1Loader extends Loader
 
 		reader = getReader(path+V1Utils.MAZE_TEXTURES);
 		textures = V1MazeTexture.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.FOE_ATTACKS);
-		foeAttacks = V1FoeAttack.load(reader);
 		reader.close();
 
 		reader = getReader(path+V1Utils.FOE_TEMPLATES);
@@ -350,12 +345,6 @@ public class V1Loader extends Loader
 	public Map<String, MazeTexture> loadMazeTextures()
 	{
 		return textures;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, FoeAttack> loadFoeAttacks()
-	{
-		return foeAttacks;
 	}
 
 	/*-------------------------------------------------------------------------*/
