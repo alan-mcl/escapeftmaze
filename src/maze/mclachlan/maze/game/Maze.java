@@ -1381,18 +1381,24 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void appendEvents(MazeEvent... events)
 	{
-		for (MazeEvent e : events)
+		if (events != null)
 		{
-			processor.queue.offer(e);
+			for (MazeEvent e : events)
+			{
+				processor.queue.offer(e);
+			}
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void appendEvents(List<MazeEvent> events)
 	{
-		for (MazeEvent e : events)
+		if (events != null)
 		{
-			processor.queue.offer(e);
+			for (MazeEvent e : events)
+			{
+				processor.queue.offer(e);
+			}
 		}
 	}
 	

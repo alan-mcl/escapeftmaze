@@ -25,9 +25,7 @@ import mclachlan.jgpgoap.goap.Atom;
 import mclachlan.jgpgoap.goap.GOAP;
 import mclachlan.jgpgoap.goap.WorldState;
 import mclachlan.maze.game.FoeCombatAi;
-import mclachlan.maze.stat.ActorActionIntention;
-import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 
 /**
@@ -38,6 +36,13 @@ public class GOAPFoeAI extends FoeCombatAi
 
 	private static final String IS_ALIVE = "_IS_ALIVE";
 	private static final String IS_CONSCIOUS = "_IS_CONSCIOUS";
+
+	@Override
+	public boolean shouldEvade(Foe foe, List<FoeGroup> groups, PlayerParty party)
+	{
+		// todo
+		return false;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override

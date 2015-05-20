@@ -297,7 +297,16 @@ public class Condition
 
 	public void expire()
 	{
-		Maze.log(Log.DEBUG, "condition ["+template.getName()+ "] on ["+
+		String name;
+		if (template != null)
+		{
+			name = template.getName();
+		}
+		else
+		{
+			name = this.getClass().getSimpleName();
+		}
+		Maze.log(Log.DEBUG, "condition ["+ name + "] on ["+
 			target.getName()+"] expires");
 		target.removeCondition(this);
 	}

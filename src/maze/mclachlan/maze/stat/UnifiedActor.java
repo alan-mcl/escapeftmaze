@@ -1286,6 +1286,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		return (item == null) ? 0 : item.getWeight();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return True if this character can cast the given spell, based on stuff like
 	 *         the spells mana requirements and this characters current
@@ -1351,6 +1352,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			return false;
 		}
 
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean canUseSpellLikeAbility(SpellLikeAbility sla)
+	{
+		// todo:
 		return true;
 	}
 
@@ -1790,4 +1798,5 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract void addAllies(List<FoeGroup> foeGroups);
 	public abstract boolean isActiveModifier(String modifier);
 	public abstract List<SpellLikeAbility> getSpellLikeAbilities();
+	public abstract CharacterClass.Focus getFocus();
 }

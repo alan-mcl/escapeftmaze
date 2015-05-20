@@ -34,7 +34,7 @@ public class PlayerBodyPartAttackedPanel extends JPanel
 	implements ChangeListener
 {
 	private int dirtyFlag;
-	JSpinner head, torso, leg, hand, foot;
+	private JSpinner head, torso, leg, hand, foot;
 
 	/*-------------------------------------------------------------------------*/
 	protected PlayerBodyPartAttackedPanel(String title, int dirtyFlag)
@@ -42,6 +42,7 @@ public class PlayerBodyPartAttackedPanel extends JPanel
 		this.dirtyFlag = dirtyFlag;
 
 		this.setLayout(new GridLayout(5,2));
+		this.setPreferredSize(new Dimension(300, 100));
 		
 		head = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
 		head.addChangeListener(this);

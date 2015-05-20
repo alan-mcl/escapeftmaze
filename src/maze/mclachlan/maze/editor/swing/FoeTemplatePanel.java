@@ -40,8 +40,8 @@ public class FoeTemplatePanel extends EditorPanel
 	private JSpinner experience, identificationDifficulty, fleeChance;
 	private StatModifierComponent stats, foeGroupBannerModifiers, allFoesBannerModifiers;
 	private JComboBox baseTexture, meleeTexture, rangedTexture, castSpellTexture,
-		specialAbilityTexture, lootTable, evasionBehaviour, stealthBehaviour,
-		appearanceScript, deathScript;
+		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
+		appearanceScript, deathScript, focus;
 	private JCheckBox cannotBeEvaded, immuneToCriticals, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
 
@@ -51,6 +51,7 @@ public class FoeTemplatePanel extends EditorPanel
 	private NaturalWeaponsWidget naturalWeapons;
 	private SpellListPanel spellBook;
 	private SpellLikeAbilitiesWidget spellLikeAbilitiesWidget;
+	private LootTableDisplayWidget lootTable;
 
 	static String[] evasionBehaviours =
 		{
@@ -79,9 +80,65 @@ public class FoeTemplatePanel extends EditorPanel
 		JTabbedPane tabs = new JTabbedPane();
 
 		tabs.add("Stats", getStatsPanel());
+		tabs.add("AI Params", getAiPanel());
 		tabs.add("Attacks", getAttacksPanel());
+		tabs.add("Art & Scripts", getArtAndScriptsPanel());
 
 		return tabs;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private Component getArtAndScriptsPanel()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		baseTexture = new JComboBox();
+		baseTexture.addActionListener(this);
+		quickAssignAllTextures = new JButton("Base Texture:");
+		quickAssignAllTextures.addActionListener(this);
+		quickAssignAllTextures.setToolTipText("Quick assign all textures");
+		dodgyGridBagShite(result, quickAssignAllTextures, baseTexture, gbc);
+
+		meleeTexture = new JComboBox();
+		meleeTexture.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Melee Texture:"), meleeTexture, gbc);
+
+		rangedTexture = new JComboBox();
+		rangedTexture.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Ranged Texture:"), rangedTexture, gbc);
+
+		castSpellTexture = new JComboBox();
+		castSpellTexture.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Cast Spell Texture:"), castSpellTexture, gbc);
+
+		specialAbilityTexture = new JComboBox();
+		specialAbilityTexture.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Special Ability Texture:"), specialAbilityTexture, gbc);
+
+		appearanceScript = new JComboBox();
+		appearanceScript.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Appearance Script:"), appearanceScript, gbc);
+
+		deathScript = new JComboBox();
+		deathScript.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Death Script:"), deathScript, gbc);
+
+		gbc.weightx = 0.0;
+		gbc.weighty = 1.0;
+		gbc.gridx=0;
+		gbc.gridy++;
+		result.add(new JLabel(), gbc);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -98,10 +155,19 @@ public class FoeTemplatePanel extends EditorPanel
 		gbc.weighty = 0.0;
 		gbc.anchor = GridBagConstraints.NORTHWEST;
 
+		gbc.gridwidth = 2;
+
+		lootTable = new LootTableDisplayWidget("Inventory", this.dirtyFlag);
+		result.add(lootTable);
+
+		gbc.gridx=0;
+		gbc.gridy++;
+		gbc.gridwidth = 1;
+
 		naturalWeapons = new NaturalWeaponsWidget(this.dirtyFlag);
 		result.add(naturalWeapons, gbc);
 
-		gbc.gridx++;
+		gbc.gridx+=2;
 		gbc.weightx = 1.0;
 		gbc.gridheight = 2;
 
@@ -116,13 +182,8 @@ public class FoeTemplatePanel extends EditorPanel
 		spellLikeAbilitiesWidget = new SpellLikeAbilitiesWidget(this.dirtyFlag);
 		result.add(spellLikeAbilitiesWidget, gbc);
 
+		gbc.gridx=0;
 		gbc.gridy++;
-		gbc.weighty = 1.0;
-
-		bodyParts = new BodyPartPercentageTablePanel("Foe Body Parts Hit", dirtyFlag, 0.75, 0.3);
-		result.add(bodyParts, gbc);
-
-		gbc.gridx++;
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 
@@ -145,18 +206,6 @@ public class FoeTemplatePanel extends EditorPanel
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.anchor = GridBagConstraints.NORTHWEST;
-
-		result.add(getLeftPanel(), gbc);
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private JPanel getLeftPanel()
-	{
-		JPanel result = new JPanel(new GridBagLayout());
-		GridBagConstraints gbc = createGridBagConstraints();
-		gbc.insets = new Insets(2,2,2,2);
 
 		pluralName = new JTextField(20);
 		pluralName.addKeyListener(this);
@@ -208,56 +257,9 @@ public class FoeTemplatePanel extends EditorPanel
 		allFoesBannerModifiers = new StatModifierComponent(dirtyFlag);
 		dodgyGridBagShite(result, new JLabel("All Foes Banner:"), allFoesBannerModifiers, gbc);
 
-		baseTexture = new JComboBox();
-		baseTexture.addActionListener(this);
-		quickAssignAllTextures = new JButton("Base Texture:");
-		quickAssignAllTextures.addActionListener(this);
-		quickAssignAllTextures.setToolTipText("Quick assign all textures");
-		dodgyGridBagShite(result, quickAssignAllTextures, baseTexture, gbc);
-
-		meleeTexture = new JComboBox();
-		meleeTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Melee Texture:"), meleeTexture, gbc);
-
-		rangedTexture = new JComboBox();
-		rangedTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Ranged Texture:"), rangedTexture, gbc);
-
-		castSpellTexture = new JComboBox();
-		castSpellTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Cast Spell Texture:"), castSpellTexture, gbc);
-
-		specialAbilityTexture = new JComboBox();
-		specialAbilityTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Special Ability Texture:"), specialAbilityTexture, gbc);
-
-		lootTable = new JComboBox();
-		lootTable.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Loot:"), lootTable, gbc);
-
-		evasionBehaviour = new JComboBox(evasionBehaviours);
-		evasionBehaviour.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Evasion Behaviour:"), evasionBehaviour, gbc);
-
-		stealthBehaviour = new JComboBox(stealthBehaviours);
-		stealthBehaviour.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Stealth Behaviour:"), stealthBehaviour, gbc);
-
-		appearanceScript = new JComboBox();
-		appearanceScript.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Appearance Script:"), appearanceScript, gbc);
-
-		deathScript = new JComboBox();
-		deathScript.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Death Script:"), deathScript, gbc);
-
 		identificationDifficulty = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
 		identificationDifficulty.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("Identification Difficulty:"), identificationDifficulty, gbc);
-
-		fleeChance = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
-		fleeChance.addChangeListener(this);
-		dodgyGridBagShite(result, new JLabel("Flee Chance:"), fleeChance, gbc);
 
 		faction = new JTextField(20);
 		faction.addKeyListener(this);
@@ -274,7 +276,51 @@ public class FoeTemplatePanel extends EditorPanel
 		cannotBeEvaded = new JCheckBox("Cannot Be Evaded?");
 		cannotBeEvaded.addActionListener(this);
 		dodgyGridBagShite(result, cannotBeEvaded, new JLabel(), gbc);
-		
+
+		gbc.gridy++;
+		gbc.weighty = 1.0;
+
+		bodyParts = new BodyPartPercentageTablePanel("Foe Body Parts", dirtyFlag, 0.75, 0.3);
+		result.add(bodyParts, gbc);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getAiPanel()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		focus = new JComboBox(CharacterClass.Focus.values());
+		focus.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Focus:"), focus, gbc);
+
+		evasionBehaviour = new JComboBox(evasionBehaviours);
+		evasionBehaviour.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Evasion Behaviour:"), evasionBehaviour, gbc);
+
+		stealthBehaviour = new JComboBox(stealthBehaviours);
+		stealthBehaviour.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Stealth Behaviour:"), stealthBehaviour, gbc);
+
+		fleeChance = new JSpinner(new SpinnerNumberModel(0, 0, 100, 1));
+		fleeChance.addChangeListener(this);
+		dodgyGridBagShite(result, new JLabel("Flee Chance:"), fleeChance, gbc);
+
+		gbc.weightx = 0.0;
+		gbc.weighty = 1.0;
+		gbc.gridx=0;
+		gbc.gridy++;
+		result.add(new JLabel(), gbc);
 
 		return result;
 	}
@@ -298,9 +344,7 @@ public class FoeTemplatePanel extends EditorPanel
 		castSpellTexture.setModel(new DefaultComboBoxModel(textures));
 		specialAbilityTexture.setModel(new DefaultComboBoxModel(textures));
 
-		Vector<String> loot = new Vector<String>(Database.getInstance().getLootTables().keySet());
-		Collections.sort(loot);
-		lootTable.setModel(new DefaultComboBoxModel(loot));
+		lootTable.initForeignKeys();
 		
 		Vector<String> scripts = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
 		Collections.sort(scripts);
@@ -324,7 +368,6 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.removeActionListener(this);
 		castSpellTexture.removeActionListener(this);
 		specialAbilityTexture.removeActionListener(this);
-		lootTable.removeActionListener(this);
 		evasionBehaviour.removeActionListener(this);
 		stealthBehaviour.removeActionListener(this);
 		identificationDifficulty.removeChangeListener(this);
@@ -332,6 +375,7 @@ public class FoeTemplatePanel extends EditorPanel
 		appearanceScript.removeActionListener(this);
 		deathScript.removeActionListener(this);
 		faction.removeKeyListener(this);
+		focus.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
@@ -350,7 +394,7 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.setSelectedItem(ft.getRangedAttackTexture().getName());
 		castSpellTexture.setSelectedItem(ft.getCastSpellTexture().getName());
 		specialAbilityTexture.setSelectedItem(ft.getSpecialAbilityTexture().getName());
-		lootTable.setSelectedItem(ft.getLoot().getName());
+		lootTable.refresh(ft.getLoot());
 		evasionBehaviour.setSelectedItem(Foe.EvasionBehaviour.toString(ft.getEvasionBehaviour()));
 		stealthBehaviour.setSelectedItem(Foe.StealthBehaviour.toString(ft.getStealthBehaviour()));
 		identificationDifficulty.setValue(ft.getIdentificationDifficulty());
@@ -382,6 +426,7 @@ public class FoeTemplatePanel extends EditorPanel
 			deathScript.setSelectedItem(NONE);
 		}
 		faction.setText(ft.getFaction());
+		focus.setSelectedItem(ft.getFocus());
 
 		experience.addChangeListener(this);
 		baseTexture.addActionListener(this);
@@ -389,7 +434,6 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.addActionListener(this);
 		castSpellTexture.addActionListener(this);
 		specialAbilityTexture.addActionListener(this);
-		lootTable.addActionListener(this);
 		evasionBehaviour.addActionListener(this);
 		stealthBehaviour.addActionListener(this);
 		appearanceScript.addActionListener(this);
@@ -397,6 +441,7 @@ public class FoeTemplatePanel extends EditorPanel
 		identificationDifficulty.addChangeListener(this);
 		fleeChance.addChangeListener(this);
 		faction.addKeyListener(this);
+		focus.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -421,7 +466,7 @@ public class FoeTemplatePanel extends EditorPanel
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
-			Database.getInstance().getLootTable((String)lootTable.getItemAt(0)),
+			Database.getInstance().getLootTable((String)lootTable.getDefault()),
 			Foe.EvasionBehaviour.NEVER_EVADE,
 			false,
 			0,
@@ -436,7 +481,8 @@ public class FoeTemplatePanel extends EditorPanel
 			null,
 			null,
 			null,
-			null);
+			null,
+			CharacterClass.Focus.COMBAT);
 		Database.getInstance().getFoeTemplates().put(name, ft);
 	}
 
@@ -501,7 +547,8 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getDeathScript(),
 			current.getNaturalWeapons(),
 			current.getSpellBook(),
-			current.getSpellLikeAbilities());
+			current.getSpellLikeAbilities(),
+			current.getFocus());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
 	}
@@ -559,7 +606,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setRangedAttackTexture(Database.getInstance().getMazeTexture((String)rangedTexture.getSelectedItem()));
 		ft.setCastSpellTexture(Database.getInstance().getMazeTexture((String)castSpellTexture.getSelectedItem()));
 		ft.setSpecialAbilityTexture(Database.getInstance().getMazeTexture((String)specialAbilityTexture.getSelectedItem()));
-		ft.setLoot(Database.getInstance().getLootTable((String)lootTable.getSelectedItem()));
+		ft.setLoot(Database.getInstance().getLootTable(lootTable.getSelectedLootTable()));
 		ft.setEvasionBehaviour(Foe.EvasionBehaviour.valueOf((String)evasionBehaviour.getSelectedItem()));
 		ft.setStealthBehaviour(Foe.StealthBehaviour.valueOf((String)stealthBehaviour.getSelectedItem()));
 		ft.setIdentificationDifficulty((Integer)identificationDifficulty.getValue());
@@ -570,6 +617,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setNpc(isNpc.isSelected());
 		ft.setAppearanceScript(appScript);
 		ft.setDeathScript(dScript);
+		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -22,6 +22,10 @@ package mclachlan.maze.game;
 import java.util.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.*;
+import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.Spell;
+import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.util.MazeException;
 
 /**
  * Foe AI that simply picks a random attack with a random legal target, or
@@ -29,6 +33,43 @@ import mclachlan.maze.stat.combat.*;
  */
 public class BasicFoeAi extends FoeCombatAi
 {
+	/*-------------------------------------------------------------------------*/
+	public boolean shouldEvade(Foe foe, List<FoeGroup> groups, PlayerParty party)
+	{
+		switch (foe.getEvasionBehaviour())
+		{
+			case Foe.EvasionBehaviour.ALWAYS_EVADE:
+				return true;
+			case Foe.EvasionBehaviour.NEVER_EVADE:
+				return false;
+			case Foe.EvasionBehaviour.RANDOM_EVADE:
+				return Dice.d2.roll() == 1;
+			case Foe.EvasionBehaviour.CLEVER_EVADE:
+				//
+				// some heuristics to decide if they should attack
+				//
+				int foeStrength = 0;
+				for (FoeGroup fg : groups)
+				{
+					for (UnifiedActor a : fg.getActors())
+					{
+						foeStrength += a.getLevel();
+					}
+				}
+
+				int partyStrength = 0;
+				for (UnifiedActor a : party.getActors())
+				{
+					partyStrength += a.getLevel();
+				}
+
+				return foeStrength >= partyStrength;
+			default:
+				throw new MazeException("Invalid evasion behaviour: "+
+					foe.getEvasionBehaviour());
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	@Override
@@ -39,10 +80,6 @@ public class BasicFoeAi extends FoeCombatAi
 			// summoned foes never run away
 			return new RunAwayIntention();
 		}
-
-		int engagementRange = combat.getFoeEngagementRange(foe);
-		int possibleGroups = combat.getNrOfEnemyGroups(foe);
-		Dice possDice = new Dice(1, possibleGroups, -1);
 
 		if (foe.getStealthBehaviour() == Foe.StealthBehaviour.STEALTH_RELIANT &&
 			foe.getActionPoints().getRatio() < 0.5)
@@ -59,8 +96,155 @@ public class BasicFoeAi extends FoeCombatAi
 			return new HideIntention();
 		}
 
-		// just attack, if possible
-		// todo: spells, SLAs
+		PercentageTable<ActorActionIntention> perc = new PercentageTable<ActorActionIntention>();
+
+		int attackWeight;
+		int stealthWeight;
+		int magicWeight;
+
+		switch (foe.getFocus())
+		{
+			case COMBAT:
+				attackWeight = 70;
+				stealthWeight = 15;
+				magicWeight = 15;
+				break;
+			case STEALTH:
+				attackWeight = 45;
+				stealthWeight = 40;
+				magicWeight = 15;
+				break;
+			case MAGIC:
+				attackWeight = 5;
+				stealthWeight = 15;
+				magicWeight = 80;
+				break;
+			default:
+				throw new MazeException(""+foe.getFocus());
+		}
+
+		ActorActionIntention result = null;
+		int count = 0;
+
+		do
+		{
+			int roll = Dice.d100.roll();
+
+			if (roll <= attackWeight)
+			{
+				result = getAttackIntention(foe, combat);
+			}
+			else if (roll <= attackWeight+stealthWeight)
+			{
+				result = getStealthIntention(foe, combat);
+			}
+			else
+			{
+				result = getMagicIntention(foe, combat);
+			}
+
+			count++;
+		}
+		while (result == null || count < 20);
+
+		if (result != null)
+		{
+			return result;
+		}
+		else
+		{
+			return new DefendIntention();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private ActorActionIntention getMagicIntention(Foe foe, Combat combat)
+	{
+		SpellBook spellBook = foe.getSpellBook();
+		if (spellBook != null && !spellBook.getSpells().isEmpty())
+		{
+			List<Spell> spells = spellBook.getSpells();
+
+			// pick a random spell, until the foe can cast it
+			Spell spell = null;
+			int count = 0;
+
+			do
+			{
+				spell = spells.get(Dice.nextInt(spells.size()));
+
+				if (!foe.canCast(spell))
+				{
+					spell = null;
+				}
+
+				count++;
+			}
+			while (spell == null || count < 20);
+
+			// pick the max casting level (start at the max)
+			int castingLevel = foe.getMagicPoints().getCurrent() / spell.getCastingCost();
+
+			while (castingLevel > 1 &&
+				GameSys.getInstance().getSpellFailureChance(foe, spell, castingLevel) > 10)
+			{
+				castingLevel--;
+			}
+
+			SpellTarget spellTarget = chooseSpellTarget(foe, spell, combat);
+
+			if (spellTarget != null)
+			{
+				return new SpellIntention(spellTarget, spell, castingLevel);
+			}
+		}
+
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private ActorActionIntention getStealthIntention(Foe foe, Combat combat)
+	{
+		List<SpellLikeAbility> slas = foe.getSpellLikeAbilities();
+
+		if (slas != null && !slas.isEmpty())
+		{
+			// pick a random sla, until the foe can cast it
+			SpellLikeAbility sla = null;
+			int count = 0;
+
+			do
+			{
+				sla = slas.get(Dice.nextInt(slas.size()));
+
+				if (!foe.canUseSpellLikeAbility(sla))
+				{
+					sla = null;
+				}
+
+				count++;
+			}
+			while (sla == null || count < 20);
+
+			SpellTarget spellTarget = chooseSpellTarget(foe, sla.getSpell(), combat);
+
+			if (spellTarget != null)
+			{
+				return new SpecialAbilityIntention(
+					spellTarget,
+					sla.getSpell(),
+					sla.getCastingLevel().compute(foe));
+			}
+		}
+
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private ActorActionIntention getAttackIntention(Foe foe, Combat combat)
+	{
+		int engagementRange = combat.getFoeEngagementRange(foe);
+
 		if (foe.canAttack(engagementRange))
 		{
 			// pick a random attack
@@ -81,19 +265,15 @@ public class BasicFoeAi extends FoeCombatAi
 		}
 		else
 		{
-			return new DefendIntention();
+			return null;
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public SpellTarget chooseTarget(Foe foe, /*FoeAttack.FoeAttackSpell spell,*/ Combat combat)
+	public SpellTarget chooseSpellTarget(Foe foe, Spell spell, Combat combat)
 	{
-		// todo
-
-		return null;
-
-		/*SpellTarget target;
-		switch (spell.getSpell().getTargetType())
+		SpellTarget target;
+		switch (spell.getTargetType())
 		{
 			case MagicSys.SpellTargetType.ALL_FOES:
 			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
@@ -139,8 +319,8 @@ public class BasicFoeAi extends FoeCombatAi
 				break;
 
 			default: throw new MazeException("Invalid target type: "+
-				spell.getSpell().getTargetType());
+				spell.getTargetType());
 		}
-		return target;*/
+		return target;
 	}
 }

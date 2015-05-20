@@ -352,6 +352,13 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public CharacterClass.Focus getFocus()
+	{
+		return getCharacterClass().getFocus();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Returns all action options for this character.
 	 *

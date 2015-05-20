@@ -87,10 +87,6 @@ public class FoeTemplate
 	/** What this foe drops when it dies */
 	LootTable loot;
 
-	/** This foes behaviour when it gets a chance to evade the player.
-	 * A constant from {@link Foe.EvasionBehaviour} */
-	int evasionBehaviour;
-
 	/** true if this foe cannot be evaded */
 	boolean cannotBeEvaded;
 
@@ -105,12 +101,6 @@ public class FoeTemplate
 
 	/** true if this foe is immune to critical hits */
 	boolean immuneToCriticals;
-
-	/** chance of this foe to flee, each turn */
-	int fleeChance;
-
-	/** behaviour of the foe wrt stealth actions */
-	int stealthBehaviour;
 
 	/** the faction (if any) that this foe belongs to */
 	String faction;
@@ -132,6 +122,21 @@ public class FoeTemplate
 
 	/** SLAs */
 	private List<SpellLikeAbility> spellLikeAbilities;
+
+	//--- AI parameters
+
+	/** chance of this foe to flee, each turn */
+	private int fleeChance;
+
+	/** behaviour of the foe wrt stealth actions */
+	private int stealthBehaviour;
+
+	/** focus of this foe */
+	private CharacterClass.Focus focus;
+
+	/** This foes behaviour when it gets a chance to evade the player.
+	 * A constant from {@link Foe.EvasionBehaviour} */
+	private int evasionBehaviour;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeTemplate(
@@ -168,7 +173,8 @@ public class FoeTemplate
 		MazeScript deathScript,
 		List<String> naturalWeapons,
 		SpellBook spellBook,
-		List<SpellLikeAbility> spellLikeAbilities)
+		List<SpellLikeAbility> spellLikeAbilities,
+		CharacterClass.Focus focus)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
 		this.type = type;
@@ -204,6 +210,7 @@ public class FoeTemplate
 		this.naturalWeapons = naturalWeapons;
 		this.spellBook = spellBook;
 		this.spellLikeAbilities = spellLikeAbilities;
+		this.focus = focus;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -369,6 +376,11 @@ public class FoeTemplate
 	public MazeScript getDeathScript()
 	{
 		return deathScript;
+	}
+
+	public CharacterClass.Focus getFocus()
+	{
+		return focus;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -592,5 +604,10 @@ public class FoeTemplate
 	public void setSpellLikeAbilities(List<SpellLikeAbility> spellLikeAbilities)
 	{
 		this.spellLikeAbilities = spellLikeAbilities;
+	}
+
+	public void setFocus(CharacterClass.Focus focus)
+	{
+		this.focus = focus;
 	}
 }

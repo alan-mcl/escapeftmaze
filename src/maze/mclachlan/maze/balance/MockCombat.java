@@ -855,7 +855,8 @@ public class MockCombat
 			null,
 			null,
 			null,
-			null);
+			null,
+			CharacterClass.Focus.COMBAT);
 
 		return new Foe(ft);
 	}

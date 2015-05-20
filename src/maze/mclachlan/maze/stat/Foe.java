@@ -234,38 +234,8 @@ public class Foe extends UnifiedActor
 	 */
 	public boolean shouldEvade(List<FoeGroup> groups, PlayerParty party)
 	{
-		switch (this.template.evasionBehaviour)
-		{
-			case EvasionBehaviour.ALWAYS_EVADE:
-				return true;
-			case EvasionBehaviour.NEVER_EVADE:
-				return false;
-			case EvasionBehaviour.RANDOM_EVADE:
-				return Dice.d2.roll() == 1;
-			case EvasionBehaviour.CLEVER_EVADE:
-				//
-				// some heuristics to decide if they should attack
-				//
-				int foeStrength = 0;
-				for (FoeGroup fg : groups)
-				{
-					for (UnifiedActor a : fg.getActors())
-					{
-						foeStrength += a.getLevel();
-					}
-				}
-
-				int partyStrength = 0;
-				for (UnifiedActor a : party.getActors())
-				{
-					partyStrength += a.getLevel();
-				}
-
-				return foeStrength >= partyStrength;
-			default:
-				throw new MazeException("Invalid evasion behaviour: "+
-					this.template.evasionBehaviour);
-		}
+		FoeCombatAi ai = Maze.getInstance().getDifficultyLevel().getFoeCombatAi();
+		return ai.shouldEvade(this, groups, party);
 	}
 
 	public void removeItem(Item item, boolean removeWholeStack)
@@ -316,6 +286,13 @@ public class Foe extends UnifiedActor
 	public List<SpellLikeAbility> getSpellLikeAbilities()
 	{
 		return template.getSpellLikeAbilities();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public CharacterClass.Focus getFocus()
+	{
+		return template.getFocus();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -613,6 +590,12 @@ public class Foe extends UnifiedActor
 	{
 		return aw.getMinRange() <= engagementRange &&
 			aw.getMaxRange() >= engagementRange;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getEvasionBehaviour()
+	{
+		return template.getEvasionBehaviour();
 	}
 
 	/*-------------------------------------------------------------------------*/

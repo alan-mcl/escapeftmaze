@@ -99,4 +99,10 @@ public abstract class AbstractActor extends UnifiedActor
 	{
 		return new ArrayList<SpellLikeAbility>();
 	}
+
+	@Override
+	public CharacterClass.Focus getFocus()
+	{
+		return CharacterClass.Focus.COMBAT;
+	}
 }

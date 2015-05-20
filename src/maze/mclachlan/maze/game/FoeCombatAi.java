@@ -19,8 +19,11 @@
 
 package mclachlan.maze.game;
 
+import java.util.*;
 import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.Foe;
+import mclachlan.maze.stat.FoeGroup;
+import mclachlan.maze.stat.PlayerParty;
 import mclachlan.maze.stat.combat.Combat;
 
 /**
@@ -28,6 +31,8 @@ import mclachlan.maze.stat.combat.Combat;
  */
 public abstract class FoeCombatAi
 {
+	public abstract boolean shouldEvade(Foe foe, List<FoeGroup> groups, PlayerParty party);
+
 	public abstract ActorActionIntention getCombatIntention(Foe foe,
 		Combat combat);
 }

@@ -1239,26 +1239,19 @@ public class GameSys
 
 		int result = 0;
 
-		if (actor.getCharacterClass() != null)
+		switch (actor.getFocus())
 		{
-			switch (actor.getCharacterClass().getFocus())
-			{
-				case COMBAT:
-					result = 1 + actor.getLevel()/10;
-					break;
-				case STEALTH:
-					result = 1 + actor.getLevel()/15;
-					break;
-				case MAGIC:
-					result = 1 + actor.getLevel()/20;
-					break;
-				default:
-					throw new MazeException(""+ actor.getCharacterClass().getFocus());
-			}
-		}
-		else
-		{
-			result = 1 + actor.getLevel()/15;
+			case COMBAT:
+				result = 1 + actor.getLevel()/10;
+				break;
+			case STEALTH:
+				result = 1 + actor.getLevel()/15;
+				break;
+			case MAGIC:
+				result = 1 + actor.getLevel()/20;
+				break;
+			default:
+				throw new MazeException(""+ actor.getCharacterClass().getFocus());
 		}
 
 		result += bonusAttacks;

@@ -40,10 +40,10 @@ import mclachlan.maze.util.MazeException;
 public class BodyPartPercentageTablePanel extends JPanel implements ActionListener
 {
 	private int dirtyFlag;
-	JTable table;
-	JButton add, remove;
-	MyTableModel dataModel;
-	JComboBox bodyPartCombo;
+	private JTable table;
+	private JButton add, remove;
+	private MyTableModel dataModel;
+	private JComboBox bodyPartCombo;
 
 	/*-------------------------------------------------------------------------*/
 	protected BodyPartPercentageTablePanel(String title, int dirtyFlag, double scaleX, double scaleY)

@@ -245,6 +245,10 @@ public class V1FoeTemplate
 			b.append("spellLikeAbilities=");
 			b.append(spellLikeAbilities.toString(obj.getSpellLikeAbilities()));
 			b.append(V1Utils.NEWLINE);
+
+			b.append("focus=");
+			b.append(obj.getFocus());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -317,6 +321,8 @@ public class V1FoeTemplate
 			List<SpellLikeAbility> spellLikeAbilityList = spellLikeAbilities.fromString(
 				p.getProperty("spellLikeAbilities"));
 
+			CharacterClass.Focus focus = CharacterClass.Focus.valueOf(p.getProperty("focus"));
+
 			return new FoeTemplate(
 				name,
 				pluralName,
@@ -351,7 +357,8 @@ public class V1FoeTemplate
 				deathScript,
 				naturalWeapons,
 				spellbook,
-				spellLikeAbilityList);
+				spellLikeAbilityList,
+				focus);
 		}
 	}
 }
