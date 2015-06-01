@@ -25,6 +25,7 @@ import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.stat.ItemCacheManager;
 import mclachlan.maze.stat.TurnCache;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.npc.NpcManager;
 
@@ -79,8 +80,9 @@ public class GameTime
 	private static void regenerateResources()
 	{
 		Maze.log("regenerating actor resources...");
-		
-		boolean combat = Maze.getInstance().getState() == Maze.State.COMBAT;
+
+		Combat currentCombat = Maze.getInstance().getCurrentCombat();
+		boolean combat = currentCombat != null && Maze.getInstance().getState() == Maze.State.COMBAT;
 		boolean resting = Maze.getInstance().getState() == Maze.State.RESTING;
 
 		// regen player characters
@@ -95,7 +97,7 @@ public class GameTime
 		// regen foes in combat
 		if (combat)
 		{
-			List<FoeGroup> allFoes = Maze.getInstance().getCurrentCombat().getFoes();
+			List<FoeGroup> allFoes = currentCombat.getFoes();
 
 			for (FoeGroup fg : allFoes)
 			{
