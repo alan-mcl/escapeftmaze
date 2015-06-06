@@ -271,7 +271,7 @@ public class Leveler
 
 		result.setSpellBook(new SpellBook());
 
-		result.setSpellPicks(calcSpellPicks(result));
+		result.setSpellPicks(calcSpellPicks(result, 1));
 
 		if (startingSpells != null)
 		{
@@ -462,7 +462,7 @@ public class Leveler
 	public void applyInitialChanges(PlayerCharacter pc, LevelUpState state)
 	{
 		pc.incLevel(1);
-		pc.incSpellPicks(calcSpellPicks(pc));
+		pc.incSpellPicks(state.spellPicksInc);
 		incCurMax(pc.getHitPoints(), state.hpInc);
 		incCurMax(pc.getActionPoints(), state.spInc);
 		incCurMax(pc.getMagicPoints(), state.mpInc);
@@ -473,7 +473,7 @@ public class Leveler
 	public void rollbackInitialChanges(PlayerCharacter pc, LevelUpState state)
 	{
 		pc.incLevel(-1);
-		pc.incSpellPicks(-calcSpellPicks(pc));
+		pc.incSpellPicks(-state.spellPicksInc);
 		incCurMax(pc.getHitPoints(), -state.hpInc);
 		incCurMax(pc.getActionPoints(), -state.spInc);
 		incCurMax(pc.getMagicPoints(), -state.mpInc);
@@ -485,10 +485,10 @@ public class Leveler
 	/**
 	 * @return The number of new spell picks available to this character
 	 */
-	protected int calcSpellPicks(PlayerCharacter pc)
+	protected static int calcSpellPicks(PlayerCharacter pc, int level)
 	{
 		LevelAbilityProgression progression = pc.getCharacterClass().getProgression();
-		List<LevelAbility> forLevel = progression.getForLevel(pc.getCurrentClassLevel());
+		List<LevelAbility> forLevel = progression.getForLevel(level);
 
 		int result = 0;
 		for (LevelAbility la : forLevel)
@@ -681,6 +681,7 @@ public class Leveler
 		private int hpInc;
 		private int spInc;
 		private int mpInc;
+		private int spellPicksInc;
 
 		/*-------------------------------------------------------------------------*/
 		public LevelUpState(PlayerCharacter pc, int extraAssignableModifiers)
@@ -697,6 +698,8 @@ public class Leveler
 			spInc = pc.getCharacterClass().getLevelUpActionPoints().roll();
 			mpInc = pc.getCharacterClass().getLevelUpMagicPoints().roll() +
 				pc.getModifier(Stats.Modifiers.BRAINS);
+
+			spellPicksInc = calcSpellPicks(pc, pc.getCurrentClassLevel()+1);
 
 			this.extraAssignableModifiers = extraAssignableModifiers;
 		}
