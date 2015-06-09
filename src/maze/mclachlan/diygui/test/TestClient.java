@@ -55,20 +55,20 @@ public class TestClient extends Frame
 		gui = new DIYToolkit(SCREEN_WIDTH, SCREEN_HEIGHT, this,
 			MazeRendererFactory.class.getName());
 
-		buildGUI();
-
-		GraphicsDevice device = 
+		GraphicsDevice device =
 			GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
-		
+
 		this.enableEvents(KeyEvent.KEY_EVENT_MASK);
 		this.setUndecorated(true);
-        
+
 		device.setFullScreenWindow(this);
 		this.enableInputMethods(false);
 		device.setDisplayMode(new DisplayMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, 0));
-        
+
 		this.createBufferStrategy(2);
-		
+
+		buildGUI();
+
 		// get rid of the cursor
 		new Robot().mouseMove(SCREEN_WIDTH*2, SCREEN_HEIGHT*2);
 	}
@@ -129,13 +129,10 @@ public class TestClient extends Frame
 		gui.add(scrollPane);
 		
 		java.util.List items = new ArrayList();
-		items.add("Item 1");
-		items.add("Item 2");
-		items.add("Item 3");
-		items.add("Item 4");
-		items.add("Item 5");
-		items.add("Item 6");
-		items.add("Item 7");
+		for (int i=0; i<39; i++)
+		{
+			items.add("item "+i);
+		}
 		DIYListBox listBox = new DIYListBox(items);
 		DIYPane pane = new DIYPane();
 		pane.setLayoutManager(new DIYBorderLayout());
@@ -156,7 +153,6 @@ public class TestClient extends Frame
 		model.add("NINETY", "NINE");
 		model.add("NINETEEN FIFTY", "NINETY");
 		model.add("TWENTY ONE", null);
-
 
 		Rectangle bounds = new Rectangle(250, 25, 100, 20);
 		DIYComboBox combo = new DIYComboBox(model, bounds);

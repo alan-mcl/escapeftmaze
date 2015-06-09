@@ -12,7 +12,14 @@ Features
  - Hostile Affliction conditions begin unidentified
  - Conditions can repeatedly inflict spell effects
  - Unlockable character races
- - Added Gnome race
+ - Added Gnome race, unlocked on talking to Mnesus
+ - Foes now reliant on their inventory, spellbooks and natural weapons
+
+Other
+#101 Lost spellpicks on level up
+#104 Crash after changing class
+#105 Crash in regenResources
+#108 Vendor inventories unusable 
 
 ---------------------------------------
 v0.914 (30 June 2014)
@@ -41,12 +48,12 @@ v0.913 (22 December 2013)
 Other
  - Increased spell casting stats for Parched Vultures
  - Flagged Goblin throwing knife attacks as ranged instead of melee
-#81 NPX in combat 
-#86 NPX when foe carries non-equipable item 
-#89 Editor: warning on close window 
-#90 NPX trading with Stenelaus 
-#95 Many bombs have infinite charges 
-#99 NPX climbing stairs in CoC 
+#81 NPX in combat
+#86 NPX when foe carries non-equipable item
+#89 Editor: warning on close window
+#90 NPX trading with Stenelaus
+#95 Many bombs have infinite charges
+#99 NPX climbing stairs in CoC
 
 ---------------------------------------
 v0.912 (1 December 2013)
@@ -67,23 +74,23 @@ Features
  - Increased default screen resolution to 1024x768
 
 Other
-#53 Display class changing requirements in UI 
-#54 Monster counting bug 
+#53 Display class changing requirements in UI
+#54 Monster counting bug
 #57 Cannot edit some modifiers on level up
-#58 Chivalry never practised 
+#58 Chivalry never practised
 #59 Combat modifiers not practised
 #60 Kepnasha encountered in COC
 #61 List things affecting a modifier
 #64 Spellbooks to indicate which magic school they belong to
-#65 Many spellbooks have "to equip" requirements 
-#68 Examine balance of combat modifier practise 
-#70 Steal modifier does not practise 
-#71 Critical hit modifiers do not practise 
-#72 Powercast not practising 
-#73 Golden apples and Magic Nectar crash the game 
-#74 Theft spell hangs the game 
+#65 Many spellbooks have "to equip" requirements
+#68 Examine balance of combat modifier practise
+#70 Steal modifier does not practise
+#71 Critical hit modifiers do not practise
+#72 Powercast not practising
+#73 Golden apples and Magic Nectar crash the game
+#74 Theft spell hangs the game
 #75 NPC speech detection is case sensitive
-#76 Spell level limits to not work 
+#76 Spell level limits to not work
 #77 Cure poison spell crashes the game
 #78 Sporadic crash opening waterfront villa chest
 #80 Chamois Skirt has "reserved15 +1" modifier

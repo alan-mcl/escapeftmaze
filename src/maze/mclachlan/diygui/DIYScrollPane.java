@@ -57,6 +57,8 @@ public class DIYScrollPane extends ContainerWidget
 		contents.width = width-scrollBarWidth-inset*2;
 		contents.height = ps.height;
 
+		contents.doLayout();
+
 		this.initScrollBar();
 	}
 
@@ -130,7 +132,6 @@ public class DIYScrollPane extends ContainerWidget
 	@Override
 	public void doLayout()
 	{
-		contents.setBounds(0, 0, width-sliderWidth, height);
 		super.doLayout();
 		initScrollBar();
 	}

@@ -27,13 +27,13 @@ practice=20010000,3359
 activeModifiers=441f785e7f8,010101010101010101010101010101010101010101010101
 @
 name=Ug
-levels=Exorcist:20
-experience=601416
+levels=Sohei:3
+experience=5789
 kills=30
 race=Neotroll
 gender=Male
 portrait=portrait/neotroll_male_magang
-characterClass=Exorcist
+characterClass=Sohei
 personality=Wit
 torsoArmour=Ameratsu's Gown/1/2/1-1/0-0/
 legArmour=Shino Suneate/1/2/1-1/0-0/

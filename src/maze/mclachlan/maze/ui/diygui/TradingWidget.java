@@ -347,13 +347,6 @@ public class TradingWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
-		/*Dimension d = super.getPreferredSize();
-		int itemWidgetPreferredHeight = itemWidgets.get(0).getPreferredSize().height;
-		d.height = itemWidgets.size() * (itemWidgetPreferredHeight+2);
-		return d;*/
-
-		System.out.println("mclachlan.maze.ui.diygui.TradingWidget.getPreferredSize");
-		System.out.println("height = [" + height + "]");
 		return new Dimension(width, height);
 	}
 
