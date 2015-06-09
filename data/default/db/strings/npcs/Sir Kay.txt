@@ -1,4 +1,4 @@
-#Fri Apr 11 08:02:30 CAT 2014
+#Fri May 29 16:37:02 CAT 2015
 maze\ master=9|A legend, nothing more. But then again... so am I.
 garret=9|My sort of godling, Garret. Sometimes I would offer him a prayer..but, well, you know...I'm too busy counting loot. <grins broadly>
 faerie=9|Never heard of it. Is it valuable?
@@ -11,8 +11,8 @@ gate=9|Sure, there's a gate to the Third Realm somewhere in the wastes. Gimme so
 belisarius=9|Yeah, the leonal general. Not widely known for his sense of humour, and always the last to get his own jokes.
 mentes=9|Never heard of 'im. Couldn't really care.
 agenor=9|Never heard of 'im, thus couldn't care.
-beiweh=9|Heh, the goddess of farmers and their chubby wives.
 nergal=9|The gloomy god of death. There's always one like that. <shakes head>
+beiweh=9|Heh, the goddess of farmers and their chubby wives.
 three\ eyes=9|He's the gnoll shaman.
 buy,deal,deals,sell,trade=9|Hem. I tend towards the five fingered discount, myself... on that note, suppose I could organize you what you need...?
 lorelei=9|I've heard there's a druidess of that name, wandering around somewhere.
@@ -31,8 +31,8 @@ scrymgeour=9|The inn keeper, a good enough fellow. He works for the Chamber of C
 c.o.c.,chamber\ of\ commerce,coc=9|Ah, the merchants. Sheep to our wolves.  <grins broadly>%n%nIt's an arms race, friends, but I'm always one step ahead. That fool Pickett and his army of hirelings couldn't catch a cold on a rainy day.
 thank\ you,thanks=9|Ha ha ha, the treasure... uhm, I mean, the pleasure is all mine\!
 wasid=9|The war god. All about gore and glory. Probably making up for his small package. Ha ha ha\!
-ichiba=9|It's a good town. Bit tedious, now that the Chamber is trying to run things instead of letting nature take it's course. But still, the best we have. Better, I wager, than most of your precious First Realm towns.
 red\ ear=9|The gnoll shopkeeper in town? Not so bright, that one, but then none of them are. Nothing much worth stealing.
+ichiba=9|It's a good town. Bit tedious, now that the Chamber is trying to run things instead of letting nature take it's course. But still, the best we have. Better, I wager, than most of your precious First Realm towns.
 maze=9|What's there to say? We all get by as best we can, according to our abilities. Some of us, just a little better than others\!
 glaucus=9|A cheery fellow, likeable enough for a gnome. I once permanently borrowed his purse when he passed out drunk at Scrymgeours\! Found love notes from two different wenches back at Aenen, of all things\! Ha ha ha\!  Also, he cheats at cards. But not as well as me... not that I cheat at all\! Wanna wager a hand or three...?
 escape,freedom=9|Only if they catch you eh? Ha ha ha.

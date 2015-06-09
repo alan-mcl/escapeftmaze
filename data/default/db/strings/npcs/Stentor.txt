@@ -1,4 +1,4 @@
-#Fri Apr 11 08:02:30 CAT 2014
+#Fri May 29 16:37:02 CAT 2015
 maze\ master=9|I am but a humble blacksmith.
 garret=9|I am but a blacksmith.
 faerie=9|I am but a blacksmith.
@@ -33,21 +33,21 @@ thank\ you,thanks=9|My pleasure.
 wasid=9|I am but a blacksmith.
 ichiba=9|The City in the Crater is south of here. I sometimes sell weapons to the merchants there, but there is little profit and much hard bargaining involved.
 red\ ear=9|I know him not.
-glaucus=9|I know him not.
 maze=9|I am but a humble blacksmith.
+glaucus=9|I know him not.
 rumors,rumour,rumours=9|I am but a humble blacksmith.
 escape,freedom=9|From what?
 gentlemen's\ social\ club,thieves,thieves\ guild=9|
 leonal,leonals,white\ order=9|The White Order keeps these lands safe. By the grace of Dana and the strength of our arms, we keep the chaos and darkness at bay.
 gnoll,gnolls=9|The gnolls are fierce warriors.
-stentor=9|That is my name.
 dalen=9|I am but a blacksmith.
+stentor=9|That is my name.
 gnome,gnomes=9|Those pesky gnomes, always raiding our supply lines and making trouble. They have no respect for authority and law and order. The don't even have a flag?
-pickett,we\ pickett=9|I know him not.
 imogen=9|I know her not.
-second\ realm=9|The Crater is the only part of this Realm that is civilised.
-mnesus=9|I know him not.
+pickett,we\ pickett=9|I know him not.
 dana=9|Praise be on the white lady.
+mnesus=9|I know him not.
+second\ realm=9|The Crater is the only part of this Realm that is civilised.
 sarpedon=9|I know him not.
 greetings,hello,hi,salutations=9|Greetings\! What can I do for you?
 kay,sir\ kay=9|I know him not.

@@ -1,4 +1,4 @@
-#Fri Apr 11 08:02:30 CAT 2014
+#Fri May 29 16:37:02 CAT 2015
 maze\ master=9|Heh. You adventurers are all the same. Stories of shadowy forces, watching your every move, secret conspiracies of vast forces moving mysteriously against you? Har har har\! Have another beer and tell me more about it\!
 garret=9|May he bless us with luck.
 faerie=9|Nope, dunno.
@@ -38,14 +38,14 @@ escape,freedom=9|I hear it's to be found in the bottom of a beer mug. Har har.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Damn bandits. The C.O.C. keep hiring mercenaries, but the blasted brigands keep harassing us.
 leonal,leonals,white\ order=9|The high and mighty lion folk, always marching this way and that, building fortifications, planning wars.
 gnoll,gnolls=9|Them dogs are savages, dirty rascals with no morals. These days I try keep them out of the place, all they do is get drunk and start fights. Nasty fights too. Bah, they should stay in the damn forest.%n%nTake that Red Ear, the junk seller across the road\! Why the Chamber let's him ply his trade and sell his useless rubbish in town, I don't know.
-dalen=9|Nope, dunno.
 stentor=9|Nope, dunno.
+dalen=9|Nope, dunno.
 gnome,gnomes=9|Little mischief makers, not to be trusted. Good customers though - like their spirits, and tend to fall asleep under the table rather than starting a fight later on.
-imogen=9|<makes a hand sign of protection against evil> %n%nGods protect us from whatever dark forces that witch is toying with in ther tower\! The Chamber should run her out of town, I always say. There's no place for sorcery in an organised town.
 pickett,we\ pickett=9|A good man, fair and honest. Runs the C.O.C. like a tight ship, got his finger on the pulse. This city would fall apart without him.
-dana=9|May she bless and protect us.
-mnesus=9|He's the big old King Gnome. I hear he has a dozen wives, there in his undergound harem, and all of them busy brewing beer for him\! Har har har.
+imogen=9|<makes a hand sign of protection against evil> %n%nGods protect us from whatever dark forces that witch is toying with in ther tower\! The Chamber should run her out of town, I always say. There's no place for sorcery in an organised town.
 second\ realm=9|Most of it is a waste, monsters and beasts and such. Then there's the leonals and the gnomes, always bickering with eachother. And the damn dog soldiers, sneaking around in the forest. We've got a good thing going in Ichiba, stick around here and you'll be ok.
+mnesus=9|He's the big old King Gnome. I hear he has a dozen wives, there in his undergound harem, and all of them busy brewing beer for him\! Har har har.
+dana=9|May she bless and protect us.
 sarpedon=9|Nope, dunno.
 greetings,hello,hi,salutations=9|What can I do for you?
 kay,sir\ kay=9|Bah, he's the worst of the brigands. There's a bag of gold on his head, if you see him.

@@ -1,4 +1,4 @@
-#Fri Apr 11 08:02:30 CAT 2014
+#Fri May 29 16:37:02 CAT 2015
 maze\ master=9|He is watching.
 garret=9|I care nothing for the gods.
 faerie=9|The undying fey, how I envy them.
@@ -38,14 +38,14 @@ escape,freedom=9|If that's what you want, you should seek it.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|The criminal elements in Ichiba are well organised. They and the Chamber Of Commerce keep each other very busy.
 leonal,leonals,white\ order=9|The leonals make much of their military might.
 gnoll,gnolls=9|The gnolls are a fierce, proud people. Many in this Realm take them lightly - but I do not.
-dalen=9|It is a mystic woodland world.
 stentor=9|Who is that?
+dalen=9|It is a mystic woodland world.
 gnome,gnomes=9|The little folk have built their warren to the south. They are cunning artificers and workers of minor magicks.
-imogen=9|Yes, I am Imogen.
 pickett,we\ pickett=9|That small minded man\! He cares for nothing but profit.
-dana=9|I care nothing for the gods.
-mnesus=9|The king of the gnomes hides under the ground.
+imogen=9|Yes, I am Imogen.
 second\ realm=9|The Realm is what you make of it.
+mnesus=9|The king of the gnomes hides under the ground.
+dana=9|I care nothing for the gods.
 sarpedon=9|Who is that?
 greetings,hello,hi,salutations=9|Greetings.
 kay,sir\ kay=9|He is the leader of the thieves guild. A dangerous man.

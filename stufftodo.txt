@@ -23,6 +23,7 @@ portrait: gnome females
 
 text: gnome race description
 
+data: improve foe inventories
 data: body parts: leonal armour
 data: more wielding combos
 data: puzzle boxes: items that require brains to disassemble and contain loot

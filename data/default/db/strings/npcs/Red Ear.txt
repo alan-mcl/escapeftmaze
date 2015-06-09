@@ -1,4 +1,4 @@
-#Fri Apr 11 08:02:30 CAT 2014
+#Fri May 29 16:37:02 CAT 2015
 maze\ master=9|Red Ear does not know him.
 garret=9|Red Ear does not know.
 faerie=9|Red Ear does not know.
@@ -37,14 +37,14 @@ escape,freedom=9|Red Ear is happy here, food and warmth and trading in safe Ichi
 gentlemen's\ social\ club,thieves,thieves\ guild=9|...
 leonal,leonals,white\ order=9|Grrr, sneering lion-folk. Always all swords, shiny armour. Too good to talk to red Ear. Their place northwards, Danaos big white castle.
 gnoll,gnolls=9|Gnoll-folk are mighty in the Realm\! War Chief Broken Fang commands a hundred spears, fights with the strength of bear\! Gnoll warriors go unseen by anyone through the trees, see and hear all\! Famous wizard shaman Three Eyes guides the tribe by his wisdom. Mighty are the Gnoll-folk\! Red Ear's folk\!
-dalen=9|Red Ear does not know.
 stentor=9|Red Ear does not know him.
+dalen=9|Red Ear does not know.
 gnome,gnomes=9|Grrr, shifty gnome folk wizards, always whispering to each other, never doing good deals. Their lair-hole far south of here - Aenen village.
-imogen=9|Hmmmrrrrrrr. Wizard lady in the tower. Red Ear sells her deals sometimes. She nice.
 pickett,we\ pickett=9|Brrrgh\! High mighty chieftain of the soldiers. He does not come to Red Ear for deals, only sends men with laws and papers to take Red Ear's money.
-dana=9|Red Ear does not know.
-mnesus=9|King wizard of Gnomes. Red Ear hopes he stays in his burrow far away.
+imogen=9|Hmmmrrrrrrr. Wizard lady in the tower. Red Ear sells her deals sometimes. She nice.
 second\ realm=9|Yarr, we all in the Second Realm. Ichiba biggest city. Red Ear best deals in Ichiba. Second Realm. Yarr.
+mnesus=9|King wizard of Gnomes. Red Ear hopes he stays in his burrow far away.
+dana=9|Red Ear does not know.
 sarpedon=9|Red Ear does not know him.
 c.o.c,chamber\ of\ commerce,coc=9|Bahhhhr. Grrrrr. Laws and soldiers and papers\! Red Ear is an honest trader\! Why must he be harassed and robbed by these? Brrrrrhrmm\!
 greetings,hello,hi,salutations=9|Yes\! Red Ear has the best deals\!

@@ -40,8 +40,8 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class TradingDialog extends GeneralDialog implements ActionListener
 {
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/4*3;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/4*3;
+	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/6*5;
+	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/6*5;
 
 	private TradingWidget pcWidget, npcWidget;
 	private DIYButton buy, sell, exit;
@@ -65,8 +65,11 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		int buttonPaneHeight = 20;
 		int inset = 10;
-		Rectangle isBounds = new Rectangle(startX+ inset, startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
+		Rectangle isBounds = new Rectangle(
+			startX+ inset,
+			startY+ inset + buttonPaneHeight,
+			DIALOG_WIDTH/2- inset*2,
+			DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
 
 		this.setBounds(dialogBounds);
 		pcWidget = new TradingWidget(

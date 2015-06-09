@@ -1,4 +1,4 @@
-#Fri Apr 11 08:02:30 CAT 2014
+#Fri May 29 16:37:02 CAT 2015
 maze\ master=9|I an unaware.
 garret=9|An ambivalent god. But then, aren't they all? Heh. *yghh*
 faerie=9|I an unaware.
@@ -38,14 +38,14 @@ escape,freedom=9|Of course, who does not think of freedom? *yghk*. Count your bl
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Heh heh heh. Ichiba is a melting pot. Some good, some bad.
 leonal,leonals,white\ order=9|The leonals and their Order continue to harass us. *ykgh*. There is enmity and mistrust... but few open hostilties yet.
 gnoll,gnolls=9|Ah, the gnolls. They have a village near here. Broken Fang is the chieftain.
-stentor=9|I an unaware.
 dalen=9|I an unaware.
+stentor=9|I an unaware.
 gnome,gnomes=9|We gnomes where here in the Second Realm before any others. *yghh* I know not how we came here. *hgyh* In the mists of time it was us against what beasts the maze chose to throw against us. More lately, the haughty leonals harass us. *ghgh\!* Our kingdom is small, but we endure. 
-pickett,we\ pickett=9|The Director of the C.O.C. is seldom away from his desk. *kygh*. He pays mercenaries to run the city. Yet, something has always troubled me, though I cannot put my finger on it.
 imogen=9|*yghk*. The Sorceress in the Tower? I don't trust her. Nothing personal, I just mistrust mysterious mages in towers. he he he.
-second\ realm=9|Welcome again to this Realm, friends. *yghy* Hope you're not too disappointed, he he he
-mnesus=9|Mnesus the Mighty *yhgh* King of All Gnomes. His throne is in Aenen. A worthy leader, wise and forbearing.
+pickett,we\ pickett=9|The Director of the C.O.C. is seldom away from his desk. *kygh*. He pays mercenaries to run the city. Yet, something has always troubled me, though I cannot put my finger on it.
 dana=9|The iron goddess, followed by the leonals. They claim to be her chosen people.
+mnesus=9|Mnesus the Mighty *yhgh* King of All Gnomes. His throne is in Aenen. A worthy leader, wise and forbearing.
+second\ realm=9|Welcome again to this Realm, friends. *yghy* Hope you're not too disappointed, he he he
 sarpedon=9|He was in Aenen, last I heard.
 greetings,hello,hi,salutations=9|Greetings\!
 kay,sir\ kay=9|I have heard that he is some sort of chief brigand amongst the local thieves? He he he he.

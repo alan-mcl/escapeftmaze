@@ -80,13 +80,15 @@ public class TradingWidget extends DIYPane
 		{
 			if (inventory != null)
 			{
-				this.maxRows = inventory.size()+20;
+				this.maxRows = inventory.size()+15;
 			}
 			else
 			{
-				this.maxRows = 20;
+				this.maxRows = 15;
 			}
 		}
+
+		this.height = this.maxRows * 20;
 
 		if (inventory == null)
 		{
@@ -345,10 +347,14 @@ public class TradingWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
-		Dimension d = super.getPreferredSize();
+		/*Dimension d = super.getPreferredSize();
 		int itemWidgetPreferredHeight = itemWidgets.get(0).getPreferredSize().height;
 		d.height = itemWidgets.size() * (itemWidgetPreferredHeight+2);
-		return d;
+		return d;*/
+
+		System.out.println("mclachlan.maze.ui.diygui.TradingWidget.getPreferredSize");
+		System.out.println("height = [" + height + "]");
+		return new Dimension(width, height);
 	}
 
 	/*-------------------------------------------------------------------------*/
