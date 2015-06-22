@@ -1,6 +1,27 @@
-# @(#)fontconfig.properties	1.7 09/08/26
 #
-# Copyright 2009 Sun Microsystems, Inc. All rights reserved.
+# 
+# Copyright (c) 2003, 2011, Oracle and/or its affiliates. All rights reserved.
+# ORACLE PROPRIETARY/CONFIDENTIAL. Use is subject to license terms.
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 
 # Version
@@ -20,6 +41,7 @@ allfonts.dingbats=Wingdings
 allfonts.lucida=Lucida Sans Regular
 allfonts.symbol=Symbol
 allfonts.thai=Lucida Sans Regular
+allfonts.georgian=Sylfaen
 
 serif.plain.alphabetic=Times New Roman
 serif.plain.chinese-ms950=MingLiU
@@ -80,28 +102,28 @@ sansserif.bolditalic.korean=Gulim
 monospaced.plain.alphabetic=Courier New
 monospaced.plain.chinese-ms950=MingLiU
 monospaced.plain.chinese-ms950-extb=MingLiU-ExtB
-monospaced.plain.hebrew=David
+monospaced.plain.hebrew=Courier New
 monospaced.plain.japanese=MS Gothic
 monospaced.plain.korean=GulimChe
 
 monospaced.bold.alphabetic=Courier New Bold
 monospaced.bold.chinese-ms950=PMingLiU
 monospaced.bold.chinese-ms950-extb=PMingLiU-ExtB
-monospaced.bold.hebrew=David Bold
+monospaced.bold.hebrew=Courier New Bold
 monospaced.bold.japanese=MS Gothic
 monospaced.bold.korean=GulimChe
 
 monospaced.italic.alphabetic=Courier New Italic
 monospaced.italic.chinese-ms950=PMingLiU
 monospaced.italic.chinese-ms950-extb=PMingLiU-ExtB
-monospaced.italic.hebrew=David
+monospaced.italic.hebrew=Courier New
 monospaced.italic.japanese=MS Gothic
 monospaced.italic.korean=GulimChe
 
 monospaced.bolditalic.alphabetic=Courier New Bold Italic
 monospaced.bolditalic.chinese-ms950=PMingLiU
 monospaced.bolditalic.chinese-ms950-extb=PMingLiU-ExtB
-monospaced.bolditalic.hebrew=David Bold
+monospaced.bolditalic.hebrew=Courier New Bold
 monospaced.bolditalic.japanese=MS Gothic
 monospaced.bolditalic.korean=GulimChe
 
@@ -189,6 +211,12 @@ sequence.monospaced.x-MS950-HKSCS=chinese-ms950,alphabetic,chinese-hkscs,dingbat
 sequence.dialog.x-MS950-HKSCS=alphabetic,chinese-ms950,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
 sequence.dialoginput.x-MS950-HKSCS=alphabetic,chinese-ms950,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
 
+sequence.serif.x-MS950-HKSCS-XP=alphabetic,chinese-ms950,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
+sequence.sansserif.x-MS950-HKSCS-XP=alphabetic,chinese-ms950,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
+sequence.monospaced.x-MS950-HKSCS-XP=chinese-ms950,alphabetic,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
+sequence.dialog.x-MS950-HKSCS-XP=alphabetic,chinese-ms950,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
+sequence.dialoginput.x-MS950-HKSCS-XP=alphabetic,chinese-ms950,chinese-hkscs,dingbats,symbol,chinese-ms950-extb
+
 sequence.allfonts.UTF-8.hi=alphabetic/1252,devanagari,dingbats,symbol
 sequence.allfonts.UTF-8.ja=alphabetic,japanese,devanagari,dingbats,symbol
 
@@ -210,7 +238,7 @@ sequence.allfonts.x-windows-874=alphabetic,thai,dingbats,symbol
 
 sequence.fallback=lucida,\
                   chinese-ms950,chinese-hkscs,chinese-ms936,chinese-gb18030,\
-                  japanese,korean,chinese-ms950-extb,chinese-ms936-extb
+                  japanese,korean,chinese-ms950-extb,chinese-ms936-extb,georgian
 
 # Exclusion Ranges
 
@@ -269,3 +297,4 @@ filename.Mangal=MANGAL.TTF
 filename.Symbol=SYMBOL.TTF
 filename.Wingdings=WINGDING.TTF
 
+filename.Sylfaen=sylfaen.ttf
