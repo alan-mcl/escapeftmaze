@@ -1,4 +1,4 @@
-#Fri May 29 16:37:02 CAT 2015
+#Mon Jun 22 07:54:07 CAT 2015
 maze\ master=9|Never heard of him.
 garret=9|I care not.
 skull,stone\ doors,throne\ room=9|You mean the relief on the throne room doors? Hmpf. Outsiders often find it disturbing. Mnesus enjoys the effect. I suggest you think nothing of it.
@@ -39,14 +39,14 @@ escape,freedom=9|From what?
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Ichiba is a lawless place. What do you expect?
 leonal,leonals,white\ order=9|Bah. They'll get their comeuppance some day. Hope I'm there to see it.
 gnoll,gnolls=9|Some would tell you that the dog people are craftier woodsmen than us. I say - those who say so have no woodcraft themselves and cannot know\! Bah, I could smell a gnoll in the woods from a hundred meters away.
-stentor=9|Never heard of him.
 dalen=9|I don't know.
+stentor=9|Never heard of him.
 gnome,gnomes=9|You noticed? Hrpfh. Yes, this is the city of the gnomes. No haughty lion folk here. Watch your step and you'll be fine. And don't drink the sundew, you don't look feisty enough.
-pickett,we\ pickett=9|I have hear those who trade with Ichiba mention his name.
 imogen=9|Never heard of her.
-second\ realm=9|Hmpf. Indeed.
-mnesus=9|Mnesus the Mighty. The only thing he's better at than fighting is drinking, and the only thing he's better at than drinking is swiving.
+pickett,we\ pickett=9|I have hear those who trade with Ichiba mention his name.
 dana=9|I care not.
+mnesus=9|Mnesus the Mighty. The only thing he's better at than fighting is drinking, and the only thing he's better at than drinking is swiving.
+second\ realm=9|Hmpf. Indeed.
 sarpedon=9|The guildmaster is down the corridor...
 greetings,hello,hi,salutations=9|Greetings.
 kay,sir\ kay=9|Never heard of him.

@@ -1,4 +1,4 @@
-#Fri May 29 16:37:02 CAT 2015
+#Mon Jun 22 07:54:07 CAT 2015
 maze\ master=9|Red Ear does not know him.
 garret=9|Red Ear does not know.
 faerie=9|Red Ear does not know.
@@ -10,8 +10,8 @@ gate=9|Red Ear does not know about gates.
 belisarius=9|Hrmmmm. Great general of the lion warriors, far away in the white castle. 
 mentes=9|Red Ear does not know him.
 agenor=9|Red Ear does not know him.
-beiweh=9|Red Ear does not know.
 nergal=9|Red Ear does not know.
+beiweh=9|Red Ear does not know.
 three\ eyes=9|Mighty shaman of the Gnoll-people, wise in the ways of magic and wisdom\!
 buy,deal,deals,sell,trade=9|Yes, yes\! Red Ear always has the best deals in Ichiba\!
 lorelei=9|Forest lady comes sometimes to the village. Red Ear thinks she is gone north now-a-days.
@@ -28,8 +28,8 @@ danaos=9|Hrmmm. White castle of the lion-folk, far north of here. Red Ear does n
 scrymgeour=9|Hmmm, Red Ear does not trust him, man who smiles with his mouth but not his eyes.
 thank\ you,thanks=9|Red Ear's pleasure\!
 wasid=9|Red Ear does not know.
-ichiba=9|Ichiba, biggest town in the Realm. Red Ear's home. Good trade, even with many criminals and soldiers and men with papers making laws. Remember - Red Ear has the best deals in Ichiba\!
 red\ ear=9|Red Ear has the best deals\!
+ichiba=9|Ichiba, biggest town in the Realm. Red Ear's home. Good trade, even with many criminals and soldiers and men with papers making laws. Remember - Red Ear has the best deals in Ichiba\!
 glaucus=9|Grrrmm, shifty gnome wizard. His deals not as good as Red Ear.
 maze=9|Yarrr, we all in the Maze. What to do? Red Ear does deals.
 quest=9|Red Ear does deals not quests.

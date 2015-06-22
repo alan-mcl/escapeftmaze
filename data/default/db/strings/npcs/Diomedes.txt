@@ -1,4 +1,4 @@
-#Fri May 29 16:37:02 CAT 2015
+#Mon Jun 22 07:54:07 CAT 2015
 maze\ master=9|A rumour, nothing more.
 garret=9|Do not trust the trickster god of the road.
 faerie=9|I do not know of it.
@@ -39,14 +39,14 @@ escape,freedom=9|My loyalty to the Order is paramount.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Some elements of society tend always towards crime. I do not associate with them.
 leonal,leonals,white\ order=9|We are the children of Dana, her chosen. The White Order has brought law and order to some small portion of this realm, so that cities such as this may prosper.
 gnoll,gnolls=9|The gnolls have a village near here. They are a fierce and proud people, and few in this Realm can match their woodcraft.
-dalen=9|I have not heard of it.
 stentor=9|I do not know him.
+dalen=9|I have not heard of it.
 gnome,gnomes=9|Do not trust the gnomes. Their stature is small but their magick is large and their wickedness knows no bounds.
-imogen=9|The witch in the tower? She speaks sweetly, but at best she is untrustworthy. At worst... who knows what dark magicks she works in her lair?
 pickett,we\ pickett=9|The Director of the C.O.C. He is man of small spirit, a bean counter of the worst sort.
-dana=9|Our goddess, Dana of the spear and shield. To the faithful she is merciful and just. %nShe is the patron of the White Order, who guard the borders north of here at Danaos castle. By her grace we hold back the darkness from these civilised lands.
-mnesus=9|The king of the gnomes. Deep in his lair in Aenen he broods, hatching plans of mischief and deceptions to harry us.
+imogen=9|The witch in the tower? She speaks sweetly, but at best she is untrustworthy. At worst... who knows what dark magicks she works in her lair?
 second\ realm=9|Yes, congratulations on your escape to this Realm. You will find less civilisation that you are used to, i fear. Other than Ichiba here and Danaos to the north, there is little other than deadly wastes and the trickery of the gnomes.
+mnesus=9|The king of the gnomes. Deep in his lair in Aenen he broods, hatching plans of mischief and deceptions to harry us.
+dana=9|Our goddess, Dana of the spear and shield. To the faithful she is merciful and just. %nShe is the patron of the White Order, who guard the borders north of here at Danaos castle. By her grace we hold back the darkness from these civilised lands.
 sarpedon=9|I do not know him?
 greetings,hello,hi,salutations=9|Greetings, adventurers.
 kay,sir\ kay=9|A shadowy figure. I do not know him.

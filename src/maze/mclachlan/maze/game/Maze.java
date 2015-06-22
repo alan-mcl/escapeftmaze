@@ -1569,7 +1569,7 @@ public class Maze implements Runnable
 			ArrayList<UnifiedActor> chars = new ArrayList<UnifiedActor>();
 			chars.add(pc);
 	
-			party = new PlayerParty(chars, 0, 10, 1);
+			party = new PlayerParty(chars, 0, 100, 1); // todo: reduce supplies when there is more balance in data
 			this.ui.setParty(party);
 			this.ui.characterSelected(pc);
 		}

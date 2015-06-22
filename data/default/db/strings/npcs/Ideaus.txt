@@ -1,4 +1,4 @@
-#Fri May 29 16:37:02 CAT 2015
+#Mon Jun 22 07:54:07 CAT 2015
 maze\ master=9|I have no time for faerie tales.
 garret=9|I am not a religious man
 faerie=9|I have no time for faerie tales.
@@ -39,14 +39,14 @@ escape,freedom=9|Only by working together will we survive.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Ichiba is home to many kinds of scum.
 leonal,leonals,white\ order=9|The haughty Leonals hide far from here in the fortress called Danaos. The talk a good fight and they harass our borders endlessly, but they have yet to come against these walls.
 gnoll,gnolls=9|The gnolls are a warrior people.
-dalen=9|What is that?
 stentor=9|That sounds like a Leonal name.
+dalen=9|What is that?
 gnome,gnomes=9|Yes, Aenen is the home of the gnomes. We are as you see us, making our way in this Maze, much as you are.
-imogen=9|I have heard tell of the witch in Ichiba. They say she has green sap in her veins instead of blood, and that her kiss is poison.
 pickett,we\ pickett=9|I hear that he runs things in Ichiba, as much as one can say so in such a lawless town.
-dana=9|I am not a religious man.
-mnesus=9|Our mighty king Mnesus has entrusted my clan with holding the gate of Ichiba.%n%nHe is a wise leader.
+imogen=9|I have heard tell of the witch in Ichiba. They say she has green sap in her veins instead of blood, and that her kiss is poison.
 second\ realm=9|Yes, this is the Second Realm. Well done.
+mnesus=9|Our mighty king Mnesus has entrusted my clan with holding the gate of Ichiba.%n%nHe is a wise leader.
+dana=9|I am not a religious man.
 sarpedon=9|Guildmaster Sarpedon can usually be found in the barracks off the Storyteller's Market.
 greetings,hello,hi,salutations=9|Greetings.
 kay,sir\ kay=9|Ichiba is home to all manner of scum and villainy.
