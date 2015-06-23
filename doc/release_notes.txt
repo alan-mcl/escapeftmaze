@@ -1,5 +1,5 @@
 ---------------------------------------
-v0.915 (???)
+v0.915 (23 June 2014)
 ---------------------------------------
 Features
  - Redesigned Resting as a more interesting encounter
