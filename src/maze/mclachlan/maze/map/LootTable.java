@@ -26,8 +26,8 @@ import mclachlan.maze.stat.GroupOfPossibilities;
  */
 public class LootTable
 {
-	String name;
-	GroupOfPossibilities<ILootEntry> lootEntries;
+	private String name;
+	private GroupOfPossibilities<ILootEntry> lootEntries;
 
 	/*-------------------------------------------------------------------------*/
 	public LootTable(String name, GroupOfPossibilities<ILootEntry> lootEntries)

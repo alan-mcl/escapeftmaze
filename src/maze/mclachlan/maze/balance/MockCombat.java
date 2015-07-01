@@ -49,18 +49,8 @@ public class MockCombat
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
 		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
 
-		Maze maze = new Maze(Launcher.getConfig(), campaign);
-
-		maze.initAudio(new MockAudioPlayer());
-		maze.initLog(new SoutLog());
-		maze.initState();
-//		maze.initDb();
-		maze.initSystems();
-		maze.initUi(new HeadlessUi());
-//		maze.startThreads();
+		Maze maze = getMockMaze(loader);
 
 		MockCombat mc = new MockCombat();
 
@@ -78,6 +68,24 @@ public class MockCombat
 		mc.referenceTestCombat(db, maze, "Monk", "Human", "Male", 10, 30);
 */
 		refTestCombatClasses(db, maze);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Maze getMockMaze(Loader loader) throws Exception
+	{
+		Campaign campaign = Maze.getStubCampaign();
+		loader.init(campaign);
+
+		Maze maze = new Maze(Launcher.getConfig(), campaign);
+
+		maze.initAudio(new MockAudioPlayer());
+		maze.initLog(new SoutLog());
+		maze.initState();
+//		maze.initDb();
+		maze.initSystems();
+		maze.initUi(new HeadlessUi());
+//		maze.startThreads();
+		return maze;
 	}
 
 	/*-------------------------------------------------------------------------*/

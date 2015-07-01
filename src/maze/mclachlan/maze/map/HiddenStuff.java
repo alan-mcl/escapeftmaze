@@ -30,8 +30,8 @@ import mclachlan.maze.game.MazeVariables;
  */
 public class HiddenStuff extends TileScript
 {
-	String mazeVariable;
-	MazeScript preScript, content;
+	private String mazeVariable;
+	private MazeScript preScript, content;
 	
 	/*-------------------------------------------------------------------------*/
 	public HiddenStuff(MazeScript content, MazeScript preScript, String mazeVariable)

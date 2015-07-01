@@ -109,7 +109,10 @@ public class Foe extends UnifiedActor
 
 		// apply difficulty levels
 		DifficultyLevel dl = Maze.getInstance().getDifficultyLevel();
-		dl.foeIsSpawned(this);
+		if (dl != null)
+		{
+			dl.foeIsSpawned(this);
+		}
 
 		generateInventory();
 

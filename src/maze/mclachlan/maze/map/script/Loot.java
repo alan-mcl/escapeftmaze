@@ -35,18 +35,18 @@ import java.util.*;
  */
 public class Loot extends TileScript
 {
-	String lootEntry;
+	private String lootTable;
 
-	public Loot(String lootEntry)
+	public Loot(String lootTable)
 	{
-		this.lootEntry = lootEntry;
+		this.lootTable = lootTable;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		GroupOfPossibilities<ILootEntry> loot =
-			Database.getInstance().getLootTable(this.lootEntry).getLootEntries();
+			Database.getInstance().getLootTable(this.lootTable).getLootEntries();
 		if (loot == null)
 		{
 			// no loot here
@@ -59,8 +59,8 @@ public class Loot extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getLootEntry()
+	public String getLootTable()
 	{
-		return lootEntry;
+		return lootTable;
 	}
 }

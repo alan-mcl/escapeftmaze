@@ -24,6 +24,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
+import mclachlan.maze.stat.PercentageTable;
 
 /**
  *
@@ -54,6 +55,13 @@ public class SingleItemLootEntry implements ILootEntry
 	public Item generate()
 	{
 		return Database.getInstance().getItemTemplate(itemName).create();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public PercentageTable<LootEntryRow> getPercentageTable()
+	{
+		return new PercentageTable<LootEntryRow>(getContents(), Arrays.asList(new Double[]{1.0}));
 	}
 
 	/*-------------------------------------------------------------------------*/

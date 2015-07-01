@@ -25,16 +25,15 @@ import java.awt.GridLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.map.ILootEntry;
-import mclachlan.maze.map.LootEntry;
-import mclachlan.maze.map.LootTable;
-import mclachlan.maze.map.SingleItemLootEntry;
+import mclachlan.maze.map.*;
 import mclachlan.maze.stat.GroupOfPossibilities;
+import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -42,10 +41,10 @@ import mclachlan.maze.util.MazeException;
  */
 public class LootTablePanel extends EditorPanel
 {
-	JTable table;
-	JButton add, remove;
-	JComboBox lootEntriesCombo;
-	LootTableTableModel dataModel;
+	private JTable table;
+	private JButton add, remove, inline;
+	private JComboBox lootEntriesCombo;
+	private LootTableTableModel dataModel;
 
 	/*-------------------------------------------------------------------------*/
 	public LootTablePanel()
@@ -66,6 +65,7 @@ public class LootTablePanel extends EditorPanel
 		table.setDefaultEditor(Integer.TYPE, new DefaultCellEditor(new JTextField()));
 		table.setDefaultEditor(LootEntry.class, new DefaultCellEditor(new JTextField()));
 		table.getColumnModel().getColumn(0).setPreferredWidth(10);
+		table.addKeyListener(this);
 
 		JScrollPane scroller = new JScrollPane(table);
 
@@ -73,6 +73,8 @@ public class LootTablePanel extends EditorPanel
 		add.addActionListener(this);
 		remove = new JButton("Remove");
 		remove.addActionListener(this);
+		inline = new JButton("Inline Loot Entry");
+		inline.addActionListener(this);
 
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(3,3,3,3);
@@ -91,9 +93,11 @@ public class LootTablePanel extends EditorPanel
 		gbc.gridy++;
 		gbc.gridwidth = 1;
 		editControls.add(add, gbc);
-		gbc.weightx = 1.0;
 		gbc.gridx++;
 		editControls.add(remove, gbc);
+		gbc.weightx = 1.0;
+		gbc.gridx++;
+		editControls.add(inline, gbc);
 
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
@@ -208,7 +212,33 @@ public class LootTablePanel extends EditorPanel
 				dataModel.remove(table.getSelectedRow());
 			}
 		}
+		else if (e.getSource() == inline)
+		{
+			if (table.getSelectedRow() > -1)
+			{
+				dataModel.inline(table.getSelectedRow());
+			}
+		}
 		super.actionPerformed(e);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public void keyPressed(KeyEvent e)
+	{
+		if (e.getSource() == table)
+		{
+			switch (e.getKeyCode())
+			{
+				case KeyEvent.VK_DELETE:
+					if (table.getSelectedRow() > -1)
+					{
+						dataModel.remove(table.getSelectedRow());
+					}
+					break;
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -387,6 +417,22 @@ public class LootTablePanel extends EditorPanel
 			percentages.remove(index);
 			lootEntries.remove(index);
 			fireTableDataChanged();
+		}
+
+		/*-------------------------------------------------------------------------*/
+		public void inline(int index)
+		{
+			ILootEntry lootEntry = lootEntries.get(index);
+
+			remove(index);
+
+			PercentageTable<LootEntryRow> percentageTable = lootEntry.getPercentageTable();
+
+			for (LootEntryRow ler : percentageTable.getItems())
+			{
+				add(percentageTable.getPercentage(ler),
+					new SingleItemLootEntry(ler.getItemName()));
+			}
 		}
 	}
 }

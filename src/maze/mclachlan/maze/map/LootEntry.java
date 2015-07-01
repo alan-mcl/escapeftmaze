@@ -31,8 +31,8 @@ import mclachlan.maze.util.MazeException;
  */
 public class LootEntry implements ILootEntry
 {
-	String name;
-	PercentageTable<LootEntryRow> contains;
+	private String name;
+	private PercentageTable<LootEntryRow> contains;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -95,6 +95,13 @@ public class LootEntry implements ILootEntry
 		}
 
 		return item;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public PercentageTable<LootEntryRow> getPercentageTable()
+	{
+		return contains;
 	}
 
 	/*-------------------------------------------------------------------------*/

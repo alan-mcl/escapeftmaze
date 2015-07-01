@@ -21,6 +21,7 @@ package mclachlan.maze.map;
 
 import java.util.*;
 import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.PercentageTable;
 
 public interface ILootEntry
 {
@@ -32,6 +33,9 @@ public interface ILootEntry
 
 	/*-------------------------------------------------------------------------*/
 	Item generate();
+
+	/*-------------------------------------------------------------------------*/
+	PercentageTable<LootEntryRow> getPercentageTable();
 
 	/*-------------------------------------------------------------------------*/
 	List<LootEntryRow> getContents();

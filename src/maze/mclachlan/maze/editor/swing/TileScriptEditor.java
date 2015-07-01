@@ -318,7 +318,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case LOOT:
 				Loot l = (Loot)ts;
-				lootTable.setSelectedItem(l.getLootEntry());
+				lootTable.setSelectedItem(l.getLootTable());
 				break;
 			case REMOVE_WALL:
 				RemoveWall r = (RemoveWall)ts;

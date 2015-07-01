@@ -46,9 +46,9 @@ public class HiddenLoot extends TileScript
 			return null;
 		}
 
-		GroupOfPossibilities<ILootEntry> lootEntry =
+		GroupOfPossibilities<ILootEntry> lootTable =
 			Database.getInstance().getLootTable("stick man loot").getLootEntries();
-		java.util.List<ILootEntry> entries = lootEntry.getRandom();
+		java.util.List<ILootEntry> entries = lootTable.getRandom();
 		List<MazeEvent> result = getLootingEvents(LootEntry.generate(entries));
 
 		result.add(0, new FlavourTextEvent(

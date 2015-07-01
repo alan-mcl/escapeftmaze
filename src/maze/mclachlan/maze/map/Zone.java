@@ -197,6 +197,27 @@ public class Zone
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	an iterator over all tiles in this zone. order not defined.
+	 */
+	public Iterator<Tile> getTilesIterator()
+	{
+		List<Tile> list = new ArrayList<Tile>();
+
+		for (Tile[] i : tiles)
+		{
+			for (Tile j : i)
+			{
+				list.add(j);
+			}
+		}
+
+		return list.iterator();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Map getMap()
 	{
 		return map;

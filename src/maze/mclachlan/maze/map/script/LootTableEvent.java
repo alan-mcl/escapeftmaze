@@ -31,7 +31,7 @@ import java.util.*;
  */
 public class LootTableEvent extends MazeEvent
 {
-	LootTable lootTable;
+	private LootTable lootTable;
 
 	/*-------------------------------------------------------------------------*/
 	public LootTableEvent(LootTable lootTable)

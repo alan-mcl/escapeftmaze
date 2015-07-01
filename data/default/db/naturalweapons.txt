@@ -1398,20 +1398,6 @@ spellEffects=
 spellEffectLevel=1
 attackScript=generic weapon swish
 @
-name=fangorn iron spike
-ranged=false
-description=thrusts iron spike
-modifiers=100000000000000,14
-minRange=1
-maxRange=1
-attacks=3,3,3
-slaysFoeType=
-damage=4d8
-damageType=PIERCING
-spellEffects=
-spellEffectLevel=1
-attackScript=generic weapon swish
-@
 name=bloated spider bite
 ranged=false
 description=bites

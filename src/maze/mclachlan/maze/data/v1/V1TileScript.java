@@ -158,7 +158,7 @@ public class V1TileScript
 				break;
 			case LOOT:
 				Loot l = (Loot)t;
-				s.append(l.getLootEntry());
+				s.append(l.getLootTable());
 				break;
 			case REMOVE_WALL:
 				RemoveWall r = (RemoveWall)t;
