@@ -61,7 +61,7 @@ public class VerifyFoeInventories
 
 			LootTable lt = ft.getLoot();
 
-			// only consider single item items. Items from random loot entries
+			// only consider single item entries. Items from random loot entries
 			// need not be usable
 
 			for (ILootEntry le : lt.getLootEntries().getPossibilities())

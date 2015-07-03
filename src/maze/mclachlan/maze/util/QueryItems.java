@@ -48,7 +48,8 @@ public class QueryItems
 
 		Map<String, ItemTemplate> map = db.getItemTemplates();
 
-		queryReservedModifiers(map);
+		sortOutGnome(map);
+//		queryReservedModifiers(map);
 //		sortOutExorcist(map);
 //		sortOutBlackguard(map);
 //		sortOutGadgeteer(map);
@@ -71,9 +72,27 @@ public class QueryItems
 	}
 
 	/*-------------------------------------------------------------------------*/
+	static void sortOutGnome(Map<String, ItemTemplate> map) throws Exception
+	{
+		Set<String> other = getItemsUsableByRace("Dwarf", map);
+
+		Set<String> thisOne = new HashSet<String>(other);
+
+		for (ItemTemplate t : map.values())
+		{
+			if (thisOne.contains(t.getName()))
+			{
+				System.out.println(t.getName());
+			}
+		}
+
+		reassignRaceUsability(map, thisOne, "Gnome");
+	}
+
+	/*-------------------------------------------------------------------------*/
 	static void sortOutGadgeteer(Map<String, ItemTemplate> map) throws Exception
 	{
-		Set<String> thief = getItemsUsableBy("Thief", map);
+		Set<String> thief = getItemsUsableByClass("Thief", map);
 
 		Set<String> gadgy = new HashSet<String>(thief);
 
@@ -85,13 +104,13 @@ public class QueryItems
 			}
 		}
 
-		reassignUsability(map, gadgy, "Gadgeteer");
+		reassignClassUsability(map, gadgy, "Gadgeteer");
 	}
 
 	/*-------------------------------------------------------------------------*/
 	static void sortOutBlackguard(Map<String, ItemTemplate> map) throws Exception
 	{
-		Set<String> hero = getItemsUsableBy("Hero", map);
+		Set<String> hero = getItemsUsableByClass("Hero", map);
 
 		Set<String> bg = new HashSet<String>(hero);
 
@@ -109,8 +128,8 @@ public class QueryItems
 	/*-------------------------------------------------------------------------*/
 	static void sortOutExorcist(Map<String, ItemTemplate> map) throws Exception
 	{
-		Set<String> adept = getItemsUsableBy("Adept", map);
-		Set<String> thief = getItemsUsableBy("Thief", map);
+		Set<String> adept = getItemsUsableByClass("Adept", map);
+		Set<String> thief = getItemsUsableByClass("Thief", map);
 
 		Set<String> exorcist = new HashSet<String>(adept);
 		exorcist.addAll(thief);
@@ -127,7 +146,7 @@ public class QueryItems
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void reassignUsability(Map<String, ItemTemplate> map,
+	private static void reassignClassUsability(Map<String, ItemTemplate> map,
 		Set<String> allowed, String className) throws Exception
 	{
 		for (String s : map.keySet())
@@ -152,7 +171,32 @@ public class QueryItems
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Set<String> getItemsUsableBy(
+	private static void reassignRaceUsability(Map<String, ItemTemplate> map,
+		Set<String> allowed, String raceName) throws Exception
+	{
+		for (String s : map.keySet())
+		{
+			ItemTemplate it = map.get(s);
+
+			Set<String> usability = it.getUsableByRace();
+
+			if (allowed.contains(s))
+			{
+				usability.add(raceName);
+			}
+			else
+			{
+				usability.remove(raceName);
+			}
+
+			it.setUsableByRace(usability);
+		}
+
+		saver.saveItemTemplates(map);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Set<String> getItemsUsableByClass(
 		String className,
 		Map<String, ItemTemplate> map)
 	{
@@ -163,6 +207,28 @@ public class QueryItems
 			ItemTemplate it = map.get(s);
 
 			Set<String> set = it.getUsableByCharacterClass();
+
+			if (set.contains(className))
+			{
+				result.add(s);
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Set<String> getItemsUsableByRace(
+		String className,
+		Map<String, ItemTemplate> map)
+	{
+		Set<String> result = new HashSet<String>();
+
+		for (String s : map.keySet())
+		{
+			ItemTemplate it = map.get(s);
+
+			Set<String> set = it.getUsableByRace();
 
 			if (set.contains(className))
 			{
