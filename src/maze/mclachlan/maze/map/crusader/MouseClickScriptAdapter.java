@@ -42,10 +42,14 @@ public class MouseClickScriptAdapter implements MouseClickScript
 	public void initialise(Map map)
 	{
 		Maze maze = Maze.getInstance();
-		Point tile = maze.getTile();
-		int facing = maze.getFacing();
-		
-		this.script.initialise(maze, tile, facing);
+
+		if (maze != null)
+		{
+			Point tile = maze.getTile();
+			int facing = maze.getFacing();
+
+			this.script.initialise(maze, tile, facing);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

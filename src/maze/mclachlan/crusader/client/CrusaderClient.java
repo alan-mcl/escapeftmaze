@@ -30,7 +30,12 @@ import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.CrusaderEngine8;
 import mclachlan.crusader.Map;
-import mclachlan.crusader.client.ClientMapLoader;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.V1Loader;
+import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.game.Campaign;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.Zone;
 
 /**
  * A simple client for testing the engine.
@@ -39,10 +44,10 @@ public class CrusaderClient extends Frame
 {
 	private static boolean[] key  = new boolean[256];
 
-	private static final int MAZE_WIN_WIDTH = 400;
-	private static final int MAZE_WIN_HEIGHT = 400;
-	private static final int SCREEN_WIDTH = 800;
-	private static final int SCREEN_HEIGHT = 600;
+	private static final int MAZE_WIN_WIDTH = 600;
+	private static final int MAZE_WIN_HEIGHT = 600;
+	private static final int SCREEN_WIDTH = 1024;
+	private static final int SCREEN_HEIGHT = 768;
 	private static final int MAZE_WIN_LEFT = (SCREEN_WIDTH/2) - (MAZE_WIN_WIDTH/2);
 	private static final int MAZE_WIN_TOP = (SCREEN_HEIGHT/2) - (MAZE_WIN_HEIGHT/2);
 	
@@ -71,17 +76,18 @@ public class CrusaderClient extends Frame
 	private double shadingDistance = 4.0;
 	private double shadingMultiplier = 4.0;
 //	private String mapFile = "../maze/data/test/arena/testMap.txt";
-	private String mapFile = "test/testMap.txt";
+	private String mapFile = "test/crusader/testMap.txt";
 	private boolean eight_bit_mode = false;
-
+	private String mazeMap;
 
 	/*-------------------------------------------------------------------------*/
-	public CrusaderClient(String[] args) throws AWTException
+	public CrusaderClient(String[] args) throws Exception
 	{
 		this.setTitle("Crusader Client");
 		this.setIconImage(Toolkit.getDefaultToolkit().createImage(
-			"C:\\p4ws\\crusader\\bin\\texture1.gif"));
+			"test/crusader/img/texture1.gif"));
 		this.engineMode = CrusaderEngine.MovementMode.CONTINUOUS;
+//		this.engineMode = CrusaderEngine.MovementMode.DISCRETE;
 		this.evaluateArgs(args);
 
 		if (eight_bit_mode)
@@ -100,21 +106,51 @@ public class CrusaderClient extends Frame
 		}
 		else
 		{
-			engine = new CrusaderEngine32(
-				getMap(),
-				MAZE_WIN_WIDTH,
-				MAZE_WIN_HEIGHT,
-				engineMode,
-				Color.BLACK, 
-				new Color(0,64,0),
-				doShading,
-				doLighting,
-				shadingDistance,
-				shadingMultiplier,
-				0,
-				CrusaderEngine.FieldOfView.FOV_60_DEGREES,
-				1.0,
-				this);
+			if (mazeMap == null)
+			{
+				engine = new CrusaderEngine32(
+					getMap(),
+					MAZE_WIN_WIDTH,
+					MAZE_WIN_HEIGHT,
+					engineMode,
+					Color.BLACK,
+					new Color(0,64,0),
+					doShading,
+					doLighting,
+					shadingDistance,
+					shadingMultiplier,
+					0,
+					CrusaderEngine.FieldOfView.FOV_60_DEGREES,
+					1.0,
+					this);
+			}
+			else
+			{
+				V1Loader loader = new V1Loader();
+				V1Saver saver = new V1Saver();
+				Database db = new Database(loader, saver);
+				Campaign campaign = Maze.getStubCampaign();
+				loader.init(campaign);
+				saver.init(campaign);
+
+				Zone zone = db.getZone(mazeMap);
+
+				engine = new CrusaderEngine32(
+					zone.getMap(),
+					MAZE_WIN_WIDTH,
+					MAZE_WIN_HEIGHT,
+					engineMode,
+					zone.getShadeTargetColor(),
+					zone.getTransparentColor(),
+					zone.doShading(),
+					zone.doLighting(),
+					zone.getShadingDistance(),
+					zone.getShadingMultiplier(),
+					zone.getProjectionPlaneOffset(),
+					zone.getPlayerFieldOfView(),
+					zone.getScaleDistFromProjPlane(),
+					this);
+			}
 		}
 		engine.setPlayerPos(1, 1, CrusaderEngine.Facing.EAST);
 
@@ -174,6 +210,10 @@ public class CrusaderClient extends Frame
 			else if (arg.equalsIgnoreCase("-8"))
 			{
 				this.eight_bit_mode = true;
+			}
+			else if (arg.equalsIgnoreCase("-mazeMap"))
+			{
+				this.mazeMap = args[++i];
 			}
 		}
 	}

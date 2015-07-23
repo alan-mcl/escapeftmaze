@@ -43,6 +43,9 @@ lootEntries=batch.2.magic.armour:100,batch.2.magic.weapons:100,batch.2.magic.tri
 name=aenen.city.chest.1
 lootEntries=batch.2.ammo:100,batch.2.ammo:100,batch.2.ammo:100,batch.2.food:100,batch.2.food:100,batch.2.mundane.armour:100,batch.2.potions.healing:100,batch.2.mundane.weapons:100,batch.2.spell.books:50,batch.1.gadgets:100,batch.2.throwing.weapons:100
 @
+name=Gnome.Den.Mother.loot
+lootEntries=I~Copper Coin:60,I~Light Crossbow:100,I~Quarrel:100,I~Baselard:66,I~Buskins:100,I~Leather Hauberk:100,I~Chamois Skirt:100
+@
 name=Rabid.Gnoll.loot
 lootEntries=I~Assegai:100,I~Knife:100,I~Gold Piece:45,I~Leather Cuirass:100
 @

@@ -626,6 +626,7 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	private void changeState(State state)
 	{
+		log(Log.MEDIUM, "Change State: "+state.name());
 		ui.changeState(state);
 	}
 
@@ -633,7 +634,7 @@ public class Maze implements Runnable
 	public void incTurn(boolean checkRandomEncounters)
 	{
 		ui.clearCombatEventDisplay();
-		GameTime.incTurn();
+		GameTime.incTurn(); // SLOW
 		checkPartyStatus();
 		reorderPartyToCompensateForDeadCharacters();
 
@@ -778,7 +779,7 @@ public class Maze implements Runnable
 				break;
 			}
 		}
-		
+
 		if (!isFoes)
 		{
 			return false;
@@ -860,6 +861,7 @@ public class Maze implements Runnable
 		// Combat is go!
 		//
 		currentCombat = new Combat(party, others, true);
+
 		new Thread("Maze Combat Thread")
 		{
 			public void run()

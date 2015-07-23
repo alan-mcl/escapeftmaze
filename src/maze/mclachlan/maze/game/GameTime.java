@@ -55,7 +55,7 @@ public class GameTime
 		TurnCache.getInstance().endOfTurn(getTurnNr());
 
 		// Regenerate Resources
-		regenerateResources();
+		regenerateResources(); // SLOW
 
 		// Update all NPCs
 		NpcManager.getInstance().endOfTurn(getTurnNr());
@@ -91,7 +91,7 @@ public class GameTime
 		for (int i = 0; i < max; i++)
 		{
 			UnifiedActor pc = party.get(i);
-			pc.regenerateResources(getTurnNr(), resting, combat, Maze.getInstance().getCurrentTile());
+			pc.regenerateResources(getTurnNr(), resting, combat, Maze.getInstance().getCurrentTile()); // SLOW
 		}
 
 		// regen foes in combat

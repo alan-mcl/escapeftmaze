@@ -48,7 +48,7 @@ attitude=0
 @
 name=Gnomes
 template=Gnomes
-attitude=50
+attitude=0
 @
 name=Allies of Imogen
 template=Allies of Imogen

@@ -40,7 +40,7 @@ import mclachlan.maze.util.MazeException;
 class MazeActionListener implements ActionListener
 {
 	private static final int KEY_HISTORY = 10;
-	List<Integer> keyCodeHistory = new ArrayList<Integer>(KEY_HISTORY);
+	List<Integer> keyCodeHistory = new LinkedList<Integer>();
 
 	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent event)
@@ -184,9 +184,9 @@ class MazeActionListener implements ActionListener
 	private void movePlayer(CrusaderEngine.PlayerStatus playerStatus, Point oldTile)
 	{
 		DiyGuiUserInterface.instance.raycaster.handleKey(playerStatus);
-		Maze.getInstance().incTurn(true);
+		Maze.getInstance().incTurn(true); // SLOW
 		Point newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
 		int facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-		Maze.getInstance().encounterTile(newTile, oldTile, facing);
+		Maze.getInstance().encounterTile(newTile, oldTile, facing); // SLOW
 	}
 }

@@ -224,7 +224,7 @@ unlockVariable=
 unlockDescription=
 @
 name=Gnome
-description=TODO GNOME DESC
+description=Small of stature but tough and resilient, the Gnomes of the Second Realm are born survivors. They have delved deep under the earth of Aenen domain and built a formiddable fortress that has kept them safe from the ravages of the Maze for a hundred years.
 startingHitPointPercentage=60
 startingActionPointPercentage=70
 startingMagicPointPercentage=70
@@ -264,12 +264,12 @@ hand=human hand
 foot=human foot
 rightHandIcon=item/faerieRightHand
 leftHandIcon=item/faerieLeftHand
-allowedGenders=Male,Female
+allowedGenders=Female,Male
 magicDead=false
 specialAbility=
 startingItems=Faerie_Faerie Stick,Faerie_Fey Dart
 naturalWeapons=
-suggestedNames=Male:Breogan,Nuada,Echtach,Ordam,Aldui,Tavarn,Ebath,Bethach,Delbaeth,Cian,Eremair,Siugmall,Manannan,Glon,Dian,Danand,Casmael~Female:Galia,Iarbonel,Nemed,Sera,Braimend,Fiachna,Elada,Indui,Elloth,Elada,Donann,Banba,Fotla,Badb,Macha,Uillend,Fea,Morrigu,Creidne
+suggestedNames=Female:Galia,Iarbonel,Nemed,Sera,Braimend,Fiachna,Elada,Indui,Elloth,Elada,Donann,Banba,Fotla,Badb,Macha,Uillend,Fea,Morrigu,Creidne~Male:Breogan,Nuada,Echtach,Ordam,Aldui,Tavarn,Ebath,Bethach,Delbaeth,Cian,Eremair,Siugmall,Manannan,Glon,Dian,Danand,Casmael
 unlockVariable=
 unlockDescription=
 @

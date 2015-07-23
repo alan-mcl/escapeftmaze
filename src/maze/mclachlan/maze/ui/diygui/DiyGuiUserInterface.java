@@ -40,7 +40,6 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
@@ -362,8 +361,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void changeState(Maze.State state)
 	{
-		Maze.log(Log.DEBUG, " -> change state [" + state + "]");
-
 		switch (state)
 		{
 			case MAINMENU:
@@ -478,12 +475,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		if (DIYToolkit.debug)
 		{
-//			g.setColor(Color.BLUE);
-//			g.drawString("fps: "+frameCountRecord,20,20);
 			g.setColor(Color.YELLOW);
 			g.drawString("fps: " + frameCountRecord, 21, 21);
-//			g.setColor(Color.BLUE);
-//			g.drawString("render ms: "+avgRenderTime,20,30);
 			g.setColor(Color.YELLOW);
 			g.drawString("render ms: " + avgRenderTime, 21, 31);
 			g.setColor(Color.YELLOW);
@@ -1190,11 +1183,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 		}
 
-		this.statsDisplay.setCharacter((PlayerCharacter)party.getActors().get(0));
-		this.modifiersDisplay.setCharacter((PlayerCharacter)party.getActors().get(0));
-		this.propertiesDisplay.setCharacter((PlayerCharacter)party.getActors().get(0));
-		this.inventoryDisplay.setCharacter((PlayerCharacter)party.getActors().get(0));
-		this.propertiesDisplay.setCharacter((PlayerCharacter)party.getActors().get(0));
 		this.charLowLeft.refresh();
 		this.charLowRight.refresh();
 		this.charMidLeft.refresh();
@@ -1725,11 +1713,25 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		public void run()
 		{
+			long time, counter=0, sumProcessingTime=0;
 			while (1 == 1)
 			{
 				try
 				{
+					time = System.nanoTime();
 					DIYToolkit.getInstance().processEvent(queue.take());
+					long diff = System.nanoTime() - time;
+					counter++;
+					sumProcessingTime += diff;
+
+					if (counter==10)
+					{
+						double ave = 1D*sumProcessingTime/counter;//100000D;
+//						System.out.println("ave = [" + ave + "]");
+						counter=0;
+						sumProcessingTime=0;
+					}
+
 				}
 				catch (Exception e)
 				{

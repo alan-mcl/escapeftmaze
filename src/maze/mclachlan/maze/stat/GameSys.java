@@ -1747,9 +1747,31 @@ public class GameSys
 			partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
 		}
 
+		SpellTarget target = null;
+		switch (spell.getTargetType())
+		{
+			case MagicSys.SpellTargetType.PARTY:
+			case MagicSys.SpellTargetType.FOE_GROUP:
+			case MagicSys.SpellTargetType.ALL_FOES:
+			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
+			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+				target = maze.getParty();
+				break;
+			case MagicSys.SpellTargetType.FOE:
+			case MagicSys.SpellTargetType.CASTER:
+			case MagicSys.SpellTargetType.ALLY:
+				target = maze.getParty().getRandomPlayerCharacter();
+				break;
+			case MagicSys.SpellTargetType.TILE:
+				target = dummyCaster;
+				break;
+			default:
+				target = maze.getParty(); // what the hell, let's try it anyway
+		}
+
 		ActorActionIntention[] foeIntentions = new ActorActionIntention[]
 		{
-			new SpellIntention(maze.getParty(), spell, castingLevel)
+			new SpellIntention(target, spell, castingLevel)
 		};
 		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
 		foeIntentionList.add(foeIntentions);

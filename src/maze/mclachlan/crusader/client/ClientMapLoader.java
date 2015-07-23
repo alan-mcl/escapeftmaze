@@ -372,8 +372,8 @@ public class ClientMapLoader
 		int baseImageSize = baseImages[0].getHeight();
 //		ImageGroup paletteImageGroup = (paletteImage==null) ? null :
 //			new ImageGroup("palette", paletteImage, null, true);
-//		ImageGroup skyImageGroup =
-//			new ImageGroup(mapName+"_skyTexture", skyImage, null, false);
+		ImageGroup skyImageGroup =
+			new ImageGroup(mapName+"_skyTexture", skyImage, null, false);
 		
 		if (objects == null)
 		{
@@ -389,7 +389,7 @@ public class ClientMapLoader
 			mapWidth,
 			baseImageSize, 
 			null,
-			null, 
+			skyImageGroup,
 			tiles,
 			textures,
 			horizontalWalls,
@@ -458,7 +458,7 @@ public class ClientMapLoader
 		}
 		catch (IOException e)
 		{
-			throw new CrusaderException(e);
+			throw new CrusaderException("["+fileName+"]",e);
 		}
 	}
 
