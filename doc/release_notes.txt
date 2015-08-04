@@ -1,11 +1,11 @@
 ---------------------------------------
 v0.916 (???)
 ---------------------------------------
+Features
+ - Gnome female art and portraits
 
-
-Others
+Other
  - Performance improvements for movement mode
-
 
 ---------------------------------------
 v0.915 (23 June 2014)

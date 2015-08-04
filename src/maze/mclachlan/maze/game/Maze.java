@@ -524,7 +524,7 @@ public class Maze implements Runnable
 			progress.incProgress(1);
 
 			// set message
-			ui.addMessage("Game Loaded");
+			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name));
 
 			// encounter tile
 			encounterTile(playerPos, null, getFacing());
