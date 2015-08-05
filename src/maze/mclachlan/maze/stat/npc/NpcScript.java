@@ -165,7 +165,7 @@ public abstract class NpcScript
 
 		return getList(
 			new FlavourTextEvent("Thread succeeds"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -181,7 +181,7 @@ public abstract class NpcScript
 
 		return getList(
 			new FlavourTextEvent("Threat fails"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -197,7 +197,7 @@ public abstract class NpcScript
 
 		return getList(
 			new FlavourTextEvent("Bribe succeeds"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -213,7 +213,7 @@ public abstract class NpcScript
 
 		return getList(
 			new FlavourTextEvent("Bribe fails"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -269,8 +269,7 @@ public abstract class NpcScript
 	{
 		return getList(
 			new FlavourTextEvent(pc.getName()+" fails but is undetected"),
-			new ChangeNpcTheftCounter(npc, 1),
-			new ChangeNpcAttitudeEvent(npc, -(1+npc.getResistSteal())));
+			new ChangeNpcTheftCounter(npc, 1));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -284,7 +283,7 @@ public abstract class NpcScript
 		return getList(
 			new FlavourTextEvent(pc.getName()+" is caught!"),
 			new ChangeNpcTheftCounter(npc, 10),
-			new ChangeNpcAttitudeEvent(npc, -(20+npc.getResistSteal())));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -798,13 +798,11 @@ public class Maze implements Runnable
 			{
 				NpcFaction nf = NpcManager.getInstance().getNpcFaction(faction);
 
-				// 0 is hostile
-				// 100 is friendly
-				// use 50 here to allow for factions that start off neutral enough
-				// not to attack the player but are not allied
 				log(Log.DEBUG, "Attitude test for encounter ["+f.getName()+"] " +
 					"["+f.getFaction()+"] ["+nf.getAttitude()+"]");
-				if (nf.getAttitude() >= 50)
+				if (nf.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+					nf.getAttitude() == NpcFaction.Attitude.NEUTRAL ||
+					nf.getAttitude() == NpcFaction.Attitude.ALLIED)
 				{
 					return false;
 				}
@@ -1902,7 +1900,7 @@ public class Maze implements Runnable
 
 					ui.setFoes(allFoes);
 
-					if (npc.getAttitude() < 0)
+					if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
 					{
 						//NPC is pissed off and simply attacks the party
 						processNpcEventsInternal(npc.getScript().attacksParty());
@@ -1922,11 +1920,13 @@ public class Maze implements Runnable
 							}
 							if (diplomacy > 0)
 							{
-								npc.incAttitude(diplomacy);
+								// todo: ATTITUDE CHANGE
+//								npc.changeAttitude(diplomacy);
 							}
 						}
 						
-						if (npc.getAttitude() >= 100)
+						if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+							npc.getAttitude() == NpcFaction.Attitude.ALLIED)
 						{
 							if (!npc.isFound())
 							{

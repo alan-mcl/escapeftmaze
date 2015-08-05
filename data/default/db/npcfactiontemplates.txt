@@ -1,45 +1,45 @@
 name=Ghul
-startingAttitude=0
+startingAttitude=ATTACKING
 @
 name=Stick Men
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Bel Ies
-startingAttitude=0
+startingAttitude=ATTACKING
 @
 name=Ichiba Chamber Of Commerce
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Gnomes
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Allies of Lorelei
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=White Order
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Minions Of Usark
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Ichiba GSC
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Keepers Of Dalen
-startingAttitude=0
+startingAttitude=ATTACKING
 @
 name=Old Igor
-startingAttitude=0
+startingAttitude=ATTACKING
 @
 name=Fangorn
-startingAttitude=0
+startingAttitude=ATTACKING
 @
 name=Hags
-startingAttitude=0
+startingAttitude=ATTACKING
 @
 name=Allies of Imogen
-startingAttitude=50
+startingAttitude=NEUTRAL
 @
 name=Gnolls
-startingAttitude=100
+startingAttitude=NEUTRAL
 @

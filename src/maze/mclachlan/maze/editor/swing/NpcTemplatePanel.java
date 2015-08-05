@@ -26,10 +26,7 @@ import java.util.Vector;
 import javax.swing.*;
 import mclachlan.maze.arena.StickManVendor;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.npc.NpcInventoryTemplate;
-import mclachlan.maze.stat.npc.NpcTemplate;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeech;
+import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -37,13 +34,13 @@ import mclachlan.maze.util.MazeException;
  */
 public class NpcTemplatePanel extends EditorPanel
 {
-	JTextField npcScript;
-	JComboBox foeName, faction, alliesOnCall, zone;
-	JSpinner attitude, buysAt, sellsAt, maxPurchasePrice, resistThreats,
+	private JTextField npcScript;
+	private JComboBox attitude, foeName, faction, alliesOnCall, zone;
+	private JSpinner buysAt, sellsAt, maxPurchasePrice, resistThreats,
 		resistBribes, resistSteal, theftCounter, tileX, tileY;
-	ItemTypeComponent willBuyItemTypes;
-	NpcInventoryTemplateComponent npcInventoryTemplate;
-	JCheckBox found, dead, guildMaster;
+	private ItemTypeComponent willBuyItemTypes;
+	private NpcInventoryTemplateComponent npcInventoryTemplate;
+	private JCheckBox found, dead, guildMaster;
 	private NpcSpeechPanel npcSpeechPanel;
 
 	/*-------------------------------------------------------------------------*/
@@ -152,8 +149,8 @@ public class NpcTemplatePanel extends EditorPanel
 		npcScript.addKeyListener(this);
 		dodgyGridBagShite(result, new JLabel("NPC Script:"), npcScript, gbc);
 
-		attitude = new JSpinner(new SpinnerNumberModel(0, -127, 127, 1));
-		attitude.addChangeListener(this);
+		attitude = new JComboBox(NpcFaction.Attitude.values());
+		attitude.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Starting Attitude:"), attitude, gbc);
 
 		alliesOnCall = new JComboBox();
@@ -257,7 +254,7 @@ public class NpcTemplatePanel extends EditorPanel
 	{
 		NpcTemplate npc = Database.getInstance().getNpcTemplates().get(name);
 
-		attitude.removeChangeListener(this);
+		attitude.removeActionListener(this);
 		buysAt.removeChangeListener(this);
 		sellsAt.removeChangeListener(this);
 		maxPurchasePrice.removeChangeListener(this);
@@ -275,7 +272,7 @@ public class NpcTemplatePanel extends EditorPanel
 		foeName.setSelectedItem(npc.getFoeName());
 		faction.setSelectedItem(npc.getFaction());
 		npcScript.setText(npc.getScript().getClass().getName());
-		attitude.setValue(npc.getAttitude());
+		attitude.setSelectedItem(npc.getAttitude());
 		alliesOnCall.setSelectedItem(npc.getAlliesOnCall());
 		buysAt.setValue(npc.getBuysAt());
 		sellsAt.setValue(npc.getSellsAt());
@@ -303,7 +300,7 @@ public class NpcTemplatePanel extends EditorPanel
 		}
 		npcSpeechPanel.refresh(npc.getDialogue());
 
-		attitude.addChangeListener(this);
+		attitude.addActionListener(this);
 		buysAt.addChangeListener(this);
 		sellsAt.addChangeListener(this);
 		maxPurchasePrice.addChangeListener(this);
@@ -326,7 +323,7 @@ public class NpcTemplatePanel extends EditorPanel
 			name,
 			(String)foeName.getItemAt(0),
 			(String)faction.getItemAt(0),
-			0,
+			NpcFaction.Attitude.NEUTRAL,
 			new StickManVendor(),
 			(String)alliesOnCall.getItemAt(0),
 			0,
@@ -407,7 +404,7 @@ public class NpcTemplatePanel extends EditorPanel
 		{
 			throw new MazeException(e);
 		}
-		npc.setAttitude((Integer)attitude.getValue());
+		npc.setAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
 		npc.setAlliesOnCall((String)alliesOnCall.getSelectedItem());
 		npc.setBuysAt((Integer)buysAt.getValue());
 		npc.setSellsAt((Integer)sellsAt.getValue());

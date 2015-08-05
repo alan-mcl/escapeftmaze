@@ -28,19 +28,19 @@ import java.util.*;
 public class ChangeNpcAttitudeEvent extends MazeEvent
 {
 	private Npc npc;
-	private int value;
+	private NpcFaction.AttitudeChange change;
 
 	/*-------------------------------------------------------------------------*/
-	public ChangeNpcAttitudeEvent(Npc npc, int value)
+	public ChangeNpcAttitudeEvent(Npc npc, NpcFaction.AttitudeChange change)
 	{
 		this.npc = npc;
-		this.value = value;
+		this.change = change;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		npc.incAttitude(value);
+		npc.changeAttitude(change);
 
 		if (npc.getFaction() != null)
 		{
@@ -49,7 +49,7 @@ public class ChangeNpcAttitudeEvent extends MazeEvent
 			npcFaction.setAttitude(npc.getAttitude());
 		}
 
-		if (npc.getAttitude() < 0)
+		if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
 		{
 			return npc.getScript().attacksParty();
 		}

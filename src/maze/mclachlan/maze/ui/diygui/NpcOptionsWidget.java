@@ -32,6 +32,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.CastSpellOnNpcEvent;
 import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.UseItemOnNpcEvent;
 import mclachlan.maze.util.MazeException;
 
@@ -164,7 +165,8 @@ public class NpcOptionsWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	public void handleKeyCode(int keyCode)
 	{
-		if (npc.getAttitude() >= 100)
+		if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+			npc.getAttitude() == NpcFaction.Attitude.ALLIED)
 		{
 			switch (keyCode)
 			{
@@ -208,7 +210,8 @@ public class NpcOptionsWidget extends DIYPane
 		
 		guild.setEnabled(npc.isGuildMaster());
 
-		if (npc.getAttitude() >= 100)
+		if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+			npc.getAttitude() == NpcFaction.Attitude.ALLIED)
 		{
 			this.cards.show(friendlyPane);
 		}
@@ -347,7 +350,8 @@ public class NpcOptionsWidget extends DIYPane
 
 	public void leave()
 	{
-		if (npc.getAttitude() >= 100)
+		if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+			npc.getAttitude() == NpcFaction.Attitude.ALLIED)
 		{
 			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyLeavesFriendly());
 		}
@@ -524,7 +528,8 @@ public class NpcOptionsWidget extends DIYPane
 		}
 		else if (lastObj == steal || lastObj == stealN)
 		{
-			if (npc.getAttitude() >= 100)
+			if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+				npc.getAttitude() == NpcFaction.Attitude.ALLIED)
 			{
 				// a friendly NPC gives the party a chance to pick an item to steal
 				Maze.getInstance().getUi().showDialog(new TheftDialog(pc, npc, this));

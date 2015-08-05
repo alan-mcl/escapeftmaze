@@ -27,6 +27,7 @@ import java.util.List;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcTemplate;
 
 /**
@@ -120,7 +121,7 @@ public class V1Npc
 	static Npc fromProperties(Properties p) throws Exception
 	{
 		NpcTemplate template = Database.getInstance().getNpcTemplates().get(p.getProperty("template"));
-		int attitude = Integer.parseInt(p.getProperty("attitude"));
+		NpcFaction.Attitude attitude = NpcFaction.Attitude.valueOf(p.getProperty("attitude"));
 		List<Item> currentInventory = V1PlayerCharacter.itemsList.fromString(p.getProperty("currentInventory"));
 		if (currentInventory == null)
 		{

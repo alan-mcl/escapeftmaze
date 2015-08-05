@@ -104,7 +104,10 @@ public class Stenelaus extends NpcScript
 					"I will grant you admittance to the castle. Your good " +
 					"conduct is assumed; do not disgrace me or Diomedes in this " +
 					"matter."),
-				new ChangeNpcFactionAttitudeEvent(npc.getFaction(), 100,
+				new ChangeNpcFactionAttitudeEvent(
+					npc.getFaction(),
+					NpcFaction.Attitude.FRIENDLY,
+					null,
 					ChangeNpcFactionAttitudeEvent.SET),
 				new SetMazeVariableEvent(INVITATION_FROM_LEONALS, "true"),
 				new NpcLeavesEvent());

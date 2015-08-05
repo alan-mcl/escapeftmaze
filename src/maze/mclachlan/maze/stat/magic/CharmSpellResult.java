@@ -25,13 +25,14 @@ import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.NpcCharmedEvent;
 import mclachlan.maze.stat.combat.event.NpcNotCharmedEvent;
 import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
  * Cast on an NPC to adjust their attitude
  */
 public class CharmSpellResult extends SpellResult
 {
-	Value value;
+	private Value value;
 
 	/*-------------------------------------------------------------------------*/
 	public CharmSpellResult(Value value)
@@ -52,7 +53,9 @@ public class CharmSpellResult extends SpellResult
 		{
 			Npc npc = (Npc)target;
 			int inc = this.value.compute(source, castingLevel);
-			npc.incAttitude(inc);
+
+			// TODO: ATTITUDE CHANGE
+			npc.changeAttitude(NpcFaction.AttitudeChange.BETTER);
 
 			if (inc > 0)
 			{

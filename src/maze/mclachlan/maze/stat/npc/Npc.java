@@ -42,7 +42,7 @@ public class Npc extends AbstractActor
 	//
 
 	/** The attitude of this NPC towards the party */
-	private int attitude;
+	private NpcFaction.Attitude attitude;
 
 	//
 	// trading parameters
@@ -92,7 +92,7 @@ public class Npc extends AbstractActor
 	 */
 	public Npc(
 		NpcTemplate template,
-		int attitude,
+		NpcFaction.Attitude attitude,
 		List<Item> currentInventory,
 		int theftCounter,
 		Point tile,
@@ -124,7 +124,7 @@ public class Npc extends AbstractActor
 	public Npc(NpcTemplate template)
 	{
 		this.template = template;
-		this.attitude = template.attitude;
+		this.attitude = template.getAttitude();
 		this.currentInventory = new ArrayList<Item>();
 		this.theftCounter = template.theftCounter;
 		this.tile = template.tile;
@@ -140,23 +140,19 @@ public class Npc extends AbstractActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getAttitude()
+	public NpcFaction.Attitude getAttitude()
 	{
 		return attitude;
 	}
 
-	public void setAttitude(int attitude)
+	public void setAttitude(NpcFaction.Attitude attitude)
 	{
 		this.attitude = attitude;
 	}
 
-	public void incAttitude(int value)
+	public void changeAttitude(NpcFaction.AttitudeChange change)
 	{
-		this.attitude += value;
-		if (this.attitude > Npc.MAX_ATTITUDE)
-		{
-			this.attitude = Npc.MAX_ATTITUDE;
-		}
+		this.attitude = GameSys.getInstance().calcAttitudeChange(this.attitude, change);
 	}
 
 	public int getBuysAt()

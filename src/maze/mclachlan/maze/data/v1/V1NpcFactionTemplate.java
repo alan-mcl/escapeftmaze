@@ -24,6 +24,7 @@ import java.io.BufferedWriter;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Properties;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcFactionTemplate;
 
 /**
@@ -99,7 +100,7 @@ public class V1NpcFactionTemplate
 		else
 		{
 			String name = p.getProperty("name");
-			int startingAttitude = Integer.parseInt(p.getProperty("startingAttitude"));
+			NpcFaction.Attitude startingAttitude = NpcFaction.Attitude.valueOf(p.getProperty("startingAttitude"));
 			return new NpcFactionTemplate(name, startingAttitude);
 		}
 	}

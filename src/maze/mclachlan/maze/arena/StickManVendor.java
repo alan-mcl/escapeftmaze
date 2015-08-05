@@ -157,7 +157,7 @@ public class StickManVendor extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Gosh thanks!"),
 			new NpcTakesItemEvent(owner, item, npc),
-			new ChangeNpcAttitudeEvent(npc, 10));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -165,7 +165,7 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("I ain't scared of you losers!"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -173,7 +173,7 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Whoa, hang on, let's talk this over!"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -181,7 +181,7 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("A pleasure doing business with you!"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -189,7 +189,7 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("I don't want your stinking small change, chump!"),
-			new ChangeNpcAttitudeEvent(npc, total));
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
 	/*-------------------------------------------------------------------------*/

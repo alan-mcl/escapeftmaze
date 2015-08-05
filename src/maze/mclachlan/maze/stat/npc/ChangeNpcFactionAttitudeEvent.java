@@ -28,7 +28,8 @@ import mclachlan.maze.util.MazeException;
  */
 public class ChangeNpcFactionAttitudeEvent extends MazeEvent
 {
-	private int value;
+	private NpcFaction.Attitude value;
+	private NpcFaction.AttitudeChange change;
 	private int type;
 	private String faction;
 
@@ -36,10 +37,15 @@ public class ChangeNpcFactionAttitudeEvent extends MazeEvent
 	public static final int SET = 1;
 
 	/*-------------------------------------------------------------------------*/
-	public ChangeNpcFactionAttitudeEvent(String faction, int value, int type)
+	public ChangeNpcFactionAttitudeEvent(
+		String faction,
+		NpcFaction.Attitude value,
+		NpcFaction.AttitudeChange change,
+		int type)
 	{
-		this.faction = faction;
 		this.value = value;
+		this.faction = faction;
+		this.change = change;
 		this.type = type;
 	}
 
@@ -50,7 +56,7 @@ public class ChangeNpcFactionAttitudeEvent extends MazeEvent
 
 		switch (type)
 		{
-			case INCREMENT: nf.incAttitude(value); break;
+			case INCREMENT: nf.changeAttitude(change); break;
 			case SET: nf.setAttitude(value); break;
 			default: throw new MazeException("Invalid type: "+type);
 		}

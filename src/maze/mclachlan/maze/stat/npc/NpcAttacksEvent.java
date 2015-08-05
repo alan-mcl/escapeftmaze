@@ -51,11 +51,11 @@ public class NpcAttacksEvent extends MazeEvent
 		if (npc.getFaction() != null)
 		{
 			NpcFaction nf = NpcManager.getInstance().getNpcFaction(npc.getFaction());
-			nf.setAttitude(-50);
+			nf.setAttitude(NpcFaction.Attitude.ATTACKING);
 		}
 		else
 		{
-			npc.setAttitude(-50);
+			npc.setAttitude(NpcFaction.Attitude.ATTACKING);
 		}
 
 		// add the NPC to the UI.

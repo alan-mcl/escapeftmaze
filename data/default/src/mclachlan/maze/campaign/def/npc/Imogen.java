@@ -427,7 +427,7 @@ public class Imogen extends NpcScript
 			if (NpcSpeech.sentenceContainsKeywords(speech, "yes", "yay", "yeah"))
 			{
 				NpcFaction faction = getNpcFaction();
-				faction.setAttitude(100);
+				faction.setAttitude(NpcFaction.Attitude.FRIENDLY);
 				MazeVariables.clear(WAITING_FOR_SIGN_UP_REPLY);
 
 				List<MazeEvent> result = getList(

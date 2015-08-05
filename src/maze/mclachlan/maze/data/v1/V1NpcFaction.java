@@ -88,7 +88,7 @@ public class V1NpcFaction
 	{
 //		String name = p.getProperty("name");
 		NpcFactionTemplate template = Database.getInstance().getNpcFactionTemplates().get(p.getProperty("template"));
-		int attitude = Integer.parseInt(p.getProperty("attitude"));
+		NpcFaction.Attitude attitude = NpcFaction.Attitude.valueOf(p.getProperty("attitude"));
 
 		return new NpcFaction(
 			template,

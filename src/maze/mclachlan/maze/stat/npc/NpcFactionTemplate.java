@@ -27,13 +27,13 @@ package mclachlan.maze.stat.npc;
 public class NpcFactionTemplate
 {
 	/** name of this faction */
-	String name;
+	private String name;
 
 	/** starting attitide for this NPC faction */
-	int startingAttitude;
+	private NpcFaction.Attitude startingAttitude;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcFactionTemplate(String name, int startingAttitude)
+	public NpcFactionTemplate(String name, NpcFaction.Attitude startingAttitude)
 	{
 		this.name = name;
 		this.startingAttitude = startingAttitude;
@@ -45,7 +45,7 @@ public class NpcFactionTemplate
 		return name;
 	}
 
-	public int getStartingAttitude()
+	public NpcFaction.Attitude getStartingAttitude()
 	{
 		return startingAttitude;
 	}
@@ -56,7 +56,7 @@ public class NpcFactionTemplate
 		this.name = name;
 	}
 
-	public void setStartingAttitude(int startingAttitude)
+	public void setStartingAttitude(NpcFaction.Attitude startingAttitude)
 	{
 		this.startingAttitude = startingAttitude;
 	}

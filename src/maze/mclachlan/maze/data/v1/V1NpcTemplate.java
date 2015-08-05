@@ -23,10 +23,7 @@ import java.awt.Point;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
-import mclachlan.maze.stat.npc.NpcInventoryTemplate;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeech;
-import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.stat.npc.*;
 
 /**
  *
@@ -189,7 +186,7 @@ public class V1NpcTemplate
 			String name = p.getProperty("name");
 			String foeName = p.getProperty("foeName");
 			String faction = p.getProperty("faction");
-			int attitude = Integer.parseInt(p.getProperty("attitude"));
+			NpcFaction.Attitude attitude = NpcFaction.Attitude.valueOf(p.getProperty("attitude"));
 			Class clazz = Class.forName(p.getProperty("script"));
 			NpcScript script = (NpcScript)clazz.newInstance();
 			String alliesOnCall = p.getProperty("alliesOnCall");

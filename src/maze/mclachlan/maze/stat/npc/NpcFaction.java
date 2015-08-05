@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.Collection;
+import mclachlan.maze.stat.GameSys;
 
 /**
  * Represents an NPC faction, a group of NPC's and Foes that feel the same
@@ -28,16 +29,35 @@ import java.util.Collection;
  */
 public class NpcFaction
 {
-	NpcFactionTemplate template;
+	private NpcFactionTemplate template;
 
-	/** attitiude of this faction */
-	int attitude;
+	/** attitude of this faction */
+	private Attitude attitude;
+
+	/*-------------------------------------------------------------------------*/
+	public static enum Attitude
+	{
+		ATTACKING,
+		AGGRESSIVE,
+		WARY,
+		SCARED,
+		NEUTRAL,
+		FRIENDLY,
+		ALLIED
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static enum AttitudeChange
+	{
+		BETTER,
+		WORSE
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Recreates an NPC faction from the given data
 	 */
-	public NpcFaction(NpcFactionTemplate template, int attitude)
+	public NpcFaction(NpcFactionTemplate template, Attitude attitude)
 	{
 		this.attitude = attitude;
 		this.template = template;
@@ -50,7 +70,7 @@ public class NpcFaction
 	public NpcFaction(NpcFactionTemplate template)
 	{
 		this.template = template;
-		this.attitude = this.template.startingAttitude;
+		this.attitude = this.template.getStartingAttitude();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -59,7 +79,7 @@ public class NpcFaction
 		return template.getName();
 	}
 
-	public int getAttitude()
+	public Attitude getAttitude()
 	{
 		return attitude;
 	}
@@ -75,18 +95,15 @@ public class NpcFaction
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void incAttitude(int value)
+	public void changeAttitude(AttitudeChange change)
 	{
-		this.attitude += value;
-		if (this.attitude > Npc.MAX_ATTITUDE)
-		{
-			this.attitude = Npc.MAX_ATTITUDE;
-		}
+		attitude = GameSys.getInstance().calcAttitudeChange(attitude, change);
+
 		syncNpcs();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setAttitude(int attitude)
+	public void setAttitude(Attitude attitude)
 	{
 		this.attitude = attitude;
 		syncNpcs();
@@ -104,7 +121,7 @@ public class NpcFaction
 		{
 			for (Npc npc : npcs)
 			{
-				if (template.name.equals(npc.getFaction()))
+				if (template.getName().equals(npc.getFaction()))
 				{
 					npc.setAttitude(this.attitude);
 				}

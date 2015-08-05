@@ -69,7 +69,7 @@ public class NpcManager implements GameCache
 
 		for (NpcFaction nf : factions.values())
 		{
-			nf.attitude = nf.template.startingAttitude;
+			nf.setAttitude(nf.getTemplate().getStartingAttitude());
 		}
 	}
 

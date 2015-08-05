@@ -167,7 +167,10 @@ public class RedEar extends NpcScript
 						"not like any more! No deals for you! Grrrrrr!!!"),
 					new GrantItemsEvent(it.create()),
 					new SetMazeVariableEvent(WePickett.QUEST_1_COLLECTED_TAXES, "true"),
-					new ChangeNpcFactionAttitudeEvent(getNpcFaction().getName(), 1,
+					new ChangeNpcFactionAttitudeEvent(
+						getNpcFaction().getName(),
+						NpcFaction.Attitude.WARY,
+						null,
 						ChangeNpcFactionAttitudeEvent.SET),
 					new NpcLeavesEvent());
 			}

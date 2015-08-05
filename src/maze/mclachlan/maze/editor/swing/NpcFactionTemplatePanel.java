@@ -24,6 +24,7 @@ import java.util.Vector;
 import java.util.Collections;
 import java.awt.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcFactionTemplate;
 
 /**
@@ -31,7 +32,7 @@ import mclachlan.maze.stat.npc.NpcFactionTemplate;
  */
 public class NpcFactionTemplatePanel extends EditorPanel
 {
-	JSpinner startingAttitude;
+	private JComboBox<NpcFaction.Attitude> startingAttitude;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcFactionTemplatePanel()
@@ -53,8 +54,8 @@ public class NpcFactionTemplatePanel extends EditorPanel
 		gbc.weighty = 1.0;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 
-		startingAttitude = new JSpinner(new SpinnerNumberModel(0, -127, 127, 1));
-		startingAttitude.addChangeListener(this);
+		startingAttitude = new JComboBox<NpcFaction.Attitude>(NpcFaction.Attitude.values());
+		startingAttitude.addActionListener(this);
 
 		result.add(new JLabel("Starting Attitude:"), gbc);
 
@@ -78,15 +79,15 @@ public class NpcFactionTemplatePanel extends EditorPanel
 	{
 		NpcFactionTemplate nft = Database.getInstance().getNpcFactionTemplates().get(name);
 
-		startingAttitude.removeChangeListener(this);
-		startingAttitude.setValue(nft.getStartingAttitude());
-		startingAttitude.addChangeListener(this);
+		startingAttitude.removeActionListener(this);
+		startingAttitude.setSelectedItem(nft.getStartingAttitude());
+		startingAttitude.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void newItem(String name)
 	{
-		NpcFactionTemplate nft = new NpcFactionTemplate(name, 0);
+		NpcFactionTemplate nft = new NpcFactionTemplate(name, NpcFaction.Attitude.NEUTRAL);
 		Database.getInstance().getNpcFactionTemplates().put(name, nft);
 	}
 
@@ -116,6 +117,6 @@ public class NpcFactionTemplatePanel extends EditorPanel
 	public void commit(String name)
 	{
 		NpcFactionTemplate nft = Database.getInstance().getNpcFactionTemplates().get(name);
-		nft.setStartingAttitude((Integer)startingAttitude.getValue());
+		nft.setStartingAttitude((NpcFaction.Attitude)startingAttitude.getSelectedItem());
 	}
 }

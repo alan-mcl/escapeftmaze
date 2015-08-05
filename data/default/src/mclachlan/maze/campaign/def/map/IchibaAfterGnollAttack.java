@@ -37,11 +37,11 @@ public class IchibaAfterGnollAttack extends TileScript
 
 			// turn the COC hostile
 			NpcFaction coc = NpcManager.getInstance().getNpcFaction("Ichiba Chamber Of Commerce");
-			coc.setAttitude(-1);
+			coc.setAttitude(NpcFaction.Attitude.ATTACKING);
 
 			// turn the GSC hostile
 			NpcFaction gsc = NpcManager.getInstance().getNpcFaction("Ichiba GSC");
-			gsc.setAttitude(-1);
+			gsc.setAttitude(NpcFaction.Attitude.ATTACKING);
 
 			return getList(
 				new FlavourTextEvent("Stepping out into the city, the cries " +

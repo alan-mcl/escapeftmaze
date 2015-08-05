@@ -11,10 +11,7 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.ChangeNpcFactionAttitudeEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeechEvent;
+import mclachlan.maze.stat.npc.*;
 
 /**
  * Gate keeper of Aenen
@@ -104,7 +101,10 @@ public class Ideaus extends NpcScript
 				new NpcSpeechEvent("I think it best if you pass into the " +
 					"city below, and bear this ring to King Mnesus. I will " +
 					"warn him of your coming."),
-				new ChangeNpcFactionAttitudeEvent(npc.getFaction(), 100,
+				new ChangeNpcFactionAttitudeEvent(
+					npc.getFaction(),
+					NpcFaction.Attitude.FRIENDLY,
+					null,
 					ChangeNpcFactionAttitudeEvent.SET),
 				new SetMazeVariableEvent(INVITATION_FROM_GNOMES, "true"),
 				new NpcLeavesEvent());

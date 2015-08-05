@@ -33,7 +33,7 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class NpcFactionPanel extends EditorPanel
 {
-	private JSpinner attitude;
+	private JComboBox<NpcFaction.Attitude> attitude;
 	private String saveGameName;
 	private Map<String, NpcFaction> map;
 
@@ -59,8 +59,8 @@ public class NpcFactionPanel extends EditorPanel
 		gbc.weighty = 1.0;
 		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
 
-		attitude = new JSpinner(new SpinnerNumberModel(0, -127, 127, 1));
-		attitude.addChangeListener(this);
+		attitude = new JComboBox<NpcFaction.Attitude>(NpcFaction.Attitude.values());
+		attitude.addActionListener(this);
 
 		result.add(new JLabel("Attitude:"), gbc);
 
@@ -93,9 +93,9 @@ public class NpcFactionPanel extends EditorPanel
 	{
 		NpcFaction nf = map.get(name);
 
-		attitude.removeChangeListener(this);
-		attitude.setValue(nf.getAttitude());
-		attitude.addChangeListener(this);
+		attitude.removeActionListener(this);
+		attitude.setSelectedItem(nf.getAttitude());
+		attitude.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -122,7 +122,7 @@ public class NpcFactionPanel extends EditorPanel
 	public void commit(String name)
 	{
 		NpcFaction nf = map.get(name);
-		nf.setAttitude((Integer)attitude.getValue());
+		nf.setAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
 	}
 
 	/*-------------------------------------------------------------------------*/

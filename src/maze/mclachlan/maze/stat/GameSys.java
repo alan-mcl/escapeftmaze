@@ -36,6 +36,7 @@ import mclachlan.maze.stat.combat.event.SpellFizzlesEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.stat.ItemTemplate.*;
@@ -83,6 +84,63 @@ public class GameSys
 	public static GameSys getInstance()
 	{
 		return Maze.getInstance().getGameSys();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public NpcFaction.Attitude calcAttitudeChange(
+		NpcFaction.Attitude current,
+		NpcFaction.AttitudeChange change)
+	{
+		switch (change)
+		{
+			case BETTER:
+				switch (current)
+				{
+					case ATTACKING:
+						return NpcFaction.Attitude.AGGRESSIVE;
+					case AGGRESSIVE:
+						return NpcFaction.Attitude.WARY;
+					case WARY:
+						return NpcFaction.Attitude.NEUTRAL;
+					case SCARED:
+						return NpcFaction.Attitude.WARY;
+					case NEUTRAL:
+						return NpcFaction.Attitude.FRIENDLY;
+					case FRIENDLY:
+						// scripted events only can move it to ALLIED
+						return current;
+					case ALLIED:
+						// no better
+						return current;
+				}
+				break;
+			case WORSE:
+				switch (current)
+				{
+					case ATTACKING:
+						// no worse
+						return current;
+					case AGGRESSIVE:
+						return NpcFaction.Attitude.ATTACKING;
+					case WARY:
+						// todo: transition to AGGRESSIVE or SCARED based on party level?
+						return NpcFaction.Attitude.AGGRESSIVE;
+					case SCARED:
+						// todo: flee instead?
+						return NpcFaction.Attitude.ATTACKING;
+					case NEUTRAL:
+						return NpcFaction.Attitude.AGGRESSIVE;
+					case FRIENDLY:
+						return NpcFaction.Attitude.NEUTRAL;
+					case ALLIED:
+						return NpcFaction.Attitude.FRIENDLY;
+				}
+				break;
+			default:
+				throw new MazeException(""+change);
+		}
+
+		return current;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2194,7 +2252,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "theft attempt of ["+item.getName()+"] from " +
 			"["+npc.getName()+"] by ["+pc.getName()+"]");
 
-		boolean npcIsNeutral = npc.getAttitude() < 100;
+		boolean npcIsNeutral = npc.getAttitude().equals(NpcFaction.Attitude.NEUTRAL);
 
 		int npcTotal =
 			npc.getLevel() +

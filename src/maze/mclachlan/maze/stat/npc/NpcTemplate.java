@@ -43,7 +43,7 @@ public class NpcTemplate
 	String faction;
 
 	/** The attitude of this NPC towards the party */
-	int attitude;
+	NpcFaction.Attitude attitude;
 
 	/** The all important NPC script */
 	NpcScript script;
@@ -115,7 +115,7 @@ public class NpcTemplate
 		String displayName,
 		String foeName,
 		String faction,
-		int attitude,
+		NpcFaction.Attitude attitude,
 		NpcScript script,
 		String alliesOnCall,
 		int buysAt,
@@ -163,7 +163,7 @@ public class NpcTemplate
 		return alliesOnCall;
 	}
 
-	public int getAttitude()
+	public NpcFaction.Attitude getAttitude()
 	{
 		return attitude;
 	}
@@ -285,7 +285,7 @@ public class NpcTemplate
 		this.alliesOnCall = alliesOnCall;
 	}
 
-	public void setAttitude(int attitude)
+	public void setAttitude(NpcFaction.Attitude attitude)
 	{
 		this.attitude = attitude;
 	}
