@@ -4,7 +4,7 @@ package mclachlan.maze.campaign.def.npc;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -66,7 +66,7 @@ public class Glaucus extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Ah hmmm. *ykgh*"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,7 +74,7 @@ public class Glaucus extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Fare thee well friends..."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

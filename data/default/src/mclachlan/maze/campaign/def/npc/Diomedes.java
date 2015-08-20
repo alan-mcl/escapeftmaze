@@ -9,7 +9,7 @@ import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeech;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
@@ -61,7 +61,7 @@ public class Diomedes extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Farewell"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -70,7 +70,7 @@ public class Diomedes extends NpcScript
 		return getList(
 			new NpcSpeechEvent("The blessing of Dana go with you, friends. " +
 				"You will find me here should you need me."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -4,7 +4,7 @@ package mclachlan.maze.campaign.def.npc;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import java.util.*;
@@ -94,7 +94,7 @@ public class Lorelei extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Goodbye."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
@@ -102,7 +102,7 @@ public class Lorelei extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Fare the well on the road, friends. My " +
 				"sanctuary is always open to you."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 /*

@@ -40,6 +40,7 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
@@ -135,10 +136,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	ButtonToolbar buttonToolbar;
 	CardLayoutWidget movementCardLayout;
 	CombatDisplayWidget combatDisplay;
-	MovementOptionsWidget movementOptionsWidget;
+	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
 	SignBoardWidget signBoardWidget;
 	ChestOptionsWidget chestOptionsWidget;
 	NpcOptionsWidget npcOptionsWidget;
+	EncounterActorsWidget encounterActorsWidget;
 	PortalOptionsWidget portalOptionsWidget;
 	ZoneDisplayWidget zoneDisplay;
 	PartyCloudSpellWidget partyCloudSpellWidget;
@@ -361,6 +363,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void changeState(Maze.State state)
 	{
+		this.partyOptionsAndTextWidget.setGameState(state, Maze.getInstance());
+		refreshCharacterData();// to refresh action options
+
 		switch (state)
 		{
 			case MAINMENU:
@@ -390,6 +395,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case FINISHED:
 				break;
 			case COMBAT:
+				addMessage(StringUtil.getEventText("msg.combat.starts"));
 				showCombatScreen();
 				break;
 			case SIGNBOARD:
@@ -400,6 +406,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				break;
 			case ENCOUNTER_NPC:
 				showNpcScreen(Maze.getInstance().getCurrentNpc());
+				break;
+			case ENCOUNTER_ACTORS:
+				showEncounterActorsScreen(Maze.getInstance().getCurrentActorEncounter());
 				break;
 			case ENCOUNTER_PORTAL:
 				showPortalScreen(Maze.getInstance().getCurrentPortal());
@@ -770,7 +779,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showCombatScreen()
 	{
 		this.mainLayout.show(this.movementScreen);
-		this.showCombatOptions();
+		this.partyOptionsAndTextWidget.setCurrentCombat(Maze.getInstance().getCurrentCombat());
 	}
 
 	public void showMagicScreen()
@@ -813,7 +822,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		this.refreshCharacterData();
 		this.mainLayout.show(this.movementScreen);
-		this.movementCardLayout.show(this.movementOptionsWidget);
+		this.movementCardLayout.show(this.partyOptionsAndTextWidget);
 	}
 
 	public void showRestingScreen()
@@ -870,6 +879,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		movementCardLayout.show(npcOptionsWidget);
 	}
 
+	public void showEncounterActorsScreen(ActorEncounter actorEncounter)
+	{
+		this.mainLayout.show(this.movementScreen);
+		partyOptionsAndTextWidget.setActorEncounter(actorEncounter);
+		movementCardLayout.show(partyOptionsAndTextWidget);
+	}
+
 	private void showPortalScreen(Portal currentPortal)
 	{
 		this.mainLayout.show(this.movementScreen);
@@ -878,9 +894,16 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		movementCardLayout.show(portalOptionsWidget);
 	}
 
+	@Override
 	public void clearCombatEventDisplay()
 	{
 		combatDisplay.clear();
+	}
+
+	@Override
+	public void clearMessages()
+	{
+		partyOptionsAndTextWidget.clearMessages();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1101,11 +1124,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		Rectangle rect = (Rectangle)DiyGuiUserInterface.LOW_BOUNDS.clone();
 
-		movementOptionsWidget = new MovementOptionsWidget(rect);
+		partyOptionsAndTextWidget = new PartyOptionsAndTextWidget(rect);
 		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
 			Database.getInstance().getImage("screen/signBoard"));
 		chestOptionsWidget = new ChestOptionsWidget(rect);
 		npcOptionsWidget = new NpcOptionsWidget(rect);
+		encounterActorsWidget = new EncounterActorsWidget(rect);
 		portalOptionsWidget = new PortalOptionsWidget(rect);
 		combatDisplay = new CombatDisplayWidget(rect);
 		combatOptions = new CombatOptionsWidget(rect, null);
@@ -1122,17 +1146,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		screen.add(partyCloudSpellWidget);
 
 		ArrayList<ContainerWidget> list = new ArrayList<ContainerWidget>();
-		list.add(movementOptionsWidget);
+		list.add(partyOptionsAndTextWidget);
 		list.add(signBoardWidget);
 		list.add(chestOptionsWidget);
 		list.add(portalOptionsWidget);
 		list.add(npcOptionsWidget);
+		list.add(encounterActorsWidget);
 		list.add(combatDisplay);
 		list.add(combatOptions);
 		list.add(restingWidget);
 
 		movementCardLayout = new CardLayoutWidget(DiyGuiUserInterface.LOW_BOUNDS, list);
-		movementCardLayout.show(movementOptionsWidget);
+		movementCardLayout.show(partyOptionsAndTextWidget);
 
 		screen.add(movementCardLayout);
 
@@ -1405,31 +1430,40 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showCombatOptions()
 	{
 		this.refreshCharacterData();
-		movementCardLayout.show(combatOptions);
+//		movementCardLayout.show(combatOptions);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void showEvasionOptions()
 	{
 		combatOptions.showEvasionOptions();
-		movementCardLayout.show(combatOptions);
+//		movementCardLayout.show(combatOptions);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void showFinalCombatOptions()
 	{
 		combatOptions.showFinalCombatOptions();
-		movementCardLayout.show(combatOptions);
+//		movementCardLayout.show(combatOptions);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void displayMazeEvent(MazeEvent event, boolean displayEventText)
 	{
+/*
 		if (event.getText() != null && displayEventText)
 		{
 			this.showCombatDisplay();
 		}
 		combatDisplay.setCurrentEvent(event, displayEventText);
+*/
+		if (event.getText() != null && displayEventText)
+		{
+			String eventDesc = event.getText();
+			Maze.log(eventDesc);
+
+			partyOptionsAndTextWidget.addMessage(eventDesc);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1535,7 +1569,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void addMessage(String msg)
 	{
-		this.movementOptionsWidget.addMessage(msg);
+		this.partyOptionsAndTextWidget.addMessage(msg);
+		Maze.getInstance().journalInContext(msg);
+		Maze.log(msg);
 	}
 
 	/*-------------------------------------------------------------------------*/

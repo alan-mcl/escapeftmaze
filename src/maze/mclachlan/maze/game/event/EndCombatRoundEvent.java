@@ -17,22 +17,41 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.npc;
+package mclachlan.maze.game.event;
 
+import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import java.util.*;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.combat.Combat;
 
 /**
  *
  */
-public class NpcLeavesEvent extends MazeEvent
+public class EndCombatRoundEvent extends MazeEvent
 {
+	private Maze maze;
+	private Combat combat;
+
+	/*-------------------------------------------------------------------------*/
+	public EndCombatRoundEvent(Maze maze, Combat combat)
+	{
+		this.maze = maze;
+		this.combat = combat;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().getUi().setFoes(null);
-		Maze.getInstance().setState(Maze.State.MOVEMENT);
+		maze.getUi().setFoes(combat.getFoes());
+		maze.reorderPartyIfPending();
+		GameSys.getInstance().attemptManualIdentification(
+			combat.getFoes(), maze.getParty(), combat.getRoundNr());
 
-		return null;
+		Maze.getInstance().getUi().addMessage(
+			StringUtil.getEventText("msg.combat.round.ends", combat.getRoundNr()));
+
+		return combat.endRound();
 	}
 }

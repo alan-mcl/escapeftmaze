@@ -24,6 +24,7 @@ import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
  *
@@ -31,88 +32,88 @@ import mclachlan.maze.stat.magic.SpellBook;
 public class FoeTemplate
 {
 	/** The singular name of the foe, eg "Zombie" */
-	String name; 
+	private String name;
 	
 	/** The plural name of the foe, eg "Zombies" */
-	String pluralName;
+	private String pluralName;
 	
 	/** The unidentified name of the foe, eg "?Undead" */
-	String unidentifiedName;
+	private String unidentifiedName;
 
 	/** The unidentified plural name of the foe, eg "?Plants" */
-	String unidentifiedPluralName;
+	private String unidentifiedPluralName;
 
 	/** The type of this foe, eg "Undead", "Plant", "Legendary" */
-	String type;
+	private String type;
 
 	/** The potential hit points of this foe, expressed in dice */
-	Dice hitPointsRange;
+	private Dice hitPointsRange;
 	
 	/** The potential action points of this foe, expressed in dice */
-	Dice actionPointsRange;
+	private Dice actionPointsRange;
 	
 	/** The potential magic points of this foe, expressed in dice */
-	Dice magicPointsRange;
+	private Dice magicPointsRange;
 	
 	/** The potential level range of this foe, expressed in dice */
-	Dice levelRange;
+	private Dice levelRange;
 
 	/** How much experience this foe is worth */
-	int experience;
+	private int experience;
 
 	/** The stats bundle of this foe */
-	StatModifier stats;
+	private StatModifier stats;
 	
 	/** The body parts of this foe */
-	PercentageTable<BodyPart> bodyParts;
+	private PercentageTable<BodyPart> bodyParts;
 	
 	/** Which parts of a player character this foe is likely to attack */
-	PercentageTable<String> playerBodyParts;
+	private PercentageTable<String> playerBodyParts;
 	
 	/** The base texture of this foe, what it does when it's just standing around */
-	MazeTexture baseTexture;
+	private MazeTexture baseTexture;
 	
 	/** The texture to use when this foe executes a melee attack */
-	MazeTexture meleeAttackTexture;
+	private MazeTexture meleeAttackTexture;
 	
 	/** The texture to use when this foe executes a ranged attack */
-	MazeTexture rangedAttackTexture;
+	private MazeTexture rangedAttackTexture;
 	
 	/** The texture to use when this foe casts a spell */
-	MazeTexture castSpellTexture;
+	private MazeTexture castSpellTexture;
 	
 	/** The texture to use when this foe uses a special ability */
-	MazeTexture specialAbilityTexture;
+	private MazeTexture specialAbilityTexture;
 
 	/** What this foe drops when it dies */
-	LootTable loot;
+	private LootTable loot;
 
 	/** true if this foe cannot be evaded */
-	boolean cannotBeEvaded;
+	private boolean cannotBeEvaded;
 
 	/** the difficulty in identifying this foe */
-	int identificationDifficulty;
+	private int identificationDifficulty;
 
 	/** Modifiers that this foe applies to all foes in it's group */
-	StatModifier foeGroupBannerModifiers;
+	private StatModifier foeGroupBannerModifiers;
 
 	/** Modifiers that this foe applies to all foes present */
-	StatModifier allFoesBannerModifiers;
+	private StatModifier allFoesBannerModifiers;
 
 	/** true if this foe is immune to critical hits */
 	boolean immuneToCriticals;
 
 	/** the faction (if any) that this foe belongs to */
-	String faction;
+	private String faction;
 
 	/** is this Foe an NPC */
-	boolean isNpc;
+	private boolean isNpc;
 	
 	/** script to run when a group of this foe type appears */
-	MazeScript appearanceScript;
+	private MazeScript appearanceScript;
 
 	/** script to run each time one of this foe dies */
-	MazeScript deathScript;
+	private MazeScript deathScript;
 
 	/** natural weapons of this foe (claw, bite, etc) */
 	private List<String> naturalWeapons;
@@ -137,6 +138,9 @@ public class FoeTemplate
 	/** This foes behaviour when it gets a chance to evade the player.
 	 * A constant from {@link Foe.EvasionBehaviour} */
 	private int evasionBehaviour;
+
+	/** default encounter attitude of this foe, if not overridden */
+	private NpcFaction.Attitude defaultAttitude;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeTemplate(
@@ -174,7 +178,8 @@ public class FoeTemplate
 		List<String> naturalWeapons,
 		SpellBook spellBook,
 		List<SpellLikeAbility> spellLikeAbilities,
-		CharacterClass.Focus focus)
+		CharacterClass.Focus focus,
+		NpcFaction.Attitude defaultAttitude)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
 		this.type = type;
@@ -211,6 +216,7 @@ public class FoeTemplate
 		this.spellBook = spellBook;
 		this.spellLikeAbilities = spellLikeAbilities;
 		this.focus = focus;
+		this.defaultAttitude = defaultAttitude;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -381,6 +387,11 @@ public class FoeTemplate
 	public CharacterClass.Focus getFocus()
 	{
 		return focus;
+	}
+
+	public NpcFaction.Attitude getDefaultAttitude()
+	{
+		return defaultAttitude;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -609,5 +620,10 @@ public class FoeTemplate
 	public void setFocus(CharacterClass.Focus focus)
 	{
 		this.focus = focus;
+	}
+
+	public void setDefaultAttitude(NpcFaction.Attitude defaultAttitude)
+	{
+		this.defaultAttitude = defaultAttitude;
 	}
 }

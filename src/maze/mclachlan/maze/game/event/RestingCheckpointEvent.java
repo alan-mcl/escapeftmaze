@@ -23,7 +23,7 @@ import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.stat.ActorGroup;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.GameSys;
@@ -70,7 +70,7 @@ public class RestingCheckpointEvent extends MazeEvent
 			{
 				progress.message(StringUtil.getUiLabel("rd.encounter"));
 
-				result.add(new EncounterEvent(null, tile.getRandomEncounters().getName()));
+				result.add(new EncounterActorsEvent(null, tile.getRandomEncounters().getName()));
 				return result;
 			}
 		}

@@ -28,6 +28,7 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
  *
@@ -249,6 +250,10 @@ public class V1FoeTemplate
 			b.append("focus=");
 			b.append(obj.getFocus());
 			b.append(V1Utils.NEWLINE);
+
+			b.append("attitude=");
+			b.append(obj.getDefaultAttitude());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -322,6 +327,7 @@ public class V1FoeTemplate
 				p.getProperty("spellLikeAbilities"));
 
 			CharacterClass.Focus focus = CharacterClass.Focus.valueOf(p.getProperty("focus"));
+			NpcFaction.Attitude attitude = NpcFaction.Attitude.valueOf(p.getProperty("attitude"));
 
 			return new FoeTemplate(
 				name,
@@ -358,7 +364,8 @@ public class V1FoeTemplate
 				naturalWeapons,
 				spellbook,
 				spellLikeAbilityList,
-				focus);
+				focus,
+				attitude);
 		}
 	}
 }

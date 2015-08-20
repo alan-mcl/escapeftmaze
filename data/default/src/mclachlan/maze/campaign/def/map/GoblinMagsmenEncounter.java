@@ -7,7 +7,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 
 /**
@@ -38,7 +38,7 @@ public class GoblinMagsmenEncounter extends TileScript
 					"attack!",
 					MazeEvent.Delay.WAIT_ON_CLICK,
 					true),
-				new EncounterEvent(GOBLIN_MAGSMEN_ENCOUNTER, GOBLIN_MAGSMEN_ENCOUNTER));
+				new EncounterActorsEvent(GOBLIN_MAGSMEN_ENCOUNTER, GOBLIN_MAGSMEN_ENCOUNTER));
 		}
 		else
 		{

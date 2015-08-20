@@ -140,21 +140,31 @@ cow.surprise = (S)urprise Foes
 cow.formation.changed = Formation will change at end of round
 
 # movement options widget
-mow.quit = (Q)uit
-mow.stats = Stats
-mow.inventory = (I)nventory
-mow.search = (S)earch
-mow.open = (O)pen
-mow.rest = (R)est
-mow.use.item = (U)se Item
-mow.cast.spell = (C)ast Spell
-mow.formation = (F)ormation
-mow.hide = (H)ide
-mow.save.load = Save/Loa(d)
-mow.settings = Settin(g)s
-mow.map = (M)ap
-mow.journal = (J)ournal
-mow.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
+poatw.quit = (Q)uit
+poatw.stats = Stats
+poatw.inventory = (I)nventory
+poatw.search = (S)earch
+poatw.open = (O)pen
+poatw.rest = (R)est
+poatw.use.item = (U)se Item
+poatw.cast.spell = (C)ast Spell
+poatw.formation = (F)ormation
+poatw.hide = (H)ide
+poatw.save.load = Save/Loa(d)
+poatw.settings = Settin(g)s
+poatw.map = (M)ap
+poatw.journal = (J)ournal
+poatw.attack = (A)ttack
+poatw.wait = (W)ait
+poatw.leave = (L)eave
+poatw.flee = (F)lee
+poatw.evade = (E)vade
+poatw.surprise = Ambu(s)h
+poatw.start.round = (S)tart Round
+poatw.terminate.game = Terminate Game
+poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
+poatw.actor.encounter = Encounter: %s (%s)
+poatw.exploring = Exploring: %s
 
 # player character widget
 pcw.levelup = Level Up!

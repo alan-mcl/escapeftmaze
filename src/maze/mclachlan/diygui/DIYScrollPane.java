@@ -50,16 +50,21 @@ public class DIYScrollPane extends ContainerWidget
 		this.add(contents);
 		this.contents = contents;
 
+		initContents();
+		initScrollBar();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void initContents()
+	{
 		// this widget effectively has it's own coordinate system
 		contents.x = 0;
 		contents.y = 0;
 		Dimension ps = contents.getPreferredSize();
-		contents.width = width-scrollBarWidth-inset*2;
+		contents.width = this.width-scrollBarWidth-inset*2;
 		contents.height = ps.height;
 
 		contents.doLayout();
-
-		this.initScrollBar();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -133,6 +138,7 @@ public class DIYScrollPane extends ContainerWidget
 	public void doLayout()
 	{
 		super.doLayout();
+		initContents();
 		initScrollBar();
 	}
 

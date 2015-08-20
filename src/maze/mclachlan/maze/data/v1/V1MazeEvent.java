@@ -41,7 +41,7 @@ public class V1MazeEvent
 	public static final int CUSTOM = 0;
 	public static final int _ZoneChangeEvent = 1;
 	public static final int _CastSpellEvent = 2;
-	public static final int _EncounterEvent = 3;
+	public static final int _EncounterActorsEvent = 3;
 	public static final int _FlavourTextEvent = 4;
 	public static final int _GrantExperienceEvent = 5;
 	public static final int _GrantGoldEvent = 6;
@@ -141,7 +141,7 @@ public class V1MazeEvent
 
 		types.put(ZoneChangeEvent.class, _ZoneChangeEvent);
 		types.put(CastSpellEvent.class, _CastSpellEvent);
-		types.put(EncounterEvent.class, _EncounterEvent);
+		types.put(EncounterActorsEvent.class, _EncounterActorsEvent);
 		types.put(FlavourTextEvent.class, _FlavourTextEvent);
 		types.put(GrantExperienceEvent.class, _GrantExperienceEvent);
 		types.put(GrantGoldEvent.class, _GrantGoldEvent);
@@ -211,7 +211,7 @@ public class V1MazeEvent
 		types.put(ChangeNpcTheftCounter.class, _ChangeNpcTheftCounter);
 		types.put(GiveItemToParty.class, _GiveItemToParty);
 		types.put(NpcAttacksEvent.class, _NpcAttacksEvent);
-		types.put(NpcLeavesEvent.class, _NpcLeavesEvent);
+		types.put(ActorsLeaveEvent.class, _NpcLeavesEvent);
 		types.put(NpcSpeechEvent.class, _NpcSpeechEvent);
 		types.put(NpcTakesItemEvent.class, _NpcTakesItemEvent);
 		types.put(WaitForPlayerSpeech.class, _WaitForPlayerSpeech);
@@ -265,8 +265,8 @@ public class V1MazeEvent
 				s.append(SEP);
 				s.append(cse.getCastingLevel());
 				break;
-			case _EncounterEvent:
-				EncounterEvent ee = (EncounterEvent)e;
+			case _EncounterActorsEvent:
+				EncounterActorsEvent ee = (EncounterActorsEvent)e;
 				s.append(ee.getEncounterTable());
 				s.append(SEP);
 				s.append(ee.getMazeVariable());
@@ -484,10 +484,10 @@ public class V1MazeEvent
 				int casterLevel = Integer.parseInt(strs[2]);
 				int castingLevel = Integer.parseInt(strs[3]);
 				return new CastSpellEvent(spellName, casterLevel, castingLevel);
-			case _EncounterEvent:
+			case _EncounterActorsEvent:
 				String encounterTable = strs[1];
 				String mazeVariable = strs.length > 2 ? strs[2] : null;
-				return new EncounterEvent(mazeVariable, encounterTable);
+				return new EncounterActorsEvent(mazeVariable, encounterTable);
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);

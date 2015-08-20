@@ -419,4 +419,22 @@ public class PlayerParty implements ActorGroup
 
 		return result;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	total modifier of all the party
+	 */
+	public int getTotalModifier(String modifier)
+	{
+		int result = 0;
+
+		for (UnifiedActor a : getActors())
+		{
+			result += a.getModifier(modifier);
+		}
+
+		return result;
+	}
 }

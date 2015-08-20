@@ -7,7 +7,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 
 /**
@@ -34,7 +34,7 @@ public class CocMercTeamEncounter extends TileScript
 					"COMMERCE YOU ARE HEREBY ARRESTED AND SENTENCED TO DEATH!",
 					MazeEvent.Delay.WAIT_ON_CLICK, true),
 				new FlavourTextEvent("PREPARE TO DIE, SCUM!", MazeEvent.Delay.WAIT_ON_CLICK, false),
-				new EncounterEvent(COC_MERC_TEAM_ENCOUNTER, COC_MERC_TEAM_ENCOUNTER));
+				new EncounterActorsEvent(COC_MERC_TEAM_ENCOUNTER, COC_MERC_TEAM_ENCOUNTER));
 		}
 		else
 		{

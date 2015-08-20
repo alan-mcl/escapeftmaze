@@ -127,29 +127,7 @@ class ContentPaneActionListener implements ActionListener
 
 		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
-			switch (event.getKeyCode())
-			{
-				case KeyEvent.VK_1: ui.characterSelected(0); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-				case KeyEvent.VK_Q: ui.movementOptionsWidget.mainMenu(); break;
-//				case KeyEvent.VK_I: ui.movementOptionsWidget.inventory(); break;
-				case KeyEvent.VK_S: ui.movementOptionsWidget.search(); break;
-				case KeyEvent.VK_O: ui.movementOptionsWidget.open(); break;
-				case KeyEvent.VK_R: ui.movementOptionsWidget.rest(); break;
-//				case KeyEvent.VK_U: ui.movementOptionsWidget.use(); break;
-//				case KeyEvent.VK_C: ui.movementOptionsWidget.spell(); break;
-				case KeyEvent.VK_F: ui.movementOptionsWidget.formation(); break;
-				case KeyEvent.VK_H: ui.movementOptionsWidget.hide(); break;
-				case KeyEvent.VK_D: ui.movementOptionsWidget.saveOrLoad(); break;
-				case KeyEvent.VK_G: ui.movementOptionsWidget.showSettingsDialog(); break;
-				case KeyEvent.VK_J: ui.movementOptionsWidget.showJournal(); break;
-				case KeyEvent.VK_M:
-				case KeyEvent.VK_TAB: ui.movementOptionsWidget.showMap(); break;
-			}
+			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 		}
 		else if (Maze.getInstance().getState() == Maze.State.MODIFIERSDISPLAY)
 		{
@@ -329,14 +307,7 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processKeyPressed(event);
-			}
-			else
-			{
-				ui.combatOptions.handleKey(event.getKeyCode());
-			}
+			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
 		{
@@ -349,6 +320,10 @@ class ContentPaneActionListener implements ActionListener
 				case KeyEvent.VK_ESCAPE:
 				case KeyEvent.VK_L: ui.portalOptionsWidget.leave(); break;
 			}
+		}
+		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
+		{
+			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
 		{

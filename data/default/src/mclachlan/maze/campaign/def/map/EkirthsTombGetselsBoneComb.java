@@ -6,7 +6,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.RemoveObjectEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
@@ -62,7 +62,7 @@ public class EkirthsTombGetselsBoneComb extends TileScript
 					MazeEvent.Delay.WAIT_ON_CLICK, true));
 			result.add(new SetMazeVariableEvent(BONE_COMB_USED, "true"));
 			result.add(new RemoveObjectEvent("ekirths.tomb.ageyrs.bones"));
-			result.add(new EncounterEvent(null, "ageyrs.bones.1"));
+			result.add(new EncounterActorsEvent(null, "ageyrs.bones.1"));
 			
 			user.removeItem(item, true);
 

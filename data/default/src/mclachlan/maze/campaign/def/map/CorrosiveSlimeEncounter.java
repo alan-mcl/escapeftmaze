@@ -7,7 +7,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 
 /**
@@ -26,7 +26,7 @@ public class CorrosiveSlimeEncounter extends TileScript
 			return getList(
 				new FlavourTextEvent("In the depths of the sewers, you " +
 					"stumble across a gigantic, living slime!"),
-				new EncounterEvent(CORROSIVE_SLIME_ENCOUNTER, CORROSIVE_SLIME_ENCOUNTER));
+				new EncounterActorsEvent(CORROSIVE_SLIME_ENCOUNTER, CORROSIVE_SLIME_ENCOUNTER));
 		}
 		else
 		{

@@ -6,7 +6,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
@@ -37,7 +37,7 @@ public class TempleOfTheGateDragonRod extends TileScript
 					"deafening in the small room...",
 					MazeEvent.Delay.WAIT_ON_CLICK, false));
 			result.add(new SetMazeVariableEvent(DRAGON_ROD_USED, "true"));
-			result.add(new EncounterEvent(null, "temple.of.the.gate.ghost.of.igor"));
+			result.add(new EncounterActorsEvent(null, "temple.of.the.gate.ghost.of.igor"));
 
 			return result;
 		}

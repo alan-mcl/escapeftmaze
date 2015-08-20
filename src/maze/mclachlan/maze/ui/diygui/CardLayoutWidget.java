@@ -19,13 +19,14 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import mclachlan.maze.util.MazeException;
+import java.util.*;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Widget;
+import mclachlan.maze.util.MazeException;
 
 /**
  * Manages a bunch of other widgets
@@ -33,20 +34,50 @@ import mclachlan.diygui.toolkit.Widget;
 public class CardLayoutWidget extends ContainerWidget
 {
 	private ContainerWidget currentWidget;
-	ArrayList<ContainerWidget> widgets;
+	private Map<Object, ContainerWidget> widgets;
 	
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Creates a card layout widget without any keys. Show method must be
+	 * called with the actual widget to show.
+	 */
 	public CardLayoutWidget(Rectangle bounds, ArrayList<ContainerWidget> widgets)
 	{
 		super(bounds.x, bounds.y, bounds.width, bounds.height);
-		this.widgets = widgets;
+
+		this.widgets = new HashMap<Object, ContainerWidget>();
+		for (ContainerWidget w : widgets)
+		{
+			this.widgets.put(System.identityHashCode(w), w);
+		}
+
 		this.currentWidget = this.widgets.get(0);
 		for (Widget w : widgets)
 		{
 			add(w);
 		}
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Creates a card layout widget where cards are referenced by keys. Show
+	 * method can be called with either key or actual widget.
+	 */
+	public CardLayoutWidget(Rectangle bounds,
+		Map<Object, ContainerWidget> widgets)
+	{
+		super(bounds);
+		this.widgets = widgets;
+		this.currentWidget = widgets.values().iterator().next();
+
+		for (Widget w : widgets.values())
+		{
+			add(w);
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ContainerWidget getCurrentWidget()
 	{
@@ -56,13 +87,23 @@ public class CardLayoutWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void show(ContainerWidget w)
 	{
-		if (!this.widgets.contains(w))
+		if (!this.widgets.values().contains(w))
 		{
 			throw new MazeException("Not a child widget: "+w);
 		}
 
-		
 		this.currentWidget = w;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void show(Object key)
+	{
+		if (!this.widgets.keySet().contains(key))
+		{
+			throw new MazeException("Not a child widget: "+key);
+		}
+
+		this.currentWidget = this.widgets.get(key);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,7 +115,7 @@ public class CardLayoutWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void doLayout()
 	{
-		for (ContainerWidget w : widgets)
+		for (ContainerWidget w : widgets.values())
 		{
 			w.doLayout();
 		}
@@ -131,7 +172,7 @@ public class CardLayoutWidget extends ContainerWidget
 
 		if (widgets != null)
 		{
-			for (ContainerWidget w : widgets)
+			for (ContainerWidget w : widgets.values())
 			{
 				w.setBounds(x, y, width, height);
 			}

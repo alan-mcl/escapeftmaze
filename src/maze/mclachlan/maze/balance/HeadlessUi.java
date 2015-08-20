@@ -260,6 +260,12 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
+	@Override
+	public void clearMessages()
+	{
+
+	}
+
 	public void setParty(PlayerParty party)
 	{
 		

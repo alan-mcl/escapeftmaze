@@ -37,13 +37,25 @@ public class NpcFaction
 	/*-------------------------------------------------------------------------*/
 	public static enum Attitude
 	{
-		ATTACKING,
-		AGGRESSIVE,
-		WARY,
-		SCARED,
-		NEUTRAL,
-		FRIENDLY,
-		ALLIED
+		ATTACKING(0),
+		AGGRESSIVE(1),
+		WARY(2),
+		SCARED(3),
+		NEUTRAL(4),
+		FRIENDLY(5),
+		ALLIED(6);
+
+		int sortOrder;
+
+		Attitude(int sortOrder)
+		{
+			this.sortOrder = sortOrder;
+		}
+
+		public int getSortOrder()
+		{
+			return sortOrder;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

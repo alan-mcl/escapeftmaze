@@ -6,7 +6,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -94,7 +94,7 @@ public class ThreeEyes extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Behave yourselves, children."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -102,6 +102,6 @@ public class ThreeEyes extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Farewell friends."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 }

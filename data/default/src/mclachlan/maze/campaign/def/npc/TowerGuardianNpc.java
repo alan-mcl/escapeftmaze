@@ -71,7 +71,7 @@ public class TowerGuardianNpc extends NpcScript
 		{
 			return getList(
 				new NpcSpeechEvent("YOU * MAY * NOT * PASS."),
-				new NpcLeavesEvent(),
+				new ActorsLeaveEvent(),
 				new MazeScriptEvent("generic door creak"),
 				new MovePartyEvent(new Point(15, 29), CrusaderEngine.Facing.NORTH));
 		}
@@ -93,14 +93,14 @@ public class TowerGuardianNpc extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

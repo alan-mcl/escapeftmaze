@@ -6,7 +6,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.RemoveItemEvent;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -39,7 +39,7 @@ public class StygiosForestAltarToNergal extends TileScript
 				"mist! Empty eyes regard you with chilling malice before the " +
 				"creature reaches ghostly hands towards you...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true));
-			result.add(new EncounterEvent("stygios.forest.altar.of.nergal.spirit",
+			result.add(new EncounterActorsEvent("stygios.forest.altar.of.nergal.spirit",
 				"stygios.forest.altar.of.nergal.spirit"));
 
 			return result;

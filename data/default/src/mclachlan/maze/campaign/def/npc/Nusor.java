@@ -6,8 +6,8 @@ import java.awt.Point;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -60,7 +60,7 @@ public class Nusor extends NpcScript
 			new FlavourTextEvent("The demons eyes flash with fire, and it " +
 				"vanishes in an acrid cloud of smoke...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new ChangeNpcLocationEvent(npc, new Point(1,1), "Stygios Forest"));
 	}
 

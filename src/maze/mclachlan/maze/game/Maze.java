@@ -31,15 +31,13 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.event.StartGameEvent;
-import mclachlan.maze.game.event.ZoneChangeEvent;
+import mclachlan.maze.game.event.*;
 import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
-import mclachlan.maze.stat.combat.event.ConditionEvent;
 import mclachlan.maze.stat.combat.event.SpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionManager;
@@ -110,6 +108,8 @@ public class Maze implements Runnable
 	private Npc currentNpc;
 	/** any portal that the player is currently encountering */
 	private Portal currentPortal;
+	/** any actors currently being encountered */
+	private ActorEncounter currentActorEncounter;
 
 	/** pending formation changes in combat */
 	private List<PlayerCharacter> pendingPartyOrder;
@@ -152,6 +152,8 @@ public class Maze implements Runnable
 		ENCOUNTER_CHEST,
 		/** Encountering an NPC */
 		ENCOUNTER_NPC,
+		/** Encountering actors, could be foes or an NPC */
+		ENCOUNTER_ACTORS,
 		/** Encountering a portal */
 		ENCOUNTER_PORTAL,
 		/** Encountering a tile */
@@ -524,6 +526,7 @@ public class Maze implements Runnable
 			progress.incProgress(1);
 
 			// set message
+			ui.clearMessages();
 			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name));
 
 			// encounter tile
@@ -660,7 +663,7 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							this.encounter(foes, null);
+							this.encounterActors(foes, null);
 						}
 					}
 				}
@@ -679,6 +682,8 @@ public class Maze implements Runnable
 	{
 		party = null;
 		ui.setParty(null);
+		ui.clearDialog();
+		ui.stopAllAnimations();
 		zone = null;
 		if (currentCombat != null)
 		{
@@ -763,15 +768,15 @@ public class Maze implements Runnable
 	 * @return
 	 * 	true if the encounter actually happens, false otherwise
 	 */
-	public boolean encounter(
-		final List<FoeGroup> others,
+	public boolean encounterActors(
+		final List<FoeGroup> actors,
 		final String mazeVar)
 	{
 		//
 		// check if there are actually any foes in here
 		//
 		boolean isFoes = false;
-		for (FoeGroup fg : others)
+		for (FoeGroup fg : actors)
 		{
 			if (fg.numAlive() > 0)
 			{
@@ -786,33 +791,51 @@ public class Maze implements Runnable
 		}
 			
 		//
-		// NPC faction check.  If any of these foes are associated with an NPC
-		// faction that is friendly to the players, this encounter is stillborn.
+		// Determine the attitude of the encounter
 		//
-		for (FoeGroup fg : others)
+
+		// first try for an NPC faction
+		NpcFaction.Attitude attitude = null;
+		for (FoeGroup fg : actors)
 		{
 			Foe f = (Foe)fg.getActors().get(0);
 
 			String faction = f.getFaction();
 			if (faction != null)
 			{
-				NpcFaction nf = NpcManager.getInstance().getNpcFaction(faction);
+				NpcFaction npcFaction = NpcManager.getInstance().getNpcFaction(faction);
 
-				log(Log.DEBUG, "Attitude test for encounter ["+f.getName()+"] " +
-					"["+f.getFaction()+"] ["+nf.getAttitude()+"]");
-				if (nf.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
-					nf.getAttitude() == NpcFaction.Attitude.NEUTRAL ||
-					nf.getAttitude() == NpcFaction.Attitude.ALLIED)
+				log(Log.DEBUG, "Found NPC faction for ["+f.getName()+"] " +
+					"["+f.getFaction()+"] ["+npcFaction.getAttitude()+"]");
+
+				attitude = npcFaction.getAttitude();
+			}
+		}
+
+		// no faction? look for the worst starting attitude
+		if (attitude == null)
+		{
+			for (FoeGroup fg : actors)
+			{
+				NpcFaction.Attitude at = ((Foe)fg.getActors().get(0)).getDefaultAttitude();
+
+				if (attitude == null || at.getSortOrder() < attitude.getSortOrder())
 				{
-					return false;
+					attitude = at;
 				}
 			}
 		}
 
+		// assert that we have an attitude
+		if (attitude == null)
+		{
+			throw new MazeException("can't determine attitude ["+attitude+"] " +
+				"["+mazeVar+"] ["+actors+"]");
+		}
+
+		// players attacked while resting.  Give them a chance to wake up
 		if (this.getState() == State.RESTING)
 		{
-			// players attacked while resting.  Give them a chance to wake up
-
 			for (UnifiedActor pc : party.getActors())
 			{
 				ArrayList<Condition> list = new ArrayList<Condition>(pc.getConditions());
@@ -831,341 +854,199 @@ public class Maze implements Runnable
 			}
 		}
 
+		// show the foe sprites on the screen
+		getUi().setFoes(actors);
+
+		// attempt identification of these actors
+		GameSys.getInstance().attemptManualIdentification(actors, getParty(), 0);
+
+		// determine ambush status
+		Combat.AmbushStatus ambushStatus =
+			GameSys.getInstance().determineAmbushStatus(party, actors);
+		if (ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+		{
+			Foe leader = GameSys.getInstance().getLeader(actors);
+			if (leader.shouldEvade(actors, getParty()))
+			{
+				// cancel the encounter, the party never knows about it
+				this.setState(State.MOVEMENT);
+				return false;
+			}
+		}
+
+		//
+		// Clear any dialogs (e.g. spells, resting, etc)
+		//
 		getUi().clearDialog();
 
-		this.setState(State.COMBAT);
+		//
+		// Change game state
+		//
+		currentActorEncounter = new ActorEncounter(actors, attitude, mazeVar, ambushStatus);
+		this.setState(State.ENCOUNTER_ACTORS);
 
-		// play the encounter fanfare
-		MazeScript script = Database.getInstance().getScript("_ENCOUNTER_");
-		resolveEvents(script.getEvents());
-
-		// begin encounter speech
-		int avgFoeLevel = 0;
-		for (FoeGroup fg : others)
-		{
-			avgFoeLevel += fg.getAverageLevel();
-		}
-		avgFoeLevel /= others.size();
-		SpeechUtil.getInstance().startCombatSpeech(avgFoeLevel, getParty().getPartyLevel());
-
-		// execute any appearance scripts, picking from the first foe
-		Foe f = (Foe)(others.get(0).getActors().get(0));
+		//
+		// Appearance scripts of the leader
+		//
+		Foe f = GameSys.getInstance().getLeader(actors);
 		if (f.getAppearanceScript() != null)
 		{
 			resolveEvents(f.getAppearanceScript().getEvents());
 		}
 
 		//
-		// Combat is go!
+		// Display and journal any needed messages
 		//
-		currentCombat = new Combat(party, others, true);
+		String encounterMsg = StringUtil.getEventText("msg.encounter.actors",
+			currentActorEncounter.describe());
+		getUi().addMessage(encounterMsg);
 
-		new Thread("Maze Combat Thread")
+		switch (ambushStatus)
 		{
-			public void run()
-			{
-				try
-				{
-					if (!Maze.this.runCombat(party, others))
-					{
-						if (mazeVar != null)
-						{
-							// PC's did not win, clear the maze var
-							MazeVariables.clear(mazeVar);
-						}
-					}
-				}
-				catch (Exception e)
-				{
-					errorDialog(e);
-				}
-			}
-		}.start();
+			case NONE:
+				break;
+			case PARTY_MAY_AMBUSH_FOES:
+				getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush"));
+				break;
+			case FOES_MAY_AMBUSH_PARTY:
+				getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
+				break;
+			case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
+				getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
+				break;
+			case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
+				getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
+				break;
+		}
+
+		//
+		// Is this a direct transition into COMBAT?
+		//
+		if (attitude == NpcFaction.Attitude.ATTACKING &&
+			(ambushStatus == Combat.AmbushStatus.NONE ||
+			ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
+			ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY))
+		{
+			this.setState(State.COMBAT);
+		}
 
 		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	/**
-	 * @return
-	 * 	true if the combats ends with a PC victory, false otherwise
-	 */
-	private boolean runCombat(
-		PlayerParty partyGroup,
-		List<FoeGroup> others)
+	public void executeCombatRound(Combat combat)
 	{
-		ArrayList<MazeEvent> evts = new ArrayList<MazeEvent>();
-		evts.add(new FlavourTextEvent("ENCOUNTER!",
-			Maze.getInstance().getUserConfig().getCombatDelay(), true));
+		getUi().addMessage(
+			StringUtil.getEventText("msg.combat.round.starts", combat.getRoundNr()));
 
-		int avgFoeLevel = 0;
-		for (FoeGroup fg : others)
+		//
+		// foe intentions
+		//
+		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
+		for (FoeGroup other : combat.getFoes())
 		{
-			avgFoeLevel += fg.getAverageLevel();
-		}
-		avgFoeLevel /= others.size();
-
-		GameSys.getInstance().attemptManualIdentification(others, getParty(), 0);
-
-		log(Log.DEBUG, "ambushStatus="+currentCombat.getAmbushStatus());
-
-		switch (currentCombat.getAmbushStatus())
-		{
-			case PARTY_MAY_EVADE_FOES:
-				evts.add(new FlavourTextEvent("Party may evade foes!",
-					Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				break;
-			case PARTY_AMBUSHES_FOES:
-				evts.add(new FlavourTextEvent("Party surprises foes!",
-					Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				break;
-			case FOES_MAY_EVADE_PARTY:
-				Foe leader = GameSys.getInstance().getLeader(others);
-				if (leader.shouldEvade(others, getParty()))
-				{
-					// cancel the encounter
-					this.setState(State.MOVEMENT);
-					return false;
-				}
-				else
-				{
-					evts.add(new FlavourTextEvent("Foes surprise party!",
-						Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				}
-				break;
-			case FOES_AMBUSH_PARTY:
-				evts.add(new FlavourTextEvent("Foes surprise party!",
-					Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				break;
+			foeIntentionList.add(getFoeCombatIntentions(other));
 		}
 
-		this.ui.setFoes(others);
-		this.ui.showCombatOptions();
-
-		this.resolveEvents(evts);
-
-		if (currentCombat.getAmbushStatus() == Combat.AmbushStatus.PARTY_MAY_EVADE_FOES)
+		//
+		// player character intentions
+		//
+		ActorActionIntention[] partyIntentions = new ActorActionIntention[getParty().size()];
+		if (combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+			combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
 		{
-			// give the player a choice.
-			this.ui.showEvasionOptions();
-
-			//------------------------------------------------------------------
-			// blocking call:
-			UserInterface.CombatOption actorActionOption = this.ui.getEvasionOption();
-			//------------------------------------------------------------------
-
-			if (actorActionOption == UserInterface.CombatOption.EVADE_FOES)
-			{
-				// give them the slip
-				currentCombat.endCombat();
-				ui.setFoes(null);
-				this.setState(State.MOVEMENT);
-				return false;
-			}
-		}
-
-		int combatRound = 1;
-		while (partyGroup.numAlive()>0 && getLiveFoes(others)>0)
-		{
-			Maze.log("--- combat round "+combatRound+" starts ---");
-
-			//--- foe intentions
-			java.util.List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-
-			for (FoeGroup other : others)
-			{
-				foeIntentionList.add(getFoeCombatIntentions(other));
-			}
-
-			//--- player character intentions
-			ActorActionIntention[] partyIntentions
-				= new ActorActionIntention[partyGroup.getActors().size()];
-			if (currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_AMBUSH_PARTY ||
-				currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_EVADE_PARTY)
-			{
-				// party is surprised, cannot take action
-				for (int i = 0; i < partyIntentions.length; i++)
-				{
-					partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-				}
-			}
-			else
-			{
-				this.ui.showFinalCombatOptions();
-				//------------------------------------------------------------------
-				// blocking call:
-				UserInterface.CombatOption finalCombatOption = this.ui.getFinalCombatOption();
-				log(Log.DEBUG, "finalCombatOption="+finalCombatOption);
-				//------------------------------------------------------------------
-
-				if (finalCombatOption == UserInterface.CombatOption.START_ROUND)
-				{
-					// collect player character actions
-					log(Log.DEBUG, "Collecting actor intentions for round "+combatRound);
-					int max = partyGroup.size();
-					int i = 0;
-					while (i < max)
-					{
-						PlayerCharacter pc = (PlayerCharacter)partyGroup.getActors().get(i);
-
-						try
-						{
-							ActorActionIntention actorActionOption;
-							// dead characters should always be lined up at the end, so
-							// a numAlive check works here
-							if (i < partyGroup.numAlive())
-							{
-								// display character options
-								if (GameSys.getInstance().askActorForCombatIntentions(pc))
-								{
-									actorActionOption = this.ui.getCombatIntention(pc);
-									log(Log.DEBUG, pc.getName()+" at index "+i+" selects "+actorActionOption);
-								}
-								else
-								{
-									actorActionOption = ActorActionIntention.INTEND_NOTHING;
-									log(Log.DEBUG, pc.getName()+" at index "+i+" cannot do anything and intends nothing");
-								}
-
-								partyIntentions[i++] = actorActionOption;
-							}
-							else
-							{
-								partyIntentions[i++] = ActorActionIntention.INTEND_NOTHING;
-								log(Log.DEBUG, pc.getName()+" at index "+i+" is dead and intends nothing");
-							}
-						}
-						catch (Exception e)
-						{
-							StringBuilder sb = new StringBuilder();
-							for (ActorActionIntention ci : partyIntentions)
-							{
-								sb.append("ci = [").append(ci).append("]");
-							}
-							throw new MazeException(sb.toString(), e);
-						}
-					}
-				}
-				else if (finalCombatOption == UserInterface.CombatOption.TERMINATE_GAME)
-				{
-					backToMain();
-					return false;
-				}
-			}
-
-			// validate party intentions
+			// party is surprised, cannot take action
 			for (int i = 0; i < partyIntentions.length; i++)
 			{
-				if (partyIntentions[i] == null)
-				{
-					throw new MazeException("null actor intention at party index "+i);
-				}
+				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
 			}
-
-			// execute any appearance scripts, picking from the first foe
-			Foe f = (Foe)(others.get(0).getActors().get(0));
-			if (f.getAppearanceScript() != null)
+		}
+		else
+		{
+			// collect player character actions
+			log(Log.DEBUG, "Collecting actor intentions for round "+combat.getRoundNr());
+			int max = getParty().size();
+			int i = 0;
+			while (i < max)
 			{
-				resolveEvents(f.getAppearanceScript().getEvents());
+				PlayerCharacter pc = getParty().getPlayerCharacter(i);
+
 				try
 				{
-					Thread.sleep(Maze.getInstance().getUserConfig().getCombatDelay());
-				}
-				catch (InterruptedException e)
-				{
-					throw new MazeException(e);
-				}
-			}
+					ActorActionIntention actorActionOption;
 
-			// Then, show the combat listener
-			this.ui.showCombatDisplay();
-
-			Iterator combatActions = currentCombat.combatRound(partyIntentions, foeIntentionList);
-			while (combatActions.hasNext())
-			{
-				CombatAction action = (CombatAction)combatActions.next();
-				List<MazeEvent> events = currentCombat.resolveAction(action);
-
-				resolveEvents(events);
-
-				checkPartyStatus();
-				reorderPartyToCompensateForDeadCharacters();
-
-				if (currentCombat == null)
-				{
-					// this means that something has suddenly terminated the combat
-					return false;
-				}
-				else
-				{
-					UnifiedActor actor = action.getActor();
-					CurMaxSub hp = actor.getHitPoints();
-					if (hp.getSub() >= hp.getCurrent() && hp.getCurrent() > 0)
+					// dead characters should always be lined up at the end, so
+					// a numAlive check works here
+					if (i < getParty().numAlive())
 					{
-						ConditionTemplate kot = Database.getInstance().getConditionTemplate(
-							Constants.Conditions.FATIGUE_KO);
-						Condition ko = kot.create(
-							actor, actor, 1, MagicSys.SpellEffectType.NONE, MagicSys.SpellEffectSubType.NONE);
-						resolveEvent(new ConditionEvent(actor, ko), true);
+						// display character options
+						if (GameSys.getInstance().askActorForCombatIntentions(pc))
+						{
+							actorActionOption = this.ui.getCombatIntention(pc);
+							log(Log.DEBUG, pc.getName()+" at index "+i+" selects "+actorActionOption);
+						}
+						else
+						{
+							actorActionOption = ActorActionIntention.INTEND_NOTHING;
+							log(Log.DEBUG, pc.getName()+" at index "+i+" cannot do anything and intends nothing");
+						}
+
+						partyIntentions[i++] = actorActionOption;
+					}
+					else
+					{
+						partyIntentions[i++] = ActorActionIntention.INTEND_NOTHING;
+						log(Log.DEBUG, pc.getName()+" at index "+i+" is dead and intends nothing");
 					}
 				}
+				catch (Exception e)
+				{
+					StringBuilder sb = new StringBuilder();
+					for (ActorActionIntention ci : partyIntentions)
+					{
+						sb.append("ci = [").append(ci).append("]");
+					}
+					throw new MazeException(sb.toString(), e);
+				}
 			}
+		}
 
-			resolveEvents(currentCombat.endRound());
-			this.ui.setFoes(others);
-
-			if (pendingPartyOrder != null)
+		//
+		// validate party intentions
+		//
+		for (int i = 0; i < partyIntentions.length; i++)
+		{
+			if (partyIntentions[i] == null)
 			{
-				this.reorderParty(pendingPartyOrder, pendingFormation);
-				
-				pendingPartyOrder = null;
-				pendingFormation = -1;
+				throw new MazeException("null actor intention at party index "+i);
 			}
-
-			GameSys.getInstance().attemptManualIdentification(others, getParty(), combatRound);
-			Maze.log("--- combat round "+combatRound+" ends ---");
-			combatRound++;
-			incTurn(false);
 		}
 
-		// speech bubble for the win
-		SpeechUtil.getInstance().winCombatSpeech(avgFoeLevel, getParty().getPartyLevel());
-
-		//finally, go back to movement
-		ui.setFoes(null);
-		ui.setAllies(null);
-		
-		checkPartyStatus();
-		reorderPartyToCompensateForDeadCharacters();
-
-		List<Item> loot = currentCombat.getLoot();
-		int totalGold = TileScript.extractGold(loot);
-		int totalExperience = currentCombat.getTotalExperience();
-		int xp = totalExperience/party.numAlive();
-
-		int extraPercent = 0;
-		// calculate extra gold
-		for (UnifiedActor pc : party.getActors())
+		//
+		// execute an appearance script, picking from the first foe
+		//
+		Foe f = (Foe)(combat.getFoes().get(0).getActors().get(0));
+		if (f.getAppearanceScript() != null)
 		{
-			extraPercent += pc.getModifier(Stats.Modifiers.EXTRA_GOLD);
+			appendEvents(f.getAppearanceScript().getEvents());
 		}
-		totalGold += (totalGold*extraPercent/100);
 
-		evts = new ArrayList<MazeEvent>();
-		evts.add(new FlavourTextEvent("Victory!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
-		evts.add(new GrantExperienceEvent(xp, null));
-		if (totalGold > 0)
+		//
+		// append the results of combat actions
+		//
+		Iterator<CombatAction> combatActions =
+			combat.combatRound(partyIntentions, foeIntentionList);
+		while (combatActions.hasNext())
 		{
-			evts.add(new GrantGoldEvent(totalGold));
+			appendEvents(new ResolveCombatActionEvent(this, combat, combatActions.next()));
+			appendEvents(new CheckPartyStatusEvent());
+			appendEvents(new CheckCombatStatusEvent(this, combat));
 		}
-		evts.add(new GrantItemsEvent(loot));
 
-		this.resolveEvents(evts);
-		currentCombat.endCombat();
-		currentCombat = null;
-
-		this.setState(State.MOVEMENT);
-		return true;
+		//
+		// append end of round events
+		//
+		appendEvents(new EndCombatRoundEvent(this, combat));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1295,19 +1176,29 @@ public class Maze implements Runnable
 			currentCombat.removeFoe(foe);
 			this.ui.foeFlees(coward);
 		}
-		else if (coward instanceof PlayerCharacter && this.currentCombat != null)
+		else if (coward instanceof PlayerCharacter)
 		{
-			// the party flees from combat
-			this.currentCombat.endCombat();
-			this.ui.setFoes(null);
-			this.setState(State.MOVEMENT);
-			this.currentCombat = null;
-			this.ui.backPartyUp(-1);
+			partyFlees();
 		}
 		else
 		{
 			throw new MazeException("Invalid actor: "+coward);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void partyFlees()
+	{
+		if (currentCombat != null)
+		{
+			// the party flees from combat
+			this.currentCombat.endCombat();
+		}
+
+		this.ui.setFoes(null);
+		this.setState(State.MOVEMENT);
+		this.currentCombat = null;
+		this.ui.backPartyUp(3+Dice.d4.roll());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1319,17 +1210,6 @@ public class Maze implements Runnable
 	public void backPartyUp(int maxKeys)
 	{
 		this.ui.backPartyUp(maxKeys);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private int getLiveFoes(List<FoeGroup> foes)
-	{
-		int sum = 0;
-		for (ActorGroup g : foes)
-		{
-			sum += g.numAlive();
-		}
-		return sum;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1445,12 +1325,12 @@ public class Maze implements Runnable
 			// (WAIT_ON_READLINE events have wait()'s in their resolve methods)
 			if (event.getDelay() == MazeEvent.Delay.WAIT_ON_CLICK)
 			{
+				log(Log.DEBUG, "waiting on ["+event.getClass().getSimpleName()+
+					"] ["+event.toString()+"]");
 				synchronized(event)
 				{
 					try
 					{
-						log(Log.DEBUG, "waiting on ["+event.getClass().getSimpleName()+
-							"] ["+event.toString()+"]");
 						event.wait();
 					}
 					catch (InterruptedException e)
@@ -1643,6 +1523,18 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void reorderPartyIfPending()
+	{
+		if (pendingPartyOrder != null)
+		{
+			this.reorderParty(pendingPartyOrder, pendingFormation);
+
+			pendingPartyOrder = null;
+			pendingFormation = -1;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void reorderParty(List<PlayerCharacter> actors, int formation)
 	{
 		List<UnifiedActor> a = new ArrayList<UnifiedActor>();
@@ -1654,7 +1546,7 @@ public class Maze implements Runnable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	private void reorderPartyToCompensateForDeadCharacters()
+	public void reorderPartyToCompensateForDeadCharacters()
 	{
 		if (party != null)
 		{
@@ -1918,11 +1810,13 @@ public class Maze implements Runnable
 									diplomacy = a.getModifier(Stats.Modifiers.DIPLOMAT);
 								}
 							}
+/*
 							if (diplomacy > 0)
 							{
 								// todo: ATTITUDE CHANGE
-//								npc.changeAttitude(diplomacy);
+								npc.changeAttitude(NpcFaction.AttitudeChange.BETTER);
 							}
+*/
 						}
 						
 						if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
@@ -2220,6 +2114,11 @@ public class Maze implements Runnable
 		return currentPortal;
 	}
 
+	public ActorEncounter getCurrentActorEncounter()
+	{
+		return currentActorEncounter;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Point getPlayerPos()
 	{
@@ -2359,6 +2258,7 @@ public class Maze implements Runnable
 				try
 				{
 					MazeEvent event = queue.take();
+					System.out.println("event = [" + event + "]");
 					Maze.getInstance().resolveEvent(event, true);
 				}
 				catch (Exception e)

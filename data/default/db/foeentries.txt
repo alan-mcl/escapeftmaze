@@ -488,7 +488,7 @@ name=laughing.puppet.1
 contains=Laughing Puppet/2d2+2:100,Crying Puppet/1d4+1:50,Angry Puppet/1d2:10
 @
 name=TestingFoeEntry
-contains=Gnome Den Mother/2d2:100,Gnome Matriarch/2d2:100
+contains=testing foe/2d2:100,testing foe/2d2:100
 @
 name=rabid.gnolls.small
 contains=Rabid Gnoll/2d3+1:100,Rabid Gnoll/2d2:75

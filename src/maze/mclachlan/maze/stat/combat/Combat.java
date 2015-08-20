@@ -74,20 +74,25 @@ public class Combat
 	 * Statistics collected during the current combat
 	 */
 	private CombatStatistics combatStats;
+	private int roundNr;
+
 
 	public enum AmbushStatus
 	{
 		NONE,
-		PARTY_AMBUSHES_FOES,
-		FOES_AMBUSH_PARTY,
-		PARTY_MAY_EVADE_FOES,
-		FOES_MAY_EVADE_PARTY
+		PARTY_MAY_AMBUSH_FOES,
+		FOES_MAY_AMBUSH_PARTY,
+		PARTY_MAY_AMBUSH_OR_EVADE_FOES,
+		FOES_MAY_AMBUSH_OR_EVADE_PARTY
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public Combat(PlayerParty party, List<FoeGroup> foes, boolean testSurprise)
 	{
 		Maze.getInstance().setCurrentCombat(this);
+
+		this.roundNr = 1;
+
 		this.foes = foes;
 		this.party = party;
 		// party allies initially empty
@@ -117,51 +122,7 @@ public class Combat
 
 		if (testSurprise)
 		{
-			// determine surprise
-			int partyValue = GameSys.getInstance().getStealthValue(
-				Maze.getInstance().getCurrentTile(), party);
-			int foesValue = GameSys.getInstance().getStealthValue(
-				Maze.getInstance().getCurrentTile(), foes);
-
-			partyValue += Dice.d10.roll();
-			foesValue += Dice.d10.roll();
-
-			if (partyValue > foesValue+20)
-			{
-				// check and see if there are any "cannot evade" foes
-				boolean cannotEvade = false;
-				for (FoeGroup fg : foes)
-				{
-					for(Foe f : fg.getFoes())
-					{
-						cannotEvade |= f.cannotBeEvaded();
-					}
-				}
-				if (cannotEvade)
-				{
-					ambushStatus = AmbushStatus.PARTY_AMBUSHES_FOES;
-				}
-				else
-				{
-					ambushStatus = AmbushStatus.PARTY_MAY_EVADE_FOES;
-				}
-			}
-			else if (partyValue > foesValue+10)
-			{
-				ambushStatus = AmbushStatus.PARTY_AMBUSHES_FOES;
-			}
-			else if (foesValue > partyValue+20)
-			{
-				ambushStatus = AmbushStatus.FOES_MAY_EVADE_PARTY;
-			}
-			else if (foesValue > partyValue+10)
-			{
-				ambushStatus = AmbushStatus.FOES_AMBUSH_PARTY;
-			}
-			else
-			{
-				ambushStatus = AmbushStatus.NONE;
-			}
+			ambushStatus = GameSys.getInstance().determineAmbushStatus(party, foes);
 		}
 		else
 		{
@@ -169,6 +130,25 @@ public class Combat
 		}
 
 		combatStats.captureAmbushStatus(ambushStatus);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getRoundNr()
+	{
+		return roundNr;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getAverageFoeLevel()
+	{
+		int result = 0;
+		for (FoeGroup fg : foes)
+		{
+			result += fg.getAverageLevel();
+		}
+		result /= foes.size();
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -279,6 +259,17 @@ public class Combat
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public int getLiveFoes()
+	{
+		int sum = 0;
+		for (ActorGroup g : foes)
+		{
+			sum += g.numAlive();
+		}
+		return sum;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param partyIntentions
 	 * 	Array of {@link ActorActionOption}s corresponding to party members.
@@ -288,7 +279,7 @@ public class Combat
 	 * @return 
 	 * 	An iterator of combat actions
 	 */ 
-	public Iterator combatRound(
+	public Iterator<CombatAction> combatRound(
 		ActorActionIntention[] partyIntentions,
 		List<ActorActionIntention[]> foeIntentions)
 	{
@@ -355,9 +346,13 @@ public class Combat
 		for (UnifiedActor actor : this.actors)
 		{
 			CombatantData metaData = actor.getCombatantData();
-			metaData.endRound();
+			if (metaData != null)
+			{
+				metaData.endRound();
+			}
 		}
 
+		this.roundNr++;
 		combatStats.incCombatRounds();
 
 		return this.events;
@@ -447,10 +442,10 @@ public class Combat
 		
 		// set the action
 		data.setCurrentAction(action);
-		if (((ambushStatus == AmbushStatus.FOES_AMBUSH_PARTY ||
-				ambushStatus == AmbushStatus.FOES_MAY_EVADE_PARTY) && actor instanceof Foe) ||
-			((ambushStatus == AmbushStatus.PARTY_AMBUSHES_FOES ||
-			ambushStatus == AmbushStatus.PARTY_MAY_EVADE_FOES) && actor instanceof PlayerCharacter))
+		if (((ambushStatus == AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+				ambushStatus == AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY) && actor instanceof Foe) ||
+			((ambushStatus == AmbushStatus.PARTY_MAY_AMBUSH_FOES ||
+			ambushStatus == AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES) && actor instanceof PlayerCharacter))
 		{
 			StatModifier sm = GameSys.getInstance().getSurpriseModifiers(actor);
 			data.getMiscModifiers().setModifiers(sm);

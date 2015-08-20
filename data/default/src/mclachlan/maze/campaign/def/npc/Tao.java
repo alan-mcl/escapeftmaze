@@ -62,7 +62,7 @@ public class Tao extends NpcScript
 					"will be slain."),
 				new ChangeNpcLocationEvent(npc, new Point(0,0), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(TAO_LOCATION_VAR, "2"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{

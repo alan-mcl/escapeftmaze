@@ -119,7 +119,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> partyLeavesNeutral()
 	{
-		return getList(new NpcLeavesEvent());
+		return getList(new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -129,7 +129,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> partyLeavesFriendly()
 	{
-		return getList(new NpcLeavesEvent());
+		return getList(new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

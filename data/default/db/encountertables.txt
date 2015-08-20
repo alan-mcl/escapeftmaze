@@ -398,7 +398,7 @@ name=punch.maker.killer
 foeEntries=0,punch.maker.killer:100
 @
 name=clockwork.beast.1
-foeEntries=1,clockwork.beast.1:100
+foeEntries=0,clockwork.beast.1:100
 @
 name=gatehouse.angry.swarms
 foeEntries=0,angry.swarm.party:100
@@ -422,7 +422,7 @@ name=ekirth's.tomb.random.enc
 foeEntries=0,vampire.vulture.1:34,haunts.small:33,foxfire.small:33
 @
 name=temple.of.the.gate.ghost.of.igor
-foeEntries=1,temple.of.the.gate.ghost.of.igor:100
+foeEntries=0,temple.of.the.gate.ghost.of.igor:100
 @
 name=coloniser.omnifids.1
 foeEntries=0,colonizer.ominifids.1:100

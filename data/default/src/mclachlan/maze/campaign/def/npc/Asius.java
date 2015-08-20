@@ -1,9 +1,9 @@
 
 package mclachlan.maze.campaign.def.npc;
 
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import java.util.*;
@@ -55,13 +55,13 @@ public class Asius extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Don't bother coming back."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
 			new NpcSpeechEvent("Go well, he he, see you soon!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 }

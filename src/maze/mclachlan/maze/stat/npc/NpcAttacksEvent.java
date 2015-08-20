@@ -89,7 +89,7 @@ public class NpcAttacksEvent extends MazeEvent
 		}
 
 		Maze.getInstance().getUi().setFoes(null);
-		Maze.getInstance().encounter(allFoes, null);
+		Maze.getInstance().encounterActors(allFoes, null);
 
 		return null;
 	}

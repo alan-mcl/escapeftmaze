@@ -3,7 +3,7 @@ package mclachlan.maze.campaign.def.npc;
 
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import java.util.*;
@@ -73,7 +73,7 @@ public class Stentor extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Hrmpf. Behave yourselves in this land. The " +
 				"White Order tolerates no brigandry or mischief."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
@@ -81,7 +81,7 @@ public class Stentor extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Farewell friends. My smithy is always open " +
 				"for business."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 /*

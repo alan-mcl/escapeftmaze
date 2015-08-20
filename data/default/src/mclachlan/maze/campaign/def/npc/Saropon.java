@@ -6,8 +6,8 @@ import java.awt.Point;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -81,7 +81,7 @@ public class Saropon extends NpcScript
 				"you are nearly knocked down by a sudden gust of wind. Above your " +
 				"head the bird utters a harsh cry and wheels away, heedless.",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new ChangeNpcLocationEvent(npc, new Point(1,1), "Stygios Forest"));
 	}
 

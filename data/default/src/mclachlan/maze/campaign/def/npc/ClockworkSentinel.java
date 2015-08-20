@@ -8,7 +8,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.event.MovePartyEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -61,7 +61,7 @@ public class ClockworkSentinel extends NpcScript
 			// party is authorized to enter
 			return getList(
 				new NpcSpeechEvent("click * click * ALLOWED. TO. PASS."),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{
@@ -69,7 +69,7 @@ public class ClockworkSentinel extends NpcScript
 			return getList(
 				new NpcSpeechEvent("bzzzzzmmmmm * click * NOT. ALLOWED. TO. PASS."),
 				new MovePartyEvent(new Point(21, 20), CrusaderEngine.Facing.WEST),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 	}
 

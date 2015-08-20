@@ -8,8 +8,8 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -62,7 +62,7 @@ public class BrokenFang extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Hrpf."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -70,7 +70,7 @@ public class BrokenFang extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Grrrr."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ public class BrokenFang extends NpcScript
 				new SetMazeVariableEvent(Imogen.QUEST_3_COMPLETE, "true"),
 				// move him out the way
 				new ChangeNpcLocationEvent(npc, new Point(1,1), "Gnoll Village"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{

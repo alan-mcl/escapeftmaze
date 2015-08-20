@@ -617,4 +617,9 @@ public class NpcOptionsWidget extends DIYPane
 
 		return true;
 	}
+
+	public void setActors(List<FoeGroup> actors)
+	{
+		// todo
+	}
 }

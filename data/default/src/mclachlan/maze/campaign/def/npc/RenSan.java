@@ -56,7 +56,7 @@ public class RenSan extends NpcScript
 				new NpcSpeechEvent("I am Ren San. You have been warned."),
 				new ChangeNpcLocationEvent(npc, new Point(14,5), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(REN_SAN_LOCATION_VAR, "2"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{

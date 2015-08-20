@@ -91,7 +91,6 @@ public class MazeLabelRenderer extends Renderer
 			DIYToolkit.drawImageCentered(g, icon, iconBounds, label.getAlignment());
 		}
 
-
 		// draw the text
 		if (text != null)
 		{

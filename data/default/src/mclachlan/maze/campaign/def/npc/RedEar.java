@@ -81,7 +81,7 @@ public class RedEar extends NpcScript
 		return getList(
 			new SoundEffectEvent(SOUND_GROWL),
 			new NpcSpeechEvent("Grrrrrrrrrrrrrr! Hrmpf!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -91,7 +91,7 @@ public class RedEar extends NpcScript
 			new SoundEffectEvent(SOUND_GROWL),
 			new NpcSpeechEvent("Red Ear wishes you good hunting! Also " +
 				"remember, Red Ear has the very best deals!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -172,7 +172,7 @@ public class RedEar extends NpcScript
 						NpcFaction.Attitude.WARY,
 						null,
 						ChangeNpcFactionAttitudeEvent.SET),
-					new NpcLeavesEvent());
+					new ActorsLeaveEvent());
 			}
 			else
 			{

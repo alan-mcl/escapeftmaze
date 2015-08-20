@@ -45,11 +45,13 @@ public class MazeVariables
 	 */ 
 	public static String set(String variable, String value)
 	{
-		if (variable == null || variable.indexOf(" ") >= 0)
+		if (variable == null || variable.contains(" "))
 		{
 			throw new MazeException("Invalid maze variable name: ["+variable+"]");
 		}
 		String existing = vars.get(variable);
+		Maze.log(Log.DEBUG, "set maze var ["+variable+"]=["+value+
+			"] (previous ["+existing+"])");
 		vars.put(variable, value);
 		return existing;
 	}

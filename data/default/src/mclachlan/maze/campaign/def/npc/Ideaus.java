@@ -69,7 +69,7 @@ public class Ideaus extends NpcScript
 			return getList(
 				new NpcSpeechEvent("Farewell friends. May the paths you tread " +
 					"in the Maze be safe wherever they may lead you."),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{
@@ -78,7 +78,7 @@ public class Ideaus extends NpcScript
 				new NpcSpeechEvent("You may roam the lands of the Gnomes, but " +
 					"our city is closed to you."),
 				new MovePartyEvent(new Point(15, 17), CrusaderEngine.Facing.NORTH),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 	}
 
@@ -107,7 +107,7 @@ public class Ideaus extends NpcScript
 					null,
 					ChangeNpcFactionAttitudeEvent.SET),
 				new SetMazeVariableEvent(INVITATION_FROM_GNOMES, "true"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{

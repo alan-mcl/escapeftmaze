@@ -103,7 +103,7 @@ public class Imogen extends NpcScript
 				createItem("Acid Bomb", 1),
 				createItem("Potion Of Mirror Image", 2)),
 			new GrantExperienceEvent(100, null),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		return new Quest(
 			QUEST_1_COMPLETE,
@@ -158,7 +158,7 @@ public class Imogen extends NpcScript
 				createItem("Ancient Dust", 2),
 				createItem("Brooch")),
 			new GrantExperienceEvent(200, null),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		return new Quest(
 			QUEST_2_COMPLETE,
@@ -217,7 +217,7 @@ public class Imogen extends NpcScript
 				createItem("Grimoire Of Summon Demon")),
 			new GrantExperienceEvent(300, null),
 			new ChangeNpcLocationEvent(npc, new Point(15,32), "Ichiba City"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		return new Quest(
 			QUEST_3_COMPLETE,
@@ -261,14 +261,14 @@ public class Imogen extends NpcScript
 				"meet again in this life or the next. You have served me well, I " +
 				"wish you good fortune whatever path you choose.\n\nFarewell!"),
 			new ChangeNpcLocationEvent(npc, new Point(1,1), "Ichiba City"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("Slay the vampie Rhys!"));
 
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("Well done!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		return new Quest(
 			QUEST_4_COMPLETE,
@@ -378,7 +378,7 @@ public class Imogen extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Goodbye."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -386,7 +386,7 @@ public class Imogen extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Farewell."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

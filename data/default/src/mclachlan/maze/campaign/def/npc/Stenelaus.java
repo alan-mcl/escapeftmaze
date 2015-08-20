@@ -68,7 +68,7 @@ public class Stenelaus extends NpcScript
 			// party is authorized to enter
 			return getList(
 				new NpcSpeechEvent("You may pass within."),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{
@@ -76,7 +76,7 @@ public class Stenelaus extends NpcScript
 			return getList(
 				new NpcSpeechEvent("You may not pass within."),
 				new MovePartyEvent(new Point(5, 16), CrusaderEngine.Facing.WEST),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 	}
 
@@ -110,7 +110,7 @@ public class Stenelaus extends NpcScript
 					null,
 					ChangeNpcFactionAttitudeEvent.SET),
 				new SetMazeVariableEvent(INVITATION_FROM_LEONALS, "true"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else if (NpcSpeech.sentenceContainsKeywords(speech, "gamble", "gambling", "bet"))
 		{

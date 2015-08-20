@@ -140,7 +140,7 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Goodbye!  Come again soon!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -148,7 +148,7 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Hrmpf!  Good riddance!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

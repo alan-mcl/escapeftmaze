@@ -86,7 +86,7 @@ public class SirKay extends NpcScript
 				"there and waste the slime. Come find me again when " +
 				"you're done."),
 			new SetMazeVariableEvent(SPAWN_CORROSIVE_SLIME, "true"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("Still haven't cleared out that slime, eh?"),
@@ -132,7 +132,7 @@ public class SirKay extends NpcScript
 				"look for an entry on of the shacks over that side."),
 			new NpcSpeechEvent("Not to be pushy, but the sooner the better, " +
 				"if you know what I mean."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("I need you to steal the Dreamer Skull from " +
@@ -174,11 +174,11 @@ public class SirKay extends NpcScript
 				"avoid using our Ichiba safehouses, and not be seen with me in " +
 				"public either. No offense intended, of course."),
 			new SetMazeVariableEvent(QUEST_3_STARTED, "true"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("Look, come back when the heat is off ok."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("A little bird told me that you wasted the team " +
@@ -237,7 +237,7 @@ public class SirKay extends NpcScript
 			new GrantItemsEvent(createItem("Rock Salt Amulet")),
 			new NpcSpeechEvent("We will not speak of this any more - Imogen has " +
 				"ears everywhere. Good luck"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("You lot really need to take care of that task " +
@@ -322,7 +322,7 @@ public class SirKay extends NpcScript
 					result.add(new NpcSpeechEvent("I am giving you one warning. " +
 						"Steal anything else on my turf, and I will kill you.\n\n" +
 						"Good day."));
-					result.add(new NpcLeavesEvent());
+					result.add(new ActorsLeaveEvent());
 				}
 				else if (MazeVariables.getBoolean(Imogen.SIGNED_UP_WITH_IMOGEN))
 				{
@@ -337,7 +337,7 @@ public class SirKay extends NpcScript
 					result.add(new NpcSpeechEvent("Anyway. I am giving you one " +
 						"warning. Steal anything else on my turf, and I will " +
 						"kill you.\n\nGood day."));
-					result.add(new NpcLeavesEvent());
+					result.add(new ActorsLeaveEvent());
 				}
 				else
 				{

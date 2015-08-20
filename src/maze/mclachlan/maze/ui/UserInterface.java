@@ -165,6 +165,8 @@ public interface UserInterface
 	/*-------------------------------------------------------------------------*/
 	void clearDialog();
 
+	void clearMessages();
+
 	/*-------------------------------------------------------------------------*/
 	void setParty(PlayerParty party);
 

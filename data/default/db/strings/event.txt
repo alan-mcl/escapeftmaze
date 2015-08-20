@@ -4,3 +4,37 @@
 
 modify.supplies = Party receives %s units of supplies
 grant.gold = Party receives %sgp
+
+#
+# Attitude descriptions
+#
+attitude.ATTACKING = Attacking!
+attitude.AGGRESSIVE = Aggressive!
+attitude.WARY = Wary
+attitude.SCARED = Scared
+attitude.NEUTRAL = Neutral
+attitude.FRIENDLY = Friendly
+attitude.ALLIED = Allied
+
+#
+# Other messages to the UI
+#
+
+msg.encounter.actors = Encountered %s
+msg.party.may.ambush = Party is stealthy and may ambush foes!
+msg.party.may.ambush.or.evade = Party is stealthy and may ambush or evade foes!
+msg.foes.surprise.party = Foes surprise you!
+msg.party.attacks = Party attacks!
+msg.combat.starts = COMBAT!
+msg.victory = Victory!
+msg.party.leaves = Party leaves
+msg.party.waits = Party waits
+msg.actors.attack = %s attack!
+msg.actor.attacks = %s attacks!
+msg.actors.wait = %s wait...
+msg.actor.waits = %s waits...
+msg.actors.flee = %s flee!
+msg.actor.flees = %s flees!
+msg.party.flees = Party flees!
+msg.combat.round.starts = --- combat round %s starts ---
+msg.combat.round.ends = --- combat round %s ends ---

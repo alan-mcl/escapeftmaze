@@ -130,7 +130,7 @@ public class Belisarius extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Goodbye."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -138,7 +138,7 @@ public class Belisarius extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Farewell."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

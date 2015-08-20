@@ -20,8 +20,16 @@
 package mclachlan.maze.game.event;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.CurMaxSub;
+import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.event.ConditionEvent;
+import mclachlan.maze.stat.condition.Condition;
+import mclachlan.maze.stat.condition.ConditionTemplate;
+import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.ui.diygui.Constants;
 
 /**
  *
@@ -30,7 +38,36 @@ public class CheckPartyStatusEvent extends MazeEvent
 {
 	public List<MazeEvent> resolve()
 	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		//
+		// See if the whole party is dead = GAME OVER
+		//
 		Maze.getInstance().checkPartyStatus();
-		return null;
+
+		//
+		// Reorder to place any dead PCs ar the back
+		//
+		Maze.getInstance().reorderPartyToCompensateForDeadCharacters();
+
+		//
+		// check for fatigue KO on any live actors
+		//
+		for (UnifiedActor actor : Maze.getInstance().getParty().getActors())
+		{
+			CurMaxSub hp = actor.getHitPoints();
+
+			if (hp.getSub() >= hp.getCurrent() && hp.getCurrent() > 0)
+			{
+				ConditionTemplate kot = Database.getInstance().getConditionTemplate(
+					Constants.Conditions.FATIGUE_KO);
+				Condition ko = kot.create(
+					actor, actor, 1, MagicSys.SpellEffectType.NONE, MagicSys.SpellEffectSubType.NONE);
+
+				result.add(new ConditionEvent(actor, ko));
+			}
+		}
+
+		return result;
 	}
 }

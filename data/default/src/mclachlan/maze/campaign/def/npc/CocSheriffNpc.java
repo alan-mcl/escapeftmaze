@@ -12,7 +12,7 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import mclachlan.maze.stat.npc.NpcTakesItemEvent;
@@ -78,7 +78,7 @@ public class CocSheriffNpc extends NpcScript
 			// party is authorized to enter
 			return getList(
 				new NpcSpeechEvent("Your visit is authorized."),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{
@@ -89,7 +89,7 @@ public class CocSheriffNpc extends NpcScript
 					"your way out."),
 				new MazeScriptEvent("generic door creak"),
 				new MovePartyEvent(new Point(15, 19), CrusaderEngine.Facing.EAST),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 	}
 
@@ -112,7 +112,7 @@ public class CocSheriffNpc extends NpcScript
 					"Director, Mr Pickett."),
 				new NpcSpeechEvent("Don't cause any trouble."),
 				new SetMazeVariableEvent(COC_QUEST_1_PRIMER, "true"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 		}
 		else
 		{

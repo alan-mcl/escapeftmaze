@@ -30,6 +30,7 @@ import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -79,7 +80,7 @@ public class Foe extends UnifiedActor
 
 		// set level
 		HashMap<String, Integer> levels = new HashMap<String, Integer>();
-		levels.put(getName(), template.levelRange.roll());
+		levels.put(getName(), template.getLevelRange().roll());
 		this.setLevels(levels);
 
 		// set natural weapons
@@ -94,15 +95,15 @@ public class Foe extends UnifiedActor
 		}
 
 		// roll up this foes vitals
-		int maxHP = template.hitPointsRange.roll();
-		int maxStealth = template.actionPointsRange.roll();
-		int maxMagic = template.magicPointsRange.roll();
+		int maxHP = template.getHitPointsRange().roll();
+		int maxStealth = template.getActionPointsRange().roll();
+		int maxMagic = template.getMagicPointsRange().roll();
 
 		getStats().setHitPoints(new CurMaxSub(maxHP));
 		getStats().setActionPoints(new CurMax(maxStealth));
 		getStats().setMagicPoints(new CurMax(maxMagic));
 
-		if (template.identificationDifficulty == 0)
+		if (template.getIdentificationDifficulty() == 0)
 		{
 			identificationState = Item.IdentificationState.IDENTIFIED;
 		}
@@ -201,8 +202,8 @@ public class Foe extends UnifiedActor
 
 		// party gets a free round
 		Combat.AmbushStatus ambushStatus = combat.getAmbushStatus();
-		if (ambushStatus == Combat.AmbushStatus.PARTY_AMBUSHES_FOES ||
-			ambushStatus == Combat.AmbushStatus.PARTY_MAY_EVADE_FOES)
+		if (ambushStatus == Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES ||
+			ambushStatus == Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES)
 		{
 			return ActorActionIntention.INTEND_NOTHING;
 		}
@@ -329,13 +330,13 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public String getName()
 	{
-		return template.name;
+		return template.getName();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean isNpc()
 	{
-		return template.isNpc;
+		return template.isNpc();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -399,31 +400,31 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture getBaseTexture()
 	{
-		return this.template.baseTexture;
+		return this.template.getBaseTexture();
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture getMeleeAttackTexture()
 	{
-		return this.template.meleeAttackTexture;
+		return this.template.getMeleeAttackTexture();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture getRangedAttackTexture()
 	{
-		return this.template.rangedAttackTexture;
+		return this.template.getRangedAttackTexture();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture getCastSpellTexture()
 	{
-		return this.template.castSpellTexture;
+		return this.template.getCastSpellTexture();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture getSpecialAbilityTexture()
 	{
-		return this.template.specialAbilityTexture;
+		return this.template.getSpecialAbilityTexture();
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -471,52 +472,52 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public String getPluralName()
 	{
-		return template.pluralName;
+		return template.getPluralName();
 	}
 
 	public String getUnidentifiedName()
 	{
-		return template.unidentifiedName;
+		return template.getUnidentifiedName();
 	}
 
 	public String getUnidentifiedPluralName()
 	{
-		return template.unidentifiedPluralName;
+		return template.getUnidentifiedPluralName();
 	}
 
 	public LootTable getLootTable()
 	{
-		return template.loot;
+		return template.getLoot();
 	}
 
 	public int getExperience()
 	{
-		return template.experience;
+		return template.getExperience();
 	}
 
 	public boolean cannotBeEvaded()
 	{
-		return template.cannotBeEvaded;
+		return template.cannotBeEvaded();
 	}
 
 	public int getIdentificationDifficulty()
 	{
-		return template.identificationDifficulty;
+		return template.getIdentificationDifficulty();
 	}
 
 	public String getType()
 	{
-		return template.type;
+		return template.getType();
 	}
 
 	public StatModifier getAllFoesBannerModifiers()
 	{
-		return template.allFoesBannerModifiers;
+		return template.getAllFoesBannerModifiers();
 	}
 
 	public StatModifier getFoeGroupBannerModifiers()
 	{
-		return template.foeGroupBannerModifiers;
+		return template.getFoeGroupBannerModifiers();
 	}
 
 	public boolean isImmuneToCriticals()
@@ -536,12 +537,12 @@ public class Foe extends UnifiedActor
 
 	public String getFaction()
 	{
-		return template.faction;
+		return template.getFaction();
 	}
 	
 	public MazeScript getAppearanceScript()
 	{
-		return template.appearanceScript;
+		return template.getAppearanceScript();
 	}
 
 	public FoeGroup getFoeGroup()
@@ -599,6 +600,12 @@ public class Foe extends UnifiedActor
 	public int getEvasionBehaviour()
 	{
 		return template.getEvasionBehaviour();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public NpcFaction.Attitude getDefaultAttitude()
+	{
+		return template.getDefaultAttitude();
 	}
 
 	/*-------------------------------------------------------------------------*/

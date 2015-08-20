@@ -19,7 +19,8 @@
 
 package mclachlan.maze.map.script;
 
-import java.awt.*;
+import java.awt.Point;
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.EncounterTable;
@@ -30,8 +31,8 @@ import mclachlan.maze.map.TileScript;
  */
 public class Encounter extends TileScript
 {
-	EncounterTable encounterTable;
-	String mazeVariable;
+	private EncounterTable encounterTable;
+	private String mazeVariable;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -51,10 +52,10 @@ public class Encounter extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public java.util.List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
+	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		return getList(
-			new EncounterEvent(mazeVariable, encounterTable.getName()));
+			new EncounterActorsEvent(mazeVariable, encounterTable.getName()));
 	}
 
 	/*-------------------------------------------------------------------------*/

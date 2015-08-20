@@ -3,7 +3,7 @@ package mclachlan.maze.campaign.def.npc;
 
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 import java.util.*;
@@ -66,14 +66,14 @@ public class Agenor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Hrrrrrr."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
 			new NpcSpeechEvent("Farrrrewell friends"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 /*

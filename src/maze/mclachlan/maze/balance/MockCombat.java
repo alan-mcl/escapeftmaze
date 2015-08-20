@@ -36,6 +36,7 @@ import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
 
@@ -532,13 +533,13 @@ public class MockCombat
 
 		switch (currentCombat.getAmbushStatus())
 		{
-			case PARTY_MAY_EVADE_FOES:
+			case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
 				evts.add(new FlavourTextEvent("Party may evade foes!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
 				break;
-			case PARTY_AMBUSHES_FOES:
+			case PARTY_MAY_AMBUSH_FOES:
 				evts.add(new FlavourTextEvent("Party surprises foes!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
 				break;
-			case FOES_MAY_EVADE_PARTY:
+			case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
 				Foe leader = GameSys.getInstance().getLeader(foeGroups);
 				if (leader.shouldEvade(foeGroups, party))
 				{
@@ -550,7 +551,7 @@ public class MockCombat
 					evts.add(new FlavourTextEvent("Foes surprise party!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
 				}
 				break;
-			case FOES_AMBUSH_PARTY:
+			case FOES_MAY_AMBUSH_PARTY:
 				evts.add(new FlavourTextEvent("Foes surprise party!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
 				break;
 		}
@@ -599,8 +600,8 @@ public class MockCombat
 			//--- player character intentions
 			ActorActionIntention[] partyIntentions = new ActorActionIntention[party.getActors().size()];
 
-			if (currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_AMBUSH_PARTY ||
-				currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_EVADE_PARTY)
+			if (currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+				currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
 			{
 				// party is surprised, cannot take action
 				for (int i = 0; i < partyIntentions.length; i++)
@@ -864,7 +865,8 @@ public class MockCombat
 			null,
 			null,
 			null,
-			CharacterClass.Focus.COMBAT);
+			CharacterClass.Focus.COMBAT,
+			NpcFaction.Attitude.ATTACKING);
 
 		return new Foe(ft);
 	}

@@ -39,7 +39,7 @@ import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.stat.ItemTemplate.*;
+import static mclachlan.maze.stat.ItemTemplate.Type;
 
 public class GameSys
 {
@@ -84,6 +84,60 @@ public class GameSys
 	public static GameSys getInstance()
 	{
 		return Maze.getInstance().getGameSys();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Combat.AmbushStatus determineAmbushStatus(PlayerParty party, List<FoeGroup> foes)
+	{
+		Combat.AmbushStatus result;
+
+		// determine surprise
+		int partyValue = GameSys.getInstance().getStealthValue(
+			Maze.getInstance().getCurrentTile(), party);
+		int foesValue = GameSys.getInstance().getStealthValue(
+			Maze.getInstance().getCurrentTile(), foes);
+
+		partyValue += Dice.d10.roll();
+		foesValue += Dice.d10.roll();
+
+		if (partyValue > foesValue+20)
+		{
+			// check and see if there are any "cannot evade" foes
+			boolean cannotEvade = false;
+			for (FoeGroup fg : foes)
+			{
+				for(Foe f : fg.getFoes())
+				{
+					cannotEvade |= f.cannotBeEvaded();
+				}
+			}
+			if (cannotEvade)
+			{
+				result = Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES;
+			}
+			else
+			{
+				result = Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES;
+			}
+		}
+		else if (partyValue > foesValue+10)
+		{
+			result = Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES;
+		}
+		else if (foesValue > partyValue+20)
+		{
+			result = Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY;
+		}
+		else if (foesValue > partyValue+10)
+		{
+			result = Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY;
+		}
+		else
+		{
+			result = Combat.AmbushStatus.NONE;
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3007,6 +3061,32 @@ public class GameSys
 		base = base + mod - nrFoes;
 
 		return base >= Dice.d100.roll();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Party attempts to flee
+	 *
+	 * @return success or failure
+	 */
+	public boolean attemptToRunAway(PlayerParty party, List<FoeGroup> actors)
+	{
+		Maze.log(Log.DEBUG, "Party tries to run away");
+
+		int base = 80;
+		int mod = party.getTotalModifier(Stats.Modifiers.TO_RUN_AWAY);
+		int nrFoes = 0;
+		for (FoeGroup fg : actors)
+		{
+			nrFoes += fg.numActive();
+		}
+
+		Maze.log(Log.DEBUG, "success chance is "+base+" + "+mod+" - "+nrFoes);
+
+		base = base + mod - nrFoes;
+
+		return Dice.d100.roll() <= base;
 	}
 
 	/*-------------------------------------------------------------------------*/

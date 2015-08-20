@@ -9,7 +9,7 @@ import mclachlan.maze.map.script.GrantItemsEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -115,7 +115,7 @@ public class Scrymgeour extends NpcScript
 	{
 		return getList(
 				new NpcSpeechEvent("Goodbye"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -123,7 +123,7 @@ public class Scrymgeour extends NpcScript
 	{
 		return getList(
 				new NpcSpeechEvent("Farewell, return any time!"),
-				new NpcLeavesEvent());
+				new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/

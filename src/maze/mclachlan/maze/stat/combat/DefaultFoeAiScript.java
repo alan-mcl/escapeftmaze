@@ -17,69 +17,66 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.map.script;
+package mclachlan.maze.stat.combat;
 
-import java.util.List;
+import java.util.*;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.MazeVariables;
-import mclachlan.maze.map.EncounterTable;
-import mclachlan.maze.map.FoeEntry;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.data.Database;
+import mclachlan.maze.game.event.StartCombatEvent;
+import mclachlan.maze.stat.npc.NpcScript;
+import mclachlan.maze.stat.npc.PartyLeavesEvent;
 
 /**
  *
  */
-public class EncounterEvent extends MazeEvent
+public class DefaultFoeAiScript extends NpcScript
 {
-	private String mazeVariable;
-	private String encounterTable;
+	private ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
-	public EncounterEvent(
-		String mazeVariable,
-		String encounterTable)
+	public DefaultFoeAiScript(ActorEncounter actorEncounter)
 	{
-		this.mazeVariable = mazeVariable;
-		this.encounterTable = encounterTable;
+		this.actorEncounter = actorEncounter;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
+	@Override
+	public List<MazeEvent> attacksParty()
 	{
-		if (this.mazeVariable != null)
-		{
-			if (MazeVariables.getBoolean(this.mazeVariable))
-			{
-				return null;
-			}
-		}
+		Maze maze = Maze.getInstance();
 
-		EncounterTable table = Database.getInstance().getEncounterTable(encounterTable);
-		FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
-		List<FoeGroup> allFoes = foeEntry.generate();
-
-		if (Maze.getInstance().encounter(allFoes, mazeVariable))
-		{
-			if (mazeVariable != null)
-			{
-				MazeVariables.set(this.mazeVariable, "true");
-			}
-		}
-
-		return null;
+		return getList(new StartCombatEvent(
+			maze,
+			maze.getParty(),
+			actorEncounter.getActors(),
+			actorEncounter.getMazeVar()));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getEncounterTable()
+	@Override
+	public List<MazeEvent> attackedByParty()
 	{
-		return encounterTable;
+		Maze maze = Maze.getInstance();
+
+		return getList(new StartCombatEvent(
+			maze,
+			maze.getParty(),
+			actorEncounter.getActors(),
+			actorEncounter.getMazeVar()));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getMazeVariable()
+	@Override
+	public List<MazeEvent> partyLeavesFriendly()
 	{
-		return mazeVariable;
+		return getList(new PartyLeavesEvent());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> partyLeavesNeutral()
+	{
+		return getList(new PartyLeavesEvent());
 	}
 }

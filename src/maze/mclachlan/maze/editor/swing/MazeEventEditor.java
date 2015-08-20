@@ -203,8 +203,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				casterLevel.setValue(cse.getCasterLevel());
 				castingLevel.setValue(cse.getCastingLevel());
 				break;
-			case _EncounterEvent:
-				EncounterEvent ee = (EncounterEvent)e;
+			case _EncounterActorsEvent:
+				EncounterActorsEvent ee = (EncounterActorsEvent)e;
 				encounterMazeVariable.setText(ee.getMazeVariable());
 				encounterTable.setSelectedItem(ee.getEncounterTable());
 				break;
@@ -408,8 +408,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					(Integer)casterLevel.getValue(),
 					(Integer)castingLevel.getValue());
 				break;
-			case _EncounterEvent:
-				this.result = new EncounterEvent(
+			case _EncounterActorsEvent:
+				this.result = new EncounterActorsEvent(
 					encounterMazeVariable.getText(),
 					(String)encounterTable.getSelectedItem());
 				break;
@@ -583,7 +583,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getZoneChangePanel();
 			case _CastSpellEvent:
 				return getCastSpellPanel();
-			case _EncounterEvent:
+			case _EncounterActorsEvent:
 				return getEncounterPanel();
 			case _FlavourTextEvent:
 				return getFlavourTextPanel();
@@ -1139,8 +1139,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Zone Change";
 			case _CastSpellEvent:
 				return "Cast Spell At Party";
-			case _EncounterEvent:
-				return "Encounter Foes";
+			case _EncounterActorsEvent:
+				return "Encounter Actors";
 			case _FlavourTextEvent:
 				return "Flavour Text";
 			case _GrantExperienceEvent:
@@ -1283,7 +1283,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		loader.init(Maze.getStubCampaign());
 
 		JFrame owner = new JFrame("test");
-		owner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		owner.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		while (1==1)
 		{
 			MazeEventEditor test = new MazeEventEditor(owner, null, -1);

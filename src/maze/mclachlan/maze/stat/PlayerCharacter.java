@@ -369,85 +369,89 @@ public class PlayerCharacter extends UnifiedActor
 	 * @return
 	 * 	All current legal action options for this character
 	 */
-	public HashMapMutableTree<ActorActionOption> getCharacterActionOptions(Combat combat)
+	public HashMapMutableTree<ActorActionOption> getCharacterActionOptions(
+		Maze maze,
+		Combat combat)
 	{
 		HashMapMutableTree<ActorActionOption> result =
 			new HashMapMutableTree<ActorActionOption>();
 
 		boolean alive = GameSys.getInstance().isActorAlive(this);
 		boolean aware = GameSys.getInstance().isActorAware(this);
-		if (combat == null)
+		if (!(alive && aware))
 		{
-			if (alive && aware)
+			// actor cannot do anything
+			result.add(ActorActionOption.INTEND_NOTHING, null);
+		}
+		else if (maze.getState() == Maze.State.MOVEMENT)
+		{
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// cast spell option if this character has spells
+			if (this.getSpellBook() != null && this.getSpellBook().size() > 0)
 			{
-				// always a use item option
-				result.add(new UseItemOption(), null);
+				result.add(new SpellOption(), null);
+			}
 
-				// cast spell option if this character has spells
-				if (this.getSpellBook() != null && this.getSpellBook().size() > 0)
+			// always an equip option
+			result.add(new EquipOption(), null);
+
+			// special abilities
+			if (this.getSpellLikeAbilities() != null)
+			{
+				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
 				{
-					result.add(new SpellOption(), null);
-				}
-
-				// always an equip option
-				result.add(new EquipOption(), null);
-
-				// special abilities
-				if (this.getSpellLikeAbilities() != null)
-				{
-					for (SpellLikeAbility sla : this.getSpellLikeAbilities())
+					if (sla.isUsableDuringMovement() && sla.meetsRequirements(this))
 					{
-						if (sla.isUsableDuringMovement() && sla.meetsRequirements(this))
-						{
-							result.add(new SpecialAbilityOption(sla), null);
-						}
+						result.add(new SpecialAbilityOption(sla), null);
 					}
 				}
 			}
 		}
-		else
+		else if (maze.getState() == Maze.State.COMBAT)
 		{
-			if (alive && aware)
+			// Attack option if there are attackable groups
+			List<ActorGroup> attackableGroups = GameSys.getInstance().getAttackableGroups(this, combat);
+			if (attackableGroups != null && !attackableGroups.isEmpty())
 			{
-				// Attack option if there are attackable groups
-				List<ActorGroup> attackableGroups = GameSys.getInstance().getAttackableGroups(this, combat);
-				if (attackableGroups != null && !attackableGroups.isEmpty())
+				result.add(new AttackOption(), null);
+			}
+
+			// There's always a Defend option
+			result.add(new DefendOption(), null);
+
+			// Cast Spell option if this actor has spells
+			if (this.getSpellBook().getSpells().size() != 0)
+			{
+				result.add(new SpellOption(), null);
+			}
+
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// always an equip option
+			result.add(new EquipOption(), null);
+
+			// special abilities
+			if (this.getSpellLikeAbilities() != null)
+			{
+				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
 				{
-					result.add(new AttackOption(), null);
-				}
-
-				// There's always a Defend option
-				result.add(new DefendOption(), null);
-
-				// Cast Spell option if this actor has spells
-				if (this.getSpellBook().getSpells().size() != 0)
-				{
-					result.add(new SpellOption(), null);
-				}
-
-				// always a use item option
-				result.add(new UseItemOption(), null);
-
-				// always an equip option
-				result.add(new EquipOption(), null);
-
-				// special abilities
-				if (this.getSpellLikeAbilities() != null)
-				{
-					for (SpellLikeAbility sla : this.getSpellLikeAbilities())
+					if (sla.isUsableDuringCombat() && sla.meetsRequirements(this))
 					{
-						if (sla.isUsableDuringCombat() && sla.meetsRequirements(this))
-						{
-							result.add(new SpecialAbilityOption(sla), null);
-						}
+						result.add(new SpecialAbilityOption(sla), null);
 					}
 				}
 			}
-			else
-			{
-				// actor cannot do anything
-				result.add(ActorActionOption.INTEND_NOTHING, null);
-			}
+		}
+		else if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+		{
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// always an equip option
+			result.add(new EquipOption(), null);
 		}
 
 		// set the actor for all action options

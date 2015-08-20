@@ -57,8 +57,8 @@ public class CombatOptionsWidget extends ContainerWidget
 		ActionListener listener = new CombatOptionsActionListener();
 
 		int buttonCols = 4;
-		int inset = MovementOptionsWidget.INSET;
-		int buttonHeight = MovementOptionsWidget.BUTTON_HEIGHT;
+		int inset = PartyOptionsAndTextWidget.INSET;
+		int buttonHeight = PartyOptionsAndTextWidget.BUTTON_HEIGHT;
 		int buttonRows = height/buttonHeight;
 
 		characterOptions = new DIYPane(

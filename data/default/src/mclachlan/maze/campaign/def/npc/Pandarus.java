@@ -24,7 +24,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
 
@@ -109,7 +109,7 @@ public class Pandarus extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Farewell."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -117,6 +117,6 @@ public class Pandarus extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Fare ye well. Return again soon!"),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 }

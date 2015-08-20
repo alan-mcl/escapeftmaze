@@ -1,9 +1,9 @@
 
 package mclachlan.maze.campaign.def.npc;
 
+import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.NpcSpeechEvent;
-import mclachlan.maze.stat.npc.NpcLeavesEvent;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import java.util.*;
@@ -54,13 +54,13 @@ public class Sarpedon extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Good riddance. Hmpf."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
 			new NpcSpeechEvent("Goodbye."),
-			new NpcLeavesEvent());
+			new ActorsLeaveEvent());
 	}
 }

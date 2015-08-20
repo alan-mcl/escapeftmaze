@@ -27,6 +27,9 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
 
@@ -120,9 +123,13 @@ public class ProjectileAnimation extends Animation
 	{
 		ProjectileAnimation result = new ProjectileAnimation(projectileImages, frameDelay);
 
-		boolean isPartyAlly = context.getCaster().getCombatantData() != null &&
-			context.getCaster().getCombatantData().getCombat().isPlayerAlly(context.getCaster());
-		boolean fromParty = context.getCaster() instanceof PlayerCharacter || isPartyAlly;
+		UnifiedActor caster = context.getCaster();
+		CombatantData combatantData = caster.getCombatantData();
+		Combat combat = (combatantData == null ? null : combatantData.getCombat());
+		boolean isPlayerAlly = combat != null && combat.isPlayerAlly(caster);
+
+		boolean isPartyAlly = combatantData != null && isPlayerAlly;
+		boolean fromParty = caster instanceof PlayerCharacter || isPartyAlly;
 
 		if (fromParty)
 		{
@@ -136,7 +143,7 @@ public class ProjectileAnimation extends Animation
 			}
 			else
 			{
-				PlayerCharacter pc = (PlayerCharacter)context.getCaster();
+				PlayerCharacter pc = (PlayerCharacter)caster;
 				index = Maze.getInstance().getParty().getPlayerCharacterIndex(pc);
 			}
 

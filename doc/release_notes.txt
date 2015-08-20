@@ -3,9 +3,13 @@ v0.916 (???)
 ---------------------------------------
 Features
  - Gnome female art and portraits
+ - Changed NPC attitude system to use states instead of a score
+ - Added attitudes for all actor encounters
 
 Other
  - Performance improvements for movement mode
+ - Refactored event text display to centralise into a single UI widget
+ - Refactored combat to execute on the game thread
 
 ---------------------------------------
 v0.915 (23 June 2014)

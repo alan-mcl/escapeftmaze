@@ -7,7 +7,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 
 /**
  *
@@ -31,6 +31,6 @@ public class IchibaGnollEncounters extends TileScript
 	public List<MazeEvent> getEncounter()
 	{
 		return getList(
-			new EncounterEvent(null, "gnoll.village.allies.on.call"));
+			new EncounterActorsEvent(null, "gnoll.village.allies.on.call"));
 	}
 }

@@ -6,7 +6,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.EncounterEvent;
+import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 
 /**
@@ -30,7 +30,7 @@ public class EkirthsTombMedallionOfBelEncounter extends TileScript
 				new FlavourTextEvent("Pouring down the passage comes a " +
 					"swarm of giant black beetles, pincers clacking and gnashing!",
 					MazeEvent.Delay.WAIT_ON_CLICK, true));
-			result.add(new EncounterEvent(ENCOUNTER_DONE, "scarabs.of.bel.swarm"));
+			result.add(new EncounterActorsEvent(ENCOUNTER_DONE, "scarabs.of.bel.swarm"));
 
 			return result;
 		}

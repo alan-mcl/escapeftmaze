@@ -28,6 +28,7 @@ import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.FoeXpCalculator;
 
 /**
@@ -41,7 +42,7 @@ public class FoeTemplatePanel extends EditorPanel
 	private StatModifierComponent stats, foeGroupBannerModifiers, allFoesBannerModifiers;
 	private JComboBox baseTexture, meleeTexture, rangedTexture, castSpellTexture,
 		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
-		appearanceScript, deathScript, focus;
+		appearanceScript, deathScript, focus, attitude;
 	private JCheckBox cannotBeEvaded, immuneToCriticals, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
 
@@ -316,6 +317,10 @@ public class FoeTemplatePanel extends EditorPanel
 		fleeChance.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("Flee Chance:"), fleeChance, gbc);
 
+		attitude = new JComboBox(NpcFaction.Attitude.values());
+		attitude.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Default Attitude:"), attitude, gbc);
+
 		gbc.weightx = 0.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
@@ -376,6 +381,7 @@ public class FoeTemplatePanel extends EditorPanel
 		deathScript.removeActionListener(this);
 		faction.removeKeyListener(this);
 		focus.removeActionListener(this);
+		attitude.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
@@ -427,6 +433,7 @@ public class FoeTemplatePanel extends EditorPanel
 		}
 		faction.setText(ft.getFaction());
 		focus.setSelectedItem(ft.getFocus());
+		attitude.setSelectedItem(ft.getDefaultAttitude());
 
 		experience.addChangeListener(this);
 		baseTexture.addActionListener(this);
@@ -442,6 +449,7 @@ public class FoeTemplatePanel extends EditorPanel
 		fleeChance.addChangeListener(this);
 		faction.addKeyListener(this);
 		focus.addActionListener(this);
+		attitude.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -482,7 +490,8 @@ public class FoeTemplatePanel extends EditorPanel
 			null,
 			null,
 			null,
-			CharacterClass.Focus.COMBAT);
+			CharacterClass.Focus.COMBAT,
+			NpcFaction.Attitude.ATTACKING);
 		Database.getInstance().getFoeTemplates().put(name, ft);
 	}
 
@@ -548,7 +557,8 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getNaturalWeapons(),
 			current.getSpellBook(),
 			current.getSpellLikeAbilities(),
-			current.getFocus());
+			current.getFocus(),
+			current.getDefaultAttitude());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
 	}
@@ -618,6 +628,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setAppearanceScript(appScript);
 		ft.setDeathScript(dScript);
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
+		ft.setDefaultAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
 	}
 
 	/*-------------------------------------------------------------------------*/

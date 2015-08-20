@@ -103,7 +103,7 @@ public class WePickett extends NpcScript
 			new NpcSpeechEvent("Here's the documentation, you'll find it all " +
 				"in order. Our Accounts department is very efficient."),
 			new GrantItemsEvent(bill),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 
@@ -112,7 +112,7 @@ public class WePickett extends NpcScript
 			new NpcSpeechEvent("You're authorized to use whatever means are " +
 				"necessary. Savages like him usually respond to threats of " +
 				"violence."),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 
@@ -168,14 +168,14 @@ public class WePickett extends NpcScript
 			new GrantGoldEvent(30),
 			new NpcSpeechEvent("That's all. Get to it, and good luck."),
 			new SetMazeVariableEvent(QUEST_2_STARTED, "true"),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("Come back when you've tracked down those " +
 				"criminals."),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 
@@ -259,7 +259,7 @@ public class WePickett extends NpcScript
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("Come back when you have information about the " +
 				"situation in Hail."),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 
@@ -322,7 +322,7 @@ public class WePickett extends NpcScript
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("My sources say that Kay is still at large."),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 
@@ -385,7 +385,7 @@ public class WePickett extends NpcScript
 					"band of unscrupulous brigands."));
 				result.add(new NpcSpeechEvent("As a result, I cannot consider " +
 					"you for this position. Goodbye."));
-				result.add(new NpcLeavesEvent());
+				result.add(new ActorsLeaveEvent());
 				result.add(new MazeScriptEvent("generic door creak"));
 				result.add(new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 			}
@@ -398,7 +398,7 @@ public class WePickett extends NpcScript
 					"you have some kind of association with the witch Imogen."));
 				result.add(new NpcSpeechEvent("As a result, I cannot consider " +
 					"you for this position. Goodbye."));
-				result.add(new NpcLeavesEvent());
+				result.add(new ActorsLeaveEvent());
 				result.add(new MazeScriptEvent("generic door creak"));
 				result.add(new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 			}
@@ -477,7 +477,7 @@ public class WePickett extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Goodbye."),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 	}
@@ -488,7 +488,7 @@ public class WePickett extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Farewell, pop in again when you're back in " +
 				"town."),
-			new NpcLeavesEvent(),
+			new ActorsLeaveEvent(),
 			new MazeScriptEvent("generic door creak"),
 			new MovePartyEvent(new Point(2, 3), CrusaderEngine.Facing.WEST));
 	}
