@@ -70,7 +70,9 @@ public class RestingCheckpointEvent extends MazeEvent
 			{
 				progress.message(StringUtil.getUiLabel("rd.encounter"));
 
-				result.add(new EncounterActorsEvent(null, tile.getRandomEncounters().getName()));
+				result.add(
+					new EncounterActorsEvent(
+						null, tile.getRandomEncounters().getName(), null));
 				return result;
 			}
 		}

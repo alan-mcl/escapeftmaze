@@ -172,6 +172,7 @@ public class FoeGroup implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getAverageLevel()
 	{
 		int result = 0;

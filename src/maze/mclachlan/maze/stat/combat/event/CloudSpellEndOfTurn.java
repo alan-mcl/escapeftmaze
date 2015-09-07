@@ -19,53 +19,46 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.ui.diygui.Animation;
-import java.util.*;
-import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.stat.ActorGroup;
+import mclachlan.maze.stat.condition.CloudSpell;
 
 /**
  *
  */
-public class AnimationEvent extends MazeEvent
+public class CloudSpellEndOfTurn extends MazeEvent
 {
-	private Animation animation;
-	private AnimationContext animationContext;
+	private CloudSpell cloudSpell;
+	private ActorGroup actorGroup;
 
 	/*-------------------------------------------------------------------------*/
-	public AnimationEvent(Animation anim)
+	public CloudSpellEndOfTurn(CloudSpell cloudSpell, ActorGroup actorGroup)
 	{
-		this.animation = anim;
+		this.cloudSpell = cloudSpell;
+		this.actorGroup = actorGroup;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return Delay.WAIT_ON_CLICK;
-	}
-
-	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().startAnimation(animation, this, animationContext);
+		cloudSpell.endOfTurn();
+
+		// Expire conditions
+		if (cloudSpell.getDuration() < 0)
+		{
+			Maze.log("cloud spell expired");
+			actorGroup.removeCloudSpell(cloudSpell);
+			cloudSpell.expire();
+		}
+		else
+		{
+			Maze.log("duration "+cloudSpell.getDuration());
+			Maze.log("strength "+cloudSpell.getStrength());
+		}
+
 		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Animation getAnimation()
-	{
-		return animation;
-	}
-
-	public void setAnimationContext(AnimationContext animationContext)
-	{
-		this.animationContext = animationContext;
 	}
 }

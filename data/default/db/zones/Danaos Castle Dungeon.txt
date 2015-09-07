@@ -120,7 +120,7 @@ playerOrigin: 10:9
 101: 0:3f800000000000000000,03010101010201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 102: 0:3f800000000000000000,02030301030203:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 103: 0:3f800000000000000000,01020201030201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
-104: 2:4,danaos.castle.dungeon.execute.once.1,,false,With a horrifying roar, a huge wyrm hurls itself towards you!:3,,,false,ichneumorax,danaos.castle.dungeon.encounter.0:3f800000000000000000,03010103030303:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
+104: 2:4,danaos.castle.dungeon.execute.once.1,,false,With a horrifying roar, a huge wyrm hurls itself towards you!:3,,,false,ichneumorax,danaos.castle.dungeon.encounter.0,:3f800000000000000000,03010103030303:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 105: 0:3f800000000000000000,02010203020202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 106: 0:3f800000000000000000,03020202010101:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 107: 0:3f800000000000000000,02020102010101:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE

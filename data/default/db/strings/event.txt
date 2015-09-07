@@ -38,3 +38,9 @@ msg.actor.flees = %s flees!
 msg.party.flees = Party flees!
 msg.combat.round.starts = --- combat round %s starts ---
 msg.combat.round.ends = --- combat round %s ends ---
+
+#
+# Combat events
+#
+
+msg.hide.attempt = %s hides...

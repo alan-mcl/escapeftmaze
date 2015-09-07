@@ -24,14 +24,17 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.Tile;
-import mclachlan.maze.stat.combat.*;
+import mclachlan.maze.stat.combat.ActorIntentionResolver;
+import mclachlan.maze.stat.combat.CombatAction;
+import mclachlan.maze.stat.combat.CombatantData;
+import mclachlan.maze.stat.combat.WieldingCombo;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.condition.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.stat.EquipableSlot.Type.*;
@@ -820,6 +823,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	 * inventory.
 	 */
 	public abstract void inventoryItemAdded(Item item);
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return Action script for this actor.
+	 */
+	public abstract NpcScript getActionScript();
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -1613,185 +1623,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/*-------------------------------------------------------------------------*/
 	public List<CombatAction> getCombatActions(ActorActionIntention intention)
 	{
-		List<CombatAction> result = new ArrayList<CombatAction>();
-
-		if (getHitPoints().getCurrent() <= 0)
-		{
-			return result;
-		}
-		else if (intention instanceof AttackIntention)
-		{
-			AttackIntention atkInt = (AttackIntention)intention;
-
-			ActorGroup targetGroup = atkInt.getActorGroup();
-
-			boolean canAttackWithPrimary =
-				getPrimaryWeapon() == null || (getPrimaryWeapon() != null && getPrimaryWeapon().isWeapon());
-
-			boolean canAttackWithSecondary =
-				getSecondaryWeapon() != null && getSecondaryWeapon().isWeapon()
-					&& (getPrimaryWeapon().getAmmoRequired() != null && !getPrimaryWeapon().getAmmoRequired().contains(getSecondaryWeapon().isAmmoType()))
-					||
-					getSecondaryWeapon() == null && getModifier(Stats.Modifiers.MARTIAL_ARTS) > 0;
-
-			Item weapon;
-			if (getPrimaryWeapon() != null)
-			{
-				weapon = getPrimaryWeapon();
-			}
-			else
-			{
-				weapon = GameSys.getInstance().getUnarmedWeapon(this, true);
-			}
-
-			// primary weapon
-			if (canAttackWithPrimary)
-			{
-				// basic attack with primary weapon, no modifiers
-				int nrAttacks = GameSys.getInstance().getNrAttacks(this, true);
-
-				if (weapon.getAmmoRequired() == null
-					|| weapon.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF)
-					|| getSecondaryWeapon() != null &&
-					weapon.getAmmoRequired().contains(getSecondaryWeapon().isAmmoType()))
-				{
-					MazeScript missileScript;
-					if (weapon.isRanged())
-					{
-						missileScript = getSecondaryWeapon().getAttackScript();
-					}
-					else
-					{
-						missileScript = weapon.getAttackScript();
-					}
-
-					for (int i = 0; i < nrAttacks; i++)
-					{
-						// ammo requirements ok.  Attack
-						MagicSys.SpellEffectType defaultDamageType = weapon.getDefaultDamageType();
-						if (weapon.getAmmoRequired() != null &&
-							getSecondaryWeapon() != null &&
-							weapon.getAmmoRequired().contains((getSecondaryWeapon()).isAmmoType()))
-						{
-							defaultDamageType = getSecondaryWeapon().getDefaultDamageType();
-						}
-
-						AttackAction action = new AttackAction(
-							targetGroup,
-							weapon,
-							-1,
-							missileScript,
-							true,
-							GameSys.getInstance().isLightningStrike(this, weapon),
-							defaultDamageType);
-						action.setModifier(Stats.Modifiers.INITIATIVE, -5 * i + weapon.getToInitiative());
-						if (canAttackWithSecondary && getSecondaryWeapon() != null)
-						{
-							GameSys.getInstance().setDualWeaponPenalties(action, this, true);
-						}
-						result.add(action);
-					}
-				}
-				else
-				{
-					// cannot attack
-					result.add(new DefendAction());
-					//todo: return from here?
-				}
-			}
-
-			if (canAttackWithSecondary)
-			{
-				Item attackWith;
-				if (getSecondaryWeapon() != null)
-				{
-					attackWith = getSecondaryWeapon();
-				}
-				else
-				{
-					attackWith = weapon;
-				}
-
-				// basic attack with secondary weapon:
-				// -5 intiative
-				// -5 to hit
-				int nrAttacks = GameSys.getInstance().getNrAttacks(this, false);
-
-				for (int i = 0; i < nrAttacks; i++)
-				{
-					AttackAction secAction = new AttackAction(
-						targetGroup,
-						attackWith,
-						-1,
-						attackWith.getAttackScript(),
-						true,
-						false,
-						attackWith.getDefaultDamageType());
-					secAction.setModifier(Stats.Modifiers.INITIATIVE, -5 * (i + 1) + weapon.getToInitiative());
-					if (getSecondaryWeapon() != null)
-					{
-						// dual weapon penalties do not apply to unarmed combat
-						GameSys.getInstance().setDualWeaponPenalties(secAction, this, false);
-					}
-					result.add(secAction);
-				}
-			}
-		}
-		else if (intention instanceof DefendIntention)
-		{
-			result.add(new DefendAction());
-		}
-		else if (intention instanceof HideIntention)
-		{
-			result.add(new HideAction());
-		}
-		else if (intention instanceof SpellIntention)
-		{
-			SpellIntention si = (SpellIntention)intention;
-
-			result.add(new SpellAction(si.getTarget(),
-				si.getSpell(),
-				si.getCastingLevel()));
-		}
-		else if (intention instanceof SpecialAbilityIntention)
-		{
-			SpecialAbilityIntention si = (SpecialAbilityIntention)intention;
-
-			result.add(new SpecialAbilityAction(
-				si.getSpell().getDescription(),
-				si.getTarget(),
-				si.getSpell(),
-				si.getCastingLevel()));
-		}
-		else if (intention instanceof UseItemIntention)
-		{
-			UseItemIntention ui = (UseItemIntention)intention;
-
-			Item item = ui.getItem();
-
-			result.add(new UseItemAction(item,
-				ui.getTarget()));
-		}
-		else if (intention instanceof EquipIntention)
-		{
-			result.add(new EquipAction());
-		}
-		else if (intention instanceof RunAwayIntention)
-		{
-			result.add(new RunAwayAction());
-		}
-		else
-		{
-			throw new MazeException("Unrecognised combat intention: " + intention);
-		}
-
-		return result;
+		return ActorIntentionResolver.getCombatActions(this, intention);
 	}
-
 
 	public abstract String getType();
 	public abstract int getBaseModifier(String modifier);
 	public abstract String getDisplayName();
+	public abstract String getDisplayNamePlural();
 	public abstract void removeItem(Item item, boolean removeWholeStack);
 	public abstract void removeItem(String itemName, boolean removeWholeStack);
 	public abstract void removeCurse(int strength);
@@ -1799,4 +1637,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract boolean isActiveModifier(String modifier);
 	public abstract List<SpellLikeAbility> getSpellLikeAbilities();
 	public abstract CharacterClass.Focus getFocus();
+
+	public abstract String getFaction();
 }

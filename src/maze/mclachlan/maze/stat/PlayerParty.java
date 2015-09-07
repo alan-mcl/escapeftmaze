@@ -227,6 +227,37 @@ public class PlayerParty implements ActorGroup
 		return this.cloudSpells;
 	}
 
+	@Override
+	public int numActive()
+	{
+		int result = 0;
+
+		for (UnifiedActor a : getActors())
+		{
+			if (GameSys.getInstance().isActorAlive(a) &&
+				!GameSys.getInstance().isActorImmobile(a) &&
+				!GameSys.getInstance().isActorBlinkedOut(a))
+			{
+				result ++;
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public int getAverageLevel()
+	{
+		int result = 0;
+		for (UnifiedActor a : actors)
+		{
+			result += a.getLevel();
+		}
+
+		return result/actors.size();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void clearCloudSpells()
 	{

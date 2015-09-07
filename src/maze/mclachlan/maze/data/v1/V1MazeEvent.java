@@ -269,7 +269,9 @@ public class V1MazeEvent
 				EncounterActorsEvent ee = (EncounterActorsEvent)e;
 				s.append(ee.getEncounterTable());
 				s.append(SEP);
-				s.append(ee.getMazeVariable());
+				s.append(ee.getMazeVariable()==null?"":ee.getMazeVariable());
+				s.append(SEP);
+				s.append(ee.getAttitude()==null?"":ee.getAttitude().toString());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -487,7 +489,23 @@ public class V1MazeEvent
 			case _EncounterActorsEvent:
 				String encounterTable = strs[1];
 				String mazeVariable = strs.length > 2 ? strs[2] : null;
-				return new EncounterActorsEvent(mazeVariable, encounterTable);
+				NpcFaction.Attitude attitude;
+				if (strs.length > 3)
+				{
+					if ("".equals(strs[3]))
+					{
+						attitude = null;
+					}
+					else
+					{
+						attitude = NpcFaction.Attitude.valueOf(strs[3]);
+					}
+				}
+				else
+				{
+					attitude = null;
+				}
+				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude);
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);

@@ -52,11 +52,11 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 		GeneralOptionsDialog dialog = new GeneralOptionsDialog(this, title, options);
 		Maze.getInstance().getUi().showDialog(dialog);
 
-		synchronized(this)
+		synchronized(Maze.getInstance().getEventMutex())
 		{
 			try
 			{
-				this.wait();
+				Maze.getInstance().getEventMutex().wait();
 			}
 			catch (InterruptedException e)
 			{
@@ -71,9 +71,9 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 	public void optionChosen(String option)
 	{
 		optionChosen = option;
-		synchronized(this)
+		synchronized(Maze.getInstance().getEventMutex())
 		{
-			this.notifyAll();
+			Maze.getInstance().getEventMutex().notifyAll();
 		}
 	}
 }

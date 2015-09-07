@@ -19,9 +19,14 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.Combat;
 
 /**
  *
@@ -29,17 +34,40 @@ import mclachlan.maze.stat.UnifiedActor;
 public class HideAttemptEvent extends MazeEvent
 {
 	private UnifiedActor actor;
+	private Combat combat;
 
 	/*-------------------------------------------------------------------------*/
-	public HideAttemptEvent(UnifiedActor actor)
+	public HideAttemptEvent(UnifiedActor actor, Combat combat)
 	{
 		this.actor = actor;
+		this.combat = combat;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public UnifiedActor getActor()
 	{
 		return actor;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		int hideChance = GameSys.getInstance().getHideChance(
+			actor, combat.getAllFoesOf(actor), combat.getAllAlliesOf(actor));
+
+		if (Dice.d100.roll() <= hideChance)
+		{
+			result.add(new HideSucceedsEvent(actor));
+		}
+		else
+		{
+			result.add(new HideFailsEvent(actor));
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -57,6 +85,6 @@ public class HideAttemptEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getActor().getDisplayName() + " hides...";
+		return StringUtil.getEventText("msg.hide.attempt", actor.getDisplayName());
 	}
 }

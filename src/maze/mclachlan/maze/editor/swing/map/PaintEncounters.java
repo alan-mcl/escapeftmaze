@@ -125,7 +125,7 @@ public class PaintEncounters extends Tool implements ActionListener
 				mclachlan.maze.map.Tile tile = editor.getMazeTile(t);
 
 				String mazeVar = TileScriptEditor.getEncounterMazeVariable(editor.zone);
-				Encounter enc = new Encounter(table, mazeVar);
+				Encounter enc = new Encounter(table, mazeVar, null);
 
 				tile.getScripts().add(enc);
 			}

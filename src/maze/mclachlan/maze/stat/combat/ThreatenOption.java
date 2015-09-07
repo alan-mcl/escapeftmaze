@@ -17,53 +17,48 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.map.script;
+package mclachlan.maze.stat.combat;
 
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.util.MazeException;
-import java.util.*;
+
+import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.stat.ActorActionIntention;
+import mclachlan.maze.stat.ActorActionOption;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
-public class SignBoardEvent extends MazeEvent
+public class ThreatenOption extends ActorActionOption
 {
-	String text;
+	private ThreatenIntention intention;
 
-	/*-------------------------------------------------------------------------*/
-	public SignBoardEvent(String text)
+	public ThreatenOption()
 	{
-		this.text = text;
+		super("Threaten", "aao.threaten");
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
+
+	@Override
+	public void select(UnifiedActor actor, Combat combat,
+		ActionOptionCallback callback)
 	{
-		Maze.getInstance().signBoard(this.text, this);
-		
-		// a bit of a hack to ensure that if we have other events following a sign
-		// board they are properly displayed.  The right way to fix this would be
-		// to implement the sign board stuff without involving a change in game
-		// state.
-		synchronized(Maze.getInstance().getEventMutex())
-		{
-			try
-			{
-				Maze.getInstance().getEventMutex().wait();
-			}
-			catch (InterruptedException e)
-			{
-				throw new MazeException(e);
-			}
-		}
-		
-		return null;
+		intention = new ThreatenIntention();
+		callback.selected(getIntention());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getSignBoardText()
+
+	@Override
+	public ActorActionIntention getIntention()
 	{
-		return text;
+		return this.intention;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public String toString()
+	{
+		return StringUtil.getUiLabel(getDisplayName());
 	}
 }

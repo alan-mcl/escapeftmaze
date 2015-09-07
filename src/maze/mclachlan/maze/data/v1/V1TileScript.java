@@ -28,6 +28,7 @@ import mclachlan.maze.map.Trap;
 import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.script.RemoveWall;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.game.MazeScript;
@@ -150,7 +151,9 @@ public class V1TileScript
 				Encounter e = (Encounter)t;
 				s.append(e.getEncounterTable().getName());
 				s.append(SEP);
-				s.append(e.getMazeVariable());
+				s.append(e.getMazeVariable()==null?"":e.getMazeVariable());
+				s.append(SEP);
+				s.append(e.getAttitude()==null?"":e.getAttitude().toString());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)t;
@@ -261,7 +264,20 @@ public class V1TileScript
 			case ENCOUNTER:
 				String encTable = strs[i++];
 				String encMazVar = strs[i++];
-				result = new Encounter(Database.getInstance().getEncounterTable(encTable), encMazVar);
+				String str = strs[i++];
+				NpcFaction.Attitude attitude = null;
+				if ("".equals(str))
+				{
+					attitude = null;
+				}
+				else
+				{
+					attitude = NpcFaction.Attitude.valueOf(str);
+				}
+				result = new Encounter(
+					Database.getInstance().getEncounterTable(encTable),
+					encMazVar,
+					attitude);
 				break;
 			case FLAVOUR_TEXT:
 				// hack alert.  Any commas will have been split above.  Replace them

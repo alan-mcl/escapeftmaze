@@ -22,10 +22,7 @@ package mclachlan.maze.game;
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.event.StartCombatEvent;
-import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -40,19 +37,20 @@ public class ActorEncounter
 	private String mazeVar;
 	private NpcFaction.Attitude encounterAttitude;
 	private Combat.AmbushStatus ambushStatus;
-	private final Foe leader;
+	private final UnifiedActor leader;
 
 	/*-------------------------------------------------------------------------*/
 	public ActorEncounter(
 		List<FoeGroup> actors,
+		String mazeVar,
 		NpcFaction.Attitude encounterAttitude,
-		String mazeVar, Combat.AmbushStatus ambushStatus)
+		Combat.AmbushStatus ambushStatus)
 	{
 		this.encounterAttitude = encounterAttitude;
 		this.actors = actors;
 		this.mazeVar = mazeVar;
 		this.ambushStatus = ambushStatus;
-		leader = GameSys.getInstance().getLeader(actors);
+		leader = GameSys.getInstance().getLeader(this.actors);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -61,9 +59,9 @@ public class ActorEncounter
 		StringBuilder actorsDesc = new StringBuilder();
 		Set<String> uniqueNames = new HashSet<String>();
 
-		for (FoeGroup fg : actors)
+		for (ActorGroup ag : actors)
 		{
-			uniqueNames.add(fg.getDescription());
+			uniqueNames.add(ag.getDescription());
 		}
 
 		for (String s : uniqueNames)
@@ -95,13 +93,13 @@ public class ActorEncounter
 	/*-------------------------------------------------------------------------*/
 	private boolean isLeaderGroupPlural()
 	{
-		FoeGroup leaderGroup = null;
+		ActorGroup leaderGroup = null;
 
-		for (FoeGroup fg : actors)
+		for (ActorGroup ag : actors)
 		{
-			if (fg.getActors().contains(leader))
+			if (ag.getActors().contains(leader))
 			{
-				leaderGroup = fg;
+				leaderGroup = ag;
 				break;
 			}
 		}
@@ -214,6 +212,13 @@ public class ActorEncounter
 		return actors;
 	}
 
+	public List<ActorGroup> getActorGroups()
+	{
+		List<ActorGroup> result = new ArrayList<ActorGroup>();
+		result.addAll(actors);
+		return result;
+	}
+
 	public void setActors(List<FoeGroup> actors)
 	{
 		this.actors = actors;
@@ -249,4 +254,8 @@ public class ActorEncounter
 		this.ambushStatus = ambushStatus;
 	}
 
+	public UnifiedActor getLeader()
+	{
+		return GameSys.getInstance().getLeader(actors);
+	}
 }

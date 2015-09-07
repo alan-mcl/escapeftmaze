@@ -20,6 +20,7 @@
 package mclachlan.maze.map.script;
 
 import java.util.List;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
@@ -27,6 +28,7 @@ import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
  * Begins an encounter with some actors
@@ -35,14 +37,17 @@ public class EncounterActorsEvent extends MazeEvent
 {
 	private String mazeVariable;
 	private String encounterTable;
+	private NpcFaction.Attitude attitude;
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
 		String mazeVariable,
-		String encounterTable)
+		String encounterTable,
+		NpcFaction.Attitude attitude)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
+		this.attitude = attitude;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -60,7 +65,8 @@ public class EncounterActorsEvent extends MazeEvent
 		FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
 		List<FoeGroup> allFoes = foeEntry.generate();
 
-		Maze.getInstance().encounterActors(allFoes, mazeVariable);
+		Maze.getInstance().encounterActors(
+			new ActorEncounter(allFoes, mazeVariable, attitude, null));
 
 		return null;
 	}
@@ -75,5 +81,12 @@ public class EncounterActorsEvent extends MazeEvent
 	public String getMazeVariable()
 	{
 		return mazeVariable;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public NpcFaction.Attitude getAttitude()
+	{
+		return attitude;
 	}
 }

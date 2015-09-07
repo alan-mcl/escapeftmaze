@@ -27,21 +27,19 @@ import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.event.PartyEvadesFoesEvent;
-import mclachlan.maze.game.event.PartyWaitsEvent;
 import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.stat.combat.DefaultFoeAiScript;
-import mclachlan.maze.stat.combat.event.*;
-import mclachlan.maze.stat.npc.NpcScript;
+import mclachlan.maze.stat.combat.event.PartyFleeFailedEvent;
+import mclachlan.maze.stat.combat.event.PartyFleesEvent;
+import mclachlan.maze.stat.combat.event.SuccessEvent;
+import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class EncounterActorsStateHandler implements ActionListener, ConfirmCallback
+public class EncounterNpcStateHandler implements ActionListener, ConfirmCallback
 {
 	private Maze maze;
 	private final int buttonRows;
@@ -49,11 +47,10 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 	private MessageDestination msg;
 
 	private DIYButton leave, attack, flee, wait, surprise, evade;
-	private ActorEncounter actorEncounter;
-	private NpcScript npcScript;
+	private Npc npc;
 
 	/*-------------------------------------------------------------------------*/
-	public EncounterActorsStateHandler(Maze maze, int buttonRows, int inset,
+	public EncounterNpcStateHandler(Maze maze, int buttonRows, int inset,
 		MessageDestination msg)
 	{
 		this.maze = maze;
@@ -135,8 +132,6 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		{
 			ambush();
 		}
-
-
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -145,7 +140,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		if (attack.isVisible())
 		{
 			msg.addMessage(StringUtil.getEventText("msg.party.attacks"));
-			maze.appendEvents(npcScript.attackedByParty());
+			maze.appendEvents(npc.getScript().attackedByParty());
 		}
 	}
 
@@ -171,7 +166,8 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		if (wait.isVisible())
 		{
 			msg.addMessage(StringUtil.getEventText("msg.party.waits"));
-			maze.appendEvents(new PartyWaitsEvent(actorEncounter, maze, msg));
+			// todo
+//			maze.appendEvents(new PartyWaitsEvent(actorEncounter, maze, msg));
 		}
 	}
 
@@ -182,12 +178,13 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 			msg.addMessage(StringUtil.getEventText("msg.party.flees"));
 
 			boolean success = GameSys.getInstance().attemptToRunAway(
-				maze.getParty(), actorEncounter.getActorGroups());
+				maze.getParty(), 1);
 
 			if (!success)
 			{
 				maze.appendEvents(new PartyFleeFailedEvent());
-				maze.appendEvents(new PartyWaitsEvent(actorEncounter, maze, msg));
+				// todo
+//				maze.appendEvents(new PartyWaitsEvent(actorEncounter, maze, msg));
 			}
 			else
 			{
@@ -201,20 +198,20 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 	{
 		if (leave.isVisible())
 		{
-			switch (actorEncounter.getEncounterAttitude())
+			switch (npc.getAttitude())
 			{
 				case WARY:
 				case SCARED:
 				case NEUTRAL:
-					maze.appendEvents(npcScript.partyLeavesNeutral());
+					maze.appendEvents(npc.getScript().partyLeavesNeutral());
 					break;
 				case FRIENDLY:
 				case ALLIED:
-					maze.appendEvents(npcScript.partyLeavesFriendly());
+					maze.appendEvents(npc.getScript().partyLeavesFriendly());
 					break;
 				default:
 					throw new MazeException("invalid leave option "+
-						actorEncounter.getEncounterAttitude());
+						npc.getAttitude());
 			}
 		}
 	}
@@ -243,26 +240,22 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setActorEncounter(ActorEncounter actorEncounter)
+	public void setNpc(Npc npc)
 	{
-		this.actorEncounter = actorEncounter;
-		this.npcScript = getNpcScriptFromActorEncounter(actorEncounter);
+		this.npc = npc;
 		msg.setHeader(
 			StringUtil.getUiLabel(
 				"poatw.actor.encounter",
-				actorEncounter.describe(),
+				npc.getDisplayName(),
 				StringUtil.getEventText(
-					"attitude." + actorEncounter.getEncounterAttitude().toString())));
+					"attitude." + npc.getAttitude().toString())));
 
-		boolean mayAmbush =
-			actorEncounter.getAmbushStatus() == Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES ||
-			actorEncounter.getAmbushStatus() == Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES;
-
-		boolean mayEvade =
-			actorEncounter.getAmbushStatus() == Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES;
+		// todo: ambushing NPCs?
+		boolean mayAmbush = false;
+		boolean mayEvade = false;
 
 		// set button state based on encounter attitude
-		switch (actorEncounter.getEncounterAttitude())
+		switch (npc.getAttitude())
 		{
 			case ATTACKING:
 				attack.setVisible(true);
@@ -321,13 +314,5 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				leave.setVisible(true);
 				break;
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private NpcScript getNpcScriptFromActorEncounter(ActorEncounter actorEncounter)
-	{
-		// todo: polymorphism so that we can treat NPCs and Foes the same!
-
-		return new DefaultFoeAiScript(actorEncounter);
 	}
 }

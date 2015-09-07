@@ -322,6 +322,12 @@ public class Npc extends AbstractActor
 		return new CurMaxSub(1);
 	}
 
+	@Override
+	public NpcScript getActionScript()
+	{
+		return getScript();
+	}
+
 	public void setCurrentInventory(List<Item> inv)
 	{
 		this.currentInventory = inv;
@@ -373,6 +379,8 @@ public class Npc extends AbstractActor
 	{
 		return getFoe().getName();
 	}
+
+
 
 	public QuestManager getQuestManager()
 	{

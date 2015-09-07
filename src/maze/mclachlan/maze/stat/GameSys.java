@@ -656,6 +656,7 @@ public class GameSys
 			String s = spell.getWildMagicTable()[value];
 
 			Spell newSpell = Database.getInstance().getSpell(s);
+			ActorGroup party = Maze.getInstance().getParty();
 
 			int targetType = newSpell.getTargetType();
 
@@ -668,7 +669,15 @@ public class GameSys
 				{
 					case MagicSys.SpellTargetType.ALLY:
 						// choose a random ally
-						List<UnifiedActor> allies = combat.getAllAlliesOf(source);
+						List<UnifiedActor> allies;
+						if (combat != null)
+						{
+							allies = combat.getAllAlliesOf(source);
+						}
+						else
+						{
+							allies = party.getActors();
+						}
 						Dice d = new Dice(1, allies.size(), -1);
 						target = allies.get(d.roll());
 						break;
@@ -690,18 +699,42 @@ public class GameSys
 						break;
 
 					case MagicSys.SpellTargetType.PARTY:
-						target = combat.getActorGroup(source);
+						if (combat != null)
+						{
+							target = combat.getActorGroup(source);
+						}
+						else
+						{
+							target = party;
+						}
 						break;
 
 					case MagicSys.SpellTargetType.FOE:
-						List<UnifiedActor> enemies = combat.getAllFoesOf(source);
+						List<UnifiedActor> enemies;
+						if (combat != null)
+						{
+							enemies = combat.getAllFoesOf(source);
+						}
+						else
+						{
+							enemies = new ArrayList<UnifiedActor>();
+							enemies.add(new NullActor());
+						}
 						d = new Dice(1, enemies.size(), -1);
 						target = enemies.get(d.roll());
 						break;
 
 					case MagicSys.SpellTargetType.FOE_GROUP:
 					case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-						List<ActorGroup> groups = combat.getFoesOf(source);
+						List<ActorGroup> groups;
+						if (combat != null)
+						{
+							groups = combat.getFoesOf(source);
+						}
+						else
+						{
+							groups = new ArrayList<ActorGroup>();
+						}
 						d = new Dice(1, groups.size(), -1);
 						target = groups.get(d.roll());
 						break;
@@ -1087,7 +1120,7 @@ public class GameSys
 	 * @return an array of the foe groups that can be attacked by the given actor.
 	 * 	Returns an empty list if there are no possible attacks
 	 */
-	List<ActorGroup> getAttackableGroups(UnifiedActor attacker, Combat combat)
+	public List<ActorGroup> getAttackableGroups(UnifiedActor attacker, Combat combat)
 	{
 		List<ActorGroup> result = new ArrayList<ActorGroup>();
 
@@ -1835,29 +1868,8 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public void castSpellOnPartyOutsideCombat(Spell spell, int casterLevel, int castingLevel)
 	{
-		//
-		// Dodgy hack to initiate a dummy combat.
-		//
-
 		Maze maze = Maze.getInstance();
-
-		List<FoeGroup> dummyFoes = new ArrayList<FoeGroup>();
-		List<UnifiedActor> dummyFoeGroup = new ArrayList<UnifiedActor>();
 		DummyCaster dummyCaster = new DummyCaster(spell, casterLevel, castingLevel);
-		dummyFoeGroup.add(dummyCaster);
-		FoeGroup foeGroup = new FoeGroup(dummyFoeGroup);
-		dummyCaster.actorGroup = foeGroup;
-		dummyCaster.spell = spell;
-		dummyFoes.add(foeGroup);
-
-		Combat combat = new Combat(maze.getParty(), dummyFoes, false);
-
-		ActorActionIntention[] partyIntentions
-				= new ActorActionIntention[maze.getParty().getActors().size()];
-		for (int i = 0; i < partyIntentions.length; i++)
-		{
-			partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-		}
 
 		SpellTarget target = null;
 		switch (spell.getTargetType())
@@ -1881,30 +1893,12 @@ public class GameSys
 				target = maze.getParty(); // what the hell, let's try it anyway
 		}
 
-		ActorActionIntention[] foeIntentions = new ActorActionIntention[]
+		List<CombatAction> combatActions = dummyCaster.getCombatActions(
+			new SpellIntention(target, spell, castingLevel));
+
+		for (CombatAction action : combatActions)
 		{
-			new SpellIntention(target, spell, castingLevel)
-		};
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-		foeIntentionList.add(foeIntentions);
-
-		// Then, show the combat listener
-		maze.setState(Maze.State.COMBAT);
-		maze.getUi().showCombatDisplay();
-
-		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
-		while (combatIntentions.hasNext())
-		{
-			CombatAction action = (CombatAction)combatIntentions.next();
-
-			maze.resolveEvents(combat.resolveAction(action));
-		}
-
-		if (maze.getCurrentCombat() != null)
-		{
-			combat.endRound();
-			combat.endCombat();
-			maze.setState(Maze.State.MOVEMENT);
+			maze.appendEvents(ActorActionResolver.resolveAction(action, null));
 		}
 	}
 
@@ -1915,51 +1909,8 @@ public class GameSys
 		int castingLevel,
 		SpellTarget target)
 	{
-		//
-		// Dodgy hack to initiate a dummy combat.
-		//
-
-		Maze maze = Maze.getInstance();
-
-		List<FoeGroup> dummyFoes = new ArrayList<FoeGroup>();
-		List<UnifiedActor> dummyFoeGroup = new ArrayList<UnifiedActor>();
-		FoeGroup foeGroup = new FoeGroup(dummyFoeGroup);
-		dummyFoes.add(foeGroup);
-
-		Combat combat = new Combat(maze.getParty(), dummyFoes, false);
-
-		List<UnifiedActor> actors = maze.getParty().getActors();
-		ActorActionIntention[] partyIntentions = new ActorActionIntention[actors.size()];
-		for (int i = 0; i < partyIntentions.length; i++)
-		{
-			if (actors.get(i) != caster)
-			{
-				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-			}
-			else
-			{
-				partyIntentions[i] = new SpellIntention(target, spell, castingLevel);
-			}
-		}
-
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-
-		// Then, show the combat listener
-		maze.setState(Maze.State.COMBAT);
-		maze.getUi().showCombatDisplay();
-
-		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
-		while (combatIntentions.hasNext())
-		{
-			CombatAction action = (CombatAction)combatIntentions.next();
-			List<MazeEvent> combatEvents = combat.resolveAction(action);
-
-			maze.resolveEvents(combatEvents);
-		}
-
-		combat.endRound();
-		combat.endCombat();
-		maze.setState(Maze.State.MOVEMENT);
+		processPlayerCharacterIntentionOutsideCombat(
+			new SpellIntention(target, spell, castingLevel), caster);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1968,51 +1919,8 @@ public class GameSys
 		PlayerCharacter user,
 		SpellTarget target)
 	{
-		//
-		// Dodgy hack to initiate a dummy combat.
-		//
-
-		Maze maze = Maze.getInstance();
-		
-		List<FoeGroup> dummyFoes = new ArrayList<FoeGroup>();
-		List<UnifiedActor> dummyFoeGroup = new ArrayList<UnifiedActor>();
-		FoeGroup foeGroup = new FoeGroup(dummyFoeGroup);
-		dummyFoes.add(foeGroup);
-
-		Combat combat = new Combat(maze.getParty(), dummyFoes, false);
-
-		List<UnifiedActor> actors = maze.getParty().getActors();
-		ActorActionIntention[] partyIntentions = new ActorActionIntention[actors.size()];
-		for (int i = 0; i < partyIntentions.length; i++)
-		{
-			if (actors.get(i) != user)
-			{
-				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-			}
-			else
-			{
-				partyIntentions[i] = new UseItemIntention(item, target);
-			}
-		}
-
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-
-		// Then, show the combat listener
-		maze.setState(Maze.State.COMBAT);
-		maze.getUi().showCombatDisplay();
-
-		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
-		while (combatIntentions.hasNext())
-		{
-			CombatAction action = (CombatAction)combatIntentions.next();
-			List<MazeEvent> combatEvents = combat.resolveAction(action);
-
-			maze.resolveEvents(combatEvents);
-		}
-
-		combat.endRound();
-		combat.endCombat();
-		maze.setState(Maze.State.MOVEMENT);
+		processPlayerCharacterIntentionOutsideCombat(
+			new UseItemIntention(item, target), user);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2020,51 +1928,13 @@ public class GameSys
 		ActorActionIntention intention,
 		PlayerCharacter pc)
 	{
-		//
-		// Dodgy hack to initiate a dummy combat.
-		//
-
 		Maze maze = Maze.getInstance();
+		List<CombatAction> combatActions = pc.getCombatActions(intention);
 
-		List<FoeGroup> dummyFoes = new ArrayList<FoeGroup>();
-		List<UnifiedActor> dummyFoeGroup = new ArrayList<UnifiedActor>();
-		FoeGroup foeGroup = new FoeGroup(dummyFoeGroup);
-		dummyFoes.add(foeGroup);
-
-		Combat combat = new Combat(maze.getParty(), dummyFoes, false);
-
-		List<UnifiedActor> actors = maze.getParty().getActors();
-		ActorActionIntention[] partyIntentions = new ActorActionIntention[actors.size()];
-		for (int i = 0; i < partyIntentions.length; i++)
+		for (CombatAction action : combatActions)
 		{
-			if (actors.get(i) != pc)
-			{
-				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-			}
-			else
-			{
-				partyIntentions[i] = intention;
-			}
+			maze.appendEvents(ActorActionResolver.resolveAction(action, null));
 		}
-
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-
-		// Then, show the combat listener
-		maze.setState(Maze.State.COMBAT);
-		maze.getUi().showCombatDisplay();
-
-		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
-		while (combatIntentions.hasNext())
-		{
-			CombatAction action = (CombatAction)combatIntentions.next();
-			List<MazeEvent> combatEvents = combat.resolveAction(action);
-
-			maze.resolveEvents(combatEvents);
-		}
-
-		combat.endRound();
-		combat.endCombat();
-		maze.setState(Maze.State.MOVEMENT);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2078,7 +1948,10 @@ public class GameSys
 			"] casting ["+spell.getName()+" ("+castingLevel+
 			")] on NPC ["+npc.getName()+"]");
 
-		//
+		processPlayerCharacterIntentionOutsideCombat(
+			new SpellIntention(npc, spell, castingLevel), caster);
+
+/*		//
 		// Dodgy hack to initiate a dummy combat.
 		//
 		Maze maze = Maze.getInstance();
@@ -2131,7 +2004,7 @@ public class GameSys
 		if (maze.getCurrentCombat() == null)
 		{
 			maze.setState(Maze.State.ENCOUNTER_NPC);
-		}
+		}*/
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2140,7 +2013,10 @@ public class GameSys
 		PlayerCharacter caster,
 		Npc npc)
 	{
-		//
+		processPlayerCharacterIntentionOutsideCombat(
+			new UseItemIntention(item, npc), caster);
+
+/*		//
 		// Dodgy hack to initiate a dummy combat.
 		//
 
@@ -2194,7 +2070,7 @@ public class GameSys
 		if (maze.getCurrentCombat() == null)
 		{
 			maze.setState(Maze.State.ENCOUNTER_NPC);
-		}
+		}*/
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2237,31 +2113,28 @@ public class GameSys
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * @param npc
-	 * 	The npc being threatened
-	 * @param party
-	 * 	The party doing the threatening
+	 * @param actor
+	 * 	The actor doing the threatening
+	 * @param target
+	 * 	The actor being threatened
 	 * @return
 	 * 	the difference in totals
 	 */
-	public int threatenNpc(Npc npc, PlayerParty party)
+	public int threatenNpc(UnifiedActor actor, UnifiedActor target)
 	{
-		int npcTotal =
-			npc.getLevel()*10
-			+ npc.getResistThreats()
+		int targetTotal =
+			target.getLevel()*10
+//			+ target.getResistThreats() todo: make a modifier
 			+ Dice.d10.roll();
 
-		int partyTotal = 0;
-		for (UnifiedActor a : party.getActors())
-		{
-			partyTotal += a.getLevel();
-			partyTotal += a.getModifier(Stats.Modifiers.BRAWN);
-			partyTotal += a.getModifier(Stats.Modifiers.SKILL);
-			partyTotal += a.getModifier(Stats.Modifiers.TO_THREATEN);
-		}
-		partyTotal += Dice.d10.roll();
+		int actorTotal = 0;
+		actorTotal += actor.getLevel();
+		actorTotal += actor.getModifier(Stats.Modifiers.BRAWN);
+		actorTotal += actor.getModifier(Stats.Modifiers.SKILL);
+		actorTotal += actor.getModifier(Stats.Modifiers.TO_THREATEN);
+		actorTotal += Dice.d10.roll();
 
-		return partyTotal-npcTotal;
+		return actorTotal-targetTotal;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2706,19 +2579,25 @@ public class GameSys
 	{
 		Foe bestSoFar = groups.get(0).getFoes().get(0);
 
-		for (FoeGroup fg : groups)
+		for (FoeGroup ag : groups)
 		{
-			for (Foe a : fg.getFoes())
+			for (Foe actor : ag.getFoes())
 			{
-				if (Foe.Type.LEGENDARY.equals(a.getType()) &&
+				// give preference to NPCs, then legendary foes, then the highest
+				// level regular actor
+
+//				if (actor instanceof Npc) todo
+//				{
+//					bestSoFar = actor;
+//				}
+				/*else */if (Foe.Type.LEGENDARY.equals(actor.getType()) &&
 					!Foe.Type.LEGENDARY.equals(bestSoFar.getType()))
 				{
-					// give preference to legendary foes
-					bestSoFar = a;
+					bestSoFar = actor;
 				}
-				else if (a.getLevel() > bestSoFar.getLevel())
+				else if (actor.getLevel() > bestSoFar.getLevel())
 				{
-					bestSoFar = a;
+					bestSoFar = actor;
 				}
 			}
 		}
@@ -3070,17 +2949,34 @@ public class GameSys
 	 *
 	 * @return success or failure
 	 */
-	public boolean attemptToRunAway(PlayerParty party, List<FoeGroup> actors)
+	public boolean attemptToRunAway(PlayerParty party, List<ActorGroup> actors)
 	{
 		Maze.log(Log.DEBUG, "Party tries to run away");
 
 		int base = 80;
 		int mod = party.getTotalModifier(Stats.Modifiers.TO_RUN_AWAY);
 		int nrFoes = 0;
-		for (FoeGroup fg : actors)
+		for (ActorGroup ag : actors)
 		{
-			nrFoes += fg.numActive();
+			nrFoes += ag.numActive();
 		}
+
+		return attemptToRunAway(party, nrFoes);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Party attempts to flee
+	 *
+	 * @return success or failure
+	 */
+	public boolean attemptToRunAway(PlayerParty party, int nrFoes)
+	{
+		Maze.log(Log.DEBUG, "Party tries to run away");
+
+		int base = 80;
+		int mod = party.getTotalModifier(Stats.Modifiers.TO_RUN_AWAY);
 
 		Maze.log(Log.DEBUG, "success chance is "+base+" + "+mod+" - "+nrFoes);
 
@@ -4248,7 +4144,10 @@ public class GameSys
 			}
 
 			List<CombatAction> result = new ArrayList<CombatAction>();
-			result.add(new SpellAction(((SpellIntention)actionIntention).getTarget(), spell, castingLevel));
+			SpellAction spellAction =
+				new SpellAction(((SpellIntention)actionIntention).getTarget(), spell, castingLevel);
+			spellAction.setActor(this);
+			result.add(spellAction);
 			return result;
 		}
 	}

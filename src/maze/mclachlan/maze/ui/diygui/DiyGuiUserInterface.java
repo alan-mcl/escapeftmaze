@@ -874,9 +874,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showNpcScreen(Npc npc)
 	{
 		this.mainLayout.show(this.movementScreen);
-		npcOptionsWidget.setNpc(npc);
-		combatDisplay.clear();
-		movementCardLayout.show(npcOptionsWidget);
+		partyOptionsAndTextWidget.setNpc(npc);
+		movementCardLayout.show(partyOptionsAndTextWidget);
 	}
 
 	public void showEncounterActorsScreen(ActorEncounter actorEncounter)

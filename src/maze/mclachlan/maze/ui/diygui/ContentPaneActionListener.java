@@ -80,9 +80,9 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_NPC)
 		{
-			if (ui.combatDisplayIsVisible())
+			synchronized (Maze.getInstance().getEventMutex())
 			{
-				ui.combatDisplay.processMouseClicked(event);
+				Maze.getInstance().getEventMutex().notifyAll();
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
@@ -341,14 +341,7 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_NPC)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processKeyPressed(event);
-			}
-			else
-			{
-				ui.npcOptionsWidget.handleKeyCode(event.getKeyCode());
-			}
+			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
 		{

@@ -19,9 +19,13 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.FoeGroup;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.Combat;
 
 /**
  *
@@ -29,17 +33,71 @@ import mclachlan.maze.stat.UnifiedActor;
 public class RunAwayAttemptEvent extends MazeEvent
 {
 	private UnifiedActor actor;
+	private Combat combat;
 
 	/*-------------------------------------------------------------------------*/
-	public RunAwayAttemptEvent(UnifiedActor actor)
+	public RunAwayAttemptEvent(UnifiedActor actor, Combat combat)
 	{
 		this.actor = actor;
+		this.combat = combat;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public UnifiedActor getActor()
 	{
 		return actor;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		if (combat.isPlayerCharacter(actor))
+		{
+			int nrFoes = 0;
+			for (FoeGroup fg : combat.getFoes())
+			{
+				nrFoes += fg.numAlive();
+			}
+
+			boolean success = GameSys.getInstance().attemptToRunAway(actor, nrFoes);
+
+			if (!success)
+			{
+				result.add(new RunAwayFailedEvent(actor));
+			}
+			else
+			{
+				result.add(new SuccessEvent());
+				result.add(new RunAwaySuccessEvent(actor));
+			}
+		}
+		else
+		{
+			int nrFoes = 0;
+			nrFoes += combat.getPlayerParty().numAlive();
+
+			for (FoeGroup fg : combat.getPartyAllies())
+			{
+				nrFoes += fg.numAlive();
+			}
+
+			boolean success = GameSys.getInstance().attemptToRunAway(actor, nrFoes);
+
+			if (!success)
+			{
+				result.add(new RunAwayFailedEvent(actor));
+			}
+			else
+			{
+				result.add(new SuccessEvent());
+				result.add(new RunAwaySuccessEvent(actor));
+			}
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

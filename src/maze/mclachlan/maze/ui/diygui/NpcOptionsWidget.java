@@ -298,8 +298,8 @@ public class NpcOptionsWidget extends DIYPane
 			item = new GoldPieces(amount);
 		}
 
-		Maze.getInstance().processNpcScriptEvents(
-				npc.getScript().grabAndAttack(pc, item));
+//		Maze.getInstance().processNpcScriptEvents(
+//				npc.getScript().grabAndAttack(pc, item));
 	}
 
 	public void stealItem(Item item, PlayerCharacter pc)
@@ -319,18 +319,20 @@ public class NpcOptionsWidget extends DIYPane
 
 	public void threaten()
 	{
+/*
 		if (threatenN.isEnabled())
 		{
 			int total = GameSys.getInstance().threatenNpc(npc, Maze.getInstance().getParty());
 			if (total > 0)
 			{
-				Maze.getInstance().processNpcScriptEvents(npc.getScript().successfulThreat(total));
+//				Maze.getInstance().processNpcScriptEvents(npc.getScript().successfulThreat(total));
 			}
 			else
 			{
-				Maze.getInstance().processNpcScriptEvents(npc.getScript().failedThreat(total));
+//				Maze.getInstance().processNpcScriptEvents(npc.getScript().failedThreat(total));
 			}
 		}
+*/
 	}
 	
 	public void bribe()
@@ -344,8 +346,8 @@ public class NpcOptionsWidget extends DIYPane
 
 	public void attack()
 	{
-		if (attack.isEnabled())
-			Maze.getInstance().processNpcScriptEvents(npc.getScript().attackedByParty());
+//		if (attack.isEnabled())
+//			Maze.getInstance().processNpcScriptEvents(npc.getScript().attackedByParty());
 	}
 
 	public void leave()
@@ -353,11 +355,11 @@ public class NpcOptionsWidget extends DIYPane
 		if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
 			npc.getAttitude() == NpcFaction.Attitude.ALLIED)
 		{
-			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyLeavesFriendly());
+//			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyLeavesFriendly());
 		}
 		else
 		{
-			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyLeavesNeutral());
+//			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyLeavesNeutral());
 		}
 	}
 
@@ -421,8 +423,8 @@ public class NpcOptionsWidget extends DIYPane
 		// treat "nothing to steal" as an undetected failure
 		if (item == null)
 		{
-			Maze.getInstance().processNpcScriptEvents(
-				npc.getScript().failedUndetectedTheft(pc, item));
+//			Maze.getInstance().processNpcScriptEvents(
+//				npc.getScript().failedUndetectedTheft(pc, item));
 			return;
 		}
 
@@ -437,18 +439,18 @@ public class NpcOptionsWidget extends DIYPane
 
 		if (result == Npc.TheftResult.SUCCESS)
 		{
-			Maze.getInstance().processNpcScriptEvents(
-				npc.getScript().successfulTheft(pc, item));
+//			Maze.getInstance().processNpcScriptEvents(
+//				npc.getScript().successfulTheft(pc, item));
 		}
 		else if (result == Npc.TheftResult.FAILED_UNDETECTED)
 		{
-			Maze.getInstance().processNpcScriptEvents(
-				npc.getScript().failedUndetectedTheft(pc, item));
+//			Maze.getInstance().processNpcScriptEvents(
+//				npc.getScript().failedUndetectedTheft(pc, item));
 		}
 		else if (result == Npc.TheftResult.FAILED_DETECTED)
 		{
-			Maze.getInstance().processNpcScriptEvents(
-				npc.getScript().failedDetectedTheft(pc, item));
+//			Maze.getInstance().processNpcScriptEvents(
+//				npc.getScript().failedDetectedTheft(pc, item));
 		}
 		else
 		{
@@ -507,7 +509,7 @@ public class NpcOptionsWidget extends DIYPane
 		}
 		else if (lastObj == talk)
 		{
-			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyWantsToTalk(pc));
+//			Maze.getInstance().processNpcScriptEvents(npc.getScript().partyWantsToTalk(pc));
 		}
 		else if (lastObj == use || lastObj == useN)
 		{
@@ -594,8 +596,8 @@ public class NpcOptionsWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	public boolean giveItem(Item item, PlayerCharacter user, int userIndex)
 	{
-		Maze.getInstance().processNpcScriptEvents(
-			npc.getScript().givenItemByParty(user, item));
+//		Maze.getInstance().processNpcScriptEvents(
+//			npc.getScript().givenItemByParty(user, item));
 		return true;
 	}
 
@@ -608,11 +610,11 @@ public class NpcOptionsWidget extends DIYPane
 
 		if (total > 0)
 		{
-			Maze.getInstance().processNpcScriptEvents(npc.getScript().successfulBribe(total));
+//			Maze.getInstance().processNpcScriptEvents(npc.getScript().successfulBribe(total));
 		}
 		else
 		{
-			Maze.getInstance().processNpcScriptEvents(npc.getScript().failedBribe(total));
+//			Maze.getInstance().processNpcScriptEvents(npc.getScript().failedBribe(total));
 		}
 
 		return true;

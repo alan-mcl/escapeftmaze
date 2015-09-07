@@ -25,6 +25,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.TileScript;
+import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
  * Initiates an encounter.
@@ -33,6 +34,7 @@ public class Encounter extends TileScript
 {
 	private EncounterTable encounterTable;
 	private String mazeVariable;
+	private NpcFaction.Attitude attitude;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -41,21 +43,25 @@ public class Encounter extends TileScript
 	 * @param mazeVariable
 	 * 	The maze variable associated with this encounter.  This encounter will
 	 * 	only execute if this variable has not been set yet, and when complete
-	 * 	will set the variable to true.
+	 * @param attitude
 	 */ 
 	public Encounter(
 		EncounterTable encounterTable,
-		String mazeVariable)
+		String mazeVariable, NpcFaction.Attitude attitude)
 	{
 		this.encounterTable = encounterTable;
 		this.mazeVariable = mazeVariable;
+		this.attitude = attitude;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		return getList(
-			new EncounterActorsEvent(mazeVariable, encounterTable.getName()));
+			new EncounterActorsEvent(
+				mazeVariable,
+				encounterTable.getName(),
+				attitude) );
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -67,5 +73,10 @@ public class Encounter extends TileScript
 	public String getMazeVariable()
 	{
 		return mazeVariable;
+	}
+
+	public NpcFaction.Attitude getAttitude()
+	{
+		return attitude;
 	}
 }

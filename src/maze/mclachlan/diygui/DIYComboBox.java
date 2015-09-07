@@ -112,11 +112,7 @@ public class DIYComboBox<T> extends ContainerWidget
 	public void setModel(MutableTree<T> model)
 	{
 		this.model = model;
-		if (model.getRoots().size() == 0)
-		{
-			setSelected(new Object());
-		}
-		else
+		if (model.getRoots().size() > 0)
 		{
 			setSelected(getModel().getRoots().get(0));
 		}
@@ -125,11 +121,18 @@ public class DIYComboBox<T> extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public T getSelected()
 	{
-		return selected.peek();
+		if (selected.isEmpty())
+		{
+			return null;
+		}
+		else
+		{
+			return selected.peek();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setSelected(Object selected)
+	public void setSelected(T selected)
 	{
 		this.selected.push((T)selected);
 	}

@@ -142,11 +142,11 @@ public class StoryboardEvent extends MazeEvent
 		Maze.getInstance().getUi().showBlockingScreen(
 			dialog, BlockingScreen.Mode.INTERRUPTABLE, this);
 		
-		synchronized(this)
+		synchronized(Maze.getInstance().getEventMutex())
 		{
 			try
 			{
-				wait();
+				Maze.getInstance().getEventMutex().wait();
 			}
 			catch (InterruptedException e)
 			{

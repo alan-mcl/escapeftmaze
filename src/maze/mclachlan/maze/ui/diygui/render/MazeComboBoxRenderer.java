@@ -40,7 +40,8 @@ public class MazeComboBoxRenderer extends Renderer
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
 		DIYComboBox combo = (DIYComboBox)widget;
-		String text = combo.getSelected().toString();
+		Object selected = combo.getSelected();
+		String text = selected==null ? "" : selected.toString();
 
 		if (combo.getEditorText() != null)
 		{

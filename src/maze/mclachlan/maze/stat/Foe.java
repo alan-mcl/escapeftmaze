@@ -29,8 +29,10 @@ import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatantData;
+import mclachlan.maze.stat.combat.DefaultFoeAiScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.npc.NpcFaction;
+import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -259,6 +261,12 @@ public class Foe extends UnifiedActor
 	@Override
 	public void inventoryItemAdded(Item item)
 	{
+	}
+
+	@Override
+	public NpcScript getActionScript()
+	{
+		return new DefaultFoeAiScript(Maze.getInstance().getCurrentActorEncounter());
 	}
 
 	/*-------------------------------------------------------------------------*/

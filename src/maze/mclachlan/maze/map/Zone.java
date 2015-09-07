@@ -119,6 +119,7 @@ public class Zone
 		{
 			for (Npc npc : npcs)
 			{
+				// todo: won't work for more than one NPC?
 				Maze.getInstance().encounterNpc(npc, tile, previousTile);
 			}
 		}

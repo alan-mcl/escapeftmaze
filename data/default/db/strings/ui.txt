@@ -184,6 +184,7 @@ aao.attack = Attack
 aao.defend = Defend
 aao.run.away = Run Away
 aao.intend.nothing = No Action
+aao.threaten = Threaten
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.

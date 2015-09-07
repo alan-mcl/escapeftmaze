@@ -54,11 +54,11 @@ public class WaitForPlayerSpeech extends MazeEvent
 		// hang when we call wait() below.
 		Maze.getInstance().getUi().displayMazeEvent(this, true);
 		
-		synchronized(this)
+		synchronized(Maze.getInstance().getEventMutex())
 		{
 			try
 			{
-				this.wait();
+				Maze.getInstance().getEventMutex().wait();
 			}
 			catch (InterruptedException e)
 			{

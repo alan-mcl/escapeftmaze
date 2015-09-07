@@ -1,7 +1,7 @@
 name=1 - Guardian
 difficulty=0,0,3,0,0,0,5,4
 required=00100011
-payload=3,,,false,guardian.trap,
+payload=3,,,false,guardian.trap,,
 @
 name=0 - Poison Darts
 difficulty=8,1,1,0,0,0,0,0

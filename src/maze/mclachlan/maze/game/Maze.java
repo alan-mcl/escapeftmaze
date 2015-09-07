@@ -663,7 +663,7 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							this.encounterActors(foes, null);
+							this.encounterActors(new ActorEncounter(foes, null, null, null));
 						}
 					}
 				}
@@ -769,14 +769,17 @@ public class Maze implements Runnable
 	 * 	true if the encounter actually happens, false otherwise
 	 */
 	public boolean encounterActors(
-		final List<FoeGroup> actors,
-		final String mazeVar)
+		ActorEncounter actorEncounter)
 	{
+		List<FoeGroup> actors = actorEncounter.getActors();
+		NpcFaction.Attitude encounterAttitude = actorEncounter.getEncounterAttitude();
+		String mazeVar = actorEncounter.getMazeVar();
+
 		//
 		// check if there are actually any foes in here
 		//
 		boolean isFoes = false;
-		for (FoeGroup fg : actors)
+		for (ActorGroup fg : actors)
 		{
 			if (fg.numAlive() > 0)
 			{
@@ -789,35 +792,45 @@ public class Maze implements Runnable
 		{
 			return false;
 		}
-			
+
 		//
 		// Determine the attitude of the encounter
 		//
 
-		// first try for an NPC faction
 		NpcFaction.Attitude attitude = null;
-		for (FoeGroup fg : actors)
+		// first, is there an encounter flag on the encounter event?
+		if (encounterAttitude != null)
 		{
-			Foe f = (Foe)fg.getActors().get(0);
+			attitude = encounterAttitude;
+		}
 
-			String faction = f.getFaction();
-			if (faction != null)
+		// second, try for an NPC faction
+		if (attitude == null)
+		{
+			for (ActorGroup ag : actors)
 			{
-				NpcFaction npcFaction = NpcManager.getInstance().getNpcFaction(faction);
+				UnifiedActor actor = ag.getActors().get(0);
 
-				log(Log.DEBUG, "Found NPC faction for ["+f.getName()+"] " +
-					"["+f.getFaction()+"] ["+npcFaction.getAttitude()+"]");
+				String faction = actor.getFaction();
+				if (faction != null)
+				{
+					NpcFaction npcFaction = NpcManager.getInstance().getNpcFaction(faction);
 
-				attitude = npcFaction.getAttitude();
+					log(Log.DEBUG, "Found NPC faction for ["+actor.getName()+"] " +
+						"["+actor.getFaction()+"] ["+npcFaction.getAttitude()+"]");
+
+					attitude = npcFaction.getAttitude();
+				}
 			}
 		}
 
 		// no faction? look for the worst starting attitude
 		if (attitude == null)
 		{
-			for (FoeGroup fg : actors)
+			for (ActorGroup ag : actors)
 			{
-				NpcFaction.Attitude at = ((Foe)fg.getActors().get(0)).getDefaultAttitude();
+				// by now we can assume Foes
+				NpcFaction.Attitude at = ((Foe)ag.getActors().get(0)).getDefaultAttitude();
 
 				if (attitude == null || at.getSortOrder() < attitude.getSortOrder())
 				{
@@ -882,13 +895,13 @@ public class Maze implements Runnable
 		//
 		// Change game state
 		//
-		currentActorEncounter = new ActorEncounter(actors, attitude, mazeVar, ambushStatus);
+		currentActorEncounter = new ActorEncounter(actors, mazeVar, attitude, ambushStatus);
 		this.setState(State.ENCOUNTER_ACTORS);
 
 		//
 		// Appearance scripts of the leader
 		//
-		Foe f = GameSys.getInstance().getLeader(actors);
+		Foe f = (Foe)GameSys.getInstance().getLeader(actors);
 		if (f.getAppearanceScript() != null)
 		{
 			resolveEvents(f.getAppearanceScript().getEvents());
@@ -927,6 +940,7 @@ public class Maze implements Runnable
 			ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
 			ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY))
 		{
+			this.setCurrentCombat(new Combat(party, actors, true));
 			this.setState(State.COMBAT);
 		}
 
@@ -1222,14 +1236,14 @@ public class Maze implements Runnable
 	 * 	Any mutex that should be notified when the animation is complete.  May
 	 * 	be null.
 	 */
-	public void startAnimation(Animation animation, Object mutex)
+	public void startAnimation(Animation animation, AnimationContext animationContext, Object mutex)
 	{
 		if (currentCombat == null)
 		{
 			return;
 		}
 		
-		startAnimation(animation, mutex, currentCombat.getAnimationContext());
+		startAnimation(animation, mutex, animationContext);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1327,11 +1341,11 @@ public class Maze implements Runnable
 			{
 				log(Log.DEBUG, "waiting on ["+event.getClass().getSimpleName()+
 					"] ["+event.toString()+"]");
-				synchronized(event)
+				synchronized(Maze.getInstance().getEventMutex())
 				{
 					try
 					{
-						event.wait();
+						getEventMutex().wait();
 					}
 					catch (InterruptedException e)
 					{
@@ -1341,13 +1355,13 @@ public class Maze implements Runnable
 			}
 			else if (event.getDelay() > MazeEvent.Delay.NONE)
 			{
-				synchronized(event)
+				synchronized(Maze.getInstance().getEventMutex())
 				{
 					try
 					{
 						// wait instead of sleep so that the user can
 						// click past any text
-						event.wait(event.getDelay());
+						getEventMutex().wait(event.getDelay());
 					}
 					catch (InterruptedException e)
 					{
@@ -1767,7 +1781,80 @@ public class Maze implements Runnable
 		currentNpc = npc;
 		setState(Maze.State.ENCOUNTER_NPC);
 
-		new Thread("Maze NPC encounter thread")
+		// first, any pre-encounter events need to be executed
+		appendEvents(npc.getScript().preAppearance());
+
+		// add the NPC to the UI.
+		FoeTemplate npcFoeTemplate = Database.getInstance().getFoeTemplate(npc.getFoeName());
+		Foe foe = new Foe(npcFoeTemplate);
+
+		// init foes
+		ArrayList<FoeGroup> allFoes = new ArrayList<FoeGroup>();
+		for (int i=0; i<1; i++)
+		{
+			List<UnifiedActor> foes = new ArrayList<UnifiedActor>();
+			foes.add(foe);
+			FoeGroup foesGroup = new FoeGroup(foes);
+			allFoes.add(foesGroup);
+		}
+
+		ui.setFoes(allFoes);
+
+		if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
+		{
+			//NPC is pissed off and simply attacks the party
+			appendEvents(npc.getScript().attacksParty());
+		}
+		else
+		{
+			if (!npc.isFound())
+			{
+				// first meeting: process diplomacy bonus of the best diplomat
+				int diplomacy = 0;
+				for (UnifiedActor a : getParty().getActors())
+				{
+					if (a.getModifier(Stats.Modifiers.DIPLOMAT) > diplomacy)
+					{
+						diplomacy = a.getModifier(Stats.Modifiers.DIPLOMAT);
+					}
+				}
+				/*
+				if (diplomacy > 0)
+							{
+								// todo: ATTITUDE CHANGE
+								npc.changeAttitude(NpcFaction.AttitudeChange.BETTER);
+							}
+				*/
+			}
+
+			if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
+				npc.getAttitude() == NpcFaction.Attitude.ALLIED)
+			{
+				if (!npc.isFound())
+				{
+					appendEvents(npc.getScript().firstGreeting());
+					npc.setFound(true);
+				}
+				else
+				{
+					appendEvents(npc.getScript().subsequentGreeting());
+				}
+			}
+			else
+			{
+				if (!npc.isFound())
+				{
+					appendEvents(npc.getScript().firstGreeting());
+					npc.setFound(true);
+				}
+				else
+				{
+					appendEvents(npc.getScript().neutralGreeting());
+				}
+			}
+		}
+
+/*		new Thread("Maze NPC encounter thread")
 		{
 			public void run()
 			{
@@ -1810,13 +1897,13 @@ public class Maze implements Runnable
 									diplomacy = a.getModifier(Stats.Modifiers.DIPLOMAT);
 								}
 							}
-/*
+*//*
 							if (diplomacy > 0)
 							{
 								// todo: ATTITUDE CHANGE
 								npc.changeAttitude(NpcFaction.AttitudeChange.BETTER);
 							}
-*/
+*//*
 						}
 						
 						if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
@@ -1851,36 +1938,7 @@ public class Maze implements Runnable
 					errorDialog(e);
 				}
 			}
-		}.start();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void processNpcScriptEvents(final List<MazeEvent> events)
-	{
-		new Thread("Maze NPC events thread")
-		{
-			public void run()
-			{
-				try
-				{
-					processNpcEventsInternal(events);
-				}
-				catch (Exception e)
-				{
-					errorDialog(e);
-				}
-			}
-		}.start();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void processNpcEventsInternal(List<MazeEvent> events)
-	{
-		resolveEvents(events);
-		if (getState() == State.ENCOUNTER_NPC)
-		{
-			this.ui.showNpcScreen(currentNpc);
-		}
+		}.start();*/
 	}
 
 	/*-------------------------------------------------------------------------*/

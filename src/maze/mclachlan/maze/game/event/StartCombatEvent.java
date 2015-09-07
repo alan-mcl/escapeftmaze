@@ -24,11 +24,9 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.stat.PlayerParty;
-import mclachlan.maze.stat.SpeechUtil;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.npc.Npc;
 
 /**
  *
@@ -57,19 +55,38 @@ public class StartCombatEvent extends MazeEvent
 		MazeScript script = Database.getInstance().getScript("_ENCOUNTER_");
 		maze.resolveEvents(script.getEvents());
 
+		// make sure we're dealing with Foes
+		List<FoeGroup> foeGroups = new ArrayList<FoeGroup>();
+		for (ActorGroup ag : actors)
+		{
+			if (ag instanceof FoeGroup)
+			{
+				foeGroups.add((FoeGroup)ag);
+			}
+			else if (ag instanceof NpcActorGroup)
+			{
+				Npc npc = ((NpcActorGroup)ag).getNpc();
+				FoeTemplate npcFoeTemplate = Database.getInstance().getFoeTemplate(npc.getFoeName());
+				Foe foe = new Foe(npcFoeTemplate);
+				FoeGroup fg = new FoeGroup();
+				fg.add(foe);
+				foeGroups.add(fg);
+			}
+		}
+
 		// begin encounter speech
 		int avgFoeLevel = 0;
-		for (FoeGroup fg : actors)
+		for (ActorGroup ag : foeGroups)
 		{
-			avgFoeLevel += fg.getAverageLevel();
+			avgFoeLevel += ag.getAverageLevel();
 		}
-		avgFoeLevel /= actors.size();
+		avgFoeLevel /= foeGroups.size();
 		SpeechUtil.getInstance().startCombatSpeech(
 			avgFoeLevel,
 			maze.getParty().getPartyLevel());
 
 		// execute any appearance scripts, picking from the first foe
-		Foe f = (Foe)(actors.get(0).getActors().get(0));
+		Foe f = (Foe)(foeGroups.get(0).getActors().get(0));
 		if (f.getAppearanceScript() != null)
 		{
 			maze.resolveEvents(f.getAppearanceScript().getEvents());
@@ -78,7 +95,7 @@ public class StartCombatEvent extends MazeEvent
 		//
 		// Combat is go!
 		//
-		maze.setCurrentCombat(new Combat(party, actors, true));
+		maze.setCurrentCombat(new Combat(party, foeGroups, true));
 		maze.setState(Maze.State.COMBAT);
 
 		return null;

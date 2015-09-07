@@ -19,53 +19,39 @@
 
 package mclachlan.maze.stat.combat.event;
 
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.ui.diygui.Animation;
 import java.util.*;
-import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
-public class AnimationEvent extends MazeEvent
+public class ThreatenEvent extends MazeEvent
 {
-	private Animation animation;
-	private AnimationContext animationContext;
+	private UnifiedActor actor, target;
 
 	/*-------------------------------------------------------------------------*/
-	public AnimationEvent(Animation anim)
+	public ThreatenEvent(
+		UnifiedActor actor,
+		UnifiedActor target)
 	{
-		this.animation = anim;
+		this.actor = actor;
+		this.target = target;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return Delay.WAIT_ON_CLICK;
-	}
-
-	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().startAnimation(animation, this, animationContext);
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Animation getAnimation()
-	{
-		return animation;
-	}
-
-	public void setAnimationContext(AnimationContext animationContext)
-	{
-		this.animationContext = animationContext;
+		int total = GameSys.getInstance().threatenNpc(actor, target);
+		if (total > 0)
+		{
+			return target.getActionScript().successfulThreat(total);
+		}
+		else
+		{
+			return target.getActionScript().failedThreat(total);
+		}
 	}
 }

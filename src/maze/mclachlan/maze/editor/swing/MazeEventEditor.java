@@ -35,6 +35,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.data.v1.V1MazeEvent.*;
@@ -73,6 +74,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JSpinner casterLevel, castingLevel;
 	private JComboBox encounterTable;
 	private JTextField encounterMazeVariable;
+	private JComboBox encounterAttitude;
 	private JSpinner flavourTextDelay;
 	private JCheckBox shouldClearText;
 	private JTextArea flavourText;
@@ -207,6 +209,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				EncounterActorsEvent ee = (EncounterActorsEvent)e;
 				encounterMazeVariable.setText(ee.getMazeVariable());
 				encounterTable.setSelectedItem(ee.getEncounterTable());
+				if (ee.getAttitude() == null)
+				{
+					encounterAttitude.setSelectedItem(EditorPanel.NONE);
+				}
+				else
+				{
+					encounterAttitude.setSelectedItem(ee.getAttitude());
+				}
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -409,9 +419,19 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					(Integer)castingLevel.getValue());
 				break;
 			case _EncounterActorsEvent:
+				NpcFaction.Attitude attitude;
+				if (encounterAttitude.getSelectedItem() == EditorPanel.NONE)
+				{
+					attitude = null;
+				}
+				else
+				{
+					attitude = (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
+				}
 				this.result = new EncounterActorsEvent(
 					encounterMazeVariable.getText(),
-					(String)encounterTable.getSelectedItem());
+					(String)encounterTable.getSelectedItem(),
+					attitude);
 				break;
 			case _FlavourTextEvent:
 				this.result = new FlavourTextEvent(
@@ -990,11 +1010,19 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		Collections.sort(vec);
 		encounterTable = new JComboBox(vec);
 		encounterMazeVariable = new JTextField(20);
+
+		NpcFaction.Attitude[] values = NpcFaction.Attitude.values();
+		Vector attitudes = new Vector();
+		Collections.addAll(attitudes, values);
+		attitudes.add(0, EditorPanel.NONE);
+		encounterAttitude = new JComboBox(attitudes);
+
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
 			new JLabel("Encounter Table: "), encounterTable,
-			new JLabel("Maze Variable: "), encounterMazeVariable);
+			new JLabel("Maze Variable: "), encounterMazeVariable,
+			new JLabel("Attitude: "), encounterAttitude);
 		return result;
 	}
 

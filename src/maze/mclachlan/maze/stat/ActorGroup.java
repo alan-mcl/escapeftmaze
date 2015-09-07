@@ -71,4 +71,9 @@ public interface ActorGroup extends SpellTarget
 
 	/*-------------------------------------------------------------------------*/
 	List<CloudSpell> getCloudSpells();
+
+	int numActive();
+
+	/*-------------------------------------------------------------------------*/
+	int getAverageLevel();
 }

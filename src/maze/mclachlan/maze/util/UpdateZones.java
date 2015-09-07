@@ -28,7 +28,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Zone;
 
 /**
- *
+ * loads every zone then saves it
  */
 public class UpdateZones
 {

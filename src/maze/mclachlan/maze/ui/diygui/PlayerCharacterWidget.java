@@ -127,7 +127,6 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			else
 			{
 				action.setEditorText(null);
-				action.getSelected().select(playerCharacter, combat, this);
 			}
 		}
 	}
@@ -278,8 +277,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	public void selected(ActorActionIntention intention)
 	{
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT &&
-			Maze.getInstance().getCurrentCombat() == null)
+		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
 			if (intention instanceof EquipIntention)
 			{

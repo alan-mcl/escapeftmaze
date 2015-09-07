@@ -27,6 +27,7 @@ import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.map.Tile;
+import mclachlan.maze.stat.npc.NpcScript;
 
 /**
  *
@@ -63,6 +64,9 @@ public abstract class AbstractActor extends UnifiedActor
 	public String getName() { return "Abstract Actor"; }
 	public String getDisplayName() { return getName(); }
 
+	@Override
+	public String getDisplayNamePlural() { return getName(); }
+
 	public CurMax getActionPoints() { return new CurMax(); }
 	public CurMaxSub getHitPoints() { return new CurMaxSub(); }
 	public CurMax getMagicPoints() { return new CurMax(); }
@@ -92,7 +96,15 @@ public abstract class AbstractActor extends UnifiedActor
 	public ModifierValue collectConditionBanners(String modifier) {return null;};
 	public int getAmountMagicPresent(int colour) {return 0;};
 
-	public void inventoryItemAdded(Item item) {};
+	public void inventoryItemAdded(Item item) {}
+
+	@Override
+	public NpcScript getActionScript()
+	{
+		return null;
+	}
+
+	;
 
 	@Override
 	public List<SpellLikeAbility> getSpellLikeAbilities()
@@ -104,5 +116,11 @@ public abstract class AbstractActor extends UnifiedActor
 	public CharacterClass.Focus getFocus()
 	{
 		return CharacterClass.Focus.COMBAT;
+	}
+
+	@Override
+	public String getFaction()
+	{
+		return null;
 	}
 }

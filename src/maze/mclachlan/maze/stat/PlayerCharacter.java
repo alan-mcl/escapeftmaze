@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.diygui.util.HashMapMutableTree;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.condition.Condition;
@@ -30,6 +31,9 @@ import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.npc.NpcFaction;
+import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.stat.EquipableSlot.Type.*;
@@ -358,6 +362,12 @@ public class PlayerCharacter extends UnifiedActor
 		return getCharacterClass().getFocus();
 	}
 
+	@Override
+	public String getFaction()
+	{
+		return null;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Returns all action options for this character.
@@ -447,6 +457,64 @@ public class PlayerCharacter extends UnifiedActor
 		}
 		else if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
 		{
+			// todo: other options
+			ActorEncounter actorEncounter = maze.getCurrentActorEncounter();
+			NpcFaction.Attitude attitude = actorEncounter.getEncounterAttitude();
+
+			switch (attitude)
+			{
+				case ATTACKING:
+					break;
+				case AGGRESSIVE:
+
+					// todo: tie to character class ability
+					result.add(new ThreatenOption(), null);
+					break;
+				case WARY:
+					break;
+				case SCARED:
+					break;
+				case NEUTRAL:
+					break;
+				case FRIENDLY:
+					break;
+				case ALLIED:
+					break;
+			}
+
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// always an equip option
+			result.add(new EquipOption(), null);
+		}
+		else if (maze.getState() == Maze.State.ENCOUNTER_NPC)
+		{
+			// todo: other options
+			Npc npc = maze.getCurrentNpc();
+			NpcFaction.Attitude attitude = npc.getAttitude();
+
+			switch (attitude)
+			{
+				case ATTACKING:
+					break;
+				case AGGRESSIVE:
+
+					// todo: tie to character class ability
+					result.add(new ThreatenOption(), null);
+					break;
+				case WARY:
+					break;
+				case SCARED:
+					break;
+				case NEUTRAL:
+					break;
+				case FRIENDLY:
+					break;
+				case ALLIED:
+					break;
+			}
+
 			// always a use item option
 			result.add(new UseItemOption(), null);
 
@@ -505,6 +573,12 @@ public class PlayerCharacter extends UnifiedActor
 	public void inventoryItemAdded(Item item)
 	{
 		GameSys.getInstance().attemptManualIdentify(item, getActorGroup());
+	}
+
+	@Override
+	public NpcScript getActionScript()
+	{
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -579,10 +653,11 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = sm;
 	}
 
-	public String getDisplayName()
-	{
-		return getName();
+	public String getDisplayName() { return getName();
 	}
+
+	@Override
+	public String getDisplayNamePlural() { return getName(); }
 
 	/**
 	 * a PCs type is his or her character class

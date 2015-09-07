@@ -162,7 +162,7 @@ playerOrigin: 29:26
 143: 0:3f800000000000000000,03030201010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 144: 0:3f800000000000000000,03010301010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 145: 0:3f800000000000000000,02020302030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-146: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.26:3f800000000000000000,02030303020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+146: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.26,:3f800000000000000000,02030303020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 147: 0:3f800000000000000000,02030102010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 148: 0:3f800000000000000000,01010303020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 149: 0:3f800000000000000000,01030202020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -186,7 +186,7 @@ playerOrigin: 29:26
 167: 0:3f800000000000000000,02010101010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 168: 0:3f800000000000000000,01030201020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 169: 0:3f800000000000000000,03020203020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-170: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.42:3f800000000000000000,01010102010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+170: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.42,:3f800000000000000000,01010102010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 171: 0:3f800000000000000000,02030203030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 172: 0:3f800000000000000000,02020303020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 173: 0:3f800000000000000000,02020303030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -216,7 +216,7 @@ playerOrigin: 29:26
 197: 0:3f800000000000000000,01010301020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 198: 0:3f800000000000000000,01020203010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 199: 0:3f800000000000000000,03030201030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-200: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.41:3f800000000000000000,03030303030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+200: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.41,:3f800000000000000000,03030303030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 201: 0:3f800000000000000000,03030102020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 202: 0:3f800000000000000000,03030102010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 203: 0:3f800000000000000000,03010101010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -224,7 +224,7 @@ playerOrigin: 29:26
 205: 0:3f800000000000000000,03020202020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 206: 0:3f800000000000000000,01010201030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 207: 0:3f800000000000000000,01010201010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-208: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.27:3f800000000000000000,01030202030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+208: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.27,:3f800000000000000000,01030202030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 209: 0:3f800000000000000000,03030103030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 210: 0:3f800000000000000000,02030203010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 211: 0:3f800000000000000000,03010301030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -252,7 +252,7 @@ playerOrigin: 29:26
 233: 0:3f800000000000000000,02030301010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 234: 0:3f800000000000000000,01030302020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 235: 0:3f800000000000000000,02030301030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-236: 2:2,,,false,5///false/ichiba.domain.north.chest.1,0`0 - Magic Sparks~25`0 - Poison Darts~25`1 - Glowing Curse~25`1 - Noxious Vapours~25,ichiba.domain.north.chest.1,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,Ichiba Domain North chest 1 pre:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.29:3f800000000000000000,01030203030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+236: 2:2,,,false,5///false/ichiba.domain.north.chest.1,0`0 - Magic Sparks~25`0 - Poison Darts~25`1 - Glowing Curse~25`1 - Noxious Vapours~25,ichiba.domain.north.chest.1,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,Ichiba Domain North chest 1 pre:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.29,:3f800000000000000000,01030203030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 237: 0:3f800000000000000000,02010103030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 238: 0:3f800000000000000000,03010303030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 239: 0:3f800000000000000000,01010101020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -260,7 +260,7 @@ playerOrigin: 29:26
 241: 0:3f800000000000000000,03010303020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 242: 0:3f800000000000000000,02030101030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 243: 0:3f800000000000000000,01010101030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-244: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.25:3f800000000000000000,01030303010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+244: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.25,:3f800000000000000000,01030303010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 245: 0:3f800000000000000000,03030303030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 246: 0:3f800000000000000000,01020201020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 247: 0:3f800000000000000000,02030301030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -274,12 +274,12 @@ playerOrigin: 29:26
 255: 0:3f800000000000000000,02020203030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 256: 0:3f800000000000000000,03020203020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 257: 0:3f800000000000000000,01030301020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-258: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.7:3f800000000000000000,01010202020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+258: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.7,:3f800000000000000000,01010202020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 259: 0:3f800000000000000000,01020103010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 260: 0:3f800000000000000000,02030202010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 261: 0:3f800000000000000000,02020302020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 262: 0:3f800000000000000000,03020101030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-263: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.40:3f800000000000000000,01020301030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+263: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.40,:3f800000000000000000,01020301030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 264: 0:3f800000000000000000,01020203030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 265: 0:3f800000000000000000,03020201010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 266: 0:3f800000000000000000,02020103020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -295,7 +295,7 @@ playerOrigin: 29:26
 276: 0:3f800000000000000000,02010101030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 277: 0:3f800000000000000000,03030302010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,03030101020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-279: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.24:3f800000000000000000,03030201010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+279: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.24,:3f800000000000000000,03030201010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 280: 0:3f800000000000000000,03010201010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 281: 0:3f800000000000000000,03030203010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 282: 0:3f800000000000000000,03020302010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -318,7 +318,7 @@ playerOrigin: 29:26
 299: 0:3f800000000000000000,01030302020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 300: 0:3f800000000000000000,03030103020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 301: 0:3f800000000000000000,02030303010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-302: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.28:3f800000000000000000,02020203020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+302: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.28,:3f800000000000000000,02020203020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 303: 0:3f800000000000000000,03010103020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 304: 0:3f800000000000000000,01010301020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 305: 0:3f800000000000000000,01020201010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -330,7 +330,7 @@ playerOrigin: 29:26
 311: 0:3f800000000000000000,01020203020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 312: 0:3f800000000000000000,03010303010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 313: 0:3f800000000000000000,02010101020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-314: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.23:3f800000000000000000,03030302010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+314: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.23,:3f800000000000000000,03030302010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 315: 0:3f800000000000000000,02010303010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 316: 0:3f800000000000000000,03020203030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 317: 0:3f800000000000000000,02020103010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -346,12 +346,12 @@ playerOrigin: 29:26
 327: 0:3f800000000000000000,03030303030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 328: 0:3f800000000000000000,01010202020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 329: 0:3f800000000000000000,02020201030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-330: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.30:3f800000000000000000,03010201010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+330: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.30,:3f800000000000000000,03010201010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 331: 0:3f800000000000000000,02010301020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 332: 0:3f800000000000000000,02010302030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 333: 0:3f800000000000000000,01010101030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 334: 0:3f800000000000000000,03020201010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-335: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.5:3f800000000000000000,02020101020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+335: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.5,:3f800000000000000000,02020101020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 336: 0:3f800000000000000000,03010302030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 337: 0:3f800000000000000000,01020101020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 338: 0:3f800000000000000000,03010203030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -370,13 +370,13 @@ playerOrigin: 29:26
 351: 0:3f800000000000000000,02010202010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 352: 0:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 353: 0:3f800000000000000000,03010202010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-354: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.39:3f800000000000000000,01010303030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+354: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.39,:3f800000000000000000,01010303030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 355: 0:3f800000000000000000,02010103020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 356: 0:3f800000000000000000,02010202010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 357: 0:3f800000000000000000,01010103010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 358: 0:3f800000000000000000,02010203030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 359: 0:3f800000000000000000,03030201030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-360: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.37:3f800000000000000000,02010101010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+360: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.37,:3f800000000000000000,02010101010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 361: 0:3f800000000000000000,03030201030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 362: 0:3f800000000000000000,02020203030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 363: 0:3f800000000000000000,03010101030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -387,13 +387,13 @@ playerOrigin: 29:26
 368: 0:3f800000000000000000,03030201010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 369: 0:3f800000000000000000,02010102030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 370: 0:3f800000000000000000,02020102020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-371: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.4:3f800000000000000000,03030101020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+371: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.4,:3f800000000000000000,03030101020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 372: 0:3f800000000000000000,03020202010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 373: 0:3f800000000000000000,03030303020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 374: 0:3f800000000000000000,02010102030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 375: 0:3f800000000000000000,02020102030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 376: 0:3f800000000000000000,01010302030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-377: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.22:3f800000000000000000,01030302020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+377: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.22,:3f800000000000000000,01030302020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 378: 0:3f800000000000000000,02010303030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 379: 0:3f800000000000000000,01030102030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 380: 0:3f800000000000000000,03020302030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -474,7 +474,7 @@ playerOrigin: 29:26
 455: 0:3f800000000000000000,01030201030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 456: 0:3f800000000000000000,03010303030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 457: 0:3f800000000000000000,01010202010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-458: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.31:3f800000000000000000,01010301030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+458: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.31,:3f800000000000000000,01010301030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 459: 0:3f800000000000000000,02030201030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 460: 0:3f800000000000000000,02010201020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 461: 0:3f800000000000000000,03020203020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -484,7 +484,7 @@ playerOrigin: 29:26
 465: 0:3f800000000000000000,02030302030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 466: 0:3f800000000000000000,02030102010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 467: 0:3f800000000000000000,01020202020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-468: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.21:3f800000000000000000,03020303020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+468: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.21,:3f800000000000000000,03020303020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 469: 0:3f800000000000000000,03010202020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 470: 0:3f800000000000000000,03010201010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 471: 0:3f800000000000000000,02030101020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -498,7 +498,7 @@ playerOrigin: 29:26
 479: 0:3f800000000000000000,03030103020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 480: 0:3f800000000000000000,01030102020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 481: 0:3f800000000000000000,01010301030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-482: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.38:3f800000000000000000,03030301010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+482: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.38,:3f800000000000000000,03030301010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 483: 0:3f800000000000000000,02020301020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 484: 0:3f800000000000000000,02020103030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 485: 0:3f800000000000000000,01020102030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -513,7 +513,7 @@ playerOrigin: 29:26
 494: 0:3f800000000000000000,03020302010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 495: 0:3f800000000000000000,03010102010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 496: 0:3f800000000000000000,03010302020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-497: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.20:3f800000000000000000,02030101030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+497: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.20,:3f800000000000000000,02030101030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 498: 0:3f800000000000000000,01030102020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 499: 0:3f800000000000000000,03030303010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 500: 0:3f800000000000000000,02010302030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -534,7 +534,7 @@ playerOrigin: 29:26
 515: 0:3f800000000000000000,02010201020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 516: 0:3f800000000000000000,03020202010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 517: 0:3f800000000000000000,01030302020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-518: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.6:3f800000000000000000,03030301030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+518: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.6,:3f800000000000000000,03030301030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 519: 0:3f800000000000000000,01010101020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 520: 0:3f800000000000000000,03020202010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 521: 0:3f800000000000000000,01030102020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -543,7 +543,7 @@ playerOrigin: 29:26
 524: 0:3f800000000000000000,03010201020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 525: 0:3f800000000000000000,01030101010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 526: 0:3f800000000000000000,02010203020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-527: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.32:3f800000000000000000,01030102020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+527: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.32,:3f800000000000000000,01030102020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 528: 0:3f800000000000000000,01030103010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 529: 0:3f800000000000000000,02010303020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 530: 0:3f800000000000000000,02030301010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -580,7 +580,7 @@ playerOrigin: 29:26
 561: 0:3f800000000000000000,03020102030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 562: 0:3f800000000000000000,03010102030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 563: 0:3f800000000000000000,03010102020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-564: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.3:3f800000000000000000,02020103030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+564: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.3,:3f800000000000000000,02020103030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 565: 0:3f800000000000000000,03030103020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 566: 0:3f800000000000000000,01020302010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 567: 0:3f800000000000000000,03030303030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -599,7 +599,7 @@ playerOrigin: 29:26
 580: 0:3f800000000000000000,03010202020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 581: 0:3f800000000000000000,02010301010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 582: 0:3f800000000000000000,03020301020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-583: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.36:3f800000000000000000,03020301020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+583: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.36,:3f800000000000000000,03020301020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 584: 0:3f800000000000000000,01010201020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 585: 0:3f800000000000000000,01030303010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 586: 0:3f800000000000000000,03030301020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -635,7 +635,7 @@ playerOrigin: 29:26
 616: 0:3f800000000000000000,02030101030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 617: 0:3f800000000000000000,03030202030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 618: 0:3f800000000000000000,02020102030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-619: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.33:3f800000000000000000,01030203020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+619: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.33,:3f800000000000000000,01030203020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 620: 0:3f800000000000000000,02030102010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 621: 0:3f800000000000000000,03020303010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 622: 0:3f800000000000000000,02010102020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -649,7 +649,7 @@ playerOrigin: 29:26
 630: 0:3f800000000000000000,01020203010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 631: 0:3f800000000000000000,02010302030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 632: 0:3f800000000000000000,03010301010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-633: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.17:3f800000000000000000,01020102030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+633: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.17,:3f800000000000000000,01020102030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 634: 0:3f800000000000000000,02030103010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 635: 0:3f800000000000000000,01020101020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 636: 0:3f800000000000000000,03030202020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -671,7 +671,7 @@ playerOrigin: 29:26
 652: 0:3f800000000000000000,02020303030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 653: 0:3f800000000000000000,02030101010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 654: 0:3f800000000000000000,03020203010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-655: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.19:3f800000000000000000,03010201010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+655: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.19,:3f800000000000000000,03010201010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 656: 0:3f800000000000000000,03010102010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 657: 0:3f800000000000000000,01020203020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 658: 0:3f800000000000000000,03010101030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -697,7 +697,7 @@ playerOrigin: 29:26
 678: 0:3f800000000000000000,01010303020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 679: 0:3f800000000000000000,03020303020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 680: 0:3f800000000000000000,03010202030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-681: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.35:3f800000000000000000,02030202030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+681: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.35,:3f800000000000000000,02030202030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 682: 0:3f800000000000000000,01010202020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 683: 0:3f800000000000000000,01030102010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 684: 0:3f800000000000000000,02030101020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -728,21 +728,21 @@ playerOrigin: 29:26
 709: 0:3f800000000000000000,02030303030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 710: 0:3f800000000000000000,03010302030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 711: 0:3f800000000000000000,02010202010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-712: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.34:3f800000000000000000,01030303030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+712: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.34,:3f800000000000000000,01030303030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 713: 0:3f800000000000000000,03010103020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 714: 0:3f800000000000000000,01010203020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 715: 0:3f800000000000000000,03010303030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-716: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.18:3f800000000000000000,02020303020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+716: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.18,:3f800000000000000000,02020303020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 717: 0:3f800000000000000000,01020302020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 718: 0:3f800000000000000000,03020103030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 719: 0:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 720: 0:3f800000000000000000,03010103020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 721: 0:3f800000000000000000,03010203020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 722: 0:3f800000000000000000,02020201030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-723: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.15:3f800000000000000000,03020303030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+723: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.15,:3f800000000000000000,03020303030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 724: 0:3f800000000000000000,03020103030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 725: 0:3f800000000000000000,01010301010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-726: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.16:3f800000000000000000,01020101020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+726: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.16,:3f800000000000000000,01020101020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 727: 0:3f800000000000000000,01030303010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 728: 0:3f800000000000000000,02020101010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 729: 0:3f800000000000000000,03030303030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -779,7 +779,7 @@ playerOrigin: 29:26
 760: 0:3f800000000000000000,01030203030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 761: 0:3f800000000000000000,01030103010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 762: 0:3f800000000000000000,01030201010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-763: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.12:3f800000000000000000,02030103030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+763: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.12,:3f800000000000000000,02030103030202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 764: 0:3f800000000000000000,02020202010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 765: 0:3f800000000000000000,03030201010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 766: 0:3f800000000000000000,03020102010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -799,13 +799,13 @@ playerOrigin: 29:26
 780: 0:3f800000000000000000,01030303010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 781: 0:3f800000000000000000,02030302020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 782: 0:3f800000000000000000,01010303010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-783: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.2:3f800000000000000000,03020302020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+783: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.2,:3f800000000000000000,03020302020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 784: 0:3f800000000000000000,01030302010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 785: 0:3f800000000000000000,02020203010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 786: 0:3f800000000000000000,01030201020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 787: 0:3f800000000000000000,02010101020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 788: 0:3f800000000000000000,02030203030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-789: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.14:3f800000000000000000,01010101030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+789: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.14,:3f800000000000000000,01010101030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 790: 0:3f800000000000000000,01010203030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 791: 0:3f800000000000000000,03030101020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 792: 0:3f800000000000000000,02030302030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -841,7 +841,7 @@ playerOrigin: 29:26
 822: 0:3f800000000000000000,03020202010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 823: 0:3f800000000000000000,01030201010202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 824: 0:3f800000000000000000,02010302020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-825: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.13:3f800000000000000000,03030201030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+825: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.13,:3f800000000000000000,03030201030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 826: 0:3f800000000000000000,02030203030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 827: 0:3f800000000000000000,03010301030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 828: 0:3f800000000000000000,02020303030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -893,7 +893,7 @@ playerOrigin: 29:26
 874: 0:3f800000000000000000,01010203010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 875: 0:3f800000000000000000,01010103020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 876: 0:3f800000000000000000,03030201010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-877: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.10:3f800000000000000000,03030102030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+877: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.10,:3f800000000000000000,03030102030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 878: 0:3f800000000000000000,01020302030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 879: 0:3f800000000000000000,01030203030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 880: 0:3f800000000000000000,02020303020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -923,7 +923,7 @@ playerOrigin: 29:26
 904: 0:3f800000000000000000,03030303030303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 905: 0:3f800000000000000000,02020103020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 906: 0:3f800000000000000000,02030101010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-907: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.9:3f800000000000000000,02030102030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+907: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.9,:3f800000000000000000,02030102030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 908: 0:3f800000000000000000,02020201010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 909: 0:3f800000000000000000,02020302010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 910: 0:3f800000000000000000,02020103020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -932,7 +932,7 @@ playerOrigin: 29:26
 913: 0:3f800000000000000000,01020303010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 914: 0:3f800000000000000000,03010302020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 915: 0:3f800000000000000000,01010201020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-916: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.1:3f800000000000000000,02020201010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+916: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.1,:3f800000000000000000,02020201010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 917: 0:3f800000000000000000,02010303020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 918: 0:3f800000000000000000,03030203020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 919: 0:3f800000000000000000,01010301020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -962,7 +962,7 @@ playerOrigin: 29:26
 943: 0:3f800000000000000000,03030101010201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 944: 0:3f800000000000000000,02020201030301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 945: 0:3f800000000000000000,01020301010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-946: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.8:3f800000000000000000,01020203030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+946: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.8,:3f800000000000000000,01020203030302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 947: 0:3f800000000000000000,02010202010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 948: 0:3f800000000000000000,02020202010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 949: 0:3f800000000000000000,01020203020201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -970,7 +970,7 @@ playerOrigin: 29:26
 951: 0:3f800000000000000000,02030201010301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 952: 0:3f800000000000000000,01010102010303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 953: 0:3f800000000000000000,03010101030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-954: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.0:3f800000000000000000,01030101020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+954: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.0,:3f800000000000000000,01030101020301:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 955: 0:3f800000000000000000,01010102020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 956: 0:3f800000000000000000,01010203010203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 957: 0:3f800000000000000000,01030102010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
@@ -990,7 +990,7 @@ playerOrigin: 29:26
 971: 0:3f800000000000000000,03030203030201:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 972: 0:3f800000000000000000,01030101010302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 973: 0:3f800000000000000000,01030203020303:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
-974: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.11:3f800000000000000000,01020302030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
+974: 1:3,,,false,ichiba.domain.north.random.enc,ichiba.domain.north.encounter.11,:3f800000000000000000,01020302030203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 975: 0:3f800000000000000000,02010101020203:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 976: 0:3f800000000000000000,02010203020302:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE
 977: 0:3f800000000000000000,01030303020202:WILDERNESS:Forest:5:ichiba.domain.north.random.enc:MEDIUM:AVERAGE

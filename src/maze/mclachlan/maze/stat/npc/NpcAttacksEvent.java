@@ -21,6 +21,7 @@ package mclachlan.maze.stat.npc;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.EncounterTable;
@@ -89,7 +90,8 @@ public class NpcAttacksEvent extends MazeEvent
 		}
 
 		Maze.getInstance().getUi().setFoes(null);
-		Maze.getInstance().encounterActors(allFoes, null);
+		Maze.getInstance().encounterActors(
+			new ActorEncounter(allFoes, null, NpcFaction.Attitude.ATTACKING, null));
 
 		return null;
 	}

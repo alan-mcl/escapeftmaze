@@ -38,6 +38,7 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -108,6 +109,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox encounterTable;
 	private JComboBox chestPreScript;
 	private JTextField encounterVariable;
+	private JComboBox encounterAttitude;
 	private JButton encounterQuickAssignMazeVar;
 	private JTextArea flavourText;
 	private JComboBox lootTable;
@@ -310,6 +312,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				Encounter e = (Encounter)ts;
 				encounterTable.setSelectedItem(e.getEncounterTable().getName());
 				encounterVariable.setText(e.getMazeVariable());
+				if (e.getAttitude() == null)
+				{
+					encounterAttitude.setSelectedItem(EditorPanel.NONE);
+				}
+				else
+				{
+					encounterAttitude.setSelectedItem(e.getAttitude());
+				}
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -513,9 +523,16 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		encounterQuickAssignMazeVar.setToolTipText("Auto assign maz var");
 		encounterQuickAssignMazeVar.addActionListener(this);
 
+		NpcFaction.Attitude[] values = NpcFaction.Attitude.values();
+		Vector attitudes = new Vector();
+		Collections.addAll(attitudes, values);
+		attitudes.add(0, EditorPanel.NONE);
+		encounterAttitude = new JComboBox(attitudes);
+
 		return dirtyGridBagCrap(
 			new JLabel("Encounter Table:"), encounterTable,
-			encounterQuickAssignMazeVar, encounterVariable);
+			encounterQuickAssignMazeVar, encounterVariable,
+			new JLabel("Attitude:"), encounterAttitude);
 	}
 
 	private JPanel getChestPanel()
@@ -867,9 +884,19 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					script);
 				break;
 			case ENCOUNTER:
+				NpcFaction.Attitude attitude;
+				if (encounterAttitude.getSelectedItem() == EditorPanel.NONE)
+				{
+					attitude = null;
+				}
+				else
+				{
+					attitude = (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
+				}
 				result = new Encounter(
 					Database.getInstance().getEncounterTable((String)encounterTable.getSelectedItem()),
-					encounterVariable.getText());
+					encounterVariable.getText(),
+					attitude);
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText());

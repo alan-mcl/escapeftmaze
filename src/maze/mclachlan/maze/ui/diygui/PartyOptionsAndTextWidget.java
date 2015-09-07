@@ -34,6 +34,7 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.npc.Npc;
 
 import static mclachlan.maze.game.Maze.State.*;
 
@@ -76,6 +77,9 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	// combat party options
 	private CombatStateHandler combatStateHandler;
 
+	// encounter NPC options
+	private EncounterNpcStateHandler encounterNpcStateHandler;
+
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
 	{
@@ -89,6 +93,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		movementHandler = new MovementStateHandler(maze, buttonRows, INSET);
 		encounterActorsStateHandler = new EncounterActorsStateHandler(maze, buttonRows, INSET, this);
 		combatStateHandler = new CombatStateHandler(maze, buttonRows, INSET, this);
+		encounterNpcStateHandler = new EncounterNpcStateHandler(maze, buttonRows, buttonRows, this);
 
 		// pack card layout widgets for the right and left panes
 		Map<Object, ContainerWidget> leftCardsWidgets = getLeftCardsWidgets();
@@ -123,6 +128,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		result.put(MOVEMENT, movementHandler.getLeftPane());
 		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getLeftPane());
 		result.put(COMBAT, combatStateHandler.getLeftPane());
+		result.put(ENCOUNTER_NPC, encounterNpcStateHandler.getLeftPane());
 
 		return result;
 	}
@@ -135,6 +141,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		result.put(MOVEMENT, movementHandler.getRightPane());
 		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getRightPane());
 		result.put(COMBAT, combatStateHandler.getRightPane());
+		result.put(ENCOUNTER_NPC, encounterNpcStateHandler.getRightPane());
 
 		return result;
 	}
@@ -192,6 +199,9 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				leftCards.show(COMBAT);
 				rightCards.show(COMBAT);
 				break;
+			case ENCOUNTER_NPC:
+				leftCards.show(ENCOUNTER_NPC);
+				rightCards.show(ENCOUNTER_NPC);
 			default:
 				// do nothing
 		}
@@ -212,9 +222,10 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				combatStateHandler.handleKey(keyCode);
 				break;
 			case ENCOUNTER_CHEST:
-			break;
+				break;
 			case ENCOUNTER_NPC:
-			break;
+				encounterNpcStateHandler.handleKey(keyCode);
+				break;
 			case ENCOUNTER_PORTAL:
 				break;
 
@@ -250,5 +261,11 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	public void setCurrentCombat(Combat currentCombat)
 	{
 		combatStateHandler.setCurrentCombat(currentCombat);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setNpc(Npc npc)
+	{
+		encounterNpcStateHandler.setNpc(npc);
 	}
 }
