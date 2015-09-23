@@ -45,7 +45,7 @@ public class SpeechBubbleAnimation extends Animation
 	// instance parameters
 	private long startTime = System.currentTimeMillis();
 	private PlayerCharacter pc;
-	private boolean leftHanded;
+	private DIYToolkit.Align align;
 	private int duration;
 	private int bHeight;
 	private int bWidth;
@@ -102,13 +102,19 @@ public class SpeechBubbleAnimation extends Animation
 		}
 
 		g.setPaint(new GradientPaint(bX, bY, col1, bX, bY + bHeight, col2, true));
-		g.fill(poly);
+		if (poly != null)
+		{
+			g.fill(poly);
+		}
 		g.fill(rect);
 
 		if (duration == WAIT_FOR_CLICK)
 		{
 			g.setPaint(colour);
-			g.draw(poly);
+			if (poly != null)
+			{
+				g.draw(poly);
+			}
 			g.draw(rect);
 		}
 		
@@ -154,13 +160,17 @@ public class SpeechBubbleAnimation extends Animation
 
 		bHeight = textHeight *strings.size() + PADDING *2;
 		bWidth = textWidth + PADDING *3;
-		if (leftHanded)
+		switch (align)
 		{
-			bX = origination.x + origination.width + INSET;
-		}
-		else
-		{
-			bX = origination.x - INSET - bWidth;
+			case LEFT:
+				bX = origination.x + origination.width + INSET;
+				break;
+			case RIGHT:
+				bX = origination.x - INSET - bWidth;
+				break;
+			case CENTER:
+				bX = origination.x +origination.width/2 -bWidth/2;
+				break;
 		}
 		bY = origination.y + origination.height/2 - bHeight /2;
 
@@ -224,7 +234,7 @@ public class SpeechBubbleAnimation extends Animation
 
 		rect = new RoundRectangle2D.Double(bX, bY, bWidth, bHeight, 10, 10);
 
-		if (leftHanded)
+		if (align == DIYToolkit.Align.LEFT)
 		{
 			poly = new Polygon(
 				new int[]
@@ -241,7 +251,7 @@ public class SpeechBubbleAnimation extends Animation
 					},
 				3);
 		}
-		else
+		else if (align == DIYToolkit.Align.RIGHT)
 		{
 			poly = new Polygon(
 				new int[]
@@ -258,6 +268,10 @@ public class SpeechBubbleAnimation extends Animation
 					},
 				3);
 		}
+		else
+		{
+			// no prong
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -267,14 +281,31 @@ public class SpeechBubbleAnimation extends Animation
 		SpeechBubbleAnimation result = new SpeechBubbleAnimation(
 			colour, text, origination, duration);
 
+		result.origination = origination;
+
+		if (this.origination == null)
+		{
+			result.origination = new Rectangle(
+				DiyGuiUserInterface.SCREEN_WIDTH/2-50,
+				DiyGuiUserInterface.SCREEN_HEIGHT/2-50,
+				100,100);
+			result.align = DIYToolkit.Align.CENTER;
+		}
+		else if (this.origination.x < DiyGuiUserInterface.SCREEN_WIDTH/2)
+		{
+			result.align = DIYToolkit.Align.LEFT;
+		}
+		else
+		{
+			result.align = DIYToolkit.Align.RIGHT;
+		}
+
 		result.pc = (PlayerCharacter)context.getCaster();
 		if (Maze.getInstance().getParty() != null)
 		{
 			result.index = Maze.getInstance().getParty().getPlayerCharacterIndex(result.pc);
 		}
 
-		result.origination = origination;
-		result.leftHanded = this.origination.x < DiyGuiUserInterface.SCREEN_WIDTH/2;
 		result.computeBounds((Graphics2D)getUi().getGraphics());
 
 		return result;

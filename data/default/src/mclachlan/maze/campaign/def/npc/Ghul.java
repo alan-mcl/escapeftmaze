@@ -27,11 +27,11 @@ public class Ghul extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("muuuulgghhhhh...aahhhllgg... hee hee hee hee!!"),
+			new NpcSpeechEvent("muuuulgghhhhh...aahhhllgg... hee hee hee hee!!", npc),
 			new NpcSpeechEvent("ahhhg... fressssh meeeeat come for Ghuuuul..." +
-				" hee hee hee!!"),
+				" hee hee hee!!", npc),
 			new NpcSpeechEvent("mmmhhhghuull... fresshhh meeat and juuuiicy " +
-				"bones.... mmmmmghaaarg... come toooo Ghuulll!!!!"),
+				"bones.... mmmmmghaaarg... come toooo Ghuulll!!!!", npc),
 			new CharacterClassKnowledgeEvent("At once the stench of undeath " +
 				"fill your nostrils, stronger than you have ever sensed it " +
 				"before. This is no ordinary zombie...", "Priest"),

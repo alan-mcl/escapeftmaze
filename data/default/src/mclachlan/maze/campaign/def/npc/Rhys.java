@@ -34,17 +34,17 @@ public class Rhys extends NpcScript
 				"moves slowly towards you, speaking as it comes...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new NpcSpeechEvent("Well well well. Have you come for a drink? " +
-				"Ha ha ha ha haaaaaa ssssssssss sssss."),
+				"Ha ha ha ha haaaaaa ssssssssss sssss.", npc),
 			new NpcSpeechEvent("Ahhhhhh, I am discovered. It was only ever " +
 				"a matter of time. Perhaps I have become complacent, feeding off " +
-				"this stinking city of fools."),
+				"this stinking city of fools.", npc),
 			new NpcSpeechEvent("Before I kill you, I want you to know - I am " +
 				"not a creature of the Maze! I write my own story, blaze my own " +
 				"path, just like you. I too strive against all the odds " +
 				"to tear a better destiny for myself from the bitter hands of " +
-				"fate!"),
+				"fate!", npc),
 			new NpcSpeechEvent("The difference, friends, is that your story " +
-				"ends here!"),
+				"ends here!", npc),
 			new CharacterClassKnowledgeEvent("You recognise this foe as a " +
 				"vampire, one of the deadliest of the undead.",
 				"Priest"),

@@ -8,10 +8,7 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
-import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeechEvent;
+import mclachlan.maze.stat.npc.*;
 
 /**
  * Gnoll chieftain, Gnoll Village.
@@ -40,28 +37,28 @@ public class BrokenFang extends NpcScript
 		return getList(
 			new SoundEffectEvent(RedEar.SOUND_GROWL),
 			new NpcSpeechEvent("Hrpf. Broken Fang greets you. Broken Fang is " +
-				"chieftain here."));
+				"chieftain here.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Hrpf."));
+			new NpcSpeechEvent("Hrpf.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Grrr."));
+				new NpcSpeechEvent("Grrr.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Hrpf."),
+			new NpcSpeechEvent("Hrpf.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -69,7 +66,7 @@ public class BrokenFang extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Grrrr."),
+			new NpcSpeechEvent("Grrrr.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -79,15 +76,15 @@ public class BrokenFang extends NpcScript
 		if (speech.toLowerCase().indexOf("washing of the spears is come") >= 0)
 		{
 			return getList(
-				new NpcSpeechEvent("Grrrrarrrrr! Long waited day is here!"),
+				new NpcSpeechEvent("Grrrrarrrrr! Long waited day is here!", npc),
 				new NpcSpeechEvent("Long gnolls have waited, patient hunters. " +
-					"Today war band runs! Blood and kills!"),
-				new NpcSpeechEvent("Grrraarrrrrgh!"),
+					"Today war band runs! Blood and kills!", npc),
+				new NpcSpeechEvent("Grrraarrrrrgh!", npc),
 				new FlavourTextEvent("Brushing you aside, the gnoll chieftain " +
 					"stides out of the tent, barking orders loudly...."),
 				new SetMazeVariableEvent(Imogen.QUEST_3_COMPLETE, "true"),
 				// move him out the way
-				new ChangeNpcLocationEvent(npc, new Point(1,1), "Gnoll Village"),
+				new ChangeNpcLocationEvent((Npc)npc, new Point(1,1), "Gnoll Village"),
 				new ActorsLeaveEvent());
 		}
 		else

@@ -23,6 +23,11 @@ import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
+import mclachlan.maze.ui.diygui.Animation;
+import mclachlan.maze.ui.diygui.Constants;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.ui.diygui.animation.SpeechBubbleAnimation;
 
 
 /**
@@ -30,18 +35,20 @@ import mclachlan.maze.game.MazeEvent;
  */
 public class NpcSpeechEvent extends MazeEvent
 {
+	private Foe npc;
 	private String text;
 	private int delay;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text)
+	public NpcSpeechEvent(String text, Foe npc)
 	{
-		this(text, Delay.WAIT_ON_CLICK);
+		this(npc, text, Delay.WAIT_ON_CLICK);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public NpcSpeechEvent(String text, int delay)
+	public NpcSpeechEvent(Foe npc, String text, int delay)
 	{
+		this.npc = npc;
 		this.text = text;
 		this.delay = delay;
 	}
@@ -50,24 +57,21 @@ public class NpcSpeechEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		/*Animation a = new SpeechBubbleAnimation(
-			Constants.Colour.STEALTH_GREEN,
-			text,
-			new Rectangle(DiyGuiUserInterface.SCREEN_WIDTH/2, DiyGuiUserInterface.SCREEN_HEIGHT/2,1,1),
-			3000);
+		String s = npc.getDisplayName() + ":\n" + text;
 
-		Maze.getInstance().startAnimation(a, this, new AnimationContext(null));*/
+		Animation a = new SpeechBubbleAnimation(
+			Constants.Colour.STEALTH_GREEN, //todo: NPC speech colour
+			s,
+			null,
+			SpeechBubbleAnimation.WAIT_FOR_CLICK);
+
+		Maze.getInstance().startAnimation(a, this, new AnimationContext(null));
 
 		Maze.getInstance().journalInContext(
-			StringUtil.getUiLabel("j.npc.speech", Maze.getInstance().getCurrentNpc().getName(), text));
+			StringUtil.getUiLabel("j.npc.speech",
+				npc.getName(), text));
 		
 		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return text;
 	}
 
 	/*-------------------------------------------------------------------------*/

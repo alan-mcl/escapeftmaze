@@ -24,10 +24,13 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.Map;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
 
@@ -120,7 +123,15 @@ public class Zone
 			for (Npc npc : npcs)
 			{
 				// todo: won't work for more than one NPC?
-				Maze.getInstance().encounterNpc(npc, tile, previousTile);
+
+				List<FoeGroup> actors = new ArrayList<FoeGroup>();
+				FoeGroup fg = new FoeGroup();
+				fg.add(npc);
+				actors.add(fg);
+
+				ActorEncounter actorEncounter = new ActorEncounter(
+					actors, null, null, Combat.AmbushStatus.NONE);
+				Maze.getInstance().encounterActors(actorEncounter);
 			}
 		}
 

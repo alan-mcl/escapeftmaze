@@ -19,10 +19,13 @@
 
 package mclachlan.maze.ui;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.maze.audio.Music;
@@ -32,9 +35,9 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
+import mclachlan.maze.ui.diygui.MessageDestination;
 
 public interface UserInterface
 {
@@ -155,8 +158,6 @@ public interface UserInterface
 
 	void showChestScreen(Chest chest);
 
-	void showNpcScreen(Npc npc);
-
 	void clearCombatEventDisplay();
 
 	/*-------------------------------------------------------------------------*/
@@ -230,6 +231,9 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	void addMessage(String msg);
+
+	/*-------------------------------------------------------------------------*/
+	MessageDestination getMessageDestination();
 
 	/*-------------------------------------------------------------------------*/
 	void refreshResting();

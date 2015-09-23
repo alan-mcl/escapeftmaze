@@ -112,6 +112,7 @@ public class DIYComboBox<T> extends ContainerWidget
 	public void setModel(MutableTree<T> model)
 	{
 		this.model = model;
+		this.selected.clear();
 		if (model.getRoots().size() > 0)
 		{
 			setSelected(getModel().getRoots().get(0));

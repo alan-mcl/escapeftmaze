@@ -83,7 +83,7 @@ public class V1Npc
 		b.append(V1Utils.NEWLINE);
 
 		b.append("currentInventory=");
-		b.append(V1PlayerCharacter.itemsList.toString(obj.getCurrentInventory()));
+		b.append(V1PlayerCharacter.itemsList.toString(obj.getTradingInventory()));
 		b.append(V1Utils.NEWLINE);
 
 		b.append("theftCounter=");
@@ -149,6 +149,7 @@ public class V1Npc
 			found,
 			dead, 
 			guildMaster,
-			guild);
+			guild,
+			template.getFoeTemplate());
 	}
 }

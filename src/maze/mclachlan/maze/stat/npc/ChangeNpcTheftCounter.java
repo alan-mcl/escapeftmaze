@@ -21,17 +21,18 @@ package mclachlan.maze.stat.npc;
 
 import mclachlan.maze.game.MazeEvent;
 import java.util.*;
+import mclachlan.maze.stat.Foe;
 
 /**
  *
  */
 public class ChangeNpcTheftCounter extends MazeEvent
 {
-	private Npc npc;
-	int value;
+	private Foe npc;
+	private int value;
 
 	/*-------------------------------------------------------------------------*/
-	public ChangeNpcTheftCounter(Npc npc, int value)
+	public ChangeNpcTheftCounter(Foe npc, int value)
 	{
 		this.npc = npc;
 		this.value = value;

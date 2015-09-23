@@ -108,7 +108,7 @@ public class ActorEncounter
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void partyWaits(Maze maze, MessageDestination msg)
+	public void actorsTurnToAct(Maze maze, MessageDestination msg)
 	{
 		switch (encounterAttitude)
 		{
@@ -202,7 +202,7 @@ public class ActorEncounter
 			msg.addMessage(StringUtil.getEventText("msg.actor.attacks", describeLeader()));
 		}
 		maze.appendEvents(new StartCombatEvent(
-			maze, maze.getParty(), getActors(), getMazeVar()));
+			maze, maze.getParty(), this));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -254,8 +254,9 @@ public class ActorEncounter
 		this.ambushStatus = ambushStatus;
 	}
 
-	public UnifiedActor getLeader()
+	public Foe getLeader()
 	{
 		return GameSys.getInstance().getLeader(actors);
 	}
+
 }

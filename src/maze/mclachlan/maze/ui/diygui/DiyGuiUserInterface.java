@@ -51,7 +51,6 @@ import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.util.MazeException;
 
@@ -404,9 +403,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case ENCOUNTER_CHEST:
 				showChestScreen(Maze.getInstance().getCurrentChest());
 				break;
-			case ENCOUNTER_NPC:
-				showNpcScreen(Maze.getInstance().getCurrentNpc());
-				break;
 			case ENCOUNTER_ACTORS:
 				showEncounterActorsScreen(Maze.getInstance().getCurrentActorEncounter());
 				break;
@@ -633,6 +629,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.charMidRight.refresh();
 		this.charTopLeft.refresh();
 		this.charTopRight.refresh();
+		this.partyOptionsAndTextWidget.refresh();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -665,7 +662,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void signBoard(String message, MazeEvent event)
 	{
 		Maze.getInstance().setState(Maze.State.SIGNBOARD);
-		signBoardWidget.setText(message, event);
+		signBoardWidget.setText(message);
 		movementCardLayout.show(signBoardWidget);
 	}
 
@@ -869,13 +866,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		chestOptionsWidget.setChest(chest);
 		combatDisplay.clear();
 		movementCardLayout.show(chestOptionsWidget);
-	}
-
-	public void showNpcScreen(Npc npc)
-	{
-		this.mainLayout.show(this.movementScreen);
-		partyOptionsAndTextWidget.setNpc(npc);
-		movementCardLayout.show(partyOptionsAndTextWidget);
 	}
 
 	public void showEncounterActorsScreen(ActorEncounter actorEncounter)
@@ -1571,6 +1561,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.partyOptionsAndTextWidget.addMessage(msg);
 		Maze.getInstance().journalInContext(msg);
 		Maze.log(msg);
+	}
+
+	@Override
+	public MessageDestination getMessageDestination()
+	{
+		return partyOptionsAndTextWidget;
 	}
 
 	/*-------------------------------------------------------------------------*/

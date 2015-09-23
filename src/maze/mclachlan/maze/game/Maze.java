@@ -38,7 +38,7 @@ import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
-import mclachlan.maze.stat.combat.event.SpeechBubbleEvent;
+import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -104,8 +104,6 @@ public class Maze implements Runnable
 	private Combat currentCombat;
 	/** any chest that the player is currently encountering */
 	private Chest currentChest;
-	/** any NPC that the player is currently encountering */
-	private Npc currentNpc;
 	/** any portal that the player is currently encountering */
 	private Portal currentPortal;
 	/** any actors currently being encountered */
@@ -150,8 +148,6 @@ public class Maze implements Runnable
 		GRANT_ITEMS,
 		/** Encountering a chest */
 		ENCOUNTER_CHEST,
-		/** Encountering an NPC */
-		ENCOUNTER_NPC,
 		/** Encountering actors, could be foes or an NPC */
 		ENCOUNTER_ACTORS,
 		/** Encountering a portal */
@@ -271,9 +267,13 @@ public class Maze implements Runnable
 	 */
 	public void journalInContext(String text)
 	{
-		if (getCurrentNpc() != null)
+		if (getCurrentActorEncounter() != null)
 		{
-			JournalManager.getInstance().npcJournal(text);
+			Foe leader = getCurrentActorEncounter().getLeader();
+			if (leader.isNpc())
+			{
+				JournalManager.getInstance().npcJournal(text);
+			}
 		}
 
 		if (getCurrentZone() != null)
@@ -693,7 +693,6 @@ public class Maze implements Runnable
 			currentCombat = null;
 		}
 		currentChest = null;
-		currentNpc = null;
 		currentPortal = null;
 		MazeVariables.clearAll();
 		if (processor != null)
@@ -761,190 +760,6 @@ public class Maze implements Runnable
 	public void deductPartyGold(int amount)
 	{
 		party.setGold(party.getGold() - amount);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * @return
-	 * 	true if the encounter actually happens, false otherwise
-	 */
-	public boolean encounterActors(
-		ActorEncounter actorEncounter)
-	{
-		List<FoeGroup> actors = actorEncounter.getActors();
-		NpcFaction.Attitude encounterAttitude = actorEncounter.getEncounterAttitude();
-		String mazeVar = actorEncounter.getMazeVar();
-
-		//
-		// check if there are actually any foes in here
-		//
-		boolean isFoes = false;
-		for (ActorGroup fg : actors)
-		{
-			if (fg.numAlive() > 0)
-			{
-				isFoes = true;
-				break;
-			}
-		}
-
-		if (!isFoes)
-		{
-			return false;
-		}
-
-		//
-		// Determine the attitude of the encounter
-		//
-
-		NpcFaction.Attitude attitude = null;
-		// first, is there an encounter flag on the encounter event?
-		if (encounterAttitude != null)
-		{
-			attitude = encounterAttitude;
-		}
-
-		// second, try for an NPC faction
-		if (attitude == null)
-		{
-			for (ActorGroup ag : actors)
-			{
-				UnifiedActor actor = ag.getActors().get(0);
-
-				String faction = actor.getFaction();
-				if (faction != null)
-				{
-					NpcFaction npcFaction = NpcManager.getInstance().getNpcFaction(faction);
-
-					log(Log.DEBUG, "Found NPC faction for ["+actor.getName()+"] " +
-						"["+actor.getFaction()+"] ["+npcFaction.getAttitude()+"]");
-
-					attitude = npcFaction.getAttitude();
-				}
-			}
-		}
-
-		// no faction? look for the worst starting attitude
-		if (attitude == null)
-		{
-			for (ActorGroup ag : actors)
-			{
-				// by now we can assume Foes
-				NpcFaction.Attitude at = ((Foe)ag.getActors().get(0)).getDefaultAttitude();
-
-				if (attitude == null || at.getSortOrder() < attitude.getSortOrder())
-				{
-					attitude = at;
-				}
-			}
-		}
-
-		// assert that we have an attitude
-		if (attitude == null)
-		{
-			throw new MazeException("can't determine attitude ["+attitude+"] " +
-				"["+mazeVar+"] ["+actors+"]");
-		}
-
-		// players attacked while resting.  Give them a chance to wake up
-		if (this.getState() == State.RESTING)
-		{
-			for (UnifiedActor pc : party.getActors())
-			{
-				ArrayList<Condition> list = new ArrayList<Condition>(pc.getConditions());
-				for (Condition c : list)
-				{
-					if (c instanceof RestingSleep)
-					{
-						if (pc.getModifier(Stats.Modifiers.LIGHT_SLEEPER) > 0 ||
-							Dice.d100.roll() <= 30)
-						{
-							pc.removeCondition(c);
-						}
-						break;
-					}
-				}
-			}
-		}
-
-		// show the foe sprites on the screen
-		getUi().setFoes(actors);
-
-		// attempt identification of these actors
-		GameSys.getInstance().attemptManualIdentification(actors, getParty(), 0);
-
-		// determine ambush status
-		Combat.AmbushStatus ambushStatus =
-			GameSys.getInstance().determineAmbushStatus(party, actors);
-		if (ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
-		{
-			Foe leader = GameSys.getInstance().getLeader(actors);
-			if (leader.shouldEvade(actors, getParty()))
-			{
-				// cancel the encounter, the party never knows about it
-				this.setState(State.MOVEMENT);
-				return false;
-			}
-		}
-
-		//
-		// Clear any dialogs (e.g. spells, resting, etc)
-		//
-		getUi().clearDialog();
-
-		//
-		// Change game state
-		//
-		currentActorEncounter = new ActorEncounter(actors, mazeVar, attitude, ambushStatus);
-		this.setState(State.ENCOUNTER_ACTORS);
-
-		//
-		// Appearance scripts of the leader
-		//
-		Foe f = (Foe)GameSys.getInstance().getLeader(actors);
-		if (f.getAppearanceScript() != null)
-		{
-			resolveEvents(f.getAppearanceScript().getEvents());
-		}
-
-		//
-		// Display and journal any needed messages
-		//
-		String encounterMsg = StringUtil.getEventText("msg.encounter.actors",
-			currentActorEncounter.describe());
-		getUi().addMessage(encounterMsg);
-
-		switch (ambushStatus)
-		{
-			case NONE:
-				break;
-			case PARTY_MAY_AMBUSH_FOES:
-				getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush"));
-				break;
-			case FOES_MAY_AMBUSH_PARTY:
-				getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
-				break;
-			case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
-				getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
-				break;
-			case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
-				getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
-				break;
-		}
-
-		//
-		// Is this a direct transition into COMBAT?
-		//
-		if (attitude == NpcFaction.Attitude.ATTACKING &&
-			(ambushStatus == Combat.AmbushStatus.NONE ||
-			ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
-			ambushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY))
-		{
-			this.setCurrentCombat(new Combat(party, actors, true));
-			this.setState(State.COMBAT);
-		}
-
-		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1228,26 +1043,6 @@ public class Maze implements Runnable
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Add an animation in combat.
-	 *
-	 * @param animation
-	 * 	The animation to start.  A new instance will be spawned.
-	 * @param mutex
-	 * 	Any mutex that should be notified when the animation is complete.  May
-	 * 	be null.
-	 */
-	public void startAnimation(Animation animation, AnimationContext animationContext, Object mutex)
-	{
-		if (currentCombat == null)
-		{
-			return;
-		}
-		
-		startAnimation(animation, mutex, animationContext);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
 	 * @param animation
 	 * 	The animation to start.  A new instance will be spawned.
 	 * @param mutex
@@ -1319,6 +1114,10 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void resolveEvent(MazeEvent event, boolean displayEventText)
 	{
+		// todo: remove debugging~~~~
+		System.out.println("<"+Thread.currentThread().getName()+"> event = [" + event + "]");
+		//~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
 		List<MazeEvent> subEvents = event.resolve();
 		
 		// event resolution may alter some of it's state - thus only display
@@ -1411,27 +1210,27 @@ public class Maze implements Runnable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void transferPlayerCharacterToParty(PlayerCharacter pc, Npc npc)
+	public void transferPlayerCharacterToParty(PlayerCharacter pc, Foe npc)
 	{
 		removePlayerCharacterFromGuild(pc, npc);
 		addPlayerCharacterToParty(pc);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void transferPlayerCharacterToGuild(PlayerCharacter pc, Npc npc)
+	public void transferPlayerCharacterToGuild(PlayerCharacter pc, Foe npc)
 	{
 		removePlayerCharacterFromParty(pc);
 		addPlayerCharacterToGuild(pc, npc);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void removePlayerCharacterFromGuild(PlayerCharacter pc, Npc npc)
+	public void removePlayerCharacterFromGuild(PlayerCharacter pc, Foe npc)
 	{
 		npc.getGuild().remove(pc.getName());
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void addPlayerCharacterToGuild(PlayerCharacter pc, Npc npc)
+	public void addPlayerCharacterToGuild(PlayerCharacter pc, Foe npc)
 	{
 		playerCharacterCache.put(pc.getName(), pc);
 		npc.getGuild().add(pc.getName());
@@ -1602,7 +1401,7 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void speechBubble(String speechKey, PlayerCharacter pc, Personality p, Rectangle bounds)
 	{
-		SpeechBubbleEvent e = new SpeechBubbleEvent(
+		PersonalitySpeechBubbleEvent e = new PersonalitySpeechBubbleEvent(
 			pc,
 			p,
 			speechKey,
@@ -1770,175 +1569,237 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void encounterNpc(final Npc npc, Point tile, Point previousTile)
+	/**
+	 * @return
+	 * 	true if the encounter actually happens, false otherwise
+	 */
+	public boolean encounterActors(
+		ActorEncounter actorEncounter)
 	{
-		if (previousTile != null && previousTile.equals(tile))
+		final List<FoeGroup> actors = actorEncounter.getActors();
+		final NpcFaction.Attitude encounterAttitude = actorEncounter.getEncounterAttitude();
+		final String mazeVar = actorEncounter.getMazeVar();
+
+		//
+		// check if there are actually any foes in here
+		//
+		boolean isFoes = false;
+		for (ActorGroup fg : actors)
 		{
-			// todo: this prevents wandering NPCs from encountering the party
-			return;
+			if (fg.numAlive() > 0)
+			{
+				isFoes = true;
+				break;
+			}
 		}
 
-		currentNpc = npc;
-		setState(Maze.State.ENCOUNTER_NPC);
+		if (!isFoes)
+		{
+			return false;
+		}
+
+		//
+		// Determine the attitude of the encounter
+		//
+
+		NpcFaction.Attitude attitude = null;
+		// first, is there an encounter flag on the encounter event?
+		if (encounterAttitude != null)
+		{
+			attitude = encounterAttitude;
+		}
+
+		// second, try for an NPC faction
+		if (attitude == null)
+		{
+			for (ActorGroup ag : actors)
+			{
+				UnifiedActor actor = ag.getActors().get(0);
+
+				String faction = actor.getFaction();
+				if (faction != null)
+				{
+					NpcFaction npcFaction = NpcManager.getInstance().getNpcFaction(faction);
+
+					log(Log.DEBUG, "Found NPC faction for ["+actor.getName()+"] " +
+						"["+actor.getFaction()+"] ["+npcFaction.getAttitude()+"]");
+
+					attitude = npcFaction.getAttitude();
+				}
+			}
+		}
+
+		// no faction? look for the worst starting attitude
+		if (attitude == null)
+		{
+			for (ActorGroup ag : actors)
+			{
+				// by now we can assume Foes
+				NpcFaction.Attitude at = ((Foe)ag.getActors().get(0)).getDefaultAttitude();
+
+				if (attitude == null || at.getSortOrder() < attitude.getSortOrder())
+				{
+					attitude = at;
+				}
+			}
+		}
+
+		// assert that we have an attitude
+		if (attitude == null)
+		{
+			throw new MazeException("can't determine attitude ["+attitude+"] " +
+				"["+mazeVar+"] ["+actors+"]");
+		}
+
+		// players attacked while resting.  Give them a chance to wake up
+		if (this.getState() == State.RESTING)
+		{
+			for (UnifiedActor pc : party.getActors())
+			{
+				ArrayList<Condition> list = new ArrayList<Condition>(pc.getConditions());
+				for (Condition c : list)
+				{
+					if (c instanceof RestingSleep)
+					{
+						if (pc.getModifier(Stats.Modifiers.LIGHT_SLEEPER) > 0 ||
+							Dice.d100.roll() <= 30)
+						{
+							pc.removeCondition(c);
+						}
+						break;
+					}
+				}
+			}
+		}
+
+		// determine the leader
+		final Foe leader = (Foe)GameSys.getInstance().getLeader(actors);
+
+		// determine ambush status
+		if (actorEncounter.getAmbushStatus() == null)
+		{
+			actorEncounter.setAmbushStatus(
+				GameSys.getInstance().determineAmbushStatus(party, actors));
+		}
+		Combat.AmbushStatus ambushStatus = actorEncounter.getAmbushStatus();
+
+		if (ambushStatus ==
+			Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+		{
+			if (leader.shouldEvade(actors, getParty()))
+			{
+				// cancel the encounter, the party never knows about it
+				this.setState(State.MOVEMENT);
+				return false;
+			}
+		}
+
+
+		Maze.this.currentActorEncounter =
+			new ActorEncounter(actors, mazeVar, attitude, ambushStatus);
 
 		// first, any pre-encounter events need to be executed
-		appendEvents(npc.getScript().preAppearance());
+		appendEvents(leader.getActionScript().preAppearance());
 
-		// add the NPC to the UI.
-		FoeTemplate npcFoeTemplate = Database.getInstance().getFoeTemplate(npc.getFoeName());
-		Foe foe = new Foe(npcFoeTemplate);
+		final NpcFaction.Attitude fAttitude = attitude;
+		final Combat.AmbushStatus fAmbushStatus = ambushStatus;
 
-		// init foes
-		ArrayList<FoeGroup> allFoes = new ArrayList<FoeGroup>();
-		for (int i=0; i<1; i++)
+		appendEvents(new MazeEvent()
 		{
-			List<UnifiedActor> foes = new ArrayList<UnifiedActor>();
-			foes.add(foe);
-			FoeGroup foesGroup = new FoeGroup(foes);
-			allFoes.add(foesGroup);
-		}
-
-		ui.setFoes(allFoes);
-
-		if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
-		{
-			//NPC is pissed off and simply attacks the party
-			appendEvents(npc.getScript().attacksParty());
-		}
-		else
-		{
-			if (!npc.isFound())
+			@Override
+			public List<MazeEvent> resolve()
 			{
-				// first meeting: process diplomacy bonus of the best diplomat
-				int diplomacy = 0;
-				for (UnifiedActor a : getParty().getActors())
-				{
-					if (a.getModifier(Stats.Modifiers.DIPLOMAT) > diplomacy)
-					{
-						diplomacy = a.getModifier(Stats.Modifiers.DIPLOMAT);
-					}
-				}
-				/*
-				if (diplomacy > 0)
-							{
-								// todo: ATTITUDE CHANGE
-								npc.changeAttitude(NpcFaction.AttitudeChange.BETTER);
-							}
-				*/
-			}
+				// Clear any dialogs (e.g. spells, resting, etc)
+				getUi().clearDialog();
 
-			if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
-				npc.getAttitude() == NpcFaction.Attitude.ALLIED)
-			{
-				if (!npc.isFound())
+				// Change game state
+				Maze.this.setState(State.ENCOUNTER_ACTORS);
+
+				// show the foe sprites on the screen
+				getUi().setFoes(actors);
+
+				// attempt identification of these actors
+				GameSys.getInstance().attemptManualIdentification(actors, getParty(), 0);
+
+				// Appearance scripts of the leader
+				if (leader.getAppearanceScript() != null)
 				{
-					appendEvents(npc.getScript().firstGreeting());
-					npc.setFound(true);
+					return leader.getAppearanceScript().getEvents();
 				}
 				else
 				{
-					appendEvents(npc.getScript().subsequentGreeting());
+					return null;
 				}
 			}
-			else
+		});
+
+		appendEvents(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
 			{
-				if (!npc.isFound())
+				List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+				//
+				// Display and journal any needed messages
+				//
+				String encounterMsg = StringUtil.getEventText("msg.encounter.actors",
+					currentActorEncounter.describe());
+				getUi().addMessage(encounterMsg);
+
+				switch (fAmbushStatus)
 				{
-					appendEvents(npc.getScript().firstGreeting());
-					npc.setFound(true);
+					case NONE:
+						break;
+					case PARTY_MAY_AMBUSH_FOES:
+						getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush"));
+						break;
+					case FOES_MAY_AMBUSH_PARTY:
+						getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
+						break;
+					case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
+						getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
+						break;
+					case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
+						getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
+						break;
+				}
+
+				if (!leader.isFound())
+				{
+					result.addAll(leader.getActionScript().firstGreeting());
+					leader.setFound(true);
 				}
 				else
 				{
-					appendEvents(npc.getScript().neutralGreeting());
-				}
-			}
-		}
-
-/*		new Thread("Maze NPC encounter thread")
-		{
-			public void run()
-			{
-				try
-				{
-					// first, any pre-encounter events need to be executed
-					processNpcEventsInternal(npc.getScript().preAppearance());
-
-					// add the NPC to the UI.
-					FoeTemplate npcFoeTemplate = Database.getInstance().getFoeTemplate(npc.getFoeName());
-					Foe foe = new Foe(npcFoeTemplate);
-
-					// init foes
-					ArrayList<FoeGroup> allFoes = new ArrayList<FoeGroup>();
-					for (int i=0; i<1; i++)
+					if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
+						fAttitude == NpcFaction.Attitude.ALLIED)
 					{
-						List<UnifiedActor> foes = new ArrayList<UnifiedActor>();
-						foes.add(foe);
-						FoeGroup foesGroup = new FoeGroup(foes);
-						allFoes.add(foesGroup);
-					}
-
-					ui.setFoes(allFoes);
-
-					if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
-					{
-						//NPC is pissed off and simply attacks the party
-						processNpcEventsInternal(npc.getScript().attacksParty());
+						result.addAll(leader.getActionScript().subsequentGreeting());
 					}
 					else
 					{
-						if (!npc.isFound())
-						{
-							// first meeting: process diplomacy bonus of the best diplomat
-							int diplomacy = 0;
-							for (UnifiedActor a : getParty().getActors())
-							{
-								if (a.getModifier(Stats.Modifiers.DIPLOMAT) > diplomacy)
-								{
-									diplomacy = a.getModifier(Stats.Modifiers.DIPLOMAT);
-								}
-							}
-*//*
-							if (diplomacy > 0)
-							{
-								// todo: ATTITUDE CHANGE
-								npc.changeAttitude(NpcFaction.AttitudeChange.BETTER);
-							}
-*//*
-						}
-						
-						if (npc.getAttitude() == NpcFaction.Attitude.FRIENDLY ||
-							npc.getAttitude() == NpcFaction.Attitude.ALLIED)
-						{
-							if (!npc.isFound())
-							{
-								processNpcEventsInternal(npc.getScript().firstGreeting());
-								npc.setFound(true);
-							}
-							else
-							{
-								processNpcEventsInternal(npc.getScript().subsequentGreeting());
-							}
-						}
-						else
-						{
-							if (!npc.isFound())
-							{
-								processNpcEventsInternal(npc.getScript().firstGreeting());
-								npc.setFound(true);
-							}
-							else
-							{
-								processNpcEventsInternal(npc.getScript().neutralGreeting());
-							}
-						}
+						result.addAll(leader.getActionScript().neutralGreeting());
 					}
 				}
-				catch (Exception e)
+
+
+				//
+				// Is this a direct transition into COMBAT?
+				//
+				if (fAttitude == NpcFaction.Attitude.ATTACKING &&
+					(fAmbushStatus == Combat.AmbushStatus.NONE ||
+						fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
+						fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY))
 				{
-					errorDialog(e);
+					result.addAll(leader.getActionScript().attacksParty());
 				}
+
+				return result;
 			}
-		}.start();*/
+		});
+
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2162,11 +2023,6 @@ public class Maze implements Runnable
 		this.currentCombat = currentCombat;
 	}
 
-	public Npc getCurrentNpc()
-	{
-		return currentNpc;
-	}
-
 	public Portal getCurrentPortal()
 	{
 		return currentPortal;
@@ -2316,7 +2172,6 @@ public class Maze implements Runnable
 				try
 				{
 					MazeEvent event = queue.take();
-					System.out.println("event = [" + event + "]");
 					Maze.getInstance().resolveEvent(event, true);
 				}
 				catch (Exception e)

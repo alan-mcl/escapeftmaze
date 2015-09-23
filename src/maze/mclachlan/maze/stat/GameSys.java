@@ -22,10 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.DifficultyLevel;
-import mclachlan.maze.game.Log;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.*;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
@@ -2148,7 +2145,7 @@ public class GameSys
 	 * @return
 	 * 	the difference in totals
 	 */
-	public int bribeNpc(Npc npc, PlayerCharacter pc, int amount)
+	public int bribeNpc(Foe npc, PlayerCharacter pc, int amount)
 	{
 		int npcTotal =
 			npc.getLevel()*10
@@ -2174,7 +2171,7 @@ public class GameSys
 	 * @return
 	 * 	a constant from {@link Npc.TheftResult}
 	 */
-	public int stealItem(Npc npc, PlayerCharacter pc, Item item)
+	public int stealItem(Foe npc, PlayerCharacter pc, Item item)
 	{
 		Maze.log(Log.DEBUG, "theft attempt of ["+item.getName()+"] from " +
 			"["+npc.getName()+"] by ["+pc.getName()+"]");
@@ -2234,7 +2231,7 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getAmountOfGoldStolen(Npc npc, PlayerCharacter pc)
+	public int getAmountOfGoldStolen(Foe npc, PlayerCharacter pc)
 	{
 		Maze.log(Log.DEBUG, "calculating amount of gold stolen from " +
 			"["+npc.getName()+"] by ["+pc.getName()+"]");
@@ -2266,31 +2263,36 @@ public class GameSys
 	 * @return
 	 * 	null if there is nothing to steal
 	 */
-	public Item getRandomItemToSteal(Npc npc)
+	public Item getRandomItemToSteal(Foe npc)
 	{
 		Maze.log(Log.DEBUG, "determining random item to steal from ["+npc.getName()+"]");
 
 		boolean canStealGold = npc.getMaxPurchasePrice() > 0;
 		Maze.log(Log.DEBUG, "canStealGold = [" + canStealGold + "]");
 
+		List<Item> stealableItems = npc.getStealableItems();
+
 		if (canStealGold && (Dice.d100.roll() <= 30 ||
-			npc.getCurrentInventory() == null || npc.getCurrentInventory().size() == 0))
+			stealableItems == null || stealableItems.size() == 0))
 		{
 			// 30% chance of gold
 			Maze.log(Log.DEBUG, "gold will be stolen");
 			return new GoldPieces(npc.getMaxPurchasePrice());
 		}
-		else if (npc.getCurrentInventory() != null && npc.getCurrentInventory().size() > 0)
-		{
-			int max = npc.getCurrentInventory().size();
-			Dice d = new Dice(0, max-1, 0);
-			Item item = npc.getCurrentInventory().get(d.roll());
-			Maze.log(Log.DEBUG, "item = [" + item.getName() + "]");
-			return item;
-		}
 		else
 		{
-			return null;
+			if (stealableItems != null && stealableItems.size() > 0)
+			{
+				int max = stealableItems.size();
+				Dice d = new Dice(0, max-1, 0);
+				Item item = stealableItems.get(d.roll());
+				Maze.log(Log.DEBUG, "item = [" + item.getName() + "]");
+				return item;
+			}
+			else
+			{
+				return null;
+			}
 		}
 	}
 
@@ -4090,6 +4092,29 @@ public class GameSys
 		else
 		{
 			return minPerPerson;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return Any attidude change from giving an item to some encountered actors.
+	 */
+	public NpcFaction.AttitudeChange giveItemToActors(ActorEncounter actorEncounter, Item item)
+	{
+		Foe leader = actorEncounter.getLeader();
+
+		if (item.getBaseCost() > (leader.getLevel()*500))
+		{
+			return NpcFaction.AttitudeChange.BETTER;
+		}
+		else if (item.getBaseCost() < leader.getLevel()*50)
+		{
+			return NpcFaction.AttitudeChange.WORSE;
+		}
+		else
+		{
+			return NpcFaction.AttitudeChange.NO_CHANGE;
 		}
 	}
 

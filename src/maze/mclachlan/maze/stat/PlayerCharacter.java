@@ -31,7 +31,6 @@ import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.magic.Value;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
@@ -466,52 +465,40 @@ public class PlayerCharacter extends UnifiedActor
 				case ATTACKING:
 					break;
 				case AGGRESSIVE:
-
+					result.add(new GiveOption(), null);
 					// todo: tie to character class ability
 					result.add(new ThreatenOption(), null);
+					result.add(new BribeOption(), null);
 					break;
 				case WARY:
-					break;
-				case SCARED:
-					break;
-				case NEUTRAL:
-					break;
-				case FRIENDLY:
-					break;
-				case ALLIED:
-					break;
-			}
-
-			// always a use item option
-			result.add(new UseItemOption(), null);
-
-			// always an equip option
-			result.add(new EquipOption(), null);
-		}
-		else if (maze.getState() == Maze.State.ENCOUNTER_NPC)
-		{
-			// todo: other options
-			Npc npc = maze.getCurrentNpc();
-			NpcFaction.Attitude attitude = npc.getAttitude();
-
-			switch (attitude)
-			{
-				case ATTACKING:
-					break;
-				case AGGRESSIVE:
-
-					// todo: tie to character class ability
+					result.add(new GiveOption(), null);
 					result.add(new ThreatenOption(), null);
-					break;
-				case WARY:
+					result.add(new BribeOption(), null);
 					break;
 				case SCARED:
+					result.add(new GiveOption(), null);
+					result.add(new ThreatenOption(), null);
+					result.add(new BribeOption(), null);
 					break;
 				case NEUTRAL:
+					result.add(new TalkOption(), null);
+					result.add(new GiveOption(), null);
+					result.add(new ThreatenOption(), null);
+					result.add(new BribeOption(), null);
+					result.add(new StealOption(), null);
+					result.add(new TradeOption(), null);
 					break;
 				case FRIENDLY:
+					result.add(new TalkOption(), null);
+					result.add(new GiveOption(), null);
+					result.add(new StealOption(), null);
+					result.add(new TradeOption(), null);
 					break;
 				case ALLIED:
+					result.add(new TalkOption(), null);
+					result.add(new GiveOption(), null);
+					result.add(new StealOption(), null);
+					result.add(new TradeOption(), null);
 					break;
 			}
 

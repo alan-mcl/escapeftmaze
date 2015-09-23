@@ -45,8 +45,8 @@ public class CocSheriffNpc extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("This is a restricted area. " +
-				"Authorization is required."),
-			new NpcSpeechEvent("Papers please..."));
+				"Authorization is required.", npc),
+			new NpcSpeechEvent("Papers please...", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -55,12 +55,12 @@ public class CocSheriffNpc extends NpcScript
 		if (MazeVariables.getBoolean(INVITATION_FROM_COC))
 		{
 			return getList(
-				new NpcSpeechEvent("Yes?"));
+				new NpcSpeechEvent("Yes?", npc));
 		}
 		else
 		{
 			return getList(
-				new NpcSpeechEvent("Papers please..."));
+				new NpcSpeechEvent("Papers please...", npc));
 		}
 	}
 
@@ -77,14 +77,14 @@ public class CocSheriffNpc extends NpcScript
 		{
 			// party is authorized to enter
 			return getList(
-				new NpcSpeechEvent("Your visit is authorized."),
+				new NpcSpeechEvent("Your visit is authorized.", npc),
 				new ActorsLeaveEvent());
 		}
 		else
 		{
 			// party is not authorized
 			return getList(
-				new NpcSpeechEvent("No papers - no entry"),
+				new NpcSpeechEvent("No papers - no entry", npc),
 				new FlavourTextEvent("The guard watches you suspiciously on " +
 					"your way out."),
 				new MazeScriptEvent("generic door creak"),
@@ -105,12 +105,12 @@ public class CocSheriffNpc extends NpcScript
 		if (item.getName().equals("C.O.C Paper Slip"))
 		{
 			return getList(
-				new NpcSpeechEvent("Hmmm, you're here about the mercenary position."),
-				new NpcSpeechEvent("Alright, I'll take that."),
+				new NpcSpeechEvent("Hmmm, you're here about the mercenary position.", npc),
+				new NpcSpeechEvent("Alright, I'll take that.", npc),
 				new NpcTakesItemEvent(owner, item, npc),
 				new NpcSpeechEvent("You need to head upstairs and see the " +
-					"Director, Mr Pickett."),
-				new NpcSpeechEvent("Don't cause any trouble."),
+					"Director, Mr Pickett.", npc),
+				new NpcSpeechEvent("Don't cause any trouble.", npc),
 				new SetMazeVariableEvent(COC_QUEST_1_PRIMER, "true"),
 				new ActorsLeaveEvent());
 		}

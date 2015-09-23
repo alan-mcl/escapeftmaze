@@ -22,6 +22,7 @@ package mclachlan.maze.map.script;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.ui.diygui.FlavourTextDialog;
 
 
 /**
@@ -29,9 +30,9 @@ import mclachlan.maze.game.MazeEvent;
  */
 public class FlavourTextEvent extends MazeEvent
 {
-	String text;
-	int delay;
-	boolean shouldClearText;
+	private String text;
+	private int delay;
+	private boolean shouldClearText;
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextEvent(String text)
@@ -52,14 +53,8 @@ public class FlavourTextEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().journalInContext(text);
+		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, text));
 		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public String getText()
-	{
-		return text;
 	}
 
 	/*-------------------------------------------------------------------------*/

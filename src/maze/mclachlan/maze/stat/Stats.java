@@ -603,6 +603,7 @@ public class Stats
 		public static final String BONUS_ATTACKS = "bonusAttacks";
 		public static final String BONUS_STRIKES = "bonusStrikes";
 		public static final String LARGE_SIZE = "largeSize";
+		public static final String THREATEN = "threaten";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -706,6 +707,7 @@ public class Stats
 			booleanModifiers.add(Modifiers.SIGNATURE_WEAPON_ENGINEERING);
 			booleanModifiers.add(Modifiers.AMPHIBIOUS);
 			booleanModifiers.add(Modifiers.LARGE_SIZE);
+			booleanModifiers.add(Modifiers.THREATEN);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

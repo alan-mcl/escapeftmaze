@@ -4,6 +4,7 @@ common.ok = OK
 common.exit = Exit
 common.cancel = Cancel
 common.gametime = Day %s, turn %s
+common.gp = %sgp
 
 # the create character wizard
 cc.race.title = Character Race
@@ -160,6 +161,7 @@ poatw.leave = (L)eave
 poatw.flee = (F)lee
 poatw.evade = (E)vade
 poatw.surprise = Ambu(s)h
+poatw.guild = (G)uild
 poatw.start.round = (S)tart Round
 poatw.terminate.game = Terminate Game
 poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
@@ -185,6 +187,11 @@ aao.defend = Defend
 aao.run.away = Run Away
 aao.intend.nothing = No Action
 aao.threaten = Threaten
+aao.talk = Talk
+aao.give = Give Item
+aao.bribe = Bribe
+aao.steal = Steal
+aao.trade = Trade
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.
@@ -330,3 +337,22 @@ cdw.type = Type: %s (%s)
 cdw.strength = Strength: %s
 cdw.modifiers = Modifiers:
 cdw.source = Source: %s
+
+# theft dialog
+td.title = %s stealing from %s
+td.steal = (S)teal
+td.grab.and.attack = (G)rab & Attack
+
+# trading dialog
+trd.title = %s trading with %s
+trd.sell = (S)ell
+trd.buy = (B)uy
+trd.party.gold = Party Gold: %sgp
+
+# guild display dialog
+gdd.title = Guild of %s
+gdd.add.to.party = (A)dd To Party
+gdd.remove.from.party = (R)emove From Party
+gdd.create.character = (C)reate Character
+gdd.cost = cost: %sgp
+gdd.party.gold = Party Gold: %sgp

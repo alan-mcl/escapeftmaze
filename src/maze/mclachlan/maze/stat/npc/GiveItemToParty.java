@@ -21,6 +21,7 @@ package mclachlan.maze.stat.npc;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
 
@@ -29,10 +30,10 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class GiveItemToParty extends MazeEvent
 {
-	Npc npc;
+	private Foe npc;
 	private boolean inInventory;
-	PlayerCharacter pc;
-	Item item;
+	private PlayerCharacter pc;
+	private Item item;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -46,7 +47,7 @@ public class GiveItemToParty extends MazeEvent
 	 * 	Set to true if this item should be the NPCs inventory (associated
 	 * 	assertions will be run), or false if the NPC produces it from thin air
 	 */
-	public GiveItemToParty(Npc npc, PlayerCharacter pc, Item item, boolean inInventory)
+	public GiveItemToParty(Foe npc, PlayerCharacter pc, Item item, boolean inInventory)
 	{
 		this.pc = pc;
 		this.item = item;

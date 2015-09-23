@@ -43,12 +43,12 @@ public class TowerGuardianNpc extends NpcScript
 		if (MazeVariables.get(Imogen.SIGNED_UP_WITH_IMOGEN) != null)
 		{
 			return getList(
-				new NpcSpeechEvent("YOU * MAY * PASS."));
+				new NpcSpeechEvent("YOU * MAY * PASS.", npc));
 		}
 		else if (Maze.getInstance().getParty().isItemEquipped("Rock Salt Amulet"))
 		{
 			return getList(
-				new NpcSpeechEvent("YOU * MAY * NOT * PASS."),
+				new NpcSpeechEvent("YOU * MAY * NOT * PASS.", npc),
 				new FlavourTextEvent("The amulet around your neck " +
 					"starts to glow. The golems empty eyes fix on it intently..."),
 				new FlavourTextEvent("Suddenly, there is a flash of light and the " +
@@ -57,7 +57,7 @@ public class TowerGuardianNpc extends NpcScript
 				new FlavourTextEvent("The golem begins to shake its head " +
 					"stiffy and clench its fists, its jaws working wordlessly for " +
 					"a moment. Then it moans aloud..."),
-				new NpcSpeechEvent("AAAAGGHHHH * EEE * EEENT * INTRUUUU * BZZZZZZT"),
+				new NpcSpeechEvent("AAAAGGHHHH * EEE * EEENT * INTRUUUU * BZZZZZZT", npc),
 				new NpcAttacksEvent(npc));
 		}
 		else if (Maze.getInstance().getParty().isItemEquipped("Ebony Amulet"))
@@ -65,12 +65,12 @@ public class TowerGuardianNpc extends NpcScript
 			return getList(
 				new FlavourTextEvent("You feel the ebony amulet around your neck " +
 					"grow faintly warm..."),
-				new NpcSpeechEvent("YOU * MAY * PASS."));
+				new NpcSpeechEvent("YOU * MAY * PASS.", npc));
 		}
 		else
 		{
 			return getList(
-				new NpcSpeechEvent("YOU * MAY * NOT * PASS."),
+				new NpcSpeechEvent("YOU * MAY * NOT * PASS.", npc),
 				new ActorsLeaveEvent(),
 				new MazeScriptEvent("generic door creak"),
 				new MovePartyEvent(new Point(15, 29), CrusaderEngine.Facing.NORTH));
@@ -107,7 +107,7 @@ public class TowerGuardianNpc extends NpcScript
 	public List<MazeEvent> parsePartySpeech(PlayerCharacter pc, String speech)
 	{
 		List<MazeEvent> result = getList(
-			new NpcSpeechEvent("THAT * DOES * NOT * PARSE."));
+			new NpcSpeechEvent("THAT * DOES * NOT * PARSE.", npc));
 
 		if (!NpcSpeech.sentenceContainsKeywords(speech, "bye", "goodbye", "farewell"))
 		{

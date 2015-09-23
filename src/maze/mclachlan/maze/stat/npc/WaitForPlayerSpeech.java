@@ -22,73 +22,55 @@ package mclachlan.maze.stat.npc;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.combat.event.SpeechBubbleEvent;
-import mclachlan.maze.util.MazeException;
+import mclachlan.maze.ui.UserInterface;
+import mclachlan.maze.ui.diygui.GetPlayerSpeechDialog;
+import mclachlan.maze.ui.diygui.TextDialogCallback;
 
 /**
  *
  */
 public class WaitForPlayerSpeech extends MazeEvent
 {
-	private Npc npc;
 	private PlayerCharacter pc;
+	private Foe npc;
 
 	/*-------------------------------------------------------------------------*/
-	public WaitForPlayerSpeech(Npc npc, PlayerCharacter pc)
+	public WaitForPlayerSpeech(
+		Foe npc,
+		PlayerCharacter pc)
 	{
-		this.npc = npc;
 		this.pc = pc;
+		this.npc = npc;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return pc.getName()+": ";
-	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
-	{
-		// HACK to let the CombatDisplayWidget know about this class, to avoid a
-		// hang when we call wait() below.
-		Maze.getInstance().getUi().displayMazeEvent(this, true);
-		
-		synchronized(Maze.getInstance().getEventMutex())
-		{
-			try
-			{
-				Maze.getInstance().getEventMutex().wait();
-			}
-			catch (InterruptedException e)
-			{
-				throw new MazeException(e);
-			}
-		}
-
-		String playerSpeech = Maze.getInstance().getPlayerSpeech();
-
-		/*Animation a = new SpeechBubbleAnimation(
-			pc.getPersonality().getColour(),
-			playerSpeech,
-			Maze.getInstance().getUi().getPortraitWidgetBounds(pc),
-			3000);
-
-		Maze.getInstance().startAnimation(a, this, new AnimationContext(pc));*/
-
-
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
-
-		result.add(new SpeechBubbleEvent(pc, playerSpeech));
-
-		result.addAll(npc.getScript().parsePartySpeech(pc, playerSpeech));
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getDelay()
 	{
-		return MazeEvent.Delay.WAIT_ON_READLINE;
+		return Delay.NONE;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		UserInterface ui = Maze.getInstance().getUi();
+
+		ui.showDialog(new GetPlayerSpeechDialog(pc, new TextDialogCallback()
+		{
+			@Override
+			public void textEntered(String text)
+			{
+				Maze.getInstance().appendEvents(new PlayerSpeechEvent(npc, pc, text));
+			}
+
+			@Override
+			public void textEntryCancelled() { }
+		}));
+
+		return null;
 	}
 }

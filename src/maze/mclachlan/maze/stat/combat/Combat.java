@@ -103,15 +103,6 @@ public class Combat
 		for (FoeGroup group : foes)
 		{
 			addActors(group);
-
-			for (UnifiedActor actor : group.getActors())
-			{
-				// NPCs and other UnifiedActor subclasses can end up in here
-				if (actor instanceof Foe)
-				{
-					((Foe)actor).initialEquip();
-				}
-			}
 		}
 
 		if (testSurprise)

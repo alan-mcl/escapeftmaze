@@ -19,20 +19,16 @@
 
 package mclachlan.maze.stat.npc;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.*;
-import java.util.List;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.magic.AbstractActor;
 import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class Npc extends AbstractActor
+public class Npc extends Foe
 {
-	public static final int MAX_ATTITUDE = 150;
 	private static Comparator<Item> cmp = new InventoryComparator<Item>();
 
 	private NpcTemplate template;
@@ -84,8 +80,6 @@ public class Npc extends AbstractActor
 	/** manager for quests, if the NPC has them */
 	private QuestManager questManager;
 
-	private Foe foe;
-
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Recreates an NPC with the given state
@@ -100,10 +94,14 @@ public class Npc extends AbstractActor
 		boolean found,
 		boolean dead,
 		boolean guildMaster,
-		List<String> guild)
+		List<String> guild,
+		FoeTemplate foeTemplate)
 	{
+		super(foeTemplate);
+
 		this.attitude = attitude;
 		this.currentInventory = currentInventory;
+		this.currentInventory.addAll(currentInventory);
 		this.dead = dead;
 		this.found = found;
 		this.template = template;
@@ -121,22 +119,22 @@ public class Npc extends AbstractActor
 	/**
 	 * Creates a new NPC from the given template
 	 */
-	public Npc(NpcTemplate template)
+	public Npc(NpcTemplate npcTemplate)
 	{
-		this.template = template;
-		this.attitude = template.getAttitude();
-		this.currentInventory = new ArrayList<Item>();
-		this.theftCounter = template.theftCounter;
-		this.tile = template.tile;
-		this.zone = template.zone;
-		this.found = template.found;
-		this.dead = template.dead;
-		this.questManager = new QuestManager(this);
-		this.template.script.npc = this;
-		this.template.script.start();
-		this.guildMaster = template.guildMaster;
+		this(
+			npcTemplate,
+			npcTemplate.getAttitude(),
+			new ArrayList<Item>(),
+			npcTemplate.getTheftCounter(),
+			npcTemplate.tile,
+			npcTemplate.zone,
+			npcTemplate.found,
+			npcTemplate.dead,
+			npcTemplate.guildMaster,
+			new ArrayList<String>(),
+			npcTemplate.getFoeTemplate());
 
-		this.guild = new ArrayList<String>();
+		this.template.script.start();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -160,9 +158,15 @@ public class Npc extends AbstractActor
 		return template.buysAt;
 	}
 
-	public List<Item> getCurrentInventory()
+	public List<Item> getTradingInventory()
 	{
 		return currentInventory;
+	}
+
+	@Override
+	public List<Item> getStealableItems()
+	{
+		return this.currentInventory;
 	}
 
 	public String getFaction()
@@ -178,16 +182,6 @@ public class Npc extends AbstractActor
 	public String getDisplayName()
 	{
 		return template.displayName;
-	}
-
-	public Foe getFoe()
-	{
-		if (foe == null)
-		{
-			FoeTemplate ft = Database.getInstance().getFoeTemplate(this.template.foeName);
-			foe = new Foe(ft);
-		}
-		return foe;
 	}
 
 	public NpcInventoryTemplate getInventoryTemplate()
@@ -230,11 +224,13 @@ public class Npc extends AbstractActor
 		return zone;
 	}
 
+	@Override
 	public boolean isFound()
 	{
 		return found;
 	}
 
+	@Override
 	public void setFound(boolean found)
 	{
 		this.found = found;
@@ -330,9 +326,11 @@ public class Npc extends AbstractActor
 
 	public void setCurrentInventory(List<Item> inv)
 	{
-		this.currentInventory = inv;
+		this.currentInventory.clear();
+		this.currentInventory.addAll(inv);
 	}
 
+	@Override
 	public boolean isInterestedInBuyingItem(Item item)
 	{
 		return this.template.willBuyItemTypes != null &&
@@ -340,12 +338,14 @@ public class Npc extends AbstractActor
 			!item.isQuestItem();
 	}
 
+	@Override
 	public boolean isAbleToAffordItem(Item item)
 	{
 		return GameSys.getInstance().getItemCost(
 			item, this.template.buysAt) <= this.template.maxPurchasePrice;
 	}
 
+	@Override
 	public void removeItem(Item item, boolean removeWholeStack)
 	{
 		if (!currentInventory.remove(item))
@@ -356,7 +356,10 @@ public class Npc extends AbstractActor
 
 	public void addItem(Item item)
 	{
-		currentInventory.add(item);
+		if (currentInventory != null)
+		{
+			currentInventory.add(item);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -364,23 +367,27 @@ public class Npc extends AbstractActor
 	{
 		if (currentInventory != null)
 		{
-			Collections.sort(currentInventory, cmp);
+			currentInventory.sort(cmp);
 		}
 	}
 
+	@Override
+	public boolean addInventoryItem(Item item)
+	{
+		addItem(item);
+		return true;
+	}
+
 	/*-------------------------------------------------------------------------*/
-	// overridden from AbstractActor
 	public int getLevel()
 	{
-		return getFoe().getLevel();
+		return super.getLevel();
 	}
 
 	public String getName()
 	{
-		return getFoe().getName();
+		return super.getName();
 	}
-
-
 
 	public QuestManager getQuestManager()
 	{

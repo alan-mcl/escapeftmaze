@@ -108,6 +108,15 @@ public class GuildDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void refresh()
+	{
+		if (list.getItems().size() > 0)
+		{
+			list.setSelected(list.getItems().get(0));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private static class GuildCharacter implements Comparable<GuildCharacter>
 	{
 		PlayerCharacter pc;

@@ -21,12 +21,19 @@ package mclachlan.maze.game.event;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.map.EncounterTable;
+import mclachlan.maze.map.FoeEntry;
+import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.combat.event.SummoningSucceedsEvent;
+import mclachlan.maze.stat.npc.NpcFaction;
+import mclachlan.maze.stat.npc.NpcManager;
 
 /**
  *
@@ -35,67 +42,77 @@ public class StartCombatEvent extends MazeEvent
 {
 	private Maze maze;
 	private PlayerParty party;
-	private List<FoeGroup> actors;
-	private String mazeVar;
+	private ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
-	public StartCombatEvent(Maze maze, PlayerParty party, List<FoeGroup> actors,
-		String mazeVar)
+	public StartCombatEvent(Maze maze, PlayerParty party,
+		ActorEncounter actorEncounter)
 	{
 		this.maze = maze;
 		this.party = party;
-		this.actors = actors;
-		this.mazeVar = mazeVar;
+		this.actorEncounter = actorEncounter;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		Maze.getInstance().getUi().clearDialog();
+
+		List<FoeGroup> actors = actorEncounter.getActors();
+		Foe leader = actorEncounter.getLeader();
+
+		// not your friend any more
+		if (leader.getFaction() != null)
+		{
+			NpcFaction nf = NpcManager.getInstance().getNpcFaction(leader.getFaction());
+			nf.setAttitude(NpcFaction.Attitude.ATTACKING);
+		}
+		actorEncounter.setEncounterAttitude(NpcFaction.Attitude.ATTACKING);
+
+		// call for help?
+		if (leader.getAlliesOnCall() != null)
+		{
+			EncounterTable table =
+				Database.getInstance().getEncounterTable(leader.getAlliesOnCall());
+			FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
+			List<FoeGroup> foeGroups = foeEntry.generate();
+
+			actors.addAll(foeGroups);
+			List<MazeEvent> evts = getList(
+				new FlavourTextEvent(StringUtil.getEventText("msg.call.for.help", leader.getDisplayName()),
+					Maze.getInstance().getUserConfig().getCombatDelay(), true),
+				new SummoningSucceedsEvent(foeGroups, leader));
+
+			maze.resolveEvents(evts);
+			maze.getUi().setFoes(actors);
+		}
+		maze.getUi().refreshCharacterData();
+
 		// play the encounter fanfare
 		MazeScript script = Database.getInstance().getScript("_ENCOUNTER_");
 		maze.resolveEvents(script.getEvents());
 
-		// make sure we're dealing with Foes
-		List<FoeGroup> foeGroups = new ArrayList<FoeGroup>();
-		for (ActorGroup ag : actors)
-		{
-			if (ag instanceof FoeGroup)
-			{
-				foeGroups.add((FoeGroup)ag);
-			}
-			else if (ag instanceof NpcActorGroup)
-			{
-				Npc npc = ((NpcActorGroup)ag).getNpc();
-				FoeTemplate npcFoeTemplate = Database.getInstance().getFoeTemplate(npc.getFoeName());
-				Foe foe = new Foe(npcFoeTemplate);
-				FoeGroup fg = new FoeGroup();
-				fg.add(foe);
-				foeGroups.add(fg);
-			}
-		}
-
 		// begin encounter speech
 		int avgFoeLevel = 0;
-		for (ActorGroup ag : foeGroups)
+		for (ActorGroup ag : actors)
 		{
 			avgFoeLevel += ag.getAverageLevel();
 		}
-		avgFoeLevel /= foeGroups.size();
+		avgFoeLevel /= actors.size();
 		SpeechUtil.getInstance().startCombatSpeech(
 			avgFoeLevel,
 			maze.getParty().getPartyLevel());
 
-		// execute any appearance scripts, picking from the first foe
-		Foe f = (Foe)(foeGroups.get(0).getActors().get(0));
-		if (f.getAppearanceScript() != null)
+		// execute any appearance scripts, picking from the leader
+		if (leader.getAppearanceScript() != null)
 		{
-			maze.resolveEvents(f.getAppearanceScript().getEvents());
+			maze.resolveEvents(leader.getAppearanceScript().getEvents());
 		}
 
 		//
 		// Combat is go!
 		//
-		maze.setCurrentCombat(new Combat(party, foeGroups, true));
+		maze.setCurrentCombat(new Combat(party, actors, true));
 		maze.setState(Maze.State.COMBAT);
 
 		return null;

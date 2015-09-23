@@ -32,6 +32,7 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.GoldPieces;
 import mclachlan.maze.stat.Inventory;
@@ -369,6 +370,9 @@ public class TradingWidget extends DIYPane
 				if (e.getButton() == MouseEvent.BUTTON3)
 				{
 					// right click
+					GameSys.getInstance().attemptManualIdentify(itemWidget.getItem(), Maze.getInstance().getParty());
+					itemWidget.refresh();
+
 					popupItemDetailsDialog(itemWidget);
 					setSelected(itemWidget);
 				}

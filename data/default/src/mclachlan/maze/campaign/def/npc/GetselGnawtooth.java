@@ -33,13 +33,13 @@ public class GetselGnawtooth extends NpcScript
 	{
 		return getList(
 				new NpcSpeechEvent("Yeeeeeeegh! Ave ye wasters been muckin wit " +
-					"me wee sis Miriam? Av ye eh?"),
+					"me wee sis Miriam? Av ye eh?", npc),
 				new NpcSpeechEvent("If any arms come to er ye'll regret it, ye " +
-					"fookin will, ere me say it ye wasters."),
+					"fookin will, ere me say it ye wasters.", npc),
 				new NpcSpeechEvent("Ah'll chew off yer wee arms, ah'll claw out " +
 					"ye lilly livers an after that while ye're still livin an " +
 					"breathin ah'll rip out ye beating hearts an roast em before " +
-					"ye very eyes! Yeeeeeeeeeeeeeeee!"),
+					"ye very eyes! Yeeeeeeeeeeeeeeee!", npc),
 				new NpcAttacksEvent(npc));
 	}
 

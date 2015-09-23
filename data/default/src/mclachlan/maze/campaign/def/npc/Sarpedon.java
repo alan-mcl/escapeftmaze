@@ -35,32 +35,32 @@ public class Sarpedon extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Sarpedon, guildmaster of Aenen. Foreigners " +
 				"like yerselves sometimes come here; I'm the one to talk to " +
-				"for introductions or contracts."));
+				"for introductions or contracts.", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("You're back. How were yer travels?"));
+			new NpcSpeechEvent("You're back. How were yer travels?", npc));
 	}
 
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("What?"));
+			new NpcSpeechEvent("What?", npc));
 	}
 
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Good riddance. Hmpf."),
+			new NpcSpeechEvent("Good riddance. Hmpf.", npc),
 			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Goodbye."),
+			new NpcSpeechEvent("Goodbye.", npc),
 			new ActorsLeaveEvent());
 	}
 }

@@ -37,8 +37,8 @@ public class ClockworkSentinel extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("bzzzzzz * click * bzzzzzzmmmmmmmmm"),
-			new NpcSpeechEvent("THIS. WAY. IS. RESTRICTED."));
+			new NpcSpeechEvent("bzzzzzz * click * bzzzzzzmmmmmmmmm", npc),
+			new NpcSpeechEvent("THIS. WAY. IS. RESTRICTED.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -60,14 +60,14 @@ public class ClockworkSentinel extends NpcScript
 		{
 			// party is authorized to enter
 			return getList(
-				new NpcSpeechEvent("click * click * ALLOWED. TO. PASS."),
+				new NpcSpeechEvent("click * click * ALLOWED. TO. PASS.", npc),
 				new ActorsLeaveEvent());
 		}
 		else
 		{
 			// party is not authorized
 			return getList(
-				new NpcSpeechEvent("bzzzzzmmmmm * click * NOT. ALLOWED. TO. PASS."),
+				new NpcSpeechEvent("bzzzzzmmmmm * click * NOT. ALLOWED. TO. PASS.", npc),
 				new MovePartyEvent(new Point(21, 20), CrusaderEngine.Facing.WEST),
 				new ActorsLeaveEvent());
 		}

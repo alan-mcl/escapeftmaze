@@ -52,10 +52,10 @@ public class RedEar extends NpcScript
 			new NpcSpeechEvent("Red Ear greets you, strangers!\n\n" +
 				"Your smells are new in Ichiba! Few are " +
 				"those who come through the Gate, but Red Ear thinks you are " +
-				"among them, yes he does!"),
+				"among them, yes he does!", npc),
 			new NpcSpeechEvent("What trinkets and trifles do they bring to " +
 				"Ichiba from beyond the Gate? Red Ear will buy them, he will. " +
-				"Red Ear has the best deals in Ichiba! Take a look!"));
+				"Red Ear has the best deals in Ichiba! Take a look!", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -64,7 +64,7 @@ public class RedEar extends NpcScript
 		return getList(
 			new SoundEffectEvent(SOUND_GROWL),
 			new NpcSpeechEvent("Red Ear greets you! Red Ear has new deals! " +
-				"Take a look, take a look!"));
+				"Take a look, take a look!", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -72,7 +72,7 @@ public class RedEar extends NpcScript
 	{
 		return getList(
 			new SoundEffectEvent(SOUND_GROWL),
-			new NpcSpeechEvent("Grrrrrrrrrr! Red Ear does not trust you."));
+			new NpcSpeechEvent("Grrrrrrrrrr! Red Ear does not trust you.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -80,7 +80,7 @@ public class RedEar extends NpcScript
 	{
 		return getList(
 			new SoundEffectEvent(SOUND_GROWL),
-			new NpcSpeechEvent("Grrrrrrrrrrrrrr! Hrmpf!"),
+			new NpcSpeechEvent("Grrrrrrrrrrrrrr! Hrmpf!", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -90,7 +90,7 @@ public class RedEar extends NpcScript
 		return getList(
 			new SoundEffectEvent(SOUND_GROWL),
 			new NpcSpeechEvent("Red Ear wishes you good hunting! Also " +
-				"remember, Red Ear has the very best deals!"),
+				"remember, Red Ear has the very best deals!", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -101,11 +101,11 @@ public class RedEar extends NpcScript
 		{
 			return getList(
 				new SoundEffectEvent(SOUND_GROWL),
-				new NpcSpeechEvent("Grrrrrr"),
+				new NpcSpeechEvent("Grrrrrr", npc),
 				new NpcSpeechEvent("Grrr. You are paper people. Come with " +
-					"laws and papers!"),
-				new NpcSpeechEvent("Bah! Red Ear cannot read paper!!"),
-				new NpcSpeechEvent("Grrrrrrrr. You tell Red Ear what paper is?"),
+					"laws and papers!", npc),
+				new NpcSpeechEvent("Bah! Red Ear cannot read paper!!", npc),
+				new NpcSpeechEvent("Grrrrrrrr. You tell Red Ear what paper is?", npc),
 				new SetMazeVariableEvent(WAITING_FOR_Q1_REPLY, "true"),
 				new WaitForPlayerSpeech(npc, getPlayerCharacter(0)));
 		}
@@ -127,20 +127,20 @@ public class RedEar extends NpcScript
 			{
 				return getList(
 					new NpcSpeechEvent("Grrrr!!!! Robbers come for take Red Ear's " +
-						"money! Soldiers come with papers! Always!"),
+						"money! Soldiers come with papers! Always!", npc),
 					new NpcSpeechEvent("Red Ear not have money! Cannot give money " +
 						"for paper! No money! None! Grrrr, not much, not enough! " +
 						"Red Ear an honest trader, best deals, no trouble! Why " +
-						"always from law paper people? Not done anything wrong!"),
+						"always from law paper people? Not done anything wrong!", npc),
 					new NpcSpeechEvent("Cannot pay! What you do to Red Ear " +
-						"with no money?"),
+						"with no money?", npc),
 					new SetMazeVariableEvent(WAITING_FOR_Q1_REPLY2, "true"),
 					new WaitForPlayerSpeech(npc, getPlayerCharacter(0))
 				);
 			}
 			else
 			{
-				return getList(new NpcSpeechEvent("Bah! Red Ear not understand!"));
+				return getList(new NpcSpeechEvent("Bah! Red Ear not understand!", npc));
 			}
 		}
 		else if (MazeVariables.getBoolean(WAITING_FOR_Q1_REPLY2))
@@ -155,16 +155,16 @@ public class RedEar extends NpcScript
 
 				return getList(
 					new SoundEffectEvent(SOUND_GROWL),
-					new NpcSpeechEvent("Grrrr! Wait! Hrrrrr."),
+					new NpcSpeechEvent("Grrrr! Wait! Hrrrrr.", npc),
 					new NpcSpeechEvent("This not fair! Red Ear is honest trader! " +
-						"Not done anything wrong! Law people rob him! Grrrrrr!"),
+						"Not done anything wrong! Law people rob him! Grrrrrr!", npc),
 					new NpcSpeechEvent("But, let Red Ear look again. Maybe find " +
-						"some money."),
-					new NpcSpeechEvent("..."),
-					new NpcSpeechEvent("... grrrr ..."),
-					new NpcSpeechEvent("Red Ear find money. Under pillow."),
+						"some money.", npc),
+					new NpcSpeechEvent("...", npc),
+					new NpcSpeechEvent("... grrrr ...", npc),
+					new NpcSpeechEvent("Red Ear find money. Under pillow.", npc),
 					new NpcSpeechEvent("Here, take! Soldier law people! Red Ear " +
-						"not like any more! No deals for you! Grrrrrr!!!"),
+						"not like any more! No deals for you! Grrrrrr!!!", npc),
 					new GrantItemsEvent(it.create()),
 					new SetMazeVariableEvent(WePickett.QUEST_1_COLLECTED_TAXES, "true"),
 					new ChangeNpcFactionAttitudeEvent(
@@ -177,9 +177,9 @@ public class RedEar extends NpcScript
 			else
 			{
 				return getList(new NpcSpeechEvent("Grrrr. Red Ear have no money, " +
-					"cannot take."),
+					"cannot take.", npc),
 					new NpcSpeechEvent("Verrrry sorry! Red Ear an honest trader! " +
-						"Come back tomorrow, maybe Red Ear have money!"));
+						"Come back tomorrow, maybe Red Ear have money!", npc));
 			}
 		}
 		else

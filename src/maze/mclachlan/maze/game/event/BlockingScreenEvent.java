@@ -29,8 +29,8 @@ import java.util.*;
  */
 public class BlockingScreenEvent extends MazeEvent
 {
-	String imageResource;
-	int mode;
+	private String imageResource;
+	private int mode;
 	
 	/*-------------------------------------------------------------------------*/
 	public BlockingScreenEvent(String imageResource, int mode)
@@ -42,14 +42,15 @@ public class BlockingScreenEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+
 		Maze.getInstance().getUi().showBlockingScreen(
-			imageResource, mode, this);
+			imageResource, mode, Maze.getInstance().getEventMutex());
 		
-		synchronized(this)
+		synchronized(Maze.getInstance().getEventMutex())
 		{
 			try
 			{
-				wait();
+				Maze.getInstance().getEventMutex().wait();
 			}
 			catch (InterruptedException e)
 			{

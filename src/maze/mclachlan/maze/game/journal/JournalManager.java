@@ -148,7 +148,7 @@ public class JournalManager
 	{
 		getJournal(JournalType.NPC).addJournalEntry(
 			GameTime.getTurnNr(),
-			Maze.getInstance().getCurrentNpc().getName(),
+			Maze.getInstance().getCurrentActorEncounter().getLeader().getName(),
 			text);
 	}
 

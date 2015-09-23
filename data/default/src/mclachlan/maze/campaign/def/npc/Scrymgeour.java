@@ -44,14 +44,14 @@ public class Scrymgeour extends NpcScript
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Ah, the bold adventurers who fought through " +
 				"to the Second Realm! Pleased to meet you, you've come to the " +
-				"right place."),
+				"right place.", npc),
 			new NpcSpeechEvent("I am Scrymgeour. Many of your sort end up at " +
 				"my establishment after arriving in Ichiba... I provide a hot " +
 				"meal, a warm bed, and have a limited inventory " +
-				"of weapons and armour to trade."),
+				"of weapons and armour to trade.", npc),
 			new NpcSpeechEvent("Some who come here choose to stay for a " +
 				"while, and some that are staying here may wish to join your " +
-				"party. Either way, I can arrange the matter."));
+				"party. Either way, I can arrange the matter.", npc));
 
 		checkCocQuest2(result);
 		checkFreeBeer(result);
@@ -71,7 +71,7 @@ public class Scrymgeour extends NpcScript
 			}
 
 			result.add(new NpcSpeechEvent("Hey! This round's on old man Pickett, " +
-				"over at the Chamber Of Commerce."));
+				"over at the Chamber Of Commerce.", npc));
 			result.add(new GrantItemsEvent(items));
 			result.add(new SetMazeVariableEvent(WePickett.FREE_BOOZE_AT_THE_INN, "false"));
 		}
@@ -85,17 +85,17 @@ public class Scrymgeour extends NpcScript
 		{
 			result.add(new NpcSpeechEvent("Um, unfortunately we have no " +
 				"brandy in stock at the moment. A group of " +
-				"goblins drank all my stock the other night!"));
+				"goblins drank all my stock the other night!", npc));
 			result.add(new NpcSpeechEvent("A particularly rowdy and well " +
 				"armed group, I might add. Luckily they headed out to the " +
-				"north side of town without causing any trouble here."));
+				"north side of town without causing any trouble here.", npc));
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
-		List<MazeEvent> result = getList(new NpcSpeechEvent("Welcome back! How can I help?"));
+		List<MazeEvent> result = getList(new NpcSpeechEvent("Welcome back! How can I help?", npc));
 
 		checkCocQuest2(result);
 		checkFreeBeer(result);
@@ -107,14 +107,14 @@ public class Scrymgeour extends NpcScript
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-				new NpcSpeechEvent("Yes?"));
+				new NpcSpeechEvent("Yes?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-				new NpcSpeechEvent("Goodbye"),
+				new NpcSpeechEvent("Goodbye", npc),
 				new ActorsLeaveEvent());
 	}
 
@@ -122,7 +122,7 @@ public class Scrymgeour extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-				new NpcSpeechEvent("Farewell, return any time!"),
+				new NpcSpeechEvent("Farewell, return any time!", npc),
 				new ActorsLeaveEvent());
 	}
 

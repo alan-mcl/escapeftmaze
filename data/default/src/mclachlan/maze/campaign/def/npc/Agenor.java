@@ -30,24 +30,24 @@ public class Agenor extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Grrreetings, strangers."),
+			new NpcSpeechEvent("Grrreetings, strangers.", npc),
 			new NpcSpeechEvent("I am Agenor, quartermaster here. For you, I " +
-				"can buy and sell supplies."),
+				"can buy and sell supplies.", npc),
 			new NpcSpeechEvent("Off the record, I am also quite well connected " +
 				"in the community, and if you're looking to be put in touch " +
-				"with other adventurers, I can probably arrange something."));
+				"with other adventurers, I can probably arrange something.", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Grrreetings again, strangers. How can I help?"));
+			new NpcSpeechEvent("Grrreetings again, strangers. How can I help?", npc));
 	}
 
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Hrrrrrr. Yes?"));
+			new NpcSpeechEvent("Hrrrrrr. Yes?", npc));
 	}
 
 	/*
@@ -65,14 +65,14 @@ public class Agenor extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Hrrrrrr."),
+			new NpcSpeechEvent("Hrrrrrr.", npc),
 			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Farrrrewell friends"),
+			new NpcSpeechEvent("Farrrrewell friends", npc),
 			new ActorsLeaveEvent());
 	}
 

@@ -21,12 +21,11 @@ package mclachlan.maze.ui.diygui;
 
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.diygui.toolkit.DIYToolkit;
 
 /**
  *
  */
-class GetAmount implements TextDialogCallback
+public class GetAmount implements TextDialogCallback
 {
 	GetAmountCallback callback;
 	private PlayerCharacter user;
@@ -44,9 +43,16 @@ class GetAmount implements TextDialogCallback
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void textEntered(String amount)
+	public void textEntered(String text)
 	{
 		// we can take no sensible default action
-		callback.amountChosen(Integer.parseInt(amount), user, userIndex);
+		callback.amountChosen(Integer.parseInt(text), user, userIndex);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void textEntryCancelled()
+	{
+		// no op
 	}
 }

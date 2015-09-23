@@ -19,19 +19,21 @@
 
 package mclachlan.maze.stat.npc;
 
-import mclachlan.maze.game.MazeEvent;
 import java.util.*;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 
 /**
  *
  */
 public class ChangeNpcAttitudeEvent extends MazeEvent
 {
-	private Npc npc;
+	private Foe npc;
 	private NpcFaction.AttitudeChange change;
 
 	/*-------------------------------------------------------------------------*/
-	public ChangeNpcAttitudeEvent(Npc npc, NpcFaction.AttitudeChange change)
+	public ChangeNpcAttitudeEvent(Foe npc, NpcFaction.AttitudeChange change)
 	{
 		this.npc = npc;
 		this.change = change;
@@ -40,6 +42,11 @@ public class ChangeNpcAttitudeEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		if (npc == null)
+		{
+			return null;
+		}
+
 		npc.changeAttitude(change);
 
 		if (npc.getFaction() != null)
@@ -49,9 +56,17 @@ public class ChangeNpcAttitudeEvent extends MazeEvent
 			npcFaction.setAttitude(npc.getAttitude());
 		}
 
+		Maze maze = Maze.getInstance();
+		if (maze.getCurrentActorEncounter() != null)
+		{
+			maze.getCurrentActorEncounter().setEncounterAttitude(npc.getAttitude());
+		}
+
+		maze.refreshCharacterData();
+
 		if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
 		{
-			return npc.getScript().attacksParty();
+			return npc.getActionScript().attacksParty();
 		}
 		else
 		{

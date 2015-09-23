@@ -54,7 +54,7 @@ public class AnimationEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().startAnimation(animation, this, animationContext);
+		Maze.getInstance().startAnimation(animation, Maze.getInstance().getEventMutex(), animationContext);
 		return null;
 	}
 

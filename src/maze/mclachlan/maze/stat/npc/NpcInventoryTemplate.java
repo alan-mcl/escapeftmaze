@@ -87,7 +87,7 @@ public class NpcInventoryTemplate
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param currentInventory
-	 * 	The NPCs currenct inventory
+	 * 	The NPCs current inventory
 	 * @return
 	 * 	The new inventory of the NPC
 	 */
@@ -125,7 +125,8 @@ public class NpcInventoryTemplate
 					{
 						newItem = itemTemplate.create();
 					}
-					
+
+					// set vendor items to always identified
 					newItem.setIdentificationState(Item.IdentificationState.IDENTIFIED);
 					currentInventory.add(newItem);
 				}

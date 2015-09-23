@@ -35,6 +35,7 @@ public class ActorIntentionResolver
 		UnifiedActor actor,
 		ActorActionIntention intention)
 	{
+		Maze maze = Maze.getInstance();
 		List<CombatAction> result = new ArrayList<CombatAction>();
 
 		if (actor.getHitPoints().getCurrent() <= 0)
@@ -90,14 +91,44 @@ public class ActorIntentionResolver
 		}
 		else if (intention instanceof ThreatenIntention)
 		{
-			Maze maze = Maze.getInstance();
-			if (maze.getState() == Maze.State.ENCOUNTER_NPC)
-			{
-				result.add(new ThreatenAction(maze.getCurrentNpc()));
-			}
-			else if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+			if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
 			{
 				result.add(new ThreatenAction(maze.getCurrentActorEncounter().getLeader()));
+			}
+		}
+		else if (intention instanceof TalkIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+			{
+				result.add(new TalkAction(maze.getCurrentActorEncounter().getLeader()));
+			}
+		}
+		else if (intention instanceof GiveIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+			{
+				result.add(new GiveAction(maze.getCurrentActorEncounter().getLeader()));
+			}
+		}
+		else if (intention instanceof BribeIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+			{
+				result.add(new BribeAction(maze.getCurrentActorEncounter().getLeader()));
+			}
+		}
+		else if (intention instanceof StealIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+			{
+				result.add(new StealAction(maze.getCurrentActorEncounter().getLeader()));
+			}
+		}
+		else if (intention instanceof TradeIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
+			{
+				result.add(new TradeAction(maze.getCurrentActorEncounter().getLeader()));
 			}
 		}
 		else

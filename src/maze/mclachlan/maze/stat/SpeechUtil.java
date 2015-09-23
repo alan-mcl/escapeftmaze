@@ -23,7 +23,7 @@ import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.combat.event.SpeechBubbleEvent;
+import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.util.MazeException;
@@ -90,7 +90,7 @@ public class SpeechUtil
 		String words = pc.getPersonality().getWords(speechKey);
 		if (words != null && words.length() > 0)
 		{
-			return Arrays.asList((MazeEvent)new SpeechBubbleEvent(pc, speechKey));
+			return Arrays.asList((MazeEvent)new PersonalitySpeechBubbleEvent(pc, speechKey));
 		}
 		else
 		{

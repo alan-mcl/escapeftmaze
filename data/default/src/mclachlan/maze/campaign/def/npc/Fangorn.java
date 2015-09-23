@@ -38,12 +38,12 @@ public class Fangorn extends NpcScript
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new NpcSpeechEvent("Well. Adventurers, come to my god-forsaken " +
 				"lair, my lonely cheerless fortress. Who knows what baneful " +
-				"deity directed your unfortunate footsteps this way?"),
+				"deity directed your unfortunate footsteps this way?", npc),
 			new NpcSpeechEvent("Silence, fools. I care not for your " +
 				"stories, nor your names. Your writhings will momentarily " +
 				"relieve my boredom, then your blood will warm my lips. " +
-				"There is nothing more for you."),
-			new NpcSpeechEvent("Defend yourselves."),
+				"There is nothing more for you.", npc),
+			new NpcSpeechEvent("Defend yourselves.", npc),
 			new NpcAttacksEvent(npc));
 	}
 

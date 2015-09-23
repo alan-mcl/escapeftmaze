@@ -22,13 +22,12 @@ package mclachlan.maze.ui.diygui;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.diygui.toolkit.DIYToolkit;
 
 
 /**
  *
  */
-class GiveItem implements ItemSelectionCallback
+public class GiveItem implements ItemSelectionCallback
 {
 	GiveItemCallback callback;
 	private PlayerCharacter user;

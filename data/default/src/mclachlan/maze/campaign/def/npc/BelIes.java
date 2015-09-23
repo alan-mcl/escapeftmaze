@@ -33,15 +33,15 @@ public class BelIes extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("YYYEEEEEEAAAAAAAARRRRRRRGGGGHHHHHHHHHHH!!!!!!!\n\n" +
-				"UD NIN GIR!!!! SU KE URU NI SE IGI ZID IM SI BAR RAAAAA!!!"),
+				"UD NIN GIR!!!! SU KE URU NI SE IGI ZID IM SI BAR RAAAAA!!!", npc),
 			new NpcSpeechEvent("AAAAAAARRRRRRGGGGGHHHHH!!!!!!!!!\n\n" +
-				"LU NINNU TA IM AB E EAAAAAAAA!!!!!!"),
-			new NpcSpeechEvent("NA GAL!!!! GAL BI LAGAB!!!\n\nGAL BI LAGAAAAAB!!!"),
-			new NpcSpeechEvent("YYYYAAAAAAAEEEEEEEEEEEEEEEEEEE!!!!!!!!!"),
+				"LU NINNU TA IM AB E EAAAAAAAA!!!!!!", npc),
+			new NpcSpeechEvent("NA GAL!!!! GAL BI LAGAB!!!\n\nGAL BI LAGAAAAAB!!!", npc),
+			new NpcSpeechEvent("YYYYAAAAAAAEEEEEEEEEEEEEEEEEEE!!!!!!!!!", npc),
 			new CharacterClassKnowledgeEvent("The language bears some " +
 				"resemblance to ancient Eridu. You don't know enough to " +
 				"translate, but you recall that 'lagab' meant 'death'.\n\n" +
-				"Regardless of linguistic preferences, this individual is " +
+				"Regardless of linguistic preferences, npc individual is " +
 				"obviously a powerful magic user.", "Sorcerer"),
 			new NpcAttacksEvent(npc));
 	}

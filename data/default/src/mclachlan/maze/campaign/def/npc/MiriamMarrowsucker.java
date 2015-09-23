@@ -35,16 +35,16 @@ public class MiriamMarrowsucker extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
-				new NpcSpeechEvent("Eeeee heee heee, wot av we ere ehhhh?"),
+				new NpcSpeechEvent("Eeeee heee heee, wot av we ere ehhhh?", npc),
 				new NpcSpeechEvent("Wot bisniss ye have comin ere, to me home, " +
 					"me wee nest, all struttin an sneering n all? Well, me " +
 					"pretties ye've made a wee mistake, a wee accident ye ave made, " +
-					"comin ere, ye ave."),
+					"comin ere, ye ave.", npc),
 				new NpcSpeechEvent("Aye, cause when Miriam is done wit ye, when " +
 					"ahm done twisting off ye wee heads an sucking out ye soft " +
 					"wet eyes an crackin open ye green juicy bones, then ye won't " +
-					"be turnin ye noses up at wee Miriam now, will ye?"),
-				new NpcSpeechEvent("Eeeee hee hee! Come to ye mammie me pretties!"),
+					"be turnin ye noses up at wee Miriam now, will ye?", npc),
+				new NpcSpeechEvent("Eeeee hee hee! Come to ye mammie me pretties!", npc),
 				new NpcAttacksEvent(npc));
 	}
 

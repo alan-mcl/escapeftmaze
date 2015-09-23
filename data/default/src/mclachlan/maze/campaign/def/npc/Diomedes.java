@@ -37,30 +37,30 @@ public class Diomedes extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Greetings, bold adventurers. I am Diomedes, " +
 				"ambassador of the White Order and high priest of the Temple " +
-				"of Dana here in Ichiba."),
+				"of Dana here in Ichiba.", npc),
 			new NpcSpeechEvent("I have heard of your exploits. Few attempt " +
-				"to escape the First Realm, fewer still survive the attempt."));
+				"to escape the First Realm, fewer still survive the attempt.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings, friends."));
+			new NpcSpeechEvent("Greetings, friends.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings."));
+			new NpcSpeechEvent("Greetings.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Farewell"),
+			new NpcSpeechEvent("Farewell", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -69,7 +69,7 @@ public class Diomedes extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("The blessing of Dana go with you, friends. " +
-				"You will find me here should you need me."),
+				"You will find me here should you need me.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -80,11 +80,11 @@ public class Diomedes extends NpcScript
 			!MazeVariables.getBoolean(DIOMEDES_GRANTED_QUEST))
 		{
 			return getList(
-				new NpcSpeechEvent("Hmmm, perhaps I do have a task for you."),
+				new NpcSpeechEvent("Hmmm, perhaps I do have a task for you.", npc),
 				new NpcSpeechEvent("I have unfortunately lost, or had stolen from " +
-					"me, some rather rare sticks of camphor incense."),
+					"me, some rather rare sticks of camphor incense.", npc),
 				new NpcSpeechEvent("If you can find and return them I would be " +
-					"most grateful."),
+					"most grateful.", npc),
 				new SetMazeVariableEvent(DIOMEDES_GRANTED_QUEST, "true"));
 		}
 		else
@@ -99,14 +99,14 @@ public class Diomedes extends NpcScript
 		if (item.getName().equals("Camphor Incense"))
 		{
 			return getList(
-				new NpcSpeechEvent("Ah, my incense!"),
-				new NpcSpeechEvent("You have my gratitude, friends."),
+				new NpcSpeechEvent("Ah, my incense!", npc),
+				new NpcSpeechEvent("You have my gratitude, friends.", npc),
 				new GrantExperienceEvent(100, null),
 				new NpcSpeechEvent("I cannot compensate you materially, I'm " +
-					"afraid. But perhaps I can open doors in your future."),
+					"afraid. But perhaps I can open doors in your future.", npc),
 				new NpcSpeechEvent("If you ever come to Danaos Castle, the " +
 					"stronghold of my Order, tell Stenelaus at the gate that " +
-					"Diomedes sent you with his blessing."),
+					"Diomedes sent you with his blessing.", npc),
 				new SetMazeVariableEvent(INVITATION_FROM_DIOMEDES, "true"));
 		}
 		else

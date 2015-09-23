@@ -29,12 +29,13 @@ import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.event.ActorsTurnToAct;
 import mclachlan.maze.game.event.PartyEvadesFoesEvent;
-import mclachlan.maze.game.event.PartyWaitsEvent;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
 import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.npc.InitiateGuildEvent;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
@@ -48,9 +49,10 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 	private final int inset;
 	private MessageDestination msg;
 
-	private DIYButton leave, attack, flee, wait, surprise, evade;
+	private DIYButton leave, attack, flee, wait, surprise, evade, guild;
 	private ActorEncounter actorEncounter;
 	private NpcScript npcScript;
+	private DIYPane leftPane;
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsStateHandler(Maze maze, int buttonRows, int inset,
@@ -60,12 +62,6 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		this.buttonRows = buttonRows;
 		this.inset = inset;
 		this.msg = msg;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getLeftPane()
-	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
 
 		attack = new DIYButton(StringUtil.getUiLabel("poatw.attack"));
 		attack.addActionListener(this);
@@ -76,30 +72,39 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		surprise = new DIYButton(StringUtil.getUiLabel("poatw.surprise"));
 		surprise.addActionListener(this);
 
-		result.add(attack);
-		result.add(surprise);
-		result.add(wait);
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getRightPane()
-	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
-
 		evade = new DIYButton(StringUtil.getUiLabel("poatw.evade"));
 		evade.addActionListener(this);
+
+		guild = new DIYButton(StringUtil.getUiLabel("poatw.guild"));
+		guild.addActionListener(this);
 
 		leave = new DIYButton(StringUtil.getUiLabel("poatw.leave"));
 		leave.addActionListener(this);
 
 		flee = new DIYButton(StringUtil.getUiLabel("poatw.flee"));
 		flee.addActionListener(this);
+	}
 
-		result.add(leave);
-		result.add(evade);
-		result.add(flee);
+	/*-------------------------------------------------------------------------*/
+	public ContainerWidget getLeftPane()
+	{
+		leftPane = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
+
+		leftPane.add(attack);
+		leftPane.add(surprise);
+		leftPane.add(evade);
+		leftPane.add(flee);
+		leftPane.add(wait);
+		leftPane.add(guild);
+		leftPane.add(leave);
+
+		return leftPane;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public ContainerWidget getRightPane()
+	{
+		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
 
 		return result;
 	}
@@ -135,8 +140,10 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		{
 			ambush();
 		}
-
-
+		else if (obj == guild)
+		{
+			guild();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -146,6 +153,14 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		{
 			msg.addMessage(StringUtil.getEventText("msg.party.attacks"));
 			maze.appendEvents(npcScript.attackedByParty());
+		}
+	}
+
+	private void guild()
+	{
+		if (guild.isVisible())
+		{
+			maze.appendEvents(new InitiateGuildEvent(actorEncounter.getLeader()));
 		}
 	}
 
@@ -171,7 +186,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		if (wait.isVisible())
 		{
 			msg.addMessage(StringUtil.getEventText("msg.party.waits"));
-			maze.appendEvents(new PartyWaitsEvent(actorEncounter, maze, msg));
+			maze.appendEvents(new ActorsTurnToAct(actorEncounter, maze, msg));
 		}
 	}
 
@@ -187,7 +202,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 			if (!success)
 			{
 				maze.appendEvents(new PartyFleeFailedEvent());
-				maze.appendEvents(new PartyWaitsEvent(actorEncounter, maze, msg));
+				maze.appendEvents(new ActorsTurnToAct(actorEncounter, maze, msg));
 			}
 			else
 			{
@@ -239,6 +254,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 			case KeyEvent.VK_F: flee(); break;
 			case KeyEvent.VK_E: evade(); break;
 			case KeyEvent.VK_S: ambush(); break;
+			case KeyEvent.VK_G: guild(); break;
 		}
 	}
 
@@ -261,6 +277,17 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 		boolean mayEvade =
 			actorEncounter.getAmbushStatus() == Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES;
 
+		boolean isGuild =
+			actorEncounter.getLeader().isGuildMaster();
+
+		leftPane.remove(attack);
+		leftPane.remove(surprise);
+		leftPane.remove(evade);
+		leftPane.remove(wait);
+		leftPane.remove(flee);
+		leftPane.remove(leave);
+		leftPane.remove(guild);
+
 		// set button state based on encounter attitude
 		switch (actorEncounter.getEncounterAttitude())
 		{
@@ -271,6 +298,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(false);
+				guild.setVisible(false);
 				break;
 			case AGGRESSIVE:
 				attack.setVisible(true);
@@ -279,6 +307,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(true);
 				flee.setVisible(true);
 				leave.setVisible(false);
+				guild.setVisible(false);
 				break;
 			case WARY:
 				attack.setVisible(true);
@@ -287,6 +316,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(true);
 				flee.setVisible(false);
 				leave.setVisible(true);
+				guild.setVisible(false);
 				break;
 			case SCARED:
 				attack.setVisible(true);
@@ -295,6 +325,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(true);
 				flee.setVisible(false);
 				leave.setVisible(true);
+				guild.setVisible(false);
 				break;
 			case NEUTRAL:
 				attack.setVisible(true);
@@ -303,6 +334,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(true);
+				guild.setVisible(false);
 				break;
 			case FRIENDLY:
 				attack.setVisible(true);
@@ -311,6 +343,7 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(true);
+				guild.setVisible(isGuild);
 				break;
 			case ALLIED:
 				attack.setVisible(true);
@@ -319,15 +352,24 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(true);
+				guild.setVisible(isGuild);
 				break;
 		}
+
+		if (attack.isVisible()) leftPane.add(attack);
+		if (surprise.isVisible()) leftPane.add(surprise);
+		if (evade.isVisible()) leftPane.add(evade);
+		if (wait.isVisible()) leftPane.add(wait);
+		if (flee.isVisible()) leftPane.add(flee);
+		if (guild.isVisible()) leftPane.add(guild);
+		if (leave.isVisible()) leftPane.add(leave);
+
+		leftPane.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private NpcScript getNpcScriptFromActorEncounter(ActorEncounter actorEncounter)
 	{
-		// todo: polymorphism so that we can treat NPCs and Foes the same!
-
 		return new DefaultFoeAiScript(actorEncounter);
 	}
 }

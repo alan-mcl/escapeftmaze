@@ -43,36 +43,36 @@ public class Mnesus extends NpcScript
 		return getList(
 			new SetUserConfigEvent("unlock.race.gnome", "true"),
 			new NpcSpeechEvent("Greetings. I am Mnesus, King of the gnomes " +
-				"of Aenen. Welcome to my hall."),
+				"of Aenen. Welcome to my hall.", npc),
 			new NpcSpeechEvent("I had heard tell that once again some " +
 				"brave souls had escaped from the First Realm and were " +
-				"wandering these lands. It is a pleasure to meet you in person."),
+				"wandering these lands. It is a pleasure to meet you in person.", npc),
 			new NpcSpeechEvent("This Realm of ours, the Second of many, is " +
 				"not free from danger. The Maze is a danger to all. Yet here " +
-				"we live as best we can in exile."),
+				"we live as best we can in exile.", npc),
 			new NpcSpeechEvent("Ideaus sent word that you came bearing news " +
-				"of our brother Antenor?"));
+				"of our brother Antenor?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings friends."));
+			new NpcSpeechEvent("Greetings friends.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings."));
+			new NpcSpeechEvent("Greetings.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Goodbye."),
+			new NpcSpeechEvent("Goodbye.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -80,7 +80,7 @@ public class Mnesus extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Farewell."),
+			new NpcSpeechEvent("Farewell.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -91,16 +91,16 @@ public class Mnesus extends NpcScript
 		{
 			return getList(
 				new NpcSpeechEvent("That is indeed the seal of Antenor. Tell me, " +
-					"how did you find it?"),
-				new NpcSpeechEvent("..."),
+					"how did you find it?", npc),
+				new NpcSpeechEvent("...", npc),
 				new NpcSpeechEvent("Yes, we had feared that Antenor was lost. " +
 					"It is a sad day, but you have our gratitude for returning " +
 					"the family seal to us. I will make sure that it is " +
-					"converyed to his kin for safekeeping."),
+					"converyed to his kin for safekeeping.", npc),
 				new NpcTakesItemEvent(owner, item, npc),
 				new GrantExperienceEvent(100, null),
 				new NpcSpeechEvent("Henceforth you are welcome in Aenen. May " +
-					"our halls provide you with safety and rest from the wilds."));
+					"our halls provide you with safety and rest from the wilds.", npc));
 		}
 		else if (item.getName().equals("Clockwork Head"))
 		{
@@ -108,14 +108,14 @@ public class Mnesus extends NpcScript
 			Item head = it.create();
 
 			return getList(
-				new NpcSpeechEvent("Excellent work."),
+				new NpcSpeechEvent("Excellent work.", npc),
 				new NpcSpeechEvent("I will open the way to the gate for you. " +
-					"Be warned though, beyond you will face sterner foes."),
+					"Be warned though, beyond you will face sterner foes.", npc),
 				new FlavourTextEvent("Mnesus takes the severed clockwork head from you. " +
 					"You see him open a small panel on the rear and remove some kind " +
 					"of green and silver wafer. He hands the head back to you."),
 				new NpcSpeechEvent("You may keep this. Perhaps you can find some" +
-					"use for it."),
+					"use for it.", npc),
 				new NpcTakesItemEvent(owner, item, npc),
 				new GrantExperienceEvent(100, null),
 				new GrantItemsEvent(head),
@@ -136,20 +136,20 @@ public class Mnesus extends NpcScript
 		{
 			return getList(
 				new NpcSpeechEvent("Yes, as you may already know, here in " +
-					"the depths of Aenen, we gnomes guard a minor gate."),
+					"the depths of Aenen, we gnomes guard a minor gate.", npc),
 				new NpcSpeechEvent("It leads to a windswept mountain wasteland, " +
 					"a dangerous place to go. None the less, you will have to " +
 					"pass that way if you are travelling to Hail, or going beyond " +
-					"that to seek the great Gate to the Third Realm."),
-				new NpcSpeechEvent("I expected you to approach me about it."),
+					"that to seek the great Gate to the Third Realm.", npc),
+				new NpcSpeechEvent("I expected you to approach me about it.", npc),
 				new NpcSpeechEvent("You have already earned the freedom of my city, " +
 					"but for passage through the gate I am minded to ask more of " +
 					"you - to test your mettle a bit, for mettle you will need " +
-					"if you are to venture the wastelands."),
+					"if you are to venture the wastelands.", npc),
 				new NpcSpeechEvent("One of Sarpedon's clockwork servants has " +
 					"run amuck. You will find it roaming the woods above our city. " +
 					"I require you to destroy it. Bring me proof, and I will open " +
-					"the way for you."));
+					"the way for you.", npc));
 		}
 		else
 		{

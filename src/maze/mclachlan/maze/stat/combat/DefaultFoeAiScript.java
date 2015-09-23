@@ -20,10 +20,13 @@
 package mclachlan.maze.stat.combat;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.StartCombatEvent;
+import mclachlan.maze.map.script.FlavourTextEvent;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.stat.npc.PartyLeavesEvent;
 
@@ -38,6 +41,7 @@ public class DefaultFoeAiScript extends NpcScript
 	public DefaultFoeAiScript(ActorEncounter actorEncounter)
 	{
 		this.actorEncounter = actorEncounter;
+		this.npc = actorEncounter.getLeader();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -49,8 +53,7 @@ public class DefaultFoeAiScript extends NpcScript
 		return getList(new StartCombatEvent(
 			maze,
 			maze.getParty(),
-			actorEncounter.getActors(),
-			actorEncounter.getMazeVar()));
+			actorEncounter));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -62,8 +65,7 @@ public class DefaultFoeAiScript extends NpcScript
 		return getList(new StartCombatEvent(
 			maze,
 			maze.getParty(),
-			actorEncounter.getActors(),
-			actorEncounter.getMazeVar()));
+			actorEncounter));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -78,5 +80,13 @@ public class DefaultFoeAiScript extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(new PartyLeavesEvent());
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public List<MazeEvent> partyWantsToTalk(PlayerCharacter pc)
+	{
+		return getList(new FlavourTextEvent(StringUtil.getEventText("msg.no.response")));
 	}
 }

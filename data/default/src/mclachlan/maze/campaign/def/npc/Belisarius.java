@@ -31,7 +31,7 @@ public class Belisarius extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	private void initInternal()
 	{
-		QuestManager qm = npc.getQuestManager();
+		QuestManager qm = ((Npc)npc).getQuestManager();
 
 		qm.addQuest(createQuest1());
 
@@ -44,29 +44,29 @@ public class Belisarius extends NpcScript
 		List<MazeEvent> intro = getList(
 			new NpcSpeechEvent("Your type is usually here asking with " +
 				"varying degrees of politeness for access to the lesser gate " +
-				"below the castle."),
+				"below the castle.", npc),
 			new NpcSpeechEvent("I am seldom happy to grant it. We of the White " +
 				"Order work hard to keep the Maze at bay. The more who seek " +
-				"to escape it, the more it assails our defences."),
+				"to escape it, the more it assails our defences.", npc),
 			new NpcSpeechEvent("But you have arrived at an opportune time.\n\n" +
 				"Just yesterday, a vicious wyrm of some sort " +
 				"came writhing through the gate. It is contained in the " +
-				"chamber below the castle."),
+				"chamber below the castle.", npc),
 			new NpcSpeechEvent("Instead of risking valuable soldiers on this " +
 				"trivial task, I will send you.\n\nIf you triumph, you will find " +
-				"the gate in the same chamber."),
+				"the gate in the same chamber.", npc),
 			new SetMazeVariableEvent("danaos.castle.portal.30", "unlocked"));
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("I am told that you have not completed the task " +
-				"that I set you yet."));
+				"that I set you yet.", npc));
 
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("You have arrived to report your success. Well " +
-				"done."),
+				"done.", npc),
 			new NpcSpeechEvent("You may use the gate freely, but be on your " +
 				"guard. The dark forest of Stygios is the domain that lies " +
-				"beyond - you will find little but danger there."),
+				"beyond - you will find little but danger there.", npc),
 			new GrantExperienceEvent(100, null));
 
 		return new Quest(
@@ -94,9 +94,9 @@ public class Belisarius extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		List<MazeEvent> result = getList(
-			new NpcSpeechEvent("So, you are the adventurers. Hrmmmm. Welcome."),
+			new NpcSpeechEvent("So, you are the adventurers. Hrmmmm. Welcome.", npc),
 			new NpcSpeechEvent("My name is Belisarius, I am General of the " +
-				"White Order."));
+				"White Order.", npc));
 
 		checkQuests(result);
 		
@@ -107,7 +107,7 @@ public class Belisarius extends NpcScript
 	public List<MazeEvent> subsequentGreeting()
 	{
 		List<MazeEvent> result = getList(
-			new NpcSpeechEvent("Hrmmmmmh. Welcome back."));
+			new NpcSpeechEvent("Hrmmmmmh. Welcome back.", npc));
 
 		checkQuests(result);
 
@@ -118,7 +118,7 @@ public class Belisarius extends NpcScript
 	public List<MazeEvent> neutralGreeting()
 	{
 		List<MazeEvent> result = getList(
-			new NpcSpeechEvent("Hrmmmmmh. Welcome back."));
+			new NpcSpeechEvent("Hrmmmmmh. Welcome back.", npc));
 
 		checkQuests(result);
 		
@@ -129,7 +129,7 @@ public class Belisarius extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Goodbye."),
+			new NpcSpeechEvent("Goodbye.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -137,7 +137,7 @@ public class Belisarius extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Farewell."),
+			new NpcSpeechEvent("Farewell.", npc),
 			new ActorsLeaveEvent());
 	}
 

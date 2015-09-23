@@ -22,7 +22,7 @@ package mclachlan.maze.game.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
 import mclachlan.maze.ui.diygui.GeneralOptionsDialog;
 import mclachlan.maze.util.MazeException;
@@ -32,14 +32,14 @@ import mclachlan.maze.util.MazeException;
  */
 public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCallback
 {
-	private Npc npc;
+	private Foe npc;
 	private String[] options;
 	private String title;
 
 	private transient String optionChosen;
 
 	/*-------------------------------------------------------------------------*/
-	public DisplayOptionsEvent(Npc npc, String title, String... options)
+	public DisplayOptionsEvent(Foe npc, String title, String... options)
 	{
 		this.npc = npc;
 		this.options = options;
@@ -64,7 +64,7 @@ public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCall
 			}
 		}
 
-		return npc.getScript().optionChosen(optionChosen);
+		return npc.getActionScript().optionChosen(optionChosen);
 	}
 
 	/*-------------------------------------------------------------------------*/

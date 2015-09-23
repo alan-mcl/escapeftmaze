@@ -37,13 +37,13 @@ public class Nhapukom extends NpcScript
 		return getList(
 			new FlavourTextEvent("The demon speaks!",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
-			new NpcSpeechEvent("HEED THE WORDS OF USARK THE PROUD."),
+			new NpcSpeechEvent("HEED THE WORDS OF USARK THE PROUD.", npc),
 			new NpcSpeechEvent("YOU HAVE RECEIVED THE REQUIRED WARNINGS. " +
 				"YOU HEARD BUT DISOBEYED. NOW YOU MUST BE PUNISHED. NONE MAY " +
 				"ESCAPE THE MAZE. THE SINS OF YOUR ANCESTORS ARE STILL UPON YOU. " +
-				"THE SENTENCE HAS NOT YET BEEN SERVED."),
-			new NpcSpeechEvent("FURTHER WORDS ARE FUTILE."),
-			new NpcSpeechEvent("I AM NHAPUKOM BANESOUL AND I AM YOUR DEATH."),
+				"THE SENTENCE HAS NOT YET BEEN SERVED.", npc),
+			new NpcSpeechEvent("FURTHER WORDS ARE FUTILE.", npc),
+			new NpcSpeechEvent("I AM NHAPUKOM BANESOUL AND I AM YOUR DEATH.", npc),
 			new FlavourTextEvent("The demons eyes flash with fire, and it " +
 				"moves to attack you!",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),

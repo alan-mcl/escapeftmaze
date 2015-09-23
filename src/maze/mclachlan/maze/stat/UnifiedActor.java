@@ -121,9 +121,12 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		this.stats = stats;
 		this.bodyParts = bodyParts;
 
-		for (int i = 0; i < MAX_PACK_ITEMS; i++)
+		if (getInventory() != null)
 		{
-			getInventory().add(null);
+			for (int i = 0; i < MAX_PACK_ITEMS; i++)
+			{
+				getInventory().add(null);
+			}
 		}
 
 		equipableSlots = buildEquipableSlots();
@@ -1333,7 +1336,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			return false;
 		}
 		else if (s.getUsabilityType() == MagicSys.SpellUsabilityType.NPC_ONLY &&
-			Maze.getInstance().getCurrentNpc() == null)
+			Maze.getInstance().getState() != Maze.State.ENCOUNTER_ACTORS)
 		{
 			Maze.log(Log.DEBUG, s.getName()+": cannot cast [" +
 				MagicSys.SpellUsabilityType.describe(s.getUsabilityType()) +

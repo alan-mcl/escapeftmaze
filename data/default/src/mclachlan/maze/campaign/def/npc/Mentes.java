@@ -35,32 +35,32 @@ public class Mentes extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Greetings, customers. Welcome to Mentes' fine " +
 				"establishment. For buying and selling, there's no better " +
-				"place in the fine city of Aenen. What are you looking for?"));
+				"place in the fine city of Aenen. What are you looking for?", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings once again! What have you for sale?"));
+			new NpcSpeechEvent("Greetings once again! What have you for sale?", npc));
 	}
 
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Yes?"));
+			new NpcSpeechEvent("Yes?", npc));
 	}
 
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Hrpmf. Bye."),
+			new NpcSpeechEvent("Hrpmf. Bye.", npc),
 			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Farewell, come again soon!"),
+			new NpcSpeechEvent("Farewell, come again soon!", npc),
 			new ActorsLeaveEvent());
 	}
 }

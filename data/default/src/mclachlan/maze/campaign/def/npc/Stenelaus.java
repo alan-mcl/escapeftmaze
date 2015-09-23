@@ -42,16 +42,16 @@ public class Stenelaus extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Hail strangers! I am Stenelaus, Doorwarden " +
-				"of the mighty Castle Danaos in the lands of the Leonals."),
+				"of the mighty Castle Danaos in the lands of the Leonals.", npc),
 			new NpcSpeechEvent("Even in these times of relative peace, the " +
-				"doors of the castle are open only to those with business here."));
+				"doors of the castle are open only to those with business here.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Welcome back friends."));
+			new NpcSpeechEvent("Welcome back friends.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -67,14 +67,14 @@ public class Stenelaus extends NpcScript
 		{
 			// party is authorized to enter
 			return getList(
-				new NpcSpeechEvent("You may pass within."),
+				new NpcSpeechEvent("You may pass within.", npc),
 				new ActorsLeaveEvent());
 		}
 		else
 		{
 			// party is not authorized
 			return getList(
-				new NpcSpeechEvent("You may not pass within."),
+				new NpcSpeechEvent("You may not pass within.", npc),
 				new MovePartyEvent(new Point(5, 16), CrusaderEngine.Facing.WEST),
 				new ActorsLeaveEvent());
 		}
@@ -97,13 +97,13 @@ public class Stenelaus extends NpcScript
 		{
 			return getList(
 				new NpcSpeechEvent("So you are those that the pious Diomedes " +
-					"sent word of?"),
+					"sent word of?", npc),
 				new NpcSpeechEvent("A fine Leonal, Diomedes, strong and " +
-					"faithful. I know his family well."),
+					"faithful. I know his family well.", npc),
 				new NpcSpeechEvent("If you have his trust then you have mine. " +
 					"I will grant you admittance to the castle. Your good " +
 					"conduct is assumed; do not disgrace me or Diomedes in this " +
-					"matter."),
+					"matter.", npc),
 				new ChangeNpcFactionAttitudeEvent(
 					npc.getFaction(),
 					NpcFaction.Attitude.FRIENDLY,
@@ -116,44 +116,44 @@ public class Stenelaus extends NpcScript
 		{
 			List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-			result.add(new NpcSpeechEvent("Well, I'm on duty right now..."));
+			result.add(new NpcSpeechEvent("Well, I'm on duty right now...", npc));
 			
 			if (getParty().getGold() < 100)
 			{
 				result.add(new NpcSpeechEvent("In any event, it " +
-					"appears you're practically out of cash."));
-				result.add(new NpcSpeechEvent("Maybe some other time..."));
+					"appears you're practically out of cash.", npc));
+				result.add(new NpcSpeechEvent("Maybe some other time...", npc));
 				return result;
 			}
 			else
 			{
 				// Basically the old dice game Hazard. Look it up.
 
-				result.add(new NpcSpeechEvent("But why not pass a little time?"));
+				result.add(new NpcSpeechEvent("But why not pass a little time?", npc));
 				result.add(new FlavourTextEvent("The Leonal grins a wide toothy grin " +
 					"and produces two ivory dice from a small pouch.",
 					MazeEvent.Delay.WAIT_ON_CLICK, true));
-				result.add(new NpcSpeechEvent("Right then, here's how it works."));
+				result.add(new NpcSpeechEvent("Right then, here's how it works.", npc));
 				result.add(new NpcSpeechEvent("Two dice, six sides numbered one to " +
-					"six. Fair dice, I do assure you."));
+					"six. Fair dice, I do assure you.", npc));
 				result.add(new NpcSpeechEvent("You'll be the caster. We'll keep it " +
-					"simple - stakes are 100 gold, loser pays winner, take it or leave it."));
+					"simple - stakes are 100 gold, loser pays winner, take it or leave it.", npc));
 				result.add(new NpcSpeechEvent("Caster calls a number from five " +
 					"to nine - that's the main - then throws the dice.\n\n" +
 					"If you roll the main you nick the stake. On a two or three " +
-					"you've thrown out - you lose."));
+					"you've thrown out - you lose.", npc));
 				result.add(new NpcSpeechEvent("On an eleven or twelve, it depends " +
 					"on the main. If the main was five or nine you've then thrown " +
 					"out. With a main of six or eight, you've thrown out on an eleven " +
 					"but nicked on a twelve. If the main's seven, you've nicked on an " +
-					"eleven and thrown out on a twelve."));
+					"eleven and thrown out on a twelve.", npc));
 				result.add(new NpcSpeechEvent("If the caster neither nicks nor " +
 					"throws out the number thrown is the chance. On a chance the " +
 					"caster rolls again - if he rolls the chance he wins. If he " +
 					"rolls the main, he loses. Caster keeps rolling until either " +
-					"the chance or the main come up."));
+					"the chance or the main come up.", npc));
 				result.add(new NpcSpeechEvent("Got it? Good! As I said, you're " +
-					"the caster, stake is a hundred gold. Call and roll!"));
+					"the caster, stake is a hundred gold. Call and roll!", npc));
 				result.add(new DisplayOptionsEvent(this.npc, "Call the main:",
 					"Five", "Six", "Seven", "Eight", "Nine"));
 			}
@@ -175,7 +175,7 @@ public class Stenelaus extends NpcScript
 		if (optionChosen == null)
 		{
 			result.add(new NpcSpeechEvent("Oh, ok. I guess the dice aren't " +
-				"everyone's cup of mead. Perhaps another time."));
+				"everyone's cup of mead. Perhaps another time.", npc));
 		}
 		else
 		{
@@ -237,7 +237,7 @@ public class Stenelaus extends NpcScript
 			else
 			{
 				result.add(new NpcSpeechEvent("Oh dear, you're on the chance! " +
-					"Roll again, chance is "+total+", main is "+main+"."));
+					"Roll again, chance is "+total+", main is "+main+".", npc));
 
 				int roll = -1;
 
@@ -256,7 +256,7 @@ public class Stenelaus extends NpcScript
 					if (roll != main && roll != total)
 					{
 						result.add(new NpcSpeechEvent("No dice! " +
-							"Roll again, chance is "+total+", main is "+main+"..."));
+							"Roll again, chance is "+total+", main is "+main+"...", npc));
 					}
 				}
 
@@ -281,8 +281,8 @@ public class Stenelaus extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	private void throwOut(List<MazeEvent> result)
 	{
-		result.add(new NpcSpeechEvent("Oh hard luck, you've thrown out!"));
-		result.add(new NpcSpeechEvent("That's 100 gold..."));
+		result.add(new NpcSpeechEvent("Oh hard luck, you've thrown out!", npc));
+		result.add(new NpcSpeechEvent("That's 100 gold...", npc));
 		result.add(new FlavourTextEvent("You hand over the losing stake " +
 			"to Stenelaus", MazeEvent.Delay.WAIT_ON_CLICK, true));
 		getParty().incGold(-500);
@@ -293,8 +293,8 @@ public class Stenelaus extends NpcScript
 	{
 		result.add(new FlavourTextEvent("Stenelaus growls in amazement " +
 			"as your numbers come up.", MazeEvent.Delay.WAIT_ON_CLICK, true));
-		result.add(new NpcSpeechEvent("You nicked it! Oh, good rolling!"));
-		result.add(new NpcSpeechEvent("Here's your stake."));
+		result.add(new NpcSpeechEvent("You nicked it! Oh, good rolling!", npc));
+		result.add(new NpcSpeechEvent("Here's your stake.", npc));
 		result.add(new GrantGoldEvent(100));
 	}
 }

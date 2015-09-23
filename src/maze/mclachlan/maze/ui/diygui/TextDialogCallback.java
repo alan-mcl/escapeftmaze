@@ -19,12 +19,8 @@
 
 package mclachlan.maze.ui.diygui;
 
-/**
- * Created by IntelliJ IDEA. User: Alan Date: 2007/11/13 Time: 8:32:25 PM To
- * change this template use File | Settings | File Templates.
- */
 public interface TextDialogCallback
 {
-	/*-------------------------------------------------------------------------*/
-	void textEntered(String amount);
+	void textEntered(String text);
+	void textEntryCancelled();
 }

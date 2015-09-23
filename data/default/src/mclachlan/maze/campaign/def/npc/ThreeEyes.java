@@ -72,28 +72,28 @@ public class ThreeEyes extends NpcScript
 		return getList(
 			new SoundEffectEvent(RedEar.SOUND_GROWL),
 			new NpcSpeechEvent("Greetings, travellers. I am Three Eyes, " +
-				"shaman of this tribe.\n\nHow can I help you?"));
+				"shaman of this tribe.\n\nHow can I help you?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings, travellers."));
+			new NpcSpeechEvent("Greetings, travellers.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Yes?"));
+			new NpcSpeechEvent("Yes?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Behave yourselves, children."),
+			new NpcSpeechEvent("Behave yourselves, children.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -101,7 +101,7 @@ public class ThreeEyes extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Farewell friends."),
+			new NpcSpeechEvent("Farewell friends.", npc),
 			new ActorsLeaveEvent());
 	}
 }

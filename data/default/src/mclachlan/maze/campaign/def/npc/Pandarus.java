@@ -86,9 +86,9 @@ public class Pandarus extends NpcScript
 
 		return getList(
 			new NpcSpeechEvent(greeting+"... welcome! What fine " +
-				"pipe weed or other fine wares are you seeking?"),
+				"pipe weed or other fine wares are you seeking?", npc),
 			new NpcSpeechEvent("I am Pandarus Lang Mac Vulane. You have no doubt heard of " +
-				"the quality of my products throughout the Second Realm."));
+				"the quality of my products throughout the Second Realm.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -101,14 +101,14 @@ public class Pandarus extends NpcScript
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("I am at your service."));
+			new NpcSpeechEvent("I am at your service.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Farewell."),
+			new NpcSpeechEvent("Farewell.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -116,7 +116,7 @@ public class Pandarus extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Fare ye well. Return again soon!"),
+			new NpcSpeechEvent("Fare ye well. Return again soon!", npc),
 			new ActorsLeaveEvent());
 	}
 }

@@ -53,14 +53,14 @@ public class Tao extends NpcScript
 				new FlavourTextEvent("It is another cat-warrior, similar to " +
 					"the first. His whiskers twitch as he examines you, then " +
 					"he speaks..."),
-				new NpcSpeechEvent("I can tell that you're brave. Skilled, too."),
+				new NpcSpeechEvent("I can tell that you're brave. Skilled, too.", npc),
 				new NpcSpeechEvent("Turn back. This place is forbidden to you, " +
 					"I can see in your eyes that you know this to be truth. " +
-					"Bravery and skill will not help you if you go further."),
+					"Bravery and skill will not help you if you go further.", npc),
 				new NpcSpeechEvent("My brother has warned you once. I, Tao, " +
 					"deliver the second warning. Leave this domain or you " +
-					"will be slain."),
-				new ChangeNpcLocationEvent(npc, new Point(0,0), Maze.getInstance().getCurrentZone().getName()),
+					"will be slain.", npc),
+				new ChangeNpcLocationEvent((Npc)npc, new Point(0,0), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(TAO_LOCATION_VAR, "2"),
 				new ActorsLeaveEvent());
 		}

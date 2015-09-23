@@ -164,7 +164,7 @@ public class V1MazeEvent
 		types.put(DelayEvent.class, _DelayEvent);
 		types.put(MovePartyEvent.class, _MovePartyEvent);
 		types.put(CharacterClassKnowledgeEvent.class, _CharacterClassKnowledgeEvent);
-		types.put(SpeechBubbleEvent.class, _SpeechBubbleEvent);
+		types.put(PersonalitySpeechBubbleEvent.class, _SpeechBubbleEvent);
 		types.put(StoryboardEvent.class, _StoryboardEvent);
 		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
 
@@ -328,7 +328,7 @@ public class V1MazeEvent
 
 				break;
 			case _SpeechBubbleEvent:
-				SpeechBubbleEvent spbe = (SpeechBubbleEvent)e;
+				PersonalitySpeechBubbleEvent spbe = (PersonalitySpeechBubbleEvent)e;
 				s.append(spbe.getSpeechKey());
 				s.append(SEP);
 				s.append(spbe.isModal());
@@ -553,7 +553,7 @@ public class V1MazeEvent
 				}
 				return new CharacterClassKnowledgeEvent(knowledgeText);
 			case _SpeechBubbleEvent:
-				return new SpeechBubbleEvent(strs[1], Boolean.valueOf(strs[2]));
+				return new PersonalitySpeechBubbleEvent(strs[1], Boolean.valueOf(strs[2]));
 			case _StoryboardEvent:
 				return new StoryboardEvent(strs[1], strs[2], StoryboardEvent.TextPlacement.valueOf(strs[3]));
 			case _SetUserConfigEvent:

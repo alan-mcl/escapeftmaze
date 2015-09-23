@@ -117,7 +117,9 @@ public class Foe extends UnifiedActor
 			dl.foeIsSpawned(this);
 		}
 
+		// generate and equip inventory
 		generateInventory();
+		initialEquip();
 
 		Maze.log(Log.DEBUG, "Spawned ["+template.getName()+"] " +
 			"hp=["+getStats().getHitPoints().getCurrent()+"] " +
@@ -246,10 +248,12 @@ public class Foe extends UnifiedActor
 
 	public void removeItem(Item item, boolean removeWholeStack)
 	{
+		this.getInventory().remove(item);
 	}
 
 	public void removeItem(String itemName, boolean removeWholeStack)
 	{
+		this.getInventory().remove(itemName);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -261,6 +265,16 @@ public class Foe extends UnifiedActor
 	@Override
 	public void inventoryItemAdded(Item item)
 	{
+	}
+
+	public boolean isFound()
+	{
+		return false;
+	}
+
+	public void setFound(boolean found)
+	{
+		// no op
 	}
 
 	@Override
@@ -614,6 +628,118 @@ public class Foe extends UnifiedActor
 	public NpcFaction.Attitude getDefaultAttitude()
 	{
 		return template.getDefaultAttitude();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public String getAlliesOnCall()
+	{
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void changeAttitude(NpcFaction.AttitudeChange change)
+	{
+		ActorEncounter actorEncounter = Maze.getInstance().getCurrentActorEncounter();
+		if (actorEncounter != null)
+		{
+			actorEncounter.setEncounterAttitude(
+				GameSys.getInstance().calcAttitudeChange(
+					actorEncounter.getEncounterAttitude(), change));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public NpcFaction.Attitude getAttitude()
+	{
+		if (Maze.getInstance().getCurrentActorEncounter() != null)
+		{
+			return Maze.getInstance().getCurrentActorEncounter().getEncounterAttitude();
+		}
+		else
+		{
+			return NpcFaction.Attitude.ATTACKING;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void incTheftCounter(int value)
+	{
+		// no op
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getResistBribes()
+	{
+		return 0;
+	}
+
+	public int getMaxPurchasePrice()
+	{
+		return 1000;
+	}
+
+	public int getResistSteal()
+	{
+		return 0;
+	}
+
+	public int getTheftCounter()
+	{
+		return 0;
+	}
+
+	public int getSellsAt()
+	{
+		return 250;
+	}
+
+	public List<Item> getStealableItems()
+	{
+		if (this.getInventory() != null)
+		{
+			return this.getInventory().getItems();
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	public int getBuysAt()
+	{
+		return 30;
+	}
+
+	public List<Item> getTradingInventory()
+	{
+		// todo: only unequipped items?
+		return getInventory().getItems();
+	}
+
+	public void sortInventory()
+	{
+
+	}
+
+	public boolean isInterestedInBuyingItem(Item item)
+	{
+		return !item.isQuestItem() && item.getBaseCost()<1000;
+	}
+
+	public boolean isAbleToAffordItem(Item item)
+	{
+		// todo: money?
+		return true;
+	}
+
+	public boolean isGuildMaster()
+	{
+		return false;
+	}
+
+	public List<String> getGuild()
+	{
+		return new ArrayList<String>();
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -30,11 +30,12 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.PlayerParty;
-import mclachlan.maze.stat.npc.Npc;
 
 /**
  *
@@ -50,11 +51,11 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	private GuildCallback guildCallback;
 	private int recruitPrice;
 	private int createPrice;
-	private DIYLabel partyGoldLabel = new DIYLabel("Party Gold:");
+	private DIYLabel partyGoldLabel = new DIYLabel();
 
 	/*-------------------------------------------------------------------------*/
 	public GuildDisplayDialogForNpc(
-		Npc npc,
+		Foe npc,
 		GuildCallback guildCallback)
 	{
 		this.guildCallback = guildCallback;
@@ -78,32 +79,32 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 			
 		gdWidget = new GuildDisplayWidget(isBounds, list);
 
-		DIYPane titlePane = getTitle("Guild of "+npc.getName());
+		DIYPane titlePane = getTitle(StringUtil.getUiLabel("gdd.title", npc.getDisplayName()));
 
 		DIYPane buttonPane = new DIYPane(new DIYGridLayout(2, 5, 5, 5));
 		buttonPane.setInsets(new Insets(5,20,5,20));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		exit = new DIYButton("Exit");
+		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
 		exit.addActionListener(this);
 		
-		addToParty = new DIYButton("(A)dd To Party");
+		addToParty = new DIYButton(StringUtil.getUiLabel("gdd.add.to.party"));
 		addToParty.addActionListener(this);
 		
-		removeFromParty = new DIYButton("(R)emove From Party");
+		removeFromParty = new DIYButton(StringUtil.getUiLabel("gdd.remove.from.party"));
 		removeFromParty.addActionListener(this);
 		
-		createCharacter = new DIYButton("(C)reate Character");
+		createCharacter = new DIYButton(StringUtil.getUiLabel("gdd.create.character"));
 		createCharacter.addActionListener(this);
 
 		recruitPrice = GameSys.getInstance().getRecruitCharacterCost()*npc.getSellsAt()/100;
 		createPrice = GameSys.getInstance().getCreateCharacterCost()*npc.getSellsAt()/100;
 
 		buttonPane.add(addToParty);
-		buttonPane.add(new DIYLabel("cost: "+recruitPrice+"gp", DIYToolkit.Align.LEFT));
+		buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", recruitPrice), DIYToolkit.Align.LEFT));
 		buttonPane.add(removeFromParty);
-		buttonPane.add(new DIYLabel("cost: "+recruitPrice+"gp", DIYToolkit.Align.LEFT));
+		buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", recruitPrice), DIYToolkit.Align.LEFT));
 		buttonPane.add(createCharacter);
-		buttonPane.add(new DIYLabel("cost: "+createPrice+"gp", DIYToolkit.Align.LEFT));
+		buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", createPrice), DIYToolkit.Align.LEFT));
 		buttonPane.add(partyGoldLabel);
 		buttonPane.add(new DIYLabel());
 		buttonPane.add(exit);
@@ -124,12 +125,13 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	{
 		PlayerParty party = Maze.getInstance().getParty();
 		int partyGold = party.getGold();
-		
-		partyGoldLabel.setText("Party Gold: "+partyGold+"gp");
+
+		partyGoldLabel.setText(StringUtil.getUiLabel("gdd.party.gold", partyGold));
 		
 		addToParty.setEnabled(party.size() < 6 && partyGold >= recruitPrice);
 		removeFromParty.setEnabled(party.size() > 1 && partyGold >= recruitPrice);
 		createCharacter.setEnabled(partyGold >= createPrice);
+		gdWidget.refresh();
 	}
 
 	/*-------------------------------------------------------------------------*/

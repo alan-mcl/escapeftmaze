@@ -52,9 +52,9 @@ public class RenSan extends NpcScript
 				new NpcSpeechEvent("Strangers. Go no further. This domain is " +
 					"not for mortals like yourselves. The forest keeps it's " +
 					"own secrets, you are not welcome. Leave, or you will come " +
-					"to grief."),
-				new NpcSpeechEvent("I am Ren San. You have been warned."),
-				new ChangeNpcLocationEvent(npc, new Point(14,5), Maze.getInstance().getCurrentZone().getName()),
+					"to grief.", npc),
+				new NpcSpeechEvent("I am Ren San. You have been warned.", npc),
+				new ChangeNpcLocationEvent((Npc)npc, new Point(14,5), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(REN_SAN_LOCATION_VAR, "2"),
 				new ActorsLeaveEvent());
 		}
@@ -62,10 +62,10 @@ public class RenSan extends NpcScript
 		{
 			return getList(
 				new NpcSpeechEvent("Unwelcome strangers. Twice you have " +
-					"been warned. Twice you have pressed on, heedless."),
-				new NpcSpeechEvent("There are no more words to be spoken."),
+					"been warned. Twice you have pressed on, heedless.", npc),
+				new NpcSpeechEvent("There are no more words to be spoken.", npc),
 				new NpcSpeechEvent("Come, brother, let us rid the forest of " +
-					"these invaders."),
+					"these invaders.", npc),
 				new NpcAttacksEvent(npc));
 		}
 	}

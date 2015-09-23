@@ -21,14 +21,14 @@ package mclachlan.maze.stat.npc;
 
 import java.awt.*;
 import java.util.BitSet;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.FoeTemplate;
 
 /**
  *
  */
 public class NpcTemplate
 {
-	public static final int MAX_ATTITUDE = 150;
-
 	//
 	// general parameters
 	//
@@ -201,11 +201,6 @@ public class NpcTemplate
 	public NpcInventoryTemplate getInventoryTemplate()
 	{
 		return inventoryTemplate;
-	}
-
-	public static int getMaxAttitude()
-	{
-		return MAX_ATTITUDE;
 	}
 
 	public int getMaxPurchasePrice()
@@ -383,5 +378,10 @@ public class NpcTemplate
 	public void setGuildMaster(boolean guildMaster)
 	{
 		this.guildMaster = guildMaster;
+	}
+
+	public FoeTemplate getFoeTemplate()
+	{
+		return Database.getInstance().getFoeTemplate(this.getFoeName());
 	}
 }

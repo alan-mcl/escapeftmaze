@@ -19,10 +19,13 @@
 
 package mclachlan.maze.balance;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Font;
+import java.awt.Point;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.util.List;
+import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.maze.audio.Music;
@@ -32,10 +35,10 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
+import mclachlan.maze.ui.diygui.MessageDestination;
 
 /**
  *
@@ -240,11 +243,6 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void showNpcScreen(Npc npc)
-	{
-		
-	}
-
 	public void clearCombatEventDisplay()
 	{
 		
@@ -364,6 +362,31 @@ public class HeadlessUi implements UserInterface
 	public void addMessage(String msg)
 	{
 		
+	}
+
+	@Override
+	public MessageDestination getMessageDestination()
+	{
+		return new MessageDestination()
+		{
+			@Override
+			public void addMessage(String message)
+			{
+
+			}
+
+			@Override
+			public void setHeader(String text)
+			{
+
+			}
+
+			@Override
+			public void clearMessages()
+			{
+
+			}
+		};
 	}
 
 	public void refreshResting()

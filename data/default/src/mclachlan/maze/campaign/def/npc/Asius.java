@@ -34,34 +34,34 @@ public class Asius extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Well hello there, he he... Welcome to " +
-				"Asius' place."),
+				"Asius' place.", npc),
 			new NpcSpeechEvent("You look like you need something... he he he " +
-				"he. How can I help?  he he."));
+				"he. How can I help?  he he.", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Hello again!"));
+			new NpcSpeechEvent("Hello again!", npc));
 	}
 
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Not you again."));
+			new NpcSpeechEvent("Not you again.", npc));
 	}
 
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Don't bother coming back."),
+			new NpcSpeechEvent("Don't bother coming back.", npc),
 			new ActorsLeaveEvent());
 	}
 
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Go well, he he, see you soon!"),
+			new NpcSpeechEvent("Go well, he he, see you soon!", npc),
 			new ActorsLeaveEvent());
 	}
 }

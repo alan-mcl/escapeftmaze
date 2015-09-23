@@ -34,7 +34,6 @@ public class MazeTextFieldRenderer extends Renderer
 
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
-
 		DIYTextField field = (DIYTextField)widget;
 		String text = field.getText();
 

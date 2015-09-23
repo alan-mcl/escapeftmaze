@@ -41,31 +41,31 @@ public class Glaucus extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Greetings, friends. You must be the newcomers " +
 				"from the First Realm. Well done on winning through... Ichiba " +
-				"is abuzz with rumours... he he he *ykgh*!"),
+				"is abuzz with rumours... he he he *ykgh*!", npc),
 			new NpcSpeechEvent("I am Glaucus - trader, diplomat, tinker, " +
 				"collector and gnome of sundry talents and distinctions. he he " +
-				"*ykgh*. How can I help you?"));
+				"*ykgh*. How can I help you?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings, friends. How may I assist you?"));
+			new NpcSpeechEvent("Greetings, friends. How may I assist you?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Ugh *ykgh* yes? What do you want?"));
+			new NpcSpeechEvent("Ugh *ykgh* yes? What do you want?", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Ah hmmm. *ykgh*"),
+			new NpcSpeechEvent("Ah hmmm. *ykgh*", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -73,7 +73,7 @@ public class Glaucus extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Fare thee well friends..."),
+			new NpcSpeechEvent("Fare thee well friends...", npc),
 			new ActorsLeaveEvent());
 	}
 

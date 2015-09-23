@@ -36,10 +36,10 @@ public class Stentor extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Hrrrrmmmh, what have we here? Foreign folks, to " +
 				"be sure... Adventurers bold and daring, perhaps... Customers " +
-				"even, perchance..."),
+				"even, perchance...", npc),
 			new NpcSpeechEvent("I am Stentor, smith of renown in these parts " +
 				"and former officer in the White Order, whose lands you are " +
-				"now visiting. How may I serve you?"));
+				"now visiting. How may I serve you?", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()
@@ -47,13 +47,13 @@ public class Stentor extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Hrrrmmmh, a satisfied customer tends to " +
 				"return, methinks. How may Stentor the smith serve you, " +
-				"good folk?"));
+				"good folk?", npc));
 	}
 
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Ah hrmmmmmgh. You are back."));
+			new NpcSpeechEvent("Ah hrmmmmmgh. You are back.", npc));
 	}
 
 	/*
@@ -72,7 +72,7 @@ public class Stentor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Hrmpf. Behave yourselves in this land. The " +
-				"White Order tolerates no brigandry or mischief."),
+				"White Order tolerates no brigandry or mischief.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -80,7 +80,7 @@ public class Stentor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Farewell friends. My smithy is always open " +
-				"for business."),
+				"for business.", npc),
 			new ActorsLeaveEvent());
 	}
 

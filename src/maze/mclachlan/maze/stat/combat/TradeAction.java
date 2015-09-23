@@ -17,37 +17,24 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.game.event;
+package mclachlan.maze.stat.combat;
 
-import java.util.*;
-import mclachlan.maze.game.ActorEncounter;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.ui.diygui.MessageDestination;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
-public class PartyWaitsEvent extends MazeEvent
+public class TradeAction extends CombatAction
 {
-	private ActorEncounter actorEncounter;
-	private Maze maze;
-	private MessageDestination msg;
+	private UnifiedActor target;
 
-	/*-------------------------------------------------------------------------*/
-	public PartyWaitsEvent(ActorEncounter actorEncounter, Maze maze,
-		MessageDestination msg)
+	public TradeAction(UnifiedActor target)
 	{
-		this.actorEncounter = actorEncounter;
-		this.maze = maze;
-		this.msg = msg;
+		this.target = target;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
+	public UnifiedActor getTarget()
 	{
-		actorEncounter.partyWaits(maze, msg);
-
-		return null;
+		return target;
 	}
 }

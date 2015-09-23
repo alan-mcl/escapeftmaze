@@ -35,8 +35,8 @@ import mclachlan.maze.util.MazeException;
  */
 public class NpcManager implements GameCache
 {
-	Map<String, Npc> npcs;
-	Map<String, NpcFaction> factions;
+	private Map<String, Npc> npcs;
+	private Map<String, NpcFaction> factions;
 
 	private static NpcManager instance = new NpcManager();
 
@@ -171,11 +171,11 @@ public class NpcManager implements GameCache
 		for (Npc npc : this.npcs.values())
 		{
 			Maze.getInstance().resolveEvents(npc.getScript().endOfTurn(turnNr));
-			if (npc.getCurrentInventory()!= null &&
+			if (npc.getTradingInventory()!= null &&
 				npc.getInventoryTemplate() != null &&
 				(turnNr % 200 == 0))
 			{
-				npc.getInventoryTemplate().update(npc.getCurrentInventory());
+				npc.getInventoryTemplate().update(npc.getTradingInventory());
 			}
 		}
 		Maze.log("finished updating NPCs");

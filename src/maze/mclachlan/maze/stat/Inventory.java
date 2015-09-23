@@ -131,6 +131,19 @@ public class Inventory implements Iterable<Item>
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void remove(String itemName)
+	{
+		for (int i=0; i<nrSlots; i++)
+		{
+			Item item = items.get(i);
+			if (item != null && item.getName().equals(itemName))
+			{
+				items.set(i, null);
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	/**
 	 * @return The item at the given index in this inventory, or null if it is
@@ -219,5 +232,20 @@ public class Inventory implements Iterable<Item>
 	public String toString()
 	{
 		return this.items.toString();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void clear()
+	{
+		for (int i=0; i<items.size(); i++)
+		{
+			items.set(i, null);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void sort(Comparator<Item> cmp)
+	{
+		Collections.sort(this.items, cmp);
 	}
 }

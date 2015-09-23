@@ -144,7 +144,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		this.race = null;
 		this.gender = null;
 		this.startingKit = null;
-		this.npc = Maze.getInstance().getCurrentNpc();
+		this.npc = (Npc)Maze.getInstance().getCurrentActorEncounter().getLeader();
 
 		this.state = CHOOSE_RACE_AND_GENDER;
 		updateState();
@@ -922,11 +922,12 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		this.random.setEnabled(isRandomSupported());
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void finished()
 	{
-		if (Maze.getInstance().getCurrentNpc() != null)
+		if (Maze.getInstance().getCurrentActorEncounter() != null)
 		{
-			Maze.getInstance().setState(Maze.State.ENCOUNTER_NPC);
+			Maze.getInstance().setState(Maze.State.ENCOUNTER_ACTORS);
 		}
 		else
 		{

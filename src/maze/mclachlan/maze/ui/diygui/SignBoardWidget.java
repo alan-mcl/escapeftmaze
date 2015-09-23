@@ -21,9 +21,8 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.*;
 import java.awt.event.MouseEvent;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
 import mclachlan.diygui.DIYPanel;
+import mclachlan.maze.game.Maze;
 
 /**
  *
@@ -34,7 +33,6 @@ public class SignBoardWidget extends DIYPanel
 	private int[] textY;
 	private int[] textX;
 	private Rectangle bounds;
-	private MazeEvent event;
 	private Font font;
 
 	/*-------------------------------------------------------------------------*/
@@ -46,9 +44,8 @@ public class SignBoardWidget extends DIYPanel
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void setText(String text, MazeEvent event)
+	public void setText(String text)
 	{
-		this.event = event;
 		this.text = text.split("\n");
 		textX = new int[this.text.length];
 		textY = new int[this.text.length];
@@ -96,9 +93,9 @@ public class SignBoardWidget extends DIYPanel
 	{
 		Maze.getInstance().setState(Maze.State.MOVEMENT);
 		
-		synchronized(event)
+		synchronized(Maze.getInstance().getEventMutex())
 		{
-			event.notifyAll();
+			Maze.getInstance().getEventMutex().notifyAll();
 		}
 	}
 }

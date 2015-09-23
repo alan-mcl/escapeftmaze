@@ -28,9 +28,9 @@ import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.toolkit.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
@@ -45,14 +45,14 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 	private TradingWidget pcWidget, npcWidget;
 	private DIYButton buy, sell, exit;
-	private Npc npc;
+	private Foe npc;
 	private PlayerCharacter pc;
 	private DIYLabel goldLabel;
 
 	/*-------------------------------------------------------------------------*/
 	public TradingDialog(
 		PlayerCharacter pc,
-		Npc npc)
+		Foe npc)
 	{
 		super();
 
@@ -75,10 +75,10 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		pcWidget = new TradingWidget(
 			isBounds, pc.getInventory(), npc.getBuysAt(), 0, pc.getInventory().size(), this);
 		npcWidget = new TradingWidget(
-			isBounds, new Inventory(npc.getCurrentInventory()), npc.getSellsAt(), 0, -1, this);
+			isBounds, new Inventory(npc.getTradingInventory()), npc.getSellsAt(), 0, -1, this);
 
 		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
-		DIYLabel title = new DIYLabel(pc.getName()+" trading with "+npc.getFoeName());
+		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));
 		titlePane.setBounds(x, y + border, width, titlePaneHeight+20);
 		title.setForegroundColour(GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
@@ -93,7 +93,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		exit = new DIYButton("Exit");
+		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
 		exit.addActionListener(this);
 		buttonPane.add(exit);
 
@@ -103,10 +103,10 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		DIYPane npcButtonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		npcButtonPane.setBounds(x+width/2, y+height- buttonPaneHeight *2- inset *2, width/2, buttonPaneHeight);
 
-		sell = new DIYButton("(S)ell");
+		sell = new DIYButton(StringUtil.getUiLabel("trd.sell"));
 		sell.addActionListener(this);
 
-		buy = new DIYButton("(B)uy");
+		buy = new DIYButton(StringUtil.getUiLabel("trd.buy"));
 		buy.addActionListener(this);
 
 		pcButtonPane.add(sell);
@@ -138,9 +138,10 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void refresh(PlayerCharacter pc, Npc npc)
+	private void refresh(PlayerCharacter pc, Foe npc)
 	{
-		goldLabel.setText("Party gold: "+Maze.getInstance().getParty().getGold()+"gp");
+		goldLabel.setText(StringUtil.getUiLabel(
+			"trd.party.gold",Maze.getInstance().getParty().getGold()));
 		npc.sortInventory();
 	}
 
@@ -199,13 +200,27 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 			// ensure that only one grid is selected at a time.
 
 			Widget w = (Widget)obj;
-			if (w.getParent() == pcWidget && canSell())
+			if (w.getParent() == pcWidget)
 			{
-				switchToSell();
+				if (canSell())
+				{
+					switchToSell();
+				}
+				else
+				{
+					pcWidget.setSelected(null);
+				}
 			}
-			else if (w.getParent() == npcWidget && canBuy())
+			else if (w.getParent() == npcWidget)
 			{
-				switchToBuy();
+				if (canBuy())
+				{
+					switchToBuy();
+				}
+				else
+				{
+					npcWidget.setSelected(null);
+				}
 			}
 		}
 		else if (obj == sell)
@@ -222,6 +237,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void buy()
 	{
 		if (npcWidget.getSelected() == null)
@@ -242,15 +258,13 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		if (price > party.getGold())
 		{
-			popupDialog("Sorry, you can't afford that. Come back when you " +
-				"have more money.");
+			Maze.getInstance().appendEvents(npc.getActionScript().partyCantAffordItem(party, item));
 			return;
 		}
 
 		if (pcWidget.isFull())
 		{
-			popupDialog("It looks like you can't carry anything more. Please " +
-				"come back when you have some more space.");
+			Maze.getInstance().appendEvents(npc.getActionScript().characterInventoryFull(party, item));
 			return;
 		}
 
@@ -260,11 +274,12 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		Maze.getInstance().getParty().incGold(
 			- GameSys.getInstance().getItemCost(item, npc.getSellsAt()));
 		pcWidget.refresh(pc.getInventory().getItems());
-		npcWidget.refresh(npc.getCurrentInventory());
+		npcWidget.refresh(npc.getTradingInventory());
 		resetSelection();
 		this.refresh(pc, npc);
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void sell()
 	{
 		if (pcWidget.getSelected() == null)
@@ -282,45 +297,31 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		if (!npc.isInterestedInBuyingItem(item))
 		{
-			popupDialog("No thanks, I am not interested in buying " +
-				"that from you.");
+			Maze.getInstance().appendEvents(npc.getActionScript().notInterestedInBuyingItem(item));
 			return;
 		}
 
 		if (!npc.isAbleToAffordItem(item))
 		{
-			popupDialog("Sorry, I can't afford to buy that from you.");
+			Maze.getInstance().appendEvents(npc.getActionScript().cantAffordToBuyItem(item));
 			return;
 		}
 
 		if (npcWidget.isFull())
 		{
-			popupDialog("No thanks, I don't want to buy anything more " +
-				"from you right now. Please come back later.");
+			Maze.getInstance().appendEvents(npc.getActionScript().npcInventoryFull(item));
 			return;
 		}
 
 		// transfer the thing
 		pc.removeItem(item, true);
-		npc.addItem(item);
+		npc.addInventoryItem(item);
 		Maze.getInstance().getParty().incGold(
 			GameSys.getInstance().getItemCost(item, npc.getBuysAt()));
 		pcWidget.refresh(pc.getInventory().getItems());
-		npcWidget.refresh(npc.getCurrentInventory());
+		npcWidget.refresh(npc.getTradingInventory());
 		resetSelection();
 		this.refresh(pc, npc);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void popupDialog(String text)
-	{
-		int x = DiyGuiUserInterface.SCREEN_WIDTH/4;
-		int y = DiyGuiUserInterface.SCREEN_HEIGHT/3;
-
-		Rectangle rectangle = new Rectangle(x, y,
-			DiyGuiUserInterface.SCREEN_WIDTH/2, DiyGuiUserInterface.SCREEN_HEIGHT/3);
-
-		Maze.getInstance().getUi().showDialog(new OkDialogWidget(rectangle, null, text));
 	}
 
 	/*-------------------------------------------------------------------------*/

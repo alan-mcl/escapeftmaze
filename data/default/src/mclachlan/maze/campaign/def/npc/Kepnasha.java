@@ -6,10 +6,7 @@ import java.awt.Point;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
-import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeechEvent;
+import mclachlan.maze.stat.npc.*;
 
 /**
  * Minion of the demon Usark, takes out Imogen and lectures the party.
@@ -39,32 +36,32 @@ public class Kepnasha extends NpcScript
 			new CharacterClassKnowledgeEvent("This is a demon. A powerful one. ",
 				"Priest", "Sorcerer", "Witch"),
 			new NpcSpeechEvent("MORTALS\n\nI AM KEPNASHA, SERVANT " +
-				"OF THE MIGHTY USARK."),
+				"OF THE MIGHTY USARK.", npc),
 			new NpcSpeechEvent("IMOGEN SOUGHT IMMORTALITY THOUGH SORCERY. SHE " +
-				"SOUGHT THUS TO ESCAPE FROM THE MAZE."),
+				"SOUGHT THUS TO ESCAPE FROM THE MAZE.", npc),
 			new NpcSpeechEvent("NONE ESCAPE THE MAZE! HER TORMENTS WILL LAST " +
 				"FOREVER. THUS USARK HAS GRANTED WHAT SHE SOUGHT.\n\n" +
 				"YOUR PART IN THIS IS KNOWN, YOU HAVE BEEN WATCHED. THE MAZE " +
-				"KNOWS ALL."),
+				"KNOWS ALL.", npc),
 			new NpcSpeechEvent("DO NOT SEEK TO ESCAPE. THE DOOM OF YOUR ANCESTORS " +
-				"BINDS YOU TO THE MAZE, THE SENTENCE IS NOT YET SERVED."),
+				"BINDS YOU TO THE MAZE, THE SENTENCE IS NOT YET SERVED.", npc),
 			new NpcSpeechEvent("YOU STAND BEFORE ME AND YOUR FEAR BETRAYS YOU. " +
-				"YOU KNOW THAT YOUR LIFE IS IN MY HANDS."),
+				"YOU KNOW THAT YOUR LIFE IS IN MY HANDS.", npc),
 			new NpcSpeechEvent("THIRTY OTHERS SUCH AS I SERVE USARK THE " +
 				"DIRE. OF USARKS FELL HOSTS, SEVEN DO I COMMAND. EACH ONE ALONE " +
-				"WOULD LAY WASTE TO THIS SECOND REALM IN WHICH WE STAND."),
+				"WOULD LAY WASTE TO THIS SECOND REALM IN WHICH WE STAND.", npc),
 			new NpcSpeechEvent("USARK SERVES THE MAZE, AND WITH HIM SIX OTHERS " +
 				"NO LESS IN MIGHT AND SAVAGERY.\n\n" +
-				"YOU CANNOT HOPE TO STAND AGAINST THE FORCES ARRAYED AGAINST YOU."),
+				"YOU CANNOT HOPE TO STAND AGAINST THE FORCES ARRAYED AGAINST YOU.", npc),
 			new NpcSpeechEvent("DO NOT SEEK TO ESCAPE THE MAZE. DO NOT SEEK TO " +
 				"ENTER FURTHER REALMS THAN THIS. ONLY DEATH AWAITS YOU.\n\n" +
 				"MORTALS\n\n"+
-				"TODAY YOU HAVE HEARD THE WORDS OF KEPNASHA DEATHEATER."),
+				"TODAY YOU HAVE HEARD THE WORDS OF KEPNASHA DEATHEATER.", npc),
 			new FlavourTextEvent("The demons eyes flash with fire, and it " +
 				"vanishes in an acrid cloud of smoke...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new ActorsLeaveEvent(),
-			new ChangeNpcLocationEvent(npc, new Point(0,0), "Ichiba City"));
+			new ChangeNpcLocationEvent((Npc)npc, new Point(0,0), "Ichiba City"));
 	}
 
 	/*-------------------------------------------------------------------------*/

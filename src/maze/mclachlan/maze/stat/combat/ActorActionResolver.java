@@ -23,10 +23,12 @@ import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.ActorsTurnToAct;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
+import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
@@ -255,8 +257,51 @@ public class ActorActionResolver
 			}
 			else if (action instanceof ThreatenAction)
 			{
+				Maze maze = Maze.getInstance();
 				ThreatenAction threatenAction = (ThreatenAction)action;
+
 				result.add(new ThreatenEvent(actor, threatenAction.getTarget()));
+				result.add(new ActorsTurnToAct(
+					maze.getCurrentActorEncounter(),
+					maze,
+					maze.getUi().getMessageDestination()));
+			}
+			else if (action instanceof TalkAction)
+			{
+				TalkAction talkAction = (TalkAction)action;
+				Foe npc = (Foe)talkAction.getTarget();
+				PlayerCharacter pc = (PlayerCharacter)talkAction.getActor();
+				result.addAll(npc.getActionScript().partyWantsToTalk(pc));
+			}
+			else if (action instanceof GiveAction)
+			{
+				GiveAction ga = (GiveAction)action;
+
+				Foe npc = (Foe)ga.getTarget();
+				PlayerCharacter pc = (PlayerCharacter)ga.getActor();
+				result.add(new ChooseItemToGive(npc, pc));
+			}
+			else if (action instanceof BribeAction)
+			{
+				BribeAction ga = (BribeAction)action;
+
+				Foe npc = (Foe)ga.getTarget();
+				PlayerCharacter pc = (PlayerCharacter)ga.getActor();
+				result.add(new ChooseBriberyAmount(npc, pc));
+			}
+			else if (action instanceof StealAction)
+			{
+				StealAction sa = (StealAction)action;
+				PlayerCharacter pc = (PlayerCharacter)sa.getActor();
+				Foe npc = (Foe)sa.getTarget();
+				result.add(new PlanTheftEvent(npc, pc));
+			}
+			else if (action instanceof TradeAction)
+			{
+				TradeAction a = (TradeAction)action;
+				PlayerCharacter pc = (PlayerCharacter)a.getActor();
+				Foe npc = (Foe)a.getTarget();
+				result.add(new InitiateTradeEvent(npc, pc));
 			}
 			else
 			{

@@ -86,7 +86,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> attacksParty()
 	{
 		return getList(
-			new NpcSpeechEvent("Soft fleshy scum! You will pay for your crimes!"),
+			new NpcSpeechEvent("Soft fleshy scum! You will pay for your crimes!", npc),
 			new NpcAttacksEvent(npc));
 	}
 
@@ -94,7 +94,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> attackedByParty()
 	{
 		return getList(
-			new NpcSpeechEvent("You will regret attacking me!"),
+			new NpcSpeechEvent("You will regret attacking me!", npc),
 			new NpcAttacksEvent(npc));
 	}
 
@@ -103,14 +103,14 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Hello!  I haven't seen you before!  I'm your " +
-			"friendly stick man vendor, here to buy and sell shit to you!"));
+			"friendly stick man vendor, here to buy and sell shit to you!", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Hello again!  What can I help you with!"));
+			new NpcSpeechEvent("Hello again!  What can I help you with!", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -118,28 +118,28 @@ public class StickManVendor extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Don't touch anything.  I don't like the look " +
-			"of you lot."));
+			"of you lot.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> successfulCharm()
 	{
 		return getList(
-			new NpcSpeechEvent("I guess you aren't so bad after all."));
+			new NpcSpeechEvent("I guess you aren't so bad after all.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> failedCharm()
 	{
 		return getList(
-			new NpcSpeechEvent("Bah! Don't try that shit on me kids."));
+			new NpcSpeechEvent("Bah! Don't try that shit on me kids.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("Goodbye!  Come again soon!"),
+			new NpcSpeechEvent("Goodbye!  Come again soon!", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -147,7 +147,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Hrmpf!  Good riddance!"),
+			new NpcSpeechEvent("Hrmpf!  Good riddance!", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -155,7 +155,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> givenItemByParty(PlayerCharacter owner, Item item)
 	{
 		return getList(
-			new NpcSpeechEvent("Gosh thanks!"),
+			new NpcSpeechEvent("Gosh thanks!", npc),
 			new NpcTakesItemEvent(owner, item, npc),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
@@ -164,7 +164,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> failedThreat(int total)
 	{
 		return getList(
-			new NpcSpeechEvent("I ain't scared of you losers!"),
+			new NpcSpeechEvent("I ain't scared of you losers!", npc),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
@@ -172,7 +172,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> successfulThreat(int total)
 	{
 		return getList(
-			new NpcSpeechEvent("Whoa, hang on, let's talk this over!"),
+			new NpcSpeechEvent("Whoa, hang on, let's talk this over!", npc),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
@@ -180,7 +180,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> successfulBribe(int total)
 	{
 		return getList(
-			new NpcSpeechEvent("A pleasure doing business with you!"),
+			new NpcSpeechEvent("A pleasure doing business with you!", npc),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
@@ -188,7 +188,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> failedBribe(int total)
 	{
 		return getList(
-			new NpcSpeechEvent("I don't want your stinking small change, chump!"),
+			new NpcSpeechEvent("I don't want your stinking small change, chump!", npc),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
@@ -196,7 +196,7 @@ public class StickManVendor extends NpcScript
 	public List<MazeEvent> partyWantsToTalk(PlayerCharacter pc)
 	{
 		return getList(
-			new NpcSpeechEvent("Well, speak up"),
+			new NpcSpeechEvent("Well, speak up", npc),
 			new WaitForPlayerSpeech(npc, pc));
 	}
 
@@ -206,13 +206,13 @@ public class StickManVendor extends NpcScript
 		if (goodbyes.contains(speech.toLowerCase()))
 		{
 			return getList(
-				new NpcSpeechEvent("Cheerio then!"));
+				new NpcSpeechEvent("Cheerio then!", npc));
 		}
 		else
 		{
 			Dice d = new Dice(1, ambiguousResponses.size(), -1);
 			return getList(
-				new NpcSpeechEvent(ambiguousResponses.get(d.roll()), 0),
+				new NpcSpeechEvent(npc, ambiguousResponses.get(d.roll()), MazeEvent.Delay.WAIT_ON_CLICK),
 				new WaitForPlayerSpeech(npc, pc));
 		}
 	}

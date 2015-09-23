@@ -6,10 +6,7 @@ import java.awt.Point;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
-import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeechEvent;
+import mclachlan.maze.stat.npc.*;
 
 /**
  * Minion of the demon Usark, waylays the party in the Stygios Forest and
@@ -42,26 +39,26 @@ public class Nusor extends NpcScript
 				"a chilling voice issues from it's featureless face...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new NpcSpeechEvent("MORTALS, I BRING A MESSAGE FROM MY MASTER USARK " +
-				"THE PITILESS, MOST GLORIOUS SERVANT OF THE MAZE."),
+				"THE PITILESS, MOST GLORIOUS SERVANT OF THE MAZE.", npc),
 			new NpcSpeechEvent("USARK SENDS A WARNING: GO NO FURTHER. DO NOT " +
 				"TRY TO ESCAPE FROM THE MAZE. ONLY YOUR DEATHS WILL RESULT. THE " +
-				"SENTENCE IS NOT YET SERVED."),
+				"SENTENCE IS NOT YET SERVED.", npc),
 			new NpcSpeechEvent("ALL SEEING IS THE EYE OF USARK. YOUR EVERY MOVE " +
-				"IS WATCHED."),
+				"IS WATCHED.", npc),
 			new NpcSpeechEvent("HEAVY IS THE HAND OF USARK WHEN HE CHOOSES TO ACT. " +
-				"YOU WOULD NOT SURVIVE HIS WRATH."),
+				"YOU WOULD NOT SURVIVE HIS WRATH.", npc),
 			new NpcSpeechEvent("BOUNDLESS ARE THE LEGIONS OF USARK. FIVE ARE MINE " +
-				"TO COMMAND, AMONGST THE LEAST OF HIS THIRTY GENERALS."),
+				"TO COMMAND, AMONGST THE LEAST OF HIS THIRTY GENERALS.", npc),
 			new NpcSpeechEvent("GO BACK. SPEND YOUR SHORT LIVES IN THE SAFETY " +
 				"OF THE DOMAINS WHERE THE HAND AND EYE OF USARK WILL NOT PURSUE " +
-				"YOU, ELSE YOU WILL SURELY BE LOST."),
+				"YOU, ELSE YOU WILL SURELY BE LOST.", npc),
 			new NpcSpeechEvent("I AM NUSOR THE TORTURER, AND YOU HAVE HEARD MY " +
-				"WARNING."),
+				"WARNING.", npc),
 			new FlavourTextEvent("The demons eyes flash with fire, and it " +
 				"vanishes in an acrid cloud of smoke...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new ActorsLeaveEvent(),
-			new ChangeNpcLocationEvent(npc, new Point(1,1), "Stygios Forest"));
+			new ChangeNpcLocationEvent((Npc)npc, new Point(1,1), "Stygios Forest"));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -28,9 +28,9 @@ public class OldIgor extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("HARRRRRRRRGGGGGHHHHHHHHHHHHH!"),
-			new NpcSpeechEvent("SOLDIERS COME TO ROB ME."),
-			new NpcSpeechEvent("SCUM. PREPARE TO DIE."),
+			new NpcSpeechEvent("HARRRRRRRRGGGGGHHHHHHHHHHHHH!", npc),
+			new NpcSpeechEvent("SOLDIERS COME TO ROB ME.", npc),
+			new NpcSpeechEvent("SCUM. PREPARE TO DIE.", npc),
 			new CharacterClassKnowledgeEvent("It's a dragon, to be sure. But it " +
 				"looks to you like an old one, and small at that. Still, not to " +
 				"be trifled with.",

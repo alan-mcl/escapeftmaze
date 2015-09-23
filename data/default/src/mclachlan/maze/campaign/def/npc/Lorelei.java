@@ -63,19 +63,19 @@ public class Lorelei extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Greetings, strangers from far off lands. " +
 				"I am Lorelei, guardian of this small sanctuary of peace and " +
-				"solace, and friend to all those who are friends of the forest."));
+				"solace, and friend to all those who are friends of the forest.", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("Greetings once again. What do you seek?"));
+			new NpcSpeechEvent("Greetings once again. What do you seek?", npc));
 	}
 
 	public List<MazeEvent> neutralGreeting()
 	{
 		return getList(
-			new NpcSpeechEvent("What do you seek?"));
+			new NpcSpeechEvent("What do you seek?", npc));
 	}
 
 	/*
@@ -93,7 +93,7 @@ public class Lorelei extends NpcScript
 	public List<MazeEvent> partyLeavesNeutral()
 	{
 		return getList(
-			new NpcSpeechEvent("Goodbye."),
+			new NpcSpeechEvent("Goodbye.", npc),
 			new ActorsLeaveEvent());
 	}
 
@@ -101,7 +101,7 @@ public class Lorelei extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Fare the well on the road, friends. My " +
-				"sanctuary is always open to you."),
+				"sanctuary is always open to you.", npc),
 			new ActorsLeaveEvent());
 	}
 

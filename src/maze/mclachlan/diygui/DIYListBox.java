@@ -83,6 +83,8 @@ public class DIYListBox extends ContainerWidget
 		{
 			this.add(new ListItem(item));
 		}
+
+		doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/

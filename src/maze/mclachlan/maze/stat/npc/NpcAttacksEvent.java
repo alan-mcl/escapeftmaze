@@ -20,27 +20,20 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.*;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.map.EncounterTable;
-import mclachlan.maze.map.FoeEntry;
-import mclachlan.maze.map.script.FlavourTextEvent;
+import mclachlan.maze.game.event.StartCombatEvent;
 import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.stat.FoeTemplate;
-import mclachlan.maze.stat.combat.event.SummoningSucceedsEvent;
 
 /**
  *
  */
 public class NpcAttacksEvent extends MazeEvent
 {
-	Npc npc;
+	private Foe npc;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcAttacksEvent(Npc npc)
+	public NpcAttacksEvent(Foe npc)
 	{
 		this.npc = npc;
 	}
@@ -48,51 +41,8 @@ public class NpcAttacksEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		// not your friend any more
-		if (npc.getFaction() != null)
-		{
-			NpcFaction nf = NpcManager.getInstance().getNpcFaction(npc.getFaction());
-			nf.setAttitude(NpcFaction.Attitude.ATTACKING);
-		}
-		else
-		{
-			npc.setAttitude(NpcFaction.Attitude.ATTACKING);
-		}
-
-		// add the NPC to the UI.
-		FoeTemplate npcFoeTemplate = Database.getInstance().getFoeTemplate(npc.getFoeName());
-		Foe foe = new Foe(npcFoeTemplate);
-
-		// init foes
-		ArrayList<FoeGroup> allFoes = new ArrayList<FoeGroup>();
-		for (int i=0; i<1; i++)
-		{
-			List foes = new ArrayList();
-			foes.add(foe);
-			FoeGroup foesGroup = new FoeGroup(foes);
-			allFoes.add(foesGroup);
-		}
-
-		if (npc.getAlliesOnCall() != null)
-		{
-			EncounterTable table =
-				Database.getInstance().getEncounterTable(npc.getAlliesOnCall());
-			FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
-			List<FoeGroup> foeGroups = foeEntry.generate();
-
-			allFoes.addAll(foeGroups);
-			List<MazeEvent> evts = getList(
-				new FlavourTextEvent(npc.getName() + " calls for help!!",
-					Maze.getInstance().getUserConfig().getCombatDelay(), true),
-				new SummoningSucceedsEvent(foeGroups, npc));
-
-			Maze.getInstance().resolveEvents(evts);
-		}
-
-		Maze.getInstance().getUi().setFoes(null);
-		Maze.getInstance().encounterActors(
-			new ActorEncounter(allFoes, null, NpcFaction.Attitude.ATTACKING, null));
-
-		return null;
+		Maze maze = Maze.getInstance();
+		return getList(
+			new StartCombatEvent(maze, maze.getParty(), maze.getCurrentActorEncounter()));
 	}
 }

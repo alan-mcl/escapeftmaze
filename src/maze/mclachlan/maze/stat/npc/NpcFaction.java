@@ -62,6 +62,7 @@ public class NpcFaction
 	public static enum AttitudeChange
 	{
 		BETTER,
+		NO_CHANGE,
 		WORSE
 	}
 

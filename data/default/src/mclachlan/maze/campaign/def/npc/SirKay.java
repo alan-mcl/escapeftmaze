@@ -50,7 +50,7 @@ public class SirKay extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	private void initInternal()
 	{
-		QuestManager qm = npc.getQuestManager();
+		QuestManager qm = ((Npc)npc).getQuestManager();
 
 		qm.addQuest(createQuest1());
 		qm.addQuest(createQuest2());
@@ -71,32 +71,32 @@ public class SirKay extends NpcScript
 	{
 		List<MazeEvent> intro = getList(
 			new NpcSpeechEvent("So hey. It just so happens I have " +
-				"a job for you. Specially suited to your talents, I think."),
+				"a job for you. Specially suited to your talents, I think.", npc),
 			new NpcSpeechEvent("We have a safe house built " +
 				"against the west wall. Right behind the big old Chamber of " +
-				"Commerce building! Ha ha ha! Priceless, but anyway."),
+				"Commerce building! Ha ha ha! Priceless, but anyway.", npc),
 			new NpcSpeechEvent("It has access to the sewers " +
 				"below the city - handy for us thieves to move " +
-				"around, you know."),
+				"around, you know.", npc),
 			new NpcSpeechEvent("But here's the problem - " +
 				"some kind of nasty slime creature has turned up. " +
 				"Personally I suspect it escaped from the blasted witch's " +
-				"tower."),
+				"tower.", npc),
 			new NpcSpeechEvent("So, I need you to go down " +
 				"there and waste the slime. Come find me again when " +
-				"you're done."),
+				"you're done.", npc),
 			new SetMazeVariableEvent(SPAWN_CORROSIVE_SLIME, "true"),
 			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
-			new NpcSpeechEvent("Still haven't cleared out that slime, eh?"),
+			new NpcSpeechEvent("Still haven't cleared out that slime, eh?", npc),
 			new NpcSpeechEvent("The way down to the sewers is in the safe " +
-				"house on the west wall."));
+				"house on the west wall.", npc));
 
 		List<MazeEvent> reward = getList(
-			new NpcSpeechEvent("I hear you cleaned out that slime down below."),
+			new NpcSpeechEvent("I hear you cleaned out that slime down below.", npc),
 			new NpcSpeechEvent("Good work. Here's some cash, don't spend it " +
-				"all in one place!"),
+				"all in one place!", npc),
 			new GrantGoldEvent(200),
 			new GrantExperienceEvent(100, null));
 
@@ -112,36 +112,36 @@ public class SirKay extends NpcScript
 	private Quest createQuest2()
 	{
 		List<MazeEvent> intro = getList(
-			new NpcSpeechEvent("Coincidentally, I have more work for you."),
+			new NpcSpeechEvent("Coincidentally, I have more work for you.", npc),
 			new NpcSpeechEvent("That crazy witch Imogen is in bed with the gnolls " +
 				"again. Um, figuratively of course. Anyway, I can't have that, " +
 				"her schemes are as bad for business as the Chamber and " +
-				"their goons."),
+				"their goons.", npc),
 			new NpcSpeechEvent("To put a damper on things, I need you to " +
 				"go and steal something from their head shaman. He's called " +
 				"Three Eyes - smarter than he looks, albeit for a gnoll that " +
-				"particular bar is rather low."),
+				"particular bar is rather low.", npc),
 			new NpcSpeechEvent("In his hut you will find a skull totem that he " +
 				"has to use in a ceremony before the gnolls can go to war. They " +
 				"call it the Dreamer Skull. Nab it " +
 				"and the breaks will be on, at least until he can change the " +
-				"myths or whatever shamen do."),
+				"myths or whatever shamen do.", npc),
 			new NpcSpeechEvent("The main gnoll village is north of here. " +
 				"But don't go through the forest, you won't find it that way. " +
 				"There's a way through the sewers under the north wall there, " +
-				"look for an entry on of the shacks over that side."),
+				"look for an entry on of the shacks over that side.", npc),
 			new NpcSpeechEvent("Not to be pushy, but the sooner the better, " +
-				"if you know what I mean."),
+				"if you know what I mean.", npc),
 			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("I need you to steal the Dreamer Skull from " +
-				"Three Eyes. Come find me when you do."));
+				"Three Eyes. Come find me when you do.", npc));
 
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("Excellent work. We needn't worry about hordes " +
-				"of screaming gnolls disrupting things any time soon."),
-			new NpcSpeechEvent("Here is suitable compensation."),
+				"of screaming gnolls disrupting things any time soon.", npc),
+			new NpcSpeechEvent("Here is suitable compensation.", npc),
 			new GrantGoldEvent(500),
 			new GrantExperienceEvent(200, null));
 
@@ -157,36 +157,36 @@ public class SirKay extends NpcScript
 	private Quest createQuest3()
 	{
 		List<MazeEvent> intro = getList(
-			new NpcSpeechEvent("Say, I have some news you might not like."),
+			new NpcSpeechEvent("Say, I have some news you might not like.", npc),
 			new NpcSpeechEvent("Looks like you lot have annoyed the wrong " +
-				"people. Perhaps it has to do with our association?"),
+				"people. Perhaps it has to do with our association?", npc),
 			new NpcSpeechEvent("In any case, that worthy association the " +
 				"Ichiba Chamber of Commerce has put a price on your head. A " +
-				"mere one thousand gold - I would be quite insulted if I were you."),
+				"mere one thousand gold - I would be quite insulted if I were you.", npc),
 			new NpcSpeechEvent("That's not all - I am reliably informed that " +
-				"they've retained a group of mercenaries to hunt you down!"),
+				"they've retained a group of mercenaries to hunt you down!", npc),
 			new NpcSpeechEvent("Savour the feeling my friends. I remember the " +
-				"first time I was hunted..."),
+				"first time I was hunted...", npc),
 			new NpcSpeechEvent("Be that as it may. You'd better lie low for a while. " +
 				"I can't really use you at all with the amount of heat that " +
 				"you've attracted. Don't come asking me for any more work until " +
 				"things have quieted down a bit. Would appreciate it if you'd " +
 				"avoid using our Ichiba safehouses, and not be seen with me in " +
-				"public either. No offense intended, of course."),
+				"public either. No offense intended, of course.", npc),
 			new SetMazeVariableEvent(QUEST_3_STARTED, "true"),
 			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
-			new NpcSpeechEvent("Look, come back when the heat is off ok."),
+			new NpcSpeechEvent("Look, come back when the heat is off ok.", npc),
 			new ActorsLeaveEvent());
 
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("A little bird told me that you wasted the team " +
-				"sent to hunt you down. Nice work."),
+				"sent to hunt you down. Nice work.", npc),
 			new NpcSpeechEvent("You may be interested to hear that your " +
 				"bounty has been upped to five thousand... but the Chamber has " +
 				"no takers for the job! Heh heh, you really made an example of " +
-				"that lot."),
+				"that lot.", npc),
 			new GrantExperienceEvent(400, null));
 
 		return new Quest(
@@ -202,60 +202,60 @@ public class SirKay extends NpcScript
 	{
 		List<MazeEvent> intro = getList(
 			new NpcSpeechEvent("Well, you have proved youselves quite the " +
-				"heros. I am impressed."),
+				"heros. I am impressed.", npc),
 			new NpcSpeechEvent("I have some very disturbing news, and a new task " +
-				"for you. A difficult one."),
+				"for you. A difficult one.", npc),
 			new NpcSpeechEvent("It concerns that cussed witch, Imogen. For years she " +
 				"has played her cards close to her chest, and I've had to " +
-				"resort to reacting to her moves."),
+				"resort to reacting to her moves.", npc),
 			new NpcSpeechEvent("Even without this new " +
 				"information, it has recently been obvious that she is nearing " +
 				"some kind of goal - the gnolls are mobilising, and there have " +
 				"been more than the usual strange comings and goings from the " +
-				"tower."),
+				"tower.", npc),
 			new NpcSpeechEvent("Finally, I got a body into her damned tower " +
 				"who was able to poke around for a few minutes. Her master plan " +
 				"is as crazy as you might expect - she is planning an incantation " +
 				"to grant her eternal life, and at the same time planning the " +
 				"overthrow of the status quo in Ichiba - the destruction of the " +
-				"Chamber and her ruling unchecked over us all."),
+				"Chamber and her ruling unchecked over us all.", npc),
 			new NpcSpeechEvent("Needless to say, that would be bad for business. " +
 				"Much as I despise the Chamber of Commerce, they are good prey. " +
-				"Rather the devil you know, and all that."),
+				"Rather the devil you know, and all that.", npc),
 			new NpcSpeechEvent("So, I need you to slip into the tower and " +
-				"off the witch."),
+				"off the witch.", npc),
 			new NpcSpeechEvent("Needless to say, she's a dangerous target. But I " +
-				"think that you're up to it."),
+				"think that you're up to it.", npc),
 			new NpcSpeechEvent("In her paranoia she has fortified the tower " +
 				"quite impenetrably, so the plan is simple - you go in through " +
 				"the front door, locate her and kill her. Needless to say, you " +
-				"can keep any loot that you come by in the place."),
+				"can keep any loot that you come by in the place.", npc),
 			new NpcSpeechEvent("Heh, and here's a little something to help you deal " +
 				"with the golem at the door. Wear it as you enter, and if you're " +
 				"lucky it'll deactivate the construct. The last intruder used it, " +
-				"hopefully it still has enough charge..."),
+				"hopefully it still has enough charge...", npc),
 			new GrantItemsEvent(createItem("Rock Salt Amulet")),
 			new NpcSpeechEvent("We will not speak of this any more - Imogen has " +
-				"ears everywhere. Good luck"),
+				"ears everywhere. Good luck", npc),
 			new ActorsLeaveEvent());
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("You lot really need to take care of that task " +
-				"I mentioned to you... the situation is speeding up."));
+				"I mentioned to you... the situation is speeding up.", npc));
 
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("Imogen is dead. Skillfully managed, if I do say " +
-				"so myself."),
+				"so myself.", npc),
 			new NpcSpeechEvent("I trust that you found some good stuff in her " +
-				"tower? Keep it."),
+				"tower? Keep it.", npc),
 			new GrantExperienceEvent(1000, null),
 			new NpcSpeechEvent("The Chamber of Commerce has no idea that you " +
 				"have saved them too, and have upped the price on your head to " +
-				"ten thousand gold - almost as much as me!"),
+				"ten thousand gold - almost as much as me!", npc),
 			new NpcSpeechEvent("That almost impressed me more, ha ha ha! However, " +
 				"Ichiba is too hot for you lot right now. I have no more work for " +
 				"you right now, and I if I were you I'd leave town for a while " +
-				"until things calm down a bit."));
+				"until things calm down a bit.", npc));
 
 		return new Quest(
 			QUEST_4_COMPLETE,
@@ -276,10 +276,10 @@ public class SirKay extends NpcScript
 	public List<MazeEvent> firstGreeting()
 	{
 		List<MazeEvent> result = getList(
-			new NpcSpeechEvent("Salutations, travellers."),
+			new NpcSpeechEvent("Salutations, travellers.", npc),
 			new NpcSpeechEvent("Your reputation precedes you, we don't see " +
-				"many come through the Gate from the first Realm."),
-			new NpcSpeechEvent("My name is Kay."));
+				"many come through the Gate from the first Realm.", npc),
+			new NpcSpeechEvent("My name is Kay.", npc));
 
 		checkPartyHasStolen(result);
 
@@ -296,7 +296,7 @@ public class SirKay extends NpcScript
 			{
 				result.add(new NpcSpeechEvent("I warned you once, and you've " +
 					"still got your fingers in the pie. Good sense clearly " +
-					"isn't one of your strong suits.\n\nPrepare to die."));
+					"isn't one of your strong suits.\n\nPrepare to die.", npc));
 				result.add(new NpcAttacksEvent(npc));
 				return;
 			}
@@ -304,24 +304,24 @@ public class SirKay extends NpcScript
 			{
 				result.add(new NpcSpeechEvent("I'll cut to the chase. Here in " +
 					"Ichiba, my Gentlemen's Social Club is the only gig in town, " +
-					"if you know what I mean."));
+					"if you know what I mean.", npc));
 				result.add(new NpcSpeechEvent("That's right, I know about your " +
 					"skulduggery. Don't look so surprised. You've been watched " +
-					"since you arrived in town. My merry men are very good at that."));
+					"since you arrived in town. My merry men are very good at that.", npc));
 
 				if (MazeVariables.getBoolean(WePickett.SIGNED_UP_COC))
 				{
 					MazeVariables.clear(SIR_KAY_PARTY_DETECTED_STEALING);
 					MazeVariables.set(SIR_KAY_PARTY_WARNING,"true");
 					result.add(new NpcSpeechEvent("For the same reason, I already " +
-						"know that you're a paid lacky of the Chamber of Commerce."));
+						"know that you're a paid lacky of the Chamber of Commerce.", npc));
 					result.add(new NpcSpeechEvent("In a way I appreciate your " +
 						"duplicity, working for them on the one hand, and " +
 						"stealing from them on the side. Still, business is " +
-						"business, and any lackey of the Chamber is my enemy."));
+						"business, and any lackey of the Chamber is my enemy.", npc));
 					result.add(new NpcSpeechEvent("I am giving you one warning. " +
 						"Steal anything else on my turf, and I will kill you.\n\n" +
-						"Good day."));
+						"Good day.", npc));
 					result.add(new ActorsLeaveEvent());
 				}
 				else if (MazeVariables.getBoolean(Imogen.SIGNED_UP_WITH_IMOGEN))
@@ -330,13 +330,13 @@ public class SirKay extends NpcScript
 					MazeVariables.set(SIR_KAY_PARTY_WARNING,"true");
 					result.add(new NpcSpeechEvent("For the same reason, I already " +
 						"know that you're associated with the crazy witch, " +
-						"Imogen."));
+						"Imogen.", npc));
 					result.add(new NpcSpeechEvent("That one is no friend of mine, " +
 						"and for all I know she is watching me through your eyes " +
-						"as we speak. Watch your soul in her employ!"));
+						"as we speak. Watch your soul in her employ!", npc));
 					result.add(new NpcSpeechEvent("Anyway. I am giving you one " +
 						"warning. Steal anything else on my turf, and I will " +
-						"kill you.\n\nGood day."));
+						"kill you.\n\nGood day.", npc));
 					result.add(new ActorsLeaveEvent());
 				}
 				else
@@ -344,7 +344,7 @@ public class SirKay extends NpcScript
 					result.add(new NpcSpeechEvent("I can't have just any old thief who " +
 						"feels like it mucking about on my turf, stealing anything and " +
 						"causing trouble. You've been caught, friends, " +
-						"and now you have a choice. Join or die.\n\nWhich is it?"));
+						"and now you have a choice. Join or die.\n\nWhich is it?", npc));
 					result.add(new SetMazeVariableEvent(SIR_KAY_WAIT_FOR_RESPONSE_1, "true"));
 					result.add(new WaitForPlayerSpeech(npc, getPlayerCharacter(0)));
 				}
@@ -356,7 +356,7 @@ public class SirKay extends NpcScript
 	public List<MazeEvent> subsequentGreeting()
 	{
 		List<MazeEvent> result = getList(
-			new NpcSpeechEvent("Salutations, travellers."));
+			new NpcSpeechEvent("Salutations, travellers.", npc));
 
 		checkPartyHasStolen(result);
 
@@ -365,7 +365,7 @@ public class SirKay extends NpcScript
 			result.addAll(
 				getList(
 					new NpcSpeechEvent("Say, you still owe me membership fees.\n\n" +
-						"Got the money yet?"),
+						"Got the money yet?", npc),
 					new SetMazeVariableEvent(SIR_KAY_WAIT_FOR_RESPONSE_2, "true"),
 					new WaitForPlayerSpeech(npc, getPlayerCharacter(0))));
 		}
@@ -383,7 +383,7 @@ public class SirKay extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Oh dear, I think that "+item.getName()+" is " +
-				"mine! Thank you kindly, I nearly dropped it."),
+				"mine! Thank you kindly, I nearly dropped it.", npc),
 			new ChangeNpcTheftCounter(npc, 1));
 	}
 
@@ -396,11 +396,11 @@ public class SirKay extends NpcScript
 			{
 				MazeVariables.clear(SIR_KAY_WAIT_FOR_RESPONSE_1);
 				return getList(
-					new NpcSpeechEvent("I thought you would."),
+					new NpcSpeechEvent("I thought you would.", npc),
 					new NpcSpeechEvent("Membership fees are a mere five hundred " +
 						"gold, for life. Until death do us part, so to speak. " +
-						"Heh heh!"),
-					new NpcSpeechEvent("Got the money on you?"),
+						"Heh heh!", npc),
+					new NpcSpeechEvent("Got the money on you?", npc),
 					new SetMazeVariableEvent(SIR_KAY_WAIT_FOR_RESPONSE_2, "true"),
 					new WaitForPlayerSpeech(npc, getPlayerCharacter(0)));
 			}
@@ -409,13 +409,13 @@ public class SirKay extends NpcScript
 				MazeVariables.clear(SIR_KAY_WAIT_FOR_RESPONSE_1);
 				return getList(
 					new NpcSpeechEvent("There's a fool born every minute.\n\n" +
-						"Defend yourselves!"),
+						"Defend yourselves!", npc),
 					new NpcAttacksEvent(npc));
 			}
 			else
 			{
 				return getList(
-					new NpcSpeechEvent("Wrong answer cully! Try again."),
+					new NpcSpeechEvent("Wrong answer cully! Try again.", npc),
 					new WaitForPlayerSpeech(npc, getPlayerCharacter(0)));
 			}
 		}
@@ -430,7 +430,7 @@ public class SirKay extends NpcScript
 					getParty().incGold(-500);
 					MazeVariables.clear(SIR_KAY_OWED_500GP);
 					List<MazeEvent> result = getList(
-						new NpcSpeechEvent("Excellent, I'll take that."));
+						new NpcSpeechEvent("Excellent, I'll take that.", npc));
 
 					signUpForGsc(result);
 
@@ -439,9 +439,9 @@ public class SirKay extends NpcScript
 				else
 				{
 					List<MazeEvent> result = getList(
-						new NpcSpeechEvent("Looks like you can't, actually."),
+						new NpcSpeechEvent("Looks like you can't, actually.", npc),
 						new NpcSpeechEvent("No matter, you can pay when you have " +
-							"the funds."),
+							"the funds.", npc),
 						new SetMazeVariableEvent(SIR_KAY_OWED_500GP, "true"));
 
 					signUpForGsc(result);
@@ -459,13 +459,13 @@ public class SirKay extends NpcScript
 					MazeVariables.clear(SIR_KAY_OWED_500GP);
 					List<MazeEvent> result = getList(
 						new NpcSpeechEvent("Oh.\n\nHmmmm, that's odd, look what I " +
-							"have here!"),
+							"have here!", npc),
 						new NpcSpeechEvent("Isn't this your purse, cully? " +
-							"Sounds to me like it's full of chinking gold pieces..."),
+							"Sounds to me like it's full of chinking gold pieces...", npc),
 						new NpcSpeechEvent("I'll just take the five hundred for the " +
 							"guild, then you can have it back. Good thing I found " +
 							"it, you need to watch where you put that thing in " +
-							"this town!"));
+							"this town!", npc));
 
 					signUpForGsc(result);
 
@@ -475,7 +475,7 @@ public class SirKay extends NpcScript
 				{
 					List<MazeEvent> result = getList(
 						new NpcSpeechEvent("No matter, you can pay it when " +
-							"you have it."),
+							"you have it.", npc),
 						new SetMazeVariableEvent(SIR_KAY_OWED_500GP, "true"));
 
 					signUpForGsc(result);
@@ -486,7 +486,7 @@ public class SirKay extends NpcScript
 			else
 			{
 				return getList(
-					new NpcSpeechEvent("Eh what? Speak up, you're muttering..."),
+					new NpcSpeechEvent("Eh what? Speak up, you're muttering...", npc),
 					new WaitForPlayerSpeech(npc, getPlayerCharacter(0)));
 			}
 		}
@@ -501,12 +501,12 @@ public class SirKay extends NpcScript
 	{
 		result.add(new SetMazeVariableEvent(SIGNED_UP_WITH_THIEVES_GUILD, "true"));
 		result.add(new NpcSpeechEvent("I hereby dub thee Fellows of the " +
-			"Gentlemen's Social Club! Congratulations! Ha ha ha!"));
-		result.add(new NpcSpeechEvent("Rules are simple. One, do what I say."));
+			"Gentlemen's Social Club! Congratulations! Ha ha ha!", npc));
+		result.add(new NpcSpeechEvent("Rules are simple. One, do what I say.", npc));
 		result.add(new NpcSpeechEvent("Two, keep a low profile, don't get " +
-			"into trouble with the authorities."));
+			"into trouble with the authorities.", npc));
 		result.add(new NpcSpeechEvent("Every so often I may have something " +
-			"for you to do - and I'll come and find you when I do."));
+			"for you to do - and I'll come and find you when I do.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -537,9 +537,9 @@ public class SirKay extends NpcScript
 		{
 			boolean detectedStealing = MazeVariables.getBoolean(SIR_KAY_PARTY_DETECTED_STEALING);
 			boolean signedUp = MazeVariables.getBoolean(SIGNED_UP_WITH_THIEVES_GUILD);
-			boolean hasNewQuest = npc.getQuestManager().hasNewQuestAvailable();
-			boolean questCompleted = npc.getQuestManager().isCurrentQuestCompleted();
-			boolean questRewarded = npc.getQuestManager().isCurrentQuestRewarded();
+			boolean hasNewQuest = ((Npc)npc).getQuestManager().hasNewQuestAvailable();
+			boolean questCompleted = ((Npc)npc).getQuestManager().isCurrentQuestCompleted();
+			boolean questRewarded = ((Npc)npc).getQuestManager().isCurrentQuestRewarded();
 
 			boolean moveTowardsParty = (detectedStealing && !signedUp) ||
 				(signedUp && (hasNewQuest || (questCompleted && !questRewarded) || turnNr % 50 == 0));
@@ -579,7 +579,7 @@ public class SirKay extends NpcScript
 		}
 
 		Point partyTile = Maze.getInstance().getPlayerPos();
-		Point tile = npc.getTile();
+		Point tile = ((Npc)npc).getTile();
 
 		// halve the distance between Kay and the party
 		int diffX = (partyTile.x - tile.x) / 2;
@@ -588,13 +588,13 @@ public class SirKay extends NpcScript
 		int nX = diffX<5 ? partyTile.x : tile.x + diffX;
 		int nY = diffY<5 ? partyTile.y : tile.y + diffY;
 
-		return getList(new ChangeNpcLocationEvent(npc, new Point(nX, nY), partyZone));
+		return getList(new ChangeNpcLocationEvent(((Npc)npc), new Point(nX, nY), partyZone));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private List<MazeEvent> moveSirKayWithinZone()
 	{
-		String zone = npc.getZone();
+		String zone = ((Npc)npc).getZone();
 
 		Point newTile;
 
@@ -611,13 +611,13 @@ public class SirKay extends NpcScript
 			throw new MazeException("Invalid zone for Sir Kay ["+zone+"]");
 		}
 
-		return getList(new ChangeNpcLocationEvent(npc, newTile, zone));
+		return getList(new ChangeNpcLocationEvent(((Npc)npc), newTile, zone));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private List<MazeEvent> changeSirKayZone()
 	{
-		String zone = npc.getZone();
+		String zone = ((Npc)npc).getZone();
 
 		String newZone;
 		Point newTile;
@@ -639,7 +639,7 @@ public class SirKay extends NpcScript
 			throw new MazeException("Invalid zone for Sir Kay ["+zone+"]");
 		}
 
-		return getList(new ChangeNpcLocationEvent(npc, newTile, newZone));
+		return getList(new ChangeNpcLocationEvent(((Npc)npc), newTile, newZone));
 	}
 
 	/*-------------------------------------------------------------------------*/

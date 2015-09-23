@@ -21,6 +21,7 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYScrollPane;
@@ -28,10 +29,12 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.Inventory;
+import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.Npc;
 
 /**
  *
@@ -49,7 +52,7 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public TheftDialog(
 		PlayerCharacter pc,
-		Npc npc,
+		Foe npc,
 		TheftCallback theftCallback)
 	{
 		super();
@@ -67,27 +70,30 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
 
 		this.setBounds(dialogBounds);
-		int maxRows = npc.getCurrentInventory()==null?1:npc.getCurrentInventory().size() + 1;
+		List<Item> stealableItems = npc.getStealableItems();
+		int maxRows = stealableItems == null ? 1 : stealableItems.size() + 1;
 		itemWidget = new TradingWidget(
 			isBounds,
-			new Inventory(npc.getCurrentInventory()),
+			new Inventory(stealableItems),
 			npc.getSellsAt(),
 			npc.getMaxPurchasePrice(),
 			maxRows,
 			this);
 
-		DIYPane titlePane = getTitle(pc.getName()+" stealing from "+ npc.getFoeName());
-		npc.sortInventory();
+		DIYPane titlePane = getTitle(
+			StringUtil.getUiLabel(
+				"td.title",pc.getName(),npc.getDisplayName()));
+//		npc.sortInventory();
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		exit = new DIYButton("Exit");
+		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
 		exit.addActionListener(this);
 
-		steal = new DIYButton("(S)teal");
+		steal = new DIYButton(StringUtil.getUiLabel("td.steal"));
 		steal.addActionListener(this);
 
-		grabAndAttack = new DIYButton("(G)rab & Attack");
+		grabAndAttack = new DIYButton(StringUtil.getUiLabel("td.grab.and.attack"));
 		grabAndAttack.addActionListener(this);
 
 		buttonPane.add(steal);
@@ -120,9 +126,9 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 		switch(e.getKeyCode())
 		{
 			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
 				exit();
 				break;
+			case KeyEvent.VK_ENTER:
 			case KeyEvent.VK_S:
 				steal();
 				break;

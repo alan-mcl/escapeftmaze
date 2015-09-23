@@ -334,5 +334,6 @@ public class V1StatModifier
 			DRUIDISM_SPELLS,
 			ELEMENTAL_SPELLS,
 			LARGE_SIZE,
+			THREATEN,
 		};
 }

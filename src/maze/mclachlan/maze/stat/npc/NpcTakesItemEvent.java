@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.npc;
 
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.game.MazeEvent;
@@ -32,10 +33,10 @@ public class NpcTakesItemEvent extends MazeEvent
 {
 	private PlayerCharacter owner;
 	private Item item;
-	private Npc npc;
+	private Foe npc;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcTakesItemEvent(PlayerCharacter owner, Item item, Npc npc)
+	public NpcTakesItemEvent(PlayerCharacter owner, Item item, Foe npc)
 	{
 		this.owner = owner;
 		this.item = item;
@@ -53,9 +54,9 @@ public class NpcTakesItemEvent extends MazeEvent
 
 		owner.getInventory().remove(item);
 
-		if (npc.getCurrentInventory() != null)
+		if (npc.getInventory() != null)
 		{
-			npc.getCurrentInventory().add(item);
+			npc.getInventory().add(item);
 		}
 
 		return null;

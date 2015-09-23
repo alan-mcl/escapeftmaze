@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
 /**
@@ -32,6 +33,13 @@ public class DelayEvent extends MazeEvent
 	public DelayEvent(int delay)
 	{
 		this.delay = delay;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/** delays for the standard combat event delay as configured by the player */
+	public DelayEvent()
+	{
+		this(Maze.getInstance().getUserConfig().getCombatDelay());
 	}
 
 	/*-------------------------------------------------------------------------*/

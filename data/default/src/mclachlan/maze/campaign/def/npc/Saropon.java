@@ -6,10 +6,7 @@ import java.awt.Point;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.npc.ActorsLeaveEvent;
-import mclachlan.maze.stat.npc.ChangeNpcLocationEvent;
-import mclachlan.maze.stat.npc.NpcScript;
-import mclachlan.maze.stat.npc.NpcSpeechEvent;
+import mclachlan.maze.stat.npc.*;
 
 /**
  * Minion of the demon Usark, waylays the party in the Tornado Mountain and
@@ -47,42 +44,42 @@ public class Saropon extends NpcScript
 				"that is oiled with charm and menace...",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new NpcSpeechEvent("Greetings, worthy mortal adventurers. I am " +
-				"Saropon the Vile, humble servant of the demon Usark."),
+				"Saropon the Vile, humble servant of the demon Usark.", npc),
 			new NpcSpeechEvent("As you no doubt already know, my glorious " +
 				"master Usark is one of the seven great Servants of the Maze, " +
-				"that which is both your prison and your jailer."),
+				"that which is both your prison and your jailer.", npc),
 			new NpcSpeechEvent("Many and wide are the lands of the First Realm, " +
 				"and few are the dangers. You could have lived happily there, many " +
-				"have done so before you. And yet you chose to leave."),
+				"have done so before you. And yet you chose to leave.", npc),
 			new NpcSpeechEvent("Less wide, perhaps, are the lands and towns of this Second " +
 				"Realm. But yet you might have chosen to live a full life among " +
 				"the peoples here, the proud leonals or the cunning gnomes or the " +
-				"others in Ichiba Craterlake."),
+				"others in Ichiba Craterlake.", npc),
 			new NpcSpeechEvent("And yet, here you are. I can see a fire in your " +
 				"eyes, a fire that in some cannot be easily extinguished. This " +
 				"fire has driven you onward, and brought news of you to Usark " +
-				"himself, whose eye sees all."),
+				"himself, whose eye sees all.", npc),
 			new NpcSpeechEvent("I am here to deliver a warning from my master. " +
 				"Thus far, you have not been tested. The battles you have fought " +
 				"and the pain you have suffered are as nothing. Turn back to " +
 				"safety now, or Usark will move against you. You are condemned by " +
-				"the actions of your ancestors, and the sentence is not yet served."),
+				"the actions of your ancestors, and the sentence is not yet served.", npc),
 			new NpcSpeechEvent("When he moves, it will be swift and deadly, and " +
 				"you will not survive. The resources of Usark are limitless. My " +
 				"own six legions of demonic warriors are the least of his " +
-				"tools, and I single handed could crush you here and now."),
+				"tools, and I single handed could crush you here and now.", npc),
 			new NpcSpeechEvent("I see the fire in your eyes and I doubt that you " +
-				"will heed my warning. Such is mortal life, always struggling."),
+				"will heed my warning. Such is mortal life, always struggling.", npc),
 			new NpcSpeechEvent("I am Saropon mortals, remember my warning. " +
 				"Remember too that there are fates worse than merely dying. " +
-				"Turn back!"),
+				"Turn back!", npc),
 			new FlavourTextEvent("With a ripple of light-bending force fields, the " +
 				"being vanishes. Time resumes it's normal course and " +
 				"you are nearly knocked down by a sudden gust of wind. Above your " +
 				"head the bird utters a harsh cry and wheels away, heedless.",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
 			new ActorsLeaveEvent(),
-			new ChangeNpcLocationEvent(npc, new Point(1,1), "Stygios Forest"));
+			new ChangeNpcLocationEvent((Npc)npc, new Point(1,1), "Stygios Forest"));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -262,7 +262,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				}
 				break;
 			case _SpeechBubbleEvent:
-				SpeechBubbleEvent spbe = (SpeechBubbleEvent)e;
+				PersonalitySpeechBubbleEvent spbe = (PersonalitySpeechBubbleEvent)e;
 				speechKey.setText(spbe.getSpeechKey());
 				modalSpeech.setSelected(spbe.isModal());
 				break;
@@ -479,7 +479,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				this.result = new CharacterClassKnowledgeEvent(kMap);
 				break;
 			case _SpeechBubbleEvent:
-				this.result = new SpeechBubbleEvent(speechKey.getText(), modalSpeech.isSelected());
+				this.result = new PersonalitySpeechBubbleEvent(speechKey.getText(), modalSpeech.isSelected());
 				break;
 			case _StoryboardEvent:
 				this.result = new StoryboardEvent(
