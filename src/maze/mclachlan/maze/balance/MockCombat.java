@@ -502,7 +502,7 @@ public class MockCombat
 	private Combat runMockCombat(Database db, Maze maze,
 		PlayerParty party, ArrayList<FoeGroup> foeGroups)
 	{
-		Combat combat = new Combat(party, foeGroups, false);
+		Combat combat = new Combat(party, foeGroups, null);
 
 		runCombat(combat, party, foeGroups);
 		return combat;

@@ -72,7 +72,7 @@ public class RestingCheckpointEvent extends MazeEvent
 
 				result.add(
 					new EncounterActorsEvent(
-						null, tile.getRandomEncounters().getName(), null));
+						null, tile.getRandomEncounters().getName(), null, null));
 				return result;
 			}
 		}

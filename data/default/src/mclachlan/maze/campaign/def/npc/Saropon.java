@@ -6,6 +6,7 @@ import java.awt.Point;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.CharacterClassKnowledgeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.*;
 
 /**
@@ -83,7 +84,7 @@ public class Saropon extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> attacksParty()
+	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
 		return firstGreeting();
 	}

@@ -30,30 +30,36 @@ import mclachlan.maze.ui.diygui.FlavourTextDialog;
  */
 public class FlavourTextEvent extends MazeEvent
 {
-	private String text;
+	private String flavourText;
 	private int delay;
 	private boolean shouldClearText;
 
 	/*-------------------------------------------------------------------------*/
-	public FlavourTextEvent(String text)
+	public FlavourTextEvent(String flavourText)
 	{
-		this(text, Delay.WAIT_ON_CLICK, false);
+		this(flavourText, Delay.WAIT_ON_CLICK, false);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public FlavourTextEvent(String text, int delay, boolean shouldClearText)
+	public FlavourTextEvent(String flavourText, int delay, boolean shouldClearText)
 	{
-		this.text = text;
+		this.flavourText = flavourText;
 		this.delay = delay;
 		this.shouldClearText = shouldClearText;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public String getFlavourText()
+	{
+		return flavourText;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().journalInContext(text);
-		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, text));
+		Maze.getInstance().journalInContext(flavourText);
+		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, flavourText));
 		return null;
 	}
 

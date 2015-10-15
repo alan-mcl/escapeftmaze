@@ -90,7 +90,7 @@ public class ActorActionResolver
 		// Otherwise check if the actor is active - might have been gimped during
 		// the combat round
 		//
-		if (combat == null || combatantData.isActive())
+		if (combatantData == null || combatantData.isActive())
 		{
 			if (action instanceof AttackAction)
 			{
@@ -310,7 +310,7 @@ public class ActorActionResolver
 		}
 
 		// clear the action
-		if (combat != null)
+		if (combat != null && combatantData != null)
 		{
 			combatantData.setCurrentAction(null);
 		}

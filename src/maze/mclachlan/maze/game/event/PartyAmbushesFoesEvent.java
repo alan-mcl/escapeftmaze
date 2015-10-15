@@ -17,60 +17,32 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.npc;
+package mclachlan.maze.game.event;
 
 import java.util.*;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
 
 /**
  *
  */
-public class ChangeNpcAttitudeEvent extends MazeEvent
+public class PartyAmbushesFoesEvent extends MazeEvent
 {
-	private Foe npc;
-	private NpcFaction.AttitudeChange change;
+	private Maze maze;
+	private ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
-	public ChangeNpcAttitudeEvent(Foe npc, NpcFaction.AttitudeChange change)
+	public PartyAmbushesFoesEvent(Maze maze, ActorEncounter actorEncounter)
 	{
-		this.npc = npc;
-		this.change = change;
+		this.maze = maze;
+		this.actorEncounter = actorEncounter;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		if (npc == null)
-		{
-			return null;
-		}
-
-		npc.changeAttitude(change);
-
-		if (npc.getFaction() != null)
-		{
-			// tie the faction attitude to the NPC attitude
-			NpcFaction npcFaction = NpcManager.getInstance().getNpcFaction(npc.getFaction());
-			npcFaction.setAttitude(npc.getAttitude());
-		}
-
-		Maze maze = Maze.getInstance();
-		if (maze.getCurrentActorEncounter() != null)
-		{
-			maze.getCurrentActorEncounter().setEncounterAttitude(npc.getAttitude());
-		}
-
-		maze.refreshCharacterData();
-
-		if (npc.getAttitude() == NpcFaction.Attitude.ATTACKING)
-		{
-			return npc.getActionScript().attacksParty(null);
-		}
-		else
-		{
-			return null;
-		}
+		return getList(
+			new StartCombatEvent(maze, maze.getParty(), actorEncounter));
 	}
 }

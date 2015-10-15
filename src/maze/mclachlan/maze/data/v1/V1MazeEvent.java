@@ -25,6 +25,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.Animation;
@@ -279,7 +280,7 @@ public class V1MazeEvent
 				s.append(SEP);
 				s.append(fte.shouldClearText());
 				s.append(SEP);
-				s.append(V1Utils.escapeNewlines(fte.getText()));
+				s.append(V1Utils.escapeNewlines(fte.getFlavourText()));
 				break;
 			case _GrantExperienceEvent:
 				GrantExperienceEvent gee = (GrantExperienceEvent)e;
@@ -489,7 +490,8 @@ public class V1MazeEvent
 			case _EncounterActorsEvent:
 				String encounterTable = strs[1];
 				String mazeVariable = strs.length > 2 ? strs[2] : null;
-				NpcFaction.Attitude attitude;
+				NpcFaction.Attitude attitude = null;
+				Combat.AmbushStatus ambushStatus = null;
 				if (strs.length > 3)
 				{
 					if ("".equals(strs[3]))
@@ -500,12 +502,17 @@ public class V1MazeEvent
 					{
 						attitude = NpcFaction.Attitude.valueOf(strs[3]);
 					}
+
+					if ("".equals(strs[4]))
+					{
+						ambushStatus = null;
+					}
+					else
+					{
+						ambushStatus = Combat.AmbushStatus.valueOf(strs[4]);
+					}
 				}
-				else
-				{
-					attitude = null;
-				}
-				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude);
+				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus);
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);

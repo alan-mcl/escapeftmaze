@@ -81,7 +81,7 @@ public class Combat
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public Combat(PlayerParty party, List<FoeGroup> foes, boolean testSurprise)
+	public Combat(PlayerParty party, List<FoeGroup> foes, AmbushStatus ambushStatus)
 	{
 		Maze.getInstance().setCurrentCombat(this);
 
@@ -105,13 +105,13 @@ public class Combat
 			addActors(group);
 		}
 
-		if (testSurprise)
+		if (ambushStatus == null)
 		{
-			ambushStatus = GameSys.getInstance().determineAmbushStatus(party, foes);
+			this.ambushStatus = AmbushStatus.NONE;
 		}
 		else
 		{
-			ambushStatus = AmbushStatus.NONE;
+			this.ambushStatus = ambushStatus;
 		}
 
 		combatStats.captureAmbushStatus(ambushStatus);

@@ -46,7 +46,7 @@ public class DefaultFoeAiScript extends NpcScript
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public List<MazeEvent> attacksParty()
+	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
 		Maze maze = Maze.getInstance();
 

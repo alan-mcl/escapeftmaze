@@ -30,6 +30,7 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.event.ActorsTurnToAct;
+import mclachlan.maze.game.event.PartyAmbushesFoesEvent;
 import mclachlan.maze.game.event.PartyEvadesFoesEvent;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.combat.Combat;
@@ -168,7 +169,8 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 	{
 		if (surprise.isVisible())
 		{
-			//finished(UserInterface.CombatOption.SURPRISE_FOES); todo
+			msg.addMessage(StringUtil.getEventText("msg.party.ambushes"));
+			maze.appendEvents(new PartyAmbushesFoesEvent(maze, actorEncounter));
 		}
 	}
 
@@ -176,8 +178,9 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 	{
 		if (evade.isVisible())
 		{
+			msg.addMessage(StringUtil.getEventText("msg.party.evades"));
 			maze.appendEvents(
-				new PartyEvadesFoesEvent(maze, maze.getCurrentCombat()));
+				new PartyEvadesFoesEvent(maze, actorEncounter));
 		}
 	}
 

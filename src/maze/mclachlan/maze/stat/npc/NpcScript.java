@@ -29,6 +29,7 @@ import mclachlan.maze.game.event.ActorsTurnToAct;
 import mclachlan.maze.game.event.StartCombatEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.Combat;
 
 /**
  * 
@@ -91,8 +92,9 @@ public abstract class NpcScript
 	/**
 	 * Executed when the NPC decides to attack the party.  This default
 	 * implementation just initiates the combat.
+	 * @param fAmbushStatus
 	 */
-	public List<MazeEvent> attacksParty()
+	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
 //		ArrayList<FoeGroup> allFoes = new ArrayList<FoeGroup>();
 //		for (int i=0; i<1; i++)
@@ -141,7 +143,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> attackedByParty()
 	{
-		return attacksParty();
+		return attacksParty(null);
 	}
 
 	/*-------------------------------------------------------------------------*/

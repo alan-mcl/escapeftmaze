@@ -259,4 +259,8 @@ public class ActorEncounter
 		return GameSys.getInstance().getLeader(actors);
 	}
 
+	public List<MazeEvent> evade()
+	{
+		return null;
+	}
 }

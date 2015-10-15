@@ -28,6 +28,8 @@ import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
@@ -38,16 +40,18 @@ public class EncounterActorsEvent extends MazeEvent
 	private String mazeVariable;
 	private String encounterTable;
 	private NpcFaction.Attitude attitude;
+	private Combat.AmbushStatus ambushStatus;
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
 		String mazeVariable,
 		String encounterTable,
-		NpcFaction.Attitude attitude)
+		NpcFaction.Attitude attitude, Combat.AmbushStatus ambushStatus)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
 		this.attitude = attitude;
+		this.ambushStatus = ambushStatus;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -65,8 +69,15 @@ public class EncounterActorsEvent extends MazeEvent
 		FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
 		List<FoeGroup> allFoes = foeEntry.generate();
 
+		if (ambushStatus == null)
+		{
+			ambushStatus = GameSys.getInstance().determineAmbushStatus(
+				Maze.getInstance().getParty(),
+				allFoes);
+		}
+
 		Maze.getInstance().encounterActors(
-			new ActorEncounter(allFoes, mazeVariable, attitude, null));
+			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus));
 
 		return null;
 	}
@@ -84,9 +95,15 @@ public class EncounterActorsEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-
 	public NpcFaction.Attitude getAttitude()
 	{
 		return attitude;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public Combat.AmbushStatus getAmbushStatus()
+	{
+		return ambushStatus;
 	}
 }

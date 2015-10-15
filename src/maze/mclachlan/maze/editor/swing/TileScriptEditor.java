@@ -38,6 +38,7 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
@@ -110,6 +111,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox chestPreScript;
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
+	private JComboBox encounterAmbushStatus;
 	private JButton encounterQuickAssignMazeVar;
 	private JTextArea flavourText;
 	private JComboBox lootTable;
@@ -320,6 +322,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				{
 					encounterAttitude.setSelectedItem(e.getAttitude());
 				}
+				if (e.getAmbushStatus() == null)
+				{
+					encounterAmbushStatus.setSelectedItem(EditorPanel.NONE);
+				}
+				else
+				{
+					encounterAmbushStatus.setSelectedItem(e.getAmbushStatus());
+				}
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -529,10 +539,18 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		attitudes.add(0, EditorPanel.NONE);
 		encounterAttitude = new JComboBox(attitudes);
 
+		Combat.AmbushStatus[] statuses = Combat.AmbushStatus.values();
+		Vector ambushStatuses = new Vector();
+		Collections.addAll(ambushStatuses, statuses);
+		ambushStatuses.add(0, EditorPanel.NONE);
+		encounterAmbushStatus = new JComboBox(ambushStatuses);
+
 		return dirtyGridBagCrap(
 			new JLabel("Encounter Table:"), encounterTable,
 			encounterQuickAssignMazeVar, encounterVariable,
-			new JLabel("Attitude:"), encounterAttitude);
+			new JLabel("Attitude:"), encounterAttitude,
+			new JLabel("Ambush Status:"), encounterAmbushStatus
+		);
 	}
 
 	private JPanel getChestPanel()
@@ -893,10 +911,20 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				{
 					attitude = (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
 				}
+				Combat.AmbushStatus ambushStatus;
+				if (encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE)
+				{
+					ambushStatus = null;
+				}
+				else
+				{
+					ambushStatus = (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
+				}
 				result = new Encounter(
 					Database.getInstance().getEncounterTable((String)encounterTable.getSelectedItem()),
 					encounterVariable.getText(),
-					attitude);
+					attitude,
+					ambushStatus);
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText());

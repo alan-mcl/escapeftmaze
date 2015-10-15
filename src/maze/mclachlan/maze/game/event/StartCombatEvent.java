@@ -112,8 +112,15 @@ public class StartCombatEvent extends MazeEvent
 		//
 		// Combat is go!
 		//
-		maze.setCurrentCombat(new Combat(party, actors, true));
+		Combat combat = new Combat(party, actors, actorEncounter.getAmbushStatus());
+		maze.setCurrentCombat(combat);
 		maze.setState(Maze.State.COMBAT);
+
+		if (actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+			actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+		{
+			maze.executeCombatRound(combat);
+		}
 
 		return null;
 	}

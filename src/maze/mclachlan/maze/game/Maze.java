@@ -1747,6 +1747,8 @@ public class Maze implements Runnable
 					currentActorEncounter.describe());
 				getUi().addMessage(encounterMsg);
 
+				System.out.println("fAmbushStatus = [" + fAmbushStatus + "]");
+
 				switch (fAmbushStatus)
 				{
 					case NONE:
@@ -1783,16 +1785,23 @@ public class Maze implements Runnable
 					}
 				}
 
-
 				//
 				// Is this a direct transition into COMBAT?
 				//
 				if (fAttitude == NpcFaction.Attitude.ATTACKING &&
-					(fAmbushStatus == Combat.AmbushStatus.NONE ||
-						fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
-						fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY))
+					fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES &&
+					fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES)
 				{
-					result.addAll(leader.getActionScript().attacksParty());
+					result.addAll(leader.getActionScript().attacksParty(fAmbushStatus));
+				}
+				else if (fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
+					fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY)
+				{
+					result.add(
+						new ActorsTurnToAct(
+							currentActorEncounter,
+							Maze.this,
+							getUi().getMessageDestination()));
 				}
 
 				return result;

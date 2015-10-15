@@ -26,6 +26,7 @@ import java.util.Set;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
@@ -83,7 +84,7 @@ public class StickManVendor extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> attacksParty()
+	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
 		return getList(
 			new NpcSpeechEvent("Soft fleshy scum! You will pay for your crimes!", npc),

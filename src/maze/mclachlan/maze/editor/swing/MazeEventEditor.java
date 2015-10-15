@@ -34,6 +34,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
@@ -75,6 +76,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JComboBox encounterTable;
 	private JTextField encounterMazeVariable;
 	private JComboBox encounterAttitude;
+	private JComboBox encounterAmbushStatus;
 	private JSpinner flavourTextDelay;
 	private JCheckBox shouldClearText;
 	private JTextArea flavourText;
@@ -216,6 +218,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				else
 				{
 					encounterAttitude.setSelectedItem(ee.getAttitude());
+				}
+				if (ee.getAmbushStatus() == null)
+				{
+					encounterAmbushStatus.setSelectedItem(Combat.AmbushStatus.NONE);
+				}
+				else
+				{
+					encounterAmbushStatus.setSelectedItem(ee.getAmbushStatus());
 				}
 				break;
 			case _FlavourTextEvent:
@@ -428,10 +438,22 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				{
 					attitude = (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
 				}
+
+				Combat.AmbushStatus ambushStatus;
+				if (encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE)
+				{
+					ambushStatus = null;
+				}
+				else
+				{
+					ambushStatus = (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
+				}
+
 				this.result = new EncounterActorsEvent(
 					encounterMazeVariable.getText(),
 					(String)encounterTable.getSelectedItem(),
-					attitude);
+					attitude,
+					ambushStatus);
 				break;
 			case _FlavourTextEvent:
 				this.result = new FlavourTextEvent(
@@ -1017,12 +1039,20 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		attitudes.add(0, EditorPanel.NONE);
 		encounterAttitude = new JComboBox(attitudes);
 
+		Combat.AmbushStatus[] statuses = Combat.AmbushStatus.values();
+		Vector ambushStatuses = new Vector();
+		Collections.addAll(ambushStatuses, statuses);
+		ambushStatuses.add(0, EditorPanel.NONE);
+		encounterAmbushStatus = new JComboBox(ambushStatuses);
+
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
 			new JLabel("Encounter Table: "), encounterTable,
 			new JLabel("Maze Variable: "), encounterMazeVariable,
-			new JLabel("Attitude: "), encounterAttitude);
+			new JLabel("Attitude: "), encounterAttitude,
+			new JLabel("Ambush Status: "), encounterAmbushStatus
+			);
 		return result;
 	}
 

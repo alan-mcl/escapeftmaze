@@ -20,9 +20,9 @@
 package mclachlan.maze.game.event;
 
 import java.util.*;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.combat.Combat;
 
 /**
  *
@@ -30,22 +30,21 @@ import mclachlan.maze.stat.combat.Combat;
 public class PartyEvadesFoesEvent extends MazeEvent
 {
 	private Maze maze;
-	private Combat combat;
+	private ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
-	public PartyEvadesFoesEvent(Maze maze, Combat combat)
+	public PartyEvadesFoesEvent(Maze maze, ActorEncounter actorEncounter)
 	{
 		this.maze = maze;
-		this.combat = combat;
+		this.actorEncounter = actorEncounter;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		combat.endCombat();
 		maze.getUi().setFoes(null);
 		maze.setState(Maze.State.MOVEMENT);
 
-		return null;
+		return actorEncounter.evade();
 	}
 }

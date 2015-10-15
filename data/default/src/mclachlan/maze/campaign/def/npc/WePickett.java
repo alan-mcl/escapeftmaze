@@ -12,6 +12,7 @@ import mclachlan.maze.game.event.RemoveItemEvent;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.*;
 
 /**
@@ -428,7 +429,7 @@ public class WePickett extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> attacksParty()
+	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
 		if (MazeVariables.getBoolean(Imogen.QUEST_3_COMPLETE))
 		{
@@ -444,7 +445,7 @@ public class WePickett extends NpcScript
 		}
 		else
 		{
-			return super.attacksParty();
+			return super.attacksParty(fAmbushStatus);
 		}
 	}
 
