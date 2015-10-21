@@ -138,7 +138,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
 	SignBoardWidget signBoardWidget;
 	ChestOptionsWidget chestOptionsWidget;
-	NpcOptionsWidget npcOptionsWidget;
 	EncounterActorsWidget encounterActorsWidget;
 	PortalOptionsWidget portalOptionsWidget;
 	ZoneDisplayWidget zoneDisplay;
@@ -1117,7 +1116,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
 			Database.getInstance().getImage("screen/signBoard"));
 		chestOptionsWidget = new ChestOptionsWidget(rect);
-		npcOptionsWidget = new NpcOptionsWidget(rect);
 		encounterActorsWidget = new EncounterActorsWidget(rect);
 		portalOptionsWidget = new PortalOptionsWidget(rect);
 		combatDisplay = new CombatDisplayWidget(rect);
@@ -1139,7 +1137,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		list.add(signBoardWidget);
 		list.add(chestOptionsWidget);
 		list.add(portalOptionsWidget);
-		list.add(npcOptionsWidget);
 		list.add(encounterActorsWidget);
 		list.add(combatDisplay);
 		list.add(combatOptions);
