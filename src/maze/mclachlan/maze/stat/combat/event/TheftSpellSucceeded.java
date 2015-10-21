@@ -22,11 +22,7 @@ package mclachlan.maze.stat.combat.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.GoldPieces;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.*;
 
 /**
  *
@@ -34,11 +30,11 @@ import mclachlan.maze.stat.npc.Npc;
 public class TheftSpellSucceeded extends MazeEvent
 {
 	private PlayerCharacter pc;
-	private Npc npc;
+	private Foe npc;
 	private int strength;
 
 	/*-------------------------------------------------------------------------*/
-	public TheftSpellSucceeded(PlayerCharacter pc, Npc npc, int strength)
+	public TheftSpellSucceeded(PlayerCharacter pc, Foe npc, int strength)
 	{
 		this.pc = pc;
 		this.npc = npc;
@@ -46,7 +42,7 @@ public class TheftSpellSucceeded extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Npc getNpc()
+	public Foe getNpc()
 	{
 		return npc;
 	}
@@ -61,7 +57,7 @@ public class TheftSpellSucceeded extends MazeEvent
 			int amount = GameSys.getInstance().getAmountOfGoldStolen(npc, pc);
 			item = new GoldPieces(amount);
 		}
-		return npc.getScript().successfulTheft(pc, item);
+		return npc.getActionScript().successfulTheft(pc, item);
 	}
 
 	/*-------------------------------------------------------------------------*/

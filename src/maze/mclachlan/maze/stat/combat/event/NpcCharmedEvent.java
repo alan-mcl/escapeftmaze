@@ -20,25 +20,26 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.Foe;
 
 /**
  *
  */
 public class NpcCharmedEvent extends MazeEvent
 {
-	Npc npc;
+	private Foe npc;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcCharmedEvent(Npc npc)
+	public NpcCharmedEvent(Foe npc)
 	{
 		this.npc = npc;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Npc getNpc()
+	public Foe getNpc()
 	{
 		return npc;
 	}
@@ -46,7 +47,7 @@ public class NpcCharmedEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		return npc.getScript().successfulCharm();
+		return npc.getActionScript().successfulCharm();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -58,6 +59,6 @@ public class NpcCharmedEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getNpc().getFoeName()+" is charmed.";
+		return StringUtil.getEventText("msg.actor.is.charmed", npc.getDisplayName());
 	}
 }

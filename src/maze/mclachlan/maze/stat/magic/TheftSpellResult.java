@@ -21,6 +21,7 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.TheftSpellSucceeded;
@@ -31,7 +32,7 @@ import mclachlan.maze.stat.npc.Npc;
  */
 public class TheftSpellResult extends SpellResult
 {
-	Value value;
+	private Value value;
 
 	/*-------------------------------------------------------------------------*/
 	public TheftSpellResult(Value value)
@@ -42,9 +43,9 @@ public class TheftSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
 	{
-		if (target instanceof Npc)
+		if (target instanceof Foe)
 		{
-			Npc npc = (Npc)target;
+			Foe npc = (Foe)target;
 			PlayerCharacter pc = (PlayerCharacter)source;
 			int strength = this.value.compute(source, castingLevel);
 

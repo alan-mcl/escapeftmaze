@@ -89,4 +89,7 @@ public class DefaultFoeAiScript extends NpcScript
 	{
 		return getList(new FlavourTextEvent(StringUtil.getEventText("msg.no.response")));
 	}
+
+	/*-------------------------------------------------------------------------*/
+
 }

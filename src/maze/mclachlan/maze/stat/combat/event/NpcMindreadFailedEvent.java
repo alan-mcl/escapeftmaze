@@ -21,25 +21,25 @@ package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.npc.Npc;
+import mclachlan.maze.stat.Foe;
 
 /**
  *
  */
 public class NpcMindreadFailedEvent extends MazeEvent
 {
-	Npc npc;
-	int strength;
+	private Foe npc;
+	private int strength;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcMindreadFailedEvent(Npc npc, int strength)
+	public NpcMindreadFailedEvent(Foe npc, int strength)
 	{
 		this.npc = npc;
 		this.strength = strength;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Npc getNpc()
+	public Foe getNpc()
 	{
 		return npc;
 	}
@@ -47,7 +47,7 @@ public class NpcMindreadFailedEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		return npc.getScript().mindReadFails(this.strength);
+		return npc.getActionScript().mindReadFails(this.strength);
 	}
 
 	/*-------------------------------------------------------------------------*/

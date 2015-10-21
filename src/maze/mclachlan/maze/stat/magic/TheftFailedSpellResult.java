@@ -21,10 +21,10 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.TheftSpellFailed;
-import mclachlan.maze.stat.npc.Npc;
 
 /**
  * Typically cast on an NPC to steal an item
@@ -42,9 +42,9 @@ public class TheftFailedSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
 	{
-		if (target instanceof Npc)
+		if (target instanceof Foe)
 		{
-			Npc npc = (Npc)target;
+			Foe npc = (Foe)target;
 			PlayerCharacter pc = (PlayerCharacter)source;
 			int strength = this.value.compute(source, castingLevel);
 

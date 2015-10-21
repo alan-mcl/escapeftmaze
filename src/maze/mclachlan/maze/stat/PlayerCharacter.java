@@ -456,9 +456,29 @@ public class PlayerCharacter extends UnifiedActor
 		}
 		else if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)
 		{
-			// todo: other options
 			ActorEncounter actorEncounter = maze.getCurrentActorEncounter();
 			NpcFaction.Attitude attitude = actorEncounter.getEncounterAttitude();
+
+			// Cast Spell option if this actor has spells
+			if (this.getSpellBook().getSpells().size() != 0)
+			{
+				result.add(new SpellOption(), null);
+			}
+
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// special abilities
+			if (this.getSpellLikeAbilities() != null)
+			{
+				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
+				{
+					if (sla.isUsableDuringEncounterActors() && sla.meetsRequirements(this))
+					{
+						result.add(new SpecialAbilityOption(sla), null);
+					}
+				}
+			}
 
 			switch (attitude)
 			{
@@ -466,8 +486,7 @@ public class PlayerCharacter extends UnifiedActor
 					break;
 				case AGGRESSIVE:
 					result.add(new GiveOption(), null);
-					// todo: tie to character class ability
-					result.add(new ThreatenOption(), null);
+					result.add(new ThreatenOption(), null); // todo: tie to character class ability
 					result.add(new BribeOption(), null);
 					break;
 				case WARY:
@@ -501,12 +520,6 @@ public class PlayerCharacter extends UnifiedActor
 					result.add(new TradeOption(), null);
 					break;
 			}
-
-			// always a use item option
-			result.add(new UseItemOption(), null);
-
-			// always an equip option
-			result.add(new EquipOption(), null);
 		}
 
 		// set the actor for all action options

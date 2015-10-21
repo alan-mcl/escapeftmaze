@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.combat;
 
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
@@ -144,10 +145,27 @@ public class SpellOption extends ActorActionOption
 				spellTarget = actorGroup.getActors().get(target);
 				break;
 
-			// makes no sense, never cast in combat
 			case LOCK_OR_TRAP:
+				if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+				{
+					spellTarget = Maze.getInstance().getCurrentChest();
+				}
+				else
+				{
+					spellTarget = null;
+				}
+				break;
+
 			case NPC:
-				spellTarget = null;
+				if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
+				{
+					ActorEncounter ae = Maze.getInstance().getCurrentActorEncounter();
+					spellTarget = ae.getLeader();
+				}
+				else
+				{
+					spellTarget = null;
+				}
 				break;
 
 			default:

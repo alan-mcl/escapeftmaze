@@ -96,30 +96,6 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> attacksParty(Combat.AmbushStatus fAmbushStatus)
 	{
-//		ArrayList<FoeGroup> allFoes = new ArrayList<FoeGroup>();
-//		for (int i=0; i<1; i++)
-//		{
-//			List foes = new ArrayList();
-//			foes.add(npc);
-//			FoeGroup foesGroup = new FoeGroup(foes);
-//			allFoes.add(foesGroup);
-//		}
-//
-//		List<MazeEvent> evts = new ArrayList<MazeEvent>();
-//		if (npc.getAlliesOnCall() != null)
-//		{
-//			EncounterTable table =
-//				Database.getInstance().getEncounterTable(npc.getAlliesOnCall());
-//			FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
-//			List<FoeGroup> foeGroups = foeEntry.generate();
-//
-//			allFoes.addAll(foeGroups);
-//			evts.addAll(getList(
-//				new FlavourTextEvent(npc.getName() + " calls for help!!",
-//					Maze.getInstance().getUserConfig().getCombatDelay(), true),
-//				new SummoningSucceedsEvent(foeGroups, npc)));
-//		}
-
 		Maze maze = Maze.getInstance();
 		return getList(
 			new StartCombatEvent(
@@ -173,7 +149,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> mindRead(int strength)
 	{
-		return getList(new FlavourTextEvent(" - mind is blank - "));
+		return getList(new FlavourTextEvent(StringUtil.getEventText("msg.default.mindread")));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -183,7 +159,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> mindReadFails(int strength)
 	{
-		return getList(new FlavourTextEvent("FAILED!"));
+		return getList(new FlavourTextEvent(StringUtil.getEventText("common.failed")));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -198,7 +174,7 @@ public abstract class NpcScript
 		total = Math.min(25, total);
 
 		return getList(
-			new FlavourTextEvent("Thread succeeds"),
+			new FlavourTextEvent(StringUtil.getEventText("msg.thread.succeeds")),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
@@ -214,7 +190,7 @@ public abstract class NpcScript
 		total = Math.max(-25, total);
 
 		return getList(
-			new FlavourTextEvent("Threat fails"),
+			new FlavourTextEvent(StringUtil.getEventText("common.failed")),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
@@ -230,7 +206,7 @@ public abstract class NpcScript
 		total = Math.min(50, total);
 
 		return getList(
-			new FlavourTextEvent("Bribe succeeds"),
+			new FlavourTextEvent(StringUtil.getEventText("msg.bribe.succeeds")),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
@@ -245,7 +221,7 @@ public abstract class NpcScript
 		Maze maze = Maze.getInstance();
 
 		return getList(
-			new FlavourTextEvent("Bribe fails"),
+			new FlavourTextEvent(StringUtil.getEventText("event.failed")),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE),
 			new ActorsTurnToAct(
 				maze.getCurrentActorEncounter(),
@@ -261,7 +237,9 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> successfulCharm()
 	{
-		return new ArrayList<MazeEvent>();
+		return getList(
+			new FlavourTextEvent(StringUtil.getEventText("msg.actor.is.charmed", npc.getDisplayName())),
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.BETTER));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -272,7 +250,9 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> failedCharm()
 	{
-		return new ArrayList<MazeEvent>();
+		return getList(
+			new FlavourTextEvent(StringUtil.getEventText("event.failed")),
+			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
 	/*-------------------------------------------------------------------------*/

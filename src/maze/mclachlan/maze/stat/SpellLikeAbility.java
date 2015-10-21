@@ -110,6 +110,26 @@ public class SpellLikeAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public boolean isUsableDuringEncounterActors()
+	{
+		int usabilityType = spell.getUsabilityType();
+
+		switch (usabilityType)
+		{
+			case MagicSys.SpellUsabilityType.ANY_TIME:
+			case MagicSys.SpellUsabilityType.NPC_ONLY:
+				return true;
+			case MagicSys.SpellUsabilityType.COMBAT_ONLY:
+			case MagicSys.SpellUsabilityType.NON_COMBAT_ONLY:
+			case MagicSys.SpellUsabilityType.INVENTORY_SCREEN_ONLY:
+			case MagicSys.SpellUsabilityType.LOCKS_TRAPS_ONLY:
+				return false;
+			default:
+				throw new MazeException("invalid " + usabilityType);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public boolean meetsRequirements(UnifiedActor actor)
 	{
 		return this.spell.meetsRequirements(actor);

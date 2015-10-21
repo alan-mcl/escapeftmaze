@@ -29,11 +29,12 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.stat.PercentageTable;
+import mclachlan.maze.stat.SpellTarget;
 
 /**
  * Initiates player interaction with a chest.
  */
-public class Chest extends TileScript
+public class Chest extends TileScript implements SpellTarget
 {
 	private TileScript chestContents;
 	private PercentageTable<Trap> traps;

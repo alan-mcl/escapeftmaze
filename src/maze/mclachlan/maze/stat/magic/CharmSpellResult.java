@@ -21,10 +21,10 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.NpcCharmedEvent;
 import mclachlan.maze.stat.combat.event.NpcNotCharmedEvent;
-import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
@@ -49,9 +49,9 @@ public class CharmSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
 	{
-		if (target instanceof Npc)
+		if (target instanceof Foe)
 		{
-			Npc npc = (Npc)target;
+			Foe npc = (Foe)target;
 			int inc = this.value.compute(source, castingLevel);
 
 			// TODO: ATTITUDE CHANGE
