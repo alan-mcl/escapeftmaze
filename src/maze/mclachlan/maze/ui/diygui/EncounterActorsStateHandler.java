@@ -43,7 +43,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class EncounterActorsStateHandler implements ActionListener, ConfirmCallback
+public class EncounterActorsStateHandler implements ActionListener
 {
 	private Maze maze;
 	private final int buttonRows;
@@ -235,14 +235,6 @@ public class EncounterActorsStateHandler implements ActionListener, ConfirmCallb
 						actorEncounter.getEncounterAttitude());
 			}
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public void confirm()
-	{
-		// confirming the exit to main
-		maze.backToMain();
 	}
 
 	/*-------------------------------------------------------------------------*/

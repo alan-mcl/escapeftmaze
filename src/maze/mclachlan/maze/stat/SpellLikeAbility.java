@@ -61,12 +61,13 @@ public class SpellLikeAbility
 	@Override
 	public String toString()
 	{
-		final StringBuilder sb = new StringBuilder();
-		sb.append(spell.getName());
-		sb.append(" (");
-		sb.append(castingLevel);
-		sb.append(")");
-		return sb.toString();
+		return spell.getName() + " (" + castingLevel + ")";
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean meetsRequirements(UnifiedActor actor)
+	{
+		return this.spell.meetsRequirements(actor);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -130,8 +131,22 @@ public class SpellLikeAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean meetsRequirements(UnifiedActor actor)
+	public boolean isUsableDuringEncounterChest()
 	{
-		return this.spell.meetsRequirements(actor);
+		int usabilityType = spell.getUsabilityType();
+
+		switch (usabilityType)
+		{
+			case MagicSys.SpellUsabilityType.ANY_TIME:
+			case MagicSys.SpellUsabilityType.LOCKS_TRAPS_ONLY:
+				return true;
+			case MagicSys.SpellUsabilityType.NPC_ONLY:
+			case MagicSys.SpellUsabilityType.COMBAT_ONLY:
+			case MagicSys.SpellUsabilityType.NON_COMBAT_ONLY:
+			case MagicSys.SpellUsabilityType.INVENTORY_SCREEN_ONLY:
+				return false;
+			default:
+				throw new MazeException("invalid " + usabilityType);
+		}
 	}
 }

@@ -41,7 +41,7 @@ import mclachlan.maze.util.MazeException;
 public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 {
 	private Trap trap;
-	private ChestOptionsWidget callback;
+	private ChestOptionsCallback callback;
 	private PlayerCharacter pc;
 	private DIYButton inspect, cancel;
 	private DIYButton[] buttons;
@@ -53,11 +53,16 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public DisarmTrapWidget(
 		Trap trap,
-		Rectangle bounds,
-		ChestOptionsWidget callback,
+		ChestOptionsCallback callback,
 		PlayerCharacter pc)
 	{
-		super(bounds);
+		int x = DiyGuiUserInterface.SCREEN_WIDTH/4;
+		int y = DiyGuiUserInterface.SCREEN_HEIGHT/5*3;
+		Rectangle bounds = new Rectangle(x, y,
+			DiyGuiUserInterface.SCREEN_WIDTH/2,
+			DiyGuiUserInterface.SCREEN_HEIGHT/3);
+
+		this.setBounds(bounds);
 		this.trap = trap;
 		this.callback = callback;
 		this.pc = pc;
@@ -235,7 +240,7 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	private void manipulateTool(int tool)
 	{
 		MazeScript script = Database.getInstance().getScript("_THIEF_TOOL_");
-		Maze.getInstance().resolveEvents(script.getEvents());
+		Maze.getInstance().appendEvents(script.getEvents());
 		int result = GameSys.getInstance().disarm(pc, trap, tool);
 
 		switch (result)
@@ -251,12 +256,12 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 				{
 					// all required are disarmed
 					cancelled();
-					callback.executeChestContents();
+					Maze.getInstance().appendEvents(callback.executeChestContents());
 				}
 				break;
 			case Trap.DisarmResult.SPRING_TRAP:
 				cancelled();
-				callback.springTrap();
+				Maze.getInstance().appendEvents(callback.springTrap());
 				break;
 			default:
 				throw new MazeException("Invalid result: "+result);
@@ -267,14 +272,14 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	private void inspect()
 	{
 		MazeScript script = Database.getInstance().getScript("_INSPECT_TRAP_");
-		Maze.getInstance().resolveEvents(script.getEvents());
+		Maze.getInstance().appendEvents(script.getEvents());
 		
 		int[] insResult = GameSys.getInstance().inspectTrap(pc, trap);
 
 		if (insResult == null)
 		{
 			cancelled();
-			callback.springTrap();
+			Maze.getInstance().appendEvents(callback.springTrap());
 			return;
 		}
 

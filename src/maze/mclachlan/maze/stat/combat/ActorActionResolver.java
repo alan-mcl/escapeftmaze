@@ -24,6 +24,7 @@ import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ActorsTurnToAct;
+import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -303,6 +304,20 @@ public class ActorActionResolver
 				Foe npc = (Foe)a.getTarget();
 				result.add(new InitiateTradeEvent(npc, pc));
 			}
+			else if (action instanceof DisarmTrapAction)
+			{
+				DisarmTrapAction a = (DisarmTrapAction)action;
+				PlayerCharacter pc = (PlayerCharacter)a.getActor();
+				Chest chest = a.getChest();
+				result.add(new DisarmTrapEvent(pc, chest, chest));
+			}
+			else if (action instanceof OpenChestAction)
+			{
+				OpenChestAction a = (OpenChestAction)action;
+				PlayerCharacter pc = (PlayerCharacter)a.getActor();
+				Chest chest = a.getChest();
+				result.add(new OpenChestEvent(pc, chest, chest));
+			}
 			else
 			{
 				throw new MazeException("Unrecognised combat action: "+action);
@@ -569,7 +584,11 @@ public class ActorActionResolver
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
 			case MagicSys.SpellTargetType.ITEM:
-				//nothing to do
+				events.addAll(SpellTargetUtils.resolveLockOrTrapSpellOnChest(
+					Maze.getInstance().getCurrentChest(),
+					s,
+					(PlayerCharacter)actor,
+					castingLevel));
 				break;
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(
@@ -959,7 +978,11 @@ public class ActorActionResolver
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				//nothing to do
+				events.addAll(SpellTargetUtils.resolveLockOrTrapSpellOnChest(
+					Maze.getInstance().getCurrentChest(),
+					s,
+					(PlayerCharacter)caster,
+					castingLevel));
 				break;
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(SpellTargetUtils.resolveCasterSpell(
@@ -1467,5 +1490,4 @@ public class ActorActionResolver
 			return -1;
 		}
 	}
-
 }

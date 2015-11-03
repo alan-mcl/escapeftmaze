@@ -344,15 +344,7 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
 		{
-			switch (event.getKeyCode())
-			{
-				case KeyEvent.VK_D: ui.chestOptionsWidget.disarm(); break;
-				case KeyEvent.VK_C: ui.chestOptionsWidget.spell(); break;
-				case KeyEvent.VK_U: ui.chestOptionsWidget.use(); break;
-				case KeyEvent.VK_O: ui.chestOptionsWidget.open(); break;
-				case KeyEvent.VK_ESCAPE:
-				case KeyEvent.VK_L: ui.chestOptionsWidget.leave(); break;
-			}
+			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 		}
 		else if (Maze.getInstance().getState() == Maze.State.RESTING)
 		{

@@ -19,22 +19,28 @@
 
 package mclachlan.maze.map.script;
 
+import java.awt.Point;
+import java.util.*;
 import mclachlan.crusader.EngineObject;
-import java.awt.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.event.CheckPartyStatusEvent;
+import mclachlan.maze.game.event.MazeScriptEvent;
+import mclachlan.maze.game.event.SetChestStateEvent;
+import mclachlan.maze.game.event.SetStateEvent;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.stat.SpellTarget;
+import mclachlan.maze.ui.diygui.ChestOptionsCallback;
 
 /**
  * Initiates player interaction with a chest.
  */
-public class Chest extends TileScript implements SpellTarget
+public class Chest extends TileScript implements SpellTarget, ChestOptionsCallback
 {
 	private TileScript chestContents;
 	private PercentageTable<Trap> traps;
@@ -192,6 +198,68 @@ public class Chest extends TileScript implements SpellTarget
 	public void setState(String chestState)
 	{
 		MazeVariables.set(this.mazeVariable, chestState);
+	}
+
+	@Override
+	public java.util.List<MazeEvent> springTrap()
+	{
+		Maze maze = Maze.getInstance();
+
+		java.util.List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		Point tile = maze.getTile();
+		int facing = maze.getFacing();
+
+		if (getTraps() != null &&
+			getTraps().size()>0 &&
+			getCurrentTrap() != null)
+		{
+			result.addAll(
+				getCurrentTrap().getPayload().execute(
+					maze, tile, tile, facing));
+		}
+
+		if (maze.getCurrentCombat() != null)
+		{
+			// something has started a combat
+			//leave the chest basically unopened
+			return result;
+		}
+
+		// check if trap has killed the party
+		result.add(new CheckPartyStatusEvent());
+
+		if (Maze.getInstance().getParty() != null && Maze.getInstance().getParty().numAlive() > 0)
+		{
+			result.addAll(executeChestContents());
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public java.util.List<MazeEvent> executeChestContents()
+	{
+		Maze maze = Maze.getInstance();
+
+		java.util.List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		Point tile = maze.getTile();
+		int facing = maze.getFacing();
+
+		// chest opens
+		result.add(new MazeScriptEvent("_OPEN_CHEST_"));
+
+		// chest contents
+		result.addAll(getChestContents().execute(maze, tile, tile, facing));
+
+		// clean up and back to movement
+		result.add(new SetChestStateEvent(this, Chest.State.EMPTY));
+		result.add(new RemoveObjectEvent(getEngineObject()));
+		result.add(new SetStateEvent(maze, Maze.State.MOVEMENT));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

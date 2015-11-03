@@ -17,41 +17,49 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.combat.event;
+package mclachlan.maze.stat.npc;
 
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
+import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.ui.diygui.ChestOptionsCallback;
+import mclachlan.maze.ui.diygui.DisarmTrapWidget;
 
-/**
- *
- */
-public class NpcNotCharmedEvent extends MazeEvent
+public class DisarmTrapEvent extends MazeEvent
 {
-	private Foe npc;
+	private PlayerCharacter pc;
+	private Chest chest;
+	private ChestOptionsCallback callback;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcNotCharmedEvent(Foe npc)
+	public DisarmTrapEvent(
+		PlayerCharacter pc,
+		Chest chest,
+		ChestOptionsCallback callback)
 	{
-		this.npc = npc;
+		this.pc = pc;
+		this.chest = chest;
+		this.callback = callback;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
-	{
-		return npc;
-	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
-	{
-		return npc.getActionScript().failedCharm();
-	}
-
-	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getDelay()
 	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
+		return Delay.NONE;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		DisarmTrapWidget dialog = new DisarmTrapWidget(
+			chest.getCurrentTrap(), callback, pc);
+		Maze.getInstance().getUi().showDialog(dialog);
+
+		return null;
 	}
 }

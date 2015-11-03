@@ -167,6 +167,7 @@ poatw.terminate.game = Terminate Game
 poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
 poatw.actor.encounter = Encounter: %s (%s)
 poatw.exploring = Exploring: %s
+poatw.chest.encounter = Encounter chest
 
 # player character widget
 pcw.levelup = Level Up!
@@ -192,6 +193,8 @@ aao.give = Give Item
 aao.bribe = Bribe
 aao.steal = Steal
 aao.trade = Trade
+aao.disarm.trap = Disarm Trap
+aao.open.chest = Open Chest
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.

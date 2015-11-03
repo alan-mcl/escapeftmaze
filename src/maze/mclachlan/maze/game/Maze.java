@@ -2192,23 +2192,6 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public class SetStateEvent extends MazeEvent
-	{
-		State state;
-
-		public SetStateEvent(State state)
-		{
-			this.state = state;
-		}
-
-		public List<MazeEvent> resolve()
-		{
-			Maze.this.setState(state);
-			return null;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public class ShowCombatDisplayEvent extends MazeEvent
 	{
 		public List<MazeEvent> resolve()

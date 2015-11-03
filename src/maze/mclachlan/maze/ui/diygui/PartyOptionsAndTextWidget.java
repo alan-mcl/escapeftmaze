@@ -33,6 +33,7 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.combat.Combat;
 
 import static mclachlan.maze.game.Maze.State.*;
@@ -76,6 +77,9 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	// combat party options
 	private CombatStateHandler combatStateHandler;
 
+	// encounter chest options
+	private EncounterChestStateHandler encounterChestStateHandler;
+
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
 	{
@@ -89,6 +93,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		movementHandler = new MovementStateHandler(maze, buttonRows, INSET);
 		encounterActorsStateHandler = new EncounterActorsStateHandler(maze, buttonRows, INSET, this);
 		combatStateHandler = new CombatStateHandler(maze, buttonRows, INSET, this);
+		encounterChestStateHandler = new EncounterChestStateHandler(maze, buttonRows, INSET, this);
 
 		// pack card layout widgets for the right and left panes
 		Map<Object, ContainerWidget> leftCardsWidgets = getLeftCardsWidgets();
@@ -123,6 +128,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		result.put(MOVEMENT, movementHandler.getLeftPane());
 		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getLeftPane());
 		result.put(COMBAT, combatStateHandler.getLeftPane());
+		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getLeftPane());
 
 		return result;
 	}
@@ -135,6 +141,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		result.put(MOVEMENT, movementHandler.getRightPane());
 		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getRightPane());
 		result.put(COMBAT, combatStateHandler.getRightPane());
+		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getRightPane());
 
 		return result;
 	}
@@ -192,6 +199,10 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				leftCards.show(COMBAT);
 				rightCards.show(COMBAT);
 				break;
+			case ENCOUNTER_CHEST:
+				leftCards.show(ENCOUNTER_CHEST);
+				rightCards.show(ENCOUNTER_CHEST);
+				break;
 			default:
 				// do nothing
 		}
@@ -212,6 +223,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				combatStateHandler.handleKey(keyCode);
 				break;
 			case ENCOUNTER_CHEST:
+				encounterChestStateHandler.handleKey(keyCode);
 				break;
 			case ENCOUNTER_PORTAL:
 				break;
@@ -239,18 +251,6 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setActorEncounter(ActorEncounter actorEncounter)
-	{
-		encounterActorsStateHandler.setActorEncounter(actorEncounter);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setCurrentCombat(Combat currentCombat)
-	{
-		combatStateHandler.setCurrentCombat(currentCombat);
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void refresh()
 	{
 		Maze maze = Maze.getInstance();
@@ -264,8 +264,30 @@ public class PartyOptionsAndTextWidget extends DIYPane
 			case COMBAT:
 				setCurrentCombat(maze.getCurrentCombat());
 				break;
+			case ENCOUNTER_CHEST:
+				setChest(maze.getCurrentChest());
+				break;
 			default:
 				// do nothing
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setChest(Chest chest)
+	{
+		encounterChestStateHandler.setChest(chest);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setActorEncounter(ActorEncounter actorEncounter)
+	{
+		encounterActorsStateHandler.setActorEncounter(actorEncounter);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setCurrentCombat(Combat currentCombat)
+	{
+		combatStateHandler.setCurrentCombat(currentCombat);
+	}
+
 }

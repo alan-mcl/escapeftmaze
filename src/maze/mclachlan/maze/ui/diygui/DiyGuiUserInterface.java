@@ -137,7 +137,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	CombatDisplayWidget combatDisplay;
 	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
 	SignBoardWidget signBoardWidget;
-	ChestOptionsWidget chestOptionsWidget;
+//	ChestOptionsWidget chestOptionsWidget;
 	EncounterActorsWidget encounterActorsWidget;
 	PortalOptionsWidget portalOptionsWidget;
 	ZoneDisplayWidget zoneDisplay;
@@ -824,8 +824,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showRestingScreen()
 	{
 		this.mainLayout.show(this.movementScreen);
-//		this.restingWidget.start();
-//		this.movementCardLayout.show(this.restingWidget);
 
 		RestingDialog dialog = new RestingDialog(
 			StringUtil.getUiLabel("rd.title"));
@@ -862,9 +860,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showChestScreen(Chest chest)
 	{
 		this.mainLayout.show(this.movementScreen);
-		chestOptionsWidget.setChest(chest);
-		combatDisplay.clear();
-		movementCardLayout.show(chestOptionsWidget);
+		partyOptionsAndTextWidget.setChest(chest);
+		movementCardLayout.show(partyOptionsAndTextWidget);
 	}
 
 	public void showEncounterActorsScreen(ActorEncounter actorEncounter)
@@ -1115,7 +1112,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		partyOptionsAndTextWidget = new PartyOptionsAndTextWidget(rect);
 		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
 			Database.getInstance().getImage("screen/signBoard"));
-		chestOptionsWidget = new ChestOptionsWidget(rect);
+//		chestOptionsWidget = new ChestOptionsWidget(rect);
 		encounterActorsWidget = new EncounterActorsWidget(rect);
 		portalOptionsWidget = new PortalOptionsWidget(rect);
 		combatDisplay = new CombatDisplayWidget(rect);
@@ -1135,7 +1132,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		ArrayList<ContainerWidget> list = new ArrayList<ContainerWidget>();
 		list.add(partyOptionsAndTextWidget);
 		list.add(signBoardWidget);
-		list.add(chestOptionsWidget);
+//		list.add(chestOptionsWidget);
 		list.add(portalOptionsWidget);
 		list.add(encounterActorsWidget);
 		list.add(combatDisplay);

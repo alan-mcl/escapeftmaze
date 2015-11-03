@@ -17,41 +17,49 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.combat.event;
+package mclachlan.maze.stat.combat;
 
-import java.util.*;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
+
+import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.stat.ActorActionIntention;
+import mclachlan.maze.stat.ActorActionOption;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
-public class NpcNotCharmedEvent extends MazeEvent
+public class OpenChestOption extends ActorActionOption
 {
-	private Foe npc;
+	private ActorActionIntention intention;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcNotCharmedEvent(Foe npc)
+	public OpenChestOption()
 	{
-		this.npc = npc;
+		super("Open_Chest", "aao.open.chest");
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
+
+	@Override
+	public void select(UnifiedActor actor, Combat combat,
+		ActionOptionCallback callback)
 	{
-		return npc;
+		intention = new OpenChestIntention();
+		callback.selected(getIntention());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
+
+	@Override
+	public ActorActionIntention getIntention()
 	{
-		return npc.getActionScript().failedCharm();
+		return this.intention;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getDelay()
+	@Override
+	public String toString()
 	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
+		return StringUtil.getUiLabel(getDisplayName());
 	}
 }

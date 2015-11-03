@@ -131,6 +131,20 @@ public class ActorIntentionResolver
 				result.add(new TradeAction(maze.getCurrentActorEncounter().getLeader()));
 			}
 		}
+		else if (intention instanceof DisarmTrapIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_CHEST)
+			{
+				result.add(new DisarmTrapAction(maze.getCurrentChest()));
+			}
+		}
+		else if (intention instanceof OpenChestIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_CHEST)
+			{
+				result.add(new OpenChestAction(maze.getCurrentChest()));
+			}
+		}
 		else
 		{
 			throw new MazeException("Unrecognised combat intention: " + intention);

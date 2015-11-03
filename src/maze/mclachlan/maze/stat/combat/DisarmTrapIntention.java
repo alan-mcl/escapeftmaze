@@ -17,41 +17,18 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.combat.event;
+package mclachlan.maze.stat.combat;
 
-import java.util.*;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
+
+import mclachlan.maze.stat.ActorActionIntention;
 
 /**
  *
  */
-public class NpcNotCharmedEvent extends MazeEvent
+public class DisarmTrapIntention extends ActorActionIntention
 {
-	private Foe npc;
-
 	/*-------------------------------------------------------------------------*/
-	public NpcNotCharmedEvent(Foe npc)
+	public DisarmTrapIntention()
 	{
-		this.npc = npc;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
-	{
-		return npc;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
-	{
-		return npc.getActionScript().failedCharm();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
 	}
 }

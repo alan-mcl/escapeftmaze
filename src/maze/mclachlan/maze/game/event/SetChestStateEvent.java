@@ -17,41 +17,26 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.combat.event;
+package mclachlan.maze.game.event;
 
 import java.util.*;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
+import mclachlan.maze.map.script.Chest;
 
-/**
- *
- */
-public class NpcNotCharmedEvent extends MazeEvent
+public class SetChestStateEvent extends MazeEvent
 {
-	private Foe npc;
+	private Chest chest;
+	private String state;
 
-	/*-------------------------------------------------------------------------*/
-	public NpcNotCharmedEvent(Foe npc)
+	public SetChestStateEvent(Chest chest, String state)
 	{
-		this.npc = npc;
+		this.chest = chest;
+		this.state = state;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
-	{
-		return npc;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		return npc.getActionScript().failedCharm();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
+		this.chest.setState(state);
+		return null;
 	}
 }

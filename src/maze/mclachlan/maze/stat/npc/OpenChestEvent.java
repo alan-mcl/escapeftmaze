@@ -17,41 +17,48 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.combat.event;
+package mclachlan.maze.stat.npc;
 
 import java.util.*;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
+import mclachlan.maze.game.event.MazeScriptEvent;
+import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.ui.diygui.ChestOptionsCallback;
 
-/**
- *
- */
-public class NpcNotCharmedEvent extends MazeEvent
+public class OpenChestEvent extends MazeEvent
 {
-	private Foe npc;
+	private PlayerCharacter pc;
+	private Chest chest;
+	private ChestOptionsCallback callback;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcNotCharmedEvent(Foe npc)
+	public OpenChestEvent(
+		PlayerCharacter pc,
+		Chest chest, ChestOptionsCallback callback)
 	{
-		this.npc = npc;
+		this.pc = pc;
+		this.chest = chest;
+		this.callback = callback;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
-	{
-		return npc;
-	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
-	{
-		return npc.getActionScript().failedCharm();
-	}
-
-	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getDelay()
 	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
+		return Delay.NONE;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<MazeEvent> resolve()
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		result.add(new MazeScriptEvent("_OPEN_CHEST_"));
+		result.addAll(callback.springTrap());
+
+		return result;
 	}
 }

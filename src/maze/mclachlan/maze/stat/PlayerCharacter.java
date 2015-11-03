@@ -504,22 +504,67 @@ public class PlayerCharacter extends UnifiedActor
 					result.add(new GiveOption(), null);
 					result.add(new ThreatenOption(), null);
 					result.add(new BribeOption(), null);
-					result.add(new StealOption(), null);
+
+					if (getModifier(Stats.Modifiers.STEAL) > 0)
+					{
+						result.add(new StealOption(), null);
+					}
+
 					result.add(new TradeOption(), null);
 					break;
 				case FRIENDLY:
 					result.add(new TalkOption(), null);
 					result.add(new GiveOption(), null);
-					result.add(new StealOption(), null);
+
+					if (getModifier(Stats.Modifiers.STEAL) > 0)
+					{
+						result.add(new StealOption(), null);
+					}
+
 					result.add(new TradeOption(), null);
 					break;
 				case ALLIED:
 					result.add(new TalkOption(), null);
 					result.add(new GiveOption(), null);
-					result.add(new StealOption(), null);
+
+					if (getModifier(Stats.Modifiers.STEAL) > 0)
+					{
+						result.add(new StealOption(), null);
+					}
+
 					result.add(new TradeOption(), null);
 					break;
 			}
+		}
+		else if (maze.getState() == Maze.State.ENCOUNTER_CHEST)
+		{
+			// Cast Spell option if this actor has spells
+			if (this.getSpellBook().getSpells().size() != 0)
+			{
+				result.add(new SpellOption(), null);
+			}
+
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// special abilities
+			if (this.getSpellLikeAbilities() != null)
+			{
+				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
+				{
+					if (sla.isUsableDuringEncounterChest() && sla.meetsRequirements(this))
+					{
+						result.add(new SpecialAbilityOption(sla), null);
+					}
+				}
+			}
+
+			if (getModifier(Stats.Modifiers.LOCK_AND_TRAP) > 0)
+			{
+				result.add(new DisarmTrapOption(), null);
+			}
+
+			result.add(new OpenChestOption(), null);
 		}
 
 		// set the actor for all action options

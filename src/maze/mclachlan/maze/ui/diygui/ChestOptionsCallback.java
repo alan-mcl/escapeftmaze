@@ -17,41 +17,16 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.combat.event;
+package mclachlan.maze.ui.diygui;
 
 import java.util.*;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
 
-/**
- *
- */
-public class NpcNotCharmedEvent extends MazeEvent
+public interface ChestOptionsCallback
 {
-	private Foe npc;
+	/*-------------------------------------------------------------------------*/
+	List<MazeEvent> springTrap();
 
 	/*-------------------------------------------------------------------------*/
-	public NpcNotCharmedEvent(Foe npc)
-	{
-		this.npc = npc;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
-	{
-		return npc;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
-	{
-		return npc.getActionScript().failedCharm();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
-	}
+	List<MazeEvent> executeChestContents();
 }

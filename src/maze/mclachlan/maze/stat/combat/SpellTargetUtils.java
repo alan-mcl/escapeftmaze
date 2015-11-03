@@ -24,16 +24,12 @@ import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.Trap;
+import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.combat.event.ActorUnaffectedEvent;
-import mclachlan.maze.stat.combat.event.CloudSpellEvent;
-import mclachlan.maze.stat.combat.event.DefendEvent;
-import mclachlan.maze.stat.combat.event.MagicAbsorptionEvent;
+import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.condition.CloudSpell;
-import mclachlan.maze.stat.magic.CloudSpellResult;
-import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.magic.SpellResult;
+import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
@@ -86,7 +82,7 @@ public class SpellTargetUtils
 		}
 
 		List<SpellEffect> spellEffects =
-			processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getRandom(), result);
+			processSpellEffectApplication(caster, castingLevel, s.getEffects().getRandom(), result);
 
 		// apply to all in the group
 		applyCloudSpellToActorGroup(
@@ -105,7 +101,6 @@ public class SpellTargetUtils
 	 * @return the list of spell effects that apply "as per spell"
 	 */
 	private static List<SpellEffect> processSpellEffectApplication(
-		Combat combat,
 		UnifiedActor caster,
 		int castingLevel,
 		List<SpellEffect> spellEffects,
@@ -128,7 +123,8 @@ public class SpellTargetUtils
 					events.addAll(
 						applySpellEffectToWillingTarget(
 							se,
-							caster, caster,
+							caster,
+							caster,
 							castingLevel));
 					break;
 				default: throw new MazeException("Invalid application ["+se.getApplication()+"]");
@@ -189,7 +185,7 @@ public class SpellTargetUtils
 		}
 
 		List<SpellEffect> spellEffects =
-			processSpellEffectApplication(combat, caster, castingLevel, effects, result);
+			processSpellEffectApplication(caster, castingLevel, effects, result);
 
 		for (SpellEffect effect : spellEffects)
 		{
@@ -215,7 +211,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
 
 		List<ActorGroup> enemyGroups = combat.getFoesOf(caster);
 
@@ -247,7 +243,7 @@ public class SpellTargetUtils
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		List<SpellEffect> spellEffects =
-			processSpellEffectApplication(combat, actor, castingLevel, effects, result);
+			processSpellEffectApplication(actor, castingLevel, effects, result);
 
 		result.addAll(
 			applySpellToWillingTarget(
@@ -309,7 +305,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
 
 		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
 
@@ -338,7 +334,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
 
 		List<MazeEvent> mazeEvents =
 			applySpellToWillingTarget(
@@ -377,7 +373,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(combat, caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
 
 		// spell targeting not affected by Range rules.
 		UnifiedActor victim = (UnifiedActor)target;
@@ -396,6 +392,110 @@ public class SpellTargetUtils
 				spellLevel,
 				animationContext);
 		result.addAll(events);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static List<MazeEvent> resolveLockOrTrapSpellOnChest(
+		Chest chest,
+		Spell spell,
+		PlayerCharacter caster,
+		int castingLevel)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		SpellEffect spellEffect = null;
+		List<SpellEffect> effects = spell.getEffects().getPossibilities();
+
+		// this will apply "once to caster" effects to the caster.
+		// such effects will be skipped later
+		processSpellEffectApplication(caster, castingLevel, effects, result);
+
+		for (SpellEffect s : effects)
+		{
+			if (s.getUnsavedResult() instanceof UnlockSpellResult)
+			{
+				spellEffect = s;
+				break;
+			}
+		}
+
+		if (spellEffect == null)
+		{
+			// no lock/trap spell result possible. execute whatever we have
+			return result;
+		}
+
+		Trap trap = chest.getCurrentTrap();
+		if (trap == null)
+		{
+			result.addAll(chestSpellEvents(0, caster, spell, castingLevel));
+			result.addAll(chest.executeChestContents());
+			return result;
+		}
+
+		Value modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
+
+		BitSet disarmed = new BitSet(8);
+		for (int tool=0; tool<8; tool++)
+		{
+			if (!trap.getRequired().get(tool))
+			{
+				continue;
+			}
+
+			int disarmWithSpellResult = GameSys.getInstance().disarmWithSpell(
+				caster, castingLevel, modifier, trap, tool);
+
+			if (disarmWithSpellResult == Trap.DisarmResult.SPRING_TRAP)
+			{
+				result.addAll(chestSpellEvents(disarmWithSpellResult, caster, spell, castingLevel));
+				result.addAll(chest.springTrap());
+				return result;
+			}
+			else if (disarmWithSpellResult == Trap.DisarmResult.DISARMED)
+			{
+				disarmed.set(tool);
+			}
+		}
+
+		if (disarmed.equals(trap.getRequired()))
+		{
+			result.addAll(chestSpellEvents(Trap.DisarmResult.DISARMED, caster, spell, castingLevel));
+			result.addAll(chest.executeChestContents());
+		}
+		else
+		{
+			result.addAll(chestSpellEvents(Trap.DisarmResult.NOTHING, caster, spell, castingLevel));
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static List<MazeEvent> chestSpellEvents(
+		int disarmResult,
+		PlayerCharacter caster,
+		Spell spell,
+		int castingLevel)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		switch (disarmResult)
+		{
+			case Trap.DisarmResult.NOTHING:
+				result.add(new NoEffectEvent());
+				break;
+			case Trap.DisarmResult.DISARMED:
+				result.add(new SuccessEvent());
+				break;
+			case Trap.DisarmResult.SPRING_TRAP:
+				result.add(new FailureEvent());
+				break;
+			default:
+				throw new MazeException("Invalid result: "+disarmResult);
+		}
 
 		return result;
 	}
