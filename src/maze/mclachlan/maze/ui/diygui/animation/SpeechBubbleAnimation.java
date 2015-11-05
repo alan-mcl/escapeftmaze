@@ -135,8 +135,7 @@ public class SpeechBubbleAnimation extends Animation
 		FontMetrics fm = g.getFontMetrics();
 
 		int maxWidth;
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
-			Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
+		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
 			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH/3;
 		}

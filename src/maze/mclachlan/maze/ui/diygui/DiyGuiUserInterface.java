@@ -402,7 +402,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case ENCOUNTER_PORTAL:
 				showPortalScreen(Maze.getInstance().getCurrentPortal());
 				break;
-			case ENCOUNTER_TILE:
 			case LEVELLING_UP:
 				break;
 			case RESTING:

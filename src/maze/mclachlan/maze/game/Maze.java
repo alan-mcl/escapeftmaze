@@ -142,16 +142,12 @@ public class Maze implements Runnable
 		INVENTORY,
 		/** Displaying a character's magic */
 		MAGIC,
-		/** Granting items to the player */
-		GRANT_ITEMS,
 		/** Encountering a chest */
 		ENCOUNTER_CHEST,
 		/** Encountering actors, could be foes or an NPC */
 		ENCOUNTER_ACTORS,
 		/** Encountering a portal */
 		ENCOUNTER_PORTAL,
-		/** Encountering a tile */
-		ENCOUNTER_TILE,
 		/** Busy levelling up a character */
 		LEVELLING_UP,
 		/** Party is resting */

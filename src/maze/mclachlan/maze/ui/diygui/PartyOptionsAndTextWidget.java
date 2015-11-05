@@ -250,11 +250,6 @@ public class PartyOptionsAndTextWidget extends DIYPane
 			case INVENTORY:
 			case LEVELLING_UP:
 			case MAGIC:
-				break;
-
-			// todo: do we really need these states?
-			case GRANT_ITEMS:
-			case ENCOUNTER_TILE:
 			case RESTING:
 			case FINISHED:
 				break;

@@ -70,13 +70,6 @@ class ContentPaneActionListener implements ActionListener
 				Maze.getInstance().getEventMutex().notifyAll();
 			}
 		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
-		{
-//			if (ui.combatDisplayIsVisible())
-//			{
-//				ui.combatDisplay.processMouseClicked(event);
-//			}
-		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
 		{
 			synchronized (Maze.getInstance().getEventMutex())
@@ -306,13 +299,6 @@ class ContentPaneActionListener implements ActionListener
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
 		{
 			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
-		{
-//			if (ui.combatDisplayIsVisible())
-//			{
-//				ui.combatDisplay.processKeyPressed(event);
-//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
 		{
