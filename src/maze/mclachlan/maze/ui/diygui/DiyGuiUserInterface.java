@@ -121,7 +121,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	PlayerCharacterWidget charTopRight;
 	PlayerCharacterWidget charMidRight;
 	PlayerCharacterWidget charLowRight;
-	CombatOptionsWidget combatOptions;
 	RestingWidget restingWidget;
 	MazeWidget mazeWidget;
 	CreateCharacterWidget createCharacter;
@@ -134,14 +133,10 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	MagicDisplayWidget magicDisplay;
 	ButtonToolbar buttonToolbar;
 	CardLayoutWidget movementCardLayout;
-//	CombatDisplayWidget combatDisplay;
 	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
 	SignBoardWidget signBoardWidget;
 	ZoneDisplayWidget zoneDisplay;
 	PartyCloudSpellWidget partyCloudSpellWidget;
-
-	final Object combatOptionsMutex = new Object();
-	private CombatOption combatOption;
 
 	private MazeActionListener mazeActionListener;
 	private List<FoeGroup> foeGroups;
@@ -405,7 +400,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case LEVELLING_UP:
 				break;
 			case RESTING:
-//				Maze.getInstance().startResting();
 				showRestingScreen();
 				break;
 			case CREATE_CHARACTER:
@@ -510,44 +504,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		PlayerCharacterWidget pcw = getPlayerCharacterWidget(pc);
 		ActorActionOption selected = pcw.getAction().getSelected();
 		return selected.getIntention();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public CombatOption getFinalCombatOption()
-	{
-		try
-		{
-			// wait on the mutex
-			synchronized (combatOptionsMutex)
-			{
-				combatOptionsMutex.wait();
-			}
-
-			return this.combatOption;
-		}
-		catch (Exception x)
-		{
-			throw new MazeException(x);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public CombatOption getEvasionOption()
-	{
-		try
-		{
-			// wait on the mutex
-			synchronized (combatOptionsMutex)
-			{
-				combatOptionsMutex.wait();
-			}
-
-			return this.combatOption;
-		}
-		catch (Exception x)
-		{
-			throw new MazeException(x);
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1099,8 +1055,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		partyOptionsAndTextWidget = new PartyOptionsAndTextWidget(rect);
 		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
 			Database.getInstance().getImage("screen/signBoard"));
-//		combatDisplay = new CombatDisplayWidget(rect);
-		combatOptions = new CombatOptionsWidget(rect, null);
 		restingWidget = new RestingWidget(rect);
 
 		partyCloudSpellWidget = new PartyCloudSpellWidget(
@@ -1116,8 +1070,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		ArrayList<ContainerWidget> list = new ArrayList<ContainerWidget>();
 		list.add(partyOptionsAndTextWidget);
 		list.add(signBoardWidget);
-//		list.add(combatDisplay);
-		list.add(combatOptions);
 		list.add(restingWidget);
 
 		movementCardLayout = new CardLayoutWidget(DiyGuiUserInterface.LOW_BOUNDS, list);
@@ -1391,27 +1343,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void showCombatOptions()
-	{
-		this.refreshCharacterData();
-//		movementCardLayout.show(combatOptions);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void showEvasionOptions()
-	{
-		combatOptions.showEvasionOptions();
-//		movementCardLayout.show(combatOptions);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void showFinalCombatOptions()
-	{
-		combatOptions.showFinalCombatOptions();
-//		movementCardLayout.show(combatOptions);
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void displayMazeEvent(MazeEvent event, boolean displayEventText)
 	{
 		if (event.getText() != null && displayEventText)
@@ -1679,12 +1610,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public ActorGroup getSelectedFoeGroup()
 	{
 		return mazeWidget.getSelectedFoeGroup();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setCombatOption(CombatOption combatOption)
-	{
-		this.combatOption = combatOption;
 	}
 
 	/*-------------------------------------------------------------------------*/

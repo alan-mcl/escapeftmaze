@@ -556,33 +556,7 @@ public class MockCombat
 				break;
 		}
 
-//		ui.setFoes(foeGroups);
-//		ui.showCombatOptions();
-
 		resolveEvents(evts);
-
-		// todo:evasion
-/*
-		if (currentCombat.getAmbushStatus() == Combat.AmbushStatus.PARTY_MAY_EVADE_FOES)
-		{
-			// give the player a choice.
-			this.ui.showEvasionOptions();
-
-			//------------------------------------------------------------------
-			// blocking call:
-			CombatIntention combatIntention = this.ui.getCombatIntention();
-			//------------------------------------------------------------------
-
-			if (combatIntention == DiyGuiUserInterface.EVADE_FOES)
-			{
-				// give them the slip
-				currentCombat.endCombat();
-				ui.setFoes(null);
-				this.setState(State.MOVEMENT);
-				return false;
-			}
-		}
-*/
 
 		int combatRound = 1;
 		while (party.numAlive() > 0 && getLiveFoes(foeGroups) > 0)

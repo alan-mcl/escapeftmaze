@@ -77,12 +77,6 @@ public interface UserInterface
 	ActorActionIntention getCombatIntention(PlayerCharacter pc);
 
 	/*-------------------------------------------------------------------------*/
-	CombatOption getFinalCombatOption();
-
-	/*-------------------------------------------------------------------------*/
-	CombatOption getEvasionOption();
-
-	/*-------------------------------------------------------------------------*/
 	int getFacing();
 
 	/*-------------------------------------------------------------------------*/
@@ -192,15 +186,6 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	void setAllies(List<FoeGroup> others);
-
-	/*-------------------------------------------------------------------------*/
-	void showCombatOptions();
-
-	/*-------------------------------------------------------------------------*/
-	void showEvasionOptions();
-
-	/*-------------------------------------------------------------------------*/
-	void showFinalCombatOptions();
 
 	/*-------------------------------------------------------------------------*/
 	void displayMazeEvent(MazeEvent event, boolean displayEventText);

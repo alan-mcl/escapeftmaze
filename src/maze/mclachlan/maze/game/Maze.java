@@ -1734,8 +1734,6 @@ public class Maze implements Runnable
 					currentActorEncounter.describe());
 				getUi().addMessage(encounterMsg);
 
-				System.out.println("fAmbushStatus = [" + fAmbushStatus + "]");
-
 				switch (fAmbushStatus)
 				{
 					case NONE:

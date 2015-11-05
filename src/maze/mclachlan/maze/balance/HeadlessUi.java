@@ -85,16 +85,6 @@ public class HeadlessUi implements UserInterface
 		return null;
 	}
 
-	public CombatOption getFinalCombatOption()
-	{
-		return null;
-	}
-
-	public CombatOption getEvasionOption()
-	{
-		return null;
-	}
-
 	public int getFacing()
 	{
 		// todo
@@ -300,21 +290,6 @@ public class HeadlessUi implements UserInterface
 	}
 
 	public void setAllies(List<FoeGroup> others)
-	{
-		
-	}
-
-	public void showCombatOptions()
-	{
-		
-	}
-
-	public void showEvasionOptions()
-	{
-		
-	}
-
-	public void showFinalCombatOptions()
 	{
 		
 	}
