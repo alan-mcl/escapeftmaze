@@ -253,7 +253,6 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				break;
 
 			// todo: do we really need these states?
-			case SIGNBOARD:
 			case GRANT_ITEMS:
 			case ENCOUNTER_TILE:
 			case RESTING:

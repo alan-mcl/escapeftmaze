@@ -393,9 +393,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				addMessage(StringUtil.getEventText("msg.combat.starts"));
 				showCombatScreen();
 				break;
-			case SIGNBOARD:
-				showMovementScreen();
-				break;
 			case ENCOUNTER_CHEST:
 				showChestScreen(Maze.getInstance().getCurrentChest());
 				break;
@@ -651,9 +648,16 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void signBoard(String message, MazeEvent event)
 	{
-		Maze.getInstance().setState(Maze.State.SIGNBOARD);
-		signBoardWidget.setText(message);
-		movementCardLayout.show(signBoardWidget);
+		Rectangle bounds = new Rectangle(LOW_BOUNDS);
+		bounds.translate(0,-(SCREEN_HEIGHT/3));
+
+		SignBoardWidget sbw = new SignBoardWidget(
+			bounds,
+			Database.getInstance().getImage("screen/signBoard"));
+
+		sbw.setText(message);
+
+		showDialog(sbw);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -70,10 +70,6 @@ class ContentPaneActionListener implements ActionListener
 				Maze.getInstance().getEventMutex().notifyAll();
 			}
 		}
-		else if (Maze.getInstance().getState() == Maze.State.SIGNBOARD)
-		{
-			ui.signBoardWidget.clearSignboard();
-		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
 		{
 //			if (ui.combatDisplayIsVisible())
@@ -281,15 +277,6 @@ class ContentPaneActionListener implements ActionListener
 						Maze.getInstance().setState(Maze.State.MOVEMENT);
 					}
 					break;
-			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.SIGNBOARD)
-		{
-			switch (event.getKeyCode())
-			{
-				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_SPACE: 
-				case KeyEvent.VK_ESCAPE: ui.signBoardWidget.clearSignboard(); break;
 			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.MAINMENU)

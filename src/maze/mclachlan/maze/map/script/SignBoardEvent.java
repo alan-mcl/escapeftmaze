@@ -19,10 +19,9 @@
 
 package mclachlan.maze.map.script;
 
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.util.MazeException;
 import java.util.*;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
 
 /**
  *
@@ -38,27 +37,18 @@ public class SignBoardEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().signBoard(this.text, this);
-		
-		// a bit of a hack to ensure that if we have other events following a sign
-		// board they are properly displayed.  The right way to fix this would be
-		// to implement the sign board stuff without involving a change in game
-		// state.
-		synchronized(Maze.getInstance().getEventMutex())
-		{
-			try
-			{
-				Maze.getInstance().getEventMutex().wait();
-			}
-			catch (InterruptedException e)
-			{
-				throw new MazeException(e);
-			}
-		}
-		
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public int getDelay()
+	{
+		return Delay.WAIT_ON_CLICK;
 	}
 
 	/*-------------------------------------------------------------------------*/

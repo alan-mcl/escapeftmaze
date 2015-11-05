@@ -142,8 +142,6 @@ public class Maze implements Runnable
 		INVENTORY,
 		/** Displaying a character's magic */
 		MAGIC,
-		/** Displaying a sign board */
-		SIGNBOARD,
 		/** Granting items to the player */
 		GRANT_ITEMS,
 		/** Encountering a chest */

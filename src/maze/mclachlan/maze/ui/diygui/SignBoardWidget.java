@@ -20,6 +20,7 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.maze.game.Maze;
@@ -81,8 +82,16 @@ public class SignBoardWidget extends DIYPanel
 		}
 		g.setFont(Maze.getInstance().getUi().getDefaultFont());
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public void processKeyPressed(KeyEvent e)
+	{
+		clearSignboard();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public void processMouseClicked(MouseEvent e)
 	{
 		clearSignboard();
@@ -97,5 +106,7 @@ public class SignBoardWidget extends DIYPanel
 		{
 			Maze.getInstance().getEventMutex().notifyAll();
 		}
+
+		Maze.getInstance().getUi().clearDialog();
 	}
 }
