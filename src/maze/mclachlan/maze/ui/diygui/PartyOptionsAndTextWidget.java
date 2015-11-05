@@ -33,6 +33,7 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.combat.Combat;
 
@@ -80,6 +81,9 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	// encounter chest options
 	private EncounterChestStateHandler encounterChestStateHandler;
 
+	// encounte portal options
+	private EncounterPortalStateHandler encounterPortalStateHandler;
+
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
 	{
@@ -94,6 +98,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		encounterActorsStateHandler = new EncounterActorsStateHandler(maze, buttonRows, INSET, this);
 		combatStateHandler = new CombatStateHandler(maze, buttonRows, INSET, this);
 		encounterChestStateHandler = new EncounterChestStateHandler(maze, buttonRows, INSET, this);
+		encounterPortalStateHandler = new EncounterPortalStateHandler(maze, buttonRows, INSET, this);
 
 		// pack card layout widgets for the right and left panes
 		Map<Object, ContainerWidget> leftCardsWidgets = getLeftCardsWidgets();
@@ -129,6 +134,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getLeftPane());
 		result.put(COMBAT, combatStateHandler.getLeftPane());
 		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getLeftPane());
+		result.put(ENCOUNTER_PORTAL, encounterPortalStateHandler.getLeftPane());
 
 		return result;
 	}
@@ -142,6 +148,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getRightPane());
 		result.put(COMBAT, combatStateHandler.getRightPane());
 		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getRightPane());
+		result.put(ENCOUNTER_PORTAL, encounterPortalStateHandler.getRightPane());
 
 		return result;
 	}
@@ -203,6 +210,10 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				leftCards.show(ENCOUNTER_CHEST);
 				rightCards.show(ENCOUNTER_CHEST);
 				break;
+			case ENCOUNTER_PORTAL:
+				leftCards.show(ENCOUNTER_PORTAL);
+				rightCards.show(ENCOUNTER_PORTAL);
+				break;
 			default:
 				// do nothing
 		}
@@ -226,6 +237,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 				encounterChestStateHandler.handleKey(keyCode);
 				break;
 			case ENCOUNTER_PORTAL:
+				encounterPortalStateHandler.handleKey(keyCode);
 				break;
 
 			// no impact on these states
@@ -288,6 +300,12 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	public void setCurrentCombat(Combat currentCombat)
 	{
 		combatStateHandler.setCurrentCombat(currentCombat);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setPortal(Portal portal)
+	{
+		encounterPortalStateHandler.setPortal(portal);
 	}
 
 }

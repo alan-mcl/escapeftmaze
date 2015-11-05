@@ -20,67 +20,77 @@
 package mclachlan.maze.map;
 
 import java.awt.*;
-import java.util.BitSet;
+import java.util.*;
+import java.util.List;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.util.MazeException;
 
 /**
  * A Portal can represent a door, a portcullis or a one-way wall.
  */
-public class Portal
+public class Portal implements LockOrTrap
 {
 	/** The maze variable that records the state of this portal */
-	String mazeVariable;
+	private String mazeVariable;
 
 	/** false if this portal can only be passed in the direction
 	 * {@link Portal#from} -> {@link Portal#to} */
-	boolean twoWay;
+	private boolean twoWay;
 
 	/** the initial state of this portal, from {@link State} */
-	String initialState;
+	private String initialState;
 
 	/** The map coords on one side of this portal */
-	Point from;
+	private Point from;
 	
 	/** The facing that the player must step from the FROM tile*/
-	int fromFacing;
+	private int fromFacing;
 
 	/** The map coords on the other side of this portal */
-	Point to;
+	private Point to;
 	
 	/** The facing that the player must step from the TO tile*/
-	int toFacing;
+	private int toFacing;
 
 	/** true if this portal can be forced open */
-	boolean canForce;
+	private boolean canForce;
 
 	/** true if this portal can be picked manually */
-	boolean canPick;
+	private boolean canPick;
 
 	/** true if this portal can be picked by a spell or magic item */
-	boolean canSpellPick;
+	private boolean canSpellPick;
 
 	/** the cost in HP to force this portal open */
-	int hitPointCostToForce;
+	private int hitPointCostToForce;
 
 	/** a modifier to attempts to force this portal */
-	int resistForce;
+	private int resistForce;
 
 	/** Indices correspond to Tool constants; value indicates difficulty with that
 	 *  tool.  0 indicates not required. */
-	int[] difficulty;
+	private int[] difficulty;
 
 	/** Indices indicate if a given tool is required (1) or not (0). */
-	BitSet required;
+	private BitSet required;
 
 	/** The name of the item that can be used as a key to open this door */
-	String keyItem;
+	private String keyItem;
 
 	/** True if unlocking the portal consumes the key item */
-	boolean consumeKeyItem;
+	private boolean consumeKeyItem;
 	
 	/** A maze script to execute on activation of this portal */
-	String mazeScript;
+	private String mazeScript;
+
+	//
+	// Volatile data
+	//
+
+	private int[] toolStatus = new int[8];
+	private BitSet picked = new BitSet(8);
 
 	/*-------------------------------------------------------------------------*/
 	public Portal(
@@ -119,6 +129,18 @@ public class Portal
 		this.keyItem = keyItem;
 		this.consumeKeyItem = consumeKeyItem;
 		this.mazeScript = mazeScript;
+
+		for (int i = 0; i < toolStatus.length; i++)
+		{
+			if (getRequired().get(i))
+			{
+				toolStatus[i] = Trap.InspectionResult.PRESENT;
+			}
+			else
+			{
+				toolStatus[i] = Trap.InspectionResult.NOT_PRESENT;
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -170,12 +192,48 @@ public class Portal
 		return canSpellPick;
 	}
 
-	public int getHitPointCostToForce()
+	@Override
+	public int[] getPickLockDifficulty()
+	{
+		return getDifficulty();
+	}
+
+	@Override
+	public void setLockState(String state)
+	{
+		setState(state);
+	}
+
+	@Override
+	public boolean canManualPick()
+	{
+		return canPick();
+	}
+
+	@Override
+	public BitSet getAlreadyLockPicked()
+	{
+		return getPicked();
+	}
+
+	@Override
+	public int[] getPickLockToolStatus()
+	{
+		return getToolStatus();
+	}
+
+	public int getHitPointCostToForceLock()
 	{
 		return hitPointCostToForce;
 	}
 
-	public int getResistForce()
+	@Override
+	public boolean canForceOpen()
+	{
+		return canForce();
+	}
+
+	public int getResistForceOpen()
 	{
 		return resistForce;
 	}
@@ -329,7 +387,63 @@ public class Portal
 	{
 		this.mazeScript = mazeScript;
 	}
-	
+
+	public int[] getToolStatus()
+	{
+		return toolStatus;
+	}
+
+	public void setToolStatus(int[] toolStatus)
+	{
+		this.toolStatus = toolStatus;
+	}
+
+	public BitSet getPicked()
+	{
+		return picked;
+	}
+
+	public void setPicked(BitSet picked)
+	{
+		this.picked = picked;
+	}
+
+	@Override
+	public Trap getCurrentTrap()
+	{
+		return null;
+	}
+
+	@Override
+	public List<MazeEvent> executeTrapDisarmed()
+	{
+		return new ArrayList<MazeEvent>();
+	}
+
+	@Override
+	public List<MazeEvent> springTrap()
+	{
+		return new ArrayList<MazeEvent>();
+	}
+
+	@Override
+	public boolean isTrapped()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isLocked()
+	{
+		return State.LOCKED.equals(getState());
+	}
+
+	@Override
+	public BitSet getPickLockToolsRequired()
+	{
+		return required;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public static class State
 	{

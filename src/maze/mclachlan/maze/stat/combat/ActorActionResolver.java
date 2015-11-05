@@ -25,6 +25,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ActorsTurnToAct;
 import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -318,6 +319,20 @@ public class ActorActionResolver
 				Chest chest = a.getChest();
 				result.add(new OpenChestEvent(pc, chest, chest));
 			}
+			else if (action instanceof PickLockAction)
+			{
+				PickLockAction a = (PickLockAction)action;
+				PlayerCharacter pc = (PlayerCharacter)a.getActor();
+				LockOrTrap lockOrTrap = a.getPortal();
+				result.add(new PickLockEvent(pc, lockOrTrap));
+			}
+			else if (action instanceof ForceOpenAction)
+			{
+				ForceOpenAction a = (ForceOpenAction)action;
+				PlayerCharacter pc = (PlayerCharacter)a.getActor();
+				LockOrTrap lockOrTrap = a.getPortal();
+				result.add(new ForceOpenEvent(pc, lockOrTrap));
+			}
 			else
 			{
 				throw new MazeException("Unrecognised combat action: "+action);
@@ -583,13 +598,29 @@ public class ActorActionResolver
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-			case MagicSys.SpellTargetType.ITEM:
-				events.addAll(SpellTargetUtils.resolveLockOrTrapSpellOnChest(
-					Maze.getInstance().getCurrentChest(),
+
+				LockOrTrap lockOrTrap;
+
+				if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+				{
+					lockOrTrap = Maze.getInstance().getCurrentChest();
+				}
+				else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+				{
+					lockOrTrap = Maze.getInstance().getCurrentPortal();
+				}
+				else
+				{
+					break;
+				}
+
+				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
+					lockOrTrap,
 					s,
 					(PlayerCharacter)actor,
 					castingLevel));
 				break;
+
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(
 					SpellTargetUtils.resolveCasterSpell(
@@ -978,12 +1009,29 @@ public class ActorActionResolver
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				events.addAll(SpellTargetUtils.resolveLockOrTrapSpellOnChest(
-					Maze.getInstance().getCurrentChest(),
+
+				LockOrTrap lockOrTrap;
+
+				if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+				{
+					lockOrTrap = Maze.getInstance().getCurrentChest();
+				}
+				else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+				{
+					lockOrTrap = Maze.getInstance().getCurrentPortal();
+				}
+				else
+				{
+					break;
+				}
+
+				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
+					lockOrTrap,
 					s,
 					(PlayerCharacter)caster,
 					castingLevel));
 				break;
+
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(SpellTargetUtils.resolveCasterSpell(
 					combat,

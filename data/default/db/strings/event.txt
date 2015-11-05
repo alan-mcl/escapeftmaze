@@ -5,6 +5,7 @@
 modify.supplies = Party receives %s units of supplies
 grant.gold = Party receives %sgp
 event.failed = FAILED!
+event.ouch = OUCH!
 
 #
 # Attitude descriptions
@@ -73,3 +74,11 @@ msg.bribe.succeeds = Bribe succeeds
 #
 
 msg.hide.attempt = %s hides...
+
+#
+# Lock/trap events
+#
+
+msg.unlocked = UNLOCKED!
+msg.oops = OOPS!
+msg.force.open.success = Successfully forced open!

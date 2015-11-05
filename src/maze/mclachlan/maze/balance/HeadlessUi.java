@@ -80,11 +80,6 @@ public class HeadlessUi implements UserInterface
 		return null;
 	}
 
-	public void showCombatDisplay()
-	{
-		
-	}
-
 	public ActorActionIntention getCombatIntention(PlayerCharacter pc)
 	{
 		return null;
@@ -243,11 +238,6 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void clearCombatEventDisplay()
-	{
-		
-	}
-
 	public void showDialog(ContainerWidget dialog)
 	{
 		
@@ -347,16 +337,6 @@ public class HeadlessUi implements UserInterface
 	public void characterSelected(PlayerCharacter pc)
 	{
 		
-	}
-
-	public String getPlayerSpeech()
-	{
-		return null;
-	}
-
-	public boolean combatDisplayIsVisible()
-	{
-		return false;
 	}
 
 	public void addMessage(String msg)

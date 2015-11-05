@@ -40,7 +40,7 @@ import mclachlan.maze.ui.diygui.ChestOptionsCallback;
 /**
  * Initiates player interaction with a chest.
  */
-public class Chest extends TileScript implements SpellTarget, ChestOptionsCallback
+public class Chest extends TileScript implements SpellTarget, ChestOptionsCallback, LockOrTrap
 {
 	private TileScript chestContents;
 	private PercentageTable<Trap> traps;
@@ -149,9 +149,16 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		return traps;
 	}
 
+	@Override
 	public Trap getCurrentTrap()
 	{
 		return currentTrap;
+	}
+
+	@Override
+	public List<MazeEvent> executeTrapDisarmed()
+	{
+		return executeChestContents();
 	}
 
 	public void refreshCurrentTrap()
@@ -235,6 +242,82 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean isTrapped()
+	{
+		return getCurrentTrap() != null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean isLocked()
+	{
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public BitSet getPickLockToolsRequired()
+	{
+		return new BitSet(8);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean canSpellPick()
+	{
+		return false;
+	}
+
+	@Override
+	public int[] getPickLockDifficulty()
+	{
+		return new int[8];
+	}
+
+	@Override
+	public void setLockState(String unlocked)
+	{
+		// no op
+	}
+
+	@Override
+	public boolean canManualPick()
+	{
+		return false;
+	}
+
+	@Override
+	public BitSet getAlreadyLockPicked()
+	{
+		return new BitSet();
+	}
+
+	@Override
+	public int[] getPickLockToolStatus()
+	{
+		return new int[8];
+	}
+
+	@Override
+	public int getHitPointCostToForceLock()
+	{
+		return 0;
+	}
+
+	@Override
+	public boolean canForceOpen()
+	{
+		return false;
+	}
+
+	@Override
+	public int getResistForceOpen()
+	{
+		return 0;
 	}
 
 	/*-------------------------------------------------------------------------*/

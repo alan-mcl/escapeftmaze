@@ -145,6 +145,20 @@ public class ActorIntentionResolver
 				result.add(new OpenChestAction(maze.getCurrentChest()));
 			}
 		}
+		else if (intention instanceof PickLockIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_PORTAL)
+			{
+				result.add(new PickLockAction(maze.getCurrentPortal()));
+			}
+		}
+		else if (intention instanceof ForceOpenIntention)
+		{
+			if (maze.getState() == Maze.State.ENCOUNTER_PORTAL)
+			{
+				result.add(new ForceOpenAction(maze.getCurrentPortal()));
+			}
+		}
 		else
 		{
 			throw new MazeException("Unrecognised combat intention: " + intention);

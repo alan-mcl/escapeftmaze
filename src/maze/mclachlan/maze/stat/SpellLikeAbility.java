@@ -131,7 +131,7 @@ public class SpellLikeAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean isUsableDuringEncounterChest()
+	public boolean isUsableDuringEncounterChestOrPortal()
 	{
 		int usabilityType = spell.getUsabilityType();
 

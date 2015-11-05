@@ -168,6 +168,7 @@ poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
 poatw.actor.encounter = Encounter: %s (%s)
 poatw.exploring = Exploring: %s
 poatw.chest.encounter = Encounter chest
+poatw.portal.encounter = Encounter door
 
 # player character widget
 pcw.levelup = Level Up!
@@ -195,6 +196,8 @@ aao.steal = Steal
 aao.trade = Trade
 aao.disarm.trap = Disarm Trap
 aao.open.chest = Open Chest
+aao.pick.lock = Pick Lock
+aao.force.open = Force Open
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.
@@ -359,3 +362,15 @@ gdd.remove.from.party = (R)emove From Party
 gdd.create.character = (C)reate Character
 gdd.cost = cost: %sgp
 gdd.party.gold = Party Gold: %sgp
+
+# pick lock widget
+plw.picked = picked
+plw.required = required
+plw.chisel = (C)hisel
+plw.crowbar = C(r)owbar
+plw.drill = (D)rill
+plw.hammer = (H)ammer
+plw.jackknife = (J)ackknife
+plw.lockpick = (L)ock Pick
+plw.skeleton.key = (S)keleton Key
+plw.tension.wrench = (T)ension Wrench

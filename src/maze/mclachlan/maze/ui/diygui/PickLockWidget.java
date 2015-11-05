@@ -27,13 +27,13 @@ import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
-import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.map.Portal;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Trap;
-import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.npc.PickLockToolEvent;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -46,34 +46,20 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 	private DIYButton[] buttons;
 	private List<DIYButton> buttonList;
 	private DIYLabel[] statusIndicators = new DIYLabel[8];
-	private int[] toolStatus = new int[8];
-	private BitSet picked = new BitSet(8);
-	private Portal portal;
+	private LockOrTrap lockOrTrap;
 
 	/*-------------------------------------------------------------------------*/
 	public PickLockWidget(
-		Portal portal,
+		LockOrTrap lockOrTrap,
 		Rectangle bounds,
 		PlayerCharacter pc)
 	{
 		super(bounds);
-		this.portal = portal;
+		this.lockOrTrap = lockOrTrap;
 		this.pc = pc;
 
-		for (int i = 0; i < toolStatus.length; i++)
-		{
-			if (portal.getRequired().get(i))
-			{
-				toolStatus[i] = Trap.InspectionResult.PRESENT;
-			}
-			else
-			{
-				toolStatus[i] = Trap.InspectionResult.NOT_PRESENT;
-			}
-		}
-
 		this.buildGui();
-		this.updateToolStatus(toolStatus);
+		this.updateStatusIndicators(lockOrTrap.getPickLockToolStatus());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -98,28 +84,28 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 		gridCol4.setBounds(x+width/3*2, y, width/3, height- buttonPaneHeight);
 		gridCol4.setInsets(new Insets(10, 0, 0, 10));
 
-		DIYButton chisel = new DIYButton("(C)hisel");
+		DIYButton chisel = new DIYButton(StringUtil.getUiLabel("plw.chisel"));
 		chisel.addActionListener(this);
 
-		DIYButton crowbar = new DIYButton("C(r)owbar");
+		DIYButton crowbar = new DIYButton(StringUtil.getUiLabel("plw.crowbar"));
 		crowbar.addActionListener(this);
 
-		DIYButton drill = new DIYButton("(D)rill");
+		DIYButton drill = new DIYButton(StringUtil.getUiLabel("plw.drill"));
 		drill.addActionListener(this);
 
-		DIYButton hammer = new DIYButton("(H)ammer");
+		DIYButton hammer = new DIYButton(StringUtil.getUiLabel("plw.hammer"));
 		hammer.addActionListener(this);
 
-		DIYButton jackknife = new DIYButton("(J)ackknife");
+		DIYButton jackknife = new DIYButton(StringUtil.getUiLabel("plw.jackknife"));
 		jackknife.addActionListener(this);
 
-		DIYButton lockpick = new DIYButton("(L)ock Pick");
+		DIYButton lockpick = new DIYButton(StringUtil.getUiLabel("plw.lockpick"));
 		lockpick.addActionListener(this);
 
-		DIYButton skeletonKey = new DIYButton("(S)keleton Key");
+		DIYButton skeletonKey = new DIYButton(StringUtil.getUiLabel("plw.skeleton.key"));
 		skeletonKey.addActionListener(this);
 
-		DIYButton tensionWrench = new DIYButton("(T)ension Wrench");
+		DIYButton tensionWrench = new DIYButton(StringUtil.getUiLabel("plw.tension.wrench"));
 		tensionWrench.addActionListener(this);
 
 		for (int i = 0; i < statusIndicators.length; i++)
@@ -158,7 +144,7 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 5, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight, width, buttonPaneHeight);
 
-		cancel = new DIYButton("Cancel");
+		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
 		cancel.addActionListener(this);
 
 		buttonPane.add(cancel);
@@ -173,7 +159,7 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void updateToolStatus(int[] status)
+	private void updateStatusIndicators(int[] status)
 	{
 		if (status == null)
 		{
@@ -183,24 +169,20 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 		// update the existing status if it's better
 		for (int i = 0; i < status.length; i++)
 		{
-			if (toolStatus[i] == Trap.InspectionResult.UNKNOWN)
-			{
-				toolStatus[i] = status[i];
-			}
-
-			switch (toolStatus[i])
+			switch (status[i])
 			{
 				case Trap.InspectionResult.UNKNOWN:
 					statusIndicators[i].setText("?");
 					break;
 				case Trap.InspectionResult.PRESENT:
-					if (picked.get(i))
+					if (lockOrTrap.getAlreadyLockPicked().get(i))
 					{
-						statusIndicators[i].setText("picked");
+						statusIndicators[i].setText(StringUtil.getUiLabel("plw.picked"));
+						buttons[i].setEnabled(false);
 					}
 					else
 					{
-						statusIndicators[i].setText("required");
+						statusIndicators[i].setText(StringUtil.getUiLabel("plw.required"));
 					}
 					break;
 				case Trap.InspectionResult.NOT_PRESENT:
@@ -236,38 +218,18 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 		{
 			return;
 		}
-		
-		MazeScript script = Database.getInstance().getScript("_THIEF_TOOL_");
-		Maze.getInstance().resolveEvents(script.getEvents());
-		int result = GameSys.getInstance().pickLock(pc, portal, tool);
 
-		switch (result)
+		Maze.getInstance().appendEvents(new PickLockToolEvent(pc, lockOrTrap, tool));
+		Maze.getInstance().appendEvents(new MazeEvent()
 		{
-			case Trap.DisarmResult.NOTHING:
-				break;
-			case Trap.DisarmResult.DISARMED:
-				buttons[tool].setEnabled(false);
-				statusIndicators[tool].setText("picked");
-				picked.set(tool);
-
-				if (picked.equals(portal.getRequired()))
-				{
-					// all required are disarmed
-					cancel();
-					script = Database.getInstance().getScript("_UNLOCK_");
-					Maze.getInstance().resolveEvents(script.getEvents());
-					DiyGuiUserInterface.instance.addMessage("UNLOCKED!");
-					portal.setState(Portal.State.UNLOCKED);
-					Maze.getInstance().setState(Maze.State.MOVEMENT);
-				}
-				break;
-			case Trap.DisarmResult.SPRING_TRAP:
-				DiyGuiUserInterface.instance.addMessage("OOPS!");
-				cancel();
-				break;
-			default:
-				throw new MazeException("Invalid result: "+result);
-		}
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				// update the status indicators
+				updateStatusIndicators(lockOrTrap.getPickLockToolStatus());
+				return null;
+			}
+		});
 	}
 
 	/*-------------------------------------------------------------------------*/

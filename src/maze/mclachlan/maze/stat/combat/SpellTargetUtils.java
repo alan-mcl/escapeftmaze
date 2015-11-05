@@ -23,9 +23,10 @@ import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
-import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.condition.CloudSpell;
@@ -397,8 +398,8 @@ public class SpellTargetUtils
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static List<MazeEvent> resolveLockOrTrapSpellOnChest(
-		Chest chest,
+	public static List<MazeEvent> resolveLockOrTrapSpell(
+		LockOrTrap lockOrTrap,
 		Spell spell,
 		PlayerCharacter caster,
 		int castingLevel)
@@ -427,58 +428,98 @@ public class SpellTargetUtils
 			return result;
 		}
 
-		Trap trap = chest.getCurrentTrap();
-		if (trap == null)
+		//
+		// Deal with traps first. Multiple spells needed to deal with something
+		// that's both locked and trapped
+		//
+
+		if (lockOrTrap.isTrapped())
 		{
-			result.addAll(chestSpellEvents(0, caster, spell, castingLevel));
-			result.addAll(chest.executeChestContents());
-			return result;
-		}
-
-		Value modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
-
-		BitSet disarmed = new BitSet(8);
-		for (int tool=0; tool<8; tool++)
-		{
-			if (!trap.getRequired().get(tool))
+			Trap trap = lockOrTrap.getCurrentTrap();
+			if (trap == null)
 			{
-				continue;
-			}
-
-			int disarmWithSpellResult = GameSys.getInstance().disarmWithSpell(
-				caster, castingLevel, modifier, trap, tool);
-
-			if (disarmWithSpellResult == Trap.DisarmResult.SPRING_TRAP)
-			{
-				result.addAll(chestSpellEvents(disarmWithSpellResult, caster, spell, castingLevel));
-				result.addAll(chest.springTrap());
+				result.addAll(disarmResultEvents(0));
+				result.addAll(lockOrTrap.executeTrapDisarmed());
 				return result;
 			}
-			else if (disarmWithSpellResult == Trap.DisarmResult.DISARMED)
+
+			Value modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
+
+			BitSet disarmed = new BitSet(8);
+			for (int tool=0; tool<8; tool++)
 			{
-				disarmed.set(tool);
+				if (!trap.getRequired().get(tool))
+				{
+					continue;
+				}
+
+				int disarmWithSpellResult = GameSys.getInstance().disarmWithSpell(
+					caster, castingLevel, modifier, trap, tool);
+
+				if (disarmWithSpellResult == Trap.DisarmResult.SPRING_TRAP)
+				{
+					result.addAll(disarmResultEvents(disarmWithSpellResult));
+					result.addAll(lockOrTrap.springTrap());
+					return result;
+				}
+				else if (disarmWithSpellResult == Trap.DisarmResult.DISARMED)
+				{
+					disarmed.set(tool);
+				}
+			}
+
+			if (disarmed.equals(trap.getRequired()))
+			{
+				result.addAll(disarmResultEvents(Trap.DisarmResult.DISARMED));
+				result.addAll(lockOrTrap.executeTrapDisarmed());
+			}
+			else
+			{
+				result.addAll(disarmResultEvents(Trap.DisarmResult.NOTHING));
 			}
 		}
+		else if (lockOrTrap.isLocked())
+		{
+			Value modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
 
-		if (disarmed.equals(trap.getRequired()))
-		{
-			result.addAll(chestSpellEvents(Trap.DisarmResult.DISARMED, caster, spell, castingLevel));
-			result.addAll(chest.executeChestContents());
-		}
-		else
-		{
-			result.addAll(chestSpellEvents(Trap.DisarmResult.NOTHING, caster, spell, castingLevel));
+			BitSet disarmed = new BitSet(8);
+			for (int tool=0; tool<8; tool++)
+			{
+				if (!lockOrTrap.getPickLockToolsRequired().get(tool))
+				{
+					continue;
+				}
+
+				int unlockResult = GameSys.getInstance().pickLockWithSpell(
+					caster, castingLevel, modifier, lockOrTrap, tool);
+
+				if (unlockResult == Trap.DisarmResult.SPRING_TRAP)
+				{
+					result.addAll(disarmResultEvents(Trap.DisarmResult.SPRING_TRAP));
+				}
+				else if (unlockResult == Trap.DisarmResult.DISARMED)
+				{
+					disarmed.set(tool);
+				}
+			}
+
+			if (disarmed.equals(lockOrTrap.getPickLockToolsRequired()))
+			{
+				result.addAll(disarmResultEvents(Trap.DisarmResult.DISARMED));
+				lockOrTrap.setLockState(Portal.State.UNLOCKED);
+			}
+			else
+			{
+				result.addAll(disarmResultEvents(Trap.DisarmResult.NOTHING));
+			}
 		}
 
 		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static List<MazeEvent> chestSpellEvents(
-		int disarmResult,
-		PlayerCharacter caster,
-		Spell spell,
-		int castingLevel)
+	private static List<MazeEvent> disarmResultEvents(
+		int disarmResult)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
@@ -536,7 +577,7 @@ public class SpellTargetUtils
 		int castingLevel)
 	{
 		Maze.log(Log.DEBUG, "apply spell effect ["+
-					effect.getName()+"] to willing target ["+target.getName()+"]");
+			effect.getName()+"] to willing target ["+target.getName()+"]");
 
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 

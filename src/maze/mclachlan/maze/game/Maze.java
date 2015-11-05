@@ -636,7 +636,6 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void incTurn(boolean checkRandomEncounters)
 	{
-		ui.clearCombatEventDisplay();
 		GameTime.incTurn(); // SLOW
 		checkPartyStatus();
 		reorderPartyToCompensateForDeadCharacters();
@@ -1176,12 +1175,6 @@ public class Maze implements Runnable
 		{
 			resolveEvents(subEvents, displayEventText);
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getPlayerSpeech()
-	{
-		return this.ui.getPlayerSpeech();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2191,13 +2184,4 @@ public class Maze implements Runnable
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public class ShowCombatDisplayEvent extends MazeEvent
-	{
-		public List<MazeEvent> resolve()
-		{
-			Maze.this.getUi().showCombatDisplay();
-			return null;
-		}
-	}
 }

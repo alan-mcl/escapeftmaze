@@ -134,12 +134,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	MagicDisplayWidget magicDisplay;
 	ButtonToolbar buttonToolbar;
 	CardLayoutWidget movementCardLayout;
-	CombatDisplayWidget combatDisplay;
+//	CombatDisplayWidget combatDisplay;
 	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
 	SignBoardWidget signBoardWidget;
-//	ChestOptionsWidget chestOptionsWidget;
-	EncounterActorsWidget encounterActorsWidget;
-	PortalOptionsWidget portalOptionsWidget;
 	ZoneDisplayWidget zoneDisplay;
 	PartyCloudSpellWidget partyCloudSpellWidget;
 
@@ -512,12 +509,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void showCombatDisplay()
-	{
-		this.movementCardLayout.show(combatDisplay);
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public ActorActionIntention getCombatIntention(PlayerCharacter pc)
 	{
 		PlayerCharacterWidget pcw = getPlayerCharacterWidget(pc);
@@ -874,15 +865,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	private void showPortalScreen(Portal currentPortal)
 	{
 		this.mainLayout.show(this.movementScreen);
-		portalOptionsWidget.setPortal(currentPortal);
-		combatDisplay.clear();
-		movementCardLayout.show(portalOptionsWidget);
-	}
-
-	@Override
-	public void clearCombatEventDisplay()
-	{
-		combatDisplay.clear();
+		partyOptionsAndTextWidget.setPortal(currentPortal);
+		movementCardLayout.show(partyOptionsAndTextWidget);
 	}
 
 	@Override
@@ -1112,10 +1096,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		partyOptionsAndTextWidget = new PartyOptionsAndTextWidget(rect);
 		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
 			Database.getInstance().getImage("screen/signBoard"));
-//		chestOptionsWidget = new ChestOptionsWidget(rect);
-		encounterActorsWidget = new EncounterActorsWidget(rect);
-		portalOptionsWidget = new PortalOptionsWidget(rect);
-		combatDisplay = new CombatDisplayWidget(rect);
+//		combatDisplay = new CombatDisplayWidget(rect);
 		combatOptions = new CombatOptionsWidget(rect, null);
 		restingWidget = new RestingWidget(rect);
 
@@ -1132,10 +1113,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		ArrayList<ContainerWidget> list = new ArrayList<ContainerWidget>();
 		list.add(partyOptionsAndTextWidget);
 		list.add(signBoardWidget);
-//		list.add(chestOptionsWidget);
-		list.add(portalOptionsWidget);
-		list.add(encounterActorsWidget);
-		list.add(combatDisplay);
+//		list.add(combatDisplay);
 		list.add(combatOptions);
 		list.add(restingWidget);
 
@@ -1433,13 +1411,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void displayMazeEvent(MazeEvent event, boolean displayEventText)
 	{
-/*
-		if (event.getText() != null && displayEventText)
-		{
-			this.showCombatDisplay();
-		}
-		combatDisplay.setCurrentEvent(event, displayEventText);
-*/
 		if (event.getText() != null && displayEventText)
 		{
 			String eventDesc = event.getText();
@@ -1535,18 +1506,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			default:
 				// ignore
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getPlayerSpeech()
-	{
-		return this.combatDisplay.getPlayerSpeech();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public boolean combatDisplayIsVisible()
-	{
-		return this.movementCardLayout.getCurrentWidget() == this.combatDisplay;
 	}
 
 	/*-------------------------------------------------------------------------*/

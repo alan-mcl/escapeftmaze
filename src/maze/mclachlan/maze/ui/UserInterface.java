@@ -74,9 +74,6 @@ public interface UserInterface
 	Component getComponent();
 
 	/*-------------------------------------------------------------------------*/
-	void showCombatDisplay();
-
-	/*-------------------------------------------------------------------------*/
 	ActorActionIntention getCombatIntention(PlayerCharacter pc);
 
 	/*-------------------------------------------------------------------------*/
@@ -158,8 +155,6 @@ public interface UserInterface
 
 	void showChestScreen(Chest chest);
 
-	void clearCombatEventDisplay();
-
 	/*-------------------------------------------------------------------------*/
 	void showDialog(ContainerWidget dialog);
 
@@ -220,14 +215,6 @@ public interface UserInterface
 	void characterSelected(PlayerCharacter pc);
 
 	/*-------------------------------------------------------------------------*/
-
-	/**
-	 * @return Any text entered by the player as speech.
-	 */
-	String getPlayerSpeech();
-
-	/*-------------------------------------------------------------------------*/
-	boolean combatDisplayIsVisible();
 
 	/*-------------------------------------------------------------------------*/
 	void addMessage(String msg);

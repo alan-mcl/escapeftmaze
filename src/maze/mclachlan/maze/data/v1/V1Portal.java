@@ -61,9 +61,9 @@ public class V1Portal
 		s.append(SEP);
 		s.append(t.canSpellPick());
 		s.append(SEP);
-		s.append(t.getHitPointCostToForce());
+		s.append(t.getHitPointCostToForceLock());
 		s.append(SEP);
-		s.append(t.getResistForce());
+		s.append(t.getResistForceOpen());
 		s.append(SEP);
 		s.append(V1Utils.toStringInts(t.getDifficulty(), SUB_SEP));
 		s.append(SEP);

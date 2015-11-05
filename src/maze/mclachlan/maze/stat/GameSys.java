@@ -26,6 +26,7 @@ import mclachlan.maze.game.*;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
+import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.combat.event.SpellCastEvent;
@@ -1754,15 +1755,15 @@ public class GameSys
 	 * 	An int constant from {@link Trap.DisarmResult} indicating what happens
 	 * 	when the given actor tries to pick the lock using the given tool.
 	 */
-	public int pickLock(UnifiedActor actor, Portal portal, int tool)
+	public int pickLock(UnifiedActor actor, LockOrTrap lockOrTrap, int tool)
 	{
-		if (!portal.getRequired().get(tool))
+		if (!lockOrTrap.getPickLockToolsRequired().get(tool))
 		{
 			// this tool isn't required: the trap is sprung!
 			return Trap.DisarmResult.SPRING_TRAP;
 		}
 
-		if (!portal.canPick())
+		if (!lockOrTrap.canManualPick())
 		{
 			// can't pick this one. fake it a bit
 			if (Dice.d2.roll() == 1)
@@ -1779,7 +1780,7 @@ public class GameSys
 			+ actor.getModifier(Stats.Modifiers.LOCK_AND_TRAP)
 			+ Dice.d20.roll();
 
-		int trapScore = portal.getDifficulty()[tool] + Dice.d20.roll();
+		int trapScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll();
 
 		practice(actor, Stats.Modifiers.LOCK_AND_TRAP, 1);
 
@@ -1824,15 +1825,20 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int pickLockWithSpell(UnifiedActor caster, int castingLevel, Value spellModifier, Portal portal, int tool)
+	public int pickLockWithSpell(
+		UnifiedActor caster,
+		int castingLevel,
+		Value spellModifier,
+		LockOrTrap lockOrTrap,
+		int tool)
 	{
-		if (!portal.getRequired().get(tool))
+		if (!lockOrTrap.getPickLockToolsRequired().get(tool))
 		{
 			// this tool isn't required: the trap is sprung!
 			return Trap.DisarmResult.SPRING_TRAP;
 		}
 
-		if (!portal.canSpellPick())
+		if (!lockOrTrap.canSpellPick())
 		{
 			// can't spell-pick this one. fake it a bit
 			if (Dice.d2.roll() == 1)
@@ -1846,7 +1852,7 @@ public class GameSys
 		}
 
 		int playerScore = spellModifier.compute(caster, castingLevel) +Dice.d20.roll();
-		int trapScore = portal.getDifficulty()[tool] + Dice.d20.roll();
+		int trapScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll();
 
 		if (playerScore >= trapScore)
 		{
@@ -1947,61 +1953,6 @@ public class GameSys
 
 		processPlayerCharacterIntentionOutsideCombat(
 			new SpellIntention(npc, spell, castingLevel), caster);
-
-/*		//
-		// Dodgy hack to initiate a dummy combat.
-		//
-		Maze maze = Maze.getInstance();
-
-		List<FoeGroup> dummyFoes = new ArrayList<FoeGroup>();
-		List<UnifiedActor> dummyFoeGroup = new ArrayList<UnifiedActor>();
-		dummyFoeGroup.add(npc);
-		FoeGroup foeGroup = new FoeGroup(dummyFoeGroup);
-		dummyFoes.add(foeGroup);
-
-		Combat combat = new Combat(maze.getParty(), dummyFoes, false);
-
-		List<UnifiedActor> actors = maze.getParty().getActors();
-		ActorActionIntention[] partyIntentions = new ActorActionIntention[actors.size()];
-		for (int i = 0; i < partyIntentions.length; i++)
-		{
-			if (actors.get(i) != caster)
-			{
-				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-			}
-			else
-			{
-				partyIntentions[i] = new SpellIntention(npc, spell, castingLevel);
-			}
-		}
-
-		ActorActionIntention[] foeIntentions = new ActorActionIntention[]
-			{
-				ActorActionIntention.INTEND_NOTHING
-			};
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-		foeIntentionList.add(foeIntentions);
-
-		// Then, show the combat listener
-		maze.setState(Maze.State.COMBAT);
-		maze.getUi().showCombatDisplay();
-
-		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
-
-		while (combatIntentions.hasNext())
-		{
-			CombatAction action = (CombatAction)combatIntentions.next();
-			List<MazeEvent> combatEvents = combat.resolveAction(action);
-
-			maze.resolveEvents(combatEvents);
-		}
-
-		combat.endRound();
-		combat.endCombat();
-		if (maze.getCurrentCombat() == null)
-		{
-			maze.setState(Maze.State.ENCOUNTER_NPC);
-		}*/
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2012,62 +1963,6 @@ public class GameSys
 	{
 		processPlayerCharacterIntentionOutsideCombat(
 			new UseItemIntention(item, npc), caster);
-
-/*		//
-		// Dodgy hack to initiate a dummy combat.
-		//
-
-		Maze maze = Maze.getInstance();
-
-		List<FoeGroup> dummyFoes = new ArrayList<FoeGroup>();
-		List<UnifiedActor> dummyFoeGroup = new ArrayList<UnifiedActor>();
-		dummyFoeGroup.add(npc);
-		FoeGroup foeGroup = new FoeGroup(dummyFoeGroup);
-		dummyFoes.add(foeGroup);
-
-		Combat combat = new Combat(maze.getParty(), dummyFoes, false);
-
-		List<UnifiedActor> actors = maze.getParty().getActors();
-		ActorActionIntention[] partyIntentions = new ActorActionIntention[actors.size()];
-		for (int i = 0; i < partyIntentions.length; i++)
-		{
-			if (actors.get(i) != caster)
-			{
-				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-			}
-			else
-			{
-				partyIntentions[i] = new UseItemIntention(item, npc);
-			}
-		}
-
-		ActorActionIntention[] foeIntentions = new ActorActionIntention[]
-		{
-			ActorActionIntention.INTEND_NOTHING
-		};
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
-		foeIntentionList.add(foeIntentions);
-
-		// Then, show the combat listener
-		maze.setState(Maze.State.COMBAT);
-		maze.getUi().showCombatDisplay();
-
-		Iterator combatIntentions = combat.combatRound(partyIntentions, foeIntentionList);
-
-		while (combatIntentions.hasNext())
-		{
-			CombatAction action = (CombatAction)combatIntentions.next();
-			List<MazeEvent> combatEvents = combat.resolveAction(action);
-
-			maze.resolveEvents(combatEvents);
-		}
-
-		combat.endRound();
-		combat.endCombat();
-		if (maze.getCurrentCombat() == null)
-		{
-			maze.setState(Maze.State.ENCOUNTER_NPC);
-		}*/
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2301,20 +2196,20 @@ public class GameSys
 	 * @return
 	 * 	a constant from {@link Portal.ForceResult}
 	 */
-	public int forcePortal(PlayerCharacter pc, Portal portal)
+	public int forcePortal(PlayerCharacter pc, LockOrTrap lockOrTrap)
 	{
-		if (pc.getHitPoints().getCurrent() <= portal.getHitPointCostToForce())
+		if (pc.getHitPoints().getCurrent() <= lockOrTrap.getHitPointCostToForceLock())
 		{
 			return Portal.ForceResult.FAILED_NO_DAMAGE;
 		}
-		else if (!portal.canForce())
+		else if (!lockOrTrap.canForceOpen())
 		{
 			return Portal.ForceResult.FAILED_DAMAGE;
 		}
 
 		int forceChance = 50
 			+ pc.getModifier(Stats.Modifiers.BRAWN)
-			- portal.getResistForce();
+			- lockOrTrap.getResistForceOpen();
 
 		forceChance = Math.min(99, forceChance);
 

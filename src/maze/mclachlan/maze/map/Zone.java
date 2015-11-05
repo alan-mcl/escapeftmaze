@@ -403,8 +403,8 @@ public class Zone
 	{
 		for (Portal portal : portals)
 		{
-			if (portal.from.equals(oldTile) && portal.fromFacing == facing ||
-				portal.twoWay && portal.to.equals(oldTile) && portal.toFacing == facing)
+			if (portal.getFrom().equals(oldTile) && portal.getFromFacing() == facing ||
+				portal.isTwoWay() && portal.getTo().equals(oldTile) && portal.getToFacing() == facing)
 			{
 				return portal;
 			}

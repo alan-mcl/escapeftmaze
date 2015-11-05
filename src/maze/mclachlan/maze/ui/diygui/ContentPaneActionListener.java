@@ -76,10 +76,10 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processMouseClicked(event);
-			}
+//			if (ui.combatDisplayIsVisible())
+//			{
+//				ui.combatDisplay.processMouseClicked(event);
+//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
 		{
@@ -90,24 +90,24 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processMouseClicked(event);
-			}
+//			if (ui.combatDisplayIsVisible())
+//			{
+//				ui.combatDisplay.processMouseClicked(event);
+//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processMouseClicked(event);
-			}
+//			if (ui.combatDisplayIsVisible())
+//			{
+//				ui.combatDisplay.processMouseClicked(event);
+//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processMouseClicked(event);
-			}
+//			if (ui.combatDisplayIsVisible())
+//			{
+//				ui.combatDisplay.processMouseClicked(event);
+//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.RESTING)
 		{
@@ -314,15 +314,7 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
 		{
-			switch (event.getKeyCode())
-			{
-				case KeyEvent.VK_P: ui.portalOptionsWidget.pickLock(); break;
-				case KeyEvent.VK_C: ui.portalOptionsWidget.castSpell(); break;
-				case KeyEvent.VK_U: ui.portalOptionsWidget.useItem(); break;
-				case KeyEvent.VK_F: ui.portalOptionsWidget.force(); break;
-				case KeyEvent.VK_ESCAPE:
-				case KeyEvent.VK_L: ui.portalOptionsWidget.leave(); break;
-			}
+			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
 		{
@@ -330,17 +322,17 @@ class ContentPaneActionListener implements ActionListener
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_TILE)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processKeyPressed(event);
-			}
+//			if (ui.combatDisplayIsVisible())
+//			{
+//				ui.combatDisplay.processKeyPressed(event);
+//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
 		{
-			if (ui.combatDisplayIsVisible())
-			{
-				ui.combatDisplay.processKeyPressed(event);
-			}
+//			if (ui.combatDisplayIsVisible())
+//			{
+//				ui.combatDisplay.processKeyPressed(event);
+//			}
 		}
 		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
 		{

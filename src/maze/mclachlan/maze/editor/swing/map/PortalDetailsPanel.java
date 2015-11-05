@@ -219,8 +219,8 @@ public class PortalDetailsPanel extends JPanel
 		canForce.setSelected(portal.canForce());
 		canPick.setSelected(portal.canPick());
 		canSpellPick.setSelected(portal.canSpellPick());
-		hitPointCostToForce.setValue(portal.getHitPointCostToForce());
-		resistForce.setValue(portal.getResistForce());
+		hitPointCostToForce.setValue(portal.getHitPointCostToForceLock());
+		resistForce.setValue(portal.getResistForceOpen());
 		difficulty.refresh(portal.getDifficulty(), portal.getRequired());
 		mazeScript.setSelectedItem(portal.getMazeScript()==null?EditorPanel.NONE:portal.getMazeScript());
 		keyItem.setSelectedItem(portal.getKeyItem()==null?EditorPanel.NONE:portal.getKeyItem());

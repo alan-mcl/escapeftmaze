@@ -552,7 +552,7 @@ public class PlayerCharacter extends UnifiedActor
 			{
 				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
 				{
-					if (sla.isUsableDuringEncounterChest() && sla.meetsRequirements(this))
+					if (sla.isUsableDuringEncounterChestOrPortal() && sla.meetsRequirements(this))
 					{
 						result.add(new SpecialAbilityOption(sla), null);
 					}
@@ -565,6 +565,36 @@ public class PlayerCharacter extends UnifiedActor
 			}
 
 			result.add(new OpenChestOption(), null);
+		}
+		else if (maze.getState() == Maze.State.ENCOUNTER_PORTAL)
+		{
+			// Cast Spell option if this actor has spells
+			if (this.getSpellBook().getSpells().size() != 0)
+			{
+				result.add(new SpellOption(), null);
+			}
+
+			// always a use item option
+			result.add(new UseItemOption(), null);
+
+			// special abilities
+			if (this.getSpellLikeAbilities() != null)
+			{
+				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
+				{
+					if (sla.isUsableDuringEncounterChestOrPortal() && sla.meetsRequirements(this))
+					{
+						result.add(new SpecialAbilityOption(sla), null);
+					}
+				}
+			}
+
+			if (getModifier(Stats.Modifiers.LOCK_AND_TRAP) > 0)
+			{
+				result.add(new PickLockOption(), null);
+			}
+
+			result.add(new ForceOpenOption(), null);
 		}
 
 		// set the actor for all action options
