@@ -4,7 +4,9 @@ v0.916 (???)
 Features
  - Gnome female art and portraits
  - Changed NPC attitude system to use states instead of a score
- - Added attitudes for all actor encounters
+ - Added attitudes for all actor encounters (NPC and foe)
+ - All encounters now on new UI design and standard event processing model
+ - Dwarves are drinking fit
 
 Other
  - Performance improvements for movement mode

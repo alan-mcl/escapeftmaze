@@ -132,7 +132,7 @@ public class Portal implements LockOrTrap
 
 		for (int i = 0; i < toolStatus.length; i++)
 		{
-			if (getRequired().get(i))
+			if (getRequired() != null && getRequired().get(i))
 			{
 				toolStatus[i] = Trap.InspectionResult.PRESENT;
 			}

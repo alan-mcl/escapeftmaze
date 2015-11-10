@@ -985,7 +985,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		// Add the modifiers of all conditions on this character
 		for (Condition c : ConditionManager.getInstance().getConditions(this))
 		{
-			result.add(c.getName(), c.getModifier(modifier, this));
+			result.add(c.getDisplayName(), c.getModifier(modifier, this));
 		}
 
 		// Add the modifiers of all conditions on the current tile
@@ -996,7 +996,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 			for (Condition c : Maze.getInstance().getCurrentTile().getConditions())
 			{
-				result.add(c.getName(), c.getModifier(modifier, this));
+				result.add(c.getDisplayName(), c.getModifier(modifier, this));
 			}
 		}
 
@@ -1182,7 +1182,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			ConditionTemplate template = c.getTemplate();
 			if (template != null)
 			{
-				result.add(c.getName(), addModifier(modifier, template.getBannerModifier()));
+				result.add(c.getDisplayName(), addModifier(modifier, template.getBannerModifier()));
 			}
 		}
 		return result;

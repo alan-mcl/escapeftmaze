@@ -59,7 +59,7 @@ name=FATIGUE_KO
 impl=mclachlan.maze.stat.condition.impl.FatigueKO
 @
 name=BOOZE_HEROISM
-displayName=Heroism
+displayName=Heroism (booze)
 icon=condition/heroism
 adjective=transformed
 conditionEffect=none
@@ -483,7 +483,7 @@ exitConditionChance=0
 repeatedSpellEffects=
 @
 name=BOOZE_SUPERMAN
-displayName=Superman
+displayName=Superman (booze)
 icon=condition/superman
 adjective=transformed
 conditionEffect=none
@@ -600,7 +600,7 @@ exitConditionChance=0
 repeatedSpellEffects=
 @
 name=BOOZE_FERVOUR
-displayName=Fervour
+displayName=Fervour (booze)
 icon=condition/fervour
 adjective=believes!
 conditionEffect=none

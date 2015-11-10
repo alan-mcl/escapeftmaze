@@ -335,5 +335,6 @@ public class V1StatModifier
 			ELEMENTAL_SPELLS,
 			LARGE_SIZE,
 			THREATEN,
+			DRINKING_FIT,
 		};
 }

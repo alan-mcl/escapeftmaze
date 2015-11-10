@@ -45,28 +45,36 @@ public class BoozeSpellResult extends SpellResult
 	{
 		List<MazeEvent> results = new ArrayList<MazeEvent>();
 
-		// use the targets brawn, unless power is > 10 and > brawn
-		int attrib;
-		int brawn = source.getModifier(Stats.Modifiers.BRAWN);
-		int power = source.getModifier(Stats.Modifiers.POWER);
-
-		if (power > brawn && power > 10)
+		// if not drinking fit, something bad might happen
+		if (source.getModifier(Stats.Modifiers.DRINKING_FIT) < 0)
 		{
-			attrib = power;
-		}
-		else
-		{
-			attrib = brawn;
-		}
+			// use the targets brawn, unless power is > 10 and > brawn
+			int attrib;
+			int brawn = source.getModifier(Stats.Modifiers.BRAWN);
+			int power = source.getModifier(Stats.Modifiers.POWER);
 
-		attrib -= castingLevel;
+			if (power > brawn && power > 10)
+			{
+				attrib = power;
+			}
+			else
+			{
+				attrib = brawn;
+			}
 
-		// roll 1d10, compare to attrib, 1 always good, 10 always bad
-		int roll = Dice.d10.roll();
+			attrib -= castingLevel;
 
-		if (roll == 10 || (roll >= attrib && roll != 1))
-		{
-			somethingBad(results, target, castingLevel);
+			// roll 1d10, compare to attrib, 1 always good, 10 always bad
+			int roll = Dice.d10.roll();
+
+			if (roll == 10 || (roll >= attrib && roll != 1))
+			{
+				somethingBad(results, target, castingLevel);
+			}
+			else
+			{
+				somethingGood(results, target, castingLevel);
+			}
 		}
 		else
 		{
@@ -156,7 +164,7 @@ public class BoozeSpellResult extends SpellResult
 
 		// will setting source=target break anything?
 		Condition condition = ct.create(
-			target, target, castingLevel, MagicSys.SpellEffectType.WATER, MagicSys.SpellEffectSubType.POISON);
+			target, target, castingLevel, MagicSys.SpellEffectType.WATER, MagicSys.SpellEffectSubType.NONE);
 
 		return new ConditionEvent(target, condition);
 	}

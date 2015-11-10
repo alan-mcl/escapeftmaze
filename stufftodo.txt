@@ -18,13 +18,9 @@ sound: clockwork beast
 icon: tobacco/herb
 icon: bullwhip
 
-portrait: more gnome males
-portrait: gnome females
-
 text: gnome race description
 
 data: improve foe inventories
-data: body parts: leonal armour
 data: more wielding combos
 data: puzzle boxes: items that require brains to disassemble and contain loot
 data: RESISTANCES: Resistances of foes.
@@ -40,7 +36,6 @@ code: comprehensive practising of modifiers
 code: extensive logging
 code: refactor: remove DiyGui impl action messages
 code: chests to leave items in securely
-code: automatic flavour text widget paging or scrolling
 code: validate PC combat actions on a Repeat
 code: different combat ranges
 code: guilds bury dead characters in graveyards
@@ -64,7 +59,6 @@ ability: resist surprise in some terrain type
 ability: identify foes of some type
 ability: Yetis to be berserkers
 ability: Yetis to have claw attacks
-ability: Dwarves to be drinking fit
 ability: Samurai special ability: iajutsu first strike
 
 editor: save games editing of: conditions, item caches, npc templates, npcs, maze variables, journals

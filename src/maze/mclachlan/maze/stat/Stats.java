@@ -262,6 +262,8 @@ public class Stats
 		propertiesModifiers.add(Modifiers.BONUS_ATTACKS);
 		propertiesModifiers.add(Modifiers.BONUS_STRIKES);
 		propertiesModifiers.add(Modifiers.LARGE_SIZE);
+		propertiesModifiers.add(Modifiers.THREATEN);
+		propertiesModifiers.add(Modifiers.DRINKING_FIT);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -604,6 +606,7 @@ public class Stats
 		public static final String BONUS_STRIKES = "bonusStrikes";
 		public static final String LARGE_SIZE = "largeSize";
 		public static final String THREATEN = "threaten";
+		public static final String DRINKING_FIT = "drinkingFit";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -708,6 +711,7 @@ public class Stats
 			booleanModifiers.add(Modifiers.AMPHIBIOUS);
 			booleanModifiers.add(Modifiers.LARGE_SIZE);
 			booleanModifiers.add(Modifiers.THREATEN);
+			booleanModifiers.add(Modifiers.DRINKING_FIT);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

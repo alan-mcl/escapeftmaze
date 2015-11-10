@@ -201,6 +201,7 @@ modifier_name-bonusAttacks: Bonus Attacks
 modifier_name-bonusStrikes: Bonus Strikes
 modifier_name-largeSize: Size: Large
 modifier_name-threaten: Threaten
+modifier_name-drinkingFit: Drinking Fit
 
 # Modifier Descriptions
 
@@ -400,6 +401,7 @@ modifier_desc-bonusAttacks: Grants this character bonus attacks in combat.
 modifier_desc-bonusStrikes: Grants this character bonus strikes during each attack in combat.
 modifier_desc-largeSize: This character is physically larger than average.
 modifier_desc-threaten: The ability to intimidate another into doing what you want.
+modifier_desc-drinkingFit: This character never suffers ill effects from alcohol.
 
 #
 # LEVEL ABILITY PROGRESSION

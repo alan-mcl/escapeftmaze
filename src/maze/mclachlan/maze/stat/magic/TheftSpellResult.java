@@ -25,7 +25,6 @@ import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.TheftSpellSucceeded;
-import mclachlan.maze.stat.npc.Npc;
 
 /**
  * Typically cast on an NPC to steal an item
