@@ -48,9 +48,11 @@ public class AttackAction extends CombatAction
 		MazeScript attackScript,
 		boolean isFirstAttack,
 		boolean lightningStrike,
+		AttackType attackType,
 		MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
+		this.setAttackType(attackType);
 		this.setTargetGroup(targetGroup);
 		this.setAttackWith(attackWith);
 		this.setNrStrikes(nrStrikes);

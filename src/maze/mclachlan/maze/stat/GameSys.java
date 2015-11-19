@@ -240,9 +240,8 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public AttackType getAttackType(AttackAction attackAction)
+	public AttackType getAttackType(AttackWith attackWith)
 	{
-		AttackWith attackWith = attackAction.getAttackWith();
 		String[] attackTypes = attackWith.getAttackTypes();
 
 		if (attackTypes == null)
@@ -253,7 +252,7 @@ public class GameSys
 		AttackType attackType = Database.getInstance().getAttackType(
 			attackTypes[nextInt(attackTypes.length)]);
 
-		boolean isBackstabCapable = attackWith.isBackstabCapable();
+/*		boolean isBackstabCapable = attackWith.isBackstabCapable();
 		boolean isSnipeCapable = attackWith.isSnipeCapable();
 		if (isBackstabCapable || isSnipeCapable)
 		{
@@ -316,9 +315,32 @@ public class GameSys
 					}
 				}
 			}
-		}
+		}*/
 
 		return attackType;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return the damage type of the given AttackWith
+	 */
+	public MagicSys.SpellEffectType getAttackWithDamageType(UnifiedActor source, AttackWith attackWith)
+	{
+		if (attackWith.isRanged())
+		{
+			// ranged weapon uses the default damage type of the ammo
+			Item secondaryWeapon = source.getSecondaryWeapon();
+			if (attackWith.getAmmoRequired() != null &&
+				secondaryWeapon != null &&
+				attackWith.getAmmoRequired().contains(secondaryWeapon.isAmmoType()))
+			{
+				return secondaryWeapon.getDefaultDamageType();
+			}
+		}
+
+		// melee weapon just uses its default damage type
+		return attackWith.getDefaultDamageType();
 	}
 
 	/*-------------------------------------------------------------------------*/

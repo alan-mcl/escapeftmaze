@@ -74,6 +74,7 @@ msg.bribe.succeeds = Bribe succeeds
 #
 
 msg.hide.attempt = %s hides...
+msg.combat.fumble = %s fumbles!
 
 #
 # Lock/trap events

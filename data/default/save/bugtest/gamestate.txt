@@ -1,10 +1,10 @@
 zone=arena
 difficultyLevel=Normal
-playerPos=8:6
-facing=3
+playerPos=9:7
+facing=4
 partyGold=1000237
 partySupplies=9
 partyNames=Dwaf,IG-87,Ug,Gibby,Brunswick,Silvia
 formation=4
-turnNr=3249
+turnNr=3259
 @

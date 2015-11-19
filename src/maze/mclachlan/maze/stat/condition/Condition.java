@@ -583,9 +583,6 @@ public class Condition
 	/*-------------------------------------------------------------------------*/
 	public boolean isAffliction()
 	{
-		System.out.println("mclachlan.maze.stat.condition.Condition.isAffliction");
-		System.out.println("subtype = [" + subtype + "]");
-
 		return
 			MagicSys.SpellEffectSubType.CURSE.equals(subtype) ||
 			MagicSys.SpellEffectSubType.POISON.equals(subtype) ||

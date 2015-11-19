@@ -52,20 +52,20 @@ public class ActorActionResolver
 		CombatAction action,
 		Combat combat)
 	{
-		UnifiedActor actor = action.actor;
+		UnifiedActor actor = action.getActor();
 
-		if (!action.isAttackingAllies)
+		if (!action.isAttackingAllies())
 		{
 			// at this point check and see if any conditions screw this actor over
-			action.actor = actor;
-			action = GameSys.getInstance().checkConditions(action.actor, action);
+			action.setActor(actor);
+			action = GameSys.getInstance().checkConditions(action.getActor(), action);
 		}
 
 		AnimationContext animationContext = new AnimationContext(actor);
 
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		CombatantData combatantData = action.actor.getCombatantData();
+		CombatantData combatantData = action.getActor().getCombatantData();
 		if (combatantData != null)
 		{
 			// set the action on the combatant data
@@ -100,7 +100,7 @@ public class ActorActionResolver
 				{
 					// todo: unwind event resolutions in here -> into events resolve() methods
 					resolveAttack(
-						action.actor,
+						action.getActor(),
 						(AttackAction)action,
 						combat,
 						result,
@@ -115,11 +115,11 @@ public class ActorActionResolver
 			else if (action instanceof DefendAction)
 			{
 				// defending doesn't achieve much
-				result.add(new DefendEvent(action.actor));
+				result.add(new DefendEvent(action.getActor()));
 			}
 			else if (action instanceof HideAction)
 			{
-				result.add(new HideAttemptEvent(action.actor, combat));
+				result.add(new HideAttemptEvent(action.getActor(), combat));
 			}
 			else if (action instanceof SpellAction)
 			{
@@ -140,7 +140,7 @@ public class ActorActionResolver
 				result.addAll(
 					resolveSpell(
 						combat,
-						action.actor,
+						action.getActor(),
 						spellAction,
 						false,
 						animationContext));
@@ -164,18 +164,18 @@ public class ActorActionResolver
 
 				if (wildMagic != null)
 				{
-					UnifiedActor caster = act.actor;
+					UnifiedActor caster = act.getActor();
 					act = new SpecialAbilityAction(
 						act.getDescription(),
 						wildMagic.getTarget(),
 						wildMagic.getSpell(),
 						act.getCastingLevel());
-					act.actor = caster;
+					act.setActor(caster);
 				}
 
 				resolveSpecialAbility(
 					combat,
-					action.actor,
+					action.getActor(),
 					act,
 					result,
 					animationContext);
@@ -184,7 +184,7 @@ public class ActorActionResolver
 			{
 				resolveUseItem(
 					combat,
-					action.actor,
+					action.getActor(),
 					(UseItemAction)action,
 					result,
 					animationContext);
@@ -207,35 +207,35 @@ public class ActorActionResolver
 			}
 			else if (action instanceof CowerInFearAction)
 			{
-				result.add(new CowerInFearEvent(action.actor));
+				result.add(new CowerInFearEvent(action.getActor()));
 			}
 			else if (action instanceof FreezeInTerrorAction)
 			{
-				result.add(new FreezeInTerrorEvent(action.actor));
+				result.add(new FreezeInTerrorEvent(action.getActor()));
 			}
 			else if (action instanceof StumbleBlindlyAction)
 			{
-				result.add(new StumbleBlindlyEvent(action.actor));
+				result.add(new StumbleBlindlyEvent(action.getActor()));
 			}
 			else if (action instanceof GagsHelplesslyAction)
 			{
-				result.add(new GagsHelplesslyEvent(action.actor));
+				result.add(new GagsHelplesslyEvent(action.getActor()));
 			}
 			else if (action instanceof RetchesNoisilyAction)
 			{
-				result.add(new RetchesNoisilyEvent(action.actor));
+				result.add(new RetchesNoisilyEvent(action.getActor()));
 			}
 			else if (action instanceof DancesWildlyAction)
 			{
-				result.add(new DancesWildlyEvent(action.actor));
+				result.add(new DancesWildlyEvent(action.getActor()));
 			}
 			else if (action instanceof LaughsMadlyAction)
 			{
-				result.add(new LaughsMadlyEvent(action.actor));
+				result.add(new LaughsMadlyEvent(action.getActor()));
 			}
 			else if (action instanceof ItchesUncontrollablyAction)
 			{
-				result.add(new ItchesUncontrollablyEvent(action.actor));
+				result.add(new ItchesUncontrollablyEvent(action.getActor()));
 			}
 			else if (action instanceof AttackAlliesAction)
 			{
@@ -244,7 +244,7 @@ public class ActorActionResolver
 			else if (action instanceof StrugglesMightilyAction)
 			{
 				StrugglesMightilyAction sma = (StrugglesMightilyAction)action;
-				result.add(new StrugglesMightilyEvent(sma.actor, sma.condition));
+				result.add(new StrugglesMightilyEvent(sma.getActor(), sma.condition));
 			}
 			else if (action instanceof BlinkAction)
 			{
@@ -364,7 +364,7 @@ public class ActorActionResolver
 		List<MazeEvent> events)
 	{
 		// get a random target group of allies
-		UnifiedActor actor = action.actor;
+		UnifiedActor actor = action.getActor();
 		int groups = combat.getNrOfAlliedGroups(actor);
 		int targetGroup = GameSys.getInstance().nextInt(groups);
 
@@ -378,8 +378,8 @@ public class ActorActionResolver
 
 		for (CombatAction act : actions)
 		{
-			act.isAttackingAllies = true;
-			act.actor = actor;
+			act.setAttackingAllies(true);
+			act.setActor(actor);
 
 			// recursion alert
 			events.addAll(resolveAction(act, combat));
@@ -504,7 +504,7 @@ public class ActorActionResolver
 				}
 
 				events.add(new SpellBackfiresEvent(actor, s, castingLevel));
-				useItemAction.isAttackingAllies = true;
+				useItemAction.setAttackingAllies(true);
 
 				// warp the target
 				switch(targetType)
@@ -1141,7 +1141,7 @@ public class ActorActionResolver
 	{
 		List<UnifiedActor> actors;
 		int engagementRange;
-		if (action.isAttackingAllies)
+		if (action.isAttackingAllies())
 		{
 			// fudge it
 			engagementRange = -1;
@@ -1307,7 +1307,7 @@ public class ActorActionResolver
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void attack(
+	public static void attack(
 		Combat combat,
 		UnifiedActor attacker,
 		UnifiedActor defender,
@@ -1318,20 +1318,7 @@ public class ActorActionResolver
 		BodyPart bodyPart = getRandomBodyPart(attacker, defender);
 
 		AttackEvent attackEvent;
-		AttackType attackType;
-		if (attackAction.getAttackType() == null)
-		{
-			attackType = GameSys.getInstance().getAttackType(attackAction);
-
-			if (attackType.getDamageType() != MagicSys.SpellEffectType.NONE)
-			{
-				attackAction.setDamageType(attackType.getDamageType());
-			}
-		}
-		else
-		{
-			attackType = attackAction.getAttackType();
-		}
+		AttackType attackType = attackAction.getAttackType();
 
 		if (attackAction.getNrStrikes() == -1)
 		{
@@ -1342,14 +1329,13 @@ public class ActorActionResolver
 				attackAction.getAttackWith()));
 		}
 
-		int stealthCost = getStealthCost(attacker, defender, attackType);
 		attackEvent = new AttackEvent(
 			attacker,
 			defender,
 			attackAction.getAttackWith(),
 			attackType,
 			bodyPart,
-			stealthCost,
+			0,
 			attackAction.getNrStrikes());
 
 		if (attackAction.isLightningStrike())
@@ -1449,10 +1435,11 @@ public class ActorActionResolver
 				attackAction.getAttackScript(),
 				false,
 				false,
+				GameSys.getInstance().getAttackType(attackAction.getAttackWith()),
 				attackAction.getDamageType());
-			aa.actor = attacker;
+			aa.setActor(attacker);
 			aa.setDefender(defender);
-			aa.isAttackingAllies = attackAction.isAttackingAllies;
+			aa.setAttackingAllies(attackAction.isAttackingAllies());
 			aa.setAttackType(attackType);
 			events.add(new AnotherActionEvent(aa, combat));
 		}
@@ -1517,25 +1504,6 @@ public class ActorActionResolver
 
 				return table.getRandomItem();
 			}
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static int getStealthCost(UnifiedActor attacker, UnifiedActor defender, AttackType attackType)
-	{
-		if (attackType == AttackType.NULL_ATTACK_TYPE)
-		{
-			return -1;
-		}
-
-		if (attackType.getName().equals(Stats.Modifiers.BACKSTAB) ||
-			attackType.getName().equals(Stats.Modifiers.SNIPE))
-		{
-			return GameSys.getInstance().getBackstabSnipeCost(attacker, defender);
-		}
-		else
-		{
-			return -1;
 		}
 	}
 }

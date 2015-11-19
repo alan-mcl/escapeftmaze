@@ -1,26 +1,26 @@
-conditionBearer=1~IG-87
-0=chameleon spell;15;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
-1=bardic harp bless;29;8;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
-@
 conditionBearer=1~Dwaf
-0=chameleon spell;15;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
-1=bardic harp bless;29;8;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
 @
 conditionBearer=1~Silvia
-0=chameleon spell;15;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
-1=bardic harp bless;29;8;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
 @
 conditionBearer=2~Ichiba City~16:16
 @
+conditionBearer=1~Brunswick
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
+@
+conditionBearer=1~IG-87
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
+@
 conditionBearer=1~Ug
-0=chameleon spell;15;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
-1=bardic harp bless;29;8;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
 @
 conditionBearer=1~Gibby
-0=chameleon spell;15;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
-1=bardic harp bless;29;8;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
-@
-conditionBearer=1~Brunswick
-0=chameleon spell;15;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
-1=bardic harp bless;29;8;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Brunswick;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Ug;true;true;1;false
 @

@@ -31,9 +31,10 @@ import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.condition.ConditionEffect;
+import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
 
@@ -50,6 +51,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	{
 		types = new HashMap<Class, Integer>();
 
+		types.put(AttackWithWeaponSpellResult.class, ATTACK_WITH_WEAPON);
 		types.put(CharmSpellResult.class, CHARM);
 		types.put(ConditionSpellResult.class, CONDITION);
 		types.put(DamageSpellResult.class, DAMAGE);
@@ -114,6 +116,12 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private ValueComponent forgetStrength;
 	private ValueComponent conditionIdentificationStrength;
 	private JCheckBox canIdenfityConditionStrength;
+	private ValueComponent weaponNrStrikes;
+	private StatModifierComponent weaponModifiers;
+	private JComboBox<MagicSys.SpellEffectType> weaponDamageType;
+	private JComboBox<String> weaponAttackScript;
+	private JComboBox<String> weaponAttackType;
+	private JCheckBox weaponRequiresBackstab, weaponRequiresSnipe;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellResultEditor(
@@ -198,6 +206,20 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		{
 			case CUSTOM:
 				impl.setText(sr.getClass().getName());
+				break;
+			case ATTACK_WITH_WEAPON:
+				AttackWithWeaponSpellResult awwsr = (AttackWithWeaponSpellResult)sr;
+
+				weaponAttackScript.setSelectedItem(
+					awwsr.getAttackScript()==null? EditorPanel.NONE:awwsr.getAttackScript());
+				weaponDamageType.setSelectedItem(awwsr.getDamageType());
+				weaponModifiers.setModifier(awwsr.getModifiers());
+				weaponNrStrikes.setValue(awwsr.getNrStrikes());
+				weaponAttackType.setSelectedItem(
+					awwsr.getAttackType() == null ? EditorPanel.NONE : awwsr.getAttackType().getName());
+				weaponRequiresBackstab.setSelected(awwsr.isRequiresBackstabWeapon());
+				weaponRequiresSnipe.setSelected(awwsr.isRequiresSnipeWeapon());
+
 				break;
 			case CHARM:
 				CharmSpellResult csr = (CharmSpellResult)sr;
@@ -318,7 +340,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		switch (type)
 		{
 			case CUSTOM: return getCustomPanel();
-			case CASTER_FATIGUE: return new JPanel();
+			case ATTACK_WITH_WEAPON: return getAttackWithWeaponPanel();
 			case CHARM: return getCharmPanel();
 			case CONDITION: return getConditionPanel();
 			case DAMAGE: return getDamagePanel();
@@ -345,6 +367,44 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case CONDITION_IDENTIFICATION: return getConditionIdentificationPanel();
 			default: throw new MazeException("Invalid type "+type);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getAttackWithWeaponPanel()
+	{
+		weaponModifiers = new StatModifierComponent(dirtyFlag);
+		weaponNrStrikes = new ValueComponent(dirtyFlag);
+
+		Vector<MagicSys.SpellEffectType> vec = new Vector<MagicSys.SpellEffectType>();
+		vec.addAll(Arrays.asList(MagicSys.SpellEffectType.values()));
+		weaponDamageType = new JComboBox<MagicSys.SpellEffectType>(vec);
+
+		Vector<String> scripts = new Vector<String>();
+		scripts.addAll(new ArrayList<String>(
+			Database.getInstance().getMazeScripts().keySet()));
+		Collections.sort(scripts);
+		scripts.add(0, EditorPanel.NONE);
+		weaponAttackScript = new JComboBox(scripts);
+
+		Vector<String> attackTypes = new Vector<String>();
+		attackTypes.addAll(new ArrayList<String>(
+			Database.getInstance().getAttackTypes().keySet()));
+		Collections.sort(attackTypes);
+		attackTypes.add(0, EditorPanel.NONE);
+		weaponAttackType = new JComboBox<String>(attackTypes);
+
+		weaponRequiresBackstab = new JCheckBox("Requires backstab weapon?");
+		weaponRequiresSnipe = new JCheckBox("Requires snipe weapon?");
+
+		return dirtyGridLayoutCrap(
+			new JLabel("Modifiers:"), weaponModifiers,
+			new JLabel("Nr Strikes:"), weaponNrStrikes,
+			new JLabel("Attack Type:"), weaponAttackType,
+			new JLabel("Damage Type:"), weaponDamageType,
+			new JLabel("Attack Script:"), weaponAttackScript,
+			new JLabel(), weaponRequiresBackstab,
+			new JLabel(), weaponRequiresSnipe
+			);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -697,7 +757,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		switch (type)
 		{
 			case CUSTOM: return "Custom";
-			case CASTER_FATIGUE: return "* removed *";
+			case ATTACK_WITH_WEAPON: return "Attack With Weapon";
 			case CHARM: return "Charm";
 			case CONDITION: return "Condition";
 			case DAMAGE: return "Damage";
@@ -772,6 +832,38 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				{
 					throw new MazeException(x);
 				}
+				break;
+			case ATTACK_WITH_WEAPON:
+
+				StatModifier modifier = weaponModifiers.getModifier();
+				Value nrStrikes = weaponNrStrikes.getValue();
+
+				MagicSys.SpellEffectType damageType = (MagicSys.SpellEffectType)weaponDamageType.getSelectedItem();
+				if (damageType == MagicSys.SpellEffectType.NONE)
+				{
+					damageType = null;
+				}
+
+				String attackScript = (String)weaponAttackScript.getSelectedItem();
+				if (EditorPanel.NONE.equals(attackScript))
+				{
+					attackScript = null;
+				}
+
+				String attackType = (String)weaponAttackType.getSelectedItem();
+				if (EditorPanel.NONE.equals(attackType))
+				{
+					attackType = null;
+				}
+
+				result = new AttackWithWeaponSpellResult(
+					nrStrikes,
+					modifier,
+					Database.getInstance().getAttackType(attackType),
+					damageType,
+					attackScript,
+					weaponRequiresBackstab.isSelected(),
+					weaponRequiresSnipe.isSelected());
 				break;
 			case CHARM:
 				result = new CharmSpellResult(charmValue.getValue());

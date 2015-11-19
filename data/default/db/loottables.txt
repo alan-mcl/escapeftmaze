@@ -137,7 +137,7 @@ name=gatehouse.hiddenstuff.1
 lootEntries=I~Mace:100,I~Silver Ring:100
 @
 name=TestingFoeLoot
-lootEntries=I~Longsword:100,I~Dagger:100,I~Leather Helm:100,I~Leather Cuirass:100,I~Leather Gloves:100,I~Leather Boots:100,I~Leather Leggings:100,I~Brooch:100,I~Ambassador's Amulet:50,low.level.gold:100,mid.level.gold:100,high.level.gold:100
+lootEntries=I~Leather Helm:100,I~Leather Cuirass:100,I~Leather Gloves:100,I~Leather Boots:100,I~Leather Leggings:100,I~Brooch:100,I~Ambassador's Amulet:50,low.level.gold:100,mid.level.gold:100,high.level.gold:100
 @
 name=hianbian.chest.2
 lootEntries=batch.2.banner.items:100,batch.2.food:10,batch.2.bombs:100,batch.2.bombs:10,batch.2.mundane.armour:100,batch.2.mundane.weapons:100,batch.2.powders:100,batch.2.powders:100,batch.2.powders:10,batch.2.scrolls:100,batch.2.scrolls:100,batch.2.scrolls:10,batch.2.spell.books:100,batch.2.spell.books:10,batch.2.stix:100,batch.2.stix:10,batch.2.stix:10,gold.1000:10,gold.500:10

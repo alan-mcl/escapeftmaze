@@ -85,6 +85,13 @@ public class SpecialAbilityUseEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getCaster().getDisplayName() + " " + getDescription();
+		if (getDescription() == null || "".equals(getDescription()))
+		{
+			return null;
+		}
+		else
+		{
+			return getCaster().getDisplayName() + " " + getDescription();
+		}
 	}
 }

@@ -96,11 +96,18 @@ public class AttackRateAnalysis
 			int iterations = 500;
 			for (int i=0; i< iterations; i++)
 			{
-				AttackAction aa = new AttackAction(null, weapon, -1, null, true, false,
+				AttackAction aa = new AttackAction(
+					null,
+					weapon,
+					-1,
+					null,
+					true,
+					false,
+					GameSys.getInstance().getAttackType(weapon),
 					MagicSys.SpellEffectType.NONE);
 				aa.setActor(pc);
 				aa.setDefender(pc);
-				AttackType attackType = GameSys.getInstance().getAttackType(aa);
+				AttackType attackType = aa.getAttackType();
 
 				nrStrikes += GameSys.getInstance().getNrStrikes(pc, null,
 					attackType, weapon);
@@ -115,11 +122,18 @@ public class AttackRateAnalysis
 			{
 				for (int j=0; j<nrAttacks; j++)
 				{
-					AttackAction aa = new AttackAction(null, weapon, -1, null, true, false,
+					AttackAction aa = new AttackAction(
+						null,
+						weapon,
+						-1,
+						null,
+						true,
+						false,
+						GameSys.getInstance().getAttackType(weapon),
 						MagicSys.SpellEffectType.NONE);
 					aa.setActor(pc);
 					aa.setDefender(pc);
-					AttackType attackType = GameSys.getInstance().getAttackType(aa);
+					AttackType attackType = aa.getAttackType();
 					
 					int ns = GameSys.getInstance().getNrStrikes(pc, null,
 						attackType, weapon);

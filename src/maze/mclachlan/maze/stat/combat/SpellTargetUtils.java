@@ -92,7 +92,7 @@ public class SpellTargetUtils
 			attackedGroup,
 			caster,
 			castingLevel,
-			action.isAttackingAllies);
+			action.isAttackingAllies());
 
 		return result;
 	}

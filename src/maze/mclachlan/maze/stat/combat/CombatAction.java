@@ -25,30 +25,90 @@ import mclachlan.maze.stat.UnifiedActor;
 /**
  *
  */
-public class CombatAction extends StatModifier
+public class CombatAction //extends StatModifier
 {
-	UnifiedActor actor;
-	boolean isAttackingAllies;
-	int initiative;
-	boolean initiativeSet = false;
+	private UnifiedActor actor;
+	private boolean isAttackingAllies;
+	private int initiative;
+	private boolean initiativeSet = false;
+	private StatModifier modifiers;
 
-	public UnifiedActor getActor()
-	{
-		return actor;
-	}
-
-	public void setActor(UnifiedActor actor)
-	{
-		this.actor = actor;
-	}
-
+	/*-------------------------------------------------------------------------*/
 	public static final CombatAction DO_NOTHING = new CombatAction()
 	{
-
 		@Override
 		public String toString()
 		{
 			return "DO_NOTHING";
 		}
 	};
+
+	/*-------------------------------------------------------------------------*/
+	public CombatAction()
+	{
+		this.modifiers = new StatModifier();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public UnifiedActor getActor()
+	{
+		return actor;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setActor(UnifiedActor actor)
+	{
+		this.actor = actor;
+	}
+
+	public boolean isAttackingAllies()
+	{
+		return isAttackingAllies;
+	}
+
+	public void setAttackingAllies(boolean isAttackingAllies)
+	{
+		this.isAttackingAllies = isAttackingAllies;
+	}
+
+	public int getInitiative()
+	{
+		return initiative;
+	}
+
+	public void setInitiative(int initiative)
+	{
+		this.initiative = initiative;
+		this.initiativeSet = true;
+	}
+
+	public boolean isInitiativeSet()
+	{
+		return initiativeSet;
+	}
+
+	public void setInitiativeSet(boolean initiativeSet)
+	{
+		this.initiativeSet = initiativeSet;
+	}
+
+	public StatModifier getModifiers()
+	{
+		return modifiers;
+	}
+
+	public void setModifiers(StatModifier modifiers)
+	{
+		this.modifiers = modifiers;
+	}
+
+	public void setModifier(String mod, int value)
+	{
+		modifiers.setModifier(mod, value);
+	}
+
+	public int getModifier(String mod)
+	{
+		return modifiers.getModifier(mod);
+	}
 }

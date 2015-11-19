@@ -142,6 +142,7 @@ public class SpecialAbilityOption extends ActorActionOption
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean characterChosen(PlayerCharacter pc, int pcIndex)
 	{
 		this.intention = new SpecialAbilityIntention(
@@ -159,54 +160,6 @@ public class SpecialAbilityOption extends ActorActionOption
 	{
 		return StringUtil.getUiLabel(
 			getDisplayName(),
-			this.spellLikeAbility.getName());
+			this.spellLikeAbility.getDisplayName());
 	}
-
-	/*	*//*-------------------------------------------------------------------------*//*
-	private void castSpellOutsideCombat(int target)
-	{
-		switch (spellLikeAbility.getSpell().getTargetType())
-		{
-			// do not require target selection
-			case MagicSys.SpellTargetType.CASTER:
-			case MagicSys.SpellTargetType.PARTY:
-			case MagicSys.SpellTargetType.TILE:
-			case MagicSys.SpellTargetType.ITEM:
-				GameSys.getInstance().castPartySpellOutsideCombat(
-					spellLikeAbility.getSpell(),
-					(PlayerCharacter)getActor(),
-					spellLikeAbility.getCastingLevel().roll(),
-					null);
-				break;
-
-			// requires the selection of a player character
-			case MagicSys.SpellTargetType.ALLY:
-				GameSys.getInstance().castPartySpellOutsideCombat(
-					spellLikeAbility.getSpell(),
-					(PlayerCharacter)getActor(),
-					spellLikeAbility.getCastingLevel().roll(),
-					null);
-				break;
-
-			// makes no sense
-			case MagicSys.SpellTargetType.ALL_FOES:
-			case MagicSys.SpellTargetType.FOE:
-			case MagicSys.SpellTargetType.FOE_GROUP:
-			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-			case MagicSys.SpellTargetType.NPC:
-			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
-				// cast it anyway
-				GameSys.getInstance().castPartySpellOutsideCombat(
-					spellLikeAbility.getSpell(),
-					(PlayerCharacter)getActor(),
-					spellLikeAbility.getCastingLevel().roll(),
-					null);
-				break;
-
-			default:
-				throw new MazeException("Unrecognized spell target type: "
-					+ spellLikeAbility.getSpell().getTargetType());
-		}
-	}*/
 }

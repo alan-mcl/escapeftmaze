@@ -789,7 +789,14 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	 */
 	public int getLevel(String className)
 	{
-		return this.getLevels().get(className);
+		if (this.getLevels().containsKey(className))
+		{
+			return this.getLevels().get(className);
+		}
+		else
+		{
+			return 0;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -976,10 +983,14 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 				result.add(StringUtil.getUiLabel("mdw.influence.combat.intention"),
 					addModifier(modifier, combatantData.getCurrentIntention().getStatModifier()));
 			}
-			result.add(StringUtil.getUiLabel("mdw.influence.combat.action"),
-				addModifier(modifier, combatantData.getCurrentAction()));
-			result.add(StringUtil.getUiLabel("mdw.influence.combatant.data")
-				, addModifier(modifier, combatantData.getMiscModifiers()));
+			CombatAction currentAction = combatantData.getCurrentAction();
+			if (currentAction != null)
+			{
+				result.add(StringUtil.getUiLabel("mdw.influence.combat.action"),
+					addModifier(modifier, currentAction.getModifiers()));
+			}
+			result.add(StringUtil.getUiLabel("mdw.influence.combatant.data"),
+				addModifier(modifier, combatantData.getMiscModifiers()));
 		}
 
 		// Add the modifiers of all conditions on this character

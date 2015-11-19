@@ -361,7 +361,7 @@ public class Combat
 
 			if (cloudSpell.isAttackingAllies())
 			{
-				spellAction.isAttackingAllies = true;
+				spellAction.setAttackingAllies(true);
 			}
 
 			// todo: animation context goes nowhere?
@@ -415,7 +415,7 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	public boolean isPlayerAlly(UnifiedActor actor)
 	{
-		return partyAllies.indexOf(actor.getCombatantData().getGroup()) != -1;
+		return partyAllies.indexOf(getActorGroup(actor)) != -1;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -507,24 +507,22 @@ public class Combat
 		{
 			return party;
 		}
-		else if (isPlayerAlly(actor))
+
+		// check party allies
+		for (ActorGroup ag : getPartyAllies())
 		{
-			for (ActorGroup ag : getPartyAllies())
+			if (ag.getActors().contains(actor))
 			{
-				if (ag.getActors().contains(actor))
-				{
-					return ag;
-				}
+				return ag;
 			}
 		}
-		else
+
+		// check foes
+		for (ActorGroup ag : foes)
 		{
-			for (ActorGroup ag : foes)
+			if (ag.getActors().contains(actor))
 			{
-				if (ag.getActors().contains(actor))
-				{
-					return ag;
-				}
+				return ag;
 			}
 		}
 
@@ -776,12 +774,10 @@ public class Combat
 				int blinkInitiative =  blinkDice.roll();
 				
 				BlinkAction blinkOut = new BlinkAction();
-				blinkOut.initiative = blinkInitiative;
-				blinkOut.initiativeSet = true;
-				
+				blinkOut.setInitiative(blinkInitiative);
+
 				BlinkAction blinkIn = new BlinkAction();
-				blinkIn.initiative = Dice.d6.roll();
-				blinkIn.initiativeSet = true;
+				blinkIn.setInitiative(Dice.d6.roll());
 
 				actorActions.add(blinkOut);
 				actorActions.add(blinkIn);
@@ -789,13 +785,12 @@ public class Combat
 
 			for (CombatAction action : actorActions)
 			{
-				action.actor = actor;
-				if (!action.initiativeSet)
+				action.setActor(actor);
+				if (!action.isInitiativeSet())
 				{
-					action.initiative = 
+					action.setInitiative(
 						action.getModifier(Stats.Modifiers.INITIATIVE) + 
-						actor.getCombatantData().getIntiative();
-					action.initiativeSet = true;
+						actor.getCombatantData().getIntiative());
 				}
 			}
 
@@ -887,7 +882,7 @@ public class Combat
 			CombatAction action2 = (CombatAction)o2;
 			
 			// reverse this because we want descending order
-			return action2.initiative - action1.initiative;
+			return action2.getInitiative() - action1.getInitiative();
 		}
 	}
 }

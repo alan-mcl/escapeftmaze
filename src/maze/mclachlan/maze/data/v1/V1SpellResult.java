@@ -22,6 +22,8 @@ package mclachlan.maze.data.v1;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
@@ -37,7 +39,7 @@ public class V1SpellResult
 	static Map<Class, Integer> types;
 
 	public static final int CUSTOM = 0;
-	/** @deprecated */ public static final int CASTER_FATIGUE = 1; // removed
+	public static final int ATTACK_WITH_WEAPON = 1;
 	public static final int CHARM = 2;
 	public static final int CONDITION = 3;
 	public static final int DAMAGE = 4;
@@ -69,6 +71,7 @@ public class V1SpellResult
 	{
 		types = new HashMap<Class, Integer>();
 
+		types.put(AttackWithWeaponSpellResult.class, ATTACK_WITH_WEAPON);
 		types.put(CharmSpellResult.class, CHARM);
 		types.put(ConditionSpellResult.class, CONDITION);
 		types.put(DamageSpellResult.class, DAMAGE);
@@ -139,6 +142,22 @@ public class V1SpellResult
 		{
 			case CUSTOM:
 				s.append(sr.getClass().getName());
+				break;
+			case ATTACK_WITH_WEAPON:
+				AttackWithWeaponSpellResult awwsr = (AttackWithWeaponSpellResult)sr;
+				s.append(V1StatModifier.toString(awwsr.getModifiers()));
+				s.append(SEP);
+				s.append(V1Value.toString(awwsr.getNrStrikes()));
+				s.append(SEP);
+				s.append(awwsr.getDamageType() == null ? "" : awwsr.getDamageType().toString());
+				s.append(SEP);
+				s.append(awwsr.getAttackScript()==null?"":awwsr.getAttackScript());
+				s.append(SEP);
+				s.append(awwsr.getAttackType()==null?"":awwsr.getAttackType().getName());
+				s.append(SEP);
+				s.append(Boolean.toString(awwsr.isRequiresBackstabWeapon()));
+				s.append(SEP);
+				s.append(Boolean.toString(awwsr.isRequiresSnipeWeapon()));
 				break;
 			case CHARM:
 				s.append(V1Value.toString(((CharmSpellResult)sr).getValue()));
@@ -290,6 +309,30 @@ public class V1SpellResult
 				{
 					throw new MazeException(e);
 				}
+				break;
+			case ATTACK_WITH_WEAPON:
+				StatModifier modifiers = V1StatModifier.fromString(strs[i++]);
+				Value nrStrikes = V1Value.fromString(strs[i++]);
+				String damType = strs[i++];
+				MagicSys.SpellEffectType damageType = "".equals(damType)?null:MagicSys.SpellEffectType.valueOf(damType);
+
+				String scriptName = strs[i++];
+				String attackScript = "".equals(scriptName)?null:scriptName;
+
+				String attackTypeName = strs[i++];
+				AttackType attackType = "".equals(attackTypeName)?null:Database.getInstance().getAttackType(attackTypeName);
+
+				boolean requiresBackstabWeapon = Boolean.getBoolean(strs[i++]);
+				boolean requiresSnipeWeapon = Boolean.getBoolean(strs[i++]);
+
+				result = new AttackWithWeaponSpellResult(
+					nrStrikes,
+					modifiers,
+					attackType,
+					damageType,
+					attackScript,
+					requiresBackstabWeapon,
+					requiresSnipeWeapon);
 				break;
 			case CHARM:
 				Value v = V1Value.fromString(strs[i++]);

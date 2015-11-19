@@ -333,7 +333,7 @@ displayName=TEST
 type=WATER
 subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_CLASS_LEVEL/Berserker/false
-unsavedResult=3::test spell effect
+unsavedResult=1::8,01:1/1/SCALE_WITH_CHARACTER_LEVEL//false:FIRE:sound - buzz::false:false
 savedResult=
 targetType=2
 application=AS_PER_SPELL
@@ -3316,6 +3316,16 @@ saveAdjustment=
 unsavedResult=3::mage armour spell
 savedResult=
 targetType=0
+application=AS_PER_SPELL
+@
+name=BACKSTAB_1
+displayName=BACKSTAB_1
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=1::2000000000000000000000000000000000000,01:1/1/NONE//false::generic weapon swish:backstab:false:false
+savedResult=
+targetType=3
 application=AS_PER_SPELL
 @
 name=cerebral hemorrhage damage

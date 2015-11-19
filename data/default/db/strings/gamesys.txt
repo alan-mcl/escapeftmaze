@@ -510,6 +510,10 @@ lap_desc_arrow_cutting = The character is extremely adept at deflecting incoming
 lap_name_bard = Bard
 lap_desc_bard = Strangers met on the road always react more favourably to this character, and his or her presence in a party increases the rate of resource regeneration when camping.
 
+# stealth abilities
+lap_name_backstab1 = Backstab 1
+lap_desc_backstab1 = The character can execute a backstab - an attack with the primary weapon that deals double damage.
+
 
 # Acolyte
 lap_name_unholy = Unholy

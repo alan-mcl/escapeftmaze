@@ -46,6 +46,12 @@ public class SpellLikeAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Object getDisplayName()
+	{
+		return spell.getDisplayName();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Spell getSpell()
 	{
 		return spell;

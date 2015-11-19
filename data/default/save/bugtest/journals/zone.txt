@@ -2,3 +2,7 @@ zone
 -section-
 Gatehouse
 -end-section-
+-section-
+arena
+3250~Save Game 'bugtest' Loaded
+-end-section-
