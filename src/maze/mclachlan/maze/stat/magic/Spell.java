@@ -38,8 +38,10 @@ public class Spell
 	/** spell display name */
 	private String displayName;
 	
-	/** cost per casting level */
-	private int castingCost;
+	/** costs to cast this spell */
+	private Value hitPointCost;
+	private Value actionPointCost;
+	private Value magicPointCost;
 
 	/** spell target type, eg FOE.  A constant from {@link MagicSys.SpellTargetType} */
 	private int targetType;
@@ -90,7 +92,9 @@ public class Spell
 	public Spell(
 		String name,
 		String displayName,
-		int castingCost,
+		Value hitPointCost,
+		Value actionPointCost,
+		Value magicPointCost,
 		String description,
 		int level,
 		int targetType,
@@ -109,7 +113,9 @@ public class Spell
 	)
 	{
 		this.displayName = displayName;
-		this.castingCost = castingCost;
+		this.hitPointCost = hitPointCost;
+		this.actionPointCost = actionPointCost;
+		this.magicPointCost = magicPointCost;
 		this.description = description;
 		this.level = level;
 		this.name = name;
@@ -139,14 +145,34 @@ public class Spell
 		return name;
 	}
 
-	public int getCastingCost()
+	public Value getHitPointCost()
 	{
-		return castingCost;
+		return hitPointCost;
 	}
 
-	public void setCastingCost(int castingCost)
+	public void setHitPointCost(Value hitPointCost)
 	{
-		this.castingCost = castingCost;
+		this.hitPointCost = hitPointCost;
+	}
+
+	public Value getActionPointCost()
+	{
+		return actionPointCost;
+	}
+
+	public void setActionPointCost(Value actionPointCost)
+	{
+		this.actionPointCost = actionPointCost;
+	}
+
+	public Value getMagicPointCost()
+	{
+		return magicPointCost;
+	}
+
+	public void setMagicPointCost(Value magicPointCost)
+	{
+		this.magicPointCost = magicPointCost;
 	}
 
 	public MagicSys.SpellBook getBook()

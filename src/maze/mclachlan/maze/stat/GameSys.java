@@ -22,15 +22,16 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.*;
+import mclachlan.maze.game.ActorEncounter;
+import mclachlan.maze.game.DifficultyLevel;
+import mclachlan.maze.game.Log;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
-import mclachlan.maze.stat.combat.event.SpellCastEvent;
-import mclachlan.maze.stat.combat.event.SpellFizzlesEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.Npc;
@@ -1918,8 +1919,16 @@ public class GameSys
 				target = maze.getParty(); // what the hell, let's try it anyway
 		}
 
-		List<CombatAction> combatActions = dummyCaster.getCombatActions(
-			new SpellIntention(target, spell, castingLevel));
+		SpellIntention intention = new SpellIntention(target, spell, castingLevel);
+
+		resolveActorActionIntention(maze, dummyCaster, intention);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void resolveActorActionIntention(Maze maze, UnifiedActor caster,
+		ActorActionIntention intention)
+	{
+		List<CombatAction> combatActions = caster.getCombatActions(intention);
 
 		for (CombatAction action : combatActions)
 		{
@@ -2289,132 +2298,6 @@ public class GameSys
 			practice(assayer, Stats.Modifiers.ARTIFACTS, 1);
 			item.setIdentificationState(Item.IdentificationState.IDENTIFIED);
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * The given caster attempts to cast the given spell on an item.
-	 */
-	public void castSpellOnItem(
-		Item item,
-		Spell spell,
-		int castingLevel,
-		PlayerCharacter caster)
-	{
-		Maze.log(Log.DEBUG, "["+caster.getName()+"] casts spell ["+
-			spell.getName()+"("+castingLevel+")] on item ["+item.getName()+"]");
-
-
-		// todo: this shit is all pasted from Combat.resolveSpellAction. Should
-		// all be in one place!
-
-		List<MazeEvent> events = new ArrayList<MazeEvent>();
-
-		//=========== begin copy and past hackery ================================
-		GameSys.getInstance().practice(caster, spell.getPrimaryModifier(), 1);
-		if (Dice.d2.roll() == 2)
-		{
-			GameSys.getInstance().practice(caster, spell.getSecondaryModifier(), 1);
-		}
-
-		events.add(new SpellCastEvent(caster, spell, castingLevel));
-
-		int pointCost = MagicSys.getInstance().getMagicPointCost(spell, castingLevel, caster);
-		if (pointCost > caster.getMagicPoints().getCurrent())
-		{
-			Maze.log(Log.DEBUG, "insufficient magic points: "+pointCost+" > "+caster.getMagicPoints().getCurrent());
-			events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
-			Maze.getInstance().resolveEvents(events);
-			return;
-		}
-
-		if (caster instanceof PlayerCharacter &&
-			!((PlayerCharacter)caster).canCast(spell))
-		{
-			events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
-			Maze.getInstance().resolveEvents(events);
-			return;
-		}
-
-		int spellFailureChance = GameSys.getInstance().getSpellFailureChance(
-			caster, spell, castingLevel);
-
-		int spellFailureRoll = Dice.d100.roll();
-
-		if (spellFailureRoll <= spellFailureChance)
-		{
-			// spell fizzles (no backfires)
-			events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
-			Maze.getInstance().resolveEvents(events);
-			return;
-		}
-
-//		events.addAll(spell.getCastByPlayerScript().getEvents());
-		//========== end copy/pasta ==============================================
-
-		List<SpellEffect> effects = spell.getEffects().getRandom();
-		for (SpellEffect effect : effects)
-		{
-			// todo: currently ignoring other spell effects and events produced
-			if (effect.getTargetType() == MagicSys.SpellTargetType.ITEM)
-			{
-				SpellResult sr = effect.getUnsavedResult();
-				List<MazeEvent> mazeEvents = sr.apply(caster, item, castingLevel, effect);
-				if (mazeEvents != null)
-				{
-					events.addAll(mazeEvents);
-				}
-			}
-		}
-
-		Maze.getInstance().resolveEvents(events);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * The given caster attempts to use the given item on an item.
-	 */
-	public void useItemOnItem(
-		Item source,
-		Item target,
-		PlayerCharacter user)
-	{
-		Maze.log(Log.DEBUG, "["+user.getName()+"] uses item ["+
-			source.getName()+" on item ["+target.getName()+"]");
-
-		Spell spell = source.getInvokedSpell();
-
-		if (spell == null)
-		{
-			Maze.log(Log.DEBUG, "no effect");
-			return;
-		}
-
-		List<SpellEffect> effects = spell.getEffects().getRandom();
-		for (SpellEffect effect : effects)
-		{
-			// todo: currently ignoring other spell effects and events produced
-			if (effect.getTargetType() == MagicSys.SpellTargetType.ITEM)
-			{
-				SpellResult sr = effect.getUnsavedResult();
-				Maze.log(Log.DEBUG, "ITEM spell result found ["+sr+"]");
-
-				int castingLevel = source.getInvokedSpellLevel();
-
-				if (castingLevel == 0)
-				{
-					// zero casting level implies that the effective level should scale
-					// based on the user's skill level
-					castingLevel = GameSys.getInstance().getItemUseCastingLevel(user, source);
-				}
-
-				sr.apply(user, target, castingLevel, effect);
-			}
-		}
-
-		Maze.getInstance().appendEvents(spell.getCastByPlayerScript().getEvents());
-
-		this.useItemCharge(source, user);
 	}
 
 	/*-------------------------------------------------------------------------*/

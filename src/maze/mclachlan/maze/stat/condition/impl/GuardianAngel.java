@@ -134,7 +134,7 @@ public class GuardianAngel extends Condition
 			}
 			
 			ga.hitPoints -= damageToAngel;
-			Maze.getInstance().resolveEvent(new GuardianAngelEvent(damageToAngel), true);
+			Maze.getInstance().appendEvents(new GuardianAngelEvent(damageToAngel));
 			if (ga.hitPoints <= 0)
 			{
 				actor.removeCondition(ga);

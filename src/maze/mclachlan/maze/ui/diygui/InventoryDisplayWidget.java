@@ -31,11 +31,14 @@ import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.SpellIntention;
+import mclachlan.maze.stat.combat.UseItemIntention;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.util.MazeException;
@@ -694,7 +697,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean useItem(Item item, PlayerCharacter user, int userIndex, SpellTarget target)
+	public boolean useItem(final Item item, PlayerCharacter user, int userIndex, SpellTarget target)
 	{
 		// this whole fucking thing is such a fucking hack.  fucking ui programming horseshit
 
@@ -713,21 +716,46 @@ public class InventoryDisplayWidget extends ContainerWidget
 		else if (lastSpell != null)
 		{
 			// we've gotta cast some sort spell on this item
-			GameSys.getInstance().castSpellOnItem(item, lastSpell, lastCastingLevel, lastCaster);
-			refreshItemWidgets();
-			popupItemDetailsDialog(item);
+			SpellIntention spellIntention = new SpellIntention(item, lastSpell, lastCastingLevel);
+			GameSys.getInstance().resolveActorActionIntention(Maze.getInstance(), user, spellIntention);
+
+			Maze.getInstance().appendEvents(new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					refreshItemWidgets();
+					popupItemDetailsDialog(item);
+					return null;
+				}
+			});
+
 			setSpellStateHack(null, null, -1);
 			return true;
 		}
 		else if (lastItem != null)
 		{
 			// we've gotta invoke the given item on the chosen item
-			GameSys.getInstance().useItemOnItem(
-				lastItem,
-				item,
-				user);
-			refreshItemWidgets();
-			popupItemDetailsDialog(item);
+
+			UseItemIntention useItemIntention = new UseItemIntention(lastItem, item);
+			GameSys.getInstance().resolveActorActionIntention(Maze.getInstance(), user, useItemIntention);
+
+//			GameSys.getInstance().useItemOnItem(
+//				lastItem,
+//				item,
+//				user);
+
+			Maze.getInstance().appendEvents(new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					refreshItemWidgets();
+					popupItemDetailsDialog(item);
+					return null;
+				}
+			});
+
 			setItemStateHack(null);
 			return true;
 		}
@@ -738,7 +766,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 			// this is an item with an ITEM targeting effect
 			// (but not a spellbook! In that case the PC must learn the spell)
 			setItemStateHack(item);
-			new UseItem(StringUtil.getUiLabel("idw.invoke.spell.on item"), this, user);
+			new UseItem(StringUtil.getUiLabel("idw.invoke.spell.on.item"), this, user);
 			return true;
 		}
 
@@ -807,7 +835,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		// grant any disassembly loot
 		Maze.getInstance().setState(Maze.State.MOVEMENT);
 		List<Item> items = LootEntry.generate(loot);
-		Maze.getInstance().resolveEvents(TileScript.getLootingEvents(items), false);
+		Maze.getInstance().appendEvents(TileScript.getLootingEvents(items));
 	}
 
 	/*-------------------------------------------------------------------------*/

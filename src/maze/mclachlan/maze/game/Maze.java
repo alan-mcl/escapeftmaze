@@ -548,6 +548,11 @@ public class Maze implements Runnable
 		// display any intro configured for this campaign
 		try
 		{
+			while (this.ui == null)
+			{
+				Thread.sleep(500);
+			}
+
 			String script = campaign.getIntroScript();
 			if (script != null && script.length() > 0)
 			{
@@ -1085,13 +1090,13 @@ public class Maze implements Runnable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void resolveEvents(List<MazeEvent> events)
+	private void resolveEvents(List<MazeEvent> events)
 	{
 		this.resolveEvents(events, true);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void resolveEvents(List<MazeEvent> events, boolean displayEventText)
+	private void resolveEvents(List<MazeEvent> events, boolean displayEventText)
 	{
 		if (events == null)
 		{
@@ -1105,7 +1110,7 @@ public class Maze implements Runnable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void resolveEvent(MazeEvent event, boolean displayEventText)
+	private void resolveEvent(MazeEvent event, boolean displayEventText)
 	{
 		// todo: remove debugging~~~~
 		System.out.println("<"+Thread.currentThread().getName()+"> event = [" + event + "]");

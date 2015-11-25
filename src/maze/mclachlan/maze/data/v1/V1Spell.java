@@ -117,8 +117,16 @@ public class V1Spell
 			b.append(obj.getDisplayName());
 			b.append(V1Utils.NEWLINE);
 			
-			b.append("castingCost=");
-			b.append(obj.getCastingCost());
+			b.append("hitPointCost=");
+			b.append(V1Value.toString(obj.getHitPointCost()));
+			b.append(V1Utils.NEWLINE);
+
+			b.append("actionPointCost=");
+			b.append(V1Value.toString(obj.getActionPointCost()));
+			b.append(V1Utils.NEWLINE);
+
+			b.append("magicPointCost=");
+			b.append(V1Value.toString(obj.getMagicPointCost()));
 			b.append(V1Utils.NEWLINE);
 
 			b.append("targetType=");
@@ -200,7 +208,6 @@ public class V1Spell
 		{
 			String name = p.getProperty("name");
 			String displayName = p.getProperty("displayName");
-			int castingCost = Integer.parseInt(p.getProperty("castingCost"));
 			int targetType = Integer.parseInt(p.getProperty("targetType"));
 			String school = p.getProperty("school");
 			MagicSys.SpellBook book = MagicSys.SpellBook.valueOf(p.getProperty("book"));
@@ -219,10 +226,16 @@ public class V1Spell
 			Value wildMagicValue = V1Value.fromString(p.getProperty("wildMagicValue"));
 			String[] wildMagicTable = V1Utils.fromStringStrings(p.getProperty("wildMagicTable"), ",");
 
+			Value hitPointCost = V1Value.fromString(p.getProperty("hitPointCost"));
+			Value actionPointCost = V1Value.fromString(p.getProperty("actionPointCost"));
+			Value magicPointCost = V1Value.fromString(p.getProperty("magicPointCost"));
+
 			return new Spell(
 				name,
 				displayName,
-				castingCost,
+				hitPointCost,
+				actionPointCost,
+				magicPointCost,
 				description,
 				level,
 				targetType,

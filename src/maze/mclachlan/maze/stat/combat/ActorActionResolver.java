@@ -671,6 +671,15 @@ public class ActorActionResolver
 						s,
 						useItemAction));
 				break;
+			case MagicSys.SpellTargetType.ITEM:
+				events.addAll(
+					SpellTargetUtils.resolveItemSpell(
+						combat,
+						actor,
+						castingLevel,
+						castingLevel,
+						s,
+						(Item)useItemAction.getTarget()));
 			default:
 				throw new MazeException("Unrecognised spell target type: "+s.getTargetType());
 		}
@@ -1076,6 +1085,15 @@ public class ActorActionResolver
 					s.getLevel(),
 					s,
 					spellAction));
+				break;
+			case MagicSys.SpellTargetType.ITEM:
+				events.addAll(SpellTargetUtils.resolveItemSpell(
+					combat,
+					caster,
+					castingLevel,
+					s.getLevel(),
+					s,
+					(Item)spellAction.getTarget()));
 				break;
 			default:
 				throw new MazeException("Unrecognised spell target type: "+ targetType);

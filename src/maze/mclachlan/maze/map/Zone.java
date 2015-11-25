@@ -442,7 +442,7 @@ public class Zone
 	public void endOfTurn(long turnNr)
 	{
 		Maze.log("processing zone end of turn...");
-		Maze.getInstance().resolveEvents(this.script.endOfTurn(this, turnNr));
+		Maze.getInstance().appendEvents(this.script.endOfTurn(this, turnNr));
 		Maze.log("finished zone end of turn");
 	}
 

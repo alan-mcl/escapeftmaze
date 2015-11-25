@@ -149,35 +149,36 @@ class MazeActionListener implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void playerActivatesPortal(Point oldTile, Point newTile, int facing, Portal portal)
 	{
-		Zone oldZone = Maze.getInstance().getCurrentZone();
+		Maze maze = Maze.getInstance();
+		Zone oldZone = maze.getCurrentZone();
 
 		if (portal.getMazeScript() != null)
 		{
 			MazeScript script = Database.getInstance().getScript(portal.getMazeScript());
-			Maze.getInstance().resolveEvents(script.getEvents());
+			maze.appendEvents(script.getEvents());
 		}
 	
-		if (Maze.getInstance().getParty() == null)
+		if (maze.getParty() == null)
 		{
 			// something in the script has ended the party
 			return;
 		}
 
-		if (oldZone != Maze.getInstance().getCurrentZone())
+		if (oldZone != maze.getCurrentZone())
 		{
 			// something in the script has changed the zone
-			Maze.getInstance().getUi().showMovementScreen();
-			Maze.getInstance().incTurn(true);
+			maze.getUi().showMovementScreen();
+			maze.incTurn(true);
 			newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
 			facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-			Maze.getInstance().encounterTile(newTile, oldTile, facing);
+			maze.encounterTile(newTile, oldTile, facing);
 			return;
 		}
 
 		CrusaderEngine rc = DiyGuiUserInterface.instance.raycaster;
 		rc.setPlayerPos(newTile.x, newTile.y, facing);
-		Maze.getInstance().incTurn(true);
-		Maze.getInstance().encounterTile(newTile, oldTile, facing);
+		maze.incTurn(true);
+		maze.encounterTile(newTile, oldTile, facing);
 	}
 
 	/*-------------------------------------------------------------------------*/

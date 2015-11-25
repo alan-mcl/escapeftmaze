@@ -19,7 +19,10 @@
 
 package mclachlan.maze.data;
 
+import mclachlan.maze.data.v1.V1Value;
 import mclachlan.maze.stat.Stats;
+import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -137,4 +140,24 @@ public class StringUtil
 			return ""+value;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String descValue(Value v)
+	{
+		// todo: prettier printing
+		return V1Value.toString(v);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String descSpellTargetType(int targetType)
+	{
+		return MagicSys.SpellTargetType.describe(targetType);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static Object descSpellUsabilityType(int usabilityType)
+	{
+		return MagicSys.SpellUsabilityType.describe(usabilityType);
+	}
+
 }

@@ -244,8 +244,8 @@ public class Launcher implements ActionListener
 		// Beware the dependencies between components here.
 		maze.initDb();
 		maze.initSystems();
-		maze.initUi(getUi(config));
 		maze.startThreads();
+		maze.initUi(getUi(config));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -31,7 +31,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class Item implements AttackWith
+public class Item implements AttackWith, SpellTarget
 {
 	private int cursedState = CursedState.UNDISCOVERED;
 	private int identificationState = IdentificationState.UNIDENTIFIED;

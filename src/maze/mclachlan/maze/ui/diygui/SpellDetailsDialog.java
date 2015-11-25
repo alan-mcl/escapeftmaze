@@ -32,7 +32,6 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 
@@ -50,7 +49,7 @@ public class SpellDetailsDialog extends GeneralDialog
 		int inset = 2;
 		int border = 15;
 		
-		DIYButton ok = new DIYButton("OK");
+		DIYButton ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		ok.setBounds(new Rectangle(
 			bounds.x+ bounds.width/2 - okButtonWidth /2,
 			bounds.y+ bounds.height - okButtonHeight - inset - border,
@@ -92,51 +91,65 @@ public class SpellDetailsDialog extends GeneralDialog
 		
 		newRow(rows);
 		
-		addToRow(rows, getLabel("Spell Level:        "));
-		addToRow(rows, getLabel("" + spell.getLevel()));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.spell.level", spell.getLevel())));
+		newRow(rows);
+
+		if (spell.getHitPointCost() != null)
+		{
+			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.hit.point.cost",
+				StringUtil.descValue(spell.getHitPointCost()))));
+			newRow(rows);
+		}
+
+		if (spell.getActionPointCost() != null)
+		{
+			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.action.point.cost",
+				StringUtil.descValue(spell.getActionPointCost()))));
+			newRow(rows);
+		}
+
+		if (spell.getMagicPointCost() != null)
+		{
+			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.magic.point.cost",
+				StringUtil.descValue(spell.getMagicPointCost()))));
+			newRow(rows);
+		}
+
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.target.type",
+			StringUtil.descSpellTargetType(spell.getTargetType()))));
 		newRow(rows);
 		
-		addToRow(rows, getLabel("Casting Cost:       "));
-		addToRow(rows, getLabel("" + spell.getCastingCost()));
-		newRow(rows);
-		
-		addToRow(rows, getLabel("Target Type:        "));
-		addToRow(rows, getLabel("" + MagicSys.SpellTargetType.describe(spell.getTargetType())));
-		newRow(rows);
-		
-		addToRow(rows, getLabel("Usability Type:     "));
-		addToRow(rows, getLabel("" + MagicSys.SpellUsabilityType.describe(spell.getUsabilityType())));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.usability.type",
+			StringUtil.descSpellUsabilityType(spell.getUsabilityType()))));
 		newRow(rows);
 		
 		newRow(rows);
 		
-		addToRow(rows, getLabel("Book:               "));
-		addToRow(rows, getLabel("" + spell.getBook().getName()));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.book", spell.getBook().getName())));
 		newRow(rows);
 		
-		addToRow(rows, getLabel("School:             "));
-		addToRow(rows, getLabel("" + spell.getSchool()));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.school", spell.getSchool())));
 		newRow(rows);
 		
-		addToRow(rows, getLabel("Primary Modifier:   "));
-		addToRow(rows, getLabel("" + StringUtil.getModifierName(spell.getPrimaryModifier())));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.primary.modifier",
+			StringUtil.getModifierName(spell.getPrimaryModifier()))));
 		newRow(rows);
 		
-		addToRow(rows, getLabel("Secondary Modifier: "));
-		addToRow(rows, getLabel("" + StringUtil.getModifierName(spell.getSecondaryModifier())));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.secondary.modifier",
+			StringUtil.getModifierName(spell.getSecondaryModifier()))));
 		newRow(rows);
 
 		List<String> effects = getSpellEffectsDisplay(spell);
 		if (!effects.isEmpty())
 		{
-			StringBuilder sb = new StringBuilder("Effects:          ");
+			StringBuilder sb = new StringBuilder(StringUtil.getUiLabel("sdd.effects"));
 			getCommaString(sb, effects);
 			wrapString(rows, sb);
 		}
 
 		newRow(rows);
 		
-		addToRow(rows, getLabel("Required:                          "));
+		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.mana.required")));
 		addToRow(rows, manaRequired);
 		newRow(rows);
 		
@@ -144,10 +157,14 @@ public class SpellDetailsDialog extends GeneralDialog
 		{
 			newRow(rows);
 			
-			addToRow(rows, getLabel("Available:                         "));
+			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.mana.available")));
 			addToRow(rows, manaAvailable);
 			newRow(rows);
 		}
+
+		//
+		// Layout the rows on the pane
+		//
 
 		DIYPane pane = new DIYPane(xx, yy, width1, rows.size()*rowHeight);
 		pane.setLayoutManager(new DIYGridLayout(1, rows.size(), 0, 0));
@@ -254,7 +271,7 @@ public class SpellDetailsDialog extends GeneralDialog
 			return result;
 		}
 
-		// we're only going to display spelle effects that have display names
+		// we're only going to display spell effects that have display names
 		for (SpellEffect se : item.getEffects().getPossibilities())
 		{
 			if (se.getDisplayName() != null && se.getDisplayName().length() > 0)

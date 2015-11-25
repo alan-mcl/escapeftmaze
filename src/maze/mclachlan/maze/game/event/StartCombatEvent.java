@@ -58,7 +58,7 @@ public class StartCombatEvent extends MazeEvent
 	{
 		Maze.getInstance().getUi().clearDialog();
 
-		List<FoeGroup> actors = actorEncounter.getActors();
+		final List<FoeGroup> actors = actorEncounter.getActors();
 		Foe leader = actorEncounter.getLeader();
 
 		// not your friend any more
@@ -83,14 +83,31 @@ public class StartCombatEvent extends MazeEvent
 					Maze.getInstance().getUserConfig().getCombatDelay(), true),
 				new SummoningSucceedsEvent(foeGroups, leader));
 
-			maze.resolveEvents(evts);
-			maze.getUi().setFoes(actors);
+			maze.appendEvents(evts);
+			maze.appendEvents(new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					maze.getUi().setFoes(actors);
+					return null;
+				}
+			});
 		}
-		maze.getUi().refreshCharacterData();
+
+		maze.appendEvents(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				maze.getUi().refreshCharacterData();
+				return null;
+			}
+		});
 
 		// play the encounter fanfare
 		MazeScript script = Database.getInstance().getScript("_ENCOUNTER_");
-		maze.resolveEvents(script.getEvents());
+		maze.appendEvents(script.getEvents());
 
 		// begin encounter speech
 		int avgFoeLevel = 0;
@@ -106,21 +123,30 @@ public class StartCombatEvent extends MazeEvent
 		// execute any appearance scripts, picking from the leader
 		if (leader.getAppearanceScript() != null)
 		{
-			maze.resolveEvents(leader.getAppearanceScript().getEvents());
+			maze.appendEvents(leader.getAppearanceScript().getEvents());
 		}
 
 		//
 		// Combat is go!
 		//
-		Combat combat = new Combat(party, actors, actorEncounter.getAmbushStatus());
-		maze.setCurrentCombat(combat);
-		maze.setState(Maze.State.COMBAT);
-
-		if (actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
-			actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+		maze.appendEvents(new MazeEvent()
 		{
-			maze.executeCombatRound(combat);
-		}
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				Combat combat = new Combat(party, actors, actorEncounter.getAmbushStatus());
+				maze.setCurrentCombat(combat);
+				maze.setState(Maze.State.COMBAT);
+
+				if (actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+					actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+				{
+					maze.executeCombatRound(combat);
+				}
+
+				return null;
+			}
+		});
 
 		return null;
 	}

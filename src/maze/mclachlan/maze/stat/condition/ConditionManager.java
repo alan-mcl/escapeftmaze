@@ -94,7 +94,7 @@ public class ConditionManager implements GameCache
 					}
 				}
 			}
-			Maze.getInstance().resolveEvents(conditionEvents, false);
+			Maze.getInstance().appendEvents(conditionEvents);
 		}
 
 		Maze.log("Finished updating conditions");

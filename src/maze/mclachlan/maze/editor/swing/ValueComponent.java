@@ -19,11 +19,11 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
-import mclachlan.maze.data.v1.V1Value;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.magic.Value;
 
 /**
@@ -67,7 +67,7 @@ public class ValueComponent extends JButton implements ActionListener
 		}
 		else
 		{
-			String text = V1Value.toString(value);
+			String text = StringUtil.descValue(value);
 
 			this.setToolTipText(text);
 

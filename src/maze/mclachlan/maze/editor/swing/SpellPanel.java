@@ -39,9 +39,10 @@ public class SpellPanel extends EditorPanel
 	private JComboBox targetType, school, book, usabilityType, primaryModifier, secondaryModifier;
 	private SpellEffectGroupOfPossibilitiesPanel effects;
 	private JTextArea description;
-	private JSpinner level, castingCost;
+	private JSpinner level;
+	private ValueComponent hitPointCost, actionPointCost, magicPointCost;
 	private StatModifierComponent requirementsToLearn;
-	private ManaRequirementPanel manaRequirements; //todo
+	private ManaRequirementPanel manaRequirements;
 	private JComboBox castByPlayerScript, castByFoeScript;
 	private JCheckBox wildMagic;
 	private ValueComponent wildMagicValue;
@@ -203,10 +204,15 @@ public class SpellPanel extends EditorPanel
 		level = new JSpinner(new SpinnerNumberModel(1, 1, 256, 1));
 		level.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("Level: "), level, gbc);
-		
-		castingCost = new JSpinner(new SpinnerNumberModel(1, 0, 256, 1));
-		castingCost.addChangeListener(this);
-		dodgyGridBagShite(result, new JLabel("Casting Cost: "), castingCost, gbc);
+
+		hitPointCost = new ValueComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Hit point Cost: "), hitPointCost, gbc);
+
+		actionPointCost = new ValueComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Action point Cost: "), actionPointCost, gbc);
+
+		magicPointCost = new ValueComponent(dirtyFlag);
+		dodgyGridBagShite(result, new JLabel("Magic point Cost: "), magicPointCost, gbc);
 
 		book = new JComboBox(books);
 		book.addActionListener(this);
@@ -295,7 +301,6 @@ public class SpellPanel extends EditorPanel
 		secondaryModifier.removeActionListener(this);
 		castByPlayerScript.removeActionListener(this);
 		castByFoeScript.removeActionListener(this);
-		castingCost.removeChangeListener(this);
 		wildMagic.removeActionListener(this);
 		for (int i = 0; i < wildMagicTable.length; i++)
 		{
@@ -304,7 +309,9 @@ public class SpellPanel extends EditorPanel
 
 		level.setValue(s.getLevel());
 		displayName.setText(s.getDisplayName());
-		castingCost.setValue(s.getCastingCost());
+		hitPointCost.refresh(s.getHitPointCost());
+		actionPointCost.refresh(s.getActionPointCost());
+		magicPointCost.refresh(s.getMagicPointCost());
 		book.setSelectedItem(s.getBook().getName());
 		school.setSelectedItem(s.getSchool());
 		targetType.setSelectedIndex(s.getTargetType());
@@ -346,7 +353,6 @@ public class SpellPanel extends EditorPanel
 		secondaryModifier.addActionListener(this);
 		castByPlayerScript.addActionListener(this);
 		castByFoeScript.addActionListener(this);
-		castingCost.addChangeListener(this);
 		wildMagic.addActionListener(this);
 		for (int i = 0; i < wildMagicTable.length; i++)
 		{
@@ -360,7 +366,9 @@ public class SpellPanel extends EditorPanel
 		Spell spell = new Spell(
 			name,
 			"",
-			1,
+			new Value(0, Value.SCALE.NONE),
+			new Value(0, Value.SCALE.NONE),
+			new Value(0, Value.SCALE.NONE),
 			"",
 			1,
 			MagicSys.SpellTargetType.ALL_FOES,
@@ -394,7 +402,9 @@ public class SpellPanel extends EditorPanel
 		Spell spell = new Spell(
 			newName,
 			current.getDisplayName(),
-			current.getCastingCost(),
+			current.getHitPointCost(),
+			current.getActionPointCost(),
+			current.getMagicPointCost(),
 			current.getDescription(),
 			current.getLevel(),
 			current.getTargetType(),
@@ -425,7 +435,9 @@ public class SpellPanel extends EditorPanel
 		Spell s = Database.getInstance().getSpell(name);
 
 		s.setLevel((Integer)level.getValue());
-		s.setCastingCost((Integer)castingCost.getValue());
+		s.setHitPointCost(hitPointCost.getValue());
+		s.setActionPointCost(actionPointCost.getValue());
+		s.setMagicPointCost(magicPointCost.getValue());
 		s.setDisplayName(displayName.getText());
 		s.setBook(MagicSys.SpellBook.valueOf((String)book.getSelectedItem()));
 		s.setSchool((String)school.getSelectedItem());
@@ -441,7 +453,6 @@ public class SpellPanel extends EditorPanel
 		s.setDescription(description.getText());
 		s.setEffects(effects.getGroupOfPossibilties());
 		s.setRequirementsToCast(manaRequirements.getManaRequirements());
-		s.setCastingCost((Integer)castingCost.getValue());
 
 		if (wildMagic.isSelected())
 		{

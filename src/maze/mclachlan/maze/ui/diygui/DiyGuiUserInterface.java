@@ -794,7 +794,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	private void executeMazeScript(String scriptName)
 	{
 		MazeScript script = Database.getInstance().getScript(scriptName);
-		Maze.getInstance().resolveEvents(script.getEvents());
+		Maze.getInstance().appendEvents(script.getEvents());
 	}
 
 	public void resetMainMenuState()

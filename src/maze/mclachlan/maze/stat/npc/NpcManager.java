@@ -170,7 +170,7 @@ public class NpcManager implements GameCache
 		Maze.log("updating NPCs...");
 		for (Npc npc : this.npcs.values())
 		{
-			Maze.getInstance().resolveEvents(npc.getScript().endOfTurn(turnNr));
+			Maze.getInstance().appendEvents(npc.getScript().endOfTurn(turnNr));
 			if (npc.getTradingInventory()!= null &&
 				npc.getInventoryTemplate() != null &&
 				(turnNr % 200 == 0))

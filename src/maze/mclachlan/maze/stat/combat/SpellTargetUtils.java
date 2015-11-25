@@ -688,4 +688,33 @@ public class SpellTargetUtils
 
 		return result;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public static List<MazeEvent> resolveItemSpell(
+		Combat combat,
+		UnifiedActor caster,
+		int castingLevel,
+		int level,
+		Spell spell,
+		Item target)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		List<SpellEffect> effects = spell.getEffects().getRandom();
+		for (SpellEffect effect : effects)
+		{
+			// todo: currently ignoring other spell effects and events produced
+			if (effect.getTargetType() == MagicSys.SpellTargetType.ITEM)
+			{
+				SpellResult sr = effect.getUnsavedResult();
+				List<MazeEvent> mazeEvents = sr.apply(caster, target, castingLevel, effect);
+				if (mazeEvents != null)
+				{
+					result.addAll(mazeEvents);
+				}
+			}
+		}
+
+		return result;
+	}
 }

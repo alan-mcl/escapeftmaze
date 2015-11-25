@@ -77,9 +77,33 @@ public class SpecialAbilityUseEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		int cost = MagicSys.getInstance().getMagicPointCost(spell, castingLevel, caster);
-		caster.getMagicPoints().decCurrent(cost);
-		return null;
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		int hitPointCost = MagicSys.getInstance().getHitPointCost(spell, castingLevel, caster);
+		int actionPointCost = MagicSys.getInstance().getActionPointCost(spell, castingLevel, caster);
+		int magicPointCost = MagicSys.getInstance().getMagicPointCost(spell, castingLevel, caster);
+
+		caster.getHitPoints().decCurrent(hitPointCost);
+		caster.getActionPoints().decCurrent(actionPointCost);
+		caster.getMagicPoints().decCurrent(magicPointCost);
+
+		if (caster.getHitPoints().getCurrent() < 0)
+		{
+			caster.getHitPoints().setCurrent(0);
+			result.add(new ActorDiesEvent(caster, caster));
+		}
+
+		if (caster.getActionPoints().getCurrent() < 0)
+		{
+			caster.getActionPoints().setCurrent(0);
+		}
+
+		if (caster.getMagicPoints().getCurrent() < 0)
+		{
+			caster.getMagicPoints().setCurrent(0);
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

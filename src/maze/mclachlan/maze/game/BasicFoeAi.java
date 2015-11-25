@@ -25,6 +25,7 @@ import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -182,8 +183,12 @@ public class BasicFoeAi extends FoeCombatAi
 			}
 			while (spell == null || count < 20);
 
-			// pick the max casting level (start at the max)
-			int castingLevel = foe.getMagicPoints().getCurrent() / spell.getCastingCost();
+			// work out the max casting level
+			int hpCastingLevel = getMaxCastingLevel(foe, foe.getHitPoints(), spell.getHitPointCost());
+			int apCastingLevel = getMaxCastingLevel(foe, foe.getActionPoints(), spell.getActionPointCost());
+			int mpCastingLevel = getMaxCastingLevel(foe, foe.getMagicPoints(), spell.getMagicPointCost());
+
+			int castingLevel = Math.min(hpCastingLevel, Math.min(apCastingLevel, mpCastingLevel));
 
 			while (castingLevel > 1 &&
 				GameSys.getInstance().getSpellFailureChance(foe, spell, castingLevel) > 10)
@@ -200,6 +205,19 @@ public class BasicFoeAi extends FoeCombatAi
 		}
 
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private int getMaxCastingLevel(UnifiedActor actor, CurMax resource, Value cost)
+	{
+		if (cost == null)
+		{
+			return MagicSys.MAX_CASTING_LEVEL;
+		}
+		else
+		{
+			return Math.min(resource.getCurrent() / cost.compute(actor), MagicSys.MAX_CASTING_LEVEL);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
