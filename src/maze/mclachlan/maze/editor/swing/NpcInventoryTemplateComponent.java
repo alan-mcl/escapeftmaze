@@ -19,15 +19,14 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
-import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.map.ILootEntry;
@@ -35,42 +34,36 @@ import mclachlan.maze.map.LootEntryRow;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplateRow;
+import mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem;
+import mclachlan.maze.stat.npc.NpcInventoryTemplateRowLootEntry;
 import mclachlan.maze.util.GenInv;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.stat.ItemTemplate.*;
+import static mclachlan.maze.stat.ItemTemplate.Type;
 
 /**
  *
  */
-public class NpcInventoryTemplateComponent extends JPanel implements ActionListener
+public class NpcInventoryTemplateComponent extends JPanel
+	implements ActionListener, MouseListener
 {
-	private int dirtyFlag;
-	JTable table;
-	JButton add, remove, quickFill, clear;
-	MyTableModel dataModel;
-	JComboBox itemTemplateCombo;
+	private final int dirtyFlag;
+	private JButton add, remove, quickFill, clear;
+	private JComboBox itemTemplateCombo;
+
+	private JList list;
+	private InventoryTemplateRowListModel dataModel;
 
 	/*-------------------------------------------------------------------------*/
-	protected NpcInventoryTemplateComponent(int dirtyFlag, double scaleX, double scaleY)
+	protected NpcInventoryTemplateComponent(int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
 
 		itemTemplateCombo = new JComboBox();
-		dataModel = new MyTableModel();
-		table = new JTable(dataModel);
-		table.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		table.setDefaultRenderer(Integer.TYPE, new DefaultTableCellRenderer());
-		table.getColumnModel().getColumn(0).setCellEditor(new DefaultCellEditor(itemTemplateCombo));
-		table.getColumnModel().getColumn(1).setCellEditor(new DefaultCellEditor(new JTextField()));
-		table.getColumnModel().getColumn(2).setCellEditor(new DefaultCellEditor(new JTextField()));
-		table.getColumnModel().getColumn(3).setCellEditor(new DefaultCellEditor(new JTextField()));
-		table.getColumnModel().getColumn(4).setCellEditor(new DefaultCellEditor(new JTextField()));
-		table.getColumnModel().getColumn(5).setCellEditor(new DefaultCellEditor(new JTextField()));
-
-		Dimension d = table.getPreferredScrollableViewportSize();
-		table.setPreferredScrollableViewportSize(
-			new Dimension((int)(d.width*scaleX), (int)(d.height*scaleY)));
+		dataModel = new InventoryTemplateRowListModel(
+			new ArrayList<NpcInventoryTemplateRow>());
+		list = new JList(dataModel);
+		list.addMouseListener(this);
 
 		add = new JButton("Add");
 		add.addActionListener(this);
@@ -87,7 +80,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		buttons.add(clear);
 
 		this.setLayout(new BorderLayout(3,3));
-		this.add(new JScrollPane(table), BorderLayout.CENTER);
+		this.add(new JScrollPane(list), BorderLayout.CENTER);
 		this.add(buttons, BorderLayout.NORTH);
 	}
 
@@ -104,18 +97,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 	{
 		List<NpcInventoryTemplateRow> result = new ArrayList<NpcInventoryTemplateRow>();
 
-		for (int i=0; i<dataModel.itemTemplates.size(); i++)
-		{
-			String s = dataModel.stackSizes.get(i);
-			result.add(
-				new NpcInventoryTemplateRow(
-					dataModel.itemTemplates.get(i),
-					dataModel.chancesOfSpawning.get(i),
-					dataModel.partyLevelsAppearing.get(i),
-					dataModel.maxesStocked.get(i),
-					dataModel.chancesOfVanishing.get(i),
-					s==null?null:V1Dice.fromString(s)));
-		}
+		result.addAll(dataModel.data);
 
 		return result;
 	}
@@ -128,38 +110,51 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		if (list != null)
 		{
 			Collections.sort(list, new NpcInvTemRowCmp());
-			for (NpcInventoryTemplateRow row : list)
+			for (NpcInventoryTemplateRow r : list)
 			{
-				dataModel.add(
-					row.getItemName(),
-					row.getChanceOfSpawning(),
-					row.getPartyLevelAppearing(),
-					row.getMaxStocked(),
-					row.getChanceOfVanishing(),
-					row.getStackSize());
+				dataModel.add(r);
 			}
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	private void editListItem()
+	{
+		int index = list.getSelectedIndex();
+		if (index > -1)
+		{
+			NpcInventoryTemplateRow row = dataModel.data.get(index);
+
+			InventoryRowDialog dialog = new InventoryRowDialog(row);
+			if (dialog.getInventoryTemplateRow() != null)
+			{
+				SwingEditor.instance.setDirty(dirtyFlag);
+				dataModel.update(dialog.getInventoryTemplateRow(), index);
+			}
+		}
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == add)
 		{
-			dataModel.add(
-				(String)itemTemplateCombo.getItemAt(0),
-				0,
-				0,
-				0,
-				0,
-				Dice.d1);
+			InventoryRowDialog d = new InventoryRowDialog();
+
+			if (d.apply)
+			{
+				dataModel.add(d.getInventoryTemplateRow());
+				SwingEditor.instance.setDirty(dirtyFlag);
+			}
 		}
 		else if (e.getSource() == remove)
 		{
-			int index = table.getSelectedRow();
+			int index = list.getSelectedIndex();
 			if (index > -1)
 			{
 				dataModel.remove(index);
+				SwingEditor.instance.setDirty(dirtyFlag);
 			}
 		}
 		else if (e.getSource() == quickFill)
@@ -169,13 +164,50 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 			if (d.apply)
 			{
 				quickFillInvTemplate(d);
+				SwingEditor.instance.setDirty(dirtyFlag);
 			}
 		}
 		else if (e.getSource() == clear)
 		{
 			dataModel.clear();
+			SwingEditor.instance.setDirty(dirtyFlag);
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void mouseClicked(MouseEvent e)
+	{
+		if (e.getSource() == list)
+		{
+			if (e.getClickCount() == 2)
+			{
+				// a double click on a list item, treat as an edit
+				SwingEditor.instance.setDirty(dirtyFlag);
+				editListItem();
+			}
+		}
+	}
+
+	public void mousePressed(MouseEvent e)
+	{
+
+	}
+
+	public void mouseReleased(MouseEvent e)
+	{
+
+	}
+
+	public void mouseEntered(MouseEvent e)
+	{
+
+	}
+
+	public void mouseExited(MouseEvent e)
+	{
+
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	private void quickFillInvTemplate(QuickFillDialog d)
@@ -246,13 +278,16 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 				int vanishChance = vanishDice==null ? 15 : vanishDice.roll();
 				Dice stack = stackDice==null ? getDefaultStackSize(it.getType()) : stackDice;
 
-				dataModel.add(
+				// todo: shouldn't this add a Loot Entry? Or maybe be removed?
+				NpcInventoryTemplateRowItem r = new NpcInventoryTemplateRowItem(
 					it.getName(),
 					spawnChance,
 					lvlAppearing,
 					stocked,
 					vanishChance,
 					stack);
+
+				dataModel.add(r);
 			}
 		}
 	}
@@ -283,17 +318,20 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 				int vanishChance = vanishDice==null ? 15 : vanishDice.roll();
 				Dice stack = stackDice==null ? getDefaultStackSize(type) : stackDice;
 
-				dataModel.add(
+				NpcInventoryTemplateRowItem r = new NpcInventoryTemplateRowItem(
 					it.getName(),
 					spawnChance,
 					lvlAppearing,
 					stocked,
 					vanishChance,
 					stack);
+
+				dataModel.add(r);
 			}
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private Dice getDefaultStackSize(int type)
 	{
 		switch (type)
@@ -307,6 +345,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private Dice getDice(String txt)
 	{
 		try
@@ -328,131 +367,112 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 	}
 
 	/*-------------------------------------------------------------------------*/
-	class MyTableModel extends AbstractTableModel
+	private JPanel dirtyGridBagCrap(Component... comps)
 	{
-		List<String> itemTemplates = new ArrayList<String>();
-		List<Integer> chancesOfSpawning = new ArrayList<Integer>();
-		List<Integer> partyLevelsAppearing = new ArrayList<Integer>();
-		List<Integer> maxesStocked = new ArrayList<Integer>();
-		List<Integer> chancesOfVanishing = new ArrayList<Integer>();
-		List<String> stackSizes = new ArrayList<String>();
-
-		/*----------------------------------------------------------------------*/
-		public String getColumnName(int column)
+		JPanel result = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+		for (int i=0; i<comps.length; i+=2)
 		{
-			switch (column)
-			{
-				case 0: return "Item Template";
-				case 1: return "Chance Of Spawning";
-				case 2: return "Party Level Appearing";
-				case 3: return "Max Stocked";
-				case 4: return "Chance Of Vanishing";
-				case 5: return "Stack Size";
-				default: throw new MazeException("Invalid column "+column);
-			}
+			dodgyGridBagShite(result, comps[i], comps[i+1], gbc);
 		}
 
-		/*----------------------------------------------------------------------*/
-		public int getColumnCount()
+		gbc.weighty = 1.0;
+		dodgyGridBagShite(result, new JLabel(), new JLabel(), gbc);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected void dodgyGridBagShite(JPanel panel, Component a, Component b, GridBagConstraints gbc)
+	{
+		gbc.weightx = 0.0;
+		gbc.gridx=0;
+		panel.add(a, gbc);
+		gbc.weightx = 1.0;
+		gbc.gridx++;
+		panel.add(b, gbc);
+		gbc.gridy++;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected GridBagConstraints createGridBagConstraints()
+	{
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(2,2,2,2);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
+		gbc.anchor = GridBagConstraints.WEST;
+		return gbc;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class InventoryTemplateRowListModel extends AbstractListModel
+	{
+		List<NpcInventoryTemplateRow> data;
+
+		public InventoryTemplateRowListModel(List<NpcInventoryTemplateRow> data)
 		{
-			return 6;
+			this.data = data;
 		}
 
-		/*----------------------------------------------------------------------*/
-		public int getRowCount()
+		public Object getElementAt(int index)
 		{
-			return itemTemplates.size();
+			NpcInventoryTemplateRow row = data.get(index);
+			return row.toString();
 		}
 
-		/*----------------------------------------------------------------------*/
-		public Object getValueAt(int rowIndex, int columnIndex)
+		public int getSize()
 		{
-			switch (columnIndex)
-			{
-				case 0: return itemTemplates.get(rowIndex);
-				case 1: return chancesOfSpawning.get(rowIndex);
-				case 2: return partyLevelsAppearing.get(rowIndex);
-				case 3: return maxesStocked.get(rowIndex);
-				case 4: return chancesOfVanishing.get(rowIndex);
-				case 5: return stackSizes.get(rowIndex);
-				default: throw new MazeException("Invalid columnIndex "+columnIndex);
-			}
+			return data.size();
 		}
 
-		/*----------------------------------------------------------------------*/
-		public void setValueAt(Object aValue, int rowIndex, int columnIndex)
+		public void add(NpcInventoryTemplateRow me)
 		{
-			SwingEditor.instance.setDirty(dirtyFlag);
-			switch (columnIndex)
-			{
-				case 0: itemTemplates.set(rowIndex, (String)aValue); break;
-				case 1: chancesOfSpawning.set(rowIndex, Integer.valueOf((String)aValue)); break;
-				case 2: partyLevelsAppearing.set(rowIndex, Integer.valueOf((String)aValue)); break;
-				case 3: maxesStocked.set(rowIndex, Integer.valueOf((String)aValue)); break;
-				case 4: chancesOfVanishing.set(rowIndex, Integer.valueOf((String)aValue)); break;
-				case 5:
-					{
-						String cov = (String)aValue;
-						if (cov.equals(""))
-						{
-							stackSizes.set(rowIndex, null);
-						}
-						else
-						{
-							stackSizes.set(rowIndex, cov);
-						}
-						break;
-					}
-				default: throw new MazeException("Invalid columnIndex "+columnIndex);
-			}
+			data.add(me);
+			fireContentsChanged(this, data.size(), data.size());
 		}
 
-		/*----------------------------------------------------------------------*/
-		public boolean isCellEditable(int rowIndex, int columnIndex)
-		{
-			return true;
-		}
-
-		/*----------------------------------------------------------------------*/
-		public void clear()
-		{
-			itemTemplates.clear();
-			chancesOfVanishing.clear();
-			chancesOfSpawning.clear();
-			stackSizes.clear();
-			maxesStocked.clear();
-			partyLevelsAppearing.clear();
-			fireTableDataChanged();
-		}
-
-		/*----------------------------------------------------------------------*/
-		public void add(
-			String item, 
-			int chanceOfSpawning,
-			int partyLevelAppearing,
-			int maxStocked,
-			int chanceOfVanishing,
-			Dice stackSize)
-		{
-			this.itemTemplates.add(item);
-			this.chancesOfVanishing.add(chanceOfVanishing);
-			this.chancesOfSpawning.add(chanceOfSpawning);
-			this.stackSizes.add(V1Dice.toString(stackSize));
-			this.maxesStocked.add(maxStocked);
-			this.partyLevelsAppearing.add(partyLevelAppearing);
-			fireTableDataChanged();
-		}
-
-		/*----------------------------------------------------------------------*/
 		public void remove(int index)
 		{
-			itemTemplates.remove(index);
-			chancesOfVanishing.remove(index);
-			chancesOfSpawning.remove(index);
-			stackSizes.remove(index);
-			maxesStocked.remove(index);
-			partyLevelsAppearing.remove(index);
-			fireTableDataChanged();
+			data.remove(index);
+			fireIntervalRemoved(this, index, index);
+		}
+
+		public void update(NpcInventoryTemplateRow me, int index)
+		{
+			data.set(index, me);
+			fireContentsChanged(this, index, index);
+		}
+
+		public void moveUp(int index)
+		{
+			if (index > 0)
+			{
+				NpcInventoryTemplateRow row = data.remove(index);
+				data.add(index-1, row);
+				fireContentsChanged(this, index-1, index);
+			}
+		}
+
+		public void moveDown(int index)
+		{
+			if (index < data.size()-1)
+			{
+				NpcInventoryTemplateRow row = data.remove(index);
+				data.add(index+1, row);
+				fireContentsChanged(this, index, index+1);
+			}
+		}
+
+		public void clear()
+		{
+			int size = data.size();
+			data.clear();
+			fireContentsChanged(this, 0, size-1);
 		}
 	}
 
@@ -464,7 +484,32 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 			NpcInventoryTemplateRow r1 = (NpcInventoryTemplateRow)o1;
 			NpcInventoryTemplateRow r2 = (NpcInventoryTemplateRow)o2;
 
-			return r1.getItemName().compareTo(r2.getItemName());
+			int sortOrder = getSortOrder(r1) - getSortOrder(r2);
+
+			if (sortOrder != 0)
+			{
+				return sortOrder;
+			}
+			else
+			{
+				return r1.compareTo(r2);
+			}
+		}
+
+		private int getSortOrder(NpcInventoryTemplateRow row)
+		{
+			if (row instanceof NpcInventoryTemplateRowLootEntry)
+			{
+				return 1;
+			}
+			else if (row instanceof NpcInventoryTemplateRowItem)
+			{
+				return 2;
+			}
+			else
+			{
+				throw new MazeException(""+row);
+			}
 		}
 	}
 
@@ -574,6 +619,184 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
+	private class InventoryRowDialog extends JDialog implements ActionListener
+	{
+		private boolean apply = false;
+
+		private JTabbedPane tabbedPane;
+		private JButton ok, cancel;
+		private JComboBox<String> items, lootEntries;
+		private JSpinner spawnChance, vanishChance, partyLevelAppearing, maxStocked;
+		private DiceField stackSize, itemsToSpawnLE;
+		private JSpinner spawnChanceLE, vanishChanceLE, partyLevelAppearingLE, maxStockedLE;
+
+		/*-------------------------------------------------------------------------*/
+		private InventoryRowDialog()
+		{
+			super(SwingEditor.instance, "Add To Inventory Template", true);
+			buildUI();
+			setVisible(true);
+		}
+
+		/*-------------------------------------------------------------------------*/
+		private InventoryRowDialog(NpcInventoryTemplateRow row)
+		{
+			super(SwingEditor.instance, "Add To Inventory Template", true);
+			buildUI();
+
+			if (row instanceof NpcInventoryTemplateRowItem)
+			{
+				NpcInventoryTemplateRowItem r = (NpcInventoryTemplateRowItem)row;
+
+				tabbedPane.setSelectedIndex(0);
+
+				items.setSelectedItem(r.getItemName());
+				spawnChance.setValue(r.getChanceOfSpawning());
+				vanishChance.setValue(r.getChanceOfVanishing());
+				partyLevelAppearing.setValue(r.getPartyLevelAppearing());
+				maxStocked.setValue(r.getMaxStocked());
+				stackSize.setDice(r.getStackSize());
+			}
+			else if (row instanceof NpcInventoryTemplateRowLootEntry)
+			{
+				NpcInventoryTemplateRowLootEntry r = (NpcInventoryTemplateRowLootEntry)row;
+
+				tabbedPane.setSelectedIndex(1);
+
+				items.setSelectedItem(r.getLootEntry());
+				spawnChance.setValue(r.getChanceOfSpawning());
+				vanishChance.setValue(r.getChanceOfVanishing());
+				partyLevelAppearing.setValue(r.getPartyLevelAppearing());
+				maxStocked.setValue(r.getMaxStocked());
+				itemsToSpawnLE.setValue(r.getItemsToSpawn());
+			}
+
+			setVisible(true);
+		}
+
+		/*-------------------------------------------------------------------------*/
+		private void buildUI()
+		{
+			setLayout(new BorderLayout());
+
+			JPanel buttons = new JPanel();
+			ok = new JButton("OK");
+			ok.addActionListener(this);
+			cancel = new JButton("Cancel");
+			cancel.addActionListener(this);
+			buttons.add(ok);
+			buttons.add(cancel);
+
+			tabbedPane = new JTabbedPane();
+
+			tabbedPane.add("Item", getItemPanel());
+			tabbedPane.add("Loot Entry", getLootEntryPanel());
+
+			this.add(tabbedPane, BorderLayout.CENTER);
+			this.add(buttons, BorderLayout.SOUTH);
+
+			pack();
+			setLocationRelativeTo(NpcInventoryTemplateComponent.this);
+		}
+
+		/*-------------------------------------------------------------------------*/
+		private Component getItemPanel()
+		{
+			Vector<String> itemVec = new Vector<String>(
+				Database.getInstance().getItemTemplates().keySet());
+			Collections.sort(itemVec);
+			items = new JComboBox<String>(itemVec);
+
+			spawnChance = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
+			vanishChance = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
+			partyLevelAppearing = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
+			maxStocked = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
+			stackSize = new DiceField();
+
+			return dirtyGridBagCrap(
+				new JLabel("Item:"), items,
+				new JLabel("Party Lvl Appearing:"), partyLevelAppearing,
+				new JLabel("Spawn Chance (%):"), spawnChance,
+				new JLabel("Vanish Chance (%):"), vanishChance,
+				new JLabel("Max Stocked:"), maxStocked,
+				new JLabel("Stack Size:"), stackSize);
+		}
+
+		/*-------------------------------------------------------------------------*/
+		private Component getLootEntryPanel()
+		{
+			Vector<String> leVec = new Vector<String>(
+				Database.getInstance().getLootEntries().keySet());
+			Collections.sort(leVec);
+			lootEntries = new JComboBox<String>(leVec);
+
+			spawnChanceLE = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
+			vanishChanceLE = new JSpinner(new SpinnerNumberModel(15, 1, 100, 1));
+			partyLevelAppearingLE = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
+			maxStockedLE = new JSpinner(new SpinnerNumberModel(5, 1, 100, 1));
+			itemsToSpawnLE = new DiceField();
+
+			return dirtyGridBagCrap(
+				new JLabel("Loot Entry:"), lootEntries,
+				new JLabel("Party Lvl Appearing:"), partyLevelAppearingLE,
+				new JLabel("Spawn Chance (%):"), spawnChanceLE,
+				new JLabel("Vanish Chance (%):"), vanishChanceLE,
+				new JLabel("Max Stocked:"), maxStockedLE,
+				new JLabel("Items To Spawn Each Round:"), itemsToSpawnLE);
+		}
+
+		/*-------------------------------------------------------------------------*/
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			if (e.getSource() == ok)
+			{
+				apply = true;
+			}
+
+			setVisible(false);
+		}
+
+		/*-------------------------------------------------------------------------*/
+		public NpcInventoryTemplateRow getInventoryTemplateRow()
+		{
+			if (apply)
+			{
+				if (tabbedPane.getSelectedIndex() == 0)
+				{
+					return new NpcInventoryTemplateRowItem(
+						(String)items.getSelectedItem(),
+						(Integer)spawnChance.getValue(),
+						(Integer)partyLevelAppearing.getValue(),
+						(Integer)maxStocked.getValue(),
+						(Integer)vanishChance.getValue(),
+						stackSize.getDice());
+				}
+				else if (tabbedPane.getSelectedIndex() == 1)
+				{
+					return new NpcInventoryTemplateRowLootEntry(
+						(Integer)spawnChance.getValue(),
+						(Integer)partyLevelAppearing.getValue(),
+						(Integer)maxStocked.getValue(),
+						(Integer)vanishChance.getValue(),
+						(String)lootEntries.getSelectedItem(),
+						itemsToSpawnLE.getDice());
+				}
+				else
+				{
+					throw new MazeException(""+tabbedPane.getSelectedIndex());
+				}
+			}
+			else
+			{
+				return null;
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private class ItemTypeComponent extends JPanel
 	{
 		int type;
@@ -585,7 +808,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		private ItemTypeComponent(int type)
 		{
 			this.type = type;
-			
+
 			setLayout(new GridLayout(1, 8));
 
 			select = new JCheckBox("sells?");
@@ -608,6 +831,7 @@ public class NpcInventoryTemplateComponent extends JPanel implements ActionListe
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private class LootEntryComponent extends JPanel
 	{
 		JComboBox lootEntry;

@@ -20,18 +20,16 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.*;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.ItemTemplate;
 
 /**
  *
  */
 public class NpcInventoryTemplate
 {
-	List<NpcInventoryTemplateRow> rows;
+	private List<NpcInventoryTemplateRow> rows;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcInventoryTemplate()
@@ -69,7 +67,7 @@ public class NpcInventoryTemplate
 		Dice stackSize)
 	{
 		this.rows.add(
-			new NpcInventoryTemplateRow(
+			new NpcInventoryTemplateRowItem(
 				itemName,
 				chanceOfSpawning,
 				partyLevelAppearing,
@@ -108,65 +106,32 @@ public class NpcInventoryTemplate
 
 		// now, spawn new items
 		int clvl = Maze.getInstance().getParty().getPartyLevel();
-		for (NpcInventoryTemplateRow t : rows)
+		for (NpcInventoryTemplateRow row : rows)
 		{
-			if (getNumInStock(t.itemName, currentInventory) < t.maxStocked)
-			{
-				if (clvl >= t.partyLevelAppearing && Dice.d100.roll() <= t.chanceOfSpawning)
-				{
-					ItemTemplate itemTemplate = Database.getInstance().getItemTemplate(t.itemName);
-					Item newItem = null;
+			List<Item> spawned = row.spawnNewItems(clvl, currentInventory);
 
-					if (itemTemplate.getMaxItemsPerStack() > 0 && t.stackSize != null)
-					{
-						newItem = itemTemplate.create(t.stackSize.roll());
-					}
-					else
-					{
-						newItem = itemTemplate.create();
-					}
-
-					// set vendor items to always identified
-					newItem.setIdentificationState(Item.IdentificationState.IDENTIFIED);
-					currentInventory.add(newItem);
-				}
-			}
+			currentInventory.addAll(spawned);
 		}
 
 		return currentInventory;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	int getNumInStock(String itemName, List<Item> inv)
-	{
-		int result = 0;
-
-		for (Item i : inv)
-		{
-			if (i.getName().equals(itemName))
-			{
-				result++;
-			}
-		}
-
-		return result;
-	}
 
 	/*-------------------------------------------------------------------------*/
-	int getChanceOfVanishing(Item i)
+	private int getChanceOfVanishing(Item item)
 	{
-		for (NpcInventoryTemplateRow t : rows)
+		for (NpcInventoryTemplateRow row : rows)
 		{
-			if (i.getName().equals(t.itemName))
+			if (row.contains(item))
 			{
 				// use the configured chance of vanishing
-				return t.chanceOfVanishing;
+				return row.getChanceOfVanishing();
 			}
 		}
 
 		// not an item in this template (perhaps sold to us by the PCs)
-		// default to a 10% chance of vanishing
-		return 10;
+		// default to a 2% chance of vanishing
+		return 2;
 	}
 
 	/*-------------------------------------------------------------------------*/

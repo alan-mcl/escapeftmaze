@@ -34,81 +34,81 @@ public class NpcTemplate
 	//
 
 	/** The display name for this NPC */
-	String displayName;
+	private String displayName;
 
 	/** The name of the foe representing this NPC */
-	String foeName;
+	private String foeName;
 
 	/** The name of the faction that this NPC belongs to */
-	String faction;
+	private String faction;
 
 	/** The attitude of this NPC towards the party */
-	NpcFaction.Attitude attitude;
+	private NpcFaction.Attitude attitude;
 
 	/** The all important NPC script */
-	NpcScript script;
+	private NpcScript script;
 
 	/** The name of an encounter table of aid that this NPC summons */
-	String alliesOnCall;
+	private String alliesOnCall;
 
 	//
 	// trading parameters
 	//
 
 	/** base % of item price that this NPC buys items from the party at */
-	int buysAt;
+	private int buysAt;
 
 	/** base % of item price that this NPC sells items to the party at */
-	int sellsAt;
+	private int sellsAt;
 
 	/** the max amount that this NPC will spend to buy an item from the party */
-	int maxPurchasePrice;
+	private int maxPurchasePrice;
 
 	/** which item types this NPC will buy, a bitset over the values in {@link
 	 * mclachlan.maze.stat.ItemTemplate.Type} */
-	BitSet willBuyItemTypes;
+	private BitSet willBuyItemTypes;
 
 	/** how this NPCs inventory is populated */
-	NpcInventoryTemplate inventoryTemplate;
+	private NpcInventoryTemplate inventoryTemplate;
 
 	//
 	// Interaction parameters
 	//
 
 	/** a positive value indicates a high resistance to threats */
-	int resistThreats;
+	private int resistThreats;
 
 	/** a positive value indicates a high resistance to bribes */
-	int resistBribes;
+	private int resistBribes;
 
 	/** a positive value indicates a high resistance to theft */
-	int resistSteal;
+	private int resistSteal;
 
 	/** a measure of how likely the NPC thinks the party is of stealing from him,
 	 * based on their past actions */
-	int theftCounter;
+	private int theftCounter;
 
 	/** basic dialogue of this NPC */
-	NpcSpeech dialogue;
+	private NpcSpeech dialogue;
 
 	//
 	// map parameters
 	//
 
 	/** the current zone that the NPC is in */
-	String zone;
+	private String zone;
 
 	/** the tile that the NPC is on */
-	Point tile;
+	private Point tile;
 
 	/** whether the PCs have ever met this NPC before */
-	boolean found;
+	private boolean found;
 
 	/** whether this NPC is dead */
-	boolean dead;
+	private boolean dead;
 	
 	/** whether this NPC is a guild master */
-	boolean guildMaster;
+	private boolean guildMaster;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcTemplate(

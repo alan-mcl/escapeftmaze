@@ -19,9 +19,12 @@
 
 package mclachlan.maze.data.v1;
 
+import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.npc.NpcInventoryTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplateRow;
-import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem;
+import mclachlan.maze.stat.npc.NpcInventoryTemplateRowLootEntry;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -30,6 +33,9 @@ public class V1NpcInventoryTemplate
 {
 	public static final String ROW_SEP = "/";
 	public static final String COL_SEP = ":";
+
+	public static final int TYPE_ITEM = 0;
+	public static final int TYPE_LOOT = 1;
 
 	/*-------------------------------------------------------------------------*/
 	public static String toString(NpcInventoryTemplate b)
@@ -77,44 +83,107 @@ public class V1NpcInventoryTemplate
 	}
 
 	/*-------------------------------------------------------------------------*/
-	static String rowToString(NpcInventoryTemplateRow row)
+	static String rowToString(NpcInventoryTemplateRow r)
 	{
 		StringBuilder s = new StringBuilder();
-		s.append(row.getItemName());
-		s.append(COL_SEP);
-		s.append(row.getChanceOfSpawning());
-		s.append(COL_SEP);
-		s.append(row.getPartyLevelAppearing());
-		s.append(COL_SEP);
-		s.append(row.getMaxStocked());
-		s.append(COL_SEP);
-		s.append(row.getChanceOfVanishing());
-		s.append(COL_SEP);
-		s.append(V1Dice.toString(row.getStackSize()));
-		return s.toString();
+
+		if (r instanceof NpcInventoryTemplateRowItem)
+		{
+			NpcInventoryTemplateRowItem row = (NpcInventoryTemplateRowItem)r;
+
+			s.append(TYPE_ITEM);
+			s.append(COL_SEP);
+			s.append(row.getItemName());
+			s.append(COL_SEP);
+			s.append(row.getChanceOfSpawning());
+			s.append(COL_SEP);
+			s.append(row.getPartyLevelAppearing());
+			s.append(COL_SEP);
+			s.append(row.getMaxStocked());
+			s.append(COL_SEP);
+			s.append(row.getChanceOfVanishing());
+			s.append(COL_SEP);
+			s.append(V1Dice.toString(row.getStackSize()));
+
+			return s.toString();
+		}
+		else if (r instanceof NpcInventoryTemplateRowLootEntry)
+		{
+			NpcInventoryTemplateRowLootEntry row = (NpcInventoryTemplateRowLootEntry)r;
+
+			s.append(TYPE_LOOT);
+			s.append(COL_SEP);
+			s.append(row.getLootEntry());
+			s.append(COL_SEP);
+			s.append(row.getChanceOfSpawning());
+			s.append(COL_SEP);
+			s.append(row.getPartyLevelAppearing());
+			s.append(COL_SEP);
+			s.append(row.getMaxStocked());
+			s.append(COL_SEP);
+			s.append(row.getChanceOfVanishing());
+			s.append(COL_SEP);
+			s.append(V1Dice.toString(row.getItemsToSpawn()));
+
+			return s.toString();
+		}
+		else
+		{
+			throw new MazeException(r.toString());
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	static NpcInventoryTemplateRow rowFromString(String s)
 	{
 		String[] strs = s.split(COL_SEP);
-		String itemName = strs[0];
-		int chanceOfSpawning = Integer.parseInt(strs[1]);
-		int partyLevelAppearing = Integer.parseInt(strs[2]);
-		int maxStocked = Integer.parseInt(strs[3]);
-		int chanceOfVanishing = Integer.parseInt(strs[4]);
-		Dice stackSize = null;
-		if (strs.length > 5)
+
+		int i=0;
+
+		int type = Integer.valueOf(strs[i++]);
+
+		if (type == TYPE_ITEM)
 		{
-			stackSize = V1Dice.fromString(strs[5]);
+			String itemName = strs[i++];
+			int chanceOfSpawning = Integer.parseInt(strs[i++]);
+			int partyLevelAppearing = Integer.parseInt(strs[i++]);
+			int maxStocked = Integer.parseInt(strs[i++]);
+			int chanceOfVanishing = Integer.parseInt(strs[i++]);
+			Dice stackSize = null;
+			if (strs.length > 6)
+			{
+				stackSize = V1Dice.fromString(strs[i++]);
+			}
+
+			return new NpcInventoryTemplateRowItem(
+				itemName,
+				chanceOfSpawning,
+				partyLevelAppearing,
+				maxStocked,
+				chanceOfVanishing,
+				stackSize);
 		}
-		return new NpcInventoryTemplateRow(
-			itemName,
-			chanceOfSpawning,
-			partyLevelAppearing,
-			maxStocked,
-			chanceOfVanishing,
-			stackSize);
+		else if (type == TYPE_LOOT)
+		{
+			String lootEntry = strs[i++];
+			int chanceOfSpawning = Integer.parseInt(strs[i++]);
+			int partyLevelAppearing = Integer.parseInt(strs[i++]);
+			int maxStocked = Integer.parseInt(strs[i++]);
+			int chanceOfVanishing = Integer.parseInt(strs[i++]);
+			Dice itemsToSpawn = V1Dice.fromString(strs[i++]);
+
+			return new NpcInventoryTemplateRowLootEntry(
+				chanceOfSpawning,
+				partyLevelAppearing,
+				maxStocked,
+				chanceOfVanishing,
+				lootEntry,
+				itemsToSpawn);
+		}
+		else
+		{
+			throw new MazeException(s);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

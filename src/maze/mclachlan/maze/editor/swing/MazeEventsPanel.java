@@ -37,9 +37,9 @@ import mclachlan.maze.game.event.ZoneChangeEvent;
 public class MazeEventsPanel extends JPanel
 	implements ActionListener, MouseListener
 {
-	JList list;
-	MazeEventsListModel dataModel;
-	JButton add, remove, edit, moveUp, moveDown;
+	private JList list;
+	private MazeEventsListModel dataModel;
+	private JButton add, remove, edit, moveUp, moveDown;
 	private int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/

@@ -111,6 +111,21 @@ public class LootEntry implements ILootEntry
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean contains(String itemName)
+	{
+		for (LootEntryRow row : getContents())
+		{
+			if (row.getItemName().equals(itemName))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	spawn a list of items, unsorted, from the given list of LootEntries

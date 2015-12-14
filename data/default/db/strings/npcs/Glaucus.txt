@@ -1,4 +1,4 @@
-#Mon Jun 22 07:54:07 CAT 2015
+#Fri Dec 11 08:22:22 CAT 2015
 maze\ master=9|I an unaware.
 garret=9|An ambivalent god. But then, aren't they all? Heh. *yghh*
 faerie=9|I an unaware.

@@ -1,4 +1,4 @@
-#Mon Jun 22 07:54:07 CAT 2015
+#Fri Dec 11 08:22:22 CAT 2015
 maze\ master=9|I havnae time fer fairy tales.
 garret=9|I cannae advise ye much on matters of the spirit.
 skull,stone\ doors,throne\ room=9|Aye, the throne room doors. It is a cunning work.%n%nWe gnomes believe that all is a machine, even the living. One day, maybe, we will unravel all of it's secrets.

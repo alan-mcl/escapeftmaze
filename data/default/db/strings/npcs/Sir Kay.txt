@@ -1,4 +1,4 @@
-#Mon Jun 22 07:54:07 CAT 2015
+#Fri Dec 11 08:22:22 CAT 2015
 maze\ master=9|A legend, nothing more. But then again... so am I.
 garret=9|My sort of godling, Garret. Sometimes I would offer him a prayer..but, well, you know...I'm too busy counting loot. <grins broadly>
 faerie=9|Never heard of it. Is it valuable?

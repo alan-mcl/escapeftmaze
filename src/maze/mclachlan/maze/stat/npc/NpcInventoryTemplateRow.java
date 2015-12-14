@@ -19,36 +19,48 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.ItemTemplate;
 
-/**
- *
- */
-public class NpcInventoryTemplateRow
+public abstract class NpcInventoryTemplateRow
 {
-	String itemName;
-	int chanceOfSpawning;
-	int partyLevelAppearing;
-	int maxStocked;
-	int chanceOfVanishing;
-	Dice stackSize;
+	private int chanceOfSpawning;
+	private int partyLevelAppearing;
+	private int maxStocked;
+	private int chanceOfVanishing;
 
 	/*-------------------------------------------------------------------------*/
-	public NpcInventoryTemplateRow(
-		String itemName,
-		int chanceOfSpawning,
+	protected NpcInventoryTemplateRow(int chanceOfSpawning,
 		int partyLevelAppearing,
-		int maxStocked,
-		int chanceOfVanishing,
-		Dice stackSize)
+		int maxStocked, int chanceOfVanishing)
 	{
 		this.chanceOfSpawning = chanceOfSpawning;
-		this.itemName = itemName;
 		this.partyLevelAppearing = partyLevelAppearing;
 		this.maxStocked = maxStocked;
 		this.chanceOfVanishing = chanceOfVanishing;
-		this.stackSize = stackSize;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return true if this row can spawn the given item
+	 */
+	public abstract boolean contains(Item item);
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 *
+	 * @param clvl
+	 * 	The average party level
+	 * @param currentInventory
+	 * @return
+	 * 	A list of newly spawned items
+	 */
+	public abstract List<Item> spawnNewItems(int clvl,
+		List<Item> currentInventory);
 
 	/*-------------------------------------------------------------------------*/
 	public int getChanceOfSpawning()
@@ -56,19 +68,9 @@ public class NpcInventoryTemplateRow
 		return chanceOfSpawning;
 	}
 
-	public int getChanceOfVanishing()
+	public void setChanceOfSpawning(int chanceOfSpawning)
 	{
-		return chanceOfVanishing;
-	}
-
-	public String getItemName()
-	{
-		return itemName;
-	}
-
-	public int getMaxStocked()
-	{
-		return maxStocked;
+		this.chanceOfSpawning = chanceOfSpawning;
 	}
 
 	public int getPartyLevelAppearing()
@@ -76,26 +78,14 @@ public class NpcInventoryTemplateRow
 		return partyLevelAppearing;
 	}
 
-	public Dice getStackSize()
+	public void setPartyLevelAppearing(int partyLevelAppearing)
 	{
-		return stackSize;
+		this.partyLevelAppearing = partyLevelAppearing;
 	}
 
-	/*-------------------------------------------------------------------------*/
-
-	public void setChanceOfSpawning(int chanceOfSpawning)
+	public int getMaxStocked()
 	{
-		this.chanceOfSpawning = chanceOfSpawning;
-	}
-
-	public void setChanceOfVanishing(int chanceOfVanishing)
-	{
-		this.chanceOfVanishing = chanceOfVanishing;
-	}
-
-	public void setItemName(String itemName)
-	{
-		this.itemName = itemName;
+		return maxStocked;
 	}
 
 	public void setMaxStocked(int maxStocked)
@@ -103,13 +93,60 @@ public class NpcInventoryTemplateRow
 		this.maxStocked = maxStocked;
 	}
 
-	public void setPartyLevelAppearing(int partyLevelAppearing)
+	public int getChanceOfVanishing()
 	{
-		this.partyLevelAppearing = partyLevelAppearing;
+		return chanceOfVanishing;
 	}
 
-	public void setStackSize(Dice stackSize)
+	public void setChanceOfVanishing(int chanceOfVanishing)
 	{
-		this.stackSize = stackSize;
+		this.chanceOfVanishing = chanceOfVanishing;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	protected int getNumInStock(String itemName, List<Item> inv)
+	{
+		int result = 0;
+
+		for (Item i : inv)
+		{
+			if (i.getName().equals(itemName))
+			{
+				result++;
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Dice getDefaultStackSize(String itemName)
+	{
+		ItemTemplate template = Database.getInstance().getItemTemplate(itemName);
+		Dice result;
+		if (template.getType() == ItemTemplate.Type.AMMUNITION)
+		{
+			result = new Dice(1,25,25);
+		}
+		else if (template.getType() == ItemTemplate.Type.THROWN_WEAPON)
+		{
+			result = new Dice(1,10,5);
+		}
+		else if (template.getType() == ItemTemplate.Type.BOMB ||
+			template.getType() == ItemTemplate.Type.POTION ||
+			template.getType() == ItemTemplate.Type.POWDER ||
+			template.getType() == ItemTemplate.Type.FOOD)
+		{
+			result = new Dice(1,3,1);
+		}
+		else
+		{
+			result = new Dice(1,1,0);
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public abstract int compareTo(NpcInventoryTemplateRow r2);
 }

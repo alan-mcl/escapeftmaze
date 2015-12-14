@@ -26,8 +26,8 @@ import mclachlan.maze.stat.Dice;
  */
 public class LootEntryRow
 {
-	String itemName;
-	Dice quantity;
+	private String itemName;
+	private Dice quantity;
 
 	/*-------------------------------------------------------------------------*/
 	public LootEntryRow(String itemName, Dice quantity)

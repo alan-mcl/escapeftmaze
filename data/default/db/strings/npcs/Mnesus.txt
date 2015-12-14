@@ -1,4 +1,4 @@
-#Mon Jun 22 07:54:07 CAT 2015
+#Fri Dec 11 08:22:22 CAT 2015
 maze\ master=9|Hmmm. A figure of legend... they say he is the personfication of the Maze. When he appears, death is never far behind.
 garret=9|The wayfarers god.
 skull,stone\ doors,throne\ room=9|The relief on the throne room doors speaks to our beliefs that even the living body is merely a complicated machine, albeit far beyond our ken.

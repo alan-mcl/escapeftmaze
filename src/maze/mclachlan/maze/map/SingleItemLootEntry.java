@@ -101,4 +101,11 @@ public class SingleItemLootEntry implements ILootEntry
 		result.add(new LootEntryRow(itemName, quantity));
 		return result;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean contains(String itemName)
+	{
+		return this.itemName.equals(itemName);
+	}
 }

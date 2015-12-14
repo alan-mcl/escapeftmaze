@@ -1,4 +1,4 @@
-#Mon Jun 22 07:54:07 CAT 2015
+#Fri Dec 11 08:22:22 CAT 2015
 maze\ master=9|I don't know him.
 garret=9|He he he, I know little of religion.
 faerie=9|The ways of the fey are mysterious.
@@ -12,8 +12,8 @@ belisarius=9|Yes, he is king of the leonals, no? A mighty warrior, no doubt.
 stenelaus=9|I don't know him.
 mentes=9|He is below, in the city.
 agenor=9|I don't know him.
-nergal=9|*yghk* Long may I avoid meeting him.
 beiweh=9|Blessed be her name, the goddess of life.
+nergal=9|*yghk* Long may I avoid meeting him.
 three\ eyes=9|I don't know him.
 buy,deal,deals,sell,trade=9|Hee hee hee, indeed\! You have come to the right place. Passing through or passing below, I buy and sell.
 lorelei=9|I don't know her.
@@ -31,8 +31,8 @@ scrymgeour=9|I don't know him.
 c.o.c.,chamber\ of\ commerce,coc=9|The merchants of Ichiba are hard dealers, counting every bean and brass tack he he he, so to speak.
 thank\ you,thanks=9|Hee hee hee, ok.
 wasid=9|I know little of religion.
-red\ ear=9|I don't know him.
 ichiba=9|I have been to the City In The Crater many times. A busy place, much to do, dangerous but lucrative.
+red\ ear=9|I don't know him.
 glaucus=9|I have heard that he in Ichiba.
 maze=9|The maze is endless, I say. He he he. Have a beer and forget about it.
 rumors,rumour,rumours=9|Of course\! Just yesterday, a passing wizard told me there is a pot of gold at the end of the rainbow\! Hee hee hee hee\!

@@ -111,8 +111,8 @@ public class Npc extends Foe
 		this.guildMaster = guildMaster;
 		this.guild = guild;
 		this.questManager = new QuestManager(this);
-		this.template.script.npc = this;
-		this.template.script.initialise();
+		this.template.getScript().npc = this;
+		this.template.getScript().initialise();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -126,15 +126,15 @@ public class Npc extends Foe
 			npcTemplate.getAttitude(),
 			new ArrayList<Item>(),
 			npcTemplate.getTheftCounter(),
-			npcTemplate.tile,
-			npcTemplate.zone,
-			npcTemplate.found,
-			npcTemplate.dead,
-			npcTemplate.guildMaster,
+			npcTemplate.getTile(),
+			npcTemplate.getZone(),
+			npcTemplate.isFound(),
+			npcTemplate.isDead(),
+			npcTemplate.isGuildMaster(),
 			new ArrayList<String>(),
 			npcTemplate.getFoeTemplate());
 
-		this.template.script.start();
+		this.template.getScript().start();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -155,7 +155,7 @@ public class Npc extends Foe
 
 	public int getBuysAt()
 	{
-		return template.buysAt;
+		return template.getBuysAt();
 	}
 
 	public List<Item> getTradingInventory()
@@ -171,42 +171,42 @@ public class Npc extends Foe
 
 	public String getFaction()
 	{
-		return template.faction;
+		return template.getFaction();
 	}
 
 	public String getFoeName()
 	{
-		return template.foeName;
+		return template.getFoeName();
 	}
 
 	public String getDisplayName()
 	{
-		return template.displayName;
+		return template.getDisplayName();
 	}
 
 	public NpcInventoryTemplate getInventoryTemplate()
 	{
-		return template.inventoryTemplate;
+		return template.getInventoryTemplate();
 	}
 
 	public int getMaxPurchasePrice()
 	{
-		return template.maxPurchasePrice;
+		return template.getMaxPurchasePrice();
 	}
 
 	public NpcScript getScript()
 	{
-		return template.script;
+		return template.getScript();
 	}
 
 	public int getSellsAt()
 	{
-		return template.sellsAt;
+		return template.getSellsAt();
 	}
 
 	public String getAlliesOnCall()
 	{
-		return template.alliesOnCall;
+		return template.getAlliesOnCall();
 	}
 
 	public Point getTile()
@@ -216,7 +216,7 @@ public class Npc extends Foe
 
 	public BitSet getWillBuyItemTypes()
 	{
-		return template.willBuyItemTypes;
+		return template.getWillBuyItemTypes();
 	}
 
 	public String getZone()
@@ -238,17 +238,17 @@ public class Npc extends Foe
 
 	public int getResistBribes()
 	{
-		return template.resistBribes;
+		return template.getResistBribes();
 	}
 
 	public int getResistThreats()
 	{
-		return template.resistThreats;
+		return template.getResistThreats();
 	}
 
 	public int getResistSteal()
 	{
-		return template.resistSteal;
+		return template.getResistSteal();
 	}
 
 	public int getTheftCounter()
@@ -333,8 +333,8 @@ public class Npc extends Foe
 	@Override
 	public boolean isInterestedInBuyingItem(Item item)
 	{
-		return this.template.willBuyItemTypes != null &&
-			this.template.willBuyItemTypes.get(item.getType()) &&
+		return this.template.getWillBuyItemTypes() != null &&
+			this.template.getWillBuyItemTypes().get(item.getType()) &&
 			!item.isQuestItem();
 	}
 
@@ -342,7 +342,7 @@ public class Npc extends Foe
 	public boolean isAbleToAffordItem(Item item)
 	{
 		return GameSys.getInstance().getItemCost(
-			item, this.template.buysAt) <= this.template.maxPurchasePrice;
+			item, this.template.getBuysAt()) <= this.template.getMaxPurchasePrice();
 	}
 
 	@Override

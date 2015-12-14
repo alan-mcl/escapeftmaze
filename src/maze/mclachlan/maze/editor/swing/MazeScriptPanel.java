@@ -33,7 +33,7 @@ import mclachlan.maze.game.MazeScript;
  */
 public class MazeScriptPanel extends EditorPanel
 {
-	MazeEventsPanel panel;
+	private MazeEventsPanel panel;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeScriptPanel()

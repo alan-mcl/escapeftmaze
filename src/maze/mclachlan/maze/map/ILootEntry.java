@@ -39,4 +39,7 @@ public interface ILootEntry
 
 	/*-------------------------------------------------------------------------*/
 	List<LootEntryRow> getContents();
+
+	/*-------------------------------------------------------------------------*/
+	boolean contains(String itemName);
 }

@@ -32,6 +32,7 @@ import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.stat.npc.NpcInventoryTemplate;
 import mclachlan.maze.stat.npc.NpcInventoryTemplateRow;
+import mclachlan.maze.stat.npc.NpcInventoryTemplateRowItem;
 import mclachlan.maze.stat.npc.NpcTemplate;
 
 /**
@@ -126,8 +127,11 @@ public class Capitaliser
 			List<NpcInventoryTemplateRow> rowList = invTemplate.getRows();
 			for (NpcInventoryTemplateRow row : rowList)
 			{
-				String newName = capitalise(row.getItemName());
-				row.setItemName(newName);
+				if (row instanceof NpcInventoryTemplateRowItem)
+				{
+					String newName = capitalise(((NpcInventoryTemplateRowItem)row).getItemName());
+					((NpcInventoryTemplateRowItem)row).setItemName(newName);
+				}
 			}
 		}
 		return npcTemplates;

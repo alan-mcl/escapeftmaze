@@ -73,9 +73,7 @@ public class NpcTemplatePanel extends EditorPanel
 	{
 		JPanel result = new JPanel(new BorderLayout(2,2));
 
-		npcInventoryTemplate = new NpcInventoryTemplateComponent(dirtyFlag,
-			1.0,
-			1.0);
+		npcInventoryTemplate = new NpcInventoryTemplateComponent(dirtyFlag);
 
 		result.add(npcInventoryTemplate, BorderLayout.CENTER);
 
