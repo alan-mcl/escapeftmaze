@@ -41,6 +41,7 @@ code: different combat ranges
 code: guilds bury dead characters in graveyards
 code: character creation: restrict character portraits to race
 code: character creation: display spellbook information
+code: party camps, leave some characters behind
 
 code+data: balance
 code+data: demo/training mode

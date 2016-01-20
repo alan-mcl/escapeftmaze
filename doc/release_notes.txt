@@ -10,6 +10,7 @@ Features
  - Spell data model updated to includes HP, AP and MP costs that are Values
  - Added AttackWithWeaponSpellResult
  - Implemented Backstab as a Spell: results in a weapon attack, costs AP
+ - NPC Inventory Templates can now include Loot Entries
 
 Other
  - Performance improvements for movement mode

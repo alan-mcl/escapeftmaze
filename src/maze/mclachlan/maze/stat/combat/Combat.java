@@ -127,11 +127,23 @@ public class Combat
 	public int getAverageFoeLevel()
 	{
 		int result = 0;
+
+		// collect dead foes
+		List<Foe> allFoes = new ArrayList<Foe>();
+		allFoes.addAll(deadFoes);
+
+		// collect live foes
 		for (FoeGroup fg : foes)
 		{
-			result += fg.getAverageLevel();
+			allFoes.addAll(fg.getFoes());
 		}
-		result /= foes.size();
+
+		// average it
+		for (Foe f : allFoes)
+		{
+			result += f.getLevel();
+		}
+		result /= allFoes.size();
 
 		return result;
 	}
@@ -736,11 +748,14 @@ public class Combat
 	{
 		for (UnifiedActor actor : this.actors)
 		{
-			CombatantData metaData = actor.getCombatantData();
-			int i = GameSys.getInstance().calcInitiative(actor);
-			metaData.setIntiative(i);
+			if (actor.isAlive())
+			{
+				CombatantData metaData = actor.getCombatantData();
+				int i = GameSys.getInstance().calcInitiative(actor);
+				metaData.setIntiative(i);
 
-			combatStats.captureInitiative(i, actor, this);
+				combatStats.captureInitiative(i, actor, this);
+			}
 		}
 	}
 	

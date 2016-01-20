@@ -51,11 +51,22 @@ public class CheckCombatStatusEvent extends MazeEvent
 		}
 		else if (maze.getParty().numAlive()>0 && combat.getLiveFoes()==0)
 		{
-			// speech bubble for the win
-			SpeechUtil.getInstance().winCombatSpeech(
-				combat.getAverageFoeLevel(), maze.getParty().getPartyLevel());
-
-			result.add(new EndCombatEvent(maze, combat, maze.getCurrentActorEncounter(), true));
+			if (!maze.alreadyQueued(EndCombatEvent.class))
+			{
+				maze.appendEvents(
+					new MazeEvent()
+					{
+						@Override
+						public List<MazeEvent> resolve()
+						{
+							// speech bubble for the win
+							SpeechUtil.getInstance().winCombatSpeech(
+								combat.getAverageFoeLevel(), maze.getParty().getPartyLevel());
+							return null;
+						}
+					},
+					new EndCombatEvent(maze, combat, maze.getCurrentActorEncounter(), true));
+			}
 		}
 
 		return result;

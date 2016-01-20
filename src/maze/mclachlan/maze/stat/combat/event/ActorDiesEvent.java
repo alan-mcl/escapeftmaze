@@ -60,13 +60,13 @@ public class ActorDiesEvent extends MazeEvent
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		final Maze maze = Maze.getInstance();
+		// this check in case we're doing the CLI combat testing.
 		if (maze != null)
 		{
-			// this check in case we're doing the CLI combat testing.
 			MazeScript script = Database.getInstance().getScript("_DIE_");
 			maze.appendEvents(script.getEvents());
 
-			maze.appendEvents(new MazeEvent()
+			result.add(new MazeEvent()
 			{
 				@Override
 				public List<MazeEvent> resolve()

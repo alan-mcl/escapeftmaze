@@ -256,7 +256,7 @@ public class ActorEncounter
 
 	public Foe getLeader()
 	{
-		return GameSys.getInstance().getLeader(actors);
+		return (Foe)leader;
 	}
 
 	public List<MazeEvent> evade()

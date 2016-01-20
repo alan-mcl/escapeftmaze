@@ -2104,6 +2104,26 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Queue getQueue()
+	{
+		return processor.queue;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean alreadyQueued(Class eventClass)
+	{
+		for (MazeEvent e : processor.queue)
+		{
+			if (e.getClass() == eventClass)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * For testing only.
 	 */
