@@ -2938,7 +2938,7 @@ public class GameSys
 		{
 			public String getDisplayName()
 			{
-				return "";
+				return StringUtil.getGamesysString("unarmed.weapon");
 			}
 		};
 	}
@@ -3211,16 +3211,19 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public boolean actorGoesBeserk(UnifiedActor actor)
 	{
-		if (actor.getModifier(Stats.Modifiers.BERSERKER) <= 0)
+		int basePercent = actor.getModifier(Stats.Modifiers.BERSERKER);
+
+		if (basePercent <= 0)
 		{
 			return false;
 		}
 
-		if (actor.getHitPoints().getCurrent() <= 0)
+		if (!actor.isConscious() || actor.getHitPoints().getCurrent() <= 0)
 		{
 			return false;
 		}
 
+		// more chance when faced with more foes
 		int foeFactor = 0;
 		Combat combat = Maze.getInstance().getCurrentCombat();
 		if (combat != null)
@@ -3232,12 +3235,10 @@ public class GameSys
 			}
 		}
 
-		double nearDeath = 1 - actor.getHitPoints().getRatio();
+		// up to 25% more chance when near death
+		int woundFactor = (int)(25 * (1 - actor.getHitPoints().getRatio()));
 
-		// base 1%
-		int chance = 1
-			+ (int)(30*nearDeath)
-			+ foeFactor;
+		int chance = basePercent + foeFactor + woundFactor;
 
 		return Dice.d100.roll() <= chance;
 	}

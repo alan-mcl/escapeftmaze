@@ -424,7 +424,10 @@ public class PlayerCharacter extends UnifiedActor
 			List<ActorGroup> attackableGroups = GameSys.getInstance().getAttackableGroups(this, combat);
 			if (attackableGroups != null && !attackableGroups.isEmpty())
 			{
-				result.add(new AttackOption(), null);
+				for (AttackWith aw : getAttackWithOptions())
+				{
+					result.add(new AttackOption(aw), null);
+				}
 			}
 
 			// There's always a Defend option
@@ -677,6 +680,28 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			return super.addInventoryItem(item);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<AttackWith> getAttackWithOptions()
+	{
+		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
+		if (getNaturalWeapons() != null)
+		{
+			result.addAll(getNaturalWeapons());
+		}
+
+		if (getPrimaryWeapon() != null)
+		{
+			result.add(getPrimaryWeapon());
+		}
+		else
+		{
+			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

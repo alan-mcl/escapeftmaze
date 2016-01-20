@@ -181,7 +181,85 @@ public class ActorIntentionResolver
 		AttackIntention atkInt = (AttackIntention)intention;
 
 		ActorGroup targetGroup = atkInt.getActorGroup();
+		AttackWith attackWith = atkInt.getAttackWith();
 
+		if (attackWith == null || attackWith instanceof Item)
+		{
+			resolveWeaponAttack(actor, result, targetGroup);
+		}
+		else if (attackWith instanceof NaturalWeapon)
+		{
+			resolveNaturalWeaponAttack(actor, result, targetGroup, attackWith);
+		}
+		else
+		{
+			throw new MazeException("invalid attackWith "+attackWith);
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void resolveNaturalWeaponAttack(
+		UnifiedActor actor,
+		List<CombatAction> result,
+		ActorGroup targetGroup,
+		AttackWith attackWith)
+	{
+		// basic attack with primary weapon, no modifiers
+		int nrAttacks = GameSys.getInstance().getNrAttacks(actor, true);
+
+		if (attackWith.getAmmoRequired() == null
+			|| attackWith.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF)
+			|| actor.getSecondaryWeapon() != null &&
+			attackWith.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
+		{
+			MazeScript missileScript;
+			if (attackWith.isRanged())
+			{
+				missileScript = actor.getSecondaryWeapon().getAttackScript();
+			}
+			else
+			{
+				missileScript = attackWith.getAttackScript();
+			}
+
+			for (int i = 0; i < nrAttacks; i++)
+			{
+				// ammo requirements ok.  Attack
+				MagicSys.SpellEffectType defaultDamageType = attackWith.getDefaultDamageType();
+				if (attackWith.getAmmoRequired() != null &&
+					actor.getSecondaryWeapon() != null &&
+					attackWith.getAmmoRequired().contains((actor.getSecondaryWeapon()).isAmmoType()))
+				{
+					defaultDamageType = actor.getSecondaryWeapon().getDefaultDamageType();
+				}
+
+				AttackAction action = new AttackAction(
+					targetGroup,
+					attackWith,
+					-1,
+					missileScript,
+					true,
+					GameSys.getInstance().isLightningStrike(actor, attackWith),
+					GameSys.getInstance().getAttackType(attackWith),
+					defaultDamageType);
+				action.setModifier(Stats.Modifiers.INITIATIVE, -5 * i + attackWith.getToInitiative());
+
+				result.add(action);
+			}
+		}
+		else
+		{
+			// cannot attack
+			result.add(new DefendAction());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void resolveWeaponAttack(UnifiedActor actor,
+		List<CombatAction> result, ActorGroup targetGroup)
+	{
 		boolean canAttackWithPrimary =
 			actor.getPrimaryWeapon() == null ||
 				(actor.getPrimaryWeapon() != null && actor.getPrimaryWeapon().isWeapon());
@@ -298,7 +376,5 @@ public class ActorIntentionResolver
 				result.add(secAction);
 			}
 		}
-
-		return result;
 	}
 }

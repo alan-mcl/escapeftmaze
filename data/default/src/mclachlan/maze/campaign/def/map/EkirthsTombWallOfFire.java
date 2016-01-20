@@ -156,5 +156,11 @@ public class EkirthsTombWallOfFire extends TileScript
 		{
 			return null;
 		}
+
+		@Override
+		public int getToInitiative()
+		{
+			return 0;
+		}
 	}
 }

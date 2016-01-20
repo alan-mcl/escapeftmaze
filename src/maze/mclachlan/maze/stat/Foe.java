@@ -463,6 +463,28 @@ public class Foe extends UnifiedActor
 		this.combatantData = combatantData;
 	}
 
+	@Override
+	public List<AttackWith> getAttackWithOptions()
+	{
+		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
+		if (getNaturalWeapons() != null)
+		{
+			result.addAll(getNaturalWeapons());
+		}
+
+		if (getPrimaryWeapon() != null)
+		{
+			result.add(getPrimaryWeapon());
+		}
+
+		if (result.isEmpty())
+		{
+			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
+		}
+
+		return result;
+	}
+
 	public EngineObject getSprite()
 	{
 		return sprite;

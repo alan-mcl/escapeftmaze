@@ -78,7 +78,8 @@ public class MazeComboItemRenderer extends Renderer
 		g.fill(r);
 
 		int indicatorInset = 5;
-		if (!comboModel.getChildren(item).isEmpty())
+		boolean hasChildren = !comboModel.getChildren(item).isEmpty();
+		if (hasChildren)
 		{
 			if (comboItem.getParent().getPopupExpansionDirection() == DIYComboBox.PopupExpansionDirection.RIGHT)
 			{
@@ -104,7 +105,14 @@ public class MazeComboItemRenderer extends Renderer
 		}
 		else
 		{
-			textX = x +indicatorInset +height +textInset;
+			if (hasChildren)
+			{
+				textX = x +(indicatorInset +height) +textInset;
+			}
+			else
+			{
+				textX = x +textInset;
+			}
 		}
 
 		g.setColor(Color.DARK_GRAY);

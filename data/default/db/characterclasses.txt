@@ -433,7 +433,7 @@ levelUpActionPoints=0d1
 levelUpMagicPoints=0d1
 levelUpAssignableModifiers=3
 levelUpModifiers=7e0000000000000000,010101010101
-progression=1;berserker;lap_name_berserker;lap_desc_berserker;200000000000000000000000000000000000000@01/1;blade_nor_flame;lap_name_blade_nor_flame;lap_desc_blade_nor_flame;20004000000000000@0f0f,,,,,,,,,,,,,,,,,,,
+progression=1;berserker;lap_name_berserker;lap_desc_berserker;200000000000000000000000000000000000000@05/1;blade_nor_flame;lap_name_blade_nor_flame;lap_desc_blade_nor_flame;20004000000000000@0f0f,,,,,,,,,,,,,,,,,,,
 @
 name=Priest
 description=Blessed of the gods, the Priest wields strong protective and healing magic for the benefit of his or her party. The Priest has an education that includes theology, anatomy and medical principals.  He or she is the class that best knows the ways of the myriad gods and powers that influence the lives of those within the Maze.%n%nSpecial Abilities%nHoliness: The Priest is a walking source of one White magic for the whole party.%nTurn Undead: The Priest can turn undead.

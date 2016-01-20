@@ -188,6 +188,12 @@ public class NaturalWeapon implements AttackWith
 		return null;
 	}
 
+	@Override
+	public int getToInitiative()
+	{
+		return 0;
+	}
+
 	public int[] getAttacks()
 	{
 		return attacks;

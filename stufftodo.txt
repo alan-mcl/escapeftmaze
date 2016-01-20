@@ -30,8 +30,6 @@ data: mind read results from all NPCs
 code: Scavenger Mode: characters start with nothing, most loot is replaced with trash, and crafting is the only way to survive.
 code: Ironman Mode: One save only.
 code: Quicksave and quickload.
-code: player conversation entered by popup dialog
-code: NPC speech in speech bubbles
 code: comprehensive practising of modifiers
 code: extensive logging
 code: refactor: remove DiyGui impl action messages
@@ -46,7 +44,7 @@ code: party camps, leave some characters behind
 code+data: balance
 code+data: demo/training mode
 code+data: city windows (raycaster update)
-code+data: Vendor inventories based on loot entries. Sort out NPC inventories.
+code+data: Sort out NPC inventories.
 code+data: scouting modifier (stealth) + more hidden stuff to find
 
 spell: magic eye, reveals map
@@ -55,10 +53,8 @@ spell: bind demon, summons a demon to do a task (open door, etc)
 spell: spells that can be dodged
 spell: genie, summon a genie to perform a task or accompany you
 
-ability: berserk to be a percentage% modifier, different levels of effectiveness
 ability: resist surprise in some terrain type
 ability: identify foes of some type
-ability: Yetis to be berserkers
 ability: Yetis to have claw attacks
 ability: Samurai special ability: iajutsu first strike
 

@@ -22,10 +22,7 @@ package mclachlan.maze.stat.combat;
 
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.ActorActionIntention;
-import mclachlan.maze.stat.ActorActionOption;
-import mclachlan.maze.stat.ActorGroup;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.*;
 
 /**
  *
@@ -33,10 +30,15 @@ import mclachlan.maze.stat.UnifiedActor;
 public class AttackOption extends ActorActionOption
 {
 	private AttackIntention intention;
+	private AttackWith attackWith;
 
-	public AttackOption()
+	/*-------------------------------------------------------------------------*/
+	public AttackOption(AttackWith attackWith)
 	{
-		super("Attack", "aao.attack");
+		super(
+			"Attack ("+attackWith.getDisplayName()+")",
+			"aao.attack");
+		this.attackWith = attackWith;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -49,7 +51,7 @@ public class AttackOption extends ActorActionOption
 		{
 			ActorGroup foeGroup = Maze.getInstance().getUi().getSelectedFoeGroup();
 			this.intention = new AttackIntention(
-				foeGroup, combat, actor.getAttackWithOptions().get(0));
+				foeGroup, combat, attackWith);
 		}
 
 		callback.selected(getIntention());
@@ -67,6 +69,8 @@ public class AttackOption extends ActorActionOption
 	@Override
 	public String toString()
 	{
-		return StringUtil.getUiLabel(getDisplayName());
+		return StringUtil.getUiLabel(
+			getDisplayName(),
+			StringUtil.truncateWithEllipses(attackWith.getDisplayName(), 15));
 	}
 }

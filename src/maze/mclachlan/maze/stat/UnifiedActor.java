@@ -1609,37 +1609,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<AttackWith> getAttackWithOptions()
-	{
-		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
-		if (getNaturalWeapons() != null)
-		{
-			result.addAll(getNaturalWeapons());
-		}
-
-		if (getPrimaryWeapon() != null)
-		{
-			result.add(getPrimaryWeapon());
-		}
-		else
-		{
-			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
-		}
-
-		if (getSecondaryWeapon() != null)
-		{
-			result.add(getSecondaryWeapon());
-		}
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<CombatAction> getCombatActions(ActorActionIntention intention)
 	{
 		return ActorIntentionResolver.getCombatActions(this, intention);
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public abstract List<AttackWith> getAttackWithOptions();
 	public abstract String getType();
 	public abstract int getBaseModifier(String modifier);
 	public abstract String getDisplayName();

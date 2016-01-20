@@ -1,5 +1,11 @@
 
 #
+# General stuff
+#
+unarmed.weapon = Unarmed
+
+
+#
 # MODIFIERS
 #
 

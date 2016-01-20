@@ -160,4 +160,16 @@ public class StringUtil
 		return MagicSys.SpellUsabilityType.describe(usabilityType);
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public static String truncateWithEllipses(String s, int length)
+	{
+		if (s.length() < length)
+		{
+			return s;
+		}
+		else
+		{
+			return s.substring(0, length-3) + "...";
+		}
+	}
 }

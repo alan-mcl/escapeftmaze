@@ -57,4 +57,6 @@ public interface AttackWith
 
 	ItemTemplate.AmmoType isAmmoType();
 	List<ItemTemplate.AmmoType> getAmmoRequired();
+
+	int getToInitiative();
 }

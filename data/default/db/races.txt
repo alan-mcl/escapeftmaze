@@ -49,12 +49,12 @@ unlockVariable=
 unlockDescription=
 @
 name=Mirka
-description=The dangerous mountainous areas at the center of the First Realm are home to tribes of wild, white-haired Mirka. Fierce warriors with a reputation for savagery, the Mirka are none the less an intelligent folk with a nomadic society of their own.%n%nAround their campfires the Mirka tell stories of being hunted down and banished from their home to the Maze by a conquering human empire.%n%nSpecial: Mirka are immune to cold damage.
+description=The dangerous mountainous areas at the center of the First Realm are home to tribes of wild, white-haired Mirka. Fierce warriors with a reputation for savagery, the Mirka are none the less an intelligent folk with a nomadic society of their own.%n%nAround their campfires the Mirka tell stories of being hunted down and banished from their home to the Maze by a conquering human empire.%n%nSpecial: Mirka are immune to cold damage. They have a chance of flying into a berserk rage in combat.
 startingHitPointPercentage=90
 startingActionPointPercentage=70
 startingMagicPointPercentage=40
 startingModifiers=1d8,0402020101
-constantModifiers=400006a0000000000000000,05fbfb0501
+constantModifiers=2000000000000000400006a0000000000000000,05fbfb050101
 bannerModifiers=0,
 attributeCeilings=1f8,0c0a080c080a
 head=human head
