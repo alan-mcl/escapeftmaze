@@ -695,6 +695,13 @@ public class ActorActionResolver
 	{
 		Spell s = action.getSpell();
 
+		if (!GameSys.getInstance().canPaySpellCost(
+			action.getSpell(), action.getCastingLevel(), actor))
+		{
+			events.add(new FailureEvent());
+			return;
+		}
+
 		// at this point the spell has been successfully cast
 		events.add(new SpecialAbilityUseEvent(actor, s, action.getCastingLevel(), action.getDescription()));
 
@@ -870,18 +877,15 @@ public class ActorActionResolver
 
 		if (!isCloudSpell)
 		{
-			// deduct magic points
-			int pointCost = MagicSys.getInstance().getMagicPointCost(
-				spellAction.getSpell(), spellAction.getCastingLevel(), caster);
-			if (pointCost > caster.getMagicPoints().getCurrent())
+			if (caster instanceof PlayerCharacter &&
+				!((PlayerCharacter)caster).canCast(s))
 			{
-				Maze.log(Log.DEBUG, "insufficient magic points: "+pointCost+" > "+caster.getMagicPoints().getCurrent());
 				events.add(new SpellFizzlesEvent(caster, s, castingLevel));
 				return events;
 			}
 
-			if (caster instanceof PlayerCharacter &&
-				!((PlayerCharacter)caster).canCast(s))
+			if (!GameSys.getInstance().canPaySpellCost(
+				spellAction.getSpell(), spellAction.getCastingLevel(), caster))
 			{
 				events.add(new SpellFizzlesEvent(caster, s, castingLevel));
 				return events;

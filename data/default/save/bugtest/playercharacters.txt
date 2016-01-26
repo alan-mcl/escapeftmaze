@@ -134,7 +134,7 @@ bannerItem=
 inventory=Demilitarised Clockwork Head/0/2/1-1/0-0/,Air Filter/0/2/1-1/0-0/,Vacuum Pump/0/2/1-1/0-0/,RPG Launcher/0/2/1-1/3-5/,Tesla Coil/0/2/1-1/0-0/,Metronome/0/2/1-1/0-0/,Lazurite Crystal/0/2/1-1/0-0/,Large Clockwork Motor/0/2/1-1/0-0/,Reticulated Wolverine/0/2/1-1/0-0/,Electric Eye/0/2/1-1/0-0/,Large Battery/0/2/1-1/0-0/,Long Steel Rails/0/2/1-1/0-0/,Quartz Crystal/0/2/1-1/0-0/,High Voltage Transformer/0/2/1-1/0-0/,Electrodes/0/2/1-1/0-0/,Tungsten Filament/0/2/1-1/0-0/,Barbed Net/0/2/1-1/0-0/,Spring Powered Catapult/0/2/1-1/0-0/,Gyroscope/0/2/1-1/0-0/,Copper Mesh/0/2/1-1/0-0/
 spellbook=
 spellPicks=0
-stats=189-206-0;0-0;19-19;2000000000000001518f8,0a0c020101171701070514
+stats=189-206-0;0-0;19-19;200000000000000000000000002000000000000001518f8,0a0c02010117170107051402
 practice=1800,1c1f
 activeModifiers=20000000000000013fff8,0101010101010101010101010101010101
 @

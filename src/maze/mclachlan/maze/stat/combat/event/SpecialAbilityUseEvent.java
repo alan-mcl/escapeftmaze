@@ -20,6 +20,8 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.game.Log;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -79,9 +81,16 @@ public class SpecialAbilityUseEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		int hitPointCost = MagicSys.getInstance().getHitPointCost(spell, castingLevel, caster);
-		int actionPointCost = MagicSys.getInstance().getActionPointCost(spell, castingLevel, caster);
-		int magicPointCost = MagicSys.getInstance().getMagicPointCost(spell, castingLevel, caster);
+		int hitPointCost = MagicSys.getInstance().getPointCost(
+			spell.getHitPointCost(), castingLevel, caster);
+		int actionPointCost = MagicSys.getInstance().getPointCost(
+			spell.getActionPointCost(), castingLevel, caster);
+		int magicPointCost = MagicSys.getInstance().getPointCost(
+			spell.getMagicPointCost(), castingLevel, caster);
+
+		Maze.log(Log.DEBUG, "%s costs %s %shp %sap %smp",
+			spell.getName(), caster.getName(),
+			(Integer)hitPointCost, (Integer)actionPointCost, (Integer)magicPointCost);
 
 		caster.getHitPoints().decCurrent(hitPointCost);
 		caster.getActionPoints().decCurrent(actionPointCost);

@@ -336,5 +336,6 @@ public class V1StatModifier
 			LARGE_SIZE,
 			THREATEN,
 			DRINKING_FIT,
+			IAJUTSU
 		};
 }

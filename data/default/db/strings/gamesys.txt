@@ -208,6 +208,7 @@ modifier_name-bonusStrikes: Bonus Strikes
 modifier_name-largeSize: Size: Large
 modifier_name-threaten: Threaten
 modifier_name-drinkingFit: Drinking Fit
+modifier_name-iajutsu: Iajutsu
 
 # Modifier Descriptions
 
@@ -408,6 +409,7 @@ modifier_desc-bonusStrikes: Grants this character bonus strikes during each atta
 modifier_desc-largeSize: This character is physically larger than average.
 modifier_desc-threaten: The ability to intimidate another into doing what you want.
 modifier_desc-drinkingFit: This character never suffers ill effects from alcohol.
+modifier_desc-iajutsu: The art of rapidly drawing and attacking with a sword.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -650,6 +652,8 @@ lap_name_tireless_with_swords = Tireless With Swords
 lap_desc_tireless_with_swords = The Samurai suffers no fatigue from wielding his chosen weapon type.
 lap_name_lightning_strike_with_swords = Lightning Strike With Swords
 lap_desc_lightning_strike_with_swords = The Samurai's blazing speed occasionally allows him to strike far more times than usual when attacking with a sword.
+lap_name_iajutsu = Iajutsu %s
+lap_desc_iajutsu = Iajutsu is the art of rapidly drawing and attacking with a sword.\n\nCost\nCosts 1 Action Point per activation\n\nMechanics\nRequires the character to be wielding a primary weapon that is a sword and has the KENDO weapon focus\nWhen attacked, as a pre-combat action the character makes a single attack with one or more strikes against a random foe within reach.\n\nValue\nA non-zero IAJUTSU modifier enables this ability The value of the modifier indicates how many strikes are made.
 
 # Scout
 lap_name_alert = Alert

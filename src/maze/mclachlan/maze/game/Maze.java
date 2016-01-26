@@ -248,9 +248,15 @@ public class Maze implements Runnable
 	 */
 	public static void log(int lvl, String msg)
 	{
+		log(lvl, msg, (Object)null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void log(int lvl, String msg, Object... args)
+	{
 		if (log != null)
 		{
-			log.log(lvl, msg);
+			log.log(lvl, msg, args);
 		}
 	}
 
@@ -761,6 +767,47 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Execute any pre-combat special abilities.
+	 */
+	public void executePreCombatActions(Combat combat)
+	{
+
+		//
+		// foe intentions
+		//
+		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
+		for (FoeGroup foeGroup : combat.getFoes())
+		{
+			foeIntentionList.add(getFoePreCombatIntentions(foeGroup, combat));
+		}
+
+		//
+		// player character intentions
+		//
+		ActorActionIntention[] partyIntentions = new ActorActionIntention[
+			combat.getPlayerParty().size()];
+		for (int i=0; i<combat.getPlayerParty().size(); i++)
+		{
+			partyIntentions[i] = combat.getPlayerParty().getPlayerCharacter(i).
+				getPreCombatIntentions(combat);
+		}
+
+		//
+		// append the results of combat actions
+		//
+		Iterator<CombatAction> combatActions =
+			combat.combatRound(partyIntentions, foeIntentionList);
+		while (combatActions.hasNext())
+		{
+			appendEvents(new ResolveCombatActionEvent(this, combat, combatActions.next()));
+			appendEvents(new CheckPartyStatusEvent());
+			appendEvents(new CheckCombatStatusEvent(this, combat));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void executeCombatRound(Combat combat)
 	{
 		getUi().addMessage(
@@ -900,6 +947,20 @@ public class Maze implements Runnable
 		for (int i=0; i<foes.size(); i++)
 		{
 			result[i] = ((Foe)(foes.get(i))).getCombatIntention();
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private ActorActionIntention[] getFoePreCombatIntentions(FoeGroup foeGroup, Combat combat)
+	{
+		List<UnifiedActor> foes = foeGroup.getActors();
+		ActorActionIntention[] result = new ActorActionIntention[foes.size()];
+
+		for (int i=0; i<foes.size(); i++)
+		{
+			result[i] = ((Foe)(foes.get(i))).getPreCombatIntentions(combat);
 		}
 
 		return result;

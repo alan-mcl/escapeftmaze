@@ -11,6 +11,7 @@ Features
  - Added AttackWithWeaponSpellResult
  - Implemented Backstab as a Spell: results in a weapon attack, costs AP
  - NPC Inventory Templates can now include Loot Entries
+ - Added Iajutsu special ability
 
 Other
  - Performance improvements for movement mode
@@ -38,7 +39,7 @@ Other
 #101 Lost spellpicks on level up
 #104 Crash after changing class
 #105 Crash in regenResources
-#108 Vendor inventories unusable 
+#108 Vendor inventories unusable
 
 ---------------------------------------
 v0.914 (30 June 2014)

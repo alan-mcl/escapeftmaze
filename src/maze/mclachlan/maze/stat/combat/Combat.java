@@ -508,6 +508,13 @@ public class Combat
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public UnifiedActor getRandomFoeWithinRangeOf(UnifiedActor actor)
+	{
+		// todo
+		return getRandomFoeOf(actor);
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	/**
 	 * @return

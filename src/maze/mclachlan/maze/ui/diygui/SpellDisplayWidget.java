@@ -156,15 +156,15 @@ public class SpellDisplayWidget extends DIYPane
 		this.castingLevel = level;
 		if (getSpellSelected() != null)
 		{
-			this.magicPointCost = MagicSys.getInstance().getMagicPointCost(
-				getSpellSelected(),
+			this.magicPointCost = MagicSys.getInstance().getPointCost(
+				getSpellSelected().getMagicPointCost(),
 				castingLevel,
 				playerCharacter);
 			this.magicPointCostLabel.setText("Cost: "+magicPointCost);
 			
-			int nextLevelMagicPointCost = MagicSys.getInstance().getMagicPointCost(
-				getSpellSelected(), 
-				castingLevel+1,
+			int nextLevelMagicPointCost = MagicSys.getInstance().getPointCost(
+				getSpellSelected().getMagicPointCost(),
+				castingLevel + 1,
 				playerCharacter);
 			
 			this.levelMinus.setEnabled(castingLevel != 1);
@@ -311,9 +311,9 @@ public class SpellDisplayWidget extends DIYPane
 	{
 		if (getSpellSelected() != null)
 		{
-			int nextLevelMagicPointCost = MagicSys.getInstance().getMagicPointCost(
-				getSpellSelected(), 
-				castingLevel+1,
+			int nextLevelMagicPointCost = MagicSys.getInstance().getPointCost(
+				getSpellSelected().getMagicPointCost(),
+				castingLevel + 1,
 				playerCharacter);
 			if (castingLevel < MagicSys.MAX_CASTING_LEVEL &&
 				nextLevelMagicPointCost <= playerCharacter.getMagicPoints().getCurrent())

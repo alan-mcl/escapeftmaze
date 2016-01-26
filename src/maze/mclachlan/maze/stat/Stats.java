@@ -264,6 +264,7 @@ public class Stats
 		propertiesModifiers.add(Modifiers.LARGE_SIZE);
 		propertiesModifiers.add(Modifiers.THREATEN);
 		propertiesModifiers.add(Modifiers.DRINKING_FIT);
+		propertiesModifiers.add(Modifiers.IAJUTSU);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -607,6 +608,7 @@ public class Stats
 		public static final String LARGE_SIZE = "largeSize";
 		public static final String THREATEN = "threaten";
 		public static final String DRINKING_FIT = "drinkingFit";
+		public static final String IAJUTSU = "iajutsu";
 	}
 
 	/*-------------------------------------------------------------------------*/

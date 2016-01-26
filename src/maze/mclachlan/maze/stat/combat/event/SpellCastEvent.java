@@ -71,9 +71,12 @@ public class SpellCastEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		int hitPointCost = MagicSys.getInstance().getHitPointCost(spell, castingLevel, caster);
-		int actionPointCost = MagicSys.getInstance().getActionPointCost(spell, castingLevel, caster);
-		int magicPointCost = MagicSys.getInstance().getMagicPointCost(spell, castingLevel, caster);
+		int hitPointCost = MagicSys.getInstance().getPointCost(
+			spell.getHitPointCost(), castingLevel, caster);
+		int actionPointCost = MagicSys.getInstance().getPointCost(
+			spell.getActionPointCost(), castingLevel, caster);
+		int magicPointCost = MagicSys.getInstance().getPointCost(
+			spell.getMagicPointCost(), castingLevel, caster);
 
 		caster.getHitPoints().decCurrent(hitPointCost);
 		caster.getActionPoints().decCurrent(actionPointCost);

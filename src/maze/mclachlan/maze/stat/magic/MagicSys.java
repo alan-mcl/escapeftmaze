@@ -62,40 +62,8 @@ public class MagicSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getHitPointCost(Spell spell, int castingLevel, UnifiedActor caster)
+	public int getPointCost(Value value, int castingLevel, UnifiedActor caster)
 	{
-		Value value = spell.getHitPointCost();
-
-		if (value == null)
-		{
-			return 0;
-		}
-		else
-		{
-			return value.compute(caster, castingLevel);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getActionPointCost(Spell spell, int castingLevel, UnifiedActor caster)
-	{
-		Value value = spell.getActionPointCost();
-
-		if (value == null)
-		{
-			return 0;
-		}
-		else
-		{
-			return value.compute(caster, castingLevel);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getMagicPointCost(Spell spell, int castingLevel, UnifiedActor caster)
-	{
-		Value value = spell.getMagicPointCost();
-
 		if (value == null)
 		{
 			return 0;

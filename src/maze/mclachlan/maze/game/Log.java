@@ -99,6 +99,16 @@ public class Log
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public synchronized void log(int level, String msg, Object... args)
+	{
+		lazyInit();
+		if (level <= this.level)
+		{
+			logger.log(Level.ALL, String.format(msg, args));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public synchronized void log(int level, Throwable x)
 	{
 		lazyInit();

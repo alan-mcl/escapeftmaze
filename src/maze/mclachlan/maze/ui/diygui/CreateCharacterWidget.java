@@ -30,6 +30,7 @@ import mclachlan.diygui.*;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -144,7 +145,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		this.race = null;
 		this.gender = null;
 		this.startingKit = null;
-		this.npc = (Npc)Maze.getInstance().getCurrentActorEncounter().getLeader();
+		ActorEncounter currentActorEncounter = Maze.getInstance().getCurrentActorEncounter();
+		if (currentActorEncounter != null)
+		{
+			this.npc = (Npc)currentActorEncounter.getLeader();
+		}
 
 		this.state = CHOOSE_RACE_AND_GENDER;
 		updateState();

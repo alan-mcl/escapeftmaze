@@ -3098,6 +3098,16 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
+name=IAJUTSU
+displayName=IAJUTSU
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=1:::1/1/SCALE_WITH_MODIFIER/iajutsu/false:SLASHING:generic weapon swish:cut:false:false
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=pennywhistle haste
 displayName=
 type=FIRE

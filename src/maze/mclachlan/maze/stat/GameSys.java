@@ -3920,6 +3920,43 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	true if this actor can pay the cost of casting this spell
+	 */
+	public boolean canPaySpellCost(Spell spell, int castingLevel,
+		UnifiedActor caster)
+	{
+		int hpCost = MagicSys.getInstance().getPointCost(
+			spell.getHitPointCost(), castingLevel, caster);
+		int apCost = MagicSys.getInstance().getPointCost(
+			spell.getActionPointCost(), castingLevel, caster);
+		int mpCost = MagicSys.getInstance().getPointCost(
+			spell.getMagicPointCost(), castingLevel, caster);
+
+		if (hpCost > caster.getHitPoints().getCurrent())
+		{
+			Maze.log(Log.DEBUG, "insufficient HP points: "+hpCost+" > "+caster.getHitPoints().getCurrent());
+			return false;
+		}
+
+		if (apCost > caster.getActionPoints().getCurrent())
+		{
+			Maze.log(Log.DEBUG, "insufficient AP points: "+apCost+" > "+caster.getActionPoints().getCurrent());
+			return false;
+		}
+
+		if (mpCost > caster.getMagicPoints().getCurrent())
+		{
+			Maze.log(Log.DEBUG, "insufficient MP points: "+mpCost+" > "+caster.getMagicPoints().getCurrent());
+			return false;
+		}
+
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static class DummyCaster extends AbstractActor
 	{
 		FoeGroup actorGroup;

@@ -25,10 +25,7 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Tile;
-import mclachlan.maze.stat.combat.ActorIntentionResolver;
-import mclachlan.maze.stat.combat.CombatAction;
-import mclachlan.maze.stat.combat.CombatantData;
-import mclachlan.maze.stat.combat.WieldingCombo;
+import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.condition.*;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -1329,7 +1326,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		//
 		// Check available magic points
 		//
-		if (!(getMagicPoints().getCurrent() >= MagicSys.getInstance().getMagicPointCost(s, 1, this)))
+		if (!GameSys.getInstance().canPaySpellCost(s, 1, this))
 		{
 			// cannot cast this spell even on first level
 			return false;
@@ -1615,6 +1612,44 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	All pre-combat actions that character special abilities allow this
+	 * 	character to take. One one is supported, so if there are multiple
+	 * 	choose one at random.
+	 */
+	public ActorActionIntention getPreCombatIntentions(Combat combat)
+	{
+		List<ActorActionIntention> possibilities = new ArrayList<ActorActionIntention>();
+
+		if (getModifier(Stats.Modifiers.IAJUTSU) > 0)
+		{
+			// check it's a sword with the KENDO focus
+			Item primaryWeapon = getPrimaryWeapon();
+			if (primaryWeapon != null &&
+				primaryWeapon.getSubType() == ItemTemplate.WeaponSubType.SWORD/* &&
+				Stats.Modifiers.KENDO.equals(primaryWeapon.getDiscipline())*/)
+			{
+				possibilities.add(
+					new SpecialAbilityIntention(
+						combat.getRandomFoeOf(this),
+						Database.getInstance().getSpell("_IAJUTSU_"),
+						this.getLevel()));
+			}
+		}
+
+		if (!possibilities.isEmpty())
+		{
+			return possibilities.get(new Dice(1,possibilities.size(),-1).roll());
+		}
+		else
+		{
+			return ActorActionIntention.INTEND_NOTHING;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public abstract List<AttackWith> getAttackWithOptions();
 	public abstract String getType();
 	public abstract int getBaseModifier(String modifier);
@@ -1626,6 +1661,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract void addAllies(List<FoeGroup> foeGroups);
 	public abstract boolean isActiveModifier(String modifier);
 	public abstract List<SpellLikeAbility> getSpellLikeAbilities();
+
 	public abstract CharacterClass.Focus getFocus();
 
 	public abstract String getFaction();
