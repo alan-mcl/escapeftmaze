@@ -186,7 +186,7 @@ public class V1StatModifier
 			MELEE_CRITICALS,
 			THROWN_CRITICALS,
 			RANGED_CRITICALS,
-			"reserved2",
+			SCOUTING,
 			"reserved3",
 			CHANT,
 			RHYME,

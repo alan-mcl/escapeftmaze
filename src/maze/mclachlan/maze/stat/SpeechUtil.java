@@ -21,8 +21,10 @@ package mclachlan.maze.stat;
 
 import java.awt.Rectangle;
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionEffect;
@@ -297,6 +299,24 @@ public class SpeechUtil
 		}
 
 		return new ArrayList<MazeEvent>();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> spotStashSpeech(PlayerCharacter pc)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		result.add(new UiMessageEvent(
+			StringUtil.getGamesysString("scouting.spot.stash", false, pc.getDisplayName())));
+
+		// always say something, unless character speech is off
+		if (Maze.getInstance().getUserConfig().getPersonalityChattiness() != OFF)
+		{
+			String speechKey = Personality.BasicSpeech.SCOUTING_SPOT_STASH.getKey();
+			result.addAll(getSpeechBubbleEvent(pc, speechKey));
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

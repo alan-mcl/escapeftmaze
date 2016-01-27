@@ -126,6 +126,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField hiddenStuffVariable;
 	private JComboBox hiddenStuffContents;
 	private JComboBox hiddenStuffPreScript;
+	private JSpinner hiddenStuffSpotDifficulty, hiddenStuffFindDifficulty;
 
 	/*-------------------------------------------------------------------------*/
 	public TileScriptEditor(Frame owner, TileScript tileScript, int dirtyFlag, Zone zone)
@@ -364,6 +365,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				hiddenStuffContents.setSelectedItem(hs.getContent().getName());
 				hiddenStuffPreScript.setSelectedItem(hs.getPreScript()==null?EditorPanel.NONE:hs.getPreScript().getName());
 				hiddenStuffVariable.setText(hs.getMazeVariable());
+				hiddenStuffSpotDifficulty.setValue(hs.getSpotDifficulty());
+				hiddenStuffFindDifficulty.setValue(hs.getFindDifficulty());
 				break;
 			case WATER:
 				break;
@@ -401,6 +404,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		hiddenStuffContents = new JComboBox(scripts);
 		hiddenStuffPreScript = new JComboBox(scripts);
 		hiddenStuffVariable = new JTextField(20);
+		hiddenStuffSpotDifficulty = new JSpinner(new SpinnerNumberModel(1,0,127,1));
+		hiddenStuffFindDifficulty = new JSpinner(new SpinnerNumberModel(1,0,127,1));
 
 		JButton edit = getMazeScriptEditButton();
 		
@@ -408,7 +413,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Maze Variable:"), hiddenStuffVariable,
 			new JLabel("Contents:"), hiddenStuffContents,
 			new JLabel("Pre Script:"), hiddenStuffPreScript,
-			new JLabel(), edit);			
+			new JLabel("Spot Difficulty:"), hiddenStuffSpotDifficulty,
+			new JLabel("Find Difficulty:"), hiddenStuffFindDifficulty,
+			new JLabel(), edit);
 	}
 
 	private JPanel getSetMazeVariablePanel()
@@ -953,9 +960,11 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				String mazeVar = hiddenStuffVariable.getText();
 				String contentStr = (String)hiddenStuffContents.getSelectedItem();
 				String preStr = (String)hiddenStuffPreScript.getSelectedItem();
+				int spotDifficulty = (Integer)hiddenStuffSpotDifficulty.getValue();
+				int findDifficulty = (Integer)hiddenStuffFindDifficulty.getValue();
 				MazeScript content = (contentStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getScript(contentStr);
 				MazeScript preScript = (preStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getScript(preStr);
-				result = new HiddenStuff(content, preScript, mazeVar);
+				result = new HiddenStuff(content, preScript, mazeVar, spotDifficulty, findDifficulty);
 				break;
 			case WATER:
 				result = new Water();

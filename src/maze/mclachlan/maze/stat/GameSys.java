@@ -22,10 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.ActorEncounter;
-import mclachlan.maze.game.DifficultyLevel;
-import mclachlan.maze.game.Log;
-import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.*;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
@@ -3954,6 +3951,52 @@ public class GameSys
 		}
 
 		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The actor (if any) who spots the given hidden stash. If no one spots
+	 * 	it, return null.
+	 */
+	public PlayerCharacter scoutingSpotsStash(Maze maze, int spotDifficulty)
+	{
+		PlayerParty party = maze.getParty();
+
+		for (PlayerCharacter pc : party.getPlayerCharacters())
+		{
+			if (isActorAware(pc) && pc.getModifier(Stats.Modifiers.SCOUTING) >= spotDifficulty)
+			{
+				practice(pc, Stats.Modifiers.SCOUTING, 1);
+				return pc;
+			}
+		}
+
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The actor (if any) who finds the given hidden stash. If no one finds
+	 * 	it, return null.
+	 */
+	public PlayerCharacter scoutingFindsStash(Maze maze, int findDifficulty)
+	{
+		PlayerParty party = maze.getParty();
+
+		for (PlayerCharacter pc : party.getPlayerCharacters())
+		{
+			if (isActorAware(pc) && pc.getModifier(Stats.Modifiers.SCOUTING) >= findDifficulty)
+			{
+				practice(pc, Stats.Modifiers.SCOUTING, 1);
+				return pc;
+			}
+		}
+
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -30,7 +30,7 @@ import java.awt.*;
  */
 public class MouseClickScriptAdapter implements MouseClickScript
 {
-	TileScript script;
+	private TileScript script;
 	
 	/*-------------------------------------------------------------------------*/
 	public MouseClickScriptAdapter(TileScript script)

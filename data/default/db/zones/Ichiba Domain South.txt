@@ -151,7 +151,7 @@ playerOrigin: 3:2
 132: 0:3f800000000000000000,01020302020302:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 133: 0:3f800000000000000000,03010203030301:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 134: 0:3f800000000000000000,03020301010303:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
-135: 2:7,ichiba.domain.south.execute.once.0,,false,Ichiba Domain South antenor bones:10,,,false,ichiba.domain.south.hidden.stuff.antenor,Ichiba Domain South antenor loot,:3f800000000000000000,03020302030201:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
+135: 2:7,ichiba.domain.south.execute.once.0,,false,Ichiba Domain South antenor bones:10,,,false,ichiba.domain.south.hidden.stuff.antenor,Ichiba Domain South antenor loot,,1,0:3f800000000000000000,03020302030201:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 136: 0:3f800000000000000000,01030201010202:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 137: 0:3f800000000000000000,03020202030201:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 138: 0:3f800000000000000000,02030301030302:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE

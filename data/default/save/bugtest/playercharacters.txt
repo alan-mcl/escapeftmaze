@@ -50,7 +50,7 @@ bannerItem=
 inventory=Potion Of Light Heal/0/2/3-5/1-1/,Claymore/0/2/1-1/0-0/,Club/0/2/1-1/0-0/,Wakazashi/0/2/1-1/0-0/,Scrymgeour's Bitter/0/2/5-5/1-1/,Aenen Sundew/0/2/5-5/1-1/,Dungore's Malt Ale/0/2/5-5/1-1/,Hail Cider/0/2/5-5/1-1/,McCavity Ale/0/2/5-5/1-1/,Potion Of Light Heal/0/2/3-5/1-1/,Potion Of Mod Heal/0/2/4-5/1-1/,Potion Of Mod Heal/0/2/3-5/1-1/,Potion Of Mod Heal/0/2/2-5/1-1/,Fire Bomb/0/2/2-5/1-1/,Ice Bomb/0/2/2-5/1-1/,Knock Pick/0/2/5-25/1-1/
 spellbook=Heal Light Wounds,Chameleon,Cure Lesser Condition,Cure Poison,Entangle,Revitalise,Call Plants,Call Treant,Entwine,Call Elemental,Call Wyrms,Force Of Nature,Cure Disease,Bolt Of Lightning,Blizzard,Falling Stars,Call Wyrm,Firestorm
 spellPicks=1
-stats=148-148-0;0-0;31-41;442080401f18,120c010f0408070301060706
+stats=148-148-0;0-0;31-41;442880401f18,120c010f040807030102060706
 practice=1a00,011e1e
 activeModifiers=4208043fff8,01010101010101010101010101010101010101
 @

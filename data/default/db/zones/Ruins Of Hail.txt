@@ -970,7 +970,7 @@ playerOrigin: 22:23
 951: 0:3f800000000000000000,04040504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 952: 0:3f800000000000000000,05050405040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 953: 0:3f800000000000000000,05050505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-954: 2:4,,,false,The area around these remains is blackened and scorched.:10,,,false,ruins.of.hail.damla's.bones.hidden.stuff,Ruins Of Hail damla's bones hidden stuff,:3f800000000000000000,04050404050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+954: 2:4,,,false,The area around these remains is blackened and scorched.:10,,,false,ruins.of.hail.damla's.bones.hidden.stuff,Ruins Of Hail damla's bones hidden stuff,,1,0:3f800000000000000000,04050404050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 955: 0:3f800000000000000000,05040504050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 956: 0:3f800000000000000000,05040504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 957: 0:3f800000000000000000,05050405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -1192,7 +1192,7 @@ playerOrigin: 22:23
 1173: 0:3f800000000000000000,05050504050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1174: 0:3f800000000000000000,05040504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1175: 0:3f800000000000000000,04040404050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-1176: 2:4,,,false,You step over the bones of some poor scribe who appears to have died in defence of his books.:10,,,false,ruins.of.hail.hidden.stuff.1,Ruins Of Hail hidden stuff 1,:3f800000000000000000,05050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+1176: 2:4,,,false,You step over the bones of some poor scribe who appears to have died in defence of his books.:10,,,false,ruins.of.hail.hidden.stuff.1,Ruins Of Hail hidden stuff 1,,1,0:3f800000000000000000,05050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1177: 2:4,,,false,The ancient coffer has been blackened by fire, chipped and dented by the years, and is covered with dirt and mould.:2,,,false,5///false/ruins.of.hail.library.books,0`2 - Energy Drain~17`2 - Stunner~17`2 - Ray Of Enfeeblement~17`1 - Glowing Curse~17`3 - Curse Of Medusa~16`3 - Hexxer~16,ruins.of.hail.chest.1,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,04050504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1178: 0:3f800000000000000000,05050505050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1179: 0:3f800000000000000000,04050505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE

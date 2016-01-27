@@ -1,4 +1,4 @@
-#Fri Dec 11 08:22:22 CAT 2015
+#Tue Jan 26 08:20:33 CAT 2016
 maze\ master=9|Hmpf. Speak to Three Eyes.
 garret=9|Hmpf. Speak to Three Eyes.
 faerie=9|Hmpf. Speak to Three Eyes.
@@ -38,14 +38,14 @@ escape,freedom=9|Gnoll folk free.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|
 leonal,leonals,white\ order=9| Lion people many and strong, but they stay on road. Grrrr, gnolls watch from forest.
 gnoll,gnolls=9|Grrrr\! Gnoll folk - warriors strong. Broken Fang chieftain. Hunters in forest\! Others not see\! Gnome magic folk burrow, tall lion peoples march around\! City people wall hide\! Gnoll warriors see all, not seen\! Warriors strong. Grrrrrrr\!
-dalen=9|Hmpf. Speak to Three Eyes.
 stentor=9|Don't know.
+dalen=9|Hmpf. Speak to Three Eyes.
 gnome,gnomes=9|Small gnome folk. Broken Fang see them, forest often. Not hunters, burrowers.
-imogen=9|Broken Fang knows magic lady. Grrrr. She in city.
 pickett,we\ pickett=9|Don't know.
-dana=9|Hmpf. Speak to Three Eyes.
-mnesus=9|Don't know.
+imogen=9|Broken Fang knows magic lady. Grrrr. She in city.
 second\ realm=9|Grrrr. Broken Fang chieftain.
+mnesus=9|Don't know.
+dana=9|Hmpf. Speak to Three Eyes.
 sarpedon=9|Don't know.
 greetings,hello,hi,salutations=9|Grrrrr.
 kay,sir\ kay=9|Don't know.

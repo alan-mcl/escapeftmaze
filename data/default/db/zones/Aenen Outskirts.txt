@@ -699,7 +699,7 @@ playerOrigin: 3:3
 680: 0:3f800000000000000000,03030303020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 681: 0:3f800000000000000000,02030304030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 682: 0:3f800000000000000000,02030203030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-683: 1:10,,,false,aenen.outskirts.charred.stump.search,Aenen Outskirts charred stump search,Aenen Outskirts charred stump:3f800000000000000000,03030303020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+683: 1:10,,,false,aenen.outskirts.charred.stump.search,Aenen Outskirts charred stump search,Aenen Outskirts charred stump,1,0:3f800000000000000000,03030303020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 684: 0:3f800000000000000000,03020205030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 685: 0:3f800000000000000000,03020202030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 686: 0:3f800000000000000000,02020303020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE

@@ -710,7 +710,7 @@ playerOrigin: 36:21
 691: 0:3f800000000000000000,02030303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 692: 0:3f800000000000000000,03010301010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 693: 0:3f800000000000000000,02010302020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-694: 2:4,,,false,The notice board has a single sheet of paper nailed to it-%n%n"Notice #18. Mercenaries Wanted. Take One And Apply Within."%n%nThe bottom of the paper has been cut to form slips that can be torn off. Several are already gone.:10,,,false,,Ichiba City COC tear off paper slip,:3f800000000000000000,02030301030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+694: 2:4,,,false,The notice board has a single sheet of paper nailed to it-%n%n"Notice #18. Mercenaries Wanted. Take One And Apply Within."%n%nThe bottom of the paper has been cut to form slips that can be torn off. Several are already gone.:10,,,false,,Ichiba City COC tear off paper slip,,1,0:3f800000000000000000,02030301030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 695: 0:3f800000000000000000,03010301030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 696: 0:3f800000000000000000,03020301020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 697: 0:3f800000000000000000,01020103020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE

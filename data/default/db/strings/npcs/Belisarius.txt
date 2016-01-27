@@ -1,4 +1,4 @@
-#Fri Dec 11 08:22:22 CAT 2015
+#Tue Jan 26 08:20:33 CAT 2016
 maze\ master=9|A figure of legend.
 garret=9|A fickle god to follow.
 faerie=9|I seek to know nothing of the fey.
@@ -38,14 +38,14 @@ escape,freedom=9|Hrrrmmmmm. Who does not dream of freedom?
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Thieves are probably to be found in Ichiba. Hrmmmrmmm.
 leonal,leonals,white\ order=9|Here we are, holding back the forces of chaos and darkness from this Realm. The children of Dana are few but we are mighty and our sword arms are rightly feared.
 gnoll,gnolls=9|The gnolls are prrrimitive, but one must not underestimate their wood craft or warrior spirit.
-stentor=9|He is without.
 dalen=9|I know nothing of earth magic.
+stentor=9|He is without.
 gnome,gnomes=9|The gnomes continue to harass our efforts to bring Order to this Realm.
-pickett,we\ pickett=9|The de facto king of Ichiba, ruling with tariffs and mercenaries.
 imogen=9|The witch who lives in Ichiba? She and her pet gnolls tend to mind their own business.
-second\ realm=9|The Second Realm has two sides. Here we hold back the wilds and order of sorts prevails as far as Aenen. Beyond, now that the city of Hail has fallen there is little but beasts and danger. The ungoverned domains are beset with monsters of all descriptions and haunted by seven deadly spirits set to guard the Gate within.
-mnesus=9|The gnomish king. A worthy adversary. I do not know what he seeks within this Realm.
+pickett,we\ pickett=9|The de facto king of Ichiba, ruling with tariffs and mercenaries.
 dana=9|Dana, the iron goddess of justice and mercy. Patron of the White Order. She watches over the just and the downtrodden, soldiers and priests and peasants. 
+mnesus=9|The gnomish king. A worthy adversary. I do not know what he seeks within this Realm.
+second\ realm=9|The Second Realm has two sides. Here we hold back the wilds and order of sorts prevails as far as Aenen. Beyond, now that the city of Hail has fallen there is little but beasts and danger. The ungoverned domains are beset with monsters of all descriptions and haunted by seven deadly spirits set to guard the Gate within.
 sarpedon=9|He is some kind of general amongst the gnomes.
 greetings,hello,hi,salutations=9|Hrmmmm. Yes?
 kay,sir\ kay=9|It is said he rules the thieves in Ichiba.

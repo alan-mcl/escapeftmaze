@@ -108,6 +108,7 @@ public class Stats
 		stealthModifiers.add(Modifiers.MELEE_CRITICALS);
 		stealthModifiers.add(Modifiers.THROWN_CRITICALS);
 		stealthModifiers.add(Modifiers.RANGED_CRITICALS);
+		stealthModifiers.add(Modifiers.SCOUTING);
 
 		magicModifiers.add(Modifiers.CHANT);
 		magicModifiers.add(Modifiers.RHYME);
@@ -450,6 +451,7 @@ public class Stats
 		public static final String MELEE_CRITICALS = "meleeCriticals";
 		public static final String THROWN_CRITICALS = "thrownCriticals";
 		public static final String RANGED_CRITICALS = "rangedCriticals";
+		public static final String SCOUTING = "scouting";
 
 		// modifiers: magic
 		public static final String CHANT = "chant";

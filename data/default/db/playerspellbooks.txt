@@ -1,14 +1,5 @@
-name=Black Magic
-spellNames=Summon Demon,Poison,Deadly Air,Curse,Death,Unholy Ground,Leverage,Fear,Acid Splash,Wither Plants,Melt Armour,Acid Cloud,Pain,Draining Cloud,Death Cloud,Theft,Death Wish,Power Of The Pit,Decay,Petrify,Gruesome Aspect,Silence,Acid Spray,Ruin,Darkness,Disease,Deadly Poison,Minor Wound,Vampirism,Backstab,Confusion,Paralysis,Hex,Spooks,Weakness,Gates Of Hell,Fearsome Aspect,Poison Gas,Demonic Aspect,Lifesteal
-@
 name=Witchcraft
 spellNames=Melt Into Mist,Soul Shield,Watchbells,Prismic Chaos,Full Moon,Skullduggery,Hex,Might To Magic,Cure Poison,Shrill Sound,Remove Curse,Heal Light Wounds,Mortal Allure,Phantom Guardian,Witchbolt,Twinkling Cape,Blur,Telekinesis,Prismic Missile,Fey Bolt,Sane Mind,Fey Voice,Left Handed Bane,Curse,Remedy,Starlight,Slow,Dazzling Lights,Unleash Power,Mass Blur,Cloud of Faeries,Binding,Haste,Jinx,Cloak Of Magic,Charm,Cure Lesser Condition,Cure Paralysis,Cure Stone,Bane
-@
-name=Enchantment
-spellNames=Soul Shield,Mindread,Spooks,Prismic Chaos,Obfuscation,Skullduggery,Tag,Pandemonium,Sleep,Stamina,Knock Knock,Theft,Heroism,Colour Spray,Courage,Prismic Missile,Sane Mind,Subtle Glamour,Mind Flay,Invisibility,Goldfingers,Anti-Magic,Beguilement,Turncoat,Faerie Fire,Stasis,Vanishing,Confidence Trick,Identify,Haste,Cerebral Hemorrhage,Silence,Mirror Image,Mesmerism,Blink,Charm,Cure Stone,Phantasm,Shadow Warriors,Diplomacy
-@
-name=Sorcery
-spellNames=Bolt Of Magma,Nuclear Blast,Concussion,Mage Armour,Sonic Boom,Wall Of Force,Bolt Of Static,Power Word Blind,Melt Armour,Dehydrate,Cone Of Cold,Knock Knock,Boiling Blood,Recharge,Bolt Of Lightning,Mental Blast,Majesty,Wave Of Heat,Bolt Of Fire,Mage Shield,Bolt Of Force,Rune Of Destruction,Bomb Of Acid,Right Handed Bane,Power Word Stun,Power Word Stone,Power Word Mute,Ball Of Ice,Ball Of Fire,Invisible Stalker,Power Word Kill,Mage Blades,Mage Strength,Identify,Rune Of Death,Mental Attack,Mage Missiles,Bolt Of Acid,Summon Demon,Fear
 @
 name=White Magic
 spellNames=Cure All,Magic Screen,Heal Serious Wounds,Soul Shield,Summon Angel,Rest All,Restoration,Fervour,Falling Stars,Stamina,Element Shield,Enchanted Blade,Cure Poison,Guardian Angel,Remove Curse,Heal Light Wounds,Cure Disease,Purify Air,Bless Party,Superman,Striking,Heal All,Daylight,Sane Mind,Resurrection,Heal Moderate Wounds,Armourplate,Holy Ground,Faith,Rally,Renewal,Astral Gate,Identify,Charm,Divinity,Zap Undead,Cure Lesser Condition,Cure Paralysis,Healing Factor,Cure Stone
@@ -18,4 +9,13 @@ spellNames=Quicksand,Nuclear Blast,Blinding Flash,Flare,Freeze,Stoneskin,Earthqu
 @
 name=Druidism
 spellNames=Forest Vengeance,Call Elemental,Disease,Dehydrate,Call Wyrms,Falling Stars,Spit Venom,Chameleon,Blades Of Fire,Stamina,Cure Poison,Blizzard,Entangle,Heal Light Wounds,Cure Disease,Purify Air,Bolt Of Lightning,Curing,Dire Wasps,Firestorm,Call Plants,Flame Blade,Call Vermin,Resurrection,Decay,Force Of Nature,Insect Swarm,Wither Plants,Renewal,Call Treant,Sunbeam,Icicle,Thorns,Revitalise,Insect Plague,Verdant Growth,Barkskin,Cure Lesser Condition,Call Wyrm,Entwine
+@
+name=Black Magic
+spellNames=Darkness,Acid Spray,Disease,Demonic Aspect,Spooks,Gruesome Aspect,Gates Of Hell,Confusion,Theft,Pain,Unholy Ground,Curse,Weakness,Death Wish,Backstab,Leverage,Paralysis,Deadly Air,Fearsome Aspect,Draining Cloud,Melt Armour,Petrify,Poison Gas,Acid Splash,Ruin,Fear,Silence,Summon Demon,Power Of The Pit,Deadly Poison,Acid Cloud,Decay,Poison,Death,Minor Wound,Hex,Death Cloud,Wither Plants,Vampirism,Lifesteal
+@
+name=Sorcery
+spellNames=Bolt Of Magma,Nuclear Blast,Concussion,Mage Armour,Sonic Boom,Wall Of Force,Bolt Of Static,Power Word Blind,Melt Armour,Dehydrate,Cone Of Cold,Knock Knock,Boiling Blood,Recharge,Bolt Of Lightning,Mental Blast,Majesty,Wave Of Heat,Bolt Of Fire,Mage Shield,Bolt Of Force,Rune Of Destruction,Bomb Of Acid,Right Handed Bane,Power Word Stun,Power Word Stone,Power Word Mute,Ball Of Ice,Ball Of Fire,Invisible Stalker,Power Word Kill,Mage Blades,Mage Strength,Identify,Rune Of Death,Mental Attack,Mage Missiles,Bolt Of Acid,Summon Demon,Fear
+@
+name=Enchantment
+spellNames=Soul Shield,Mindread,Spooks,Prismic Chaos,Obfuscation,Skullduggery,Tag,Pandemonium,Sleep,Stamina,Knock Knock,Theft,Heroism,Colour Spray,Courage,Prismic Missile,Sane Mind,Subtle Glamour,Mind Flay,Invisibility,Goldfingers,Anti-Magic,Beguilement,Turncoat,Faerie Fire,Stasis,Vanishing,Confidence Trick,Identify,Haste,Cerebral Hemorrhage,Silence,Mirror Image,Mesmerism,Blink,Charm,Cure Stone,Phantasm,Shadow Warriors,Diplomacy
 @

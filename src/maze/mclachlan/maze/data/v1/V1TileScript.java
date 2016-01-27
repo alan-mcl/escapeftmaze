@@ -195,6 +195,10 @@ public class V1TileScript
 				s.append(hs.getContent().getName());
 				s.append(SEP);
 				s.append(hs.getPreScript()== null?"":hs.getPreScript().getName());
+				s.append(SEP);
+				s.append(hs.getSpotDifficulty());
+				s.append(SEP);
+				s.append(hs.getFindDifficulty());
 				break;
 			case WATER:
 				break;
@@ -324,9 +328,11 @@ public class V1TileScript
 				String mazeVar = strs[i++];
 				String contentStr = strs[i++];
 				String preStr = strs[i++];
+				int spotDifficulty = Integer.parseInt(strs[i++]);
+				int findDifficulty = Integer.parseInt(strs[i++]);
 				MazeScript content = ("".equals(contentStr)) ? null : Database.getInstance().getScript(contentStr);
 				MazeScript preScript = ("".equals(preStr)) ? null : Database.getInstance().getScript(preStr);
-				result = new HiddenStuff(content, preScript, mazeVar);
+				result = new HiddenStuff(content, preScript, mazeVar, spotDifficulty, findDifficulty);
 				break;
 			case WATER:
 				result = new Water();

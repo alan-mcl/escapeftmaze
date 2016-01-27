@@ -296,7 +296,7 @@ playerOrigin: 19:12
 277: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 279: 0:3f800000000000000000,01020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-280: 1:10,,,false,ichiba.crossroad.hidden.stuff.1,Ichiba Crossroad bones hidden stuff,:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+280: 1:10,,,false,ichiba.crossroad.hidden.stuff.1,Ichiba Crossroad bones hidden stuff,,1,0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 281: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 282: 0:3f800000000000000000,01020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 283: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE

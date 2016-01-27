@@ -4,7 +4,6 @@
 #
 unarmed.weapon = Unarmed
 
-
 #
 # MODIFIERS
 #
@@ -69,6 +68,7 @@ modifier_name-martialArts: Martial Arts
 modifier_name-meleeCriticals: Melee Criticals
 modifier_name-thrownCriticals: Thrown Criticals
 modifier_name-rangedCriticals: Ranged Criticals
+modifier_name-scouting: Scouting
 
 modifier_name-initiative: Initiative
 modifier_name-defence: Defence
@@ -270,6 +270,7 @@ modifier_desc-martialArts: Modifies unarmed combat, and the use of weapons from 
 modifier_desc-meleeCriticals: Modifies the chance of a critical hit with a melee weapon, including unarmed attacks
 modifier_desc-thrownCriticals: Modifies the chance of a critical hit with a thrown weapon like knives and shuriken, and including slings
 modifier_desc-rangedCriticals: Modifies the chance of a critical hit with a ranged weapon, including bows, crossbows and modern ranged weapons
+modifier_desc-scouting: Gives this character the ability to locate hidden items and other secrets
 
 modifier_desc-initiative: Modifies how early this character acts in each combat round.
 modifier_desc-defence: Modifies how difficult this character is to hit by melee and missile attacks.
@@ -657,18 +658,18 @@ lap_desc_iajutsu = Iajutsu is the art of rapidly drawing and attacking with a sw
 
 # Scout
 lap_name_alert = Alert
-lap_desc_alert = Foes will find it particularily hard to ambush or hide from the wily Scout.
+lap_desc_alert = Foes will find it particularly hard to ambush or hide from the wily Scout.
 
 # Shaman
 lap_name_tribesman = Tribesman
-lap_desc_tribesman = The Shaman's tribal ancestory provides stealth bonuses, particularly in wilderness and wasteland areas.
+lap_desc_tribesman = The Shaman's tribal ancestry provides stealth bonuses, particularly in wilderness and wasteland areas.
 lap_name_chanelling = Channelling
 lap_desc_chanelling = The Shaman draws energy from elements around him or her, and gets a bonus to initiative based on the amount of Blue magic present.
 
 # Shugenja
 lap_name_displacer = Displacer
 lap_desc_displacer = The Shugenja can change places with another character in the party before each combat round starts.
-lap_name_magic_absorbtion = Magic Absorbtion %s
+lap_name_magic_absorbtion = Magic Absorption %s
 lap_desc_magic_absorbtion = The Shugenja is resistant to enemy magic, and indeed can absorb a portion of any spell that targets him or her.
 
 # Skald
@@ -769,3 +770,9 @@ sest.psychic = psychic
 #
 cond.unknown.condition = ?unknown condition?
 cond.unknown.affliction = ?unknown affliction?
+
+#
+# Scouting
+#
+scouting.spot.stash = %s notices something!
+scouting.find.stash = %s finds something!

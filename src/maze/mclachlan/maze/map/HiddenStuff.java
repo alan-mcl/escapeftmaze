@@ -19,59 +19,89 @@
 
 package mclachlan.maze.map;
 
-import java.awt.*;
+import java.awt.Point;
+import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.event.UiMessageEvent;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.SpeechUtil;
 
 /**
  *
  */
 public class HiddenStuff extends TileScript
 {
+	private int spotDifficulty, findDifficulty;
 	private String mazeVariable;
 	private MazeScript preScript, content;
 	
 	/*-------------------------------------------------------------------------*/
-	public HiddenStuff(MazeScript content, MazeScript preScript, String mazeVariable)
+	public HiddenStuff(
+		MazeScript content,
+		MazeScript preScript,
+		String mazeVariable,
+		int spotDifficulty, int findDifficulty)
 	{
 		this.mazeVariable = mazeVariable;
 		this.content = content;
 		this.preScript = preScript;
+		this.spotDifficulty = spotDifficulty;
+		this.findDifficulty = findDifficulty;
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public java.util.List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
+	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
 		if (preScript != null)
 		{
-			return preScript.getEvents();
+			result.addAll(preScript.getEvents());
 		}
-		else
+
+		PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze, spotDifficulty);
+		if (pc != null)
 		{
-			return null;
+			result.addAll(SpeechUtil.getInstance().spotStashSpeech(pc));
 		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public java.util.List<MazeEvent> handlePlayerAction(Maze maze, Point tile, int facing, int playerAction)
+	public List<MazeEvent> handlePlayerAction(Maze maze, Point tile, int facing, int playerAction)
 	{
-		if (playerAction == PlayerAction.SEARCH
-			&& (mazeVariable == null || MazeVariables.get(mazeVariable) == null))
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		if (playerAction == PlayerAction.SEARCH)
 		{
-			if (mazeVariable != null && !mazeVariable.equals(""))
+			PlayerCharacter pc = GameSys.getInstance().scoutingFindsStash(maze, findDifficulty);
+			if (pc != null)
 			{
-				MazeVariables.set(mazeVariable, "1");
+				if (mazeVariable == null || MazeVariables.get(mazeVariable) == null)
+				{
+					if (mazeVariable != null && !mazeVariable.equals(""))
+					{
+						MazeVariables.set(mazeVariable, "1");
+					}
+
+					result.add(new UiMessageEvent(
+						StringUtil.getGamesysString("scouting.find.stash", false, pc.getDisplayName())));
+
+					result.addAll(content.getEvents());
+				}
 			}
-			return content.getEvents();
 		}
-		else
-		{
-			return null;
-		}
+
+		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public MazeScript getContent()
 	{
 		return content;
@@ -85,5 +115,15 @@ public class HiddenStuff extends TileScript
 	public MazeScript getPreScript()
 	{
 		return preScript;
+	}
+
+	public int getSpotDifficulty()
+	{
+		return spotDifficulty;
+	}
+
+	public int getFindDifficulty()
+	{
+		return findDifficulty;
 	}
 }

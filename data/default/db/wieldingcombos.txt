@@ -1,110 +1,110 @@
-name=staff+sword (likegandalf)
-primaryHand=<any staff>
-secondaryHand=<any sword>
-modifiers=110,0101
-@
-name=2H battleaxe
-primaryHand=Battleaxe
-secondaryHand=<nothing>
-modifiers=180000000000000,0101
-@
-name=dual scimitars (drizztbuild)
-primaryHand=Scimitar
-secondaryHand=Scimitar
-modifiers=8000100000010,010202
+name=sword+modern (musketeer)
+primaryHand=<any sword>
+secondaryHand=<any modern weapon>
+modifiers=1010000400000000,010101
 @
 name=dual swords (rangerman)
 primaryHand=<any sword>
 secondaryHand=<any sword>
 modifiers=10000000100000,0101
 @
-name=2H longsword
-primaryHand=Longsword
-secondaryHand=<nothing>
-modifiers=8000000000000,01
-@
-name=dual modern (cowboybob)
-primaryHand=<any modern weapon>
-secondaryHand=<any modern weapon>
-modifiers=8000400000000,0101
-@
-name=dual wands (badpixie)
-primaryHand=<any wand>
-secondaryHand=<any wand>
-modifiers=8400000000100,010101
-@
-name=2H katana
-primaryHand=Katana
-secondaryHand=<nothing>
-modifiers=88000000000000,0101
-@
-name=blade+shield (gladiator)
-primaryHand=Short Sword
-secondaryHand=<any shield>
-modifiers=40000000000000,01
-@
-name=sword+dagger (mrmaingauche)
-primaryHand=<any sword>
-secondaryHand=<any dagger>
-modifiers=48000000000000,0101
-@
-name=2H bastard sword
-primaryHand=Bastard Sword
-secondaryHand=<nothing>
-modifiers=188000000000000,010105
-@
-name=dual maces (lordbuild)
-primaryHand=<any mace>
-secondaryHand=<any mace>
-modifiers=40000100000000000000,0501
-@
-name=rapier+poignard (duelistbuild)
-primaryHand=Rapier
-secondaryHand=Poignard
-modifiers=28000000000010,010202
-@
-name=dual staves (lichking)
-primaryHand=<any staff>
-secondaryHand=<any staff>
-modifiers=100000040000000002100,01010101
-@
-name=sword+modern (musketeer)
-primaryHand=<any sword>
-secondaryHand=<any modern weapon>
-modifiers=1010000400000000,010101
-@
-name=dual daggers (meanthief)
-primaryHand=<any dagger>
-secondaryHand=<any dagger>
-modifiers=108000000,0101
-@
-name=dual hammers (hammertime)
-primaryHand=Hammer
-secondaryHand=Hammer
-modifiers=80000000000010,0101
-@
-name=dual axes (crazyviking)
-primaryHand=<any axe>
-secondaryHand=<any axe>
-modifiers=130000000000000,020202
-@
-name=mace+board (macefighter)
-primaryHand=<any mace>
-secondaryHand=<any shield>
-modifiers=40000000000000,01
-@
 name=spear+shield (valklady)
 primaryHand=<any polearm>
 secondaryHand=<any shield>
 modifiers=140000000000000,0101
+@
+name=2H longsword
+primaryHand=Longsword
+secondaryHand=<nothing>
+modifiers=8000000000000,01
 @
 name=staff+wand (witchbuild)
 primaryHand=<any staff>
 secondaryHand=<any wand>
 modifiers=100000040000000000000,0101
 @
+name=mace+board (macefighter)
+primaryHand=<any mace>
+secondaryHand=<any shield>
+modifiers=40000000000000,01
+@
 name=extended+extended (multispear)
 primaryHand=<any extended weapon>
 secondaryHand=<any extended weapon>
 modifiers=88000000100000,010201
+@
+name=staff+sword (likegandalf)
+primaryHand=<any staff>
+secondaryHand=<any sword>
+modifiers=110,0101
+@
+name=dual scimitars (drizztbuild)
+primaryHand=Scimitar
+secondaryHand=Scimitar
+modifiers=8000100000010,010202
+@
+name=dual daggers (meanthief)
+primaryHand=<any dagger>
+secondaryHand=<any dagger>
+modifiers=108000000,0101
+@
+name=2H battleaxe
+primaryHand=Battleaxe
+secondaryHand=<nothing>
+modifiers=180000000000000,0101
+@
+name=2H bastard sword
+primaryHand=Bastard Sword
+secondaryHand=<nothing>
+modifiers=188000000000000,010105
+@
+name=dual wands (badpixie)
+primaryHand=<any wand>
+secondaryHand=<any wand>
+modifiers=8400000000100,010101
+@
+name=rapier+poignard (duelistbuild)
+primaryHand=Rapier
+secondaryHand=Poignard
+modifiers=28000000000010,010202
+@
+name=dual modern (cowboybob)
+primaryHand=<any modern weapon>
+secondaryHand=<any modern weapon>
+modifiers=8000400000000,0101
+@
+name=blade+shield (gladiator)
+primaryHand=Short Sword
+secondaryHand=<any shield>
+modifiers=40000000000000,01
+@
+name=dual staves (lichking)
+primaryHand=<any staff>
+secondaryHand=<any staff>
+modifiers=100000040000000002100,01010101
+@
+name=dual axes (crazyviking)
+primaryHand=<any axe>
+secondaryHand=<any axe>
+modifiers=130000000000000,020202
+@
+name=sword+dagger (mrmaingauche)
+primaryHand=<any sword>
+secondaryHand=<any dagger>
+modifiers=48000000000000,0101
+@
+name=dual hammers (hammertime)
+primaryHand=Hammer
+secondaryHand=Hammer
+modifiers=80000000000010,0101
+@
+name=2H katana
+primaryHand=Katana
+secondaryHand=<nothing>
+modifiers=88000000000000,0101
+@
+name=dual maces (lordbuild)
+primaryHand=<any mace>
+secondaryHand=<any mace>
+modifiers=40000100000000000000,0501
 @

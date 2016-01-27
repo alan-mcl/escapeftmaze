@@ -122,6 +122,7 @@ public class Personality
 		CONDITION_WEB("condition.web"),
 		INVENTORY_HEAVY_LOAD("inventory.heavy.load"),
 		INVENTORY_PREMIUM_ITEM("inventory.premium.item"),
+		SCOUTING_SPOT_STASH("scouting.spot.stash")
 		;
 
 
