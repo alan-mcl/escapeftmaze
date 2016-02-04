@@ -669,6 +669,22 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public MouseClickScript handleMouseClickReturnScript(int x, int y)
+	{
+		int bufferIndex = x + y * projectionPlaneWidth;
+
+		if (mouseClickScriptRecords[bufferIndex] != null)
+		{
+			// todo: figure out if it's a wall, wall mask or object
+			return mouseClickScriptRecords[bufferIndex];
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public PlayerStatus predictKey(int key)
 	{
 		int newPlayerX = this.playerX;

@@ -389,3 +389,16 @@ sdd.secondary.modifier =    Secondary Modifier: %s
 sdd.effects =               Effects:
 sdd.mana.required =         Required:             .
 sdd.mana.available =        Available:            .
+
+# foe details widget
+fdw.unknown = ???
+fdw.level = Level: %s
+fdw.type = Type: %s
+fdw.hpapmp = HP: %s/%s, AP: %s/%s, MP: %s/%s
+fdw.attribute.modifiers = Attributes:
+fdw.resistances = Resistances:
+fdw.other.modifiers = Other Modifiers:
+fdw.special.abilities = Special Abilities:
+fdw.natural.weapons = Natural Weapons:
+fdw.spells = Spells:
+fdw.equipped.items = Equipped Items:

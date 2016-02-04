@@ -730,6 +730,13 @@ public class CrusaderEngine8 implements CrusaderEngine
 		throw new RuntimeException("Unimplemented auto generated method!");
 	}
 
+	@Override
+	public MouseClickScript handleMouseClickReturnScript(int x, int y)
+	{
+		// todo
+		throw new RuntimeException("Unimplemented auto generated method!");
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private int[] grabPixels(Image image, int width, int height)
 	{

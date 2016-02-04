@@ -48,7 +48,6 @@ code+data: balance
 code+data: demo/training mode
 code+data: city windows (raycaster update)
 code+data: Sort out NPC inventories.
-code+data: scouting modifier (stealth) + more hidden stuff to find
 
 spell: magic eye, reveals map
 spell: oracle, summons something to question

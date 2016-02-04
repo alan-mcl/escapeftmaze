@@ -2414,31 +2414,11 @@ public class GameSys
 		{
 			return;
 		}
+		PlayerCharacter bestAtMythology = getMythologist(party);
 
-		// determine the party total
-		int partyTotal = Integer.MIN_VALUE;
-		PlayerCharacter bestAtMythology = null;
-
-		for (PlayerCharacter pc : party.getPlayerCharacters())
-		{
-			int pcTotal = pc.getLevel() + pc.getModifier(Stats.Modifiers.MYTHOLOGY);
-			if (pcTotal > partyTotal)
-			{
-				partyTotal = pcTotal;
-				bestAtMythology = pc;
-			}
-			else if (pcTotal == partyTotal &&
-				bestAtMythology != null &&
-				!bestAtMythology.isActiveModifier(Stats.Modifiers.MYTHOLOGY) &&
-				pc.isActiveModifier(Stats.Modifiers.MYTHOLOGY))
-			{
-				// give preference to the character who can practice the skill
-				bestAtMythology = pc;
-			}
-		}
 
 		// it gets easier each combat round
-		partyTotal += combatRound;
+		int partyTotal = bestAtMythology.getModifier(Stats.Modifiers.MYTHOLOGY) + combatRound;
 
 		// go try all the foes
 		for (FoeGroup fg : foes)
@@ -2449,14 +2429,45 @@ public class GameSys
 			{
 				if (f.getIdentificationDifficulty() <= partyTotal)
 				{
-					for (Foe temp : fg.getFoes())
+					for (Foe ff : fg.getFoes())
 					{
-						temp.setIdentificationState(Item.IdentificationState.IDENTIFIED);
+						ff.setIdentificationState(Item.IdentificationState.IDENTIFIED);
 					}
 					practice(bestAtMythology, Stats.Modifiers.MYTHOLOGY, 1);
 				}
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	Return the player character responsible for identifying foes.
+	 */
+	public PlayerCharacter getMythologist(PlayerParty party)
+	{
+		// determine the party total
+		int temp = Integer.MIN_VALUE;
+		PlayerCharacter bestAtMythology = null;
+
+		for (PlayerCharacter pc : party.getPlayerCharacters())
+		{
+			int pcTotal = pc.getLevel() + pc.getModifier(Stats.Modifiers.MYTHOLOGY);
+			if (pcTotal > temp)
+			{
+				temp = pcTotal;
+				bestAtMythology = pc;
+			}
+			else if (pcTotal == temp &&
+				bestAtMythology != null &&
+				!bestAtMythology.isActiveModifier(Stats.Modifiers.MYTHOLOGY) &&
+				pc.isActiveModifier(Stats.Modifiers.MYTHOLOGY))
+			{
+				// give preference to the character who can practice the skill
+				bestAtMythology = pc;
+			}
+		}
+		return bestAtMythology;
 	}
 
 	/*-------------------------------------------------------------------------*/

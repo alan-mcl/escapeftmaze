@@ -174,6 +174,17 @@ public interface CrusaderEngine
 	void handleMouseClick(int x, int y);
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * X and Y coords are in screen coords: ie, (0,0) is the top left of the
+	 * maze windows, position [0] in the render buffer.
+	 *
+	 * @return the script under the click, or null if there is none. It's up
+	 * to the caller to decide whether to execute it.
+	 */
+	MouseClickScript handleMouseClickReturnScript(int x, int y);
+
+	/*-------------------------------------------------------------------------*/
 	public class PlayerStatus
 	{
 		public Point position;

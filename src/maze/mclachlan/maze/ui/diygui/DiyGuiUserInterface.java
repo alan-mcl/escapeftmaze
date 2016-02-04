@@ -1317,6 +1317,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					};
 
 				EngineObject obj = new EngineObject(textures, 0, false);
+				obj.setMouseClickScript(new FoeInfoMouseClickScript(foe));
 
 				if (foe.getSprite() != null)
 				{

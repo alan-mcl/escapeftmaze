@@ -26,6 +26,7 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
@@ -38,13 +39,13 @@ import mclachlan.maze.stat.FoeGroup;
  */
 public class MazeWidget extends ContainerWidget
 {
-	CrusaderEngine engine;
-	Rectangle bounds;
+	private CrusaderEngine engine;
+	private Rectangle bounds;
 
-	FoeGroupWidget[] foeGroupWidgets =
+	private FoeGroupWidget[] foeGroupWidgets =
 		new FoeGroupWidget[Constants.MAX_FOE_GROUPS];
 	
-	FoeGroupWidget[] partyAllyWidgets = 
+	private FoeGroupWidget[] partyAllyWidgets =
 		new FoeGroupWidget[Constants.MAX_PARTY_ALLIES];
 
 	int selectedFoeGroupWidget = -1;
@@ -233,10 +234,30 @@ public class MazeWidget extends ContainerWidget
 		int x = e.getX()-super.x;
 		int y = e.getY()-super.y;
 
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT &&
-			x >= 0 && x < width && y >= 0 && y < height)
+		if (x >= 0 && x < width && y >= 0 && y < height)
 		{
-			engine.handleMouseClick(x, y);
+			MouseClickScript script = engine.handleMouseClickReturnScript(x, y);
+
+			// restrict what game states the scripts can run in
+			if (script != null)
+			{
+				switch (Maze.getInstance().getState())
+				{
+					case MOVEMENT:
+						// always execute in movement
+						script.execute(Maze.getInstance().getCurrentZone().getMap());
+						break;
+
+					case COMBAT:
+					case ENCOUNTER_ACTORS:
+						// only execute foe info scripts in these modes
+						if (script instanceof FoeInfoMouseClickScript)
+						{
+							script.execute(Maze.getInstance().getCurrentZone().getMap());
+						}
+						break;
+				}
+			}
 		}
 		else
 		{
