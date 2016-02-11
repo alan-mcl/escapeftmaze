@@ -79,6 +79,7 @@ public abstract class Saver
 	public abstract void saveNaturalWeapons(Map<String, NaturalWeapon> naturalWeapons) throws Exception;
 	public abstract void saveStartingKits(Map<String, StartingKit> kits) throws Exception;
 	public abstract void savePersonalities(Map<String, Personality> p) throws Exception;
+	public abstract void saveFoeTypes(Map<String, FoeType> foeTypes) throws Exception;
 	public abstract void saveZone(Zone zone) throws Exception;
 	// bit of a special case
 	public abstract void deleteZone(String zoneName) throws Exception;

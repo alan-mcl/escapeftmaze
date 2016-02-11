@@ -57,6 +57,7 @@ public class V1Utils
 	public static final String CRAFT_RECIPES = "craftrecipes.txt";
 	public static final String ITEM_ENCHANTMENTS = "itemenchantments.txt";
 	public static final String NATURAL_WEAPONS = "naturalweapons.txt";
+	public static final String FOE_TYPES = "foetypes.txt";
 	public static final String PERSONALITIES = "personalities.txt";
 	public static final String STARTING_KITS = "startingkits.txt";
 	public static final String ZONES = "zones/";

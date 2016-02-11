@@ -133,11 +133,11 @@ public class V1Race
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void save(BufferedWriter writer, Map<String, Race> Races) throws Exception
+	public static void save(BufferedWriter writer, Map<String, Race> races) throws Exception
 	{
-		for (String name : Races.keySet())
+		for (String name : races.keySet())
 		{
-			Race g = Races.get(name);
+			Race g = races.get(name);
 			writer.write(toProperties(g));
 			writer.write("@");
 			writer.newLine();

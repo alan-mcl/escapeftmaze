@@ -1,0 +1,25 @@
+name=Undead
+description=The living dead.
+startingHitPointPercentage=0
+startingActionPointPercentage=0
+startingMagicPointPercentage=0
+startingModifiers=0,
+constantModifiers=8,01
+bannerModifiers=0,
+attributeCeilings=
+head=human head
+torso=human torso
+leg=human leg
+hand=human hand
+foot=human foot
+rightHandIcon=null
+leftHandIcon=null
+allowedGenders=
+magicDead=false
+specialAbility=
+startingItems=
+naturalWeapons=
+suggestedNames=
+unlockVariable=
+unlockDescription=
+@

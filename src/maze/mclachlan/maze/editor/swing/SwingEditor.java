@@ -63,6 +63,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	private MazeScriptPanel mazeScriptPanel;
 	private SpellPanel spellPanel;
 	private RacePanel racePanel;
+	private FoeTypePanel foeTypesPanel;
 	private MazeTexturePanel mazeTexturePanel;
 	private NaturalWeaponsPanel naturalWeaponsPanel;
 	private FoeTemplatePanel foeTemplatePanel;
@@ -144,6 +145,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		addStaticDataTab("Spells", getSpellsPanel());
 		addStaticDataTab("Player Spell Books", getPlayerSpellBooksPanel());
 		addStaticDataTab("Races", getRacesPanel());
+		addStaticDataTab("Foe Types", getFoeTypesPanel());
 		addStaticDataTab("Maze Textures", getMazeTexturesPanel());
 		addStaticDataTab("Natural Weapons", getNaturalWeaponsPanel());
 		addStaticDataTab("Foe Templates", getFoeTemplatesPanel());
@@ -339,6 +341,12 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		racePanel = new RacePanel();
 		return racePanel;
+	}
+
+	private EditorPanel getFoeTypesPanel()
+	{
+		foeTypesPanel = new FoeTypePanel();
+		return foeTypesPanel;
 	}
 
 	private EditorPanel getSpellsPanel()
@@ -549,6 +557,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		if (dirty.get(Tab.NATURAL_WEAPONS)) Database.getInstance().getSaver().saveNaturalWeapons(Database.getInstance().getNaturalWeapons());
 		if (dirty.get(Tab.STARTING_KITS)) Database.getInstance().getSaver().saveStartingKits(Database.getInstance().getStartingKits());
 		if (dirty.get(Tab.PERSONALITIES)) Database.getInstance().getSaver().savePersonalities(Database.getInstance().getPersonalities());
+		if (dirty.get(Tab.FOE_TYPES)) Database.getInstance().getSaver().saveFoeTypes(Database.getInstance().getFoeTypes());
 		// zones are not cached
 		
 		// dynamic data
@@ -795,6 +804,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		public static final int PERSONALITIES = 33;
 		public static final int NATURAL_WEAPONS = 34;
 		public static final int STARTING_KITS = 35;
+		public static final int FOE_TYPES = 36;
 
 		public static String valueOf(int tab)
 		{
@@ -833,6 +843,7 @@ public class SwingEditor extends JFrame implements WindowListener
 				case PERSONALITIES: return "personalities";
 				case NATURAL_WEAPONS: return "natural weapons";
 				case STARTING_KITS: return "starting kits";
+				case FOE_TYPES: return "foe types";
 				default: throw new MazeException("invalid tab "+tab);
 			}
 		}

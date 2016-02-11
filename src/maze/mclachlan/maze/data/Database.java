@@ -85,6 +85,7 @@ public class Database
 	private Map<String, Personality> personalities;
 	private Map<String, NaturalWeapon> naturalWeapons;
 	private Map<String, StartingKit> startingKits;
+	private Map<String, FoeType> foeTypes;
 
 	private Map<String, DifficultyLevel> difficultyLevels;
 	private Map<String, ExperienceTable> experienceTables;
@@ -900,6 +901,20 @@ public class Database
 			}
 
 			return races;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, FoeType> getFoeTypes()
+	{
+		synchronized(mutex)
+		{
+			if (foeTypes == null)
+			{
+				foeTypes = loader.loadFoeTypes();
+			}
+
+			return foeTypes;
 		}
 	}
 

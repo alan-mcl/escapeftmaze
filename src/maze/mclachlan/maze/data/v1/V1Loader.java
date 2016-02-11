@@ -86,6 +86,7 @@ public class V1Loader extends Loader
 	private Map<String, ItemEnchantments> itemEnchantments;
 	private Map<String, Personality> personalities;
 	private Map<String, CraftRecipe> craftRecipes;
+	private Map<String, FoeType> foeTypes;
 	private Map<String, NaturalWeapon> naturalWeapons;
 
 	private Map<String, PlayerCharacter> characterGuild;
@@ -220,6 +221,10 @@ public class V1Loader extends Loader
 
 		reader = getReader(path+V1Utils.PERSONALITIES);
 		personalities = V1Personalities.load(reader);
+		reader.close();
+
+		reader = getReader(path+V1Utils.FOE_TYPES);
+		foeTypes = V1FoeTypes.load(reader);
 		reader.close();
 
 		String savePath = getSavePath();
@@ -429,6 +434,13 @@ public class V1Loader extends Loader
 	public Map<String, StartingKit> getStartingKits()
 	{
 		return startingKits;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public Map<String, FoeType> loadFoeTypes()
+	{
+		return foeTypes;
 	}
 
 	/*-------------------------------------------------------------------------*/

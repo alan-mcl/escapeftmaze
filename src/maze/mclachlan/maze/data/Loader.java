@@ -82,6 +82,7 @@ public abstract class Loader
 	public abstract Map<String, ItemEnchantments> loadItemEnchantments();
 	public abstract Map<String, Personality> loadPersonalities();
 	public abstract Map<String, StartingKit> getStartingKits();
+	public abstract Map<String, FoeType> loadFoeTypes();
 	public abstract Map<String, NaturalWeapon> getNaturalWeapons();
 	public abstract StringManager getStringManager();
 
@@ -92,11 +93,11 @@ public abstract class Loader
 	public abstract InputStream getMusic(String trackName);
 	public abstract List<String> getZoneNames();
 	public abstract Zone getZone(String name);
+
 	public abstract Font getFont(String name);
 
 	// guild files
 	public abstract Map<String, PlayerCharacter> loadCharacterGuild();
-
 	// saved games
 	public abstract List<String> getSaveGames();
 	public abstract GameState loadGameState(String saveGameName) throws Exception;
@@ -107,6 +108,7 @@ public abstract class Loader
 	public abstract Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) throws Exception;
 	public abstract PlayerTilesVisited loadPlayerTilesVisited(String saveGameName) throws Exception;
 	public abstract Map<ConditionBearer, List<Condition>> loadConditions(String saveGameName) throws Exception;
+
 	public abstract Journal loadJournal(String saveGameName, String journalName) throws Exception;
 
 	// use config

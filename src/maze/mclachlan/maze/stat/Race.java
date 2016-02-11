@@ -145,6 +145,31 @@ public class Race
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Race(FoeType ft)
+	{
+		this(ft.getName(),
+			ft.getDescription(),
+			0,0,0,
+			ft.getStartingModifiers(),
+			ft.getConstantModifiers(),
+			ft.getBannerModifiers(),
+			null,
+			ft.getHead(),
+			ft.getTorso(),
+			ft.getLeg(),
+			ft.getHand(),
+			ft.getFoot(),
+			null, null, null,
+			ft.isMagicDead(),
+			ft.getSpecialAbility(),
+			null,
+			ft.getNaturalWeapons(),
+			null,
+			null,
+			null);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public boolean isLocked()
 	{
 		return unlockVariable != null &&

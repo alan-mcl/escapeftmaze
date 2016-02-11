@@ -330,6 +330,15 @@ public class V1Saver extends Saver
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void saveFoeTypes(Map<String, FoeType> foeTypes) throws Exception
+	{
+		BufferedWriter writer = new BufferedWriter(new FileWriter(path+V1Utils.FOE_TYPES));
+		V1FoeTypes.save(writer, foeTypes);
+		writer.flush();
+		writer.close();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void saveZone(Zone zone) throws Exception
 	{
 		File file = new File(path+V1Utils.ZONES+zone.getName()+".txt");
