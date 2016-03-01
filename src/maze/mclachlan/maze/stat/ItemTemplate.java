@@ -219,7 +219,7 @@ public class ItemTemplate
 	int bonusAttacks;
 	int bonusStrikes;
 	String discipline;
-	String slaysFoeType;
+	TypeDescriptor slaysFoeType;
 
 	//--- ammo only
 	AmmoType ammoType;
@@ -308,7 +308,7 @@ public class ItemTemplate
 		int bonusAttacks,
 		int bonusStrikes,
 		String discipline,
-		String slaysFoeType,
+		TypeDescriptor slaysFoeType,
 		AmmoType ammoType,
 		int damagePrevention,
 		int damagePreventionChance,
@@ -565,7 +565,7 @@ public class ItemTemplate
 		return useRequirements;
 	}
 
-	public String getSlaysFoeType()
+	public TypeDescriptor getSlaysFoeType()
 	{
 		return slaysFoeType;
 	}
@@ -837,7 +837,7 @@ public class ItemTemplate
 		this.useRequirements = useRequirements;
 	}
 
-	public void setSlaysFoeType(String slaysFoeType)
+	public void setSlaysFoeType(TypeDescriptor slaysFoeType)
 	{
 		this.slaysFoeType = slaysFoeType;
 	}

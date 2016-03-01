@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.TypeDescriptor;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -33,16 +34,16 @@ public abstract class SpellResult
 	/**
 	 * The foe types that this spell result affects, null if all
 	 */
-	private String foeType;
+	private TypeDescriptor foeType;
 
 	/*-------------------------------------------------------------------------*/
-	public String getFoeType()
+	public TypeDescriptor getFoeType()
 	{
 		return foeType;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setFoeType(String foeType)
+	public void setFoeType(TypeDescriptor foeType)
 	{
 		this.foeType = foeType;
 	}
@@ -50,7 +51,7 @@ public abstract class SpellResult
 	/*-------------------------------------------------------------------------*/
 	public boolean appliesTo(UnifiedActor actor)
 	{
-		return this.foeType == null || this.foeType.equals(actor.getType());
+		return this.foeType == null || actor.getTypes().contains(this.foeType);
 	}
 
 	/*-------------------------------------------------------------------------*/

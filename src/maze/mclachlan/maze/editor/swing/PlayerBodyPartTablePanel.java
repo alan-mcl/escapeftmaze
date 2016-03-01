@@ -19,11 +19,10 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collections;
-import java.util.Vector;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.BodyPart;
@@ -123,12 +122,17 @@ public class PlayerBodyPartTablePanel extends JPanel implements ActionListener
 		this.leg.removeActionListener(this);
 		this.hand.removeActionListener(this);
 		this.foot.removeActionListener(this);
-		
-		this.head.setSelectedItem(head.getName());
-		this.torso.setSelectedItem(torso.getName());
-		this.leg.setSelectedItem(leg.getName());
-		this.hand.setSelectedItem(hand.getName());
-		this.foot.setSelectedItem(foot.getName());
+
+		if (head != null)
+			this.head.setSelectedItem(head.getName());
+		if (torso != null)
+			this.torso.setSelectedItem(torso.getName());
+		if (leg != null)
+			this.leg.setSelectedItem(leg.getName());
+		if (hand != null)
+			this.hand.setSelectedItem(hand.getName());
+		if (foot != null)
+			this.foot.setSelectedItem(foot.getName());
 		
 		this.head.addActionListener(this);
 		this.torso.addActionListener(this);

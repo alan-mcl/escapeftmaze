@@ -27,7 +27,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class Race
+public class Race implements TypeDescriptor
 {
 	private String name;
 	private String description;
@@ -447,5 +447,35 @@ public class Race
 	public void setUnlockDescription(String unlockDescription)
 	{
 		this.unlockDescription = unlockDescription;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Race))
+		{
+			return false;
+		}
+
+		Race race = (Race)o;
+
+		if (!name.equals(race.name))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return name.hashCode();
 	}
 }

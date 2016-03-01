@@ -19,33 +19,32 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.awt.GridLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.CharacterClass;
-import java.util.*;
-import java.util.List;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import mclachlan.maze.stat.FoeType;
 
 /**
  *
  */
-public class CharacterClassSelection extends JPanel implements ActionListener
+public class FoeTypeSelection extends JPanel implements ActionListener
 {
 	private JButton selectAll, selectNone;
 	private Map<String, JCheckBox> checkBoxes;
 	private int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
-	public CharacterClassSelection(int dirtyFlag)
+	public FoeTypeSelection(int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
-		List<String> characterClassList;
-		characterClassList = Database.getInstance().getCharacterClassList();
+		List<String> foeTypesList = new ArrayList<String>(
+			Database.getInstance().getFoeTypes().keySet());
 
-		Collections.sort(characterClassList);
-		int max = characterClassList.size();
+		Collections.sort(foeTypesList);
+		int max = foeTypesList.size();
 		checkBoxes = new HashMap<String, JCheckBox>();
 
 		JPanel panel = new JPanel(new GridLayout(max/2+2, 2, 3, 3));
@@ -58,7 +57,7 @@ public class CharacterClassSelection extends JPanel implements ActionListener
 		panel.add(selectAll);
 		panel.add(selectNone);
 
-		for (String s : characterClassList)
+		for (String s : foeTypesList)
 		{
 			JCheckBox cb = new JCheckBox(s);
 			checkBoxes.put(s, cb);
@@ -71,14 +70,14 @@ public class CharacterClassSelection extends JPanel implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(Collection<String> allowedCharacterClasses)
+	public void refresh(Collection<FoeType> types)
 	{
-		if (allowedCharacterClasses == null)
+		if (types == null)
 		{
-			// select all
+			// select none
 			for (JCheckBox cb : checkBoxes.values())
 			{
-				cb.setSelected(true);
+				cb.setSelected(false);
 			}
 			return;
 		}
@@ -88,12 +87,12 @@ public class CharacterClassSelection extends JPanel implements ActionListener
 		{
 			cb.setSelected(false);
 		}
-		for (String s : allowedCharacterClasses)
+		for (FoeType ft : types)
 		{
-			JCheckBox cb = checkBoxes.get(s);
+			JCheckBox cb = checkBoxes.get(ft.getName());
 			if (cb == null)
 			{
-				// someone has deleted a character class!
+				// someone has deleted something
 				continue;
 			}
 			cb.setSelected(true);
@@ -124,28 +123,14 @@ public class CharacterClassSelection extends JPanel implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Set<String> getAllowedCharacterClasses()
+	public List<FoeType> getFoeTypes()
 	{
-		Set<String> result = new HashSet<String>();
+		List<FoeType> result = new ArrayList<FoeType>();
 		for (JCheckBox cb : checkBoxes.values())
 		{
 			if (cb.isSelected())
 			{
-				result.add(cb.getText());
-			}
-		}
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<CharacterClass> getAllowedCharacterclassList()
-	{
-		List<CharacterClass> result = new ArrayList<CharacterClass>();
-		for (JCheckBox cb : checkBoxes.values())
-		{
-			if (cb.isSelected())
-			{
-				result.add(Database.getInstance().getCharacterClass(cb.getText()));
+				result.add(Database.getInstance().getFoeTypes().get(cb.getText()));
 			}
 		}
 		return result;

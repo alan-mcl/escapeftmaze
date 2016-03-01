@@ -306,7 +306,7 @@ public class V1ItemTemplate
 			b.append(V1Utils.NEWLINE);
 
 			b.append("slaysFoeType=");
-			b.append(obj.getSlaysFoeType()==null?"":obj.getSlaysFoeType());
+			b.append(obj.getSlaysFoeType()==null?"":obj.getSlaysFoeType().getName());
 			b.append(V1Utils.NEWLINE);
 
 			b.append("ammoType=");
@@ -415,7 +415,7 @@ public class V1ItemTemplate
 			int bonusStrikes = Integer.parseInt(p.getProperty("bonusStrikes"));
 			String discipline = p.getProperty("discipline").equals("")?null:p.getProperty("discipline");
 			String s = p.getProperty("slaysFoeType");
-			String slaysFoeType = "".equals(s)?null:s;
+			TypeDescriptor slaysFoeType = "".equals(s)?null:new TypeDescriptorImpl(s);
 			String ammoTypeName = p.getProperty("ammoType");
 			ItemTemplate.AmmoType ammoType = ammoTypeName.equals("")?null:ItemTemplate.AmmoType.valueOf(ammoTypeName);
 			int damagePrevention = Integer.parseInt(p.getProperty("damagePrevention"));

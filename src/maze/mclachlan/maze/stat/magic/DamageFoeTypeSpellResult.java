@@ -22,6 +22,7 @@ package mclachlan.maze.stat.magic;
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.DamagePacket;
+import mclachlan.maze.stat.TypeDescriptor;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.DamageEvent;
 
@@ -32,16 +33,16 @@ public class DamageFoeTypeSpellResult extends SpellResult
 {
 	private Value damage;
 	private double multiplier;
-	private String type;
+	private TypeDescriptor type;
 
 	/*-------------------------------------------------------------------------*/	
-	public DamageFoeTypeSpellResult(Value damage, String type)
+	public DamageFoeTypeSpellResult(Value damage, TypeDescriptor type)
 	{
 		this(damage, 1, type);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public DamageFoeTypeSpellResult(Value damage, double multiplier, String type)
+	public DamageFoeTypeSpellResult(Value damage, double multiplier, TypeDescriptor type)
 	{
 		this.damage = damage;
 		this.multiplier = multiplier;
@@ -51,7 +52,7 @@ public class DamageFoeTypeSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
 	{
-		if (target.getType().equals(this.type))
+		if (target.getTypes().contains(this.type))
 		{
 			int damage = this.damage.compute(source, castingLevel);
 
@@ -88,7 +89,7 @@ public class DamageFoeTypeSpellResult extends SpellResult
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public String getType()
+	public TypeDescriptor getType()
 	{
 		return type;
 	}

@@ -57,7 +57,7 @@ public abstract class AbstractActor extends UnifiedActor
 		ActorActionIntention actionIntention) { return null; }
 	public List<Condition> getConditions() { return new ArrayList<Condition>(); }
 	public int getLevel() { return 0; }
-	public String getType() { return Foe.Type.NONE; }
+	public List<TypeDescriptor> getTypes() { return new ArrayList<TypeDescriptor>(); }
 	public int getModifier(String modifier) { return 0; }
 	public int getModifier(String modifier, boolean checkCarryingCapacity) {return 0;}
 	public int getBaseModifier(String modifier) { return 0; };

@@ -33,6 +33,7 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
+import mclachlan.maze.stat.TypeDescriptorImpl;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
@@ -80,7 +81,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 
 	private JButton ok, cancel;
 	private JComboBox type;
-	private JTextField foeType;
+	private JComboBox<String> foeType;
 	private JTextField impl;
 	private int dirtyFlag;
 	private ValueComponent casterFatigueValue;
@@ -147,7 +148,14 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		top1.add(type);
 
 		JPanel top2 = new JPanel();
-		foeType = new JTextField(20);
+		Vector<String> types = new Vector<String>();
+		types.addAll(Database.getInstance().getCharacterClassList());
+		types.addAll(Database.getInstance().getRaceList());
+		types.addAll(Database.getInstance().getFoeTypes().keySet());
+		Collections.sort(types);
+		types.add(0, EditorPanel.NONE);
+
+		foeType = new JComboBox<String>(types);
 		top2.add(new JLabel("Foe Type:"));
 		top2.add(foeType);
 
@@ -200,7 +208,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		}
 		type.setSelectedIndex(srType);
 
-		foeType.setText(sr.getFoeType() == null ? "" : sr.getFoeType());
+		foeType.setSelectedItem(sr.getFoeType() == null ? EditorPanel.NONE : sr.getFoeType().getName());
 
 		switch (srType)
 		{
@@ -956,7 +964,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			default: throw new MazeException("Invalid type "+srType);
 		}
 
-		result.setFoeType(foeType.getText().length() == 0 ? null : foeType.getText());
+		result.setFoeType(foeType.getSelectedItem() == EditorPanel.NONE ?
+			null : new TypeDescriptorImpl((String)foeType.getSelectedItem()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -968,7 +977,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		loader.init(Maze.getStubCampaign());
 
 		JFrame owner = new JFrame("test");
-		owner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		owner.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		while (1==1)
 		{
 			SpellResultEditor test = new SpellResultEditor(owner, new DamageSpellResult(new Value(), null, null, null, 1, false), -1);

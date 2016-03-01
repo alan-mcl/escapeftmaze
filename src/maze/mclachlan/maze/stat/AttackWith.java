@@ -51,7 +51,7 @@ public interface AttackWith
 	GroupOfPossibilities<SpellEffect> getSpellEffects();
 	int getSpellEffectLevel();
 
-	String slaysFoeType();
+	TypeDescriptor slaysFoeType();
 
 	MazeScript getAttackScript();
 

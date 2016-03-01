@@ -759,12 +759,12 @@ public class PlayerCharacter extends UnifiedActor
 	@Override
 	public String getDisplayNamePlural() { return getName(); }
 
-	/**
-	 * a PCs type is his or her character class
-	 */
-	public String getType()
+	public List<TypeDescriptor> getTypes()
 	{
-		return this.getCharacterClass().getName();
+		ArrayList<TypeDescriptor> result = new ArrayList<TypeDescriptor>();
+		result.add(getCharacterClass());
+		result.add(getRace());
+		return result;
 	}
 
 	public int getExperience()

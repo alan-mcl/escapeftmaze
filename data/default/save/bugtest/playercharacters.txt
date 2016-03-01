@@ -162,7 +162,7 @@ bannerItem=
 inventory=Frontier Phaser/1/2/49-1/0-0/,Empty Bottle/0/2/1-1/0-0/,Black Powder/0/2/1-1/0-0/,Conducting Solution/0/2/1-5/0-0/,Green Parrot/0/2/1-1/0-0/,Welding Goggles/0/2/1-1/0-0/,Scroll Of Identify/0/2/1-3/0-0/
 spellbook=Burning Hands,Paralysis,Blinding Flash,Mephit Swarm,Noxious Fumes,Whipping Rocks,Elemental,Lava Burst,Mephit Army,Stoneskin,Dragon,Earthquake,Lightning Cloud,Nuclear Blast,Silence,Mindread
 spellPicks=4
-stats=87-147-0;9-10;56-56;100200000000000000000002000000000a01080009fa,02090c010201010a0963020d020101
+stats=87-147-0;9-10;56-56;100200000000000000000002000000002a01080009fa,02090c010201010a0963020d0b020101
 practice=200,43
 activeModifiers=a01000327f8,0101010101010101010101010101
 @

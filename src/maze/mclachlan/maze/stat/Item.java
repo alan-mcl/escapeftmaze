@@ -464,7 +464,7 @@ public class Item implements AttackWith, SpellTarget
 		return template.invokedSpellLevel;
 	}
 
-	public String slaysFoeType()
+	public TypeDescriptor slaysFoeType()
 	{
 		return template.slaysFoeType;
 	}

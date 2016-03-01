@@ -23,6 +23,8 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.TypeDescriptor;
+import mclachlan.maze.stat.TypeDescriptorImpl;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -288,12 +290,8 @@ public class V1SpellResult
 	{
 		int i=0;
 		int type = Integer.parseInt(strs[i++]);
-		String foeType = strs[i++];
-
-		if (foeType != null && foeType.length() == 0)
-		{
-			foeType = null;
-		}
+		String ft = strs[i++];
+		TypeDescriptor foeType = "".equals(ft)?null:new TypeDescriptorImpl(ft);
 
 		SpellResult result;
 

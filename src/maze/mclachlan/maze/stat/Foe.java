@@ -414,6 +414,27 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public ModifierValue getModifierValue(String modifier, boolean checkCC)
+	{
+		ModifierValue result = super.getModifierValue(modifier, checkCC);
+
+		//
+		// Add foe types
+		//
+		if (template.getTypes() != null)
+		{
+			for (FoeType ft : template.getTypes())
+			{
+				result.add(ft.getName(), addModifier(modifier, ft.getConstantModifiers()));
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void incModifier(String modifier, int amount)
 	{
 		this.getStats().incModifier(modifier, amount);
@@ -549,9 +570,19 @@ public class Foe extends UnifiedActor
 		return template.getIdentificationDifficulty();
 	}
 
-	public String getType()
+	public List<TypeDescriptor> getTypes()
 	{
-		return template.getType();
+		List<TypeDescriptor> result = new ArrayList<TypeDescriptor>();
+		result.addAll(template.getTypes());
+		if (getCharacterClass() != null)
+		{
+			result.add(getCharacterClass());
+		}
+		if (getRace() != null)
+		{
+			result.add(getRace());
+		}
+		return result;
 	}
 
 	public StatModifier getAllFoesBannerModifiers()
@@ -835,8 +866,14 @@ public class Foe extends UnifiedActor
 	 */
 	public static class Type
 	{
-		public static final String NONE = "None";
-		public static final String LEGENDARY = "Legendary";
+		public static final TypeDescriptor LEGENDARY = new TypeDescriptor()
+		{
+			@Override
+			public String getName()
+			{
+				return "Legendary";
+			}
+		};
 	}
 
 	/*-------------------------------------------------------------------------*/

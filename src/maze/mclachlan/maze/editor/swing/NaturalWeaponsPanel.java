@@ -38,10 +38,10 @@ import mclachlan.maze.stat.magic.SpellEffect;
 public class NaturalWeaponsPanel extends EditorPanel
 {
 	private JComboBox attackScript, minRange, maxRange;
-	private JTextField description, slaysFoeType;
+	private JTextField description;
 	private StatModifierComponent modifiers;
 	private JTextField damage, attacks;
-	private JComboBox damageType;
+	private JComboBox damageType, slaysFoeType;
 	private JSpinner spellEffectLevel;
 	private SpellEffectGroupOfPossibilitiesPanel spellEffects;
 	private JButton makeBackstab;
@@ -113,8 +113,15 @@ public class NaturalWeaponsPanel extends EditorPanel
 		maxRange.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Max Range:"), maxRange, gbc);
 
-		slaysFoeType = new JTextField(20);
-		slaysFoeType.addKeyListener(this);
+		Vector<String> types = new Vector<String>();
+		types.addAll(Database.getInstance().getCharacterClassList());
+		types.addAll(Database.getInstance().getRaceList());
+		types.addAll(Database.getInstance().getFoeTypes().keySet());
+		Collections.sort(types);
+		types.add(0, EditorPanel.NONE);
+
+		slaysFoeType = new JComboBox<String>(types);
+		slaysFoeType.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Slays Foe Type:"), slaysFoeType, gbc);
 
 		attackScript = new JComboBox();
@@ -167,6 +174,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		attackScript.removeActionListener(this);
 		spellEffectLevel.removeChangeListener(this);
 		isRanged.removeActionListener(this);
+		slaysFoeType.removeActionListener(this);
 
 		damage.setText(V1Dice.toString(nw.getDamage()));
 		damageType.setSelectedItem(nw.getDefaultDamageType());
@@ -175,7 +183,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		isRanged.setSelected(nw.isRanged());
 		minRange.setSelectedItem(ItemTemplate.WeaponRange.describe(nw.getMinRange()));
 		maxRange.setSelectedItem(ItemTemplate.WeaponRange.describe(nw.getMaxRange()));
-		slaysFoeType.setText(nw.getSlaysFoeType());
+		slaysFoeType.setSelectedItem(nw.getSlaysFoeType() == null ? NONE : nw.getSlaysFoeType().getName());
 		attackScript.setSelectedItem(nw.getAttackScript().getName());
 		spellEffectLevel.setValue(nw.getSpellEffectLevel());
 		spellEffects.refresh(nw.getSpellEffects());
@@ -186,6 +194,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		attackScript.addActionListener(this);
 		spellEffectLevel.addChangeListener(this);
 		isRanged.addActionListener(this);
+		slaysFoeType.removeActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -213,7 +222,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 			new GroupOfPossibilities<SpellEffect>(),
 			1,
 			new int[]{1},
-			"",
+			null,
 			script);
 
 		Database.getInstance().getNaturalWeapons().put(name, nw);
@@ -272,7 +281,8 @@ public class NaturalWeaponsPanel extends EditorPanel
 		fa.setRanged(isRanged.isSelected());
 		fa.setMinRange(ItemTemplate.WeaponRange.valueOf((String)minRange.getSelectedItem()));
 		fa.setMaxRange(ItemTemplate.WeaponRange.valueOf((String)maxRange.getSelectedItem()));
-		fa.setSlaysFoeType(slaysFoeType.getText());
+		fa.setSlaysFoeType(slaysFoeType.getSelectedItem()==NONE?
+			null:new TypeDescriptorImpl(slaysFoeType.getName()));
 		fa.setAttackScript(Database.getInstance().getScript((String)attackScript.getSelectedItem()));
 		fa.setSpellEffectLevel((Integer)spellEffectLevel.getValue());
 		fa.setSpellEffects(spellEffects.getGroupOfPossibilties());

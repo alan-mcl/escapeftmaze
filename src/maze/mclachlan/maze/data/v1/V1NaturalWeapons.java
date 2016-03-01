@@ -119,7 +119,7 @@ public class V1NaturalWeapons
 			b.append(V1Utils.NEWLINE);
 
 			b.append("slaysFoeType=");
-			b.append(obj.getSlaysFoeType()==null?"":obj.getSlaysFoeType());
+			b.append(obj.getSlaysFoeType()==null?"":obj.getSlaysFoeType().getName());
 			b.append(V1Utils.NEWLINE);
 
 			b.append("damage=");
@@ -165,7 +165,8 @@ public class V1NaturalWeapons
 			int minRange = Integer.parseInt(p.getProperty("minRange"));
 			int maxRange = Integer.parseInt(p.getProperty("maxRange"));
 			int[] attacks = V1Utils.fromStringInts(p.getProperty("attacks"), ",");
-			String slaysFoeType = p.getProperty("slaysFoeType");
+			TypeDescriptor slaysFoeType = "".equals(p.getProperty("slaysFoeType"))?
+				null:new TypeDescriptorImpl(p.getProperty("slaysFoeType"));
 			Dice damage = V1Dice.fromString(p.getProperty("damage"));
 			MagicSys.SpellEffectType damageType = MagicSys.SpellEffectType.valueOf(p.getProperty("damageType"));
 			GroupOfPossibilities<SpellEffect> effects = spellEffects.fromString(p.getProperty("spellEffects"));

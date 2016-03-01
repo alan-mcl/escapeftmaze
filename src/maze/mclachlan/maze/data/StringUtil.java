@@ -19,6 +19,7 @@
 
 package mclachlan.maze.data;
 
+import java.util.*;
 import mclachlan.maze.data.v1.V1Value;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -172,4 +173,24 @@ public class StringUtil
 			return s.substring(0, length-3) + "...";
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String getCommaString(Collection strings)
+	{
+		StringBuilder sb = new StringBuilder();
+		boolean commaEd = false;
+
+		for (Object obj : strings)
+		{
+			if (commaEd)
+			{
+				sb.append(", ");
+			}
+			commaEd = true;
+			sb.append(obj.toString());
+		}
+
+		return sb.toString();
+	}
+
 }

@@ -175,6 +175,10 @@ public class V1Loader extends Loader
 		textures = V1MazeTexture.load(reader);
 		reader.close();
 
+		reader = getReader(path+V1Utils.FOE_TYPES);
+		foeTypes = V1FoeTypes.load(reader);
+		reader.close();
+
 		reader = getReader(path+V1Utils.FOE_TEMPLATES);
 		foeTemplates = V1FoeTemplate.load(reader);
 		reader.close();
@@ -221,10 +225,6 @@ public class V1Loader extends Loader
 
 		reader = getReader(path+V1Utils.PERSONALITIES);
 		personalities = V1Personalities.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.FOE_TYPES);
-		foeTypes = V1FoeTypes.load(reader);
 		reader.close();
 
 		String savePath = getSavePath();

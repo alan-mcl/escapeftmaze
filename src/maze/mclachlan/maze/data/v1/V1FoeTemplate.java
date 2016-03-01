@@ -29,6 +29,7 @@ import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.npc.NpcFaction;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -62,6 +63,26 @@ public class V1FoeTemplate
 		public SpellLikeAbility typeFromString(String s)
 		{
 			return V1SpellLikeAbility.fromString(s);
+		}
+	};
+
+	static V1List<FoeType> foeTypes = new V1List<FoeType>()
+	{
+		@Override
+		public String typeToString(FoeType foeType)
+		{
+			return foeType.getName();
+		}
+
+		@Override
+		public FoeType typeFromString(String s)
+		{
+			FoeType foeType = Database.getInstance().getFoeTypes().get(s);
+			if (foeType == null)
+			{
+				throw new MazeException("Missing foe type ["+s+"]");
+			}
+			return foeType;
 		}
 	};
 
@@ -125,8 +146,16 @@ public class V1FoeTemplate
 			b.append(obj.getUnidentifiedPluralName());
 			b.append(V1Utils.NEWLINE);
 
-			b.append("type=");
-			b.append(obj.getType());
+			b.append("race=");
+			b.append(obj.getRace()==null?"":obj.getRace().getName());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("class=");
+			b.append(obj.getCharacterClass()==null?"":obj.getCharacterClass().getName());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("types=");
+			b.append(foeTypes.toString(obj.getTypes()));
 			b.append(V1Utils.NEWLINE);
 
 			b.append("hitPointsRange=");
@@ -274,7 +303,17 @@ public class V1FoeTemplate
 			String pluralName = p.getProperty("pluralName");
 			String unidentifiedName = p.getProperty("unidentifiedName");
 			String unidentifiedPluralName = p.getProperty("unidentifiedPluralName");
-			String type = p.getProperty("type");
+			List<FoeType> types = foeTypes.fromString(p.getProperty("types"));
+			Race race = null;
+			if (!"".equals(p.getProperty("race")))
+			{
+				race = Database.getInstance().getRace(p.getProperty("race"));
+			}
+			CharacterClass characterClass = null;
+			if (!"".equals(p.getProperty("class")))
+			{
+				characterClass = Database.getInstance().getCharacterClass(p.getProperty("class"));
+			}
 			Dice hitPointsRange = V1Dice.fromString(p.getProperty("hitPointsRange"));
 			Dice action = V1Dice.fromString(p.getProperty("actionPointsRange"));
 			Dice magicPointsRange = V1Dice.fromString(p.getProperty("magicPointsRange"));
@@ -334,7 +373,9 @@ public class V1FoeTemplate
 				pluralName,
 				unidentifiedName,
 				unidentifiedPluralName,
-				type,
+				types,
+				race,
+				characterClass,
 				hitPointsRange,
 				action,
 				magicPointsRange,

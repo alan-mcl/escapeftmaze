@@ -151,22 +151,6 @@ public class FoeDetailsWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void getCommaString(StringBuilder sb, List<String> users)
-	{
-		boolean commaEd = false;
-
-		for (String user : users)
-		{
-			if (commaEd)
-			{
-				sb.append(", ");
-			}
-			commaEd = true;
-			sb.append(user);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
 	private boolean addFoeFields(List<Widget> rows, Foe foe, int information)
 	{
 		// foe level
@@ -232,6 +216,7 @@ public class FoeDetailsWidget extends DIYPane
 		}
 		else
 		{
+			addToRow(rows, new DIYLabel(StringUtil.getUiLabel("fdw.spells")));
 			addToRow(rows, new DIYLabel(UNKNOWN));
 		}
 	}
@@ -266,6 +251,7 @@ public class FoeDetailsWidget extends DIYPane
 		}
 		else
 		{
+			addToRow(rows, new DIYLabel(StringUtil.getUiLabel("fdw.special.abilities")));
 			addToRow(rows, new DIYLabel(UNKNOWN));
 		}
 	}
@@ -388,7 +374,7 @@ public class FoeDetailsWidget extends DIYPane
 		String uiLabel;
 		if (information >= 1)
 		{
-			uiLabel = getUiLabel("fdw.type", foe.getType());
+			uiLabel = getUiLabel("fdw.type", StringUtil.getCommaString(foe.getTypes()));
 		}
 		else
 		{
@@ -437,7 +423,7 @@ public class FoeDetailsWidget extends DIYPane
 			modDesc.add(descModifier(modifier, value));
 		}
 
-		getCommaString(sb, modDesc);
+		sb.append(StringUtil.getCommaString(modDesc));
 		wrapString(rows, sb);
 		return true;
 	}

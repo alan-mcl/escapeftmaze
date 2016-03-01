@@ -25,7 +25,7 @@ import java.util.*;
 /**
  *
  */
-public class CharacterClass
+public class CharacterClass implements TypeDescriptor
 {
 	/** name of this character class */
 	private String name;
@@ -327,5 +327,35 @@ public class CharacterClass
 	public void setProgression(LevelAbilityProgression progression)
 	{
 		this.progression = progression;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof CharacterClass))
+		{
+			return false;
+		}
+
+		CharacterClass that = (CharacterClass)o;
+
+		if (!name.equals(that.name))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return name.hashCode();
 	}
 }

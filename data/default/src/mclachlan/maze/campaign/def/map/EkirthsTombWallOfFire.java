@@ -137,7 +137,7 @@ public class EkirthsTombWallOfFire extends TileScript
 			return 0;
 		}
 
-		public String slaysFoeType()
+		public TypeDescriptor slaysFoeType()
 		{
 			return null;
 		}

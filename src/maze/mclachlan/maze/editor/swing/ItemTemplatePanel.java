@@ -27,6 +27,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
+import mclachlan.maze.stat.TypeDescriptorImpl;
 import mclachlan.maze.stat.magic.MagicSys;
 
 import static mclachlan.maze.stat.ItemTemplate.Type.MAX_ITEM_TYPES;
@@ -37,9 +38,9 @@ import static mclachlan.maze.stat.ItemTemplate.WeaponSubType.MAX_SUBTYPES;
  */
 public class ItemTemplatePanel extends EditorPanel
 {
-	private JTextField pluralName, unidentifiedName, image, slaysFoeType;
+	private JTextField pluralName, unidentifiedName, image;
 	private JComboBox sortBy, type, subType, invokedSpell, chargesType, attackScript,
-		minRange, maxRange, discipline, ammoType;
+		minRange, maxRange, discipline, ammoType, slaysFoeType;
 	private JTextArea description;
 	private StatModifierComponent modifiers, equipRequirements, useRequirements;
 	private EquipableSlotsComponent equipableSlots;
@@ -282,8 +283,15 @@ public class ItemTemplatePanel extends EditorPanel
 		discipline.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Discipline:"), discipline, gbc);
 
-		slaysFoeType = new JTextField(20);
-		slaysFoeType.addKeyListener(this);
+		Vector<String> types = new Vector<String>();
+		types.addAll(Database.getInstance().getCharacterClassList());
+		types.addAll(Database.getInstance().getRaceList());
+		types.addAll(Database.getInstance().getFoeTypes().keySet());
+		Collections.sort(types);
+		types.add(0, NONE);
+
+		slaysFoeType = new JComboBox(types);
+		slaysFoeType.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Slays Foe Type:"), slaysFoeType, gbc);
 
 		Vector<String> ammoTypeVec = new Vector<String>();
@@ -555,6 +563,7 @@ public class ItemTemplatePanel extends EditorPanel
 		isBackstabCapable.removeActionListener(this);
 		isSnipeCapable.removeActionListener(this);
 		disassemblyLootTable.removeActionListener(this);
+		slaysFoeType.removeActionListener(this);
 
 		pluralName.setText(it.getPluralName());
 		unidentifiedName.setText(it.getUnidentifiedName());
@@ -623,7 +632,7 @@ public class ItemTemplatePanel extends EditorPanel
 		{
 			discipline.setSelectedItem(it.getDiscipline());
 		}
-		slaysFoeType.setText(it.getSlaysFoeType()==null?"":it.getSlaysFoeType());
+		slaysFoeType.setSelectedItem(it.getSlaysFoeType()==null?NONE:it.getSlaysFoeType().getName());
 		if (it.getAmmoType() == null)
 		{
 			ammoType.setSelectedItem(NONE);
@@ -688,6 +697,7 @@ public class ItemTemplatePanel extends EditorPanel
 		isBackstabCapable.addActionListener(this);
 		isSnipeCapable.addActionListener(this);
 		disassemblyLootTable.addActionListener(this);
+		slaysFoeType.removeActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -903,7 +913,8 @@ public class ItemTemplatePanel extends EditorPanel
 		{
 			it.setDiscipline((String)discipline.getSelectedItem());
 		}
-		it.setSlaysFoeType(slaysFoeType.getText().equals("")?null:slaysFoeType.getText());
+		it.setSlaysFoeType(slaysFoeType.getSelectedItem().equals(NONE)?
+			null:new TypeDescriptorImpl((String)slaysFoeType.getSelectedItem()));
 		if (ammoType.getSelectedItem().equals(NONE))
 		{
 			it.setAmmoType(null);

@@ -947,7 +947,9 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		result.add(StringUtil.getUiLabel("mdw.influence.base"), this.getBaseModifier(modifier));
 
+		//
 		// Add this character's race, class and gender
+		//
 		if (this.getGender() != null)
 		{
 			result.add(StringUtil.getUiLabel("mdw.influence.gender", this.getGender().getName()),
@@ -962,16 +964,23 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		{
 			collectCharacterClassModifiers(modifier, result);
 		}
+
+		//
 		// Add this character's equipment
+		//
 		for (Item item : getEquippedNonBannerItems())
 		{
 			result.add(item.getName(), addModifier(modifier, item));
 		}
 
+		//
 		// Add the banner items of the whole party
+		//
 		result.add(collectBanners(modifier));
 
+		//
 		// Add this characters combat action and intention
+		//
 		CombatantData combatantData = this.getCombatantData();
 		if (combatantData != null)
 		{
@@ -990,35 +999,48 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 				addModifier(modifier, combatantData.getMiscModifiers()));
 		}
 
+		//
 		// Add the modifiers of all conditions on this character
+		//
 		for (Condition c : ConditionManager.getInstance().getConditions(this))
 		{
 			result.add(c.getDisplayName(), c.getModifier(modifier, this));
 		}
 
-		// Add the modifiers of all conditions on the current tile
+		//
+		// Add the modifiers for the current tile
+		//
 		if (Maze.getInstance() != null && Maze.getInstance().getCurrentTile() != null)
 		{
-			// Add the modifiers of the current tile
+			// Tile modifiers
 			result.add(StringUtil.getUiLabel("mdw.influence.current.tile"), addModifier(modifier, Maze.getInstance().getCurrentTile().getStatModifier()));
 
+			// Conditions on the tile
 			for (Condition c : Maze.getInstance().getCurrentTile().getConditions())
 			{
 				result.add(c.getDisplayName(), c.getModifier(modifier, this));
 			}
 		}
 
-		// add any wielding combo
+		//
+		// Add any wielding combo
+		//
 		if (this.currentWieldingCombo != null)
 		{
 			result.add(StringUtil.getUiLabel("mdw.influence.wielding.combo"), currentWieldingCombo.getModifier(modifier));
 		}
 
+		//
+		// Modifiers from Carrying Capacity
+		//
 		if (checkCC)
 		{
 			result.add(StringUtil.getUiLabel("mdw.influence.encumbrance"), addModifier(modifier, GameSys.getInstance().getModifierForCarryingCapacity(this)));
 		}
 
+		//
+		// Modifiers for any special abilities
+		//
 		result.add(GameSys.getInstance().modifyModifierForSpecialAbility(this, modifier));
 
 		return result;
@@ -1110,19 +1132,33 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The final value of the modifier for this actor, including all influences
+	 */
 	public int getModifier(String modifier)
 	{
 		return getModifier(modifier, true);
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @param modifier
+	 * 	The modifier to return
+	 * @param checkCC
+	 * 	True if Carrying Capacity needs to be calculated
+	 * @return
+	 * 	The final value of the modifier for this actor, including all influences
+	 */
 	public int getModifier(String modifier, boolean checkCC)
 	{
 		return getModifierValue(modifier, checkCC).getValue();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private ModifierValue collectBanners(String modifier)
+	protected ModifierValue collectBanners(String modifier)
 	{
 		ModifierValue result = new ModifierValue();
 
@@ -1170,13 +1206,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int addModifier(String modifier, StatModifier stat)
+	protected int addModifier(String modifier, StatModifier stat)
 	{
 		return stat == null ? 0 : stat.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int addModifier(String modifier, Item item)
+	protected int addModifier(String modifier, Item item)
 	{
 		return item == null ? 0 : addModifier(modifier, item.getModifiers());
 	}
@@ -1651,7 +1687,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 	/*-------------------------------------------------------------------------*/
 	public abstract List<AttackWith> getAttackWithOptions();
-	public abstract String getType();
+	public abstract List<TypeDescriptor> getTypes();
 	public abstract int getBaseModifier(String modifier);
 	public abstract String getDisplayName();
 	public abstract String getDisplayNamePlural();

@@ -586,7 +586,7 @@ public class GameSys
 			damageMultiplier += armour.getModifiers().getModifier(Stats.Modifiers.DAMAGE_MULTIPLIER);
 		}
 
-		if (event.getDefender().getType().equals(attackWith.slaysFoeType()))
+		if (event.getDefender().getTypes().contains(attackWith.slaysFoeType()))
 		{
 			// double damage time
 			damageMultiplier++;
@@ -2389,8 +2389,8 @@ public class GameSys
 //				{
 //					bestSoFar = actor;
 //				}
-				/*else */if (Foe.Type.LEGENDARY.equals(actor.getType()) &&
-					!Foe.Type.LEGENDARY.equals(bestSoFar.getType()))
+				/*else */if (actor.getTypes().contains(Foe.Type.LEGENDARY) &&
+					!bestSoFar.getTypes().contains(Foe.Type.LEGENDARY))
 				{
 					bestSoFar = actor;
 				}

@@ -44,7 +44,13 @@ public class FoeTemplate
 	private String unidentifiedPluralName;
 
 	/** The type of this foe, eg "Undead", "Plant", "Legendary" */
-	private String type;
+	private List<FoeType> types;
+
+	/** Race of this foe. May be null. */
+	private Race race;
+
+	/** Class of this foe. May be null. */
+	private CharacterClass characterClass;
 
 	/** The potential hit points of this foe, expressed in dice */
 	private Dice hitPointsRange;
@@ -148,7 +154,9 @@ public class FoeTemplate
 		String pluralName,
 		String unidentifiedName,
 		String unidentifiedPluralName,
-		String type,
+		List<FoeType> types,
+		Race race,
+		CharacterClass characterClass,
 		Dice hitPointsRange,
 		Dice actionPointsRange,
 		Dice magicPointsRange,
@@ -182,7 +190,9 @@ public class FoeTemplate
 		NpcFaction.Attitude defaultAttitude)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
-		this.type = type;
+		this.types = types;
+		this.race = race;
+		this.characterClass = characterClass;
 		this.experience = experience;
 		this.levelRange = levelRange;
 		this.bodyParts = bodyParts;
@@ -359,9 +369,24 @@ public class FoeTemplate
 		return actionPointsRange;
 	}
 
-	public String getType()
+	public List<FoeType> getTypes()
 	{
-		return type;
+		return types;
+	}
+
+	public Race getRace()
+	{
+		return race;
+	}
+
+	public CharacterClass getCharacterClass()
+	{
+		return characterClass;
+	}
+
+	public boolean isCannotBeEvaded()
+	{
+		return cannotBeEvaded;
 	}
 
 	public String getUnidentifiedName()
@@ -525,9 +550,19 @@ public class FoeTemplate
 		this.actionPointsRange = actionPointsRange;
 	}
 
-	public void setType(String type)
+	public void setTypes(List<FoeType> types)
 	{
-		this.type = type;
+		this.types = types;
+	}
+
+	public void setRace(Race race)
+	{
+		this.race = race;
+	}
+
+	public void setCharacterClass(CharacterClass characterClass)
+	{
+		this.characterClass = characterClass;
 	}
 
 	public void setUnidentifiedName(String unidentifiedName)

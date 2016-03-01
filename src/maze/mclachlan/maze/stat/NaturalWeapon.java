@@ -35,7 +35,7 @@ public class NaturalWeapon implements AttackWith
 	private boolean isRanged;
 	private Dice damage;
 	private MagicSys.SpellEffectType damageType;
-	private String slaysFoeType;
+	private TypeDescriptor slaysFoeType;
 	private int[] attacks;
 	private GroupOfPossibilities<SpellEffect> spellEffects;
 	private int spellEffectLevel;
@@ -57,7 +57,7 @@ public class NaturalWeapon implements AttackWith
 		GroupOfPossibilities<SpellEffect> spellEffects,
 		int spellEffectLevel,
 		int[] attacks,
-		String slaysFoeType,
+		TypeDescriptor slaysFoeType,
 		MazeScript attackScript)
 	{
 		this.name = name;
@@ -163,7 +163,7 @@ public class NaturalWeapon implements AttackWith
 		return spellEffectLevel;
 	}
 
-	public String slaysFoeType()
+	public TypeDescriptor slaysFoeType()
 	{
 		return slaysFoeType;
 	}
@@ -209,7 +209,7 @@ public class NaturalWeapon implements AttackWith
 		return name;
 	}
 
-	public String getSlaysFoeType()
+	public TypeDescriptor getSlaysFoeType()
 	{
 		return slaysFoeType;
 	}
@@ -265,7 +265,7 @@ public class NaturalWeapon implements AttackWith
 		this.name = name;
 	}
 
-	public void setSlaysFoeType(String slaysFoeType)
+	public void setSlaysFoeType(TypeDescriptor slaysFoeType)
 	{
 		this.slaysFoeType = slaysFoeType;
 	}

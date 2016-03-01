@@ -36,7 +36,7 @@ import mclachlan.maze.util.FoeXpCalculator;
  */
 public class FoeTemplatePanel extends EditorPanel
 {
-	private JTextField pluralName, unidentifiedName, unidentifiedPluralName, type, faction;
+	private JTextField pluralName, unidentifiedName, unidentifiedPluralName, faction;
 	private DiceField hitPointsRange, actionPointsRange, magicPointsRange, levelRange;
 	private JSpinner experience, identificationDifficulty, fleeChance;
 	private StatModifierComponent stats, foeGroupBannerModifiers, allFoesBannerModifiers;
@@ -45,6 +45,8 @@ public class FoeTemplatePanel extends EditorPanel
 		appearanceScript, deathScript, focus, attitude;
 	private JCheckBox cannotBeEvaded, immuneToCriticals, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
+	private FoeTypeSelection foeTypes;
+	private JComboBox race, characterClass;
 
 	private BodyPartPercentageTablePanel bodyParts;
 	private PlayerBodyPartAttackedPanel playerBodyParts;
@@ -198,6 +200,61 @@ public class FoeTemplatePanel extends EditorPanel
 	private JPanel getStatsPanel()
 	{
 		JPanel result = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		JPanel leftPanel = getLeftPanel();
+		JPanel rightPanel = getRightPanel();
+
+		result.add(leftPanel, gbc);
+
+		gbc.gridx++;
+		gbc.gridy=0;
+		gbc.weightx = 1.0;
+
+		result.add(rightPanel, gbc);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getRightPanel()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+		foeTypes = new FoeTypeSelection(dirtyFlag);
+		result.add(foeTypes, gbc);
+
+		gbc.gridy++;
+		gbc.weighty = 1.0;
+
+		bodyParts = new BodyPartPercentageTablePanel("Foe Body Parts", dirtyFlag, 0.75, 0.3);
+		result.add(bodyParts, gbc);
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getLeftPanel()
+	{
+		JPanel result = new JPanel(new GridBagLayout());
+
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(3,3,3,3);
 		gbc.gridx = 0;
@@ -220,9 +277,23 @@ public class FoeTemplatePanel extends EditorPanel
 		unidentifiedPluralName.addKeyListener(this);
 		dodgyGridBagShite(result, new JLabel("Unidentified Plural:"), unidentifiedPluralName, gbc);
 
-		type = new JTextField(20);
-		type.addKeyListener(this);
-		dodgyGridBagShite(result, new JLabel("Type:"), type, gbc);
+		Vector races = new Vector();
+		races.addAll(Database.getInstance().getRaceList());
+		Collections.sort(races);
+		races.add(0, NONE);
+
+		race = new JComboBox(races);
+		race.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Race:"), race, gbc);
+
+		Vector classes = new Vector();
+		classes.addAll(Database.getInstance().getCharacterClassList());
+		Collections.sort(classes);
+		classes.add(0, NONE);
+
+		characterClass = new JComboBox(classes);
+		characterClass.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Class:"), characterClass, gbc);
 
 		levelRange = new DiceField();
 		levelRange.addKeyListener(this);
@@ -277,12 +348,6 @@ public class FoeTemplatePanel extends EditorPanel
 		cannotBeEvaded = new JCheckBox("Cannot Be Evaded?");
 		cannotBeEvaded.addActionListener(this);
 		dodgyGridBagShite(result, cannotBeEvaded, new JLabel(), gbc);
-
-		gbc.gridy++;
-		gbc.weighty = 1.0;
-
-		bodyParts = new BodyPartPercentageTablePanel("Foe Body Parts", dirtyFlag, 0.75, 0.3);
-		result.add(bodyParts, gbc);
 
 		return result;
 	}
@@ -382,11 +447,15 @@ public class FoeTemplatePanel extends EditorPanel
 		faction.removeKeyListener(this);
 		focus.removeActionListener(this);
 		attitude.removeActionListener(this);
+		race.removeActionListener(this);
+		characterClass.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
 		unidentifiedPluralName.setText(ft.getUnidentifiedPluralName());
-		type.setText(ft.getType());
+		race.setSelectedItem(ft.getRace()==null?NONE:ft.getRace().getName());
+		characterClass.setSelectedItem(ft.getCharacterClass()==null?NONE:ft.getCharacterClass().getName());
+		foeTypes.refresh(ft.getTypes());
 		levelRange.setDice(ft.getLevelRange());
 		hitPointsRange.setDice(ft.getHitPointsRange());
 		actionPointsRange.setDice(ft.getActionPointsRange());
@@ -450,17 +519,23 @@ public class FoeTemplatePanel extends EditorPanel
 		faction.addKeyListener(this);
 		focus.addActionListener(this);
 		attitude.addActionListener(this);
+		race.addActionListener(this);
+		characterClass.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void newItem(String name)
 	{
+		String raceS = (String)race.getSelectedItem();
+		String classS = (String)characterClass.getSelectedItem();
 		FoeTemplate ft = new FoeTemplate(
 			name,
 			"",
 			"",
 			"",
-			"",
+			foeTypes.getFoeTypes(),
+			raceS==null?null:Database.getInstance().getRace(raceS),
+			classS==null?null:Database.getInstance().getCharacterClass(classS),
 			Dice.d1,
 			Dice.d1,
 			Dice.d1,
@@ -527,7 +602,9 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getPluralName(),
 			current.getUnidentifiedName(),
 			current.getUnidentifiedPluralName(),
-			current.getType(),
+			current.getTypes(),
+			current.getRace(),
+			current.getCharacterClass(),
 			current.getHitPointsRange(),
 			current.getActionPointsRange(),
 			current.getMagicPointsRange(),
@@ -597,7 +674,14 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setPluralName(pluralName.getText());
 		ft.setUnidentifiedName(unidentifiedName.getText());
 		ft.setUnidentifiedPluralName(unidentifiedPluralName.getText());
-		ft.setType(type.getText());
+		ft.setTypes(foeTypes.getFoeTypes());
+
+		String raceS = (String)race.getSelectedItem();
+		String classS = (String)characterClass.getSelectedItem();
+
+		ft.setRace(NONE.equals(raceS)?null:Database.getInstance().getRace(raceS));
+		ft.setCharacterClass(NONE.equals(classS)?null:Database.getInstance().getCharacterClass(classS));
+
 		ft.setLevelRange(levelRange.getDice());
 		ft.setHitPointsRange(hitPointsRange.getDice());
 		ft.setActionPointsRange(actionPointsRange.getDice());
