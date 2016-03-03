@@ -31,6 +31,7 @@ import mclachlan.maze.stat.condition.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
@@ -668,6 +669,33 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	{
 		this.naturalWeapons = naturalWeapons;
 	}
+
+	public List<SpellLikeAbility> getSpellLikeAbilities()
+	{
+		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
+
+		// race abilities
+		if (getRace().getSpecialAbility() != null)
+		{
+			result.add(new SpellLikeAbility(
+				getRace().getSpecialAbility(),
+				new Value(getLevel(), Value.SCALE.NONE)));
+		}
+
+		// class abilities
+		List<LevelAbility> abilities = getLevelAbilities();
+
+		for (LevelAbility la : abilities)
+		{
+			if (la instanceof SpecialAbilityLevelAbility)
+			{
+				result.add(((SpecialAbilityLevelAbility)la).getAbility());
+			}
+		}
+
+		return result;
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -1696,7 +1724,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract void removeCurse(int strength);
 	public abstract void addAllies(List<FoeGroup> foeGroups);
 	public abstract boolean isActiveModifier(String modifier);
-	public abstract List<SpellLikeAbility> getSpellLikeAbilities();
 
 	public abstract CharacterClass.Focus getFocus();
 

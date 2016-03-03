@@ -13,6 +13,7 @@ Features
  - NPC Inventory Templates can now include Loot Entries
  - Added Iajutsu special ability
  - Added foe information popup on click of the sprite during actor encounters and combat
+ - Added foe types as configurable objects, can provide modifiers and abilities to foes
 
 Other
  - Performance improvements for movement mode

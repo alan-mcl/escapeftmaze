@@ -30,7 +30,6 @@ import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
-import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
@@ -324,34 +323,6 @@ public class PlayerCharacter extends UnifiedActor
 		boolean by_req = meetsRequirements(item.getEquipRequirements());
 
 		return by_gender && by_class && by_race && by_req;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public List<SpellLikeAbility> getSpellLikeAbilities()
-	{
-		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
-
-		// race abilities
-		if (getRace().getSpecialAbility() != null)
-		{
-			result.add(new SpellLikeAbility(
-				getRace().getSpecialAbility(),
-				new Value(getLevel(), Value.SCALE.NONE)));
-		}
-
-		// class abilities
-		List<LevelAbility> abilities = getLevelAbilities();
-
-		for (LevelAbility la : abilities)
-		{
-			if (la instanceof SpecialAbilityLevelAbility)
-			{
-				result.add(((SpecialAbilityLevelAbility)la).getAbility());
-			}
-		}
-
-		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -31,6 +31,7 @@ import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
@@ -311,7 +312,46 @@ public class Foe extends UnifiedActor
 	@Override
 	public List<SpellLikeAbility> getSpellLikeAbilities()
 	{
-		return template.getSpellLikeAbilities();
+		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
+
+		result.addAll(super.getSpellLikeAbilities());
+		result.addAll(template.getSpellLikeAbilities());
+
+		if (template.getTypes() != null)
+		{
+			for (FoeType ft : template.getTypes())
+			{
+				result.add(new SpellLikeAbility(
+					ft.getSpecialAbility(),
+					new Value(getLevel(), Value.SCALE.NONE)));
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public List<NaturalWeapon> getNaturalWeapons()
+	{
+		List<NaturalWeapon> result = new ArrayList<NaturalWeapon>();
+		result.addAll(super.getNaturalWeapons());
+
+		if (getRace() != null)
+		{
+			result.addAll(getRace().getNaturalWeapons());
+		}
+
+		if (template.getTypes() != null)
+		{
+			for (FoeType ft : template.getTypes())
+			{
+				result.addAll(ft.getNaturalWeapons());
+			}
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
