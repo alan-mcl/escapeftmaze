@@ -266,6 +266,23 @@ public class Stats
 		propertiesModifiers.add(Modifiers.THREATEN);
 		propertiesModifiers.add(Modifiers.DRINKING_FIT);
 		propertiesModifiers.add(Modifiers.IAJUTSU);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_BEAST);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_CONSTRUCT);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_MAZE_CREATURE);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_CRYPTOBESTIA);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_DRAGON);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_ELEMENTAL);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_FEY);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_GIANT);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_HORROR);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_HUMANOID);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_ILLUSION);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_MONSTROSITY);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_OOZE);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_OUTSIDER);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_PLANT);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_UNDEAD);
+		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -611,6 +628,23 @@ public class Stats
 		public static final String THREATEN = "threaten";
 		public static final String DRINKING_FIT = "drinkingFit";
 		public static final String IAJUTSU = "iajutsu";
+		public static final String FAVOURED_ENEMY_HORROR = "favouredEnemyHorror";
+		public static final String FAVOURED_ENEMY_BEAST = "favouredEnemyBeast";
+		public static final String FAVOURED_ENEMY_CONSTRUCT = "favouredEnemyConstruct";
+		public static final String FAVOURED_ENEMY_ELEMENTAL = "favouredEnemyElemental";
+		public static final String FAVOURED_ENEMY_MAZE_CREATURE = "favouredEnemyMazeCreature";
+		public static final String FAVOURED_ENEMY_DRAGON = "favouredEnemyDragon";
+		public static final String FAVOURED_ENEMY_FEY = "favouredEnemyFey";
+		public static final String FAVOURED_ENEMY_GIANT = "favouredEnemyGiant";
+		public static final String FAVOURED_ENEMY_HUMANOID = "favouredEnemyHumanoid";
+		public static final String FAVOURED_ENEMY_ILLUSION = "favouredEnemyIllusion";
+		public static final String FAVOURED_ENEMY_CRYPTOBESTIA = "favouredEnemyCryptobestia";
+		public static final String FAVOURED_ENEMY_MONSTROSITY = "favouredEnemyMonstrosity";
+		public static final String FAVOURED_ENEMY_OOZE = "favouredEnemyOoze";
+		public static final String FAVOURED_ENEMY_OUTSIDER = "favouredEnemyOutsider";
+		public static final String FAVOURED_ENEMY_PLANT = "favouredEnemyPlant";
+		public static final String FAVOURED_ENEMY_UNDEAD = "favouredEnemyUndead";
+		public static final String FAVOURED_ENEMY_VERMIN = "favouredEnemyVermin";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -716,6 +750,24 @@ public class Stats
 			booleanModifiers.add(Modifiers.LARGE_SIZE);
 			booleanModifiers.add(Modifiers.THREATEN);
 			booleanModifiers.add(Modifiers.DRINKING_FIT);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_BEAST);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_CONSTRUCT);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_MAZE_CREATURE);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_CRYPTOBESTIA);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_CONSTRUCT);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_DRAGON);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_ELEMENTAL);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_FEY);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_GIANT);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_HORROR);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_HUMANOID);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_ILLUSION);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_MONSTROSITY);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_OOZE);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_OUTSIDER);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_PLANT);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_UNDEAD);
+			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

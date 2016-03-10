@@ -390,8 +390,8 @@ public class GameSys
 				}
 		}
 
-		result += calcAttackerModifier(event);
-		result -= calcDefenderModifier(event);
+		result += calcAttackerToHitModifier(event);
+		result -= calcDefenderToHitModifier(event);
 
 		// pin it to range 1%..99%
 		result = Math.min(99, result);
@@ -403,7 +403,7 @@ public class GameSys
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	private int calcAttackerModifier(
+	private int calcAttackerToHitModifier(
 		AttackEvent event)
 	{
 		UnifiedActor attacker = event.getAttacker();
@@ -436,6 +436,9 @@ public class GameSys
 			}
 		}
 
+		// +10% per level of favoured enemy
+		result += (10*getFavouredEnemyBonus(attacker, event.getDefender()));
+
 		Maze.log(Log.DEBUG, attacker.getName()+" attacker modifier is "+result);
 
 		// practise modifiers as required
@@ -462,7 +465,7 @@ public class GameSys
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	private int calcDefenderModifier(AttackEvent event)
+	private int calcDefenderToHitModifier(AttackEvent event)
 	{
 		UnifiedActor defender = event.getDefender();
 
@@ -511,8 +514,9 @@ public class GameSys
 	public DamagePacket calcDamage(AttackEvent event)
 	{
 		Maze.log(Log.DEBUG, "calculating damage");
-		
-		if (event.getDefender().getModifier(Stats.Modifiers.IMMUNE_TO_DAMAGE) > 0)
+
+		UnifiedActor defender = event.getDefender();
+		if (defender.getModifier(Stats.Modifiers.IMMUNE_TO_DAMAGE) > 0)
 		{
 			Maze.log(Log.DEBUG, "defender is immune to damage!");
 			return new DamagePacket(0,1);
@@ -523,7 +527,7 @@ public class GameSys
 		Dice diceDamage = attackWith.getDamage();
 		Dice ammoDamage = null;
 		BodyPart bodyPart = event.getBodyPart();
-		Item armour = event.getDefender().getArmour(bodyPart);
+		Item armour = defender.getArmour(bodyPart);
 		int armourSoak = 0;
 
 		Item ammo = isAttackRangedWithAmmo(attacker, attackWith);
@@ -561,6 +565,9 @@ public class GameSys
 			diceDamageRoll = diceDamage.getMaxPossible();
 		}
 
+		// +2 damage per level of FAVOURED ENEMY
+		int favouredEnemy = 2*getFavouredEnemyBonus(attacker, defender);
+
 		Maze.log(Log.DEBUG, "diceDamage = [" + diceDamage + "]");
 		Maze.log(Log.DEBUG, "ammoDamage = [" + ammoDamage + "]");
 		Maze.log(Log.DEBUG, "diceDamageRoll = [" + diceDamageRoll + "]");
@@ -568,12 +575,14 @@ public class GameSys
 		Maze.log(Log.DEBUG, "bpDamageMod = [" + bpDamageMod + "]");
 		Maze.log(Log.DEBUG, "eventDamageMod = [" + eventDamageMod + "]");
 		Maze.log(Log.DEBUG, "armourSoak = [" + armourSoak + "]");
+		Maze.log(Log.DEBUG, "favouredEnemy = [" + favouredEnemy + "]");
 
 		int damage = diceDamageRoll
 			+ ammoDamageRoll
 			+ brawn/2
 			+ bpDamageMod
 			+ eventDamageMod
+			+ favouredEnemy
 			- armourSoak;
 
 		// add up the various "double damage" clauses
@@ -586,7 +595,7 @@ public class GameSys
 			damageMultiplier += armour.getModifiers().getModifier(Stats.Modifiers.DAMAGE_MULTIPLIER);
 		}
 
-		if (event.getDefender().getTypes().contains(attackWith.slaysFoeType()))
+		if (defender.getTypes().contains(attackWith.slaysFoeType()))
 		{
 			// double damage time
 			damageMultiplier++;
@@ -912,14 +921,20 @@ public class GameSys
 	{
 		String modifier = type.getResistanceModifier();
 
+		// minus attacker POWER to defender resistance
 		int power = attacker.getModifier(Stats.Modifiers.POWER);
-		power += (attacker.getModifier(Stats.Modifiers.POWER_CAST)*2);
 
+		// minus 2x attacker POWER CAST
+		power += (attacker.getModifier(Stats.Modifiers.POWER_CAST)*2);
 		if (attacker.getModifier(Stats.Modifiers.POWER_CAST) > 0)
 		{
 			practice(attacker, Stats.Modifiers.POWER_CAST, 1);
 		}
 
+		// minus 5x attacker FAVOURED ENEMY
+		power += (5*getFavouredEnemyBonus(attacker, defender));
+
+		// return defender modifier minus all the stuff, minimum 0
 		int defenderModifier = (modifier==null) ? 0 : defender.getModifier(modifier);
 		return Math.max(defenderModifier -power, 0);
 	}
@@ -2414,20 +2429,20 @@ public class GameSys
 		{
 			return;
 		}
-		PlayerCharacter bestAtMythology = getMythologist(party);
-
-
-		// it gets easier each combat round
-		int partyTotal = bestAtMythology.getModifier(Stats.Modifiers.MYTHOLOGY) + combatRound;
-
 		// go try all the foes
 		for (FoeGroup fg : foes)
 		{
+			Foe representativeFoe = fg.getFoes().get(0);
+			PlayerCharacter bestAtMythology = getMythologist(party, representativeFoe);
+
+			// it gets easier each combat round
+			int partyTotal = getMythologyToIdentify(bestAtMythology, representativeFoe)
+				+ combatRound;
+
 			// assume all foes in a group are the same, only try the first one
-			Foe f = fg.getFoes().get(0);
-			if (f.getIdentificationState() == Item.IdentificationState.UNIDENTIFIED)
+			if (representativeFoe.getIdentificationState() == Item.IdentificationState.UNIDENTIFIED)
 			{
-				if (f.getIdentificationDifficulty() <= partyTotal)
+				if (representativeFoe.getIdentificationDifficulty() <= partyTotal)
 				{
 					for (Foe ff : fg.getFoes())
 					{
@@ -2444,7 +2459,7 @@ public class GameSys
 	 * @return
 	 * 	Return the player character responsible for identifying foes.
 	 */
-	public PlayerCharacter getMythologist(PlayerParty party)
+	public PlayerCharacter getMythologist(PlayerParty party, Foe foe)
 	{
 		// determine the party total
 		int temp = Integer.MIN_VALUE;
@@ -2452,7 +2467,8 @@ public class GameSys
 
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
-			int pcTotal = pc.getLevel() + pc.getModifier(Stats.Modifiers.MYTHOLOGY);
+			int pcTotal = getMythologyToIdentify(pc, foe);
+
 			if (pcTotal > temp)
 			{
 				temp = pcTotal;
@@ -2468,6 +2484,48 @@ public class GameSys
 			}
 		}
 		return bestAtMythology;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getMythologyToIdentify(PlayerCharacter pc, Foe foe)
+	{
+		int pcTotal = pc.getLevel() + pc.getModifier(Stats.Modifiers.MYTHOLOGY);
+
+		// +2 per level of FAVOURED ENEMY
+		int favouredEnemy = getFavouredEnemyBonus(pc, foe);
+		if (favouredEnemy > 0)
+		{
+			pcTotal += (favouredEnemy * 2);
+		}
+		return pcTotal;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	the value of the applicable FAVOURED ENEMY modifier if the defender
+	 * 	is a favoured enemy of the attacker, otherwise 0
+	 */
+	private int getFavouredEnemyBonus(UnifiedActor attacker,
+		UnifiedActor defender)
+	{
+		if (defender.getTypes() != null)
+		{
+			for (TypeDescriptor td : defender.getTypes())
+			{
+				if (td.getFavouredEnemyModifier() != null)
+				{
+					int modifier = attacker.getModifier(td.getFavouredEnemyModifier());
+					if (modifier > 0)
+					{
+						return modifier;
+					}
+				}
+			}
+		}
+
+		return 0;
 	}
 
 	/*-------------------------------------------------------------------------*/

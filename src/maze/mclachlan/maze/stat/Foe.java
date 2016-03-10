@@ -913,6 +913,12 @@ public class Foe extends UnifiedActor
 			{
 				return "Legendary";
 			}
+
+			@Override
+			public String getFavouredEnemyModifier()
+			{
+				return null;
+			}
 		};
 	}
 

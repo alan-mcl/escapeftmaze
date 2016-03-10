@@ -209,6 +209,23 @@ modifier_name-largeSize: Size: Large
 modifier_name-threaten: Threaten
 modifier_name-drinkingFit: Drinking Fit
 modifier_name-iajutsu: Iajutsu
+modifier_name-favouredEnemyHorror: Favoured Enemy: Horror
+modifier_name-favouredEnemyBeast: Favoured Enemy: Beast
+modifier_name-favouredEnemyConstruct: Favoured Enemy: Construct
+modifier_name-favouredEnemyElemental: Favoured Enemy: Elemental
+modifier_name-favouredEnemyMazeCreature: Favoured Enemy: Creature of the Maze
+modifier_name-favouredEnemyDragon: Favoured Enemy: Dragon
+modifier_name-favouredEnemyFey: Favoured Enemy: Fey
+modifier_name-favouredEnemyGiant: Favoured Enemy: Giant
+modifier_name-favouredEnemyHumanoid: Favoured Enemy: Humanoid
+modifier_name-favouredEnemyIllusion: Favoured Enemy: Illusion
+modifier_name-favouredEnemyCryptobestia: Favoured Enemy: Cryptobestia
+modifier_name-favouredEnemyMonstrosity: Favoured Enemy: Monstrosity
+modifier_name-favouredEnemyOoze: Favoured Enemy: Ooze
+modifier_name-favouredEnemyOutsider: Favoured Enemy: Outsider
+modifier_name-favouredEnemyPlant: Favoured Enemy: Plant
+modifier_name-favouredEnemyUndead: Favoured Enemy: Undead
+modifier_name-favouredEnemyVermin: Favoured Enemy: Vermin
 
 # Modifier Descriptions
 
@@ -411,6 +428,23 @@ modifier_desc-largeSize: This character is physically larger than average.
 modifier_desc-threaten: The ability to intimidate another into doing what you want.
 modifier_desc-drinkingFit: This character never suffers ill effects from alcohol.
 modifier_desc-iajutsu: The art of rapidly drawing and attacking with a sword.
+modifier_desc-favouredEnemyHorror: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyBeast: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyConstruct: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyElemental: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyMazeCreature: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyDragon: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyFey: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyGiant: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyHumanoid: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyIllusion: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyCryptobestia: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyMonstrosity: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyOoze: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyOutsider: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyPlant: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyUndead: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyVermin: This character gets bonuses in combat and other interactions with this type of foe.
 
 #
 # LEVEL ABILITY PROGRESSION

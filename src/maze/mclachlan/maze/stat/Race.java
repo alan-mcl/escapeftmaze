@@ -83,6 +83,9 @@ public class Race implements TypeDescriptor
 	/** Description displayed when a race is locked */
 	private String unlockDescription;
 
+	/** Modifier on attackers that denotes that this race is a favoured enemy */
+	private String favouredEnemyModifier;
+
 	/*-------------------------------------------------------------------------*/
 	public Race(
 		String name,
@@ -108,7 +111,8 @@ public class Race implements TypeDescriptor
 		List<NaturalWeapon> naturalWeapons,
 		Map<String, List<String>> suggestedNames,
 		String unlockVariable,
-		String unlockDescription)
+		String unlockDescription,
+		String favouredEnemyModifier)
 	{
 		this.name = name;
 		this.description = description;
@@ -134,6 +138,7 @@ public class Race implements TypeDescriptor
 		this.suggestedNames = suggestedNames;
 		this.unlockVariable = unlockVariable;
 		this.unlockDescription = unlockDescription;
+		this.favouredEnemyModifier = favouredEnemyModifier;
 
 		// todo: update the actual data model
 		bodyParts = new PercentageTable<BodyPart>();
@@ -166,7 +171,8 @@ public class Race implements TypeDescriptor
 			ft.getNaturalWeapons(),
 			null,
 			null,
-			null);
+			null,
+			ft.getFavouredEnemyModifier());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -180,6 +186,12 @@ public class Race implements TypeDescriptor
 	public String getName()
 	{
 		return name;
+	}
+
+	@Override
+	public String getFavouredEnemyModifier()
+	{
+		return favouredEnemyModifier;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -447,6 +459,11 @@ public class Race implements TypeDescriptor
 	public void setUnlockDescription(String unlockDescription)
 	{
 		this.unlockDescription = unlockDescription;
+	}
+
+	public void setFavouredEnemyModifier(String favouredEnemyModifier)
+	{
+		this.favouredEnemyModifier = favouredEnemyModifier;
 	}
 
 	/*-------------------------------------------------------------------------*/

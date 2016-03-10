@@ -14,6 +14,7 @@ Features
  - Added Iajutsu special ability
  - Added foe information popup on click of the sprite during actor encounters and combat
  - Added foe types as configurable objects, can provide modifiers and abilities to foes
+ - Favoured Enemy modifiers for various foe types
 
 Other
  - Performance improvements for movement mode

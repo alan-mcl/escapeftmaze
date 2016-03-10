@@ -254,6 +254,10 @@ public class V1Race
 			b.append("unlockDescription=");
 			b.append(obj.getUnlockDescription()==null?"":obj.getUnlockDescription());
 			b.append(V1Utils.NEWLINE);
+
+			b.append("favouredEnemyModifier=");
+			b.append(obj.getFavouredEnemyModifier()==null?"":obj.getFavouredEnemyModifier());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -304,7 +308,7 @@ public class V1Race
 			}
 
 			String unlockDescription = p.getProperty("unlockDescription");
-
+			String favouredEnemyModifier = "".equals(p.getProperty("favouredEnemyModifier"))?null:p.getProperty("favouredEnemyModifier");
 
 			return new Race(
 				name,
@@ -330,7 +334,8 @@ public class V1Race
 				naturalWeapons,
 				suggestedNames,
 				unlockVariable,
-				unlockDescription);
+				unlockDescription,
+				favouredEnemyModifier);
 		}
 	}
 }

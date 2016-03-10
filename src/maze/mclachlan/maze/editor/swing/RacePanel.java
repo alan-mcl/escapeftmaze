@@ -43,7 +43,7 @@ public class RacePanel extends EditorPanel
 	private JTextField leftHandIcon, rightHandIcon, unlockVariable;
 	private GenderSelection allowedGenders;
 	private JCheckBox magicDead;
-	private JComboBox specialAbility;
+	private JComboBox specialAbility, favouredEnemyModifier;
 	private PlayerBodyPartTablePanel bodyParts;
 	private JTextArea description, unlockDescription;
 	private StartingItemsPanel startingItems;
@@ -180,6 +180,14 @@ public class RacePanel extends EditorPanel
 		result.add(new JScrollPane(unlockDescription), gbc);
 		dodgyGridBagShite(result, new JLabel("Unlock Desc:"), unlockDescription, gbc);
 
+		Vector<String> vec = new Vector<String>();
+		vec.addAll(Stats.allModifiers);
+		Collections.sort(vec);
+		vec.add(0, NONE);
+		favouredEnemyModifier = new JComboBox(vec);
+		favouredEnemyModifier.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Favoured Enemy Modifier:"), favouredEnemyModifier, gbc);
+
 		bodyParts = new PlayerBodyPartTablePanel("Body Parts", dirtyFlag);
 		gbc.weightx = 1.0;
 		gbc.weighty = 0.0;
@@ -227,6 +235,7 @@ public class RacePanel extends EditorPanel
 		startingActionPointPercent.removeChangeListener(this);
 		startingMagicPointPercent.removeChangeListener(this);
 		specialAbility.removeActionListener(this);
+		favouredEnemyModifier.removeActionListener(this);
 
 		startingHitPointPercent.setValue(race.getStartingHitPointPercent());
 		startingActionPointPercent.setValue(race.getStartingActionPointPercent());
@@ -240,13 +249,15 @@ public class RacePanel extends EditorPanel
 		unlockVariable.setText(race.getUnlockVariable());
 		magicDead.setSelected(race.isMagicDead());
 		Spell sa = race.getSpecialAbility();
-		this.specialAbility.setSelectedItem(sa==null?NONE:sa.getName());
+		specialAbility.setSelectedItem(sa==null?NONE:sa.getName());
 		description.setText(race.getDescription());
 		description.setCaretPosition(0);
 		unlockDescription.setText(race.getUnlockDescription());
 		unlockDescription.setCaretPosition(0);
 		allowedGenders.refreshGenders(race.getAllowedGenders(), race.getSuggestedNames());
 		startingItems.refresh(race.getStartingItems());
+		String fem = race.getFavouredEnemyModifier();
+		favouredEnemyModifier.setSelectedItem(fem == null ? NONE : fem);
 
 		bodyParts.refresh(
 			race.getHead(),
@@ -261,6 +272,7 @@ public class RacePanel extends EditorPanel
 		startingActionPointPercent.addChangeListener(this);
 		startingMagicPointPercent.addChangeListener(this);
 		specialAbility.addActionListener(this);
+		favouredEnemyModifier.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -285,6 +297,7 @@ public class RacePanel extends EditorPanel
 			"",
 			new ArrayList<Gender>(),
 			false,
+			null,
 			null,
 			null,
 			null,
@@ -332,7 +345,8 @@ public class RacePanel extends EditorPanel
 			current.getNaturalWeapons(),
 			current.getSuggestedNames(),
 			current.getUnlockVariable(),
-			current.getUnlockDescription());
+			current.getUnlockDescription(),
+			current.getFavouredEnemyModifier());
 
 		Database.getInstance().getRaces().put(newName, race);
 	}
@@ -364,6 +378,8 @@ public class RacePanel extends EditorPanel
 		r.setAllowedGenders(allowedGenders.getAllowedGendersList());
 		r.setSuggestedNames(allowedGenders.getSuggestedNamesMap());
 		r.setStartingItems(startingItems.getStartingItems());
+		String fem = (String)favouredEnemyModifier.getSelectedItem();
+		r.setFavouredEnemyModifier(NONE.equals(fem) ? null : fem);
 
 		r.setHead(bodyParts.getHead());
 		r.setTorso(bodyParts.getTorso());

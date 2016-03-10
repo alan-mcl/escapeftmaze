@@ -25,7 +25,6 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.Stats;
 
 /**
  *
@@ -52,10 +51,11 @@ public class FoeInfoMouseClickScript implements MouseClickScript, ConfirmCallbac
 	public void execute(Map map)
 	{
 		PlayerCharacter mythologist = GameSys.getInstance().getMythologist(
-			Maze.getInstance().getParty());
+			Maze.getInstance().getParty(), foe);
 
-		int information = mythologist.getModifier(Stats.Modifiers.MYTHOLOGY)
-			- foe.getIdentificationDifficulty();
+		int mythologyTotal = GameSys.getInstance().getMythologyToIdentify(mythologist, foe);
+
+		int information = mythologyTotal - foe.getIdentificationDifficulty();
 
 		DiyGuiUserInterface.gui.setDialog(new FoeDetailsDialog(foe, information));
 	}

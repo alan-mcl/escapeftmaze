@@ -41,14 +41,16 @@ public class FoeType extends Race implements TypeDescriptor
 		List<StartingKit> startingItems,
 		List<NaturalWeapon> naturalWeapons,
 		Map<String, List<String>> suggestedNames,
-		String unlockVariable, String unlockDescription)
+		String unlockVariable, String unlockDescription,
+		String favouredEnemyModifer)
 	{
 		super(name, description, startingHitPointPercent,
 			startingActionPointPercent, startingMagicPointPercent, startingModifiers,
 			constantModifiers, bannerModifiers, attributeCeilings, head, torso, leg,
 			hand, foot, leftHandIcon, rightHandIcon, allowedGenders, isMagicDead,
 			specialAbility, startingItems, naturalWeapons, suggestedNames,
-			unlockVariable, unlockDescription);
+			unlockVariable, unlockDescription,
+			favouredEnemyModifer);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -78,7 +80,8 @@ public class FoeType extends Race implements TypeDescriptor
 			race.getNaturalWeapons(),
 			race.getSuggestedNames(),
 			race.getUnlockVariable(),
-			race.getUnlockDescription());
+			race.getUnlockDescription(),
+			race.getFavouredEnemyModifier());
 	}
 
 	/*-------------------------------------------------------------------------*/

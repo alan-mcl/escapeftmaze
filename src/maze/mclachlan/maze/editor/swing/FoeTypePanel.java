@@ -28,6 +28,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.FoeType;
 import mclachlan.maze.stat.Gender;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.Spell;
 
 /**
@@ -44,6 +45,7 @@ public class FoeTypePanel extends EditorPanel
 	private PlayerBodyPartTablePanel bodyParts;
 	private JTextArea description;
 	private NaturalWeaponsWidget naturalWeapons;
+	private JComboBox favouredEnemyModifier;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeTypePanel()
@@ -137,6 +139,14 @@ public class FoeTypePanel extends EditorPanel
 		specialAbility.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Special Ability:"), specialAbility, gbc);
 
+		Vector<String> vec = new Vector<String>();
+		vec.addAll(Stats.allModifiers);
+		Collections.sort(vec);
+		vec.add(0, NONE);
+		favouredEnemyModifier = new JComboBox(vec);
+		favouredEnemyModifier.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Favoured Enemy Modifier:"), favouredEnemyModifier, gbc);
+
 		bodyParts = new PlayerBodyPartTablePanel("Body Parts", dirtyFlag);
 		gbc.weightx = 1.0;
 		gbc.weighty = 0.0;
@@ -181,6 +191,7 @@ public class FoeTypePanel extends EditorPanel
 		FoeType ft = Database.getInstance().getFoeTypes().get(name);
 
 		specialAbility.removeActionListener(this);
+		favouredEnemyModifier.removeActionListener(this);
 
 		startingModifiers.setModifier(ft.getStartingModifiers());
 		constantModifiers.setModifier(ft.getConstantModifiers());
@@ -191,6 +202,8 @@ public class FoeTypePanel extends EditorPanel
 		this.specialAbility.setSelectedItem(sa == null ? NONE : sa.getName());
 		description.setText(ft.getDescription());
 		description.setCaretPosition(0);
+		String fem = ft.getFavouredEnemyModifier();
+		favouredEnemyModifier.setSelectedItem(fem == null ? NONE : fem);
 
 		bodyParts.refresh(
 			ft.getHead(),
@@ -202,6 +215,7 @@ public class FoeTypePanel extends EditorPanel
 		naturalWeapons.refresh(ft.getNaturalWeapons());
 
 		specialAbility.addActionListener(this);
+		favouredEnemyModifier.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -226,6 +240,7 @@ public class FoeTypePanel extends EditorPanel
 			"",
 			new ArrayList<Gender>(),
 			false,
+			null,
 			null,
 			null,
 			null,
@@ -266,14 +281,15 @@ public class FoeTypePanel extends EditorPanel
 			current.getFoot(),
 			current.getLeftHandIcon(),
 			current.getRightHandIcon(),
-			new ArrayList<Gender>(current.getAllowedGenders()),
+			new ArrayList<Gender>(),
 			current.isMagicDead(),
 			current.getSpecialAbility(),
 			null, //todo: duplicate starting items
 			current.getNaturalWeapons(),
 			current.getSuggestedNames(),
 			current.getUnlockVariable(),
-			current.getUnlockDescription());
+			current.getUnlockDescription(),
+			current.getFavouredEnemyModifier());
 
 		Database.getInstance().getFoeTypes().put(newName, ft);
 	}
@@ -306,5 +322,8 @@ public class FoeTypePanel extends EditorPanel
 
 		String spellName = (String)specialAbility.getSelectedItem();
 		ft.setSpecialAbility(spellName.equals(NONE) ? null : Database.getInstance().getSpell(spellName));
+
+		String fem = (String)favouredEnemyModifier.getSelectedItem();
+		ft.setFavouredEnemyModifier(NONE.equals(fem) ? null : fem);
 	}
 }

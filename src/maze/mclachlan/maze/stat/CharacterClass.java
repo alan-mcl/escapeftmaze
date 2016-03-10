@@ -141,6 +141,12 @@ public class CharacterClass implements TypeDescriptor
 		return name;
 	}
 
+	@Override
+	public String getFavouredEnemyModifier()
+	{
+		return null;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Focus getFocus()
 	{

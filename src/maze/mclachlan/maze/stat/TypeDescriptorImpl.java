@@ -36,4 +36,10 @@ public class TypeDescriptorImpl implements TypeDescriptor
 	{
 		return name;
 	}
+
+	@Override
+	public String getFavouredEnemyModifier()
+	{
+		return null;
+	}
 }

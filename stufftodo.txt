@@ -27,6 +27,7 @@ data: RESISTANCES: Resistances of foes.
 data: RESISTANCES: Resistances of character races
 data: mind read results from all NPCs
 data: more hidden stashes to find with SCOUTING
+data: rename Kitsune class to Courtesan
 
 code: Scavenger Mode: characters start with nothing, most loot is replaced with trash, and crafting is the only way to survive.
 code: Ironman Mode: One save only.
@@ -56,7 +57,6 @@ spell: spells that can be dodged
 spell: genie, summon a genie to perform a task or accompany you
 
 ability: resist surprise in some terrain type
-ability: identify foes of some type
 
 editor: save games editing of: conditions, item caches, npc templates, npcs, maze variables, journals
 editor: proper dynamic FK support, aka cascading rename

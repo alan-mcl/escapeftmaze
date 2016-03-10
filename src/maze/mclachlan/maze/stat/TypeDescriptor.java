@@ -27,4 +27,6 @@ package mclachlan.maze.stat;
 public interface TypeDescriptor
 {
 	String getName();
+
+	String getFavouredEnemyModifier();
 }
