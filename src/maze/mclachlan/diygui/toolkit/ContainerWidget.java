@@ -218,4 +218,15 @@ public abstract class ContainerWidget extends Widget
 	{
 		return children;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void removeAllChildren()
+	{
+		List<Widget> kids = new ArrayList<Widget>(children);
+
+		for (Widget w : kids)
+		{
+			remove(w);
+		}
+	}
 }

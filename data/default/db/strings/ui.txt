@@ -7,6 +7,10 @@ common.gametime = Day %s, turn %s
 common.gp = %sgp
 
 # the create character wizard
+cc.title = Create Character
+cc.next = Next >
+cc.previous = < Previous
+cc.random = (random)
 cc.race.title = Character Race
 cc.gender.title = Character Gender
 cc.resources = Resources
@@ -30,8 +34,8 @@ cc.character.portrait = Character Portrait
 cc.character.name = Character Name
 cc.suggest.name = (suggest)
 cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me your name. You do not look like a creature of the Maze."\n~Keteswayo, Captain of the Iyala
-cc.show.lap = Show Ability Progression
-cc.level.ability.progression = Level Ability Progression
+cc.ability.progression = Special Abilities
+cc.show.lap = Show Full Ability Progression
 cc.locked = ** LOCKED **
 
 # modifier display widget

@@ -20,6 +20,7 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
+import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
@@ -28,55 +29,86 @@ import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.CharacterClass;
+import mclachlan.maze.stat.LevelAbility;
+import mclachlan.maze.stat.LevelAbilityProgression;
 
 /**
  *
  */
 public class LevelAbilityProgressionWidget extends DIYPane
 {
-	private CharacterClass cc;
-	private  LevelAbilityActionListener listener = new LevelAbilityActionListener();
+	private int levels;
+	private LevelAbilityActionListener listener = new LevelAbilityActionListener();
+
+	private ArrayList<DIYPane> rows;
 
 	/*-------------------------------------------------------------------------*/
 	public LevelAbilityProgressionWidget(CharacterClass cc)
 	{
-		this.cc = cc;
-		this.buildGUI();
+		this(cc, LevelAbilityProgression.MAX_LEVELS, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void buildGUI()
+
+	/**
+	 * @param levels
+	 * 	The number of levels to display, starting at 1
+	 */
+	public LevelAbilityProgressionWidget(CharacterClass cc, int levels, Rectangle bounds)
+	{
+		if (bounds != null)
+		{
+			setBounds(bounds);
+		}
+		this.levels = levels;
+		this.buildGUI(levels);
+		if (cc != null)
+		{
+			refresh(cc);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refresh(CharacterClass cc)
+	{
+		LevelAbilityProgression progression = cc.getProgression();
+		for (int i=1; i<=levels; i++)
+		{
+			List<LevelAbility> forLevel = progression.getForLevel(i);
+
+			DIYPane row = rows.get(i-1);
+			refresh(forLevel, row);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void buildGUI(int levels)
 	{
 		int inset = 3;
 
 		this.setLayoutManager(new DIYBorderLayout(inset, inset));
 
-		DIYPane left = new DIYPane(new DIYGridLayout(1, LevelAbilityProgression.MAX_LEVELS, inset, inset));
-		DIYPane right = new DIYPane(new DIYGridLayout(1, LevelAbilityProgression.MAX_LEVELS, inset, inset));
-
-		LevelAbilityProgression progression = cc.getProgression();
+		DIYPane left = new DIYPane(new DIYGridLayout(1, levels, inset, inset));
+		DIYPane right = new DIYPane(new DIYGridLayout(1, levels, inset, inset));
 
 		this.add(left, DIYBorderLayout.Constraint.WEST);
 		this.add(right, DIYBorderLayout.Constraint.CENTER);
 		this.doLayout();
 
-		for (int i=1; i<=LevelAbilityProgression.MAX_LEVELS; i++)
-		{
-			List<LevelAbility> forLevel = progression.getForLevel(i);
+		rows = new ArrayList<DIYPane>();
 
+		for (int i=1; i<=levels; i++)
+		{
 			addRow(
 				left,
 				right,
-				StringUtil.getUiLabel("lapw.level", i),
-				forLevel);
+				StringUtil.getUiLabel("lapw.level", i));
 		}
-
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void addRow(DIYPane left, DIYPane right, String label,
-		List<LevelAbility> abilities)
+	private void addRow(DIYPane left, DIYPane right, String label)
 	{
 		DIYPane labelHack = new DIYPane(new DIYFlowLayout(0, 0, DIYToolkit.Align.LEFT));
 		labelHack.add(getLabel(label));
@@ -84,6 +116,14 @@ public class LevelAbilityProgressionWidget extends DIYPane
 
 		DIYPane row = new DIYPane(new DIYFlowLayout(0, 0, DIYToolkit.Align.LEFT));
 		right.add(row);
+
+		rows.add(row);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refresh(List<LevelAbility> abilities, DIYPane row)
+	{
+		row.removeAllChildren();
 
 		for (int i = 0; i < abilities.size(); i++)
 		{
@@ -98,14 +138,14 @@ public class LevelAbilityProgressionWidget extends DIYPane
 			}
 
 
-			DIYLabel diyLabel = new DIYLabel(
-				text);
+			DIYLabel diyLabel = new DIYLabel(text);
 
 			diyLabel.addActionListener(listener);
 			diyLabel.setActionPayload(la);
 
 			row.add(diyLabel);
 		}
+		doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -40,7 +40,6 @@ code: validate PC combat actions on a Repeat
 code: different combat ranges
 code: guilds bury dead characters in graveyards
 code: character creation: restrict character portraits to race
-code: character creation: display spellbook information
 code: party camps, leave some characters behind
 code: designate party spokesman, assayer and scout
 code: scouting to locate secret doors/wall buttons
@@ -56,7 +55,7 @@ spell: bind demon, summons a demon to do a task (open door, etc)
 spell: spells that can be dodged
 spell: genie, summon a genie to perform a task or accompany you
 
-ability: resist surprise in some terrain type
+ability: favoured terrain (resist surprise etc) 
 
 editor: save games editing of: conditions, item caches, npc templates, npcs, maze variables, journals
 editor: proper dynamic FK support, aka cascading rename

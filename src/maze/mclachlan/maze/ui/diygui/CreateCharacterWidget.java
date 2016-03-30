@@ -76,10 +76,9 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private CardLayoutWidget classAndRaceKitCards;
 	private CardLayoutWidget raceGenderChoices;
 	private Map<String, ContainerWidget> raceGenderWidgets = new HashMap<String, ContainerWidget>();
-	private Map<String, ContainerWidget> classSpellBookWidgets = new HashMap<String, ContainerWidget>();
-	private Map<String, DIYButtonGroup> classSpellBookButtonGroups = new HashMap<String, DIYButtonGroup>();
 	private DIYTextField nameField;
 	private DIYButton random, suggestName, showLevelAbilityProgression;
+	private LevelAbilityProgressionWidget firstLevel;
 	private Map<MagicSys.SpellBook, List<Widget>> spellBookWidgets = new HashMap<MagicSys.SpellBook, List<Widget>>();
 	private Map<String, ContainerWidget> classAndRaceKitWidgets = new HashMap<String, ContainerWidget>();
 	private PortraitSelectionWidget portraitWidget;
@@ -118,8 +117,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private int buttonPaneHeight = 50;
 	private List<CharacterClassWrapper> characterClassList = getCharacterClassList();
 	private SpellLearningWidget spellLearner;
-	
-	// this is non-null if we're creating a character in a NPC guild
+
+	/** This is non-null if we're creating a character in a NPC guild. */
 	private Npc npc;
 
 	/*-------------------------------------------------------------------------*/
@@ -179,15 +178,15 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private void buildGUI(Rectangle bounds)
 	{
-		next = new DIYButton("Next >");
-		previous = new DIYButton("< Previous");
+		next = new DIYButton(StringUtil.getUiLabel("cc.next"));
+		previous = new DIYButton(StringUtil.getUiLabel("cc.previous"));
 		next.addActionListener(this);
 		previous.addActionListener(this);
-		random = new DIYButton("(random)");
+		random = new DIYButton(StringUtil.getUiLabel("cc.random"));
 		random.addActionListener(this);
 
 		titlePane = new DIYPane(new DIYFlowLayout(7,7, DIYToolkit.Align.CENTER));
-		DIYLabel title = new DIYLabel("Create Character", DIYToolkit.Align.CENTER);
+		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("cc.title"), DIYToolkit.Align.CENTER);
 		titlePane.setBounds(x, y, width, 30);
 		title.setForegroundColour(Constants.Colour.GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
@@ -478,14 +477,26 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		DIYTextArea classDesc = new DIYTextArea("");
 		this.classDesc = classDesc;
-		this.classDesc.setBounds(column2, headerOffset+50+25, columnWidth*2, height-320);
+		this.classDesc.setBounds(column2, headerOffset+50+25, columnWidth*2, height/3);
 		classDesc.setTransparent(true);
+
+		DIYLabel abilityProgression = getSubTitle(StringUtil.getUiLabel("cc.ability.progression"));
+		Dimension d = abilityProgression.getPreferredSize();
+		abilityProgression.setBounds(
+			column2, classDesc.y+classDesc.height, d.width, d.height);
+
+		int levelsToPreview = 3;
+		Rectangle r = new Rectangle(column2,
+					abilityProgression.y + abilityProgression.height + inset,
+					columnWidth * 2, abilityProgression.height * levelsToPreview);
+		firstLevel = new LevelAbilityProgressionWidget(null, levelsToPreview, r);
+		firstLevel.doLayout();
 
 		showLevelAbilityProgression = new DIYButton(StringUtil.getUiLabel("cc.show.lap"));
 		showLevelAbilityProgression.addActionListener(this);
-		Dimension preferredSize = showLevelAbilityProgression.getPreferredSize();
+		d = showLevelAbilityProgression.getPreferredSize();
 		showLevelAbilityProgression.setBounds(
-			column2, classDesc.y+classDesc.height, preferredSize.width, preferredSize.height);
+			column2, firstLevel.y+firstLevel.height+inset, d.width, d.height);
 
 		classResourcesWidget = new ResourcesDisplayWidget(
 			getLabel("cc.resources"), 0, 0, 0, false, false);
@@ -509,6 +520,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		classesPane.add(characterClasses);
 
 		classesPane.add(classDesc);
+		classesPane.add(abilityProgression);
+		classesPane.add(firstLevel);
 		classesPane.add(showLevelAbilityProgression);
 		classesPane.add(classResourcesWidget);
 		classesPane.add(classModifiersWidget1);
@@ -1169,6 +1182,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		String desc = characterClass.getDescription();
 		this.classDesc.setText(desc);
+		this.firstLevel.refresh(characterClass);
 		StatModifier mod = new StatModifier(characterClass.getStartingModifiers());
 		// todo: should we pick up the LAP?
 		this.classResourcesWidget.display(
