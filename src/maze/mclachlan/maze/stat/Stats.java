@@ -283,6 +283,7 @@ public class Stats
 		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_PLANT);
 		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_UNDEAD);
 		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
+		propertiesModifiers.add(Modifiers.POWER_OF_DARKNESS);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -645,6 +646,7 @@ public class Stats
 		public static final String FAVOURED_ENEMY_PLANT = "favouredEnemyPlant";
 		public static final String FAVOURED_ENEMY_UNDEAD = "favouredEnemyUndead";
 		public static final String FAVOURED_ENEMY_VERMIN = "favouredEnemyVermin";
+		public static final String POWER_OF_DARKNESS = "powerOfDarkness";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -768,6 +770,7 @@ public class Stats
 			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_PLANT);
 			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_UNDEAD);
 			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
+			booleanModifiers.add(Modifiers.POWER_OF_DARKNESS);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

@@ -70,6 +70,7 @@ public class UseItem implements ChooseCharacterCallback,
 				// do not require target selection
 				case MagicSys.SpellTargetType.CASTER:
 				case MagicSys.SpellTargetType.PARTY:
+				case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
 				case MagicSys.SpellTargetType.TILE:
 				case MagicSys.SpellTargetType.ITEM:
 					GameSys.getInstance().useItemOutsideCombat(item, user, null);

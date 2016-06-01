@@ -736,6 +736,10 @@ public class GameSys
 						}
 						break;
 
+					case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+						target = SpellTargetUtils.getActorGroupWithoutCaster(source);
+						break;
+
 					case MagicSys.SpellTargetType.FOE:
 						List<UnifiedActor> enemies;
 						if (combat != null)
@@ -1917,6 +1921,7 @@ public class GameSys
 			case MagicSys.SpellTargetType.ALL_FOES:
 			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
 			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
 				target = maze.getParty();
 				break;
 			case MagicSys.SpellTargetType.FOE:
@@ -3897,6 +3902,15 @@ public class GameSys
 				return new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifiers.CHANNELLING),
 					actor.getModifier(Stats.Modifiers.BLUE_MAGIC_GEN)/2);
+			}
+		}
+		else if (Stats.Modifiers.POWER_CAST.equals(modifier))
+		{
+			if (actor.getModifier(Stats.Modifiers.POWER_OF_DARKNESS) > 0)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifiers.POWER_OF_DARKNESS),
+					actor.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN)*5);
 			}
 		}
 

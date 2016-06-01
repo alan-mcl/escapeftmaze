@@ -79,7 +79,9 @@ public class Value
 		/** scales with the class level. Reference property must be the class name */
 		SCALE_WITH_CLASS_LEVEL,
 		/** scales with a modifier. Reference property must be the modifier name */
-		SCALE_WITH_MODIFIER
+		SCALE_WITH_MODIFIER,
+		/** scales with the number of characters in the party */
+		SCALE_WITH_PARTY_SIZE
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -190,6 +192,16 @@ public class Value
 
 			case SCALE_WITH_MODIFIER:
 				return source.getModifier(getReference());
+
+			case SCALE_WITH_PARTY_SIZE:
+				if (source.getActorGroup() != null)
+				{
+					return source.getActorGroup().getActors().size();
+				}
+				else
+				{
+					return 1;
+				}
 
 			default: throw new MazeException("invalid "+getScaling());
 		}

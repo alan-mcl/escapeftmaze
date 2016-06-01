@@ -17,6 +17,7 @@ sound: clockwork beast
 
 icon: tobacco/herb
 icon: bullwhip
+icon: dark majesty
 
 text: gnome race description
 

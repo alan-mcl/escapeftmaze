@@ -15,6 +15,9 @@ Features
  - Added foe information popup on click of the sprite during actor encounters and combat
  - Added foe types as configurable objects, can provide modifiers and abilities to foes
  - Favoured Enemy modifiers for various foe types
+ - Added level ability progression preview to the character class selection screen
+ - Acolyte special abilities: Whispers of Evil, Life Leech, Dark Majesty, Hellfire, 
+   Power of Darkness
 
 Other
  - Performance improvements for movement mode

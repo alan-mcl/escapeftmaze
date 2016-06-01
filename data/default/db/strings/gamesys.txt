@@ -226,6 +226,7 @@ modifier_name-favouredEnemyOutsider: Favoured Enemy: Outsider
 modifier_name-favouredEnemyPlant: Favoured Enemy: Plant
 modifier_name-favouredEnemyUndead: Favoured Enemy: Undead
 modifier_name-favouredEnemyVermin: Favoured Enemy: Vermin
+modifier_name-powerOfDarkness: Powers of Darkness
 
 # Modifier Descriptions
 
@@ -445,6 +446,7 @@ modifier_desc-favouredEnemyOutsider: This character gets bonuses in combat and o
 modifier_desc-favouredEnemyPlant: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-favouredEnemyUndead: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-favouredEnemyVermin: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -563,6 +565,18 @@ lap_name_unholy = Unholy
 lap_desc_unholy = The Acolyte is a walking source of one Black magic to the whole party.
 lap_name_soulless = Soulless
 lap_desc_soulless = Having already sealed unspeakable pacts with the powers of darkness, the Acolyte laughs off all but the most potent of enemy curses.
+lap_name_corrupting_touch = Corrupting Touch
+lap_desc_corrupting_touch = The touch of the Acolyte causes nausea.
+lap_name_whispers_of_evil = Whispers of Evil
+lap_desc_whispers_of_evil = Paralyse a single foe.
+lap_name_life_leech = Life Leech
+lap_desc_life_leech = Transfer hit points from all other party members to the Acolyte.
+lap_name_dark_majesty = Dark Majesty
+lap_desc_dark_majesty = Buffs the Acolyte's brawn and power.
+lap_name_hellfire = Hellfire
+lap_desc_hellfire = Burning fire from hell sears all foes, and the party too.
+lap_name_power_of_darkness = Powers of Darkness
+lap_desc_power_of_darkness = The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
 
 # Kamunushi
 lap_name_divine_protection = Divine Protection

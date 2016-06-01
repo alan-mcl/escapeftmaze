@@ -57,7 +57,6 @@ public class V1Loader extends Loader
 
 	private Campaign campaign;
 
-	private V1StringManager stringManager;
 	private Map<String, Gender> genders;
 	private Map<String, Race> races;
 	private Map<String, BodyPart> bodyParts;
@@ -104,8 +103,6 @@ public class V1Loader extends Loader
 
 		BufferedReader reader;
 		String path = getPath();
-
-		stringManager = new V1StringManager(path);
 
 		reader = getReader(path+V1Utils.GENDERS);
 		genders = V1Gender.load(reader);
@@ -446,7 +443,7 @@ public class V1Loader extends Loader
 	/*-------------------------------------------------------------------------*/
 	public StringManager getStringManager()
 	{
-		return stringManager;
+		return new V1StringManager(getPath());
 	}
 
 	/*-------------------------------------------------------------------------*/

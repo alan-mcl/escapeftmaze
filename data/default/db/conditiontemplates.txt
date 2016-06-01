@@ -1150,6 +1150,25 @@ exitCondition=DURATION_EXPIRES
 exitConditionChance=0
 repeatedSpellEffects=
 @
+name=dark majesty buff
+displayName=dark majesty buff
+icon=condition/default
+adjective=darkened
+conditionEffect=none
+duration=1/1/SCALE_WITH_CLASS_LEVEL/Acolyte/false
+strength=1/1/NONE//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=108,0505
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+repeatedSpellEffects=
+@
 name=bane spell
 displayName=Bane
 icon=condition/hex

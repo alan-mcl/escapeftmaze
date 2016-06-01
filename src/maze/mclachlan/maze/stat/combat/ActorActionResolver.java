@@ -495,6 +495,7 @@ public class ActorActionResolver
 					targetType == MagicSys.SpellTargetType.LOCK_OR_TRAP ||
 					targetType == MagicSys.SpellTargetType.NPC ||
 					targetType == MagicSys.SpellTargetType.TILE ||
+					targetType == MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER ||
 					targetType == MagicSys.SpellTargetType.PARTY)
 				{
 					// these spell target types cannot backfire, simply fizzle
@@ -585,6 +586,14 @@ public class ActorActionResolver
 						s,
 						animationContext));
 				break;
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+				events.addAll(
+					SpellTargetUtils.resolvePartyButNotCasterSpell(
+						combat,
+						actor,
+						castingLevel,
+						s,
+						animationContext));
 			case MagicSys.SpellTargetType.FOE_GROUP:
 				events.addAll(
 					SpellTargetUtils.resolveFoeGroupSpell(
@@ -754,6 +763,14 @@ public class ActorActionResolver
 					s,
 					animationContext));
 				break;
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+				events.addAll(SpellTargetUtils.resolvePartyButNotCasterSpell(
+					combat,
+					actor,
+					action.getCastingLevel(),
+					s,
+					animationContext));
+				break;
 			case MagicSys.SpellTargetType.FOE_GROUP:
 				events.addAll(SpellTargetUtils.resolveFoeGroupSpell(
 					combat,
@@ -914,6 +931,7 @@ public class ActorActionResolver
 						targetType == MagicSys.SpellTargetType.NPC ||
 						targetType == MagicSys.SpellTargetType.TILE ||
 						targetType == MagicSys.SpellTargetType.PARTY ||
+						targetType == MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER ||
 						combat == null ||
 						combat.getNrOfLivingEnemies(caster) == 0)
 					{
@@ -1004,6 +1022,14 @@ public class ActorActionResolver
 				break;
 			case MagicSys.SpellTargetType.PARTY:
 				events.addAll(SpellTargetUtils.resolvePartySpell(
+					combat,
+					caster,
+					castingLevel,
+					s,
+					animationContext));
+				break;
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+				events.addAll(SpellTargetUtils.resolvePartyButNotCasterSpell(
 					combat,
 					caster,
 					castingLevel,

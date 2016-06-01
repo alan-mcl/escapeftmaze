@@ -270,6 +270,10 @@ public class ValueListDialog extends JDialog
 		{
 			result += " per modifier ("+v.getReference()+")";
 		}
+		else if (v.getScaling() == Value.SCALE.SCALE_WITH_PARTY_SIZE)
+		{
+			result += " per player character";
+		}
 		
 		if (v.shouldNegate())
 		{

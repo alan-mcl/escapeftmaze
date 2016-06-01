@@ -100,6 +100,10 @@ public class SpellOption extends ActorActionOption
 				}
 				break;
 
+			case PARTY_BUT_NOT_CASTER:
+				spellTarget = SpellTargetUtils.getActorGroupWithoutCaster(caster);
+				break;
+
 			case ALL_FOES:
 			case CLOUD_ALL_GROUPS:
 			case TILE:

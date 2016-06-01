@@ -302,6 +302,10 @@ public class BasicFoeAi extends FoeCombatAi
 				target = combat.getActorGroup(foe);
 				break;
 
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+				target = SpellTargetUtils.getActorGroupWithoutCaster(foe);
+				break;
+
 			case MagicSys.SpellTargetType.TILE:
 				target = null;
 				break;

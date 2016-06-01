@@ -328,6 +328,35 @@ public class SpellTargetUtils
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static List<MazeEvent> resolvePartyButNotCasterSpell(Combat combat, UnifiedActor caster,
+		int castingLevel, Spell s, AnimationContext animationContext)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		// this will apply "once to caster" effects to the caster.
+		// such effects will be skipped later
+		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
+
+		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
+
+		ActorGroup actors = SpellTargetUtils.getActorGroupWithoutCaster(caster);
+		for (UnifiedActor target : actors.getActors())
+		{
+			mazeEvents.addAll(
+				applySpellToWillingTarget(
+					s.getEffects().getRandom(),
+					caster,
+					target,
+					castingLevel,
+					animationContext));
+		}
+
+		result.addAll(mazeEvents);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> resolveAllySpell(Combat combat, UnifiedActor caster,
 		SpellTarget target, int castingLevel, Spell s, AnimationContext animationContext)
 	{
@@ -716,5 +745,40 @@ public class SpellTargetUtils
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static ActorGroup getActorGroupWithoutCaster(UnifiedActor caster)
+	{
+		if (caster instanceof Foe)
+		{
+			FoeGroup ag = (FoeGroup)caster.getActorGroup();
+			FoeGroup fg = new FoeGroup();
+
+			for (Foe f : ag.getFoes())
+			{
+				if (f != caster)
+				{
+					fg.add(f);
+				}
+			}
+
+			return fg;
+		}
+		else
+		{
+			ArrayList<UnifiedActor> actors = new ArrayList<UnifiedActor>();
+
+			PlayerParty pp = (PlayerParty)caster.getActorGroup();
+			for (UnifiedActor a : pp.getActors())
+			{
+				if (a != caster)
+				{
+					actors.add(a);
+				}
+			}
+
+			return new PlayerParty(actors);
+		}
 	}
 }

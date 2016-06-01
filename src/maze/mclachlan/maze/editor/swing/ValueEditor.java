@@ -334,16 +334,9 @@ public class ValueEditor extends JDialog implements ActionListener
 		switch (scale)
 		{
 			case NONE:
-				reference.setModel(new DefaultComboBoxModel());
-				reference.setSelectedItem(null);
-				reference.setEnabled(false);
-				break;
 			case SCALE_WITH_CASTING_LEVEL:
-				reference.setModel(new DefaultComboBoxModel());
-				reference.setSelectedItem(null);
-				reference.setEnabled(false);
-				break;
 			case SCALE_WITH_CHARACTER_LEVEL:
+			case SCALE_WITH_PARTY_SIZE:
 				reference.setModel(new DefaultComboBoxModel());
 				reference.setSelectedItem(null);
 				reference.setEnabled(false);

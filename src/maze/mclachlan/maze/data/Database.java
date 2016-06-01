@@ -320,7 +320,14 @@ public class Database
 			String result = this.stringManager.getString(namespace, key);
 			if (result == null && !allowNull)
 			{
-				throw new MazeException("Invalid key ["+key+"]");
+				// special case: retry one time to load the resource bundle
+				stringManager = this.loader.getStringManager();
+
+				result = this.stringManager.getString(namespace, key);
+				if (result == null && !allowNull)
+				{
+					throw new MazeException("Invalid key ["+key+"]");
+				}
 			}
 			return result;
 		}

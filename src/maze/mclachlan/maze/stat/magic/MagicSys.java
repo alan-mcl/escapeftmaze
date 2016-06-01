@@ -214,8 +214,9 @@ public class MagicSys
 		public static final int ITEM = 9;
 		public static final int CLOUD_ONE_GROUP = 10;
 		public static final int CLOUD_ALL_GROUPS = 11;
+		public static final int PARTY_BUT_NOT_CASTER = 12;
 
-		public static final int MAX = 12;
+		public static final int MAX = 13;
 
 		/*----------------------------------------------------------------------*/
 		public static String describe(int targetType)
@@ -234,6 +235,7 @@ public class MagicSys
 				case ITEM: return "item";
 				case CLOUD_ONE_GROUP: return "cloud: one group";
 				case CLOUD_ALL_GROUPS: return "cloud: all groups";
+				case PARTY_BUT_NOT_CASTER: return "party (but not caster)";
 				default: throw new MazeException("Invalid target type: "+targetType);
 			}
 		}
@@ -252,6 +254,7 @@ public class MagicSys
 			else if (s.equals("item")) { return ITEM; }
 			else if (s.equals("cloud: one group")) { return CLOUD_ONE_GROUP; }
 			else if (s.equals("cloud: all groups")) { return CLOUD_ALL_GROUPS; }
+			else if (s.equals("party (but not caster)")) { return PARTY_BUT_NOT_CASTER; }
 			else
 			{
 				throw new MazeException("Invalid spell target type ["+s+"]");
