@@ -124,8 +124,12 @@ public class V1LevelAbility
 			case CUSTOM:
 				try
 				{
-					Class clazz = Class.forName(strs[1]);
-					return (LevelAbility)clazz.newInstance();
+					Class clazz = Class.forName(strs[index++]);
+					LevelAbility result = (LevelAbility)clazz.newInstance();
+					result.setKey(key);
+					result.setDisplayName(displayName);
+					result.setDescription(description);
+					return result;
 				}
 				catch (Exception e)
 				{

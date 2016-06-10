@@ -35,6 +35,10 @@ public class SpellLikeAbility
 	/*-------------------------------------------------------------------------*/
 	public SpellLikeAbility(Spell spell, Value castingLevel)
 	{
+		if (spell == null)
+		{
+			throw new MazeException("spell is nell");
+		}
 		this.spell = spell;
 		this.castingLevel = castingLevel;
 	}

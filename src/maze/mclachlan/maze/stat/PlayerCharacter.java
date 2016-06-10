@@ -148,7 +148,7 @@ public class PlayerCharacter extends UnifiedActor
 		StatModifier activeModifiers)
 	{
 		super(name, gender, race, characterClass, race.getBodyParts(),
-			race.getNaturalWeapons(), levels, stats, spellBook, inventory);
+			levels, stats, spellBook, inventory);
 
 		setEquippedItem(PRIMARY_WEAPON, primaryWeapon, 0);
 		setEquippedItem(PRIMARY_WEAPON, altPrimaryWeapon, 1);
@@ -191,8 +191,7 @@ public class PlayerCharacter extends UnifiedActor
 		StatModifier activeModifiers)
 	{
 		super(name, gender, race, characterClass, race.getBodyParts(),
-			race.getNaturalWeapons(), levels,
-			new Stats(), null, new Inventory(MAX_PACK_ITEMS));
+			levels, new Stats(), null, new Inventory(MAX_PACK_ITEMS));
 
 		this.portrait = portrait;
 		this.activeModifiers = activeModifiers;
@@ -423,7 +422,10 @@ public class PlayerCharacter extends UnifiedActor
 				{
 					if (sla.isUsableDuringCombat() && sla.meetsRequirements(this))
 					{
-						result.add(new SpecialAbilityOption(sla), null);
+						if (!result.add(new SpecialAbilityOption(sla), null))
+						{
+							throw new MazeException("could not add "+sla);
+						}
 					}
 				}
 			}

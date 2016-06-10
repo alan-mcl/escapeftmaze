@@ -754,6 +754,20 @@ spellEffects=moulder nausea:100
 spellEffectLevel=1
 attackScript=generic weapon swish
 @
+name=Apotheosis Claw
+ranged=false
+description=claws
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=1,1
+slaysFoeType=
+damage=2d8+2
+damageType=SLASHING
+spellEffects=
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
 name=skull crusher grasp
 ranged=false
 description=grabs

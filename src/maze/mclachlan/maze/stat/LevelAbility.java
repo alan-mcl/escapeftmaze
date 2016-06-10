@@ -48,13 +48,22 @@ public abstract class LevelAbility
 
 	/*-------------------------------------------------------------------------*/
 
+	public LevelAbility()
+	{
+		// to support custom implementations that need to be instantiated via reflection
+	}
+
+	/*-------------------------------------------------------------------------*/
+
 	/**
+	 * @param key
+	 * 	Unique key for the LA, determine which other LAs it supersedes
 	 * @param displayName
 	 * 	The display name of this level ability. A key from the GAMESYS resource.
 	 * @param description
 	 * 	The description of this level ability. A key from the GAMESYS resource.
 	 */
-	protected LevelAbility(
+	public LevelAbility(
 		String key,
 		String displayName,
 		String description)
@@ -122,6 +131,47 @@ public abstract class LevelAbility
 		this.characterClass = characterClass;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	Any special ability added by this LA, or null if none.
+	 */
+	public SpellLikeAbility getAbility()
+	{
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	Any stats modified by this LA. Should not return null.
+	 */
+	public StatModifier getModifier()
+	{
+		return new StatModifier();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	Any banner modifiers from this LA. Should not return null.
+	 */
+	public StatModifier getBannerModifier()
+	{
+		return new StatModifier();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	Any natural weapon provided by this LA, or null if none
+	 */
+	public NaturalWeapon getNaturalWeapon()
+	{
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Object[] getDisplayArgs()
 	{
 		return null;

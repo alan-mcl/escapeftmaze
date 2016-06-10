@@ -356,5 +356,6 @@ public class V1StatModifier
 			FAVOURED_ENEMY_UNDEAD,       
 			FAVOURED_ENEMY_VERMIN,       
 			POWER_OF_DARKNESS,
+			FLIER,
 		};
 }

@@ -157,17 +157,13 @@ public class LevelAbilityProgression
 
 		for (LevelAbility la : abilities)
 		{
-			if (la instanceof StatModifierLevelAbility)
-			{
-				StatModifierLevelAbility smla = (StatModifierLevelAbility)la;
-				StatModifier modifier = smla.getModifier();
+			StatModifier modifier = la.getModifier();
 
-				for (MagicSys.SpellBook sb : MagicSys.getInstance().getSpellBooks())
+			for (MagicSys.SpellBook sb : MagicSys.getInstance().getSpellBooks())
+			{
+				if (modifier.getModifier(sb.getCastingAbilityModifier()) > 0)
 				{
-					if (modifier.getModifier(sb.getCastingAbilityModifier()) > 0)
-					{
-						return true;
-					}
+					return true;
 				}
 			}
 		}

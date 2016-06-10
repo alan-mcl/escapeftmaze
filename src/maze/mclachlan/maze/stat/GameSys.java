@@ -2437,23 +2437,26 @@ public class GameSys
 		// go try all the foes
 		for (FoeGroup fg : foes)
 		{
-			Foe representativeFoe = fg.getFoes().get(0);
-			PlayerCharacter bestAtMythology = getMythologist(party, representativeFoe);
-
-			// it gets easier each combat round
-			int partyTotal = getMythologyToIdentify(bestAtMythology, representativeFoe)
-				+ combatRound;
-
-			// assume all foes in a group are the same, only try the first one
-			if (representativeFoe.getIdentificationState() == Item.IdentificationState.UNIDENTIFIED)
+			if (!fg.getFoes().isEmpty())
 			{
-				if (representativeFoe.getIdentificationDifficulty() <= partyTotal)
+				Foe representativeFoe = fg.getFoes().get(0);
+				PlayerCharacter bestAtMythology = getMythologist(party, representativeFoe);
+
+				// it gets easier each combat round
+				int partyTotal = getMythologyToIdentify(bestAtMythology, representativeFoe)
+					+ combatRound;
+
+				// assume all foes in a group are the same, only try the first one
+				if (representativeFoe.getIdentificationState() == Item.IdentificationState.UNIDENTIFIED)
 				{
-					for (Foe ff : fg.getFoes())
+					if (representativeFoe.getIdentificationDifficulty() <= partyTotal)
 					{
-						ff.setIdentificationState(Item.IdentificationState.IDENTIFIED);
+						for (Foe ff : fg.getFoes())
+						{
+							ff.setIdentificationState(Item.IdentificationState.IDENTIFIED);
+						}
+						practice(bestAtMythology, Stats.Modifiers.MYTHOLOGY, 1);
 					}
-					practice(bestAtMythology, Stats.Modifiers.MYTHOLOGY, 1);
 				}
 			}
 		}

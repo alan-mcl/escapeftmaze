@@ -5,7 +5,7 @@ kills=6
 race=Mirka
 gender=Female
 portrait=portrait/mirka_female_dorje
-characterClass=Kitsune
+characterClass=Courtesan
 personality=Faithful
 torsoArmour=Caliban's Cuirass/1/2/1-1/0-0/
 legArmour=Trapper's Trousers/1/2/1-1/0-0/
@@ -50,7 +50,7 @@ bannerItem=
 inventory=Potion Of Light Heal/0/2/3-5/1-1/,Claymore/0/2/1-1/0-0/,Club/0/2/1-1/0-0/,Wakazashi/0/2/1-1/0-0/,Scrymgeour's Bitter/0/2/5-5/1-1/,Aenen Sundew/0/2/5-5/1-1/,Dungore's Malt Ale/0/2/5-5/1-1/,Hail Cider/0/2/5-5/1-1/,McCavity Ale/0/2/5-5/1-1/,Potion Of Light Heal/0/2/3-5/1-1/,Potion Of Mod Heal/0/2/4-5/1-1/,Potion Of Mod Heal/0/2/3-5/1-1/,Potion Of Mod Heal/0/2/2-5/1-1/,Fire Bomb/0/2/2-5/1-1/,Ice Bomb/0/2/2-5/1-1/,Knock Pick/0/2/5-25/1-1/
 spellbook=Heal Light Wounds,Chameleon,Cure Lesser Condition,Cure Poison,Entangle,Revitalise,Call Plants,Call Treant,Entwine,Call Elemental,Call Wyrms,Force Of Nature,Cure Disease,Bolt Of Lightning,Blizzard,Falling Stars,Call Wyrm,Firestorm
 spellPicks=1
-stats=148-148-0;0-0;31-41;442880401f18,120c010f040807030102060706
+stats=148-148-0;10-10;31-41;442880401f18,120c010f040807030102060706
 practice=1a00,011e1e
 activeModifiers=4208043fff8,01010101010101010101010101010101010101
 @
@@ -78,7 +78,7 @@ bannerItem=
 inventory=Knock Pick/0/2/5-25/0-0/,Silver Ring/0/2/1-1/0-0/,Conjurers Gloves/2/2/1-1/2-4/,Valentine Necklace/1/2/0-1/0-0/,Brooch/1/2/0-1/0-0/,Bat Necklace/1/2/0-1/0-0/,Blarneystone Amulet/1/2/0-1/0-0/
 spellbook=Fear,Wave Of Heat,Pain,Deadly Poison,Power Of The Pit,Gates Of Hell,Unholy Ground,Acid Cloud,Deadly Air,Draining Cloud,Knock Knock,Identify,TestingSpell
 spellPicks=3
-stats=73-73-0;0-0;605-629;200000000806000002190,01100b0106065b01
+stats=73-73-0;10-10;605-629;200000000806000002190,01100b0106065b01
 practice=188000000000,040405
 activeModifiers=ffe0000027f8,0101010101010101010101010101010101010101
 @
@@ -106,7 +106,7 @@ bannerItem=
 inventory=Corrosion Bomb/0/2/5-5/1-1/,Acid Bomb/0/2/1-5/1-1/,Fire Bomb/0/2/1-5/1-1/,Getsel's Bone Comb/1/2/1-1/0-0/,Ghola Coin/1/2/1-1/0-0/,Miriam's Rag Doll/1/2/1-1/0-0/,Dragon Rod/1/2/1-1/0-0/,Sword Of Fire/1/2/1-1/0-0/,Mantis Boots/1/1/1-1/0-0/,Mantis Gloves/1/1/1-1/0-0/,Bearskin Cloak/1/2/1-1/0-0/,Staff Of Shritis/0/1/1-1/3-3/,The Avenger/0/1/1-1/0-0/,Mempo Of Death/0/1/1-1/0-0/,Lightning Rod/0/1/1-1/0-0/,White Standard/0/1/1-1/0-0/,Jiyuu Sashimono/0/1/1-1/0-0/,Lyre Of Legends/0/1/1-1/0-0/,Copper Coin/0/2/99-9999/0-0/,Iron Ration/0/2/5-25/0-0/
 spellbook=Heal Light Wounds
 spellPicks=0
-stats=161-161-0;0-0;120-120;1fc0000000000000000000000000120002007d8,10100101010f0803050501010101010101
+stats=161-161-0;10-10;120-120;1fc0000000000000000000000000120002007d8,10100101010f0803050501010101010101
 practice=300000000600,3a010f25
 activeModifiers=712000233ff8,01010101010101010101010101010101010101
 @
@@ -134,7 +134,7 @@ bannerItem=
 inventory=Demilitarised Clockwork Head/0/2/1-1/0-0/,Air Filter/0/2/1-1/0-0/,Vacuum Pump/0/2/1-1/0-0/,RPG Launcher/0/2/1-1/3-5/,Tesla Coil/0/2/1-1/0-0/,Metronome/0/2/1-1/0-0/,Lazurite Crystal/0/2/1-1/0-0/,Large Clockwork Motor/0/2/1-1/0-0/,Reticulated Wolverine/0/2/1-1/0-0/,Electric Eye/0/2/1-1/0-0/,Large Battery/0/2/1-1/0-0/,Long Steel Rails/0/2/1-1/0-0/,Quartz Crystal/0/2/1-1/0-0/,High Voltage Transformer/0/2/1-1/0-0/,Electrodes/0/2/1-1/0-0/,Tungsten Filament/0/2/1-1/0-0/,Barbed Net/0/2/1-1/0-0/,Spring Powered Catapult/0/2/1-1/0-0/,Gyroscope/0/2/1-1/0-0/,Copper Mesh/0/2/1-1/0-0/
 spellbook=
 spellPicks=0
-stats=189-206-0;0-0;19-19;200000000000000000000000002000000000000001518f8,0a0c02010117170107051402
+stats=189-206-0;10-120;19-19;200000000000000000000000002000000000000001518f8,0a0c02010117170107051402
 practice=1800,1c1f
 activeModifiers=20000000000000013fff8,0101010101010101010101010101010101
 @

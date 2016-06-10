@@ -143,7 +143,11 @@ public class Combat
 		{
 			result += f.getLevel();
 		}
-		result /= allFoes.size();
+
+		if (!allFoes.isEmpty())
+		{
+			result /= allFoes.size();
+		}
 
 		return result;
 	}

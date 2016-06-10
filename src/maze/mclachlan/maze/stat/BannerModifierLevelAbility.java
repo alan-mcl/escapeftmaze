@@ -38,7 +38,8 @@ public class BannerModifierLevelAbility extends LevelAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public StatModifier getModifier()
+	@Override
+	public StatModifier getBannerModifier()
 	{
 		return modifier;
 	}

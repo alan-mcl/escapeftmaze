@@ -20,6 +20,7 @@ icon: bullwhip
 icon: dark majesty
 
 text: gnome race description
+text: courtesan class description
 
 data: improve foe inventories
 data: more wielding combos

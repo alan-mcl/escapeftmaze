@@ -72,9 +72,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/** Spells this actor knows */
 	private SpellBook spellBook;
 
-	/** Natural weapons of this actor */
-	private List<NaturalWeapon> naturalWeapons;
-
 	//~~~~~~~~~~~~~~~~~~
 	// volatile data
 	/** available equipable slots*/
@@ -103,14 +100,12 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		Race race,
 		CharacterClass characterClass,
 		PercentageTable<BodyPart> bodyParts,
-		List<NaturalWeapon> naturalWeapons,
 		Map<String, Integer> levels,
 		Stats stats, SpellBook spellBook,
 		Inventory inventory)
 	{
 		this.characterClass = characterClass;
 		this.gender = gender;
-		this.naturalWeapons = naturalWeapons;
 		this.inventory = inventory;
 		this.levels = levels;
 		this.name = name;
@@ -143,7 +138,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		this.spellBook = other.spellBook;
 		this.stats = other.stats;
 		this.bodyParts = other.getBodyParts();
-		this.naturalWeapons = other.naturalWeapons;
 
 		equipableSlots = buildEquipableSlots();
 	}
@@ -662,12 +656,26 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 	public List<NaturalWeapon> getNaturalWeapons()
 	{
-		return naturalWeapons;
-	}
+		List<NaturalWeapon> result = new ArrayList<NaturalWeapon>();
 
-	public void setNaturalWeapons(List<NaturalWeapon> naturalWeapons)
-	{
-		this.naturalWeapons = naturalWeapons;
+		// race natural weapons
+		if (getRace() != null && getRace().getNaturalWeapons() != null)
+		{
+			result.addAll(getRace().getNaturalWeapons());
+		}
+
+		// class natural weapons
+		List<LevelAbility> abilities = getLevelAbilities();
+
+		for (LevelAbility la : abilities)
+		{
+			if (la.getNaturalWeapon() != null)
+			{
+				result.add(la.getNaturalWeapon());
+			}
+		}
+
+		return result;
 	}
 
 	public List<SpellLikeAbility> getSpellLikeAbilities()
@@ -675,7 +683,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
 
 		// race abilities
-		if (getRace().getSpecialAbility() != null)
+		if (getRace() != null && getRace().getSpecialAbility() != null)
 		{
 			result.add(new SpellLikeAbility(
 				getRace().getSpecialAbility(),
@@ -687,9 +695,9 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		for (LevelAbility la : abilities)
 		{
-			if (la instanceof SpecialAbilityLevelAbility)
+			if (la.getAbility() != null)
 			{
-				result.add(((SpecialAbilityLevelAbility)la).getAbility());
+				result.add(la.getAbility());
 			}
 		}
 
@@ -1084,14 +1092,14 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		for (LevelAbility ability : abilities)
 		{
 			// only stat modifier level abilities influence modifiers
-			if (ability instanceof StatModifierLevelAbility)
+			if (ability.getModifier().getModifier(modifier) != 0)
 			{
 				result.add(
 					StringUtil.getUiLabel(
 						"mdw.influence.class",
 						this.getCharacterClass().getName(),
 						StringUtil.getGamesysString(ability.getDisplayName(), false, ability.getDisplayArgs())),
-					addModifier(modifier, ((StatModifierLevelAbility)ability).getModifier()));
+					addModifier(modifier, ability.getModifier()));
 			}
 		}
 	}
@@ -1112,10 +1120,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		for (LevelAbility ability : abilities)
 		{
 			// only stat modifier level abilities influence modifiers
-			if (ability instanceof StatModifierLevelAbility)
-			{
-				result.addModifiers(((StatModifierLevelAbility)ability).getModifier());
-			}
+			result.addModifiers(ability.getModifier());
 		}
 
 		return result;
@@ -1128,12 +1133,15 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		for (String ccName : this.levels.keySet())
 		{
-			CharacterClass cc = Database.getInstance().getCharacterClass(ccName);
-			int ccLevel = this.getLevel(ccName);
+			if (Database.getInstance().getCharacterClasses().containsKey(ccName))
+			{
+				CharacterClass cc = Database.getInstance().getCharacterClass(ccName);
+				int ccLevel = this.getLevel(ccName);
 
-			LevelAbilityProgression progression = cc.getProgression();
+				LevelAbilityProgression progression = cc.getProgression();
 
-			result.addAll(progression.getForLevelCumulative(ccLevel));
+				result.addAll(progression.getForLevelCumulative(ccLevel));
+			}
 		}
 
 		return result;
@@ -1150,11 +1158,11 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		for (LevelAbility ability : abilities)
 		{
 			// only banner modifier level abilities influence modifiers
-			if (ability instanceof BannerModifierLevelAbility)
+			if (ability.getBannerModifier().getModifier(modifier) != 0)
 			{
 				result.add(
 					actor.getName()+" ("+StringUtil.getGamesysString(ability.getDisplayName())+")",
-					addModifier(modifier, ((BannerModifierLevelAbility)ability).getModifier()));
+					addModifier(modifier, ability.getBannerModifier()));
 			}
 		}
 	}

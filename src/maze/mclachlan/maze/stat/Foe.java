@@ -74,7 +74,6 @@ public class Foe extends UnifiedActor
 			null,
 			template.getBodyParts(),
 			null,
-			null,
 			new Stats(template.getStats()),
 			template.getSpellBook(),
 			new Inventory(MAX_PACK_ITEMS));
@@ -85,17 +84,6 @@ public class Foe extends UnifiedActor
 		HashMap<String, Integer> levels = new HashMap<String, Integer>();
 		levels.put(getName(), template.getLevelRange().roll());
 		this.setLevels(levels);
-
-		// set natural weapons
-		if (template.getNaturalWeapons() != null)
-		{
-			List<NaturalWeapon> naturalWeapons = new ArrayList<NaturalWeapon>();
-			for (String nw : template.getNaturalWeapons())
-			{
-				naturalWeapons.add(Database.getInstance().getNaturalWeapons().get(nw));
-			}
-			setNaturalWeapons(naturalWeapons);
-		}
 
 		// roll up this foes vitals
 		int maxHP = template.getHitPointsRange().roll();
@@ -321,9 +309,12 @@ public class Foe extends UnifiedActor
 		{
 			for (FoeType ft : template.getTypes())
 			{
-				result.add(new SpellLikeAbility(
-					ft.getSpecialAbility(),
-					new Value(getLevel(), Value.SCALE.NONE)));
+				if (ft.getSpecialAbility() != null)
+				{
+					result.add(new SpellLikeAbility(
+						ft.getSpecialAbility(),
+						new Value(getLevel(), Value.SCALE.NONE)));
+				}
 			}
 		}
 
@@ -338,16 +329,24 @@ public class Foe extends UnifiedActor
 		List<NaturalWeapon> result = new ArrayList<NaturalWeapon>();
 		result.addAll(super.getNaturalWeapons());
 
-		if (getRace() != null)
+		// template natural weapons
+		if (template.getNaturalWeapons() != null)
 		{
-			result.addAll(getRace().getNaturalWeapons());
+			for (String nw : template.getNaturalWeapons())
+			{
+				result.add(Database.getInstance().getNaturalWeapons().get(nw));
+			}
 		}
 
+		// foe types
 		if (template.getTypes() != null)
 		{
 			for (FoeType ft : template.getTypes())
 			{
-				result.addAll(ft.getNaturalWeapons());
+				if (ft.getNaturalWeapons() != null)
+				{
+					result.addAll(ft.getNaturalWeapons());
+				}
 			}
 		}
 

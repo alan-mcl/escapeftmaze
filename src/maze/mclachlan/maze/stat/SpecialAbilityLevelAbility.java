@@ -37,13 +37,13 @@ public class SpecialAbilityLevelAbility extends LevelAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public SpellLikeAbility getAbility()
 	{
 		return ability;
 	}
 
 	/*-------------------------------------------------------------------------*/
-
 	@Override
 	public String toString()
 	{

@@ -39,10 +39,10 @@ public class SpecialAbilityOption extends ActorActionOption
 
 	/*-------------------------------------------------------------------------*/
 
-	public SpecialAbilityOption(SpellLikeAbility spellLikeAbility)
+	public SpecialAbilityOption(SpellLikeAbility sla)
 	{
-		super("Spell Like Ability", "aao.spell.like.ability");
-		this.spellLikeAbility = spellLikeAbility;
+		super("Spell Like Ability ["+sla.getName()+"]", "aao.spell.like.ability");
+		this.spellLikeAbility = sla;
 	}
 
 	/*-------------------------------------------------------------------------*/

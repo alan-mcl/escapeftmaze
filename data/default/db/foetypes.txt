@@ -22,7 +22,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyOoze
+favouredEnemyModifier=favouredEnemyOutsider
 @
 name=Horror
 description=Bizarre, alien and terrifying creatures of various shapes,  forms and origins.

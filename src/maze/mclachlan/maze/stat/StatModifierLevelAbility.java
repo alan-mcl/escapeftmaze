@@ -38,12 +38,13 @@ public class StatModifierLevelAbility extends LevelAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public StatModifier getModifier()
 	{
 		return modifier;
 	}
 
-
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public Object[] getDisplayArgs()
 	{

@@ -227,6 +227,7 @@ modifier_name-favouredEnemyPlant: Favoured Enemy: Plant
 modifier_name-favouredEnemyUndead: Favoured Enemy: Undead
 modifier_name-favouredEnemyVermin: Favoured Enemy: Vermin
 modifier_name-powerOfDarkness: Powers of Darkness
+modifier_name-flier: Flier
 
 # Modifier Descriptions
 
@@ -447,6 +448,7 @@ modifier_desc-favouredEnemyPlant: This character gets bonuses in combat and othe
 modifier_desc-favouredEnemyUndead: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-favouredEnemyVermin: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
+modifier_desc-flier: This character has some capability to fly.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -577,6 +579,8 @@ lap_name_hellfire = Hellfire
 lap_desc_hellfire = Burning fire from hell sears all foes, and the party too.
 lap_name_power_of_darkness = Powers of Darkness
 lap_desc_power_of_darkness = The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
+lap_name_apotheosis = Apotheosis
+lap_desc_apotheosis = The Acolyte's demon transformation manifests!
 
 # Kamunushi
 lap_name_divine_protection = Divine Protection
@@ -636,11 +640,11 @@ lap_desc_pack_mule = The Gadgeteer gets a bonus to his or her carrying capacity.
 lap_name_signature_weapon = Signature Weapon
 lap_desc_signature_weapon = On level up, the Gadgeteer has a chance of upgrading a signature weapon in his or her possession.
 
-# Kitsune
+# Courtesan
 lap_name_evasion = Evasion
-lap_desc_evasion = Discretion being the better part of valour, the Kitsune receives a bonus to attempts to run away from combat.
+lap_desc_evasion = Discretion being the better part of valour, the Courtesan receives a bonus to attempts to run away from combat.
 lap_name_charmed_destiny = Charmed Destiny
-lap_desc_charmed_destiny = The Kitsune receives a bonus to various protective modifiers based on the amount of Purple magic present.
+lap_desc_charmed_destiny = The Courtesan receives a bonus to various protective modifiers based on the amount of Purple magic present.
 
 # Hero
 lap_name_cheat_death = Cheat Death

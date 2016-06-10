@@ -211,7 +211,10 @@ public class LevelAbilityEditor extends JDialog implements ActionListener
 				try
 				{
 					Class clazz = Class.forName(impl.getText());
-					this.result = (LevelAbility)clazz.newInstance();
+					result = (LevelAbility)clazz.newInstance();
+					result.setKey(key.getText());
+					result.setDisplayName(displayName.getText());
+					result.setDescription(description.getText());
 				}
 				catch (Exception x)
 				{
