@@ -438,7 +438,7 @@ public class Leveler
 			{
 				if (revitaliseRemovesCondition(pc, c))
 				{
-					pc.addCondition(c);
+					pc.removeCondition(c);
 				}
 			}
 		}

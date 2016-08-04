@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.condition;
 
 import java.util.List;
+import mclachlan.maze.game.MazeEvent;
 
 public interface ConditionBearer
 {
@@ -30,7 +31,14 @@ public interface ConditionBearer
 	String getDisplayName();
 
 	/*-------------------------------------------------------------------------*/
-	void addCondition(Condition c);
+
+	/**
+	 * Add the given condition to this condition bearer
+	 *
+	 * @return
+	 * 	Any events stemming from applying this condition. May return null.
+	 */
+	List<MazeEvent> addCondition(Condition c);
 
 	/*-------------------------------------------------------------------------*/
 	void removeCondition(Condition c);

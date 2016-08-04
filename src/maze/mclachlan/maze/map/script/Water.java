@@ -24,6 +24,7 @@ import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.TileScript;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.ActorDiesEvent;
@@ -56,7 +57,7 @@ public class Water extends TileScript
 
 			if (a.getHitPoints().getCurrent() > 0)
 			{
-				a.getHitPoints().incSub(10);
+				a.getHitPoints().incSub(GameSys.getInstance().getSwimmingFatigueCost(a));
 				if (a.getHitPoints().getSub() >= a.getHitPoints().getCurrent())
 				{
 					a.getHitPoints().setCurrent(0);

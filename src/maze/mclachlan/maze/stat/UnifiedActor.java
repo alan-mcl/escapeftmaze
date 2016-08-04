@@ -24,10 +24,13 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.combat.event.HealingEvent;
 import mclachlan.maze.stat.condition.*;
+import mclachlan.maze.stat.condition.impl.FatigueKO;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
@@ -1293,11 +1296,31 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addCondition(Condition c)
+	@Override
+	public List<MazeEvent> addCondition(Condition c)
 	{
 		//
+		// Check for condition-triggering modifiers
+		//
+
+		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		// Furious Purpose
+		if (this.getModifier(Stats.Modifiers.FURIOUS_PURPOSE) > 0 &&
+			c.getEffect() instanceof KOEffect &&
+			!(c instanceof FatigueKO))
+		{
+			int healing = this.getModifier(Stats.Modifiers.FURIOUS_PURPOSE) * this.getLevel();
+			result.add(new HealingEvent(this, healing));
+
+			return result;
+ 		}
+
+		//
 		// Prevent duplicates.  The rules are:
-		// 1. Only one of each specific type of condition (except if multiples are allowed).
+		// 1. Only one of each specific type of condition
+		//     1.1) Conditions are typed by Condition Effect.
+		//     1.2) Except if multiples are allowed.
 		// 2. For untyped conditions, only one of each name.
 		// 3. In both cases the new condition must have strength > the old one
 		//    to replace it.
@@ -1319,7 +1342,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 				else
 				{
 					// The old condition will remain
-					return;
+					return null;
 				}
 			}
 			else if (!c.getEffect().isMultiplesAllowed())
@@ -1336,13 +1359,15 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 					else
 					{
 						// The old condition will remain
-						return;
+						return null;
 					}
 				}
 			}
 		}
 
 		ConditionManager.getInstance().addCondition(this, c);
+
+		return null;
 	}
 
 	public void removeCondition(Condition c)

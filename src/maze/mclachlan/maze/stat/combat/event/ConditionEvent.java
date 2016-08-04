@@ -47,13 +47,13 @@ public class ConditionEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		target.addCondition(condition);
+		List<MazeEvent> result = target.addCondition(condition);
 
 		if (target instanceof PlayerCharacter)
 		{
-			return SpeechUtil.getInstance().conditionSpeech(condition, (PlayerCharacter)target);
+			result.addAll(SpeechUtil.getInstance().conditionSpeech(condition, (PlayerCharacter)target));
 		}
-		return null;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

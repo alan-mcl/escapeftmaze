@@ -318,7 +318,7 @@ public class Database
 			}
 
 			String result = this.stringManager.getString(namespace, key);
-			if (result == null && !allowNull)
+			if (result == null)
 			{
 				// special case: retry one time to load the resource bundle
 				stringManager = this.loader.getStringManager();

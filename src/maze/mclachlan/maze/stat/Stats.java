@@ -285,6 +285,8 @@ public class Stats
 		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
 		propertiesModifiers.add(Modifiers.POWER_OF_DARKNESS);
 		propertiesModifiers.add(Modifiers.FLIER);
+		propertiesModifiers.add(Modifiers.STRONG_SWIMMER);
+		propertiesModifiers.add(Modifiers.FURIOUS_PURPOSE);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -649,6 +651,8 @@ public class Stats
 		public static final String FAVOURED_ENEMY_VERMIN = "favouredEnemyVermin";
 		public static final String POWER_OF_DARKNESS = "powerOfDarkness";
 		public static final String FLIER = "flier";
+		public static final String STRONG_SWIMMER = "strongSwimmer";
+		public static final String FURIOUS_PURPOSE = "furiousPurpose";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -672,7 +676,6 @@ public class Stats
 			percentageModifiers.add(Modifiers.RESIST_WATER);
 			percentageModifiers.add(Modifiers.EXTRA_GOLD);
 			percentageModifiers.add(Modifiers.ARROW_CUTTING);
-			percentageModifiers.add(Modifiers.ARROW_CUTTING);
 			percentageModifiers.add(Modifiers.TOUCH_HEX);
 			percentageModifiers.add(Modifiers.TOUCH_BLIND);
 			percentageModifiers.add(Modifiers.TOUCH_DISEASE);
@@ -690,7 +693,6 @@ public class Stats
 			percentageModifiers.add(Modifiers.DEADLY_STRIKE);
 			percentageModifiers.add(Modifiers.DODGE);
 			percentageModifiers.add(Modifiers.PARRY);
-			percentageModifiers.add(Modifiers.DEADLY_AIM);
 
 			booleanModifiers.add(Modifiers.IMMUNE_TO_ACID);
 			booleanModifiers.add(Modifiers.IMMUNE_TO_BLIND);
@@ -774,6 +776,7 @@ public class Stats
 			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
 			booleanModifiers.add(Modifiers.POWER_OF_DARKNESS);
 			booleanModifiers.add(Modifiers.FLIER);
+			booleanModifiers.add(Modifiers.STRONG_SWIMMER);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

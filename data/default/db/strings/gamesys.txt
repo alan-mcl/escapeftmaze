@@ -228,6 +228,8 @@ modifier_name-favouredEnemyUndead: Favoured Enemy: Undead
 modifier_name-favouredEnemyVermin: Favoured Enemy: Vermin
 modifier_name-powerOfDarkness: Powers of Darkness
 modifier_name-flier: Flier
+modifier_name-strongSwimmer: Strong Swimmer
+modifier_name-furiousPurpose: Furious Purpose
 
 # Modifier Descriptions
 
@@ -416,7 +418,7 @@ modifier_desc-arcaneBlood: This character regenerates hit points at an increased
 modifier_desc-displacer: Once every combat round, this character can swap places with another in the party before the combat round starts.
 modifier_desc-parry: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks.
 modifier_desc-meleeMaster: When armed with a melee weapon, this character gets a attack rate bonus proportional to the number of foes present.
-modifier_desc-deadlyAim: When armed with a ranged weapon, this character has a chance that the weapon automatically does maximum damage.
+modifier_desc-deadlyAim: This character has a boosted chance to hit with ranged weapons.
 modifier_desc-masterThief: Vendors will not catch this character red-handed when stealing.
 modifier_desc-obfuscation: This character is less likely (relative to other characters levels of obfuscation) to be targetted by foe attacks.
 modifier_desc-shadowMaster: This character gets a bonus to all critical hit modifiers based on the amount of Black magic present.
@@ -449,6 +451,8 @@ modifier_desc-favouredEnemyUndead: This character gets bonuses in combat and oth
 modifier_desc-favouredEnemyVermin: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
 modifier_desc-flier: This character has some capability to fly.
+modifier_desc-strongSwimmer: Swimming costs this character half the usual fatigue.
+modifier_desc-furiousPurpose: When hit with a KO effect, this character gains hit points instead.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -541,7 +545,7 @@ lap_desc_elementalism=This character has the ability to cast Elementalism spells
 
 # common to several classes
 lap_name_deadly_aim = Deadly Aim %s
-lap_desc_deadly_aim = The character has a chance of automatically dealing maximum damage with a ranged weapon.
+lap_desc_deadly_aim = This character has a boosted chance to hit with ranged weapons.
 lap_name_turn_undead = Turn Undead
 lap_desc_turn_undead = The character can turn undead.
 lap_name_deadly_strike = Deadly Strike %s
@@ -588,13 +592,19 @@ lap_desc_divine_protection = This character receives a defence bonus in combat r
 
 # Amazon
 lap_name_amazon_stamina = Amazon Stamina
-lap_desc_amazon_stamina = The tireless Amazon suffers no fatigue from wielding a spear or a bow.
+lap_desc_amazon_stamina = The tireless Amazon excels at various physical activities.
+lap_name_amazon_strength = Amazon Strength
+lap_desc_amazon_strength = Provides a temporary increase to the Amazon's brawn.
+lap_name_amazon_speed = Amazon Speed
+lap_desc_amazon_speed = The Amazon is especially fleet of foot.
+lap_name-furious_purpose = Furious Purpose %s
+lap_desc-furious_purpose = When hit with a KO effect, the Amazon gains hit points instead.
 
 # Berserker
 lap_name_berserker = Berserker
 lap_desc_berserker = Berserker
 lap_name_blade_nor_flame = Neither Blade Nor Flame
-lap_desc_blade_nor_flame = The Berserker is resistent to slashing and fire damage.
+lap_desc_blade_nor_flame = The Berserker is resistant to slashing and fire damage.
 
 # Blackguard
 lap_name_poison_use = Poison Use

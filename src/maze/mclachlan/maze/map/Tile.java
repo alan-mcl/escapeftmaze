@@ -22,6 +22,7 @@ package mclachlan.maze.map;
 import java.util.*;
 import java.util.List;
 import java.awt.*;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
@@ -321,10 +322,11 @@ public class Tile implements ConditionBearer
 		return getName();
 	}
 
-	public void addCondition(Condition c)
+	public List<MazeEvent> addCondition(Condition c)
 	{
 		ConditionManager.getInstance().addCondition(this, c);
 		Maze.getInstance().getUi().setTile(Maze.getInstance().getCurrentZone(), this, Maze.getInstance().getTile());
+		return null;
 	}
 
 	public void removeCondition(Condition c)

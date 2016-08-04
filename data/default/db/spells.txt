@@ -5374,6 +5374,27 @@ secondaryModifier=gesture
 wildMagicValue=
 wildMagicTable=
 @
+name=Amazon Strength
+displayName=Amazon Strength
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Witchcraft
+spellEffects=amazon strength buff:100
+description=in buffed!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=purple portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=rhyme
+secondaryModifier=herbal
+wildMagicValue=
+wildMagicTable=
+@
 name=ghul laugh
 displayName=ghul laugh
 hitPointCost=

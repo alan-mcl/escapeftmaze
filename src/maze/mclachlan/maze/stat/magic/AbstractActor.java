@@ -21,6 +21,7 @@ package mclachlan.maze.stat.magic;
 
 import java.util.List;
 import java.util.ArrayList;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.ModifierValue;
 import mclachlan.maze.stat.combat.*;
@@ -48,7 +49,7 @@ public abstract class AbstractActor extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addCondition(Condition c) {}
+	public List<MazeEvent> addCondition(Condition c) {return null; }
 	public void deductAmmo(AttackEvent event) {}
 	public ActorGroup getActorGroup() { return null; }
 	public Item getArmour(BodyPart bodyPart) { return null; }

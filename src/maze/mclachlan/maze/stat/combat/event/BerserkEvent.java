@@ -51,8 +51,8 @@ public class BerserkEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		target.addCondition(new Berserk());
-		return null;
+		List<MazeEvent> result = target.addCondition(new Berserk());
+		return result;
 	}
 
 	public ConditionBearer getTarget()

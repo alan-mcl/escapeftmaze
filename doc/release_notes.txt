@@ -17,7 +17,9 @@ Features
  - Favoured Enemy modifiers for various foe types
  - Added level ability progression preview to the character class selection screen
  - Acolyte special abilities: Whispers of Evil, Life Leech, Dark Majesty, Hellfire, 
-   Power of Darkness
+   Power of Darkness, Apotheosis
+ - Amazon special abilities: Amazon Stamina, Amazon Strength, Amazon Speed, Deadly Aim, 
+   Furious Purpose, 
 
 Other
  - Performance improvements for movement mode

@@ -390,6 +390,7 @@ public class GameSys
 				}
 		}
 
+		// defender and attacker modifiers
 		result += calcAttackerToHitModifier(event);
 		result -= calcDefenderToHitModifier(event);
 
@@ -420,20 +421,20 @@ public class GameSys
 		result += event.getBodyPart().getModifiers().getModifier(Stats.Modifiers.ATTACK);
 		result += attackWith.getToHit();
 
-		if (attacker.getModifier(Stats.Modifiers.MASTER_ARCHER) > 0)
+		boolean isRanged = attackWith instanceof Item && ((Item)attackWith).getType() == Type.RANGED_WEAPON ||
+			attackWith.isRanged() && attackWith.getMaxRange() == ItemTemplate.WeaponRange.LONG;
+
+		// deadly aim bonus
+		if (isRanged && attacker.getModifier(Stats.Modifiers.DEADLY_AIM) > 0)
 		{
-			if (attackWith instanceof Item &&
-				((Item)attackWith).getType() == ItemTemplate.Type.RANGED_WEAPON)
-			{
-				// master archer bonus with bows
-				result += attacker.getLevel();
-			}
-			else if (attackWith.isRanged() &&
-				attackWith.getMaxRange() == ItemTemplate.WeaponRange.LONG)
-			{
-				// master archer bonus with bows
-				result += attacker.getLevel();
-			}
+			result += (10 * attacker.getModifier(Stats.Modifiers.DEADLY_AIM));
+		}
+
+		// master archer bonus
+		if (isRanged && attacker.getModifier(Stats.Modifiers.MASTER_ARCHER) > 0)
+		{
+			// master archer bonus with bows
+			result += attacker.getLevel();
 		}
 
 		// +10% per level of favoured enemy
@@ -556,14 +557,6 @@ public class GameSys
 		int bpDamageMod = event.getBodyPart().getModifiers().getModifier(Stats.Modifiers.DAMAGE);
 		int eventDamageMod = attacker.getModifier(Stats.Modifiers.DAMAGE);
 		int brawn = attacker.getModifier(Stats.Modifiers.BRAWN);
-
-		if (attackWith.isRanged() &&
-			attacker.getModifier(Stats.Modifiers.DEADLY_AIM) > 0 &&
-			Dice.d100.roll() <= attacker.getModifier(Stats.Modifiers.DEADLY_AIM))
-		{
-			// deadly aim ensures max ranged weapon damage.
-			diceDamageRoll = diceDamage.getMaxPossible();
-		}
 
 		// +2 damage per level of FAVOURED ENEMY
 		int favouredEnemy = 2*getFavouredEnemyBonus(attacker, defender);
@@ -4083,6 +4076,28 @@ public class GameSys
 		}
 
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The fatigue point cost of every move on a water tile.
+	 */
+	public int getSwimmingFatigueCost(UnifiedActor a)
+	{
+		if (a.getModifier(Stats.Modifiers.AMPHIBIOUS) > 0)
+		{
+			return 0;
+		}
+		else if (a.getModifier(Stats.Modifiers.STRONG_SWIMMER) > 0)
+		{
+			return 5;
+		}
+		else
+		{
+			return 10;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
