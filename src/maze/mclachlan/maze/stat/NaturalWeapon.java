@@ -194,6 +194,12 @@ public class NaturalWeapon implements AttackWith
 		return 0;
 	}
 
+	@Override
+	public int getWeaponType()
+	{
+		return ItemTemplate.WeaponSubType.NONE;
+	}
+
 	public int[] getAttacks()
 	{
 		return attacks;

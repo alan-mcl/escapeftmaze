@@ -161,6 +161,12 @@ public class Item implements AttackWith, SpellTarget
 		return template.toInitiative;
 	}
 
+	@Override
+	public int getWeaponType()
+	{
+		return template.subtype;
+	}
+
 	public Dice getDamage()
 	{
 		return template.damage;

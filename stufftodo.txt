@@ -17,8 +17,8 @@ sound: clockwork beast
 
 icon: tobacco/herb
 icon: bullwhip
-icon: dark majesty
-icon: amazon strength buff
+icon: dark majesty condition
+icon: amazon strength buff, courage, willpower, fury conditions
 
 text: gnome race description
 text: courtesan class description

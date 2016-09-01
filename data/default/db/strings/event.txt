@@ -59,6 +59,9 @@ msg.party.character.inventory.full = It looks like you can't carry anything more
 msg.not.interested.in.buying.item = No thanks, I am not interested in buying that from you.
 msg.cant.afford.to.buy.item = Sorry, I can't afford to buy that from you.
 msg.npc.inventory.full = No thanks, I don't want to buy anything more from you right now. Please come back later.
+msg.amazon.courage = %s fights back the fear!
+msg.amazon.willpower = %s is not overcome!
+msg.amazon.fury = %s is furious!
 
 #
 # Encounter Actors events

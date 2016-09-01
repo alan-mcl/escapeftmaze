@@ -287,6 +287,19 @@ public class Stats
 		propertiesModifiers.add(Modifiers.FLIER);
 		propertiesModifiers.add(Modifiers.STRONG_SWIMMER);
 		propertiesModifiers.add(Modifiers.FURIOUS_PURPOSE);
+		propertiesModifiers.add(Modifiers.SWORD_PARRY);
+		propertiesModifiers.add(Modifiers.AXE_PARRY);
+		propertiesModifiers.add(Modifiers.MACE_PARRY);
+		propertiesModifiers.add(Modifiers.POLEARM_PARRY);
+		propertiesModifiers.add(Modifiers.STAFF_PARRY);
+		propertiesModifiers.add(Modifiers.AMAZON_COURAGE);
+		propertiesModifiers.add(Modifiers.AMAZON_WILLPOWER);
+		propertiesModifiers.add(Modifiers.AMAZON_FURY);
+		propertiesModifiers.add(Modifiers.SWORD_1H_WIELD);
+		propertiesModifiers.add(Modifiers.AXE_1H_WIELD);
+		propertiesModifiers.add(Modifiers.MACE_1H_WIELD);
+		propertiesModifiers.add(Modifiers.POLEARM_1H_WIELD);
+		propertiesModifiers.add(Modifiers.STAFF_1H_WIELD);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -653,6 +666,19 @@ public class Stats
 		public static final String FLIER = "flier";
 		public static final String STRONG_SWIMMER = "strongSwimmer";
 		public static final String FURIOUS_PURPOSE = "furiousPurpose";
+		public static final String SWORD_PARRY = "swordParry";
+		public static final String AXE_PARRY = "axeParry";
+		public static final String MACE_PARRY = "maceParry";
+		public static final String POLEARM_PARRY = "polearmParry";
+		public static final String STAFF_PARRY = "staffParry";
+		public static final String AMAZON_COURAGE = "amazonCourage";
+		public static final String AMAZON_WILLPOWER = "amazonWillpower";
+		public static final String AMAZON_FURY = "amazonFury";
+		public static final String SWORD_1H_WIELD = "sword1HWield";
+		public static final String AXE_1H_WIELD = "axe1HWield";
+		public static final String MACE_1H_WIELD = "mace1HWield";
+		public static final String POLEARM_1H_WIELD = "polearm1HWield";
+		public static final String STAFF_1H_WIELD = "staff1HWield";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -693,6 +719,11 @@ public class Stats
 			percentageModifiers.add(Modifiers.DEADLY_STRIKE);
 			percentageModifiers.add(Modifiers.DODGE);
 			percentageModifiers.add(Modifiers.PARRY);
+			percentageModifiers.add(Modifiers.SWORD_PARRY);
+			percentageModifiers.add(Modifiers.AXE_PARRY);
+			percentageModifiers.add(Modifiers.MACE_PARRY);
+			percentageModifiers.add(Modifiers.POLEARM_PARRY);
+			percentageModifiers.add(Modifiers.STAFF_PARRY);
 
 			booleanModifiers.add(Modifiers.IMMUNE_TO_ACID);
 			booleanModifiers.add(Modifiers.IMMUNE_TO_BLIND);
@@ -777,6 +808,14 @@ public class Stats
 			booleanModifiers.add(Modifiers.POWER_OF_DARKNESS);
 			booleanModifiers.add(Modifiers.FLIER);
 			booleanModifiers.add(Modifiers.STRONG_SWIMMER);
+			booleanModifiers.add(Modifiers.AMAZON_COURAGE);
+			booleanModifiers.add(Modifiers.AMAZON_WILLPOWER);
+			booleanModifiers.add(Modifiers.AMAZON_FURY);
+			booleanModifiers.add(Modifiers.SWORD_1H_WIELD);
+			booleanModifiers.add(Modifiers.AXE_1H_WIELD);
+			booleanModifiers.add(Modifiers.MACE_1H_WIELD);
+			booleanModifiers.add(Modifiers.POLEARM_1H_WIELD);
+			booleanModifiers.add(Modifiers.STAFF_1H_WIELD);
 		}
 
 		public static ModifierMetric getMetric(String modifier)

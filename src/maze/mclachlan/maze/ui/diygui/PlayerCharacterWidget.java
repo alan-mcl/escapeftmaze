@@ -118,15 +118,19 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			action.setVisible(true);
 			action.setEnabled(!action.getModel().isEmpty());
 
-			if (combat == null)
+			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
+				Maze.getInstance().getState() == Maze.State.COMBAT)
 			{
-				action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action"));
-				action.setEnabled(!action.getModel().isEmpty());
-			}
-			else
-			{
-				action.setEditorText(null);
-				action.getSelected().select(playerCharacter, combat, this);
+				if (combat == null)
+				{
+					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action"));
+					action.setEnabled(!action.getModel().isEmpty());
+				}
+				else
+				{
+					action.setEditorText(null);
+					action.getSelected().select(playerCharacter, combat, this);
+				}
 			}
 		}
 	}

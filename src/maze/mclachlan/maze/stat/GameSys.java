@@ -3909,6 +3909,54 @@ public class GameSys
 					actor.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN)*5);
 			}
 		}
+		else if (Stats.Modifiers.PARRY.equals(modifier))
+		{
+			if (actor.getModifier(Stats.Modifiers.SWORD_PARRY) > 0 &&
+				actor.getPrimaryWeapon() != null &&
+				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.SWORD)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifiers.SWORD_PARRY),
+					actor.getModifier(Stats.Modifiers.PARRY) +
+					actor.getModifier(Stats.Modifiers.SWORD_PARRY));
+			}
+			else if (actor.getModifier(Stats.Modifiers.AXE_PARRY) > 0 &&
+				actor.getPrimaryWeapon() != null &&
+				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.AXE)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifiers.AXE_PARRY),
+					actor.getModifier(Stats.Modifiers.PARRY) +
+						actor.getModifier(Stats.Modifiers.AXE_PARRY));
+			}
+			else if (actor.getModifier(Stats.Modifiers.MACE_PARRY) > 0 &&
+				actor.getPrimaryWeapon() != null &&
+				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.MACE)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifiers.MACE_PARRY),
+					actor.getModifier(Stats.Modifiers.PARRY) +
+						actor.getModifier(Stats.Modifiers.MACE_PARRY));
+			}
+			else if (actor.getModifier(Stats.Modifiers.POLEARM_PARRY) > 0 &&
+				actor.getPrimaryWeapon() != null &&
+				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.POLEARM)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifiers.POLEARM_PARRY),
+					actor.getModifier(Stats.Modifiers.PARRY) +
+						actor.getModifier(Stats.Modifiers.POLEARM_PARRY));
+			}
+			else if (actor.getModifier(Stats.Modifiers.STAFF_PARRY) > 0 &&
+				actor.getPrimaryWeapon() != null &&
+				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.STAFF)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifiers.STAFF_PARRY),
+					actor.getModifier(Stats.Modifiers.PARRY) +
+						actor.getModifier(Stats.Modifiers.STAFF_PARRY));
+			}
+		}
 
 		return null;
 	}
@@ -4098,6 +4146,33 @@ public class GameSys
 		{
 			return 10;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	true if the given character can wield two-handed items of the given
+	 * 	type with one hand
+	 */
+	public boolean oneHandWieldApplies(PlayerCharacter pc, Item item)
+	{
+		if (item == null)
+		{
+			return false;
+		}
+
+		return
+			pc.getModifier(Stats.Modifiers.SWORD_1H_WIELD) > 0
+				&& item.getWeaponType() == ItemTemplate.WeaponSubType.SWORD ||
+			pc.getModifier(Stats.Modifiers.AXE_1H_WIELD) > 0
+				&& item.getWeaponType() == ItemTemplate.WeaponSubType.AXE ||
+			pc.getModifier(Stats.Modifiers.MACE_1H_WIELD) > 0
+				&& item.getWeaponType() == ItemTemplate.WeaponSubType.MACE ||
+			pc.getModifier(Stats.Modifiers.POLEARM_1H_WIELD) > 0
+				&& item.getWeaponType() == ItemTemplate.WeaponSubType.POLEARM ||
+			pc.getModifier(Stats.Modifiers.STAFF_1H_WIELD) > 0
+				&& item.getWeaponType() == ItemTemplate.WeaponSubType.STAFF;
+
 	}
 
 	/*-------------------------------------------------------------------------*/

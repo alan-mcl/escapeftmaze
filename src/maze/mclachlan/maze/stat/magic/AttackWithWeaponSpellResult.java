@@ -45,6 +45,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	private MagicSys.SpellEffectType damageType;
 	private String attackScript;
 	private boolean requiresBackstabWeapon, requiresSnipeWeapon;
+	private int requiredWeaponType;
 
 	/*-------------------------------------------------------------------------*/
 
@@ -53,8 +54,10 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		StatModifier modifiers,
 		AttackType attackType,
 		MagicSys.SpellEffectType damageType,
-		String attackScript, boolean requiresBackstabWeapon,
-		boolean requiresSnipeWeapon)
+		String attackScript,
+		boolean requiresBackstabWeapon,
+		boolean requiresSnipeWeapon,
+		int requiredWeaponType)
 	{
 		this.nrStrikes = nrStrikes;
 		this.modifiers = modifiers;
@@ -63,6 +66,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		this.attackScript = attackScript;
 		this.requiresBackstabWeapon = requiresBackstabWeapon;
 		this.requiresSnipeWeapon = requiresSnipeWeapon;
+		this.requiredWeaponType = requiredWeaponType;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -139,6 +143,14 @@ public class AttackWithWeaponSpellResult extends SpellResult
 			(secondaryWeapon == null || !weapon.getAmmoRequired().contains(secondaryWeapon.isAmmoType())))
 		{
 			Maze.log(Log.DEBUG, source.getName()+" - no ammo to snipe");
+			return false;
+		}
+
+		// weapon type requirement?
+		if (requiredWeaponType != ItemTemplate.WeaponSubType.NONE &&
+			requiredWeaponType != weapon.getWeaponType())
+		{
+			Maze.log(Log.DEBUG, source.getName()+" - not the right weapon type");
 			return false;
 		}
 
@@ -290,5 +302,15 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	public void setAttackType(AttackType attackType)
 	{
 		this.attackType = attackType;
+	}
+
+	public int getRequiredWeaponType()
+	{
+		return requiredWeaponType;
+	}
+
+	public void setRequiredWeaponType(int requiredWeaponType)
+	{
+		this.requiredWeaponType = requiredWeaponType;
 	}
 }

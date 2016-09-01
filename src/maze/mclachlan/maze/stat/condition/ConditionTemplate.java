@@ -419,8 +419,6 @@ public class ConditionTemplate
 			// strength never begins identified
 			result.setStrengthIdentified(false);
 
-			System.out.println("mclachlan.maze.stat.condition.ConditionTemplate.create");
-			System.out.println("getName() = [" + getName() + "]");
 			if (result.isAffliction() && target instanceof PlayerCharacter)
 			{
 				// bit of a hack, but it's easy and safe to say that afflictions

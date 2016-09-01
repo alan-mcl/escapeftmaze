@@ -25,12 +25,15 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.combat.event.ConditionEvent;
 import mclachlan.maze.stat.combat.event.HealingEvent;
 import mclachlan.maze.stat.condition.*;
 import mclachlan.maze.stat.condition.impl.FatigueKO;
+import mclachlan.maze.stat.condition.impl.RestingSleep;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
@@ -1305,16 +1308,79 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		// Furious Purpose
 		if (this.getModifier(Stats.Modifiers.FURIOUS_PURPOSE) > 0 &&
-			c.getEffect() instanceof KOEffect &&
-			!(c instanceof FatigueKO))
+			c.getEffect() instanceof KOEffect && !(c instanceof FatigueKO) &&
+			this.isAlive() && this.isConscious())
 		{
+			// apply healing instead of KO
 			int healing = this.getModifier(Stats.Modifiers.FURIOUS_PURPOSE) * this.getLevel();
 			result.add(new HealingEvent(this, healing));
 
 			return result;
  		}
+		else if (this.getModifier(Stats.Modifiers.AMAZON_COURAGE) > 0 &&
+			c.getEffect() instanceof FearEffect &&
+			this.isAlive() && this.isConscious())
+		{
+			// apply an Amazon Courage condition instead of the fear condition
+			ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon courage");
+			Condition newC = ct.create(
+				this,
+				this,
+				this.getLevel(),
+				MagicSys.SpellEffectType.NONE,
+				MagicSys.SpellEffectSubType.NONE);
+
+			result.add(new UiMessageEvent(
+				StringUtil.getEventText("msg.amazon.courage", this.getDisplayName())));
+			result.add(new ConditionEvent(this, newC));
+
+			return result;
+		}
+		else if (this.getModifier(Stats.Modifiers.AMAZON_WILLPOWER) > 0 &&
+			(c.getEffect() instanceof InsaneEffect ||
+				c.getEffect() instanceof PossessionEffect) &&
+			this.isAlive() && this.isConscious())
+		{
+			// apply an Amazon Willpower condition instead of the fear condition
+			ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon willpower");
+			Condition newC = ct.create(
+				this,
+				this,
+				this.getLevel(),
+				MagicSys.SpellEffectType.NONE,
+				MagicSys.SpellEffectSubType.NONE);
+
+			result.add(new UiMessageEvent(
+				StringUtil.getEventText("msg.amazon.willpower", this.getDisplayName())));
+			result.add(new ConditionEvent(this, newC));
+
+			return result;
+		}
+		else if (this.getModifier(Stats.Modifiers.AMAZON_FURY) > 0 &&
+			(c.getEffect() instanceof WebEffect ||
+				(c.getEffect() instanceof SleepEffect && !(c instanceof RestingSleep)) ||
+				c.getEffect() instanceof SlowEffect ||
+				c.getEffect() instanceof ParalyseEffect)
+			&&
+			this.isAlive() && this.isConscious())
+		{
+			// apply an Amazon Fury condition instead of the fear condition
+			ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon fury");
+			Condition newC = ct.create(
+				this,
+				this,
+				this.getLevel(),
+				MagicSys.SpellEffectType.NONE,
+				MagicSys.SpellEffectSubType.NONE);
+
+			result.add(new UiMessageEvent(
+				StringUtil.getEventText("msg.amazon.fury", this.getDisplayName())));
+			result.add(new ConditionEvent(this, newC));
+
+			return result;
+		}
+
 
 		//
 		// Prevent duplicates.  The rules are:
@@ -1342,7 +1408,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 				else
 				{
 					// The old condition will remain
-					return null;
+					return result;
 				}
 			}
 			else if (!c.getEffect().isMultiplesAllowed())
@@ -1359,7 +1425,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 					else
 					{
 						// The old condition will remain
-						return null;
+						return result;
 					}
 				}
 			}
@@ -1367,7 +1433,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		ConditionManager.getInstance().addCondition(this, c);
 
-		return null;
+		// should this be in the subclass?
+		if (this instanceof PlayerCharacter)
+		{
+			result.addAll(SpeechUtil.getInstance().conditionSpeech(c, (PlayerCharacter)this));
+		}
+
+		return result;
 	}
 
 	public void removeCondition(Condition c)

@@ -162,5 +162,11 @@ public class EkirthsTombWallOfFire extends TileScript
 		{
 			return 0;
 		}
+
+		@Override
+		public int getWeaponType()
+		{
+			return ItemTemplate.WeaponSubType.NONE;
+		}
 	}
 }

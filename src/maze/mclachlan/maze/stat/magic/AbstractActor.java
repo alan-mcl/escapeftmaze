@@ -49,7 +49,7 @@ public abstract class AbstractActor extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> addCondition(Condition c) {return null; }
+	public List<MazeEvent> addCondition(Condition c) {return new ArrayList<MazeEvent>(); }
 	public void deductAmmo(AttackEvent event) {}
 	public ActorGroup getActorGroup() { return null; }
 	public Item getArmour(BodyPart bodyPart) { return null; }

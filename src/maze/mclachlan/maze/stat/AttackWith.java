@@ -59,4 +59,10 @@ public interface AttackWith
 	List<ItemTemplate.AmmoType> getAmmoRequired();
 
 	int getToInitiative();
+
+	/**
+	 * @return
+	 * 	a constant from {@link mclachlan.maze.stat.ItemTemplate.WeaponSubType}
+	 */
+	int getWeaponType();
 }

@@ -230,6 +230,19 @@ modifier_name-powerOfDarkness: Powers of Darkness
 modifier_name-flier: Flier
 modifier_name-strongSwimmer: Strong Swimmer
 modifier_name-furiousPurpose: Furious Purpose
+modifier_name-swordParry: Sword Parry
+modifier_name-axeParry: Axe Parry
+modifier_name-maceParry: Mace Parry
+modifier_name-polearmParry: Polearm Parry
+modifier_name-staffParry: Staff Parry
+modifier_name-amazonCourage: Amazon Courage
+modifier_name-amazonWillpower: Amazon Willpower
+modifier_name-amazonFury: Amazon Fury
+modifier_name-sword1HWield: Sword 1H Wield
+modifier_name-axe1HWield: Axe 1H Wield
+modifier_name-mace1HWield: Mace 1H Wield
+modifier_name-polearm1HWield: Polearm 1H Wield
+modifier_name-staff1HWield: Staff 1H Wield
 
 # Modifier Descriptions
 
@@ -453,6 +466,19 @@ modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting the Ac
 modifier_desc-flier: This character has some capability to fly.
 modifier_desc-strongSwimmer: Swimming costs this character half the usual fatigue.
 modifier_desc-furiousPurpose: When hit with a KO effect, this character gains hit points instead.
+modifier_desc-swordParry: Gains parry when armed with a sword
+modifier_desc-axeParry: Gains parry when armed with an axe
+modifier_desc-maceParry: Gains parry when armed with a mace or hammer
+modifier_desc-polearmParry: Gains parry when armed with a polearm
+modifier_desc-staffParry: Gains parry when armed with a staff
+modifier_desc-amazonCourage: Instead of getting afflicted by the Fear condition, this character gains an Amazon Courage condition instead.
+modifier_desc-amazonWillpower: Instead of getting afflicted by Confusion or Possession, this character gains an Amazon Willpower condition instead.
+modifier_desc-amazonFury: Instead of getting afflicted by Web, Sleep, Slow or Paralyse, this character gains an Amazon Fury condition instead.
+modifier_desc-sword1HWield: The character can wield two-handed swords with one hand.
+modifier_desc-axe1HWield: The character can wield two-handed axes with one hand.
+modifier_desc-mace1HWield: The character can wield two-handed maces with one hand.
+modifier_desc-polearm1HWield: The character can wield two-handed polearms with one hand.
+modifier_desc-staff1HWield: The character can wield two-handed staves with one hand.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -599,6 +625,18 @@ lap_name_amazon_speed = Amazon Speed
 lap_desc_amazon_speed = The Amazon is especially fleet of foot.
 lap_name-furious_purpose = Furious Purpose %s
 lap_desc-furious_purpose = When hit with a KO effect, the Amazon gains hit points instead.
+lap_name-polearm_parry = Polearm Parry %s
+lap_desc-polearm_parry = The Amazon gains parry when armed with a polearm
+lap_name-amazonCourage: Amazon Courage
+lap_desc-amazonCourage: Instead of getting afflicted by the Fear condition, the Amazon gains an Amazon Courage condition instead.
+lap_name-amazonWillpower Amazon Willpower
+lap_desc-amazonWillpower: Instead of getting afflicted by Confusion or Possession, the Amazon gains an Amazon Willpower condition instead.
+lap_name-hailOfArrows: Hail of Arrows
+lap_desc-hailOfArrows: The Amazon unleashes a hail of arrows at each foe in a group. Needs to be armed with a bow.
+lap_name-phalanxFighter: Phalanx Fighter
+lap_desc-phalanxFighter: The Amazon can wield two-handed polearms with one hand.
+lap_name-amazonFury: Amazon Fury
+lap_desc-amazonFury: Instead of getting afflicted by any of the Web, Sleep, Slow or Paralyze conditions, the Amazon gains an Amazon Fury condition instead.
 
 # Berserker
 lap_name_berserker = Berserker

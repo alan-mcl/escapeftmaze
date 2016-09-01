@@ -31,6 +31,7 @@ import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.TypeDescriptorImpl;
@@ -122,6 +123,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JComboBox<MagicSys.SpellEffectType> weaponDamageType;
 	private JComboBox<String> weaponAttackScript;
 	private JComboBox<String> weaponAttackType;
+	private JComboBox<String> requiredWeaponType;
 	private JCheckBox weaponRequiresBackstab, weaponRequiresSnipe;
 
 	/*-------------------------------------------------------------------------*/
@@ -227,6 +229,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 					awwsr.getAttackType() == null ? EditorPanel.NONE : awwsr.getAttackType().getName());
 				weaponRequiresBackstab.setSelected(awwsr.isRequiresBackstabWeapon());
 				weaponRequiresSnipe.setSelected(awwsr.isRequiresSnipeWeapon());
+				requiredWeaponType.setSelectedItem(
+					ItemTemplate.WeaponSubType.describe(awwsr.getRequiredWeaponType()));
 
 				break;
 			case CHARM:
@@ -404,12 +408,18 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		weaponRequiresBackstab = new JCheckBox("Requires backstab weapon?");
 		weaponRequiresSnipe = new JCheckBox("Requires snipe weapon?");
 
+		Vector<String> weaponTypes = new Vector<String>();
+		weaponTypes.addAll(ItemTemplate.WeaponSubType.values());
+
+		requiredWeaponType = new JComboBox<String>(weaponTypes);
+
 		return dirtyGridLayoutCrap(
 			new JLabel("Modifiers:"), weaponModifiers,
 			new JLabel("Nr Strikes:"), weaponNrStrikes,
 			new JLabel("Attack Type:"), weaponAttackType,
 			new JLabel("Damage Type:"), weaponDamageType,
 			new JLabel("Attack Script:"), weaponAttackScript,
+			new JLabel("Required Weapon Type"), requiredWeaponType,
 			new JLabel(), weaponRequiresBackstab,
 			new JLabel(), weaponRequiresSnipe
 			);
@@ -871,7 +881,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 					damageType,
 					attackScript,
 					weaponRequiresBackstab.isSelected(),
-					weaponRequiresSnipe.isSelected());
+					weaponRequiresSnipe.isSelected(),
+					ItemTemplate.WeaponSubType.valueOf((String)requiredWeaponType.getSelectedItem()));
 				break;
 			case CHARM:
 				result = new CharmSpellResult(charmValue.getValue());

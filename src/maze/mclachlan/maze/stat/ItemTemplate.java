@@ -1091,6 +1091,11 @@ public class ItemTemplate
 					throw new MazeException("Invalid type [" + subType + "]");
 			}
 		}
+
+		public static Collection<String> values()
+		{
+			return types.keySet();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

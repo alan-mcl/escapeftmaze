@@ -22,8 +22,6 @@ package mclachlan.maze.stat.combat.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.SpeechUtil;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
 
@@ -48,11 +46,6 @@ public class ConditionEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		List<MazeEvent> result = target.addCondition(condition);
-
-		if (target instanceof PlayerCharacter)
-		{
-			result.addAll(SpeechUtil.getInstance().conditionSpeech(condition, (PlayerCharacter)target));
-		}
 		return result;
 	}
 

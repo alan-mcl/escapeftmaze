@@ -21,10 +21,7 @@ package mclachlan.maze.data.v1;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.StatModifier;
-import mclachlan.maze.stat.TypeDescriptor;
-import mclachlan.maze.stat.TypeDescriptorImpl;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -160,6 +157,8 @@ public class V1SpellResult
 				s.append(Boolean.toString(awwsr.isRequiresBackstabWeapon()));
 				s.append(SEP);
 				s.append(Boolean.toString(awwsr.isRequiresSnipeWeapon()));
+				s.append(SEP);
+				s.append(Integer.toString(awwsr.getRequiredWeaponType()));
 				break;
 			case CHARM:
 				s.append(V1Value.toString(((CharmSpellResult)sr).getValue()));
@@ -323,6 +322,8 @@ public class V1SpellResult
 				boolean requiresBackstabWeapon = Boolean.getBoolean(strs[i++]);
 				boolean requiresSnipeWeapon = Boolean.getBoolean(strs[i++]);
 
+				int requiredWeaponType = Integer.parseInt(strs[i++]);
+
 				result = new AttackWithWeaponSpellResult(
 					nrStrikes,
 					modifiers,
@@ -330,7 +331,8 @@ public class V1SpellResult
 					damageType,
 					attackScript,
 					requiresBackstabWeapon,
-					requiresSnipeWeapon);
+					requiresSnipeWeapon,
+					requiredWeaponType);
 				break;
 			case CHARM:
 				Value v = V1Value.fromString(strs[i++]);

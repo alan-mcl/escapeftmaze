@@ -617,10 +617,15 @@ public class InventoryDisplayWidget extends ContainerWidget
 		{
 			return false;
 		}
-		
+
+		// check whether any of the 1H Wield modifiers apply
+		boolean oneHWieldPrimary = GameSys.getInstance().oneHandWieldApplies(character, primaryWeapon.getItem());
+		boolean oneHWieldAltPrimary = GameSys.getInstance().oneHandWieldApplies(character, altPrimaryWeapon.getItem());
+		boolean oneHWieldSelected = GameSys.getInstance().oneHandWieldApplies(character, item);
+
 		// check that an attempt to drop a two handed weapon in the P weapon
 		// slot only succeeds if the other hand is empty
-		if (item.isTwoHanded() &&
+		if (item.isTwoHanded() && !oneHWieldSelected &&
 			((itemWidget == primaryWeapon && secondaryWeapon.getItem() != null)
 			||
 			(itemWidget == altPrimaryWeapon && altSecondaryWeapon.getItem() != null)))
@@ -630,8 +635,15 @@ public class InventoryDisplayWidget extends ContainerWidget
 		
 		// check that an attempt to drop an item in the S weapon slot only
 		// succeeds if the weapon in the P weapon slot is not two-handed
-		if (itemWidget == secondaryWeapon && primaryWeapon.getItem() != null && primaryWeapon.getItem().isTwoHanded() ||
-			(itemWidget == altSecondaryWeapon && altPrimaryWeapon.getItem() != null && altPrimaryWeapon.getItem().isTwoHanded()))
+		if (itemWidget == secondaryWeapon
+				&& primaryWeapon.getItem() != null
+				&& primaryWeapon.getItem().isTwoHanded()
+				&& !oneHWieldPrimary
+			||
+			itemWidget == altSecondaryWeapon
+				&& altPrimaryWeapon.getItem() != null
+				&& altPrimaryWeapon.getItem().isTwoHanded()
+				&& !oneHWieldAltPrimary)
 		{
 			return false;
 		}

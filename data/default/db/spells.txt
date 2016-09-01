@@ -4933,6 +4933,27 @@ secondaryModifier=alchemic
 wildMagicValue=
 wildMagicTable=
 @
+name=Hail Of Arrows
+displayName=Hail Of Arrows
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=4
+school=Evocation
+book=Witchcraft
+spellEffects=hail of arrows:100
+description=unleashes a hail of arrows!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=willow arrow from player
+castByFoeScript=willow arrow from foe
+usabilityType=1
+primaryModifier=rhyme
+secondaryModifier=rhyme
+wildMagicValue=
+wildMagicTable=
+@
 name=Invisible Stalker
 displayName=Invisible Stalker
 hitPointCost=

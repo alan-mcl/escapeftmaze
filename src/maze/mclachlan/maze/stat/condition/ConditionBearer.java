@@ -36,7 +36,7 @@ public interface ConditionBearer
 	 * Add the given condition to this condition bearer
 	 *
 	 * @return
-	 * 	Any events stemming from applying this condition. May return null.
+	 * 	Any events stemming from applying this condition. May NOT return null.
 	 */
 	List<MazeEvent> addCondition(Condition c);
 
