@@ -243,6 +243,7 @@ modifier_name-axe1HWield: Axe 1H Wield
 modifier_name-mace1HWield: Mace 1H Wield
 modifier_name-polearm1HWield: Polearm 1H Wield
 modifier_name-staff1HWield: Staff 1H Wield
+modifier_name-berserkPowers: Berserk Powers
 
 # Modifier Descriptions
 
@@ -479,6 +480,7 @@ modifier_desc-axe1HWield: The character can wield two-handed axes with one hand.
 modifier_desc-mace1HWield: The character can wield two-handed maces with one hand.
 modifier_desc-polearm1HWield: The character can wield two-handed polearms with one hand.
 modifier_desc-staff1HWield: The character can wield two-handed staves with one hand.
+modifier_desc-berserkPowers: This modifier tracks the increasing benefits a character gets while berserk.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -586,6 +588,7 @@ lap_name_arrow_cutting = Arrow Cutting %s
 lap_desc_arrow_cutting = The character is extremely adept at deflecting incoming projectiles.
 lap_name_bard = Bard
 lap_desc_bard = Strangers met on the road always react more favourably to this character, and his or her presence in a party increases the rate of resource regeneration when camping.
+lap_name_threaten = Threaten
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -639,10 +642,26 @@ lap_name-amazonFury: Amazon Fury
 lap_desc-amazonFury: Instead of getting afflicted by any of the Web, Sleep, Slow or Paralyze conditions, the Amazon gains an Amazon Fury condition instead.
 
 # Berserker
-lap_name_berserker = Berserker
-lap_desc_berserker = Berserker
+lap_name_berserker = Berserker %s
+lap_desc_berserker = In combat this character has a chance of flying into a terrifying berserker rage.
 lap_name_blade_nor_flame = Neither Blade Nor Flame
 lap_desc_blade_nor_flame = The Berserker is resistant to slashing and fire damage.
+lap_name_indefatigable = Indefatigable
+lap_desc_indefatigable = The Berserker recovers faster from fatigue.
+lap_name_unstoppable = Unstoppable
+lap_desc_unstoppable = The Berserker is immune to KO.
+lap_name_axe_wielder = Axe Wielder
+lap_desc_axe_wielder = The Berserker can wield two-handed axes with one hand
+lap_name_breaking_of_bonds = Breaking of Bonds
+lap_desc_breaking_of_bonds = When going berserk the Berserker is freed from any Web or Paralyze conditions.
+lap_name_blunting_of_blades = Blunting of Blades
+lap_desc_blunting_of_blades = The Berserker receives a bonus vs armour penetration while berserk
+lap_name_staying_of_shafts = Staying of Shafts
+lap_desc_staying_of_shafts = The Berserker receives an arrow cutting bonus while berserk
+lap_name_bewildering_of_witches = Bewildering of Witches
+lap_desc_bewildering_of_witches = While berserk, the Berserker may reflect spells back at magic users
+lap_name_quenching_of_flames = Quenching of Flames
+lap_desc_quenching_of_flames = The Berserker gains immunity to fire while berserk
 
 # Blackguard
 lap_name_poison_use = Poison Use

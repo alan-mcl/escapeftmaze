@@ -20,6 +20,9 @@ icon: bullwhip
 icon: dark majesty condition
 icon: amazon strength buff, courage, willpower, fury conditions
 
+abilities: acolyte 15
+abilities: berserker 17
+
 text: gnome race description
 text: courtesan class description
 

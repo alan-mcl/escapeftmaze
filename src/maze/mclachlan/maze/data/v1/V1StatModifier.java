@@ -371,6 +371,7 @@ public class V1StatModifier
 			MACE_1H_WIELD,
 			POLEARM_1H_WIELD,
 			STAFF_1H_WIELD,
-			AMAZON_FURY
+			AMAZON_FURY,
+			BERSERK_POWERS
 		};
 }

@@ -23,7 +23,12 @@ import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Stats;
+import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
+import mclachlan.maze.stat.condition.ParalyseEffect;
+import mclachlan.maze.stat.condition.WebEffect;
 import mclachlan.maze.stat.condition.impl.Berserk;
 
 /**
@@ -31,7 +36,7 @@ import mclachlan.maze.stat.condition.impl.Berserk;
  */
 public class BerserkEvent extends MazeEvent
 {
-	ConditionBearer target;
+	UnifiedActor target;
 
 	private static String[] msgs =
 		{
@@ -43,7 +48,7 @@ public class BerserkEvent extends MazeEvent
 		};
 
 	/*-------------------------------------------------------------------------*/
-	public BerserkEvent(ConditionBearer target)
+	public BerserkEvent(UnifiedActor target)
 	{
 		this.target = target;
 	}
@@ -52,9 +57,30 @@ public class BerserkEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		List<MazeEvent> result = target.addCondition(new Berserk());
+
+		// Breaking of Bonds
+		if (target.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 1)
+		{
+			for (Condition c : target.getConditions())
+			{
+				if (c.getEffect() instanceof WebEffect ||
+					c.getEffect() instanceof ParalyseEffect)
+				{
+					result.add(new ConditionRemovalEvent(target, c));
+				}
+			}
+		}
+
+		// Bewildering of Witches
+		if (target.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 4)
+		{
+			// todo: get an Eye for and Eye condition
+		}
+
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public ConditionBearer getTarget()
 	{
 		return target;

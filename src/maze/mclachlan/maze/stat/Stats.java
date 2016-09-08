@@ -242,6 +242,7 @@ public class Stats
 		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_STAFF);
 		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_UNARMED);
 		propertiesModifiers.add(Modifiers.BERSERKER);
+		propertiesModifiers.add(Modifiers.BERSERK_POWERS);
 		propertiesModifiers.add(Modifiers.DEADLY_STRIKE);
 		propertiesModifiers.add(Modifiers.DODGE);
 		propertiesModifiers.add(Modifiers.MASTER_ARCHER);
@@ -679,6 +680,7 @@ public class Stats
 		public static final String MACE_1H_WIELD = "mace1HWield";
 		public static final String POLEARM_1H_WIELD = "polearm1HWield";
 		public static final String STAFF_1H_WIELD = "staff1HWield";
+		public static final String BERSERK_POWERS = "berserkPowers";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -724,6 +726,7 @@ public class Stats
 			percentageModifiers.add(Modifiers.MACE_PARRY);
 			percentageModifiers.add(Modifiers.POLEARM_PARRY);
 			percentageModifiers.add(Modifiers.STAFF_PARRY);
+			percentageModifiers.add(Modifiers.BERSERKER);
 
 			booleanModifiers.add(Modifiers.IMMUNE_TO_ACID);
 			booleanModifiers.add(Modifiers.IMMUNE_TO_BLIND);
@@ -770,7 +773,6 @@ public class Stats
 			booleanModifiers.add(Modifiers.LIGHTNING_STRIKE_STAFF);
 			booleanModifiers.add(Modifiers.LIGHTNING_STRIKE_SWORD);
 			booleanModifiers.add(Modifiers.LIGHTNING_STRIKE_UNARMED);
-			booleanModifiers.add(Modifiers.BERSERKER);
 			booleanModifiers.add(Modifiers.MASTER_ARCHER);
 			booleanModifiers.add(Modifiers.DIVINE_PROTECTION);
 			booleanModifiers.add(Modifiers.KI_FURY);

@@ -37,29 +37,29 @@ public class Berserk extends Condition
 {
 	private static ConditionEffect effect = new BerserkEffect();
 
-	private static final StatModifier berserk = new StatModifier();
+	private static final StatModifier baseModifiers = new StatModifier();
 
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		berserk.setModifier(Stats.Modifiers.BRAWN, +3);
-		berserk.setModifier(Stats.Modifiers.SKILL, -2);
-		berserk.setModifier(Stats.Modifiers.BRAINS, -5);
-		berserk.setModifier(Stats.Modifiers.SNEAKING, -10);
-		berserk.setModifier(Stats.Modifiers.BONUS_ATTACKS, 1);
-		berserk.setModifier(Stats.Modifiers.DAMAGE, +1);
-		berserk.setModifier(Stats.Modifiers.DEFENCE, -4);
-		berserk.setModifier(Stats.Modifiers.INITIATIVE, +2);
-		berserk.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, +15);
-		berserk.setModifier(Stats.Modifiers.RESIST_SLASHING, +15);
-		berserk.setModifier(Stats.Modifiers.RESIST_PIERCING, +15);
-		berserk.setModifier(Stats.Modifiers.RESIST_MENTAL, +10);
-		berserk.setModifier(Stats.Modifiers.STAMINA_REGEN, +20);
-		berserk.setModifier(Stats.Modifiers.ACTION_POINT_REGEN, -20);
-		berserk.setModifier(Stats.Modifiers.IMMUNE_TO_FEAR, 1);
-		berserk.setModifier(Stats.Modifiers.IMMUNE_TO_IRRITATE, 1);
-		berserk.setModifier(Stats.Modifiers.DAMAGE_MULTIPLIER, 1);
-		berserk.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_UNARMED, 1);
+		baseModifiers.setModifier(Stats.Modifiers.BRAWN, +3);
+		baseModifiers.setModifier(Stats.Modifiers.SKILL, -2);
+		baseModifiers.setModifier(Stats.Modifiers.BRAINS, -5);
+		baseModifiers.setModifier(Stats.Modifiers.SNEAKING, -10);
+		baseModifiers.setModifier(Stats.Modifiers.BONUS_ATTACKS, 1);
+		baseModifiers.setModifier(Stats.Modifiers.DAMAGE, +1);
+		baseModifiers.setModifier(Stats.Modifiers.DEFENCE, -4);
+		baseModifiers.setModifier(Stats.Modifiers.INITIATIVE, +2);
+		baseModifiers.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, +15);
+		baseModifiers.setModifier(Stats.Modifiers.RESIST_SLASHING, +15);
+		baseModifiers.setModifier(Stats.Modifiers.RESIST_PIERCING, +15);
+		baseModifiers.setModifier(Stats.Modifiers.RESIST_MENTAL, +10);
+		baseModifiers.setModifier(Stats.Modifiers.STAMINA_REGEN, +20);
+		baseModifiers.setModifier(Stats.Modifiers.ACTION_POINT_REGEN, -20);
+		baseModifiers.setModifier(Stats.Modifiers.IMMUNE_TO_FEAR, 1);
+		baseModifiers.setModifier(Stats.Modifiers.IMMUNE_TO_IRRITATE, 1);
+		baseModifiers.setModifier(Stats.Modifiers.DAMAGE_MULTIPLIER, 1);
+		baseModifiers.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_UNARMED, 1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -99,13 +99,37 @@ public class Berserk extends Condition
 	@Override
 	public int getModifier(String modifier, ConditionBearer bearer)
 	{
-		return berserk.getModifier(modifier);
+		UnifiedActor actor = (UnifiedActor)bearer;
+		int result = baseModifiers.getModifier(modifier);
+
+		// Blunting of Blades
+		if (Stats.Modifiers.VS_PENETRATE.equals(modifier) &&
+			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 2)
+		{
+			result += 25;
+		}
+
+		// Staying of Shafts
+		if (Stats.Modifiers.ARROW_CUTTING.equals(modifier) &&
+			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 3)
+		{
+			result += 25;
+		}
+
+		// Quenching of Flames
+		if (Stats.Modifiers.IMMUNE_TO_HEAT.equals(modifier) &&
+			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 5)
+		{
+			result += 1;
+		}
+
+		return result;
 	}
 
 	@Override
 	public Map<String, Integer> getModifiers()
 	{
-		return berserk.getModifiers();
+		return baseModifiers.getModifiers();
 	}
 
 	@Override
