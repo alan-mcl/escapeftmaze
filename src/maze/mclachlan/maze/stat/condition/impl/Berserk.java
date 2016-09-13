@@ -116,6 +116,17 @@ public class Berserk extends Condition
 			result += 25;
 		}
 
+		// Bewildering of Witches
+		if ((Stats.Modifiers.RESIST_EARTH.equals(modifier) ||
+			Stats.Modifiers.RESIST_WATER.equals(modifier) ||
+			Stats.Modifiers.RESIST_ENERGY.equals(modifier) ||
+			Stats.Modifiers.RESIST_MENTAL.equals(modifier))
+			&&
+			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 4)
+		{
+			result += 25;
+		}
+
 		// Quenching of Flames
 		if (Stats.Modifiers.IMMUNE_TO_HEAT.equals(modifier) &&
 			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 5)

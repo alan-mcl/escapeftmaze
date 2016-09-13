@@ -228,7 +228,6 @@ public class StatsDisplayWidget extends ContainerWidget
 				VS_AMBUSH,
 				VS_DODGE,
 				VS_HIDE,
-				TO_THREATEN,
 				TO_BRIBE,
 				TO_RUN_AWAY,
 			};

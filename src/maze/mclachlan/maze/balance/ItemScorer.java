@@ -188,7 +188,7 @@ public class ItemScorer
 		weaponModifierScores.put(VS_AMBUSH, .5);
 		weaponModifierScores.put(VS_DODGE, .5);
 		weaponModifierScores.put(VS_HIDE, .5);
-		weaponModifierScores.put(TO_THREATEN, .5);
+		weaponModifierScores.put(THREATEN, .5);
 		weaponModifierScores.put(TO_BRIBE, .5);
 		weaponModifierScores.put(TO_RUN_AWAY, .5);
 		weaponModifierScores.put(RESIST_BLUDGEONING, .5);

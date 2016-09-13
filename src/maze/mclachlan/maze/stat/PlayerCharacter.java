@@ -456,29 +456,31 @@ public class PlayerCharacter extends UnifiedActor
 				}
 			}
 
+			boolean canThreaten = this.getModifier(Stats.Modifiers.THREATEN) > 0;
+
 			switch (attitude)
 			{
 				case ATTACKING:
 					break;
 				case AGGRESSIVE:
 					result.add(new GiveOption(), null);
-					result.add(new ThreatenOption(), null); // todo: tie to character class ability
+					if (canThreaten) result.add(new ThreatenOption(), null);
 					result.add(new BribeOption(), null);
 					break;
 				case WARY:
 					result.add(new GiveOption(), null);
-					result.add(new ThreatenOption(), null);
+					if (canThreaten) result.add(new ThreatenOption(), null);
 					result.add(new BribeOption(), null);
 					break;
 				case SCARED:
 					result.add(new GiveOption(), null);
-					result.add(new ThreatenOption(), null);
+					if (canThreaten) result.add(new ThreatenOption(), null);
 					result.add(new BribeOption(), null);
 					break;
 				case NEUTRAL:
 					result.add(new TalkOption(), null);
 					result.add(new GiveOption(), null);
-					result.add(new ThreatenOption(), null);
+					if (canThreaten) result.add(new ThreatenOption(), null);
 					result.add(new BribeOption(), null);
 
 					if (getModifier(Stats.Modifiers.STEAL) > 0)

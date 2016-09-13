@@ -135,7 +135,7 @@ public class ItemEnchantmentScheme
 			Stats.Modifiers.VS_AMBUSH,
 			Stats.Modifiers.VS_DODGE,
 			Stats.Modifiers.VS_HIDE,
-			Stats.Modifiers.TO_THREATEN,
+			Stats.Modifiers.THREATEN,
 			Stats.Modifiers.TO_BRIBE,
 			Stats.Modifiers.TO_RUN_AWAY,
 			Stats.Modifiers.RESIST_BLUDGEONING,
@@ -214,7 +214,7 @@ public class ItemEnchantmentScheme
 		costs.put(Stats.Modifiers.VS_AMBUSH,1000);
 		costs.put(Stats.Modifiers.VS_DODGE,1000);
 		costs.put(Stats.Modifiers.VS_HIDE,1000);
-		costs.put(Stats.Modifiers.TO_THREATEN,1000);
+		costs.put(Stats.Modifiers.THREATEN,1000);
 		costs.put(Stats.Modifiers.TO_BRIBE,1000);
 		costs.put(Stats.Modifiers.TO_RUN_AWAY,1000);
 		costs.put(Stats.Modifiers.RESIST_BLUDGEONING,1000);
@@ -349,7 +349,7 @@ public class ItemEnchantmentScheme
 		prefices.put(Stats.Modifiers.VS_AMBUSH,null);
 		prefices.put(Stats.Modifiers.VS_DODGE,"True Striking");
 		prefices.put(Stats.Modifiers.VS_HIDE,"True Seeing");
-		prefices.put(Stats.Modifiers.TO_THREATEN,"Bluff");
+		prefices.put(Stats.Modifiers.THREATEN,"Intimidating");
 		prefices.put(Stats.Modifiers.TO_BRIBE,"Corrupt");
 		prefices.put(Stats.Modifiers.TO_RUN_AWAY,"Coward's");
 		prefices.put(Stats.Modifiers.RESIST_BLUDGEONING,"Moonstone");
@@ -484,7 +484,7 @@ public class ItemEnchantmentScheme
 		suffices.put(Stats.Modifiers.VS_AMBUSH,"Of Alertness");
 		suffices.put(Stats.Modifiers.VS_DODGE,null);
 		suffices.put(Stats.Modifiers.VS_HIDE,null);
-		suffices.put(Stats.Modifiers.TO_THREATEN,null);
+		suffices.put(Stats.Modifiers.THREATEN,null);
 		suffices.put(Stats.Modifiers.TO_BRIBE,null);
 		suffices.put(Stats.Modifiers.TO_RUN_AWAY,null);
 		suffices.put(Stats.Modifiers.RESIST_BLUDGEONING,null);

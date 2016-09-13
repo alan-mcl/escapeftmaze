@@ -60,6 +60,7 @@ spell: oracle, summons something to question
 spell: bind demon, summons a demon to do a task (open door, etc)
 spell: spells that can be dodged
 spell: genie, summon a genie to perform a task or accompany you
+spell: greater and lesser eye-for-an-eye
 
 ability: favoured terrain (resist surprise etc) 
 

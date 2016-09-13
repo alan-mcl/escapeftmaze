@@ -79,7 +79,6 @@ modifier_name-vsPenetrate: Versus Penetrate
 modifier_name-vsAmbush: Anti-Ambush
 modifier_name-vsDodge: Anti-Dodge
 modifier_name-vsHide: Anti-Hide
-modifier_name-toThreaten: Threaten
 modifier_name-toBribe: Bribe
 modifier_name-toRunAway: To Run Away
 
@@ -316,7 +315,6 @@ modifier_desc-vsPenetrate: Modifies the armour penetration chance of successful 
 modifier_desc-vsAmbush: Makes ambushes against this character harder.
 modifier_desc-vsDodge: Makes dodging this characters attacks harder.
 modifier_desc-vsHide: Makes hiding harder for enemies of this character.
-modifier_desc-toThreaten: Makes this character better at bullying others into working with him or her.
 modifier_desc-toBribe: Makes this character better at bribing others into working with him or her.
 modifier_desc-toRunAway: Makes this character better at running away from combat.
 
@@ -594,6 +592,10 @@ lap_name_threaten = Threaten
 lap_name_backstab1 = Backstab 1
 lap_desc_backstab1 = The character can execute a backstab - an attack with the primary weapon that deals double damage.
 
+# NPC abilities
+lap_name_threaten = Threaten
+lap_desc_threaten = The character can bully an NPC is improving their attitude towards the party.
+
 
 # Acolyte
 lap_name_unholy = Unholy
@@ -659,9 +661,11 @@ lap_desc_blunting_of_blades = The Berserker receives a bonus vs armour penetrati
 lap_name_staying_of_shafts = Staying of Shafts
 lap_desc_staying_of_shafts = The Berserker receives an arrow cutting bonus while berserk
 lap_name_bewildering_of_witches = Bewildering of Witches
-lap_desc_bewildering_of_witches = While berserk, the Berserker may reflect spells back at magic users
+lap_desc_bewildering_of_witches = While berserk the Berserker has increased magic resistance
 lap_name_quenching_of_flames = Quenching of Flames
 lap_desc_quenching_of_flames = The Berserker gains immunity to fire while berserk
+lap_name_berserk_at_will = Berserk At Will
+lap_desc_berserk_at_will = The Berserker can fly into a berserk rage at will
 
 # Blackguard
 lap_name_poison_use = Poison Use

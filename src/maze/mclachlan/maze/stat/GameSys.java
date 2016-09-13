@@ -2064,7 +2064,7 @@ public class GameSys
 		actorTotal += actor.getLevel();
 		actorTotal += actor.getModifier(Stats.Modifiers.BRAWN);
 		actorTotal += actor.getModifier(Stats.Modifiers.SKILL);
-		actorTotal += actor.getModifier(Stats.Modifiers.TO_THREATEN);
+		actorTotal += actor.getModifier(Stats.Modifiers.THREATEN);
 		actorTotal += Dice.d10.roll();
 
 		return actorTotal-targetTotal;

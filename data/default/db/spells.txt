@@ -4702,6 +4702,27 @@ secondaryModifier=gesture
 wildMagicValue=
 wildMagicTable=
 @
+name=Berserk At Will
+displayName=Berserk
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Enchantment
+spellEffects=berserk at will:100
+description=goes berserk!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=red portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=chant
+secondaryModifier=gesture
+wildMagicValue=
+wildMagicTable=
+@
 name=Dire Wasps
 displayName=Dire Wasps
 hitPointCost=

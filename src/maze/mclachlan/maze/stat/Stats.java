@@ -138,7 +138,6 @@ public class Stats
 		statistics.add(Modifiers.VS_AMBUSH);
 		statistics.add(Modifiers.VS_DODGE);
 		statistics.add(Modifiers.VS_HIDE);
-		statistics.add(Modifiers.TO_THREATEN);
 		statistics.add(Modifiers.TO_BRIBE);
 		statistics.add(Modifiers.TO_RUN_AWAY);
 
@@ -513,7 +512,6 @@ public class Stats
 		public static final String VS_AMBUSH = "vsAmbush";
 		public static final String VS_DODGE = "vsDodge";
 		public static final String VS_HIDE = "vsHide";
-		public static final String TO_THREATEN = "toThreaten";
 		public static final String TO_BRIBE = "toBribe";
 		public static final String TO_RUN_AWAY = "toRunAway";
 
@@ -787,7 +785,6 @@ public class Stats
 			booleanModifiers.add(Modifiers.SIGNATURE_WEAPON_ENGINEERING);
 			booleanModifiers.add(Modifiers.AMPHIBIOUS);
 			booleanModifiers.add(Modifiers.LARGE_SIZE);
-			booleanModifiers.add(Modifiers.THREATEN);
 			booleanModifiers.add(Modifiers.DRINKING_FIT);
 			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_BEAST);
 			booleanModifiers.add(Modifiers.FAVOURED_ENEMY_CONSTRUCT);

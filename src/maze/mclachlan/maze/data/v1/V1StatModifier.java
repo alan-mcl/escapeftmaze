@@ -212,7 +212,7 @@ public class V1StatModifier
 			VS_AMBUSH,
 			VS_DODGE,
 			VS_HIDE,
-			TO_THREATEN,
+			"reserved16",
 			TO_BRIBE,
 			TO_RUN_AWAY,
 			"reserved14",
