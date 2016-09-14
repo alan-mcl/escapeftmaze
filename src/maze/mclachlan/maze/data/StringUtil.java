@@ -51,15 +51,15 @@ public class StringUtil
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String getModifierDescription(String modifier)
+	public static String getModifierDescription(Stats.Modifier modifier)
 	{
 		return getGamesysString("modifier_desc-" + modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String getModifierName(String modifier)
+	public static String getModifierName(Stats.Modifier modifier)
 	{
-		return getGamesysString("modifier_name-" + modifier);
+		return getGamesysString("modifier_name-" + modifier.getResourceBundleKey());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -106,9 +106,9 @@ public class StringUtil
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String descModifier(String modifier, int value)
+	public static String descModifier(Stats.Modifier modifier, int value)
 	{
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:

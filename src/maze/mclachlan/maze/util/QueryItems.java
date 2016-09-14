@@ -26,6 +26,7 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ItemTemplate;
+import mclachlan.maze.stat.Stats;
 
 /**
  *
@@ -56,19 +57,19 @@ public class QueryItems
 	}
 
 	/*-------------------------------------------------------------------------*/
-	static void queryReservedModifiers(Map<String, ItemTemplate> map) throws Exception
+	static void queryReservedModifiers(Map<Stats.Modifier, ItemTemplate> map) throws Exception
 	{
-		for (ItemTemplate t : map.values())
-		{
-			for (int i=0; i<99; i++)
-			{
-				if (t.getModifiers().getModifier("reserved"+i) != 0)
-				{
-					System.out.println(t.getName());
-					System.out.println(t.getModifiers());
-				}
-			}
-		}
+//		for (ItemTemplate t : map.values())
+//		{
+//			for (int i=0; i<99; i++)
+//			{
+//				if (t.getModifiers().getModifier("reserved"+i) != 0)
+//				{
+//					System.out.println(t.getName());
+//					System.out.println(t.getModifiers());
+//				}
+//			}
+//		}
 	}
 
 	/*-------------------------------------------------------------------------*/

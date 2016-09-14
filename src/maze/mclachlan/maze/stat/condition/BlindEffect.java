@@ -33,8 +33,8 @@ public class BlindEffect extends ConditionEffect
 
 	static
 	{
-		blindness.setModifier(Stats.Modifiers.ATTACK, -15);
-		blindness.setModifier(Stats.Modifiers.DEFENCE, -15);
+		blindness.setModifier(Stats.Modifier.ATTACK, -15);
+		blindness.setModifier(Stats.Modifier.DEFENCE, -15);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -52,7 +52,7 @@ public class BlindEffect extends ConditionEffect
 	@Override
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
-		if (actor.getModifier(Stats.Modifiers.BLIND_FIGHTING) > 0)
+		if (actor.getModifier(Stats.Modifier.BLIND_FIGHTING) > 0)
 		{
 			// actor can fight unimpaired
 			return action;
@@ -70,9 +70,9 @@ public class BlindEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
-		if (Stats.Modifiers.BLIND_FIGHTING.equals(modifier))
+		if (Stats.Modifier.BLIND_FIGHTING.equals(modifier))
 		{
 			// to prevent an infinite loop
 			return 0;
@@ -80,7 +80,7 @@ public class BlindEffect extends ConditionEffect
 
 		if (bearer instanceof UnifiedActor)
 		{
-			if (((UnifiedActor)bearer).getModifier(Stats.Modifiers.BLIND_FIGHTING, false) > 0)
+			if (((UnifiedActor)bearer).getModifier(Stats.Modifier.BLIND_FIGHTING, false) > 0)
 			{
 				// actor can fight unimpaired.
 				return 0;
@@ -99,9 +99,9 @@ public class BlindEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_BLIND;
+		return Stats.Modifier.IMMUNE_TO_BLIND;
 	}
 
 	/*-------------------------------------------------------------------------*/

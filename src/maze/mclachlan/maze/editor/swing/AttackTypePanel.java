@@ -24,6 +24,7 @@ import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.magic.MagicSys;
 
@@ -33,7 +34,7 @@ import mclachlan.maze.stat.magic.MagicSys;
 public class AttackTypePanel extends EditorPanel
 {
 	private JTextField verb;
-	private JComboBox damageType;
+	private JComboBox damageType, attackModifier;
 	private StatModifierComponent modifiers;
 
 	/*-------------------------------------------------------------------------*/
@@ -54,6 +55,12 @@ public class AttackTypePanel extends EditorPanel
 		damageType = new JComboBox(damageTypes);
 		damageType.addActionListener(this);
 
+		Vector vec = new Vector();
+		vec.addAll(Arrays.asList(Stats.Modifier.values()));
+		Collections.sort(vec);
+		attackModifier = new JComboBox(vec);
+		attackModifier.addActionListener(this);
+
 		modifiers = new StatModifierComponent(SwingEditor.Tab.ATTACK_TYPES);
 
 		JPanel editControls = new JPanel(new GridBagLayout());
@@ -63,6 +70,8 @@ public class AttackTypePanel extends EditorPanel
 		dodgyGridBagShite(editControls, new JLabel("Verb:"), verb, gbc);
 
 		dodgyGridBagShite(editControls, new JLabel("Damage Type:"), damageType, gbc);
+
+		dodgyGridBagShite(editControls, new JLabel("Attack Modifier:"), attackModifier, gbc);
 
 		gbc.weightx = 0.0;
 		gbc.weighty = 1.0;
@@ -91,6 +100,7 @@ public class AttackTypePanel extends EditorPanel
 		AttackType g = new AttackType(
 			name,
 			"",
+			Stats.Modifier.NONE,
 			MagicSys.SpellEffectType.NONE,
 			new StatModifier());
 		Database.getInstance().getAttackTypes().put(name, g);
@@ -118,6 +128,7 @@ public class AttackTypePanel extends EditorPanel
 		AttackType g = new AttackType(
 			newName,
 			current.getVerb(),
+			current.getAttackModifier(),
 			current.getDamageType(),
 			new StatModifier(current.getModifiers()));
 		Database.getInstance().getAttackTypes().put(newName, g);
@@ -146,14 +157,17 @@ public class AttackTypePanel extends EditorPanel
 		verb.removeActionListener(this);
 		verb.removeKeyListener(this);
 		damageType.removeActionListener(this);
+		attackModifier.removeActionListener(this);
 
 		verb.setText(at.getVerb());
 		damageType.setSelectedItem(at.getDamageType());
 		modifiers.setModifier(at.getModifiers());
+		attackModifier.setSelectedItem(at.getAttackModifier());
 		
 		verb.addActionListener(this);
 		verb.addKeyListener(this);
 		damageType.addActionListener(this);
+		attackModifier.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/

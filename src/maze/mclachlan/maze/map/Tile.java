@@ -61,39 +61,39 @@ public class Tile implements ConditionBearer
 	private RestingDanger restingDanger;
 	private RestingEfficiency restingEfficiency;
 
-	private static Set<String> magicModifiers;
+	private static Set<Stats.Modifier> magicModifiers;
 	public static final int MAX_TILE_MAGIC = 13;
 
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		magicModifiers = new HashSet<String>();
-		magicModifiers.add(Stats.Modifiers.BLACK_MAGIC_GEN);
-		magicModifiers.add(Stats.Modifiers.BLUE_MAGIC_GEN);
-		magicModifiers.add(Stats.Modifiers.RED_MAGIC_GEN);
-		magicModifiers.add(Stats.Modifiers.WHITE_MAGIC_GEN);
-		magicModifiers.add(Stats.Modifiers.GREEN_MAGIC_GEN);
-		magicModifiers.add(Stats.Modifiers.PURPLE_MAGIC_GEN);
-		magicModifiers.add(Stats.Modifiers.GOLD_MAGIC_GEN);
+		magicModifiers = new HashSet<Stats.Modifier>();
+		magicModifiers.add(Stats.Modifier.BLACK_MAGIC_GEN);
+		magicModifiers.add(Stats.Modifier.BLUE_MAGIC_GEN);
+		magicModifiers.add(Stats.Modifier.RED_MAGIC_GEN);
+		magicModifiers.add(Stats.Modifier.WHITE_MAGIC_GEN);
+		magicModifiers.add(Stats.Modifier.GREEN_MAGIC_GEN);
+		magicModifiers.add(Stats.Modifier.PURPLE_MAGIC_GEN);
+		magicModifiers.add(Stats.Modifier.GOLD_MAGIC_GEN);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static enum TerrainType
 	{
-		FAKE("fake"),
-		URBAN(Stats.Modifiers.STREETWISE),
-		DUNGEON(Stats.Modifiers.DUNGEONEER),
-		WILDERNESS(Stats.Modifiers.WILDERNESS_LORE),
-		WASTELAND(Stats.Modifiers.SURVIVAL);
+		FAKE(null),
+		URBAN(Stats.Modifier.STREETWISE),
+		DUNGEON(Stats.Modifier.DUNGEONEER),
+		WILDERNESS(Stats.Modifier.WILDERNESS_LORE),
+		WASTELAND(Stats.Modifier.SURVIVAL);
 
-		private String stealthModifier;
+		private Stats.Modifier stealthModifier;
 
-		TerrainType(String stealthModifier)
+		TerrainType(Stats.Modifier stealthModifier)
 		{
 			this.stealthModifier = stealthModifier;
 		}
 
-		public String getStealthModifier()
+		public Stats.Modifier getStealthModifier()
 		{
 			return stealthModifier;
 		}
@@ -133,7 +133,7 @@ public class Tile implements ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int getModifier(String modifier)
+	private int getModifier(Stats.Modifier modifier)
 	{
 		int result = statModifier.getModifier(modifier);
 
@@ -152,38 +152,37 @@ public class Tile implements ConditionBearer
 
 	public int getAmountBlackMagic()
 	{
-		String modifier = Stats.Modifiers.BLACK_MAGIC_GEN;
-		return getModifier(modifier);
+		return getModifier(Stats.Modifier.BLACK_MAGIC_GEN);
 	}
 
 	public int getAmountBlueMagic()
 	{
-		return getModifier(Stats.Modifiers.BLUE_MAGIC_GEN);
+		return getModifier(Stats.Modifier.BLUE_MAGIC_GEN);
 	}
 
 	public int getAmountGoldMagic()
 	{
-		return getModifier(Stats.Modifiers.GOLD_MAGIC_GEN);
+		return getModifier(Stats.Modifier.GOLD_MAGIC_GEN);
 	}
 
 	public int getAmountGreenMagic()
 	{
-		return getModifier(Stats.Modifiers.GREEN_MAGIC_GEN);
+		return getModifier(Stats.Modifier.GREEN_MAGIC_GEN);
 	}
 
 	public int getAmountPurpleMagic()
 	{
-		return getModifier(Stats.Modifiers.PURPLE_MAGIC_GEN);
+		return getModifier(Stats.Modifier.PURPLE_MAGIC_GEN);
 	}
 
 	public int getAmountRedMagic()
 	{
-		return getModifier(Stats.Modifiers.RED_MAGIC_GEN);
+		return getModifier(Stats.Modifier.RED_MAGIC_GEN);
 	}
 
 	public int getAmountWhiteMagic()
 	{
-		return getModifier(Stats.Modifiers.WHITE_MAGIC_GEN);
+		return getModifier(Stats.Modifier.WHITE_MAGIC_GEN);
 	}
 
 	public int getAmountMagicPresent(int type)
@@ -304,7 +303,7 @@ public class Tile implements ConditionBearer
 	/**
 	 * Returns the stealth modifier required by actors in this tile.
 	 */
-	public String getStealthModifierRequired()
+	public Stats.Modifier getStealthModifierRequired()
 	{
 		TerrainType terrainType = this.getTerrainType();
 		return terrainType.stealthModifier;

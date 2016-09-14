@@ -83,23 +83,23 @@ public class NaturalWeapon implements AttackWith
 
 	public int getToHit()
 	{
-		return modifiers.getModifier(Stats.Modifiers.ATTACK);
+		return modifiers.getModifier(Stats.Modifier.ATTACK);
 	}
 
 	public int getToPenetrate()
 	{
-		return modifiers.getModifier(Stats.Modifiers.TO_PENETRATE);
+		return modifiers.getModifier(Stats.Modifier.TO_PENETRATE);
 	}
 
 	public int getToCritical()
 	{
 		if (isRanged)
 		{
-			return modifiers.getModifier(Stats.Modifiers.RANGED_CRITICALS);
+			return modifiers.getModifier(Stats.Modifier.RANGED_CRITICALS);
 		}
 		else
 		{
-			return modifiers.getModifier(Stats.Modifiers.MELEE_CRITICALS);
+			return modifiers.getModifier(Stats.Modifier.MELEE_CRITICALS);
 		}
 	}
 

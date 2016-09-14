@@ -59,18 +59,18 @@ public class AttackRateAnalysis
 
 		int max = 30;
 		analyseWithConstantWeapon(db, cb, max, "Warrior", new PriorityModifierApproach(
-			Stats.Modifiers.CUT,
-			Stats.Modifiers.LUNGE,
-			Stats.Modifiers.SHOOT,
-			Stats.Modifiers.ARTIFACTS,
-			Stats.Modifiers.MYTHOLOGY));
+			Stats.Modifier.CUT,
+			Stats.Modifier.LUNGE,
+			Stats.Modifier.SHOOT,
+			Stats.Modifier.ARTIFACTS,
+			Stats.Modifier.MYTHOLOGY));
 
 		analyseWithConstantWeapon(db, cb, max, "Thief", new PriorityModifierApproach(
-			Stats.Modifiers.BACKSTAB,
-			Stats.Modifiers.SNIPE,
-			Stats.Modifiers.SHOOT,
-			Stats.Modifiers.ARTIFACTS,
-			Stats.Modifiers.MYTHOLOGY));
+			Stats.Modifier.BACKSTAB,
+			Stats.Modifier.SNIPE,
+			Stats.Modifier.SHOOT,
+			Stats.Modifier.ARTIFACTS,
+			Stats.Modifier.MYTHOLOGY));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -156,9 +156,9 @@ public class AttackRateAnalysis
 
 			System.out.format("%2d: CUT%+3d LUN%+3d BAC%+3d nrAttacks %2d nrStrikes %5.2f damage %6.2f%n",
 				level,
-				pc.getModifier(Stats.Modifiers.CUT),
-				pc.getModifier(Stats.Modifiers.LUNGE),
-				pc.getModifier(Stats.Modifiers.BACKSTAB),
+				pc.getModifier(Stats.Modifier.CUT),
+				pc.getModifier(Stats.Modifier.LUNGE),
+				pc.getModifier(Stats.Modifier.BACKSTAB),
 				nrAttacks, nrStrikes, damage);
 		}
 	}

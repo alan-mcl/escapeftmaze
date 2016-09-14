@@ -501,7 +501,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JPanel getDrainPanel()
 	{
 		drainValue = new ValueComponent(dirtyFlag);
-		Vector<String> vec = new Vector<String>(Stats.allModifiers);
+		Vector<Stats.Modifier> vec = new Vector<Stats.Modifier>(Stats.allModifiers);
 		drainModifier = new JComboBox(vec);
 		
 		JPanel result = new JPanel(new GridBagLayout());
@@ -933,7 +933,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case UNLOCK:
 				result = new UnlockSpellResult(unlockValue.getValue()); break;
 			case DRAIN:
-				result = new DrainSpellResult(drainValue.getValue(), (String)drainModifier.getSelectedItem()); break;
+				result = new DrainSpellResult(drainValue.getValue(), (Stats.Modifier)drainModifier.getSelectedItem()); break;
 			case CONDITION_REMOVAL:
 				List<ConditionEffect> effects = new ArrayList<ConditionEffect>();
 				for (JCheckBox cb : conditionEffects)

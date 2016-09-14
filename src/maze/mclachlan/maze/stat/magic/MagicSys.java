@@ -79,7 +79,7 @@ public class MagicSys
 	{
 		private String name;
 		private String displayNameKey;
-		private String castingAbilityModifier;
+		private Stats.Modifier castingAbilityModifier;
 		private Set<String> genders;
 		private Set<String> races;
 
@@ -87,19 +87,19 @@ public class MagicSys
 		private static final HashSet<String> FEMALE = new HashSet<String>();
 
 		public static final SpellBook SORCERY =
-			new SpellBook("Sorcery", "sorcery", Stats.Modifiers.SORCERY_SPELLS, MALE, null);
+			new SpellBook("Sorcery", "sorcery", Stats.Modifier.SORCERY_SPELLS, MALE, null);
 		public static final SpellBook BLACK_MAGIC =
-			new SpellBook("Black Magic", "black_magic", Stats.Modifiers.BLACK_MAGIC_SPELLS, null, null);
+			new SpellBook("Black Magic", "black_magic", Stats.Modifier.BLACK_MAGIC_SPELLS, null, null);
 		public static final SpellBook WITCHCRAFT =
-			new SpellBook("Witchcraft", "witchcraft", Stats.Modifiers.WITCHCRAFT_SPELLS, FEMALE, null);
+			new SpellBook("Witchcraft", "witchcraft", Stats.Modifier.WITCHCRAFT_SPELLS, FEMALE, null);
 		public static final SpellBook ENCHANTMENT =
-			new SpellBook("Enchantment", "enchantment", Stats.Modifiers.ENCHANTMENT_SPELLS, null, null);
+			new SpellBook("Enchantment", "enchantment", Stats.Modifier.ENCHANTMENT_SPELLS, null, null);
 		public static final SpellBook WHITE_MAGIC =
-			new SpellBook("White Magic", "white_magic", Stats.Modifiers.WHITE_MAGIC_SPELLS, null, null);
+			new SpellBook("White Magic", "white_magic", Stats.Modifier.WHITE_MAGIC_SPELLS, null, null);
 		public static final SpellBook DRUIDISM =
-			new SpellBook("Druidism", "druidism", Stats.Modifiers.DRUIDISM_SPELLS, null, null);
+			new SpellBook("Druidism", "druidism", Stats.Modifier.DRUIDISM_SPELLS, null, null);
 		public static final SpellBook ELEMENTALISM =
-			new SpellBook("Elementalism", "elementalism", Stats.Modifiers.ELEMENTAL_SPELLS, null, null);
+			new SpellBook("Elementalism", "elementalism", Stats.Modifier.ELEMENTAL_SPELLS, null, null);
 
 		private static Map<String, SpellBook> spellBooks = new HashMap<String, SpellBook>();
 
@@ -120,7 +120,7 @@ public class MagicSys
 		/*----------------------------------------------------------------------*/
 		public SpellBook(String name,
 			String displayNameKey,
-			String castingAbilityModifier,
+			Stats.Modifier castingAbilityModifier,
 			Set<String> genders,
 			Set<String> races)
 		{
@@ -168,7 +168,7 @@ public class MagicSys
 		}
 
 		/*-------------------------------------------------------------------------*/
-		public String getCastingAbilityModifier()
+		public Stats.Modifier getCastingAbilityModifier()
 		{
 			return castingAbilityModifier;
 		}
@@ -265,38 +265,23 @@ public class MagicSys
 	/*-------------------------------------------------------------------------*/
 	public static enum SpellEffectType
 	{
-		/*public static finalintNONE = 0;
-		public static final int FIRE = 1;
-		public static final int WATER = 2;
-		public static final int EARTH = 3;
-		public static final int AIR = 4;
-		public static final int MENTAL = 5;
-		public static final int ENERGY = 6;
-		public static final int BLUDGEONING = 7;
-		public static final int PIERCING = 8;
-		public static final int SLASHING = 9;
-
-		public static final int MAX = 10;
-		*/
-
-
-
 		NONE("set.none", null),
-		FIRE("set.fire", Stats.Modifiers.RESIST_FIRE),
-		WATER("set.water", Stats.Modifiers.RESIST_WATER),
-		EARTH("set.earth", Stats.Modifiers.RESIST_EARTH),
-		AIR("set.air", Stats.Modifiers.RESIST_AIR),
-		MENTAL("set.mental", Stats.Modifiers.RESIST_MENTAL),
-		ENERGY("set.energy", Stats.Modifiers.RESIST_ENERGY),
-		BLUDGEONING("set.bludgeon", Stats.Modifiers.RESIST_BLUDGEONING),
-		PIERCING("set.pierce", Stats.Modifiers.RESIST_PIERCING),
-		SLASHING("set.slash", Stats.Modifiers.RESIST_SLASHING);
+		FIRE("set.fire", Stats.Modifier.RESIST_FIRE),
+		WATER("set.water", Stats.Modifier.RESIST_WATER),
+		EARTH("set.earth", Stats.Modifier.RESIST_EARTH),
+		AIR("set.air", Stats.Modifier.RESIST_AIR),
+		MENTAL("set.mental", Stats.Modifier.RESIST_MENTAL),
+		ENERGY("set.energy", Stats.Modifier.RESIST_ENERGY),
+		BLUDGEONING("set.bludgeon", Stats.Modifier.RESIST_BLUDGEONING),
+		PIERCING("set.pierce", Stats.Modifier.RESIST_PIERCING),
+		SLASHING("set.slash", Stats.Modifier.RESIST_SLASHING);
 
-		private String descKey, resistanceModifier;
+		private String descKey;
+		private Stats.Modifier resistanceModifier;
 
 		/*----------------------------------------------------------------------*/
 
-		SpellEffectType(String descKey, String resistanceModifier)
+		SpellEffectType(String descKey, Stats.Modifier resistanceModifier)
 		{
 			this.descKey = descKey;
 			this.resistanceModifier = resistanceModifier;
@@ -314,13 +299,13 @@ public class MagicSys
 			return effectType.describe();
 		}
 
-		public String getResistanceModifier()
+		public Stats.Modifier getResistanceModifier()
 		{
 			return resistanceModifier;
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static String getResistanceModifier(SpellEffectType effectType)
+		public static Stats.Modifier getResistanceModifier(SpellEffectType effectType)
 		{
 			return effectType.getResistanceModifier();
 		}
@@ -349,20 +334,20 @@ public class MagicSys
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static String getImmunityModifier(SpellEffectSubType subType)
+		public static Stats.Modifier getImmunityModifier(SpellEffectSubType subType)
 		{
 			switch (subType)
 			{
 				case NONE: return null;
-				case NORMAL_DAMAGE: return Stats.Modifiers.IMMUNE_TO_DAMAGE;
-				case HEAT: return Stats.Modifiers.IMMUNE_TO_HEAT;
-				case COLD: return Stats.Modifiers.IMMUNE_TO_COLD;
-				case POISON: return Stats.Modifiers.IMMUNE_TO_POISON;
-				case DISEASE: return Stats.Modifiers.IMMUNE_TO_DISEASE;
-				case CURSE: return Stats.Modifiers.IMMUNE_TO_HEX;
-				case ACID: return Stats.Modifiers.IMMUNE_TO_ACID;
-				case LIGHTNING: return Stats.Modifiers.IMMUNE_TO_LIGHTNING;
-				case PSYCHIC: return Stats.Modifiers.IMMUNE_TO_PSYCHIC;
+				case NORMAL_DAMAGE: return Stats.Modifier.IMMUNE_TO_DAMAGE;
+				case HEAT: return Stats.Modifier.IMMUNE_TO_HEAT;
+				case COLD: return Stats.Modifier.IMMUNE_TO_COLD;
+				case POISON: return Stats.Modifier.IMMUNE_TO_POISON;
+				case DISEASE: return Stats.Modifier.IMMUNE_TO_DISEASE;
+				case CURSE: return Stats.Modifier.IMMUNE_TO_HEX;
+				case ACID: return Stats.Modifier.IMMUNE_TO_ACID;
+				case LIGHTNING: return Stats.Modifier.IMMUNE_TO_LIGHTNING;
+				case PSYCHIC: return Stats.Modifier.IMMUNE_TO_PSYCHIC;
 				default: throw new MazeException(subType.toString());
 			}
 		}
@@ -413,17 +398,17 @@ public class MagicSys
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static String getModifier(int manaType)
+		public static Stats.Modifier getModifier(int manaType)
 		{
 			switch (manaType)
 			{
-				case MagicSys.ManaType.RED:  return Stats.Modifiers.RED_MAGIC_GEN;
-				case MagicSys.ManaType.BLACK: return Stats.Modifiers.BLACK_MAGIC_GEN;
-				case MagicSys.ManaType.PURPLE: return Stats.Modifiers.PURPLE_MAGIC_GEN;
-				case MagicSys.ManaType.GOLD: return Stats.Modifiers.GOLD_MAGIC_GEN;
-				case MagicSys.ManaType.WHITE: return Stats.Modifiers.WHITE_MAGIC_GEN;
-				case MagicSys.ManaType.GREEN: return Stats.Modifiers.GREEN_MAGIC_GEN;
-				case MagicSys.ManaType.BLUE: return Stats.Modifiers.BLUE_MAGIC_GEN;
+				case MagicSys.ManaType.RED:  return Stats.Modifier.RED_MAGIC_GEN;
+				case MagicSys.ManaType.BLACK: return Stats.Modifier.BLACK_MAGIC_GEN;
+				case MagicSys.ManaType.PURPLE: return Stats.Modifier.PURPLE_MAGIC_GEN;
+				case MagicSys.ManaType.GOLD: return Stats.Modifier.GOLD_MAGIC_GEN;
+				case MagicSys.ManaType.WHITE: return Stats.Modifier.WHITE_MAGIC_GEN;
+				case MagicSys.ManaType.GREEN: return Stats.Modifier.GREEN_MAGIC_GEN;
+				case MagicSys.ManaType.BLUE: return Stats.Modifier.BLUE_MAGIC_GEN;
 				default: throw new MazeException("Invalid mana colour "+manaType);
 			}
 		}

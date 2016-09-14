@@ -822,7 +822,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 					"idw.cannot.disassemble.req",character.getDisplayName()));
 
 			boolean first = true;
-			for (String s : reqs.getModifiers().keySet())
+			for (Stats.Modifier s : reqs.getModifiers().keySet())
 			{
 				if (!first)
 				{

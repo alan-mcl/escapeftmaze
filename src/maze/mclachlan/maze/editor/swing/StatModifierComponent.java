@@ -98,7 +98,7 @@ public class StatModifierComponent extends JButton implements ActionListener
 	{
 		StringBuilder b = new StringBuilder();
 
-		for (String s : sm.getModifiers().keySet())
+		for (Stats.Modifier s : sm.getModifiers().keySet())
 		{
 			b.append(s).append(" ").append(
 				Stats.descModifier(s, sm.getModifier(s))).append(",");
@@ -126,10 +126,10 @@ public class StatModifierComponent extends JButton implements ActionListener
 		if (event.getSource() == this)
 		{
 			StatModifierPanel dialog = new StatModifierPanel(SwingEditor.instance, modifier);
-			if (dialog.modifier != null)
+			if (dialog.getModifier() != null)
 			{
 				SwingEditor.instance.setDirty(dirtyFlag);
-				this.setModifier(dialog.modifier);
+				this.setModifier(dialog.getModifier());
 				if (callback != null)
 				{
 					callback.statModifierChanged(this);

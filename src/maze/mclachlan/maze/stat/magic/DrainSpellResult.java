@@ -21,6 +21,7 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.DrainEvent;
 
@@ -30,10 +31,10 @@ import mclachlan.maze.stat.combat.event.DrainEvent;
 public class DrainSpellResult extends SpellResult
 {
 	private Value drain;
-	private String modifier;
+	private Stats.Modifier modifier;
 
 	/*-------------------------------------------------------------------------*/	
-	public DrainSpellResult(Value drain, String modifier)
+	public DrainSpellResult(Value drain, Stats.Modifier modifier)
 	{
 		this.drain = drain;
 		this.modifier = modifier;
@@ -60,7 +61,7 @@ public class DrainSpellResult extends SpellResult
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public String getModifier()
+	public Stats.Modifier getModifier()
 	{
 		return modifier;
 	}

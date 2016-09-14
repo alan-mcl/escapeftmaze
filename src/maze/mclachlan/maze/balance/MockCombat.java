@@ -162,11 +162,11 @@ public class MockCombat
 
 		UnifiedActor pc = cb.buildCharacter("Tester", characterClass, characterRace, characterGender, level,
 			new PriorityModifierApproach(
-				Stats.Modifiers.BRAWN,
-				Stats.Modifiers.SKILL,
-				Stats.Modifiers.CUT,
-				Stats.Modifiers.THRUST,
-				Stats.Modifiers.SHOOT));
+				Stats.Modifier.BRAWN,
+				Stats.Modifier.SKILL,
+				Stats.Modifier.CUT,
+				Stats.Modifier.THRUST,
+				Stats.Modifier.SHOOT));
 
 		PlayerParty party = new PlayerParty(Arrays.asList(pc));
 
@@ -253,16 +253,16 @@ public class MockCombat
 			{
 				PlayerCharacter pc = cb.buildCharacter("Tester", characterClass, characterRace, characterGender, level,
 					new PriorityModifierApproach(
-						Stats.Modifiers.BRAWN,
-						Stats.Modifiers.SKILL,
-						Stats.Modifiers.CUT,
-						Stats.Modifiers.THRUST,
-						Stats.Modifiers.SHOOT));
+						Stats.Modifier.BRAWN,
+						Stats.Modifier.SKILL,
+						Stats.Modifier.CUT,
+						Stats.Modifier.THRUST,
+						Stats.Modifier.SHOOT));
 
 				pc.setPrimaryWeapon(getReferenceWeapon(
 					level,
-					Stats.Modifiers.CUT,
-					Stats.Modifiers.THRUST));
+					Stats.Modifier.CUT,
+					Stats.Modifier.THRUST));
 
 				pc.setHelm(getReferenceArmourCombat(level));
 				pc.setTorsoArmour(getReferenceArmourCombat(level));
@@ -324,7 +324,7 @@ public class MockCombat
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Item getReferenceWeapon(int level, String mod1, String mod2)
+	private static Item getReferenceWeapon(int level, Stats.Modifier mod1, Stats.Modifier mod2)
 	{
 		Dice damage = null;
 		int toHit = 0;
@@ -341,7 +341,7 @@ public class MockCombat
 		damage = new Dice(1, Math.max(level, 3), level/3);
 		toPenetrate = 0;
 		toInitiative = 0;
-		attackTypes = new String[]{mod1, mod2};
+		attackTypes = new String[]{mod1.toString(), mod2.toString()};
 		toCritical = 0;
 
 		spellEffects = new GroupOfPossibilities<SpellEffect>();
@@ -791,18 +791,18 @@ public class MockCombat
 
 		// todo assuming COMBAT foe here
 		StatModifier stats = new StatModifier();
-		stats.setModifier(Stats.Modifiers.BRAWN, level);
-		stats.setModifier(Stats.Modifiers.SKILL, level);
+		stats.setModifier(Stats.Modifier.BRAWN, level);
+		stats.setModifier(Stats.Modifier.SKILL, level);
 
-		stats.setModifier(Stats.Modifiers.RESIST_AIR, level*2);
-		stats.setModifier(Stats.Modifiers.RESIST_EARTH, level*2);
-		stats.setModifier(Stats.Modifiers.RESIST_ENERGY, level*2);
-		stats.setModifier(Stats.Modifiers.RESIST_FIRE, level*2);
-		stats.setModifier(Stats.Modifiers.RESIST_MENTAL, level*2);
-		stats.setModifier(Stats.Modifiers.RESIST_WATER, level*2);
-		stats.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, level);
-		stats.setModifier(Stats.Modifiers.RESIST_SLASHING, level);
-		stats.setModifier(Stats.Modifiers.RESIST_PIERCING, level);
+		stats.setModifier(Stats.Modifier.RESIST_AIR, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_EARTH, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_ENERGY, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_FIRE, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_MENTAL, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_WATER, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_BLUDGEONING, level);
+		stats.setModifier(Stats.Modifier.RESIST_SLASHING, level);
+		stats.setModifier(Stats.Modifier.RESIST_PIERCING, level);
 
 		FoeTemplate ft = new FoeTemplate(
 			"TestingFoe",

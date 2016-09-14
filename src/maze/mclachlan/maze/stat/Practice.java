@@ -46,7 +46,7 @@ public class Practice
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getPracticePoints(String modifier)
+	public int getPracticePoints(Stats.Modifier modifier)
 	{
 		if (!Stats.regularModifiers.contains(modifier))
 		{
@@ -62,7 +62,7 @@ public class Practice
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setPracticePoints(String modifier, int value)
+	public void setPracticePoints(Stats.Modifier modifier, int value)
 	{
 		if (!Stats.regularModifiers.contains(modifier))
 		{

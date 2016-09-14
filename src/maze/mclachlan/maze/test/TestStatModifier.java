@@ -32,13 +32,13 @@ public class TestStatModifier
 	{
 //		StatModifier sm = V1StatModifier.fromString("fe000000000000000,02020202020202");
 		StatModifier sm = new StatModifier();
-		sm.setModifier(Stats.Modifiers.BLACK_MAGIC_GEN, 2);
-		sm.setModifier(Stats.Modifiers.BLUE_MAGIC_GEN, 2);
-		sm.setModifier(Stats.Modifiers.RED_MAGIC_GEN, 2);
-		sm.setModifier(Stats.Modifiers.WHITE_MAGIC_GEN, 2);
-		sm.setModifier(Stats.Modifiers.GREEN_MAGIC_GEN, 2);
-		sm.setModifier(Stats.Modifiers.PURPLE_MAGIC_GEN, 2);
-		sm.setModifier(Stats.Modifiers.GOLD_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.BLACK_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.BLUE_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.RED_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.WHITE_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.GREEN_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.PURPLE_MAGIC_GEN, 2);
+		sm.setModifier(Stats.Modifier.GOLD_MAGIC_GEN, 2);
 		String s = V1StatModifier.toString(sm);
 		
 		System.out.println("s = [" + s + "]");

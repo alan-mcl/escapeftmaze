@@ -46,12 +46,12 @@ public class BoozeSpellResult extends SpellResult
 		List<MazeEvent> results = new ArrayList<MazeEvent>();
 
 		// if not drinking fit, something bad might happen
-		if (source.getModifier(Stats.Modifiers.DRINKING_FIT) < 0)
+		if (source.getModifier(Stats.Modifier.DRINKING_FIT) < 0)
 		{
 			// use the targets brawn, unless power is > 10 and > brawn
 			int attrib;
-			int brawn = source.getModifier(Stats.Modifiers.BRAWN);
-			int power = source.getModifier(Stats.Modifiers.POWER);
+			int brawn = source.getModifier(Stats.Modifier.BRAWN);
+			int power = source.getModifier(Stats.Modifier.POWER);
 
 			if (power > brawn && power > 10)
 			{

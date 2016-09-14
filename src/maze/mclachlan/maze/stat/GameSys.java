@@ -50,27 +50,27 @@ public class GameSys
 
 	static
 	{
-		modEncumbrance.setModifier(Stats.Modifiers.INITIATIVE, -2);
-		modEncumbrance.setModifier(Stats.Modifiers.SNEAKING, -2);
+		modEncumbrance.setModifier(Stats.Modifier.INITIATIVE, -2);
+		modEncumbrance.setModifier(Stats.Modifier.SNEAKING, -2);
 
-		heavyEncumbrance.setModifier(Stats.Modifiers.INITIATIVE, -5);
-		heavyEncumbrance.setModifier(Stats.Modifiers.ATTACK, -5);
-		heavyEncumbrance.setModifier(Stats.Modifiers.DEFENCE, -5);
-		heavyEncumbrance.setModifier(Stats.Modifiers.SKILL, -2);
-		heavyEncumbrance.setModifier(Stats.Modifiers.SNEAKING, -4);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_AXE, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_DAGGER, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_MACE, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_SPEAR, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_STAFF, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_SWORD, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_UNARMED, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.ARROW_CUTTING, -20);
-		heavyEncumbrance.setModifier(Stats.Modifiers.AMBUSHER, -1);
-		heavyEncumbrance.setModifier(Stats.Modifiers.DODGE, -20);
-		heavyEncumbrance.setModifier(Stats.Modifiers.PARRY, -20);
+		heavyEncumbrance.setModifier(Stats.Modifier.INITIATIVE, -5);
+		heavyEncumbrance.setModifier(Stats.Modifier.ATTACK, -5);
+		heavyEncumbrance.setModifier(Stats.Modifier.DEFENCE, -5);
+		heavyEncumbrance.setModifier(Stats.Modifier.SKILL, -2);
+		heavyEncumbrance.setModifier(Stats.Modifier.SNEAKING, -4);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_AXE, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_DAGGER, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_MACE, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SPEAR, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_STAFF, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SWORD, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_UNARMED, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.ARROW_CUTTING, -20);
+		heavyEncumbrance.setModifier(Stats.Modifier.AMBUSHER, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.DODGE, -20);
+		heavyEncumbrance.setModifier(Stats.Modifier.PARRY, -20);
 
-		for (String mod : heavyEncumbrance.getModifiers().keySet())
+		for (Stats.Modifier mod : heavyEncumbrance.getModifiers().keySet())
 		{
 			insaneEncumbrance.setModifier(mod, heavyEncumbrance.getModifier(mod)*4);
 		}
@@ -410,28 +410,30 @@ public class GameSys
 		UnifiedActor attacker = event.getAttacker();
 
 		AttackWith attackWith = event.getAttackWith();
-		String requiredSkill = event.getAttackType().getName();
+
+		// todo: this is going to be a problem
+		Stats.Modifier requiredSkill = event.getAttackType().getAttackModifier();
 		int currentWeaponSkill = attacker.getModifier(requiredSkill);
 
 		int result = 0;
-		result += attacker.getModifier(Stats.Modifiers.SKILL);
+		result += attacker.getModifier(Stats.Modifier.SKILL);
 		result += currentWeaponSkill;
-		result += attacker.getModifier(Stats.Modifiers.ATTACK);
-		result += event.getAttackType().getModifiers().getModifier(Stats.Modifiers.ATTACK);
-		result += event.getBodyPart().getModifiers().getModifier(Stats.Modifiers.ATTACK);
+		result += attacker.getModifier(Stats.Modifier.ATTACK);
+		result += event.getAttackType().getModifiers().getModifier(Stats.Modifier.ATTACK);
+		result += event.getBodyPart().getModifiers().getModifier(Stats.Modifier.ATTACK);
 		result += attackWith.getToHit();
 
 		boolean isRanged = attackWith instanceof Item && ((Item)attackWith).getType() == Type.RANGED_WEAPON ||
 			attackWith.isRanged() && attackWith.getMaxRange() == ItemTemplate.WeaponRange.LONG;
 
 		// deadly aim bonus
-		if (isRanged && attacker.getModifier(Stats.Modifiers.DEADLY_AIM) > 0)
+		if (isRanged && attacker.getModifier(Stats.Modifier.DEADLY_AIM) > 0)
 		{
-			result += (10 * attacker.getModifier(Stats.Modifiers.DEADLY_AIM));
+			result += (10 * attacker.getModifier(Stats.Modifier.DEADLY_AIM));
 		}
 
 		// master archer bonus
-		if (isRanged && attacker.getModifier(Stats.Modifiers.MASTER_ARCHER) > 0)
+		if (isRanged && attacker.getModifier(Stats.Modifier.MASTER_ARCHER) > 0)
 		{
 			// master archer bonus with bows
 			result += attacker.getLevel();
@@ -447,18 +449,18 @@ public class GameSys
 		if (attackWith instanceof Item)
 		{
 			Item aw = (Item)attackWith;
-			if (Stats.Modifiers.MARTIAL_ARTS.equals(aw.getDiscipline()))
+			if (Stats.Modifier.MARTIAL_ARTS.equals(aw.getDiscipline()))
 			{
-				if (attacker.getModifier(Stats.Modifiers.MARTIAL_ARTS) > 0)
+				if (attacker.getModifier(Stats.Modifier.MARTIAL_ARTS) > 0)
 				{
-					practice(attacker, Stats.Modifiers.MARTIAL_ARTS, 1);
+					practice(attacker, Stats.Modifier.MARTIAL_ARTS, 1);
 				}
 			}
 
-			if (attacker.getModifier(Stats.Modifiers.KENDO) > 1 &&
-				Stats.Modifiers.KENDO.equals(aw.getDiscipline()))
+			if (attacker.getModifier(Stats.Modifier.KENDO) > 1 &&
+				Stats.Modifier.KENDO.equals(aw.getDiscipline()))
 			{
-				practice(attacker, Stats.Modifiers.KENDO, 1);
+				practice(attacker, Stats.Modifier.KENDO, 1);
 			}
 		}
 
@@ -471,18 +473,18 @@ public class GameSys
 		UnifiedActor defender = event.getDefender();
 
 		int result =
-			defender.getModifier(Stats.Modifiers.SKILL)
-			+ defender.getModifier(Stats.Modifiers.DEFENCE)
-			+ event.getBodyPart().getModifiers().getModifier(Stats.Modifiers.DEFENCE);
+			defender.getModifier(Stats.Modifier.SKILL)
+			+ defender.getModifier(Stats.Modifier.DEFENCE)
+			+ event.getBodyPart().getModifiers().getModifier(Stats.Modifier.DEFENCE);
 
 		// immobile actors get their defence zeroed and no skill bonus
 		if (!isActorImmobile(defender))
 		{
-			result += defender.getModifier(Stats.Modifiers.SKILL);
+			result += defender.getModifier(Stats.Modifier.SKILL);
 		}
 		else
 		{
-			result -= defender.getBaseModifier(Stats.Modifiers.DEFENCE);
+			result -= defender.getBaseModifier(Stats.Modifier.DEFENCE);
 		}
 
 		Maze.log(Log.DEBUG, defender.getName()+" defender modifier is "+result);
@@ -498,8 +500,8 @@ public class GameSys
 	{
 		Maze.log(Log.DEBUG, "calculating initiative for "+actor.getName());
 		
-		int actorAgility = actor.getModifier(Stats.Modifiers.SKILL);
-		int actorInitiative = actor.getModifier(Stats.Modifiers.INITIATIVE);
+		int actorAgility = actor.getModifier(Stats.Modifier.SKILL);
+		int actorInitiative = actor.getModifier(Stats.Modifier.INITIATIVE);
 		int diceRoll = Dice.d6.roll();
 
 		int result = diceRoll + actorAgility + actorInitiative;
@@ -517,7 +519,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "calculating damage");
 
 		UnifiedActor defender = event.getDefender();
-		if (defender.getModifier(Stats.Modifiers.IMMUNE_TO_DAMAGE) > 0)
+		if (defender.getModifier(Stats.Modifier.IMMUNE_TO_DAMAGE) > 0)
 		{
 			Maze.log(Log.DEBUG, "defender is immune to damage!");
 			return new DamagePacket(0,1);
@@ -554,9 +556,9 @@ public class GameSys
 
 		int diceDamageRoll = diceDamage.roll();
 		int ammoDamageRoll = (ammoDamage != null) ? ammoDamage.roll() : 0;
-		int bpDamageMod = event.getBodyPart().getModifiers().getModifier(Stats.Modifiers.DAMAGE);
-		int eventDamageMod = attacker.getModifier(Stats.Modifiers.DAMAGE);
-		int brawn = attacker.getModifier(Stats.Modifiers.BRAWN);
+		int bpDamageMod = event.getBodyPart().getModifiers().getModifier(Stats.Modifier.DAMAGE);
+		int eventDamageMod = attacker.getModifier(Stats.Modifier.DAMAGE);
+		int brawn = attacker.getModifier(Stats.Modifier.BRAWN);
 
 		// +2 damage per level of FAVOURED ENEMY
 		int favouredEnemy = 2*getFavouredEnemyBonus(attacker, defender);
@@ -580,12 +582,12 @@ public class GameSys
 
 		// add up the various "double damage" clauses
 		int damageMultiplier = 1;
-		damageMultiplier += bodyPart.getModifiers().getModifier(Stats.Modifiers.DAMAGE_MULTIPLIER);
-		damageMultiplier += attacker.getModifier(Stats.Modifiers.DAMAGE_MULTIPLIER);
-		damageMultiplier += event.getAttackType().getModifiers().getModifier(Stats.Modifiers.DAMAGE_MULTIPLIER);
+		damageMultiplier += bodyPart.getModifiers().getModifier(Stats.Modifier.DAMAGE_MULTIPLIER);
+		damageMultiplier += attacker.getModifier(Stats.Modifier.DAMAGE_MULTIPLIER);
+		damageMultiplier += event.getAttackType().getModifiers().getModifier(Stats.Modifier.DAMAGE_MULTIPLIER);
 		if (armour != null)
 		{
-			damageMultiplier += armour.getModifiers().getModifier(Stats.Modifiers.DAMAGE_MULTIPLIER);
+			damageMultiplier += armour.getModifiers().getModifier(Stats.Modifier.DAMAGE_MULTIPLIER);
 		}
 
 		if (defender.getTypes().contains(attackWith.slaysFoeType()))
@@ -825,19 +827,19 @@ public class GameSys
 		if (!attackWith.isRanged())
 		{
 			GroupOfPossibilities<SpellEffect> touchEffects = new GroupOfPossibilities<SpellEffect>();
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_BLIND, "TOUCH_BLIND", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_DISEASE, "TOUCH_DISEASE", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_FEAR, "TOUCH_FEAR", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_HEX, "TOUCH_HEX", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_INSANE, "TOUCH_INSANE", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_IRRITATE, "TOUCH_IRRITATE", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_NAUSEA, "TOUCH_NAUSEA", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_PARALYSE, "TOUCH_PARALYSE", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_SILENCE, "TOUCH_SILENCE", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_SLEEP, "TOUCH_SLEEP", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_STONE	, "TOUCH_STONE", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_WEB, "TOUCH_WEB", touchEffects);
-			addTouchEffect(attacker, Stats.Modifiers.TOUCH_POISON, "TOUCH_POISON", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_BLIND, "TOUCH_BLIND", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_DISEASE, "TOUCH_DISEASE", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_FEAR, "TOUCH_FEAR", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_HEX, "TOUCH_HEX", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_INSANE, "TOUCH_INSANE", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_IRRITATE, "TOUCH_IRRITATE", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_NAUSEA, "TOUCH_NAUSEA", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_PARALYSE, "TOUCH_PARALYSE", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_SILENCE, "TOUCH_SILENCE", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_SLEEP, "TOUCH_SLEEP", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_STONE	, "TOUCH_STONE", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_WEB, "TOUCH_WEB", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_POISON, "TOUCH_POISON", touchEffects);
 
 			result.add(
 				new AttackSpellEffects(
@@ -859,9 +861,9 @@ public class GameSys
 		Maze.log(Log.DEBUG, "determining armour impact");
 		
 		basePercent -= event.getAttackWith().getToPenetrate();
-		basePercent -= event.getAttacker().getModifier(Stats.Modifiers.BRAWN);
-		basePercent -= event.getAttacker().getModifier(Stats.Modifiers.TO_PENETRATE);
-		basePercent += event.getDefender().getModifier(Stats.Modifiers.VS_PENETRATE);
+		basePercent -= event.getAttacker().getModifier(Stats.Modifier.BRAWN);
+		basePercent -= event.getAttacker().getModifier(Stats.Modifier.TO_PENETRATE);
+		basePercent += event.getDefender().getModifier(Stats.Modifier.VS_PENETRATE);
 		
 		Maze.log(Log.DEBUG, "basePercent is "+basePercent);
 		
@@ -887,12 +889,12 @@ public class GameSys
 			{
 				int basePercent = pc.getSecondaryWeapon().getDamagePreventionChance();
 				// Effect of Chivalry: + to shield defence chance
-				basePercent += defender.getModifier(Stats.Modifiers.CHIVALRY);
+				basePercent += defender.getModifier(Stats.Modifier.CHIVALRY);
 				
 				if (hitArmour(event, basePercent))
 				{
 					int result = pc.getSecondaryWeapon().getDamagePreventionChance();
-					practice(pc, Stats.Modifiers.CHIVALRY, 1);
+					practice(pc, Stats.Modifier.CHIVALRY, 1);
 					Maze.log(Log.DEBUG, "shield damage prevention is "+result);
 					return result;
 				}
@@ -916,16 +918,16 @@ public class GameSys
 	 */
 	public int getResistance(UnifiedActor defender, UnifiedActor attacker, MagicSys.SpellEffectType type)
 	{
-		String modifier = type.getResistanceModifier();
+		Stats.Modifier modifier = type.getResistanceModifier();
 
 		// minus attacker POWER to defender resistance
-		int power = attacker.getModifier(Stats.Modifiers.POWER);
+		int power = attacker.getModifier(Stats.Modifier.POWER);
 
 		// minus 2x attacker POWER CAST
-		power += (attacker.getModifier(Stats.Modifiers.POWER_CAST)*2);
-		if (attacker.getModifier(Stats.Modifiers.POWER_CAST) > 0)
+		power += (attacker.getModifier(Stats.Modifier.POWER_CAST)*2);
+		if (attacker.getModifier(Stats.Modifier.POWER_CAST) > 0)
 		{
-			practice(attacker, Stats.Modifiers.POWER_CAST, 1);
+			practice(attacker, Stats.Modifier.POWER_CAST, 1);
 		}
 
 		// minus 5x attacker FAVOURED ENEMY
@@ -990,7 +992,7 @@ public class GameSys
 			return 0;
 		}
 			
-		String primaryModifier = spell.getPrimaryModifier();
+		Stats.Modifier primaryModifier = spell.getPrimaryModifier();
 
 		if (primaryModifier == null)
 		{
@@ -1004,7 +1006,7 @@ public class GameSys
 		
 		int casterTotal = caster.getLevel()/2;
 		
-		String secondaryModifier = spell.getSecondaryModifier();
+		Stats.Modifier secondaryModifier = spell.getSecondaryModifier();
 		if (secondaryModifier != null)
 		{
 			casterTotal += caster.getModifier(primaryModifier)/2;
@@ -1026,7 +1028,7 @@ public class GameSys
 			result = 0;
 		}
 
-		int brains = caster.getModifier(Stats.Modifiers.BRAINS);
+		int brains = caster.getModifier(Stats.Modifier.BRAINS);
 		if (brains >= 0)
 		{
 			result -= brains;
@@ -1082,7 +1084,7 @@ public class GameSys
 			int count = 0;
 			float sum = 0F;
 
-			for (String mod : req.getModifiers().keySet())
+			for (Stats.Modifier mod : req.getModifiers().keySet())
 			{
 				int reqMod = req.getModifier(mod);
 				int userMod = user.getModifier(mod);
@@ -1221,7 +1223,7 @@ public class GameSys
 
 			int count=0, sum=0;
 
-			for (String mod : useRequirements.getModifiers().keySet())
+			for (Stats.Modifier mod : useRequirements.getModifiers().keySet())
 			{
 				int reqMod = useRequirements.getModifier(mod);
 				int userMod = user.getModifier(mod);
@@ -1277,7 +1279,7 @@ public class GameSys
 		else
 		{
 			result = stealth2d2.roll();
-			result += attacker.getModifier(Stats.Modifiers.VS_DODGE);
+			result += attacker.getModifier(Stats.Modifier.VS_DODGE);
 		}
 
 		Maze.log(Log.DEBUG, defender.getName()+" dodge cost is "+result);
@@ -1302,7 +1304,7 @@ public class GameSys
 		else
 		{
 			result = stealth4d2.roll();
-			result += attacker.getModifier(Stats.Modifiers.VS_DODGE);
+			result += attacker.getModifier(Stats.Modifier.VS_DODGE);
 		}
 
 		Maze.log(Log.DEBUG, defender.getName()+" dodge cost is "+result);
@@ -1321,7 +1323,7 @@ public class GameSys
 			" on "+defender.getName());
 			
 		int result = 3;
-		result += defender.getModifier(Stats.Modifiers.VS_AMBUSH);
+		result += defender.getModifier(Stats.Modifier.VS_AMBUSH);
 
 		Maze.log(Log.DEBUG, attacker.getName()+" ambush cost is "+result);
 
@@ -1346,11 +1348,11 @@ public class GameSys
 		result = Math.min(result, 80);
 
 		// plus the actors sneaking modifier
-		result += actor.getModifier(Stats.Modifiers.SNEAKING);
+		result += actor.getModifier(Stats.Modifier.SNEAKING);
 
 		// plus the actors terrain type stealth modifier
 		Tile t = Maze.getInstance().getCurrentTile();
-		String stealthModifierRequired = t.getStealthModifierRequired();
+		Stats.Modifier stealthModifierRequired = t.getStealthModifierRequired();
 		result += actor.getModifier(stealthModifierRequired);
 
 		// plus one for every ally with fewer action points than this one
@@ -1375,7 +1377,7 @@ public class GameSys
 			{
 				// -1 for every foe
 				result--;
-				result -= foe.getModifier(Stats.Modifiers.VS_HIDE);
+				result -= foe.getModifier(Stats.Modifier.VS_HIDE);
 			}
 		}
 
@@ -1437,12 +1439,12 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	protected int calcBonusAttacks(UnifiedActor actor, boolean primary, Item weapon)
 	{
-		int result = actor.getModifier(Stats.Modifiers.BONUS_ATTACKS);
+		int result = actor.getModifier(Stats.Modifier.BONUS_ATTACKS);
 
 		//
 		// SKILL +15 grants a bonus attack
 		//
-		if (actor.getModifier(Stats.Modifiers.SKILL) >= 15)
+		if (actor.getModifier(Stats.Modifier.SKILL) >= 15)
 		{
 			result++;
 		}
@@ -1451,8 +1453,8 @@ public class GameSys
 		// KENDO +5 grants an additional attack on the primary weapon, if it is
 		// a KENDO weapon
 		//
-		if (actor.getModifier(Stats.Modifiers.KENDO) > 5 &&
-			Stats.Modifiers.KENDO.equals(weapon.getDiscipline()) &&
+		if (actor.getModifier(Stats.Modifier.KENDO) > 5 &&
+			Stats.Modifier.KENDO.equals(weapon.getDiscipline()) &&
 			primary)
 		{
 			result++;
@@ -1464,7 +1466,7 @@ public class GameSys
 		//
 		if (Maze.getInstance().getCurrentCombat() != null)
 		{
-			if (actor.getModifier(Stats.Modifiers.MELEE_MASTER) > 0 &&
+			if (actor.getModifier(Stats.Modifier.MELEE_MASTER) > 0 &&
 				isActorArmedWithMeleeWeapon(actor))
 			{
 				int nrFoeGroups =
@@ -1488,14 +1490,15 @@ public class GameSys
 		AttackType attackType,
 		AttackWith attackWith)
 	{
-		int result = 1 + attacker.getModifier(Stats.Modifiers.BONUS_STRIKES);
+		int result = 1 + attacker.getModifier(Stats.Modifier.BONUS_STRIKES);
 
 		//
 		// up to a max of 3 strikes
 		// todo: more here about bonus strikes and so on
 		//
 
-		int mod = attacker.getModifier(attackType.getName());
+		// todo: broken mapping
+		int mod = attacker.getModifier(attackType.getAttackModifier());
 		result += mod / 9;
 
 		result = Math.min(result, 3);
@@ -1511,19 +1514,19 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public boolean isLightningStrike(UnifiedActor attacker, AttackWith attackWith)
 	{
-		String lightningStrikeModifier;
+		Stats.Modifier lightningStrikeModifier;
 
 		if (attackWith instanceof Item)
 		{
 			switch (((Item)(attackWith)).getSubType())
 			{
-				case ItemTemplate.WeaponSubType.AXE: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_AXE; break;
-				case ItemTemplate.WeaponSubType.DAGGER: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_DAGGER; break;
-				case ItemTemplate.WeaponSubType.MACE: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_MACE; break;
-				case ItemTemplate.WeaponSubType.MARTIAL_ARTS: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_UNARMED; break;
-				case ItemTemplate.WeaponSubType.POLEARM: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_SPEAR; break;
-				case ItemTemplate.WeaponSubType.STAFF: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_STAFF; break;
-				case ItemTemplate.WeaponSubType.SWORD: lightningStrikeModifier = Stats.Modifiers.LIGHTNING_STRIKE_SWORD; break;
+				case ItemTemplate.WeaponSubType.AXE: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_AXE; break;
+				case ItemTemplate.WeaponSubType.DAGGER: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_DAGGER; break;
+				case ItemTemplate.WeaponSubType.MACE: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_MACE; break;
+				case ItemTemplate.WeaponSubType.MARTIAL_ARTS: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_UNARMED; break;
+				case ItemTemplate.WeaponSubType.POLEARM: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_SPEAR; break;
+				case ItemTemplate.WeaponSubType.STAFF: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_STAFF; break;
+				case ItemTemplate.WeaponSubType.SWORD: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_SWORD; break;
 				default: lightningStrikeModifier = null;
 			}
 		}
@@ -1531,7 +1534,7 @@ public class GameSys
 		{
 			// for foe attacks, use the UNARMED modifier.  It's a hack, but
 			// an easy way of providing for the occasional lightning strike foe.
-			lightningStrikeModifier = Stats.Modifiers.TIRELESS_UNARMED;
+			lightningStrikeModifier = Stats.Modifier.TIRELESS_UNARMED;
 		}
 
 		if (attacker.getModifier(lightningStrikeModifier) <= 0)
@@ -1548,8 +1551,8 @@ public class GameSys
 		int chance = 25;
 
 		// add various modifiers
-		chance += attacker.getModifier(Stats.Modifiers.SKILL);
-		chance += attacker.getModifier(Stats.Modifiers.INITIATIVE);
+		chance += attacker.getModifier(Stats.Modifier.SKILL);
+		chance += attacker.getModifier(Stats.Modifier.INITIATIVE);
 
 		// subtract 1 for every 10kg encumbrance
 		if (attacker instanceof PlayerCharacter)
@@ -1591,13 +1594,13 @@ public class GameSys
 		// 0.1 kg per stealth:wasteland
 
 		result += pc.getLevel() * 1000;
-		result += pc.getModifier(Stats.Modifiers.BRAWN, false) * 2000;
-		result += pc.getModifier(Stats.Modifiers.THIEVING, false) * 50;
-		result += pc.getModifier(Stats.Modifiers.WILDERNESS_LORE, false) * 100;
-		result += pc.getModifier(Stats.Modifiers.SURVIVAL, false) * 100;
+		result += pc.getModifier(Stats.Modifier.BRAWN, false) * 2000;
+		result += pc.getModifier(Stats.Modifier.THIEVING, false) * 50;
+		result += pc.getModifier(Stats.Modifier.WILDERNESS_LORE, false) * 100;
+		result += pc.getModifier(Stats.Modifier.SURVIVAL, false) * 100;
 		
 		// modify the result by a % specified by the ccPenalty modifier
-		double p = pc.getModifier(Stats.Modifiers.CC_PENALTY, false)/100.0;
+		double p = pc.getModifier(Stats.Modifier.CC_PENALTY, false)/100.0;
 		if (p != 0)
 		{
 			result += (result*p);
@@ -1612,7 +1615,7 @@ public class GameSys
 	 * 	The total number of practice points required for the given PC to
 	 * 	increase the given base modifier by 1.
 	 */
-	public int getPracticePointsRequired(PlayerCharacter pc, String modifier)
+	public int getPracticePointsRequired(PlayerCharacter pc, Stats.Modifier modifier)
 	{
 		int baseModifier = pc.getBaseModifier(modifier);
 
@@ -1638,13 +1641,13 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void practice(UnifiedActor actor, String modifier, int amount)
+	public void practice(UnifiedActor actor, Stats.Modifier modifier, int amount)
 	{
 		TurnCache.getInstance().practice(actor, modifier, amount);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void practiseAtEndOfTurn(UnifiedActor actor, String modifier, int amount)
+	public void practiseAtEndOfTurn(UnifiedActor actor, Stats.Modifier modifier, int amount)
 	{
 		if (!(actor instanceof PlayerCharacter))
 		{
@@ -1707,13 +1710,13 @@ public class GameSys
 
 		for (int i = 0; i < result.length; i++)
 		{
-			int playerScore = actor.getModifier(Stats.Modifiers.THIEVING)
-				+ actor.getModifier(Stats.Modifiers.LOCK_AND_TRAP)
+			int playerScore = actor.getModifier(Stats.Modifier.THIEVING)
+				+ actor.getModifier(Stats.Modifier.LOCK_AND_TRAP)
 				+ Dice.d20.roll();
 
 			int trapScore = trapDifficulty[i] + Dice.d20.roll();
 
-			practice(actor, Stats.Modifiers.LOCK_AND_TRAP, 1);
+			practice(actor, Stats.Modifier.LOCK_AND_TRAP, 1);
 
 			if (playerScore >= trapScore)
 			{
@@ -1759,13 +1762,13 @@ public class GameSys
 			return Trap.DisarmResult.SPRING_TRAP;
 		}
 
-		int playerScore = actor.getModifier(Stats.Modifiers.THIEVING)
-			+ actor.getModifier(Stats.Modifiers.LOCK_AND_TRAP)
+		int playerScore = actor.getModifier(Stats.Modifier.THIEVING)
+			+ actor.getModifier(Stats.Modifier.LOCK_AND_TRAP)
 			+ Dice.d20.roll();
 
 		int trapScore = trap.getDifficulty()[tool] + Dice.d20.roll();
 
-		practice(actor, Stats.Modifiers.LOCK_AND_TRAP, 1);
+		practice(actor, Stats.Modifier.LOCK_AND_TRAP, 1);
 
 		if (playerScore >= trapScore)
 		{
@@ -1808,13 +1811,13 @@ public class GameSys
 			}
 		}
 
-		int playerScore = actor.getModifier(Stats.Modifiers.THIEVING)
-			+ actor.getModifier(Stats.Modifiers.LOCK_AND_TRAP)
+		int playerScore = actor.getModifier(Stats.Modifier.THIEVING)
+			+ actor.getModifier(Stats.Modifier.LOCK_AND_TRAP)
 			+ Dice.d20.roll();
 
 		int trapScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll();
 
-		practice(actor, Stats.Modifiers.LOCK_AND_TRAP, 1);
+		practice(actor, Stats.Modifier.LOCK_AND_TRAP, 1);
 
 		if (playerScore >= trapScore)
 		{
@@ -2062,9 +2065,9 @@ public class GameSys
 
 		int actorTotal = 0;
 		actorTotal += actor.getLevel();
-		actorTotal += actor.getModifier(Stats.Modifiers.BRAWN);
-		actorTotal += actor.getModifier(Stats.Modifiers.SKILL);
-		actorTotal += actor.getModifier(Stats.Modifiers.THREATEN);
+		actorTotal += actor.getModifier(Stats.Modifier.BRAWN);
+		actorTotal += actor.getModifier(Stats.Modifier.SKILL);
+		actorTotal += actor.getModifier(Stats.Modifier.THREATEN);
 		actorTotal += Dice.d10.roll();
 
 		return actorTotal-targetTotal;
@@ -2090,7 +2093,7 @@ public class GameSys
 
 		int partyTotal = 0;
 		partyTotal += amount/10;
-		partyTotal += pc.getModifier(Stats.Modifiers.TO_BRIBE);
+		partyTotal += pc.getModifier(Stats.Modifier.TO_BRIBE);
 		partyTotal += Dice.d10.roll();
 
 		return partyTotal-npcTotal;
@@ -2129,8 +2132,8 @@ public class GameSys
 
 		int pcTotal =
 			pc.getLevel() +
-			pc.getModifier(Stats.Modifiers.THIEVING) +
-			pc.getModifier(Stats.Modifiers.STEAL) +
+			pc.getModifier(Stats.Modifier.THIEVING) +
+			pc.getModifier(Stats.Modifier.STEAL) +
 			Dice.d10.roll();
 		Maze.log(Log.DEBUG, "pcTotal = [" + pcTotal + "]");
 
@@ -2138,7 +2141,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "requiredDiff = [" + requiredDifference + "]");
 
 		// practise STEAL
-		practice(pc, Stats.Modifiers.STEAL, 1);
+		practice(pc, Stats.Modifier.STEAL, 1);
 
 		if (pcTotal >= npcTotal+requiredDifference)
 		{
@@ -2152,7 +2155,7 @@ public class GameSys
 		}
 		else
 		{
-			if (pc.getModifier(Stats.Modifiers.MASTER_THIEF) > 0)
+			if (pc.getModifier(Stats.Modifier.MASTER_THIEF) > 0)
 			{
 				// master thief is never detected
 				Maze.log(Log.DEBUG, "result = [FAILED_UNDETECTED - Master Thief]");
@@ -2176,15 +2179,15 @@ public class GameSys
 		Maze.log(Log.DEBUG, "percent = [" + percent + "]");
 
 		int amount = npc.getMaxPurchasePrice() *percent /100
-			+ pc.getModifier(Stats.Modifiers.THIEVING)
-			+ pc.getModifier(Stats.Modifiers.STEAL)
+			+ pc.getModifier(Stats.Modifier.THIEVING)
+			+ pc.getModifier(Stats.Modifier.STEAL)
 			+ Dice.d10.roll();
 
 		Maze.log(Log.DEBUG, "amount = [" + amount + "]");
 
-		if (pc.getModifier(Stats.Modifiers.EXTRA_GOLD) > 0)
+		if (pc.getModifier(Stats.Modifier.EXTRA_GOLD) > 0)
 		{
-			amount += (amount*pc.getModifier(Stats.Modifiers.EXTRA_GOLD)/100);
+			amount += (amount*pc.getModifier(Stats.Modifier.EXTRA_GOLD)/100);
 		}
 
 		amount = Math.min(amount, pc.getLevel()*250);
@@ -2249,7 +2252,7 @@ public class GameSys
 		}
 
 		int forceChance = 50
-			+ pc.getModifier(Stats.Modifiers.BRAWN)
+			+ pc.getModifier(Stats.Modifier.BRAWN)
 			- lockOrTrap.getResistForceOpen();
 
 		forceChance = Math.min(99, forceChance);
@@ -2284,7 +2287,7 @@ public class GameSys
 		{
 			int playerTotal =
 				pc.getLevel() +
-				pc.getModifier(Stats.Modifiers.ARTIFACTS);
+				pc.getModifier(Stats.Modifier.ARTIFACTS);
 
 			if (playerTotal > partyTotal)
 			{
@@ -2293,8 +2296,8 @@ public class GameSys
 			}
 			else if (playerTotal == partyTotal &&
 				assayer != null &&
-				!assayer.isActiveModifier(Stats.Modifiers.ARTIFACTS) &&
-				pc.isActiveModifier(Stats.Modifiers.ARTIFACTS))
+				!assayer.isActiveModifier(Stats.Modifier.ARTIFACTS) &&
+				pc.isActiveModifier(Stats.Modifier.ARTIFACTS))
 			{
 				// give preference to the first character able to practice the skill
 				assayer = pc;
@@ -2305,7 +2308,7 @@ public class GameSys
 		{
 			// only practice on a successful identification, to prevent easy
 			// power training.
-			practice(assayer, Stats.Modifiers.ARTIFACTS, 1);
+			practice(assayer, Stats.Modifier.ARTIFACTS, 1);
 			item.setIdentificationState(Item.IdentificationState.IDENTIFIED);
 		}
 	}
@@ -2318,7 +2321,7 @@ public class GameSys
 	 */
 	public int getStealthValue(Tile currentTile, ActorGroup group)
 	{
-		String mod = currentTile.getStealthModifierRequired();
+		Stats.Modifier mod = currentTile.getStealthModifierRequired();
 
 		// is there a more efficient way to do this?
 
@@ -2448,7 +2451,7 @@ public class GameSys
 						{
 							ff.setIdentificationState(Item.IdentificationState.IDENTIFIED);
 						}
-						practice(bestAtMythology, Stats.Modifiers.MYTHOLOGY, 1);
+						practice(bestAtMythology, Stats.Modifier.MYTHOLOGY, 1);
 					}
 				}
 			}
@@ -2477,8 +2480,8 @@ public class GameSys
 			}
 			else if (pcTotal == temp &&
 				bestAtMythology != null &&
-				!bestAtMythology.isActiveModifier(Stats.Modifiers.MYTHOLOGY) &&
-				pc.isActiveModifier(Stats.Modifiers.MYTHOLOGY))
+				!bestAtMythology.isActiveModifier(Stats.Modifier.MYTHOLOGY) &&
+				pc.isActiveModifier(Stats.Modifier.MYTHOLOGY))
 			{
 				// give preference to the character who can practice the skill
 				bestAtMythology = pc;
@@ -2490,7 +2493,7 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public int getMythologyToIdentify(PlayerCharacter pc, Foe foe)
 	{
-		int pcTotal = pc.getLevel() + pc.getModifier(Stats.Modifiers.MYTHOLOGY);
+		int pcTotal = pc.getLevel() + pc.getModifier(Stats.Modifier.MYTHOLOGY);
 
 		// +2 per level of FAVOURED ENEMY
 		int favouredEnemy = getFavouredEnemyBonus(pc, foe);
@@ -2542,14 +2545,14 @@ public class GameSys
 		{
 			for (UnifiedActor a : group.getActors())
 			{
-				if (a.getModifier(Stats.Modifiers.ENTERTAINER) > entertainer)
+				if (a.getModifier(Stats.Modifier.ENTERTAINER) > entertainer)
 				{
-					entertainer = a.getModifier(Stats.Modifiers.ENTERTAINER);
+					entertainer = a.getModifier(Stats.Modifier.ENTERTAINER);
 				}
 			}
 		}
 
-		int hpRegenModifier = actor.getModifier(Stats.Modifiers.HIT_POINT_REGEN);
+		int hpRegenModifier = actor.getModifier(Stats.Modifier.HIT_POINT_REGEN);
 
 		// at this point, the gamesys just gives a +1 for an entertainer present
 		if (entertainer > 0)
@@ -2581,9 +2584,9 @@ public class GameSys
 		{
 			for (UnifiedActor a : group.getActors())
 			{
-				if (a.getModifier(Stats.Modifiers.ENTERTAINER) > entertainer)
+				if (a.getModifier(Stats.Modifier.ENTERTAINER) > entertainer)
 				{
-					entertainer = a.getModifier(Stats.Modifiers.ENTERTAINER);
+					entertainer = a.getModifier(Stats.Modifier.ENTERTAINER);
 				}
 			}
 		}
@@ -2662,14 +2665,14 @@ public class GameSys
 		{
 			for (UnifiedActor a : group.getActors())
 			{
-				if (a.getModifier(Stats.Modifiers.ENTERTAINER) > entertainer)
+				if (a.getModifier(Stats.Modifier.ENTERTAINER) > entertainer)
 				{
-					entertainer = a.getModifier(Stats.Modifiers.ENTERTAINER);
+					entertainer = a.getModifier(Stats.Modifier.ENTERTAINER);
 				}
 			}
 		}
 
-		int magicRegenModifier = actor.getModifier(Stats.Modifiers.MAGIC_POINT_REGEN);
+		int magicRegenModifier = actor.getModifier(Stats.Modifier.MAGIC_POINT_REGEN);
 
 		// at this point, the gamesys just gives a +1 for an entertainer present
 		if (entertainer > 0)
@@ -2689,7 +2692,7 @@ public class GameSys
 	public int getActionPointsToRegenerateInCombat(UnifiedActor actor,
 		long turnNr)
 	{
-		int stealthRegenRate = actor.getModifier(Stats.Modifiers.ACTION_POINT_REGEN);
+		int stealthRegenRate = actor.getModifier(Stats.Modifier.ACTION_POINT_REGEN);
 		int stealthRegenTurns = 10;
 
 		return getRegenResult(stealthRegenRate, stealthRegenTurns, turnNr);
@@ -2704,7 +2707,7 @@ public class GameSys
 			return 0;
 		}
 		
-		String mod = tile.getStealthModifierRequired();
+		Stats.Modifier mod = tile.getStealthModifierRequired();
 		int deficit = actor.getActionPoints().getMaximum() - actor.getActionPoints().getCurrent();
 
 		int modifier = actor.getModifier(mod);
@@ -2760,16 +2763,16 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public int getFatigueToRegenInCombat(UnifiedActor actor)
 	{
-		int hpRegen = actor.getModifier(Stats.Modifiers.HIT_POINT_REGEN);
-		int stamRegen = actor.getModifier(Stats.Modifiers.STAMINA_REGEN);
+		int hpRegen = actor.getModifier(Stats.Modifier.HIT_POINT_REGEN);
+		int stamRegen = actor.getModifier(Stats.Modifier.STAMINA_REGEN);
 		return Math.max(4, hpRegen) + stamRegen;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public int getFatigueToRegenWhileMoving(UnifiedActor actor, boolean resting)
 	{
-		int hpRegen = actor.getModifier(Stats.Modifiers.HIT_POINT_REGEN);
-		int stamRegen = actor.getModifier(Stats.Modifiers.STAMINA_REGEN);
+		int hpRegen = actor.getModifier(Stats.Modifier.HIT_POINT_REGEN);
+		int stamRegen = actor.getModifier(Stats.Modifier.STAMINA_REGEN);
 
 		int result = Math.max(1, hpRegen) + stamRegen;
 
@@ -2802,7 +2805,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, coward.getName()+" tries to run away");
 
 		int base = (coward instanceof PlayerCharacter) ? 50 : 80;
-		int mod = coward.getModifier(Stats.Modifiers.TO_RUN_AWAY);
+		int mod = coward.getModifier(Stats.Modifier.TO_RUN_AWAY);
 
 		Maze.log(Log.DEBUG, "success chance is "+base+" + "+mod+" - "+nrFoes);
 
@@ -2823,7 +2826,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "Party tries to run away");
 
 		int base = 80;
-		int mod = party.getTotalModifier(Stats.Modifiers.TO_RUN_AWAY);
+		int mod = party.getTotalModifier(Stats.Modifier.TO_RUN_AWAY);
 		int nrFoes = 0;
 		for (ActorGroup ag : actors)
 		{
@@ -2845,7 +2848,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "Party tries to run away");
 
 		int base = 80;
-		int mod = party.getTotalModifier(Stats.Modifiers.TO_RUN_AWAY);
+		int mod = party.getTotalModifier(Stats.Modifier.TO_RUN_AWAY);
 
 		Maze.log(Log.DEBUG, "success chance is "+base+" + "+mod+" - "+nrFoes);
 
@@ -2918,8 +2921,8 @@ public class GameSys
 		// being too powerful
 		int spellEffectLevel = actor.getCurrentClassLevel();
 
-		int martialArts = actor.getModifier(Stats.Modifiers.MARTIAL_ARTS);
-		int brawn = actor.getModifier(Stats.Modifiers.BRAWN);
+		int martialArts = actor.getModifier(Stats.Modifier.MARTIAL_ARTS);
+		int brawn = actor.getModifier(Stats.Modifier.BRAWN);
 		if (martialArts <= 0)
 		{
 			damage = new Dice(1, Math.max(brawn, 1), 0);
@@ -2990,7 +2993,7 @@ public class GameSys
 			spellEffects,
 			bonusAttacks,
 			bonusStrikes,
-			Stats.Modifiers.MARTIAL_ARTS,
+			Stats.Modifier.MARTIAL_ARTS,
 			null,
 			null,
 			0,
@@ -3013,7 +3016,7 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	private void addTouchEffect(
 		UnifiedActor actor,
-		String mod, 
+		Stats.Modifier mod,
 		String spellEffectName,
 		GroupOfPossibilities<SpellEffect> spellEffects)
 	{
@@ -3121,7 +3124,7 @@ public class GameSys
 	public boolean isActorImmuneToSpellEffect(UnifiedActor actor,
 		MagicSys.SpellEffectSubType type)
 	{
-		String modifier;
+		Stats.Modifier modifier;
 
 		modifier = getImmunityModifier(type);
 
@@ -3139,7 +3142,7 @@ public class GameSys
 	 * 	the name of the modifier that defines if the given character is
 	 * 	immune to this type of energy
 	 */
-	String getImmunityModifier(MagicSys.SpellEffectSubType type)
+	Stats.Modifier getImmunityModifier(MagicSys.SpellEffectSubType type)
 	{
 		return MagicSys.SpellEffectSubType.getImmunityModifier(type);
 	}
@@ -3151,7 +3154,7 @@ public class GameSys
 	 */
 	public boolean isActorImmuneToCondition(UnifiedActor actor, Condition c)
 	{
-		String modifier = c.getEffect().getImmunityModifier();
+		Stats.Modifier modifier = c.getEffect().getImmunityModifier();
 
 		return modifier != null && actor.getModifier(modifier) > 0;
 	}
@@ -3164,7 +3167,7 @@ public class GameSys
 	public boolean isTileImmuneToCondition(Tile tile,
 		MagicSys.SpellEffectSubType spellEffect)
 	{
-		String modifier = getImmunityModifier(spellEffect);
+		Stats.Modifier modifier = getImmunityModifier(spellEffect);
 		return tile.getStatModifier().getModifier(modifier) > 0;
 	}
 
@@ -3270,7 +3273,7 @@ public class GameSys
 	public boolean actorBreaksFreeOfWeb(UnifiedActor actor, Condition condition)
 	{
 		int difficulty = condition.getStrength() + condition.getCastingLevel() + Dice.d4.roll();
-		int actorTotal = actor.getModifier(Stats.Modifiers.BRAWN) + Dice.d4.roll();
+		int actorTotal = actor.getModifier(Stats.Modifier.BRAWN) + Dice.d4.roll();
 
 		return actorTotal > difficulty;
 	}
@@ -3278,7 +3281,7 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public boolean actorGoesBeserk(UnifiedActor actor)
 	{
-		int basePercent = actor.getModifier(Stats.Modifiers.BERSERKER);
+		int basePercent = actor.getModifier(Stats.Modifier.BERSERKER);
 
 		if (basePercent <= 0)
 		{
@@ -3317,7 +3320,7 @@ public class GameSys
 	 */ 
 	public boolean actorCheatsDeath(UnifiedActor actor)
 	{
-		if (actor.getModifier(Stats.Modifiers.CHEAT_DEATH) <= 0)
+		if (actor.getModifier(Stats.Modifier.CHEAT_DEATH) <= 0)
 		{
 			return false;
 		}
@@ -3325,8 +3328,8 @@ public class GameSys
 		// base 10% chance, + "by strength of spirit"
 		int chance = 10
 			+ actor.getLevel()
-			+ actor.getModifier(Stats.Modifiers.BRAWN)
-			+ actor.getModifier(Stats.Modifiers.POWER)
+			+ actor.getModifier(Stats.Modifier.BRAWN)
+			+ actor.getModifier(Stats.Modifier.POWER)
 			+ actor.getMagicPoints().getCurrent()
 			+ (actor.getHitPoints().getMaximum()/10);
 		
@@ -3385,7 +3388,7 @@ public class GameSys
 			return false;
 		}
 
-		String modifier = Stats.Modifiers.MELEE_CRITICALS;
+		Stats.Modifier modifier = Stats.Modifier.MELEE_CRITICALS;
 
 		if (attackWith instanceof Item)
 		{
@@ -3394,15 +3397,15 @@ public class GameSys
 			{
 				case Type.SHORT_WEAPON:
 				case Type.EXTENDED_WEAPON:
-					modifier = Stats.Modifiers.MELEE_CRITICALS;
+					modifier = Stats.Modifier.MELEE_CRITICALS;
 					percent += attacker.getModifier(modifier);
 					break;
 				case Type.THROWN_WEAPON:
-					modifier = Stats.Modifiers.THROWN_CRITICALS;
+					modifier = Stats.Modifier.THROWN_CRITICALS;
 					percent += attacker.getModifier(modifier);
 					break;
 				case Type.RANGED_WEAPON:
-					modifier = Stats.Modifiers.RANGED_CRITICALS;
+					modifier = Stats.Modifier.RANGED_CRITICALS;
 					percent += attacker.getModifier(modifier);
 					break;
 				default: // no op
@@ -3439,13 +3442,13 @@ public class GameSys
 			return false;
 		}
 
-		if (attacker.getModifier(Stats.Modifiers.DEADLY_STRIKE) <= 0)
+		if (attacker.getModifier(Stats.Modifier.DEADLY_STRIKE) <= 0)
 		{
 			// no deadly strike possible
 			return false;
 		}
 
-		int percent = attacker.getModifier(Stats.Modifiers.DEADLY_STRIKE);
+		int percent = attacker.getModifier(Stats.Modifier.DEADLY_STRIKE);
 
 		// modify slightly
 		if (attackWith instanceof Item)
@@ -3455,7 +3458,7 @@ public class GameSys
 			{
 				case Type.SHORT_WEAPON:
 				case Type.EXTENDED_WEAPON:
-					percent += (attacker.getModifier(Stats.Modifiers.MELEE_CRITICALS)/2);
+					percent += (attacker.getModifier(Stats.Modifier.MELEE_CRITICALS)/2);
 					break;
 				case Type.THROWN_WEAPON:
 					return false;
@@ -3492,14 +3495,14 @@ public class GameSys
 	 */
 	public boolean isAttackDodged(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
-		if (defender.getModifier(Stats.Modifiers.DODGE) <= 0)
+		if (defender.getModifier(Stats.Modifier.DODGE) <= 0)
 		{
 			return false;
 		}
 
-		int percent = defender.getModifier(Stats.Modifiers.DODGE);
+		int percent = defender.getModifier(Stats.Modifier.DODGE);
 
-		percent -= attacker.getModifier(Stats.Modifiers.VS_DODGE);
+		percent -= attacker.getModifier(Stats.Modifier.VS_DODGE);
 
 		return Dice.d100.roll() <= percent;
 	}
@@ -3511,7 +3514,7 @@ public class GameSys
 	 */
 	public boolean isAttackParried(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
-		if (defender.getModifier(Stats.Modifiers.PARRY) <= 0)
+		if (defender.getModifier(Stats.Modifier.PARRY) <= 0)
 		{
 			return false;
 		}
@@ -3531,7 +3534,7 @@ public class GameSys
 			return false;
 		}
 
-		int percent = defender.getModifier(Stats.Modifiers.PARRY);
+		int percent = defender.getModifier(Stats.Modifier.PARRY);
 
 		return Dice.d100.roll() <= percent;
 	}
@@ -3554,9 +3557,9 @@ public class GameSys
 		if (attackWith.isRanged())
 		{
 			// Arrow cutting property
-			if (defender.getModifier(Stats.Modifiers.ARROW_CUTTING) > 0)
+			if (defender.getModifier(Stats.Modifier.ARROW_CUTTING) > 0)
 			{
-				if (Dice.d100.roll() <= defender.getModifier(Stats.Modifiers.ARROW_CUTTING))
+				if (Dice.d100.roll() <= defender.getModifier(Stats.Modifier.ARROW_CUTTING))
 				{
 					// projectile is deflected
 					return true;
@@ -3578,18 +3581,18 @@ public class GameSys
 	 */ 
 	public StatModifier getSurpriseModifiers(UnifiedActor attacker)
 	{
-		int ambusher = attacker.getModifier(Stats.Modifiers.AMBUSHER);
+		int ambusher = attacker.getModifier(Stats.Modifier.AMBUSHER);
 		if (ambusher > 0)
 		{
 			StatModifier modifier = new StatModifier();
-			modifier.setModifier(Stats.Modifiers.ATTACK, ambusher);
-			modifier.setModifier(Stats.Modifiers.BACKSTAB, ambusher);
-			modifier.setModifier(Stats.Modifiers.SNIPE, ambusher);
-			modifier.setModifier(Stats.Modifiers.DAMAGE, ambusher);
-			modifier.setModifier(Stats.Modifiers.TO_PENETRATE, ambusher);
-			modifier.setModifier(Stats.Modifiers.MELEE_CRITICALS, ambusher);
-			modifier.setModifier(Stats.Modifiers.THROWN_CRITICALS, ambusher);
-			modifier.setModifier(Stats.Modifiers.RANGED_CRITICALS, ambusher);
+			modifier.setModifier(Stats.Modifier.ATTACK, ambusher);
+			modifier.setModifier(Stats.Modifier.BACKSTAB, ambusher);
+			modifier.setModifier(Stats.Modifier.SNIPE, ambusher);
+			modifier.setModifier(Stats.Modifier.DAMAGE, ambusher);
+			modifier.setModifier(Stats.Modifier.TO_PENETRATE, ambusher);
+			modifier.setModifier(Stats.Modifier.MELEE_CRITICALS, ambusher);
+			modifier.setModifier(Stats.Modifier.THROWN_CRITICALS, ambusher);
+			modifier.setModifier(Stats.Modifier.RANGED_CRITICALS, ambusher);
 			return modifier;
 		}
 		
@@ -3602,22 +3605,22 @@ public class GameSys
 	 */
 	public void fatigueFromAttack(AttackEvent event)
 	{
-		String tirelessModifier;
+		Stats.Modifier tirelessModifier;
 
 		AttackWith attackWith = event.getAttackWith();
 		if (attackWith instanceof Item)
 		{
 			switch (((Item)(attackWith)).getSubType())
 			{
-				case ItemTemplate.WeaponSubType.AXE: tirelessModifier = Stats.Modifiers.TIRELESS_AXE; break;
-				case ItemTemplate.WeaponSubType.BOW: tirelessModifier = Stats.Modifiers.TIRELESS_BOW; break;
-				case ItemTemplate.WeaponSubType.DAGGER: tirelessModifier = Stats.Modifiers.TIRELESS_DAGGER; break;
-				case ItemTemplate.WeaponSubType.MACE: tirelessModifier = Stats.Modifiers.TIRELESS_MACE; break;
-				case ItemTemplate.WeaponSubType.MARTIAL_ARTS: tirelessModifier = Stats.Modifiers.TIRELESS_UNARMED; break;
-				case ItemTemplate.WeaponSubType.POLEARM: tirelessModifier = Stats.Modifiers.TIRELESS_SPEAR; break;
-				case ItemTemplate.WeaponSubType.STAFF: tirelessModifier = Stats.Modifiers.TIRELESS_STAFF; break;
-				case ItemTemplate.WeaponSubType.SWORD: tirelessModifier = Stats.Modifiers.TIRELESS_SWORD; break;
-				case ItemTemplate.WeaponSubType.THROWN: tirelessModifier = Stats.Modifiers.TIRELESS_THROWN; break;
+				case ItemTemplate.WeaponSubType.AXE: tirelessModifier = Stats.Modifier.TIRELESS_AXE; break;
+				case ItemTemplate.WeaponSubType.BOW: tirelessModifier = Stats.Modifier.TIRELESS_BOW; break;
+				case ItemTemplate.WeaponSubType.DAGGER: tirelessModifier = Stats.Modifier.TIRELESS_DAGGER; break;
+				case ItemTemplate.WeaponSubType.MACE: tirelessModifier = Stats.Modifier.TIRELESS_MACE; break;
+				case ItemTemplate.WeaponSubType.MARTIAL_ARTS: tirelessModifier = Stats.Modifier.TIRELESS_UNARMED; break;
+				case ItemTemplate.WeaponSubType.POLEARM: tirelessModifier = Stats.Modifier.TIRELESS_SPEAR; break;
+				case ItemTemplate.WeaponSubType.STAFF: tirelessModifier = Stats.Modifier.TIRELESS_STAFF; break;
+				case ItemTemplate.WeaponSubType.SWORD: tirelessModifier = Stats.Modifier.TIRELESS_SWORD; break;
+				case ItemTemplate.WeaponSubType.THROWN: tirelessModifier = Stats.Modifier.TIRELESS_THROWN; break;
 				default: tirelessModifier = null;
 			}
 		}
@@ -3625,7 +3628,7 @@ public class GameSys
 		{
 			// for foe attacks, use the UNARMED tireless modifier.  It's a hack, but
 			// an easy way of providing for the occasional tireless foe.
-			tirelessModifier = Stats.Modifiers.TIRELESS_UNARMED;
+			tirelessModifier = Stats.Modifier.TIRELESS_UNARMED;
 		}
 		
 		// only deduct fatigue if the attacker is not tireless with this weapon type 
@@ -3651,14 +3654,14 @@ public class GameSys
 		//
 		
 		int base = isPrimaryWeapon ? -5 : -10;
-		int modifier = actor.getModifier(Stats.Modifiers.DUAL_WEAPONS);
+		int modifier = actor.getModifier(Stats.Modifier.DUAL_WEAPONS);
 
-		if (actor.isActiveModifier(Stats.Modifiers.DUAL_WEAPONS))
+		if (actor.isActiveModifier(Stats.Modifier.DUAL_WEAPONS))
 		{
-			practice(actor, Stats.Modifiers.DUAL_WEAPONS, 1);
+			practice(actor, Stats.Modifier.DUAL_WEAPONS, 1);
 		}
 
-		action.setModifier(Stats.Modifiers.ATTACK, Math.min(0, base+modifier));
+		action.setModifier(Stats.Modifier.ATTACK, Math.min(0, base+modifier));
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -3703,13 +3706,13 @@ public class GameSys
 	 * @return the number of points required to be spend to increase the
 	 * given modifier by 1 for this player character.
 	 */
-	public int getModifierIncreaseCost(String modifier, PlayerCharacter pc, int modifierValue)
+	public int getModifierIncreaseCost(Stats.Modifier modifier, PlayerCharacter pc, int modifierValue)
 	{
 		StatModifier attributeCeilings = pc.getRace().getAttributeCeilings();
 		int ceiling = attributeCeilings.getModifier(modifier);
 
 		// magic dead races always pay 2 to increase power
-		if (pc.getRace().isMagicDead() && Stats.Modifiers.POWER.equals(modifier))
+		if (pc.getRace().isMagicDead() && Stats.Modifier.POWER.equals(modifier))
 		{
 			return 2;
 		}
@@ -3795,166 +3798,166 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public ModifierValue modifyModifierForSpecialAbility(
 		UnifiedActor actor,
-		String modifier)
+		Stats.Modifier modifier)
 	{
-		if (Stats.Modifiers.HIT_POINT_REGEN.equals(modifier))
+		if (Stats.Modifier.HIT_POINT_REGEN.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.ARCANE_BLOOD) > 0)
+			if (actor.getModifier(Stats.Modifier.ARCANE_BLOOD) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.ARCANE_BLOOD),
-					actor.getModifier(Stats.Modifiers.RED_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.ARCANE_BLOOD),
+					actor.getModifier(Stats.Modifier.RED_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.MAGIC_POINT_REGEN.equals(modifier))
+		else if (Stats.Modifier.MAGIC_POINT_REGEN.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.FEY_AFFINITY) > 0)
+			if (actor.getModifier(Stats.Modifier.FEY_AFFINITY) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.FEY_AFFINITY),
-					actor.getModifier(Stats.Modifiers.GOLD_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.FEY_AFFINITY),
+					actor.getModifier(Stats.Modifier.GOLD_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.BONUS_ATTACKS.equals(modifier))
+		else if (Stats.Modifier.BONUS_ATTACKS.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.KI_FURY) > 0)
+			if (actor.getModifier(Stats.Modifier.KI_FURY) > 0)
 			{
-				int green = actor.getModifier(Stats.Modifiers.GREEN_MAGIC_GEN);
+				int green = actor.getModifier(Stats.Modifier.GREEN_MAGIC_GEN);
 
 				if (green >= 4)
 				{
 					return new ModifierValue(
-						StringUtil.getModifierName(Stats.Modifiers.KI_FURY), 1);
+						StringUtil.getModifierName(Stats.Modifier.KI_FURY), 1);
 				}
 			}
 		}
-		else if (Stats.Modifiers.DEFENCE.equals(modifier))
+		else if (Stats.Modifier.DEFENCE.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.DIVINE_PROTECTION) > 0)
+			if (actor.getModifier(Stats.Modifier.DIVINE_PROTECTION) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.DIVINE_PROTECTION),
-					actor.getModifier(Stats.Modifiers.WHITE_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.DIVINE_PROTECTION),
+					actor.getModifier(Stats.Modifier.WHITE_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.MELEE_CRITICALS.equals(modifier))
+		else if (Stats.Modifier.MELEE_CRITICALS.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.SHADOW_MASTER) > 0)
+			if (actor.getModifier(Stats.Modifier.SHADOW_MASTER) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.SHADOW_MASTER),
-					actor.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.SHADOW_MASTER),
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.THROWN_CRITICALS.equals(modifier))
+		else if (Stats.Modifier.THROWN_CRITICALS.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.SHADOW_MASTER) > 0)
+			if (actor.getModifier(Stats.Modifier.SHADOW_MASTER) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.SHADOW_MASTER),
-					actor.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.SHADOW_MASTER),
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.RANGED_CRITICALS.equals(modifier))
+		else if (Stats.Modifier.RANGED_CRITICALS.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.SHADOW_MASTER) > 0)
+			if (actor.getModifier(Stats.Modifier.SHADOW_MASTER) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.SHADOW_MASTER),
-					actor.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.SHADOW_MASTER),
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.OBFUSCATION.equals(modifier))
+		else if (Stats.Modifier.OBFUSCATION.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.CHARMED_DESTINY) > 0)
+			if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
 			{
 				return new ModifierValue(
-									StringUtil.getModifierName(Stats.Modifiers.CHARMED_DESTINY),
-					Math.max(actor.getModifier(Stats.Modifiers.PURPLE_MAGIC_GEN) - 1, 0));
+									StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
+					Math.max(actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN) - 1, 0));
 			}
 		}
-		else if (Stats.Modifiers.TO_RUN_AWAY.equals(modifier))
+		else if (Stats.Modifier.TO_RUN_AWAY.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.CHARMED_DESTINY) > 0)
+			if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.CHARMED_DESTINY),
-					actor.getModifier(Stats.Modifiers.PURPLE_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
+					actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.RESIST_ENERGY.equals(modifier))
+		else if (Stats.Modifier.RESIST_ENERGY.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.CHARMED_DESTINY) > 0)
+			if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.CHARMED_DESTINY),
-					actor.getModifier(Stats.Modifiers.PURPLE_MAGIC_GEN));
+					StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
+					actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN));
 			}
 		}
-		else if (Stats.Modifiers.INITIATIVE.equals(modifier))
+		else if (Stats.Modifier.INITIATIVE.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.CHANNELLING) > 0)
+			if (actor.getModifier(Stats.Modifier.CHANNELLING) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.CHANNELLING),
-					actor.getModifier(Stats.Modifiers.BLUE_MAGIC_GEN)/2);
+					StringUtil.getModifierName(Stats.Modifier.CHANNELLING),
+					actor.getModifier(Stats.Modifier.BLUE_MAGIC_GEN)/2);
 			}
 		}
-		else if (Stats.Modifiers.POWER_CAST.equals(modifier))
+		else if (Stats.Modifier.POWER_CAST.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.POWER_OF_DARKNESS) > 0)
+			if (actor.getModifier(Stats.Modifier.POWER_OF_DARKNESS) > 0)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.POWER_OF_DARKNESS),
-					actor.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN)*5);
+					StringUtil.getModifierName(Stats.Modifier.POWER_OF_DARKNESS),
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN)*5);
 			}
 		}
-		else if (Stats.Modifiers.PARRY.equals(modifier))
+		else if (Stats.Modifier.PARRY.equals(modifier))
 		{
-			if (actor.getModifier(Stats.Modifiers.SWORD_PARRY) > 0 &&
+			if (actor.getModifier(Stats.Modifier.SWORD_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.SWORD)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.SWORD_PARRY),
-					actor.getModifier(Stats.Modifiers.PARRY) +
-					actor.getModifier(Stats.Modifiers.SWORD_PARRY));
+					StringUtil.getModifierName(Stats.Modifier.SWORD_PARRY),
+					actor.getModifier(Stats.Modifier.PARRY) +
+					actor.getModifier(Stats.Modifier.SWORD_PARRY));
 			}
-			else if (actor.getModifier(Stats.Modifiers.AXE_PARRY) > 0 &&
+			else if (actor.getModifier(Stats.Modifier.AXE_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.AXE)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.AXE_PARRY),
-					actor.getModifier(Stats.Modifiers.PARRY) +
-						actor.getModifier(Stats.Modifiers.AXE_PARRY));
+					StringUtil.getModifierName(Stats.Modifier.AXE_PARRY),
+					actor.getModifier(Stats.Modifier.PARRY) +
+						actor.getModifier(Stats.Modifier.AXE_PARRY));
 			}
-			else if (actor.getModifier(Stats.Modifiers.MACE_PARRY) > 0 &&
+			else if (actor.getModifier(Stats.Modifier.MACE_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.MACE)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.MACE_PARRY),
-					actor.getModifier(Stats.Modifiers.PARRY) +
-						actor.getModifier(Stats.Modifiers.MACE_PARRY));
+					StringUtil.getModifierName(Stats.Modifier.MACE_PARRY),
+					actor.getModifier(Stats.Modifier.PARRY) +
+						actor.getModifier(Stats.Modifier.MACE_PARRY));
 			}
-			else if (actor.getModifier(Stats.Modifiers.POLEARM_PARRY) > 0 &&
+			else if (actor.getModifier(Stats.Modifier.POLEARM_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.POLEARM)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.POLEARM_PARRY),
-					actor.getModifier(Stats.Modifiers.PARRY) +
-						actor.getModifier(Stats.Modifiers.POLEARM_PARRY));
+					StringUtil.getModifierName(Stats.Modifier.POLEARM_PARRY),
+					actor.getModifier(Stats.Modifier.PARRY) +
+						actor.getModifier(Stats.Modifier.POLEARM_PARRY));
 			}
-			else if (actor.getModifier(Stats.Modifiers.STAFF_PARRY) > 0 &&
+			else if (actor.getModifier(Stats.Modifier.STAFF_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.STAFF)
 			{
 				return new ModifierValue(
-					StringUtil.getModifierName(Stats.Modifiers.STAFF_PARRY),
-					actor.getModifier(Stats.Modifiers.PARRY) +
-						actor.getModifier(Stats.Modifiers.STAFF_PARRY));
+					StringUtil.getModifierName(Stats.Modifier.STAFF_PARRY),
+					actor.getModifier(Stats.Modifier.PARRY) +
+						actor.getModifier(Stats.Modifier.STAFF_PARRY));
 			}
 		}
 
@@ -3970,7 +3973,7 @@ public class GameSys
 	 */
 	public int getSuppliesNeededToRest(UnifiedActor actor)
 	{
-		if (actor.getModifier(Stats.Modifiers.LARGE_SIZE) > 0)
+		if (actor.getModifier(Stats.Modifier.LARGE_SIZE) > 0)
 		{
 			return 3;
 		}
@@ -4093,9 +4096,9 @@ public class GameSys
 
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
-			if (isActorAware(pc) && pc.getModifier(Stats.Modifiers.SCOUTING) >= spotDifficulty)
+			if (isActorAware(pc) && pc.getModifier(Stats.Modifier.SCOUTING) >= spotDifficulty)
 			{
-				practice(pc, Stats.Modifiers.SCOUTING, 1);
+				practice(pc, Stats.Modifier.SCOUTING, 1);
 				return pc;
 			}
 		}
@@ -4116,9 +4119,9 @@ public class GameSys
 
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
-			if (isActorAware(pc) && pc.getModifier(Stats.Modifiers.SCOUTING) >= findDifficulty)
+			if (isActorAware(pc) && pc.getModifier(Stats.Modifier.SCOUTING) >= findDifficulty)
 			{
-				practice(pc, Stats.Modifiers.SCOUTING, 1);
+				practice(pc, Stats.Modifier.SCOUTING, 1);
 				return pc;
 			}
 		}
@@ -4134,11 +4137,11 @@ public class GameSys
 	 */
 	public int getSwimmingFatigueCost(UnifiedActor a)
 	{
-		if (a.getModifier(Stats.Modifiers.AMPHIBIOUS) > 0)
+		if (a.getModifier(Stats.Modifier.AMPHIBIOUS) > 0)
 		{
 			return 0;
 		}
-		else if (a.getModifier(Stats.Modifiers.STRONG_SWIMMER) > 0)
+		else if (a.getModifier(Stats.Modifier.STRONG_SWIMMER) > 0)
 		{
 			return 5;
 		}
@@ -4162,15 +4165,15 @@ public class GameSys
 		}
 
 		return
-			pc.getModifier(Stats.Modifiers.SWORD_1H_WIELD) > 0
+			pc.getModifier(Stats.Modifier.SWORD_1H_WIELD) > 0
 				&& item.getWeaponType() == ItemTemplate.WeaponSubType.SWORD ||
-			pc.getModifier(Stats.Modifiers.AXE_1H_WIELD) > 0
+			pc.getModifier(Stats.Modifier.AXE_1H_WIELD) > 0
 				&& item.getWeaponType() == ItemTemplate.WeaponSubType.AXE ||
-			pc.getModifier(Stats.Modifiers.MACE_1H_WIELD) > 0
+			pc.getModifier(Stats.Modifier.MACE_1H_WIELD) > 0
 				&& item.getWeaponType() == ItemTemplate.WeaponSubType.MACE ||
-			pc.getModifier(Stats.Modifiers.POLEARM_1H_WIELD) > 0
+			pc.getModifier(Stats.Modifier.POLEARM_1H_WIELD) > 0
 				&& item.getWeaponType() == ItemTemplate.WeaponSubType.POLEARM ||
-			pc.getModifier(Stats.Modifiers.STAFF_1H_WIELD) > 0
+			pc.getModifier(Stats.Modifier.STAFF_1H_WIELD) > 0
 				&& item.getWeaponType() == ItemTemplate.WeaponSubType.STAFF;
 
 	}
@@ -4207,7 +4210,7 @@ public class GameSys
 			return casterLevel;
 		}
 
-		public int getModifier(String modifier)
+		public int getModifier(Stats.Modifier modifier)
 		{
 			return 0;
 		}

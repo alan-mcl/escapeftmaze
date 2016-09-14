@@ -40,7 +40,7 @@ public class StatModifier
 	 * Key: String(modifier name) <br>
 	 * Value: Integer
 	 */ 
-	private Map<String, Integer> modifiers = new HashMap<String, Integer>();
+	private Map<Stats.Modifier, Integer> modifiers = new HashMap<Stats.Modifier, Integer>();
 
 	/*-------------------------------------------------------------------------*/
 	public StatModifier()
@@ -57,13 +57,13 @@ public class StatModifier
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, Integer> getModifiers()
+	public Map<Stats.Modifier, Integer> getModifiers()
 	{
 		return Collections.unmodifiableMap(modifiers);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getModifier(String modifier)
+	public int getModifier(Stats.Modifier modifier)
 	{
 		Integer result = this.modifiers.get(modifier);
 		if (result == null)
@@ -74,7 +74,7 @@ public class StatModifier
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void setModifier(String modifier, int value)
+	public void setModifier(Stats.Modifier modifier, int value)
 	{
 		this.modifiers.put(modifier, value);		
 	}
@@ -86,13 +86,13 @@ public class StatModifier
 	 */
 	public void setModifiers(StatModifier stats)
 	{
-		this.modifiers = new HashMap<String, Integer>(stats.modifiers);
+		this.modifiers = new HashMap<Stats.Modifier, Integer>(stats.modifiers);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void addModifiers(StatModifier stats)
 	{
-		for (String key : stats.getModifiers().keySet())
+		for (Stats.Modifier key : stats.getModifiers().keySet())
 		{
 			int value = stats.getModifier(key);
 			if (this.modifiers.containsKey(key))
@@ -104,7 +104,7 @@ public class StatModifier
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void incModifier(String modifier, int value)
+	public void incModifier(Stats.Modifier modifier, int value)
 	{
 		setModifier(modifier, getModifier(modifier)+value);
 	}

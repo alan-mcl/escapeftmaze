@@ -308,7 +308,10 @@ public class V1Race
 			}
 
 			String unlockDescription = p.getProperty("unlockDescription");
-			String favouredEnemyModifier = "".equals(p.getProperty("favouredEnemyModifier"))?null:p.getProperty("favouredEnemyModifier");
+			Stats.Modifier favouredEnemyModifier = "".equals(p.getProperty("favouredEnemyModifier"))
+				?
+				null:
+				Stats.Modifier.valueOf(p.getProperty("favouredEnemyModifier"));
 
 			return new Race(
 				name,

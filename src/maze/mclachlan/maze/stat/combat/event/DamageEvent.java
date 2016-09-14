@@ -170,7 +170,7 @@ public class DamageEvent extends MazeEvent
 		}
 		
 		// take damage reflection into account (for melee attacks only)
-		int damageReflection = defender.getModifier(Stats.Modifiers.RAZOR_CLOAK);
+		int damageReflection = defender.getModifier(Stats.Modifier.RAZOR_CLOAK);
 		if (damageReflection > 0 && attackWith != null)
 		{
 			Dice d = new Dice(1, damageReflection, damageReflection/2);
@@ -186,7 +186,7 @@ public class DamageEvent extends MazeEvent
 				null, stats));
 		}
 
-		if (defender.getModifier(Stats.Modifiers.BERSERKER) > 0 &&
+		if (defender.getModifier(Stats.Modifier.BERSERKER) > 0 &&
 			defender.getHitPoints().getCurrent() >= 0)
 		{
 			if (GameSys.getInstance().actorGoesBeserk(defender))

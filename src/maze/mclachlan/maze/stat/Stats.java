@@ -28,7 +28,7 @@ import mclachlan.maze.util.MazeException;
 public class Stats
 {
 	private StatModifier modifiers = new StatModifier();
-	
+
 	// attributes
 	CurMaxSub hitPoints = new CurMaxSub();
 	CurMax actionPoints = new CurMax();
@@ -36,270 +36,270 @@ public class Stats
 
 	// useful stuff
 	/** HP, SP and MP */
-	public static List<String> resourceModifiers = new ArrayList<String>();
+	public static List<Modifier> resourceModifiers = new ArrayList<Modifier>();
 	
 	/** Str, Agl, and so on */
-	public static List<String> attributeModifiers = new ArrayList<String>();
+	public static List<Modifier> attributeModifiers = new ArrayList<Modifier>();
 
 	/** swing, thrust, and so on */
-	public static List<String> martialModifiers = new ArrayList<String>();
+	public static List<Modifier> martialModifiers = new ArrayList<Modifier>();
 
 	/** steal, stealth, and so on */
-	public static List<String> stealthModifiers = new ArrayList<String>();
+	public static List<Modifier> stealthModifiers = new ArrayList<Modifier>();
 
 	/** chant, gesture, and so on */
-	public static List<String> magicModifiers = new ArrayList<String>();
+	public static List<Modifier> magicModifiers = new ArrayList<Modifier>();
 
 	/** The set of modifiers that can be edited by the player */
-	public static List<String> regularModifiers = new ArrayList<String>();
+	public static List<Modifier> regularModifiers = new ArrayList<Modifier>();
 
 	/** The various stats that can't be edited by the player */
-	public static List<String> statistics = new ArrayList<String>();
+	public static List<Modifier> statistics = new ArrayList<Modifier>();
 
 	/** Resistance modifiers */
-	public static List<String> resistances = new ArrayList<String>();
+	public static List<Modifier> resistances = new ArrayList<Modifier>();
 
 	/** properties of a character - boolean flags that can't be edited */
-	public static List<String> propertiesModifiers = new ArrayList<String>();
+	public static List<Modifier> propertiesModifiers = new ArrayList<Modifier>();
 
 	/** all modifiers */
-	public static List<String> allModifiers = new ArrayList<String>();
+	public static List<Modifier> allModifiers = new ArrayList<Modifier>();
 
 	/** all modifiers except attributes and resistances */
-	public static List<String> middleModifiers = new ArrayList<String>();
+	public static List<Modifier> middleModifiers = new ArrayList<Modifier>();
 
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		resourceModifiers.add(Modifiers.HIT_POINTS);
-		resourceModifiers.add(Modifiers.ACTION_POINTS);
-		resourceModifiers.add(Modifiers.MAGIC_POINTS);
+		resourceModifiers.add(Modifier.HIT_POINTS);
+		resourceModifiers.add(Modifier.ACTION_POINTS);
+		resourceModifiers.add(Modifier.MAGIC_POINTS);
 		
-		attributeModifiers.add(Modifiers.BRAWN);
-		attributeModifiers.add(Modifiers.SKILL);
-		attributeModifiers.add(Modifiers.THIEVING);
-		attributeModifiers.add(Modifiers.SNEAKING);
-		attributeModifiers.add(Modifiers.BRAINS);
-		attributeModifiers.add(Modifiers.POWER);
+		attributeModifiers.add(Modifier.BRAWN);
+		attributeModifiers.add(Modifier.SKILL);
+		attributeModifiers.add(Modifier.THIEVING);
+		attributeModifiers.add(Modifier.SNEAKING);
+		attributeModifiers.add(Modifier.BRAINS);
+		attributeModifiers.add(Modifier.POWER);
 
-		martialModifiers.add(Modifiers.SWING);
-		martialModifiers.add(Modifiers.THRUST);
-		martialModifiers.add(Modifiers.CUT);
-		martialModifiers.add(Modifiers.LUNGE);
-		martialModifiers.add(Modifiers.BASH);
-		martialModifiers.add(Modifiers.PUNCH);
-		martialModifiers.add(Modifiers.KICK);
-		martialModifiers.add(Modifiers.SHOOT);
-		martialModifiers.add(Modifiers.THROW);
-		martialModifiers.add(Modifiers.FIRE);
-		martialModifiers.add(Modifiers.DUAL_WEAPONS);
-		martialModifiers.add(Modifiers.CHIVALRY);
-		martialModifiers.add(Modifiers.KENDO);
+		martialModifiers.add(Modifier.SWING);
+		martialModifiers.add(Modifier.THRUST);
+		martialModifiers.add(Modifier.CUT);
+		martialModifiers.add(Modifier.LUNGE);
+		martialModifiers.add(Modifier.BASH);
+		martialModifiers.add(Modifier.PUNCH);
+		martialModifiers.add(Modifier.KICK);
+		martialModifiers.add(Modifier.SHOOT);
+		martialModifiers.add(Modifier.THROW);
+		martialModifiers.add(Modifier.FIRE);
+		martialModifiers.add(Modifier.DUAL_WEAPONS);
+		martialModifiers.add(Modifier.CHIVALRY);
+		martialModifiers.add(Modifier.KENDO);
 
-		stealthModifiers.add(Modifiers.STEAL);
-		stealthModifiers.add(Modifiers.LOCK_AND_TRAP);
-		stealthModifiers.add(Modifiers.DUNGEONEER);
-		stealthModifiers.add(Modifiers.STREETWISE);
-		stealthModifiers.add(Modifiers.WILDERNESS_LORE);
-		stealthModifiers.add(Modifiers.SURVIVAL);
-		stealthModifiers.add(Modifiers.BACKSTAB);
-		stealthModifiers.add(Modifiers.SNIPE);
-		stealthModifiers.add(Modifiers.MARTIAL_ARTS);
-		stealthModifiers.add(Modifiers.MELEE_CRITICALS);
-		stealthModifiers.add(Modifiers.THROWN_CRITICALS);
-		stealthModifiers.add(Modifiers.RANGED_CRITICALS);
-		stealthModifiers.add(Modifiers.SCOUTING);
+		stealthModifiers.add(Modifier.STEAL);
+		stealthModifiers.add(Modifier.LOCK_AND_TRAP);
+		stealthModifiers.add(Modifier.DUNGEONEER);
+		stealthModifiers.add(Modifier.STREETWISE);
+		stealthModifiers.add(Modifier.WILDERNESS_LORE);
+		stealthModifiers.add(Modifier.SURVIVAL);
+		stealthModifiers.add(Modifier.BACKSTAB);
+		stealthModifiers.add(Modifier.SNIPE);
+		stealthModifiers.add(Modifier.MARTIAL_ARTS);
+		stealthModifiers.add(Modifier.MELEE_CRITICALS);
+		stealthModifiers.add(Modifier.THROWN_CRITICALS);
+		stealthModifiers.add(Modifier.RANGED_CRITICALS);
+		stealthModifiers.add(Modifier.SCOUTING);
 
-		magicModifiers.add(Modifiers.CHANT);
-		magicModifiers.add(Modifiers.RHYME);
-		magicModifiers.add(Modifiers.GESTURE);
-		magicModifiers.add(Modifiers.POSTURE);
-		magicModifiers.add(Modifiers.THOUGHT);
-		magicModifiers.add(Modifiers.ALCHEMIC);
-		magicModifiers.add(Modifiers.HERBAL);
-		magicModifiers.add(Modifiers.ARTIFACTS);
-		magicModifiers.add(Modifiers.MYTHOLOGY);
-		magicModifiers.add(Modifiers.CRAFT);
-		magicModifiers.add(Modifiers.POWER_CAST);
-		magicModifiers.add(Modifiers.ENGINEERING);
-		magicModifiers.add(Modifiers.MUSIC);
+		magicModifiers.add(Modifier.CHANT);
+		magicModifiers.add(Modifier.RHYME);
+		magicModifiers.add(Modifier.GESTURE);
+		magicModifiers.add(Modifier.POSTURE);
+		magicModifiers.add(Modifier.THOUGHT);
+		magicModifiers.add(Modifier.ALCHEMIC);
+		magicModifiers.add(Modifier.HERBAL);
+		magicModifiers.add(Modifier.ARTIFACTS);
+		magicModifiers.add(Modifier.MYTHOLOGY);
+		magicModifiers.add(Modifier.CRAFT);
+		magicModifiers.add(Modifier.POWER_CAST);
+		magicModifiers.add(Modifier.ENGINEERING);
+		magicModifiers.add(Modifier.MUSIC);
 
 		regularModifiers.addAll(attributeModifiers);
 		regularModifiers.addAll(martialModifiers);
 		regularModifiers.addAll(stealthModifiers);
 		regularModifiers.addAll(magicModifiers);
 
-		statistics.add(Modifiers.INITIATIVE);
-		statistics.add(Modifiers.ATTACK);
-		statistics.add(Modifiers.DEFENCE);
-		statistics.add(Modifiers.DAMAGE);
-		statistics.add(Modifiers.TO_PENETRATE);
-		statistics.add(Modifiers.VS_PENETRATE);
-		statistics.add(Modifiers.VS_AMBUSH);
-		statistics.add(Modifiers.VS_DODGE);
-		statistics.add(Modifiers.VS_HIDE);
-		statistics.add(Modifiers.TO_BRIBE);
-		statistics.add(Modifiers.TO_RUN_AWAY);
+		statistics.add(Modifier.INITIATIVE);
+		statistics.add(Modifier.ATTACK);
+		statistics.add(Modifier.DEFENCE);
+		statistics.add(Modifier.DAMAGE);
+		statistics.add(Modifier.TO_PENETRATE);
+		statistics.add(Modifier.VS_PENETRATE);
+		statistics.add(Modifier.VS_AMBUSH);
+		statistics.add(Modifier.VS_DODGE);
+		statistics.add(Modifier.VS_HIDE);
+		statistics.add(Modifier.TO_BRIBE);
+		statistics.add(Modifier.TO_RUN_AWAY);
 
-		statistics.add(Modifiers.RED_MAGIC_GEN);
-		statistics.add(Modifiers.BLACK_MAGIC_GEN);
-		statistics.add(Modifiers.PURPLE_MAGIC_GEN);
-		statistics.add(Modifiers.GOLD_MAGIC_GEN);
-		statistics.add(Modifiers.WHITE_MAGIC_GEN);
-		statistics.add(Modifiers.GREEN_MAGIC_GEN);
-		statistics.add(Modifiers.BLUE_MAGIC_GEN);
+		statistics.add(Modifier.RED_MAGIC_GEN);
+		statistics.add(Modifier.BLACK_MAGIC_GEN);
+		statistics.add(Modifier.PURPLE_MAGIC_GEN);
+		statistics.add(Modifier.GOLD_MAGIC_GEN);
+		statistics.add(Modifier.WHITE_MAGIC_GEN);
+		statistics.add(Modifier.GREEN_MAGIC_GEN);
+		statistics.add(Modifier.BLUE_MAGIC_GEN);
 
-		statistics.add(Modifiers.SORCERY_SPELLS);
-		statistics.add(Modifiers.BLACK_MAGIC_SPELLS);
-		statistics.add(Modifiers.WITCHCRAFT_SPELLS);
-		statistics.add(Modifiers.ENCHANTMENT_SPELLS);
-		statistics.add(Modifiers.WHITE_MAGIC_SPELLS);
-		statistics.add(Modifiers.DRUIDISM_SPELLS);
-		statistics.add(Modifiers.ELEMENTAL_SPELLS);
+		statistics.add(Modifier.SORCERY_SPELLS);
+		statistics.add(Modifier.BLACK_MAGIC_SPELLS);
+		statistics.add(Modifier.WITCHCRAFT_SPELLS);
+		statistics.add(Modifier.ENCHANTMENT_SPELLS);
+		statistics.add(Modifier.WHITE_MAGIC_SPELLS);
+		statistics.add(Modifier.DRUIDISM_SPELLS);
+		statistics.add(Modifier.ELEMENTAL_SPELLS);
 
-		statistics.add(Modifiers.HIT_POINT_REGEN);
-		statistics.add(Modifiers.ACTION_POINT_REGEN);
-		statistics.add(Modifiers.MAGIC_POINT_REGEN);
-		statistics.add(Modifiers.STAMINA_REGEN);
+		statistics.add(Modifier.HIT_POINT_REGEN);
+		statistics.add(Modifier.ACTION_POINT_REGEN);
+		statistics.add(Modifier.MAGIC_POINT_REGEN);
+		statistics.add(Modifier.STAMINA_REGEN);
 
-		resistances.add(Modifiers.RESIST_BLUDGEONING);
-		resistances.add(Modifiers.RESIST_PIERCING);
-		resistances.add(Modifiers.RESIST_SLASHING);
-		resistances.add(Modifiers.RESIST_FIRE);
-		resistances.add(Modifiers.RESIST_WATER);
-		resistances.add(Modifiers.RESIST_EARTH);
-		resistances.add(Modifiers.RESIST_AIR);
-		resistances.add(Modifiers.RESIST_MENTAL);
-		resistances.add(Modifiers.RESIST_ENERGY);
+		resistances.add(Modifier.RESIST_BLUDGEONING);
+		resistances.add(Modifier.RESIST_PIERCING);
+		resistances.add(Modifier.RESIST_SLASHING);
+		resistances.add(Modifier.RESIST_FIRE);
+		resistances.add(Modifier.RESIST_WATER);
+		resistances.add(Modifier.RESIST_EARTH);
+		resistances.add(Modifier.RESIST_AIR);
+		resistances.add(Modifier.RESIST_MENTAL);
+		resistances.add(Modifier.RESIST_ENERGY);
 
 		statistics.addAll(resistances);
 
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_DAMAGE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_HEAT);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_COLD);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_LIGHTNING);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_POISON);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_PSYCHIC);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_ACID);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_DAMAGE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_HEAT);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_COLD);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_LIGHTNING);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_POISON);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_PSYCHIC);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_ACID);
 
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_BLIND);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_DISEASE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_FEAR);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_HEX);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_INSANE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_IRRITATE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_KO);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_NAUSEA);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_PARALYSE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_POSSESSION);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_SILENCE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_SLEEP);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_STONE);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_SWALLOW);
-		propertiesModifiers.add(Modifiers.IMMUNE_TO_WEB);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_BLIND);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_DISEASE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_FEAR);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_HEX);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_INSANE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_IRRITATE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_KO);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_NAUSEA);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_PARALYSE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_POSSESSION);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_SILENCE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_SLEEP);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_STONE);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_SWALLOW);
+		propertiesModifiers.add(Modifier.IMMUNE_TO_WEB);
 
-		propertiesModifiers.add(Modifiers.LIGHT_SLEEPER);
-		propertiesModifiers.add(Modifiers.BLIND_FIGHTING);
-		propertiesModifiers.add(Modifiers.EXTRA_GOLD);
-		propertiesModifiers.add(Modifiers.CHEAT_DEATH);
-		propertiesModifiers.add(Modifiers.MAGIC_ABSORPTION);
-		propertiesModifiers.add(Modifiers.ARROW_CUTTING);
-		propertiesModifiers.add(Modifiers.AMBUSHER);
-		propertiesModifiers.add(Modifiers.ENTERTAINER);
-		propertiesModifiers.add(Modifiers.DIPLOMAT);
-		propertiesModifiers.add(Modifiers.BLINK);
-		propertiesModifiers.add(Modifiers.TIRELESS_AXE);
-		propertiesModifiers.add(Modifiers.TIRELESS_BOW);
-		propertiesModifiers.add(Modifiers.TIRELESS_DAGGER);
-		propertiesModifiers.add(Modifiers.TIRELESS_MACE);
-		propertiesModifiers.add(Modifiers.TIRELESS_SPEAR);
-		propertiesModifiers.add(Modifiers.TIRELESS_STAFF);
-		propertiesModifiers.add(Modifiers.TIRELESS_SWORD);
-		propertiesModifiers.add(Modifiers.TIRELESS_THROWN);
-		propertiesModifiers.add(Modifiers.TIRELESS_UNARMED);
-		propertiesModifiers.add(Modifiers.TOUCH_BLIND);
-		propertiesModifiers.add(Modifiers.TOUCH_DISEASE);
-		propertiesModifiers.add(Modifiers.TOUCH_FEAR);
-		propertiesModifiers.add(Modifiers.TOUCH_HEX);
-		propertiesModifiers.add(Modifiers.TOUCH_INSANE);
-		propertiesModifiers.add(Modifiers.TOUCH_IRRITATE);
-		propertiesModifiers.add(Modifiers.TOUCH_NAUSEA);
-		propertiesModifiers.add(Modifiers.TOUCH_PARALYSE);
-		propertiesModifiers.add(Modifiers.TOUCH_SILENCE);
-		propertiesModifiers.add(Modifiers.TOUCH_SLEEP);
-		propertiesModifiers.add(Modifiers.TOUCH_STONE);
-		propertiesModifiers.add(Modifiers.TOUCH_WEB);
-		propertiesModifiers.add(Modifiers.TOUCH_POISON);
-		propertiesModifiers.add(Modifiers.RAZOR_CLOAK);
-		propertiesModifiers.add(Modifiers.CC_PENALTY);
-		propertiesModifiers.add(Modifiers.DAMAGE_MULTIPLIER);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_SWORD);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_AXE);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_SPEAR);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_MACE);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_DAGGER);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_STAFF);
-		propertiesModifiers.add(Modifiers.LIGHTNING_STRIKE_UNARMED);
-		propertiesModifiers.add(Modifiers.BERSERKER);
-		propertiesModifiers.add(Modifiers.BERSERK_POWERS);
-		propertiesModifiers.add(Modifiers.DEADLY_STRIKE);
-		propertiesModifiers.add(Modifiers.DODGE);
-		propertiesModifiers.add(Modifiers.MASTER_ARCHER);
-		propertiesModifiers.add(Modifiers.DIVINE_PROTECTION);
-		propertiesModifiers.add(Modifiers.KI_FURY);
-		propertiesModifiers.add(Modifiers.FEY_AFFINITY);
-		propertiesModifiers.add(Modifiers.ARCANE_BLOOD);
-		propertiesModifiers.add(Modifiers.DISPLACER);
-		propertiesModifiers.add(Modifiers.PARRY);
-		propertiesModifiers.add(Modifiers.MELEE_MASTER);
-		propertiesModifiers.add(Modifiers.DEADLY_AIM);
-		propertiesModifiers.add(Modifiers.MASTER_THIEF);
-		propertiesModifiers.add(Modifiers.OBFUSCATION);
-		propertiesModifiers.add(Modifiers.SHADOW_MASTER);
-		propertiesModifiers.add(Modifiers.CHARMED_DESTINY);
-		propertiesModifiers.add(Modifiers.CHANNELLING);
-		propertiesModifiers.add(Modifiers.SIGNATURE_WEAPON_ENGINEERING);
-		propertiesModifiers.add(Modifiers.AMPHIBIOUS);
-		propertiesModifiers.add(Modifiers.BONUS_ATTACKS);
-		propertiesModifiers.add(Modifiers.BONUS_STRIKES);
-		propertiesModifiers.add(Modifiers.LARGE_SIZE);
-		propertiesModifiers.add(Modifiers.THREATEN);
-		propertiesModifiers.add(Modifiers.DRINKING_FIT);
-		propertiesModifiers.add(Modifiers.IAJUTSU);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_BEAST);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_CONSTRUCT);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_MAZE_CREATURE);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_CRYPTOBESTIA);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_DRAGON);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_ELEMENTAL);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_FEY);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_GIANT);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_HORROR);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_HUMANOID);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_ILLUSION);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_MONSTROSITY);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_OOZE);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_OUTSIDER);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_PLANT);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_UNDEAD);
-		propertiesModifiers.add(Modifiers.FAVOURED_ENEMY_VERMIN);
-		propertiesModifiers.add(Modifiers.POWER_OF_DARKNESS);
-		propertiesModifiers.add(Modifiers.FLIER);
-		propertiesModifiers.add(Modifiers.STRONG_SWIMMER);
-		propertiesModifiers.add(Modifiers.FURIOUS_PURPOSE);
-		propertiesModifiers.add(Modifiers.SWORD_PARRY);
-		propertiesModifiers.add(Modifiers.AXE_PARRY);
-		propertiesModifiers.add(Modifiers.MACE_PARRY);
-		propertiesModifiers.add(Modifiers.POLEARM_PARRY);
-		propertiesModifiers.add(Modifiers.STAFF_PARRY);
-		propertiesModifiers.add(Modifiers.AMAZON_COURAGE);
-		propertiesModifiers.add(Modifiers.AMAZON_WILLPOWER);
-		propertiesModifiers.add(Modifiers.AMAZON_FURY);
-		propertiesModifiers.add(Modifiers.SWORD_1H_WIELD);
-		propertiesModifiers.add(Modifiers.AXE_1H_WIELD);
-		propertiesModifiers.add(Modifiers.MACE_1H_WIELD);
-		propertiesModifiers.add(Modifiers.POLEARM_1H_WIELD);
-		propertiesModifiers.add(Modifiers.STAFF_1H_WIELD);
+		propertiesModifiers.add(Modifier.LIGHT_SLEEPER);
+		propertiesModifiers.add(Modifier.BLIND_FIGHTING);
+		propertiesModifiers.add(Modifier.EXTRA_GOLD);
+		propertiesModifiers.add(Modifier.CHEAT_DEATH);
+		propertiesModifiers.add(Modifier.MAGIC_ABSORPTION);
+		propertiesModifiers.add(Modifier.ARROW_CUTTING);
+		propertiesModifiers.add(Modifier.AMBUSHER);
+		propertiesModifiers.add(Modifier.ENTERTAINER);
+		propertiesModifiers.add(Modifier.DIPLOMAT);
+		propertiesModifiers.add(Modifier.BLINK);
+		propertiesModifiers.add(Modifier.TIRELESS_AXE);
+		propertiesModifiers.add(Modifier.TIRELESS_BOW);
+		propertiesModifiers.add(Modifier.TIRELESS_DAGGER);
+		propertiesModifiers.add(Modifier.TIRELESS_MACE);
+		propertiesModifiers.add(Modifier.TIRELESS_SPEAR);
+		propertiesModifiers.add(Modifier.TIRELESS_STAFF);
+		propertiesModifiers.add(Modifier.TIRELESS_SWORD);
+		propertiesModifiers.add(Modifier.TIRELESS_THROWN);
+		propertiesModifiers.add(Modifier.TIRELESS_UNARMED);
+		propertiesModifiers.add(Modifier.TOUCH_BLIND);
+		propertiesModifiers.add(Modifier.TOUCH_DISEASE);
+		propertiesModifiers.add(Modifier.TOUCH_FEAR);
+		propertiesModifiers.add(Modifier.TOUCH_HEX);
+		propertiesModifiers.add(Modifier.TOUCH_INSANE);
+		propertiesModifiers.add(Modifier.TOUCH_IRRITATE);
+		propertiesModifiers.add(Modifier.TOUCH_NAUSEA);
+		propertiesModifiers.add(Modifier.TOUCH_PARALYSE);
+		propertiesModifiers.add(Modifier.TOUCH_SILENCE);
+		propertiesModifiers.add(Modifier.TOUCH_SLEEP);
+		propertiesModifiers.add(Modifier.TOUCH_STONE);
+		propertiesModifiers.add(Modifier.TOUCH_WEB);
+		propertiesModifiers.add(Modifier.TOUCH_POISON);
+		propertiesModifiers.add(Modifier.RAZOR_CLOAK);
+		propertiesModifiers.add(Modifier.CC_PENALTY);
+		propertiesModifiers.add(Modifier.DAMAGE_MULTIPLIER);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_SWORD);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_AXE);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_SPEAR);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_MACE);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_DAGGER);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_STAFF);
+		propertiesModifiers.add(Modifier.LIGHTNING_STRIKE_UNARMED);
+		propertiesModifiers.add(Modifier.BERSERKER);
+		propertiesModifiers.add(Modifier.BERSERK_POWERS);
+		propertiesModifiers.add(Modifier.DEADLY_STRIKE);
+		propertiesModifiers.add(Modifier.DODGE);
+		propertiesModifiers.add(Modifier.MASTER_ARCHER);
+		propertiesModifiers.add(Modifier.DIVINE_PROTECTION);
+		propertiesModifiers.add(Modifier.KI_FURY);
+		propertiesModifiers.add(Modifier.FEY_AFFINITY);
+		propertiesModifiers.add(Modifier.ARCANE_BLOOD);
+		propertiesModifiers.add(Modifier.DISPLACER);
+		propertiesModifiers.add(Modifier.PARRY);
+		propertiesModifiers.add(Modifier.MELEE_MASTER);
+		propertiesModifiers.add(Modifier.DEADLY_AIM);
+		propertiesModifiers.add(Modifier.MASTER_THIEF);
+		propertiesModifiers.add(Modifier.OBFUSCATION);
+		propertiesModifiers.add(Modifier.SHADOW_MASTER);
+		propertiesModifiers.add(Modifier.CHARMED_DESTINY);
+		propertiesModifiers.add(Modifier.CHANNELLING);
+		propertiesModifiers.add(Modifier.SIGNATURE_WEAPON_ENGINEERING);
+		propertiesModifiers.add(Modifier.AMPHIBIOUS);
+		propertiesModifiers.add(Modifier.BONUS_ATTACKS);
+		propertiesModifiers.add(Modifier.BONUS_STRIKES);
+		propertiesModifiers.add(Modifier.LARGE_SIZE);
+		propertiesModifiers.add(Modifier.THREATEN);
+		propertiesModifiers.add(Modifier.DRINKING_FIT);
+		propertiesModifiers.add(Modifier.IAJUTSU);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_BEAST);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_CONSTRUCT);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_MAZE_CREATURE);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_CRYPTOBESTIA);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_DRAGON);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_ELEMENTAL);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_FEY);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_GIANT);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_HORROR);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_HUMANOID);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_ILLUSION);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_MONSTROSITY);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_OOZE);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_OUTSIDER);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_PLANT);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_UNDEAD);
+		propertiesModifiers.add(Modifier.FAVOURED_ENEMY_VERMIN);
+		propertiesModifiers.add(Modifier.POWER_OF_DARKNESS);
+		propertiesModifiers.add(Modifier.FLIER);
+		propertiesModifiers.add(Modifier.STRONG_SWIMMER);
+		propertiesModifiers.add(Modifier.FURIOUS_PURPOSE);
+		propertiesModifiers.add(Modifier.SWORD_PARRY);
+		propertiesModifiers.add(Modifier.AXE_PARRY);
+		propertiesModifiers.add(Modifier.MACE_PARRY);
+		propertiesModifiers.add(Modifier.POLEARM_PARRY);
+		propertiesModifiers.add(Modifier.STAFF_PARRY);
+		propertiesModifiers.add(Modifier.AMAZON_COURAGE);
+		propertiesModifiers.add(Modifier.AMAZON_WILLPOWER);
+		propertiesModifiers.add(Modifier.AMAZON_FURY);
+		propertiesModifiers.add(Modifier.SWORD_1H_WIELD);
+		propertiesModifiers.add(Modifier.AXE_1H_WIELD);
+		propertiesModifiers.add(Modifier.MACE_1H_WIELD);
+		propertiesModifiers.add(Modifier.POLEARM_1H_WIELD);
+		propertiesModifiers.add(Modifier.STAFF_1H_WIELD);
 
 		allModifiers.addAll(resourceModifiers);
 		allModifiers.addAll(regularModifiers);
@@ -345,9 +345,9 @@ public class Stats
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String descModifier(String modifier, int value)
+	public static String descModifier(Modifier modifier, int value)
 	{
-		ModifierMetric metric = ModifierMetric.getMetric(modifier);
+		ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:
@@ -376,7 +376,7 @@ public class Stats
 
 	/*-------------------------------------------------------------------------*/
 	
-	public int getModifier(String modifier)
+	public int getModifier(Modifier modifier)
 	{
 		Integer result = this.modifiers.getModifier(modifier);
 		if (result == null)
@@ -387,13 +387,13 @@ public class Stats
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void setModifier(String modifier, int value)
+	public void setModifier(Modifier modifier, int value)
 	{
 		this.modifiers.setModifier(modifier, value);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void incModifier(String modifier, int amount)
+	public void incModifier(Modifier modifier, int amount)
 	{
 		Integer current = getModifier(modifier);
 		current += amount;
@@ -442,7 +442,274 @@ public class Stats
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class Modifiers
+	public static enum Modifier
+	{
+		NONE("-"),
+
+		// resources
+		HIT_POINTS("hitPoints"),
+		ACTION_POINTS("actionPoints"),
+		MAGIC_POINTS("magicPoints"),
+
+		// modifiers: attribute
+		BRAWN("brawn"),
+		SKILL("skill"),
+		THIEVING("thieving"),
+		SNEAKING("sneaking"),
+		BRAINS("brains"),
+		POWER("power"),
+
+		// modifiers: martial skills
+		SWING("swing"),
+		THRUST("thrust"),
+		CUT("cut"),
+		LUNGE("lunge"),
+		BASH("bash"),
+		PUNCH("punch"),
+		KICK("kick"),
+		THROW("throw"),
+		SHOOT("shoot"),
+		FIRE("fire"),
+		DUAL_WEAPONS("dualWeapons"),
+		CHIVALRY("chivalry"),
+		KENDO("kendo"),
+
+		// modifiers: stealth
+		STREETWISE("streetwise"),
+		DUNGEONEER("dungeoneer"),
+		WILDERNESS_LORE("wildernessLore"),
+		SURVIVAL("survival"),
+		BACKSTAB("backstab"),
+		SNIPE("snipe"),
+		LOCK_AND_TRAP("lock&trap"),
+		STEAL("steal"),
+		MARTIAL_ARTS("martialArts"),
+		MELEE_CRITICALS("meleeCriticals"),
+		THROWN_CRITICALS("thrownCriticals"),
+		RANGED_CRITICALS("rangedCriticals"),
+		SCOUTING("scouting"),
+
+		// modifiers: magic
+		CHANT("chant"),
+		RHYME("rhyme"),
+		GESTURE("gesture"),
+		POSTURE("posture"),
+		THOUGHT("thought"),
+		HERBAL("herbal"),
+		ALCHEMIC("alchemic"),
+		ARTIFACTS("artifacts"),
+		MYTHOLOGY("mythology"),
+		CRAFT("craft"),
+		POWER_CAST("powerCast"),
+		ENGINEERING("engineering"),
+		MUSIC("music"),
+
+		// stats:
+		INITIATIVE("initiative"),
+		ATTACK("attack"),
+		DEFENCE("defence"),
+		DAMAGE("damage"),
+		TO_PENETRATE("toPenetrate"),
+		VS_PENETRATE("vsPenetrate"),
+		VS_AMBUSH("vsAmbush"),
+		VS_DODGE("vsDodge"),
+		VS_HIDE("vsHide"),
+		TO_BRIBE("toBribe"),
+		TO_RUN_AWAY("toRunAway"),
+
+		// resistances
+		RESIST_BLUDGEONING("resistBludgeoning", ModifierMetric.PERCENTAGE),
+		RESIST_PIERCING("resistPiercing", ModifierMetric.PERCENTAGE),
+		RESIST_SLASHING("resistSlashing", ModifierMetric.PERCENTAGE),
+		RESIST_FIRE("resistFire", ModifierMetric.PERCENTAGE),
+		RESIST_WATER("resistWater", ModifierMetric.PERCENTAGE),
+		RESIST_EARTH("resistEarth", ModifierMetric.PERCENTAGE),
+		RESIST_AIR("resistAir", ModifierMetric.PERCENTAGE),
+		RESIST_MENTAL("resistMental", ModifierMetric.PERCENTAGE),
+		RESIST_ENERGY("resistEnergy", ModifierMetric.PERCENTAGE),
+
+		// modifiers: spell casting
+		SORCERY_SPELLS("sorcerySpells"),
+		BLACK_MAGIC_SPELLS("blackMagicSpells"),
+		WITCHCRAFT_SPELLS("witchcraftSpells"),
+		ENCHANTMENT_SPELLS("enchantmentSpells"),
+		WHITE_MAGIC_SPELLS("whiteMagicSpells"),
+		DRUIDISM_SPELLS("druidismSpells"),
+		ELEMENTAL_SPELLS("elementalSpells"),
+
+		// modifiers: magic generated
+		RED_MAGIC_GEN("redMagicGen"),
+		BLACK_MAGIC_GEN("blackMagicGen"),
+		PURPLE_MAGIC_GEN("purpleMagicGen"),
+		GOLD_MAGIC_GEN("goldMagicGen"),
+		WHITE_MAGIC_GEN("whiteMagicGen"),
+		GREEN_MAGIC_GEN("greenMagicGen"),
+		BLUE_MAGIC_GEN("blueMagicGen"),
+
+		// modifiers: regen
+		HIT_POINT_REGEN("hitPointRegenRate"),
+		ACTION_POINT_REGEN("actionPointRegenRate"),
+		MAGIC_POINT_REGEN("magicPointRegenRate"),
+		STAMINA_REGEN("staminaRegenRate"),
+
+		// properties
+		IMMUNE_TO_DAMAGE("immuneToDamage", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_HEAT("immuneToHeat", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_COLD("immuneToCold", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_POISON("immuneToPoison", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_LIGHTNING("immuneToLightning", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_PSYCHIC("immuneToPsychic", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_ACID("immuneToAcid", ModifierMetric.BOOLEAN),
+
+		IMMUNE_TO_BLIND("immuneToBlind", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_DISEASE("immuneToDisease", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_FEAR("immuneToFear", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_HEX("immuneToHex", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_INSANE("immuneToInsane", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_INVISIBLE("immuneToInvisible", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_IRRITATE("immuneToIrritate", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_KO("immuneToKO", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_NAUSEA("immuneToNausea", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_PARALYSE("immuneToParalyse", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_POSSESSION("immuneToPossession", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_SILENCE("immuneToSilence", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_SLEEP("immuneToSleep", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_STONE("immuneToStone", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_SWALLOW("immuneToSwallow", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_WEB("immuneToWeb", ModifierMetric.BOOLEAN),
+
+		// abilities
+		LIGHT_SLEEPER("lightSleeper", ModifierMetric.BOOLEAN),
+		BLIND_FIGHTING("blindFighting", ModifierMetric.BOOLEAN),
+		EXTRA_GOLD("extraGold", ModifierMetric.PERCENTAGE),
+		CHEAT_DEATH("cheatDeath", ModifierMetric.BOOLEAN),
+		MAGIC_ABSORPTION("magicAbsorption"),
+		ARROW_CUTTING("arrowCutting", ModifierMetric.PERCENTAGE),
+		AMBUSHER("ambusher"),
+		ENTERTAINER("entertainer", ModifierMetric.BOOLEAN),
+		DIPLOMAT("diplomat"),
+		BLINK("blink", ModifierMetric.BOOLEAN),
+		TIRELESS_SWORD("tirelessSword", ModifierMetric.BOOLEAN),
+		TIRELESS_AXE("tirelessAxe", ModifierMetric.BOOLEAN),
+		TIRELESS_SPEAR("tirelessSpear", ModifierMetric.BOOLEAN),
+		TIRELESS_MACE("tirelessMace", ModifierMetric.BOOLEAN),
+		TIRELESS_DAGGER("tirelessDagger", ModifierMetric.BOOLEAN),
+		TIRELESS_STAFF("tirelessStaff", ModifierMetric.BOOLEAN),
+		TIRELESS_BOW("tirelessBow", ModifierMetric.BOOLEAN),
+		TIRELESS_THROWN("tirelessThrown", ModifierMetric.BOOLEAN),
+		TIRELESS_UNARMED("tirelessUnarmed", ModifierMetric.BOOLEAN),
+		TOUCH_BLIND("blindTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_FEAR("fearTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_HEX("hexTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_INSANE("insaneTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_IRRITATE("irritateTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_NAUSEA("nauseaTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_SILENCE("silenceTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_SLEEP("sleepTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_STONE("stoneTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_PARALYSE("paralyseTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_WEB("webTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_DISEASE("diseaseTouch", ModifierMetric.PERCENTAGE),
+		RAZOR_CLOAK("razorCloak"),
+		CC_PENALTY("ccPenalty"),
+		DAMAGE_MULTIPLIER("damageMultiplier", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_SWORD("lightningStrikeSword", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_AXE("lightningStrikeAxe", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_SPEAR("lightningStrikeSpear", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_MACE("lightningStrikeMace", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_DAGGER("lightningStrikeDagger", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_STAFF("lightningStrikeStaff", ModifierMetric.BOOLEAN),
+		LIGHTNING_STRIKE_UNARMED("lightningStrikeUnarmed", ModifierMetric.BOOLEAN),
+		BERSERKER("berserker", ModifierMetric.PERCENTAGE),
+		DEADLY_STRIKE("deadlyStrike", ModifierMetric.PERCENTAGE),
+		DODGE("dodge", ModifierMetric.PERCENTAGE),
+		MASTER_ARCHER("masterArcher", ModifierMetric.BOOLEAN),
+		DIVINE_PROTECTION("divineProtection", ModifierMetric.BOOLEAN),
+		KI_FURY("kiFury", ModifierMetric.BOOLEAN),
+		FEY_AFFINITY("feyAffinity", ModifierMetric.BOOLEAN),
+		ARCANE_BLOOD("arcaneBlood", ModifierMetric.BOOLEAN),
+		DISPLACER("displacer", ModifierMetric.BOOLEAN),
+		PARRY("parry", ModifierMetric.PERCENTAGE),
+		MELEE_MASTER("meleeMaster", ModifierMetric.BOOLEAN),
+		DEADLY_AIM("deadlyAim"),
+		MASTER_THIEF("masterThief", ModifierMetric.BOOLEAN),
+		TOUCH_POISON("poisonTouch", ModifierMetric.PERCENTAGE),
+		OBFUSCATION("obfuscation"),
+		SHADOW_MASTER("shadowMaster", ModifierMetric.BOOLEAN),
+		CHARMED_DESTINY("charmedDestiny", ModifierMetric.BOOLEAN),
+		CHANNELLING("channelling", ModifierMetric.BOOLEAN),
+		SIGNATURE_WEAPON_ENGINEERING("signatureWeaponEngineering"),
+		AMPHIBIOUS("amphibious", ModifierMetric.BOOLEAN),
+		BONUS_ATTACKS("bonusAttacks"),
+		BONUS_STRIKES("bonusStrikes"),
+		LARGE_SIZE("largeSize", ModifierMetric.BOOLEAN),
+		THREATEN("threaten"),
+		DRINKING_FIT("drinkingFit", ModifierMetric.BOOLEAN),
+		IAJUTSU("iajutsu"),
+		FAVOURED_ENEMY_HORROR("favouredEnemyHorror", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_BEAST("favouredEnemyBeast", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_CONSTRUCT("favouredEnemyConstruct", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_ELEMENTAL("favouredEnemyElemental", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_MAZE_CREATURE("favouredEnemyMazeCreature", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_DRAGON("favouredEnemyDragon", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_FEY("favouredEnemyFey", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_GIANT("favouredEnemyGiant", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_HUMANOID("favouredEnemyHumanoid", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_ILLUSION("favouredEnemyIllusion", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_CRYPTOBESTIA("favouredEnemyCryptobestia", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_MONSTROSITY("favouredEnemyMonstrosity", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_OOZE("favouredEnemyOoze", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_OUTSIDER("favouredEnemyOutsider", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_PLANT("favouredEnemyPlant", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_UNDEAD("favouredEnemyUndead", ModifierMetric.BOOLEAN),
+		FAVOURED_ENEMY_VERMIN("favouredEnemyVermin", ModifierMetric.BOOLEAN),
+		POWER_OF_DARKNESS("powerOfDarkness", ModifierMetric.BOOLEAN),
+		FLIER("flier", ModifierMetric.BOOLEAN),
+		STRONG_SWIMMER("strongSwimmer", ModifierMetric.BOOLEAN),
+		FURIOUS_PURPOSE("furiousPurpose", ModifierMetric.BOOLEAN),
+		SWORD_PARRY("swordParry", ModifierMetric.PERCENTAGE),
+		AXE_PARRY("axeParry", ModifierMetric.PERCENTAGE),
+		MACE_PARRY("maceParry", ModifierMetric.PERCENTAGE),
+		POLEARM_PARRY("polearmParry", ModifierMetric.PERCENTAGE),
+		STAFF_PARRY("staffParry", ModifierMetric.PERCENTAGE),
+		AMAZON_COURAGE("amazonCourage", ModifierMetric.BOOLEAN),
+		AMAZON_WILLPOWER("amazonWillpower", ModifierMetric.BOOLEAN),
+		AMAZON_FURY("amazonFury", ModifierMetric.BOOLEAN),
+		SWORD_1H_WIELD("sword1HWield", ModifierMetric.BOOLEAN),
+		AXE_1H_WIELD("axe1HWield", ModifierMetric.BOOLEAN),
+		MACE_1H_WIELD("mace1HWield", ModifierMetric.BOOLEAN),
+		POLEARM_1H_WIELD("polearm1HWield", ModifierMetric.BOOLEAN),
+		STAFF_1H_WIELD("staff1HWield", ModifierMetric.BOOLEAN),
+		BERSERK_POWERS("berserkPowers"),
+		;
+
+		private String resourceBundleKey;
+		private ModifierMetric metric;
+
+		Modifier(String resourceBundleKey)
+		{
+			this(resourceBundleKey, ModifierMetric.PLAIN);
+		}
+
+		Modifier(String resourceBundleKey, ModifierMetric metric)
+		{
+			this.resourceBundleKey = resourceBundleKey;
+			this.metric = metric;
+		}
+
+		public ModifierMetric getMetric()
+		{
+			return metric;
+		}
+
+		public String getResourceBundleKey()
+		{
+			return resourceBundleKey;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+/*	public static class ModifiersX
 	{
 		// resources
 		public static final String HIT_POINTS = "hitPoints";
@@ -679,14 +946,14 @@ public class Stats
 		public static final String POLEARM_1H_WIELD = "polearm1HWield";
 		public static final String STAFF_1H_WIELD = "staff1HWield";
 		public static final String BERSERK_POWERS = "berserkPowers";
-	}
+	}*/
 
 	/*-------------------------------------------------------------------------*/
 	public static enum ModifierMetric
 	{
 		PLAIN, BOOLEAN, PERCENTAGE;
 
-		private static Set<String> percentageModifiers = new HashSet<String>();
+/*		private static Set<String> percentageModifiers = new HashSet<String>();
 		private static Set<String> booleanModifiers = new HashSet<String>();
 
 		static
@@ -831,7 +1098,7 @@ public class Stats
 			{
 				return PLAIN;
 			}
-		}
+		}*/
 	}
 	
 	/*-------------------------------------------------------------------------*/

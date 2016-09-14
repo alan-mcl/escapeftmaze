@@ -22,7 +22,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyOutsider
+favouredEnemyModifier=FAVOURED_ENEMY_OUTSIDER
 @
 name=Horror
 description=Bizarre, alien and terrifying creatures of various shapes,  forms and origins.
@@ -48,7 +48,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyHorror
+favouredEnemyModifier=FAVOURED_ENEMY_HORROR
 @
 name=Cryptobestia
 description=Fantastic and magical beasts and animals, the stuff of legend and mythology.
@@ -74,7 +74,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyCryptobestia
+favouredEnemyModifier=FAVOURED_ENEMY_CRYPTOBESTIA
 @
 name=Humanoid
 description=Warm blooded bipedal skin sacks containing mostly water.
@@ -100,7 +100,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyHumanoid
+favouredEnemyModifier=FAVOURED_ENEMY_HUMANOID
 @
 name=Illusion
 description=Illusions, phantasms, and other ethereal conjurations.
@@ -126,7 +126,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyIllusion
+favouredEnemyModifier=FAVOURED_ENEMY_ILLUSION
 @
 name=Vermin
 description=Insects, arachnids, and other miscellaneous nasties.
@@ -152,7 +152,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyVermin
+favouredEnemyModifier=FAVOURED_ENEMY_VERMIN
 @
 name=Creature of the Maze
 description=Bizarre and dangerous creatures spawned especially by the Maze, as opposed to being native inhabitants or captives of the Realms. They come in all shapes and forms.
@@ -178,7 +178,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyMazeCreature
+favouredEnemyModifier=FAVOURED_ENEMY_MAZE_CREATURE
 @
 name=Beast
 description=Beasts of all kinds that populate the wilds. Includes mammals, reptiles and avians.
@@ -204,7 +204,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyBeast
+favouredEnemyModifier=FAVOURED_ENEMY_BEAST
 @
 name=Dragon
 description=Dragons, drakes, wyrms, and similar foes.
@@ -230,7 +230,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyDragon
+favouredEnemyModifier=FAVOURED_ENEMY_DRAGON
 @
 name=Ooze
 description=Oozes, slimes, and other animated amorphous mucks.
@@ -256,7 +256,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyOoze
+favouredEnemyModifier=FAVOURED_ENEMY_OOZE
 @
 name=Elemental
 description=A magical being composed of the essence of one or more elements.
@@ -282,7 +282,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyElemental
+favouredEnemyModifier=FAVOURED_ENEMY_ELEMENTAL
 @
 name=Plant
 description=Hostile plant life, often mobile.
@@ -308,7 +308,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyPlant
+favouredEnemyModifier=FAVOURED_ENEMY_PLANT
 @
 name=Undead
 description=The living dead.
@@ -334,7 +334,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyUndead
+favouredEnemyModifier=FAVOURED_ENEMY_UNDEAD
 @
 name=Gnoll
 description=Gnolls: todo: make a character race
@@ -386,7 +386,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyConstruct
+favouredEnemyModifier=FAVOURED_ENEMY_CONSTRUCT
 @
 name=Fey
 description=A supernatural being with one foot in the plane of Faerie.
@@ -412,7 +412,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyFey
+favouredEnemyModifier=FAVOURED_ENEMY_FEY
 @
 name=Monstrosity
 description=Bestial, magical, warped, or otherwise monstrous intelligent races, often humanoid.
@@ -438,7 +438,7 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyMonstrosity
+favouredEnemyModifier=FAVOURED_ENEMY_MONSTROSITY
 @
 name=Giant
 description=Outsized humanoids, both magical and non-magical.
@@ -464,5 +464,5 @@ naturalWeapons=
 suggestedNames=
 unlockVariable=
 unlockDescription=
-favouredEnemyModifier=favouredEnemyGiant
+favouredEnemyModifier=FAVOURED_ENEMY_GIANT
 @

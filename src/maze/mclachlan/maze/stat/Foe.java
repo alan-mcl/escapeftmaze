@@ -291,7 +291,7 @@ public class Foe extends UnifiedActor
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public boolean isActiveModifier(String modifier)
+	public boolean isActiveModifier(Stats.Modifier modifier)
 	{
 		return true;
 	}
@@ -447,7 +447,7 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getBaseModifier(String modifier)
+	public int getBaseModifier(Stats.Modifier modifier)
 	{
 		return this.template.getStats().getModifier(modifier);
 	}
@@ -455,7 +455,7 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 
 	@Override
-	public ModifierValue getModifierValue(String modifier, boolean checkCC)
+	public ModifierValue getModifierValue(Stats.Modifier modifier, boolean checkCC)
 	{
 		ModifierValue result = super.getModifierValue(modifier, checkCC);
 
@@ -474,7 +474,7 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void incModifier(String modifier, int amount)
+	public void incModifier(Stats.Modifier modifier, int amount)
 	{
 		this.getStats().incModifier(modifier, amount);
 	}
@@ -914,7 +914,7 @@ public class Foe extends UnifiedActor
 			}
 
 			@Override
-			public String getFavouredEnemyModifier()
+			public Stats.Modifier getFavouredEnemyModifier()
 			{
 				return null;
 			}

@@ -42,7 +42,7 @@ public class DrainEvent extends MazeEvent
 	private UnifiedActor source;
 	private int drain;
 	private MagicSys.SpellEffectType type;
-	private String modifier;
+	private Stats.Modifier modifier;
 
 	/*-------------------------------------------------------------------------*/
 	public DrainEvent(
@@ -50,7 +50,7 @@ public class DrainEvent extends MazeEvent
 		UnifiedActor source,
 		int drain, 
 		MagicSys.SpellEffectType type,
-		String modifier)
+		Stats.Modifier modifier)
 	{
 		super();
 		this.target = target;
@@ -63,17 +63,17 @@ public class DrainEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		if (modifier.equals(Stats.Modifiers.HIT_POINTS))
+		if (modifier.equals(Stats.Modifier.HIT_POINTS))
 		{
 			target.getHitPoints().decCurrent(drain);
 			target.getHitPoints().incMaximum(-drain);
 		}
-		else if (modifier.equals(Stats.Modifiers.ACTION_POINTS))
+		else if (modifier.equals(Stats.Modifier.ACTION_POINTS))
 		{
 			target.getActionPoints().decCurrent(drain);
 			target.getActionPoints().incMaximum(-drain);
 		}
-		else if (modifier.equals(Stats.Modifiers.MAGIC_POINTS))
+		else if (modifier.equals(Stats.Modifier.MAGIC_POINTS))
 		{
 			target.getMagicPoints().decCurrent(drain);
 			target.getMagicPoints().incMaximum(-drain);
@@ -127,7 +127,7 @@ public class DrainEvent extends MazeEvent
 	public String getText()
 	{
 		return "drained "+getDrain()+" "+
-				StringUtil.getModifierName(getModifier())+"!";
+			StringUtil.getModifierName(getModifier())+"!";
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -138,7 +138,7 @@ public class DrainEvent extends MazeEvent
 		return drain;
 	}
 
-	public String getModifier()
+	public Stats.Modifier getModifier()
 	{
 		return modifier;
 	}

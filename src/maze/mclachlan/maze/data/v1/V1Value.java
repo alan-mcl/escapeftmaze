@@ -21,6 +21,7 @@ package mclachlan.maze.data.v1;
 
 import java.util.*;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.DiceValue;
 import mclachlan.maze.stat.magic.ManaPresentValue;
 import mclachlan.maze.stat.magic.ModifierValue;
@@ -221,7 +222,7 @@ public class V1Value
 				break;
 			case MODIFIER_VALUE:
 				String modifier = cols[col++];
-				result = new ModifierValue(modifier);
+				result = new ModifierValue(Stats.Modifier.valueOf(modifier));
 				break;
 			case MANA_PRESENT_VALUE:
 				int colour = Integer.parseInt(cols[col++]);
@@ -256,7 +257,7 @@ public class V1Value
 		x = fromString(s);
 		System.out.println("x = [" + x + "]");
 
-		v.add(new ModifierValue("brawn"));
+		v.add(new ModifierValue(Stats.Modifier.BRAWN));
 		s = toString(v);
 		System.out.println("s = [" + s + "]");
 		x = fromString(s);

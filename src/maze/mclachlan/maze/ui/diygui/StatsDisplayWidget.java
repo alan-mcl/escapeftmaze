@@ -32,9 +32,10 @@ import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.Stats;
 
 import static java.awt.Color.*;
-import static mclachlan.maze.stat.Stats.Modifiers.*;
+import static mclachlan.maze.stat.Stats.Modifier.*;
 import static mclachlan.maze.ui.diygui.Constants.Colour.*;
 
 /**
@@ -45,7 +46,7 @@ public class StatsDisplayWidget extends ContainerWidget
 {
 	private PlayerCharacter character;
 
-	Map<String, DIYLabel> labelMap = new HashMap<String, DIYLabel>();
+	Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
 	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
 	private DIYButton portraitButton = new DIYButton("Change Portrait");
 	private DIYButton nameButton = new DIYButton("Change Name");
@@ -213,7 +214,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		buttons3.add(new DIYLabel());
 		bottomLeft.add(buttons3);
 
-		String[] modifiers =
+		Stats.Modifier[] modifiers =
 			{
 				HIT_POINT_REGEN,
 				ACTION_POINT_REGEN,
@@ -232,7 +233,7 @@ public class StatsDisplayWidget extends ContainerWidget
 				TO_RUN_AWAY,
 			};
 
-		for (String s : modifiers)
+		for (Stats.Modifier s : modifiers)
 		{
 			this.addModifierToScreen(bottomRight, s);
 		}
@@ -244,7 +245,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void addResistance(DIYPane parent, String modifier, FilledBarWidget bar)
+	private void addResistance(DIYPane parent, Stats.Modifier modifier, FilledBarWidget bar)
 	{
 		DIYPane temp = new DIYPane(new DIYGridLayout(2,1,0,0));
 		temp.add(getLabel(StringUtil.getModifierName(modifier)));
@@ -259,7 +260,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addModifierToScreen(ContainerWidget pane, String modifier)
+	public void addModifierToScreen(ContainerWidget pane, Stats.Modifier modifier)
 	{
 		String modName = StringUtil.getModifierName(modifier);
 		DIYPane temp = new DIYPane(new DIYGridLayout(2,1,0,0));
@@ -272,10 +273,10 @@ public class StatsDisplayWidget extends ContainerWidget
 	/**
 	 * Adds a static text desc label.
 	 */ 
-	private void addDescLabel(ContainerWidget parent, String name, DIYLabel label)
+	private void addDescLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
 	{
 		parent.add(label);
-		label.setActionMessage(name);
+		label.setActionMessage(name.toString());
 		label.addActionListener(this.listener);
 		label.setActionPayload(this.character);
 	}
@@ -284,10 +285,10 @@ public class StatsDisplayWidget extends ContainerWidget
 	/**
 	 * Adds a volatile stats label.
 	 */ 
-	private void addStatLabel(ContainerWidget parent, String name, DIYLabel label)
+	private void addStatLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
 	{
 		parent.add(label);
-		label.setActionMessage(name);
+		label.setActionMessage(name.toString());
 		label.addActionListener(this.listener);
 		label.setActionPayload(this.character);
 		this.labelMap.put(name, label);
@@ -312,7 +313,7 @@ public class StatsDisplayWidget extends ContainerWidget
 			return;
 		}
 
-		for (String modifier : this.labelMap.keySet())
+		for (Stats.Modifier modifier : this.labelMap.keySet())
 		{
 			DIYLabel label = this.labelMap.get(modifier);
 			if (label != null)
@@ -361,7 +362,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String toString(String mod, DIYLabel label)
+	private String toString(Stats.Modifier mod, DIYLabel label)
 	{
 		int modifier = character.getModifier(mod);
 		int intrinsicModifier = character.getIntrinsicModifier(mod);

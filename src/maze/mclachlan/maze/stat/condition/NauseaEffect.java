@@ -35,10 +35,10 @@ public class NauseaEffect extends ConditionEffect
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		nausea.setModifier(Stats.Modifiers.ATTACK, -5);
-		nausea.setModifier(Stats.Modifiers.DEFENCE, -5);
-		nausea.setModifier(Stats.Modifiers.INITIATIVE, -2);
-		nausea.setModifier(Stats.Modifiers.BONUS_STRIKES, -1);
+		nausea.setModifier(Stats.Modifier.ATTACK, -5);
+		nausea.setModifier(Stats.Modifier.DEFENCE, -5);
+		nausea.setModifier(Stats.Modifier.INITIATIVE, -2);
+		nausea.setModifier(Stats.Modifier.BONUS_STRIKES, -1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -72,16 +72,16 @@ public class NauseaEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return nausea.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_NAUSEA;
+		return Stats.Modifier.IMMUNE_TO_NAUSEA;
 	}
 
 	/*-------------------------------------------------------------------------*/

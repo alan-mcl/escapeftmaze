@@ -730,7 +730,7 @@ public class Maze implements Runnable
 			pc.addCondition(sleep.create(
 				pc, pc, 1, MagicSys.SpellEffectType.NONE, MagicSys.SpellEffectSubType.NONE));
 
-			int sneak = pc.getModifier(Stats.Modifiers.SNEAKING);
+			int sneak = pc.getModifier(Stats.Modifier.SNEAKING);
 			CurMax s = pc.getActionPoints();
 			if (sneak == 0 || s.getMaximum() <= sneak)
 			{
@@ -1715,7 +1715,7 @@ public class Maze implements Runnable
 				{
 					if (c instanceof RestingSleep)
 					{
-						if (pc.getModifier(Stats.Modifiers.LIGHT_SLEEPER) > 0 ||
+						if (pc.getModifier(Stats.Modifier.LIGHT_SLEEPER) > 0 ||
 							Dice.d100.roll() <= 30)
 						{
 							pc.removeCondition(c);
@@ -2092,6 +2092,11 @@ public class Maze implements Runnable
 	public ActorEncounter getCurrentActorEncounter()
 	{
 		return currentActorEncounter;
+	}
+
+	public void setCurrentActorEncounter(ActorEncounter currentActorEncounter)
+	{
+		this.currentActorEncounter = currentActorEncounter;
 	}
 
 	/*-------------------------------------------------------------------------*/

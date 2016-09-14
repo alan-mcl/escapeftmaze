@@ -42,24 +42,24 @@ public class Berserk extends Condition
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		baseModifiers.setModifier(Stats.Modifiers.BRAWN, +3);
-		baseModifiers.setModifier(Stats.Modifiers.SKILL, -2);
-		baseModifiers.setModifier(Stats.Modifiers.BRAINS, -5);
-		baseModifiers.setModifier(Stats.Modifiers.SNEAKING, -10);
-		baseModifiers.setModifier(Stats.Modifiers.BONUS_ATTACKS, 1);
-		baseModifiers.setModifier(Stats.Modifiers.DAMAGE, +1);
-		baseModifiers.setModifier(Stats.Modifiers.DEFENCE, -4);
-		baseModifiers.setModifier(Stats.Modifiers.INITIATIVE, +2);
-		baseModifiers.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, +15);
-		baseModifiers.setModifier(Stats.Modifiers.RESIST_SLASHING, +15);
-		baseModifiers.setModifier(Stats.Modifiers.RESIST_PIERCING, +15);
-		baseModifiers.setModifier(Stats.Modifiers.RESIST_MENTAL, +10);
-		baseModifiers.setModifier(Stats.Modifiers.STAMINA_REGEN, +20);
-		baseModifiers.setModifier(Stats.Modifiers.ACTION_POINT_REGEN, -20);
-		baseModifiers.setModifier(Stats.Modifiers.IMMUNE_TO_FEAR, 1);
-		baseModifiers.setModifier(Stats.Modifiers.IMMUNE_TO_IRRITATE, 1);
-		baseModifiers.setModifier(Stats.Modifiers.DAMAGE_MULTIPLIER, 1);
-		baseModifiers.setModifier(Stats.Modifiers.LIGHTNING_STRIKE_UNARMED, 1);
+		baseModifiers.setModifier(Stats.Modifier.BRAWN, +3);
+		baseModifiers.setModifier(Stats.Modifier.SKILL, -2);
+		baseModifiers.setModifier(Stats.Modifier.BRAINS, -5);
+		baseModifiers.setModifier(Stats.Modifier.SNEAKING, -10);
+		baseModifiers.setModifier(Stats.Modifier.BONUS_ATTACKS, 1);
+		baseModifiers.setModifier(Stats.Modifier.DAMAGE, +1);
+		baseModifiers.setModifier(Stats.Modifier.DEFENCE, -4);
+		baseModifiers.setModifier(Stats.Modifier.INITIATIVE, +2);
+		baseModifiers.setModifier(Stats.Modifier.RESIST_BLUDGEONING, +15);
+		baseModifiers.setModifier(Stats.Modifier.RESIST_SLASHING, +15);
+		baseModifiers.setModifier(Stats.Modifier.RESIST_PIERCING, +15);
+		baseModifiers.setModifier(Stats.Modifier.RESIST_MENTAL, +10);
+		baseModifiers.setModifier(Stats.Modifier.STAMINA_REGEN, +20);
+		baseModifiers.setModifier(Stats.Modifier.ACTION_POINT_REGEN, -20);
+		baseModifiers.setModifier(Stats.Modifier.IMMUNE_TO_FEAR, 1);
+		baseModifiers.setModifier(Stats.Modifier.IMMUNE_TO_IRRITATE, 1);
+		baseModifiers.setModifier(Stats.Modifier.DAMAGE_MULTIPLIER, 1);
+		baseModifiers.setModifier(Stats.Modifier.LIGHTNING_STRIKE_UNARMED, 1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -97,39 +97,39 @@ public class Berserk extends Condition
 	}
 
 	@Override
-	public int getModifier(String modifier, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, ConditionBearer bearer)
 	{
 		UnifiedActor actor = (UnifiedActor)bearer;
 		int result = baseModifiers.getModifier(modifier);
 
 		// Blunting of Blades
-		if (Stats.Modifiers.VS_PENETRATE.equals(modifier) &&
-			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 2)
+		if (Stats.Modifier.VS_PENETRATE.equals(modifier) &&
+			actor.getModifier(Stats.Modifier.BERSERK_POWERS) >= 2)
 		{
 			result += 25;
 		}
 
 		// Staying of Shafts
-		if (Stats.Modifiers.ARROW_CUTTING.equals(modifier) &&
-			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 3)
+		if (Stats.Modifier.ARROW_CUTTING.equals(modifier) &&
+			actor.getModifier(Stats.Modifier.BERSERK_POWERS) >= 3)
 		{
 			result += 25;
 		}
 
 		// Bewildering of Witches
-		if ((Stats.Modifiers.RESIST_EARTH.equals(modifier) ||
-			Stats.Modifiers.RESIST_WATER.equals(modifier) ||
-			Stats.Modifiers.RESIST_ENERGY.equals(modifier) ||
-			Stats.Modifiers.RESIST_MENTAL.equals(modifier))
+		if ((Stats.Modifier.RESIST_EARTH.equals(modifier) ||
+			Stats.Modifier.RESIST_WATER.equals(modifier) ||
+			Stats.Modifier.RESIST_ENERGY.equals(modifier) ||
+			Stats.Modifier.RESIST_MENTAL.equals(modifier))
 			&&
-			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 4)
+			actor.getModifier(Stats.Modifier.BERSERK_POWERS) >= 4)
 		{
 			result += 25;
 		}
 
 		// Quenching of Flames
-		if (Stats.Modifiers.IMMUNE_TO_HEAT.equals(modifier) &&
-			actor.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 5)
+		if (Stats.Modifier.IMMUNE_TO_HEAT.equals(modifier) &&
+			actor.getModifier(Stats.Modifier.BERSERK_POWERS) >= 5)
 		{
 			result += 1;
 		}
@@ -138,7 +138,7 @@ public class Berserk extends Condition
 	}
 
 	@Override
-	public Map<String, Integer> getModifiers()
+	public Map<Stats.Modifier, Integer> getModifiers()
 	{
 		return baseModifiers.getModifiers();
 	}

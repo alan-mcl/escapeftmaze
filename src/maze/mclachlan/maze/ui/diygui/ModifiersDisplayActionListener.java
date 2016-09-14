@@ -38,12 +38,12 @@ public class ModifiersDisplayActionListener implements ActionListener
 	public void actionPerformed(ActionEvent event)
 	{
 		popupModifierDetailsDialog(
-			event.getMessage(),
+			Stats.Modifier.valueOf(event.getMessage()),
 			(PlayerCharacter)event.getPayload());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void popupModifierDetailsDialog(String modifier, PlayerCharacter pc)
+	private void popupModifierDetailsDialog(Stats.Modifier modifier, PlayerCharacter pc)
 	{
 		if (modifier == null)
 		{

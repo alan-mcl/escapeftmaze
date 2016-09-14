@@ -218,7 +218,7 @@ public class ItemTemplate
 	GroupOfPossibilities<SpellEffect> spellEffects;
 	int bonusAttacks;
 	int bonusStrikes;
-	String discipline;
+	Stats.Modifier discipline;
 	TypeDescriptor slaysFoeType;
 
 	//--- ammo only
@@ -307,7 +307,7 @@ public class ItemTemplate
 		GroupOfPossibilities<SpellEffect> spellEffects,
 		int bonusAttacks,
 		int bonusStrikes,
-		String discipline,
+		Stats.Modifier discipline,
 		TypeDescriptor slaysFoeType,
 		AmmoType ammoType,
 		int damagePrevention,
@@ -490,7 +490,7 @@ public class ItemTemplate
 		return description;
 	}
 
-	public String getDiscipline()
+	public Stats.Modifier getDiscipline()
 	{
 		return discipline;
 	}
@@ -752,7 +752,7 @@ public class ItemTemplate
 		this.description = description;
 	}
 
-	public void setDiscipline(String discipline)
+	public void setDiscipline(Stats.Modifier discipline)
 	{
 		this.discipline = discipline;
 	}

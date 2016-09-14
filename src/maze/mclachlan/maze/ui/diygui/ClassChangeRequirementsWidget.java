@@ -132,16 +132,16 @@ public class ClassChangeRequirementsWidget extends DIYPane
 	private void addRow(String label, StatModifier sm, DIYPane pane)
 	{
 		pane.add(getLabel(label));
-		pane.add(getModifierLabel(Stats.Modifiers.BRAWN, sm));
-		pane.add(getModifierLabel(Stats.Modifiers.SKILL, sm));
-		pane.add(getModifierLabel(Stats.Modifiers.THIEVING, sm));
-		pane.add(getModifierLabel(Stats.Modifiers.SNEAKING, sm));
-		pane.add(getModifierLabel(Stats.Modifiers.BRAINS, sm));
-		pane.add(getModifierLabel(Stats.Modifiers.POWER, sm));
+		pane.add(getModifierLabel(Stats.Modifier.BRAWN, sm));
+		pane.add(getModifierLabel(Stats.Modifier.SKILL, sm));
+		pane.add(getModifierLabel(Stats.Modifier.THIEVING, sm));
+		pane.add(getModifierLabel(Stats.Modifier.SNEAKING, sm));
+		pane.add(getModifierLabel(Stats.Modifier.BRAINS, sm));
+		pane.add(getModifierLabel(Stats.Modifier.POWER, sm));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private DIYLabel getModifierLabel(String modifier, StatModifier req)
+	private DIYLabel getModifierLabel(Stats.Modifier modifier, StatModifier req)
 	{
 		int value = req.getModifier(modifier);
 
@@ -159,11 +159,11 @@ public class ClassChangeRequirementsWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(String modifier, int value)
+	private String descModifier(Stats.Modifier modifier, int value)
 	{
 		String modifierName = StringUtil.getModifierName(modifier);
 
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:
@@ -195,6 +195,12 @@ public class ClassChangeRequirementsWidget extends DIYPane
 		{
 			return "" + value;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private DIYLabel getLabel(Stats.Modifier text)
+	{
+		return new DIYLabel(text.getResourceBundleKey(), DIYToolkit.Align.LEFT);
 	}
 
 	/*-------------------------------------------------------------------------*/

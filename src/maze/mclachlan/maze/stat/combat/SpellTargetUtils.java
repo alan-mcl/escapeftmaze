@@ -664,7 +664,7 @@ public class SpellTargetUtils
 		}
 
 		// kick in the Magic Absorption ability
-		if (victim.getModifier(Stats.Modifiers.MAGIC_ABSORPTION) > 0)
+		if (victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION) > 0)
 		{
 			result.add(new MagicAbsorptionEvent(victim));
 		}

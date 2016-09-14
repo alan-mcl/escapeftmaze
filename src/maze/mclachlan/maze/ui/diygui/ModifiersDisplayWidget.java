@@ -42,8 +42,8 @@ public class ModifiersDisplayWidget extends ContainerWidget
 {
 	private PlayerCharacter character;
 
-	private Map<String, DIYLabel> labelMap = new HashMap<String, DIYLabel>();
-	private Map<String, DIYLabel> valueLabelMap = new HashMap<String, DIYLabel>();
+	private Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
+	private Map<Stats.Modifier, DIYLabel> valueLabelMap = new HashMap<Stats.Modifier, DIYLabel>();
 	private DIYLabel header = getLabel("");
 	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
 	private DIYLabel attributeHeader = getLabel("Attribute Modifiers", Constants.Colour.ATTRIBUTES_CYAN);
@@ -60,24 +60,24 @@ public class ModifiersDisplayWidget extends ContainerWidget
 		{ header,								null,										null},
 		{ nameLabel,							null,										null},
 		{ null,									attributeHeader,						null},
-		{ Stats.Modifiers.BRAWN,			Stats.Modifiers.THIEVING,			Stats.Modifiers.BRAINS},
-		{ Stats.Modifiers.SKILL,			Stats.Modifiers.SNEAKING,			Stats.Modifiers.POWER},
+		{ Stats.Modifier.BRAWN,			Stats.Modifier.THIEVING,			Stats.Modifier.BRAINS},
+		{ Stats.Modifier.SKILL,			Stats.Modifier.SNEAKING,			Stats.Modifier.POWER},
 		{ null,									null,										null},
 		{ combatHeader,						stealthHeader,							magicHeader},
-		{ Stats.Modifiers.SWING,			Stats.Modifiers.STREETWISE,		Stats.Modifiers.CHANT},
-		{ Stats.Modifiers.THRUST,			Stats.Modifiers.DUNGEONEER,		Stats.Modifiers.RHYME},
-		{ Stats.Modifiers.BASH,				Stats.Modifiers.WILDERNESS_LORE,	Stats.Modifiers.GESTURE},
-		{ Stats.Modifiers.CUT,				Stats.Modifiers.SURVIVAL,			Stats.Modifiers.POSTURE},
-		{ Stats.Modifiers.LUNGE,			Stats.Modifiers.BACKSTAB,			Stats.Modifiers.THOUGHT},
-		{ Stats.Modifiers.PUNCH,			Stats.Modifiers.SNIPE,				Stats.Modifiers.HERBAL},
-		{ Stats.Modifiers.KICK,				Stats.Modifiers.LOCK_AND_TRAP,	Stats.Modifiers.ALCHEMIC},
-		{ Stats.Modifiers.SHOOT,			Stats.Modifiers.STEAL,				null},
-		{ Stats.Modifiers.THROW,			null,										Stats.Modifiers.ARTIFACTS},
-		{ null,									Stats.Modifiers.SCOUTING,			Stats.Modifiers.MYTHOLOGY},
-		{ Stats.Modifiers.FIRE,				Stats.Modifiers.MARTIAL_ARTS,		Stats.Modifiers.CRAFT},
-		{ Stats.Modifiers.DUAL_WEAPONS,	Stats.Modifiers.MELEE_CRITICALS,	Stats.Modifiers.POWER_CAST},
-		{ Stats.Modifiers.CHIVALRY,		Stats.Modifiers.THROWN_CRITICALS,Stats.Modifiers.ENGINEERING},
-		{ Stats.Modifiers.KENDO,			Stats.Modifiers.RANGED_CRITICALS,Stats.Modifiers.MUSIC},
+		{ Stats.Modifier.SWING,			Stats.Modifier.STREETWISE,		Stats.Modifier.CHANT},
+		{ Stats.Modifier.THRUST,			Stats.Modifier.DUNGEONEER,		Stats.Modifier.RHYME},
+		{ Stats.Modifier.BASH,				Stats.Modifier.WILDERNESS_LORE,	Stats.Modifier.GESTURE},
+		{ Stats.Modifier.CUT,				Stats.Modifier.SURVIVAL,			Stats.Modifier.POSTURE},
+		{ Stats.Modifier.LUNGE,			Stats.Modifier.BACKSTAB,			Stats.Modifier.THOUGHT},
+		{ Stats.Modifier.PUNCH,			Stats.Modifier.SNIPE,				Stats.Modifier.HERBAL},
+		{ Stats.Modifier.KICK,				Stats.Modifier.LOCK_AND_TRAP,	Stats.Modifier.ALCHEMIC},
+		{ Stats.Modifier.SHOOT,			Stats.Modifier.STEAL,				null},
+		{ Stats.Modifier.THROW,			null,										Stats.Modifier.ARTIFACTS},
+		{ null,									Stats.Modifier.SCOUTING,			Stats.Modifier.MYTHOLOGY},
+		{ Stats.Modifier.FIRE,				Stats.Modifier.MARTIAL_ARTS,		Stats.Modifier.CRAFT},
+		{ Stats.Modifier.DUAL_WEAPONS,	Stats.Modifier.MELEE_CRITICALS,	Stats.Modifier.POWER_CAST},
+		{ Stats.Modifier.CHIVALRY,		Stats.Modifier.THROWN_CRITICALS, Stats.Modifier.ENGINEERING},
+		{ Stats.Modifier.KENDO,			Stats.Modifier.RANGED_CRITICALS, Stats.Modifier.MUSIC},
 	};
 
 	/*-------------------------------------------------------------------------*/
@@ -128,9 +128,9 @@ public class ModifiersDisplayWidget extends ContainerWidget
 					this.addDescLabel(pane, null, (DIYLabel)cell);
 					pane.add(getBlank());
 				}
-				else if (cell instanceof String)
+				else if (cell instanceof Stats.Modifier)
 				{
-					String modifier = (String)cell;
+					Stats.Modifier modifier = (Stats.Modifier)cell;
 					String modName = StringUtil.getModifierName(modifier);
 					this.addDescLabel(pane, modifier, getLabel(modName));
 					this.addStatLabel(pane, modifier, getModifierLabel());
@@ -147,23 +147,23 @@ public class ModifiersDisplayWidget extends ContainerWidget
 	/**
 	 * Adds a static text desc label.
 	 */ 
-	private void addDescLabel(ContainerWidget parent, String name, DIYLabel label)
+	private void addDescLabel(ContainerWidget parent, Stats.Modifier modifier, DIYLabel label)
 	{
 		parent.add(label);
-		label.setActionMessage(name);
+		label.setActionMessage(modifier == null? null : modifier.getResourceBundleKey());
 		label.addActionListener(this.listener);
 		label.setActionPayload(this.character);
-		this.labelMap.put(name, label);
+		this.labelMap.put(modifier, label);
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Adds a volatile stats label.
 	 */ 
-	private void addStatLabel(ContainerWidget parent, String name, DIYLabel label)
+	private void addStatLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
 	{
 		parent.add(label);
-		label.setActionMessage(name);
+		label.setActionMessage(name.getResourceBundleKey());
 		label.addActionListener(this.listener);
 		label.setActionPayload(this.character);
 		this.valueLabelMap.put(name, label);
@@ -189,7 +189,7 @@ public class ModifiersDisplayWidget extends ContainerWidget
 			return;
 		}
 
-		for (String modifier : this.valueLabelMap.keySet())
+		for (Stats.Modifier modifier : this.valueLabelMap.keySet())
 		{
 			DIYLabel label = this.valueLabelMap.get(modifier);
 			if (label != null)
@@ -227,7 +227,7 @@ public class ModifiersDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String toString(String mod, DIYLabel label)
+	private String toString(Stats.Modifier mod, DIYLabel label)
 	{
 		int modifier = character.getModifier(mod);
 		int intrinsicModifier = character.getIntrinsicModifier(mod);

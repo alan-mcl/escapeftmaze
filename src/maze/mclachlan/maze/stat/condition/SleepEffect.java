@@ -66,9 +66,9 @@ public class SleepEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_SLEEP;
+		return Stats.Modifier.IMMUNE_TO_SLEEP;
 	}
 
 	/*-------------------------------------------------------------------------*/

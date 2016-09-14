@@ -42,7 +42,7 @@ public class FoeType extends Race implements TypeDescriptor
 		List<NaturalWeapon> naturalWeapons,
 		Map<String, List<String>> suggestedNames,
 		String unlockVariable, String unlockDescription,
-		String favouredEnemyModifer)
+		Stats.Modifier favouredEnemyModifer)
 	{
 		super(name, description, startingHitPointPercent,
 			startingActionPointPercent, startingMagicPointPercent, startingModifiers,

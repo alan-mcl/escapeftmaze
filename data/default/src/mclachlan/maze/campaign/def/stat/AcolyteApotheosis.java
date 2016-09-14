@@ -38,10 +38,10 @@ public class AcolyteApotheosis extends LevelAbility
 	public AcolyteApotheosis()
 	{
 		statModifier = new StatModifier();
-		statModifier.setModifier(Stats.Modifiers.RESIST_FIRE, 50);
-		statModifier.setModifier(Stats.Modifiers.IMMUNE_TO_POISON, 1);
-		statModifier.setModifier(Stats.Modifiers.THREATEN, 5);
-		statModifier.setModifier(Stats.Modifiers.FLIER, 1);
+		statModifier.setModifier(Stats.Modifier.RESIST_FIRE, 50);
+		statModifier.setModifier(Stats.Modifier.IMMUNE_TO_POISON, 1);
+		statModifier.setModifier(Stats.Modifier.THREATEN, 5);
+		statModifier.setModifier(Stats.Modifier.FLIER, 1);
 
 		Spell spell = Database.getInstance().getSpell("Demon Ally");
 		Value castingLevel = new Value(1, Value.SCALE.SCALE_WITH_CLASS_LEVEL);

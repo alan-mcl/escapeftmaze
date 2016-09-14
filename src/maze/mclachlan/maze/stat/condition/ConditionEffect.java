@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.Personality;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
@@ -166,7 +167,7 @@ public class ConditionEffect
 	 * @return
 	 * 	Any stat modifier that applies to characters afflicted by this condition.
 	 */
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return 0;
 	}
@@ -174,10 +175,10 @@ public class ConditionEffect
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
-	 * 	The modifier (from {@link mclachlan.maze.stat.Stats.Modifiers}) that defines
+	 * 	The modifier (from {@link mclachlan.maze.stat.Stats.Modifier}) that defines
 	 * 	immunity to this condition, or null if there is none.
 	 */
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
 		return null;
 	}

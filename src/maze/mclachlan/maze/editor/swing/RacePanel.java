@@ -180,10 +180,10 @@ public class RacePanel extends EditorPanel
 		result.add(new JScrollPane(unlockDescription), gbc);
 		dodgyGridBagShite(result, new JLabel("Unlock Desc:"), unlockDescription, gbc);
 
-		Vector<String> vec = new Vector<String>();
+		Vector<Stats.Modifier> vec = new Vector<Stats.Modifier>();
 		vec.addAll(Stats.allModifiers);
 		Collections.sort(vec);
-		vec.add(0, NONE);
+		vec.add(0, Stats.Modifier.NONE);
 		favouredEnemyModifier = new JComboBox(vec);
 		favouredEnemyModifier.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Favoured Enemy Modifier:"), favouredEnemyModifier, gbc);
@@ -256,7 +256,7 @@ public class RacePanel extends EditorPanel
 		unlockDescription.setCaretPosition(0);
 		allowedGenders.refreshGenders(race.getAllowedGenders(), race.getSuggestedNames());
 		startingItems.refresh(race.getStartingItems());
-		String fem = race.getFavouredEnemyModifier();
+		Stats.Modifier fem = race.getFavouredEnemyModifier();
 		favouredEnemyModifier.setSelectedItem(fem == null ? NONE : fem);
 
 		bodyParts.refresh(
@@ -378,8 +378,8 @@ public class RacePanel extends EditorPanel
 		r.setAllowedGenders(allowedGenders.getAllowedGendersList());
 		r.setSuggestedNames(allowedGenders.getSuggestedNamesMap());
 		r.setStartingItems(startingItems.getStartingItems());
-		String fem = (String)favouredEnemyModifier.getSelectedItem();
-		r.setFavouredEnemyModifier(NONE.equals(fem) ? null : fem);
+		Stats.Modifier fem = (Stats.Modifier)favouredEnemyModifier.getSelectedItem();
+		r.setFavouredEnemyModifier(Stats.Modifier.NONE.equals(fem) ? null : fem);
 
 		r.setHead(bodyParts.getHead());
 		r.setTorso(bodyParts.getTorso());

@@ -184,7 +184,7 @@ public class SpellPanel extends EditorPanel
 			usabilityTypes.add(MagicSys.SpellUsabilityType.describe(i));
 		}
 
-		Vector<String> modifiers = new Vector<String>(Stats.allModifiers);
+		Vector<Stats.Modifier> modifiers = new Vector<Stats.Modifier>(Stats.allModifiers);
 		Collections.sort(modifiers);
 
 		GridBagConstraints gbc = new GridBagConstraints();
@@ -380,8 +380,8 @@ public class SpellPanel extends EditorPanel
 			new StatModifier(),
 			null,
 			null,
-			Stats.Modifiers.ALCHEMIC,
-			Stats.Modifiers.ALCHEMIC,
+			Stats.Modifier.ALCHEMIC,
+			Stats.Modifier.ALCHEMIC,
 			null,
 			null);
 		Database.getInstance().getSpells().put(name, spell);
@@ -443,8 +443,8 @@ public class SpellPanel extends EditorPanel
 		s.setSchool((String)school.getSelectedItem());
 		s.setTargetType(targetType.getSelectedIndex());
 		s.setUsabilityType(usabilityType.getSelectedIndex());
-		s.setPrimaryModifier((String)primaryModifier.getSelectedItem());
-		s.setSecondaryModifier((String)secondaryModifier.getSelectedItem());
+		s.setPrimaryModifier((Stats.Modifier)primaryModifier.getSelectedItem());
+		s.setSecondaryModifier((Stats.Modifier)secondaryModifier.getSelectedItem());
 		s.setRequirementsToLearn(requirementsToLearn.getModifier());
 		String cbps = (String)castByPlayerScript.getSelectedItem();
 		s.setCastByPlayerScript(cbps.equals(NONE)?null:Database.getInstance().getScript(cbps));

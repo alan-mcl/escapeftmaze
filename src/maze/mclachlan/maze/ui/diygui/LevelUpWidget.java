@@ -30,6 +30,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Leveler;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.util.MazeException;
 
@@ -145,11 +146,11 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		availableBonuses.add(Leveler.BONUS_HIT_POINTS);
 		availableBonuses.add(Leveler.BONUS_ACTION_POINTS);
 		availableBonuses.add(Leveler.BONUS_MAGIC_POINTS);
-		List<String> raisableAttributes = pc.getRaisableAttributes();
+		List<Stats.Modifier> raisableAttributes = pc.getRaisableAttributes();
 		if (raisableAttributes.size() > 0)
 		{
 			List<ModifierListItem> items = new ArrayList<ModifierListItem>();
-			for (String s : raisableAttributes)
+			for (Stats.Modifier s : raisableAttributes)
 			{
 				items.add(new ModifierListItem(s));
 			}
@@ -160,11 +161,11 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		}
 		availableBonuses.add(Leveler.BONUS_MODIFIERS);
 		availableBonuses.add(Leveler.BONUS_SPELL_PICK);
-		List<String> unlockableModifiers = pc.getUnlockableModifiers();
+		List<Stats.Modifier> unlockableModifiers = pc.getUnlockableModifiers();
 		if (unlockableModifiers.size() > 0)
 		{
 			List<ModifierListItem> items = new ArrayList<ModifierListItem>();
-			for (String s : unlockableModifiers)
+			for (Stats.Modifier s : unlockableModifiers)
 			{
 				items.add(new ModifierListItem(s));
 			}
@@ -604,10 +605,10 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	static class ModifierListItem
 	{
-		String modifier;
+		Stats.Modifier modifier;
 		String displayName;
 
-		public ModifierListItem(String modifier)
+		public ModifierListItem(Stats.Modifier modifier)
 		{
 			this.modifier = modifier;
 			this.displayName = StringUtil.getModifierName(modifier);

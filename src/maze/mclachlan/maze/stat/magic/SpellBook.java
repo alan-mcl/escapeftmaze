@@ -130,7 +130,7 @@ public class SpellBook
 			{
 				Spell spell = Database.getInstance().getSpell(s);
 
-				String modifier = book.getCastingAbilityModifier();
+				Stats.Modifier modifier = book.getCastingAbilityModifier();
 				int maxSpellLevel = pc.getModifier(modifier);
 
 				if (spell.getLevel() <= maxSpellLevel

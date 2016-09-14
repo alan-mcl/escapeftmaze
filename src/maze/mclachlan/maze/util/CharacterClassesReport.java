@@ -92,7 +92,7 @@ public class CharacterClassesReport
 	{
 		StringBuilder sb = new StringBuilder(label);
 
-		for (String s : modifiers.getModifiers().keySet())
+		for (Stats.Modifier s : modifiers.getModifiers().keySet())
 		{
 			sb.append(StringUtil.getModifierName(s)).
 				append(" ").

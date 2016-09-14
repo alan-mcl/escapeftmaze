@@ -31,7 +31,7 @@ public class DefendIntention extends ActorActionIntention
 	public DefendIntention()
 	{
 		StatModifier statModifier = new StatModifier();
-		statModifier.setModifier(Stats.Modifiers.DEFENCE, 2);
+		statModifier.setModifier(Stats.Modifier.DEFENCE, 2);
 		this.setStatModifier(statModifier);
 	}
 }

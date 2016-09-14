@@ -59,9 +59,9 @@ public abstract class AbstractActor extends UnifiedActor
 	public List<Condition> getConditions() { return new ArrayList<Condition>(); }
 	public int getLevel() { return 0; }
 	public List<TypeDescriptor> getTypes() { return new ArrayList<TypeDescriptor>(); }
-	public int getModifier(String modifier) { return 0; }
-	public int getModifier(String modifier, boolean checkCarryingCapacity) {return 0;}
-	public int getBaseModifier(String modifier) { return 0; };
+	public int getModifier(Stats.Modifier modifier) { return 0; }
+	public int getModifier(Stats.Modifier modifier, boolean checkCarryingCapacity) {return 0;}
+	public int getBaseModifier(Stats.Modifier modifier) { return 0; };
 	public String getName() { return "Abstract Actor"; }
 	public String getDisplayName() { return getName(); }
 
@@ -72,7 +72,7 @@ public abstract class AbstractActor extends UnifiedActor
 	public CurMaxSub getHitPoints() { return new CurMaxSub(); }
 	public CurMax getMagicPoints() { return new CurMax(); }
 	public void removeCondition(Condition c) {}
-	public void setModifier(String modifier, int value) {}
+	public void setModifier(Stats.Modifier modifier, int value) {}
 	public void removeItem(Item item, boolean removeWholeStack) {}
 
 	public void removeItem(String itemName, boolean removeWholeStack) {}
@@ -82,7 +82,7 @@ public abstract class AbstractActor extends UnifiedActor
 	public void addAllies(List<FoeGroup> foeGroups) {}
 
 	public boolean meetsRequirements(StatModifier req) { return false; }
-	public boolean isActiveModifier(String modifier) {return true;}
+	public boolean isActiveModifier(Stats.Modifier modifier) {return true;}
 
 	@Override
 	public List<AttackWith> getAttackWithOptions() { return new ArrayList<AttackWith>(); }

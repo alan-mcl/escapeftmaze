@@ -85,10 +85,10 @@ public class LevelAbilityActionListener implements ActionListener
 		StringBuilder text)
 	{
 		text.append("\n\n").append(StringUtil.getUiLabel(modLabel)).append(" ");
-		List<String> sortedModifiers = new ArrayList<String>(modifiers.getModifiers().keySet());
+		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.getModifiers().keySet());
 		Collections.sort(sortedModifiers);
 
-		for (String modifier : sortedModifiers)
+		for (Stats.Modifier modifier : sortedModifiers)
 		{
 			text.append(StringUtil.getModifierName(modifier));
 			text.append(" ");

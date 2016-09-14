@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -26,10 +27,10 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class ModifierValue extends Value
 {
-	private String modifier;
+	private Stats.Modifier modifier;
 
 	/*-------------------------------------------------------------------------*/
-	public ModifierValue(String modifier)
+	public ModifierValue(Stats.Modifier modifier)
 	{
 		this.modifier = modifier;
 	}
@@ -59,11 +60,11 @@ public class ModifierValue extends Value
 	/*-------------------------------------------------------------------------*/
 	public String toString()
 	{
-		return modifier;
+		return modifier.toString();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getModifier()
+	public Stats.Modifier getModifier()
 	{
 		return modifier;
 	}

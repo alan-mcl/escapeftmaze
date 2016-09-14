@@ -319,7 +319,7 @@ public class Combat
 		// chance of berserking every round
 		for (UnifiedActor actor : this.actors)
 		{
-			if (actor.getModifier(Stats.Modifiers.BERSERKER) > 0)
+			if (actor.getModifier(Stats.Modifier.BERSERKER) > 0)
 			{
 				if (GameSys.getInstance().actorGoesBeserk(actor))
 				{
@@ -795,7 +795,7 @@ public class Combat
 			}
 
 			// insert blink actions as required
-			if (actor.getModifier(Stats.Modifiers.BLINK) > 0 && actor.getHitPoints().getCurrent() > 0)
+			if (actor.getModifier(Stats.Modifier.BLINK) > 0 && actor.getHitPoints().getCurrent() > 0)
 			{
 				int blinkInitiative =  blinkDice.roll();
 				
@@ -815,7 +815,7 @@ public class Combat
 				if (!action.isInitiativeSet())
 				{
 					action.setInitiative(
-						action.getModifier(Stats.Modifiers.INITIATIVE) + 
+						action.getModifier(Stats.Modifier.INITIATIVE) +
 						actor.getCombatantData().getIntiative());
 				}
 			}

@@ -26,7 +26,6 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.StatModifier;
-import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 
 /**
@@ -56,21 +55,21 @@ public class UpdateConditionTemplates
 
 			//todo: banner modifiers
 
-			if (mods != null)
-			{
-				int damRes = mods.getModifier("reserved14");
-				if (damRes > 0)
-				{
-					System.out.println(ct.getName()+": "+damRes);
-
-					mods.setModifier("reserved14", 0);
-					mods.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, damRes);
-					mods.setModifier(Stats.Modifiers.RESIST_PIERCING, damRes);
-					mods.setModifier(Stats.Modifiers.RESIST_SLASHING, damRes);
-
-					ct.setStatModifier(mods);
-				}
-			}
+//			if (mods != null)
+//			{
+//				int damRes = mods.getModifier("reserved14");
+//				if (damRes > 0)
+//				{
+//					System.out.println(ct.getName()+": "+damRes);
+//
+//					mods.setModifier("reserved14", 0);
+//					mods.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, damRes);
+//					mods.setModifier(Stats.Modifiers.RESIST_PIERCING, damRes);
+//					mods.setModifier(Stats.Modifiers.RESIST_SLASHING, damRes);
+//
+//					ct.setStatModifier(mods);
+//				}
+//			}
 		}
 		
 		saver.saveConditionTemplates(list);

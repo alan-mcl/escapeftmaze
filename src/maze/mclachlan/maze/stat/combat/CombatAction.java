@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat;
 
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -102,12 +103,12 @@ public class CombatAction //extends StatModifier
 		this.modifiers = modifiers;
 	}
 
-	public void setModifier(String mod, int value)
+	public void setModifier(Stats.Modifier mod, int value)
 	{
 		modifiers.setModifier(mod, value);
 	}
 
-	public int getModifier(String mod)
+	public int getModifier(Stats.Modifier mod)
 	{
 		return modifiers.getModifier(mod);
 	}

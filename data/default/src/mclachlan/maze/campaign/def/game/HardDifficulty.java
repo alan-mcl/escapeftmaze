@@ -40,19 +40,19 @@ public class HardDifficulty extends DifficultyLevel
 		incMaximum(foe.getMagicPoints(), value);
 
 		// +1 attack and defence
-		foe.incModifier(Stats.Modifiers.ATTACK, value);
-		foe.incModifier(Stats.Modifiers.DEFENCE, value);
+		foe.incModifier(Stats.Modifier.ATTACK, value);
+		foe.incModifier(Stats.Modifier.DEFENCE, value);
 
 		// +5 on all resistances
-		foe.incModifier(Stats.Modifiers.RESIST_ENERGY, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_BLUDGEONING, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_PIERCING, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_SLASHING, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_FIRE, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_WATER, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_AIR, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_EARTH, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_MENTAL, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_ENERGY, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_BLUDGEONING, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_PIERCING, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_SLASHING, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_FIRE, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_WATER, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_AIR, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_EARTH, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_MENTAL, value*5);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -65,8 +65,8 @@ public class KOEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_KO;
+		return Stats.Modifier.IMMUNE_TO_KO;
 	}
 }

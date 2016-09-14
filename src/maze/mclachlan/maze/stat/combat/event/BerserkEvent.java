@@ -59,7 +59,7 @@ public class BerserkEvent extends MazeEvent
 		List<MazeEvent> result = target.addCondition(new Berserk());
 
 		// Breaking of Bonds
-		if (target.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 1)
+		if (target.getModifier(Stats.Modifier.BERSERK_POWERS) >= 1)
 		{
 			for (Condition c : target.getConditions())
 			{
@@ -72,7 +72,7 @@ public class BerserkEvent extends MazeEvent
 		}
 
 		// Bewildering of Witches
-		if (target.getModifier(Stats.Modifiers.BERSERK_POWERS) >= 4)
+		if (target.getModifier(Stats.Modifier.BERSERK_POWERS) >= 4)
 		{
 			// todo: get an Eye for and Eye condition
 		}

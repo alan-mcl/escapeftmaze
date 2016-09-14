@@ -1,4 +1,4 @@
-#Tue Jan 26 08:20:33 CAT 2016
+#Wed Sep 14 15:29:12 CAT 2016
 maze\ master=9|I don't know him.
 garret=9|He he he, I know little of religion.
 faerie=9|The ways of the fey are mysterious.
@@ -33,21 +33,21 @@ thank\ you,thanks=9|Hee hee hee, ok.
 wasid=9|I know little of religion.
 ichiba=9|I have been to the City In The Crater many times. A busy place, much to do, dangerous but lucrative.
 red\ ear=9|I don't know him.
-maze=9|The maze is endless, I say. He he he. Have a beer and forget about it.
 glaucus=9|I have heard that he in Ichiba.
+maze=9|The maze is endless, I say. He he he. Have a beer and forget about it.
 rumors,rumour,rumours=9|Of course\! Just yesterday, a passing wizard told me there is a pot of gold at the end of the rainbow\! Hee hee hee hee\!
 escape,freedom=9|From what? He hee heh.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|One man's thief is another's hero.
 leonal,leonals,white\ order=9|The tall leonals, he he he. They keep trying to tell us what to do. Would that they would just stay in the big castle far north.
 gnoll,gnolls=9|The dog people. They are savage, but better company than the haughty lions. He he heh hrmpf.
-dalen=9|I know but little. The eternal forest may be no more than a legend.
 stentor=9|I don't know him.
+dalen=9|I know but little. The eternal forest may be no more than a legend.
 gnome,gnomes=9|Yes, us gnomes have inhabited this Realm as far back as one can remember.
-imogen=9|I don't know her.
 pickett,we\ pickett=9|I don't know him.
-dana=9|The proud goddess of the leonals has little time for common folk.
-mnesus=9|The great King Of All Gnomes. Mnesus the Mighty. He he he. I'd rather have my job than his\! Hee hee hee, my worst problem is getting the drunkest gnolls out of here at closing time\! He he heh.
+imogen=9|I don't know her.
 second\ realm=9|Heh heh, for better or worse, our home. Better than the Third Realm, I hear.
+mnesus=9|The great King Of All Gnomes. Mnesus the Mighty. He he he. I'd rather have my job than his\! Hee hee hee, my worst problem is getting the drunkest gnolls out of here at closing time\! He he heh.
+dana=9|The proud goddess of the leonals has little time for common folk.
 sarpedon=9|He is below, in the city.
 greetings,hello,hi,salutations=9|Hello\! He he he.
 kay,sir\ kay=9|I don't know him.

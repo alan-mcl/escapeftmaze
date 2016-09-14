@@ -93,8 +93,8 @@ public class ResourcesDisplayWidget extends DIYPane
 			values[i].setActionMessage(null);
 		}
 
-		labels[0].setText(StringUtil.getModifierName(Stats.Modifiers.HIT_POINTS));
-		labels[0].setActionMessage(Stats.Modifiers.HIT_POINTS);
+		labels[0].setText(StringUtil.getModifierName(Stats.Modifier.HIT_POINTS));
+		labels[0].setActionMessage(Stats.Modifier.HIT_POINTS.toString());
 		if (unknown)
 		{
 			values[0].setText("?");
@@ -103,10 +103,10 @@ public class ResourcesDisplayWidget extends DIYPane
 		{
 			values[0].setText(descValue(hitPoints));
 		}
-		values[0].setActionMessage(Stats.Modifiers.HIT_POINTS);
+		values[0].setActionMessage(Stats.Modifier.HIT_POINTS.toString());
 
-		labels[1].setText(StringUtil.getModifierName(Stats.Modifiers.ACTION_POINTS));
-		labels[1].setActionMessage(Stats.Modifiers.ACTION_POINTS);
+		labels[1].setText(StringUtil.getModifierName(Stats.Modifier.ACTION_POINTS));
+		labels[1].setActionMessage(Stats.Modifier.ACTION_POINTS.toString());
 		if (unknown)
 		{
 			values[1].setText("?");
@@ -115,10 +115,10 @@ public class ResourcesDisplayWidget extends DIYPane
 		{
 			values[1].setText(descValue(actionPoints));
 		}
-		values[1].setActionMessage(Stats.Modifiers.ACTION_POINTS);
+		values[1].setActionMessage(Stats.Modifier.ACTION_POINTS.toString());
 
-		labels[2].setText(StringUtil.getModifierName(Stats.Modifiers.MAGIC_POINTS));
-		labels[2].setActionMessage(Stats.Modifiers.MAGIC_POINTS);
+		labels[2].setText(StringUtil.getModifierName(Stats.Modifier.MAGIC_POINTS));
+		labels[2].setActionMessage(Stats.Modifier.MAGIC_POINTS.toString());
 		if (unknown)
 		{
 			values[2].setText("?");
@@ -127,7 +127,7 @@ public class ResourcesDisplayWidget extends DIYPane
 		{
 			values[2].setText(descValue(magicPoints));
 		}
-		values[2].setActionMessage(Stats.Modifiers.MAGIC_POINTS);
+		values[2].setActionMessage(Stats.Modifier.MAGIC_POINTS.toString());
 	}
 
 	/*-------------------------------------------------------------------------*/

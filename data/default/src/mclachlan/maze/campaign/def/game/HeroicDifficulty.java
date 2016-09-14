@@ -42,35 +42,35 @@ public class HeroicDifficulty extends DifficultyLevel
 		incMaximum(foe.getMagicPoints(), value);
 
 		// + various mods
-		foe.incModifier(Stats.Modifiers.ATTACK, value);
-		foe.incModifier(Stats.Modifiers.DEFENCE, value);
-		foe.incModifier(Stats.Modifiers.INITIATIVE, value);
-		foe.incModifier(Stats.Modifiers.TO_PENETRATE, value);
-		foe.incModifier(Stats.Modifiers.POWER_CAST, value);
+		foe.incModifier(Stats.Modifier.ATTACK, value);
+		foe.incModifier(Stats.Modifier.DEFENCE, value);
+		foe.incModifier(Stats.Modifier.INITIATIVE, value);
+		foe.incModifier(Stats.Modifier.TO_PENETRATE, value);
+		foe.incModifier(Stats.Modifier.POWER_CAST, value);
 
 		// + on all resistances
-		foe.incModifier(Stats.Modifiers.RESIST_BLUDGEONING, value*2);
-		foe.incModifier(Stats.Modifiers.RESIST_PIERCING, value*2);
-		foe.incModifier(Stats.Modifiers.RESIST_SLASHING, value*2);
-		foe.incModifier(Stats.Modifiers.RESIST_ENERGY, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_FIRE, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_WATER, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_AIR, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_EARTH, value*5);
-		foe.incModifier(Stats.Modifiers.RESIST_MENTAL, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_BLUDGEONING, value*2);
+		foe.incModifier(Stats.Modifier.RESIST_PIERCING, value*2);
+		foe.incModifier(Stats.Modifier.RESIST_SLASHING, value*2);
+		foe.incModifier(Stats.Modifier.RESIST_ENERGY, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_FIRE, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_WATER, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_AIR, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_EARTH, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_MENTAL, value*5);
 
 		// tireless
-		foe.incModifier(Stats.Modifiers.TIRELESS_UNARMED, value);
+		foe.incModifier(Stats.Modifier.TIRELESS_UNARMED, value);
 
 		// random funky shit to thwart the player
-		foe.incModifier(Stats.Modifiers.ARROW_CUTTING, value);
+		foe.incModifier(Stats.Modifier.ARROW_CUTTING, value);
 		if (foe.getLevel() >= 16)
 		{
-			foe.incModifier(Stats.Modifiers.BLIND_FIGHTING, value);
+			foe.incModifier(Stats.Modifier.BLIND_FIGHTING, value);
 		}
 		if (foe.getLevel() >= 20)
 		{
-			foe.incModifier(Stats.Modifiers.CHEAT_DEATH, value);
+			foe.incModifier(Stats.Modifier.CHEAT_DEATH, value);
 		}
 	}
 

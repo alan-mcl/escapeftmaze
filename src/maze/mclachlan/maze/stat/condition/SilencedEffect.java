@@ -64,9 +64,9 @@ public class SilencedEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_SILENCE;
+		return Stats.Modifier.IMMUNE_TO_SILENCE;
 	}
 
 	/*-------------------------------------------------------------------------*/

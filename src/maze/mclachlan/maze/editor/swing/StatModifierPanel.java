@@ -38,15 +38,15 @@ import static mclachlan.maze.data.v1.V1StatModifier.INDEX;
  */
 public class StatModifierPanel extends JDialog implements ActionListener, ChangeListener
 {
-	StatModifier modifier;
+	private StatModifier modifier;
 
-	JButton ok, cancel, clear;
-	Map<JSpinner, JLabel> labelMap = new HashMap<JSpinner, JLabel>();
-	Map<String, JSpinner> fieldMap = new HashMap<String, JSpinner>();
+	private JButton ok, cancel, clear;
+	private Map<JSpinner, JLabel> labelMap = new HashMap<JSpinner, JLabel>();
+	private Map<Stats.Modifier, JSpinner> fieldMap = new HashMap<Stats.Modifier, JSpinner>();
 
-	JTabbedPane tabs;
-	JPanel regularModifiers, statistics, properties;
-	private List<String> regularPlusResource;
+	private JTabbedPane tabs;
+	private JPanel regularModifiers, statistics, properties;
+	private List<Stats.Modifier> regularPlusResource;
 
 	/*-------------------------------------------------------------------------*/
 	public StatModifierPanel(Frame owner, StatModifier modifier)
@@ -62,12 +62,12 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 
 		tabs = new JTabbedPane();
 
-		regularPlusResource = new ArrayList<String>();
+		regularPlusResource = new ArrayList<Stats.Modifier>();
 		regularPlusResource.addAll(Stats.resourceModifiers);
 		regularPlusResource.addAll(Stats.regularModifiers);
 
 		regularModifiers = getTab(regularPlusResource);
-		statistics = getTab(new ArrayList<String>(Stats.statistics));
+		statistics = getTab(new ArrayList<Stats.Modifier>(Stats.statistics));
 		properties = getTab(Stats.propertiesModifiers);
 
 		tabs.addTab(getRegularModifiersTabTitle(), regularModifiers);
@@ -142,11 +142,11 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int countSetModifiers(List<String> modifiers)
+	private int countSetModifiers(List<Stats.Modifier> modifiers)
 	{
 		int result = 0;
 
-		for (String modifier : modifiers)
+		for (Stats.Modifier modifier : modifiers)
 		{
 			JSpinner field = fieldMap.get(modifier);
 			int value = (Integer)field.getValue();
@@ -161,7 +161,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private JPanel getTab(List<String> modifiers)
+	private JPanel getTab(List<Stats.Modifier> modifiers)
 	{
 		int max = modifiers.size();
 		int cols = 4;
@@ -180,7 +180,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 			{
 				if (count < max)
 				{
-					String modifier = modifiers.get(count);
+					Stats.Modifier modifier = modifiers.get(count);
 					
 					int value = this.modifier.getModifier(modifier);
 					JLabel label = getModifierLabel(modifier, value);
@@ -207,7 +207,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private JLabel getModifierLabel(String mod, int modValue)
+	private JLabel getModifierLabel(Stats.Modifier mod, int modValue)
 	{
 		JLabel result = new JLabel(StringUtil.getModifierName(mod), JLabel.RIGHT);
 		
@@ -225,17 +225,20 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		StatModifier result = new StatModifier();
 		for (int i = 0; i < INDEX.length; i++)
 		{
-			JSpinner field = fieldMap.get(INDEX[i]);
-
-			if (field == null)
+			if (INDEX[i] instanceof Stats.Modifier)
 			{
-				continue;
-			}
+				JSpinner field = fieldMap.get((Stats.Modifier)INDEX[i]);
 
-			int value = (Integer)field.getValue();
-			if (value != 0)
-			{
-				result.setModifier(INDEX[i], value);
+				if (field == null)
+				{
+					continue;
+				}
+
+				int value = (Integer)field.getValue();
+				if (value != 0)
+				{
+					result.setModifier((Stats.Modifier)INDEX[i], value);
+				}
 			}
 		}
 
@@ -262,14 +265,18 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void clear()
 	{
-		for (String modifier : INDEX)
+		for (Object modifier : INDEX)
 		{
-			JSpinner field = fieldMap.get(modifier);
-			if (field != null)
+			if (modifier instanceof Stats.Modifier)
 			{
-				field.setValue(0);
+				JSpinner field = fieldMap.get(modifier);
+				if (field != null)
+				{
+					field.setValue(0);
+				}
 			}
 		}
 	}
@@ -319,5 +326,10 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 			tabs.setTitleAt(1, getStatisticsModifiersTabTitle());
 			tabs.setTitleAt(2, getPropertiesModifiersTabTitle());
 		}
+	}
+
+	public StatModifier getModifier()
+	{
+		return modifier;
 	}
 }

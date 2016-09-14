@@ -39,8 +39,8 @@ public class InvisibleEffect extends ConditionEffect
 	static
 	{
 		invisible = new StatModifier();
-		invisible.setModifier(Stats.Modifiers.SNEAKING, 20);
-		invisible.setModifier(Stats.Modifiers.TO_RUN_AWAY, 10);
+		invisible.setModifier(Stats.Modifier.SNEAKING, 20);
+		invisible.setModifier(Stats.Modifier.TO_RUN_AWAY, 10);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -76,7 +76,7 @@ public class InvisibleEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return invisible.getModifier(modifier);
 	}
@@ -94,8 +94,8 @@ public class InvisibleEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_INVISIBLE;
+		return Stats.Modifier.IMMUNE_TO_INVISIBLE;
 	}
 }

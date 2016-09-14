@@ -64,13 +64,13 @@ public class SpellDetailsDialog extends GeneralDialog
 		if (pc != null)
 		{
 			manaAvailable.refresh(
-				pc.getModifier(Stats.Modifiers.RED_MAGIC_GEN),
-				pc.getModifier(Stats.Modifiers.BLACK_MAGIC_GEN),
-				pc.getModifier(Stats.Modifiers.PURPLE_MAGIC_GEN),
-				pc.getModifier(Stats.Modifiers.GOLD_MAGIC_GEN),
-				pc.getModifier(Stats.Modifiers.WHITE_MAGIC_GEN),
-				pc.getModifier(Stats.Modifiers.GREEN_MAGIC_GEN),
-				pc.getModifier(Stats.Modifiers.BLUE_MAGIC_GEN));
+				pc.getModifier(Stats.Modifier.RED_MAGIC_GEN),
+				pc.getModifier(Stats.Modifier.BLACK_MAGIC_GEN),
+				pc.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN),
+				pc.getModifier(Stats.Modifier.GOLD_MAGIC_GEN),
+				pc.getModifier(Stats.Modifier.WHITE_MAGIC_GEN),
+				pc.getModifier(Stats.Modifier.GREEN_MAGIC_GEN),
+				pc.getModifier(Stats.Modifier.BLUE_MAGIC_GEN));
 		}
 
 		int xx = bounds.x + inset + border;

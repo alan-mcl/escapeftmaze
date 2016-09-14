@@ -84,7 +84,7 @@ public class ActorDiesEvent extends MazeEvent
 			result.addAll(SpeechUtil.getInstance().slayFoeSpeech((PlayerCharacter)attacker));
 		}
 
-		if (attacker != null && attacker.getModifier(Stats.Modifiers.BERSERKER) > 0)
+		if (attacker != null && attacker.getModifier(Stats.Modifier.BERSERKER) > 0)
 		{
 			if (GameSys.getInstance().actorGoesBeserk(attacker))
 			{

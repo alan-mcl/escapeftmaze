@@ -114,13 +114,13 @@ public class PaintTileMana extends Tool implements ActionListener
 	{
 		try
 		{
-			applyToTiles(Stats.Modifiers.RED_MAGIC_GEN, getDice(optionsPanel.red));
-			applyToTiles(Stats.Modifiers.BLACK_MAGIC_GEN, getDice(optionsPanel.black));
-			applyToTiles(Stats.Modifiers.PURPLE_MAGIC_GEN, getDice(optionsPanel.purple));
-			applyToTiles(Stats.Modifiers.GOLD_MAGIC_GEN, getDice(optionsPanel.gold));
-			applyToTiles(Stats.Modifiers.WHITE_MAGIC_GEN, getDice(optionsPanel.white));
-			applyToTiles(Stats.Modifiers.GREEN_MAGIC_GEN, getDice(optionsPanel.green));
-			applyToTiles(Stats.Modifiers.BLUE_MAGIC_GEN, getDice(optionsPanel.blue));
+			applyToTiles(Stats.Modifier.RED_MAGIC_GEN, getDice(optionsPanel.red));
+			applyToTiles(Stats.Modifier.BLACK_MAGIC_GEN, getDice(optionsPanel.black));
+			applyToTiles(Stats.Modifier.PURPLE_MAGIC_GEN, getDice(optionsPanel.purple));
+			applyToTiles(Stats.Modifier.GOLD_MAGIC_GEN, getDice(optionsPanel.gold));
+			applyToTiles(Stats.Modifier.WHITE_MAGIC_GEN, getDice(optionsPanel.white));
+			applyToTiles(Stats.Modifier.GREEN_MAGIC_GEN, getDice(optionsPanel.green));
+			applyToTiles(Stats.Modifier.BLUE_MAGIC_GEN, getDice(optionsPanel.blue));
 			dialog.setVisible(false);
 		}
 		catch (Exception x)
@@ -132,7 +132,7 @@ public class PaintTileMana extends Tool implements ActionListener
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	private void applyToTiles(String modifier, Dice d)
+	private void applyToTiles(Stats.Modifier modifier, Dice d)
 	{
 		if (d == null)
 		{

@@ -500,7 +500,7 @@ public class Item implements AttackWith, SpellTarget
 		return template.isSnipeCapable;
 	}
 	
-	public String getDiscipline()
+	public Stats.Modifier getDiscipline()
 	{
 		return template.discipline;
 	}

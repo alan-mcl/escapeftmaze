@@ -32,7 +32,7 @@ public class DartBoard extends TileScript
 			user.removeItem(item, false);
 
 			String hit;
-			int mod = user.getModifier(Stats.Modifiers.THROW);
+			int mod = user.getModifier(Stats.Modifier.THROW);
 
 			int die = Dice.d100.roll();
 			if (die > 50+mod*5)

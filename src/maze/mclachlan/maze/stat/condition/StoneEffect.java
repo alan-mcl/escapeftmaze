@@ -38,29 +38,29 @@ public class StoneEffect extends ConditionEffect
 	static
 	{
 		stoned = new StatModifier();
-		stoned.setModifier(Stats.Modifiers.VS_PENETRATE, 20);
+		stoned.setModifier(Stats.Modifier.VS_PENETRATE, 20);
 
 		// stone resistences
-		stoned.setModifier(Stats.Modifiers.RESIST_BLUDGEONING, 75);
-		stoned.setModifier(Stats.Modifiers.RESIST_PIERCING, 75);
-		stoned.setModifier(Stats.Modifiers.RESIST_SLASHING, 75);
-		stoned.setModifier(Stats.Modifiers.RESIST_FIRE, 75);
-		stoned.setModifier(Stats.Modifiers.RESIST_WATER, 75);
-		stoned.setModifier(Stats.Modifiers.RESIST_AIR, 75);
+		stoned.setModifier(Stats.Modifier.RESIST_BLUDGEONING, 75);
+		stoned.setModifier(Stats.Modifier.RESIST_PIERCING, 75);
+		stoned.setModifier(Stats.Modifier.RESIST_SLASHING, 75);
+		stoned.setModifier(Stats.Modifier.RESIST_FIRE, 75);
+		stoned.setModifier(Stats.Modifier.RESIST_WATER, 75);
+		stoned.setModifier(Stats.Modifier.RESIST_AIR, 75);
 
 		// stone immunities
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_BLIND, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_DISEASE, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_FEAR, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_INSANE, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_IRRITATE, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_KO, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_NAUSEA, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_PARALYSE, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_POISON, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_POSSESSION, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_SLEEP, 1);
-		stoned.setModifier(Stats.Modifiers.IMMUNE_TO_PSYCHIC, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_BLIND, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_DISEASE, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_FEAR, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_INSANE, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_IRRITATE, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_KO, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_NAUSEA, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_PARALYSE, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_POISON, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_POSSESSION, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_SLEEP, 1);
+		stoned.setModifier(Stats.Modifier.IMMUNE_TO_PSYCHIC, 1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -81,7 +81,7 @@ public class StoneEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return stoned.getModifier(modifier);
 	}
@@ -105,9 +105,9 @@ public class StoneEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_STONE;
+		return Stats.Modifier.IMMUNE_TO_STONE;
 	}
 
 	/*-------------------------------------------------------------------------*/

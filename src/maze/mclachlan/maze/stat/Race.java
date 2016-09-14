@@ -84,7 +84,7 @@ public class Race implements TypeDescriptor
 	private String unlockDescription;
 
 	/** Modifier on attackers that denotes that this race is a favoured enemy */
-	private String favouredEnemyModifier;
+	private Stats.Modifier favouredEnemyModifier;
 
 	/*-------------------------------------------------------------------------*/
 	public Race(
@@ -112,7 +112,7 @@ public class Race implements TypeDescriptor
 		Map<String, List<String>> suggestedNames,
 		String unlockVariable,
 		String unlockDescription,
-		String favouredEnemyModifier)
+		Stats.Modifier favouredEnemyModifier)
 	{
 		this.name = name;
 		this.description = description;
@@ -189,7 +189,7 @@ public class Race implements TypeDescriptor
 	}
 
 	@Override
-	public String getFavouredEnemyModifier()
+	public Stats.Modifier getFavouredEnemyModifier()
 	{
 		return favouredEnemyModifier;
 	}
@@ -461,7 +461,7 @@ public class Race implements TypeDescriptor
 		this.unlockDescription = unlockDescription;
 	}
 
-	public void setFavouredEnemyModifier(String favouredEnemyModifier)
+	public void setFavouredEnemyModifier(Stats.Modifier favouredEnemyModifier)
 	{
 		this.favouredEnemyModifier = favouredEnemyModifier;
 	}

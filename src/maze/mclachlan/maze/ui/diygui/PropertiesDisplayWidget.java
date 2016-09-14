@@ -191,13 +191,13 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 		}
 
 		int rowCount = STARTING_ROW;
-		for (String modifier : Stats.propertiesModifiers)
+		for (Stats.Modifier modifier : Stats.propertiesModifiers)
 		{
 			int value = this.character.getModifier(modifier);
 			if (value > 0)
 			{
 				propertiesLabels[rowCount].setText(descModifier(modifier, value));
-				propertiesLabels[rowCount].setActionMessage(modifier);
+				propertiesLabels[rowCount].setActionMessage(modifier.getResourceBundleKey());
 				propertiesLabels[rowCount].setActionPayload(character);
 				rowCount++;
 			}
@@ -234,11 +234,11 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(String modifier, int value)
+	private String descModifier(Stats.Modifier modifier, int value)
 	{
 		String modifierName = StringUtil.getModifierName(modifier);
 
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:

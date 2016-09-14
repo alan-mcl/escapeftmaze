@@ -46,7 +46,7 @@ public class MagicAbsorptionEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		int amount = victim.getModifier(Stats.Modifiers.MAGIC_ABSORPTION);
+		int amount = victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION);
 		victim.getMagicPoints().incCurrent(amount);
 		return null;
 	}

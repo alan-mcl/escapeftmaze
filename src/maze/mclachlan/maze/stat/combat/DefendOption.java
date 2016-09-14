@@ -31,7 +31,7 @@ public class DefendOption extends ActorActionOption
 		super("Defend", "aao.defend");
 
 		StatModifier statModifier = new StatModifier();
-		statModifier.setModifier(Stats.Modifiers.DEFENCE, 2);
+		statModifier.setModifier(Stats.Modifier.DEFENCE, 2);
 	}
 
 	@Override

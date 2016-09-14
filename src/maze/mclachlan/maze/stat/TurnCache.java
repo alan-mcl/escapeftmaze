@@ -71,7 +71,7 @@ public class TurnCache implements GameCache
 			{
 				StatModifier sm = practise.get(a);
 
-				for (String modifier : sm.getModifiers().keySet())
+				for (Stats.Modifier modifier : sm.getModifiers().keySet())
 				{
 					if (sm.getModifier(modifier) > 0)
 					{
@@ -87,7 +87,7 @@ public class TurnCache implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void practice(UnifiedActor actor, String modifier, int amount)
+	public void practice(UnifiedActor actor, Stats.Modifier modifier, int amount)
 	{
 		synchronized (mutex)
 		{

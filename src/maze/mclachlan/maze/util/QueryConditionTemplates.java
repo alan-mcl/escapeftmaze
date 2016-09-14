@@ -59,15 +59,15 @@ public class QueryConditionTemplates
 			ConditionTemplate ct = map.get(s);
 
 			if (ct.getStatModifier() != null &&
-				(ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_FIRE) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_WATER) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_EARTH) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_AIR) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_MENTAL) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_ENERGY) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_BLUDGEONING) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_PIERCING) != 0 ||
-				ct.getStatModifier().getModifier(Stats.Modifiers.RESIST_PIERCING) != 0))
+				(ct.getStatModifier().getModifier(Stats.Modifier.RESIST_FIRE) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_WATER) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_EARTH) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_AIR) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_MENTAL) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_ENERGY) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_BLUDGEONING) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_PIERCING) != 0 ||
+				ct.getStatModifier().getModifier(Stats.Modifier.RESIST_PIERCING) != 0))
 			{
 				count++;
 				System.out.println(ct.getName());

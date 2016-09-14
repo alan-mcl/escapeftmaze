@@ -911,7 +911,7 @@ public class ItemTemplatePanel extends EditorPanel
 		}
 		else
 		{
-			it.setDiscipline((String)discipline.getSelectedItem());
+			it.setDiscipline((Stats.Modifier)discipline.getSelectedItem());
 		}
 		it.setSlaysFoeType(slaysFoeType.getSelectedItem().equals(NONE)?
 			null:new TypeDescriptorImpl((String)slaysFoeType.getSelectedItem()));

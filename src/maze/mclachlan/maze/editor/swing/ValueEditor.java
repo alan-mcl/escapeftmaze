@@ -77,7 +77,7 @@ public class ValueEditor extends JDialog implements ActionListener
 
 		impl = new JTextField();
 		diceValue = new JTextField();
-		Vector<String> vec = new Vector<String>(Stats.allModifiers);
+		Vector<Stats.Modifier> vec = new Vector<Stats.Modifier>(Stats.allModifiers);
 		Collections.sort(vec);
 		modifierValue = new JComboBox(vec);
 		Vector<String> manaTypes = new Vector<String>();
@@ -228,7 +228,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			}
 			else if (modifier.isSelected())
 			{
-				this.value = new ModifierValue((String)modifierValue.getSelectedItem());
+				this.value = new ModifierValue((Stats.Modifier)modifierValue.getSelectedItem());
 			}
 			else if (mana.isSelected())
 			{
@@ -356,7 +356,7 @@ public class ValueEditor extends JDialog implements ActionListener
 				reference.setEnabled(true);
 				break;
 			case SCALE_WITH_MODIFIER:
-				Vector<String> vec = new Vector<String>(Stats.allModifiers);
+				Vector<Stats.Modifier> vec = new Vector<Stats.Modifier>(Stats.allModifiers);
 				Collections.sort(vec);
 				reference.setModel(new DefaultComboBoxModel(vec));
 				if (ref != null)

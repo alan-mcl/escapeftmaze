@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat;
 
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;
 
 /**
@@ -28,26 +29,31 @@ import mclachlan.maze.stat.magic.MagicSys;
 public class AttackType
 {
 	public static final AttackType NULL_ATTACK_TYPE = new AttackType(
-		null, null, MagicSys.SpellEffectType.NONE);
+		null, null, Stats.Modifier.NONE, MagicSys.SpellEffectType.NONE);
 
 	private String name;
 	private String verb;
+	private Stats.Modifier attackModifier;
 	private StatModifier modifiers;
 	private MagicSys.SpellEffectType damageType;
 
 	/*-------------------------------------------------------------------------*/
-	public AttackType(String name, String verb, MagicSys.SpellEffectType damageType)
+	public AttackType(String name, String verb, Stats.Modifier attackModifier,
+		MagicSys.SpellEffectType damageType)
 	{
 		this.name = name;
+		this.attackModifier = attackModifier;
 		this.damageType = damageType;
 		this.modifiers = new StatModifier();
 		this.verb = verb;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public AttackType(String name, String verb, MagicSys.SpellEffectType damageType, StatModifier statModifier)
+	public AttackType(String name, String verb, Stats.Modifier attackModifier,
+		MagicSys.SpellEffectType damageType, StatModifier statModifier)
 	{
 		this.name = name;
+		this.attackModifier = attackModifier;
 		this.damageType = damageType;
 		this.modifiers = statModifier;
 		this.verb = verb;
@@ -67,6 +73,11 @@ public class AttackType
 	public StatModifier getModifiers()
 	{
 		return modifiers;
+	}
+
+	public Stats.Modifier getAttackModifier()
+	{
+		return attackModifier;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -93,6 +104,11 @@ public class AttackType
 	public void setDamageType(MagicSys.SpellEffectType damageType)
 	{
 		this.damageType = damageType;
+	}
+
+	public void setAttackModifier(Stats.Modifier attackModifier)
+	{
+		this.attackModifier = attackModifier;
 	}
 
 	/*-------------------------------------------------------------------------*/

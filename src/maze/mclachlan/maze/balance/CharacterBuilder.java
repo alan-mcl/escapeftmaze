@@ -134,11 +134,11 @@ public class CharacterBuilder
 
 		PlayerCharacter pc = cb.buildCharacter("Tester", "Warrior", "Human", "Male", 15,
 			new PriorityModifierApproach(
-				Stats.Modifiers.BRAWN,
-				Stats.Modifiers.SKILL,
-				Stats.Modifiers.CUT,
-				Stats.Modifiers.THRUST,
-				Stats.Modifiers.SHOOT));
+				Stats.Modifier.BRAWN,
+				Stats.Modifier.SKILL,
+				Stats.Modifier.CUT,
+				Stats.Modifier.THRUST,
+				Stats.Modifier.SHOOT));
 
 		System.out.println("pc = [" + pc + "]");
 		System.out.println("HP: "+pc.getHitPoints()+", " +

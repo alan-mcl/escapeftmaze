@@ -398,7 +398,7 @@ public class V1SpellResult
 				break;
 			case DRAIN:
 				v = V1Value.fromString(strs[i++]);
-				result = new DrainSpellResult(v, strs[i++]);
+				result = new DrainSpellResult(v, Stats.Modifier.valueOf(strs[i++]));
 				break;
 			case CONDITION_REMOVAL:
 				v = V1Value.fromString(strs[i++]);

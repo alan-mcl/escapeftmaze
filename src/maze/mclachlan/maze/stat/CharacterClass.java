@@ -142,7 +142,7 @@ public class CharacterClass implements TypeDescriptor
 	}
 
 	@Override
-	public String getFavouredEnemyModifier()
+	public Stats.Modifier getFavouredEnemyModifier()
 	{
 		return null;
 	}

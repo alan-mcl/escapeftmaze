@@ -206,7 +206,7 @@ public class ConditionDetailsWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean addModifiers(Map<String, Integer> modifiers, List<Widget> rows,
+	private boolean addModifiers(Map<Stats.Modifier, Integer> modifiers, List<Widget> rows,
 		String title)
 	{
 		if (modifiers.size() == 0)
@@ -215,13 +215,13 @@ public class ConditionDetailsWidget extends DIYPanel
 			return false;
 		}
 
-		List<String> sortedModifiers = new ArrayList<String>(modifiers.keySet());
+		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.keySet());
 		Collections.sort(sortedModifiers);
 
 		StringBuilder sb = new StringBuilder(title+" ");
 		List<String> modDesc = new ArrayList<String>();
 
-		for (String modifier : sortedModifiers)
+		for (Stats.Modifier modifier : sortedModifiers)
 		{
 			int value = modifiers.get(modifier);
 
@@ -260,11 +260,11 @@ public class ConditionDetailsWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(String modifier, int value)
+	private String descModifier(Stats.Modifier modifier, int value)
 	{
 		String modifierName = StringUtil.getModifierName(modifier);
 
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:

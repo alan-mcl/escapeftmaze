@@ -69,9 +69,9 @@ public class InsaneEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_INSANE;
+		return Stats.Modifier.IMMUNE_TO_INSANE;
 	}
 
 	/*-------------------------------------------------------------------------*/

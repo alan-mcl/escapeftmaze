@@ -65,51 +65,51 @@ public class PlayerCharacter extends UnifiedActor
 
 		engineeringOmnigun = new SignatureWeaponUpgradePath();
 
-		req.setModifier(Stats.Modifiers.ENGINEERING, 1);
+		req.setModifier(Stats.Modifier.ENGINEERING, 1);
 		engineeringOmnigun.addUpgrade("Omnigun Prototype", "Omnigun Mk1", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 3);
+		req.setModifier(Stats.Modifier.ENGINEERING, 3);
 		engineeringOmnigun.addUpgrade("Omnigun Mk1", "Omnigun Mk2", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 6);
+		req.setModifier(Stats.Modifier.ENGINEERING, 6);
 		engineeringOmnigun.addUpgrade("Omnigun Mk2", "Omnigun Mk3", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 9);
+		req.setModifier(Stats.Modifier.ENGINEERING, 9);
 		engineeringOmnigun.addUpgrade("Omnigun Mk3", "Omnigun Mk4", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 12);
+		req.setModifier(Stats.Modifier.ENGINEERING, 12);
 		engineeringOmnigun.addUpgrade("Omnigun Mk4", "Omnigun Mk5", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 15);
+		req.setModifier(Stats.Modifier.ENGINEERING, 15);
 		engineeringOmnigun.addUpgrade("Omnigun Mk5", "Omnigun Mk6", req);
 
 		req = new StatModifier();
 
 		engineeringXbow = new SignatureWeaponUpgradePath();
 
-		req.setModifier(Stats.Modifiers.ENGINEERING, 1);
+		req.setModifier(Stats.Modifier.ENGINEERING, 1);
 		engineeringXbow.addUpgrade("Light Crossbow", "X-bow Mk1", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 3);
+		req.setModifier(Stats.Modifier.ENGINEERING, 3);
 		engineeringXbow.addUpgrade("X-bow Mk1", "X-bow Mk2", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 6);
+		req.setModifier(Stats.Modifier.ENGINEERING, 6);
 		engineeringXbow.addUpgrade("X-bow Mk2", "X-bow Mk3", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 9);
+		req.setModifier(Stats.Modifier.ENGINEERING, 9);
 		engineeringXbow.addUpgrade("X-bow Mk3", "X-bow Mk4", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 12);
+		req.setModifier(Stats.Modifier.ENGINEERING, 12);
 		engineeringXbow.addUpgrade("X-bow Mk4", "X-bow Mk5", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 15);
+		req.setModifier(Stats.Modifier.ENGINEERING, 15);
 		engineeringXbow.addUpgrade("X-bow Mk5", "X-bow Mk6", req);
 
 		req = new StatModifier();
 
 		engineeringHandCannon = new SignatureWeaponUpgradePath();
 
-		req.setModifier(Stats.Modifiers.ENGINEERING, 1);
+		req.setModifier(Stats.Modifier.ENGINEERING, 1);
 		engineeringHandCannon.addUpgrade("Flintlock Pistol", "Hand Cannon Mk1", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 3);
+		req.setModifier(Stats.Modifier.ENGINEERING, 3);
 		engineeringHandCannon.addUpgrade("Hand Cannon Mk1", "Hand Cannon Mk2", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 6);
+		req.setModifier(Stats.Modifier.ENGINEERING, 6);
 		engineeringHandCannon.addUpgrade("Hand Cannon Mk2", "Hand Cannon Mk3", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 9);
+		req.setModifier(Stats.Modifier.ENGINEERING, 9);
 		engineeringHandCannon.addUpgrade("Hand Cannon Mk3", "Hand Cannon Mk4", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 12);
+		req.setModifier(Stats.Modifier.ENGINEERING, 12);
 		engineeringHandCannon.addUpgrade("Hand Cannon Mk4", "Hand Cannon Mk5", req);
-		req.setModifier(Stats.Modifiers.ENGINEERING, 15);
+		req.setModifier(Stats.Modifier.ENGINEERING, 15);
 		engineeringHandCannon.addUpgrade("Hand Cannon Mk5", "Hand Cannon Mk6", req);
 	}
 
@@ -251,7 +251,7 @@ public class PlayerCharacter extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public void applyPermanentStatModifier(StatModifier m)
 	{
-		for (String modifier : m.getModifiers().keySet())
+		for (Stats.Modifier modifier : m.getModifiers().keySet())
 		{
 			int value = m.getModifier(modifier);
 
@@ -264,7 +264,7 @@ public class PlayerCharacter extends UnifiedActor
 	public void rollbackPermanentStatModifier(StatModifier m)
 	{
 		StatModifier negation = new StatModifier();
-		for (String mod : m.getModifiers().keySet())
+		for (Stats.Modifier mod : m.getModifiers().keySet())
 		{
 			negation.setModifier(mod, -m.getModifier(mod));
 		}
@@ -456,7 +456,7 @@ public class PlayerCharacter extends UnifiedActor
 				}
 			}
 
-			boolean canThreaten = this.getModifier(Stats.Modifiers.THREATEN) > 0;
+			boolean canThreaten = this.getModifier(Stats.Modifier.THREATEN) > 0;
 
 			switch (attitude)
 			{
@@ -483,7 +483,7 @@ public class PlayerCharacter extends UnifiedActor
 					if (canThreaten) result.add(new ThreatenOption(), null);
 					result.add(new BribeOption(), null);
 
-					if (getModifier(Stats.Modifiers.STEAL) > 0)
+					if (getModifier(Stats.Modifier.STEAL) > 0)
 					{
 						result.add(new StealOption(), null);
 					}
@@ -494,7 +494,7 @@ public class PlayerCharacter extends UnifiedActor
 					result.add(new TalkOption(), null);
 					result.add(new GiveOption(), null);
 
-					if (getModifier(Stats.Modifiers.STEAL) > 0)
+					if (getModifier(Stats.Modifier.STEAL) > 0)
 					{
 						result.add(new StealOption(), null);
 					}
@@ -505,7 +505,7 @@ public class PlayerCharacter extends UnifiedActor
 					result.add(new TalkOption(), null);
 					result.add(new GiveOption(), null);
 
-					if (getModifier(Stats.Modifiers.STEAL) > 0)
+					if (getModifier(Stats.Modifier.STEAL) > 0)
 					{
 						result.add(new StealOption(), null);
 					}
@@ -537,7 +537,7 @@ public class PlayerCharacter extends UnifiedActor
 				}
 			}
 
-			if (getModifier(Stats.Modifiers.LOCK_AND_TRAP) > 0)
+			if (getModifier(Stats.Modifier.LOCK_AND_TRAP) > 0)
 			{
 				result.add(new DisarmTrapOption(), null);
 			}
@@ -567,7 +567,7 @@ public class PlayerCharacter extends UnifiedActor
 				}
 			}
 
-			if (getModifier(Stats.Modifiers.LOCK_AND_TRAP) > 0)
+			if (getModifier(Stats.Modifier.LOCK_AND_TRAP) > 0)
 			{
 				result.add(new PickLockOption(), null);
 			}
@@ -712,7 +712,7 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getBaseModifier(String modifier)
+	public int getBaseModifier(Stats.Modifier modifier)
 	{
 		return this.getStats().getModifier(modifier);
 	}
@@ -1101,11 +1101,11 @@ public class PlayerCharacter extends UnifiedActor
 	/**
 	 * @return a list of modifiers that can be unlocked at this level
 	 */
-	public List<String> getUnlockableModifiers()
+	public List<Stats.Modifier> getUnlockableModifiers()
 	{
-		List<String> result = new ArrayList<String>();
+		List<Stats.Modifier> result = new ArrayList<Stats.Modifier>();
 
-		for (String modifier : Stats.regularModifiers)
+		for (Stats.Modifier modifier : Stats.regularModifiers)
 		{
 			if (!isActiveModifier(modifier)
 				&& getCharacterClass().getUnlockModifiers().getModifier(modifier) > 0
@@ -1123,11 +1123,11 @@ public class PlayerCharacter extends UnifiedActor
 	/**
 	 * @return the attribute modifiers that can still be raised
 	 */
-	public List<String> getRaisableAttributes()
+	public List<Stats.Modifier> getRaisableAttributes()
 	{
-		List<String> result = new ArrayList<String>();
+		List<Stats.Modifier> result = new ArrayList<Stats.Modifier>();
 
-		for (String modifier : Stats.attributeModifiers)
+		for (Stats.Modifier modifier : Stats.attributeModifiers)
 		{
 			if (getBaseModifier(modifier) < getRace().getAttributeCeilings().getModifier(modifier))
 			{
@@ -1139,7 +1139,7 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean isActiveModifier(String modifier)
+	public boolean isActiveModifier(Stats.Modifier modifier)
 	{
 		return (activeModifiers.getModifier(modifier) > 0);
 	}
@@ -1214,7 +1214,7 @@ public class PlayerCharacter extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public List<String> getEligibleSignatureWeapons()
 	{
-		if (getModifier(Stats.Modifiers.SIGNATURE_WEAPON_ENGINEERING) > 0)
+		if (getModifier(Stats.Modifier.SIGNATURE_WEAPON_ENGINEERING) > 0)
 		{
 			List<String> result = new ArrayList<String>();
 
@@ -1299,7 +1299,7 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void unlockModifier(String modifier)
+	public void unlockModifier(Stats.Modifier modifier)
 	{
 		if (isActiveModifier(modifier))
 		{
@@ -1316,7 +1316,7 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void lockModifier(String modifier)
+	public void lockModifier(Stats.Modifier modifier)
 	{
 		if (!isActiveModifier(modifier))
 		{
@@ -1333,7 +1333,7 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void incModifier(String mod, int amount)
+	public void incModifier(Stats.Modifier mod, int amount)
 	{
 		this.getStats().incModifier(mod, amount);
 	}

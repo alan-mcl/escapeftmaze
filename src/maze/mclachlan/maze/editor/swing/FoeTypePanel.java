@@ -139,10 +139,10 @@ public class FoeTypePanel extends EditorPanel
 		specialAbility.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Special Ability:"), specialAbility, gbc);
 
-		Vector<String> vec = new Vector<String>();
+		Vector<Stats.Modifier> vec = new Vector<Stats.Modifier>();
 		vec.addAll(Stats.allModifiers);
 		Collections.sort(vec);
-		vec.add(0, NONE);
+		vec.add(0, Stats.Modifier.NONE);
 		favouredEnemyModifier = new JComboBox(vec);
 		favouredEnemyModifier.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Favoured Enemy Modifier:"), favouredEnemyModifier, gbc);
@@ -202,7 +202,7 @@ public class FoeTypePanel extends EditorPanel
 		this.specialAbility.setSelectedItem(sa == null ? NONE : sa.getName());
 		description.setText(ft.getDescription());
 		description.setCaretPosition(0);
-		String fem = ft.getFavouredEnemyModifier();
+		Stats.Modifier fem = ft.getFavouredEnemyModifier();
 		favouredEnemyModifier.setSelectedItem(fem == null ? NONE : fem);
 
 		bodyParts.refresh(
@@ -323,7 +323,7 @@ public class FoeTypePanel extends EditorPanel
 		String spellName = (String)specialAbility.getSelectedItem();
 		ft.setSpecialAbility(spellName.equals(NONE) ? null : Database.getInstance().getSpell(spellName));
 
-		String fem = (String)favouredEnemyModifier.getSelectedItem();
-		ft.setFavouredEnemyModifier(NONE.equals(fem) ? null : fem);
+		Stats.Modifier fem = (Stats.Modifier)favouredEnemyModifier.getSelectedItem();
+		ft.setFavouredEnemyModifier(Stats.Modifier.NONE.equals(fem) ? null : fem);
 	}
 }

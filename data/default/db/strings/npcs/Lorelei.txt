@@ -1,4 +1,4 @@
-#Tue Jan 26 08:20:33 CAT 2016
+#Wed Sep 14 15:29:12 CAT 2016
 maze\ master=9|A name out of the legends. They say he, or it, is the Maze made visible. A terrible foe, should you encounter him.
 garret=9|The grey god of the wayfarer, patron of heroes. The bat, the cat and spider are holy to him.
 faerie=9|I do not know the way to the fey lands.
@@ -38,14 +38,14 @@ escape,freedom=9|The struggle is more important that the goal.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|I avoid the city...
 leonal,leonals,white\ order=9|The leonals pride themselves on their military might. They have little time for peace and tolerance, and less for the beauty of nature. I hope to change that.
 gnoll,gnolls=9|I know the gnolls, they have a village near Ichiba.%n%nThey are a primitive folk, closer to nature than most others in this Realm.
-stentor=9|He is the blacksmith in the village, an honest enough fellow.
 dalen=9|You seek the leafy glade? Once there was a way from this Realm, but it has been lost. Alas, I would visit it myself if I could. They say the plants are alive, and a race of cat people live amongst the trees, in the green shade where the sun never reaches below the endless canopy.
+stentor=9|He is the blacksmith in the village, an honest enough fellow.
 gnome,gnomes=9|The little folk are diggers of holes, makers of machines, workers of illusion and enchantment.
-pickett,we\ pickett=9|I do not know that person.
 imogen=9|I have heard of the sorceress at Ichiba. I fear she seeks dark secrets, secrets that should be better left alone.
-second\ realm=9|Welcome to the second Realm. Here in the Crater, civilisation survives. Beyond lie the wastelands.
-mnesus=9|The gnome king is wise.
+pickett,we\ pickett=9|I do not know that person.
 dana=9|The white goddess. She is the patron of the leonals and their Order.
+mnesus=9|The gnome king is wise.
+second\ realm=9|Welcome to the second Realm. Here in the Crater, civilisation survives. Beyond lie the wastelands.
 sarpedon=9|I do not know that person.
 greetings,hello,hi,salutations=9|Greetings.
 kay,sir\ kay=9|I do not know that person.

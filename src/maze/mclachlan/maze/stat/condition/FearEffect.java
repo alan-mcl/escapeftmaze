@@ -35,8 +35,8 @@ public class FearEffect extends ConditionEffect
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		fear.setModifier(Stats.Modifiers.ATTACK, -5);
-		fear.setModifier(Stats.Modifiers.DEFENCE, -5);
+		fear.setModifier(Stats.Modifier.ATTACK, -5);
+		fear.setModifier(Stats.Modifier.DEFENCE, -5);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -75,16 +75,16 @@ public class FearEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return fear.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_FEAR;
+		return Stats.Modifier.IMMUNE_TO_FEAR;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -114,8 +114,8 @@ public class ItemCostCalculator
 		}
 
 		// modifiers
-		Map<String, Integer> modifiers = weapon.getModifiers().getModifiers();
-		for (String modifier : modifiers.keySet())
+		Map<Stats.Modifier, Integer> modifiers = weapon.getModifiers().getModifiers();
+		for (Stats.Modifier modifier : modifiers.keySet())
 		{
 			result += modifiers.get(modifier) * 10;
 		}

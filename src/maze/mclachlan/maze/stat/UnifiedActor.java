@@ -945,19 +945,19 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setModifier(String modifier, int value)
+	public void setModifier(Stats.Modifier modifier, int value)
 	{
 		this.getStats().setModifier(modifier, value);
 
-		if (modifier.equals(Stats.Modifiers.HIT_POINTS))
+		if (modifier.equals(Stats.Modifier.HIT_POINTS))
 		{
 			setCurMax(getHitPoints(), value);
 		}
-		else if (modifier.equals(Stats.Modifiers.ACTION_POINTS))
+		else if (modifier.equals(Stats.Modifier.ACTION_POINTS))
 		{
 			setCurMax(getActionPoints(), value);
 		}
-		else if (modifier.equals(Stats.Modifiers.MAGIC_POINTS))
+		else if (modifier.equals(Stats.Modifier.MAGIC_POINTS))
 		{
 			setCurMax(getMagicPoints(), value);
 		}
@@ -983,7 +983,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ModifierValue getModifierValue(String modifier, boolean checkCC)
+	public ModifierValue getModifierValue(Stats.Modifier modifier, boolean checkCC)
 	{
 		ModifierValue result = new ModifierValue();
 
@@ -1055,7 +1055,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		if (Maze.getInstance() != null && Maze.getInstance().getCurrentTile() != null)
 		{
 			// Tile modifiers
-			result.add(StringUtil.getUiLabel("mdw.influence.current.tile"), addModifier(modifier, Maze.getInstance().getCurrentTile().getStatModifier()));
+			result.add(StringUtil.getUiLabel("mdw.influence.current.tile"),
+				addModifier(modifier, Maze.getInstance().getCurrentTile().getStatModifier()));
 
 			// Conditions on the tile
 			for (Condition c : Maze.getInstance().getCurrentTile().getConditions())
@@ -1069,7 +1070,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		//
 		if (this.currentWieldingCombo != null)
 		{
-			result.add(StringUtil.getUiLabel("mdw.influence.wielding.combo"), currentWieldingCombo.getModifier(modifier));
+			result.add(StringUtil.getUiLabel("mdw.influence.wielding.combo"),
+				currentWieldingCombo.getModifier(modifier));
 		}
 
 		//
@@ -1077,7 +1079,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		//
 		if (checkCC)
 		{
-			result.add(StringUtil.getUiLabel("mdw.influence.encumbrance"), addModifier(modifier, GameSys.getInstance().getModifierForCarryingCapacity(this)));
+			result.add(StringUtil.getUiLabel("mdw.influence.encumbrance"),
+				addModifier(modifier, GameSys.getInstance().getModifierForCarryingCapacity(this)));
 		}
 
 		//
@@ -1090,7 +1093,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 	/*-------------------------------------------------------------------------*/
 	private void collectCharacterClassModifiers(
-		String modifier,
+		Stats.Modifier modifier,
 		ModifierValue result)
 	{
 		List<LevelAbility> abilities = getLevelAbilities();
@@ -1156,7 +1159,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/*-------------------------------------------------------------------------*/
 	private void collectCharacterClassBannerModifiers(
 		UnifiedActor actor,
-		String modifier,
+		Stats.Modifier modifier,
 		ModifierValue result)
 	{
 		List<LevelAbility> abilities = actor.getLevelAbilities();
@@ -1178,8 +1181,9 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/**
 	 * @return
 	 * 	The final value of the modifier for this actor, including all influences
+	 * @param modifier
 	 */
-	public int getModifier(String modifier)
+	public int getModifier(Stats.Modifier modifier)
 	{
 		return getModifier(modifier, true);
 	}
@@ -1194,13 +1198,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	 * @return
 	 * 	The final value of the modifier for this actor, including all influences
 	 */
-	public int getModifier(String modifier, boolean checkCC)
+	public int getModifier(Stats.Modifier modifier, boolean checkCC)
 	{
 		return getModifierValue(modifier, checkCC).getValue();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected ModifierValue collectBanners(String modifier)
+	protected ModifierValue collectBanners(Stats.Modifier modifier)
 	{
 		ModifierValue result = new ModifierValue();
 
@@ -1248,19 +1252,19 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected int addModifier(String modifier, StatModifier stat)
+	protected int addModifier(Stats.Modifier modifier, StatModifier stat)
 	{
 		return stat == null ? 0 : stat.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected int addModifier(String modifier, Item item)
+	protected int addModifier(Stats.Modifier modifier, Item item)
 	{
 		return item == null ? 0 : addModifier(modifier, item.getModifiers());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ModifierValue collectConditionBanners(String modifier)
+	public ModifierValue collectConditionBanners(Stats.Modifier modifier)
 	{
 		ModifierValue result = new ModifierValue();
 		for (Condition c : getConditions())
@@ -1278,7 +1282,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/**
 	 * @return Base modifier + racial modifier + class modifier + gender modifier
 	 */
-	public int getIntrinsicModifier(String modifier)
+	public int getIntrinsicModifier(Stats.Modifier modifier)
 	{
 		int result = this.getBaseModifier(modifier);
 
@@ -1308,17 +1312,17 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		if (this.getModifier(Stats.Modifiers.FURIOUS_PURPOSE) > 0 &&
+		if (this.getModifier(Stats.Modifier.FURIOUS_PURPOSE) > 0 &&
 			c.getEffect() instanceof KOEffect && !(c instanceof FatigueKO) &&
 			this.isAlive() && this.isConscious())
 		{
 			// apply healing instead of KO
-			int healing = this.getModifier(Stats.Modifiers.FURIOUS_PURPOSE) * this.getLevel();
+			int healing = this.getModifier(Stats.Modifier.FURIOUS_PURPOSE) * this.getLevel();
 			result.add(new HealingEvent(this, healing));
 
 			return result;
  		}
-		else if (this.getModifier(Stats.Modifiers.AMAZON_COURAGE) > 0 &&
+		else if (this.getModifier(Stats.Modifier.AMAZON_COURAGE) > 0 &&
 			c.getEffect() instanceof FearEffect &&
 			this.isAlive() && this.isConscious())
 		{
@@ -1337,7 +1341,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 			return result;
 		}
-		else if (this.getModifier(Stats.Modifiers.AMAZON_WILLPOWER) > 0 &&
+		else if (this.getModifier(Stats.Modifier.AMAZON_WILLPOWER) > 0 &&
 			(c.getEffect() instanceof InsaneEffect ||
 				c.getEffect() instanceof PossessionEffect) &&
 			this.isAlive() && this.isConscious())
@@ -1357,7 +1361,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 			return result;
 		}
-		else if (this.getModifier(Stats.Modifiers.AMAZON_FURY) > 0 &&
+		else if (this.getModifier(Stats.Modifier.AMAZON_FURY) > 0 &&
 			(c.getEffect() instanceof WebEffect ||
 				(c.getEffect() instanceof SleepEffect && !(c instanceof RestingSleep)) ||
 				c.getEffect() instanceof SlowEffect ||
@@ -1581,7 +1585,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			return true;
 		}
 
-		for (String modifier : req.getModifiers().keySet())
+		for (Stats.Modifier modifier : req.getModifiers().keySet())
 		{
 			if (!Stats.attributeModifiers.contains(modifier) && !nonAttributeModifiers)
 			{
@@ -1610,38 +1614,37 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/*-------------------------------------------------------------------------*/
 	public int getAmountBlueMagic()
 	{
-		return getModifier(Stats.Modifiers.BLUE_MAGIC_GEN);
+		return getModifier(Stats.Modifier.BLUE_MAGIC_GEN);
 	}
 
 	public int getAmountGoldMagic()
 	{
-		return getModifier(Stats.Modifiers.GOLD_MAGIC_GEN);
+		return getModifier(Stats.Modifier.GOLD_MAGIC_GEN);
 	}
 
 	public int getAmountGreenMagic()
 	{
-		return getModifier(Stats.Modifiers.GREEN_MAGIC_GEN);
+		return getModifier(Stats.Modifier.GREEN_MAGIC_GEN);
 	}
 
 	public int getAmountPurpleMagic()
 	{
-		return getModifier(Stats.Modifiers.PURPLE_MAGIC_GEN);
+		return getModifier(Stats.Modifier.PURPLE_MAGIC_GEN);
 	}
 
 	public int getAmountRedMagic()
 	{
-		return getModifier(Stats.Modifiers.RED_MAGIC_GEN);
+		return getModifier(Stats.Modifier.RED_MAGIC_GEN);
 	}
 
 	public int getAmountWhiteMagic()
 	{
-		return getModifier(Stats.Modifiers.WHITE_MAGIC_GEN);
+		return getModifier(Stats.Modifier.WHITE_MAGIC_GEN);
 	}
 
 	public int getAmountBlackMagic()
 	{
-		String modifier = Stats.Modifiers.BLACK_MAGIC_GEN;
-		return getModifier(modifier);
+		return getModifier(Stats.Modifier.BLACK_MAGIC_GEN);
 	}
 
 	public int getAmountMagicPresent(int type)
@@ -1792,7 +1795,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	{
 		List<ActorActionIntention> possibilities = new ArrayList<ActorActionIntention>();
 
-		if (getModifier(Stats.Modifiers.IAJUTSU) > 0)
+		if (getModifier(Stats.Modifier.IAJUTSU) > 0)
 		{
 			// check it's a sword with the KENDO focus
 			Item primaryWeapon = getPrimaryWeapon();
@@ -1821,14 +1824,14 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/*-------------------------------------------------------------------------*/
 	public abstract List<AttackWith> getAttackWithOptions();
 	public abstract List<TypeDescriptor> getTypes();
-	public abstract int getBaseModifier(String modifier);
+	public abstract int getBaseModifier(Stats.Modifier modifier);
 	public abstract String getDisplayName();
 	public abstract String getDisplayNamePlural();
 	public abstract void removeItem(Item item, boolean removeWholeStack);
 	public abstract void removeItem(String itemName, boolean removeWholeStack);
 	public abstract void removeCurse(int strength);
 	public abstract void addAllies(List<FoeGroup> foeGroups);
-	public abstract boolean isActiveModifier(String modifier);
+	public abstract boolean isActiveModifier(Stats.Modifier modifier);
 
 	public abstract CharacterClass.Focus getFocus();
 

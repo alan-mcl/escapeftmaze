@@ -20,10 +20,7 @@
 package mclachlan.maze.balance;
 
 import java.util.*;
-import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.*;
 
 /**
  * Represents a random approach to increasing modifiers. Takes as input
@@ -32,10 +29,10 @@ import mclachlan.maze.stat.StatModifier;
  */
 public class RandomModifierApproach extends CharacterBuilder.ModifierApproach
 {
-	private List<String> modifiers;
+	private List<Stats.Modifier> modifiers;
 
 	/*-------------------------------------------------------------------------*/
-	public RandomModifierApproach(String... modifiers)
+	public RandomModifierApproach(Stats.Modifier... modifiers)
 	{
 		this.modifiers = Arrays.asList(modifiers);
 	}
@@ -51,7 +48,7 @@ public class RandomModifierApproach extends CharacterBuilder.ModifierApproach
 		int maxAssignable = GameSys.getInstance().getMaxAssignableToAModifierOnLevelUp();
 		while (points > 0)
 		{
-			String modifier = modifiers.get(i);
+			Stats.Modifier modifier = modifiers.get(i);
 			int current = pc.getModifier(modifier) + assignedToCurrent;
 			int cost = GameSys.getInstance().getModifierIncreaseCost(modifier, pc, current);
 
@@ -76,7 +73,7 @@ public class RandomModifierApproach extends CharacterBuilder.ModifierApproach
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void incModifier(StatModifier sm, String modifier)
+	private void incModifier(StatModifier sm, Stats.Modifier modifier)
 	{
 		int current = sm.getModifier(modifier);
 		sm.setModifier(modifier, current + 1);

@@ -25,6 +25,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -77,10 +78,10 @@ public class Spell
 	private int usabilityType;
 
 	/** the primary modifier involved in casting this spell */
-	private String primaryModifier;
+	private Stats.Modifier primaryModifier;
 
 	/** the secondary modifier involved in casting this spell */
-	private String secondaryModifier;
+	private Stats.Modifier secondaryModifier;
 
 	/** if non null, this is a wild magic spell */
 	private Value wildMagicValue;
@@ -106,8 +107,8 @@ public class Spell
 		StatModifier requirementsToLearn,
 		MazeScript castingScript,
 		MazeScript castByFoeScript,
-		String primaryModifier,
-		String secondaryModifier,
+		Stats.Modifier primaryModifier,
+		Stats.Modifier secondaryModifier,
 		Value wildMagicValue,
 		String[] wildMagicTable
 	)
@@ -230,7 +231,7 @@ public class Spell
 		return usabilityType;
 	}
 
-	public String getPrimaryModifier()
+	public Stats.Modifier getPrimaryModifier()
 	{
 		return primaryModifier;
 	}
@@ -240,7 +241,7 @@ public class Spell
 		return requirementsToLearn;
 	}
 
-	public String getSecondaryModifier()
+	public Stats.Modifier getSecondaryModifier()
 	{
 		return secondaryModifier;
 	}
@@ -290,7 +291,7 @@ public class Spell
 		this.name = name;
 	}
 
-	public void setPrimaryModifier(String primaryModifier)
+	public void setPrimaryModifier(Stats.Modifier primaryModifier)
 	{
 		this.primaryModifier = primaryModifier;
 	}
@@ -310,7 +311,7 @@ public class Spell
 		this.school = school;
 	}
 
-	public void setSecondaryModifier(String secondaryModifier)
+	public void setSecondaryModifier(Stats.Modifier secondaryModifier)
 	{
 		this.secondaryModifier = secondaryModifier;
 	}

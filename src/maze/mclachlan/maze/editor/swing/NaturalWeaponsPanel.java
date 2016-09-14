@@ -294,7 +294,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		if (e.getSource() == makeBackstab)
 		{
 			StatModifier sm = modifiers.getModifier();
-			sm.setModifier(Stats.Modifiers.DAMAGE_MULTIPLIER, 1);
+			sm.setModifier(Stats.Modifier.DAMAGE_MULTIPLIER, 1);
 			modifiers.setModifier(sm);
 		}
 

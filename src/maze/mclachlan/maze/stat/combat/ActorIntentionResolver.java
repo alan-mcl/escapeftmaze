@@ -244,7 +244,7 @@ public class ActorIntentionResolver
 					GameSys.getInstance().isLightningStrike(actor, attackWith),
 					GameSys.getInstance().getAttackType(attackWith),
 					defaultDamageType);
-				action.setModifier(Stats.Modifiers.INITIATIVE, -5 * i + attackWith.getToInitiative());
+				action.setModifier(Stats.Modifier.INITIATIVE, -5 * i + attackWith.getToInitiative());
 
 				result.add(action);
 			}
@@ -270,7 +270,7 @@ public class ActorIntentionResolver
 				actor.getPrimaryWeapon().getAmmoRequired() != null &&
 				actor.getPrimaryWeapon().getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType())
 				||
-				actor.getSecondaryWeapon() == null && actor.getModifier(Stats.Modifiers.MARTIAL_ARTS) > 0;
+				actor.getSecondaryWeapon() == null && actor.getModifier(Stats.Modifier.MARTIAL_ARTS) > 0;
 
 		Item weapon;
 		if (actor.getPrimaryWeapon() != null)
@@ -323,7 +323,7 @@ public class ActorIntentionResolver
 						GameSys.getInstance().isLightningStrike(actor, weapon),
 						GameSys.getInstance().getAttackType(weapon),
 						defaultDamageType);
-					action.setModifier(Stats.Modifiers.INITIATIVE, -5 * i + weapon.getToInitiative());
+					action.setModifier(Stats.Modifier.INITIATIVE, -5 * i + weapon.getToInitiative());
 					if (canAttackWithSecondary && actor.getSecondaryWeapon() != null)
 					{
 						GameSys.getInstance().setDualWeaponPenalties(action, actor, true);
@@ -367,7 +367,7 @@ public class ActorIntentionResolver
 					false,
 					GameSys.getInstance().getAttackType(weapon),
 					attackWith.getDefaultDamageType());
-				secAction.setModifier(Stats.Modifiers.INITIATIVE, -5 * (i + 1) + weapon.getToInitiative());
+				secAction.setModifier(Stats.Modifier.INITIATIVE, -5 * (i + 1) + weapon.getToInitiative());
 				if (actor.getSecondaryWeapon() != null)
 				{
 					// dual weapon penalties do not apply to unarmed combat

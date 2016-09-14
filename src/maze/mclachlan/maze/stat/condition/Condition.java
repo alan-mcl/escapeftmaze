@@ -24,10 +24,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.DamagePacket;
-import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Personality;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.SpellTargetUtils;
 import mclachlan.maze.stat.combat.event.DamageActionPointsEvent;
 import mclachlan.maze.stat.combat.event.DamageEvent;
@@ -199,7 +196,7 @@ public class Condition
 		return castingLevel;
 	}
 
-	public int getModifier(String modifier, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, ConditionBearer bearer)
 	{
 		int result = 0;
 
@@ -590,7 +587,7 @@ public class Condition
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, Integer> getModifiers()
+	public Map<Stats.Modifier, Integer> getModifiers()
 	{
 		return getTemplate().getStatModifier().getModifiers();
 	}

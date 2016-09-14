@@ -445,7 +445,7 @@ public class ActorActionResolver
 
 		// practise any modifiers
 		StatModifier useRequirements = item.getUseRequirements();
-		for (String mod : useRequirements.getModifiers().keySet())
+		for (Stats.Modifier mod : useRequirements.getModifiers().keySet())
 		{
 			GameSys.getInstance().practice(actor, mod, 1);
 		}
@@ -1232,7 +1232,7 @@ public class ActorActionResolver
 				actor != attacker)
 			{
 				temp.add(actor);
-				double weight = 1.0 / (1.0 + actor.getModifier(Stats.Modifiers.OBFUSCATION));
+				double weight = 1.0 / (1.0 + actor.getModifier(Stats.Modifier.OBFUSCATION));
 				weights.add(weight);
 			}
 		}

@@ -25,6 +25,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.CurMaxSub;
 import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
@@ -70,7 +71,7 @@ public class RestingSleep extends Condition
 	}
 
 	@Override
-	public int getModifier(String modifier, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, ConditionBearer bearer)
 	{
 		return 0;
 	}

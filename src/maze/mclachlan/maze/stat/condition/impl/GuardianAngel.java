@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.condition.impl;
 
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.DamageEvent;
 import mclachlan.maze.stat.combat.event.GuardianAngelEvent;
@@ -69,7 +70,7 @@ public class GuardianAngel extends Condition
 	}
 
 	@Override
-	public int getModifier(String modifier, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, ConditionBearer bearer)
 	{
 		return 0;
 	}

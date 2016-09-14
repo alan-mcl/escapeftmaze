@@ -34,9 +34,9 @@ public class IrritateEffect extends ConditionEffect
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		irritation.setModifier(Stats.Modifiers.ATTACK, -2);
-		irritation.setModifier(Stats.Modifiers.DEFENCE, -2);
-		irritation.setModifier(Stats.Modifiers.INITIATIVE, -1);
+		irritation.setModifier(Stats.Modifier.ATTACK, -2);
+		irritation.setModifier(Stats.Modifier.DEFENCE, -2);
+		irritation.setModifier(Stats.Modifier.INITIATIVE, -1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -66,16 +66,16 @@ public class IrritateEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public int getModifier(String modifier, Condition condition, ConditionBearer bearer)
+	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return irritation.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_IRRITATE;
+		return Stats.Modifier.IMMUNE_TO_IRRITATE;
 	}
 
 	/*-------------------------------------------------------------------------*/

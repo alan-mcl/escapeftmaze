@@ -413,7 +413,10 @@ public class V1ItemTemplate
 			GroupOfPossibilities<SpellEffect> se = spellEffects.fromString(p.getProperty("spellEffects"));
 			int bonusAttacks = Integer.parseInt(p.getProperty("bonusAttacks"));
 			int bonusStrikes = Integer.parseInt(p.getProperty("bonusStrikes"));
-			String discipline = p.getProperty("discipline").equals("")?null:p.getProperty("discipline");
+			Stats.Modifier discipline = p.getProperty("discipline").equals("")
+				?
+				null:
+				Stats.Modifier.valueOf(p.getProperty("discipline"));
 			String s = p.getProperty("slaysFoeType");
 			TypeDescriptor slaysFoeType = "".equals(s)?null:new TypeDescriptorImpl(s);
 			String ammoTypeName = p.getProperty("ammoType");

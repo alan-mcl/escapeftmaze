@@ -27,6 +27,7 @@ import java.util.Properties;
 import java.util.List;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
@@ -247,8 +248,8 @@ public class V1Spell
 				requirementsToLearn,
 				castByPlayerScript,
 				castByFoeScript,
-				primaryModifier,
-				secondaryModifier,
+				Stats.Modifier.valueOf(primaryModifier),
+				Stats.Modifier.valueOf(secondaryModifier),
 				wildMagicValue,
 				wildMagicTable);
 		}

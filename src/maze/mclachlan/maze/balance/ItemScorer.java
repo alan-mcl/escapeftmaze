@@ -9,9 +9,10 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ItemTemplate;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.stat.Stats.Modifiers.*;
+import static mclachlan.maze.stat.Stats.Modifier.*;
 import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
@@ -19,7 +20,7 @@ import static mclachlan.maze.stat.ItemTemplate.*;
  */
 public class ItemScorer
 {
-	static Map<String, Double> weaponModifierScores = new HashMap<String, Double>();
+	static Map<Stats.Modifier, Double> weaponModifierScores = new HashMap<Stats.Modifier, Double>();
 
 	/*-------------------------------------------------------------------------*/
 	public double scoreItem(ItemTemplate t)
@@ -53,7 +54,7 @@ public class ItemScorer
 		result += (t.getBonusStrikes() * 3);
 
 		// modifiers
-		for (String m : t.getModifiers().getModifiers().keySet())
+		for (Stats.Modifier m : t.getModifiers().getModifiers().keySet())
 		{
 			int modifier = t.getModifiers().getModifier(m);
 			result += (modifier * weaponModifierScores.get(m));

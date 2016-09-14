@@ -50,7 +50,7 @@ public class BannerModifierLevelAbility extends LevelAbility
 	{
 		List result = new ArrayList();
 
-		for (String s : modifier.getModifiers().keySet())
+		for (Stats.Modifier s : modifier.getModifiers().keySet())
 		{
 			result.add(StringUtil.descModifier(s, modifier.getModifier(s)));
 		}

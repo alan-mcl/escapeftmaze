@@ -21,6 +21,7 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.data.v1.V1Value;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.util.MazeException;
 
@@ -191,7 +192,7 @@ public class Value
 				return source.getLevel(getReference());
 
 			case SCALE_WITH_MODIFIER:
-				return source.getModifier(getReference());
+				return source.getModifier(Stats.Modifier.valueOf(getReference()));
 
 			case SCALE_WITH_PARTY_SIZE:
 				if (source.getActorGroup() != null)

@@ -41,7 +41,7 @@ public class StatModifierDisplayWidget extends DIYPane
 	private int rows;
 	private DIYLabel[] labels;
 	private DIYLabel[] values;
-	private List<String> toInclude;
+	private List<Stats.Modifier> toInclude;
 	private boolean displayZeroes;
 	private StatModifier modifier;
 
@@ -50,7 +50,7 @@ public class StatModifierDisplayWidget extends DIYPane
 		String title,
 		StatModifier current,
 		int nrRows,
-		List<String> toInclude,
+		List<Stats.Modifier> toInclude,
 		boolean displayZeroes,
 		boolean unknown)
 	{
@@ -104,23 +104,23 @@ public class StatModifierDisplayWidget extends DIYPane
 		{
 			int count = 0;
 
-			for (String s : toInclude)
+			for (Stats.Modifier mod : toInclude)
 			{
-				int modifierValue = current.getModifier(s);
+				int modifierValue = current.getModifier(mod);
 				if ((displayZeroes || modifierValue != 0) && count < rows)
 				{
-					String modifierName = StringUtil.getModifierName(s);
+					String modifierName = StringUtil.getModifierName(mod);
 					labels[count].setText(modifierName);
-					labels[count].setActionMessage(s);
+					labels[count].setActionMessage(mod.toString());
 					if (unknown)
 					{
 						values[count].setText("?");
 					}
 					else
 					{
-						values[count].setText(descModifier(s, modifierValue));
+						values[count].setText(descModifier(mod, modifierValue));
 					}
-					values[count].setActionMessage(s);
+					values[count].setActionMessage(mod.toString());
 
 					count++;
 				}
@@ -136,9 +136,9 @@ public class StatModifierDisplayWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(String modifier, int value)
+	private String descModifier(Stats.Modifier modifier, int value)
 	{
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:

@@ -28,5 +28,5 @@ public interface TypeDescriptor
 {
 	String getName();
 
-	String getFavouredEnemyModifier();
+	Stats.Modifier getFavouredEnemyModifier();
 }

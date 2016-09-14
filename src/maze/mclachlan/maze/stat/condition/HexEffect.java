@@ -49,9 +49,9 @@ public class HexEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_HEX;
+		return Stats.Modifier.IMMUNE_TO_HEX;
 	}
 
 	/*-------------------------------------------------------------------------*/

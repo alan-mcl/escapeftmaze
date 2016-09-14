@@ -457,7 +457,7 @@ public class PlayerParty implements ActorGroup
 	 * @return
 	 * 	total modifier of all the party
 	 */
-	public int getTotalModifier(String modifier)
+	public int getTotalModifier(Stats.Modifier modifier)
 	{
 		int result = 0;
 

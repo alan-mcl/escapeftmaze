@@ -72,9 +72,9 @@ public class ParalyseEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public String getImmunityModifier()
+	public Stats.Modifier getImmunityModifier()
 	{
-		return Stats.Modifiers.IMMUNE_TO_PARALYSE;
+		return Stats.Modifier.IMMUNE_TO_PARALYSE;
 	}
 
 	/*-------------------------------------------------------------------------*/

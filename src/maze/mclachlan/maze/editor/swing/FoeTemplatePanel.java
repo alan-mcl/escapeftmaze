@@ -794,7 +794,7 @@ public class FoeTemplatePanel extends EditorPanel
 
 		for (StatModifier sm : modifiers)
 		{
-			for (String modifier : Stats.allModifiers)
+			for (Stats.Modifier modifier : Stats.allModifiers)
 			{
 				int currentValue = current.getModifier(modifier);
 				int packValue = sm.getModifier(modifier);

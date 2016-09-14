@@ -42,15 +42,15 @@ public class ModifiersEditWidget extends ContainerWidget
 	private int maxAssignable;
 
 	private DIYLabel bonusesLeft = new DIYLabel();
-	private Map<String, EditWidget> editLabelMap = new HashMap<String, EditWidget>();
-	private Map<String, DIYLabel> labelMap = new HashMap<String, DIYLabel>();
+	private Map<Stats.Modifier, EditWidget> editLabelMap = new HashMap<Stats.Modifier, EditWidget>();
+	private Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
 
 	/** this is the ultimate player choices */
 	private StatModifier statModifier;
 
 	private ActionListener listener = new ModifiersDisplayActionListener();
 
-	private String modifierPointer;
+	private Stats.Modifier modifierPointer;
 	private int pointerRow;
 	private int pointerColumn;
 
@@ -86,20 +86,20 @@ public class ModifiersEditWidget extends ContainerWidget
 			{
 				{ header, 								bonusesLeft,							null},
 				{combatHeader,							stealthHeader,							magicHeader},
-				{ Stats.Modifiers.SWING,			Stats.Modifiers.STREETWISE,	Stats.Modifiers.CHANT},
-				{ Stats.Modifiers.THRUST,			Stats.Modifiers.DUNGEONEER,	Stats.Modifiers.RHYME},
-				{ Stats.Modifiers.BASH,				Stats.Modifiers.WILDERNESS_LORE,	Stats.Modifiers.GESTURE},
-				{ Stats.Modifiers.CUT,				Stats.Modifiers.SURVIVAL,	Stats.Modifiers.POSTURE},
-				{ Stats.Modifiers.LUNGE,			Stats.Modifiers.BACKSTAB,			Stats.Modifiers.THOUGHT},
-				{ Stats.Modifiers.PUNCH,			Stats.Modifiers.SNIPE,				Stats.Modifiers.HERBAL},
-				{ Stats.Modifiers.KICK,				Stats.Modifiers.LOCK_AND_TRAP,	Stats.Modifiers.ALCHEMIC},
-				{ Stats.Modifiers.SHOOT,			Stats.Modifiers.STEAL,				null},
-				{ Stats.Modifiers.THROW,			null,										Stats.Modifiers.ARTIFACTS},
-				{ null,									Stats.Modifiers.MARTIAL_ARTS,		Stats.Modifiers.MYTHOLOGY},
-				{ Stats.Modifiers.FIRE,				Stats.Modifiers.MELEE_CRITICALS,	Stats.Modifiers.CRAFT},
-				{ Stats.Modifiers.DUAL_WEAPONS,	Stats.Modifiers.THROWN_CRITICALS,Stats.Modifiers.POWER_CAST},
-				{ Stats.Modifiers.CHIVALRY,		Stats.Modifiers.RANGED_CRITICALS,Stats.Modifiers.ENGINEERING},
-				{ Stats.Modifiers.KENDO,			null,										Stats.Modifiers.MUSIC},			};
+				{ Stats.Modifier.SWING,			Stats.Modifier.STREETWISE,	Stats.Modifier.CHANT},
+				{ Stats.Modifier.THRUST,			Stats.Modifier.DUNGEONEER,	Stats.Modifier.RHYME},
+				{ Stats.Modifier.BASH,				Stats.Modifier.WILDERNESS_LORE,	Stats.Modifier.GESTURE},
+				{ Stats.Modifier.CUT,				Stats.Modifier.SURVIVAL,	Stats.Modifier.POSTURE},
+				{ Stats.Modifier.LUNGE,			Stats.Modifier.BACKSTAB,			Stats.Modifier.THOUGHT},
+				{ Stats.Modifier.PUNCH,			Stats.Modifier.SNIPE,				Stats.Modifier.HERBAL},
+				{ Stats.Modifier.KICK,				Stats.Modifier.LOCK_AND_TRAP,	Stats.Modifier.ALCHEMIC},
+				{ Stats.Modifier.SHOOT,			Stats.Modifier.STEAL,				null},
+				{ Stats.Modifier.THROW,			null,										Stats.Modifier.ARTIFACTS},
+				{ null,									Stats.Modifier.MARTIAL_ARTS,		Stats.Modifier.MYTHOLOGY},
+				{ Stats.Modifier.FIRE,				Stats.Modifier.MELEE_CRITICALS,	Stats.Modifier.CRAFT},
+				{ Stats.Modifier.DUAL_WEAPONS,	Stats.Modifier.THROWN_CRITICALS, Stats.Modifier.POWER_CAST},
+				{ Stats.Modifier.CHIVALRY,		Stats.Modifier.RANGED_CRITICALS, Stats.Modifier.ENGINEERING},
+				{ Stats.Modifier.KENDO,			null,										Stats.Modifier.MUSIC},			};
 		}
 		else
 		{
@@ -107,24 +107,24 @@ public class ModifiersEditWidget extends ContainerWidget
 			{
 				{ header, 								bonusesLeft,							null},
 				{ null, 									attributeHeader,						null},
-				{ Stats.Modifiers.BRAWN,			Stats.Modifiers.THIEVING,			Stats.Modifiers.BRAINS},
-				{ Stats.Modifiers.SKILL,			Stats.Modifiers.SNEAKING,			Stats.Modifiers.POWER},
+				{ Stats.Modifier.BRAWN,			Stats.Modifier.THIEVING,			Stats.Modifier.BRAINS},
+				{ Stats.Modifier.SKILL,			Stats.Modifier.SNEAKING,			Stats.Modifier.POWER},
 				{ null,									null,										null},
 				{combatHeader,							stealthHeader,							magicHeader},
-				{ Stats.Modifiers.SWING,			Stats.Modifiers.STREETWISE,	Stats.Modifiers.CHANT},
-				{ Stats.Modifiers.THRUST,			Stats.Modifiers.DUNGEONEER,	Stats.Modifiers.RHYME},
-				{ Stats.Modifiers.BASH,				Stats.Modifiers.WILDERNESS_LORE,	Stats.Modifiers.GESTURE},
-				{ Stats.Modifiers.CUT,				Stats.Modifiers.SURVIVAL,	Stats.Modifiers.POSTURE},
-				{ Stats.Modifiers.LUNGE,			Stats.Modifiers.BACKSTAB,			Stats.Modifiers.THOUGHT},
-				{ Stats.Modifiers.PUNCH,			Stats.Modifiers.SNIPE,				Stats.Modifiers.HERBAL},
-				{ Stats.Modifiers.KICK,				Stats.Modifiers.LOCK_AND_TRAP,	Stats.Modifiers.ALCHEMIC},
-				{ Stats.Modifiers.SHOOT,			Stats.Modifiers.STEAL,				null},
-				{ Stats.Modifiers.THROW,			null,										Stats.Modifiers.ARTIFACTS},
-				{ null,									Stats.Modifiers.MARTIAL_ARTS,		Stats.Modifiers.MYTHOLOGY},
-				{ Stats.Modifiers.FIRE,				Stats.Modifiers.MELEE_CRITICALS,	Stats.Modifiers.CRAFT},
-				{ Stats.Modifiers.DUAL_WEAPONS,	Stats.Modifiers.THROWN_CRITICALS,Stats.Modifiers.POWER_CAST},
-				{ Stats.Modifiers.CHIVALRY,		Stats.Modifiers.RANGED_CRITICALS,Stats.Modifiers.ENGINEERING},
-				{ Stats.Modifiers.KENDO,			null,										Stats.Modifiers.MUSIC},
+				{ Stats.Modifier.SWING,			Stats.Modifier.STREETWISE,	Stats.Modifier.CHANT},
+				{ Stats.Modifier.THRUST,			Stats.Modifier.DUNGEONEER,	Stats.Modifier.RHYME},
+				{ Stats.Modifier.BASH,				Stats.Modifier.WILDERNESS_LORE,	Stats.Modifier.GESTURE},
+				{ Stats.Modifier.CUT,				Stats.Modifier.SURVIVAL,	Stats.Modifier.POSTURE},
+				{ Stats.Modifier.LUNGE,			Stats.Modifier.BACKSTAB,			Stats.Modifier.THOUGHT},
+				{ Stats.Modifier.PUNCH,			Stats.Modifier.SNIPE,				Stats.Modifier.HERBAL},
+				{ Stats.Modifier.KICK,				Stats.Modifier.LOCK_AND_TRAP,	Stats.Modifier.ALCHEMIC},
+				{ Stats.Modifier.SHOOT,			Stats.Modifier.STEAL,				null},
+				{ Stats.Modifier.THROW,			null,										Stats.Modifier.ARTIFACTS},
+				{ null,									Stats.Modifier.MARTIAL_ARTS,		Stats.Modifier.MYTHOLOGY},
+				{ Stats.Modifier.FIRE,				Stats.Modifier.MELEE_CRITICALS,	Stats.Modifier.CRAFT},
+				{ Stats.Modifier.DUAL_WEAPONS,	Stats.Modifier.THROWN_CRITICALS, Stats.Modifier.POWER_CAST},
+				{ Stats.Modifier.CHIVALRY,		Stats.Modifier.RANGED_CRITICALS, Stats.Modifier.ENGINEERING},
+				{ Stats.Modifier.KENDO,			null,										Stats.Modifier.MUSIC},
 			};
 		}
 
@@ -155,9 +155,9 @@ public class ModifiersEditWidget extends ContainerWidget
 					this.addDescLabel(null, (DIYLabel)aRow);
 					this.add(getBlank());
 				}
-				else if (aRow instanceof String)
+				else if (aRow instanceof Stats.Modifier)
 				{
-					String modifier = (String)aRow;
+					Stats.Modifier modifier = (Stats.Modifier)aRow;
 					String modName = StringUtil.getModifierName(modifier);
 					this.addDescLabel(modifier, getLabel(modName));
 					this.addStatLabel(modifier, getModifierLabel());
@@ -176,19 +176,19 @@ public class ModifiersEditWidget extends ContainerWidget
 	/**
 	 * Adds a static text desc label.
 	 */
-	private void addDescLabel(String name, DIYLabel label)
+	private void addDescLabel(Stats.Modifier modifier, DIYLabel label)
 	{
 		this.add(label);
-		label.setActionMessage(name);
+		label.setActionMessage(modifier==null?null:modifier.getResourceBundleKey());
 		label.addActionListener(listener);
-		this.labelMap.put(name, label);
+		this.labelMap.put(modifier, label);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Adds a volatile stats label.
 	 */
-	private void addStatLabel(String name, EditWidget label)
+	private void addStatLabel(Stats.Modifier name, EditWidget label)
 	{
 		this.add(label);
 		label.modifier = name;
@@ -262,7 +262,7 @@ public class ModifiersEditWidget extends ContainerWidget
 
 		setModifierPointer(2, 0);
 
-		for (String modifier : this.editLabelMap.keySet())
+		for (Stats.Modifier modifier : this.editLabelMap.keySet())
 		{
 			EditWidget editLabel = this.editLabelMap.get(modifier);
 			if (editLabel != null)
@@ -292,23 +292,23 @@ public class ModifiersEditWidget extends ContainerWidget
 		pointerRow = row;
 		pointerColumn = column;
 
-		modifierPointer = (String)layout[row][column];
-		for (String s : this.editLabelMap.keySet())
+		modifierPointer = (Stats.Modifier)layout[row][column];
+		for (Stats.Modifier s : this.editLabelMap.keySet())
 		{
 			EditWidget editWidget = editLabelMap.get(s);
-			editWidget.setPointer(s.equalsIgnoreCase(modifierPointer));
+			editWidget.setPointer(s.equals(modifierPointer));
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	void plus(PlayerCharacter playerCharacter, StatModifier statModifier, String modifier, CurMax bonuses)
+	void plus(PlayerCharacter playerCharacter, StatModifier statModifier, Stats.Modifier modifier, CurMax bonuses)
 	{
 		this.leveler.plus(playerCharacter, statModifier, modifier, bonuses);
 		updateBonusesLeft();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	void minus(PlayerCharacter playerCharacter, StatModifier statModifier, String modifier, CurMax bonuses)
+	void minus(PlayerCharacter playerCharacter, StatModifier statModifier, Stats.Modifier modifier, CurMax bonuses)
 	{
 		this.leveler.minus(playerCharacter, statModifier, modifier, bonuses);
 		updateBonusesLeft();
@@ -320,7 +320,7 @@ public class ModifiersEditWidget extends ContainerWidget
 		this.bonusesLeft.setText(toString(this.bonuses));
 
 		// set the state of all the plus buttons
-		for (String modifier : this.editLabelMap.keySet())
+		for (Stats.Modifier modifier : this.editLabelMap.keySet())
 		{
 			int current = playerCharacter.getModifier(modifier);
 			if (statModifier != null)
@@ -420,7 +420,7 @@ public class ModifiersEditWidget extends ContainerWidget
 		int value;
 
 		int assignedSoFar = 0;
-		String modifier;
+		Stats.Modifier modifier;
 
 		/*----------------------------------------------------------------------*/
 		public EditWidget()

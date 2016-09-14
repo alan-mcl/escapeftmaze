@@ -761,7 +761,7 @@ public class ItemDetailsWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean addModifiers(Map<String, Integer> modifiers, List<Widget> rows,
+	private boolean addModifiers(Map<Stats.Modifier, Integer> modifiers, List<Widget> rows,
 		String title, Item item, boolean suppressCursedItemStuff)
 	{
 		if (modifiers.size() == 0)
@@ -770,7 +770,7 @@ public class ItemDetailsWidget extends DIYPanel
 			return false;
 		}
 
-		List<String> sortedModifiers = new ArrayList<String>(modifiers.keySet());
+		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.keySet());
 		Collections.sort(sortedModifiers);
 
 		if (suppressCursedItemStuff && item.getCursedState() == Item.CursedState.UNDISCOVERED)
@@ -782,7 +782,7 @@ public class ItemDetailsWidget extends DIYPanel
 
 			boolean hasAnyPositiveModifiers = false;
 
-			for (String modifier : sortedModifiers)
+			for (Stats.Modifier modifier : sortedModifiers)
 			{
 				if (modifiers.get(modifier) > 0)
 				{
@@ -801,7 +801,7 @@ public class ItemDetailsWidget extends DIYPanel
 		StringBuilder sb = new StringBuilder(title+" ");
 		List<String> modDesc = new ArrayList<String>();
 
-		for (String modifier : sortedModifiers)
+		for (Stats.Modifier modifier : sortedModifiers)
 		{
 			int value = modifiers.get(modifier);
 
@@ -848,11 +848,11 @@ public class ItemDetailsWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(String modifier, int value)
+	private String descModifier(Stats.Modifier modifier, int value)
 	{
 		String modifierName = StringUtil.getModifierName(modifier);
 
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:

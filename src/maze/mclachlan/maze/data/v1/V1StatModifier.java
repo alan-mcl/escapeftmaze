@@ -21,8 +21,9 @@ package mclachlan.maze.data.v1;
 
 import java.math.BigInteger;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.util.MazeException;
-import static mclachlan.maze.stat.Stats.Modifiers.*;
+import static mclachlan.maze.stat.Stats.Modifier.*;
 
 /**
  *
@@ -52,7 +53,7 @@ public class V1StatModifier
 
 		for (int i = 0; i < INDEX.length; i++)
 		{
-			int modifier = sm.getModifier(INDEX[i]);
+			int modifier = (INDEX[i] instanceof Stats.Modifier) ? sm.getModifier((Stats.Modifier)INDEX[i]) : 0;
 			if (modifier != 0)
 			{
 				if (modifier > MAX_MODIFIER || modifier < MIN_MODIFIER)
@@ -105,8 +106,11 @@ public class V1StatModifier
 		{
 			if (bi.testBit(i))
 			{
-				String modifier = strs[1].substring(counter, counter+2);
-				result.setModifier(INDEX[i], (byte)(Integer.parseInt(modifier, 16)));
+				if (INDEX[i] instanceof Stats.Modifier)
+				{
+					String modifier = strs[1].substring(counter, counter + 2);
+					result.setModifier((Stats.Modifier)INDEX[i], (byte)(Integer.parseInt(modifier, 16)));
+				}
 				counter += 2;
 			}
 		}
@@ -149,7 +153,8 @@ public class V1StatModifier
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static final String[] INDEX =
+	// todo: hackery!
+	public static final Object[] INDEX =
 		{
 			HIT_POINTS,
 			ACTION_POINTS,

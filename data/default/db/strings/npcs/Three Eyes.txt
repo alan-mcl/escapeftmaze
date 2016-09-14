@@ -1,4 +1,4 @@
-#Tue Jan 26 08:20:33 CAT 2016
+#Wed Sep 14 15:29:12 CAT 2016
 maze\ master=9|I cannot say.
 garret=9|He is the god of the road.
 faerie=9|I have heard of the lands of the fey.
@@ -38,14 +38,14 @@ escape,freedom=9|Destiny is a strange thing.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Ichiba attracts many types, some good, some bad.
 leonal,leonals,white\ order=9|The lion folk live in their castle, to the north.
 gnoll,gnolls=9|We are what we are. Are you more free than us?
-stentor=9|I cannot say.
 dalen=9|It is a mythical forest world.
+stentor=9|I cannot say.
 gnome,gnomes=9|The gnome folk live under the earth, southwards from here.
-pickett,we\ pickett=9|He is in Ichiba, counting his money.
 imogen=9|She is in Ichiba, for now.
-second\ realm=9|Yes, we are here.
-mnesus=9|I have heard of the chief of the gnomes, on his throne beneath the earth.
+pickett,we\ pickett=9|He is in Ichiba, counting his money.
 dana=9|She is the goddess of the leonals.
+mnesus=9|I have heard of the chief of the gnomes, on his throne beneath the earth.
+second\ realm=9|Yes, we are here.
 sarpedon=9|I cannot say.
 greetings,hello,hi,salutations=9|Greetings.
 kay,sir\ kay=9|He may be in Ichiba, but he is hard to keep track of.

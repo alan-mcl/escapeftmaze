@@ -341,7 +341,7 @@ public class Leveler
 		}
 		else if (bonus.equalsIgnoreCase(BONUS_ATTRIBUTE))
 		{
-			pc.incModifier((String)bonusDetails, 1);
+			pc.incModifier((Stats.Modifier)bonusDetails, 1);
 		}
 		else if (bonus.equalsIgnoreCase(BONUS_MODIFIERS))
 		{
@@ -353,7 +353,7 @@ public class Leveler
 		}
 		else if (bonus.equalsIgnoreCase(UNLOCK_MODIFIER))
 		{
-			pc.unlockModifier((String)bonusDetails);
+			pc.unlockModifier((Stats.Modifier)bonusDetails);
 		}
 		else if (bonus.equalsIgnoreCase(UNLOCK_SPELL_LEVEL))
 		{
@@ -410,7 +410,7 @@ public class Leveler
 		}
 		else if (bonus.equalsIgnoreCase(Leveler.BONUS_ATTRIBUTE))
 		{
-			pc.incModifier((String)bonusDetails, -1);
+			pc.incModifier((Stats.Modifier)bonusDetails, -1);
 		}
 		else if (bonus.equalsIgnoreCase(Leveler.BONUS_MODIFIERS))
 		{
@@ -422,7 +422,7 @@ public class Leveler
 		}
 		else if (bonus.equalsIgnoreCase(Leveler.UNLOCK_MODIFIER))
 		{
-			pc.lockModifier((String)bonusDetails);
+			pc.lockModifier((Stats.Modifier)bonusDetails);
 		}
 		else if (bonus.equalsIgnoreCase(Leveler.UNLOCK_SPELL_LEVEL))
 		{
@@ -545,7 +545,7 @@ public class Leveler
 
 	/*-------------------------------------------------------------------------*/
 	public void plus(PlayerCharacter playerCharacter, StatModifier statModifier,
-		String modifier, CurMax bonuses)
+		Stats.Modifier modifier, CurMax bonuses)
 	{
 		int current = playerCharacter.getModifier(modifier) + statModifier.getModifier(modifier);
 		int cost = GameSys.getInstance().getModifierIncreaseCost(
@@ -559,7 +559,7 @@ public class Leveler
 
 	/*-------------------------------------------------------------------------*/
 	public void minus(PlayerCharacter playerCharacter, StatModifier statModifier,
-		String modifier, CurMax bonuses)
+		Stats.Modifier modifier, CurMax bonuses)
 	{
 		int current = playerCharacter.getModifier(modifier) + statModifier.getModifier(modifier);
 		int cost = GameSys.getInstance().getModifierIncreaseCost(
@@ -651,7 +651,7 @@ public class Leveler
 
 			// check at least one lock&trap pc
 			StatModifier activeModifiers = pc.getActiveModifiers();
-			if (activeModifiers.getModifiers().containsKey(Stats.Modifiers.LOCK_AND_TRAP))
+			if (activeModifiers.getModifiers().containsKey(Stats.Modifier.LOCK_AND_TRAP))
 			{
 				lockAndTrap++;
 			}
@@ -697,7 +697,7 @@ public class Leveler
 			hpInc = pc.getCharacterClass().getLevelUpHitPoints().roll();
 			spInc = pc.getCharacterClass().getLevelUpActionPoints().roll();
 			mpInc = pc.getCharacterClass().getLevelUpMagicPoints().roll() +
-				pc.getModifier(Stats.Modifiers.BRAINS);
+				pc.getModifier(Stats.Modifier.BRAINS);
 
 			spellPicksInc = calcSpellPicks(pc, pc.getCurrentClassLevel()+1);
 

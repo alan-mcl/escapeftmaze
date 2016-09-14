@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 
 /**
  * Represents a mono-focused approach to increasing modifiers. Takes as input
@@ -31,10 +32,10 @@ import mclachlan.maze.stat.StatModifier;
  */
 public class PriorityModifierApproach extends CharacterBuilder.ModifierApproach
 {
-	private List<String> modifiers;
+	private List<Stats.Modifier> modifiers;
 
 	/*-------------------------------------------------------------------------*/
-	public PriorityModifierApproach(String... modifiers)
+	public PriorityModifierApproach(Stats.Modifier... modifiers)
 	{
 		this.modifiers = Arrays.asList(modifiers);
 	}
@@ -48,7 +49,7 @@ public class PriorityModifierApproach extends CharacterBuilder.ModifierApproach
 		int maxAssignable = GameSys.getInstance().getMaxAssignableToAModifierOnLevelUp();
 		while (points > 0)
 		{
-			String modifier = modifiers.get(i);
+			Stats.Modifier modifier = modifiers.get(i);
 			int current = pc.getModifier(modifier) + assignedToCurrent;
 			int cost = GameSys.getInstance().getModifierIncreaseCost(modifier, pc, current);
 
@@ -75,7 +76,7 @@ public class PriorityModifierApproach extends CharacterBuilder.ModifierApproach
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void incModifier(StatModifier sm, String modifier)
+	private void incModifier(StatModifier sm, Stats.Modifier modifier)
 	{
 		int current = sm.getModifier(modifier);
 		sm.setModifier(modifier, current + 1);

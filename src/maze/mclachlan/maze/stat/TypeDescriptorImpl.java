@@ -38,7 +38,7 @@ public class TypeDescriptorImpl implements TypeDescriptor
 	}
 
 	@Override
-	public String getFavouredEnemyModifier()
+	public Stats.Modifier getFavouredEnemyModifier()
 	{
 		return null;
 	}

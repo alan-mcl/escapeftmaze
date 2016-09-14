@@ -75,6 +75,7 @@ public class EndCombatEvent extends MazeEvent
 		//
 		combat.endCombat();
 		maze.setCurrentCombat(null);
+		maze.setCurrentActorEncounter(null);
 		maze.setState(Maze.State.MOVEMENT);
 
 		//
@@ -103,7 +104,7 @@ public class EndCombatEvent extends MazeEvent
 			// calculate extra gold
 			for (UnifiedActor pc : maze.getParty().getActors())
 			{
-				extraPercent += pc.getModifier(Stats.Modifiers.EXTRA_GOLD);
+				extraPercent += pc.getModifier(Stats.Modifier.EXTRA_GOLD);
 			}
 			totalGold += (totalGold*extraPercent/100);
 

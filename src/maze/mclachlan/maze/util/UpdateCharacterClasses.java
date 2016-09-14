@@ -115,7 +115,7 @@ public class UpdateCharacterClasses
 		System.out.println("specialist caster: "+cc.getName());
 		LevelAbilityProgression progression = cc.getProgression();
 
-		String modifier = book.getCastingAbilityModifier();
+		Stats.Modifier modifier = book.getCastingAbilityModifier();
 		String s = book.getDisplayNameKey();
 
 		// casting ability progression
@@ -142,7 +142,7 @@ public class UpdateCharacterClasses
 		System.out.println("hybrid: "+cc.getName());
 		LevelAbilityProgression progression = cc.getProgression();
 
-		String modifier = book.getCastingAbilityModifier();
+		Stats.Modifier modifier = book.getCastingAbilityModifier();
 		String s = book.getDisplayNameKey();
 
 		// casting ability progression
@@ -166,7 +166,7 @@ public class UpdateCharacterClasses
 
 		for (MagicSys.SpellBook book : books)
 		{
-			String modifier = book.getCastingAbilityModifier();
+			Stats.Modifier modifier = book.getCastingAbilityModifier();
 			String s = book.getDisplayNameKey();
 
 			// casting ability progression
@@ -185,7 +185,7 @@ public class UpdateCharacterClasses
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static StatModifier getStatModifier(String modifier, int i)
+	private static StatModifier getStatModifier(Stats.Modifier modifier, int i)
 	{
 		StatModifier result = new StatModifier();
 		result.setModifier(modifier, i);

@@ -66,7 +66,7 @@ modifiers=8400000000100,010101
 name=rapier+poignard (duelistbuild)
 primaryHand=Rapier
 secondaryHand=Poignard
-modifiers=28000000000010,010202
+modifiers=8000000000010,0102
 @
 name=dual modern (cowboybob)
 primaryHand=<any modern weapon>
@@ -86,7 +86,7 @@ modifiers=100000040000000002100,01010101
 name=dual axes (crazyviking)
 primaryHand=<any axe>
 secondaryHand=<any axe>
-modifiers=130000000000000,020202
+modifiers=110000000000000,0202
 @
 name=sword+dagger (mrmaingauche)
 primaryHand=<any sword>

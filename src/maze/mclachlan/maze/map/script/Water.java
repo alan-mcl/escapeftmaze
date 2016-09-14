@@ -50,7 +50,7 @@ public class Water extends TileScript
 
 		for (UnifiedActor a : maze.getParty().getActors())
 		{
-			if (a.getModifier(Stats.Modifiers.AMPHIBIOUS) > 0)
+			if (a.getModifier(Stats.Modifier.AMPHIBIOUS) > 0)
 			{
 				continue;
 			}

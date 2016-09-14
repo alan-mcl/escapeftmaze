@@ -225,7 +225,7 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 				}
 
 				// practise the craft recipe modifiers
-				for (String mod : recipeRequirements.getModifiers().keySet())
+				for (Stats.Modifier mod : recipeRequirements.getModifiers().keySet())
 				{
 					GameSys.getInstance().practice(pc, mod, nrToCreate);
 				}
@@ -250,7 +250,7 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 				sb.append(StringUtil.getUiLabel("cid.cannot.merge"));
 
 				boolean first = true;
-				for (String s : recipeRequirements.getModifiers().keySet())
+				for (Stats.Modifier s : recipeRequirements.getModifiers().keySet())
 				{
 					if (!first)
 					{
@@ -274,7 +274,7 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private int getCraftSkill()
 	{
-		return pc.getLevel() + pc.getModifier(Stats.Modifiers.CRAFT);
+		return pc.getLevel() + pc.getModifier(Stats.Modifier.CRAFT);
 	}
 
 	/*-------------------------------------------------------------------------*/

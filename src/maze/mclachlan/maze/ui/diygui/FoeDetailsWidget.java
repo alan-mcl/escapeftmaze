@@ -259,11 +259,11 @@ public class FoeDetailsWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private void addOtherModifiers(List<Widget> rows, Foe foe, int information)
 	{
-		Map<String, Integer> modifiers = new HashMap<String, Integer>();
+		Map<Stats.Modifier, Integer> modifiers = new HashMap<Stats.Modifier, Integer>();
 
 		if (information >= 8)
 		{
-			for (String s : Stats.middleModifiers)
+			for (Stats.Modifier s : Stats.middleModifiers)
 			{
 				if (foe.getModifier(s) != 0)
 				{
@@ -282,20 +282,20 @@ public class FoeDetailsWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private void addAttributeModifiers(List<Widget> rows, Foe foe, int information)
 	{
-		Map<String, Integer> modifiers = new HashMap<String, Integer>();
+		Map<Stats.Modifier, Integer> modifiers = new HashMap<Stats.Modifier, Integer>();
 
 		if (information >= 5)
 		{
 			if (information >= 6)
 			{
-				modifiers.put(Stats.Modifiers.SKILL, foe.getModifier(Stats.Modifiers.SKILL));
-				modifiers.put(Stats.Modifiers.THIEVING, foe.getModifier(Stats.Modifiers.THIEVING));
-				modifiers.put(Stats.Modifiers.POWER, foe.getModifier(Stats.Modifiers.POWER));
+				modifiers.put(Stats.Modifier.SKILL, foe.getModifier(Stats.Modifier.SKILL));
+				modifiers.put(Stats.Modifier.THIEVING, foe.getModifier(Stats.Modifier.THIEVING));
+				modifiers.put(Stats.Modifier.POWER, foe.getModifier(Stats.Modifier.POWER));
 			}
 
-			modifiers.put(Stats.Modifiers.BRAWN, foe.getModifier(Stats.Modifiers.BRAWN));
-			modifiers.put(Stats.Modifiers.SNEAKING, foe.getModifier(Stats.Modifiers.SNEAKING));
-			modifiers.put(Stats.Modifiers.BRAINS, foe.getModifier(Stats.Modifiers.BRAINS));
+			modifiers.put(Stats.Modifier.BRAWN, foe.getModifier(Stats.Modifier.BRAWN));
+			modifiers.put(Stats.Modifier.SNEAKING, foe.getModifier(Stats.Modifier.SNEAKING));
+			modifiers.put(Stats.Modifier.BRAINS, foe.getModifier(Stats.Modifier.BRAINS));
 
 			addModifiers(modifiers, rows, StringUtil.getUiLabel("fdw.attribute.modifiers"));
 		}
@@ -308,19 +308,19 @@ public class FoeDetailsWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private void addResistances(List<Widget> rows, Foe foe, int information)
 	{
-		Map<String, Integer> modifiers = new HashMap<String, Integer>();
+		Map<Stats.Modifier, Integer> modifiers = new HashMap<Stats.Modifier, Integer>();
 
 		if (information >= 7)
 		{
-			modifiers.put(Stats.Modifiers.RESIST_AIR, foe.getModifier(Stats.Modifiers.RESIST_AIR));
-			modifiers.put(Stats.Modifiers.RESIST_EARTH, foe.getModifier(Stats.Modifiers.RESIST_EARTH));
-			modifiers.put(Stats.Modifiers.RESIST_ENERGY, foe.getModifier(Stats.Modifiers.RESIST_EARTH));
-			modifiers.put(Stats.Modifiers.RESIST_FIRE, foe.getModifier(Stats.Modifiers.RESIST_FIRE));
-			modifiers.put(Stats.Modifiers.RESIST_WATER, foe.getModifier(Stats.Modifiers.RESIST_WATER));
-			modifiers.put(Stats.Modifiers.RESIST_MENTAL, foe.getModifier(Stats.Modifiers.RESIST_MENTAL));
-			modifiers.put(Stats.Modifiers.RESIST_BLUDGEONING, foe.getModifier(Stats.Modifiers.RESIST_BLUDGEONING));
-			modifiers.put(Stats.Modifiers.RESIST_PIERCING, foe.getModifier(Stats.Modifiers.RESIST_PIERCING));
-			modifiers.put(Stats.Modifiers.RESIST_SLASHING, foe.getModifier(Stats.Modifiers.RESIST_SLASHING));
+			modifiers.put(Stats.Modifier.RESIST_AIR, foe.getModifier(Stats.Modifier.RESIST_AIR));
+			modifiers.put(Stats.Modifier.RESIST_EARTH, foe.getModifier(Stats.Modifier.RESIST_EARTH));
+			modifiers.put(Stats.Modifier.RESIST_ENERGY, foe.getModifier(Stats.Modifier.RESIST_EARTH));
+			modifiers.put(Stats.Modifier.RESIST_FIRE, foe.getModifier(Stats.Modifier.RESIST_FIRE));
+			modifiers.put(Stats.Modifier.RESIST_WATER, foe.getModifier(Stats.Modifier.RESIST_WATER));
+			modifiers.put(Stats.Modifier.RESIST_MENTAL, foe.getModifier(Stats.Modifier.RESIST_MENTAL));
+			modifiers.put(Stats.Modifier.RESIST_BLUDGEONING, foe.getModifier(Stats.Modifier.RESIST_BLUDGEONING));
+			modifiers.put(Stats.Modifier.RESIST_PIERCING, foe.getModifier(Stats.Modifier.RESIST_PIERCING));
+			modifiers.put(Stats.Modifier.RESIST_SLASHING, foe.getModifier(Stats.Modifier.RESIST_SLASHING));
 
 			addModifiers(modifiers, rows, StringUtil.getUiLabel("fdw.resistances"));
 		}
@@ -400,7 +400,7 @@ public class FoeDetailsWidget extends DIYPane
 
 	/*-------------------------------------------------------------------------*/
 	private boolean addModifiers(
-		Map<String, Integer> modifiers,
+		Map<Stats.Modifier, Integer> modifiers,
 		List<Widget> rows,
 		String title)
 	{
@@ -410,13 +410,13 @@ public class FoeDetailsWidget extends DIYPane
 			return false;
 		}
 
-		List<String> sortedModifiers = new ArrayList<String>(modifiers.keySet());
+		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.keySet());
 		Collections.sort(sortedModifiers);
 
 		StringBuilder sb = new StringBuilder(title+" ");
 		List<String> modDesc = new ArrayList<String>();
 
-		for (String modifier : sortedModifiers)
+		for (Stats.Modifier modifier : sortedModifiers)
 		{
 			int value = modifiers.get(modifier);
 
@@ -455,11 +455,11 @@ public class FoeDetailsWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(String modifier, int value)
+	private String descModifier(Stats.Modifier modifier, int value)
 	{
 		String modifierName = StringUtil.getModifierName(modifier);
 
-		Stats.ModifierMetric metric = Stats.ModifierMetric.getMetric(modifier);
+		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)
 		{
 			case PLAIN:

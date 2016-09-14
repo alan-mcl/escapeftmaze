@@ -85,7 +85,7 @@ public class WieldingCombo
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getModifier(String modifier)
+	public int getModifier(Stats.Modifier modifier)
 	{
 		return modifiers.getModifier(modifier);
 	}
