@@ -88,6 +88,7 @@ public class V1AttackType
 			b.append(V1Utils.NEWLINE);
 			b.append("damageType=");
 			b.append(obj.getDamageType().name());
+			b.append(V1Utils.NEWLINE);
 			b.append("attackModifier=");
 			b.append(obj.getAttackModifier());
 			b.append(V1Utils.NEWLINE);

@@ -31,8 +31,6 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 
-import static mclachlan.maze.data.v1.V1StatModifier.INDEX;
-
 /**
  *
  */
@@ -223,22 +221,19 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	public StatModifier getUpdatedStatModifier()
 	{
 		StatModifier result = new StatModifier();
-		for (int i = 0; i < INDEX.length; i++)
+		for (Stats.Modifier modifier : Stats.Modifier.values())
 		{
-			if (INDEX[i] instanceof Stats.Modifier)
+			JSpinner field = fieldMap.get(modifier);
+
+			if (field == null)
 			{
-				JSpinner field = fieldMap.get((Stats.Modifier)INDEX[i]);
+				continue;
+			}
 
-				if (field == null)
-				{
-					continue;
-				}
-
-				int value = (Integer)field.getValue();
-				if (value != 0)
-				{
-					result.setModifier((Stats.Modifier)INDEX[i], value);
-				}
+			int value = (Integer)field.getValue();
+			if (value != 0)
+			{
+				result.setModifier(modifier, value);
 			}
 		}
 
@@ -268,15 +263,12 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	/*-------------------------------------------------------------------------*/
 	private void clear()
 	{
-		for (Object modifier : INDEX)
+		for (Stats.Modifier modifier : Stats.Modifier.values())
 		{
-			if (modifier instanceof Stats.Modifier)
+			JSpinner field = fieldMap.get(modifier);
+			if (field != null)
 			{
-				JSpinner field = fieldMap.get(modifier);
-				if (field != null)
-				{
-					field.setValue(0);
-				}
+				field.setValue(0);
 			}
 		}
 	}

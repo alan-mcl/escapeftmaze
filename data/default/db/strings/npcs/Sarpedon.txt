@@ -1,4 +1,4 @@
-#Wed Sep 14 15:29:12 CAT 2016
+#Wed Sep 21 07:54:35 CAT 2016
 maze\ master=9|I havnae time fer fairy tales.
 garret=9|I cannae advise ye much on matters of the spirit.
 skull,stone\ doors,throne\ room=9|Aye, the throne room doors. It is a cunning work.%n%nWe gnomes believe that all is a machine, even the living. One day, maybe, we will unravel all of it's secrets.
@@ -39,14 +39,14 @@ escape,freedom=9|Aye, we all must dream.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|I cannae say.
 leonal,leonals,white\ order=9|Bah, the lion people and their order are a plague on this realm\!
 gnoll,gnolls=9|The dog people? Keen noses and a bad temper.
-stentor=9|I ken him not.
 dalen=9|I cannae say.
+stentor=9|I ken him not.
 gnome,gnomes=9|What will ye hear me say of us gnomes? Here we are, here we have been, here we shall remain whether ye or anyone else like it or not. Yar, we will be here after ye all have gone to dust or moved on.
-pickett,we\ pickett=9|I ken him not.
 imogen=9|I ken her not.
-second\ realm=9|This realm, it isnae so bad, if ye stick to the safer areas. That means here in the Crater.
-mnesus=9|Mnesus the Might, King of All Gnomes. A good leader to our folk he is, aye.
+pickett,we\ pickett=9|I ken him not.
 dana=9|I cannae advise ye much on matters of the spirit.
+mnesus=9|Mnesus the Might, King of All Gnomes. A good leader to our folk he is, aye.
+second\ realm=9|This realm, it isnae so bad, if ye stick to the safer areas. That means here in the Crater.
 sarpedon=9|Aye, at yer service.
 greetings,hello,hi,salutations=9|Arrr.
 kay,sir\ kay=9|I ken him not.

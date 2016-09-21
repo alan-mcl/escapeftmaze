@@ -20,10 +20,10 @@
 package mclachlan.maze.data.v1;
 
 import java.math.BigInteger;
+import java.util.*;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.util.MazeException;
-import static mclachlan.maze.stat.Stats.Modifier.*;
 
 /**
  *
@@ -33,6 +33,30 @@ public class V1StatModifier
 	private static final int MAX_MODIFIER = Byte.MAX_VALUE;
 	private static final int MIN_MODIFIER = Byte.MIN_VALUE;
 	private static final String DEFAULT_SEPARATOR = ",";
+
+	/**
+	 * Sorted in order of ID. A performance optimisation for the serialization.
+	 */
+	private static List<Stats.Modifier> sortedModifiers;
+
+	/*-------------------------------------------------------------------------*/
+	static
+	{
+		sortedModifiers = new ArrayList<Stats.Modifier>();
+		sortedModifiers.addAll(Arrays.asList(Stats.Modifier.values()));
+
+		// special case, we never want to persist or retrieve the NONE modifier
+		sortedModifiers.remove(Stats.Modifier.NONE);
+
+		Collections.sort(sortedModifiers, new Comparator<Stats.Modifier>()
+		{
+			@Override
+			public int compare(Stats.Modifier o1, Stats.Modifier o2)
+			{
+				return o1.getId() - o2.getId();
+			}
+		});
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public static String toString(StatModifier sm)
@@ -48,22 +72,23 @@ public class V1StatModifier
 			return "";
 		}
 
-		BigInteger bi = BigInteger.valueOf(0);
+		BigInteger bitmap = BigInteger.valueOf(0);
 		StringBuilder buffer = new StringBuilder();
 
-		for (int i = 0; i < INDEX.length; i++)
+		// Sorted modifiers guarantee ascending ID order so we can loop once here
+		for (Stats.Modifier modifier : sortedModifiers)
 		{
-			int modifier = (INDEX[i] instanceof Stats.Modifier) ? sm.getModifier((Stats.Modifier)INDEX[i]) : 0;
-			if (modifier != 0)
+			int modifierValue = sm.getModifier(modifier);
+			if (modifierValue != 0)
 			{
-				if (modifier > MAX_MODIFIER || modifier < MIN_MODIFIER)
+				if (modifierValue > MAX_MODIFIER || modifierValue < MIN_MODIFIER)
 				{
-					throw new MazeException("modifier ["+INDEX[i]+"] out of bounds: "+modifier);
+					throw new MazeException("modifier [" + modifier + "] out of bounds: " + modifierValue);
 				}
 
 				// inefficient
-				bi = bi.setBit(i);
-				String hex = Integer.toHexString(modifier);
+				bitmap = bitmap.setBit(modifier.getId());
+				String hex = Integer.toHexString(modifierValue);
 				if (hex.length() == 1)
 				{
 					buffer.append('0');
@@ -78,7 +103,7 @@ public class V1StatModifier
 			}
 		}
 
-		buffer.insert(0, toString(bi)+separator);
+		buffer.insert(0, toString(bitmap)+separator);
 
 		return buffer.toString();
 	}
@@ -102,15 +127,14 @@ public class V1StatModifier
 		BigInteger bi = new BigInteger(strs[0], 16);
 
 		int counter = 0;
-		for (int i=0; i<INDEX.length; i++)
+
+		// sorted modifiers in ID order mean we can loop once here
+		for (Stats.Modifier modifier : sortedModifiers)
 		{
-			if (bi.testBit(i))
+			if (bi.testBit(modifier.getId()))
 			{
-				if (INDEX[i] instanceof Stats.Modifier)
-				{
-					String modifier = strs[1].substring(counter, counter + 2);
-					result.setModifier((Stats.Modifier)INDEX[i], (byte)(Integer.parseInt(modifier, 16)));
-				}
+				String modifierHex = strs[1].substring(counter, counter + 2);
+				result.setModifier(modifier, (byte)(Integer.parseInt(modifierHex, 16)));
 				counter += 2;
 			}
 		}
@@ -125,35 +149,7 @@ public class V1StatModifier
 	}
 
 	/*-------------------------------------------------------------------------*/
-	/**
-	 * for testing only
-	 */
-	public static void main(String[] args)
-	{
-		StatModifier sm = new StatModifier();
-		sm.setModifier(BRAWN, 127);
-
-		String s = toString(sm);
-		System.out.println("s = [" + s + "]");
-
-		StatModifier test = fromString(s);
-		boolean equals = test.equals(sm);
-		System.out.println("equals = [" + equals + "]");
-
-//		for (int i = 0; i < INDEX.length; i++)
-//		{
-//			sm.setModifier(INDEX[i], 1);
-//		}
-//		s = toString(sm);
-//		System.out.println("s = [" + s + "]");
-//
-//		test = fromString(s);
-//		equals = test.equals(sm);
-//		System.out.println("equals = [" + equals + "]");
-	}
-
-	/*-------------------------------------------------------------------------*/
-	// todo: hackery!
+/*	// todo: hackery!
 	public static final Object[] INDEX =
 		{
 			HIT_POINTS,
@@ -378,5 +374,5 @@ public class V1StatModifier
 			STAFF_1H_WIELD,
 			AMAZON_FURY,
 			BERSERK_POWERS
-		};
+		};*/
 }

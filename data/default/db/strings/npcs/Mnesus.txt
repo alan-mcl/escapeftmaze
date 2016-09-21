@@ -1,4 +1,4 @@
-#Wed Sep 14 15:29:12 CAT 2016
+#Wed Sep 21 07:54:35 CAT 2016
 maze\ master=9|Hmmm. A figure of legend... they say he is the personfication of the Maze. When he appears, death is never far behind.
 garret=9|The wayfarers god.
 skull,stone\ doors,throne\ room=9|The relief on the throne room doors speaks to our beliefs that even the living body is merely a complicated machine, albeit far beyond our ken.
@@ -40,14 +40,14 @@ escape,freedom=9|Ha hah. To where? Who knows what is beyond the Maze? It might b
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Their influence in Ichiba should not be underestimated.
 leonal,leonals,white\ order=9|Hmmm. The servants a Dana are fierce warriors, and a proud people. They seek to control this Crater. But, we gnomes answer to no one. We were here first, and we shall endure.
 gnoll,gnolls=9|The gnolls are hardy folk.
-dalen=9|The holy forest? I have heard only folk tales.
 stentor=9|I do not know him.
+dalen=9|The holy forest? I have heard only folk tales.
 gnome,gnomes=9|Yes, we are the gnomes of Aenen. Our machines are cunning and our magic is crafty. Our warriors are skilled and pass unseen through the forests. For as long as any remember we have made a life for ourselves here in the Crater. It is not easy, but it is a life.
-imogen=9|She is in Ichiba, working her magicks as usual.
 pickett,we\ pickett=9|He is the leader of the Ichiba Chamber Of Commerce.
-dana=9|She is a better goddess than the leonals are worshippers, I think.
-mnesus=9|Some call me The Mighty.
+imogen=9|She is in Ichiba, working her magicks as usual.
 second\ realm=9|Hmmmm. Since the fall of Hail, all of the civilised parts of this Realm can be found here in the Crater. Beyond lies the wastelands. Beyond that, the Gate.
+mnesus=9|Some call me The Mighty.
+dana=9|She is a better goddess than the leonals are worshippers, I think.
 sarpedon=9|He is here, in the city.
 greetings,hello,hi,salutations=9|Greetings travellers.
 kay,sir\ kay=9|I have heard that he has influence amongst the thieves in Ichiba.

@@ -1,4 +1,4 @@
-#Wed Sep 14 15:29:12 CAT 2016
+#Wed Sep 21 07:54:35 CAT 2016
 maze\ master=9|Faerie tales.
 garret=9|I am not religious.
 faerie=9|Ha\! Go tell your faerie tales to the druids.
@@ -39,14 +39,14 @@ escape,freedom=9|This is a castle, not a prison.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|There are indeed thieves in Ichiba. What else would you expect from a city run by merchants?
 leonal,leonals,white\ order=9|We Leonals are the only hope the Second Realm has. It's only a matter of time before Ichiba falls, and the gnomes would rather dig down than fight back.
 gnoll,gnolls=9|Scum.
-dalen=9|Never heard of it.
 stentor=9|His smithy is in town. Good quality weapons and armour. A good smith, despite the mild disgrace attached to one who grew too old for active service rather than dying gloriously.
+dalen=9|Never heard of it.
 gnome,gnomes=9|The gnomes continue to harass our efforts to secure the civilised domains from the wilds. They are a godless bunch, stubborn and disrespectful.
-imogen=9|I have heard that the enchantress of Ichiba consorts with gnoll warriors that she bewitches in the forest and draws back to her tower. Disgusting.
 pickett,we\ pickett=9|Don't know him.
-dana=9|The Lady protect us.
-mnesus=9|He is king of the gnomes. I hear he is a drunkard and a womaniser.
+imogen=9|I have heard that the enchantress of Ichiba consorts with gnoll warriors that she bewitches in the forest and draws back to her tower. Disgusting.
 second\ realm=9|I am impressed that you managed to make it here from the First Realm. You must be tougher than you look. Ha\!
+mnesus=9|He is king of the gnomes. I hear he is a drunkard and a womaniser.
+dana=9|The Lady protect us.
 sarpedon=9|Don't know him.
 greetings,hello,hi,salutations=9|Greetings, strangers.
 kay,sir\ kay=9|Don't know him.
