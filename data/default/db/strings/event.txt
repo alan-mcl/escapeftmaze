@@ -6,6 +6,10 @@ modify.supplies = Party receives %s units of supplies
 grant.gold = Party receives %sgp
 event.failed = FAILED!
 event.ouch = OUCH!
+msg.grant.experience.single = %s gets %s experience
+msg.grant.experience.all = All survivors get %s experience
+msg.lose.experience.single = %s loses %s experience
+msg.lose.experience.all = Party loses %s experience
 
 #
 # Attitude descriptions

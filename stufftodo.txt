@@ -22,6 +22,7 @@ icon: amazon strength buff, courage, willpower, fury conditions
 
 abilities: acolyte 15
 abilities: berserker 17
+abilities: code of dishounour hooks on Diplomacy, others
 
 text: gnome race description
 text: courtesan class description

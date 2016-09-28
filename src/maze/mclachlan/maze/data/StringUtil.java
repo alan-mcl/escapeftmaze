@@ -53,7 +53,7 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String getModifierDescription(Stats.Modifier modifier)
 	{
-		return getGamesysString("modifier_desc-" + modifier);
+		return getGamesysString("modifier_desc-" + modifier.getResourceBundleKey());
 	}
 
 	/*-------------------------------------------------------------------------*/

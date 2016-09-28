@@ -30,7 +30,7 @@ import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
-import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
@@ -383,7 +383,7 @@ public class Foe extends UnifiedActor
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void deductAmmo(AttackEvent event)
+	public void deductAmmo(StrikeEvent event)
 	{
 		// Foes have no ammo restrictions ;-)
 	}

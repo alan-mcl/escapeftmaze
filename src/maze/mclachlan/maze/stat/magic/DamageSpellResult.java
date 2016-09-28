@@ -80,12 +80,14 @@ public class DamageSpellResult extends SpellResult
 		{
 			int damage = calcDamage(this.hitPointDamage, source, castingLevel);
 			result.add(new DamageEvent(
+				null,
 				target,
 				source,
 				new DamagePacket(damage, 1), 
 				parent.getType(),
 				parent.getSubType(),
-				null, null));
+				null,
+				null));
 			if (transferToCaster)
 			{
 				result.add(new HealingEvent(source, damage));

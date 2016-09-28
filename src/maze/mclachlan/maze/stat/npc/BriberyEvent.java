@@ -62,13 +62,20 @@ public class BriberyEvent extends MazeEvent
 		Maze.getInstance().getParty().incGold(-amount);
 		int total = GameSys.getInstance().bribeNpc(npc, pc, amount);
 
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		result.addAll(
+			GameSys.getInstance().processDishonourableAction(
+				Maze.getInstance().getParty()));
+
 		if (total > 0)
 		{
-			return npc.getActionScript().successfulBribe(total);
+			result.addAll(npc.getActionScript().successfulBribe(total));
 		}
 		else
 		{
-			return npc.getActionScript().failedBribe(total);
+			result.addAll(npc.getActionScript().failedBribe(total));
 		}
+		return result;
 	}
 }

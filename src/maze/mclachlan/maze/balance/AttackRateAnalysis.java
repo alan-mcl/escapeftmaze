@@ -30,7 +30,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackAction;
 import mclachlan.maze.stat.combat.AttackType;
-import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.magic.MagicSys;
 
 /**
@@ -142,8 +142,8 @@ public class AttackRateAnalysis
 					{
 						if (Dice.d100.roll() <= 50)
 						{
-							AttackEvent ae = new AttackEvent(pc, pc, weapon, attackType,
-								torso, 0, -1);
+							StrikeEvent ae = new StrikeEvent(null, pc, pc, weapon, attackType,
+								aa.getDamageType(), null);
 							DamagePacket damagePacket = GameSys.getInstance().calcDamage(ae);
 
 							// todo: should be using DamageEvent instead?

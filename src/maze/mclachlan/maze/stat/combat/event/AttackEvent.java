@@ -22,44 +22,52 @@ package mclachlan.maze.stat.combat.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
+import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
 /**
- *
+ * Resolves one attack, which may consist of multiple strikes
  */
 public class AttackEvent extends MazeEvent
 {
+	private Combat combat;
 	private UnifiedActor attacker;
 	private UnifiedActor defender;
 	private AttackWith attackWith;
-	
-	/**
-	 * Swing, thrust and stuff
-	 */ 
 	private AttackType attackType;
-	
-	private BodyPart bodyPart;
 	private int actionCost;
 	private int nrStrikes;
+	private MazeScript attackScript;
+	private MagicSys.SpellEffectType damageType;
+	private AnimationContext animationContext;
 
 	/*-------------------------------------------------------------------------*/
 	public AttackEvent(
+		Combat combat,
 		UnifiedActor attacker,
 		UnifiedActor defender,
 		AttackWith weapon,
 		AttackType attackType,
-		BodyPart bodyPart,
 		int actionCost,
-		int nrStrikes)
+		int nrStrikes,
+		MazeScript attackScript,
+		MagicSys.SpellEffectType damageType,
+		AnimationContext animationContext)
 	{
+		this.combat = combat;
 		this.attacker = attacker;
 		this.defender = defender;
 		this.attackWith = weapon;
 		this.attackType = attackType;
-		this.bodyPart = bodyPart;
 		this.actionCost = actionCost;
 		this.nrStrikes = nrStrikes;
+		this.attackScript = attackScript;
+		this.damageType = damageType;
+		this.animationContext = animationContext;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -83,11 +91,6 @@ public class AttackEvent extends MazeEvent
 		return attackType;
 	}
 
-	public BodyPart getBodyPart()
-	{
-		return bodyPart;
-	}
-
 	public int getNrStrikes()
 	{
 		return nrStrikes;
@@ -106,6 +109,8 @@ public class AttackEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
 		if (Maze.getInstance() != null)
 		{
 			Maze.getInstance().actorAttacks(getAttacker());
@@ -130,24 +135,50 @@ public class AttackEvent extends MazeEvent
 			}
 		}
 
-		// deduct ammo if required
-		// we assume that the ammo type matches
-		if (attackWith.getAmmoRequired() != null)
-		{
-			this.attacker.deductAmmo(this);
-		}
-
 		// increase fatigue
 		GameSys.getInstance().fatigueFromAttack(this);
 
+		// Player Character attack lines
 		if (attacker instanceof PlayerCharacter)
 		{
-			return SpeechUtil.getInstance().attackEventSpeech((PlayerCharacter)attacker);
+			List<MazeEvent> speech = SpeechUtil.getInstance().attackEventSpeech((PlayerCharacter)attacker);
+			if (speech != null)
+			{
+				result.addAll(speech);
+			}
 		}
-		else
+
+		for (int i=0; i<nrStrikes; i++)
 		{
-			return null;
+			if (shouldAppendDelayEvent(attackScript.getEvents()))
+			{
+				result.add(new DelayEvent(Maze.getInstance().getUserConfig().getCombatDelay()));
+			}
+
+			result.add(
+				new StrikeEvent(
+					combat,
+					attacker,
+					defender,
+					attackWith,
+					attackType,
+					damageType,
+					animationContext));
 		}
+
+		return result;
+	}
+
+
+	/*-------------------------------------------------------------------------*/
+	private static boolean shouldAppendDelayEvent(List<MazeEvent> script)
+	{
+		if (script == null || script.isEmpty())
+		{
+			return false;
+		}
+
+		return !(script.get(script.size()-1) instanceof AnimationEvent);
 	}
 
 	/*-------------------------------------------------------------------------*/

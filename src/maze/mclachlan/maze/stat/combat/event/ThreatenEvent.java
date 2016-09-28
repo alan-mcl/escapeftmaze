@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.UnifiedActor;
@@ -45,13 +46,22 @@ public class ThreatenEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		int total = GameSys.getInstance().threatenNpc(actor, target);
+
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		result.addAll(
+			GameSys.getInstance().processDishonourableAction(
+				Maze.getInstance().getParty()));
+
 		if (total > 0)
 		{
-			return target.getActionScript().successfulThreat(total);
+			result.addAll(target.getActionScript().successfulThreat(total));
 		}
 		else
 		{
-			return target.getActionScript().failedThreat(total);
+			result.addAll(target.getActionScript().failedThreat(total));
 		}
+
+		return result;
 	}
 }

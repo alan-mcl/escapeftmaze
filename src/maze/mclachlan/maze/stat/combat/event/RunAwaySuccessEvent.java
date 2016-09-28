@@ -22,6 +22,8 @@ package mclachlan.maze.stat.combat.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -47,7 +49,16 @@ public class RunAwaySuccessEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().actorFlees(actor);
-		return null;
+
+		if (actor instanceof PlayerCharacter)
+		{
+			return GameSys.getInstance().processDishonourableAction(
+				Maze.getInstance().getParty());
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

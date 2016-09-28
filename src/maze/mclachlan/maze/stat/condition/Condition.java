@@ -459,12 +459,14 @@ public class Condition
 					getCastingLevel());
 
 				DamageEvent event = new DamageEvent(
+					null,
 					target,
 					getSource(),
 					new DamagePacket(damage, 1),
 					type,
 					subtype,
-					null, null);
+					null,
+					null);
 
 				Maze.log(Log.DEBUG, " + " + event.toString());
 

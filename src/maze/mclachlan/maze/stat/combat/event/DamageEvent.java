@@ -24,12 +24,14 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatStatistics;
 import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.ui.diygui.Constants;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -37,6 +39,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class DamageEvent extends MazeEvent
 {
+	private Combat combat;
 	private UnifiedActor defender;
 	private UnifiedActor attacker;
 	private DamagePacket damagePacket;
@@ -47,24 +50,31 @@ public class DamageEvent extends MazeEvent
 
 	private int finalDamage;
 	private CombatStatistics stats;
+	private AnimationContext animationContext;
 
 	/*-------------------------------------------------------------------------*/
 	public DamageEvent(
+		Combat combat,
 		UnifiedActor defender,
 		UnifiedActor attacker,
 		DamagePacket damagePacket,
 		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype,
 		AttackWith attackWith,
-		CombatStatistics stats)
+		AnimationContext animationContext)
 	{
+		this.combat = combat;
 		this.defender = defender;
 		this.attacker = attacker;
 		this.damagePacket = damagePacket;
 		this.type = type;
 		this.subtype = subtype;
 		this.attackWith = attackWith;
-		this.stats = stats;
+		if (combat != null)
+		{
+			this.stats = combat.getCombatStatistics();
+		}
+		this.animationContext = animationContext;
 
 		if (subtype == null)
 		{
@@ -154,6 +164,25 @@ public class DamageEvent extends MazeEvent
 				{
 					data.setActive(false);
 				}
+
+				// check for DYING_BLOW
+				if (defender.getModifier(Stats.Modifier.DYING_BLOW) > 0 &&
+					!attackWith.isRanged())
+				{
+					Item attackWith = defender.getPrimaryWeapon();
+					result.add(
+						new AttackEvent(
+							combat,
+							defender,
+							attacker,
+							attackWith,
+							GameSys.getInstance().getAttackType(attackWith),
+							0,
+							1,
+							attackWith.getAttackScript(),
+							attackWith.getDefaultDamageType(),
+							animationContext));
+				}
 	
 				result.add(new ActorDiesEvent(defender, attacker));
 			}
@@ -178,12 +207,14 @@ public class DamageEvent extends MazeEvent
 
 			// reverse the attacker and defender
 			result.add(new DamageEvent(
+				combat,
 				attacker,
 				defender,
 				new DamagePacket(damageReflected, 1),
 				type,
 				subtype, 
-				null, stats));
+				null,
+				animationContext));
 		}
 
 		if (defender.getModifier(Stats.Modifier.BERSERKER) > 0 &&

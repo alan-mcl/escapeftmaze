@@ -99,12 +99,13 @@ public class ActorActionResolver
 				if (combat != null)
 				{
 					// todo: unwind event resolutions in here -> into events resolve() methods
-					resolveAttack(
-						action.getActor(),
-						(AttackAction)action,
-						combat,
-						result,
-						animationContext);
+					result.addAll(
+						resolveAttack(
+							action.getActor(),
+							(AttackAction)action,
+							combat,
+							result,
+							animationContext));
 				}
 				else
 				{
@@ -1133,20 +1134,22 @@ public class ActorActionResolver
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void resolveAttack(
+	private static List<MazeEvent> resolveAttack(
 		UnifiedActor actor,
 		AttackAction attackAction,
 		Combat combat,
 		List<MazeEvent> events,
 		AnimationContext animationContext)
 	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
 		ActorGroup attackedGroup;
 		attackedGroup = attackAction.getTargetGroup();
 
 		if (attackedGroup.numAlive() < 1)
 		{
 			// all in this group are dead do nothing
-			return;
+			return result;
 		}
 
 		combat.getCombatStatistics().captureAttack(attackAction, combat);
@@ -1162,17 +1165,21 @@ public class ActorActionResolver
 			defender = attackAction.getDefender();
 			if (defender.getHitPoints().getCurrent() <= 0)
 			{
-				return;
+				return result;
 			}
 		}
 
 		if (defender == null)
 		{
 			// cannot attack
-			return;
+			return result;
 		}
+
 		attackAction.setDefender(defender);
-		attack(combat, actor, defender, attackAction, events, animationContext);
+
+		result.addAll(attack(combat, actor, defender, attackAction, animationContext));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1355,203 +1362,46 @@ public class ActorActionResolver
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void attack(
+	public static List<MazeEvent> attack(
 		Combat combat,
 		UnifiedActor attacker,
 		UnifiedActor defender,
 		AttackAction attackAction,
-		List<MazeEvent> events,
 		AnimationContext animationContext)
 	{
-		BodyPart bodyPart = getRandomBodyPart(attacker, defender);
-
-		AttackEvent attackEvent;
-		AttackType attackType = attackAction.getAttackType();
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		if (attackAction.getNrStrikes() == -1)
 		{
 			attackAction.setNrStrikes(GameSys.getInstance().getNrStrikes(
 				attacker,
 				defender,
-				attackType,
+				attackAction.getAttackType(),
 				attackAction.getAttackWith()));
 		}
 
-		attackEvent = new AttackEvent(
+		if (attackAction.isLightningStrike())
+		{
+			result.add(new LightningStrikeEvent(attacker));
+			int strikes = GameSys.getInstance().getLightningStrikeNrStrikes();
+			attackAction.setNrStrikes(attackAction.getNrStrikes() + strikes);
+		}
+
+		AttackEvent attackEvent = new AttackEvent(
+			combat,
 			attacker,
 			defender,
 			attackAction.getAttackWith(),
-			attackType,
-			bodyPart,
+			attackAction.getAttackType(),
 			0,
-			attackAction.getNrStrikes());
+			attackAction.getNrStrikes(),
+			attackAction.getAttackScript(),
+			attackAction.getDamageType(),
+			animationContext);
 
-		if (attackAction.isLightningStrike())
-		{
-			events.add(new LightningStrikeEvent(attacker));
-			int strikes = GameSys.getInstance().getLightningStrikeNrStrikes(attackEvent);
-			attackAction.setNrStrikes(attackAction.getNrStrikes() + strikes);
-			attackEvent.incStrikes(strikes);
-		}
+		result.addAll(attackAction.getAttackScript().getEvents());
+		result.add(attackEvent);
 
-		if (attackAction.isFirstAttack())
-		{
-			events.add(attackEvent);
-		}
-
-		events.addAll(attackAction.getAttackScript().getEvents());
-		if (shouldAppendDelayEvent(attackAction.getAttackScript().getEvents()))
-		{
-			events.add(new DelayEvent(Maze.getInstance().getUserConfig().getCombatDelay()));
-		}
-
-		int hitPercent = GameSys.getInstance().calcHitPercent(attackEvent, attackAction);
-		if (Dice.d100.roll() <= hitPercent)
-		{
-			DamagePacket damagePacket = GameSys.getInstance().calcDamage(attackEvent);
-			combat.getCombatStatistics().captureAttackHit(attackAction, combat);
-
-			if (GameSys.getInstance().isAttackDodged(attacker, defender, attackAction.getAttackWith()))
-			{
-				// dodge the attack
-				events.add(new AttackDodgeEvent(defender));
-			}
-			else if (GameSys.getInstance().isAttackDeflected(attacker, defender, attackAction.getAttackWith()))
-			{
-				// deflected
-				events.add(new AttackDeflectedEvent(attacker, defender, bodyPart));
-			}
-			else if (GameSys.getInstance().isAttackParried(attacker, defender, attackAction.getAttackWith()))
-			{
-				// parried
-				events.add(new AttackParriedEvent(attacker, defender, bodyPart));
-			}
-			else
-			{
-				events.add(new AttackHitEvent(
-					attacker,
-					defender,
-					bodyPart));
-
-				events.add(new DamageEvent(
-					defender,
-					attacker,
-					damagePacket,
-					attackAction.getDamageType(),
-					MagicSys.SpellEffectSubType.NORMAL_DAMAGE,
-					attackAction.getAttackWith(),
-					combat.getCombatStatistics()));
-
-				// apply any spell effects to the victim
-				if (damagePacket.getAmount() > 0)
-				{
-					List<AttackSpellEffects> effects = GameSys.getInstance().getAttackSpellEffects(attackAction);
-
-					if (effects != null && effects.size() > 0)
-					{
-						for (AttackSpellEffects ase : effects)
-						{
-							if (ase.getSpellEffects() != null && ase.getSpellEffects().size() > 0)
-							{
-								events.addAll(
-									SpellTargetUtils.applySpellToUnwillingVictim(
-										ase.getSpellEffects(),
-										defender,
-										attacker,
-										ase.getCastingLevel(),
-										ase.getSpellLevel(),
-										animationContext));
-							}
-						}
-					}
-				}
-			}
-		}
-		else
-		{
-			events.add(new AttackMissEvent(
-				attacker, defender));
-			combat.getCombatStatistics().captureAttackMiss(attackAction, combat);
-		}
-
-		if (attackAction.getNrStrikes() > 1)
-		{
-			AttackAction aa = new AttackAction(
-				attackAction.getTargetGroup(),
-				attackAction.getAttackWith(),
-				attackAction.getNrStrikes() - 1,
-				attackAction.getAttackScript(),
-				false,
-				false,
-				GameSys.getInstance().getAttackType(attackAction.getAttackWith()),
-				attackAction.getDamageType());
-			aa.setActor(attacker);
-			aa.setDefender(defender);
-			aa.setAttackingAllies(attackAction.isAttackingAllies());
-			aa.setAttackType(attackType);
-			events.add(new AnotherActionEvent(aa, combat));
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static boolean shouldAppendDelayEvent(List<MazeEvent> script)
-	{
-		if (script == null || script.isEmpty())
-		{
-			return false;
-		}
-
-		return !(script.get(script.size()-1) instanceof AnimationEvent);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static BodyPart getRandomBodyPart(UnifiedActor attacker, UnifiedActor defender)
-	{
-		if (attacker instanceof Foe)
-		{
-			if (defender instanceof PlayerCharacter)
-			{
-				// foe attacks PC
-				PlayerCharacter pc = (PlayerCharacter)defender;
-				String bodyPart = ((Foe)attacker).getPlayerBodyParts().getRandomItem();
-				if (PlayerCharacter.BodyParts.HEAD.equals(bodyPart)) return pc.getRace().getHead();
-				else if (PlayerCharacter.BodyParts.TORSO.equals(bodyPart)) return pc.getRace().getTorso();
-				else if (PlayerCharacter.BodyParts.LEG.equals(bodyPart)) return pc.getRace().getLeg();
-				else if (PlayerCharacter.BodyParts.HAND.equals(bodyPart)) return pc.getRace().getHand();
-				else if (PlayerCharacter.BodyParts.FOOT.equals(bodyPart)) return pc.getRace().getFoot();
-				else
-				{
-					throw new MazeException("Invalid body part ["+bodyPart+"]");
-				}
-			}
-			else
-			{
-				// foe attacks foe
-				return ((Foe)defender).getBodyParts().getRandomItem();
-			}
-		}
-		else
-		{
-			if (defender instanceof Foe)
-			{
-				// PC attacks foe
-				return ((Foe)defender).getBodyParts().getRandomItem();
-			}
-			else
-			{
-				// PC attacks PC
-				PlayerCharacter pc = (PlayerCharacter)defender;
-
-				PercentageTable<BodyPart> table = new PercentageTable<BodyPart>(true);
-
-				table.add(pc.getRace().getHead(), 25);
-				table.add(pc.getRace().getTorso(), 33);
-				table.add(pc.getRace().getLeg(), 26);
-				table.add(pc.getRace().getHand(), 8);
-				table.add(pc.getRace().getFoot(), 8);
-
-				return table.getRandomItem();
-			}
-		}
+		return result;
 	}
 }

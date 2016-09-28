@@ -243,6 +243,9 @@ modifier_name-mace1HWield: Mace 1H Wield
 modifier_name-polearm1HWield: Polearm 1H Wield
 modifier_name-staff1HWield: Staff 1H Wield
 modifier_name-berserkPowers: Berserk Powers
+modifier_name-codeOfHonour: Code of Honour
+modifier_name-codeOfDishonour: Code of Dishonour
+modifier_name-dyingBlow: Dying Blow
 
 # Modifier Descriptions
 
@@ -479,6 +482,9 @@ modifier_desc-mace1HWield: The character can wield two-handed maces with one han
 modifier_desc-polearm1HWield: The character can wield two-handed polearms with one hand.
 modifier_desc-staff1HWield: The character can wield two-handed staves with one hand.
 modifier_desc-berserkPowers: This modifier tracks the increasing benefits a character gets while berserk.
+modifier_desc-codeOfHonour: The character loses experience points if the party ever acts dishonourably.
+modifier_desc-codeOfDishonour: The character loses experience points if the party ever acts honourably.
+modifier_desc-dyingBlow: If killed by a melee attack, this character makes one melee strike against the attacker.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -672,6 +678,12 @@ lap_name_poison_use = Poison Use
 lap_desc_poison_use = The Blackguard applies a foul poison to weapons that he wields.
 lap_name_fearless = Fearless
 lap_desc_fearless = The Blackguard knows no fear.
+lap_name_code_of_dishonour = Code of Dishonour
+lap_desc_code_of_dishonour = The Blackguard loses experience points if the part acts honourably.
+lap_name_bloodthirsty = Bloodthirsty
+lap_desc_bloodthirsty = The Blackguard receives combat bonuses against humanoid foes.
+lap_name_dying_blow = Dying Blow
+lap_desc_dying_blow = If slain by a melee attack, the Blackguard strikes out one last time at his or her attacker.
 
 # Burglar
 lap_name_extra_loot = Extra Loot %s

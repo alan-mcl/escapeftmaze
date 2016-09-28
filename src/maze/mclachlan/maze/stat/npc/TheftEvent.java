@@ -33,7 +33,6 @@ public class TheftEvent extends MazeEvent
 	private PlayerCharacter pc;
 	private Foe npc;
 	private Item item;
-	private int amount;
 
 	/*-------------------------------------------------------------------------*/
 	public TheftEvent(
@@ -74,23 +73,31 @@ public class TheftEvent extends MazeEvent
 			item = new GoldPieces(amount);
 		}
 
-		int result = GameSys.getInstance().stealItem(npc, pc, item);
+		int stealItemResult = GameSys.getInstance().stealItem(npc, pc, item);
 
-		if (result == Npc.TheftResult.SUCCESS)
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		result.addAll(
+			GameSys.getInstance().processDishonourableAction(
+				Maze.getInstance().getParty()));
+
+		if (stealItemResult == Npc.TheftResult.SUCCESS)
 		{
-			return npc.getActionScript().successfulTheft(pc, item);
+			result.addAll(npc.getActionScript().successfulTheft(pc, item));
 		}
-		else if (result == Npc.TheftResult.FAILED_UNDETECTED)
+		else if (stealItemResult == Npc.TheftResult.FAILED_UNDETECTED)
 		{
-			return npc.getActionScript().failedUndetectedTheft(pc, item);
+			result.addAll(npc.getActionScript().failedUndetectedTheft(pc, item));
 		}
-		else if (result == Npc.TheftResult.FAILED_DETECTED)
+		else if (stealItemResult == Npc.TheftResult.FAILED_DETECTED)
 		{
-			return npc.getActionScript().failedDetectedTheft(pc, item);
+			result.addAll(npc.getActionScript().failedDetectedTheft(pc, item));
 		}
 		else
 		{
-			throw new MazeException("invalid theft result: "+result);
+			throw new MazeException("invalid theft result: "+stealItemResult);
 		}
+
+		return result;
 	}
 }

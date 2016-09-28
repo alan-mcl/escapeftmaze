@@ -8,7 +8,6 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.combat.CombatStatistics;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.combat.event.DamageEvent;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
@@ -44,13 +43,14 @@ public class EkirthsTombWallOfFire extends TileScript
 				int damage = new Dice(1, 1000, 9000).roll();
 				result.add(
 					new DamageEvent(
+						null,
 						actor,
 						new AbstractActor() {},
 						new DamagePacket(damage, 1), 
 						MagicSys.SpellEffectType.FIRE,
 						MagicSys.SpellEffectSubType.HEAT,
 						new DummyAttackWith(),
-						new CombatStatistics("stub")));
+						null));
 			}
 
 			return result;

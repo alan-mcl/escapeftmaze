@@ -3,6 +3,7 @@ package mclachlan.maze.stat.combat;
 import java.lang.reflect.Field;
 import java.util.*;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.event.StrikeEvent;
 
 /**
  *
@@ -126,9 +127,9 @@ public class CombatStatistics
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void captureAttackHit(AttackAction attackAction, Combat combat)
+	public void captureAttackHit(StrikeEvent event, Combat combat)
 	{
-		UnifiedActor actor = attackAction.getActor();
+		UnifiedActor actor = event.getAttacker();
 
 		if (actor instanceof PlayerCharacter)
 		{
@@ -145,9 +146,9 @@ public class CombatStatistics
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void captureAttackMiss(AttackAction attackAction, Combat combat)
+	public void captureAttackMiss(StrikeEvent event, Combat combat)
 	{
-		UnifiedActor actor = attackAction.getActor();
+		UnifiedActor actor = event.getAttacker();
 
 		if (actor instanceof PlayerCharacter)
 		{

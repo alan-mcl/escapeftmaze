@@ -115,13 +115,13 @@ public class AttackWithWeaponSpellResult extends SpellResult
 			actionAttackScript);
 
 		// resolve the attack
-		ActorActionResolver.attack(
-			combat,
-			source,
-			target,
-			action,
-			result,
-			new AnimationContext(source));
+		result.addAll(
+			ActorActionResolver.attack(
+				combat,
+				source,
+				target,
+				action,
+				new AnimationContext(source)));
 
 		return result;
 	}

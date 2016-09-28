@@ -63,12 +63,14 @@ public class DamageFoeTypeSpellResult extends SpellResult
 
 			return getList(
 					new DamageEvent(
+						null,
 						target,
 						source,
 						new DamagePacket(damage, 1), 
 						parent.getType(),
 						parent.getSubType(), 
-						null, null));
+						null,
+						null));
 		}
 		else
 		{

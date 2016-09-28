@@ -32,8 +32,8 @@ import mclachlan.maze.stat.npc.NpcManager;
  */
 public class ActorDiesEvent extends MazeEvent
 {
-	UnifiedActor victim;
-	UnifiedActor attacker;
+	private UnifiedActor victim;
+	private UnifiedActor attacker;
 
 	/*-------------------------------------------------------------------------*/
 	/**

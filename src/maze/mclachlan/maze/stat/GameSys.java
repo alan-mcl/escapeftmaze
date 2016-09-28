@@ -27,8 +27,10 @@ import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.map.script.LockOrTrap;
+import mclachlan.maze.map.script.LoseExperienceEvent;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.Npc;
@@ -353,8 +355,7 @@ public class GameSys
 
 	/*-------------------------------------------------------------------------*/
 	public int calcHitPercent(
-		AttackEvent event,
-		AttackAction attackAction)
+		StrikeEvent event)
 	{
 		int result;
 
@@ -405,7 +406,7 @@ public class GameSys
 	
 	/*-------------------------------------------------------------------------*/
 	private int calcAttackerToHitModifier(
-		AttackEvent event)
+		StrikeEvent event)
 	{
 		UnifiedActor attacker = event.getAttacker();
 
@@ -468,7 +469,7 @@ public class GameSys
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	private int calcDefenderToHitModifier(AttackEvent event)
+	private int calcDefenderToHitModifier(StrikeEvent event)
 	{
 		UnifiedActor defender = event.getDefender();
 
@@ -514,7 +515,7 @@ public class GameSys
 	 * Calculates an attacks damage.  Can return a negative number, which should
 	 * be handled by the caller.
 	 */ 
-	public DamagePacket calcDamage(AttackEvent event)
+	public DamagePacket calcDamage(StrikeEvent event)
 	{
 		Maze.log(Log.DEBUG, "calculating damage");
 
@@ -780,11 +781,11 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<AttackSpellEffects> getAttackSpellEffects(AttackAction attackAction)
+	public List<AttackSpellEffects> getAttackSpellEffects(StrikeEvent attackEvent)
 	{
 		List<AttackSpellEffects> result = new ArrayList<AttackSpellEffects>();
-		UnifiedActor attacker = attackAction.getActor();
-		AttackWith attackWith = attackAction.getAttackWith();
+		UnifiedActor attacker = attackEvent.getAttacker();
+		AttackWith attackWith = attackEvent.getAttackWith();
 
 		//
 		// basic spell effects from the attackWith
@@ -806,7 +807,7 @@ public class GameSys
 		//
 		Item ammo = isAttackRangedWithAmmo(
 			attacker,
-			attackAction.getAttackWith());
+			attackEvent.getAttackWith());
 
 		if (ammo != null)
 		{
@@ -856,7 +857,7 @@ public class GameSys
 	/**
 	 * Determines whether or not an attack hits the given armour.
 	 */ 
-	public boolean hitArmour(AttackEvent event, int basePercent)
+	public boolean hitArmour(StrikeEvent event, int basePercent)
 	{
 		Maze.log(Log.DEBUG, "determining armour impact");
 		
@@ -875,7 +876,7 @@ public class GameSys
 	 * @return if the defender is using a shield and the attack hits it: the amount
 	 * 	of damage to prevent
 	 */
-	public int calcShieldDamagePrevention(AttackEvent event)
+	public int calcShieldDamagePrevention(StrikeEvent event)
 	{
 		UnifiedActor defender = event.getDefender();
 
@@ -1572,7 +1573,7 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getLightningStrikeNrStrikes(AttackEvent event)
+	public int getLightningStrikeNrStrikes()
 	{
 		return Dice.d3.roll() +1;
 	}
@@ -2167,6 +2168,53 @@ public class GameSys
 				return Npc.TheftResult.FAILED_DETECTED;
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Call when a dishonourable action occurs.
+	 *
+	 * @return
+	 * 	List of events to process
+	 */
+	public List<MazeEvent> processDishonourableAction(PlayerParty party)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		for (PlayerCharacter pc : party.getPlayerCharacters())
+		{
+			if (pc.getModifier(Stats.Modifier.CODE_OF_HONOUR) > 0)
+			{
+				int amount = 50*pc.getLevel();
+				result.add(new LoseExperienceEvent(amount, pc));
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Call when a honourable action occurs.
+	 *
+	 * @return
+	 * 	List of events to process
+	 */
+	public List<MazeEvent> processHonourableAction(PlayerParty party)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		for (PlayerCharacter pc : party.getPlayerCharacters())
+		{
+			if (pc.getModifier(Stats.Modifier.CODE_OF_DISHONOUR) > 0)
+			{
+				int amount = 50*pc.getLevel();
+				result.add(new LoseExperienceEvent(amount, pc));
+			}
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

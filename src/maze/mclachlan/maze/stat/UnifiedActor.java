@@ -28,9 +28,9 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.combat.*;
-import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.combat.event.ConditionEvent;
 import mclachlan.maze.stat.combat.event.HealingEvent;
+import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.condition.*;
 import mclachlan.maze.stat.condition.impl.FatigueKO;
 import mclachlan.maze.stat.condition.impl.RestingSleep;
@@ -913,7 +913,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void deductAmmo(AttackEvent event)
+	public void deductAmmo(StrikeEvent event)
 	{
 		Item ammoItem;
 

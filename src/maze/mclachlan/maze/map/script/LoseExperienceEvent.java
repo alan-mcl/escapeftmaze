@@ -28,7 +28,7 @@ import mclachlan.maze.stat.PlayerCharacter;
 /**
  *
  */
-public class GrantExperienceEvent extends MazeEvent
+public class LoseExperienceEvent extends MazeEvent
 {
 	private int amount;
 	private PlayerCharacter pc;
@@ -38,9 +38,9 @@ public class GrantExperienceEvent extends MazeEvent
 	 * @param amount
 	 * 	the amount of XP
 	 * @param pc
-	 * 	the character to get them, null for all live members of the party
+	 * 	the character to lose them, null for all live members of the party
 	 */
-	public GrantExperienceEvent(int amount, PlayerCharacter pc)
+	public LoseExperienceEvent(int amount, PlayerCharacter pc)
 	{
 		this.amount = amount;
 		this.pc = pc;
@@ -50,13 +50,13 @@ public class GrantExperienceEvent extends MazeEvent
 	public String getText()
 	{
 		if (pc == null)
-		{
-			return StringUtil.getEventText("msg.grant.experience.all", amount);
-		}
-		else
-		{
-			return StringUtil.getEventText("msg.grant.experience.single", pc.getDisplayName(), amount);
-		}
+				{
+					return StringUtil.getEventText("msg.lose.experience.all", amount);
+				}
+				else
+				{
+					return StringUtil.getEventText("msg.lose.experience.single", pc.getDisplayName(), amount);
+				}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -64,36 +64,15 @@ public class GrantExperienceEvent extends MazeEvent
 	{
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		// check which characters are already due for a level up event
-		List<PlayerCharacter> playerCharacters = Maze.getInstance().getParty().getPlayerCharacters();
-		boolean[] preXpLvlUpPending = new boolean[playerCharacters.size()];
-
-		for (int i = 0; i < playerCharacters.size(); i++)
-		{
-			preXpLvlUpPending[i] = playerCharacters.get(i).isLevelUpPending();
-		}
-
-		// grant the experience
+		// remove the experience
 		if (pc != null)
 		{
-			pc.incExperience(amount);
+			pc.incExperience(-amount);
 		}
 		else
 		{
-			// otherwise, grant to the party
-			Maze.getInstance().getParty().grantExperience(amount);
-		}
-
-		// check if any characters have suddenly levelled up
-		for (int i = 0; i < playerCharacters.size(); i++)
-		{
-			if (!preXpLvlUpPending[i] && playerCharacters.get(i).isLevelUpPending())
-			{
-				// this character is now able to level up
-				result.add(new FlavourTextEvent(
-					playerCharacters.get(i).getName()+" gains a level!",
-					Maze.getInstance().getUserConfig().getCombatDelay(), false));
-			}
+			// otherwise, remove from the party
+			Maze.getInstance().getParty().grantExperience(-amount);
 		}
 
 		return result;

@@ -447,6 +447,7 @@ public class Stats
 		TOUCH_SLEEP(139, "sleepTouch", ModifierMetric.PERCENTAGE),
 		TOUCH_STONE(140, "stoneTouch", ModifierMetric.PERCENTAGE),
 		TOUCH_WEB(141, "webTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_POISON(166, "poisonTouch", ModifierMetric.PERCENTAGE),
 		RAZOR_CLOAK(142, "razorCloak"),
 		CC_PENALTY(143, "ccPenalty"),
 		DAMAGE_MULTIPLIER(145, "damageMultiplier", ModifierMetric.BOOLEAN),
@@ -470,7 +471,6 @@ public class Stats
 		MELEE_MASTER(163, "meleeMaster", ModifierMetric.BOOLEAN),
 		DEADLY_AIM(164, "deadlyAim"),
 		MASTER_THIEF(165, "masterThief", ModifierMetric.BOOLEAN),
-		TOUCH_POISON(166, "poisonTouch", ModifierMetric.PERCENTAGE),
 		OBFUSCATION(167, "obfuscation"),
 		SHADOW_MASTER(168, "shadowMaster", ModifierMetric.BOOLEAN),
 		CHARMED_DESTINY(169, "charmedDestiny", ModifierMetric.BOOLEAN),
@@ -519,6 +519,9 @@ public class Stats
 		POLEARM_1H_WIELD(218, "polearm1HWield", ModifierMetric.BOOLEAN),
 		STAFF_1H_WIELD(219, "staff1HWield", ModifierMetric.BOOLEAN),
 		BERSERK_POWERS(221, "berserkPowers"),
+		CODE_OF_HONOUR(222, "codeOfHonour", ModifierMetric.BOOLEAN),
+		CODE_OF_DISHONOUR(223, "codeOfDishonour", ModifierMetric.BOOLEAN),
+		DYING_BLOW(224, "dyingBlow", ModifierMetric.BOOLEAN),
 		;
 
 		/**

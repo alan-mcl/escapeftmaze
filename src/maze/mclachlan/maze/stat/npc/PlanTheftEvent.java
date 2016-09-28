@@ -30,7 +30,7 @@ import mclachlan.maze.ui.diygui.TheftCallback;
 import mclachlan.maze.ui.diygui.TheftDialog;
 
 /**
- *
+ * Brings up the Theft Dialog, giving the player options to execute the heist.
  */
 public class PlanTheftEvent extends MazeEvent
 {
