@@ -30,6 +30,7 @@ import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
@@ -414,6 +415,17 @@ public class PlayerCharacter extends UnifiedActor
 
 			// always an equip option
 			result.add(new EquipOption(), null);
+
+			// Deadly Strike
+			if (this.getModifier(Stats.Modifier.DEADLY_STRIKE) > 0)
+			{
+				result.add(
+					new SpecialAbilityOption(
+						new SpellLikeAbility(
+							Database.getInstance().getSpell("_DEADLY_STRIKE_"),
+							new Value(this.getLevel(), Value.SCALE.NONE))),
+					null);
+			}
 
 			// special abilities
 			if (this.getSpellLikeAbilities() != null)

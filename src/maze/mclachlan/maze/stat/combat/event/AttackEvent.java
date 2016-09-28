@@ -44,6 +44,7 @@ public class AttackEvent extends MazeEvent
 	private MazeScript attackScript;
 	private MagicSys.SpellEffectType damageType;
 	private AnimationContext animationContext;
+	private StatModifier modifiers;
 
 	/*-------------------------------------------------------------------------*/
 	public AttackEvent(
@@ -56,7 +57,8 @@ public class AttackEvent extends MazeEvent
 		int nrStrikes,
 		MazeScript attackScript,
 		MagicSys.SpellEffectType damageType,
-		AnimationContext animationContext)
+		AnimationContext animationContext,
+		StatModifier modifiers)
 	{
 		this.combat = combat;
 		this.attacker = attacker;
@@ -68,6 +70,7 @@ public class AttackEvent extends MazeEvent
 		this.attackScript = attackScript;
 		this.damageType = damageType;
 		this.animationContext = animationContext;
+		this.modifiers = modifiers;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -104,6 +107,11 @@ public class AttackEvent extends MazeEvent
 	public void incStrikes(int inc)
 	{
 		this.nrStrikes += inc;
+	}
+
+	public StatModifier getModifiers()
+	{
+		return modifiers;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -163,7 +171,8 @@ public class AttackEvent extends MazeEvent
 					attackWith,
 					attackType,
 					damageType,
-					animationContext));
+					animationContext,
+					modifiers));
 		}
 
 		return result;

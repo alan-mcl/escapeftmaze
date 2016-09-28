@@ -35,6 +35,7 @@ import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.TypeDescriptorImpl;
+import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
@@ -874,10 +875,11 @@ public class SpellResultEditor extends JDialog implements ActionListener
 					attackType = null;
 				}
 
+				AttackType at = attackType==null? null:Database.getInstance().getAttackType(attackType);
 				result = new AttackWithWeaponSpellResult(
 					nrStrikes,
 					modifier,
-					Database.getInstance().getAttackType(attackType),
+					at,
 					damageType,
 					attackScript,
 					weaponRequiresBackstab.isSelected(),

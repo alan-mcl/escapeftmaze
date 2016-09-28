@@ -21,8 +21,10 @@ package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatStatistics;
@@ -116,13 +118,6 @@ public class DamageEvent extends MazeEvent
 
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		if (damage > 0
-			&& GameSys.getInstance().isDeadlyStrike(attacker, defender, attackWith))
-		{
-			result.add(new DeadlyStrikeEvent(defender));
-			damagePacket.incMultiplier(1);
-		}
-		
 		damage = Math.max(damage, 0);
 
 		damage *= damagePacket.getMultiplier();
@@ -171,6 +166,11 @@ public class DamageEvent extends MazeEvent
 				{
 					Item attackWith = defender.getPrimaryWeapon();
 					result.add(
+						new UiMessageEvent(
+							StringUtil.getEventText(
+								"msg.dying.blow",
+								defender.getDisplayName())));
+					result.add(
 						new AttackEvent(
 							combat,
 							defender,
@@ -181,7 +181,7 @@ public class DamageEvent extends MazeEvent
 							1,
 							attackWith.getAttackScript(),
 							attackWith.getDefaultDamageType(),
-							animationContext));
+							animationContext, null));
 				}
 	
 				result.add(new ActorDiesEvent(defender, attacker));

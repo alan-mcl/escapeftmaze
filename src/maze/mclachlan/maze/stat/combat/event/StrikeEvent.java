@@ -42,6 +42,7 @@ public class StrikeEvent extends MazeEvent
 	private AttackType attackType;
 	private MagicSys.SpellEffectType damageType;
 	private AnimationContext animationContext;
+	private StatModifier modifiers;
 	private BodyPart bodyPart;
 
 	/*-------------------------------------------------------------------------*/
@@ -52,7 +53,8 @@ public class StrikeEvent extends MazeEvent
 		AttackWith weapon,
 		AttackType attackType,
 		MagicSys.SpellEffectType damageType,
-		AnimationContext animationContext)
+		AnimationContext animationContext,
+		StatModifier modifiers)
 	{
 		this.combat = combat;
 		this.attacker = attacker;
@@ -61,6 +63,7 @@ public class StrikeEvent extends MazeEvent
 		this.attackType = attackType;
 		this.damageType = damageType;
 		this.animationContext = animationContext;
+		this.modifiers = modifiers;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -87,6 +90,11 @@ public class StrikeEvent extends MazeEvent
 	public int getDelay()
 	{
 		return 0;
+	}
+
+	public StatModifier getModifiers()
+	{
+		return modifiers;
 	}
 
 	/*-------------------------------------------------------------------------*/

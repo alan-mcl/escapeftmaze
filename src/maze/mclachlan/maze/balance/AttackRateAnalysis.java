@@ -143,7 +143,7 @@ public class AttackRateAnalysis
 						if (Dice.d100.roll() <= 50)
 						{
 							StrikeEvent ae = new StrikeEvent(null, pc, pc, weapon, attackType,
-								aa.getDamageType(), null);
+								aa.getDamageType(), null, null);
 							DamagePacket damagePacket = GameSys.getInstance().calcDamage(ae);
 
 							// todo: should be using DamageEvent instead?

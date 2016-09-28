@@ -54,6 +54,20 @@ public class LevelAbilityProgression
 				progression.add(null);
 			}
 		}
+
+		sortProgression();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void sortProgression()
+	{
+		for (List<LevelAbility> levelAbilities : progression)
+		{
+			if (levelAbilities != null)
+			{
+				Collections.sort(levelAbilities, new LevelAbilityComparator());
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -185,5 +199,71 @@ public class LevelAbilityProgression
 		}
 
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class LevelAbilityComparator implements Comparator<LevelAbility>
+	{
+		@Override
+		public int compare(LevelAbility o1, LevelAbility o2)
+		{
+			// Sort order:
+			//  - First magic abilities, in alpha order of display name
+			//  - Then all others except spell picks, in alpha order of display name
+			//  - Last spell picks
+
+			String n1 = o1.getDisplayName();
+			String n2 = o2.getDisplayName();
+
+			int result = n1.compareTo(n2);
+
+			// narrow the string compare down to -1/0/+1
+			if (result < 0)
+			{
+				result = -1;
+			}
+			else if (result > 0)
+			{
+				result = 1;
+			}
+
+			// spell casting ability first
+			if (isSpellCastingLevelAbility(o1))
+			{
+				result -= 100;
+			}
+			if (isSpellCastingLevelAbility(o2))
+			{
+				result += 100;
+			}
+
+			// spell picks last
+			if (o1 instanceof AddSpellPicks)
+			{
+				result += 100;
+			}
+			if (o2 instanceof AddSpellPicks)
+			{
+				result -= 100;
+			}
+
+			return result;
+		}
+
+		public boolean isSpellCastingLevelAbility(LevelAbility o1)
+		{
+			if (o1 instanceof StatModifierLevelAbility)
+			{
+				for (Stats.Modifier m : o1.getModifier().getModifiers().keySet())
+				{
+					if (Stats.spellCastingLevels.contains(m))
+					{
+						return true;
+					}
+				}
+			}
+
+			return false;
+		}
 	}
 }

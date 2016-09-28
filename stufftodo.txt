@@ -20,7 +20,7 @@ icon: bullwhip
 icon: dark majesty condition
 icon: amazon strength buff, courage, willpower, fury conditions
 
-abilities: acolyte 15
+abilities: acolyte 10, 15
 abilities: berserker 17
 abilities: code of dishounour hooks on Diplomacy, others
 

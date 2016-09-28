@@ -32,15 +32,14 @@ public class Stats
 	private StatModifier modifiers = new StatModifier();
 
 	// attributes
-	CurMaxSub hitPoints = new CurMaxSub();
-	CurMax actionPoints = new CurMax();
-	CurMax magicPoints = new CurMax();
+	private CurMaxSub hitPoints = new CurMaxSub();
+	private CurMax actionPoints = new CurMax();
+	private CurMax magicPoints = new CurMax();
 
-	// useful stuff
-	/** HP, SP and MP */
+	/** Resources */
 	public static List<Modifier> resourceModifiers = new ArrayList<Modifier>();
 	
-	/** Str, Agl, and so on */
+	/** Attributes */
 	public static List<Modifier> attributeModifiers = new ArrayList<Modifier>();
 
 	/** swing, thrust, and so on */
@@ -60,6 +59,9 @@ public class Stats
 
 	/** Resistance modifiers */
 	public static List<Modifier> resistances = new ArrayList<Modifier>();
+
+	/** Spell casting level modifiers */
+	public static List<Modifier> spellCastingLevels = new ArrayList<Modifier>();
 
 	/** properties of a character - boolean flags that can't be edited */
 	public static List<Modifier> propertiesModifiers = new ArrayList<Modifier>();
@@ -120,6 +122,14 @@ public class Stats
 		resistances.add(Modifier.RESIST_AIR);
 		resistances.add(Modifier.RESIST_MENTAL);
 		resistances.add(Modifier.RESIST_ENERGY);
+
+		spellCastingLevels.add(Modifier.BLACK_MAGIC_SPELLS);
+		spellCastingLevels.add(Modifier.ELEMENTAL_SPELLS);
+		spellCastingLevels.add(Modifier.DRUIDISM_SPELLS);
+		spellCastingLevels.add(Modifier.WHITE_MAGIC_SPELLS);
+		spellCastingLevels.add(Modifier.ENCHANTMENT_SPELLS);
+		spellCastingLevels.add(Modifier.WITCHCRAFT_SPELLS);
+		spellCastingLevels.add(Modifier.SORCERY_SPELLS);
 
 		regularModifiers.addAll(attributeModifiers);
 		regularModifiers.addAll(martialModifiers);
@@ -459,7 +469,7 @@ public class Stats
 		LIGHTNING_STRIKE_SWORD(151, "lightningStrikeSword", ModifierMetric.BOOLEAN),
 		LIGHTNING_STRIKE_UNARMED(152, "lightningStrikeUnarmed", ModifierMetric.BOOLEAN),
 		BERSERKER(153, "berserker", ModifierMetric.PERCENTAGE),
-		DEADLY_STRIKE(154, "deadlyStrike", ModifierMetric.PERCENTAGE),
+		DEADLY_STRIKE(154, "deadlyStrike"),
 		DODGE(155, "dodge", ModifierMetric.PERCENTAGE),
 		MASTER_ARCHER(156, "masterArcher", ModifierMetric.BOOLEAN),
 		DIVINE_PROTECTION(157, "divineProtection", ModifierMetric.BOOLEAN),

@@ -302,8 +302,13 @@ public class Foe extends UnifiedActor
 	{
 		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
 
+
 		result.addAll(super.getSpellLikeAbilities());
-		result.addAll(template.getSpellLikeAbilities());
+
+		if (template.getSpellLikeAbilities() != null)
+		{
+			result.addAll(template.getSpellLikeAbilities());
+		}
 
 		if (template.getTypes() != null)
 		{

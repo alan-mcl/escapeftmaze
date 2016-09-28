@@ -204,7 +204,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			// construct the result
 			int baseValue = (Integer)(base.getValue());
 			Value.SCALE scale = (Value.SCALE)scaling.getSelectedItem();
-			String ref = (String)reference.getSelectedItem();
+			Object ref = reference.getSelectedItem();
 			boolean negate = this.negate.isSelected();
 			if (constant.isSelected())
 			{
@@ -239,9 +239,10 @@ public class ValueEditor extends JDialog implements ActionListener
 			this.value.setScaling(scale);
 			this.value.setNegate(negate);
 
-			if (ref != null && ref.length() > 0)
+			if (ref != null && ref.toString().length() > 0)
 			{
-				this.value.setReference(ref);
+				String s = ref.toString();
+				this.value.setReference(s);
 			}
 
 			setVisible(false);

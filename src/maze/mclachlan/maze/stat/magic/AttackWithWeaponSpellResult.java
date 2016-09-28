@@ -96,7 +96,12 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		}
 
 		// apply the damage type
-		MagicSys.SpellEffectType actionDamageType = getDamageType(source, weapon);
+		MagicSys.SpellEffectType damageTypeToUse = damageType;
+		if (damageTypeToUse == null || damageTypeToUse == MagicSys.SpellEffectType.NONE)
+		{
+			damageTypeToUse = GameSys.getInstance().getAttackWithDamageType(source, weapon);
+		}
+		MagicSys.SpellEffectType actionDamageType = damageTypeToUse;
 
 		// apply the nr of strikes
 		int actionNrStrikes = nrStrikes.compute(source);
@@ -206,19 +211,6 @@ public class AttackWithWeaponSpellResult extends SpellResult
 			actionAttackScript = Database.getInstance().getScript(attackScript);
 		}
 		return actionAttackScript;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private MagicSys.SpellEffectType getDamageType(UnifiedActor source, AttackWith weapon)
-	{
-		MagicSys.SpellEffectType actionDamageType = damageType;
-
-		// if this spell result does not have a damage type set, use the default
-		if (actionDamageType == null)
-		{
-			return GameSys.getInstance().getAttackWithDamageType(source, weapon);
-		}
-		return actionDamageType;
 	}
 
 	/*-------------------------------------------------------------------------*/

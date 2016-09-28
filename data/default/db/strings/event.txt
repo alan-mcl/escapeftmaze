@@ -66,6 +66,7 @@ msg.npc.inventory.full = No thanks, I don't want to buy anything more from you r
 msg.amazon.courage = %s fights back the fear!
 msg.amazon.willpower = %s is not overcome!
 msg.amazon.fury = %s is furious!
+msg.dying.blow = %s strikes a dying blow!
 
 #
 # Encounter Actors events

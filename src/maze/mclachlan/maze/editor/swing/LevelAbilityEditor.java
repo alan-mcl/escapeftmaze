@@ -400,6 +400,18 @@ public class LevelAbilityEditor extends JDialog implements ActionListener
 			int index = type.getSelectedIndex();
 			if (index > -1)
 			{
+				if (index == SPELL_PICKS)
+				{
+					// short cuts
+					displayName.setText("lap_name_spellpicks+1");
+					description.setText("lap_desc_spellpicks+1");
+				}
+				else
+				{
+					displayName.setText("");
+					description.setText("");
+				}
+
 				cards.show(controls, String.valueOf(dialogLookup[index]));
 			}
 		}

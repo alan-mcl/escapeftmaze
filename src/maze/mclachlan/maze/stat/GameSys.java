@@ -590,6 +590,10 @@ public class GameSys
 		{
 			damageMultiplier += armour.getModifiers().getModifier(Stats.Modifier.DAMAGE_MULTIPLIER);
 		}
+		if (event.getModifiers() != null)
+		{
+			damageMultiplier += event.getModifiers().getModifier(Stats.Modifier.DAMAGE_MULTIPLIER);
+		}
 
 		if (defender.getTypes().contains(attackWith.slaysFoeType()))
 		{
@@ -3479,44 +3483,6 @@ public class GameSys
 		}
 
 		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public boolean isDeadlyStrike(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
-	{
-		if (defender instanceof Foe && ((Foe)defender).isImmuneToCriticals())
-		{
-			// no deadly strike possible
-			return false;
-		}
-
-		if (attacker.getModifier(Stats.Modifier.DEADLY_STRIKE) <= 0)
-		{
-			// no deadly strike possible
-			return false;
-		}
-
-		int percent = attacker.getModifier(Stats.Modifier.DEADLY_STRIKE);
-
-		// modify slightly
-		if (attackWith instanceof Item)
-		{
-			Item item = (Item)attackWith;
-			switch (item.getType())
-			{
-				case Type.SHORT_WEAPON:
-				case Type.EXTENDED_WEAPON:
-					percent += (attacker.getModifier(Stats.Modifier.MELEE_CRITICALS)/2);
-					break;
-				case Type.THROWN_WEAPON:
-					return false;
-				case Type.RANGED_WEAPON:
-					return false;
-				default: // no op
-			}
-		}
-
-		return Dice.d100.roll() <= percent;		
 	}
 
 	/*-------------------------------------------------------------------------*/

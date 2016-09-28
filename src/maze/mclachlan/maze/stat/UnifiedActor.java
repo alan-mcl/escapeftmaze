@@ -807,19 +807,19 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/*-------------------------------------------------------------------------*/
 	public CurMaxSub getHitPoints()
 	{
-		return getStats().hitPoints;
+		return getStats().getHitPoints();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public CurMax getActionPoints()
 	{
-		return getStats().actionPoints;
+		return getStats().getActionPoints();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public CurMax getMagicPoints()
 	{
-		return getStats().magicPoints;
+		return getStats().getMagicPoints();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1800,8 +1800,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			// check it's a sword with the KENDO focus
 			Item primaryWeapon = getPrimaryWeapon();
 			if (primaryWeapon != null &&
-				primaryWeapon.getSubType() == ItemTemplate.WeaponSubType.SWORD/* &&
-				Stats.Modifiers.KENDO.equals(primaryWeapon.getDiscipline())*/)
+				primaryWeapon.getSubType() == ItemTemplate.WeaponSubType.SWORD &&
+				Stats.Modifier.KENDO.equals(primaryWeapon.getDiscipline()))
 			{
 				possibilities.add(
 					new SpecialAbilityIntention(

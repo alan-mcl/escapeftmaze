@@ -197,7 +197,7 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 			if (value > 0)
 			{
 				propertiesLabels[rowCount].setText(descModifier(modifier, value));
-				propertiesLabels[rowCount].setActionMessage(modifier.getResourceBundleKey());
+				propertiesLabels[rowCount].setActionMessage(modifier.toString());
 				propertiesLabels[rowCount].setActionPayload(character);
 				rowCount++;
 			}
