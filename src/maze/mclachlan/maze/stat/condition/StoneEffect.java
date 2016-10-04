@@ -75,48 +75,63 @@ public class StoneEffect extends ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
 		return CombatAction.DO_NOTHING;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
 		return stoned.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean isRemovedByRevitalise(UnifiedActor actor, Condition condition)
 	{
 		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean askForCombatIntentions(UnifiedActor actor, Condition condition)
 	{
 		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean isAware(UnifiedActor actor, Condition condition)
 	{
 		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Stats.Modifier getImmunityModifier()
 	{
 		return Stats.Modifier.IMMUNE_TO_STONE;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean isImmobile(UnifiedActor actor, Condition condition)
 	{
 		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean isHelpless(UnifiedActor actor, Condition condition)
+	{
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> endOfTurn(Condition condition, long turnNr)
 	{
 		// let stone never expire naturally

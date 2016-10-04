@@ -246,6 +246,7 @@ modifier_name-berserkPowers: Berserk Powers
 modifier_name-codeOfHonour: Code of Honour
 modifier_name-codeOfDishonour: Code of Dishonour
 modifier_name-dyingBlow: Dying Blow
+modifier_name-finisher: Finisher
 
 # Modifier Descriptions
 
@@ -485,6 +486,7 @@ modifier_desc-berserkPowers: This modifier tracks the increasing benefits a char
 modifier_desc-codeOfHonour: The character loses experience points if the party ever acts dishonourably.
 modifier_desc-codeOfDishonour: The character loses experience points if the party ever acts honourably.
 modifier_desc-dyingBlow: If killed by a melee attack, this character makes one melee strike against the attacker.
+modifier_desc-finisher: The characters melee attacks against incapacitated enemies are all critical hits
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -684,6 +686,8 @@ lap_name_bloodthirsty = Bloodthirsty
 lap_desc_bloodthirsty = The Blackguard receives combat bonuses against humanoid foes.
 lap_name_dying_blow = Dying Blow
 lap_desc_dying_blow = If slain by a melee attack, the Blackguard strikes out one last time at his or her attacker.
+lap_name_finisher = Finisher
+lap_desc_finisher = The Blackguards melee attacks against incapacitated enemies are all critical hits.
 
 # Burglar
 lap_name_extra_loot = Extra Loot %s

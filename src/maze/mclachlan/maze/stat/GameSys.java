@@ -3099,6 +3099,25 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	true if the given actor is afflicted by a condition the renders it
+	 * 	helpless in the face of attacks
+	 */
+	public boolean isActorHelpless(UnifiedActor actor)
+	{
+		for (Condition c : actor.getConditions())
+		{
+			if (c.getEffect().isHelpless(actor, c))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public boolean isActorAware(UnifiedActor actor)
 	{
 		if (!isActorAlive(actor))
@@ -3423,6 +3442,19 @@ public class GameSys
 			return false;
 		}
 		
+		if (defender instanceof Foe && ((Foe)defender).isImmuneToCriticals())
+		{
+			// no critical possible
+			return false;
+		}
+
+		if (this.isActorHelpless(defender) &&
+			attacker.getModifier(Stats.Modifier.FINISHER) > 0)
+		{
+			// auto critical
+			return true;
+		}
+
 		int percent;
 		if (attackWith.getToCritical() > 0)
 		{
@@ -3433,13 +3465,6 @@ public class GameSys
 			// this represents the penalty for attacking with a non-KIA weapon
 			percent = -5;
 		}
-
-		if (defender instanceof Foe && ((Foe)defender).isImmuneToCriticals())
-		{
-			// no critical possible
-			return false;
-		}
-
 		Stats.Modifier modifier = Stats.Modifier.MELEE_CRITICALS;
 
 		if (attackWith instanceof Item)

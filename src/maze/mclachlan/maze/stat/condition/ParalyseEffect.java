@@ -57,6 +57,13 @@ public class ParalyseEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
+	public boolean isHelpless(UnifiedActor actor, Condition condition)
+	{
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean askForCombatIntentions(UnifiedActor actor, Condition condition)
 	{
 		// todo: able to cast thought-only spells?

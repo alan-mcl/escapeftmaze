@@ -36,6 +36,7 @@ data: mind read results from all NPCs
 data: more hidden stashes to find with SCOUTING
 data: rename Kitsune class to Courtesan
 
+code: damage multipliers to be applied before armour soak
 code: Scavenger Mode: characters start with nothing, most loot is replaced with trash, and crafting is the only way to survive.
 code: Ironman Mode: One save only.
 code: Quicksave and quickload.

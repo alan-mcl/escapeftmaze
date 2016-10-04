@@ -110,6 +110,18 @@ public class ConditionEffect
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	True if this condition renders the character helpless in the face of
+	 * 	attacks
+	 */
+	public boolean isHelpless(UnifiedActor actor, Condition condition)
+	{
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	True if the given actor can be asked for combat intentions.
