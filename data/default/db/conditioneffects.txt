@@ -61,3 +61,6 @@ impl=mclachlan.maze.stat.condition.SilencedEffect
 name=fear
 impl=mclachlan.maze.stat.condition.FearEffect
 @
+name=bloodthirsty
+impl=mclachlan.maze.stat.condition.BloodthirstyEffect
+@

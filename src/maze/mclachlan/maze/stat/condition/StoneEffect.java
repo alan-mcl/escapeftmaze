@@ -32,7 +32,7 @@ import mclachlan.maze.stat.combat.CombatAction;
  */
 public class StoneEffect extends ConditionEffect
 {
-	static StatModifier stoned;
+	private static StatModifier stoned;
 
 	/*-------------------------------------------------------------------------*/
 	static

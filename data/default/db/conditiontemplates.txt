@@ -2556,3 +2556,22 @@ exitCondition=DURATION_EXPIRES
 exitConditionChance=0
 repeatedSpellEffects=
 @
+name=bloodthirsty
+displayName=bloodthirsty
+icon=condition/default
+adjective=is bloodthirsty!
+conditionEffect=bloodthirsty
+duration=1/3/NONE//false
+strength=1/1/SCALE_WITH_CLASS_LEVEL/Amazon/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=0,
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+repeatedSpellEffects=
+@

@@ -23,7 +23,7 @@ Features
  - Amazon class abilities: Amazon Stamina, Amazon Strength, Amazon Speed, Deadly Aim, 
    Furious Purpose, Amazon Courage, Amazon Willpower, Hail of Arrows, Amazon Fury
  - Berserker class abilities: Berserk Powers, Berserk At Will
- - Blackguard class abilities: Dying Blow
+ - Blackguard class abilities: Dying Blow, Finisher, Bloodthirsty
 
 Other
  - Performance improvements for movement mode

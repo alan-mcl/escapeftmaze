@@ -532,7 +532,8 @@ public class Stats
 		CODE_OF_HONOUR(222, "codeOfHonour", ModifierMetric.BOOLEAN),
 		CODE_OF_DISHONOUR(223, "codeOfDishonour", ModifierMetric.BOOLEAN),
 		DYING_BLOW(224, "dyingBlow", ModifierMetric.BOOLEAN),
-		FINISHER(225, "finisher", ModifierMetric.BOOLEAN)
+		FINISHER(225, "finisher", ModifierMetric.BOOLEAN),
+		BLOODTHIRSTY(226, "bloodthirsty"),
 		;
 
 		/**

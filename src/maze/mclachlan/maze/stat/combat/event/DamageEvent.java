@@ -217,6 +217,24 @@ public class DamageEvent extends MazeEvent
 				animationContext));
 		}
 
+		// check for BLOODTHIRSTY
+		if (defender.getModifier(Stats.Modifier.BLOODTHIRSTY) > 0 &&
+			defender.getHitPoints().getCurrent() > 0 &&
+			defender.getHitPoints().getRatio() <= 0.2)
+		{
+			ConditionTemplate ct = Database.getInstance().getConditionTemplate("bloodthirsty");
+			result.add(
+				new ConditionEvent(
+					defender,
+					ct.create(
+						defender,
+						defender,
+						defender.getLevel(),
+						MagicSys.SpellEffectType.NONE,
+						MagicSys.SpellEffectSubType.NONE)));
+		}
+
+		// check for BERSERK
 		if (defender.getModifier(Stats.Modifier.BERSERKER) > 0 &&
 			defender.getHitPoints().getCurrent() >= 0)
 		{
@@ -226,6 +244,7 @@ public class DamageEvent extends MazeEvent
 			}
 		}
 
+		// character speech if badly wounded
 		if (defender instanceof PlayerCharacter &&
 			defender.getHitPoints().getCurrent() > 0 &&
 			defender.getHitPoints().getRatio() <= 0.1)
