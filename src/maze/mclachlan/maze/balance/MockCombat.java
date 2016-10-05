@@ -831,7 +831,6 @@ public class MockCombat
 			0,
 			new StatModifier(),
 			new StatModifier(),
-			false,
 			0,
 			Foe.StealthBehaviour.NOT_STEALTHY,
 			null,

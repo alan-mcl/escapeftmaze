@@ -15,6 +15,7 @@ Features
  - Added foe information popup on click of the sprite during actor encounters and combat
  - Added foe types as configurable objects, can provide modifiers and abilities to foes
  - Favoured Enemy modifiers for various foe types
+ - Immunity to Criticals is now a modifier, not a Foe Template property
  - Added level ability progression preview to the character class selection screen
  - Class abilities: Sword/Axe/Mace/Polearm/Staff Parry/1H Wield, Threaten, Code of Honour
    Code of Dishonour
@@ -23,7 +24,9 @@ Features
  - Amazon class abilities: Amazon Stamina, Amazon Strength, Amazon Speed, Deadly Aim, 
    Furious Purpose, Amazon Courage, Amazon Willpower, Hail of Arrows, Amazon Fury
  - Berserker class abilities: Berserk Powers, Berserk At Will
- - Blackguard class abilities: Dying Blow, Finisher, Bloodthirsty
+ - Blackguard class abilities: Dying Blow, Finisher, Bloodthirsty, Notoriety, Terrifying 
+   Reputation
+
 
 Other
  - Performance improvements for movement mode

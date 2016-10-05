@@ -641,7 +641,7 @@ public class Foe extends UnifiedActor
 
 	public boolean isImmuneToCriticals()
 	{
-		return template.immuneToCriticals;
+		return getModifier(Stats.Modifier.IMMUNE_TO_CRITICALS) > 0;
 	}
 
 	public boolean isSummoned()
@@ -818,12 +818,12 @@ public class Foe extends UnifiedActor
 
 	}
 
-	public boolean isInterestedInBuyingItem(Item item)
+	public boolean isInterestedInBuyingItem(Item item, PlayerCharacter pc)
 	{
 		return !item.isQuestItem() && item.getBaseCost()<1000;
 	}
 
-	public boolean isAbleToAffordItem(Item item)
+	public boolean isAbleToAffordItem(Item item, PlayerCharacter pc)
 	{
 		// todo: money?
 		return true;

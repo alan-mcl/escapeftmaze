@@ -23,7 +23,7 @@ icon: blackguard bloodthirsty
 
 abilities: acolyte 10, 15
 abilities: berserker 17
-abilities: blackguard 10, 18
+abilities: blackguard 10, 17
 abilities: code of dishounour hooks on Diplomacy, others
 
 text: gnome race description

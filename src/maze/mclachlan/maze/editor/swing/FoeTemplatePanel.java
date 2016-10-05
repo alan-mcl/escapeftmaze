@@ -43,7 +43,7 @@ public class FoeTemplatePanel extends EditorPanel
 	private JComboBox baseTexture, meleeTexture, rangedTexture, castSpellTexture,
 		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
 		appearanceScript, deathScript, focus, attitude;
-	private JCheckBox cannotBeEvaded, immuneToCriticals, isNpc;
+	private JCheckBox cannotBeEvaded, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
 	private FoeTypeSelection foeTypes;
 	private JComboBox race, characterClass;
@@ -341,10 +341,6 @@ public class FoeTemplatePanel extends EditorPanel
 		isNpc.addActionListener(this);
 		dodgyGridBagShite(result, isNpc, new JLabel(), gbc);
 
-		immuneToCriticals = new JCheckBox("Immune To Criticals?");
-		immuneToCriticals.addActionListener(this);
-		dodgyGridBagShite(result, immuneToCriticals, new JLabel(), gbc);
-
 		cannotBeEvaded = new JCheckBox("Cannot Be Evaded?");
 		cannotBeEvaded.addActionListener(this);
 		dodgyGridBagShite(result, cannotBeEvaded, new JLabel(), gbc);
@@ -475,7 +471,6 @@ public class FoeTemplatePanel extends EditorPanel
 		identificationDifficulty.setValue(ft.getIdentificationDifficulty());
 		fleeChance.setValue(ft.getFleeChance());
 		isNpc.setSelected(ft.isNpc());
-		immuneToCriticals.setSelected(ft.isImmuneToCriticals());
 		cannotBeEvaded.setSelected(ft.cannotBeEvaded());
 		naturalWeapons.refreshStrings(ft.getNaturalWeapons());
 		spellBook.refresh(ft.getSpellBook());
@@ -555,7 +550,6 @@ public class FoeTemplatePanel extends EditorPanel
 			0,
 			new StatModifier(),
 			new StatModifier(),
-			false,
 			0,
 			Foe.StealthBehaviour.NOT_STEALTHY,
 			"",
@@ -624,7 +618,6 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getIdentificationDifficulty(),
 			new StatModifier(current.getFoeGroupBannerModifiers()),
 			new StatModifier(current.getAllFoesBannerModifiers()),
-			current.isImmuneToCriticals(),
 			current.getFleeChance(),
 			current.getStealthBehaviour(),
 			current.getFaction(),
@@ -706,7 +699,6 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setIdentificationDifficulty((Integer)identificationDifficulty.getValue());
 		ft.setFleeChance((Integer)fleeChance.getValue());
 		ft.setCannotBeEvaded(cannotBeEvaded.isSelected());
-		ft.setImmuneToCriticals(immuneToCriticals.isSelected());
 		ft.setFaction(faction.getText().equals("") ? null : faction.getText());
 		ft.setNpc(isNpc.isSelected());
 		ft.setAppearanceScript(appScript);

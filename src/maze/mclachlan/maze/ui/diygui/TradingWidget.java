@@ -33,10 +33,7 @@ import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.GoldPieces;
-import mclachlan.maze.stat.Inventory;
-import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
 
 /**
@@ -51,6 +48,7 @@ public class TradingWidget extends DIYPane
 	private int priceMultiplier;
 	private int goldAmount;
 	private ActionListener exteriorListener;
+	private PlayerCharacter pc;
 	private int maxRows;
 
 	/*-------------------------------------------------------------------------*/
@@ -67,6 +65,7 @@ public class TradingWidget extends DIYPane
 	 * 	any exterior action listener to attach to the widgets buttons
 	 */
 	public TradingWidget(
+		PlayerCharacter pc,
 		Rectangle bounds,
 		Inventory inventory,
 		int priceMultiplier,
@@ -75,6 +74,7 @@ public class TradingWidget extends DIYPane
 		ActionListener exteriorListener)
 	{
 		super(bounds);
+		this.pc = pc;
 		this.maxRows = maxRows;
 
 		if (maxRows == -1)
@@ -437,7 +437,7 @@ public class TradingWidget extends DIYPane
 			synchronized(getItemMutex())
 			{
 				super.setText(item);
-				this.price.setText(""+GameSys.getInstance().getItemCost(item, priceMultiplier));
+				this.price.setText(""+GameSys.getInstance().getItemCost(item, priceMultiplier, pc));
 			}
 		}
 	}

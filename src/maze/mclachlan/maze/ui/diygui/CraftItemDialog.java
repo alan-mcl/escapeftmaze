@@ -68,9 +68,9 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(dialogBounds);
 		item1Widget = new TradingWidget(
-			isBounds, pc.getInventory(), 0, 0, pc.getInventory().size(), this);
+			pc, isBounds, pc.getInventory(), 0, 0, pc.getInventory().size(), this);
 		item2Widget = new TradingWidget(
-			isBounds, pc.getInventory(), 0, 0, pc.getInventory().size(), this);
+			pc, isBounds, pc.getInventory(), 0, 0, pc.getInventory().size(), this);
 
 		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
 		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("cid.title"));

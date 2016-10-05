@@ -234,10 +234,6 @@ public class V1FoeTemplate
 			b.append(V1StatModifier.toString(obj.getAllFoesBannerModifiers()));
 			b.append(V1Utils.NEWLINE);
 
-			b.append("immuneToCriticals=");
-			b.append(obj.isImmuneToCriticals());
-			b.append(V1Utils.NEWLINE);
-
 			b.append("fleeChance=");
 			b.append(obj.getFleeChance());
 			b.append(V1Utils.NEWLINE);
@@ -333,7 +329,6 @@ public class V1FoeTemplate
 			int identificationDifficulty = Integer.parseInt(p.getProperty("identificationDifficulty"));
 			StatModifier foeGroupBannerModifiers = V1StatModifier.fromString(p.getProperty("foeGroupBannerModifiers"));
 			StatModifier allFoesBannerModifiers = V1StatModifier.fromString(p.getProperty("allFoesBannerModifiers"));
-			boolean immuneToCriticals = Boolean.valueOf(p.getProperty("immuneToCriticals"));
 			int fleeChance = Integer.parseInt(p.getProperty("fleeChance"));
 			int stealthBehaviour = Integer.parseInt(p.getProperty("stealthBehaviour"));
 			String faction = p.getProperty("faction").equals("")?null:p.getProperty("faction");
@@ -395,7 +390,6 @@ public class V1FoeTemplate
 				identificationDifficulty,
 				foeGroupBannerModifiers,
 				allFoesBannerModifiers,
-				immuneToCriticals,
 				fleeChance,
 				stealthBehaviour,
 				faction,

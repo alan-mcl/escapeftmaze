@@ -73,6 +73,7 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 		List<Item> stealableItems = npc.getStealableItems();
 		int maxRows = stealableItems == null ? 1 : stealableItems.size() + 1;
 		itemWidget = new TradingWidget(
+			pc,
 			isBounds,
 			new Inventory(stealableItems),
 			npc.getSellsAt(),

@@ -140,6 +140,7 @@ modifier_name-immuneToSleep: Immune To Sleep
 modifier_name-immuneToStone: Immune To Stone
 modifier_name-immuneToSwallow: Immune To Swallow
 modifier_name-immuneToWeb: Immune To Web
+modifier_name-immuneToCriticals: Immune To Criticals
 
 modifier_name-lightSleeper: Light Sleeper
 modifier_name-blindFighting: Blind Fighting
@@ -248,6 +249,8 @@ modifier_name-codeOfDishonour: Code of Dishonour
 modifier_name-dyingBlow: Dying Blow
 modifier_name-finisher: Finisher
 modifier_name-bloodthirsty: Bloodthirsty
+modifier_name-notoriety: Notoriety
+modifier_name-terrifyingReputation: Terrifying Reputation
 
 # Modifier Descriptions
 
@@ -381,6 +384,7 @@ modifier_desc-immuneToSleep: This character is unaffected by sleep effects.
 modifier_desc-immuneToStone: This character is unaffected by stone effects.
 modifier_desc-immuneToSwallow: This character is unaffected by swallow effects.
 modifier_desc-immuneToWeb: This character is unaffected by web effects.
+modifier_desc-immuneToCriticals: This character is unaffected by critical hits.
 
 modifier_desc-lightSleeper: This character always wakes up if the party is attacked when resting.
 modifier_desc-blindFighting: This character can attack and defend normally while blind.
@@ -489,6 +493,8 @@ modifier_desc-codeOfDishonour: The character loses experience points if the part
 modifier_desc-dyingBlow: If killed by a melee attack, this character makes one melee strike against the attacker.
 modifier_desc-finisher: The characters melee attacks against incapacitated enemies are all critical hits
 modifier_desc-bloodthirsty: The character receives combat bonuses at low hit point levels.
+modifier_desc-notoriety: The character receives bonus experience points for killing named NPCs and other party members.
+modifier_desc-terrifyingReputation: Strangers will react strongly to this characters terrifying reputation.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -692,6 +698,20 @@ lap_name_finisher = Finisher
 lap_desc_finisher = The Blackguards melee attacks against incapacitated enemies are all critical hits.
 lap_name_bloodthirsty = Bloodthirsty %s
 lap_desc_bloodthirsty = The Blackguard receives combat bonuses at low hit point levels
+lap_name_cold_hearted = Cold Hearted
+lap_desc_cold_hearted = The Blackguard receives boosted resistance to mental effects.
+lap_name_fearful_visage = Fearful Visage
+lap_desc_fearful_visage = Enemies engaged in melee may be struck with terror at the Blackguard presence.
+lap_name_pitiless = Pitiless
+lap_desc_pitiless = The Blackguards melee and ranged attacks against incapacitated enemies are all critical hits.
+lap_name_remorseless = Remorseless
+lap_desc_remorseless = The Blackguard gets bonus experience points for killing named NPCs and other party members.
+lap_name_unbowed = Unbowed
+lap_desc_unbowed = The Blackguard is immune to critical hits.
+lap_name_chilling_hatred = Chilling Hatred
+lap_desc_chilling_hatred = Foes of the Blackguard may freeze with terror during melee.
+lap_name_great_notoriety = Great Notoriety
+lap_desc_great_notoriety = The Blackguards terrifying reputation is known throughout the Maze, and he or she benefits greatly from slaying named NPCs or other party members.
 
 # Burglar
 lap_name_extra_loot = Extra Loot %s

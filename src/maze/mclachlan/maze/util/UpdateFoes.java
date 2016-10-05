@@ -25,7 +25,6 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.FoeTemplate;
 
 /**
@@ -50,18 +49,21 @@ public class UpdateFoes
 
 		for (String s : foes.keySet())
 		{
-			FoeTemplate foe = foes.get(s);
+			FoeTemplate foeTemplate = foes.get(s);
 
-			int stealthBehaviour = foe.getStealthBehaviour();
-
-			if (stealthBehaviour == Foe.StealthBehaviour.STEALTH_RELIANT)
-			{
-				System.out.println(foe.getName());
-				count++;
-			}
+//			if (foeTemplate.isImmuneToCriticals())
+//			{
+//				System.out.println(foeTemplate.getName());
+//				count++;
+//
+//				foeTemplate.setImmuneToCriticals(false);
+//				StatModifier stats = foeTemplate.getStats();
+//				stats.setModifier(Stats.Modifier.IMMUNE_TO_CRITICALS, 1);
+//				foeTemplate.setStats(stats);
+//			}
 		}
 
-//		saver.saveFoeTemplates(foes);
+		saver.saveFoeTemplates(foes);
 		System.out.println("count = [" + count + "]");
 	}
 }

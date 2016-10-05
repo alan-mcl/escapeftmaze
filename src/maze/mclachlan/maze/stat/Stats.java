@@ -60,6 +60,11 @@ public class Stats
 	/** Resistance modifiers */
 	public static List<Modifier> resistances = new ArrayList<Modifier>();
 
+	public static List<Modifier> resistancesAndImmunities = new ArrayList<Modifier>();
+	public static List<Modifier> touches = new ArrayList<Modifier>();
+	public static List<Modifier> weaponAbilities = new ArrayList<Modifier>();
+	public static List<Modifier> favouredEnemies = new ArrayList<Modifier>();
+
 	/** Spell casting level modifiers */
 	public static List<Modifier> spellCastingLevels = new ArrayList<Modifier>();
 
@@ -122,6 +127,91 @@ public class Stats
 		resistances.add(Modifier.RESIST_AIR);
 		resistances.add(Modifier.RESIST_MENTAL);
 		resistances.add(Modifier.RESIST_ENERGY);
+
+		resistancesAndImmunities.addAll(resistances);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_DAMAGE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_HEAT);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_COLD);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_POISON);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_LIGHTNING);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_PSYCHIC);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_ACID);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_BLIND);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_DISEASE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_FEAR);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_HEX);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_INSANE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_INVISIBLE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_IRRITATE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_KO);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_NAUSEA);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_PARALYSE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_POSSESSION);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_SILENCE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_SLEEP);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_STONE);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_SWALLOW);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_WEB);
+		resistancesAndImmunities.add(Modifier.IMMUNE_TO_CRITICALS);
+
+		touches.add(Modifier.TOUCH_BLIND);
+		touches.add(Modifier.TOUCH_DISEASE);
+		touches.add(Modifier.TOUCH_FEAR);
+		touches.add(Modifier.TOUCH_HEX);
+		touches.add(Modifier.TOUCH_INSANE);
+		touches.add(Modifier.TOUCH_IRRITATE);
+		touches.add(Modifier.TOUCH_NAUSEA);
+		touches.add(Modifier.TOUCH_PARALYSE);
+		touches.add(Modifier.TOUCH_SILENCE);
+		touches.add(Modifier.TOUCH_SLEEP);
+		touches.add(Modifier.TOUCH_STONE);
+		touches.add(Modifier.TOUCH_WEB);
+		touches.add(Modifier.TOUCH_POISON);
+
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_BEAST);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_CONSTRUCT);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_MAZE_CREATURE);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_CRYPTOBESTIA);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_DRAGON);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_ELEMENTAL);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_FEY);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_GIANT);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_HORROR);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_HUMANOID);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_ILLUSION);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_MONSTROSITY);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_OOZE);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_OUTSIDER);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_PLANT);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_UNDEAD);
+		favouredEnemies.add(Modifier.FAVOURED_ENEMY_VERMIN);
+
+		weaponAbilities.add(Modifier.TIRELESS_AXE);
+		weaponAbilities.add(Modifier.TIRELESS_BOW);
+		weaponAbilities.add(Modifier.TIRELESS_DAGGER);
+		weaponAbilities.add(Modifier.TIRELESS_MACE);
+		weaponAbilities.add(Modifier.TIRELESS_SPEAR);
+		weaponAbilities.add(Modifier.TIRELESS_STAFF);
+		weaponAbilities.add(Modifier.TIRELESS_SWORD);
+		weaponAbilities.add(Modifier.TIRELESS_THROWN);
+		weaponAbilities.add(Modifier.TIRELESS_UNARMED);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_AXE);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_DAGGER);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_MACE);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_SPEAR);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_STAFF);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_SWORD);
+		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_UNARMED);
+		weaponAbilities.add(Modifier.SWORD_PARRY);
+		weaponAbilities.add(Modifier.AXE_PARRY);
+		weaponAbilities.add(Modifier.MACE_PARRY);
+		weaponAbilities.add(Modifier.POLEARM_PARRY);
+		weaponAbilities.add(Modifier.STAFF_PARRY);
+		weaponAbilities.add(Modifier.SWORD_1H_WIELD);
+		weaponAbilities.add(Modifier.AXE_1H_WIELD);
+		weaponAbilities.add(Modifier.MACE_1H_WIELD);
+		weaponAbilities.add(Modifier.POLEARM_1H_WIELD);
+		weaponAbilities.add(Modifier.STAFF_1H_WIELD);
 
 		spellCastingLevels.add(Modifier.BLACK_MAGIC_SPELLS);
 		spellCastingLevels.add(Modifier.ELEMENTAL_SPELLS);
@@ -407,7 +497,6 @@ public class Stats
 		IMMUNE_TO_LIGHTNING(92, "immuneToLightning", ModifierMetric.BOOLEAN),
 		IMMUNE_TO_PSYCHIC(93,"immuneToPsychic", ModifierMetric.BOOLEAN),
 		IMMUNE_TO_ACID(94, "immuneToAcid", ModifierMetric.BOOLEAN),
-
 		IMMUNE_TO_BLIND(95, "immuneToBlind", ModifierMetric.BOOLEAN),
 		IMMUNE_TO_DISEASE(96, "immuneToDisease", ModifierMetric.BOOLEAN),
 		IMMUNE_TO_FEAR(97, "immuneToFear", ModifierMetric.BOOLEAN),
@@ -424,6 +513,7 @@ public class Stats
 		IMMUNE_TO_STONE(108, "immuneToStone", ModifierMetric.BOOLEAN),
 		IMMUNE_TO_SWALLOW(109, "immuneToSwallow", ModifierMetric.BOOLEAN),
 		IMMUNE_TO_WEB(110, "immuneToWeb", ModifierMetric.BOOLEAN),
+		IMMUNE_TO_CRITICALS(228, "immuneToCriticals", ModifierMetric.BOOLEAN),
 
 		// abilities
 		LIGHT_SLEEPER(111, "lightSleeper", ModifierMetric.BOOLEAN),
@@ -534,6 +624,8 @@ public class Stats
 		DYING_BLOW(224, "dyingBlow", ModifierMetric.BOOLEAN),
 		FINISHER(225, "finisher", ModifierMetric.BOOLEAN),
 		BLOODTHIRSTY(226, "bloodthirsty"),
+		NOTORIETY(227, "notoriety"),
+		TERRIFYING_REPUTATION(229, "terrifyingReputation", ModifierMetric.BOOLEAN),
 		;
 
 		/**

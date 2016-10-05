@@ -106,9 +106,6 @@ public class FoeTemplate
 	/** Modifiers that this foe applies to all foes present */
 	private StatModifier allFoesBannerModifiers;
 
-	/** true if this foe is immune to critical hits */
-	boolean immuneToCriticals;
-
 	/** the faction (if any) that this foe belongs to */
 	private String faction;
 
@@ -176,7 +173,6 @@ public class FoeTemplate
 		int identificationDifficulty,
 		StatModifier foeGroupBannerModifiers,
 		StatModifier allFoesBannerModifiers,
-		boolean immuneToCriticals,
 		int fleeChance,
 		int stealthBehaviour,
 		String faction,
@@ -215,7 +211,6 @@ public class FoeTemplate
 		this.identificationDifficulty = identificationDifficulty;
 		this.foeGroupBannerModifiers = foeGroupBannerModifiers;
 		this.allFoesBannerModifiers = allFoesBannerModifiers;
-		this.immuneToCriticals = immuneToCriticals;
 		this.fleeChance = fleeChance;
 		this.stealthBehaviour = stealthBehaviour;
 		this.faction = faction;
@@ -307,11 +302,6 @@ public class FoeTemplate
 	public int getIdentificationDifficulty()
 	{
 		return identificationDifficulty;
-	}
-
-	public boolean isImmuneToCriticals()
-	{
-		return immuneToCriticals;
 	}
 
 	public boolean isNpc()
@@ -478,11 +468,6 @@ public class FoeTemplate
 	public void setIdentificationDifficulty(int identificationDifficulty)
 	{
 		this.identificationDifficulty = identificationDifficulty;
-	}
-
-	public void setImmuneToCriticals(boolean immuneToCriticals)
-	{
-		this.immuneToCriticals = immuneToCriticals;
 	}
 
 	public void setNpc(boolean npc)

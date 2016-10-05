@@ -331,7 +331,7 @@ public class Npc extends Foe
 	}
 
 	@Override
-	public boolean isInterestedInBuyingItem(Item item)
+	public boolean isInterestedInBuyingItem(Item item, PlayerCharacter pc)
 	{
 		return this.template.getWillBuyItemTypes() != null &&
 			this.template.getWillBuyItemTypes().get(item.getType()) &&
@@ -339,10 +339,10 @@ public class Npc extends Foe
 	}
 
 	@Override
-	public boolean isAbleToAffordItem(Item item)
+	public boolean isAbleToAffordItem(Item item, PlayerCharacter pc)
 	{
-		return GameSys.getInstance().getItemCost(
-			item, this.template.getBuysAt()) <= this.template.getMaxPurchasePrice();
+		int itemCost = GameSys.getInstance().getItemCost(item, this.template.getBuysAt(), pc);
+		return itemCost <= this.template.getMaxPurchasePrice();
 	}
 
 	@Override

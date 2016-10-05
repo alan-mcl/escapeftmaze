@@ -2015,7 +2015,7 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getItemCost(Item item, int costMultiplier)
+	public int getItemCost(Item item, int costMultiplier, PlayerCharacter pc)
 	{
 		int result = item.getBaseCost();
 
@@ -2038,6 +2038,12 @@ public class GameSys
 				int inc = item.getBaseCost()/10;
 				result += (charges.getCurrent()-1)*inc;
 			}
+		}
+
+		// check for TERRIFYING_REPUTATION
+		if (pc.getModifier(Stats.Modifier.TERRIFYING_REPUTATION) > 0)
+		{
+			costMultiplier /= 2;
 		}
 
 		// apply the multiplier
@@ -2063,6 +2069,14 @@ public class GameSys
 	 */
 	public int threatenNpc(UnifiedActor actor, UnifiedActor target)
 	{
+		// check for TERRIFYING_REPUTATION
+		if (actor.getModifier(Stats.Modifier.TERRIFYING_REPUTATION) > 0 &&
+			target.getModifier(Stats.Modifier.IMMUNE_TO_FEAR) <= 0)
+		{
+			// always successful unless the target is immune to fear
+			return +100;
+		}
+
 		int targetTotal =
 			target.getLevel()*10
 //			+ target.getResistThreats() todo: make a modifier
@@ -3442,17 +3456,27 @@ public class GameSys
 			return false;
 		}
 		
-		if (defender instanceof Foe && ((Foe)defender).isImmuneToCriticals())
+		if (defender.getModifier(Stats.Modifier.IMMUNE_TO_CRITICALS) > 0)
 		{
 			// no critical possible
 			return false;
 		}
 
-		if (this.isActorHelpless(defender) &&
-			attacker.getModifier(Stats.Modifier.FINISHER) > 0)
+		int finisher = attacker.getModifier(Stats.Modifier.FINISHER);
+		if (this.isActorHelpless(defender) && finisher > 0)
 		{
 			// auto critical
-			return true;
+			if (finisher >= 2)
+			{
+				// true for all attacks
+				return true;
+			}
+			else
+			{
+				// true for melee attacks only
+				return attackWith.getWeaponType() == Type.SHORT_WEAPON ||
+					attackWith.getWeaponType() == Type.EXTENDED_WEAPON;
+			}
 		}
 
 		int percent;

@@ -73,9 +73,9 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(dialogBounds);
 		pcWidget = new TradingWidget(
-			isBounds, pc.getInventory(), npc.getBuysAt(), 0, pc.getInventory().size(), this);
+			pc, isBounds, pc.getInventory(), npc.getBuysAt(), 0, pc.getInventory().size(), this);
 		npcWidget = new TradingWidget(
-			isBounds, new Inventory(npc.getTradingInventory()), npc.getSellsAt(), 0, -1, this);
+			pc, isBounds, new Inventory(npc.getTradingInventory()), npc.getSellsAt(), 0, -1, this);
 
 		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
 		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));
@@ -248,7 +248,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		Item item = npcWidget.getSelected().getItem();
 
 		PlayerParty party = Maze.getInstance().getParty();
-		int price = GameSys.getInstance().getItemCost(item, npc.getSellsAt());
+		int price = GameSys.getInstance().getItemCost(item, npc.getSellsAt(), pc);
 
 		// some assertions
 		if (item == null)
@@ -272,7 +272,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		npc.removeItem(item, true);
 		pc.addInventoryItem(item);
 		Maze.getInstance().getParty().incGold(
-			- GameSys.getInstance().getItemCost(item, npc.getSellsAt()));
+			- GameSys.getInstance().getItemCost(item, npc.getSellsAt(), pc));
 		pcWidget.refresh(pc.getInventory().getItems());
 		npcWidget.refresh(npc.getTradingInventory());
 		resetSelection();
@@ -295,13 +295,13 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 			throw new MazeException("NPC can't buy item "+item);
 		}
 
-		if (!npc.isInterestedInBuyingItem(item))
+		if (!npc.isInterestedInBuyingItem(item, pc))
 		{
 			Maze.getInstance().appendEvents(npc.getActionScript().notInterestedInBuyingItem(item));
 			return;
 		}
 
-		if (!npc.isAbleToAffordItem(item))
+		if (!npc.isAbleToAffordItem(item, pc))
 		{
 			Maze.getInstance().appendEvents(npc.getActionScript().cantAffordToBuyItem(item));
 			return;
@@ -317,7 +317,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		pc.removeItem(item, true);
 		npc.addInventoryItem(item);
 		Maze.getInstance().getParty().incGold(
-			GameSys.getInstance().getItemCost(item, npc.getBuysAt()));
+			GameSys.getInstance().getItemCost(item, npc.getBuysAt(), pc));
 		pcWidget.refresh(pc.getInventory().getItems());
 		npcWidget.refresh(npc.getTradingInventory());
 		resetSelection();

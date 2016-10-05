@@ -24,8 +24,11 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -113,11 +116,55 @@ public class ActorDiesEvent extends MazeEvent
 			{
 				result.addAll(speechEvents);
 			}
+
+			// check for NOTORIETY kills on PCs
+			if (victim instanceof PlayerCharacter &&
+				attacker instanceof PlayerCharacter &&
+				attacker.getModifier(Stats.Modifier.NOTORIETY) > 0)
+			{
+				result.add(
+					new GrantExperienceEvent(
+						getNotorietyReward(victim),
+						(PlayerCharacter)attacker));
+			}
+		}
+
+		// check for NOTORIETY kills on NPCs
+		if (victim instanceof Npc &&
+			attacker instanceof PlayerCharacter &&
+			attacker.getModifier(Stats.Modifier.NOTORIETY) > 0)
+		{
+			result.add(
+				new GrantExperienceEvent(
+					getNotorietyReward(victim),
+					(PlayerCharacter)attacker));
 		}
 
 		victim.getHitPoints().setCurrent(0);
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getNotorietyReward(UnifiedActor victim)
+	{
+		int amount;
+
+		if (victim instanceof Npc)
+		{
+			amount = ((Npc)victim).getExperience() / 4;
+		}
+		else if (victim instanceof PlayerCharacter)
+		{
+			amount = 100;
+		}
+		else
+		{
+			throw new MazeException("Invalid notoriety target: "+victim);
+		}
+
+		amount *= attacker.getModifier(Stats.Modifier.NOTORIETY);
+		return amount;
 	}
 
 	/*-------------------------------------------------------------------------*/

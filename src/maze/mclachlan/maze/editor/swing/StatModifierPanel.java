@@ -43,8 +43,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	private Map<Stats.Modifier, JSpinner> fieldMap = new HashMap<Stats.Modifier, JSpinner>();
 
 	private JTabbedPane tabs;
-	private JPanel regularModifiers, statistics, properties;
-	private List<Stats.Modifier> regularPlusResource;
+	private List<Stats.Modifier> regularPlusResource, other;
 
 	/*-------------------------------------------------------------------------*/
 	public StatModifierPanel(Frame owner, StatModifier modifier)
@@ -64,13 +63,30 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		regularPlusResource.addAll(Stats.resourceModifiers);
 		regularPlusResource.addAll(Stats.regularModifiers);
 
-		regularModifiers = getTab(regularPlusResource);
-		statistics = getTab(new ArrayList<Stats.Modifier>(Stats.statistics));
-		properties = getTab(Stats.propertiesModifiers);
+		other = new ArrayList<Stats.Modifier>();
+		other.addAll(Stats.allModifiers);
+		other.removeAll(regularPlusResource);
+		other.removeAll(Stats.statistics);
+		other.removeAll(Stats.resistancesAndImmunities);
+		other.removeAll(Stats.touches);
+		other.removeAll(Stats.weaponAbilities);
+		other.removeAll(Stats.favouredEnemies);
 
-		tabs.addTab(getRegularModifiersTabTitle(), regularModifiers);
-		tabs.addTab(getStatisticsModifiersTabTitle(), statistics);
-		tabs.addTab(getPropertiesModifiersTabTitle(), properties);
+		JPanel regular = getTab(regularPlusResource);
+		JPanel stats = getTab(new ArrayList<Stats.Modifier>(Stats.statistics));
+		JPanel rAndI = getTab(Stats.resistancesAndImmunities);
+		JPanel touch = getTab(Stats.touches);
+		JPanel weap = getTab(Stats.weaponAbilities);
+		JPanel favEn = getTab(Stats.favouredEnemies);
+		JPanel misc = getTab(other);
+
+		tabs.addTab(getTitle("Regular", regularPlusResource), regular);
+		tabs.addTab(getTitle("Statistics", Stats.statistics), stats);
+		tabs.addTab(getTitle("Resistances & Immunities", Stats.resistancesAndImmunities), rAndI);
+		tabs.addTab(getTitle("Touches", Stats.touches), touch);
+		tabs.addTab(getTitle("Weapon Abilities", Stats.weaponAbilities), weap);
+		tabs.addTab(getTitle("Favoured Enemies", Stats.favouredEnemies), favEn);
+		tabs.addTab(getTitle("Other", other), misc);
 
 		ok = new JButton("OK");
 		ok.addActionListener(this);
@@ -95,41 +111,9 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String getPropertiesModifiersTabTitle()
+	private String getTitle(String s, List<Stats.Modifier> set)
 	{
-		String s = "Properties";
-
-		int i = countSetModifiers(Stats.propertiesModifiers);
-
-		if (i > 0)
-		{
-			s += " ("+i+")";
-		}
-
-		return s;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private String getStatisticsModifiersTabTitle()
-	{
-		String s = "Statistics";
-
-		int i = countSetModifiers(Stats.statistics);
-
-		if (i > 0)
-		{
-			s += " ("+i+")";
-		}
-
-		return s;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private String getRegularModifiersTabTitle()
-	{
-		String s = "Regular";
-
-		int i = countSetModifiers(regularPlusResource);
+		int i = countSetModifiers(set);
 
 		if (i > 0)
 		{
@@ -162,7 +146,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 	private JPanel getTab(List<Stats.Modifier> modifiers)
 	{
 		int max = modifiers.size();
-		int cols = 4;
+		int cols = 3;
 
 		JPanel result = new JPanel(new GridLayout(1, cols, 3, 3));
 		int count=0;
@@ -179,7 +163,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 				if (count < max)
 				{
 					Stats.Modifier modifier = modifiers.get(count);
-					
+
 					int value = this.modifier.getModifier(modifier);
 					JLabel label = getModifierLabel(modifier, value);
 					JSpinner field = getModifierWidget(value);
@@ -314,12 +298,17 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 
 		if (tabs.getTabCount() > 0)
 		{
-			tabs.setTitleAt(0, getRegularModifiersTabTitle());
-			tabs.setTitleAt(1, getStatisticsModifiersTabTitle());
-			tabs.setTitleAt(2, getPropertiesModifiersTabTitle());
+			tabs.setTitleAt(0, getTitle("Regular", regularPlusResource));
+			tabs.setTitleAt(1, getTitle("Statistics", Stats.statistics));
+			tabs.setTitleAt(2, getTitle("Resistances & Immunities", Stats.resistancesAndImmunities));
+			tabs.setTitleAt(3, getTitle("Touches", Stats.touches));
+			tabs.setTitleAt(4, getTitle("Weapon Abilities", Stats.weaponAbilities));
+			tabs.setTitleAt(5, getTitle("Favoured Enemies", Stats.favouredEnemies));
+			tabs.setTitleAt(6, getTitle("Other", other));
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public StatModifier getModifier()
 	{
 		return modifier;
