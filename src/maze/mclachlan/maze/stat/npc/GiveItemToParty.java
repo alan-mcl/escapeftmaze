@@ -21,25 +21,23 @@ package mclachlan.maze.stat.npc;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
 public class GiveItemToParty extends MazeEvent
 {
-	private Foe npc;
+	private UnifiedActor source, recipient;
 	private boolean inInventory;
-	private PlayerCharacter pc;
 	private Item item;
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * @param npc
+	 * @param source
 	 * 	The former owner of the item
-	 * @param pc
+	 * @param recipient
 	 * 	The new owner of the item
 	 * @param item
 	 * 	The item in question
@@ -47,11 +45,11 @@ public class GiveItemToParty extends MazeEvent
 	 * 	Set to true if this item should be the NPCs inventory (associated
 	 * 	assertions will be run), or false if the NPC produces it from thin air
 	 */
-	public GiveItemToParty(Foe npc, PlayerCharacter pc, Item item, boolean inInventory)
+	public GiveItemToParty(UnifiedActor source, UnifiedActor recipient, Item item, boolean inInventory)
 	{
-		this.pc = pc;
+		this.recipient = recipient;
 		this.item = item;
-		this.npc = npc;
+		this.source = source;
 		this.inInventory = inInventory;
 	}
 
@@ -60,9 +58,9 @@ public class GiveItemToParty extends MazeEvent
 	{
 		if (inInventory)
 		{
-			npc.removeItem(item, true);
+			source.removeItem(item, true);
 		}
-		pc.addInventoryItem(item);
+		recipient.addInventoryItem(item);
 		return null;
 	}
 }

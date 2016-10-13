@@ -92,4 +92,5 @@ public class DefaultFoeAiScript extends NpcScript
 
 	/*-------------------------------------------------------------------------*/
 
+
 }

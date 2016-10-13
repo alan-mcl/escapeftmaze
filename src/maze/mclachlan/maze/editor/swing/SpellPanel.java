@@ -19,16 +19,19 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
-import java.awt.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.magic.*;
+import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.GroupOfPossibilities;
-import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.stat.magic.*;
 
 /**
  *
@@ -36,7 +39,8 @@ import mclachlan.maze.game.MazeScript;
 public class SpellPanel extends EditorPanel
 {
 	private JTextField displayName;
-	private JComboBox targetType, school, book, usabilityType, primaryModifier, secondaryModifier;
+	private JComboBox targetType, school, book, usabilityType;
+	private JComboBox<Stats.Modifier> primaryModifier, secondaryModifier;
 	private SpellEffectGroupOfPossibilitiesPanel effects;
 	private JTextArea description;
 	private JSpinner level;
@@ -230,11 +234,11 @@ public class SpellPanel extends EditorPanel
 		usabilityType.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Usable: "), usabilityType, gbc);
 
-		primaryModifier = new JComboBox(modifiers);
+		primaryModifier = new JComboBox<Stats.Modifier>(modifiers);
 		primaryModifier.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Primary Modifier: "), primaryModifier, gbc);
 
-		secondaryModifier = new JComboBox(modifiers);
+		secondaryModifier = new JComboBox<Stats.Modifier>(modifiers);
 		secondaryModifier.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Secondary Modifier: "), secondaryModifier, gbc);
 
@@ -317,6 +321,7 @@ public class SpellPanel extends EditorPanel
 		targetType.setSelectedIndex(s.getTargetType());
 		usabilityType.setSelectedIndex(s.getUsabilityType());
 		primaryModifier.setSelectedItem(s.getPrimaryModifier());
+
 		secondaryModifier.setSelectedItem(s.getSecondaryModifier());
 		requirementsToLearn.setModifier(s.getRequirementsToLearn());
 		MazeScript cbps = s.getCastByPlayerScript();

@@ -1,11 +1,11 @@
 name=Brunswick
-levels=Kitsune:20
+levels=Burglar:20
 experience=601416
 kills=6
 race=Mirka
 gender=Female
 portrait=portrait/mirka_female_dorje
-characterClass=Courtesan
+characterClass=Burglar
 personality=Faithful
 torsoArmour=Caliban's Cuirass/1/2/1-1/0-0/
 legArmour=Trapper's Trousers/1/2/1-1/0-0/

@@ -19,7 +19,9 @@
 
 package mclachlan.maze.map;
 
+import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.GroupOfPossibilities;
+import mclachlan.maze.stat.ItemTemplate;
 
 /**
  *
@@ -55,5 +57,24 @@ public class LootTable
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public int getMaxDroppableGold()
+	{
+		int result = 0;
+
+		for (ILootEntry entry : lootEntries.getPossibilities())
+		{
+			for (LootEntryRow row : entry.getContents())
+			{
+				ItemTemplate it = Database.getInstance().getItemTemplate(row.getItemName());
+				if (it.getType() == ItemTemplate.Type.MONEY)
+				{
+					result += (int)(row.getQuantity().getAverage() * it.getConversionRate());
+				}
+			}
+		}
+
+		return result;
 	}
 }

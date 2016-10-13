@@ -1822,6 +1822,19 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The maximum amount of gold that can be stolen from this character in
+	 * 	one theft event
+	 */
+	public int getMaxStealableGold()
+	{
+		return 0;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public abstract List<Item> getStealableItems();
 	public abstract List<AttackWith> getAttackWithOptions();
 	public abstract List<TypeDescriptor> getTypes();
 	public abstract int getBaseModifier(Stats.Modifier modifier);

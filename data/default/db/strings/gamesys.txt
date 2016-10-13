@@ -251,6 +251,7 @@ modifier_name-finisher: Finisher
 modifier_name-bloodthirsty: Bloodthirsty
 modifier_name-notoriety: Notoriety
 modifier_name-terrifyingReputation: Terrifying Reputation
+modifier_name-hide: Hide
 
 # Modifier Descriptions
 
@@ -495,6 +496,7 @@ modifier_desc-finisher: The characters melee attacks against incapacitated enemi
 modifier_desc-bloodthirsty: The character receives combat bonuses at low hit point levels.
 modifier_desc-notoriety: The character receives bonus experience points for killing named NPCs and other party members.
 modifier_desc-terrifyingReputation: Strangers will react strongly to this characters terrifying reputation.
+modifier_desc-hide: This character can hide in combat.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -607,6 +609,10 @@ lap_name_threaten = Threaten
 # stealth abilities
 lap_name_backstab1 = Backstab 1
 lap_desc_backstab1 = The character can execute a backstab - an attack with the primary weapon that deals double damage.
+lap_name_hide = Hide
+lap_desc_hide = The character can hide in combat.
+lap_name_steal = Steal
+lap_desc_steal = The character has a much better chance of stealing items from vendors.
 
 # NPC abilities
 lap_name_threaten = Threaten
@@ -718,6 +724,11 @@ lap_name_extra_loot = Extra Loot %s
 lap_desc_extra_loot = A party including a Burglar receives more loot from slain foes.
 lap_name_master_thief = Master Thief
 lap_desc_master_thief = Victims of theft will never catch the Burglar red-handed.
+lap_name_light_sleeper = Light Sleeper
+lap_desc_light_sleeper = The cunning Burglar sleeps lightly and is never caught unawares if the party is attacked while resting.
+lap_name_pickpocket = Pickpocket
+lap_desc_pickpocket = The Burglar can steal items from foes during combat.
+
 
 # Cultist
 lap_name_hex_touch = Hex Touch %s
@@ -768,12 +779,6 @@ lap_name_vanish = Vanish
 lap_desc_vanish = The Enchanter's best trick is disappearing.
 lap_name_fey_affinity = Fey Affinity
 lap_desc_fey_affinity = The Enchanter recovers magic points at a faster rate in the presence of Gold magic.
-
-# Knave
-lap_name_light_sleeper = Light Sleeper
-lap_desc_light_sleeper = The cunning Knave sleeps lightly and is never caught unawares if the party is attacked while resting.
-lap_name_duelist = Duelist
-lap_desc_duelist = When a knife in the back isn't an option, the Knave can parry, riposte and mix it up toe-to-toe with the best of them.
 
 # Magician
 lap_name_ambition = Ambition

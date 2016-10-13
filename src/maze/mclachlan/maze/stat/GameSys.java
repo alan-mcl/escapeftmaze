@@ -2236,27 +2236,27 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getAmountOfGoldStolen(Foe npc, PlayerCharacter pc)
+	public int getAmountOfGoldStolen(UnifiedActor victim, UnifiedActor source)
 	{
 		Maze.log(Log.DEBUG, "calculating amount of gold stolen from " +
-			"["+npc.getName()+"] by ["+pc.getName()+"]");
+			"["+victim.getName()+"] by ["+source.getName()+"]");
 
 		int percent = Dice.d10.roll();
 		Maze.log(Log.DEBUG, "percent = [" + percent + "]");
 
-		int amount = npc.getMaxPurchasePrice() *percent /100
-			+ pc.getModifier(Stats.Modifier.THIEVING)
-			+ pc.getModifier(Stats.Modifier.STEAL)
+		int amount = victim.getMaxStealableGold() *percent /100
+			+ source.getModifier(Stats.Modifier.THIEVING)
+			+ source.getModifier(Stats.Modifier.STEAL)
 			+ Dice.d10.roll();
 
 		Maze.log(Log.DEBUG, "amount = [" + amount + "]");
 
-		if (pc.getModifier(Stats.Modifier.EXTRA_GOLD) > 0)
+		if (source.getModifier(Stats.Modifier.EXTRA_GOLD) > 0)
 		{
-			amount += (amount*pc.getModifier(Stats.Modifier.EXTRA_GOLD)/100);
+			amount += (amount*source.getModifier(Stats.Modifier.EXTRA_GOLD)/100);
 		}
 
-		amount = Math.min(amount, pc.getLevel()*250);
+		amount = Math.min(amount, source.getLevel()*250);
 
 		Maze.log(Log.DEBUG, "final amount = [" + amount + "]");
 
@@ -2268,21 +2268,21 @@ public class GameSys
 	 * @return
 	 * 	null if there is nothing to steal
 	 */
-	public Item getRandomItemToSteal(Foe npc)
+	public Item getRandomItemToSteal(UnifiedActor victim)
 	{
-		Maze.log(Log.DEBUG, "determining random item to steal from ["+npc.getName()+"]");
+		Maze.log(Log.DEBUG, "determining random item to steal from ["+victim.getName()+"]");
 
-		boolean canStealGold = npc.getMaxPurchasePrice() > 0;
+		boolean canStealGold = victim.getMaxStealableGold() > 0;
 		Maze.log(Log.DEBUG, "canStealGold = [" + canStealGold + "]");
 
-		List<Item> stealableItems = npc.getStealableItems();
+		List<Item> stealableItems = victim.getStealableItems();
 
 		if (canStealGold && (Dice.d100.roll() <= 30 ||
 			stealableItems == null || stealableItems.size() == 0))
 		{
 			// 30% chance of gold
 			Maze.log(Log.DEBUG, "gold will be stolen");
-			return new GoldPieces(npc.getMaxPurchasePrice());
+			return new GoldPieces(victim.getMaxStealableGold());
 		}
 		else
 		{

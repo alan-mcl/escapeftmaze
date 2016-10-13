@@ -114,9 +114,17 @@ public class Stats
 		}
 
 		allModifiers.addAll(resourceModifiers);
-		allModifiers.addAll(regularModifiers);
-		allModifiers.addAll(propertiesModifiers);
+		allModifiers.addAll(attributeModifiers);
+		allModifiers.addAll(martialModifiers);
+		allModifiers.addAll(stealthModifiers);
+		allModifiers.addAll(magicModifiers);
 		allModifiers.addAll(statistics);
+		allModifiers.addAll(propertiesModifiers);
+
+		regularModifiers.addAll(attributeModifiers);
+		regularModifiers.addAll(martialModifiers);
+		regularModifiers.addAll(stealthModifiers);
+		regularModifiers.addAll(magicModifiers);
 
 		resistances.add(Modifier.RESIST_BLUDGEONING);
 		resistances.add(Modifier.RESIST_PIERCING);
@@ -626,6 +634,7 @@ public class Stats
 		BLOODTHIRSTY(226, "bloodthirsty"),
 		NOTORIETY(227, "notoriety"),
 		TERRIFYING_REPUTATION(229, "terrifyingReputation", ModifierMetric.BOOLEAN),
+		HIDE(230, "hide"),
 		;
 
 		/**

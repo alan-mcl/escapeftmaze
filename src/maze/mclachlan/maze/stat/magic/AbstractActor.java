@@ -56,6 +56,13 @@ public abstract class AbstractActor extends UnifiedActor
 	public PercentageTable<BodyPart> getBodyParts() { return null; }
 	public List<CombatAction> getCombatActions(
 		ActorActionIntention actionIntention) { return null; }
+
+	@Override
+	public List<Item> getStealableItems()
+	{
+		return null;
+	}
+
 	public List<Condition> getConditions() { return new ArrayList<Condition>(); }
 	public int getLevel() { return 0; }
 	public List<TypeDescriptor> getTypes() { return new ArrayList<TypeDescriptor>(); }

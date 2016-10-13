@@ -44,12 +44,12 @@ public class TheftSpellResult extends SpellResult
 	{
 		if (target instanceof Foe)
 		{
-			Foe npc = (Foe)target;
+			Foe foe = (Foe)target;
 			PlayerCharacter pc = (PlayerCharacter)source;
 			int strength = this.value.compute(source, castingLevel);
 
 			return getList(
-				new TheftSpellSucceeded(pc, npc, strength));
+				new TheftSpellSucceeded(pc, foe, strength));
 		}
 
 		//todo: amusing but hard to implement against foes in combat

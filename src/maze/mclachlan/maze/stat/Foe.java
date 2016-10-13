@@ -770,9 +770,15 @@ public class Foe extends UnifiedActor
 		return 0;
 	}
 
+	@Override
+	public int getMaxStealableGold()
+	{
+		return template.getLoot().getMaxDroppableGold();
+	}
+
 	public int getMaxPurchasePrice()
 	{
-		return 1000;
+		return 100*getLevel();
 	}
 
 	public int getResistSteal()
@@ -794,7 +800,12 @@ public class Foe extends UnifiedActor
 	{
 		if (this.getInventory() != null)
 		{
-			return this.getInventory().getItems();
+			List<Item> result = new ArrayList<Item>(this.getInventory().getItems());
+
+			// remove stuff that is equipped
+			result.removeAll(getEquippedItems());
+
+			return result;
 		}
 		else
 		{

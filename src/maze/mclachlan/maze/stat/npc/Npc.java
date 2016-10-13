@@ -194,6 +194,12 @@ public class Npc extends Foe
 		return template.getMaxPurchasePrice();
 	}
 
+	@Override
+	public int getMaxStealableGold()
+	{
+		return getMaxPurchasePrice();
+	}
+
 	public NpcScript getScript()
 	{
 		return template.getScript();

@@ -416,7 +416,13 @@ public class PlayerCharacter extends UnifiedActor
 			// always an equip option
 			result.add(new EquipOption(), null);
 
-			// Deadly Strike
+			// check for HIDE
+			if (this.getModifier(Stats.Modifier.HIDE) > 0)
+			{
+				result.add(new HideOption(), null);
+			}
+
+			// check for DEADLY_STRIKE
 			if (this.getModifier(Stats.Modifier.DEADLY_STRIKE) > 0)
 			{
 				result.add(
@@ -667,6 +673,13 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			return super.addInventoryItem(item);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<Item> getStealableItems()
+	{
+		return getInventory().getItems();
 	}
 
 	/*-------------------------------------------------------------------------*/

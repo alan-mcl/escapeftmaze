@@ -261,7 +261,7 @@ public abstract class NpcScript
 	 * This default implementation displays some flavour text, increases the
 	 * NPCs theft counter and gives the item to the party
 	 */
-	public List<MazeEvent> successfulTheft(PlayerCharacter pc, Item item)
+	public List<MazeEvent> successfulTheft(UnifiedActor source, Item item)
 	{
 		String itemName = item.getDisplayName();
 		boolean inInventory = true;
@@ -274,9 +274,9 @@ public abstract class NpcScript
 
 		return getList(
 			new FlavourTextEvent(StringUtil.getEventText("msg.pc.theft.success",
-				pc.getName(), itemName)),
+				source.getName(), itemName)),
 			new ChangeNpcTheftCounter(npc, 1),
-			new GiveItemToParty(npc, pc, item, inInventory));
+			new GiveItemToParty(npc, source, item, inInventory));
 	}
 
 	/*-------------------------------------------------------------------------*/

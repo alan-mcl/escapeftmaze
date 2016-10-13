@@ -29,35 +29,34 @@ import mclachlan.maze.stat.*;
  */
 public class TheftSpellSucceeded extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private Foe npc;
+	private UnifiedActor source, target;
 	private int strength;
 
 	/*-------------------------------------------------------------------------*/
-	public TheftSpellSucceeded(PlayerCharacter pc, Foe npc, int strength)
+	public TheftSpellSucceeded(UnifiedActor source, UnifiedActor target, int strength)
 	{
-		this.pc = pc;
-		this.npc = npc;
+		this.source = source;
+		this.target = target;
 		this.strength = strength;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Foe getNpc()
+	public UnifiedActor getTarget()
 	{
-		return npc;
+		return target;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Item item = GameSys.getInstance().getRandomItemToSteal(npc);
-		if (item instanceof GoldPieces)
+		Item item = GameSys.getInstance().getRandomItemToSteal(target);
+		if (item.getType() == ItemTemplate.Type.MONEY)
 		{
 			// generate the amount stolen now
-			int amount = GameSys.getInstance().getAmountOfGoldStolen(npc, pc);
+			int amount = GameSys.getInstance().getAmountOfGoldStolen(target, source);
 			item = new GoldPieces(amount);
 		}
-		return npc.getActionScript().successfulTheft(pc, item);
+		return target.getActionScript().successfulTheft(source, item);
 	}
 
 	/*-------------------------------------------------------------------------*/
