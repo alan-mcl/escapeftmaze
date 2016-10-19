@@ -229,11 +229,6 @@ public class Stats
 		spellCastingLevels.add(Modifier.WITCHCRAFT_SPELLS);
 		spellCastingLevels.add(Modifier.SORCERY_SPELLS);
 
-		regularModifiers.addAll(attributeModifiers);
-		regularModifiers.addAll(martialModifiers);
-		regularModifiers.addAll(stealthModifiers);
-		regularModifiers.addAll(magicModifiers);
-
 		middleModifiers.addAll(allModifiers);
 		middleModifiers.removeAll(attributeModifiers);
 		middleModifiers.removeAll(resistances);
@@ -457,7 +452,6 @@ public class Stats
 		VS_DODGE(59,"vsDodge", STATISTICS),
 		VS_HIDE(60, "vsHide", STATISTICS),
 		// unused ID 61
-		TO_BRIBE(62, "toBribe", STATISTICS),
 		TO_RUN_AWAY(63, "toRunAway", STATISTICS),
 		// unused ID 64
 
@@ -635,6 +629,11 @@ public class Stats
 		NOTORIETY(227, "notoriety"),
 		TERRIFYING_REPUTATION(229, "terrifyingReputation", ModifierMetric.BOOLEAN),
 		HIDE(230, "hide"),
+		TO_BRIBE(62, "toBribe"),
+		ACTION_REGEN_URBAN(231, "actionRegenUrban"),
+		ACTION_REGEN_DUNGEON(232, "actionRegenDungeon"),
+		ACTION_REGEN_WILDERNESS(233, "actionRegenWilderness"),
+		ACTION_REGEN_WASTELAND(234, "actionRegenWasteland"),
 		;
 
 		/**

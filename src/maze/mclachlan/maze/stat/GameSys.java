@@ -3983,7 +3983,6 @@ public class GameSys
 			{
 				return new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.SWORD_PARRY),
-					actor.getModifier(Stats.Modifier.PARRY) +
 					actor.getModifier(Stats.Modifier.SWORD_PARRY));
 			}
 			else if (actor.getModifier(Stats.Modifier.AXE_PARRY) > 0 &&
@@ -3992,7 +3991,6 @@ public class GameSys
 			{
 				return new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.AXE_PARRY),
-					actor.getModifier(Stats.Modifier.PARRY) +
 						actor.getModifier(Stats.Modifier.AXE_PARRY));
 			}
 			else if (actor.getModifier(Stats.Modifier.MACE_PARRY) > 0 &&
@@ -4001,7 +3999,6 @@ public class GameSys
 			{
 				return new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.MACE_PARRY),
-					actor.getModifier(Stats.Modifier.PARRY) +
 						actor.getModifier(Stats.Modifier.MACE_PARRY));
 			}
 			else if (actor.getModifier(Stats.Modifier.POLEARM_PARRY) > 0 &&
@@ -4010,7 +4007,6 @@ public class GameSys
 			{
 				return new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.POLEARM_PARRY),
-					actor.getModifier(Stats.Modifier.PARRY) +
 						actor.getModifier(Stats.Modifier.POLEARM_PARRY));
 			}
 			else if (actor.getModifier(Stats.Modifier.STAFF_PARRY) > 0 &&
@@ -4019,8 +4015,49 @@ public class GameSys
 			{
 				return new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.STAFF_PARRY),
-					actor.getModifier(Stats.Modifier.PARRY) +
 						actor.getModifier(Stats.Modifier.STAFF_PARRY));
+			}
+		}
+		else if (Stats.Modifier.ACTION_POINT_REGEN.equals(modifier))
+		{
+			Tile.TerrainType terrainType = Maze.getInstance().getCurrentTile().getTerrainType();
+
+			switch (terrainType)
+			{
+				case FAKE:
+					break;
+				case URBAN:
+					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_URBAN) > 0)
+					{
+						return new ModifierValue(
+							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_URBAN),
+							actor.getModifier(Stats.Modifier.ACTION_REGEN_URBAN));
+					}
+					break;
+				case DUNGEON:
+					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_DUNGEON) > 0)
+					{
+						return new ModifierValue(
+							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_DUNGEON),
+							actor.getModifier(Stats.Modifier.ACTION_REGEN_DUNGEON));
+					}
+					break;
+				case WILDERNESS:
+					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_WILDERNESS) > 0)
+					{
+						return new ModifierValue(
+							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_WILDERNESS),
+							actor.getModifier(Stats.Modifier.ACTION_REGEN_WILDERNESS));
+					}
+					break;
+				case WASTELAND:
+					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_WASTELAND) > 0)
+					{
+						return new ModifierValue(
+							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_WASTELAND),
+							actor.getModifier(Stats.Modifier.ACTION_REGEN_WASTELAND));
+					}
+					break;
 			}
 		}
 

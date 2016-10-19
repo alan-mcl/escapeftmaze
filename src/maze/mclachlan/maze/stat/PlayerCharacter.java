@@ -475,6 +475,7 @@ public class PlayerCharacter extends UnifiedActor
 			}
 
 			boolean canThreaten = this.getModifier(Stats.Modifier.THREATEN) > 0;
+			boolean canBribe = this.getModifier(Stats.Modifier.TO_BRIBE) > 0;
 
 			switch (attitude)
 			{
@@ -483,23 +484,23 @@ public class PlayerCharacter extends UnifiedActor
 				case AGGRESSIVE:
 					result.add(new GiveOption(), null);
 					if (canThreaten) result.add(new ThreatenOption(), null);
-					result.add(new BribeOption(), null);
+					if (canBribe) result.add(new BribeOption(), null);
 					break;
 				case WARY:
 					result.add(new GiveOption(), null);
 					if (canThreaten) result.add(new ThreatenOption(), null);
-					result.add(new BribeOption(), null);
+					if (canBribe) result.add(new BribeOption(), null);
 					break;
 				case SCARED:
 					result.add(new GiveOption(), null);
 					if (canThreaten) result.add(new ThreatenOption(), null);
-					result.add(new BribeOption(), null);
+					if (canBribe) result.add(new BribeOption(), null);
 					break;
 				case NEUTRAL:
 					result.add(new TalkOption(), null);
 					result.add(new GiveOption(), null);
 					if (canThreaten) result.add(new ThreatenOption(), null);
-					result.add(new BribeOption(), null);
+					if (canBribe) result.add(new BribeOption(), null);
 
 					if (getModifier(Stats.Modifier.STEAL) > 0)
 					{
