@@ -27,22 +27,26 @@ import mclachlan.maze.util.MazeException;
  */
 public class Trap
 {
-	/** Name of this trap */
-	String name;
+	/**
+	 * Name of this trap
+	 */
+	private String name;
 
 	/**
 	 * Indices correspond to Tool constants; value indicates difficulty with that
 	 * tool.  0 indicates not required.
 	 */
-	int[] difficulty;
+	private int[] difficulty;
 
 	/**
 	 * Indices indicate if a given tool is required (1) or not (0).
 	 */
-	BitSet required;
+	private BitSet required;
 
-	/** The nasty effects of this trap */
-	TileScript payload;
+	/**
+	 * The nasty effects of this trap
+	 */
+	private TileScript payload;
 
 	/*-------------------------------------------------------------------------*/
 	public Trap(String name, int[] difficulty, BitSet required, TileScript payload)

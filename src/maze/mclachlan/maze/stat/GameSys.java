@@ -252,71 +252,6 @@ public class GameSys
 		AttackType attackType = Database.getInstance().getAttackType(
 			attackTypes[nextInt(attackTypes.length)]);
 
-/*		boolean isBackstabCapable = attackWith.isBackstabCapable();
-		boolean isSnipeCapable = attackWith.isSnipeCapable();
-		if (isBackstabCapable || isSnipeCapable)
-		{
-			int characterSkill = attackAction.getActor().getModifier(attackType.getName());
-
-			int stealthSkill;
-			if (isBackstabCapable)
-			{
-				stealthSkill = attackAction.getActor().getModifier(Stats.Modifiers.BACKSTAB);
-			}
-			else if (isSnipeCapable)
-			{
-				stealthSkill = attackAction.getActor().getModifier(Stats.Modifiers.SNIPE);
-			}
-			else
-			{
-				throw new MazeException("FOOBAR: "+attackWith);
-			}
-
-			if (stealthSkill >= characterSkill)
-			{
-				int ambushCost = getInstance().getBackstabSnipeCost(
-					attackAction.getActor(), attackAction.getDefender());
-
-				if (ambushCost <= attackAction.getActor().getActionPoints().getCurrent())
-				{
-					if (isBackstabCapable)
-					{
-						attackType = Database.getInstance().getAttackType(Stats.Modifiers.BACKSTAB);
-						attackAction.setDamageType(attackWith.getDefaultDamageType());
-					}
-					else if (isSnipeCapable)
-					{
-						attackType = Database.getInstance().getAttackType(Stats.Modifiers.SNIPE);
-						MagicSys.SpellEffectType defaultDamageType = attackWith.getDefaultDamageType();
-
-						// special case to get snipe damage type to be ammo default damage type
-						if (attackAction.getActor() instanceof PlayerCharacter)
-						{
-							PlayerCharacter pc = (PlayerCharacter)attackAction.getActor();
-
-							Item weapon = pc.getPrimaryWeapon();
-							if (weapon == attackWith)
-							{
-								Item secondaryWeapon = pc.getSecondaryWeapon();
-								if (weapon.getAmmoRequired() != null &&
-									secondaryWeapon != null &&
-									weapon.getAmmoRequired().contains(secondaryWeapon.isAmmoType()))
-								{
-									defaultDamageType = secondaryWeapon.getDefaultDamageType();
-								}
-							}
-						}
-
-						attackAction.setDamageType(defaultDamageType);
-					}
-					else
-					{
-						throw new MazeException("FOOBAR: "+attackWith);
-					}
-				}
-			}
-		}*/
-
 		return attackType;
 	}
 
@@ -937,6 +872,22 @@ public class GameSys
 
 		// minus 5x attacker FAVOURED ENEMY
 		power += (5*getFavouredEnemyBonus(attacker, defender));
+
+		// check for DANGER SENSE
+		if (defender.getModifier(Stats.Modifier.DANGER_SENSE) > 0)
+		{
+			// 50% bonus vs traps
+			if (attacker instanceof TrapCaster)
+			{
+				power -= 50;
+			}
+
+			// 50% bonus vs spell backfires
+			if (defender.getActorGroup() == attacker.getActorGroup())
+			{
+				power -= 50;
+			}
+		}
 
 		// return defender modifier minus all the stuff, minimum 0
 		int defenderModifier = (modifier==null) ? 0 : defender.getModifier(modifier);
@@ -1909,10 +1860,17 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void castSpellOnPartyOutsideCombat(Spell spell, int casterLevel, int castingLevel)
+	public void castSpellOnPartyOutsideCombat(
+		Spell spell,
+		int casterLevel,
+		int castingLevel,
+		UnifiedActor caster)
 	{
 		Maze maze = Maze.getInstance();
-		DummyCaster dummyCaster = new DummyCaster(spell, casterLevel, castingLevel);
+		if (caster == null)
+		{
+			caster = new DummyCaster(spell, casterLevel, castingLevel);
+		}
 
 		SpellTarget target = null;
 		switch (spell.getTargetType())
@@ -1931,7 +1889,7 @@ public class GameSys
 				target = maze.getParty().getRandomPlayerCharacter();
 				break;
 			case MagicSys.SpellTargetType.TILE:
-				target = dummyCaster;
+				target = caster;
 				break;
 			default:
 				target = maze.getParty(); // what the hell, let's try it anyway
@@ -1939,7 +1897,7 @@ public class GameSys
 
 		SpellIntention intention = new SpellIntention(target, spell, castingLevel);
 
-		resolveActorActionIntention(maze, dummyCaster, intention);
+		resolveActorActionIntention(maze, caster, intention);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -4281,10 +4239,9 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	public static class DummyCaster extends AbstractActor
 	{
-		FoeGroup actorGroup;
-		Spell spell;
-		int casterLevel, castingLevel;
-		String name;
+		private Spell spell;
+		private int casterLevel, castingLevel;
+		private String name;
 
 		/*----------------------------------------------------------------------*/
 		public DummyCaster(Spell spell, int casterLevel, int castingLevel)
@@ -4298,11 +4255,6 @@ public class GameSys
 		public String getName()
 		{
 			return name;
-		}
-
-		public ActorGroup getActorGroup()
-		{
-			return actorGroup;
 		}
 
 		public int getLevel()
@@ -4334,6 +4286,19 @@ public class GameSys
 			spellAction.setActor(this);
 			result.add(spellAction);
 			return result;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Caster to be used by traps.
+	 */
+	public static class TrapCaster extends DummyCaster
+	{
+		public TrapCaster(Spell spell, int casterLevel, int castingLevel)
+		{
+			super(spell, casterLevel, castingLevel);
 		}
 	}
 }

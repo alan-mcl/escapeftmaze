@@ -207,6 +207,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		MazeVariables.set(this.mazeVariable, chestState);
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public java.util.List<MazeEvent> springTrap()
 	{

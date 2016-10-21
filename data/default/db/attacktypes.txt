@@ -24,7 +24,7 @@ attackModifier=MARTIAL_ARTS
 @
 name=backstab
 verb=backstabs
-modifiers=2000000000000000000000000000000000000,01
+modifiers=0,
 damageType=PIERCING
 attackModifier=BACKSTAB
 @

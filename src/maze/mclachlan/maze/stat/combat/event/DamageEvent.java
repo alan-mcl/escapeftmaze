@@ -162,7 +162,7 @@ public class DamageEvent extends MazeEvent
 
 				// check for DYING_BLOW
 				if (defender.getModifier(Stats.Modifier.DYING_BLOW) > 0 &&
-					!attackWith.isRanged())
+					attackWith != null && !attackWith.isRanged())
 				{
 					Item attackWith = defender.getPrimaryWeapon();
 					result.add(

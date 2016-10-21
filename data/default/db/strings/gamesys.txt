@@ -256,6 +256,7 @@ modifier_name-actionRegenUrban: Action Regen: Urban
 modifier_name-actionRegenDungeon: Action Regen: Dungeon
 modifier_name-actionRegenWilderness: Action Regen: Wilderness
 modifier_name-actionRegenWasteland: Action Regen: Wasteland
+modifier_name-dangerSense: Danger Sense
 
 # Modifier Descriptions
 
@@ -505,7 +506,7 @@ modifier_desc-actionRegenUrban: This character has boosted Action Point regenera
 modifier_desc-actionRegenDungeon: This character has boosted Action Point regeneration in Dungeon terrain.
 modifier_desc-actionRegenWilderness: This character has boosted Action Point regeneration in Wilderness terrain.
 modifier_desc-actionRegenWasteland: This character has boosted Action Point regeneration in Wasteland terrain.
-
+modifier_desc-dangerSense: This character has bonus resistance against trap spells and backfiring spells from party.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -617,7 +618,9 @@ lap_name_threaten = Threaten
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
-lap_desc_backstab1 = The character can execute a backstab - an attack with the primary weapon that deals double damage.
+lap_name_backstab2 = Backstab 2
+lap_name_backstab3 = Backstab 3
+lap_desc_backstab = The character can execute a backstab - an attack with the primary weapon that deals double damage. Requires a backstab-capable weapon.
 lap_name_hide = Hide
 lap_desc_hide = The character can hide in combat.
 lap_name_steal = Steal %s
@@ -746,6 +749,8 @@ lap_name_nondescript = Nondescript
 lap_desc_nondescript = The Burglar gets boosted Action Point regeneration in Urban terrain.
 lap_name_dirty_attack = Dirty Attack
 lap_desc_dirty_attack = The Burglar executes a melee attack that restores his or her own Action Points.
+lap_name_dangerSense = Danger Sense
+lap_desc_dangerSense = This character has bonus resistance against trap spells and backfiring spells from party.
 
 
 # Cultist

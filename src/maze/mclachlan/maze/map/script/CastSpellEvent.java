@@ -46,7 +46,9 @@ public class CastSpellEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Spell spell = Database.getInstance().getSpell(spellName);
-		GameSys.getInstance().castSpellOnPartyOutsideCombat(spell, casterLevel, castingLevel);
+		GameSys.getInstance().castSpellOnPartyOutsideCombat(
+			spell, casterLevel, castingLevel,
+			new GameSys.TrapCaster(spell, casterLevel, castingLevel));
 
 		return null;
 	}

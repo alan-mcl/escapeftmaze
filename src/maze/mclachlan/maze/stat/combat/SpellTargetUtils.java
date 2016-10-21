@@ -214,7 +214,21 @@ public class SpellTargetUtils
 		// such effects will be skipped later
 		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
 
-		List<ActorGroup> enemyGroups = combat.getFoesOf(caster);
+		List<ActorGroup> enemyGroups = new ArrayList<ActorGroup>();
+
+		if (combat != null)
+		{
+			enemyGroups.addAll(combat.getFoesOf(caster));
+		}
+		else if (caster instanceof GameSys.DummyCaster)
+		{
+			enemyGroups.add(Maze.getInstance().getParty());
+		}
+		else
+		{
+			// something is up
+			throw new MazeException("Unknown caster "+caster);
+		}
 
 		for (ActorGroup ag : enemyGroups)
 		{
