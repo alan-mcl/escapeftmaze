@@ -358,10 +358,13 @@ public class PlayerCharacter extends UnifiedActor
 
 		boolean alive = GameSys.getInstance().isActorAlive(this);
 		boolean aware = GameSys.getInstance().isActorAware(this);
-		if (!(alive && aware))
+		if (!alive)
 		{
-			// actor cannot do anything
-			result.add(ActorActionOption.INTEND_NOTHING, null);
+			result.add(new NullOption("aao.dead"), null);
+		}
+		else if (!aware)
+		{
+			result.add(new NullOption("aao.unaware"), null);
 		}
 		else if (maze.getState() == Maze.State.MOVEMENT)
 		{
@@ -391,61 +394,78 @@ public class PlayerCharacter extends UnifiedActor
 		}
 		else if (maze.getState() == Maze.State.COMBAT)
 		{
-			// Attack option if there are attackable groups
-			List<ActorGroup> attackableGroups = GameSys.getInstance().getAttackableGroups(this, combat);
-			if (attackableGroups != null && !attackableGroups.isEmpty())
+			boolean hasQuickWits = getModifier(Stats.Modifier.QUICK_WITS) > 0;
+
+			boolean partyIsSurprised =
+				combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+				combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY;
+
+			System.out.println("combat.getAmbushStatus() = [" + combat.getAmbushStatus() + "]");
+
+			// actions in the surprise round only available with QUICK WITS
+			if (!partyIsSurprised || hasQuickWits)
 			{
-				for (AttackWith aw : getAttackWithOptions())
+				// Attack option if there are attackable groups
+				List<ActorGroup> attackableGroups = GameSys.getInstance().getAttackableGroups(this, combat);
+				if (attackableGroups != null && !attackableGroups.isEmpty())
 				{
-					result.add(new AttackOption(aw), null);
-				}
-			}
-
-			// There's always a Defend option
-			result.add(new DefendOption(), null);
-
-			// Cast Spell option if this actor has spells
-			if (this.getSpellBook().getSpells().size() != 0)
-			{
-				result.add(new SpellOption(), null);
-			}
-
-			// always a use item option
-			result.add(new UseItemOption(), null);
-
-			// always an equip option
-			result.add(new EquipOption(), null);
-
-			// check for HIDE
-			if (this.getModifier(Stats.Modifier.HIDE) > 0)
-			{
-				result.add(new HideOption(), null);
-			}
-
-			// check for DEADLY_STRIKE
-			if (this.getModifier(Stats.Modifier.DEADLY_STRIKE) > 0)
-			{
-				result.add(
-					new SpecialAbilityOption(
-						new SpellLikeAbility(
-							Database.getInstance().getSpell("_DEADLY_STRIKE_"),
-							new Value(this.getLevel(), Value.SCALE.NONE))),
-					null);
-			}
-
-			// special abilities
-			if (this.getSpellLikeAbilities() != null)
-			{
-				for (SpellLikeAbility sla : this.getSpellLikeAbilities())
-				{
-					if (sla.isUsableDuringCombat() && sla.meetsRequirements(this))
+					for (AttackWith aw : getAttackWithOptions())
 					{
-						if (!result.add(new SpecialAbilityOption(sla), null))
+						result.add(new AttackOption(aw), null);
+					}
+				}
+
+				// There's always a Defend option
+				result.add(new DefendOption(), null);
+
+				// Cast Spell option if this actor has spells
+				if (this.getSpellBook().getSpells().size() != 0)
+				{
+					result.add(new SpellOption(), null);
+				}
+
+				// always a use item option
+				result.add(new UseItemOption(), null);
+
+				// always an equip option
+				result.add(new EquipOption(), null);
+
+				// check for HIDE
+				if (this.getModifier(Stats.Modifier.HIDE) > 0)
+				{
+					result.add(new HideOption(), null);
+				}
+
+				// check for DEADLY_STRIKE
+				if (this.getModifier(Stats.Modifier.DEADLY_STRIKE) > 0)
+				{
+					result.add(
+						new SpecialAbilityOption(
+							new SpellLikeAbility(
+								Database.getInstance().getSpell("_DEADLY_STRIKE_"),
+								new Value(this.getLevel(), Value.SCALE.NONE))),
+						null);
+				}
+
+				// special abilities
+				if (this.getSpellLikeAbilities() != null)
+				{
+					for (SpellLikeAbility sla : this.getSpellLikeAbilities())
+					{
+						if (sla.isUsableDuringCombat() && sla.meetsRequirements(this))
 						{
-							throw new MazeException("could not add "+sla);
+							if (!result.add(new SpecialAbilityOption(sla), null))
+							{
+								throw new MazeException("could not add " + sla);
+							}
 						}
 					}
 				}
+			}
+			else
+			{
+				// PC is surprised
+				result.add(new NullOption("aao.surprised"), null);
 			}
 		}
 		else if (maze.getState() == Maze.State.ENCOUNTER_ACTORS)

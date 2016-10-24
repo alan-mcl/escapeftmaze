@@ -17,8 +17,8 @@ Features
  - Favoured Enemy modifiers for various foe types
  - Immunity to Criticals is now a modifier, not a Foe Template property
  - Added level ability progression preview to the character class selection screen
- - Class abilities: Parry & 1H Wield for Sword, Axe, Mace, Polearm & Staff; Threaten; Code of Honour; 
-   Code of Dishonour; Hide; Bribe, Dodge; Backstab, Snipe
+ - Class abilities: Parry & 1H Wield for Sword, Axe, Mace, Polearm & Staff; Threaten; 
+   Code of Honour; Code of Dishonour; Hide; Bribe, Dodge; Backstab, Snipe
  - Acolyte class abilities: Whispers of Evil, Life Leech, Dark Majesty, Hellfire, 
    Power of Darkness, Apotheosis
  - Amazon class abilities: Amazon Stamina, Amazon Strength, Amazon Speed, Deadly Aim, 
@@ -26,7 +26,8 @@ Features
  - Berserker class abilities: Berserk Powers, Berserk At Will
  - Blackguard class abilities: Dying Blow, Finisher, Bloodthirsty, Notoriety, Terrifying 
    Reputation
- - Burglar class abilities: Pickpocket, Nondescript, Dirty Attack, Danger Sense, Sap
+ - Burglar class abilities: Pickpocket, Nondescript, Dirty Attack, Danger Sense, Sap, 
+   Quick Wits
 
 
 Other

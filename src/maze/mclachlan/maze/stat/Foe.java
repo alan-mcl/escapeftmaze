@@ -193,10 +193,14 @@ public class Foe extends UnifiedActor
 	{
 		Combat combat = this.combatantData.getCombat();
 
-		// party gets a free round
+		// party gets a free round (foes with QUICK WITS can act)
 		Combat.AmbushStatus ambushStatus = combat.getAmbushStatus();
-		if (ambushStatus == Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES ||
-			ambushStatus == Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES)
+
+		boolean foeIsSurprised =
+			ambushStatus == Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES ||
+			ambushStatus == Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES;
+
+		if (foeIsSurprised && getModifier(Stats.Modifier.QUICK_WITS)<=0)
 		{
 			return ActorActionIntention.INTEND_NOTHING;
 		}

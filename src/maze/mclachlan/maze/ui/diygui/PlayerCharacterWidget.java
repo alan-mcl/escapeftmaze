@@ -116,7 +116,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			Combat combat = Maze.getInstance().getCurrentCombat();
 			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
 			action.setVisible(true);
-			action.setEnabled(!action.getModel().isEmpty());
+			action.setEnabled(!action.getModel().isEmpty() && !(action.getModel().size()==1));
 
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
 				Maze.getInstance().getState() == Maze.State.COMBAT)

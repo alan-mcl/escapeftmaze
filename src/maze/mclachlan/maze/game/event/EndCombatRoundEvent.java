@@ -44,6 +44,8 @@ public class EndCombatRoundEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
 		maze.getUi().setFoes(combat.getFoes());
 		maze.reorderPartyIfPending();
 		GameSys.getInstance().attemptManualIdentification(
@@ -52,6 +54,18 @@ public class EndCombatRoundEvent extends MazeEvent
 		Maze.getInstance().getUi().addMessage(
 			StringUtil.getEventText("msg.combat.round.ends", combat.getRoundNr()));
 
-		return combat.endRound();
+		result.addAll(combat.endRound());
+
+		result.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				maze.getUi().refreshCharacterData();
+				return null;
+			}
+		});
+
+		return result;
 	}
 }

@@ -140,9 +140,15 @@ public class StartCombatEvent extends MazeEvent
 
 				maze.executePreCombatActions(combat);
 
-				if (actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
-					actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
+				boolean hasQuickWits = party.hasModifier(Stats.Modifier.QUICK_WITS);
+
+				boolean partyIsSurprised =
+					actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+					actorEncounter.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY;
+
+				if (partyIsSurprised && !hasQuickWits)
 				{
+					// party has no actions in the surprise round
 					maze.executeCombatRound(combat);
 				}
 

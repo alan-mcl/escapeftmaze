@@ -452,7 +452,6 @@ public class PlayerParty implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
-
 	/**
 	 * @return
 	 * 	total modifier of all the party
@@ -467,5 +466,24 @@ public class PlayerParty implements ActorGroup
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	true if any party member has the given modifier > 0
+	 */
+	public boolean hasModifier(Stats.Modifier mod)
+	{
+		for (UnifiedActor actor : getActors())
+		{
+			if (actor.getModifier(mod) >0)
+			{
+				return true;
+			}
+		}
+
+		return false;
 	}
 }

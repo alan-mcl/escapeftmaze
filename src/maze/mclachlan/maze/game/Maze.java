@@ -774,7 +774,6 @@ public class Maze implements Runnable
 	 */
 	public void executePreCombatActions(Combat combat)
 	{
-
 		//
 		// foe intentions
 		//
@@ -827,25 +826,27 @@ public class Maze implements Runnable
 		// player character intentions
 		//
 		ActorActionIntention[] partyIntentions = new ActorActionIntention[getParty().size()];
-		if (combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
-			combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
-		{
-			// party is surprised, cannot take action
-			for (int i = 0; i < partyIntentions.length; i++)
-			{
-				partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-			}
-		}
-		else
-		{
-			// collect player character actions
-			log(Log.DEBUG, "Collecting actor intentions for round "+combat.getRoundNr());
-			int max = getParty().size();
-			int i = 0;
-			while (i < max)
-			{
-				PlayerCharacter pc = getParty().getPlayerCharacter(i);
+		boolean isSurpriseRoundAgainstParty =
+			combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
+			combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY;
 
+		// collect player character actions
+		log(Log.DEBUG, "Collecting actor intentions for round "+combat.getRoundNr());
+		int max = getParty().size();
+		int i = 0;
+		while (i < max)
+		{
+			PlayerCharacter pc = getParty().getPlayerCharacter(i);
+
+			// if the party is surprised, only QUICK WITS enables actions
+			// during the surprise round
+			if (isSurpriseRoundAgainstParty &&
+				pc.getModifier(Stats.Modifier.QUICK_WITS) <= 0)
+			{
+				partyIntentions[i++] = ActorActionIntention.INTEND_NOTHING;
+			}
+			else
+			{
 				try
 				{
 					ActorActionIntention actorActionOption;
@@ -858,12 +859,14 @@ public class Maze implements Runnable
 						if (GameSys.getInstance().askActorForCombatIntentions(pc))
 						{
 							actorActionOption = this.ui.getCombatIntention(pc);
-							log(Log.DEBUG, pc.getName()+" at index "+i+" selects "+actorActionOption);
+							log(Log.DEBUG, pc.getName() + " at index " + i +
+								" selects " + actorActionOption);
 						}
 						else
 						{
 							actorActionOption = ActorActionIntention.INTEND_NOTHING;
-							log(Log.DEBUG, pc.getName()+" at index "+i+" cannot do anything and intends nothing");
+							log(Log.DEBUG, pc.getName() + " at index " + i +
+								" cannot do anything and intends nothing");
 						}
 
 						partyIntentions[i++] = actorActionOption;
@@ -871,7 +874,8 @@ public class Maze implements Runnable
 					else
 					{
 						partyIntentions[i++] = ActorActionIntention.INTEND_NOTHING;
-						log(Log.DEBUG, pc.getName()+" at index "+i+" is dead and intends nothing");
+						log(Log.DEBUG, pc.getName() + " at index " + i +
+							" is dead and intends nothing");
 					}
 				}
 				catch (Exception e)
@@ -889,11 +893,11 @@ public class Maze implements Runnable
 		//
 		// validate party intentions
 		//
-		for (int i = 0; i < partyIntentions.length; i++)
+		for (int j = 0; j < partyIntentions.length; j++)
 		{
-			if (partyIntentions[i] == null)
+			if (partyIntentions[j] == null)
 			{
-				throw new MazeException("null actor intention at party index "+i);
+				throw new MazeException("null actor intention at party index "+j);
 			}
 		}
 

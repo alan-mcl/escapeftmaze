@@ -635,6 +635,7 @@ public class Stats
 		ACTION_REGEN_WILDERNESS(233, "actionRegenWilderness"),
 		ACTION_REGEN_WASTELAND(234, "actionRegenWasteland"),
 		DANGER_SENSE(235, "dangerSense", ModifierMetric.BOOLEAN),
+		QUICK_WITS(236, "quickWits", ModifierMetric.BOOLEAN),
 		;
 
 		/**

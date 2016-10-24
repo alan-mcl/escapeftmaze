@@ -257,6 +257,7 @@ modifier_name-actionRegenDungeon: Action Regen: Dungeon
 modifier_name-actionRegenWilderness: Action Regen: Wilderness
 modifier_name-actionRegenWasteland: Action Regen: Wasteland
 modifier_name-dangerSense: Danger Sense
+modifier_name-quickWits: Quick Wits
 
 # Modifier Descriptions
 
@@ -507,6 +508,7 @@ modifier_desc-actionRegenDungeon: This character has boosted Action Point regene
 modifier_desc-actionRegenWilderness: This character has boosted Action Point regeneration in Wilderness terrain.
 modifier_desc-actionRegenWasteland: This character has boosted Action Point regeneration in Wasteland terrain.
 modifier_desc-dangerSense: This character has bonus resistance against trap spells and backfiring spells from party.
+modifier_desc-quickWits: When the party is surprised, this character can act in the surprise round.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -757,6 +759,8 @@ lap_name_dangerSense = Danger Sense
 lap_desc_dangerSense = This character has bonus resistance against trap spells and backfiring spells from party.
 lap_name_sap = Sap
 lap_desc_sap = The Burglar executes a melee attack that can apply the KO condition.
+lap_name_quick_wits = Quick Wits
+lap_desc_quick_wits = When the party is surprised, the Burglar can act in the surprise round.
 
 
 # Cultist
