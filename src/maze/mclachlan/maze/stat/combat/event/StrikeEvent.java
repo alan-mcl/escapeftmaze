@@ -134,10 +134,15 @@ public class StrikeEvent extends MazeEvent
 				// deflected
 				result.add(new AttackDeflectedEvent(attacker, defender, bodyPart));
 			}
-			else if (GameSys.getInstance().isAttackParried(attacker, defender, attackWith))
+			else if (GameSys.getInstance().isAttackParried(defender, attackWith))
 			{
 				// parried
 				result.add(new AttackParriedEvent(attacker, defender, bodyPart));
+			}
+			else if (GameSys.getInstance().isAttackRiposted(defender, attackWith))
+			{
+				// riposte
+				result.add(new AttackRipostedEvent(attacker, defender, combat, animationContext));
 			}
 			else
 			{

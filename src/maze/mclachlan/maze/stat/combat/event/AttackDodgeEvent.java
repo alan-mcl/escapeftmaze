@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
@@ -58,6 +59,6 @@ public class AttackDodgeEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getDefender().getDisplayName()+": Dodges!";
+		return StringUtil.getEventText("msg.dodge", getDefender().getDisplayName());
 	}
 }

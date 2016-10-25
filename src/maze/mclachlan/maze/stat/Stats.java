@@ -570,6 +570,7 @@ public class Stats
 		ARCANE_BLOOD(160, "arcaneBlood", ModifierMetric.BOOLEAN),
 		DISPLACER(161, "displacer", ModifierMetric.BOOLEAN),
 		PARRY(162, "parry", ModifierMetric.PERCENTAGE),
+		RIPOSTE(237, "riposte", ModifierMetric.PERCENTAGE),
 		MELEE_MASTER(163, "meleeMaster", ModifierMetric.BOOLEAN),
 		DEADLY_AIM(164, "deadlyAim"),
 		MASTER_THIEF(165, "masterThief", ModifierMetric.BOOLEAN),
@@ -636,6 +637,7 @@ public class Stats
 		ACTION_REGEN_WASTELAND(234, "actionRegenWasteland"),
 		DANGER_SENSE(235, "dangerSense", ModifierMetric.BOOLEAN),
 		QUICK_WITS(236, "quickWits", ModifierMetric.BOOLEAN),
+
 		;
 
 		/**

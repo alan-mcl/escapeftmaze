@@ -71,6 +71,7 @@ public class GameSys
 		heavyEncumbrance.setModifier(Stats.Modifier.AMBUSHER, -1);
 		heavyEncumbrance.setModifier(Stats.Modifier.DODGE, -20);
 		heavyEncumbrance.setModifier(Stats.Modifier.PARRY, -20);
+		heavyEncumbrance.setModifier(Stats.Modifier.RIPOSTE, -20);
 
 		for (Stats.Modifier mod : heavyEncumbrance.getModifiers().keySet())
 		{
@@ -3531,11 +3532,36 @@ public class GameSys
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
-	 * 	True if the attack is dodged
+	 * 	True if the attack is parried
 	 */
-	public boolean isAttackParried(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
+	public boolean isAttackParried(
+		UnifiedActor defender,
+		AttackWith attackWith)
 	{
-		if (defender.getModifier(Stats.Modifier.PARRY) <= 0)
+		Stats.Modifier modifier = Stats.Modifier.PARRY;
+		return defensiveModifierCheck(defender, attackWith, modifier);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	True if the attack is parried
+	 */
+	public boolean isAttackRiposted(
+		UnifiedActor defender,
+		AttackWith attackWith)
+	{
+		Stats.Modifier modifier = Stats.Modifier.RIPOSTE;
+		return defensiveModifierCheck(defender, attackWith, modifier);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean defensiveModifierCheck(
+		UnifiedActor defender,
+		AttackWith attackWith,
+		Stats.Modifier modifier)
+	{
+		if (defender.getModifier(modifier) <= 0)
 		{
 			return false;
 		}
@@ -3555,7 +3581,7 @@ public class GameSys
 			return false;
 		}
 
-		int percent = defender.getModifier(Stats.Modifier.PARRY);
+		int percent = defender.getModifier(modifier);
 
 		return Dice.d100.roll() <= percent;
 	}

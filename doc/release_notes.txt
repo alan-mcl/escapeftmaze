@@ -18,7 +18,7 @@ Features
  - Immunity to Criticals is now a modifier, not a Foe Template property
  - Added level ability progression preview to the character class selection screen
  - Class abilities: Parry & 1H Wield for Sword, Axe, Mace, Polearm & Staff; Threaten; 
-   Code of Honour; Code of Dishonour; Hide; Bribe, Dodge; Backstab, Snipe
+   Code of Honour; Code of Dishonour; Hide; Bribe, Dodge; Backstab, Snipe, Riposte
  - Acolyte class abilities: Whispers of Evil, Life Leech, Dark Majesty, Hellfire, 
    Power of Darkness, Apotheosis
  - Amazon class abilities: Amazon Stamina, Amazon Strength, Amazon Speed, Deadly Aim, 

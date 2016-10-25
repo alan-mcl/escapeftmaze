@@ -67,6 +67,12 @@ msg.amazon.courage = %s fights back the fear!
 msg.amazon.willpower = %s is not overcome!
 msg.amazon.fury = %s is furious!
 msg.dying.blow = %s strikes a dying blow!
+msg.parry = %s: PARRY!
+msg.riposte = %s: RIPOSTE!
+msg.dodge = %s: Dodges!
+msg.deflected = %s: DEFLECTED!
+msg.attack.hit = %s: Hit - %s;
+msg.attack.miss = %s: Missed!
 
 #
 # Encounter Actors events

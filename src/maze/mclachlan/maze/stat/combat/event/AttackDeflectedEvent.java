@@ -21,6 +21,7 @@ package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.BodyPart;
@@ -77,6 +78,6 @@ public class AttackDeflectedEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getDefender().getDisplayName()+": DEFLECTED!";
+		return StringUtil.getEventText("msg.deflected", getDefender().getDisplayName());
 	}
 }

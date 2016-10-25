@@ -201,6 +201,12 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 				propertiesLabels[rowCount].setActionPayload(character);
 				rowCount++;
 			}
+
+			// todo: display excess properties somehow
+			if (rowCount > ROWS)
+			{
+				break;
+			}
 		}
 
 		rowCount = STARTING_ROW;

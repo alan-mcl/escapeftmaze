@@ -194,6 +194,7 @@ modifier_name-feyAffinity: Fey Affinity
 modifier_name-arcaneBlood: Arcane Blood
 modifier_name-displacer: Displacer
 modifier_name-parry: Parry
+modifier_name-riposte: Riposte
 modifier_name-meleeMaster: Melee Master
 modifier_name-deadlyAim: Deadly Aim
 modifier_name-masterThief: Master Thief
@@ -445,6 +446,7 @@ modifier_desc-feyAffinity: This character regenerates magic points at an increas
 modifier_desc-arcaneBlood: This character regenerates hit points at an increased rate depending on the amount of Red magic present.
 modifier_desc-displacer: Once every combat round, this character can swap places with another in the party before the combat round starts.
 modifier_desc-parry: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks.
+modifier_desc-riposte: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks and riposting with a melee attack of their own.
 modifier_desc-meleeMaster: When armed with a melee weapon, this character gets a attack rate bonus proportional to the number of foes present.
 modifier_desc-deadlyAim: This character has a boosted chance to hit with ranged weapons.
 modifier_desc-masterThief: Vendors will not catch this character red-handed when stealing.
@@ -612,6 +614,8 @@ lap_name_master_archer = Master Archer
 lap_desc_master_archer = The character is supremely accurate with ranged weapons.
 lap_name_parry = Parry %s
 lap_desc_parry = When armed, the character has a chance of parrying melee attacks.
+lap_name_riposte = Riposte %s
+lap_desc_riposte: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks and riposting with a melee attack of their own.
 lap_name_arrow_cutting = Arrow Cutting %s
 lap_desc_arrow_cutting = The character is extremely adept at deflecting incoming projectiles.
 lap_name_bard = Bard

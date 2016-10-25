@@ -19,23 +19,37 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
 /**
  *
  */
-public class AttackMissEvent extends MazeEvent
+public class AttackRipostedEvent extends MazeEvent
 {
-	UnifiedActor attacker, defender;
+	private UnifiedActor attacker;
+	private UnifiedActor defender;
+	private Combat combat;
+	private AnimationContext animationContext;
 
 	/*-------------------------------------------------------------------------*/
-	public AttackMissEvent(UnifiedActor attacker, UnifiedActor defender)
+	public AttackRipostedEvent(
+		UnifiedActor attacker,
+		UnifiedActor defender,
+		Combat combat, AnimationContext animationContext)
 	{
 		this.attacker = attacker;
 		this.defender = defender;
+		this.combat = combat;
+		this.animationContext = animationContext;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -49,17 +63,44 @@ public class AttackMissEvent extends MazeEvent
 	{
 		return defender;
 	}
+	
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> resolve()
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		// sound effect
+		MazeScript script = Database.getInstance().getScript("_WEAPON_HIT_");
+		result.addAll(script.getEvents());
+
+		// riposte attack
+		Item attackWith = defender.getPrimaryWeapon();
+		result.add(
+			new AttackEvent(
+				combat,
+				defender,
+				attacker,
+				attackWith,
+				GameSys.getInstance().getAttackType(attackWith),
+				0,
+				1,
+				attackWith.getAttackScript(),
+				attackWith.getDefaultDamageType(),
+				animationContext,
+				null));
+
+		return result;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
-		return Maze.getInstance().getUserConfig().getCombatDelay();
+		return 0;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return StringUtil.getEventText(
-			"msg.attack.miss", getDefender().getDisplayName());
+		return StringUtil.getEventText("msg.riposte", getDefender().getDisplayName());
 	}
 }
