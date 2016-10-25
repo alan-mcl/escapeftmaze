@@ -28,11 +28,13 @@ import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -69,7 +71,15 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 
 		for (int i = 0; i < toolStatus.length; i++)
 		{
-			toolStatus[i] = Trap.InspectionResult.UNKNOWN;
+			if (pc.getModifier(Stats.Modifier.TRAP_SENSE) > 0)
+			{
+				toolStatus[i] = trap.getRequired().get(i) ?
+					Trap.InspectionResult.PRESENT : Trap.InspectionResult.NOT_PRESENT;
+			}
+			else
+			{
+				toolStatus[i] = Trap.InspectionResult.UNKNOWN;
+			}
 		}
 
 		this.buildGui();
@@ -97,28 +107,28 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 		gridCol4.setBounds(x+width/3*2, y, width/3, height- buttonPaneHeight);
 		gridCol4.setInsets(new Insets(10, 0, 0, 10));
 
-		DIYButton chisel = new DIYButton("(C)hisel");
+		DIYButton chisel = new DIYButton(StringUtil.getUiLabel("plw.chisel"));
 		chisel.addActionListener(this);
 
-		DIYButton crowbar = new DIYButton("C(r)owbar");
+		DIYButton crowbar = new DIYButton(StringUtil.getUiLabel("plw.crowbar"));
 		crowbar.addActionListener(this);
 
-		DIYButton drill = new DIYButton("(D)rill");
+		DIYButton drill = new DIYButton(StringUtil.getUiLabel("plw.drill"));
 		drill.addActionListener(this);
 
-		DIYButton hammer = new DIYButton("(H)ammer");
+		DIYButton hammer = new DIYButton(StringUtil.getUiLabel("plw.hammer"));
 		hammer.addActionListener(this);
 
-		DIYButton jackknife = new DIYButton("(J)ackknife");
+		DIYButton jackknife = new DIYButton(StringUtil.getUiLabel("plw.jackknife"));
 		jackknife.addActionListener(this);
 
-		DIYButton lockpick = new DIYButton("(L)ock Pick");
+		DIYButton lockpick = new DIYButton(StringUtil.getUiLabel("plw.lockpick"));
 		lockpick.addActionListener(this);
 
-		DIYButton skeletonKey = new DIYButton("(S)keleton Key");
+		DIYButton skeletonKey = new DIYButton(StringUtil.getUiLabel("plw.skeleton.key"));
 		skeletonKey.addActionListener(this);
 
-		DIYButton tensionWrench = new DIYButton("(T)ension Wrench");
+		DIYButton tensionWrench = new DIYButton(StringUtil.getUiLabel("plw.tension.wrench"));
 		tensionWrench.addActionListener(this);
 
 		for (int i = 0; i < statusIndicators.length; i++)
@@ -130,7 +140,18 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 			{chisel, crowbar, drill, hammer, jackknife, lockpick, skeletonKey, tensionWrench};
 		buttonList = Arrays.asList(buttons);
 
-		gridCol1.add(new DIYLabel(pc.getName()));
+		DIYLabel nameLabel;
+		if (pc.getModifier(Stats.Modifier.TRAP_SENSE) > 0)
+		{
+			nameLabel = new DIYLabel(
+				(StringUtil.getUiLabel("dtw.name.trap.sense", pc.getName())),
+				DIYToolkit.Align.LEFT);
+		}
+		else
+		{
+			nameLabel = new DIYLabel(pc.getName(), DIYToolkit.Align.LEFT);
+		}
+		gridCol1.add(nameLabel);
 		gridCol1.add(chisel);
 		gridCol1.add(crowbar);
 		gridCol1.add(drill);
@@ -157,10 +178,10 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 5, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight, width, buttonPaneHeight);
 
-		inspect = new DIYButton("(I)nspect");
+		inspect = new DIYButton(StringUtil.getUiLabel("dtw.inspect"));
 		inspect.addActionListener(this);
 
-		cancel = new DIYButton("Cancel");
+		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
 		cancel.addActionListener(this);
 
 		buttonPane.add(inspect);
@@ -172,6 +193,8 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 		this.add(gridCol4);
 		this.add(buttonPane);
 
+		updateToolStatus(null);
+
 		this.doLayout();
 	}
 
@@ -180,7 +203,7 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	{
 		if (status == null)
 		{
-			return;
+			status = toolStatus;
 		}
 
 		// update the existing status if it's better
@@ -194,20 +217,20 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 			switch (toolStatus[i])
 			{
 				case Trap.InspectionResult.UNKNOWN:
-					statusIndicators[i].setText("?");
+					statusIndicators[i].setText(StringUtil.getUiLabel("dtw.unknown"));
 					break;
 				case Trap.InspectionResult.PRESENT:
 					if (disarmed.get(i))
 					{
-						statusIndicators[i].setText("disarmed");
+						statusIndicators[i].setText(StringUtil.getUiLabel("dtw.disarmed"));
 					}
 					else
 					{
-						statusIndicators[i].setText("armed");
+						statusIndicators[i].setText(StringUtil.getUiLabel("dtw.armed"));
 					}
 					break;
 				case Trap.InspectionResult.NOT_PRESENT:
-					statusIndicators[i].setText("-");
+					statusIndicators[i].setText(StringUtil.getUiLabel("dtw.not.present"));
 					buttons[i].setEnabled(false);
 					break;
 				default:
@@ -249,7 +272,7 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 				break;
 			case Trap.DisarmResult.DISARMED:
 				buttons[tool].setEnabled(false);
-				statusIndicators[tool].setText("disarmed");
+				statusIndicators[tool].setText(StringUtil.getUiLabel("dtw.disarmed"));
 				disarmed.set(tool);
 
 				if (disarmed.equals(trap.getRequired()))

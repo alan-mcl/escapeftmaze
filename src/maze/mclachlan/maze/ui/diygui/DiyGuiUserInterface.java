@@ -1541,7 +1541,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void waitingDialog(String s)
+	public TextDialogWidget waitingDialog(String s)
 	{
 		//center it
 		int x = DiyGuiUserInterface.SCREEN_WIDTH / 4;
@@ -1553,6 +1553,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			rectangle, null, s, true);
 
 		showDialog(d);
+
+		return d;
 	}
 
 	/*-------------------------------------------------------------------------*/

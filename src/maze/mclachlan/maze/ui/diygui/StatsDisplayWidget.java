@@ -276,7 +276,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	private void addDescLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
 	{
 		parent.add(label);
-		label.setActionMessage(name.getResourceBundleKey());
+		label.setActionMessage(name.toString());
 		label.addActionListener(this.listener);
 		label.setActionPayload(this.character);
 	}
@@ -288,7 +288,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	private void addStatLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
 	{
 		parent.add(label);
-		label.setActionMessage(name.getResourceBundleKey());
+		label.setActionMessage(name.toString());
 		label.addActionListener(this.listener);
 		label.setActionPayload(this.character);
 		this.labelMap.put(name, label);

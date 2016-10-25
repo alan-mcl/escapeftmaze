@@ -39,6 +39,7 @@ import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
 import mclachlan.maze.ui.diygui.MessageDestination;
+import mclachlan.maze.ui.diygui.TextDialogWidget;
 
 /**
  *
@@ -366,9 +367,9 @@ public class HeadlessUi implements UserInterface
 	}
 
 	@Override
-	public void waitingDialog(String s)
+	public TextDialogWidget waitingDialog(String s)
 	{
-
+		return null;
 	}
 
 	public Music getMusic()

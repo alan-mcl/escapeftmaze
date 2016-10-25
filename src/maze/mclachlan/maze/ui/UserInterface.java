@@ -38,6 +38,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
 import mclachlan.maze.ui.diygui.MessageDestination;
+import mclachlan.maze.ui.diygui.TextDialogWidget;
 
 public interface UserInterface
 {
@@ -220,7 +221,7 @@ public interface UserInterface
 	void errorDialog(String s);
 
 	/*-------------------------------------------------------------------------*/
-	public void waitingDialog(String s);
+	public TextDialogWidget waitingDialog(String s);
 
 	/*-------------------------------------------------------------------------*/
 	Music getMusic();

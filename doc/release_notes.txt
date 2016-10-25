@@ -27,7 +27,7 @@ Features
  - Blackguard class abilities: Dying Blow, Finisher, Bloodthirsty, Notoriety, Terrifying 
    Reputation
  - Burglar class abilities: Pickpocket, Nondescript, Dirty Attack, Danger Sense, Sap, 
-   Quick Wits
+   Quick Wits, Disable, Trap Sense
 
 
 Other

@@ -179,7 +179,7 @@ public class ModifiersEditWidget extends ContainerWidget
 	private void addDescLabel(Stats.Modifier modifier, DIYLabel label)
 	{
 		this.add(label);
-		label.setActionMessage(modifier==null?null:modifier.getResourceBundleKey());
+		label.setActionMessage(modifier==null?null:modifier.toString());
 		label.addActionListener(listener);
 		this.labelMap.put(modifier, label);
 	}

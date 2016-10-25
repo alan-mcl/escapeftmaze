@@ -629,7 +629,7 @@ public class Stats
 		BLOODTHIRSTY(226, "bloodthirsty"),
 		NOTORIETY(227, "notoriety"),
 		TERRIFYING_REPUTATION(229, "terrifyingReputation", ModifierMetric.BOOLEAN),
-		HIDE(230, "hide"),
+		HIDE(230, "hide", ModifierMetric.BOOLEAN),
 		TO_BRIBE(62, "toBribe"),
 		ACTION_REGEN_URBAN(231, "actionRegenUrban"),
 		ACTION_REGEN_DUNGEON(232, "actionRegenDungeon"),
@@ -637,7 +637,7 @@ public class Stats
 		ACTION_REGEN_WASTELAND(234, "actionRegenWasteland"),
 		DANGER_SENSE(235, "dangerSense", ModifierMetric.BOOLEAN),
 		QUICK_WITS(236, "quickWits", ModifierMetric.BOOLEAN),
-
+		TRAP_SENSE(238, "trapSense", ModifierMetric.BOOLEAN),
 		;
 
 		/**

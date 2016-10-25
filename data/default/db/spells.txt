@@ -229,6 +229,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Disable
+displayName=Disable
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=3
+school=Curse
+book=Black Magic
+spellEffects=dirty attack weapon:100,TOUCH_WEB:100,TOUCH_INSANE:100
+description=
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=generic weapon swish
+castByFoeScript=generic weapon swish
+usabilityType=1
+primaryModifier=SNEAKING
+secondaryModifier=BACKSTAB
+wildMagicValue=
+wildMagicTable=
+@
 name=Horn Of Prometheus - Fire
 displayName=Horn Of Prometheus - Fire
 hitPointCost=

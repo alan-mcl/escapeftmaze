@@ -409,3 +409,11 @@ fdw.special.abilities = Special Abilities:
 fdw.natural.weapons = Natural Weapons:
 fdw.spells = Spells:
 fdw.equipped.items = Equipped Items:
+
+# disarm trap widget
+dtw.name.trap.sense = %s (Trap Sense)
+dtw.inspect = Inspect
+dtw.armed = armed
+dtw.disarmed = disarmed
+dtw.unknown = ?
+dtw.not.present = -

@@ -335,10 +335,13 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void quickStart()
 	{
-		ui.waitingDialog(StringUtil.getUiLabel("mm.rolling.characters"));
+		TextDialogWidget dialog =
+			ui.waitingDialog(StringUtil.getUiLabel("mm.rolling.characters"));
+		dialog.addText("\n\n");
 
 		// get the first dificulty level, by sort order
-		Map<String, DifficultyLevel> difficultyLevels = Database.getInstance().getDifficultyLevels();
+		Map<String, DifficultyLevel> difficultyLevels =
+			Database.getInstance().getDifficultyLevels();
 
 		DifficultyLevel difficultyLevel = null;
 		int min = Integer.MAX_VALUE;
@@ -363,6 +366,7 @@ public class Maze implements Runnable
 			{
 				PlayerCharacter pc = leveler.createRandomPlayerCharacter();
 				pcs.add(pc);
+				dialog.addText(pc.getName()+"... ");
 			}
 		}
 		while (!leveler.validateParty(pcs));

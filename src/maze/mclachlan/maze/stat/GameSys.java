@@ -4004,7 +4004,13 @@ public class GameSys
 		}
 		else if (Stats.Modifier.ACTION_POINT_REGEN.equals(modifier))
 		{
-			Tile.TerrainType terrainType = Maze.getInstance().getCurrentTile().getTerrainType();
+			Tile currentTile = Maze.getInstance().getCurrentTile();
+			if (currentTile == null)
+			{
+				return null;
+			}
+
+			Tile.TerrainType terrainType = currentTile.getTerrainType();
 
 			switch (terrainType)
 			{
