@@ -29,6 +29,7 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.diygui.util.HashMapMutableTree;
 import mclachlan.diygui.util.MutableTree;
+import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -357,6 +358,18 @@ public class DIYComboBox<T> extends ContainerWidget
 					throw new MazeException(popupExpansionDirection.toString());
 			}
 		}
+
+		// translate to fit in the screen (todo: add Y axis)
+		if (popupY < 0)
+		{
+			popupY = 0;
+		}
+		else if (popupY+popupHeight > DiyGuiUserInterface.SCREEN_HEIGHT)
+		{
+			popupY -= (popupY+popupHeight - DiyGuiUserInterface.SCREEN_HEIGHT);
+			popupY -= 7; // add an inset
+		}
+
 
 		return new Rectangle(popupX, popupY, popupWidth, popupHeight);
 	}

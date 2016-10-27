@@ -124,4 +124,10 @@ public abstract class SpellResult
 		sb.append('}');
 		return sb.toString();
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean meetsRequirements(UnifiedActor actor)
+	{
+		return true;
+	}
 }

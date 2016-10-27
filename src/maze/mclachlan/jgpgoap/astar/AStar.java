@@ -44,7 +44,6 @@ public class AStar<NodeType,EdgeType>
 		while (!client.hasMetGoal(open.peek().getContents()))
 		{
 			AStarNode<NodeType, EdgeType> current = open.poll();
-			System.out.println("open = [" + open + "]");
 			closed.add(current);
 
 			Map<EdgeType,NodeType> neighbours = client.getNeighbours(current.getContents());

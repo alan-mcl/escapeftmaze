@@ -350,16 +350,25 @@ public class Spell
 	/*-------------------------------------------------------------------------*/
 	public boolean meetsRequirements(UnifiedActor actor)
 	{
-		if (requirementsToCast == null)
+		// must meet all mana requirements
+		if (requirementsToCast != null)
 		{
-			return true;
-		}
-		
-		for (ManaRequirement m : requirementsToCast)
-		{
-			if (!meetsRequirement(m, actor))
+			for (ManaRequirement m : requirementsToCast)
 			{
-				Maze.log(Log.DEBUG, this.getName()+": failed mana present requirement: "+m);
+				if (!meetsRequirement(m, actor))
+				{
+					Maze.log(Log.DEBUG, this.getName() + ": failed mana present requirement: " + m);
+					return false;
+				}
+			}
+		}
+
+		// must meet all spell effect requirements
+		for (SpellEffect se : this.getEffects().getPossibilities())
+		{
+			if (!se.meetsRequirements(actor))
+			{
+				Maze.log(Log.DEBUG, this.getName() + ": failed spell efffect requirement: " + se.getName());
 				return false;
 			}
 		}

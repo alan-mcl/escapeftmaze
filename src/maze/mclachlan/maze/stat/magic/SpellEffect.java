@@ -19,6 +19,8 @@
 
 package mclachlan.maze.stat.magic;
 
+import mclachlan.maze.stat.UnifiedActor;
+
 /**
  *
  */
@@ -240,6 +242,12 @@ public class SpellEffect
 		sb.append(", application=").append(application);
 		sb.append('}');
 		return sb.toString();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean meetsRequirements(UnifiedActor actor)
+	{
+		return unsavedResult.meetsRequirements(actor);
 	}
 
 	/*-------------------------------------------------------------------------*/

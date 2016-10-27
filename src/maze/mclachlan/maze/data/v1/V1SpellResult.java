@@ -319,8 +319,8 @@ public class V1SpellResult
 				String attackTypeName = strs[i++];
 				AttackType attackType = "".equals(attackTypeName)?null:Database.getInstance().getAttackType(attackTypeName);
 
-				boolean requiresBackstabWeapon = Boolean.getBoolean(strs[i++]);
-				boolean requiresSnipeWeapon = Boolean.getBoolean(strs[i++]);
+				boolean requiresBackstabWeapon = Boolean.valueOf(strs[i++]);
+				boolean requiresSnipeWeapon = Boolean.valueOf(strs[i++]);
 
 				int requiredWeaponType = Integer.parseInt(strs[i++]);
 

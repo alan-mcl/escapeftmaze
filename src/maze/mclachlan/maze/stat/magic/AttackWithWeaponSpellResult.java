@@ -89,7 +89,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		AttackWith weapon = getAttackWith(source);
 
 		// meets requirements? If not, it's a fumble.
-		if (!meetsRequirements(source, weapon))
+		if (!meetsRequirements(source))
 		{
 			result.add(new FumblesEvent(source));
 			return result;
@@ -132,8 +132,10 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean meetsRequirements(UnifiedActor source, AttackWith weapon)
+	public boolean meetsRequirements(UnifiedActor source)
 	{
+		AttackWith weapon = getAttackWith(source);
+
 		// backstab requirement?
 		if (requiresBackstabWeapon && !weapon.isBackstabCapable() ||
 			requiresSnipeWeapon && !weapon.isSnipeCapable())

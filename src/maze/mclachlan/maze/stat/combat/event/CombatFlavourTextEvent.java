@@ -44,7 +44,6 @@ public class CombatFlavourTextEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		System.out.println("text = [" + text + "]");
 		return text;
 	}
 }

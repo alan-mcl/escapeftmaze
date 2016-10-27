@@ -400,8 +400,6 @@ public class PlayerCharacter extends UnifiedActor
 				combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY ||
 				combat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY;
 
-			System.out.println("combat.getAmbushStatus() = [" + combat.getAmbushStatus() + "]");
-
 			// actions in the surprise round only available with QUICK WITS
 			if (!partyIsSurprised || hasQuickWits)
 			{
