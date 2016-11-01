@@ -359,10 +359,10 @@ public class DIYComboBox<T> extends ContainerWidget
 			}
 		}
 
-		// translate to fit in the screen (todo: add Y axis)
+		// translate to fit in the screen (todo: add X axis)
 		if (popupY < 0)
 		{
-			popupY = 0;
+			popupY = 7; // add an inset
 		}
 		else if (popupY+popupHeight > DiyGuiUserInterface.SCREEN_HEIGHT)
 		{
