@@ -23,13 +23,8 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.*;
-import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.DIYScrollPane;
-import mclachlan.diygui.DIYTextArea;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYBorderLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.*;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
@@ -42,7 +37,7 @@ import static mclachlan.maze.game.Maze.State.*;
 /**
  * Widget for the bottom center that:
  * <ul>
- *    <li>displays a scrolling text area of events as things happen</li>
+ *    <li>displays a the text of events as things happen</li>
  *    <li>displays buttons for party options (i.e. options not tied to a specific
  *    character) to the left and right of it.</li>
  *    <li>changes those displayed buttons based on game state</li>
@@ -51,11 +46,11 @@ import static mclachlan.maze.game.Maze.State.*;
  * </ul>
  */
 public class PartyOptionsAndTextWidget extends DIYPane
-	implements MessageDestination
+	implements MessageDestination, ActionListener
 {
-	public static final int BUTTON_HEIGHT = 20;
-	public static final int INSET = 4;
-	private static final int BUFFER_SIZE = 100;
+	private static final int BUTTON_HEIGHT = 20;
+	private static final int INSET = 4;
+	private static final int BUFFER_SIZE = 200;
 	private final Maze maze;
 
 	// card layouts for the left and right
@@ -65,7 +60,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	// central header text, common to all game states
 	private DIYLabel header;
 
-	// the central scrolling text area, common to all game states
+	// the central text area, common to all game states
 	private DIYTextArea textArea;
 	private List<String> messages = new ArrayList<String>();
 
@@ -81,13 +76,18 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	// encounter chest options
 	private EncounterChestStateHandler encounterChestStateHandler;
 
-	// encounte portal options
+	// encounter portal options
 	private EncounterPortalStateHandler encounterPortalStateHandler;
+
+	// bottom button pane
+	private DIYButton viewLog;
 
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
 	{
 		super(bounds.x, bounds.y, bounds.width, bounds.height);
+
+		this.setBackgroundColour(Color.DARK_GRAY);
 
 		maze = Maze.getInstance();
 		int buttonRows = height / BUTTON_HEIGHT;
@@ -116,11 +116,17 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		textArea.setAlignment(DIYToolkit.Align.CENTER);
 		DIYScrollPane scrollPane = new DIYScrollPane(textArea);
 
+		viewLog = new DIYButton(StringUtil.getUiLabel("poatw.view.log"));
+		viewLog.addActionListener(this);
+		DIYPane buttons = new DIYPane(new DIYFlowLayout());
+		buttons.add(viewLog);
+
 		// add widgets
 		this.add(header, DIYBorderLayout.Constraint.NORTH);
 		this.add(leftCards, DIYBorderLayout.Constraint.WEST);
 		this.add(rightCards, DIYBorderLayout.Constraint.EAST);
 		this.add(scrollPane, DIYBorderLayout.Constraint.CENTER);
+		this.add(buttons, DIYBorderLayout.Constraint.SOUTH);
 
 		this.doLayout();
 	}
@@ -163,13 +169,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 			messages.remove(messages.size()-1);
 		}
 
-		StringBuilder sb = new StringBuilder();
-		for (String s : messages)
-		{
-			sb.append(s).append("\n");
-		}
-
-		textArea.setText(sb.toString());
+		textArea.setText(textArea.getText()+'\n'+message);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -181,10 +181,23 @@ public class PartyOptionsAndTextWidget extends DIYPane
 
 	/*-------------------------------------------------------------------------*/
 	@Override
+	/**
+	 * Clears both the message history and the displayed text
+	 */
 	public void clearMessages()
 	{
 		messages.clear();
 		header.setText("");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Clears only the displayed text.
+	 */
+	public void clearDisplayedMessages()
+	{
+		textArea.setText("");
+		addMessage(""); // add a blank line to the log
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -302,4 +315,28 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		encounterPortalStateHandler.setPortal(portal);
 	}
 
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void actionPerformed(ActionEvent event)
+	{
+		if (event.getSource() == viewLog)
+		{
+			StringBuilder sb = new StringBuilder();
+			for (String s : messages)
+			{
+				sb.insert(0, s+'\n');
+			}
+			String text = sb.toString();
+
+			int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
+			int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_WIDTH/2;
+			int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
+			int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
+
+			Rectangle bounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
+			OkDialogWidget dialog = new OkDialogWidget(bounds, null, text);
+
+			DiyGuiUserInterface.instance.showDialog(dialog);
+		}
+	}
 }

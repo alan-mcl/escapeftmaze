@@ -44,14 +44,20 @@ public class DIYScrollPane extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public DIYScrollPane(int x, int y, int width, int height, ContainerWidget contents)
+	public DIYScrollPane(Rectangle bounds, ContainerWidget contents)
 	{
-		super(x, y, width, height);
+		super(bounds);
 		this.add(contents);
 		this.contents = contents;
 
 		initContents();
 		initScrollBar();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public DIYScrollPane(int x, int y, int width, int height, ContainerWidget contents)
+	{
+		this(new Rectangle(x, y, width, height), contents);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -1351,6 +1351,10 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			String eventDesc = event.getText();
 			Maze.log(eventDesc);
 
+			if (event.shouldClearText())
+			{
+				partyOptionsAndTextWidget.clearDisplayedMessages();
+			}
 			partyOptionsAndTextWidget.addMessage(eventDesc);
 		}
 	}

@@ -23,6 +23,7 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
@@ -78,14 +79,25 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 		this.text = new DIYTextArea(text);
 		this.text.setTransparent(true);
 		this.text.setBounds(textBounds);
-		
+
+
 		setBackground();
 
 		if (titlePane != null)
 		{
 			this.add(titlePane);
 		}
-		this.add(this.text);
+
+		if (text.length() > 500)
+		{
+			// heuristic to add a scroll bar
+			this.add(new DIYScrollPane(textBounds, this.text));
+		}
+		else
+		{
+			this.add(this.text);
+		}
+
 		this.add(ok);
 		this.doLayout();
 	}

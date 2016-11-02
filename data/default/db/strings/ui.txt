@@ -173,6 +173,7 @@ poatw.actor.encounter = Encounter: %s (%s)
 poatw.exploring = Exploring: %s
 poatw.chest.encounter = Encounter chest
 poatw.portal.encounter = Encounter door
+poatw.view.log = View Log
 
 # player character widget
 pcw.levelup = Level Up!
