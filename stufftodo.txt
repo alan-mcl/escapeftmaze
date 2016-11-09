@@ -15,19 +15,12 @@ sound: angel
 sprite: clockwork beast
 sound: clockwork beast
 
-icon: tobacco/herb
-icon: bullwhip
-icon: acolyte dark majesty condition
-icon: amazon strength buff, courage, willpower, fury conditions
-icon: blackguard bloodthirsty
-
 abilities: acolyte 10, 15
 abilities: berserker 17
 abilities: blackguard 10, 17
 abilities: code of dishounour hooks on Diplomacy, others
 abilities: burglar 19
 
-text: gnome race description
 text: courtesan class description
 
 data: improve foe inventories
@@ -37,7 +30,6 @@ data: RESISTANCES: Resistances of foes.
 data: RESISTANCES: Resistances of character races
 data: mind read results from all NPCs
 data: more hidden stashes to find with SCOUTING
-data: rename Kitsune class to Courtesan
 
 code: damage multipliers to be applied before armour soak
 code: Scavenger Mode: characters start with nothing, most loot is replaced with trash, and crafting is the only way to survive.

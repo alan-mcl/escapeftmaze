@@ -106,6 +106,7 @@ iw.money = Money
 iw.supplies = Supplies
 iw.gadget = Gadget
 iw.music = Musical Instrument
+iw.misc = Misc Item
 iw.modifiers = Modifiers:
 iw.equip.requirements = Required to equip:
 iw.use.requirements = Required to use:

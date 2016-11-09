@@ -68,6 +68,10 @@ public class V1PlayerSpellBook
 		b.append(obj.getName());
 		b.append(V1Utils.NEWLINE);
 
+		b.append("description=");
+		b.append(obj.getDescription());
+		b.append(V1Utils.NEWLINE);
+
 		if (obj.getClass() != PlayerSpellBook.class)
 		{
 			// custom impl
@@ -88,6 +92,9 @@ public class V1PlayerSpellBook
 	/*-------------------------------------------------------------------------*/
 	static PlayerSpellBook fromProperties(Properties p) throws Exception
 	{
+		String name = p.getProperty("name");
+		String description = p.getProperty("description");
+
 		if (p.getProperty("impl") != null)
 		{
 			// custom PlayerSpellBook impl
@@ -96,9 +103,9 @@ public class V1PlayerSpellBook
 		}
 		else
 		{
-			String name = p.getProperty("name");
+
 			Collection<String> spellNames = V1Utils.stringList.fromString(p.getProperty("spellNames"));
-			return new PlayerSpellBook(name, spellNames);
+			return new PlayerSpellBook(name, description, spellNames);
 		}
 	}
 }

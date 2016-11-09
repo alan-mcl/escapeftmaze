@@ -715,7 +715,7 @@ repeatedSpellEffects=
 @
 name=amazon fury
 displayName=amazon fury
-icon=condition/default
+icon=condition/amazonstrength
 adjective=furious
 conditionEffect=none
 duration=1/3/NONE//false
@@ -1171,7 +1171,7 @@ repeatedSpellEffects=
 @
 name=dark majesty buff
 displayName=dark majesty buff
-icon=condition/default
+icon=condition/darkmajesty
 adjective=darkened
 conditionEffect=none
 duration=1/1/SCALE_WITH_CLASS_LEVEL/Acolyte/false
@@ -1665,7 +1665,7 @@ repeatedSpellEffects=
 @
 name=amazon courage
 displayName=amazon courage
-icon=condition/default
+icon=condition/amazonstrength
 adjective=fearless
 conditionEffect=none
 duration=1/3/NONE//false
@@ -2045,7 +2045,7 @@ repeatedSpellEffects=
 @
 name=amazon willpower
 displayName=amazon willpower
-icon=condition/default
+icon=condition/amazonstrength
 adjective=determined
 conditionEffect=none
 duration=1/3/NONE//false
@@ -2501,7 +2501,7 @@ repeatedSpellEffects=
 @
 name=amazon strength buff
 displayName=amazon strength
-icon=condition/default
+icon=condition/amazonstrength
 adjective=buffed
 conditionEffect=none
 duration=1/3/NONE//false
@@ -2558,7 +2558,7 @@ repeatedSpellEffects=
 @
 name=bloodthirsty
 displayName=bloodthirsty
-icon=condition/default
+icon=condition/bloodthirsty
 adjective=is bloodthirsty!
 conditionEffect=bloodthirsty
 duration=1/3/NONE//false

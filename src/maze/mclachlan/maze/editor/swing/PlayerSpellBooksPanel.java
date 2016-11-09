@@ -36,10 +36,11 @@ import javax.swing.table.DefaultTableCellRenderer;
  */
 public class PlayerSpellBooksPanel extends EditorPanel
 {
-	JTable table;
-	MyTableModel tableModel;
-	JButton add, remove, sort;
-	JComboBox spellCombo;
+	private JTable table;
+	private MyTableModel tableModel;
+	private JTextArea description;
+	private JButton add, remove, sort;
+	private JComboBox spellCombo;
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerSpellBooksPanel()
@@ -63,6 +64,15 @@ public class PlayerSpellBooksPanel extends EditorPanel
 
 		result.add(new JLabel("Adding, renaming or deleting player spell " +
 			"books would be a bad idea."), gbc);
+
+		description = new JTextArea(7, 35);
+		description.setLineWrap(true);
+		description.setWrapStyleWord(true);
+		description.addKeyListener(this);
+		gbc.gridy++;
+		JScrollPane scroller = new JScrollPane(description);
+		scroller.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+		result.add(scroller, gbc);
 
 		spellCombo = new JComboBox();
 		tableModel = new MyTableModel();
@@ -125,6 +135,8 @@ public class PlayerSpellBooksPanel extends EditorPanel
 			}
 			tableModel.sort();
 		}
+
+		description.setText(psb.getDescription());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -156,6 +168,7 @@ public class PlayerSpellBooksPanel extends EditorPanel
 	{
 		PlayerSpellBook psb = Database.getInstance().getPlayerSpellBook(name);
 		psb.setSpellNames(new HashSet<String>(tableModel.spellNames));
+		psb.setDescription(description.getText());
 	}
 
 	/*-------------------------------------------------------------------------*/

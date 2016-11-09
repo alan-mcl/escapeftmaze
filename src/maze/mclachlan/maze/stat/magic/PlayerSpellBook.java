@@ -26,14 +26,16 @@ import java.util.Collection;
  */
 public class PlayerSpellBook
 {
-	String name;
-	Collection<String> spellNames;
+	private String name;
+	private String description;
+	private Collection<String> spellNames;
 
 	/*-------------------------------------------------------------------------*/
-	public PlayerSpellBook(String name, Collection<String> spellNames)
+	public PlayerSpellBook(String name, String description, Collection<String> spellNames)
 	{
 		this.name = name;
 		this.spellNames = spellNames;
+		this.description = description;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -45,6 +47,16 @@ public class PlayerSpellBook
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 
 	public Collection<String> getSpellNames()

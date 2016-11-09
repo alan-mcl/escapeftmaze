@@ -15,6 +15,7 @@ Features
  - Added foe information popup on click of the sprite during actor encounters and combat
  - Added foe types as configurable objects, can provide modifiers and abilities to foes
  - Favoured Enemy modifiers for various foe types
+ - Added descriptions for player spell books
  - Immunity to Criticals is now a modifier, not a Foe Template property
  - Added level ability progression preview to the character class selection screen
  - Class abilities: Parry & 1H Wield for Sword, Axe, Mace, Polearm & Staff; Threaten; 

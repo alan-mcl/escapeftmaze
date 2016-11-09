@@ -233,12 +233,12 @@ unlockDescription=
 favouredEnemyModifier=
 @
 name=Gnome
-description=Small of stature but tough and resilient, the Gnomes of the Second Realm are born survivors. They have delved deep under the earth of Aenen domain and built a formiddable fortress that has kept them safe from the ravages of the Maze for a hundred years.
+description=Small of stature but tough and resilient, the Gnomes of the Second Realm are born survivors. They have delved deep under the earth of Aenen domain and built a formiddable fortress that has kept them safe from the ravages of the Maze for a hundred years.%n%nGnome sages tell of a powerful curse on their race by a jealous dragon that exiled them to the Maze for a thousand generations.%n%nSpecial: cunning Gnomes locate extra gold for the party.
 startingHitPointPercentage=60
 startingActionPointPercentage=70
 startingMagicPointPercentage=70
 startingModifiers=1e8,0103030102
-constantModifiers=0,
+constantModifiers=20000000000000000000000000000,0a
 bannerModifiers=0,
 attributeCeilings=3f8,080c0c0c080808
 head=human head
