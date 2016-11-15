@@ -21,8 +21,6 @@ abilities: blackguard 10, 17
 abilities: code of dishounour hooks on Diplomacy, others
 abilities: burglar 19
 
-text: courtesan class description
-
 data: improve foe inventories
 data: more wielding combos
 data: puzzle boxes: items that require brains to disassemble and contain loot

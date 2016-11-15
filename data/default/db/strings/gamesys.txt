@@ -100,13 +100,13 @@ modifier_name-saveVsConjuration: vs Conjuration
 modifier_name-saveVsCurses: vs Curses
 modifier_name-saveVsBlessings: vs Blessings
 
-modifier_name-sorcerySpells: Sorcery Ability
+modifier_name-redMagicSpells: Red Magic Ability
 modifier_name-blackMagicSpells: Black Magic Ability
-modifier_name-witchcraftSpells: Witchcraft Ability
-modifier_name-enchantmentSpells: Enchantment Ability
+modifier_name-purpleMagicSpells: Purple Magic Ability
+modifier_name-goldMagicSpells: Gold Magic Ability
 modifier_name-whiteMagicSpells: White Magic Ability
-modifier_name-druidismSpells: Druidism Ability
-modifier_name-elementalSpells: Elemental Ability
+modifier_name-greenMagicSpells: Green Magic Ability
+modifier_name-blueMagicSpells: Blue Magic Ability
 
 modifier_name-redMagicGen: Red Magic
 modifier_name-blackMagicGen: Black Magic
@@ -295,13 +295,13 @@ modifier_desc-dualWeapons: Modifies this characters ability to fight with an off
 modifier_desc-chivalry: Modifies the use of weapons from the 'Chivalry' discipline, for example broadswords and lances.
 modifier_desc-kendo: Modifies the use of weapons from the 'Kendo' discipline, for example the katana and wakizashi.
 
-modifier_desc-chant: Modifies spell effects that require a continuous chanted invocation.  These are typically White Magic and Druidism spells.
-modifier_desc-rhyme: Modifies spell effects that require a rhyme or verse component.  These are typically Witchcraft and Enchantment spells.
-modifier_desc-gesture: Modifies spell effects that require a hand sign or gesture.  These are typically Black Magic and Sorcery spells.
-modifier_desc-posture: Modifies spell effects that require a posture or dance component.  These are typically Enchantment and White Magic spells.
-modifier_desc-thought: Modifies spell effects that require a purely mental component.  These are typically Sorcery and Elemental spells.
-modifier_desc-herbal: Modifies spell effects that require herbal reagents.  These are typically Druidism and Witchcraft spells. Also governs attempts to create potions and powders from herbal components.
-modifier_desc-alchemic: Modifies spell effects that require mineral, metal or similar reagents.  These are typically Elemental and Black Magic spells. Also governs attempts to create potions and powders from alchemic components.
+modifier_desc-chant: Modifies spell effects that require a continuous chanted invocation.  These are typically White and Green magic spells.
+modifier_desc-rhyme: Modifies spell effects that require a rhyme or verse component.  These are typically Purple and Gold magic spells.
+modifier_desc-gesture: Modifies spell effects that require a hand sign or gesture.  These are typically Black Magic and Red magic spells.
+modifier_desc-posture: Modifies spell effects that require a posture or dance component.  These are typically Gold and White Magic spells.
+modifier_desc-thought: Modifies spell effects that require a purely mental component.  These are typically Red and Blue magic spells.
+modifier_desc-herbal: Modifies spell effects that require herbal reagents.  These are typically Green and Purple magic spells. Also governs attempts to create potions and powders from herbal components.
+modifier_desc-alchemic: Modifies spell effects that require mineral, metal or similar reagents.  These are typically Blue and Black Magic spells. Also governs attempts to create potions and powders from alchemic components.
 modifier_desc-artifacts: Modifies attempts to identify and use items.
 modifier_desc-mythology: Modifies attempts to identify foes.
 modifier_desc-craft: The mystic art of the smith, used by this character to craft weapons and armour.
@@ -353,13 +353,13 @@ modifier_desc-saveVsConjuration: Modifies this characters saves against conjurat
 modifier_desc-saveVsCurses: Modifies this characters saves against curse spells and effects.
 modifier_desc-saveVsBlessings: Modifies this characters saves against blessed spells and effects.  Since most blessings are bestowed on willing recipients, this modifier is rarely used.
 
-modifier_desc-sorcerySpells: The maximum level of Sorcery spells that this character can cast.
-modifier_desc-blackMagicSpells: The maximum level of Black Magic spells that this character can cast.
-modifier_desc-witchcraftSpells: The maximum level of Witchcraft spells that this character can cast.
-modifier_desc-enchantmentSpells: The maximum level of Enchantment spells that this character can cast.
-modifier_desc-whiteMagicSpells: The maximum level of White Magic spells that this character can cast.
-modifier_desc-druidismSpells: The maximum level of Druidism spells that this character can cast.
-modifier_desc-elementalSpells: The maximum level of Elemental spells that this character can cast.
+modifier_desc-redMagicSpells: The maximum level of Red magic spells that this character can cast.
+modifier_desc-blackMagicSpells: The maximum level of Black magic spells that this character can cast.
+modifier_desc-purpleMagicSpells: The maximum level of Purple magic spells that this character can cast.
+modifier_desc-goldMagicSpells: The maximum level of Gold magic spells that this character can cast.
+modifier_desc-whiteMagicSpells: The maximum level of White magic spells that this character can cast.
+modifier_desc-greenMagicSpells: The maximum level of Green magic spells that this character can cast.
+modifier_desc-blueMagicSpells: The maximum level of Blue magic spells that this character can cast.
 
 modifier_desc-redMagicGen: The amount of red magic generated by this character.
 modifier_desc-blackMagicGen: The amount of black magic generated by this character.
@@ -526,16 +526,16 @@ lap_desc_spellpicks+2=This character can choose 2 new spells.
 lap_name_spellpicks+3=Spellpicks +3
 lap_desc_spellpicks+3=This character can choose 3 new spells.
 
-lap_name_sorcery_1=Sorcery 1
-lap_name_sorcery_2=Sorcery 2
-lap_name_sorcery_3=Sorcery 3
-lap_name_sorcery_4=Sorcery 4
-lap_name_sorcery_5=Sorcery 5
-lap_name_sorcery_6=Sorcery 6
-lap_name_sorcery_7=Sorcery 7
-lap_name_sorcery_8=Sorcery 8
-lap_name_sorcery_9=Sorcery 9
-lap_desc_sorcery=This character has the ability to cast Sorcery spells up to the listed spell level.
+lap_name_red_magic_1=Red Magic 1
+lap_name_red_magic_2=Red Magic 2
+lap_name_red_magic_3=Red Magic 3
+lap_name_red_magic_4=Red Magic 4
+lap_name_red_magic_5=Red Magic 5
+lap_name_red_magic_6=Red Magic 6
+lap_name_red_magic_7=Red Magic 7
+lap_name_red_magic_8=Red Magic 8
+lap_name_red_magic_9=Red Magic 9
+lap_desc_red_magic=This character has the ability to cast Red Magic spells up to the listed spell level.
 
 lap_name_black_magic_1=Black Magic 1
 lap_name_black_magic_2=Black Magic 2
@@ -548,27 +548,27 @@ lap_name_black_magic_8=Black Magic 8
 lap_name_black_magic_9=Black Magic 9
 lap_desc_black_magic=This character has the ability to cast Black Magic spells up to the listed spell level.
 
-lap_name_witchcraft_1=Witchcraft 1
-lap_name_witchcraft_2=Witchcraft 2
-lap_name_witchcraft_3=Witchcraft 3
-lap_name_witchcraft_4=Witchcraft 4
-lap_name_witchcraft_5=Witchcraft 5
-lap_name_witchcraft_6=Witchcraft 6
-lap_name_witchcraft_7=Witchcraft 7
-lap_name_witchcraft_8=Witchcraft 8
-lap_name_witchcraft_9=Witchcraft 9
-lap_desc_witchcraft=This character has the ability to cast Witchcraft spells up to the listed spell level.
+lap_name_purple_magic_1=Purple Magic 1
+lap_name_purple_magic_2=Purple Magic 2
+lap_name_purple_magic_3=Purple Magic 3
+lap_name_purple_magic_4=Purple Magic 4
+lap_name_purple_magic_5=Purple Magic 5
+lap_name_purple_magic_6=Purple Magic 6
+lap_name_purple_magic_7=Purple Magic 7
+lap_name_purple_magic_8=Purple Magic 8
+lap_name_purple_magic_9=Purple Magic 9
+lap_desc_purple_magic=This character has the ability to cast Purple Magic spells up to the listed spell level.
 
-lap_name_enchantment_1=Enchantment 1
-lap_name_enchantment_2=Enchantment 2
-lap_name_enchantment_3=Enchantment 3
-lap_name_enchantment_4=Enchantment 4
-lap_name_enchantment_5=Enchantment 5
-lap_name_enchantment_6=Enchantment 6
-lap_name_enchantment_7=Enchantment 7
-lap_name_enchantment_8=Enchantment 8
-lap_name_enchantment_9=Enchantment 9
-lap_desc_enchantment=This character has the ability to cast Enchantment spells up to the listed spell level.
+lap_name_gold_magic_1=Gold Magic 1
+lap_name_gold_magic_2=Gold Magic 2
+lap_name_gold_magic_3=Gold Magic 3
+lap_name_gold_magic_4=Gold Magic 4
+lap_name_gold_magic_5=Gold Magic 5
+lap_name_gold_magic_6=Gold Magic 6
+lap_name_gold_magic_7=Gold Magic 7
+lap_name_gold_magic_8=Gold Magic 8
+lap_name_gold_magic_9=Gold Magic 9
+lap_desc_gold_magic=This character has the ability to cast Gold Magic spells up to the listed spell level.
 
 lap_name_white_magic_1=White Magic 1
 lap_name_white_magic_2=White Magic 2
@@ -581,27 +581,27 @@ lap_name_white_magic_8=White Magic 8
 lap_name_white_magic_9=White Magic 9
 lap_desc_white_magic=This character has the ability to cast White Magic spells up to the listed spell level.
 
-lap_name_druidism_1=Druidism 1
-lap_name_druidism_2=Druidism 2
-lap_name_druidism_3=Druidism 3
-lap_name_druidism_4=Druidism 4
-lap_name_druidism_5=Druidism 5
-lap_name_druidism_6=Druidism 6
-lap_name_druidism_7=Druidism 7
-lap_name_druidism_8=Druidism 8
-lap_name_druidism_9=Druidism 9
-lap_desc_druidism=This character has the ability to cast Druidism spells up to the listed spell level.
+lap_name_green_magic_1=Green Magic 1
+lap_name_green_magic_2=Green Magic 2
+lap_name_green_magic_3=Green Magic 3
+lap_name_green_magic_4=Green Magic 4
+lap_name_green_magic_5=Green Magic 5
+lap_name_green_magic_6=Green Magic 6
+lap_name_green_magic_7=Green Magic 7
+lap_name_green_magic_8=Green Magic 8
+lap_name_green_magic_9=Green Magic 9
+lap_desc_green_magic=This character has the ability to cast Green Magic spells up to the listed spell level.
 
-lap_name_elementalism_1=Elementalism 1
-lap_name_elementalism_2=Elementalism 2
-lap_name_elementalism_3=Elementalism 3
-lap_name_elementalism_4=Elementalism 4
-lap_name_elementalism_5=Elementalism 5
-lap_name_elementalism_6=Elementalism 6
-lap_name_elementalism_7=Elementalism 7
-lap_name_elementalism_8=Elementalism 8
-lap_name_elementalism_9=Elementalism 9
-lap_desc_elementalism=This character has the ability to cast Elementalism spells up to the listed spell level.
+lap_name_blue_magic_1=Blue Magic 1
+lap_name_blue_magic_2=Blue Magic 2
+lap_name_blue_magic_3=Blue Magic 3
+lap_name_blue_magic_4=Blue Magic 4
+lap_name_blue_magic_5=Blue Magic 5
+lap_name_blue_magic_6=Blue Magic 6
+lap_name_blue_magic_7=Blue Magic 7
+lap_name_blue_magic_8=Blue Magic 8
+lap_name_blue_magic_9=Blue Magic 9
+lap_desc_blue_magic=This character has the ability to cast Blue Magic spells up to the listed spell level.
 
 # common to several classes
 lap_name_deadly_aim = Deadly Aim %s

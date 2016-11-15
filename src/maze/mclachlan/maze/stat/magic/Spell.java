@@ -50,7 +50,7 @@ public class Spell
 	/** spell school, eg Evocation.  A constant from {@link MagicSys.SpellSchool} */ 
 	private String school;
 	
-	/** spell book, eg Sorcery.  A constant from {@link MagicSys.SpellBook}  */ 
+	/** spell book, eg Red Magic.  A constant from {@link MagicSys.SpellBook}  */
 	private MagicSys.SpellBook book;
 	
 	/** spell effects */ 

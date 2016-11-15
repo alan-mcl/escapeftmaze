@@ -67,12 +67,12 @@ public class SpellPanel extends EditorPanel
 		schools.addElement(MagicSys.SpellSchool.TRANSMUTATION);
 
 		books.addElement(MagicSys.SpellBook.BLACK_MAGIC.getName());
-		books.addElement(MagicSys.SpellBook.DRUIDISM.getName());
-		books.addElement(MagicSys.SpellBook.ELEMENTALISM.getName());
-		books.addElement(MagicSys.SpellBook.ENCHANTMENT.getName());
-		books.addElement(MagicSys.SpellBook.SORCERY.getName());
+		books.addElement(MagicSys.SpellBook.GREEN_MAGIC.getName());
+		books.addElement(MagicSys.SpellBook.BLUE_MAGIC.getName());
+		books.addElement(MagicSys.SpellBook.GOLD_MAGIC.getName());
+		books.addElement(MagicSys.SpellBook.RED_MAGIC.getName());
 		books.addElement(MagicSys.SpellBook.WHITE_MAGIC.getName());
-		books.addElement(MagicSys.SpellBook.WITCHCRAFT.getName());
+		books.addElement(MagicSys.SpellBook.PURPLE_MAGIC.getName());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -379,7 +379,7 @@ public class SpellPanel extends EditorPanel
 			MagicSys.SpellTargetType.ALL_FOES,
 			MagicSys.SpellUsabilityType.ANY_TIME,
 			MagicSys.SpellSchool.BEGUILMENT,
-			MagicSys.SpellBook.SORCERY,
+			MagicSys.SpellBook.RED_MAGIC,
 			new GroupOfPossibilities<SpellEffect>(),
 			new ArrayList<ManaRequirement>(),
 			new StatModifier(),

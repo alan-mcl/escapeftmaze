@@ -39,13 +39,13 @@ public class AvailableSpellBookPanel extends JPanel implements ActionListener, C
 
 	MagicSys.SpellBook[] books = new MagicSys.SpellBook[]
 	{
-		MagicSys.SpellBook.SORCERY,
+		MagicSys.SpellBook.RED_MAGIC,
 		MagicSys.SpellBook.BLACK_MAGIC,
-		MagicSys.SpellBook.WITCHCRAFT,
-		MagicSys.SpellBook.ENCHANTMENT,
+		MagicSys.SpellBook.PURPLE_MAGIC,
+		MagicSys.SpellBook.GOLD_MAGIC,
 		MagicSys.SpellBook.WHITE_MAGIC,
-		MagicSys.SpellBook.DRUIDISM,
-		MagicSys.SpellBook.ELEMENTALISM
+		MagicSys.SpellBook.GREEN_MAGIC,
+		MagicSys.SpellBook.BLUE_MAGIC
 	};
 
 	JCheckBox[] checkboxes = new JCheckBox[7];

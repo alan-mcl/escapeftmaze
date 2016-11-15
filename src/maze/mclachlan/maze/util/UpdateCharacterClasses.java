@@ -45,25 +45,25 @@ public class UpdateCharacterClasses
 		saver.init(campaign);
 
 		Map<String, MagicSys.SpellBook> hybrids = new HashMap<String, MagicSys.SpellBook>();
-		hybrids.put("Samurai", MagicSys.SpellBook.SORCERY);
-		hybrids.put("Warlock", MagicSys.SpellBook.SORCERY);
+		hybrids.put("Samurai", MagicSys.SpellBook.RED_MAGIC);
+		hybrids.put("Warlock", MagicSys.SpellBook.RED_MAGIC);
 		hybrids.put("Blackguard", MagicSys.SpellBook.BLACK_MAGIC);
 		hybrids.put("Ninja", MagicSys.SpellBook.BLACK_MAGIC);
-		hybrids.put("Amazon", MagicSys.SpellBook.WITCHCRAFT);
-		hybrids.put("Gypsy", MagicSys.SpellBook.WITCHCRAFT);
-		hybrids.put("Skald", MagicSys.SpellBook.ENCHANTMENT);
-		hybrids.put("Troubadour", MagicSys.SpellBook.ENCHANTMENT);
+		hybrids.put("Amazon", MagicSys.SpellBook.PURPLE_MAGIC);
+		hybrids.put("Gypsy", MagicSys.SpellBook.PURPLE_MAGIC);
+		hybrids.put("Skald", MagicSys.SpellBook.GOLD_MAGIC);
+		hybrids.put("Troubadour", MagicSys.SpellBook.GOLD_MAGIC);
 		hybrids.put("Paladin", MagicSys.SpellBook.WHITE_MAGIC);
 		hybrids.put("Exorcist", MagicSys.SpellBook.WHITE_MAGIC);
-		hybrids.put("Sohei", MagicSys.SpellBook.DRUIDISM);
-		hybrids.put("Ranger", MagicSys.SpellBook.DRUIDISM);
-		hybrids.put("Shaman", MagicSys.SpellBook.ELEMENTALISM);
-		hybrids.put("Shugenja", MagicSys.SpellBook.ELEMENTALISM);
+		hybrids.put("Sohei", MagicSys.SpellBook.GREEN_MAGIC);
+		hybrids.put("Ranger", MagicSys.SpellBook.GREEN_MAGIC);
+		hybrids.put("Shaman", MagicSys.SpellBook.BLUE_MAGIC);
+		hybrids.put("Shugenja", MagicSys.SpellBook.BLUE_MAGIC);
 
 		Map<String, MagicSys.SpellBook[]> duals = new HashMap<String, MagicSys.SpellBook[]>();
-		duals.put("Adept", new MagicSys.SpellBook[]{MagicSys.SpellBook.DRUIDISM, MagicSys.SpellBook.WHITE_MAGIC});
-		duals.put("Magician", new MagicSys.SpellBook[]{MagicSys.SpellBook.SORCERY, MagicSys.SpellBook.ELEMENTALISM});
-		duals.put("Cultist", new MagicSys.SpellBook[]{MagicSys.SpellBook.WITCHCRAFT, MagicSys.SpellBook.BLACK_MAGIC});
+		duals.put("Adept", new MagicSys.SpellBook[]{MagicSys.SpellBook.GREEN_MAGIC, MagicSys.SpellBook.WHITE_MAGIC});
+		duals.put("Magician", new MagicSys.SpellBook[]{MagicSys.SpellBook.RED_MAGIC, MagicSys.SpellBook.BLUE_MAGIC});
+		duals.put("Cultist", new MagicSys.SpellBook[]{MagicSys.SpellBook.PURPLE_MAGIC, MagicSys.SpellBook.BLACK_MAGIC});
 
 		Map<String,CharacterClass> characterClasses = db.getCharacterClasses();
 

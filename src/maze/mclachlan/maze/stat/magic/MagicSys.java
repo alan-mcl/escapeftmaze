@@ -86,32 +86,32 @@ public class MagicSys
 		private static final HashSet<String> MALE = new HashSet<String>();
 		private static final HashSet<String> FEMALE = new HashSet<String>();
 
-		public static final SpellBook SORCERY =
-			new SpellBook("Sorcery", "sorcery", Stats.Modifier.SORCERY_SPELLS, MALE, null);
+		public static final SpellBook RED_MAGIC =
+			new SpellBook("Red Magic", "red_magic", Stats.Modifier.RED_MAGIC_SPELLS, MALE, null);
 		public static final SpellBook BLACK_MAGIC =
 			new SpellBook("Black Magic", "black_magic", Stats.Modifier.BLACK_MAGIC_SPELLS, null, null);
-		public static final SpellBook WITCHCRAFT =
-			new SpellBook("Witchcraft", "witchcraft", Stats.Modifier.WITCHCRAFT_SPELLS, FEMALE, null);
-		public static final SpellBook ENCHANTMENT =
-			new SpellBook("Enchantment", "enchantment", Stats.Modifier.ENCHANTMENT_SPELLS, null, null);
+		public static final SpellBook PURPLE_MAGIC =
+			new SpellBook("Purple Magic", "purple_magic", Stats.Modifier.PURPLE_MAGIC_SPELLS, FEMALE, null);
+		public static final SpellBook GOLD_MAGIC =
+			new SpellBook("Gold Magic", "gold_magic", Stats.Modifier.GOLD_MAGIC_SPELLS, null, null);
 		public static final SpellBook WHITE_MAGIC =
 			new SpellBook("White Magic", "white_magic", Stats.Modifier.WHITE_MAGIC_SPELLS, null, null);
-		public static final SpellBook DRUIDISM =
-			new SpellBook("Druidism", "druidism", Stats.Modifier.DRUIDISM_SPELLS, null, null);
-		public static final SpellBook ELEMENTALISM =
-			new SpellBook("Elementalism", "elementalism", Stats.Modifier.ELEMENTAL_SPELLS, null, null);
+		public static final SpellBook GREEN_MAGIC =
+			new SpellBook("Green Magic", "green_magic", Stats.Modifier.GREEN_MAGIC_SPELLS, null, null);
+		public static final SpellBook BLUE_MAGIC =
+			new SpellBook("Blue Magic", "blue_magic", Stats.Modifier.BLUE_MAGIC_SPELLS, null, null);
 
 		private static Map<String, SpellBook> spellBooks = new HashMap<String, SpellBook>();
 
 		static
 		{
-			spellBooks.put(SORCERY.getName(), SORCERY);
+			spellBooks.put(RED_MAGIC.getName(), RED_MAGIC);
 			spellBooks.put(BLACK_MAGIC.getName(), BLACK_MAGIC);
-			spellBooks.put(WITCHCRAFT.getName(), WITCHCRAFT);
-			spellBooks.put(ENCHANTMENT.getName(), ENCHANTMENT);
+			spellBooks.put(PURPLE_MAGIC.getName(), PURPLE_MAGIC);
+			spellBooks.put(GOLD_MAGIC.getName(), GOLD_MAGIC);
 			spellBooks.put(WHITE_MAGIC.getName(), WHITE_MAGIC);
-			spellBooks.put(DRUIDISM.getName(), DRUIDISM);
-			spellBooks.put(ELEMENTALISM.getName(), ELEMENTALISM);
+			spellBooks.put(GREEN_MAGIC.getName(), GREEN_MAGIC);
+			spellBooks.put(BLUE_MAGIC.getName(), BLUE_MAGIC);
 
 			MALE.add("Male");
 			FEMALE.add("Female");

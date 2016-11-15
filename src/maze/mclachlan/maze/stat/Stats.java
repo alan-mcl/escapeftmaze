@@ -222,12 +222,12 @@ public class Stats
 		weaponAbilities.add(Modifier.STAFF_1H_WIELD);
 
 		spellCastingLevels.add(Modifier.BLACK_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.ELEMENTAL_SPELLS);
-		spellCastingLevels.add(Modifier.DRUIDISM_SPELLS);
+		spellCastingLevels.add(Modifier.BLUE_MAGIC_SPELLS);
+		spellCastingLevels.add(Modifier.GREEN_MAGIC_SPELLS);
 		spellCastingLevels.add(Modifier.WHITE_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.ENCHANTMENT_SPELLS);
-		spellCastingLevels.add(Modifier.WITCHCRAFT_SPELLS);
-		spellCastingLevels.add(Modifier.SORCERY_SPELLS);
+		spellCastingLevels.add(Modifier.GOLD_MAGIC_SPELLS);
+		spellCastingLevels.add(Modifier.PURPLE_MAGIC_SPELLS);
+		spellCastingLevels.add(Modifier.RED_MAGIC_SPELLS);
 
 		middleModifiers.addAll(allModifiers);
 		middleModifiers.removeAll(attributeModifiers);
@@ -467,13 +467,13 @@ public class Stats
 		RESIST_ENERGY(70, "resistEnergy", STATISTICS, ModifierMetric.PERCENTAGE),
 
 		// modifiers: spell casting
-		SORCERY_SPELLS(175, "sorcerySpells", STATISTICS),
+		RED_MAGIC_SPELLS(175, "redMagicSpells", STATISTICS),
 		BLACK_MAGIC_SPELLS(176, "blackMagicSpells", STATISTICS),
-		WITCHCRAFT_SPELLS(177, "witchcraftSpells", STATISTICS),
-		ENCHANTMENT_SPELLS(178, "enchantmentSpells", STATISTICS),
+		PURPLE_MAGIC_SPELLS(177, "purpleMagicSpells", STATISTICS),
+		GOLD_MAGIC_SPELLS(178, "goldMagicSpells", STATISTICS),
 		WHITE_MAGIC_SPELLS(179, "whiteMagicSpells", STATISTICS),
-		DRUIDISM_SPELLS(180, "druidismSpells", STATISTICS),
-		ELEMENTAL_SPELLS(181, "elementalSpells", STATISTICS),
+		GREEN_MAGIC_SPELLS(180, "greenMagicSpells", STATISTICS),
+		BLUE_MAGIC_SPELLS(181, "blueMagicSpells", STATISTICS),
 
 		// modifiers: magic generated
 		RED_MAGIC_GEN(71, "redMagicGen", STATISTICS),
