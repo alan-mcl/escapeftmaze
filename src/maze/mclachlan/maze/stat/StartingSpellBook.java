@@ -29,6 +29,7 @@ public class StartingSpellBook
 	private int maxLevel;
 	private MagicSys.SpellBook spellBook;
 	private int levelOffset;
+	private String description;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -42,11 +43,13 @@ public class StartingSpellBook
 	public StartingSpellBook(
 		MagicSys.SpellBook spellBook,
 		int maxLevel,
-		int levelOffset)
+		int levelOffset,
+		String description)
 	{
 		this.maxLevel = maxLevel;
 		this.spellBook = spellBook;
 		this.levelOffset = levelOffset;
+		this.description = description;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -86,5 +89,15 @@ public class StartingSpellBook
 	public String toString()
 	{
 		return spellBook.getName() + "("+maxLevel+")";
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public void setDescription(String description)
+	{
+		this.description = description;
 	}
 }

@@ -70,7 +70,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private DIYListBox personalities;
 	private DIYTextArea raceDesc;
 	private DIYListBox characterClasses;
-	private DIYTextArea classDesc;
+	private DIYTextArea classDesc, spellBooksDesc;
 	private DIYTextArea kitDesc;
 	private DIYPane kitItems;
 	private CardLayoutWidget classAndRaceKitCards;
@@ -169,7 +169,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			}
 		}
 
-		this.setClass(
+		this.setCharacterClass(
 			((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName());
 
 		setDefaultPersonality();
@@ -475,28 +475,47 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		characterClasses.setSelected(characterClassList.get(0));
 		characterClasses.addActionListener(this);
 
-		DIYTextArea classDesc = new DIYTextArea("");
-		this.classDesc = classDesc;
+		this.classDesc = new DIYTextArea("");
 		this.classDesc.setBounds(column2, headerOffset+50+25, columnWidth*2, height/3);
-		classDesc.setTransparent(true);
+		this.classDesc.setTransparent(true);
+
+		int yyy = this.classDesc.y+ this.classDesc.height;
+
+		DIYLabel spellBooks = getSubTitle(StringUtil.getUiLabel("cc.spell.books"));
+		Dimension d = spellBooks.getPreferredSize();
+		spellBooks.setBounds(column2, yyy, d.width, d.height);
+
+		yyy = spellBooks.y + spellBooks.height + inset;
+
+		this.spellBooksDesc = new DIYTextArea("");
+		this.spellBooksDesc.setTransparent(true);
+		this.spellBooksDesc.setBounds(
+			column2, yyy,
+			columnWidth*2, spellBooks.height*5); // 5 lines of text enough?
+
+		yyy = spellBooksDesc.y + spellBooksDesc.height + inset;
 
 		DIYLabel abilityProgression = getSubTitle(StringUtil.getUiLabel("cc.ability.progression"));
-		Dimension d = abilityProgression.getPreferredSize();
+		d = abilityProgression.getPreferredSize();
 		abilityProgression.setBounds(
-			column2, classDesc.y+classDesc.height, d.width, d.height);
+			column2, yyy, d.width, d.height);
+
+		yyy = abilityProgression.y + abilityProgression.height + inset;
 
 		int levelsToPreview = 3;
 		Rectangle r = new Rectangle(column2,
-					abilityProgression.y + abilityProgression.height + inset,
-					columnWidth * 2, abilityProgression.height * levelsToPreview);
+			yyy,
+			columnWidth * 2, abilityProgression.height * levelsToPreview);
 		firstLevel = new LevelAbilityProgressionWidget(null, levelsToPreview, r);
 		firstLevel.doLayout();
+
+		yyy = firstLevel.y+firstLevel.height+inset;
 
 		showLevelAbilityProgression = new DIYButton(StringUtil.getUiLabel("cc.show.lap"));
 		showLevelAbilityProgression.addActionListener(this);
 		d = showLevelAbilityProgression.getPreferredSize();
 		showLevelAbilityProgression.setBounds(
-			column2, firstLevel.y+firstLevel.height+inset, d.width, d.height);
+			column2, yyy, d.width, d.height);
 
 		classResourcesWidget = new ResourcesDisplayWidget(
 			getLabel("cc.resources"), 0, 0, 0, false, false);
@@ -520,6 +539,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		classesPane.add(characterClasses);
 
 		classesPane.add(classDesc);
+		classesPane.add(spellBooks);
+		classesPane.add(spellBooksDesc);
 		classesPane.add(abilityProgression);
 		classesPane.add(firstLevel);
 		classesPane.add(showLevelAbilityProgression);
@@ -825,7 +846,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			characterTitle.setText(getLabel("cc.choose.class") + " " +
 				gender.getName()+" "+race.getName());
 			String className = ((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName();
-			setClass(className);
+			setCharacterClass(className);
 		}
 		else if (state == CHOOSE_KIT)
 		{
@@ -1049,7 +1070,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		else if (obj == characterClasses)
 		{
 			String className = ((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName();
-			setClass(className);
+			setCharacterClass(className);
 		}
 		else if (obj == personalities)
 		{
@@ -1092,7 +1113,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 						}
 					}
 					characterClasses.setSelected(ccw);
-					setClass(ccw.characterClass.getName());
+					setCharacterClass(ccw.characterClass.getName());
 
 					break;
 
@@ -1176,15 +1197,35 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void setClass(String className)
+	private void setCharacterClass(String className)
 	{
 		this.characterClass = Database.getInstance().getCharacterClass(className);
+		LevelAbilityProgression progression = characterClass.getProgression();
 
 		String desc = characterClass.getDescription();
 		this.classDesc.setText(desc);
 		this.firstLevel.refresh(characterClass);
 		StatModifier mod = new StatModifier(characterClass.getStartingModifiers());
-		// todo: should we pick up the LAP?
+
+		List<StartingSpellBook> magicAbility = progression.getMagicAbility(20);
+
+		if (magicAbility.isEmpty())
+		{
+			this.spellBooksDesc.setText("None");
+		}
+		else
+		{
+			StringBuilder sb = new StringBuilder();
+			for (StartingSpellBook ssb : magicAbility)
+			{
+				sb.append(ssb.getSpellBook().getName())
+					.append(" (max lvl ").append(ssb.getMaxLevel()).append(")\n")
+					.append(ssb.getDescription());
+			}
+			this.spellBooksDesc.setText(sb.toString());
+		}
+
+		// todo: should we pick up the and lvl1 LAP values in the resources display?
 		this.classResourcesWidget.display(
 			characterClass.getStartingHitPoints(),
 			characterClass.getStartingActionPoints(),

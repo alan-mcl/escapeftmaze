@@ -20,7 +20,9 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.PlayerSpellBook;
 
 /**
  * A class to store the progression of abilities by level.
@@ -183,6 +185,35 @@ public class LevelAbilityProgression
 		}
 
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<StartingSpellBook> getMagicAbility(int atLevel)
+	{
+		List<StartingSpellBook> result = new ArrayList<StartingSpellBook>();
+
+		List<LevelAbility> abilities = getForLevelCumulative(atLevel);
+
+		for (LevelAbility la : abilities)
+		{
+			StatModifier modifier = la.getModifier();
+
+			for (MagicSys.SpellBook sb : MagicSys.getInstance().getSpellBooks())
+			{
+				int maxLevel = modifier.getModifier(sb.getCastingAbilityModifier());
+				if (maxLevel > 0)
+				{
+					PlayerSpellBook playerSpellBook =
+						Database.getInstance().getPlayerSpellBook(sb.getName());
+
+					result.add(
+						new StartingSpellBook(
+							sb, maxLevel, 0, playerSpellBook.getDescription()));
+				}
+			}
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -37,6 +37,7 @@ cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me y
 cc.ability.progression = Special Abilities
 cc.show.lap = Show Full Ability Progression
 cc.locked = ** LOCKED **
+cc.spell.books = Spell Books
 
 # modifier display widget
 mdw.influence.base = Base
