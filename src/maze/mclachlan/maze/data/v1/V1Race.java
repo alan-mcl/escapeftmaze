@@ -258,6 +258,10 @@ public class V1Race
 			b.append("favouredEnemyModifier=");
 			b.append(obj.getFavouredEnemyModifier()==null?"":obj.getFavouredEnemyModifier());
 			b.append(V1Utils.NEWLINE);
+
+			b.append("characterCreationImage=");
+			b.append(obj.getCharacterCreationImage());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -313,6 +317,8 @@ public class V1Race
 				null:
 				Stats.Modifier.valueOf(p.getProperty("favouredEnemyModifier"));
 
+			String characterCreationImage = p.getProperty("characterCreationImage");
+
 			return new Race(
 				name,
 				desc,
@@ -338,7 +344,8 @@ public class V1Race
 				suggestedNames,
 				unlockVariable,
 				unlockDescription,
-				favouredEnemyModifier);
+				favouredEnemyModifier,
+				characterCreationImage);
 		}
 	}
 }

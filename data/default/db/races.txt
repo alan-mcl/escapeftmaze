@@ -23,6 +23,7 @@ suggestedNames=Female:Shen,Lilian,Taki,Elsibet,Fatima,Maryam,Xiaomei,Li,Ananya,S
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/human
 @
 name=Hynobi
 description=A remote desert region in the First Realm is home to a small colony of Hynobi, diminutive reptilian humanoids mistrusted by most of the other races for their devious cunning and bad temper.%n%nThe Hynobi claim to have been exiled to the Maze by an evil wizard in punishment for failing some task in his service.%n%nSpecial: Hynobi are immune to fire damage, and have a fiery breath weapon of their own.
@@ -40,7 +41,7 @@ hand=human hand
 foot=human foot
 rightHandIcon=item/hynobiRightHand
 leftHandIcon=item/hynobiLeftHand
-allowedGenders=Male,Female
+allowedGenders=Female,Male
 magicDead=false
 specialAbility=Hynobi Fire Breath
 startingItems=
@@ -49,6 +50,7 @@ suggestedNames=Female:Thseaa,Kith,X'shan,K'sh,Th'shaa,K'seith,S'carss,Asar,Kacer
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Mirka
 description=The dangerous mountainous areas at the center of the First Realm are home to tribes of wild, white-haired Mirka. Fierce warriors with a reputation for savagery, the Mirka are none the less an intelligent folk with a nomadic society of their own.%n%nAround their campfires the Mirka tell stories of being hunted down and banished from their home to the Maze by a conquering human empire.%n%nSpecial: Mirka are immune to cold damage. They have a chance of flying into a berserk rage in combat.
@@ -75,6 +77,7 @@ suggestedNames=Female:Tashi,Spyang Ki,Khyi,Bya,Khwa Ta,Skye,Lgang Po,Sha Ba,Ri B
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Automaton
 description=The First Realm is home to a small and sad colony of robotic Automata.  Deprived of the supplies and energy sources in this primitive realm, the individuals that remain are unable to reproduce and survive by scavenging parts from their comrades as they slowly run down.%n%nThe Automata claim to have fled to the First Realm seeking freedom from cruel masters.  Most are content to live cautiously in the safety of the realm, conserving their energies and not risking the dangers of the Maze.%n%nSpecial: As machines Automata benefit from a range of resistances and immunities, but are unable to use magic.
@@ -101,6 +104,7 @@ suggestedNames=None:Brokencog,Keepscircuits,Rewire,Leverbrain,Weldedpiston,Rusty
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Goblin
 description=Present throughout the First Realm, Goblins are teased by Humans, persecuted by Dwarves and ignored by the other races.  They have little organisation and industry of their own and survive as thieves and beggars, or at best tinkers and servants.%n%nGoblins tales tell of a curse from a powerful wizard sending their race to the Maze.  Most are too concerned with day to day survival to dream of escaping.%n%nSpecial: Nimble Goblins get an initiative bonus.
@@ -127,6 +131,7 @@ suggestedNames=Female:Sog Snegm,Mer Zmor,Mos Rabek,Rux Gseron,Ztan Kutom,San Dnu
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/goblin
 @
 name=Triton
 description=The warm coasts of the First Realm are inhabited by the hardy bipedal amphibious Triton race.  Superstitious and uncivilised, they dwell in caves and fishing villages and avoid the other races as best they can.%n%nTriton shamans tell of a golden age when their race ruled an empire and levied tributes from men and dwarves, only to be overthrown and banished to the Maze by their subjects.  Now, though, the seas of the First Realm are calm and warm and few Triton have any dreams of conquest.%n%nChildren of the Deep: Triton are resistant to cold and paralysis.%nAmphibious: Tritons are equally at home on land or in the water.
@@ -153,6 +158,7 @@ suggestedNames=Female:Antia,Anxo,Beluca,Brais,Branca,Carme,Catarina,Dores,Erea,I
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Naga
 description=Half man and half snake, a colony of quick tempered Naga inhabit a jewelled city deep in an isolated jungle in the First Realm.%n%nNaga are the race most recently arrived in the Maze, where they were banished along with their whole city after displeasing the capricious god of their people.%n%nSpecial: Naga are resistant to poison and can spit a deadly poison of their own. Their snake-like tails and heads are tough and scaly, but preclude the wearing of many types of armour.
@@ -170,7 +176,7 @@ hand=human hand
 foot=naga tail
 rightHandIcon=item/nagaRightHand
 leftHandIcon=item/nagaLeftHand
-allowedGenders=None,Male,Female
+allowedGenders=Female,Male,None
 magicDead=false
 specialAbility=Naga Poison Spit
 startingItems=
@@ -179,6 +185,7 @@ suggestedNames=Female:Aadhi,Shesha,Balarama,Karkotaka,Mucalinda,Padmavati,Vataks
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Neotroll
 description=The Neotrolls of the First Realm have evolved past the swamp-dwelling bone-gnawing beasts that originally arrived in the Maze. They have a rural iron-age culture and live in small tribal villages in the bleak foothills of the Realm's central mountains. Despite this progress, they remain fierce warriors.%n%nNeotrolls have been imprisoned the longest in the Maze, and the reasons have long been forgotten. Along with those memories has gone much desire to escape from the gilded cage that is the First Realm.%n%nSpecial: Neotrolls retain the greatly boosted body regeneration of their savage ancestors.
@@ -205,6 +212,7 @@ suggestedNames=Female:Barshooka,Bogdana,Nitna,Rudra,Sreka,Srezana,Barhara,Bogro,
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/neotroll
 @
 name=Dwarf
 description=Born of stone and iron, the Dwarves of the First Realm are a hardy and industrious race.  Crafting tools and arms and intricate mechanisms is their delight.%n%nThe Dwarves claim to have arrived in the Maze by accident, while following a vein of silver deep beneath the mountains of their homeland.  They have settled the crags of the First Realm, where there are gems enough that most seldom venture into the lowlands where the other races dwell, let alone attempt to escape their prison.%n%nSpecial: Hardy dwarves are quite resistant to damage.
@@ -231,6 +239,7 @@ suggestedNames=Female:Bolga,Iara,Ada,Blegda,Rali,Sinar,Tinar,Haran,Meran,Boga,So
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Gnome
 description=Small of stature but tough and resilient, the Gnomes of the Second Realm are born survivors. They have delved deep under the earth of Aenen domain and built a formiddable fortress that has kept them safe from the ravages of the Maze for a hundred years.%n%nGnome sages tell of a powerful curse on their race by a jealous dragon that exiled them to the Maze for a thousand generations.%n%nSpecial: cunning Gnomes locate extra gold for the party.
@@ -257,6 +266,7 @@ suggestedNames=Female:Sarsandra,Helphorba,Aephores,Euris,Hecche,Euphilen,Doba,Pa
 unlockVariable=unlock.race.gnome
 unlockDescription=Gnomes are unlocked by earning an audience with King Mnesus in his buried city of Aenen.
 favouredEnemyModifier=
+characterCreationImage=race/gnome
 @
 name=Faerie
 description=Born, some say, from the very essence of their magical home, the mysterious Faerie haunt the deep forests and swamps of the First Realm.%n%nFaeries claim to have been exiled to the Realm along with the elves, although the latter deny this claim. Neither race is trusted or liked enough by outsiders for the truth of the matter to be investigated.%n%nSpecial: A Faerie is a walking source of one gold magic for him or her self, and recovers magic points abnormally fast. In addition, their small size comes with a number of benefits and penalties.
@@ -283,6 +293,7 @@ suggestedNames=Female:Galia,Iarbonel,Nemed,Sera,Braimend,Fiachna,Elada,Indui,Ell
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Dryad
 description=Haunting the forests of the First Realm is a race more alien even than the elves.  Called Dryads, they are half-plant, half-faerie and wholly reclusive.%n%nElves say that Dryads came to the Maze willingly and can come and go as they please.  Those Dryads that venture from the idyllic forests of the First Realm do so for reasons of their own, and say nothing.%n%nSpecial: Dryads share the resistances and vulnerabilities of their constituent plants, and regenerate stealth points. Their small size comes with a number of benefits and penalties. Dryads are a walking source of green magic to themselves.
@@ -309,6 +320,7 @@ suggestedNames=Female:Jacaranda,Hyacinth,Tigerlily,Blossom,Dahlia,Bellis,Aster,R
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @
 name=Elf
 description=The immortal elves, cousins of the sidhe.  Though they are perhaps the least alien of the faerie folk, they are still steeped in magic and enchantment.%n%nThe elves tell of a war in the realms of Faerie, that ended with a betrayal by one of their own and their current imprisonment in the Maze.  With the patience of the fey they dwell in their white castles in the forests of the First Realm, and few attempt to escape the Maze.%n%nSpecial: An Elf is is immune to disease and to possession effects of most kinds.
@@ -335,4 +347,5 @@ suggestedNames=Female:Celadia,Seviel,Tithran,Calalith,Lomoniel,Tinilmandra,Isath
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
+characterCreationImage=race/blank
 @

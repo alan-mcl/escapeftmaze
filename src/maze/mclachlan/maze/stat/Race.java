@@ -86,6 +86,9 @@ public class Race implements TypeDescriptor
 	/** Modifier on attackers that denotes that this race is a favoured enemy */
 	private Stats.Modifier favouredEnemyModifier;
 
+	/** Image displayed on the Create Character wizard */
+	private String characterCreationImage;
+
 	/*-------------------------------------------------------------------------*/
 	public Race(
 		String name,
@@ -112,7 +115,8 @@ public class Race implements TypeDescriptor
 		Map<String, List<String>> suggestedNames,
 		String unlockVariable,
 		String unlockDescription,
-		Stats.Modifier favouredEnemyModifier)
+		Stats.Modifier favouredEnemyModifier,
+		String characterCreationImage)
 	{
 		this.name = name;
 		this.description = description;
@@ -139,6 +143,7 @@ public class Race implements TypeDescriptor
 		this.unlockVariable = unlockVariable;
 		this.unlockDescription = unlockDescription;
 		this.favouredEnemyModifier = favouredEnemyModifier;
+		this.characterCreationImage = characterCreationImage;
 
 		// todo: update the actual data model
 		bodyParts = new PercentageTable<BodyPart>();
@@ -172,7 +177,8 @@ public class Race implements TypeDescriptor
 			null,
 			null,
 			null,
-			ft.getFavouredEnemyModifier());
+			ft.getFavouredEnemyModifier(),
+			null);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -494,5 +500,15 @@ public class Race implements TypeDescriptor
 	public int hashCode()
 	{
 		return name.hashCode();
+	}
+
+	public String getCharacterCreationImage()
+	{
+		return this.characterCreationImage;
+	}
+
+	public void setCharacterCreationImage(String characterCreationImage)
+	{
+		this.characterCreationImage = characterCreationImage;
 	}
 }

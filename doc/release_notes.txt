@@ -11,6 +11,7 @@ Features
  - Added AttackWithWeaponSpellResult
  - Implemented Backstab as a Spell: results in a weapon attack, costs AP
  - NPC Inventory Templates can now include Loot Entries
+ - Added character race images and spell book descriptions to the character creation wizard
  - Added Iajutsu special ability
  - Added foe information popup on click of the sprite during actor encounters and combat
  - Added foe types as configurable objects, can provide modifiers and abilities to foes

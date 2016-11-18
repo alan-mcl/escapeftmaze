@@ -40,7 +40,7 @@ public class RacePanel extends EditorPanel
 		constantModifiers,
 		bannerModifiers,
 		attributeCeilings;
-	private JTextField leftHandIcon, rightHandIcon, unlockVariable;
+	private JTextField leftHandIcon, rightHandIcon, unlockVariable, characterCreationImage;
 	private GenderSelection allowedGenders;
 	private JCheckBox magicDead;
 	private JComboBox specialAbility, favouredEnemyModifier;
@@ -188,6 +188,10 @@ public class RacePanel extends EditorPanel
 		favouredEnemyModifier.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Favoured Enemy Modifier:"), favouredEnemyModifier, gbc);
 
+		characterCreationImage = new JTextField(20);
+		characterCreationImage.addKeyListener(this);
+		dodgyGridBagShite(result, new JLabel("Character Creation Image:"), characterCreationImage, gbc);
+
 		bodyParts = new PlayerBodyPartTablePanel("Body Parts", dirtyFlag);
 		gbc.weightx = 1.0;
 		gbc.weighty = 0.0;
@@ -258,6 +262,7 @@ public class RacePanel extends EditorPanel
 		startingItems.refresh(race.getStartingItems());
 		Stats.Modifier fem = race.getFavouredEnemyModifier();
 		favouredEnemyModifier.setSelectedItem(fem == null ? NONE : fem);
+		characterCreationImage.setText(race.getCharacterCreationImage());
 
 		bodyParts.refresh(
 			race.getHead(),
@@ -297,6 +302,7 @@ public class RacePanel extends EditorPanel
 			"",
 			new ArrayList<Gender>(),
 			false,
+			null,
 			null,
 			null,
 			null,
@@ -346,7 +352,8 @@ public class RacePanel extends EditorPanel
 			current.getSuggestedNames(),
 			current.getUnlockVariable(),
 			current.getUnlockDescription(),
-			current.getFavouredEnemyModifier());
+			current.getFavouredEnemyModifier(),
+			current.getCharacterCreationImage());
 
 		Database.getInstance().getRaces().put(newName, race);
 	}
@@ -391,5 +398,7 @@ public class RacePanel extends EditorPanel
 
 		String spellName = (String)specialAbility.getSelectedItem();
 		r.setSpecialAbility(spellName.equals(NONE)?null:Database.getInstance().getSpell(spellName));
+
+		r.setCharacterCreationImage(characterCreationImage.getText());
 	}
 }

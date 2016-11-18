@@ -50,7 +50,7 @@ public class FoeType extends Race implements TypeDescriptor
 			hand, foot, leftHandIcon, rightHandIcon, allowedGenders, isMagicDead,
 			specialAbility, startingItems, naturalWeapons, suggestedNames,
 			unlockVariable, unlockDescription,
-			favouredEnemyModifer);
+			favouredEnemyModifer, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -81,7 +81,8 @@ public class FoeType extends Race implements TypeDescriptor
 			race.getSuggestedNames(),
 			race.getUnlockVariable(),
 			race.getUnlockDescription(),
-			race.getFavouredEnemyModifier());
+			race.getFavouredEnemyModifier(),
+			race.getCharacterCreationImage());
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -69,6 +69,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private DIYListBox races;
 	private DIYListBox personalities;
 	private DIYTextArea raceDesc;
+	private DIYLabel raceImage;
 	private DIYListBox characterClasses;
 	private DIYTextArea classDesc, spellBooksDesc;
 	private DIYTextArea kitDesc;
@@ -693,10 +694,10 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		ArrayList<ContainerWidget> genders = new ArrayList<ContainerWidget>();
 
 		raceDesc = new DIYTextArea("");
-		raceDesc.setBounds(column2, headerOffset + 50 + 25, columnWidth * 2, 170);
+		raceDesc.setBounds(column2, headerOffset + 50 + 25, columnWidth * 2, height/3);
 		raceDesc.setTransparent(true);
 
-		int genderY = headerOffset+ height - 220;
+		int genderY = headerOffset+height - 330;
 		for (String raceName : raceList)
 		{
 			Race race = Database.getInstance().getRace(raceName);
@@ -718,7 +719,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				temp.add(radioButton);
 				radioButton.addActionListener(this);
 				radioButton.setActionMessage(SET_GENDER);
-				radioButton.setBounds(column2, genderY+20*(count+1), columnWidth, 20);
+				radioButton.setBounds(column1, genderY+20*(count+1), columnWidth, 20);
 				genderBG.addButton(radioButton);
 				count++;
 			}
@@ -727,10 +728,15 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			genders.add(temp);
 		}
 
+		raceImage = new DIYLabel();
+		raceImage.setBounds(column2, raceDesc.y+raceDesc.height+inset,
+			columnWidth*2, raceDesc.height);
+		System.out.println("raceImage.getBounds() = [" + raceImage.getBounds() + "]");
+
 		DIYLabel genderLabel = getSubTitle(getLabel("cc.gender.title"));
-		genderLabel.setBounds(column2, genderY, genderLabel.getPreferredSize().width, 20);
+		genderLabel.setBounds(column1, genderY, genderLabel.getPreferredSize().width, 20);
 		raceGenderChoices = new CardLayoutWidget(
-			new Rectangle(column2, genderY, columnWidth, 20*nrGenders),
+			new Rectangle(column1, genderY, columnWidth, 20*nrGenders),
 			genders);
 		raceGenderChoices.doLayout();
 
@@ -756,6 +762,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		pane.add(raceTitle);
 		pane.add(races);
+		pane.add(raceImage);
 		pane.add(raceResourcesWidget);
 		pane.add(raceModifiersWidget1);
 		pane.add(raceModifiersWidget2);
@@ -1257,10 +1264,12 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		if (race.isLocked())
 		{
 			this.raceDesc.setText(getLabel("cc.locked")+"\n\n"+race.getUnlockDescription());
+			this.raceImage.setIcon(null);
 		}
 		else
 		{
 			this.raceDesc.setText(desc);
+			this.raceImage.setIcon(Database.getInstance().getImage(race.getCharacterCreationImage()));
 		}
 		StatModifier mods = new StatModifier(race.getStartingModifiers());
 		mods.addModifiers(race.getConstantModifiers());
