@@ -2225,6 +2225,7 @@ public class Maze implements Runnable
 	{
 		public static final String SCREEN_WIDTH = "mclachlan.maze.screen.width";
 		public static final String SCREEN_HEIGHT = "mclachlan.maze.screen.height";
+		public static final String FULL_SCREEN = "mclachlan.maze.full.screen";
 
 		public static final String LOG_IMPL = "mclachlan.maze.log.impl";
 		public static final String LOG_LEVEL = "mclachlan.maze.log.level";

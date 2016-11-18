@@ -61,6 +61,7 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class DiyGuiUserInterface extends Frame implements UserInterface
 {
+	public static boolean FULL_SCREEN;
 	public static int SCREEN_WIDTH;
 	public static int SCREEN_HEIGHT;
 	public static int SCREEN_EDGE_INSET;
@@ -161,6 +162,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		SCREEN_WIDTH = Integer.parseInt(p.get(Maze.AppConfig.SCREEN_WIDTH));
 		SCREEN_HEIGHT = Integer.parseInt(p.get(Maze.AppConfig.SCREEN_HEIGHT));
+		FULL_SCREEN = Boolean.valueOf(p.get(Maze.AppConfig.FULL_SCREEN));
 		ZONE_DISPLAY_HEIGHT = SCREEN_HEIGHT / 9;
 		MAZE_WIDTH = SCREEN_WIDTH / 2;
 		MAZE_HEIGHT = SCREEN_HEIGHT * 7 / 12;
@@ -236,15 +238,24 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		new EventProcessor(queue).start();
 
-		GraphicsDevice device =
-			GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		if (FULL_SCREEN)
+		{
+			GraphicsDevice device =
+				GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
 
-		this.enableEvents(KeyEvent.KEY_EVENT_MASK);
-		this.setUndecorated(true);
+			this.enableEvents(KeyEvent.KEY_EVENT_MASK);
+			this.setUndecorated(true);
 
-		device.setFullScreenWindow(this);
-		this.enableInputMethods(false);
-		device.setDisplayMode(getDisplayMode(device));
+			device.setFullScreenWindow(this);
+			this.enableInputMethods(false);
+			device.setDisplayMode(getDisplayMode(device));
+		}
+		else
+		{
+			this.setUndecorated(true); // todo: support the native menu bar?
+			this.setBounds(100, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
+			this.setVisible(true);
+		}
 
 		this.createBufferStrategy(2);
 
