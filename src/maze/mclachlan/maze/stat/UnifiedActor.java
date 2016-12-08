@@ -881,6 +881,105 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract NpcScript getActionScript();
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Smartly attempts to add the item to this actor. It is added to a slot
+	 * if possible in a prioritised way.
+	 * <ol>
+	 *    <li>Primary weapon
+	 *    <li>Secondary weapon
+	 *    <li>any other equipable slot, starting with misc
+	 *    <li>inventory
+	 * </ol>
+	 *
+	 * @return
+	 * 	true if the item was added, false otherwise
+	 */
+	public boolean addItemSmartly(Item item)
+	{
+		BitSet slots = item.getEquipableSlots();
+
+		if (slots.get(PlayerCharacter.EquipableSlots.PRIMARY_WEAPON) &&
+			this.hasEquipableSlot(PRIMARY_WEAPON) &&
+			this.getPrimaryWeapon() == null)
+		{
+			this.setPrimaryWeapon(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.SECONDARY_WEAPON) &&
+			this.hasEquipableSlot(SECONDARY_WEAPON) &&
+			this.getSecondaryWeapon() == null)
+		{
+			this.setSecondaryWeapon(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.BANNER_ITEM) &&
+			this.hasEquipableSlot(BANNER_ITEM) &&
+			this.getBannerItem() == null)
+		{
+			this.setBannerItem(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.MISC_ITEM_1) &&
+			this.hasEquipableSlot(MISC_ITEM))
+		{
+			if (this.getMiscItem1() == null)
+			{
+				this.setMiscItem1(item);
+				return true;
+			}
+			else if (this.getMiscItem2() == null)
+			{
+				this.setMiscItem2(item);
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.HELM) &&
+			this.hasEquipableSlot(HELM) &&
+			this.getHelm() == null)
+		{
+			this.setHelm(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.TORSO_ARMOUR) &&
+			this.hasEquipableSlot(TORSO_ARMOUR) &&
+			this.getTorsoArmour() == null)
+		{
+			this.setTorsoArmour(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.LEG_ARMOUR) &&
+			this.hasEquipableSlot(LEG_ARMOUR) &&
+			this.getLegArmour() == null)
+		{
+			this.setLegArmour(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.GLOVES) &&
+			this.hasEquipableSlot(GLOVES) &&
+			this.getGloves() == null)
+		{
+			this.setGloves(item);
+			return true;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.BOOTS) &&
+			this.hasEquipableSlot(BOOTS) &&
+			this.getBoots() == null)
+		{
+			this.setBoots(item);
+			return true;
+		}
+		else
+		{
+			return addInventoryItem(item);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Attempts to add an item to this characters inventory.
 	 *

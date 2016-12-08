@@ -132,7 +132,10 @@ public class GroupOfPossibilities<T>
 	/*-------------------------------------------------------------------------*/
 	public void addAll(GroupOfPossibilities<T> other)
 	{
-		this.percentages.addAll(other.getPercentages());
-		this.possibilities.addAll(other.getPossibilities());
+		if (other != null)
+		{
+			this.percentages.addAll(other.getPercentages());
+			this.possibilities.addAll(other.getPossibilities());
+		}
 	}
 }

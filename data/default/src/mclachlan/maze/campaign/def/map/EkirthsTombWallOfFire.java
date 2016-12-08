@@ -62,6 +62,12 @@ public class EkirthsTombWallOfFire extends TileScript
 	/*-------------------------------------------------------------------------*/
 	private static class DummyAttackWith implements AttackWith
 	{
+		@Override
+		public String getName()
+		{
+			return getDisplayName();
+		}
+
 		public String getDisplayName()
 		{
 			return "DummyAttackWith.getDisplayName";

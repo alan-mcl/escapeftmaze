@@ -30,21 +30,45 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class RemoveItemEvent extends MazeEvent
 {
-	String item;
+	private String item;
+	private UnifiedActor actor = null;
 
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Removes all items with the given name from all characters, lost forever
+	 */
 	public RemoveItemEvent(String item)
 	{
 		this.item = item;
 	}
 
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Removes the given item from the given character
+	 */
+	public RemoveItemEvent(String item, UnifiedActor actor)
+	{
+		this.item = item;
+		this.actor = actor;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		// removes all items with the given name from all characters, lost forever
-		PlayerParty party = Maze.getInstance().getParty();
-
-		for (UnifiedActor actor : party.getActors())
+		if (actor == null)
 		{
-			actor.removeItem(item, true);
+			PlayerParty party = Maze.getInstance().getParty();
+
+			for (UnifiedActor actor : party.getActors())
+			{
+				actor.removeItem(item, true);
+			}
+		}
+		else
+		{
+			actor.removeItem(item, false);
 		}
 
 		return null;

@@ -27,8 +27,20 @@ import mclachlan.maze.stat.GroupOfPossibilities;
  */
 public abstract class V1GroupOfPossibilties<T>
 {
-	public static final String ROW_SEP = ",";
-	public static final String COL_SEP = ":";
+	public String ROW_SEP = ",";
+	public String COL_SEP = ":";
+
+	/*-------------------------------------------------------------------------*/
+	protected V1GroupOfPossibilties()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected V1GroupOfPossibilties(String ROW_SEP, String COL_SEP)
+	{
+		this.ROW_SEP = ROW_SEP;
+		this.COL_SEP = COL_SEP;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public String toString(GroupOfPossibilities<T> pt)

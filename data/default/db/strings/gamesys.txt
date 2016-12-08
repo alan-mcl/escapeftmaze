@@ -260,6 +260,8 @@ modifier_name-actionRegenWasteland: Action Regen: Wasteland
 modifier_name-dangerSense: Danger Sense
 modifier_name-quickWits: Quick Wits
 modifier_name-trapSense: Trap Sense
+modifier_name-slipAway: Slip Away
+modifier_name-hiddenBlade: Hidden Blade
 
 # Modifier Descriptions
 
@@ -513,6 +515,8 @@ modifier_desc-actionRegenWasteland: This character has boosted Action Point rege
 modifier_desc-dangerSense: This character has bonus resistance against trap spells and backfiring spells from party.
 modifier_desc-quickWits: When the party is surprised, this character can act in the surprise round.
 modifier_desc-trapSense: This character automatically identifies traps.
+modifier_desc-slipAway: If this character is the last one left alive in the party, he or she will automatically escape from combat
+modifier_desc-hiddenBlade: The character can equip a hidden blade in an available empty hand.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -639,14 +643,12 @@ lap_name_steal = Steal %s
 lap_desc_steal = The character has a much better chance of stealing items from vendors.
 lap_name_dodge = Dodge %s
 lap_desc_dodge = This character has a chance of dodging melee and missile attacks.
-lap_name_bribe = Bribe %s
-lap_desc_bribe = This character can bribe others into working with him or her.
-
 
 # NPC abilities
 lap_name_threaten = Threaten
 lap_desc_threaten = The character can bully an NPC is improving their attitude towards the party.
-
+lap_name_bribe = Bribe %s
+lap_desc_bribe = This character can bribe others into working with him or her.
 
 # Acolyte
 lap_name_unholy = Unholy
@@ -772,12 +774,23 @@ lap_desc_disable = The Burglar executes a melee attack that can apply the Web an
 lap_name_trap_sense = Trap Sense
 lap_desc_trap_sense = The Burglar automatically identifies traps.
 
-
-# Cultist
-lap_name_hex_touch = Hex Touch %s
-lap_desc_hex_touch = The touch of the Cultist bears a direful curse for unbelievers. Which includes just about everybody else.
-lap_name_fanatic = Fanatic
-lap_desc_fanatic = The Cultist has focused her mind and ignores mere physical pain and sleep effects.
+# Courtesan
+lap_name_evasion = Evasion
+lap_desc_evasion = Discretion being the better part of valour, the Courtesan receives a bonus to attempts to run away from combat.
+lap_name_charmed_destiny = Charmed Destiny
+lap_desc_charmed_destiny = The Courtesan receives a bonus to various protective modifiers based on the amount of Purple magic present.
+lap_name_slip_away = Slip Away
+lap_desc_slip_away = If the Courtesan is the last one left alive in the party, she will automatically escape from combat.
+lap_name_hidden_blade_1 = Hidden Blade 1
+lap_name_hidden_blade_2 = Hidden Blade 2
+lap_name_hidden_blade_3 = Hidden Blade 3
+lap_desc_hidden_blade = If she has an empty hand, the Courtesan can suddenly equip a hidden dagger.
+lap_name_underhand_throw_1 = Underhand Throw 1
+lap_name_underhand_throw_2 = Underhand Throw 2
+lap_name_underhand_throw_3 = Underhand Throw 3
+lap_desc_underhand_throw_1 = The Courtesan can throw an equipped dagger with bonuses to hit and critical.
+lap_desc_underhand_throw_2 = The Courtesan can throw an equipped dagger with bonuses to hit and critical. The attack can also poison and paralyze the target.
+lap_desc_underhand_throw_3 = The Courtesan can throw an equipped dagger with bonuses to hit and critical. The attack can also poison, paralyze, hex and petrify the target.
 
 # Druid
 lap_name_pass_without_trace = Pass Without Trace
@@ -804,12 +817,6 @@ lap_name_pack_mule = Pack Mule
 lap_desc_pack_mule = The Gadgeteer gets a bonus to his or her carrying capacity.
 lap_name_signature_weapon = Signature Weapon
 lap_desc_signature_weapon = On level up, the Gadgeteer has a chance of upgrading a signature weapon in his or her possession.
-
-# Courtesan
-lap_name_evasion = Evasion
-lap_desc_evasion = Discretion being the better part of valour, the Courtesan receives a bonus to attempts to run away from combat.
-lap_name_charmed_destiny = Charmed Destiny
-lap_desc_charmed_destiny = The Courtesan receives a bonus to various protective modifiers based on the amount of Purple magic present.
 
 # Hero
 lap_name_cheat_death = Cheat Death

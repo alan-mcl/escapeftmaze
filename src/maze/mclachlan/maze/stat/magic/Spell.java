@@ -368,7 +368,7 @@ public class Spell
 		{
 			if (!se.meetsRequirements(actor))
 			{
-				Maze.log(Log.DEBUG, this.getName() + ": failed spell efffect requirement: " + se.getName());
+				Maze.log(Log.DEBUG, this.getName() + ": failed spell effect requirement: " + se.getName());
 				return false;
 			}
 		}

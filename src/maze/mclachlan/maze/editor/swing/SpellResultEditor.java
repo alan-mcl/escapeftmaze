@@ -77,6 +77,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		types.put(BoozeSpellResult.class, BOOZE);
 		types.put(ForgetSpellResult.class, FORGET);
 		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
+		types.put(CreateItemSpellResult.class, CREATE_ITEM);
 	}
 
 	private SpellResult result;
@@ -125,7 +126,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JComboBox<String> weaponAttackScript;
 	private JComboBox<String> weaponAttackType;
 	private JComboBox<String> requiredWeaponType;
-	private JCheckBox weaponRequiresBackstab, weaponRequiresSnipe;
+	private JCheckBox weaponRequiresBackstab, weaponRequiresSnipe, consumesWeapon;
+	private GroupOfPossibilitiesPanel spellEffects;
+	private JComboBox<String> createItemLootTables;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellResultEditor(
@@ -232,6 +235,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				weaponRequiresSnipe.setSelected(awwsr.isRequiresSnipeWeapon());
 				requiredWeaponType.setSelectedItem(
 					ItemTemplate.WeaponSubType.describe(awwsr.getRequiredWeaponType()));
+				consumesWeapon.setSelected(awwsr.isConsumesWeapon());
+				spellEffects.refresh(awwsr.getSpellEffects());
 
 				break;
 			case CHARM:
@@ -342,6 +347,10 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				conditionIdentificationStrength.setValue(cisr.getStrength());
 				canIdenfityConditionStrength.setSelected(cisr.isCanIdentifyConditionStrength());
 				break;
+			case CREATE_ITEM:
+				CreateItemSpellResult createItemSpellResult = (CreateItemSpellResult)sr;
+				createItemLootTables.setSelectedItem(createItemSpellResult.getLootTable());
+				break;
 
 			default: throw new MazeException("Invalid type "+srType);
 		}
@@ -368,7 +377,6 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case THEFT_FAILED: return getTheftFailedPanel();
 			case UNLOCK: return getUnlockPanel();
 			case DRAIN: return getDrainPanel();
-			case DAMAGE_FOE_TYPE: return new JPanel();
 			case CASTER_DEATH: return new JPanel();
 			case CONDITION_REMOVAL: return getConditionRemovalPanel();
 			case DEATH: return new JPanel();
@@ -378,8 +386,20 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case BOOZE: return new JPanel();
 			case FORGET: return getForgetPanel();
 			case CONDITION_IDENTIFICATION: return getConditionIdentificationPanel();
+			case CREATE_ITEM: return getCreateItemPanel();
 			default: throw new MazeException("Invalid type "+type);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getCreateItemPanel()
+	{
+		Vector<String> vec = new Vector<String>();
+		vec.addAll(Database.getInstance().getLootTables().keySet());
+		Collections.sort(vec);
+		createItemLootTables = new JComboBox<String>(vec);
+
+		return dirtyGridLayoutCrap(new JLabel("Loot Table:"), createItemLootTables);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -414,6 +434,14 @@ public class SpellResultEditor extends JDialog implements ActionListener
 
 		requiredWeaponType = new JComboBox<String>(weaponTypes);
 
+		consumesWeapon = new JCheckBox("Consumes weapon?");
+
+		spellEffects = new GroupOfPossibilitiesPanel(
+			SwingEditor.Tab.SPELL_EFFECTS, 0.5);
+		List<String> spellEffectNames = new ArrayList<String>(
+			Database.getInstance().getSpellEffects().keySet());
+		spellEffects.initForeignKeys(spellEffectNames);
+
 		return dirtyGridLayoutCrap(
 			new JLabel("Modifiers:"), weaponModifiers,
 			new JLabel("Nr Strikes:"), weaponNrStrikes,
@@ -422,7 +450,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			new JLabel("Attack Script:"), weaponAttackScript,
 			new JLabel("Required Weapon Type"), requiredWeaponType,
 			new JLabel(), weaponRequiresBackstab,
-			new JLabel(), weaponRequiresSnipe
+			new JLabel(), weaponRequiresSnipe,
+			new JLabel(), consumesWeapon,
+			new JLabel("Spell Effects:"), spellEffects
 			);
 	}
 
@@ -691,13 +721,6 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private JPanel getCasterFatiguePanel()
-	{
-		casterFatigueValue = new ValueComponent(dirtyFlag);
-		return dirtyGridLayoutCrap(new JLabel("Fatigue Value: "), casterFatigueValue);
-	}
-
-	/*-------------------------------------------------------------------------*/
 	private JPanel getCustomPanel()
 	{
 		impl = new JTextField(20);
@@ -791,7 +814,6 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case THEFT_FAILED: return "Theft Failed";
 			case UNLOCK: return "Unlock";
 			case DRAIN: return "Drain";
-			case DAMAGE_FOE_TYPE: return "* removed *";
 			case CASTER_DEATH: return "* removed *";
 			case CONDITION_REMOVAL: return "Condition Removal/Curing";
 			case DEATH: return "Death";
@@ -801,6 +823,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case BOOZE: return "Booze";
 			case FORGET: return "Forget";
 			case CONDITION_IDENTIFICATION: return "Condition Identification";
+			case CREATE_ITEM: return "Create Item";
 			default: throw new MazeException("Invalid type "+type);
 		}
 	}
@@ -884,7 +907,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 					attackScript,
 					weaponRequiresBackstab.isSelected(),
 					weaponRequiresSnipe.isSelected(),
-					ItemTemplate.WeaponSubType.valueOf((String)requiredWeaponType.getSelectedItem()));
+					consumesWeapon.isSelected(),
+					ItemTemplate.WeaponSubType.valueOf((String)requiredWeaponType.getSelectedItem()),
+					spellEffects.getGroupOfPossibilties());
 				break;
 			case CHARM:
 				result = new CharmSpellResult(charmValue.getValue());
@@ -973,6 +998,10 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				result = new ConditionIdentificationSpellResult(
 					conditionIdentificationStrength.getValue(),
 					canIdenfityConditionStrength.isSelected());
+				break;
+			case CREATE_ITEM:
+				result = new CreateItemSpellResult(
+					(String)createItemLootTables.getSelectedItem());
 				break;
 			default: throw new MazeException("Invalid type "+srType);
 		}

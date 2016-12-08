@@ -30,6 +30,7 @@ import java.util.List;
  */
 public interface AttackWith
 {
+	String getName();
 	String getDisplayName();
 
 	int getToHit();

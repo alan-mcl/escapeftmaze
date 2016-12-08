@@ -25,11 +25,13 @@ import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.game.event.RemoveItemEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.ActorActionResolver;
 import mclachlan.maze.stat.combat.AttackAction;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.combat.event.FumblesEvent;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
@@ -44,8 +46,9 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	private AttackType attackType;
 	private MagicSys.SpellEffectType damageType;
 	private String attackScript;
-	private boolean requiresBackstabWeapon, requiresSnipeWeapon;
+	private boolean requiresBackstabWeapon, requiresSnipeWeapon, consumesWeapon;
 	private int requiredWeaponType;
+	private GroupOfPossibilities<String> spellEffects;
 
 	/*-------------------------------------------------------------------------*/
 
@@ -57,7 +60,9 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		String attackScript,
 		boolean requiresBackstabWeapon,
 		boolean requiresSnipeWeapon,
-		int requiredWeaponType)
+		boolean consumesWeapon,
+		int requiredWeaponType,
+		GroupOfPossibilities<String> spellEffects)
 	{
 		this.nrStrikes = nrStrikes;
 		this.modifiers = modifiers;
@@ -66,7 +71,9 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		this.attackScript = attackScript;
 		this.requiresBackstabWeapon = requiresBackstabWeapon;
 		this.requiresSnipeWeapon = requiresSnipeWeapon;
+		this.consumesWeapon = consumesWeapon;
 		this.requiredWeaponType = requiredWeaponType;
+		this.spellEffects = spellEffects;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -127,6 +134,10 @@ public class AttackWithWeaponSpellResult extends SpellResult
 				target,
 				action,
 				new AnimationContext(source)));
+
+		// consume the weapon?
+		result.add(
+			new RemoveItemEvent(weapon.getName(), source));
 
 		return result;
 	}
@@ -223,7 +234,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		{
 			weapon = GameSys.getInstance().getUnarmedWeapon(source, true);
 		}
-		return weapon;
+		return new AttackWithProxy(weapon, getSpellEffects());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -306,5 +317,182 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	public void setRequiredWeaponType(int requiredWeaponType)
 	{
 		this.requiredWeaponType = requiredWeaponType;
+	}
+
+	public boolean isConsumesWeapon()
+	{
+		return consumesWeapon;
+	}
+
+	public void setConsumesWeapon(boolean consumesWeapon)
+	{
+		this.consumesWeapon = consumesWeapon;
+	}
+
+	public GroupOfPossibilities<String> getSpellEffects()
+	{
+		return spellEffects;
+	}
+
+	public void setSpellEffects(GroupOfPossibilities<String> spellEffects)
+	{
+		this.spellEffects = spellEffects;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class AttackWithProxy implements AttackWith
+	{
+		private AttackWith weapon;
+		private GroupOfPossibilities<SpellEffect> spellEffects;
+
+		public AttackWithProxy(
+			AttackWith weapon, GroupOfPossibilities<String> extraSpellEffects)
+		{
+			this.weapon = weapon;
+
+			spellEffects = new GroupOfPossibilities<SpellEffect>();
+			spellEffects.addAll(weapon.getSpellEffects());
+			if (extraSpellEffects != null)
+			{
+				for (String s : extraSpellEffects.getPossibilities())
+				{
+					spellEffects.add(
+						Database.getInstance().getSpellEffect(s),
+						extraSpellEffects.getPercentage(s));
+				}
+			}
+		}
+
+		@Override
+		public String getName()
+		{
+			return weapon.getName();
+		}
+
+		@Override
+		public String getDisplayName()
+		{
+			return weapon.getDisplayName();
+		}
+
+		@Override
+		public int getToHit()
+		{
+			return weapon.getToHit();
+		}
+
+		@Override
+		public int getToPenetrate()
+		{
+			return weapon.getToPenetrate();
+		}
+
+		@Override
+		public int getToCritical()
+		{
+			return weapon.getToCritical();
+		}
+
+		@Override
+		public Dice getDamage()
+		{
+			return weapon.getDamage();
+		}
+
+		@Override
+		public MagicSys.SpellEffectType getDefaultDamageType()
+		{
+			return weapon.getDefaultDamageType();
+		}
+
+		@Override
+		public String describe(AttackEvent e)
+		{
+			return weapon.describe(e);
+		}
+
+		@Override
+		public String[] getAttackTypes()
+		{
+			return weapon.getAttackTypes();
+		}
+
+		@Override
+		public int getMaxRange()
+		{
+			return weapon.getMaxRange();
+		}
+
+		@Override
+		public int getMinRange()
+		{
+			return weapon.getMinRange();
+		}
+
+		@Override
+		public boolean isRanged()
+		{
+			return weapon.isRanged();
+		}
+
+		@Override
+		public boolean isBackstabCapable()
+		{
+			return weapon.isBackstabCapable();
+		}
+
+		@Override
+		public boolean isSnipeCapable()
+		{
+			return weapon.isSnipeCapable();
+		}
+
+		@Override
+		public GroupOfPossibilities<SpellEffect> getSpellEffects()
+		{
+			return spellEffects;
+		}
+
+		@Override
+		public int getSpellEffectLevel()
+		{
+			return weapon.getSpellEffectLevel();
+		}
+
+		@Override
+		public TypeDescriptor slaysFoeType()
+		{
+			return weapon.slaysFoeType();
+		}
+
+		@Override
+		public MazeScript getAttackScript()
+		{
+			return weapon.getAttackScript();
+		}
+
+		@Override
+		public ItemTemplate.AmmoType isAmmoType()
+		{
+			return weapon.isAmmoType();
+		}
+
+		@Override
+		public List<ItemTemplate.AmmoType> getAmmoRequired()
+		{
+			return weapon.getAmmoRequired();
+		}
+
+		@Override
+		public int getToInitiative()
+		{
+			return weapon.getToInitiative();
+		}
+
+		@Override
+		public int getWeaponType()
+		{
+			return weapon.getWeaponType();
+		}
 	}
 }

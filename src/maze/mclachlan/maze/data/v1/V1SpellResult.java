@@ -53,7 +53,7 @@ public class V1SpellResult
 	public static final int THEFT_FAILED = 13;
 	public static final int UNLOCK = 14;
 	public static final int DRAIN = 15;
-	/** @deprecated */ public static final int DAMAGE_FOE_TYPE = 16; // removed
+	public static final int CREATE_ITEM = 16;
 	/** @deprecated */ public static final int CASTER_DEATH = 17; // removed
 	public static final int CONDITION_REMOVAL = 18;
 	public static final int DEATH = 19;
@@ -93,7 +93,24 @@ public class V1SpellResult
 		types.put(BoozeSpellResult.class, BOOZE);
 		types.put(ForgetSpellResult.class, FORGET);
 		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
+		types.put(CreateItemSpellResult.class, CREATE_ITEM);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	static V1GroupOfPossibilties<String> spellEffects =
+		new V1GroupOfPossibilties<String>(";",",")
+	{
+		public String typeFromString(String s)
+		{
+			return s;
+		}
+
+		public String typeToString(String spellEffect)
+		{
+			return spellEffect;
+		}
+	};
+
 	
 	/*-------------------------------------------------------------------------*/
 	static V1List<ConditionEffect> conditionEffects = new V1List<ConditionEffect>()
@@ -159,6 +176,10 @@ public class V1SpellResult
 				s.append(Boolean.toString(awwsr.isRequiresSnipeWeapon()));
 				s.append(SEP);
 				s.append(Integer.toString(awwsr.getRequiredWeaponType()));
+				s.append(SEP);
+				s.append(Boolean.toString(awwsr.isConsumesWeapon()));
+				s.append(SEP);
+				s.append(spellEffects.toString(awwsr.getSpellEffects()));
 				break;
 			case CHARM:
 				s.append(V1Value.toString(((CharmSpellResult)sr).getValue()));
@@ -267,6 +288,10 @@ public class V1SpellResult
 				s.append(SEP);
 				s.append(cisr.isCanIdentifyConditionStrength());
 				break;
+			case CREATE_ITEM:
+				CreateItemSpellResult createItemSpellResult = (CreateItemSpellResult)sr;
+				s.append(createItemSpellResult.getLootTable());
+				break;
 
 			default: throw new MazeException("Invalid type: "+type+" ["+sr+"]");
 		}
@@ -324,6 +349,11 @@ public class V1SpellResult
 
 				int requiredWeaponType = Integer.parseInt(strs[i++]);
 
+				boolean consumesItem = Boolean.valueOf(strs[i++]);
+
+				GroupOfPossibilities<String> se =
+					spellEffects.fromString(strs[i++]);
+
 				result = new AttackWithWeaponSpellResult(
 					nrStrikes,
 					modifiers,
@@ -332,7 +362,9 @@ public class V1SpellResult
 					attackScript,
 					requiresBackstabWeapon,
 					requiresSnipeWeapon,
-					requiredWeaponType);
+					consumesItem,
+					requiredWeaponType,
+					se);
 				break;
 			case CHARM:
 				Value v = V1Value.fromString(strs[i++]);
@@ -431,6 +463,10 @@ public class V1SpellResult
 				v = V1Value.fromString(strs[i++]);
 				boolean b = Boolean.valueOf(strs[i++]);
 				result = new ConditionIdentificationSpellResult(v, b);
+				break;
+			case CREATE_ITEM:
+				String lootTable = strs[i++];
+				result = new CreateItemSpellResult(lootTable);
 				break;
 
 			default: throw new MazeException(

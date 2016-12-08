@@ -289,14 +289,23 @@ lootEntries=low.level.gold:100,low.level.gold:50,exotic.starting.items:75,batch.
 name=gatehouse.minor.loot.3
 lootEntries=batch.1.ammo:100,batch.1.ammo:25,batch.1.mundane.armour:100,batch.1.mundane.armour:25,batch.1.mundane.weapons:100,batch.1.mundane.weapons:25,batch.1.booze:75,batch.1.food:75,batch.1.ammo:75,gold.100:100,batch.1.throwing.weapons:50,batch.1.gadgets:50
 @
+name=HIDDEN_BLADE_1
+lootEntries=I~Dagger:100
+@
 name=Sarij.bin.Abdullah.loot
 lootEntries=I~Kwai:100,I~Bite Dagger:100,I~Copper Coin:35,I~Throwing Knife:100,I~Cloth Pants:100
 @
 name=disassembly.clockwork.head
 lootEntries=I~Electric Eye:100,I~Electrodes:100
 @
+name=HIDDEN_BLADE_3
+lootEntries=I~Stiletto:100
+@
 name=puppet.loot
 lootEntries=exotic.starting.items:10,batch.2.magic.trinkets:5
+@
+name=HIDDEN_BLADE_2
+lootEntries=I~Poignard:100
 @
 name=Leonal.Knight.loot
 lootEntries=I~Plate Mail (U):100,I~Plate Mail (L):100,I~Steel Guantlets:100,I~Sollerets:100,I~Gold Piece:50,I~Broadsword:100,I~Targe:100,I~Iron Helm:100

@@ -638,6 +638,8 @@ public class Stats
 		DANGER_SENSE(235, "dangerSense", ModifierMetric.BOOLEAN),
 		QUICK_WITS(236, "quickWits", ModifierMetric.BOOLEAN),
 		TRAP_SENSE(238, "trapSense", ModifierMetric.BOOLEAN),
+		SLIP_AWAY(239, "slipAway", ModifierMetric.BOOLEAN),
+		HIDDEN_BLADE(240, "hiddenBlade"),
 		;
 
 		/**

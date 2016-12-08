@@ -20,44 +20,61 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.map.ILootEntry;
+import mclachlan.maze.map.LootTable;
+import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.combat.event.TheftSpellSucceeded;
 
 /**
- * Typically cast on an NPC to steal an item
+ * Creates an item in the targets possession
  */
-public class TheftSpellResult extends SpellResult
+public class CreateItemSpellResult extends SpellResult
 {
-	private Value value;
+	/**
+	 * Loot table from which to calculate the item
+	 */
+	private String lootTable;
 
 	/*-------------------------------------------------------------------------*/
-	public TheftSpellResult(Value value)
+	public CreateItemSpellResult(String lootTable)
 	{
-		this.value = value;
+		this.lootTable = lootTable;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
+	public List<MazeEvent> apply(
+		UnifiedActor source,
+		UnifiedActor target,
+		int castingLevel,
+		SpellEffect parent)
 	{
-		if (target instanceof Foe)
-		{
-			Foe foe = (Foe)target;
-			PlayerCharacter pc = (PlayerCharacter)source;
-			int strength = this.value.compute(source, castingLevel);
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-			return getList(
-				new TheftSpellSucceeded(pc, foe, strength));
+		LootTable table = Database.getInstance().getLootTable(lootTable);
+
+		List<ILootEntry> items = table.getLootEntries().getRandom();
+		List<Item> dropped = new ArrayList<Item>();
+		for (ILootEntry lootEntry : items)
+		{
+			Item item = lootEntry.generate();
+
+			if (!target.addItemSmartly(item))
+			{
+				dropped.add(item);
+			}
 		}
 
-		return null;
+		Maze.getInstance().dropItemsOnCurrentTile(dropped);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public String getLootTable()
 	{
-		return value;
+		return lootTable;
 	}
 }

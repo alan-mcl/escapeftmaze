@@ -26,6 +26,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.util.MazeException;
@@ -126,6 +127,18 @@ public class ActorDiesEvent extends MazeEvent
 					new GrantExperienceEvent(
 						getNotorietyReward(victim),
 						(PlayerCharacter)attacker));
+			}
+
+			// check for SLIP_AWAY
+			PlayerParty party = Maze.getInstance().getParty();
+			Combat currentCombat = Maze.getInstance().getCurrentCombat();
+			if (currentCombat != null && party.numAlive() == 1)
+			{
+				PlayerCharacter pc = party.getLivePlayerCharacters().get(0);
+				if (pc.getModifier(Stats.Modifier.SLIP_AWAY) > 0)
+				{
+					result.add(new RunAwayAttemptEvent(pc, currentCombat));
+				}
 			}
 		}
 

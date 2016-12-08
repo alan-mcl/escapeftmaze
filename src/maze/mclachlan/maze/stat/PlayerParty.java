@@ -127,6 +127,22 @@ public class PlayerParty implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public List<PlayerCharacter> getLivePlayerCharacters()
+	{
+		ArrayList<PlayerCharacter> result = new ArrayList<PlayerCharacter>();
+
+		for (UnifiedActor a : actors)
+		{
+			if (a.isAlive())
+			{
+				result.add((PlayerCharacter)a);
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public int getGold()
 	{
 		return gold;

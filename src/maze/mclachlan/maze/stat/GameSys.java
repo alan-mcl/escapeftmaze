@@ -2829,6 +2829,14 @@ public class GameSys
 
 		Maze.log(Log.DEBUG, coward.getName()+" tries to run away");
 
+		// check for SLIP_AWAY
+		if (coward.getActorGroup().numAlive() == 1 &&
+			coward.getModifier(Stats.Modifier.SLIP_AWAY) > 0)
+		{
+			Maze.log(Log.DEBUG, "success due to SLIP_AWAY");
+			return true;
+		}
+
 		int base = (coward instanceof PlayerCharacter) ? 50 : 80;
 		int mod = coward.getModifier(Stats.Modifier.TO_RUN_AWAY);
 
