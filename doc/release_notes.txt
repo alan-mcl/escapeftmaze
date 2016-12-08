@@ -31,7 +31,7 @@ Features
    Reputation
  - Burglar class abilities: Pickpocket, Nondescript, Dirty Attack, Danger Sense, Sap, 
    Quick Wits, Disable, Trap Sense
- - Courtesan class abilities: Slip Away, Hidden Blade, Underhand Throw
+ - Courtesan class abilities: Slip Away, Hidden Blade, Underhand Throw, Hidden Dart, Deadly Dart
 
 
 Other

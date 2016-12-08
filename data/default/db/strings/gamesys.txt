@@ -791,6 +791,11 @@ lap_name_underhand_throw_3 = Underhand Throw 3
 lap_desc_underhand_throw_1 = The Courtesan can throw an equipped dagger with bonuses to hit and critical.
 lap_desc_underhand_throw_2 = The Courtesan can throw an equipped dagger with bonuses to hit and critical. The attack can also poison and paralyze the target.
 lap_desc_underhand_throw_3 = The Courtesan can throw an equipped dagger with bonuses to hit and critical. The attack can also poison, paralyze, hex and petrify the target.
+lap_name_hidden_dart = Hidden Dart
+lap_desc_hidden_dart = The Courtesan fires a dart from a concealed launcher that can poison or stun the target.
+lap_name_deadly_dart = Deadly Dart
+lap_desc_deadly_dart = The Courtesan fires a dart from a concealed launcher that can badly poison or confuse the target.
+
 
 # Druid
 lap_name_pass_without_trace = Pass Without Trace
