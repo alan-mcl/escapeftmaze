@@ -24,7 +24,6 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.stat.BodyPart;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -34,14 +33,12 @@ public class AttackParriedEvent extends MazeEvent
 {
 	private UnifiedActor attacker;
 	private UnifiedActor defender;
-	private BodyPart bodyPart;
 
 	/*-------------------------------------------------------------------------*/
-	public AttackParriedEvent(UnifiedActor attacker, UnifiedActor defender, BodyPart bodyPart)
+	public AttackParriedEvent(UnifiedActor attacker, UnifiedActor defender)
 	{
 		this.attacker = attacker;
 		this.defender = defender;
-		this.bodyPart = bodyPart;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -54,12 +51,6 @@ public class AttackParriedEvent extends MazeEvent
 	public UnifiedActor getDefender()
 	{
 		return defender;
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public BodyPart getBodyPart()
-	{
-		return bodyPart;
 	}
 	
 	/*-------------------------------------------------------------------------*/

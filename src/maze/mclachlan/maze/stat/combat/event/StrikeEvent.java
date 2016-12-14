@@ -20,13 +20,13 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.combat.AttackSpellEffects;
-import mclachlan.maze.stat.combat.AttackType;
-import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.stat.combat.SpellTargetUtils;
+import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.Spell;
+import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
@@ -124,7 +124,25 @@ public class StrikeEvent extends MazeEvent
 			DamagePacket damagePacket = GameSys.getInstance().calcDamage(this);
 			combat.getCombatStatistics().captureAttackHit(this, combat);
 
-			if (GameSys.getInstance().isAttackDodged(attacker, defender, attackWith))
+			if (GameSys.getInstance().isSurpriseRiposted(defender, attackWith))
+			{
+				// equip hidden blade and riposte
+				result.addAll(
+					ActorActionResolver.resolveAction(
+						getHiddenBladeSpecialAbilityAction(),
+						combat));
+				result.add(new AttackRipostedEvent(attacker, defender, combat, animationContext));
+			}
+			else if (GameSys.getInstance().isSurpriseParried(defender, attackWith))
+			{
+				// equip hidden blade and parry
+				result.addAll(
+					ActorActionResolver.resolveAction(
+						getHiddenBladeSpecialAbilityAction(),
+						combat));
+				result.add(new AttackParriedEvent(attacker, defender));
+			}
+			else if (GameSys.getInstance().isAttackDodged(attacker, defender, attackWith))
 			{
 				// dodge the attack
 				result.add(new AttackDodgeEvent(defender));
@@ -137,7 +155,7 @@ public class StrikeEvent extends MazeEvent
 			else if (GameSys.getInstance().isAttackParried(defender, attackWith))
 			{
 				// parried
-				result.add(new AttackParriedEvent(attacker, defender, bodyPart));
+				result.add(new AttackParriedEvent(attacker, defender));
 			}
 			else if (GameSys.getInstance().isAttackRiposted(defender, attackWith))
 			{
@@ -197,6 +215,58 @@ public class StrikeEvent extends MazeEvent
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public SpecialAbilityAction getHiddenBladeSpecialAbilityAction()
+	{
+		// the default
+		Spell spell = Database.getInstance().getSpell("Hidden Blade 1");
+
+		// find a hidden_blade special ability
+		SpellLikeAbility ability = new SpellLikeAbility(
+			spell,
+			new Value(defender.getCurrentClassLevel(), Value.SCALE.NONE));
+		List<SpellLikeAbility> spellLikeAbilities = this.defender.getSpellLikeAbilities();
+		for (SpellLikeAbility sla : spellLikeAbilities)
+		{
+			if (sla.getName().startsWith("Hidden Blade"))
+			{
+				ability = sla;
+				break;
+			}
+		}
+
+		SpecialAbilityAction result = new SpecialAbilityAction(
+			ability.getSpell().getDescription(),
+			defender,
+			ability.getSpell(),
+			ability.getCastingLevel().compute(defender));
+
+		result.setActor(defender);
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public SpellLikeAbility getHiddenBlade(UnifiedActor defender)
+	{
+		// the default
+		Spell spell = Database.getInstance().getSpell("Hidden Blade 1");
+
+		// find a hidden_blade special ability
+		SpellLikeAbility ability = new SpellLikeAbility(
+			spell,
+			new Value(defender.getCurrentClassLevel(), Value.SCALE.NONE));
+		List<SpellLikeAbility> spellLikeAbilities = this.defender.getSpellLikeAbilities();
+		for (SpellLikeAbility sla : spellLikeAbilities)
+		{
+			if (sla.getName().startsWith("Hidden Blade"))
+			{
+				ability = sla;
+				break;
+			}
+		}
+		return ability;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	private static BodyPart getRandomBodyPart(UnifiedActor attacker, UnifiedActor defender)

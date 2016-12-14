@@ -3564,6 +3564,30 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public boolean isSurpriseParried(
+		UnifiedActor defender,
+		AttackWith attackWith)
+	{
+		Stats.Modifier modifier = Stats.Modifier.SURPRISE_PARRY;
+		return defender.getModifier(modifier) >= 1 &&
+			defender.getPrimaryWeapon() == null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	True if the attack is parried
+	 */
+	public boolean isSurpriseRiposted(
+		UnifiedActor defender,
+		AttackWith attackWith)
+	{
+		Stats.Modifier modifier = Stats.Modifier.SURPRISE_PARRY;
+		return defender.getModifier(modifier) >= 2 &&
+			defender.getPrimaryWeapon() == null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public boolean defensiveModifierCheck(
 		UnifiedActor defender,
 		AttackWith attackWith,

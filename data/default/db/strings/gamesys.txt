@@ -261,7 +261,7 @@ modifier_name-dangerSense: Danger Sense
 modifier_name-quickWits: Quick Wits
 modifier_name-trapSense: Trap Sense
 modifier_name-slipAway: Slip Away
-modifier_name-hiddenBlade: Hidden Blade
+modifier_name-surpriseParry: Surprise Parry
 
 # Modifier Descriptions
 
@@ -516,7 +516,7 @@ modifier_desc-dangerSense: This character has bonus resistance against trap spel
 modifier_desc-quickWits: When the party is surprised, this character can act in the surprise round.
 modifier_desc-trapSense: This character automatically identifies traps.
 modifier_desc-slipAway: If this character is the last one left alive in the party, he or she will automatically escape from combat
-modifier_desc-hiddenBlade: The character can equip a hidden blade in an available empty hand.
+modifier_desc-surpriseParry: If the character is attacked while empty handed, he or she will equip a hidden blade and parry the attack.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -795,6 +795,10 @@ lap_name_hidden_dart = Hidden Dart
 lap_desc_hidden_dart = The Courtesan fires a dart from a concealed launcher that can poison or stun the target.
 lap_name_deadly_dart = Deadly Dart
 lap_desc_deadly_dart = The Courtesan fires a dart from a concealed launcher that can badly poison or confuse the target.
+lap_name_surprise_parry = Surprise Parry
+lap_desc_surprise_parry = If the the Courtesan is attacked while empty handed, she will equip a hidden blade and parry the attack.
+lap_name_surprise_riposte = Surprise Riposte
+lap_desc_surprise_riposte = If the the Courtesan is attacked while empty handed, she will equip a hidden blade, parry and riposte the attack.
 
 
 # Druid

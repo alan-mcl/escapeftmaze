@@ -60,6 +60,8 @@ public class CreateItemSpellResult extends SpellResult
 		for (ILootEntry lootEntry : items)
 		{
 			Item item = lootEntry.generate();
+			item.setIdentificationState(Item.IdentificationState.IDENTIFIED);
+			item.setCursedState(Item.CursedState.DISCOVERED);
 
 			if (!target.addItemSmartly(item))
 			{

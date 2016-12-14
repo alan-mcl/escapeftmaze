@@ -897,12 +897,18 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	 */
 	public boolean addItemSmartly(Item item)
 	{
+		System.out.println("UnifiedActor.addItemSmartly");
 		BitSet slots = item.getEquipableSlots();
 
-		if (slots.get(PlayerCharacter.EquipableSlots.PRIMARY_WEAPON) &&
+		if (!this.meetsRequirements(item.getEquipRequirements()))
+		{
+			return false;
+		}
+		else if (slots.get(PlayerCharacter.EquipableSlots.PRIMARY_WEAPON) &&
 			this.hasEquipableSlot(PRIMARY_WEAPON) &&
 			this.getPrimaryWeapon() == null)
 		{
+			System.out.println("primary weapon");
 			this.setPrimaryWeapon(item);
 			return true;
 		}
@@ -975,7 +981,9 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		}
 		else
 		{
-			return addInventoryItem(item);
+			boolean b = addInventoryItem(item);
+			System.out.println("b = [" + b + "]");
+			return b;
 		}
 	}
 
@@ -1701,6 +1709,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			{
 				cur = getBaseModifier(modifier);
 			}
+
 			if (cur < req.getModifier(modifier))
 			{
 				return false;

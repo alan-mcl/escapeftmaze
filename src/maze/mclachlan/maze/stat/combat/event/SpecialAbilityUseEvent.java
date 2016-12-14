@@ -38,9 +38,9 @@ public class SpecialAbilityUseEvent extends MazeEvent
 	private String description;
 
 	/*-------------------------------------------------------------------------*/
-	public SpecialAbilityUseEvent(UnifiedActor attacker, Spell spell, int castingLevel, String description)
+	public SpecialAbilityUseEvent(UnifiedActor actor, Spell spell, int castingLevel, String description)
 	{
-		this.caster = attacker;
+		this.caster = actor;
 		this.spell = spell;
 		this.castingLevel = castingLevel;
 		this.description = description;
