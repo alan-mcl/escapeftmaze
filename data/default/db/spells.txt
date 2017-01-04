@@ -103,6 +103,27 @@ secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
 @
+name=Sense Motive
+displayName=Sense Motive
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=8
+school=Beguilement
+book=Purple Magic
+spellEffects=sense motive:100
+description=senses motives!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=purple portrait animation
+castByFoeScript=
+usabilityType=3
+primaryModifier=BRAINS
+secondaryModifier=RHYME
+wildMagicValue=
+wildMagicTable=
+@
 name=Elemental
 displayName=Elemental
 hitPointCost=

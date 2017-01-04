@@ -275,6 +275,23 @@ public class PlayerParty implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public int getBestModifier(Stats.Modifier modifier)
+	{
+		int result = Integer.MIN_VALUE;
+
+		for (UnifiedActor a : getActors())
+		{
+			if (result < a.getModifier(modifier))
+			{
+				result = a.getModifier(modifier);
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void clearCloudSpells()
 	{
 		this.cloudSpells.clear();

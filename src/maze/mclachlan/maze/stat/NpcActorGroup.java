@@ -93,6 +93,12 @@ public class NpcActorGroup implements ActorGroup
 		return npc.getLevel();
 	}
 
+	@Override
+	public int getBestModifier(Stats.Modifier modifier)
+	{
+		return npc.getModifier(modifier);
+	}
+
 	public Npc getNpc()
 	{
 		return npc;

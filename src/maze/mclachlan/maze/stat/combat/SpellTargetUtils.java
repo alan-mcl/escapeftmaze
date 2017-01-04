@@ -404,7 +404,7 @@ public class SpellTargetUtils
 		CombatAction action,
 		AnimationContext animationContext)
 	{
-		Maze.log(Log.DEBUG, "Combat.resolveFoeSpell");
+		Maze.log(Log.DEBUG, "SpellTargetUtils.resolveFoeSpell");
 
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 

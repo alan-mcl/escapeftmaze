@@ -262,6 +262,7 @@ modifier_name-quickWits: Quick Wits
 modifier_name-trapSense: Trap Sense
 modifier_name-slipAway: Slip Away
 modifier_name-surpriseParry: Surprise Parry
+modifier_name-barterExpert: Barter Expert
 
 # Modifier Descriptions
 
@@ -517,6 +518,7 @@ modifier_desc-quickWits: When the party is surprised, this character can act in 
 modifier_desc-trapSense: This character automatically identifies traps.
 modifier_desc-slipAway: If this character is the last one left alive in the party, he or she will automatically escape from combat
 modifier_desc-surpriseParry: If the character is attacked while empty handed, he or she will equip a hidden blade and parry the attack.
+modifier_desc-barterExpert: The character is able to drive much better deals with vendors.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -799,7 +801,10 @@ lap_name_surprise_parry = Surprise Parry
 lap_desc_surprise_parry = If the the Courtesan is attacked while empty handed, she will equip a hidden blade and parry the attack.
 lap_name_surprise_riposte = Surprise Riposte
 lap_desc_surprise_riposte = If the the Courtesan is attacked while empty handed, she will equip a hidden blade, parry and riposte the attack.
-
+lap_name_sense_motive = Sense Motive
+lap_desc_sense_motive = The Courtesan can practically read the mind of an NPC.
+lap_name_barter_expert = Barter Expert %s
+lap_desc_barter_expert: The Courtesan is able to drive much better deals with vendors.
 
 # Druid
 lap_name_pass_without_trace = Pass Without Trace

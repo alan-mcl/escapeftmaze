@@ -76,4 +76,7 @@ public interface ActorGroup extends SpellTarget
 
 	/*-------------------------------------------------------------------------*/
 	int getAverageLevel();
+
+	/*-------------------------------------------------------------------------*/
+	int getBestModifier(Stats.Modifier modifier);
 }

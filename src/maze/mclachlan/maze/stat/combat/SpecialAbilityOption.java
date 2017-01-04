@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat;
 
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
@@ -48,7 +49,9 @@ public class SpecialAbilityOption extends ActorActionOption
 	/*-------------------------------------------------------------------------*/
 
 	@Override
-	public void select(UnifiedActor actor, Combat combat,
+	public void select(
+		UnifiedActor actor,
+		Combat combat,
 		ActionOptionCallback callback)
 	{
 		this.callback = callback;
@@ -119,9 +122,20 @@ public class SpecialAbilityOption extends ActorActionOption
 				Maze.getInstance().getUi().chooseACharacter(this);
 				return;
 
+			case NPC:
+				ActorEncounter currentActorEncounter = Maze.getInstance().getCurrentActorEncounter();
+				if (currentActorEncounter != null)
+				{
+					spellTarget = currentActorEncounter.getLeader();
+				}
+				else
+				{
+					spellTarget = null;
+				}
+				break;
+
 			// makes no sense, never cast in combat
 			case LOCK_OR_TRAP:
-			case NPC:
 				spellTarget = null;
 				break;
 

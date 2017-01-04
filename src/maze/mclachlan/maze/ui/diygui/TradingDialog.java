@@ -73,9 +73,9 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(dialogBounds);
 		pcWidget = new TradingWidget(
-			pc, isBounds, pc.getInventory(), npc.getBuysAt(), 0, pc.getInventory().size(), this);
+			pc, isBounds, pc.getInventory(), getNpcBuysAt(npc, pc), 0, pc.getInventory().size(), this);
 		npcWidget = new TradingWidget(
-			pc, isBounds, new Inventory(npc.getTradingInventory()), npc.getSellsAt(), 0, -1, this);
+			pc, isBounds, new Inventory(npc.getTradingInventory()), getNpcSellsAt(npc, pc), 0, -1, this);
 
 		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
 		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));
@@ -135,6 +135,34 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		this.add(npcButtonPane);
 		this.add(buttonPane);
 		this.doLayout();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getNpcSellsAt(Foe npc, PlayerCharacter pc)
+	{
+		int barterExpert = pc.getActorGroup().getBestModifier(Stats.Modifier.BARTER_EXPERT);
+		int markup = npc.getSellsAt() - 100;
+
+		if (markup > 10 && barterExpert > 0)
+		{
+			markup -= (barterExpert*10);
+		}
+
+		return 100+markup;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getNpcBuysAt(Foe npc, PlayerCharacter pc)
+	{
+		int barterExpert = pc.getActorGroup().getBestModifier(Stats.Modifier.BARTER_EXPERT);
+		int discount = 100 - npc.getBuysAt();
+
+		if (discount > 10 && barterExpert > 0)
+		{
+			discount -= barterExpert*10;
+		}
+
+		return 100-discount;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -248,7 +276,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		Item item = npcWidget.getSelected().getItem();
 
 		PlayerParty party = Maze.getInstance().getParty();
-		int price = GameSys.getInstance().getItemCost(item, npc.getSellsAt(), pc);
+		int price = GameSys.getInstance().getItemCost(item, getNpcSellsAt(npc, pc), pc);
 
 		// some assertions
 		if (item == null)
@@ -272,7 +300,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		npc.removeItem(item, true);
 		pc.addInventoryItem(item);
 		Maze.getInstance().getParty().incGold(
-			- GameSys.getInstance().getItemCost(item, npc.getSellsAt(), pc));
+			- GameSys.getInstance().getItemCost(item, getNpcSellsAt(npc, pc), pc));
 		pcWidget.refresh(pc.getInventory().getItems());
 		npcWidget.refresh(npc.getTradingInventory());
 		resetSelection();
@@ -317,7 +345,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		pc.removeItem(item, true);
 		npc.addInventoryItem(item);
 		Maze.getInstance().getParty().incGold(
-			GameSys.getInstance().getItemCost(item, npc.getBuysAt(), pc));
+			GameSys.getInstance().getItemCost(item, getNpcBuysAt(npc, pc), pc));
 		pcWidget.refresh(pc.getInventory().getItems());
 		npcWidget.refresh(npc.getTradingInventory());
 		resetSelection();

@@ -183,4 +183,21 @@ public class FoeGroup implements ActorGroup
 
 		return result/foes.size();
 	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public int getBestModifier(Stats.Modifier modifier)
+	{
+		int result = Integer.MIN_VALUE;
+
+		for (UnifiedActor a : getActors())
+		{
+			if (result < a.getModifier(modifier))
+			{
+				result = a.getModifier(modifier);
+			}
+		}
+
+		return result;
+	}
 }

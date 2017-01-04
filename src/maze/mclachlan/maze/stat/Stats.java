@@ -639,8 +639,9 @@ public class Stats
 		QUICK_WITS(236, "quickWits", ModifierMetric.BOOLEAN),
 		TRAP_SENSE(238, "trapSense", ModifierMetric.BOOLEAN),
 		SLIP_AWAY(239, "slipAway", ModifierMetric.BOOLEAN),
-//		HIDDEN_BLADE(240, "hiddenBlade"),
+		// unused 240
 		SURPRISE_PARRY(241, "surpriseParry"),
+		BARTER_EXPERT(242, "barterExpert"),
 		;
 
 		/**
