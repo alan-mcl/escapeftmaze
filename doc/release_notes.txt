@@ -2,7 +2,7 @@
 v0.917 (???)
 ---------------------------------------
 Features
- - Courtesan class abilities: Sense Motive, Barter Expert
+ - Courtesan class abilities: Sense Motive, Barter Expert, Minor Powder Creation
 
 
 

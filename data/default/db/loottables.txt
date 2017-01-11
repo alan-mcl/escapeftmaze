@@ -307,6 +307,9 @@ lootEntries=exotic.starting.items:10,batch.2.magic.trinkets:5
 name=HIDDEN_BLADE_2
 lootEntries=I~Poignard:100
 @
+name=minor powder creation
+lootEntries=minor powder creation:100
+@
 name=Leonal.Knight.loot
 lootEntries=I~Plate Mail (U):100,I~Plate Mail (L):100,I~Steel Guantlets:100,I~Sollerets:100,I~Gold Piece:50,I~Broadsword:100,I~Targe:100,I~Iron Helm:100
 @

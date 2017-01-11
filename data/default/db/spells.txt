@@ -4912,6 +4912,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Minor Powder Creation
+displayName=Minor Powder Creation
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Purple Magic
+spellEffects=minor powder creation:100
+description=mixes a powder!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=purple portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=HERBAL
+secondaryModifier=RHYME
+wildMagicValue=
+wildMagicTable=
+@
 name=Acid Spray
 displayName=Acid Spray
 hitPointCost=

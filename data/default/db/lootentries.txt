@@ -94,6 +94,9 @@ contains=0,Naginata/1d1:8,Fauchard/1d1:8,No-dachi/1d1:7,Zweihander/1d1:7,Zizka S
 name=batch.1.steampunk.items
 contains=0,Faraday Helm/1d1:17,Miners Helmet/1d1:17,Ballistic Vest/1d1:17,Gyroscopic Boots/1d1:17,Pneumatic Gloves/1d1:16,Welding Goggles/1d1:16
 @
+name=minor powder creation
+contains=0,Smudge Powder/1d1:13,Bone Dust/1d1:13,Faerie Dust/1d1:13,Flash Powder/1d1:13,Acid Bomb/1d1:12,Sneeze Powder/1d1:12,Smelling Salts/1d1:12,Devil Dust/1d1:12
+@
 name=mid.level.gold
 contains=0,Silver Coin/3d6+100:100
 @

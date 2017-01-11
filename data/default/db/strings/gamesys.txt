@@ -804,7 +804,9 @@ lap_desc_surprise_riposte = If the the Courtesan is attacked while empty handed,
 lap_name_sense_motive = Sense Motive
 lap_desc_sense_motive = The Courtesan can practically read the mind of an NPC.
 lap_name_barter_expert = Barter Expert %s
-lap_desc_barter_expert: The Courtesan is able to drive much better deals with vendors.
+lap_desc_barter_expert = The Courtesan is able to drive much better deals with vendors.
+lap_name_minor_powder_creation = Minor Powder Creation
+lap_desc_minor_powder_creation = The Courtesan can create a powder containing a minor spell.
 
 # Druid
 lap_name_pass_without_trace = Pass Without Trace
