@@ -78,5 +78,19 @@ public interface ActorGroup extends SpellTarget
 	int getAverageLevel();
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The best value for the given modifier in this actor group
+	 */
 	int getBestModifier(Stats.Modifier modifier);
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The best value for the given modifier in this actor group, excluding the
+	 * 	given actor.
+	 */
+	int getBestModifier(Stats.Modifier modifier, UnifiedActor excluded);
 }

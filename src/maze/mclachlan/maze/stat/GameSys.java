@@ -2048,6 +2048,12 @@ public class GameSys
 		actorTotal += actor.getModifier(Stats.Modifier.THREATEN);
 		actorTotal += Dice.d10.roll();
 
+		// PERSUASION bonus if another party member has it.
+		if (actor.getActorGroup().getBestModifier(Stats.Modifier.PERSUASION, actor) > 0)
+		{
+			actorTotal += Dice.d10.roll();
+		}
+
 		return actorTotal-targetTotal;
 	}
 
@@ -2073,6 +2079,12 @@ public class GameSys
 		partyTotal += amount/10;
 		partyTotal += pc.getModifier(Stats.Modifier.TO_BRIBE);
 		partyTotal += Dice.d10.roll();
+
+		// PERSUASION bonus if another party member has it.
+		if (pc.getActorGroup().getBestModifier(Stats.Modifier.PERSUASION, pc) > 0)
+		{
+			partyTotal += Dice.d10.roll();
+		}
 
 		return partyTotal-npcTotal;
 	}

@@ -230,4 +230,18 @@ public class NpcManager implements GameCache
 
 		throw new MazeException("Unrecognised NPC ["+name+"]");
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean hasNpc(String name)
+	{
+		for (Npc npc : npcs.values())
+		{
+			if (npc.getName().equals(name))
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
 }

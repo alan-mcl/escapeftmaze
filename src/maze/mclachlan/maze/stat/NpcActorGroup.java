@@ -99,6 +99,19 @@ public class NpcActorGroup implements ActorGroup
 		return npc.getModifier(modifier);
 	}
 
+	@Override
+	public int getBestModifier(Stats.Modifier modifier, UnifiedActor excluded)
+	{
+		if (excluded == npc)
+		{
+			return 0;
+		}
+		else
+		{
+			return npc.getModifier(modifier);
+		}
+	}
+
 	public Npc getNpc()
 	{
 		return npc;

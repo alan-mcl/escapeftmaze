@@ -63,8 +63,9 @@ public class V1SpellResult
 	public static final int BOOZE = 23;
 	public static final int FORGET = 24;
 	public static final int CONDITION_IDENTIFICATION = 25;
+	public static final int LOCATE_PERSON = 26;
 
-	public static final int MAX = 26;
+	public static final int MAX = 27;
 
 	static
 	{
@@ -94,6 +95,7 @@ public class V1SpellResult
 		types.put(ForgetSpellResult.class, FORGET);
 		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
 		types.put(CreateItemSpellResult.class, CREATE_ITEM);
+		types.put(LocatePersonSpellResult.class, LOCATE_PERSON);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -292,6 +294,10 @@ public class V1SpellResult
 				CreateItemSpellResult createItemSpellResult = (CreateItemSpellResult)sr;
 				s.append(createItemSpellResult.getLootTable());
 				break;
+			case LOCATE_PERSON:
+				LocatePersonSpellResult locatePersonSpellResult = (LocatePersonSpellResult)sr;
+				s.append(V1Value.toString(locatePersonSpellResult.getValue()));
+				break;
 
 			default: throw new MazeException("Invalid type: "+type+" ["+sr+"]");
 		}
@@ -467,6 +473,10 @@ public class V1SpellResult
 			case CREATE_ITEM:
 				String lootTable = strs[i++];
 				result = new CreateItemSpellResult(lootTable);
+				break;
+			case LOCATE_PERSON:
+				v = V1Value.fromString(strs[i++]);
+				result = new LocatePersonSpellResult(v);
 				break;
 
 			default: throw new MazeException(

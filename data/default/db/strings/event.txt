@@ -1,7 +1,6 @@
 #
 # Event text descriptions
 #
-
 modify.supplies = Party receives %s units of supplies
 grant.gold = Party receives %sgp
 event.failed = FAILED!
@@ -25,7 +24,6 @@ attitude.ALLIED = Allied
 #
 # Other messages to the UI
 #
-
 msg.encounter.actors = Encountered %s
 msg.party.may.ambush = Party is stealthy and may ambush foes!
 msg.party.may.ambush.or.evade = Party is stealthy and may ambush or evade foes!
@@ -77,7 +75,6 @@ msg.attack.miss = %s: Missed!
 #
 # Encounter Actors events
 #
-
 msg.actor.is.charmed = %s is charmed
 msg.default.mindread =-mind is blank-
 msg.thread.succeeds = Thread succeeds
@@ -86,14 +83,19 @@ msg.bribe.succeeds = Bribe succeeds
 #
 # Combat events
 #
-
 msg.hide.attempt = %s hides...
 msg.combat.fumble = %s fumbles!
 
 #
 # Lock/trap events
 #
-
 msg.unlocked = UNLOCKED!
 msg.oops = OOPS!
 msg.force.open.success = Successfully forced open!
+
+#
+# Locate Person spells
+#
+msg.npc.location = %s is at %s.
+msg.npc.dead = %s is dead.
+msg.locate.person.nothing = %s detects nothing.

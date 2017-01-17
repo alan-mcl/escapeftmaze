@@ -18,8 +18,10 @@ sound: clockwork beast
 abilities: acolyte 10, 15
 abilities: berserker 17
 abilities: blackguard 10, 17
-abilities: code of dishounour hooks on Diplomacy, others
+abilities: code of dishounour hooks on DIPLOMACY, others
 abilities: burglar 19
+abilities: DIPLOMACY rework to something more interesting
+abilities: PERSUATION hooks on DIPLOMACY
 
 data: improve foe inventories
 data: more wielding combos

@@ -188,11 +188,18 @@ public class FoeGroup implements ActorGroup
 	@Override
 	public int getBestModifier(Stats.Modifier modifier)
 	{
+		return getBestModifier(modifier, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public int getBestModifier(Stats.Modifier modifier, UnifiedActor excluded)
+	{
 		int result = Integer.MIN_VALUE;
 
 		for (UnifiedActor a : getActors())
 		{
-			if (result < a.getModifier(modifier))
+			if (result < a.getModifier(modifier) && a != excluded)
 			{
 				result = a.getModifier(modifier);
 			}

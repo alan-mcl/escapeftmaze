@@ -263,6 +263,7 @@ modifier_name-trapSense: Trap Sense
 modifier_name-slipAway: Slip Away
 modifier_name-surpriseParry: Surprise Parry
 modifier_name-barterExpert: Barter Expert
+modifier_name-persuasion: Persuasion
 
 # Modifier Descriptions
 
@@ -519,6 +520,7 @@ modifier_desc-trapSense: This character automatically identifies traps.
 modifier_desc-slipAway: If this character is the last one left alive in the party, he or she will automatically escape from combat
 modifier_desc-surpriseParry: If the character is attacked while empty handed, he or she will equip a hidden blade and parry the attack.
 modifier_desc-barterExpert: The character is able to drive much better deals with vendors.
+modifier_desc-persuasion: When another character in the party tried to influence an NPC with treats, bribes or otherwise, it works much better.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -651,6 +653,8 @@ lap_name_threaten = Threaten
 lap_desc_threaten = The character can bully an NPC is improving their attitude towards the party.
 lap_name_bribe = Bribe %s
 lap_desc_bribe = This character can bribe others into working with him or her.
+lap_name_diplomacy = Diplomacy
+lap_desc_diplomacy = TODO
 
 # Acolyte
 lap_name_unholy = Unholy
@@ -807,6 +811,12 @@ lap_name_barter_expert = Barter Expert %s
 lap_desc_barter_expert = The Courtesan is able to drive much better deals with vendors.
 lap_name_minor_powder_creation = Minor Powder Creation
 lap_desc_minor_powder_creation = The Courtesan can create a powder containing a minor spell.
+lap_name_persuasion = Persuasion
+lap_desc_persuasion = The Courtesan assists other characters attempts to influence NPCs.
+lap_name_locate_person = Locate Person
+lap_desc_locate_person = The Courtesan can divine where an NPC is located.
+lap_name_courtesan_skills = Courtesan Skills
+lap_desc_courtesan_skills = The Courtesan is a master of various skills.
 
 # Druid
 lap_name_pass_without_trace = Pass Without Trace

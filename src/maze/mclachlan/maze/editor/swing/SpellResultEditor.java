@@ -129,6 +129,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JCheckBox weaponRequiresBackstab, weaponRequiresSnipe, consumesWeapon;
 	private GroupOfPossibilitiesPanel spellEffects;
 	private JComboBox<String> createItemLootTables;
+	private ValueComponent locatePersonValue;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellResultEditor(
@@ -351,6 +352,10 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				CreateItemSpellResult createItemSpellResult = (CreateItemSpellResult)sr;
 				createItemLootTables.setSelectedItem(createItemSpellResult.getLootTable());
 				break;
+			case LOCATE_PERSON:
+				LocatePersonSpellResult locatePersonSpellResult = (LocatePersonSpellResult)sr;
+				locatePersonValue.refresh(locatePersonValue.getValue());
+				break;
 
 			default: throw new MazeException("Invalid type "+srType);
 		}
@@ -387,8 +392,17 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case FORGET: return getForgetPanel();
 			case CONDITION_IDENTIFICATION: return getConditionIdentificationPanel();
 			case CREATE_ITEM: return getCreateItemPanel();
+			case LOCATE_PERSON: return getLocatePersonPanel();
 			default: throw new MazeException("Invalid type "+type);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getLocatePersonPanel()
+	{
+		locatePersonValue = new ValueComponent(dirtyFlag);
+
+		return dirtyGridLayoutCrap(new JLabel("Value:"), locatePersonValue);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -824,6 +838,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case FORGET: return "Forget";
 			case CONDITION_IDENTIFICATION: return "Condition Identification";
 			case CREATE_ITEM: return "Create Item";
+			case LOCATE_PERSON: return "Locate Person";
 			default: throw new MazeException("Invalid type "+type);
 		}
 	}
@@ -1002,6 +1017,10 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case CREATE_ITEM:
 				result = new CreateItemSpellResult(
 					(String)createItemLootTables.getSelectedItem());
+				break;
+			case LOCATE_PERSON:
+				result = new LocatePersonSpellResult(
+					locatePersonValue.getValue());
 				break;
 			default: throw new MazeException("Invalid type "+srType);
 		}

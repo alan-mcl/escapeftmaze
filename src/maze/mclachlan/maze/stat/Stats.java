@@ -642,6 +642,7 @@ public class Stats
 		// unused 240
 		SURPRISE_PARRY(241, "surpriseParry"),
 		BARTER_EXPERT(242, "barterExpert"),
+		PERSUASION(243, "persuasion", ModifierMetric.BOOLEAN),
 		;
 
 		/**

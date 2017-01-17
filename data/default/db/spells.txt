@@ -2098,6 +2098,27 @@ secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Locate Person
+displayName=Locate Person
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Beguilement
+book=Purple Magic
+spellEffects=locate person:100
+description=concentrates...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=purple portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=RHYME
+secondaryModifier=HERBAL
+wildMagicValue=
+wildMagicTable=
+@
 name=Phantasm
 displayName=Phantasm
 hitPointCost=
