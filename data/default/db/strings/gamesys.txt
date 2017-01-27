@@ -264,6 +264,7 @@ modifier_name-slipAway: Slip Away
 modifier_name-surpriseParry: Surprise Parry
 modifier_name-barterExpert: Barter Expert
 modifier_name-persuasion: Persuasion
+modifier_name-supplyConsumption: Supply Consumption
 
 # Modifier Descriptions
 
@@ -521,6 +522,7 @@ modifier_desc-slipAway: If this character is the last one left alive in the part
 modifier_desc-surpriseParry: If the character is attacked while empty handed, he or she will equip a hidden blade and parry the attack.
 modifier_desc-barterExpert: The character is able to drive much better deals with vendors.
 modifier_desc-persuasion: When another character in the party tried to influence an NPC with treats, bribes or otherwise, it works much better.
+modifier_desc-supplyConsumption: Modifies how many units of supplies this character consumes when resting.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -822,7 +824,11 @@ lap_desc_courtesan_skills = The Courtesan is a master of various skills.
 lap_name_pass_without_trace = Pass Without Trace
 lap_desc_pass_without_trace = At peace with nature, the Druid adds to the stealth of the whole party when in wilderness areas.
 lap_name_druidic_immunity = Druidic Immunity
-lap_desc_druidic_immunity = The Druid is immune to all poison, web and irritation effects.
+lap_desc_druidic_immunity = The Druid is immune to various effects.
+lap_name_hungerless = Hungerless
+lap_desc_hungerless = The Druid consumes 1 less supplies while resting.
+lap_name_thirstless = Thirstless
+lap_desc_thirstless = The Druid consumes 1 less supplies while resting.
 
 # Elemental
 lap_name_elemental_aura = Elemental Aura

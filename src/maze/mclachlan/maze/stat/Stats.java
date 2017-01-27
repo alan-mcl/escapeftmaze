@@ -643,6 +643,7 @@ public class Stats
 		SURPRISE_PARRY(241, "surpriseParry"),
 		BARTER_EXPERT(242, "barterExpert"),
 		PERSUASION(243, "persuasion", ModifierMetric.BOOLEAN),
+		SUPPLY_CONSUMPTION(244, "supplyConsumption"),
 		;
 
 		/**

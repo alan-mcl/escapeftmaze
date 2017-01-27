@@ -3994,6 +3994,15 @@ public class GameSys
 					actor.getModifier(Stats.Modifier.BLUE_MAGIC_GEN)/2);
 			}
 		}
+		else if (Stats.Modifier.SUPPLY_CONSUMPTION.equals(modifier))
+		{
+			if (actor.getModifier(Stats.Modifier.LARGE_SIZE) > 0)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifier.LARGE_SIZE),
+					1);
+			}
+		}
 		else if (Stats.Modifier.POWER_CAST.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.POWER_OF_DARKNESS) > 0)
@@ -4107,14 +4116,7 @@ public class GameSys
 	 */
 	public int getSuppliesNeededToRest(UnifiedActor actor)
 	{
-		if (actor.getModifier(Stats.Modifier.LARGE_SIZE) > 0)
-		{
-			return 3;
-		}
-		else
-		{
-			return 2;
-		}
+		return 2 + actor.getModifier(Stats.Modifier.SUPPLY_CONSUMPTION);
 	}
 
 	/*-------------------------------------------------------------------------*/
