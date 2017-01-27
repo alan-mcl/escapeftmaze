@@ -829,6 +829,8 @@ lap_name_hungerless = Hungerless
 lap_desc_hungerless = The Druid consumes 1 less supplies while resting.
 lap_name_thirstless = Thirstless
 lap_desc_thirstless = The Druid consumes 1 less supplies while resting.
+lap_name_regenerate_self = Regenerate Self
+lap_desc_regenerate_self = The Druid restores his or her own health based on the amount of Green magic present.
 
 # Elemental
 lap_name_elemental_aura = Elemental Aura

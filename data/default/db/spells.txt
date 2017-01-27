@@ -6634,6 +6634,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Regenerate Self
+displayName=Regenerate Self
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Green Magic
+spellEffects=regenerate self:100
+description=regenerates...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=green portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=CHANT
+secondaryModifier=HERBAL
+wildMagicValue=
+wildMagicTable=
+@
 name=Bless Party
 displayName=Bless Party
 hitPointCost=
