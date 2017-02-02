@@ -8713,6 +8713,27 @@ secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
 @
+name=Wilderness Veil
+displayName=Wilderness Veil
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Green Magic
+spellEffects=wilderness veil:100
+description=fades into the undergrowth...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=green portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=WILDERNESS_LORE
+secondaryModifier=HERBAL
+wildMagicValue=
+wildMagicTable=
+@
 name=Automated Lockpick
 displayName=Automated Lockpick
 hitPointCost=

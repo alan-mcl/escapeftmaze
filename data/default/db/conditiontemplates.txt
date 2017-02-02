@@ -751,6 +751,25 @@ exitCondition=DURATION_EXPIRES
 exitConditionChance=0
 repeatedSpellEffects=
 @
+name=wilderness veil
+displayName=wilderness veil
+icon=condition/default
+adjective=veiled
+conditionEffect=none
+duration=1/2/NONE/HIT_POINTS/false
+strength=1/1/SCALE_WITH_MODIFIER/GREEN_MAGIC_GEN/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=800000000000000000000000000000000000000000,01
+bannerModifier=0,
+scaleModifierWithStrength=true
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+repeatedSpellEffects=
+@
 name=prismic shield
 displayName=Prismic Shield
 icon=condition/resistelements

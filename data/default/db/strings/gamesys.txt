@@ -831,6 +831,8 @@ lap_name_thirstless = Thirstless
 lap_desc_thirstless = The Druid consumes 1 less supplies while resting.
 lap_name_regenerate_self = Regenerate Self
 lap_desc_regenerate_self = The Druid restores his or her own health based on the amount of Green magic present.
+lap_name_wilderness_veil = Wilderness Veil
+lap_desc_wilderness_veil = In areas with a great amount of green magic, the Druid can choose to pass unobtrusively.
 
 # Elemental
 lap_name_elemental_aura = Elemental Aura
