@@ -64,8 +64,11 @@ public class V1Value
 	/**
 	 * @return a simple list of values that makes sense out of the composition
 	 */
-	public static List<Value> simplify(Value v)
+	public static List<Value> simplify(Value value)
 	{
+		// operate on a clone
+		Value v = new Value(value);
+
 		List<Value> result = new ArrayList<Value>();
 
 		List<Value> values = v.getValues();
@@ -75,9 +78,9 @@ public class V1Value
 			result.add(v);
 		}
 
-		for (Value value : values)
+		for (Value childValue : values)
 		{
-			result.addAll(simplify(value));
+			result.addAll(simplify(childValue));
 		}
 
 		return result;
@@ -280,5 +283,27 @@ public class V1Value
 		System.out.println("s = [" + s + "]");
 		x = fromString(s);
 		System.out.println("x = [" + x + "]");
+
+		System.out.println("!!!!!!!!!!!!!!");
+
+		Value vv = new Value(2, Value.SCALE.NONE);
+		Value vv1 = new Value(2, Value.SCALE.SCALE_WITH_MODIFIER);
+		vv1.setReference(Stats.Modifier.GREEN_MAGIC_GEN.toString());
+		vv.add(vv1);
+
+		s = toString(vv);
+		System.out.println("s = [" + s + "]");
+		x = fromString(s);
+		System.out.println("x = [" + x + "]");
+		s = toString(x);
+		System.out.println("s = [" + s + "]");
+		x = fromString(s);
+		System.out.println("x = [" + x + "]");
+
+
+		System.out.println("!!!!!!!!!!!!!!!!!!!");
+
+		s = "Value{2,NONE,null,false,[Value{1,SCALE_WITH_MODIFIER,GREEN_MAGIC_GEN,false,[]}]}";
+
 	}
 }

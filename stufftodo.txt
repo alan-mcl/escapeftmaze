@@ -4,6 +4,9 @@ STUFFTODO
 bug: zone change flickering bug
 bug: should not be able to evade foes while resting (really?  maybe just adjust stealth)
 
+icon: wilderness veil
+icon: aura of regeneration
+
 sound: all musical instruments
 
 animation: javelin

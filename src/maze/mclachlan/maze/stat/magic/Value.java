@@ -105,6 +105,7 @@ public class Value
 		this.scaling = other.getScaling();
 		this.negate = other.shouldNegate();
 		this.values = new ArrayList<Value>();
+		this.reference = other.getReference();
 
 		for (Value v : other.values)
 		{

@@ -5,7 +5,8 @@ Features
  - Class abilities: Supply Consumption modifier
  - Courtesan class abilities: Sense Motive, Barter Expert, Minor Powder Creation,
    Locate Person, Courtesan Skills
- - Druid class abilities: Regenerate Self, Wilderness Veil, Entangling Blows
+ - Druid class abilities: Regenerate Self, Wilderness Veil, Entangling Blows,
+   Aura of Regeneration
 
 
 ---------------------------------------

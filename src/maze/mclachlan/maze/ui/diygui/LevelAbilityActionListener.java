@@ -62,7 +62,7 @@ public class LevelAbilityActionListener implements ActionListener
 		}
 		else if (ability instanceof BannerModifierLevelAbility)
 		{
-			descModifiers("laal.banner.modifiers", ((BannerModifierLevelAbility)ability).getModifier(), text);
+			descModifiers("laal.banner.modifiers", ((BannerModifierLevelAbility)ability).getBannerModifier(), text);
 		}
 		else if (ability instanceof AddSpellPicks)
 		{

@@ -835,6 +835,8 @@ lap_name_wilderness_veil = Wilderness Veil
 lap_desc_wilderness_veil = In areas with a great amount of green magic, the Druid can choose to pass unobtrusively.
 lap_name_entangling_blows = Entangling Blows
 lap_desc_entangling_blows = The Druid's blows in combat can entangle victims with restraining creepers.
+lap_name_aura_of_regeneration = Aura of Regeneration
+lap_desc_aura_of_regeneration = The Druid can radiate an aura that speeds the recuperation of all party members.
 
 # Elemental
 lap_name_elemental_aura = Elemental Aura

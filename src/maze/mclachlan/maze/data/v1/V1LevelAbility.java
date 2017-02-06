@@ -88,7 +88,7 @@ public class V1LevelAbility
 				break;
 			case BANNER_MODIFIER:
 				BannerModifierLevelAbility bmla = (BannerModifierLevelAbility)la;
-				s.append(V1StatModifier.toString(bmla.getModifier(), "@"));
+				s.append(V1StatModifier.toString(bmla.getBannerModifier(), "@"));
 				break;
 			case SPECIAL_ABILITY:
 				SpecialAbilityLevelAbility sala = (SpecialAbilityLevelAbility)la;

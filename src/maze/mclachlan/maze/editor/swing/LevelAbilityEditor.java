@@ -184,7 +184,7 @@ public class LevelAbilityEditor extends JDialog implements ActionListener
 				break;
 			case BANNER_MODIFIER:
 				BannerModifierLevelAbility bmla = (BannerModifierLevelAbility)la;
-				bannerModifier.setModifier(bmla.getModifier());
+				bannerModifier.setModifier(bmla.getBannerModifier());
 				break;
 			case SPECIAL_ABILITY:
 				SpecialAbilityLevelAbility sala = (SpecialAbilityLevelAbility)la;

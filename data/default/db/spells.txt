@@ -1006,6 +1006,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Aura of Regeneration
+displayName=Aura of Regeneration
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Green Magic
+spellEffects=aura of regeneration:100
+description=radiates...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=green portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=HERBAL
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Decay
 displayName=Decay
 hitPointCost=
