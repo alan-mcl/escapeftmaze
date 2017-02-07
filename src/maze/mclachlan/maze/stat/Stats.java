@@ -644,7 +644,7 @@ public class Stats
 		BARTER_EXPERT(242, "barterExpert"),
 		PERSUASION(243, "persuasion", ModifierMetric.BOOLEAN),
 		SUPPLY_CONSUMPTION(244, "supplyConsumption"),
-		REINCARNATE_BEAST(245, "reincarnateBeast"),
+		REINCARNATE_BEAST(245, "reincarnateBeast", ModifierMetric.BOOLEAN),
 		;
 
 		/**

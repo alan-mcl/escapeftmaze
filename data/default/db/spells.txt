@@ -6382,6 +6382,27 @@ secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
 @
+name=winter wolf breath
+displayName=winter wolf breath
+hitPointCost=
+actionPointCost=
+magicPointCost=1/2/NONE//false
+targetType=5
+school=Evocation
+book=Green Magic
+spellEffects=cone of cold spell damage:100,cone of cold spell plyze:100
+description=breathes icey blast!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=frostbite spell from player
+castByFoeScript=frostbite spell from foe
+usabilityType=1
+primaryModifier=ALCHEMIC
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Pain
 displayName=Pain
 hitPointCost=

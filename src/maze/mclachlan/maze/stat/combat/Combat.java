@@ -203,7 +203,8 @@ public class Combat
 	public List<ActorGroup> getFoesOf(UnifiedActor actor)
 	{
 		List<ActorGroup> result = new ArrayList<ActorGroup>();
-		if (actor instanceof PlayerCharacter)
+		if (actor instanceof PlayerCharacter ||
+			(isPlayerAlly(actor)))
 		{
 			result.addAll(foes);
 			return result;

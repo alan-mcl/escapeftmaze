@@ -71,6 +71,9 @@ msg.dodge = %s: Dodges!
 msg.deflected = %s: DEFLECTED!
 msg.attack.hit = %s: Hit - %s;
 msg.attack.miss = %s: Missed!
+msg.summoning.succeeds =
+msg.summoning.multiple = appear
+msg.summoning.single = appears
 
 #
 # Encounter Actors events

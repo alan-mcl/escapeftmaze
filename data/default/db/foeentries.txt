@@ -190,6 +190,9 @@ contains=Bemiropterix/2d2+1:100
 name=yenluo.1
 contains=Yenluo/1d1:100,Ninja/2d2+2:95,Ninja/2d2+1:33
 @
+name=winter.wolf.1
+contains=Winter Wolf/1d1:100
+@
 name=serra.angel.1
 contains=Serra Angel/1d1:100,Serra Angel/1d1:10
 @
@@ -397,6 +400,9 @@ contains=Spotted Boa/1d1:100,Spotted Boa/1d1:90
 name=patient.mantis.1
 contains=Patient Mantis/1d2:100,Patient Mantis/1d2:80
 @
+name=griffon.1
+contains=Griffon/1d1:100
+@
 name=goblin.magsmen.encounter
 contains=Goblin Magsman/2d2+2:100,Goblin Magsman/2d2+1:100,Goblin Cutpurse/2d2:66
 @
@@ -564,6 +570,9 @@ contains=Imunos Minion Of Usark/1d1:100
 @
 name=feral.familiar.pack.1
 contains=Fruit Bat/1d3+1:75,Jumping Roach/1d3+1:75,Spotted Crud/1d3+1:75,Mud Spider/1d3+1:75,Feral Familiar/1d1:100
+@
+name=owlbear.1
+contains=Owlbear/1d1:100
 @
 name=verdant.force.1
 contains=Verdant Force/1d1:100,Verdant Force/1d1:5

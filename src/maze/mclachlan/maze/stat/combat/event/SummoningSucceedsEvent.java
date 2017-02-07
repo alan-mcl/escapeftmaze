@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
@@ -31,7 +32,7 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class SummoningSucceedsEvent extends MazeEvent
 {
-	UnifiedActor source;
+	private UnifiedActor source;
 	private List<FoeGroup> foeGroups;
 
 	/*-------------------------------------------------------------------------*/
@@ -70,8 +71,11 @@ public class SummoningSucceedsEvent extends MazeEvent
 			Foe sample = (Foe)fg.getActors().get(0);
 			int size = fg.getActors().size();
 			String name = (size>1) ? sample.getDisplayNamePlural() : sample.getDisplayName();
-			String verb = (size>1) ? "appear" : "appears";
-			result.append(size).append(" ").append(name).append(" ").append(verb).append("\n");
+			String verb = (size>1) ?
+				StringUtil.getEventText("msg.summoning.multiple") :
+				StringUtil.getEventText("msg.summoning.single");
+			result.append(StringUtil.getEventText("msg.summoning.succeeds", size, name, verb))
+				.append("\n");
 		}
 		return result.toString();
 	}

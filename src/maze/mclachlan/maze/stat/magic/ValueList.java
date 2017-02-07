@@ -143,4 +143,20 @@ public class ValueList
 	{
 		this.values = values;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		for (Value v : values)
+		{
+			sb.append(v.toString());
+			sb.append(",");
+		}
+
+		return sb.toString();
+	}
 }
