@@ -30,10 +30,10 @@ import mclachlan.maze.stat.combat.event.NpcMindreadFailedEvent;
  */
 public class MindReadFailedSpellResult extends SpellResult
 {
-	private Value value;
+	private ValueList value;
 
 	/*-------------------------------------------------------------------------*/
-	public MindReadFailedSpellResult(Value value)
+	public MindReadFailedSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
@@ -55,7 +55,7 @@ public class MindReadFailedSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

@@ -41,7 +41,7 @@ import mclachlan.maze.ui.diygui.animation.AnimationContext;
  */
 public class AttackWithWeaponSpellResult extends SpellResult
 {
-	private Value nrStrikes;
+	private ValueList nrStrikes;
 	private StatModifier modifiers;
 	private AttackType attackType;
 	private MagicSys.SpellEffectType damageType;
@@ -53,7 +53,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 
 	public AttackWithWeaponSpellResult(
-		Value nrStrikes,
+		ValueList nrStrikes,
 		StatModifier modifiers,
 		AttackType attackType,
 		MagicSys.SpellEffectType damageType,
@@ -239,12 +239,12 @@ public class AttackWithWeaponSpellResult extends SpellResult
 
 	/*-------------------------------------------------------------------------*/
 
-	public Value getNrStrikes()
+	public ValueList getNrStrikes()
 	{
 		return nrStrikes;
 	}
 
-	public void setNrStrikes(Value nrStrikes)
+	public void setNrStrikes(ValueList nrStrikes)
 	{
 		this.nrStrikes = nrStrikes;
 	}

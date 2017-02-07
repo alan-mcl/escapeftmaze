@@ -26,7 +26,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
 
@@ -37,11 +37,11 @@ public class LocatePersonEvent extends MazeEvent
 {
 	private UnifiedActor source;
 	private String npcName;
-	private Value value;
+	private ValueList value;
 	private int castingLevel;
 
 	/*-------------------------------------------------------------------------*/
-	public LocatePersonEvent(UnifiedActor source, String npcName, Value value, int castingLevel)
+	public LocatePersonEvent(UnifiedActor source, String npcName, ValueList value, int castingLevel)
 	{
 		this.source = source;
 		this.npcName = npcName;

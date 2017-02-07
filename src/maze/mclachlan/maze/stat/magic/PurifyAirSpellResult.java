@@ -33,10 +33,10 @@ import mclachlan.maze.stat.condition.CloudSpell;
 public class PurifyAirSpellResult extends SpellResult
 {
 	/** The strength of the purification */
-	private Value strength;
+	private ValueList strength;
 
 	/*-------------------------------------------------------------------------*/
-	public PurifyAirSpellResult(Value strength)
+	public PurifyAirSpellResult(ValueList strength)
 	{
 		this.strength = strength;
 	}
@@ -83,13 +83,13 @@ public class PurifyAirSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setStrength(Value strength)
+	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
 	}

@@ -29,11 +29,11 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class IdentifySpellResult extends SpellResult
 {
-	private Value value;
+	private ValueList value;
 	private boolean revealCurses;
 
 	/*-------------------------------------------------------------------------*/
-	public IdentifySpellResult(Value value, boolean revealCurses)
+	public IdentifySpellResult(ValueList value, boolean revealCurses)
 	{
 		this.value = value;
 		this.revealCurses = revealCurses;
@@ -68,7 +68,7 @@ public class IdentifySpellResult extends SpellResult
 		return revealCurses;
 	}
 
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

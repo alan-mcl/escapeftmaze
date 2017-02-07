@@ -48,7 +48,7 @@ public class ModifierValue extends Value
 	/*-------------------------------------------------------------------------*/
 	public Value getSnapShotValue(UnifiedActor source, int castingLevel)
 	{
-		// transform this Modifier Value into a constant value based on the
+		// transform this Modifier ValueList into a constant value based on the
 		// source's current modifier.  It won't need to be scaled by casting level
 		// in the future.
 		Value result = new Value(this.compute(source, castingLevel), SCALE.NONE);

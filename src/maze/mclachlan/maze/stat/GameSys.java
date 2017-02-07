@@ -580,7 +580,7 @@ public class GameSys
 	public SpellAction applyWildMagic(
 		Combat combat, UnifiedActor source, Spell spell, int castingLevel, SpellTarget target)
 	{
-		Value v = spell.getWildMagicValue();
+		ValueList v = spell.getWildMagicValue();
 
 		if (v != null)
 		{
@@ -1791,7 +1791,12 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int disarmWithSpell(UnifiedActor caster, int castingLevel, Value spellModifier, Trap trap, int tool)
+	public int disarmWithSpell(
+		UnifiedActor caster,
+		int castingLevel,
+		ValueList spellModifier,
+		Trap trap,
+		int tool)
 	{
 		if (!trap.getRequired().get(tool))
 		{
@@ -1820,7 +1825,7 @@ public class GameSys
 	public int pickLockWithSpell(
 		UnifiedActor caster,
 		int castingLevel,
-		Value spellModifier,
+		ValueList spellModifier,
 		LockOrTrap lockOrTrap,
 		int tool)
 	{

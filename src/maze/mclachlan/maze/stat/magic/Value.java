@@ -19,8 +19,6 @@
 
 package mclachlan.maze.stat.magic;
 
-import java.util.*;
-import mclachlan.maze.data.v1.V1Value;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.util.MazeException;
@@ -42,7 +40,7 @@ public class Value
 	private int value;
 
 	/**
-	 * Whether or not to scale this Value with the spell casting level.
+	 * Whether or not to scale this ValueList with the spell casting level.
 	 */
 	private SCALE scaling;
 
@@ -55,11 +53,6 @@ public class Value
 	 * Whether or not to negate this value.
 	 */
 	private boolean negate;
-
-	/**
-	 * Other values that make up this computed value.
-	 */
-	private List<Value> values = new ArrayList<Value>();
 
 	/**
 	 * Always evaluates to zero.
@@ -104,30 +97,18 @@ public class Value
 		this.value = other.getValue();
 		this.scaling = other.getScaling();
 		this.negate = other.shouldNegate();
-		this.values = new ArrayList<Value>();
 		this.reference = other.getReference();
-
-		for (Value v : other.values)
-		{
-			this.values.add(new Value(v));
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @return true if this Value represents nothing other than a composition
+	 * @return true if this ValueList represents nothing other than a composition
 	 * 	of other Values
 	 */
 	public boolean isNullValue()
 	{
 		return getClass() == Value.class && value == 0;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void add(Value v)
-	{
-		this.values.add(v);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -158,11 +139,6 @@ public class Value
 
 		result = this.value * computeScale(source, castingLevel);
 
-		for (Value v : this.values)
-		{
-			result += v.compute(source, castingLevel);
-		}
-		
 		if (negate)
 		{
 			result = -result;
@@ -211,22 +187,15 @@ public class Value
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Returns a clone of this Value, with as much precomputed as possible.
+	 * Returns a clone of this ValueList, with as much precomputed as possible.
 	 * This is used for example on values for Condition damage, where the damage
-	 * Value must be calculated each turn based on the situation when it is
+	 * ValueList must be calculated each turn based on the situation when it is
 	 * cast.
 	 */
 	public Value getSnapShotValue(UnifiedActor source, int castingLevel)
 	{
 		// the default const value requires no snap-shotting
-		Value result = new Value(this.value, this.scaling);
-
-		for (Value v : values)
-		{
-			result.add(v.getSnapShotValue(source, castingLevel));
-		}
-
-		return result;
+		return new Value(this.value, this.scaling);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -245,7 +214,7 @@ public class Value
 
 	/**
 	 * @return
-	 * 	The constant portion of this Value. For example, "2d4+3" will return "3".
+	 * 	The constant portion of this ValueList. For example, "2d4+3" will return "3".
 	 */
 	public int getValue()
 	{
@@ -256,18 +225,6 @@ public class Value
 	public void setValue(int value)
 	{
 		this.value = value;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<Value> getValues()
-	{
-		return values;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setValues(List<Value> values)
-	{
-		this.values = values;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -303,25 +260,7 @@ public class Value
 		sb.append(",").append(scaling);
 		sb.append(",").append(reference);
 		sb.append(",").append(negate);
-		sb.append(",").append(values);
 		sb.append('}');
 		return sb.toString();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static void main(String[] args) throws Exception
-	{
-		Value v = V1Value.fromString("1/0/NONE//false,1/0/NONE//false,1/0/NONE//false,1/0/NONE//false,1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false");
-
-		List<Value> simplify = V1Value.simplify(v);
-		System.out.println("simplify = [" + simplify + "]");
-
-		System.out.println("v.getClass() = [" + v.getClass() + "]");
-		System.out.println("v = [" + v + "]");
-		System.out.println("v.values = [" + v.values + "]");
-
-		int i = v.compute(new NullActor(), 1);
-
-		System.out.println("i = [" + i + "]");
 	}
 }

@@ -31,10 +31,10 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class RechargeSpellResult extends SpellResult
 {
-	private Value value;
+	private ValueList value;
 
 	/*-------------------------------------------------------------------------*/
-	public RechargeSpellResult(Value value)
+	public RechargeSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
@@ -65,7 +65,7 @@ public class RechargeSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

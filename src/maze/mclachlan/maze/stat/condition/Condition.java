@@ -32,7 +32,7 @@ import mclachlan.maze.stat.combat.event.DamageMagicEvent;
 import mclachlan.maze.stat.combat.event.FatigueEvent;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 
 import static mclachlan.maze.data.StringUtil.getGamesysString;
 
@@ -47,7 +47,7 @@ public class Condition
 	private int duration;
 	private int strength;
 	private int castingLevel;
-	private Value hitPointDamage, actionPointDamage, magicPointDamage, staminaDamage;
+	private ValueList hitPointDamage, actionPointDamage, magicPointDamage, staminaDamage;
 	private MagicSys.SpellEffectType type;
 	private MagicSys.SpellEffectSubType subtype;
 
@@ -73,10 +73,10 @@ public class Condition
 		int duration,
 		int strength,
 		int castingLevel,
-		Value hpDamage,
-		Value apDamage,
-		Value mpDamage,
-		Value staminaDamage,
+		ValueList hpDamage,
+		ValueList apDamage,
+		ValueList mpDamage,
+		ValueList staminaDamage,
 		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype,
 		UnifiedActor source,
@@ -124,22 +124,22 @@ public class Condition
 		this.castingLevel = castingLevel;
 	}
 
-	public void setHitPointDamage(Value hitPointDamage)
+	public void setHitPointDamage(ValueList hitPointDamage)
 	{
 		this.hitPointDamage = hitPointDamage;
 	}
 
-	public void setActionPointDamage(Value actionPointDamage)
+	public void setActionPointDamage(ValueList actionPointDamage)
 	{
 		this.actionPointDamage = actionPointDamage;
 	}
 
-	public void setMagicPointDamage(Value magicPointDamage)
+	public void setMagicPointDamage(ValueList magicPointDamage)
 	{
 		this.magicPointDamage = magicPointDamage;
 	}
 
-	public void setStaminaDamage(Value staminaDamage)
+	public void setStaminaDamage(ValueList staminaDamage)
 	{
 		this.staminaDamage = staminaDamage;
 	}
@@ -318,22 +318,22 @@ public class Condition
 		return template;
 	}
 
-	public Value getHitPointDamage()
+	public ValueList getHitPointDamage()
 	{
 		return hitPointDamage;
 	}
 	
-	public Value getMagicPointDamage()
+	public ValueList getMagicPointDamage()
 	{
 		return this.magicPointDamage;
 	}
 
-	public Value getStaminaDamage()
+	public ValueList getStaminaDamage()
 	{
 		return this.staminaDamage;
 	}
 
-	public Value getActionPointDamage()
+	public ValueList getActionPointDamage()
 	{
 		return this.actionPointDamage;
 	}

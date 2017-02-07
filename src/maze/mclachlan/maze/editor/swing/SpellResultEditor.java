@@ -26,11 +26,6 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.data.Loader;
-import mclachlan.maze.data.Saver;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
@@ -893,7 +888,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case ATTACK_WITH_WEAPON:
 
 				StatModifier modifier = weaponModifiers.getModifier();
-				Value nrStrikes = weaponNrStrikes.getValue();
+				ValueList nrStrikes = weaponNrStrikes.getValue();
 
 				MagicSys.SpellEffectType damageType = (MagicSys.SpellEffectType)weaponDamageType.getSelectedItem();
 				if (damageType == MagicSys.SpellEffectType.NONE)
@@ -1027,22 +1022,5 @@ public class SpellResultEditor extends JDialog implements ActionListener
 
 		result.setFoeType(foeType.getSelectedItem() == EditorPanel.NONE ?
 			null : new TypeDescriptorImpl((String)foeType.getSelectedItem()));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static void main(String[] args) throws Exception
-	{
-		Loader loader = new V1Loader();
-		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
-
-		JFrame owner = new JFrame("test");
-		owner.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-		while (1==1)
-		{
-			SpellResultEditor test = new SpellResultEditor(owner, new DamageSpellResult(new Value(), null, null, null, 1, false), -1);
-			System.out.println("test.result = [" + test.result + "]");
-		}
 	}
 }

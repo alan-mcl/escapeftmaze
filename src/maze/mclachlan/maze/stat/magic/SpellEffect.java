@@ -49,7 +49,7 @@ public class SpellEffect
 	/**
 	 * Any bonus or penalty applied to the victim's saves.
 	 */ 
-	private Value saveAdjustment;
+	private ValueList saveAdjustment;
 	
 	/**
 	 * The result of this spell on a failed save.
@@ -102,7 +102,7 @@ public class SpellEffect
 		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subType,
 		Application application,
-		Value saveModifier,
+		ValueList saveModifier,
 		SpellResult unsavedResult,
 		SpellResult savedResult,
 		int targetType)
@@ -119,7 +119,7 @@ public class SpellEffect
 		
 		if (saveAdjustment == null)
 		{
-			saveAdjustment = new Value();
+			saveAdjustment = new ValueList();
 		}
 	}
 	
@@ -134,7 +134,7 @@ public class SpellEffect
 		return savedResult;
 	}
 
-	public Value getSaveAdjustment()
+	public ValueList getSaveAdjustment()
 	{
 		return saveAdjustment;
 	}
@@ -182,7 +182,7 @@ public class SpellEffect
 		this.name = name;
 	}
 
-	public void setSaveAdjustment(Value saveAdjustment)
+	public void setSaveAdjustment(ValueList saveAdjustment)
 	{
 		this.saveAdjustment = saveAdjustment;
 	}

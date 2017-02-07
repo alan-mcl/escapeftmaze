@@ -42,11 +42,11 @@ public class SummoningSpellResult extends SpellResult
 	//  - there is a 10% chance of giving the strength +1, and a 10% chance of -1
 	//  - a foe group is then generated from the indicated encounter table
 	//
-	String[] encounterTable;
-	Value strength;
+	private String[] encounterTable;
+	private ValueList strength;
 
 	/*-------------------------------------------------------------------------*/
-	public SummoningSpellResult(String[] encounterTable, Value strength)
+	public SummoningSpellResult(String[] encounterTable, ValueList strength)
 	{
 		this.encounterTable = encounterTable;
 		this.strength = strength;
@@ -108,7 +108,7 @@ public class SummoningSpellResult extends SpellResult
 		return encounterTable;
 	}
 
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}

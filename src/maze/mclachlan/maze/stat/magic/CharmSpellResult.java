@@ -32,16 +32,16 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class CharmSpellResult extends SpellResult
 {
-	private Value value;
+	private ValueList value;
 
 	/*-------------------------------------------------------------------------*/
-	public CharmSpellResult(Value value)
+	public CharmSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

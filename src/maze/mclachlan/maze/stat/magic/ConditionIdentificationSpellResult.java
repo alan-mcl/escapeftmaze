@@ -30,11 +30,11 @@ import mclachlan.maze.stat.condition.Condition;
  */
 public class ConditionIdentificationSpellResult extends SpellResult
 {
-	private Value strength;
+	private ValueList strength;
 	private boolean canIdentifyConditionStrength;
 
 	/*-------------------------------------------------------------------------*/
-	public ConditionIdentificationSpellResult(Value strength,
+	public ConditionIdentificationSpellResult(ValueList strength,
 		boolean canIdentifyConditionStrength)
 	{
 		this.strength = strength;
@@ -64,12 +64,12 @@ public class ConditionIdentificationSpellResult extends SpellResult
 
 	/*-------------------------------------------------------------------------*/
 
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}
 
-	public void setStrength(Value strength)
+	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
 	}

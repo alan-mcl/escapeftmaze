@@ -26,7 +26,7 @@ import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.AbstractActor;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 
 /**
  *
@@ -87,10 +87,10 @@ public class V1Condition
 		int duration = Integer.parseInt(strs[i++]);
 		int strength = Integer.parseInt(strs[i++]);
 		int castingLevel = Integer.parseInt(strs[i++]);
-		Value hpDamage = V1Value.fromString(strs[i++]);
-		Value apDamage = V1Value.fromString(strs[i++]);
-		Value mpDamage = V1Value.fromString(strs[i++]);
-		Value staminaDamage = V1Value.fromString(strs[i++]);
+		ValueList hpDamage = V1Value.fromString(strs[i++]);
+		ValueList apDamage = V1Value.fromString(strs[i++]);
+		ValueList mpDamage = V1Value.fromString(strs[i++]);
+		ValueList staminaDamage = V1Value.fromString(strs[i++]);
 		MagicSys.SpellEffectType type = MagicSys.SpellEffectType.valueOf(strs[i++]);
 		MagicSys.SpellEffectSubType subtype = MagicSys.SpellEffectSubType.valueOf(strs[i++]);
 		UnifiedActor source;

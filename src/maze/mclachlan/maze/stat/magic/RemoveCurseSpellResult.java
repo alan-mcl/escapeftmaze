@@ -29,10 +29,10 @@ import mclachlan.maze.stat.combat.event.RemoveCurseEvent;
  */
 public class RemoveCurseSpellResult extends SpellResult
 {
-	Value value;
+	ValueList value;
 
 	/*-------------------------------------------------------------------------*/
-	public RemoveCurseSpellResult(Value value)
+	public RemoveCurseSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
@@ -47,7 +47,7 @@ public class RemoveCurseSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

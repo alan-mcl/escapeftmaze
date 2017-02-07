@@ -32,6 +32,7 @@ import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
 import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
@@ -322,7 +323,7 @@ public class Foe extends UnifiedActor
 				{
 					result.add(new SpellLikeAbility(
 						ft.getSpecialAbility(),
-						new Value(getLevel(), Value.SCALE.NONE)));
+						new ValueList(new Value(getLevel(), Value.SCALE.NONE))));
 				}
 			}
 		}

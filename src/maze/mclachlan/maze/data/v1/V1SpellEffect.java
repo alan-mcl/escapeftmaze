@@ -22,10 +22,7 @@ package mclachlan.maze.data.v1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
-import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.magic.SpellResult;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.*;
 
 /**
  *
@@ -134,7 +131,7 @@ public class V1SpellEffect
 				displayName = null;
 			}
 			MagicSys.SpellEffectType type = MagicSys.SpellEffectType.valueOf(p.getProperty("type"));
-			Value saveAdjustment = V1Value.fromString(p.getProperty("saveAdjustment"));
+			ValueList saveAdjustment = V1Value.fromString(p.getProperty("saveAdjustment"));
 			SpellResult unsavedResult = V1SpellResult.fromString(p.getProperty("unsavedResult"));
 			SpellResult savedResult = V1SpellResult.fromString(p.getProperty("savedResult"));
 			int targetType = Integer.parseInt(p.getProperty("targetType"));

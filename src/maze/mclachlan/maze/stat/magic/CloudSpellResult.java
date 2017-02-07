@@ -25,10 +25,10 @@ package mclachlan.maze.stat.magic;
 public class CloudSpellResult extends SpellResult
 {
 	/** The duration for this condition */
-	Value duration;
+	ValueList duration;
 
 	/** The strength of this condition */
-	Value strength;
+	ValueList strength;
 
 	/** The Spell delivered every turn */
 	String spell;
@@ -38,8 +38,8 @@ public class CloudSpellResult extends SpellResult
 
 	/*-------------------------------------------------------------------------*/
 	public CloudSpellResult(
-		Value duration,
-		Value strength,
+		ValueList duration,
+		ValueList strength,
 		String icon,
 		String spell)
 	{
@@ -50,12 +50,12 @@ public class CloudSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getDuration()
+	public ValueList getDuration()
 	{
 		return duration;
 	}
 
-	public void setDuration(Value duration)
+	public void setDuration(ValueList duration)
 	{
 		this.duration = duration;
 	}
@@ -70,12 +70,12 @@ public class CloudSpellResult extends SpellResult
 		this.spell = effect;
 	}
 
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}
 
-	public void setStrength(Value strength)
+	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
 	}

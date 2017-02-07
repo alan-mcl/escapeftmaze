@@ -29,8 +29,6 @@ import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Dice;
-import mclachlan.maze.data.v1.V1Value;
-import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
@@ -380,14 +378,4 @@ public class ValueEditor extends JDialog implements ActionListener
 		return value;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public static void main(String[] args)
-	{
-		while (1==1)
-		{
-			Frame f = new Frame("test");
-			ValueEditor test = new ValueEditor(f, new DiceValue(Dice.d4));
-			System.out.println("test.getValue() = [" + V1Value.toString(test.getValue()) + "]");
-		}
-	}
 }

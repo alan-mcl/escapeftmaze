@@ -23,6 +23,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 
 /**
  *
@@ -44,8 +45,9 @@ public class AcolyteApotheosis extends LevelAbility
 		statModifier.setModifier(Stats.Modifier.FLIER, 1);
 
 		Spell spell = Database.getInstance().getSpell("Demon Ally");
-		Value castingLevel = new Value(1, Value.SCALE.SCALE_WITH_CLASS_LEVEL);
-		castingLevel.setReference("Acolyte");
+		Value value = new Value(1, Value.SCALE.SCALE_WITH_CLASS_LEVEL);
+		value.setReference("Acolyte");
+		ValueList castingLevel = new ValueList(value);
 		demonAlly = new SpellLikeAbility(spell, castingLevel);
 	}
 

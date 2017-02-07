@@ -24,6 +24,8 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.map.EncounterTable;
+import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
@@ -151,6 +153,17 @@ public class ActorDiesEvent extends MazeEvent
 				new GrantExperienceEvent(
 					getNotorietyReward(victim),
 					(PlayerCharacter)attacker));
+		}
+
+		// check for REINCARNATE effects
+		if (victim.getModifier(Stats.Modifier.REINCARNATE_BEAST) > 0)
+		{
+			EncounterTable table =
+				Database.getInstance().getEncounterTable("reincarnate.beast");
+			FoeEntry fe = table.getEncounterTable().getRandomItem();
+			List<FoeGroup> foeGroups = fe.generate();
+
+			result.add(new SummoningSucceedsEvent(foeGroups, victim));
 		}
 
 		victim.getHitPoints().setCurrent(0);

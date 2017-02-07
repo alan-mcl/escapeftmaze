@@ -25,7 +25,7 @@ import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -48,22 +48,22 @@ public class ConditionTemplate
 	private ConditionEffect conditionEffect;
 
 	/** The duration for this condition */
-	private Value duration;
+	private ValueList duration;
 
 	/** The strength of this condition */
-	private Value strength;
+	private ValueList strength;
 
 	/** The damage dealt by this condition every turn */
-	private Value hitPointDamage;
+	private ValueList hitPointDamage;
 	
 	/** The stamina damage dealt by this condition every turn */
-	private Value staminaDamage;
+	private ValueList staminaDamage;
 	
 	/** The stealth damage dealt by this condition every turn */
-	private Value actionPointDamage;
+	private ValueList actionPointDamage;
 	
 	/** The magic damage dealt by this condition every turn */
-	private Value magicPointDamage;
+	private ValueList magicPointDamage;
 
 	/** The modifiers to actors affected by this condition */
 	private StatModifier statModifier;
@@ -102,15 +102,15 @@ public class ConditionTemplate
 	public ConditionTemplate(
 		String name,
 		String displayName,
-		Value duration,
-		Value strength,
+		ValueList duration,
+		ValueList strength,
 		ConditionEffect effect,
 		StatModifier statModifier,
 		StatModifier bannerModifier,
-		Value hitPointDamage,
-		Value staminaDamage,
-		Value actionPointDamage,
-		Value magicPointDamage,
+		ValueList hitPointDamage,
+		ValueList staminaDamage,
+		ValueList actionPointDamage,
+		ValueList magicPointDamage,
 		String icon,
 		String adjective,
 		boolean scaleModifierWithStrength,
@@ -164,12 +164,12 @@ public class ConditionTemplate
 		return adjective;
 	}
 
-	public Value getHitPointDamage()
+	public ValueList getHitPointDamage()
 	{
 		return hitPointDamage;
 	}
 
-	public Value getDuration()
+	public ValueList getDuration()
 	{
 		return duration;
 	}
@@ -204,7 +204,7 @@ public class ConditionTemplate
 		return bannerModifier;
 	}
 
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}
@@ -214,17 +214,17 @@ public class ConditionTemplate
 		return strengthWanes;
 	}
 
-	public Value getMagicPointDamage()
+	public ValueList getMagicPointDamage()
 	{
 		return magicPointDamage;
 	}
 
-	public Value getStaminaDamage()
+	public ValueList getStaminaDamage()
 	{
 		return staminaDamage;
 	}
 
-	public Value getActionPointDamage()
+	public ValueList getActionPointDamage()
 	{
 		return actionPointDamage;
 	}
@@ -260,12 +260,12 @@ public class ConditionTemplate
 		this.conditionEffect = conditionEffect;
 	}
 
-	public void setHitPointDamage(Value hitPointDamage)
+	public void setHitPointDamage(ValueList hitPointDamage)
 	{
 		this.hitPointDamage = hitPointDamage;
 	}
 
-	public void setDuration(Value duration)
+	public void setDuration(ValueList duration)
 	{
 		this.duration = duration;
 	}
@@ -295,7 +295,7 @@ public class ConditionTemplate
 		this.bannerModifier = bannerModifier;
 	}
 
-	public void setStrength(Value strength)
+	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
 	}
@@ -310,17 +310,17 @@ public class ConditionTemplate
 		this.displayName = displayName;
 	}
 
-	public void setMagicPointDamage(Value magicPointDamage)
+	public void setMagicPointDamage(ValueList magicPointDamage)
 	{
 		this.magicPointDamage = magicPointDamage;
 	}
 
-	public void setStaminaDamage(Value staminaDamage)
+	public void setStaminaDamage(ValueList staminaDamage)
 	{
 		this.staminaDamage = staminaDamage;
 	}
 
-	public void setActionPointDamage(Value actionPointDamage)
+	public void setActionPointDamage(ValueList actionPointDamage)
 	{
 		this.actionPointDamage = actionPointDamage;
 	}
@@ -383,13 +383,13 @@ public class ConditionTemplate
 			// a bog standard condition
 			int duration = getDuration().compute(source, castingLevel);
 			int strength = getStrength().compute(source, castingLevel);
-			Value hpDamage = getHitPointDamage() == null ? null :
+			ValueList hpDamage = getHitPointDamage() == null ? null :
 				getHitPointDamage().getSnapShotValue(source, castingLevel);
-			Value apDamage = getActionPointDamage() == null ? null :
+			ValueList apDamage = getActionPointDamage() == null ? null :
 				getActionPointDamage().getSnapShotValue(source, castingLevel);
-			Value mpDamage = getMagicPointDamage() == null ? null :
+			ValueList mpDamage = getMagicPointDamage() == null ? null :
 				getMagicPointDamage().getSnapShotValue(source, castingLevel);
-			Value staminaDamage = getStaminaDamage() == null ? null :
+			ValueList staminaDamage = getStaminaDamage() == null ? null :
 				getStaminaDamage().getSnapShotValue(source, castingLevel);
 
 			// could use a smarter algorithm here

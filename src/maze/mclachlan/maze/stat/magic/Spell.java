@@ -40,9 +40,9 @@ public class Spell
 	private String displayName;
 	
 	/** costs to cast this spell */
-	private Value hitPointCost;
-	private Value actionPointCost;
-	private Value magicPointCost;
+	private ValueList hitPointCost;
+	private ValueList actionPointCost;
+	private ValueList magicPointCost;
 
 	/** spell target type, eg FOE.  A constant from {@link MagicSys.SpellTargetType} */
 	private int targetType;
@@ -84,7 +84,7 @@ public class Spell
 	private Stats.Modifier secondaryModifier;
 
 	/** if non null, this is a wild magic spell */
-	private Value wildMagicValue;
+	private ValueList wildMagicValue;
 
 	/** a table of spell names keyed on the wild magic value */
 	private String[] wildMagicTable;
@@ -93,9 +93,9 @@ public class Spell
 	public Spell(
 		String name,
 		String displayName,
-		Value hitPointCost,
-		Value actionPointCost,
-		Value magicPointCost,
+		ValueList hitPointCost,
+		ValueList actionPointCost,
+		ValueList magicPointCost,
 		String description,
 		int level,
 		int targetType,
@@ -109,7 +109,7 @@ public class Spell
 		MazeScript castByFoeScript,
 		Stats.Modifier primaryModifier,
 		Stats.Modifier secondaryModifier,
-		Value wildMagicValue,
+		ValueList wildMagicValue,
 		String[] wildMagicTable
 	)
 	{
@@ -146,32 +146,32 @@ public class Spell
 		return name;
 	}
 
-	public Value getHitPointCost()
+	public ValueList getHitPointCost()
 	{
 		return hitPointCost;
 	}
 
-	public void setHitPointCost(Value hitPointCost)
+	public void setHitPointCost(ValueList hitPointCost)
 	{
 		this.hitPointCost = hitPointCost;
 	}
 
-	public Value getActionPointCost()
+	public ValueList getActionPointCost()
 	{
 		return actionPointCost;
 	}
 
-	public void setActionPointCost(Value actionPointCost)
+	public void setActionPointCost(ValueList actionPointCost)
 	{
 		this.actionPointCost = actionPointCost;
 	}
 
-	public Value getMagicPointCost()
+	public ValueList getMagicPointCost()
 	{
 		return magicPointCost;
 	}
 
-	public void setMagicPointCost(Value magicPointCost)
+	public void setMagicPointCost(ValueList magicPointCost)
 	{
 		this.magicPointCost = magicPointCost;
 	}
@@ -246,7 +246,7 @@ public class Spell
 		return secondaryModifier;
 	}
 
-	public Value getWildMagicValue()
+	public ValueList getWildMagicValue()
 	{
 		return wildMagicValue;
 	}
@@ -331,7 +331,7 @@ public class Spell
 		this.usabilityType = usabilityType;
 	}
 
-	public void setWildMagicValue(Value wildMagicValue)
+	public void setWildMagicValue(ValueList wildMagicValue)
 	{
 		this.wildMagicValue = wildMagicValue;
 	}

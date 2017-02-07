@@ -712,6 +712,20 @@ spellEffects=TOUCH_BLIND:30
 spellEffectLevel=1
 attackScript=generic weapon swish
 @
+name=winter wolf bite
+ranged=false
+description=bites
+modifiers=2000000000000000000000000000000000000,01
+minRange=1
+maxRange=1
+attacks=3
+slaysFoeType=
+damage=2d8
+damageType=PIERCING
+spellEffects=frostbite:100
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
 name=viridifid spore
 ranged=true
 description=shoots fungal spores
@@ -824,6 +838,20 @@ spellEffects=TOUCH_SWALLOW:50
 spellEffectLevel=5
 attackScript=generic weapon swish
 @
+name=owlbear claw
+ranged=false
+description=claws
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=3,3
+slaysFoeType=
+damage=3d8
+damageType=SLASHING
+spellEffects=
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
 name=spawn of ekirth bite
 ranged=false
 description=bites
@@ -933,6 +961,20 @@ slaysFoeType=
 damage=3d4
 damageType=PIERCING
 spellEffects=acid splash condition:100
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
+name=griffon bite
+ranged=false
+description=bites
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=2,2
+slaysFoeType=
+damage=4d8
+damageType=PIERCING
+spellEffects=
 spellEffectLevel=1
 attackScript=generic weapon swish
 @
@@ -1776,6 +1818,20 @@ spellEffects=mace ko:15
 spellEffectLevel=1
 attackScript=generic weapon swish
 @
+name=griffon claw
+ranged=false
+description=claws
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=3,3,3,3
+slaysFoeType=
+damage=2d8
+damageType=PIERCING
+spellEffects=
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
 name=force of nature punch
 ranged=false
 description=punches hard
@@ -2124,6 +2180,20 @@ damage=3d3+3
 damageType=ENERGY
 spellEffects=TOUCH_PARALYSE:50,TOUCH_FEAR:50
 spellEffectLevel=4
+attackScript=generic weapon swish
+@
+name=owlbear bite
+ranged=false
+description=bites
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=2
+slaysFoeType=
+damage=6d8
+damageType=PIERCING
+spellEffects=
+spellEffectLevel=1
 attackScript=generic weapon swish
 @
 name=shade touch

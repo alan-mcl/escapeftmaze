@@ -28,14 +28,14 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class UnlockSpellResult extends SpellResult
 {
-	Value value;
+	ValueList value;
 
-	public UnlockSpellResult(Value value)
+	public UnlockSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
 
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

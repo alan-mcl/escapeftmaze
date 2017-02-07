@@ -523,6 +523,17 @@ public class FoeTemplatePanel extends EditorPanel
 	{
 		String raceS = (String)race.getSelectedItem();
 		String classS = (String)characterClass.getSelectedItem();
+
+		if (NONE.equals(raceS))
+		{
+			raceS = null;
+		}
+
+		if (NONE.equals(classS))
+		{
+			classS = null;
+		}
+
 		FoeTemplate ft = new FoeTemplate(
 			name,
 			"",

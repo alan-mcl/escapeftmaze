@@ -371,9 +371,9 @@ public class SpellPanel extends EditorPanel
 		Spell spell = new Spell(
 			name,
 			"",
-			new Value(0, Value.SCALE.NONE),
-			new Value(0, Value.SCALE.NONE),
-			new Value(0, Value.SCALE.NONE),
+			new ValueList(new Value(0, Value.SCALE.NONE)),
+			new ValueList(new Value(0, Value.SCALE.NONE)),
+			new ValueList(new Value(0, Value.SCALE.NONE)),
 			"",
 			1,
 			MagicSys.SpellTargetType.ALL_FOES,
@@ -423,7 +423,7 @@ public class SpellPanel extends EditorPanel
 			current.getCastByFoeScript(),
 			current.getPrimaryModifier(),
 			current.getSecondaryModifier(),
-			current.getWildMagicValue()==null?null:new Value(current.getWildMagicValue()),
+			current.getWildMagicValue()==null?null:new ValueList(current.getWildMagicValue()),
 			current.getWildMagicTable()==null?null:Arrays.copyOf(current.getWildMagicTable(), current.getWildMagicTable().length));
 		Database.getInstance().getSpells().put(newName, spell);
 	}

@@ -32,10 +32,10 @@ import mclachlan.maze.stat.combat.event.*;
  */
 public class DamageSpellResult extends SpellResult
 {
-	private Value hitPointDamage;
-	private Value fatigueDamage;
-	private Value actionPointDamage;
-	private Value magicPointDamage;
+	private ValueList hitPointDamage;
+	private ValueList fatigueDamage;
+	private ValueList actionPointDamage;
+	private ValueList magicPointDamage;
 	
 	private double multiplier;
 
@@ -43,20 +43,20 @@ public class DamageSpellResult extends SpellResult
 
 	/*-------------------------------------------------------------------------*/	
 	public DamageSpellResult(
-		Value hitPointDamage, 
-		Value fatigueDamage,
-		Value actionPointDamage,
-		Value magicPointDamage)
+		ValueList hitPointDamage,
+		ValueList fatigueDamage,
+		ValueList actionPointDamage,
+		ValueList magicPointDamage)
 	{
 		this(hitPointDamage, fatigueDamage, actionPointDamage, magicPointDamage, 1, false);
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public DamageSpellResult(
-		Value hitPointDamage, 
-		Value fatigueDamage, 
-		Value actionPointDamage,
-		Value magicPointDamage, 
+		ValueList hitPointDamage,
+		ValueList fatigueDamage,
+		ValueList actionPointDamage,
+		ValueList magicPointDamage,
 		double multiplier,
 		boolean transferToCaster)
 	{
@@ -143,7 +143,7 @@ public class DamageSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int calcDamage(Value value, UnifiedActor source, int castingLevel)
+	private int calcDamage(ValueList value, UnifiedActor source, int castingLevel)
 	{
 		int damage = value.compute(source, castingLevel);
 
@@ -155,7 +155,7 @@ public class DamageSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getHitPointDamage()
+	public ValueList getHitPointDamage()
 	{
 		return hitPointDamage;
 	}
@@ -167,19 +167,19 @@ public class DamageSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getFatigueDamage()
+	public ValueList getFatigueDamage()
 	{
 		return fatigueDamage;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getMagicPointDamage()
+	public ValueList getMagicPointDamage()
 	{
 		return magicPointDamage;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getActionPointDamage()
+	public ValueList getActionPointDamage()
 	{
 		return actionPointDamage;
 	}

@@ -24,14 +24,14 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 
 /**
  *
  */
 public class ValueComponent extends JButton implements ActionListener
 {
-	private Value value;
+	private ValueList value;
 	private int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
@@ -41,7 +41,7 @@ public class ValueComponent extends JButton implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ValueComponent(Value value, int dirtyFlag)
+	public ValueComponent(ValueList value, int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
 		refresh(value);
@@ -58,7 +58,7 @@ public class ValueComponent extends JButton implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(Value value)
+	public void refresh(ValueList value)
 	{
 		this.value = value;
 		if (value == null)
@@ -80,13 +80,13 @@ public class ValueComponent extends JButton implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setValue(Value value)
+	public void setValue(ValueList value)
 	{
 		this.value = value;
 		this.refresh(value);
@@ -98,10 +98,10 @@ public class ValueComponent extends JButton implements ActionListener
 		if (event.getSource() == this)
 		{
 			ValueListDialog dialog = new ValueListDialog(SwingEditor.instance, this.value);
-			Value v = dialog.getValue();
+			ValueList v = dialog.getValue();
 			if (v != null)
 			{
-				if (v == ValueListDialog.NULL_VALUE)
+				if (v.getValues().size()==1 && v.getValues().get(0) == ValueListDialog.NULL_VALUE)
 				{
 					this.value = null;
 				}

@@ -25,7 +25,7 @@ import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -208,7 +208,7 @@ public class BasicFoeAi extends FoeCombatAi
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int getMaxCastingLevel(UnifiedActor actor, CurMax resource, Value cost)
+	private int getMaxCastingLevel(UnifiedActor actor, CurMax resource, ValueList cost)
 	{
 		if (cost == null)
 		{

@@ -32,17 +32,17 @@ import mclachlan.maze.stat.combat.event.StaminaEvent;
  */
 public class HealingSpellResult extends SpellResult
 {
-	private Value hitPointHealing;
-	private Value staminaHealing;
-	private Value actionPointHealing;
-	private Value magicPointHealing;
+	private ValueList hitPointHealing;
+	private ValueList staminaHealing;
+	private ValueList actionPointHealing;
+	private ValueList magicPointHealing;
 
 	/*-------------------------------------------------------------------------*/
 	public HealingSpellResult(
-		Value hitPointHealing, 
-		Value staminaHealing, 
-		Value actionPointHealing,
-		Value magicPointHealing)
+		ValueList hitPointHealing,
+		ValueList staminaHealing,
+		ValueList actionPointHealing,
+		ValueList magicPointHealing)
 	{
 		this.magicPointHealing = magicPointHealing;
 		this.actionPointHealing = actionPointHealing;
@@ -83,25 +83,25 @@ public class HealingSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getHitPointHealing()
+	public ValueList getHitPointHealing()
 	{
 		return hitPointHealing;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getMagicPointHealing()
+	public ValueList getMagicPointHealing()
 	{
 		return magicPointHealing;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getStaminaHealing()
+	public ValueList getStaminaHealing()
 	{
 		return staminaHealing;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getActionPointHealing()
+	public ValueList getActionPointHealing()
 	{
 		return actionPointHealing;
 	}

@@ -23,7 +23,7 @@ import java.util.*;
 import mclachlan.maze.data.v1.V1Value;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -143,7 +143,7 @@ public class StringUtil
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String descValue(Value v)
+	public static String descValue(ValueList v)
 	{
 		// todo: prettier printing
 		return V1Value.toString(v);

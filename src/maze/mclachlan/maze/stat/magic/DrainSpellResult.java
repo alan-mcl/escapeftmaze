@@ -30,11 +30,11 @@ import mclachlan.maze.stat.combat.event.DrainEvent;
  */
 public class DrainSpellResult extends SpellResult
 {
-	private Value drain;
+	private ValueList drain;
 	private Stats.Modifier modifier;
 
 	/*-------------------------------------------------------------------------*/	
-	public DrainSpellResult(Value drain, Stats.Modifier modifier)
+	public DrainSpellResult(ValueList drain, Stats.Modifier modifier)
 	{
 		this.drain = drain;
 		this.modifier = modifier;
@@ -55,7 +55,7 @@ public class DrainSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getDrain()
+	public ValueList getDrain()
 	{
 		return drain;
 	}

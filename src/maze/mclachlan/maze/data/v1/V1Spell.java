@@ -224,12 +224,12 @@ public class V1Spell
 			int usabilityType = Integer.parseInt(p.getProperty("usabilityType"));
 			String primaryModifier = p.getProperty("primaryModifier");
 			String secondaryModifier = p.getProperty("secondaryModifier");
-			Value wildMagicValue = V1Value.fromString(p.getProperty("wildMagicValue"));
+			ValueList wildMagicValue = V1Value.fromString(p.getProperty("wildMagicValue"));
 			String[] wildMagicTable = V1Utils.fromStringStrings(p.getProperty("wildMagicTable"), ",");
 
-			Value hitPointCost = V1Value.fromString(p.getProperty("hitPointCost"));
-			Value actionPointCost = V1Value.fromString(p.getProperty("actionPointCost"));
-			Value magicPointCost = V1Value.fromString(p.getProperty("magicPointCost"));
+			ValueList hitPointCost = V1Value.fromString(p.getProperty("hitPointCost"));
+			ValueList actionPointCost = V1Value.fromString(p.getProperty("actionPointCost"));
+			ValueList magicPointCost = V1Value.fromString(p.getProperty("magicPointCost"));
 
 			return new Spell(
 				name,

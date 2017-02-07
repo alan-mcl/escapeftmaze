@@ -27,10 +27,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionManager;
-import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.SpellBook;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
@@ -441,7 +438,7 @@ public class PlayerCharacter extends UnifiedActor
 						new SpecialAbilityOption(
 							new SpellLikeAbility(
 								Database.getInstance().getSpell("_DEADLY_STRIKE_"),
-								new Value(this.getLevel(), Value.SCALE.NONE))),
+								new ValueList(new Value(this.getLevel(), Value.SCALE.NONE)))),
 						null);
 				}
 

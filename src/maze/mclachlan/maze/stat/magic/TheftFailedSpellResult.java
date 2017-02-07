@@ -31,10 +31,10 @@ import mclachlan.maze.stat.combat.event.TheftSpellFailed;
  */
 public class TheftFailedSpellResult extends SpellResult
 {
-	Value value;
+	ValueList value;
 
 	/*-------------------------------------------------------------------------*/
-	public TheftFailedSpellResult(Value value)
+	public TheftFailedSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
@@ -57,7 +57,7 @@ public class TheftFailedSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

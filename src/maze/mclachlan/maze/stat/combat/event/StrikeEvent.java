@@ -27,6 +27,7 @@ import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
@@ -224,7 +225,7 @@ public class StrikeEvent extends MazeEvent
 		// find a hidden_blade special ability
 		SpellLikeAbility ability = new SpellLikeAbility(
 			spell,
-			new Value(defender.getCurrentClassLevel(), Value.SCALE.NONE));
+			new ValueList(new Value(defender.getCurrentClassLevel(), Value.SCALE.NONE)));
 		List<SpellLikeAbility> spellLikeAbilities = this.defender.getSpellLikeAbilities();
 		for (SpellLikeAbility sla : spellLikeAbilities)
 		{
@@ -255,7 +256,7 @@ public class StrikeEvent extends MazeEvent
 		// find a hidden_blade special ability
 		SpellLikeAbility ability = new SpellLikeAbility(
 			spell,
-			new Value(defender.getCurrentClassLevel(), Value.SCALE.NONE));
+			new ValueList(new Value(defender.getCurrentClassLevel(), Value.SCALE.NONE)));
 		List<SpellLikeAbility> spellLikeAbilities = this.defender.getSpellLikeAbilities();
 		for (SpellLikeAbility sla : spellLikeAbilities)
 		{

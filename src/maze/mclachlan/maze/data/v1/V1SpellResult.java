@@ -152,7 +152,7 @@ public class V1SpellResult
 
 		if (sr.getFoeType() != null)
 		{
-			s.append(sr.getFoeType());
+			s.append(sr.getFoeType().getName());
 		}
 		s.append(SEP);
 
@@ -340,7 +340,7 @@ public class V1SpellResult
 				break;
 			case ATTACK_WITH_WEAPON:
 				StatModifier modifiers = V1StatModifier.fromString(strs[i++]);
-				Value nrStrikes = V1Value.fromString(strs[i++]);
+				ValueList nrStrikes = V1Value.fromString(strs[i++]);
 				String damType = strs[i++];
 				MagicSys.SpellEffectType damageType = "".equals(damType)?null:MagicSys.SpellEffectType.valueOf(damType);
 
@@ -373,7 +373,7 @@ public class V1SpellResult
 					se);
 				break;
 			case CHARM:
-				Value v = V1Value.fromString(strs[i++]);
+				ValueList v = V1Value.fromString(strs[i++]);
 				result = new CharmSpellResult(v);
 				break;
 			case CONDITION:
@@ -381,10 +381,10 @@ public class V1SpellResult
 				result = new ConditionSpellResult(ct);
 				break;
 			case DAMAGE:
-				Value hp = V1Value.fromString(strs[i++]);
-				Value fat = V1Value.fromString(strs[i++]);
-				Value sp = V1Value.fromString(strs[i++]);
-				Value mp = V1Value.fromString(strs[i++]);
+				ValueList hp = V1Value.fromString(strs[i++]);
+				ValueList fat = V1Value.fromString(strs[i++]);
+				ValueList sp = V1Value.fromString(strs[i++]);
+				ValueList mp = V1Value.fromString(strs[i++]);
 				float multiplier = Float.parseFloat(strs[i++]);
 				boolean transferToCaster = Boolean.valueOf(strs[i++]);
 				result = new DamageSpellResult(hp, fat, sp, mp, multiplier, transferToCaster);
@@ -486,32 +486,5 @@ public class V1SpellResult
 		result.setFoeType(foeType);
 
 		return result;
-	}
-
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * for testing only
-	 */
-	public static void main(String[] args)
-	{
-		Value v = new DiceValue(Dice.d10);
-		SpellResult sr = null;
-		String s = null;
-
-		sr = new DamageSpellResult(v, null, null, null, 0.5F, false);
-		s = toString(sr);
-		System.out.println("s = [" + s + "]");
-		System.out.println(fromString(s));
-
-		sr = new IdentifySpellResult(Value.NULL_VALUE, false);
-		s = toString(sr);
-		System.out.println("s = [" + s + "]");
-		System.out.println(fromString(s));
-
-		sr = new SummoningSpellResult(new String[]{"a", "b", "c"}, v);
-		s = toString(sr);
-		System.out.println("s = [" + s + "]");
-		System.out.println(fromString(s));
 	}
 }

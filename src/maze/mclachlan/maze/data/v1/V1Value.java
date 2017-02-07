@@ -22,10 +22,7 @@ package mclachlan.maze.data.v1;
 import java.util.*;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.magic.DiceValue;
-import mclachlan.maze.stat.magic.ManaPresentValue;
-import mclachlan.maze.stat.magic.ModifierValue;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -54,40 +51,14 @@ public class V1Value
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static String toString(Value v)
+	public static String toString(ValueList v)
 	{
 		return toString(v, ROW_SEP, COL_SEP);
 	}
 
 	/*-------------------------------------------------------------------------*/
 
-	/**
-	 * @return a simple list of values that makes sense out of the composition
-	 */
-	public static List<Value> simplify(Value value)
-	{
-		// operate on a clone
-		Value v = new Value(value);
-
-		List<Value> result = new ArrayList<Value>();
-
-		List<Value> values = v.getValues();
-		if (!v.isNullValue())
-		{
-			v.setValues(new ArrayList<Value>());
-			result.add(v);
-		}
-
-		for (Value childValue : values)
-		{
-			result.addAll(simplify(childValue));
-		}
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static String toString(Value value, String rowSep, String colSep)
+	public static String toString(ValueList value, String rowSep, String colSep)
 	{
 		if (value == null)
 		{
@@ -96,9 +67,7 @@ public class V1Value
 
 		StringBuilder s = new StringBuilder();
 
-		List<Value> values = simplify(value);
-
-		for (Value v : values)
+		for (Value v : value.getValues())
 		{
 			int type;
 			if (types.containsKey(v.getClass()))
@@ -153,13 +122,13 @@ public class V1Value
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static Value fromString(String s)
+	public static ValueList fromString(String s)
 	{
 		return fromString(s, ROW_SEP, COL_SEP);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static Value fromString(String s, String rowSep, String colSep)
+	public static ValueList fromString(String s, String rowSep, String colSep)
 	{
 		if (s.equals(""))
 		{
@@ -170,9 +139,7 @@ public class V1Value
 		String[] rows = s.split(rowSep);
 		String[] cols;
 
-		// Always encapsulate in an empty base value. This avoids odd composition
-		// bugs when Value subclasses override methods like compute and toString
-		Value baseValue = new Value();
+		ValueList baseValue = new ValueList();
 
 		ArrayList<Value> values = new ArrayList<Value>();
 
@@ -240,70 +207,5 @@ public class V1Value
 		result.setReference(ref);
 		
 		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * for testing only
-	 */
-	public static void main(String[] args)
-	{
-		Value v = new Value(2, Value.SCALE.NONE);
-		String s = toString(v);
-		System.out.println("s = [" + s + "]");
-		Value x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-		v.add(new DiceValue(new Dice(3,7,-2)));
-		s = toString(v);
-		System.out.println("s = [" + s + "]");
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-		v.add(new ModifierValue(Stats.Modifier.BRAWN));
-		s = toString(v);
-		System.out.println("s = [" + s + "]");
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-		v.add(new ManaPresentValue(1));
-		s = toString(v);
-		System.out.println("s = [" + s + "]");
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-		Value w = new Value();
-		w.add(new Value(1, Value.SCALE.SCALE_WITH_CASTING_LEVEL));
-		w.add(new DiceValue(Dice.d1000));
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-		v.add(w);
-		s = toString(v);
-		System.out.println("s = [" + s + "]");
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-		System.out.println("!!!!!!!!!!!!!!");
-
-		Value vv = new Value(2, Value.SCALE.NONE);
-		Value vv1 = new Value(2, Value.SCALE.SCALE_WITH_MODIFIER);
-		vv1.setReference(Stats.Modifier.GREEN_MAGIC_GEN.toString());
-		vv.add(vv1);
-
-		s = toString(vv);
-		System.out.println("s = [" + s + "]");
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-		s = toString(x);
-		System.out.println("s = [" + s + "]");
-		x = fromString(s);
-		System.out.println("x = [" + x + "]");
-
-
-		System.out.println("!!!!!!!!!!!!!!!!!!!");
-
-		s = "Value{2,NONE,null,false,[Value{1,SCALE_WITH_MODIFIER,GREEN_MAGIC_GEN,false,[]}]}";
-
 	}
 }

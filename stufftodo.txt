@@ -13,10 +13,11 @@ animation: javelin
 animation: throwing axe
 animation: throwing hammer
 
-sprite: angel
-sound: angel
-sprite: clockwork beast
-sound: clockwork beast
+sprite & sound: angel
+sprite & sound: clockwork beast
+sprite & sound: winter wolf
+sprite & sound: owlbear
+sprite & sound: griffon
 
 abilities: acolyte 10, 15
 abilities: berserker 17

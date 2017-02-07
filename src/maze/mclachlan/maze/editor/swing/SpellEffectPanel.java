@@ -342,10 +342,10 @@ public class SpellEffectPanel extends EditorPanel
 			if (sr instanceof DamageSpellResult)
 			{
 				DamageSpellResult d = (DamageSpellResult)sr;
-				Value hpDamage = d.getHitPointDamage();
-				Value fatigueDamage = d.getFatigueDamage();
-				Value actionDamage = d.getActionPointDamage();
-				Value magicDamage = d.getMagicPointDamage();
+				ValueList hpDamage = d.getHitPointDamage();
+				ValueList fatigueDamage = d.getFatigueDamage();
+				ValueList actionDamage = d.getActionPointDamage();
+				ValueList magicDamage = d.getMagicPointDamage();
 
 				// cheap shitty way of cloning
 				double multiplier = d.getMultiplier();
@@ -365,11 +365,11 @@ public class SpellEffectPanel extends EditorPanel
 			else if (sr instanceof DamageFoeTypeSpellResult)
 			{
 				DamageFoeTypeSpellResult d = (DamageFoeTypeSpellResult)sr;
-				Value damage = d.getDamage();
+				ValueList damage = d.getDamage();
 
 				// cheap shitty way of cloning
 				String s = V1Value.toString(damage);
-				Value cloneValue = V1Value.fromString(s);
+				ValueList cloneValue = V1Value.fromString(s);
 				double multiplier = d.getMultiplier();
 
 				DamageFoeTypeSpellResult result = new DamageFoeTypeSpellResult(

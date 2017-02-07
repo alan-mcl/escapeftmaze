@@ -486,7 +486,7 @@ public class SpellTargetUtils
 				return result;
 			}
 
-			Value modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
+			ValueList modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
 
 			BitSet disarmed = new BitSet(8);
 			for (int tool=0; tool<8; tool++)
@@ -523,7 +523,7 @@ public class SpellTargetUtils
 		}
 		else if (lockOrTrap.isLocked())
 		{
-			Value modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
+			ValueList modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
 
 			BitSet disarmed = new BitSet(8);
 			for (int tool=0; tool<8; tool++)

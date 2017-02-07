@@ -22,7 +22,7 @@ package mclachlan.maze.data.v1;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.SpellLikeAbility;
 import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 
 /**
  *
@@ -59,7 +59,7 @@ public class V1SpellLikeAbility
 		String[] strs = s.split(SEP);
 		int index = 0;
 		String spellName = strs[index++];
-		Value castingLevel = V1Value.fromString(strs[index++], "&", "`");
+		ValueList castingLevel = V1Value.fromString(strs[index++], "&", "`");
 
 		Spell spell = Database.getInstance().getSpell(spellName);
 

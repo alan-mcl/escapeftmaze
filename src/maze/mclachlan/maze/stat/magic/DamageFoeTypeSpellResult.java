@@ -31,18 +31,18 @@ import mclachlan.maze.stat.combat.event.DamageEvent;
  */
 public class DamageFoeTypeSpellResult extends SpellResult
 {
-	private Value damage;
+	private ValueList damage;
 	private double multiplier;
 	private TypeDescriptor type;
 
 	/*-------------------------------------------------------------------------*/	
-	public DamageFoeTypeSpellResult(Value damage, TypeDescriptor type)
+	public DamageFoeTypeSpellResult(ValueList damage, TypeDescriptor type)
 	{
 		this(damage, 1, type);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public DamageFoeTypeSpellResult(Value damage, double multiplier, TypeDescriptor type)
+	public DamageFoeTypeSpellResult(ValueList damage, double multiplier, TypeDescriptor type)
 	{
 		this.damage = damage;
 		this.multiplier = multiplier;
@@ -79,7 +79,7 @@ public class DamageFoeTypeSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getDamage()
+	public ValueList getDamage()
 	{
 		return damage;
 	}

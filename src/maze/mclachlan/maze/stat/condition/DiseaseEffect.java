@@ -19,18 +19,19 @@
 
 package mclachlan.maze.stat.condition;
 
+import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.GameTime;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.combat.event.ConditionEvent;
-import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
-import java.util.*;
 
 
 /**
@@ -82,7 +83,7 @@ public class DiseaseEffect extends ConditionEffect
 						new Dice(5, 4, 1).roll(),
 						condition.getStrength(),
 						condition.getCastingLevel(),
-						new Value(1, Value.SCALE.NONE),
+						new ValueList(new Value(1, Value.SCALE.NONE)),
 						null,
 						null,
 						null,

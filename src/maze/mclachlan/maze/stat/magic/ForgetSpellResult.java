@@ -32,10 +32,10 @@ import mclachlan.maze.stat.combat.event.ForgetEvent;
 public class ForgetSpellResult extends SpellResult
 {
 	/** The strength of the forget */
-	private Value strength;
+	private ValueList strength;
 
 	/*-------------------------------------------------------------------------*/
-	public ForgetSpellResult(Value strength)
+	public ForgetSpellResult(ValueList strength)
 	{
 		this.strength = strength;
 	}
@@ -69,13 +69,13 @@ public class ForgetSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setStrength(Value strength)
+	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
 	}

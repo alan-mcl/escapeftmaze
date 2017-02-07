@@ -33,16 +33,16 @@ import mclachlan.maze.ui.diygui.TextDialogCallback;
  */
 public class LocatePersonSpellResult extends SpellResult
 {
-	private Value value;
+	private ValueList value;
 
 	/*-------------------------------------------------------------------------*/
-	public LocatePersonSpellResult(Value value)
+	public LocatePersonSpellResult(ValueList value)
 	{
 		this.value = value;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return value;
 	}

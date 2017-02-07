@@ -62,7 +62,7 @@ public class MagicSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getPointCost(Value value, int castingLevel, UnifiedActor caster)
+	public int getPointCost(ValueList value, int castingLevel, UnifiedActor caster)
 	{
 		if (value == null)
 		{

@@ -19,16 +19,17 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
-import java.util.Collections;
-import java.util.Vector;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
-import mclachlan.maze.stat.magic.Value;
-import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -312,8 +313,8 @@ public class ConditionTemplatePanel extends EditorPanel
 		ConditionTemplate ct = new ConditionTemplate(
 			name,
 			name,
-			new Value(),
-			new Value(),
+			new ValueList(),
+			new ValueList(),
 			ConditionEffect.NONE,
 			new StatModifier(),
 			new StatModifier(),

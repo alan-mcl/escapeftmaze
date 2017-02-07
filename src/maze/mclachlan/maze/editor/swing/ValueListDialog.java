@@ -40,14 +40,14 @@ public class ValueListDialog extends JDialog
 {
 	static Value NULL_VALUE = new Value();
 
-	JList values;
-	JButton add, edit, remove, ok, cancel;
+	private JList values;
+	private JButton add, edit, remove, ok, cancel;
 
-	private Value value;
+	private ValueList value;
 	private ValueListModel dataModel;
 
 	/*-------------------------------------------------------------------------*/
-	public ValueListDialog(Frame owner, Value value) throws HeadlessException
+	public ValueListDialog(Frame owner, ValueList value) throws HeadlessException
 	{
 		super(owner, "Value List", true);
 
@@ -56,10 +56,6 @@ public class ValueListDialog extends JDialog
 		if (value != null)
 		{
 			dataModel.add(value);
-			for (Value v : value.getValues())
-			{
-				dataModel.add(v);
-			}
 		}
 		values.addMouseListener(this);
 
@@ -108,12 +104,11 @@ public class ValueListDialog extends JDialog
 			List<Value> list = this.dataModel.data;
 			if (list.size() == 0)
 			{
-				this.value = NULL_VALUE;
+				this.value = new ValueList(NULL_VALUE);
 			}
 			else
 			{
-				this.value = list.get(0);
-				this.value.setValues(list.subList(1, list.size()));
+				this.value = new ValueList(list);
 			}
 
 			setVisible(false);
@@ -204,6 +199,15 @@ public class ValueListDialog extends JDialog
 			return data.size();
 		}
 
+		public void add(ValueList v)
+		{
+			for (Value value : v.getValues())
+			{
+				data.add(value);
+			}
+			fireContentsChanged(this, data.size(), data.size());
+		}
+
 		public void add(Value v)
 		{
 			data.add(v);
@@ -286,14 +290,8 @@ public class ValueListDialog extends JDialog
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getValue()
+	public ValueList getValue()
 	{
 		return this.value;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static void main(String[] args)
-	{
-		new ValueListDialog(new JFrame("test"), new Value(2, Value.SCALE.NONE));
 	}
 }

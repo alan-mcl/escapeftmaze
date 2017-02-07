@@ -265,6 +265,7 @@ modifier_name-surpriseParry: Surprise Parry
 modifier_name-barterExpert: Barter Expert
 modifier_name-persuasion: Persuasion
 modifier_name-supplyConsumption: Supply Consumption
+modifier_name-reincarnateBeast: Reincarnate: Beast
 
 # Modifier Descriptions
 
@@ -523,6 +524,7 @@ modifier_desc-surpriseParry: If the character is attacked while empty handed, he
 modifier_desc-barterExpert: The character is able to drive much better deals with vendors.
 modifier_desc-persuasion: When another character in the party tried to influence an NPC with treats, bribes or otherwise, it works much better.
 modifier_desc-supplyConsumption: Modifies how many units of supplies this character consumes when resting.
+modifier_desc-reincarnateBeast: If this character dies in combat, a powerful beast appears to aid the party.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -837,6 +839,8 @@ lap_name_entangling_blows = Entangling Blows
 lap_desc_entangling_blows = The Druid's blows in combat can entangle victims with restraining creepers.
 lap_name_aura_of_regeneration = Aura of Regeneration
 lap_desc_aura_of_regeneration = The Druid can radiate an aura that speeds the recuperation of all party members.
+lap_name_bestial_reincarnate = Bestial Reincarnation
+lap_desc_bestial_reincarnate = If the Druid dies in combat, a powerful beast appears to aid the party.
 
 # Elemental
 lap_name_elemental_aura = Elemental Aura

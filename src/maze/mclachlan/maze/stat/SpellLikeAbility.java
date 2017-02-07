@@ -21,7 +21,7 @@ package mclachlan.maze.stat;
 
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -30,10 +30,10 @@ import mclachlan.maze.util.MazeException;
 public class SpellLikeAbility
 {
 	private Spell spell;
-	private Value castingLevel;
+	private ValueList castingLevel;
 
 	/*-------------------------------------------------------------------------*/
-	public SpellLikeAbility(Spell spell, Value castingLevel)
+	public SpellLikeAbility(Spell spell, ValueList castingLevel)
 	{
 		if (spell == null)
 		{
@@ -62,7 +62,7 @@ public class SpellLikeAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Value getCastingLevel()
+	public ValueList getCastingLevel()
 	{
 		return castingLevel;
 	}

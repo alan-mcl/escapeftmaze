@@ -34,10 +34,10 @@ import mclachlan.maze.stat.condition.ConditionEffect;
 public class ConditionRemovalSpellResult extends SpellResult
 {
 	private List<ConditionEffect> effects;
-	private Value strength;
+	private ValueList strength;
 	
 	/*-------------------------------------------------------------------------*/
-	public ConditionRemovalSpellResult(List<ConditionEffect> effects, Value strength)
+	public ConditionRemovalSpellResult(List<ConditionEffect> effects, ValueList strength)
 	{
 		this.strength = strength;
 		this.effects = effects;
@@ -90,12 +90,12 @@ public class ConditionRemovalSpellResult extends SpellResult
 		this.effects = effects;
 	}
 
-	public Value getStrength()
+	public ValueList getStrength()
 	{
 		return strength;
 	}
 
-	public void setStrength(Value strength)
+	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
 	}

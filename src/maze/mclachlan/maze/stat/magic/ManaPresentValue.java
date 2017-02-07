@@ -52,7 +52,7 @@ public class ManaPresentValue extends Value
 	/*-------------------------------------------------------------------------*/
 	public Value getSnapShotValue(UnifiedActor source, int castingLevel)
 	{
-		// We actually want this Value to change as the mana present changes.
+		// We actually want this ValueList to change as the mana present changes.
 		ManaPresentValue result = new ManaPresentValue(colour);
 		result.setValue(this.getValue());
 		result.setNegate(this.shouldNegate());

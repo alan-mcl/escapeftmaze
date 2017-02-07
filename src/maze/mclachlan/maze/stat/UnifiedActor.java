@@ -34,10 +34,7 @@ import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.condition.*;
 import mclachlan.maze.stat.condition.impl.FatigueKO;
 import mclachlan.maze.stat.condition.impl.RestingSleep;
-import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.SpellBook;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
@@ -693,7 +690,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		{
 			result.add(new SpellLikeAbility(
 				getRace().getSpecialAbility(),
-				new Value(getLevel(), Value.SCALE.NONE)));
+				new ValueList(new Value(getLevel(), Value.SCALE.NONE))));
 		}
 
 		// class abilities

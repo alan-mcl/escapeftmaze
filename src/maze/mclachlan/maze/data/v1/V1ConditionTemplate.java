@@ -27,7 +27,7 @@ import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.condition.RepeatedSpellEffect;
-import mclachlan.maze.stat.magic.Value;
+import mclachlan.maze.stat.magic.ValueList;
 
 /**
  *
@@ -198,12 +198,12 @@ public class V1ConditionTemplate
 			{
 				conditionEffect = Database.getInstance().getConditionEffect(ceStr);
 			}
-			Value duration = V1Value.fromString(p.getProperty("duration"));
-			Value strength = V1Value.fromString(p.getProperty("strength"));
-			Value hp = V1Value.fromString(p.getProperty("hitPointDamage"));
-			Value stam = V1Value.fromString(p.getProperty("staminaDamage"));
-			Value ap = V1Value.fromString(p.getProperty("actionPointDamage"));
-			Value mp = V1Value.fromString(p.getProperty("magicPointDamage"));
+			ValueList duration = V1Value.fromString(p.getProperty("duration"));
+			ValueList strength = V1Value.fromString(p.getProperty("strength"));
+			ValueList hp = V1Value.fromString(p.getProperty("hitPointDamage"));
+			ValueList stam = V1Value.fromString(p.getProperty("staminaDamage"));
+			ValueList ap = V1Value.fromString(p.getProperty("actionPointDamage"));
+			ValueList mp = V1Value.fromString(p.getProperty("magicPointDamage"));
 			StatModifier statModifier = V1StatModifier.fromString(p.getProperty("statModifier"));
 			StatModifier bannerModifier = V1StatModifier.fromString(p.getProperty("bannerModifier"));
 			boolean scaleModifierWithStrength = Boolean.valueOf(p.getProperty("scaleModifierWithStrength"));
