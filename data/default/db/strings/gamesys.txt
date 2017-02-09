@@ -847,6 +847,8 @@ lap_name_elemental_aura = Elemental Aura
 lap_desc_elemental_aura = The Elemental radiates an aura that protects the whole party from fire, water, earth and air magic.
 lap_name_dragon_blood = Dragon Blood
 lap_desc_dragon_blood = The Elemental is a walking source of one Blue magic to the whole party.
+lap_name_fists_of_rock = Fists of Rock
+lap_desc_fists_of_rock = The Elemental gains a melee damage bonus.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

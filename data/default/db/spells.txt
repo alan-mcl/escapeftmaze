@@ -2434,6 +2434,27 @@ secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
 @
+name=Fists of Rock
+displayName=Fists of Rock
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Blue Magic
+spellEffects=fists of rock condition:100
+description=hardens...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Null Magic - Trap
 displayName=Null Magic - Trap
 hitPointCost=

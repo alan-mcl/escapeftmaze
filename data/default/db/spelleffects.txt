@@ -458,6 +458,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=fists of rock condition
+displayName=fists of rock
+type=EARTH
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::fists of rock
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=acid splash damage
 displayName=
 type=WATER

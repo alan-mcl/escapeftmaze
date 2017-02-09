@@ -6,8 +6,10 @@ Features
  - Courtesan class abilities: Sense Motive, Barter Expert, Minor Powder Creation,
    Locate Person, Courtesan Skills
  - Druid class abilities: Regenerate Self, Wilderness Veil, Entangling Blows,
-   Aura of Regeneration
+   Aura of Regeneration, Bestial Reincarnation
 
+Other
+ - Refactored the Value composition into a flat ValueList
 
 ---------------------------------------
 v0.916 (18 December 2016)

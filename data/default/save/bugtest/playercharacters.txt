@@ -55,13 +55,13 @@ practice=1a00,011e1e
 activeModifiers=4208043fff8,01010101010101010101010101010101010101
 @
 name=Silvia
-levels=Druid:20
+levels=Elemental:20
 experience=601416
 kills=11
 race=Elf
 gender=Female
 portrait=portrait/elf_female_doberge
-characterClass=Druid
+characterClass=Elemental
 personality=Valiant
 torsoArmour=Robes Of Rejuvenation/1/2/1-1/0-0/
 legArmour=Enchanted Robes (L)/1/2/1-1/0-0/
