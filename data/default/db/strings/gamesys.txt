@@ -266,6 +266,7 @@ modifier_name-barterExpert: Barter Expert
 modifier_name-persuasion: Persuasion
 modifier_name-supplyConsumption: Supply Consumption
 modifier_name-reincarnateBeast: Reincarnate: Beast
+modifier_name-powerSummonElemental: Power Summon: Elemental
 
 # Modifier Descriptions
 
@@ -525,6 +526,7 @@ modifier_desc-barterExpert: The character is able to drive much better deals wit
 modifier_desc-persuasion: When another character in the party tried to influence an NPC with treats, bribes or otherwise, it works much better.
 modifier_desc-supplyConsumption: Modifies how many units of supplies this character consumes when resting.
 modifier_desc-reincarnateBeast: If this character dies in combat, a powerful beast appears to aid the party.
+modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -849,6 +851,8 @@ lap_name_dragon_blood = Dragon Blood
 lap_desc_dragon_blood = The Elemental is a walking source of one Blue magic to the whole party.
 lap_name_fists_of_rock = Fists of Rock
 lap_desc_fists_of_rock = The Elemental gains a melee damage bonus.
+lap_name_channel_elements = Channel Elements
+lap_desc_channel_elements = Elementals summoned by this character come into play buffed.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

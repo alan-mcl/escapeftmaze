@@ -74,6 +74,7 @@ msg.attack.miss = %s: Missed!
 msg.summoning.succeeds =
 msg.summoning.multiple = appear
 msg.summoning.single = appears
+msg.summoning.empowered = %s is empowered!
 
 #
 # Encounter Actors events

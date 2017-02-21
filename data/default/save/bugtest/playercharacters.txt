@@ -76,9 +76,9 @@ miscItem1=
 miscItem2=
 bannerItem=
 inventory=Knock Pick/0/2/5-25/0-0/,Silver Ring/0/2/1-1/0-0/,Conjurers Gloves/2/2/1-1/2-4/,Valentine Necklace/1/2/0-1/0-0/,Brooch/1/2/0-1/0-0/,Bat Necklace/1/2/0-1/0-0/,Blarneystone Amulet/1/2/0-1/0-0/
-spellbook=Fear,Wave Of Heat,Pain,Deadly Poison,Power Of The Pit,Gates Of Hell,Unholy Ground,Acid Cloud,Deadly Air,Draining Cloud,Knock Knock,Identify,TestingSpell
+spellbook=Fear,Wave Of Heat,Pain,Deadly Poison,Power Of The Pit,Gates Of Hell,Unholy Ground,Acid Cloud,Deadly Air,Draining Cloud,Knock Knock,Identify,TestingSpell,Elemental Swarm
 spellPicks=3
-stats=73-73-0;10-10;605-629;200000000806000002190,01100b0106065b01
+stats=73-73-0;10-10;605-629;2000000008fe000002190,01100b01141a14141414145b01
 practice=188000000000,040405
 activeModifiers=ffe0000027f8,0101010101010101010101010101010101010101
 @

@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Trap;
@@ -32,6 +33,7 @@ import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.condition.Condition;
+import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -4317,6 +4319,69 @@ public class GameSys
 			pc.getModifier(Stats.Modifier.STAFF_1H_WIELD) > 0
 				&& item.getWeaponType() == ItemTemplate.WeaponSubType.STAFF;
 
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> getPowerSummonResults(UnifiedActor caster, List<FoeGroup> foeGroups)
+	{
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		int powerSummonElemental = caster.getModifier(Stats.Modifier.POWER_SUMMON_ELEMENTAL);
+		FoeType elementalType = Database.getInstance().getFoeTypes().get("Elemental");
+		ConditionTemplate haste = Database.getInstance().getConditionTemplate("SCALING_HASTE");
+		ConditionTemplate stoneskin = Database.getInstance().getConditionTemplate("SCALING_STONESKIN");
+		ConditionTemplate superman = Database.getInstance().getConditionTemplate("SCALING_SUPERMAN");
+
+		for (FoeGroup fg : foeGroups)
+		{
+			if (powerSummonElemental > 0 && fg.getFoes().get(0).getTypes().contains(elementalType))
+			{
+				for (Foe foe : fg.getFoes())
+				{
+					if (powerSummonElemental >= 3)
+					{
+						Condition c = superman.create(
+							caster,
+							foe,
+							powerSummonElemental * 2,
+							MagicSys.SpellEffectType.ENERGY,
+							MagicSys.SpellEffectSubType.NONE);
+
+						foe.addCondition(c);
+					}
+
+					if (powerSummonElemental >= 2)
+					{
+						Condition c = stoneskin.create(
+							caster,
+							foe,
+							powerSummonElemental * 2,
+							MagicSys.SpellEffectType.ENERGY,
+							MagicSys.SpellEffectSubType.NONE);
+
+						foe.addCondition(c);
+					}
+
+					if (powerSummonElemental >= 1)
+					{
+						Condition c = haste.create(
+							caster,
+							foe,
+							powerSummonElemental * 2,
+							MagicSys.SpellEffectType.ENERGY,
+							MagicSys.SpellEffectSubType.NONE);
+
+						foe.addCondition(c);
+					}
+
+					result.add(
+						new UiMessageEvent(
+							StringUtil.getEventText("msg.summoning.empowered", foe.getDisplayName())));
+				}
+			}
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

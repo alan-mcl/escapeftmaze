@@ -25,6 +25,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.FoeGroup;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -46,7 +47,8 @@ public class SummoningSucceedsEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		source.addAllies(foeGroups);
-		return null;
+
+		return GameSys.getInstance().getPowerSummonResults(source, foeGroups);
 	}
 
 	/*-------------------------------------------------------------------------*/
