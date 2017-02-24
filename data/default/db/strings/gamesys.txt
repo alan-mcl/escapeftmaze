@@ -857,6 +857,10 @@ lap_name_helm_of_flames = Helm of Flames
 lap_desc_helm_of_flames = Foes striking the Elemental in battle take damage.
 lap_name_mantle_of_the_seas = Mantle of the Seas
 lap_desc_mantle_of_the_seas = The Elemental receives a Power Cast bonus.
+lap_name_elemental_bane = Elemental Bane
+lap_desc_elemental_bane = The Elemental gets bonuses in combat and other interactions with this foes of the Elemental type.
+lap_name_robes_of_the_wind = Robes of the Wind
+lap_desc_robes_of_the_wind = The robes grant the Elemental a defence bonus and can deflect incoming projectiles.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

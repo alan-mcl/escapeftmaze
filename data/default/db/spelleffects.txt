@@ -1938,6 +1938,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=robes of the wind condition
+displayName=robes of the wind
+type=AIR
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::robes of the wind
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=freeze spell
 displayName=paralyse
 type=WATER

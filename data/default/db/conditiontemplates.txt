@@ -558,6 +558,25 @@ exitCondition=DURATION_EXPIRES
 exitConditionChance=0
 repeatedSpellEffects=
 @
+name=robes of the wind
+displayName=robes of the wind
+icon=condition/robesofthewind
+adjective=transformed
+conditionEffect=none
+duration=1/2/NONE//false,1/2/SCALE_WITH_CLASS_LEVEL/Elemental/false
+strength=1/1/SCALE_WITH_MODIFIER/BLUE_MAGIC_GEN/false,1/1/NONE//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=100000000000000040000000000000,0101
+bannerModifier=0,
+scaleModifierWithStrength=true
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+repeatedSpellEffects=
+@
 name=SCALING_POSSESS
 displayName=Possession
 icon=condition/possess
