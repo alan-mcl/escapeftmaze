@@ -7,7 +7,8 @@ Features
    Locate Person, Courtesan Skills
  - Druid class abilities: Regenerate Self, Wilderness Veil, Entangling Blows,
    Aura of Regeneration, Bestial Reincarnation
- - Elemental class abilities: Fists of Rock, Channel Elements
+ - Elemental class abilities: Fists of Rock, Channel Elements, Helm of Flames,
+   Mantle of the Seas
 
 Other
  - Refactored the Value composition into a flat ValueList

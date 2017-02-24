@@ -853,6 +853,10 @@ lap_name_fists_of_rock = Fists of Rock
 lap_desc_fists_of_rock = The Elemental gains a melee damage bonus.
 lap_name_channel_elements = Channel Elements
 lap_desc_channel_elements = Elementals summoned by this character come into play buffed.
+lap_name_helm_of_flames = Helm of Flames
+lap_desc_helm_of_flames = Foes striking the Elemental in battle take damage.
+lap_name_mantle_of_the_seas = Mantle of the Seas
+lap_desc_mantle_of_the_seas = The Elemental receives a Power Cast bonus.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

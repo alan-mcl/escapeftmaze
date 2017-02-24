@@ -308,6 +308,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/2d6,3/0/NONE//false/THOUGHT::
 targetType=3
 application=AS_PER_SPELL
 @
+name=mantle of the seas condition
+displayName=mantle of the seas
+type=WATER
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::mantle of the seas
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=holy ground
 displayName=
 type=ENERGY
@@ -2936,6 +2946,16 @@ saveAdjustment=
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10::::0.0:false
 savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10::::0.5:false
 targetType=4
+application=AS_PER_SPELL
+@
+name=helm of flames condition
+displayName=helm of flames
+type=FIRE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::helm of flames
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=rock dragon swallow
