@@ -67,6 +67,9 @@ lootEntries=batch.1.magic.weapons:15,batch.1.magic.armour:15,batch.1.mundane.wea
 name=Asius.loot
 lootEntries=I~Battleaxe:100,I~Willow Arrow:100,I~Long Bow:100,I~Gold Piece:55,I~Suede Pants:100,I~Suede Doublet:100,I~Buskins:100
 @
+name=shield.of.ice.spell
+lootEntries=I~Shield of Ice:100
+@
 name=NO_LOOT
 lootEntries=low.level.gold:1
 @

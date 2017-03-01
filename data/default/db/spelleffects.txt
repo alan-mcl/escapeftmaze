@@ -788,6 +788,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=shield of ice item expire
+displayName=shield of ice
+type=WATER
+subtype=COLD
+saveAdjustment=
+unsavedResult=27::Shield of Ice
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=mind flay damage
 displayName=
 type=MENTAL
@@ -4668,6 +4678,16 @@ savedResult=4::2/0/NONE//false/1d8::::0.5:false
 targetType=3
 application=AS_PER_SPELL
 @
+name=shield of ice item condition
+displayName=shield of ice
+type=WATER
+subtype=COLD
+saveAdjustment=
+unsavedResult=3::shield of ice
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=cone of cold spell damage
 displayName=
 type=WATER
@@ -4706,6 +4726,16 @@ saveAdjustment=
 unsavedResult=1::2000000000000000000000000000700000000,07070701:1/1/NONE//false:PIERCING::throw:true:false:5:true:TOUCH_PARALYSE,100;TOUCH_POISON,100;TOUCH_HEX,100;TOUCH_STONE,50
 savedResult=
 targetType=3
+application=AS_PER_SPELL
+@
+name=shield of ice item equip
+displayName=shield of ice item equip
+type=WATER
+subtype=COLD
+saveAdjustment=
+unsavedResult=16::shield.of.ice.spell
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=resurrection spell

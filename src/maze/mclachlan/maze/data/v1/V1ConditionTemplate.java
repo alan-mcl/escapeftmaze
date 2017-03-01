@@ -164,6 +164,10 @@ public class V1ConditionTemplate
 			b.append(obj.getExitConditionChance());
 			b.append(V1Utils.NEWLINE);
 
+			b.append("exitSpellEffect=");
+			b.append(obj.getExitSpellEffect()==null?"":obj.getExitSpellEffect());
+			b.append(V1Utils.NEWLINE);
+
 			b.append("repeatedSpellEffects=");
 			b.append(repeatedSpellEffects.toString(obj.getRepeatedSpellEffects()));
 			b.append(V1Utils.NEWLINE);
@@ -212,6 +216,11 @@ public class V1ConditionTemplate
 			ConditionTemplate.ExitCondition exitCondition =
 				ConditionTemplate.ExitCondition.valueOf(p.getProperty("exitCondition"));
 			int exitConditionChance = Integer.valueOf(p.getProperty("exitConditionChance"));
+			String exitSpellEffect = p.getProperty("exitSpellEffect");
+			if ("".equals(exitSpellEffect))
+			{
+				exitSpellEffect = null;
+			}
 
 			return new ConditionTemplate(
 				name,
@@ -231,6 +240,7 @@ public class V1ConditionTemplate
 				strengthWanes,
 				exitCondition,
 				exitConditionChance,
+				exitSpellEffect,
 				rse);
 		}
 	}

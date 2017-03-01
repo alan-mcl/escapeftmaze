@@ -20,11 +20,13 @@
 package mclachlan.maze.stat.condition;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.GameCache;
+import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -91,6 +93,17 @@ public class ConditionManager implements GameCache
 					{
 						li.remove();
 						c.expire();
+						String exitSpellEffect = c.getTemplate().getExitSpellEffect();
+						if (exitSpellEffect != null)
+						{
+							SpellEffect spellEffect = Database.getInstance().getSpellEffect(exitSpellEffect);
+							conditionEvents.addAll(
+								spellEffect.getUnsavedResult().apply(
+									c.getSource(),
+									c.getTarget(),
+									c.getCastingLevel(),
+									spellEffect));
+						}
 					}
 				}
 			}

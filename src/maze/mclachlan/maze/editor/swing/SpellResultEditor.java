@@ -125,6 +125,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private GroupOfPossibilitiesPanel spellEffects;
 	private JComboBox<String> createItemLootTables;
 	private ValueComponent locatePersonValue;
+	private JComboBox<String> removeItemName;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellResultEditor(
@@ -349,7 +350,11 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				break;
 			case LOCATE_PERSON:
 				LocatePersonSpellResult locatePersonSpellResult = (LocatePersonSpellResult)sr;
-				locatePersonValue.refresh(locatePersonValue.getValue());
+				locatePersonValue.refresh(locatePersonSpellResult.getValue());
+				break;
+			case REMOVE_ITEM:
+				RemoveItemSpellResult removeItemSpellResult = (RemoveItemSpellResult)sr;
+				removeItemName.setSelectedItem(removeItemSpellResult.getItemName());
 				break;
 
 			default: throw new MazeException("Invalid type "+srType);
@@ -361,35 +366,75 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	{
 		switch (type)
 		{
-			case CUSTOM: return getCustomPanel();
-			case ATTACK_WITH_WEAPON: return getAttackWithWeaponPanel();
-			case CHARM: return getCharmPanel();
-			case CONDITION: return getConditionPanel();
-			case DAMAGE: return getDamagePanel();
-			case HEALING: return getHealingPanel();
-			case IDENTIFY: return getIdentifyPanel();
-			case MIND_READ: return getMindReadPanel();
-			case MIND_READ_FAILED: return getMindReadFailedPanel();
-			case RECHARGE: return getRechargePanel();
-			case REMOVE_CURSE: return getRemoveCursePanel();
-			case SUMMONING: return getSummoningPanel();
-			case THEFT: return getTheftPanel();
-			case THEFT_FAILED: return getTheftFailedPanel();
-			case UNLOCK: return getUnlockPanel();
-			case DRAIN: return getDrainPanel();
-			case CASTER_DEATH: return new JPanel();
-			case CONDITION_REMOVAL: return getConditionRemovalPanel();
-			case DEATH: return new JPanel();
-			case CLOUD_SPELL: return getCloudSpellPanel();
-			case PURIFY_AIR: return getPurifyAirPanel();
-			case RESURRECTION: return new JPanel();
-			case BOOZE: return new JPanel();
-			case FORGET: return getForgetPanel();
-			case CONDITION_IDENTIFICATION: return getConditionIdentificationPanel();
-			case CREATE_ITEM: return getCreateItemPanel();
-			case LOCATE_PERSON: return getLocatePersonPanel();
-			default: throw new MazeException("Invalid type "+type);
+			case CUSTOM:
+				return getCustomPanel();
+			case ATTACK_WITH_WEAPON:
+				return getAttackWithWeaponPanel();
+			case CHARM:
+				return getCharmPanel();
+			case CONDITION:
+				return getConditionPanel();
+			case DAMAGE:
+				return getDamagePanel();
+			case HEALING:
+				return getHealingPanel();
+			case IDENTIFY:
+				return getIdentifyPanel();
+			case MIND_READ:
+				return getMindReadPanel();
+			case MIND_READ_FAILED:
+				return getMindReadFailedPanel();
+			case RECHARGE:
+				return getRechargePanel();
+			case REMOVE_CURSE:
+				return getRemoveCursePanel();
+			case SUMMONING:
+				return getSummoningPanel();
+			case THEFT:
+				return getTheftPanel();
+			case THEFT_FAILED:
+				return getTheftFailedPanel();
+			case UNLOCK:
+				return getUnlockPanel();
+			case DRAIN:
+				return getDrainPanel();
+			case CASTER_DEATH:
+				return new JPanel();
+			case CONDITION_REMOVAL:
+				return getConditionRemovalPanel();
+			case DEATH:
+				return new JPanel();
+			case CLOUD_SPELL:
+				return getCloudSpellPanel();
+			case PURIFY_AIR:
+				return getPurifyAirPanel();
+			case RESURRECTION:
+				return new JPanel();
+			case BOOZE:
+				return new JPanel();
+			case FORGET:
+				return getForgetPanel();
+			case CONDITION_IDENTIFICATION:
+				return getConditionIdentificationPanel();
+			case CREATE_ITEM:
+				return getCreateItemPanel();
+			case LOCATE_PERSON:
+				return getLocatePersonPanel();
+			case REMOVE_ITEM:
+				return getRemoveItemPanel();
+			default:
+				throw new MazeException("Invalid type " + type);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public JPanel getRemoveItemPanel()
+	{
+		Vector<String> vec = new Vector<String>(Database.getInstance().getItemTemplates().keySet());
+		Collections.sort(vec);
+		removeItemName = new JComboBox<String>(vec);
+
+		return dirtyGridLayoutCrap(new JLabel("Item:"), removeItemName);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -834,6 +879,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case CONDITION_IDENTIFICATION: return "Condition Identification";
 			case CREATE_ITEM: return "Create Item";
 			case LOCATE_PERSON: return "Locate Person";
+			case REMOVE_ITEM: return "Remove Item";
 			default: throw new MazeException("Invalid type "+type);
 		}
 	}
@@ -1016,6 +1062,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case LOCATE_PERSON:
 				result = new LocatePersonSpellResult(
 					locatePersonValue.getValue());
+				break;
+			case REMOVE_ITEM:
+				result = new RemoveItemSpellResult((String)removeItemName.getSelectedItem());
 				break;
 			default: throw new MazeException("Invalid type "+srType);
 		}

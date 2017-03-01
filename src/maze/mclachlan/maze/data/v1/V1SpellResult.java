@@ -64,8 +64,9 @@ public class V1SpellResult
 	public static final int FORGET = 24;
 	public static final int CONDITION_IDENTIFICATION = 25;
 	public static final int LOCATE_PERSON = 26;
+	public static final int REMOVE_ITEM = 27;
 
-	public static final int MAX = 27;
+	public static final int MAX = 28;
 
 	static
 	{
@@ -96,6 +97,7 @@ public class V1SpellResult
 		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
 		types.put(CreateItemSpellResult.class, CREATE_ITEM);
 		types.put(LocatePersonSpellResult.class, LOCATE_PERSON);
+		types.put(RemoveItemSpellResult.class, REMOVE_ITEM);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -298,6 +300,10 @@ public class V1SpellResult
 				LocatePersonSpellResult locatePersonSpellResult = (LocatePersonSpellResult)sr;
 				s.append(V1Value.toString(locatePersonSpellResult.getValue()));
 				break;
+			case REMOVE_ITEM:
+				RemoveItemSpellResult removeItemSpellResult = (RemoveItemSpellResult)sr;
+				s.append(removeItemSpellResult.getItemName());
+				break;
 
 			default: throw new MazeException("Invalid type: "+type+" ["+sr+"]");
 		}
@@ -477,6 +483,9 @@ public class V1SpellResult
 			case LOCATE_PERSON:
 				v = V1Value.fromString(strs[i++]);
 				result = new LocatePersonSpellResult(v);
+				break;
+			case REMOVE_ITEM:
+				result = new RemoveItemSpellResult(strs[i++]);
 				break;
 
 			default: throw new MazeException(

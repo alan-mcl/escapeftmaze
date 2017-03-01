@@ -2245,6 +2245,27 @@ secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
 @
+name=Shield of Ice
+displayName=Shield of Ice
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Blue Magic
+spellEffects=shield of ice item condition:100,shield of ice item equip:100
+description=equips an icy shield
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Clockwork Beast
 displayName=Clockwork Beast
 hitPointCost=

@@ -15,6 +15,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_INVISIBLE
@@ -34,6 +35,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=helm of flames
@@ -53,6 +55,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mage armour spell
@@ -72,6 +75,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=FATIGUE_KO
@@ -94,6 +98,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=soul shield spell
@@ -113,6 +118,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=acid cloud spell
@@ -132,6 +138,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=enchanter invisibility
@@ -151,6 +158,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mage blades spell
@@ -170,6 +178,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_SUPERMAN
@@ -189,6 +198,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=ray of enfeeblement trap
@@ -208,6 +218,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=gruesome aspect spell
@@ -227,6 +238,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=wall of force spell
@@ -246,6 +258,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=divinity spell
@@ -265,6 +278,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=magic screen spell
@@ -284,6 +298,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=haste spell
@@ -303,6 +318,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_WEB
@@ -322,6 +338,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=stunner trap
@@ -341,6 +358,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=faith spell
@@ -360,6 +378,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mandolin of the magus screen
@@ -379,6 +398,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=diplomacy spell
@@ -398,6 +418,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=tag spell
@@ -417,6 +438,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=BERSERK
@@ -439,6 +461,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=barkskin spell
@@ -458,6 +481,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_DISEASE
@@ -477,6 +501,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=shield of force
@@ -496,6 +521,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GUARDIAN_ANGEL
@@ -518,6 +544,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=BOOZE_SUPERMAN
@@ -537,6 +564,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=holy ground
@@ -556,6 +584,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=robes of the wind
@@ -575,6 +604,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_POSSESS
@@ -594,6 +624,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=anti-magic spell
@@ -613,6 +644,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=RESTING_SLEEP
@@ -635,6 +667,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=aura of regeneration
@@ -654,6 +687,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_SWALLOW
@@ -673,6 +707,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=BOOZE_FERVOUR
@@ -692,6 +727,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=silence spell
@@ -711,6 +747,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=BACKSTAB_2
 repeatedSpellEffects=
 @
 name=fervour spell
@@ -730,6 +767,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_HEX
@@ -749,6 +787,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_STONESKIN
@@ -768,6 +807,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=ill repute
@@ -787,6 +827,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=unholy ground
@@ -806,6 +847,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=amazon fury
@@ -825,6 +867,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=cloak of magic
@@ -844,6 +887,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=wilderness veil
@@ -863,6 +907,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=prismic shield
@@ -882,6 +927,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GENERIC_BLIND
@@ -901,6 +947,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=psionic bolt trap
@@ -920,6 +967,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=acid splash
@@ -939,6 +987,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=soulful sax soul shield
@@ -958,6 +1007,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=weakness spell
@@ -977,6 +1027,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=force of nature
@@ -996,6 +1047,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=full moon
@@ -1015,6 +1067,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=poison spell
@@ -1034,6 +1087,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=glowing curse trap
@@ -1053,6 +1107,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GENERIC_KO
@@ -1072,6 +1127,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=power of the pit armourmelt
@@ -1091,6 +1147,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=bless
@@ -1110,6 +1167,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=resist elements
@@ -1129,6 +1187,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=thorns spell
@@ -1148,6 +1207,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_SILENCE
@@ -1167,6 +1227,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=melt armour trap
@@ -1186,6 +1247,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=deadly poison spell
@@ -1205,6 +1267,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=chameleon spell
@@ -1224,6 +1287,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=enchanted blade spell
@@ -1243,6 +1307,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_NAUSEA
@@ -1262,6 +1327,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=superman spell
@@ -1281,6 +1347,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=dark majesty buff
@@ -1300,6 +1367,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=bane spell
@@ -1319,6 +1387,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_SLEEP
@@ -1338,6 +1407,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_IRRITATE
@@ -1357,6 +1427,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=rock dragon swallow
@@ -1376,6 +1447,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=striking spell
@@ -1395,6 +1467,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=melt armour spell
@@ -1414,6 +1487,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=heatwave
@@ -1433,6 +1507,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GENERIC_FEAR
@@ -1452,6 +1527,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=twinkling cape
@@ -1471,6 +1547,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=rally spell
@@ -1490,6 +1567,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=entangle spell web
@@ -1509,6 +1587,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GENERIC_POISON
@@ -1528,6 +1607,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_HASTE
@@ -1547,6 +1627,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=fizzle field trap
@@ -1566,6 +1647,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_SLOW
@@ -1585,6 +1667,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=colour spray blind
@@ -1604,6 +1687,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=colour spray ko
@@ -1623,6 +1707,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=element shield
@@ -1642,6 +1727,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=rally spell condition
@@ -1661,6 +1747,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mottled boa poison
@@ -1680,6 +1767,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=stoneskin spell
@@ -1699,6 +1787,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=blades of fire
@@ -1718,6 +1807,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=angel's tongue armourplate
@@ -1737,6 +1827,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=power of the pit swallowed
@@ -1756,6 +1847,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GENERIC_NAUSEA
@@ -1775,6 +1867,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=spotted boa poison
@@ -1794,6 +1887,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=amazon courage
@@ -1813,6 +1907,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=poison gas spell
@@ -1832,6 +1927,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=verdant growth
@@ -1851,6 +1947,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=phantom guardian spell
@@ -1870,6 +1967,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=fists of rock
@@ -1889,6 +1987,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mage strength spell
@@ -1908,6 +2007,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=courage spell
@@ -1927,6 +2027,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=divine trap spell
@@ -1946,6 +2047,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=GENERIC_INSANE
@@ -1965,6 +2067,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=hexxer trap
@@ -1984,6 +2087,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=skald taunt
@@ -2003,6 +2107,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=BACKSTAB_2
 repeatedSpellEffects=
 @
 name=healing factor spell
@@ -2022,6 +2127,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=unleash power spell
@@ -2041,6 +2147,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=blur spell
@@ -2060,6 +2167,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=moulder nausea
@@ -2079,6 +2187,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=test spell effect
@@ -2098,6 +2207,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=CHANCE_AT_EOT
 exitConditionChance=333
+exitSpellEffect=
 repeatedSpellEffects=mace ko:1:99:2:100,stoneskin spell:1:-1:10:100
 @
 name=obfuscation spell
@@ -2117,6 +2227,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=pennywhistle haste
@@ -2136,6 +2247,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mantle of the seas
@@ -2155,6 +2267,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_STONE
@@ -2174,6 +2287,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=spit venom poison
@@ -2193,6 +2307,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=razor cloak
@@ -2212,6 +2327,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=amazon willpower
@@ -2231,6 +2347,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_BLINK
@@ -2250,6 +2367,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=cloud of fear trap
@@ -2269,6 +2387,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=subtle glamour
@@ -2288,6 +2407,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_PARALYSE
@@ -2307,6 +2427,27 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
+name=shield of ice
+displayName=shield of ice
+icon=item/shieldofice
+adjective=shielded
+conditionEffect=none
+duration=1/4/SCALE_WITH_MODIFIER/BLUE_MAGIC_GEN/false,1/10/SCALE_WITH_CLASS_LEVEL/Elemental/false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=0,
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=shield of ice item expire
 repeatedSpellEffects=
 @
 name=poison type A
@@ -2326,6 +2467,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=poison type C
@@ -2345,6 +2487,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=blink spell
@@ -2364,6 +2507,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=poison type B
@@ -2383,6 +2527,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=poison type E
@@ -2402,6 +2547,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=poison type D
@@ -2421,6 +2567,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=mace ko
@@ -2440,6 +2587,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=slow spell
@@ -2459,6 +2607,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=faerie fire
@@ -2478,6 +2627,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=demonic aspect spell
@@ -2497,6 +2647,7 @@ scaleModifierWithStrength=true
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=bardic harp bless
@@ -2516,6 +2667,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_INSANE
@@ -2535,6 +2687,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=starlight spell
@@ -2554,6 +2707,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=crucible
@@ -2573,6 +2727,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=SCALING_BLIND
@@ -2592,6 +2747,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=confusion spell
@@ -2611,6 +2767,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=armourplate spell
@@ -2630,6 +2787,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=heroism spell
@@ -2649,6 +2807,7 @@ scaleModifierWithStrength=true
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=emerald spider poison
@@ -2668,6 +2827,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=amazon strength buff
@@ -2687,6 +2847,7 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=invisibility spell
@@ -2706,6 +2867,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=acid bomb spell
@@ -2725,6 +2887,7 @@ scaleModifierWithStrength=false
 strengthWanes=true
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @
 name=bloodthirsty
@@ -2744,5 +2907,6 @@ scaleModifierWithStrength=false
 strengthWanes=false
 exitCondition=DURATION_EXPIRES
 exitConditionChance=0
+exitSpellEffect=
 repeatedSpellEffects=
 @

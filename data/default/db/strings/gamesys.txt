@@ -861,6 +861,8 @@ lap_name_elemental_bane = Elemental Bane
 lap_desc_elemental_bane = The Elemental gets bonuses in combat and other interactions with this foes of the Elemental type.
 lap_name_robes_of_the_wind = Robes of the Wind
 lap_desc_robes_of_the_wind = The robes grant the Elemental a defence bonus and can deflect incoming projectiles.
+lap_name_shield_of_ice = Shield of Ice
+lap_desc_shield_of_ice = The Elemental conjures and equips a sturdy shield of ice.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

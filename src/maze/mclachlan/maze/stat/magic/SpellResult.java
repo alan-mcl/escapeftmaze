@@ -25,6 +25,8 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.TypeDescriptor;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.condition.ConditionBearer;
+import mclachlan.maze.util.MazeException;
 
 /**
  * The consequences of a spell.
@@ -104,6 +106,32 @@ public abstract class SpellResult
 	{
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public Collection<MazeEvent> apply(
+		UnifiedActor source,
+		ConditionBearer target,
+		int castingLevel,
+		SpellEffect spellEffect)
+	{
+		if (target instanceof UnifiedActor)
+		{
+			return apply(source, (UnifiedActor)target, castingLevel, spellEffect);
+		}
+		else if (target instanceof Tile)
+		{
+			return apply(source, (Tile)target, castingLevel, spellEffect);
+		}
+		else if (target instanceof Item)
+		{
+			return apply(source, (Item)target, castingLevel, spellEffect);
+		}
+		else
+		{
+			throw new MazeException(target.toString());
+		}
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	protected List<MazeEvent> getList(MazeEvent... events)

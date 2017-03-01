@@ -51,6 +51,7 @@ public class ConditionTemplatePanel extends EditorPanel
 	private JCheckBox strengthWanes;
 	private JComboBox exitCondition;
 	private JSpinner exitConditionChance;
+	private JComboBox exitSpellEffect;
 	private RepeatedSpellEffectListPanel repeatedEffects;
 
 	/*-------------------------------------------------------------------------*/
@@ -102,6 +103,9 @@ public class ConditionTemplatePanel extends EditorPanel
 
 		exitConditionChance = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
 		exitConditionChance.addChangeListener(this);
+
+		exitSpellEffect = new JComboBox();
+		exitSpellEffect.addItemListener(this);
 
 		repeatedEffects = new RepeatedSpellEffectListPanel(
 			"Repeated Spell Effects",
@@ -285,6 +289,16 @@ public class ConditionTemplatePanel extends EditorPanel
 		gbc.gridwidth = 2;
 		editControls.add(exitConditionChance, gbc);
 
+		gbc.gridy++;
+		gbc.gridx=0;
+		gbc.weightx = 0.0;
+		gbc.gridwidth = 1;
+		editControls.add(new JLabel("Exit Spell Effect:"), gbc);
+		gbc.weightx = 1.0;
+		gbc.gridx++;
+		gbc.gridwidth = 2;
+		editControls.add(exitSpellEffect, gbc);
+
 		gbc.weighty = 1.0;
 
 		gbc.gridy++;
@@ -328,6 +342,7 @@ public class ConditionTemplatePanel extends EditorPanel
 			true,
 			ConditionTemplate.ExitCondition.DURATION_EXPIRES,
 			0,
+			null,
 			null);
 
 		Database.getInstance().getConditionTemplates().put(name, ct);
@@ -372,6 +387,7 @@ public class ConditionTemplatePanel extends EditorPanel
 			current.isStrengthWanes(),
 			current.getExitCondition(),
 			current.getExitConditionChance(),
+			current.getExitSpellEffect(),
 			current.getRepeatedSpellEffects());
 
 		Database.getInstance().getConditionTemplates().put(newName, ct);
@@ -426,6 +442,7 @@ public class ConditionTemplatePanel extends EditorPanel
 			conditionEffect.removeActionListener(this);
 			exitCondition.removeActionListener(this);
 			exitConditionChance.removeChangeListener(this);
+			exitSpellEffect.removeActionListener(this);
 
 			displayName.setText(ct.getDisplayName());
 			icon.setText(ct.getIcon());
@@ -451,6 +468,14 @@ public class ConditionTemplatePanel extends EditorPanel
 			exitCondition.setSelectedItem(ct.getExitCondition());
 			exitConditionChance.setValue(ct.getExitConditionChance());
 			repeatedEffects.refresh(ct.getRepeatedSpellEffects());
+			if (ct.getExitSpellEffect() == null)
+			{
+				exitSpellEffect.setSelectedItem(NONE);
+			}
+			else
+			{
+				exitSpellEffect.setSelectedItem(ct.getExitSpellEffect());
+			}
 
 			conditionEffect.addActionListener(this);
 			exitCondition.addActionListener(this);
@@ -506,6 +531,7 @@ public class ConditionTemplatePanel extends EditorPanel
 			ct.setStrengthWanes(strengthWanes.isSelected());
 			ct.setExitCondition((ConditionTemplate.ExitCondition)exitCondition.getSelectedItem());
 			ct.setExitConditionChance((Integer)exitConditionChance.getValue());
+			ct.setExitSpellEffect(exitSpellEffect.getSelectedItem()==NONE?null: (String)exitSpellEffect.getSelectedItem());
 			ct.setRepeatedSpellEffects(repeatedEffects.getRepeatedSpellEffects());
 		}
 	}
@@ -520,6 +546,11 @@ public class ConditionTemplatePanel extends EditorPanel
 		this.conditionEffect.setModel(new DefaultComboBoxModel(vec));
 
 		repeatedEffects.initForeignKeys();
+
+		vec = new Vector<String>(Database.getInstance().getSpellEffects().keySet());
+		Collections.sort(vec);
+		vec.add(0, NONE);
+		this.exitSpellEffect.setModel(new DefaultComboBoxModel(vec));
 	}
 
 	/*-------------------------------------------------------------------------*/

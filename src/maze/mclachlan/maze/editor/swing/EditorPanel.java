@@ -20,10 +20,7 @@
 package mclachlan.maze.editor.swing;
 
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.event.*;
@@ -33,7 +30,8 @@ import javax.swing.event.*;
  */
 public abstract class EditorPanel
 	extends JPanel
-	implements ListSelectionListener, KeyListener, ActionListener, ChangeListener, IEditorPanel, TableModelListener
+	implements ListSelectionListener, KeyListener, ActionListener,
+	ChangeListener, IEditorPanel, TableModelListener, ItemListener
 {
 	public static final String NONE = " - ";
 
@@ -197,6 +195,13 @@ public abstract class EditorPanel
 
 	/*-------------------------------------------------------------------------*/
 	public void stateChanged(ChangeEvent e)
+	{
+		SwingEditor.instance.setDirty(dirtyFlag);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void itemStateChanged(ItemEvent e)
 	{
 		SwingEditor.instance.setDirty(dirtyFlag);
 	}

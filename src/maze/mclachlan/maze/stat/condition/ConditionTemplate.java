@@ -83,6 +83,9 @@ public class ConditionTemplate
 	/** any exit condition probability, if needed. A number out of 1000 */
 	private int exitConditionChance;
 
+	/** spell effect to apply to bearer on exit*/
+	private String exitSpellEffect;
+
 	/** any repeated spell effects applied to the bearer of the condition */
 	private List<RepeatedSpellEffect> repeatedSpellEffects;
 
@@ -117,6 +120,7 @@ public class ConditionTemplate
 		boolean strengthWanes,
 		ExitCondition exitCondition,
 		int exitConditionChance,
+		String exitSpellEffect,
 		List<RepeatedSpellEffect> repeatedSpellEffects)
 	{
 		this.displayName = displayName;
@@ -136,6 +140,7 @@ public class ConditionTemplate
 		this.strengthWanes = strengthWanes;
 		this.exitCondition = exitCondition;
 		this.exitConditionChance = exitConditionChance;
+		this.exitSpellEffect = exitSpellEffect;
 		this.repeatedSpellEffects = repeatedSpellEffects;
 	}
 
@@ -249,6 +254,11 @@ public class ConditionTemplate
 		return repeatedSpellEffects;
 	}
 
+	public String getExitSpellEffect()
+	{
+		return exitSpellEffect;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void setAdjective(String adjective)
 	{
@@ -339,6 +349,11 @@ public class ConditionTemplate
 	public void setExitConditionChance(int exitConditionChance)
 	{
 		this.exitConditionChance = exitConditionChance;
+	}
+
+	public void setExitSpellEffect(String exitSpellEffect)
+	{
+		this.exitSpellEffect = exitSpellEffect;
 	}
 
 	/*-------------------------------------------------------------------------*/
