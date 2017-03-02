@@ -318,6 +318,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=magma spear item condition
+displayName=magma spear
+type=FIRE
+subtype=HEAT
+saveAdjustment=
+unsavedResult=3::magma spear
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=holy ground
 displayName=
 type=ENERGY
@@ -546,6 +556,16 @@ saveAdjustment=
 unsavedResult=1::0,:1/1/NONE//false::generic weapon swish::false:false:0:false:
 savedResult=
 targetType=3
+application=AS_PER_SPELL
+@
+name=magma spear item expire
+displayName=magma spear
+type=FIRE
+subtype=HEAT
+saveAdjustment=
+unsavedResult=27::Magma Spear
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=wither plants spell
@@ -3186,6 +3206,16 @@ saveAdjustment=
 unsavedResult=3::phantom guardian spell
 savedResult=
 targetType=2
+application=AS_PER_SPELL
+@
+name=magma spear item equip
+displayName=magma spear item equip
+type=FIRE
+subtype=HEAT
+saveAdjustment=
+unsavedResult=16::magma.spear.spell
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=jinx spell damage

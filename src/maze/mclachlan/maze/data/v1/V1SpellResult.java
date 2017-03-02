@@ -35,7 +35,7 @@ public class V1SpellResult
 {
 	static final String SEP = ":";
 	static final String SUB_SEP = "/";
-	static Map<Class, Integer> types;
+	public static Map<Class, Integer> types;
 
 	public static final int CUSTOM = 0;
 	public static final int ATTACK_WITH_WEAPON = 1;

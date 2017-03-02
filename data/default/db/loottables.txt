@@ -16,6 +16,9 @@ lootEntries=I~Assegai:100,I~Knife:100,I~Gold Piece:45,I~Leather Cuirass:100,I~Th
 name=Glaucus.loot
 lootEntries=I~Thorn Staff:100,I~Gold Piece:100,I~Cloth Pants:100,I~Sandals:100,I~Cloth Shirt:100
 @
+name=magma.spear.spell
+lootEntries=I~Magma Spear:100
+@
 name=rogue.clockwork.loot
 lootEntries=I~Clockwork Head:100
 @

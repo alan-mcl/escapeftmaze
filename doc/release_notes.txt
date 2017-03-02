@@ -8,7 +8,7 @@ Features
  - Druid class abilities: Regenerate Self, Wilderness Veil, Entangling Blows,
    Aura of Regeneration, Bestial Reincarnation
  - Elemental class abilities: Fists of Rock, Channel Elements, Helm of Flames,
-   Mantle of the Seas, Robes of the Wind, Shield of Ice
+   Mantle of the Seas, Robes of the Wind, Shield of Ice, Magma Spear
 
 Other
  - Refactored the Value composition into a flat ValueList

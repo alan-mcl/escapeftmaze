@@ -990,6 +990,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=magma spear
+displayName=magma spear
+icon=item/magmaspear
+adjective=shielded
+conditionEffect=none
+duration=1/4/SCALE_WITH_MODIFIER/BLUE_MAGIC_GEN/false,1/10/SCALE_WITH_CLASS_LEVEL/Elemental/false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=0,
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=shield of ice item expire
+repeatedSpellEffects=
+@
 name=soulful sax soul shield
 displayName=Soul Shield
 icon=condition/soulshield

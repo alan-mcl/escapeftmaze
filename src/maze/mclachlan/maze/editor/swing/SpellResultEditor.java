@@ -26,6 +26,7 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.V1SpellResult;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
@@ -43,38 +44,6 @@ import static mclachlan.maze.data.v1.V1SpellResult.*;
  */
 public class SpellResultEditor extends JDialog implements ActionListener
 {
-	private static Map<Class, Integer> types;
-
-	static
-	{
-		types = new HashMap<Class, Integer>();
-
-		types.put(AttackWithWeaponSpellResult.class, ATTACK_WITH_WEAPON);
-		types.put(CharmSpellResult.class, CHARM);
-		types.put(ConditionSpellResult.class, CONDITION);
-		types.put(DamageSpellResult.class, DAMAGE);
-		types.put(HealingSpellResult.class, HEALING);
-		types.put(IdentifySpellResult.class, IDENTIFY);
-		types.put(MindReadSpellResult.class, MIND_READ);
-		types.put(MindReadFailedSpellResult.class, MIND_READ_FAILED);
-		types.put(RechargeSpellResult.class, RECHARGE);
-		types.put(RemoveCurseSpellResult.class, REMOVE_CURSE);
-		types.put(SummoningSpellResult.class, SUMMONING);
-		types.put(TheftSpellResult.class, THEFT);
-		types.put(TheftFailedSpellResult.class, THEFT_FAILED);
-		types.put(UnlockSpellResult.class, UNLOCK);
-		types.put(DrainSpellResult.class, DRAIN);
-		types.put(ConditionRemovalSpellResult.class, CONDITION_REMOVAL);
-		types.put(DeathSpellResult.class, DEATH);
-		types.put(CloudSpellResult.class, CLOUD_SPELL);
-		types.put(PurifyAirSpellResult.class, PURIFY_AIR);
-		types.put(ResurrectionSpellResult.class, RESURRECTION);
-		types.put(BoozeSpellResult.class, BOOZE);
-		types.put(ForgetSpellResult.class, FORGET);
-		types.put(ConditionIdentificationSpellResult.class, CONDITION_IDENTIFICATION);
-		types.put(CreateItemSpellResult.class, CREATE_ITEM);
-	}
-
 	private SpellResult result;
 
 	private JButton ok, cancel;
@@ -201,9 +170,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private void setState(SpellResult sr)
 	{
 		int srType;
-		if (types.containsKey(sr.getClass()))
+		if (V1SpellResult.types.containsKey(sr.getClass()))
 		{
-			srType = types.get(sr.getClass());
+			srType = V1SpellResult.types.get(sr.getClass());
 		}
 		else
 		{

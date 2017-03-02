@@ -3946,6 +3946,27 @@ secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Magma Spear
+displayName=Magma Spear
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Blue Magic
+spellEffects=magma spear item condition:100,magma spear item equip:100
+description=equips an spear of molten rock
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Starlight
 displayName=Starlight
 hitPointCost=
