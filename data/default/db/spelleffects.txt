@@ -998,6 +998,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/5::::0.5:
 targetType=4
 application=AS_PER_SPELL
 @
+name=coat of ooze condition
+displayName=coat of ooze
+type=WATER
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::coat of ooze
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=insect plague damage
 displayName=damage
 type=EARTH

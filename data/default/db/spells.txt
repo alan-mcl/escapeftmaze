@@ -2434,6 +2434,27 @@ secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Coat of Ooze
+displayName=Coat of Ooze
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Blue Magic
+spellEffects=coat of ooze condition:100
+description=is coated with ooze
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Blinding Flash
 displayName=Blinding Flash
 hitPointCost=

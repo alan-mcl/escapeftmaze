@@ -1470,6 +1470,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=coat of ooze
+displayName=coat of ooze
+icon=condition/coatofooze
+adjective=transformed
+conditionEffect=none
+duration=1/2/NONE//false,1/2/SCALE_WITH_CLASS_LEVEL/Elemental/false
+strength=1/1/SCALE_WITH_MODIFIER/BLUE_MAGIC_GEN/false,1/2/NONE//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=401e0007000000000000,0505050101010101
+bannerModifier=0,
+scaleModifierWithStrength=true
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=striking spell
 displayName=Striking
 icon=condition/striking
