@@ -64,3 +64,6 @@ impl=mclachlan.maze.stat.condition.FearEffect
 name=bloodthirsty
 impl=mclachlan.maze.stat.condition.BloodthirstyEffect
 @
+name=gaseous_form
+impl=mclachlan.maze.stat.condition.GaseousForm
+@

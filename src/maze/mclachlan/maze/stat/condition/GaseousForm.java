@@ -24,32 +24,35 @@ import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.AttackAction;
 import mclachlan.maze.stat.combat.CombatAction;
-import mclachlan.maze.stat.combat.SpellAction;
-import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.Spell;
+import mclachlan.maze.stat.combat.DefendAction;
 
 /**
  *
  */
-public class InvisibleEffect extends ConditionEffect
+public class GaseousForm extends ConditionEffect
 {
-	private static StatModifier invisible;
+	private static StatModifier stats;
 
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		invisible = new StatModifier();
-		invisible.setModifier(Stats.Modifier.SNEAKING, 20);
-		invisible.setModifier(Stats.Modifier.TO_RUN_AWAY, 10);
+		stats = new StatModifier();
+		stats.setModifier(Stats.Modifier.DEFENCE, 20);
+		stats.setModifier(Stats.Modifier.SNEAKING, 5);
+		stats.setModifier(Stats.Modifier.TO_RUN_AWAY, 5);
+		stats.setModifier(Stats.Modifier.RESIST_BLUDGEONING, 100);
+		stats.setModifier(Stats.Modifier.RESIST_PIERCING, 100);
+		stats.setModifier(Stats.Modifier.RESIST_SLASHING, 100);
+		stats.setModifier(Stats.Modifier.RESIST_AIR, -25);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public InvisibleEffect()
+	public GaseousForm()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public InvisibleEffect(String name)
+	public GaseousForm(String name)
 	{
 		super(name);
 	}
@@ -59,17 +62,8 @@ public class InvisibleEffect extends ConditionEffect
 	{
 		if (action instanceof AttackAction)
 		{
-			actor.removeCondition(condition);
-		}
-
-		if (action instanceof SpellAction)
-		{
-			SpellAction sa = (SpellAction)action;
-			Spell s = sa.getSpell();
-			if (s.getTargetType() != MagicSys.SpellTargetType.CASTER)
-			{
-				actor.removeCondition(condition);
-			}
+			// can't attack melee or ranged
+			action = new DefendAction();
 		}
 
 		return action;
@@ -78,7 +72,7 @@ public class InvisibleEffect extends ConditionEffect
 	/*-------------------------------------------------------------------------*/
 	public int getModifier(Stats.Modifier modifier, Condition condition, ConditionBearer bearer)
 	{
-		return invisible.getModifier(modifier);
+		return stats.getModifier(modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -90,12 +84,6 @@ public class InvisibleEffect extends ConditionEffect
 	/*-------------------------------------------------------------------------*/
 	public boolean canBeAttacked(UnifiedActor actor, Condition condition)
 	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Stats.Modifier getImmunityModifier()
-	{
-		return Stats.Modifier.IMMUNE_TO_INVISIBLE;
+		return true;
 	}
 }

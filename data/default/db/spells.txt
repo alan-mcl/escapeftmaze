@@ -1279,6 +1279,27 @@ secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
 @
+name=Mistform
+displayName=Mistform
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Blue Magic
+spellEffects=mistform condition:100
+description=vanishes into the mists
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Soulful Sax
 displayName=Soulful Sax
 hitPointCost=

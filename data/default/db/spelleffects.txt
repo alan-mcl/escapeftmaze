@@ -4508,6 +4508,16 @@ savedResult=
 targetType=7
 application=AS_PER_SPELL
 @
+name=mistform condition
+displayName=mistform
+type=AIR
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::mistform
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=deadly dart confuse
 displayName=deadly dart confuse
 type=EARTH

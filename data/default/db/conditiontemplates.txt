@@ -1010,6 +1010,26 @@ exitConditionChance=0
 exitSpellEffect=shield of ice item expire
 repeatedSpellEffects=
 @
+name=mistform
+displayName=mistform
+icon=condition/mistform
+adjective=transformed
+conditionEffect=gaseous_form
+duration=1/3/NONE//false,1/2/SCALE_WITH_CLASS_LEVEL/Elemental/false
+strength=1/2/SCALE_WITH_MODIFIER/BLUE_MAGIC_GEN/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=0,
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=soulful sax soul shield
 displayName=Soul Shield
 icon=condition/soulshield

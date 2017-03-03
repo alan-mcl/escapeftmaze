@@ -867,6 +867,8 @@ lap_name_magma_spear = Magma Spear
 lap_desc_magma_spear = The Elemental conjures and equips a deadly spear of molten rock.
 lap_name_coat_of_ooze = Coat of Ooze
 lap_desc_coat_of_ooze = The Elemental is cloaked in a tunic of elemental ooze, providing protection and regeneration
+lap_name_mistform = Mistform
+lap_desc_mistform = The Elemental takes on a form composed only of mists. He or she gains a great deal of protection, but cannot make melee or missile attacks.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms
