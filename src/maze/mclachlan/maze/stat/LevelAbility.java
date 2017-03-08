@@ -19,6 +19,8 @@
 
 package mclachlan.maze.stat;
 
+import java.util.*;
+
 /**
  * Represents an ability gained at a certain level. Can compose stat modifiers,
  * a spell-like ability, or both.
@@ -173,6 +175,17 @@ public abstract class LevelAbility
 
 	/*-------------------------------------------------------------------------*/
 	public Object[] getDisplayArgs()
+	{
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	Any type descriptors that this LA adds to an actor
+	 */
+	public Collection<TypeDescriptor> getTypeDescriptors()
 	{
 		return null;
 	}

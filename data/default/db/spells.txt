@@ -8797,6 +8797,27 @@ secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
 @
+name=Elemental Ally
+displayName=Elemental Ally
+hitPointCost=
+actionPointCost=1/4/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Blue Magic
+spellEffects=elemental ally summoning:100
+description=summons an elemental ally!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Mage Missiles
 displayName=Mage Missiles
 hitPointCost=

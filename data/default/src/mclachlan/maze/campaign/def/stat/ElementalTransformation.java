@@ -29,42 +29,48 @@ import mclachlan.maze.stat.magic.ValueList;
 /**
  *
  */
-public class AcolyteApotheosis extends LevelAbility
+public class ElementalTransformation extends LevelAbility
 {
 	private final StatModifier statModifier;
-	private final SpellLikeAbility demonAlly;
-	private ArrayList<TypeDescriptor> types;
+	private final SpellLikeAbility ally;
+	private List<TypeDescriptor> types;
 
-	// todo: gains Demon creature type?
+	// todo: gains Elemental creature type?
 
 	/*-------------------------------------------------------------------------*/
-	public AcolyteApotheosis()
+	public ElementalTransformation()
 	{
 		statModifier = new StatModifier();
-		statModifier.setModifier(Stats.Modifier.RESIST_FIRE, 50);
-		statModifier.setModifier(Stats.Modifier.IMMUNE_TO_POISON, 1);
-		statModifier.setModifier(Stats.Modifier.THREATEN, 5);
-		statModifier.setModifier(Stats.Modifier.FLIER, 1);
+		statModifier.setModifier(Stats.Modifier.RESIST_FIRE, 100);
+		statModifier.setModifier(Stats.Modifier.RESIST_WATER, 100);
+		statModifier.setModifier(Stats.Modifier.RESIST_EARTH, 100);
+		statModifier.setModifier(Stats.Modifier.RESIST_AIR, 100);
+		statModifier.setModifier(Stats.Modifier.IMMUNE_TO_BLIND, 100);
+		statModifier.setModifier(Stats.Modifier.IMMUNE_TO_DISEASE, 100);
+		statModifier.setModifier(Stats.Modifier.IMMUNE_TO_STONE, 100);
+		statModifier.setModifier(Stats.Modifier.IMMUNE_TO_LIGHTNING, 100);
+		statModifier.setModifier(Stats.Modifier.BLUE_MAGIC_GEN, 1);
 
-		Spell spell = Database.getInstance().getSpell("Demon Ally");
+		Spell spell = Database.getInstance().getSpell("Elemental Ally");
 		Value value = new Value(1, Value.SCALE.SCALE_WITH_CLASS_LEVEL);
-		value.setReference("Acolyte");
+		value.setReference("Elemental");
 		ValueList castingLevel = new ValueList(value);
-		demonAlly = new SpellLikeAbility(spell, castingLevel);
+		ally = new SpellLikeAbility(spell, castingLevel);
 	}
 
-	public void initTypes()
+	/*-------------------------------------------------------------------------*/
+	private void initTypes()
 	{
-		FoeType outsider = Database.getInstance().getFoeTypes().get("Outsider");
+		FoeType elemental = Database.getInstance().getFoeTypes().get("Elemental");
 		types = new ArrayList<TypeDescriptor>();
-		types.add(outsider);
+		types.add(elemental);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public SpellLikeAbility getAbility()
 	{
-		return demonAlly;
+		return ally;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -72,14 +78,6 @@ public class AcolyteApotheosis extends LevelAbility
 	public StatModifier getModifier()
 	{
 		return statModifier;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public NaturalWeapon getNaturalWeapon()
-	{
-		return Database.getInstance().getNaturalWeapons().get("Apotheosis Claw");
 	}
 
 	/*-------------------------------------------------------------------------*/

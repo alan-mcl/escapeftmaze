@@ -631,6 +631,17 @@ public class Foe extends UnifiedActor
 		{
 			result.add(getRace());
 		}
+		List<LevelAbility> levelAbilities = getLevelAbilities();
+		if (levelAbilities != null)
+		{
+			for (LevelAbility la : levelAbilities)
+			{
+				if (la.getTypeDescriptors() != null)
+				{
+					result.addAll(la.getTypeDescriptors());
+				}
+			}
+		}
 		return result;
 	}
 

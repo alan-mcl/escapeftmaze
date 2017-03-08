@@ -3678,6 +3678,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/THOUGHT::
 targetType=3
 application=AS_PER_SPELL
 @
+name=elemental ally summoning
+displayName=elemental ally summoning
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=11::elemental.spell.1/elemental.spell.1/elemental.spell.1/elemental.spell.2/elemental.spell.2/elemental.spell.2/elemental.spell.2/elemental.spell.3/elemental.spell.3/elemental.spell.3:1/1/SCALE_WITH_MODIFIER/BLUE_MAGIC_GEN/false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=psionic bolt trap insane
 displayName=insane
 type=MENTAL
