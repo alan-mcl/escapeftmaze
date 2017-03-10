@@ -872,6 +872,29 @@ lap_desc_mistform = The Elemental takes on a form composed only of mists. He or 
 lap_name_elemental_transformation = Elemental Transformation
 lap_desc_elemental_transformation = The Elemental becomes an embodiment of the raw elements!
 
+# Enchanter
+lap_name_vanish = Vanish
+lap_desc_vanish = The Enchanter's best trick is disappearing.
+lap_name_sociable = Sociable
+lap_desc_sociable = The Enchanter gets a bonuses dealing with NPCs.
+lap_name_fey_affinity = Fey Affinity
+lap_desc_fey_affinity = The Enchanter recovers magic points at a faster rate in the presence of Gold magic.
+lap_name_illusion_mastery = Illusion Mastery
+lap_desc_illusion_mastery = The Enchanter can see through the glamours of others.
+lap_name_on_the_ball = On the Ball
+lap_desc_on_the_ball = It's hard to catch the Enchanter napping.
+lap_name_minds_eye = Mind's Eye
+lap_desc_minds_eye = The Enchanter can take actions normally while blind.
+lap_name_mind_control = Mind Control
+lap_desc_mind_control = The Enchanter gains various mental resistances
+lap_name_greater_mind_control = Greater Mind Control
+lap_desc_greater_mind_control = The Enchanter gains strong mental resistances and immunities
+lap_name_fey_mastery = Fey Mastery
+lap_desc_fey_mastery = The Enchanter's knowledge of the fey makes them easy foes.
+lap_name_silver_tongue = Silver Tongue
+lap_desc_silver_tongue = The Enchanter is very proficient at dealing with strangers.
+
+
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms
 lap_desc_wards_and_charms = The presence of an Exorcist protects the whole party from mental and energy magic.
@@ -891,12 +914,6 @@ lap_name_cheat_death = Cheat Death
 lap_desc_cheat_death = Through sheer strength of spirit, the Hero can sometimes cheat certain death.
 lap_name_melee_master = Melee Master
 lap_desc_melee_master = The Hero loves being outnumbered and attacks large numbers of foes with increased fervour.
-
-# Enchanter
-lap_name_vanish = Vanish
-lap_desc_vanish = The Enchanter's best trick is disappearing.
-lap_name_fey_affinity = Fey Affinity
-lap_desc_fey_affinity = The Enchanter recovers magic points at a faster rate in the presence of Gold magic.
 
 # Magician
 lap_name_ambition = Ambition

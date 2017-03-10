@@ -72,8 +72,12 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		other.removeAll(Stats.weaponAbilities);
 		other.removeAll(Stats.favouredEnemies);
 
+		List<Stats.Modifier> statisticsMinusResistances =
+			new ArrayList<Stats.Modifier>(Stats.statistics);
+		statisticsMinusResistances.removeAll(Stats.resistancesAndImmunities);
+
 		JPanel regular = getTab(regularPlusResource);
-		JPanel stats = getTab(new ArrayList<Stats.Modifier>(Stats.statistics));
+		JPanel stats = getTab(new ArrayList<Stats.Modifier>(statisticsMinusResistances));
 		JPanel rAndI = getTab(Stats.resistancesAndImmunities);
 		JPanel touch = getTab(Stats.touches);
 		JPanel weap = getTab(Stats.weaponAbilities);
