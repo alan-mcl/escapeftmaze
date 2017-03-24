@@ -645,7 +645,8 @@ public class Stats
 		PERSUASION(243, "persuasion", ModifierMetric.BOOLEAN),
 		SUPPLY_CONSUMPTION(244, "supplyConsumption"),
 		REINCARNATE_BEAST(245, "reincarnateBeast", ModifierMetric.BOOLEAN),
-		POWER_SUMMON_ELEMENTAL(246, "powerSummonElemental");
+		POWER_SUMMON_ELEMENTAL(246, "powerSummonElemental"),
+		MASTER_DIVINER(247, "masterDiviner", ModifierMetric.BOOLEAN),
 		;
 
 		/**

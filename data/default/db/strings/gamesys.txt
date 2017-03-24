@@ -267,6 +267,7 @@ modifier_name-persuasion: Persuasion
 modifier_name-supplyConsumption: Supply Consumption
 modifier_name-reincarnateBeast: Reincarnate: Beast
 modifier_name-powerSummonElemental: Power Summon: Elemental
+modifier_name-masterDiviner: Master Diviner
 
 # Modifier Descriptions
 
@@ -527,6 +528,7 @@ modifier_desc-persuasion: When another character in the party tried to influence
 modifier_desc-supplyConsumption: Modifies how many units of supplies this character consumes when resting.
 modifier_desc-reincarnateBeast: If this character dies in combat, a powerful beast appears to aid the party.
 modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
+modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -893,6 +895,8 @@ lap_name_fey_mastery = Fey Mastery
 lap_desc_fey_mastery = The Enchanter's knowledge of the fey makes them easy foes.
 lap_name_silver_tongue = Silver Tongue
 lap_desc_silver_tongue = The Enchanter is very proficient at dealing with strangers.
+lap_name_master_diviner = Master Diviner
+lap_desc_master_diviner = The Enchanter restores Action Points whenever he or she identifies an item.
 
 
 # Exorcist

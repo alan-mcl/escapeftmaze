@@ -2354,6 +2354,12 @@ public class GameSys
 			// power training.
 			practice(assayer, Stats.Modifier.ARTIFACTS, 1);
 			item.setIdentificationState(Item.IdentificationState.IDENTIFIED);
+
+			// check for MASTER_DIVINER effect
+			if (assayer.getModifier(Stats.Modifier.MASTER_DIVINER) > 1)
+			{
+				assayer.getActionPoints().incCurrent(1);
+			}
 		}
 	}
 
