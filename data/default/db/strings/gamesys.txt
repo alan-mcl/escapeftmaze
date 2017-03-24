@@ -897,6 +897,8 @@ lap_name_silver_tongue = Silver Tongue
 lap_desc_silver_tongue = The Enchanter is very proficient at dealing with strangers.
 lap_name_master_diviner = Master Diviner
 lap_desc_master_diviner = The Enchanter restores Action Points whenever he or she identifies an item.
+lap_name_dispel_illusions = Dispel Illusions
+lap_desc_dispel_illusions = The Enchanter can dispel the illusions of others.
 
 
 # Exorcist

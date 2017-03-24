@@ -1488,6 +1488,16 @@ savedResult=
 targetType=5
 application=AS_PER_SPELL
 @
+name=dispel illusions
+displayName=dispel illusions
+type=NONE
+subtype=NONE
+saveAdjustment=1/5/SCALE_WITH_CLASS_LEVEL/Enchanter/true
+unsavedResult=19:Illusion:
+savedResult=4:Illusion:2/0/SCALE_WITH_CLASS_LEVEL/Enchanter/false/1d3::::0.0:false
+targetType=5
+application=AS_PER_SPELL
+@
 name=witch curse fatigue
 displayName=
 type=NONE
