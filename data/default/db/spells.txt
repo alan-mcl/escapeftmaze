@@ -3190,6 +3190,27 @@ secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/1
 wildMagicTable=Baleful Sax,Baleful Sax,Baleful Sax,Baleful Sax,Baleful Sax - Pain,Baleful Sax - Pain,Baleful Sax - Pain,Baleful Sax - Hex,Baleful Sax - Hex,Baleful Sax - Hex
 @
+name=Spirit Form
+displayName=Spirit Form
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=White Magic
+spellEffects=spirit form condition:100
+description=changes to spirit form
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Fear
 displayName=Fear
 hitPointCost=

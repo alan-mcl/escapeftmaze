@@ -638,7 +638,6 @@ lap_name_arrow_cutting = Arrow Cutting %s
 lap_desc_arrow_cutting = The character is extremely adept at deflecting incoming projectiles.
 lap_name_bard = Bard
 lap_desc_bard = Strangers met on the road always react more favourably to this character, and his or her presence in a party increases the rate of resource regeneration when camping.
-lap_name_threaten = Threaten
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -906,6 +905,15 @@ lap_name_wards_and_charms = Wards and Charms
 lap_desc_wards_and_charms = The presence of an Exorcist protects the whole party from mental and energy magic.
 lap_name_exorcism = Exorcism
 lap_desc_exorcism = The Exorcist can summon his or her spiritual power against any demons, undead or other planar creatures.
+lap_name_conviction = Conviction
+lap_desc_conviction = The Exorcist is immune to possession and insanity.
+lap_name_strength_of_spirit = Strength of Spirit
+lap_desc_strength_of_spirit = The Exorcist has boosted mental and energy resistance.
+lap_name_demonslayer = Demonslayer
+lap_desc_demonslayer = The Exorcist excels at hunting those from beyond the material plane.
+lap_name_spirit_form = Spirit Form
+lap_desc_spirit_form = The Exorcist becomes incorporeal.
+
 
 # Gadgeteer
 lap_name_disbeliever = Disbeliever

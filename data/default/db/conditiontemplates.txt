@@ -141,6 +141,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=spirit form
+displayName=spirit form
+icon=condition/spirit_form
+adjective=transformed
+conditionEffect=invisible
+duration=1/2/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=8000000000000000000005e0007000000000000,6464641e1e1e1e4b32
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=enchanter invisibility
 displayName=Invisible
 icon=condition/invisible

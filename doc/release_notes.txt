@@ -13,6 +13,7 @@ Features
  - Enchanter class abilities: Sociable, Illusion Mastery, On the Ball, Mind's Eye, 
    Mind Control, Fey Mastery, Silver Tongue, Greater Mind Control, Master Diviner,
    Dispel Illusions
+ - Exorcist class abilities: Spirit Form
 
 Other
  - Refactored the Value composition into a flat ValueList

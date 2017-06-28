@@ -1028,6 +1028,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/3d6,3/0/NONE//false/CHANT::::
 targetType=3
 application=AS_PER_SPELL
 @
+name=spirit form condition
+displayName=spirit form condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::spirit form
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=bardic harp bless
 displayName=
 type=ENERGY

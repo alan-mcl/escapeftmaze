@@ -24,7 +24,7 @@ abilities: berserker 17
 abilities: blackguard 10, 17
 abilities: burglar 19
 abilities: druid 13, 15
-abilities: enchanter 16, 18
+abilities: enchanter 16, 18, 20
 abilities: DIPLOMACY rework to something more interesting
 abilities: PERSUATION hooks on DIPLOMACY
 abilities: CODE_OF_DISHONOUR hooks on DIPLOMACY, others
