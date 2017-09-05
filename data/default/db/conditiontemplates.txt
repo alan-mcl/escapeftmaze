@@ -1150,6 +1150,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=weaken spirits
+displayName=weaken spirits
+icon=condition/default
+adjective=weakened
+conditionEffect=none
+duration=1/1/SCALE_WITH_CLASS_LEVEL/Exorcist/false,1/4/NONE//false
+strength=1/1/SCALE_WITH_CLASS_LEVEL/Exorcist/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=7e0007000000000000,d8d8d8d8d8d8d8d8d8
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=glowing curse trap
 displayName=Glowing Curse
 icon=condition/faeriefire

@@ -18,6 +18,16 @@ savedResult=4:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3:::0.5:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=dispel illusions kill
+displayName=dispel illusions kill
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=19:Illusion:
+savedResult=4:Illusion:2/0/SCALE_WITH_CLASS_LEVEL/Exorcist/false/1d4::::0.0:false
+targetType=4
+application=AS_PER_SPELL
+@
 name=prismic missile spell stone
 displayName=stone
 type=FIRE
@@ -224,6 +234,16 @@ type=MENTAL
 subtype=NONE
 saveAdjustment=
 unsavedResult=3::gruesome aspect spell
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
+name=weaken spirits illusions
+displayName=weaken spirits condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:Illusion:weaken spirits
 savedResult=
 targetType=0
 application=AS_PER_SPELL
@@ -1838,6 +1858,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=weaken spirits outsider
+displayName=weaken spirits condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:Outsider:weaken spirits
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=cerebral hemorrhage insane
 displayName=insane
 type=MENTAL
@@ -3196,6 +3226,16 @@ saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=3::SCALING_HEX
 savedResult=
 targetType=3
+application=AS_PER_SPELL
+@
+name=weaken spirits undead
+displayName=weaken spirits condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:Undead:weaken spirits
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=poison gas spell

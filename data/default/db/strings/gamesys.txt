@@ -912,8 +912,13 @@ lap_desc_strength_of_spirit = The Exorcist has boosted mental and energy resista
 lap_name_demonslayer = Demonslayer
 lap_desc_demonslayer = The Exorcist excels at hunting those from beyond the material plane.
 lap_name_spirit_form = Spirit Form
-lap_desc_spirit_form = The Exorcist becomes incorporeal.
-
+lap_desc_spirit_form = The Exorcist becomes temporarily incorporeal.
+lap_name_dispel_illusions = Dispel Illusions
+lap_desc_dispel_illusions = The Exorcist can dispel illusory foes.
+lap_name_bane_of_undeath = Bane of Undeath
+lap_desc_bane_of_undeath = The Exorcist is a deadly foe of the unliving.
+lap_name_weaken_spirits = Weaken Spirits
+lap_desc_weaken_spirits = The Exorcist greatly reduces the resistances of undead, illusions and outsiders.
 
 # Gadgeteer
 lap_name_disbeliever = Disbeliever
