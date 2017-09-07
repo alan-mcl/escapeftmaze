@@ -919,6 +919,8 @@ lap_name_bane_of_undeath = Bane of Undeath
 lap_desc_bane_of_undeath = The Exorcist is a deadly foe of the unliving.
 lap_name_weaken_spirits = Weaken Spirits
 lap_desc_weaken_spirits = The Exorcist greatly reduces the resistances of undead, illusions and outsiders.
+lap_name_anathema = Anathema
+lap_desc_anathema = The Exorcist banishes all outsiders present to their home plane.
 
 # Gadgeteer
 lap_name_disbeliever = Disbeliever

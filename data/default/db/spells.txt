@@ -8545,6 +8545,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Anathema
+displayName=Anathema
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=5
+school=Evocation
+book=White Magic
+spellEffects=anathema death:100
+description=channels holy power!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white cloud from player
+castByFoeScript=white cloud from foe
+usabilityType=1
+primaryModifier=CHANT
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Obfuscation
 displayName=Obfuscation
 hitPointCost=
