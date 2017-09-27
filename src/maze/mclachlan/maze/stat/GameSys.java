@@ -1155,7 +1155,7 @@ public class GameSys
 
 		if (user instanceof DummyCaster)
 		{
-			Maze.log(Log.DEBUG, "DummyCaster never fails");
+			Maze.log(Log.DEBUG, "DummyCaster almost never fails");
 			result = 0;
 		}
 		else if (useRequirements == null)
@@ -1178,9 +1178,8 @@ public class GameSys
 		{
 			// A user modifier of 5+req minimises the chance of failure (to 1%)
 			// Anything less is added up linearly.
-			// Calculate these requirements separately and average them
 
-			int count=0, sum=0;
+			int sumOfFailureChances=0;
 
 			for (Stats.Modifier mod : useRequirements.getModifiers().keySet())
 			{
@@ -1189,27 +1188,21 @@ public class GameSys
 
 				int max = 5+reqMod;
 
-				if (userMod >= max)
+				if (userMod < max)
 				{
-					// no addition to the sum
-					count++;
-				}
-				else
-				{
-					int failurePerc = 100-userMod*100/max;
-					count++;
-					sum += failurePerc;
+					int failurePerc = (100-(userMod*100))/max;
+					sumOfFailureChances += failurePerc;
 				}
 			}
 
-			if (count == 0)
+			// BOMB_THROWER modifier halves the failure chance
+			if ((item.getType() == Type.BOMB || item.getType() == Type.POWDER) &&
+				user.getModifier(Stats.Modifier.BOMB_THROWER) > 0)
 			{
-				result = 0;
+				sumOfFailureChances /= 3;
 			}
-			else
-			{
-				result = sum/count;
-			}
+
+			result = sumOfFailureChances;
 		}
 
 		result = Math.max(result, 1);

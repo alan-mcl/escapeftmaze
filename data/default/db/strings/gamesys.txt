@@ -268,6 +268,7 @@ modifier_name-supplyConsumption: Supply Consumption
 modifier_name-reincarnateBeast: Reincarnate: Beast
 modifier_name-powerSummonElemental: Power Summon: Elemental
 modifier_name-masterDiviner: Master Diviner
+modifier_name-bombThrower: Bomb Thrower
 
 # Modifier Descriptions
 
@@ -529,6 +530,7 @@ modifier_desc-supplyConsumption: Modifies how many units of supplies this charac
 modifier_desc-reincarnateBeast: If this character dies in combat, a powerful beast appears to aid the party.
 modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
 modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
+modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -929,6 +931,8 @@ lap_name_pack_mule = Pack Mule
 lap_desc_pack_mule = The Gadgeteer gets a bonus to his or her carrying capacity.
 lap_name_signature_weapon = Signature Weapon
 lap_desc_signature_weapon = On level up, the Gadgeteer has a chance of upgrading a signature weapon in his or her possession.
+lap_name_bomb_thrower = Bomb Thrower
+lap_desc_bomb_thrower = The Gadgeteer is unlikely to fumble a bomb or powder in combat.
 
 # Hero
 lap_name_cheat_death = Cheat Death

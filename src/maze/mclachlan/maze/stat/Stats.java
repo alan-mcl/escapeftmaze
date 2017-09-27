@@ -647,6 +647,7 @@ public class Stats
 		REINCARNATE_BEAST(245, "reincarnateBeast", ModifierMetric.BOOLEAN),
 		POWER_SUMMON_ELEMENTAL(246, "powerSummonElemental"),
 		MASTER_DIVINER(247, "masterDiviner", ModifierMetric.BOOLEAN),
+		BOMB_THROWER(248, "bombThrower", ModifierMetric.BOOLEAN),
 		;
 
 		/**

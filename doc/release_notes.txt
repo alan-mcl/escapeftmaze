@@ -14,6 +14,7 @@ Features
    Mind Control, Fey Mastery, Silver Tongue, Greater Mind Control, Master Diviner,
    Dispel Illusions
  - Exorcist class abilities: Spirit Form, Dispel Illusions, Weaken Spirits, Anathema
+ - Gadgeteer class abilities: Bomb Thrower
 
 Other
  - Refactored the Value composition into a flat ValueList
