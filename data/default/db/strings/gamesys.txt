@@ -656,6 +656,8 @@ lap_name_steal = Steal %s
 lap_desc_steal = The character has a much better chance of stealing items from vendors.
 lap_name_dodge = Dodge %s
 lap_desc_dodge = This character has a chance of dodging melee and missile attacks.
+lap_name_lockpicker = Locks and Traps %s
+lap_desc_lockpicker = This character is good at picking locks and disarming traps.
 
 # NPC abilities
 lap_name_threaten = Threaten
@@ -933,6 +935,8 @@ lap_name_signature_weapon = Signature Weapon
 lap_desc_signature_weapon = On level up, the Gadgeteer has a chance of upgrading a signature weapon in his or her possession.
 lap_name_bomb_thrower = Bomb Thrower
 lap_desc_bomb_thrower = The Gadgeteer is unlikely to fumble a bomb or powder in combat.
+lap_name_ammo_stash1 = Ammo Stash 1
+lap_desc_ammo_stash = The Gadgeteer produces a small stash of ammo for his or her ranged weapon
 
 # Hero
 lap_name_cheat_death = Cheat Death

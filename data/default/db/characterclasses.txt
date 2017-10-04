@@ -357,7 +357,7 @@ levelUpActionPoints=2d3
 levelUpMagicPoints=1d1
 levelUpAssignableModifiers=3
 levelUpModifiers=0,
-progression=1;;lap_name_pack_mule;lap_desc_pack_mule;800000000000000000000000000000000000@14/1;;lap_name_signature_weapon;lap_desc_signature_weapon;8000000000000000000000000000000000000000000@01,1;;lap_name_disbeliever;lap_desc_disbeliever;600000000000000000@0f0f,,1;;lap_name_bomb_thrower;lap_desc_bomb_thrower;100000000000000000000000000000000000000000000000000000000000000@01,,,,,,,,,,,,,,,,
+progression=1;;lap_name_pack_mule;lap_desc_pack_mule;800000000000000000000000000000000000@14/1;;lap_name_signature_weapon;lap_desc_signature_weapon;8000000000000000000000000000000000000000000@01,1;;lap_name_disbeliever;lap_desc_disbeliever;600000000000000000@0f0f,,1;;lap_name_bomb_thrower;lap_desc_bomb_thrower;100000000000000000000000000000000000000000000000000000000000000@01,3;snipe;lap_name_snipe1;lap_desc_snipe;_SNIPE_1_~1`1`SCALE_WITH_CLASS_LEVEL`Gadgeteer`false/1;;lap_name_lockpicker;lap_desc_lockpicker;20000000@02,3;ammo stash;lap_name_ammo_stash1;lap_desc_ammo_stash;Ammo Stash~1`1`SCALE_WITH_CLASS_LEVEL`Gadgeteer`false,,,,,,,,,,,,,,
 @
 name=Skald
 description=A performer and a weaver of enchantment. The Skald is also a doughty fighter, able to lead the party into battle or lend support from the rear. The Skald's knowledge of legend, mythology and history is unsurpassed. He or she has inherited a long oral tradition from a mentor that may contain all manner of other wisdom.%n%nRole: The Skald is a warrior poet, wielding both blades and magic in the front line of the party. Able to use a good selection of arms and armour, he or she can also make a useful backup healer with minor Gold magic talent.

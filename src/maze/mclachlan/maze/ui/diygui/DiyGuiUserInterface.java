@@ -253,7 +253,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		else
 		{
 			this.setUndecorated(true); // todo: support the native menu bar?
-			this.setBounds(100, 100, SCREEN_WIDTH, SCREEN_HEIGHT);
+			this.setBounds(10, 10, SCREEN_WIDTH, SCREEN_HEIGHT);
 			this.setVisible(true);
 		}
 

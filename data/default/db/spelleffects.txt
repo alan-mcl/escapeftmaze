@@ -568,6 +568,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=ammo stash
+displayName=ammo stash
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.stat.magic.AmmoStashSpellResult
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=dirty attack weapon
 displayName=dirty attack
 type=NONE

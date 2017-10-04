@@ -3358,6 +3358,27 @@ secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Ammo Stash
+displayName=Ammo Stash
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Gold Magic
+spellEffects=ammo stash:100
+description=has a stash of ammo!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=ENGINEERING
+secondaryModifier=ARTIFACTS
+wildMagicValue=
+wildMagicTable=
+@
 name=Crush
 displayName=Crush
 hitPointCost=
