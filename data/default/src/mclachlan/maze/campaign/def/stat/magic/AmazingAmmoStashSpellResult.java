@@ -17,31 +17,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.magic;
+package mclachlan.maze.campaign.def.stat.magic;
 
-import java.util.*;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.Dice;
 
 /**
- * A spell result that opens lock or disarms traps
+ *
  */
-public class UnlockSpellResult extends SpellResult
+public class AmazingAmmoStashSpellResult extends GreaterAmmoStashSpellResult
 {
-	ValueList value;
-
-	public UnlockSpellResult(ValueList value)
+	@Override
+	protected int getQuantity(int castingLevel)
 	{
-		this.value = value;
-	}
-
-	public ValueList getValue()
-	{
-		return value;
-	}
-
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
-	{
-		return null;
+		int quantity = new Dice(castingLevel, 2, -5).roll();
+		quantity = Math.max(2, quantity);
+		return quantity;
 	}
 }

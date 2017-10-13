@@ -573,7 +573,7 @@ displayName=ammo stash
 type=NONE
 subtype=NONE
 saveAdjustment=
-unsavedResult=0::mclachlan.maze.stat.magic.AmmoStashSpellResult
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.AmmoStashSpellResult
 savedResult=
 targetType=0
 application=AS_PER_SPELL
@@ -2788,6 +2788,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=ammo stash - greater
+displayName=ammo stash
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.GreaterAmmoStashSpellResult
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=forget trap
 displayName=forget trap
 type=MENTAL
@@ -4136,6 +4146,16 @@ saveAdjustment=
 unsavedResult=4::4/0/NONE//false/5,2/0/NONE//false/1d6::::0.0:true
 savedResult=4::4/0/NONE//false/5,2/0/NONE//false/1d6::::0.5:true
 targetType=3
+application=AS_PER_SPELL
+@
+name=ammo stash - amazing
+displayName=ammo stash
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.AmazingAmmoStashSpellResult
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=soulful sax soul shield

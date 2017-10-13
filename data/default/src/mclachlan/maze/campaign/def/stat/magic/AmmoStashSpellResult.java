@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.magic;
+package mclachlan.maze.campaign.def.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
@@ -30,6 +30,8 @@ import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.NoEffectEvent;
+import mclachlan.maze.stat.magic.SpellEffect;
+import mclachlan.maze.stat.magic.SpellResult;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -60,33 +62,7 @@ public class AmmoStashSpellResult extends SpellResult
 
 				ItemTemplate ammoTemplate = null;
 
-				switch (ammoType)
-				{
-					case ARROW: ammoTemplate = Database.getInstance().getItemTemplate("Willow Arrow");
-						break;
-					case BOLT: ammoTemplate = Database.getInstance().getItemTemplate("Quarrel");
-						break;
-					case STONE: ammoTemplate = Database.getInstance().getItemTemplate("Bullet Stone");
-						break;
-					case SELF: // can't do anything here
-						break;
-					case SHOT: ammoTemplate = Database.getInstance().getItemTemplate("Musket Ball");
-						break;
-					case STAR: ammoTemplate = Database.getInstance().getItemTemplate("Shuriken");
-						break;
-					case DART: ammoTemplate = Database.getInstance().getItemTemplate("Feather Dart");
-						break;
-					case JAVELIN: ammoTemplate = Database.getInstance().getItemTemplate("Javelin");
-						break;
-					case HAMMER: ammoTemplate = Database.getInstance().getItemTemplate("Throwing Hammer");
-						break;
-					case AXE: ammoTemplate = Database.getInstance().getItemTemplate("Throwing Axe");
-						break;
-					case KNIFE: ammoTemplate = Database.getInstance().getItemTemplate("Throwing Knife");
-						break;
-					default:
-						throw new MazeException(""+ammoType);
-				}
+				ammoTemplate = getAmmoItemTemplate(ammoType, ammoTemplate);
 
 				if (ammoTemplate != null)
 				{
@@ -122,10 +98,44 @@ public class AmmoStashSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
+	protected ItemTemplate getAmmoItemTemplate(ItemTemplate.AmmoType ammoType,
+		ItemTemplate ammoTemplate)
+	{
+		switch (ammoType)
+		{
+			case ARROW: ammoTemplate = Database.getInstance().getItemTemplate("Willow Arrow");
+				break;
+			case BOLT: ammoTemplate = Database.getInstance().getItemTemplate("Quarrel");
+				break;
+			case STONE: ammoTemplate = Database.getInstance().getItemTemplate("Bullet Stone");
+				break;
+			case SELF: // can't do anything here
+				break;
+			case SHOT: ammoTemplate = Database.getInstance().getItemTemplate("Musket Ball");
+				break;
+			case STAR: ammoTemplate = Database.getInstance().getItemTemplate("Shuriken");
+				break;
+			case DART: ammoTemplate = Database.getInstance().getItemTemplate("Feather Dart");
+				break;
+			case JAVELIN: ammoTemplate = Database.getInstance().getItemTemplate("Javelin");
+				break;
+			case HAMMER: ammoTemplate = Database.getInstance().getItemTemplate("Throwing Hammer");
+				break;
+			case AXE: ammoTemplate = Database.getInstance().getItemTemplate("Throwing Axe");
+				break;
+			case KNIFE: ammoTemplate = Database.getInstance().getItemTemplate("Throwing Knife");
+				break;
+			default:
+				throw new MazeException(""+ammoType);
+		}
+		return ammoTemplate;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	protected int getQuantity(int castingLevel)
 	{
 		int quantity = new Dice(castingLevel, 2, -5).roll();
-		quantity = Math.max(2, quantity);
+		quantity = Math.max(2, quantity/2);
 		return quantity;
 	}
 }
