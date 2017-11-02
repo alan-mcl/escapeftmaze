@@ -460,6 +460,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Destroy Trap
+displayName=Destroy Trap
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=7
+school=Transmutation
+book=Gold Magic
+spellEffects=destroy trap:100
+description=destroys the trap!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=_FORCE_PORTAL_
+castByFoeScript=
+usabilityType=4
+primaryModifier=ENGINEERING
+secondaryModifier=ARTIFACTS
+wildMagicValue=
+wildMagicTable=
+@
 name=Mental Blast
 displayName=Mental Blast
 hitPointCost=

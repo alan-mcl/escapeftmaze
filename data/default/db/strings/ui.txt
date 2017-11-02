@@ -61,6 +61,7 @@ iw.level = level %s
 iw.charges = , charges %s of %s
 iw.charges.infinite = , charges infinite
 iw.spell.effects = Effects:
+iw.all = all
 iw.all.except = all except
 iw.usable.by.races = Usable by races:
 iw.usable.by.classes = Usable by classes:

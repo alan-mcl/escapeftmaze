@@ -22,6 +22,7 @@ package mclachlan.maze.stat.magic;
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.TypeDescriptor;
 import mclachlan.maze.stat.UnifiedActor;
@@ -84,6 +85,24 @@ public abstract class SpellResult
 	public List<MazeEvent> apply(
 		UnifiedActor source,
 		Item item,
+		int castingLevel,
+		SpellEffect parent)
+	{
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Apply this spell result to the given lock/trap.
+	 *
+	 * @return
+	 * 	A sequence of combat events.  NULL can be returned to indicate no
+	 * 	events occur.
+	 */
+	public List<MazeEvent> apply(
+		UnifiedActor source,
+		LockOrTrap target,
 		int castingLevel,
 		SpellEffect parent)
 	{

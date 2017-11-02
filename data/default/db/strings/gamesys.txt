@@ -939,6 +939,10 @@ lap_name_ammo_stash1 = Ammo Stash
 lap_name_ammo_stash2 = Greater Ammo Stash
 lap_name_ammo_stash3 = Amazing Ammo Stash
 lap_desc_ammo_stash = The Gadgeteer produces a stash of ammo for his or her ranged weapon
+lap_name_destroy_trap1 = Destroy Trap 1
+lap_name_destroy_trap2 = Destroy Trap 2
+lap_name_destroy_trap3 = Destroy Trap 3
+lap_desc_destroy_trap = The Gadgeteer destroys (and springs) a trap, retrieving some useful gadgets from it.
 
 # Hero
 lap_name_cheat_death = Cheat Death

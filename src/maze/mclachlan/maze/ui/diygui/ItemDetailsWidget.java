@@ -312,7 +312,7 @@ public class ItemDetailsWidget extends DIYPanel
 	{
 		if (itemList == null || itemList.size() == all.size())
 		{
-			sb.append("all");
+			sb.append(getUiLabel("iw.all"));
 		}
 		else
 		{

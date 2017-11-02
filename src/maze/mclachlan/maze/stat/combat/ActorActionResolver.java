@@ -784,7 +784,11 @@ public class ActorActionResolver
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				//nothing to do
+				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
+					Maze.getInstance().getCurrentChest(),
+					s,
+					(PlayerCharacter)actor,
+					action.getCastingLevel()));
 				break;
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(SpellTargetUtils.resolveCasterSpell(

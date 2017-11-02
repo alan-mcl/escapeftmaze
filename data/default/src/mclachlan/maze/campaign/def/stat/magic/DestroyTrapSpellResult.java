@@ -17,37 +17,30 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.stat.magic;
+package mclachlan.maze.campaign.def.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.map.Portal;
+import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.Trap;
+import mclachlan.maze.map.script.GrantItemsEvent;
 import mclachlan.maze.map.script.LockOrTrap;
-import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.FailureEvent;
 import mclachlan.maze.stat.combat.event.NoEffectEvent;
 import mclachlan.maze.stat.combat.event.SuccessEvent;
+import mclachlan.maze.stat.magic.SpellEffect;
+import mclachlan.maze.stat.magic.SpellResult;
 import mclachlan.maze.util.MazeException;
 
 /**
  * A spell result that opens lock or disarms traps
  */
-public class UnlockSpellResult extends SpellResult
+public class DestroyTrapSpellResult extends SpellResult
 {
-	private ValueList value;
-
-	public UnlockSpellResult(ValueList value)
-	{
-		this.value = value;
-	}
-
-	public ValueList getValue()
-	{
-		return value;
-	}
-
 	@Override
 	public List<MazeEvent> apply(
 		UnifiedActor caster,
@@ -56,11 +49,6 @@ public class UnlockSpellResult extends SpellResult
 		SpellEffect spellEffect)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
-
-		//
-		// Deal with traps first. Multiple spells needed to deal with something
-		// that's both locked and trapped
-		//
 
 		if (lockOrTrap.isTrapped())
 		{
@@ -72,75 +60,37 @@ public class UnlockSpellResult extends SpellResult
 				return result;
 			}
 
-			ValueList modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
+			// spring the trap
 
-			BitSet disarmed = new BitSet(8);
-			for (int tool=0; tool<8; tool++)
-			{
-				if (!trap.getRequired().get(tool))
-				{
-					continue;
-				}
+			result.addAll(lockOrTrap.springTrap());
 
-				int disarmWithSpellResult = GameSys.getInstance().disarmWithSpell(
-					caster, castingLevel, modifier, trap, tool);
+			List<Item> items = getGadgets(castingLevel);
 
-				if (disarmWithSpellResult == Trap.DisarmResult.SPRING_TRAP)
-				{
-					result.addAll(disarmResultEvents(disarmWithSpellResult));
-					result.addAll(lockOrTrap.springTrap());
-					return result;
-				}
-				else if (disarmWithSpellResult == Trap.DisarmResult.DISARMED)
-				{
-					disarmed.set(tool);
-				}
-			}
-
-			if (disarmed.equals(trap.getRequired()))
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.DISARMED));
-				result.addAll(lockOrTrap.executeTrapDisarmed());
-			}
-			else
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.NOTHING));
-			}
+			result.add(new GrantItemsEvent(items));
 		}
-		else if (lockOrTrap.isLocked())
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<Item> getGadgets(int castingLevel)
+	{
+		ArrayList<Item> result = new ArrayList<Item>();
+		int max = new Dice(castingLevel,3,1).roll();
+		for (int i=0; i< max; i++)
 		{
-			ValueList modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
+			LootEntry gadgets;
 
-			BitSet disarmed = new BitSet(8);
-			for (int tool=0; tool<8; tool++)
+			if (Dice.d100.roll() > 5)
 			{
-				if (!lockOrTrap.getPickLockToolsRequired().get(tool))
-				{
-					continue;
-				}
-
-				int unlockResult = GameSys.getInstance().pickLockWithSpell(
-					caster, castingLevel, modifier, lockOrTrap, tool);
-
-				if (unlockResult == Trap.DisarmResult.SPRING_TRAP)
-				{
-					result.addAll(disarmResultEvents(Trap.DisarmResult.SPRING_TRAP));
-				}
-				else if (unlockResult == Trap.DisarmResult.DISARMED)
-				{
-					disarmed.set(tool);
-				}
-			}
-
-			if (disarmed.equals(lockOrTrap.getPickLockToolsRequired()))
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.DISARMED));
-				lockOrTrap.setLockState(Portal.State.UNLOCKED);
+				gadgets = Database.getInstance().getLootEntry("batch.1.gadgets");
 			}
 			else
 			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.NOTHING));
+				gadgets = Database.getInstance().getLootEntry("batch.2.gadgets");
 			}
+
+			result.add(gadgets.generate());
 		}
 
 		return result;

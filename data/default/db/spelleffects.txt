@@ -2078,6 +2078,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=destroy trap
+displayName=destroy trap
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.DestroyTrapSpellResult
+savedResult=
+targetType=7
+application=AS_PER_SPELL
+@
 name=obfuscation spell
 displayName=
 type=AIR

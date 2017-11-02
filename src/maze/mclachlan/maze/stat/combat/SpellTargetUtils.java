@@ -23,12 +23,13 @@ import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
-import mclachlan.maze.map.Trap;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.combat.event.ActorUnaffectedEvent;
+import mclachlan.maze.stat.combat.event.CloudSpellEvent;
+import mclachlan.maze.stat.combat.event.DefendEvent;
+import mclachlan.maze.stat.combat.event.MagicAbsorptionEvent;
 import mclachlan.maze.stat.condition.CloudSpell;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
@@ -449,7 +450,6 @@ public class SpellTargetUtils
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		SpellEffect spellEffect = null;
 		List<SpellEffect> effects = spell.getEffects().getPossibilities();
 
 		// this will apply "once to caster" effects to the caster.
@@ -458,127 +458,11 @@ public class SpellTargetUtils
 
 		for (SpellEffect s : effects)
 		{
-			if (s.getUnsavedResult() instanceof UnlockSpellResult)
+			List<MazeEvent> events = s.getUnsavedResult().apply(caster, lockOrTrap, castingLevel, s);
+			if (events != null)
 			{
-				spellEffect = s;
-				break;
+				result.addAll(events);
 			}
-		}
-
-		if (spellEffect == null)
-		{
-			// no lock/trap spell result possible. execute whatever we have
-			return result;
-		}
-
-		//
-		// Deal with traps first. Multiple spells needed to deal with something
-		// that's both locked and trapped
-		//
-
-		if (lockOrTrap.isTrapped())
-		{
-			Trap trap = lockOrTrap.getCurrentTrap();
-			if (trap == null)
-			{
-				result.addAll(disarmResultEvents(0));
-				result.addAll(lockOrTrap.executeTrapDisarmed());
-				return result;
-			}
-
-			ValueList modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
-
-			BitSet disarmed = new BitSet(8);
-			for (int tool=0; tool<8; tool++)
-			{
-				if (!trap.getRequired().get(tool))
-				{
-					continue;
-				}
-
-				int disarmWithSpellResult = GameSys.getInstance().disarmWithSpell(
-					caster, castingLevel, modifier, trap, tool);
-
-				if (disarmWithSpellResult == Trap.DisarmResult.SPRING_TRAP)
-				{
-					result.addAll(disarmResultEvents(disarmWithSpellResult));
-					result.addAll(lockOrTrap.springTrap());
-					return result;
-				}
-				else if (disarmWithSpellResult == Trap.DisarmResult.DISARMED)
-				{
-					disarmed.set(tool);
-				}
-			}
-
-			if (disarmed.equals(trap.getRequired()))
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.DISARMED));
-				result.addAll(lockOrTrap.executeTrapDisarmed());
-			}
-			else
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.NOTHING));
-			}
-		}
-		else if (lockOrTrap.isLocked())
-		{
-			ValueList modifier = ((UnlockSpellResult)spellEffect.getUnsavedResult()).getValue();
-
-			BitSet disarmed = new BitSet(8);
-			for (int tool=0; tool<8; tool++)
-			{
-				if (!lockOrTrap.getPickLockToolsRequired().get(tool))
-				{
-					continue;
-				}
-
-				int unlockResult = GameSys.getInstance().pickLockWithSpell(
-					caster, castingLevel, modifier, lockOrTrap, tool);
-
-				if (unlockResult == Trap.DisarmResult.SPRING_TRAP)
-				{
-					result.addAll(disarmResultEvents(Trap.DisarmResult.SPRING_TRAP));
-				}
-				else if (unlockResult == Trap.DisarmResult.DISARMED)
-				{
-					disarmed.set(tool);
-				}
-			}
-
-			if (disarmed.equals(lockOrTrap.getPickLockToolsRequired()))
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.DISARMED));
-				lockOrTrap.setLockState(Portal.State.UNLOCKED);
-			}
-			else
-			{
-				result.addAll(disarmResultEvents(Trap.DisarmResult.NOTHING));
-			}
-		}
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private static List<MazeEvent> disarmResultEvents(
-		int disarmResult)
-	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
-
-		switch (disarmResult)
-		{
-			case Trap.DisarmResult.NOTHING:
-				result.add(new NoEffectEvent());
-				break;
-			case Trap.DisarmResult.DISARMED:
-				result.add(new SuccessEvent());
-				break;
-			case Trap.DisarmResult.SPRING_TRAP:
-				result.add(new FailureEvent());
-				break;
-			default:
-				throw new MazeException("Invalid result: "+disarmResult);
 		}
 
 		return result;
