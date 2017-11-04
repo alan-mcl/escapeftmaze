@@ -4398,6 +4398,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=bomb construction
+displayName=bomb construction
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=16::bomb construction:false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=right handed bane irritate
 displayName=irritate
 type=ENERGY

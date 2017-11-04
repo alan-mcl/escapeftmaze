@@ -7558,6 +7558,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Bomb Construction
+displayName=Bomb Construction
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Gold Magic
+spellEffects=bomb construction:100
+description=makes a bomb!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=ENGINEERING
+secondaryModifier=ARTIFACTS
+wildMagicValue=
+wildMagicTable=
+@
 name=Asphixiation
 displayName=Asphixiation
 hitPointCost=

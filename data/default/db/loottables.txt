@@ -247,6 +247,9 @@ lootEntries=batch.4.ammo:100,batch.4.magic.armour:100,batch.4.magic.trinkets:100
 name=C.O.C..Sergeant.loot
 lootEntries=I~Chain Hauberk:100,I~Buskins:100,I~Silver Coin:100,I~Bastard Sword:100,I~Targe:100,I~Steel Helm:100,I~Steel Guantlets:100
 @
+name=bomb construction
+lootEntries=gadgeteer.bomb.construction:100
+@
 name=A_FAIR_BIT_OF_GOLD
 lootEntries=high.level.gold:100
 @

@@ -64,6 +64,9 @@ contains=0,Odinsword/1d1:7,Rod Of Sprites/1d1:7,Muramasa Blade/1d1:7,Excalibur/1
 name=batch.3.ammo
 contains=0,Mystic Arrow/3d10:12,Viper Arrow/3d10:11,Impaling Stone/3d10:11,Clothyard Shaft/3d10:11,Gold Nugget/3d10:11,Bone Breaker/3d10:11,Demon Quarrel/3d10:11,Fear Bolt/3d10:11,DU Slug/3d10:11
 @
+name=gadgeteer.bomb.construction
+contains=0,Cherry Bomb/1d1:6,Corrosion Bomb/1d3:6,Hail Bomb/1d3:6,Stink Bomb/1d3:6,Bottled Mephits/1d1:6,Boom Bomb/1d4:6,Flashbang/1d1:6,Fire Bomb/1d1:6,Acid Bomb/1d1:6,Ice Bomb/1d1:6,Poison Bomb/1d1:5,Napalm Bomb/1d1:5,Flashbang/1d1:5,Earthshaker Bomb/1d1:5,Canned Elemental/1d1:5,Death Bomb/1d1:5,Tsunami Bomb/1d1:5,Angelic Essence/1d1:5
+@
 name=gold.1000
 contains=0,Gold Piece/20d10+1000:100
 @
