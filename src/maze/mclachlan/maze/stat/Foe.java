@@ -31,6 +31,7 @@ import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
 import mclachlan.maze.stat.combat.event.StrikeEvent;
+import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -481,6 +482,12 @@ public class Foe extends UnifiedActor
 		}
 
 		return result;
+	}
+
+	@Override
+	public void removeLevelAbility(Spell spell)
+	{
+		// no op
 	}
 
 	/*-------------------------------------------------------------------------*/

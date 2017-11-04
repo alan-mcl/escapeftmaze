@@ -69,7 +69,8 @@ public class DamageSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
+	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
+		int castingLevel, SpellEffect parent, Spell spell)
 	{
 		Maze.log(Log.DEBUG, "Applying DamageSpellResult from ["+source.getName()+
 			"] to ["+target.getName()+"] casting lvl ["+castingLevel+"]");

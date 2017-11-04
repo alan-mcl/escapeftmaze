@@ -46,7 +46,8 @@ public class PurifyAirSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent,
+		Spell spell)
 	{
 		List<MazeEvent> events = new ArrayList<MazeEvent>();
 
@@ -55,21 +56,21 @@ public class PurifyAirSpellResult extends SpellResult
 
 		List<CloudSpell> cloudSpells = group.getCloudSpells();
 
-		for (CloudSpell spell : cloudSpells)
+		for (CloudSpell cloudSpell : cloudSpells)
 		{
-			events.add(new PurifyAirEvent(spell));
+			events.add(new PurifyAirEvent(cloudSpell));
 		}
 
 		int index = 0;
 		while (str > 0 && cloudSpells.size()>0)
 		{
-			CloudSpell spell = cloudSpells.get(index%cloudSpells.size());
-			spell.decDuration(1);
-			spell.decStrength(1);
+			CloudSpell cloudSpell = cloudSpells.get(index%cloudSpells.size());
+			cloudSpell.decDuration(1);
+			cloudSpell.decStrength(1);
 
-			if (spell.getDuration() == 0)
+			if (cloudSpell.getDuration() == 0)
 			{
-				spell.expire();
+				cloudSpell.expire();
 			}
 			else
 			{

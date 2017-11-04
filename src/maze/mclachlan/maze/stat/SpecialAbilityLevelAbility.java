@@ -48,6 +48,8 @@ public class SpecialAbilityLevelAbility extends LevelAbility
 	public String toString()
 	{
 		final StringBuilder sb = new StringBuilder("SpecialAbilityLevelAbility{");
+		sb.append("key=").append(getKey());
+		sb.append(", ");
 		sb.append("ability=").append(ability);
 		sb.append('}');
 		return sb.toString();

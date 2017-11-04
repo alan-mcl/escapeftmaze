@@ -425,6 +425,7 @@ public class Condition
 						{
 							result.addAll(
 								SpellTargetUtils.applySpellEffectToUnwillingVictim(
+									null,
 									spellEffect,
 									(UnifiedActor)target,
 									source,
@@ -435,6 +436,7 @@ public class Condition
 						{
 							result.addAll(
 								SpellTargetUtils.applySpellEffectToWillingTarget(
+									null,
 									spellEffect,
 									(UnifiedActor)target,
 									source,

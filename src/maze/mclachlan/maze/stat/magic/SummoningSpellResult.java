@@ -53,7 +53,8 @@ public class SummoningSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
+	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
+		int castingLevel, SpellEffect parent, Spell spell)
 	{
 		// summoning spell results should pretty much be from spells with the
 		// CASTER target type

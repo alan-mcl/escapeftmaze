@@ -52,7 +52,7 @@ public class LocatePersonSpellResult extends SpellResult
 		final UnifiedActor source,
 		UnifiedActor target,
 		final int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		// this spell result only applies to the caster
 		UserInterface ui = Maze.getInstance().getUi();

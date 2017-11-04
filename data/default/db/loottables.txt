@@ -379,8 +379,14 @@ lootEntries=I~Ghola Coin:100,I~Robes (U):100,I~Robes (L):100
 name=Gnome.Beggar.loot
 lootEntries=I~Gnarled Staff:100,I~Gold Piece:55,I~Cloth Pants:100,I~Sandals:100
 @
+name=gadgeteer.invention.1
+lootEntries=gadgeteer.invention.1:100
+@
 name=plain.of.pillars.ghul.chest
 lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.mundane.armour:100,batch.3.mundane.weapons:100,batch.3.magic.trinkets:100,batch.3.magic.trinkets:50,batch.3.potions.healing:100,batch.3.potions.healing:75,batch.3.potions.other:100,batch.3.potions.other:75,batch.3.powders:100,batch.3.powders:75,batch.3.spell.books:100,batch.3.spell.books:75,batch.3.bombs:100,batch.3.bombs:90,batch.3.ammo:100,batch.3.ammo:75,batch.3.scrolls:75,batch.3.throwing.weapons:100,batch.3.throwing.weapons:50
+@
+name=gadgeteer.invention.2
+lootEntries=gadgeteer.invention.2:100
 @
 name=danaos.castle.armoury.floor
 lootEntries=I~Broadsword:100,I~Broadsword:90,I~Broadsword:75,I~Broadsword:50,I~Broadsword:25,I~Awl Pike:100,I~Awl Pike:90,I~Awl Pike:75,I~Awl Pike:50,I~Awl Pike:25,I~Steel Helm:50,I~Steel Guantlets:50,I~Breastplate:50,I~Bronze Greaves:50,I~Sollerets:50,I~Heater Shield:50,I~Shrike Arrow:100,I~Shrike Arrow:50,batch.1.ammo:50

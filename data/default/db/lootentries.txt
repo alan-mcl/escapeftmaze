@@ -181,11 +181,17 @@ contains=0,Iron Helm/1d1:100,Chain Hauberk/1d1:100,Chamois Gloves/1d1:100,Buskin
 name=gnome.scout.items
 contains=0,Gold Piece/3d6:55,Bearded War Axe/1d1:100,Suede Pants/1d1:100,Suede Doublet/1d1:100,Buskins/1d1:100
 @
+name=gadgeteer.invention.1
+contains=0,Ion Field Generator/1d1:34,Mephit Portal/1d1:33,Glass Cannon/1d1:33
+@
 name=batch.3.mundane.armour
 contains=0,Hotoke Do/1d1:8,Heaume/1d1:8,Armet/1d1:7,Haramaki Do/1d1:7,Burgonet/1d1:7,Plate Mail (U)/1d1:7,Suneate And Haidate/1d1:7,Bascinet And Camail/1d1:7,Plate Mail (L)/1d1:7,Sollerets/1d1:7,Steel Guantlets/1d1:7,Bronze Greaves/1d1:7,Crusader Helm/1d1:7,Heater Shield/1d1:7
 @
 name=high.level.gold
 contains=0,Gold Piece/20d6+100:100
+@
+name=gadgeteer.invention.2
+contains=0,Steam Powered Gatling/1d1:34,The Motivator/1d1:33,Clockwork Orrery/1d1:33
 @
 name=batch.1.potions.other
 contains=0,Potion Of Barkskin/1d2+1:13,Potion Of Invisibility/1d2+1:13,Potion Of Resist Elements/1d2+1:13,Potion Of Guardian Angel/1d2+1:13,Potion Of Bless/1d3:12,Potion Of Blink/1d3:12,Holy Water/1d3:12,Potion Of Razor Cloak/1d2+1:12

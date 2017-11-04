@@ -102,7 +102,8 @@ public class ConditionManager implements GameCache
 									c.getSource(),
 									c.getTarget(),
 									c.getCastingLevel(),
-									spellEffect));
+									spellEffect,
+									null));
 						}
 					}
 				}

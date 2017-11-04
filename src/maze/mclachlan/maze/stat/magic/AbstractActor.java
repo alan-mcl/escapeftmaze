@@ -48,6 +48,12 @@ public abstract class AbstractActor extends UnifiedActor
 		this.data = data;
 	}
 
+	@Override
+	public void removeLevelAbility(Spell spell)
+	{
+		// no op
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> addCondition(Condition c) {return new ArrayList<MazeEvent>(); }
 	public void deductAmmo(AttackEvent event) {}

@@ -943,6 +943,13 @@ lap_name_destroy_trap1 = Destroy Trap 1
 lap_name_destroy_trap2 = Destroy Trap 2
 lap_name_destroy_trap3 = Destroy Trap 3
 lap_desc_destroy_trap = The Gadgeteer destroys (and springs) a trap, retrieving some useful gadgets from it.
+lap_name_deadeye = Deadeye
+lap_desc_deadeye = The Gadgeteer gets a bonus to ranged criticals
+lap_name_invention = Invention
+lap_desc_invention = The Gadgeteer creates a nifty invention! This ability is single-use only.
+lap_name_grand_invention = Grand Invention
+lap_desc_grand_invention = The Gadgeteer creates a really amazing invention! This ability is single-use only.
+
 
 # Hero
 lap_name_cheat_death = Cheat Death

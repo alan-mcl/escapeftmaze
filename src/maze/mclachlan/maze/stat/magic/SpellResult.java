@@ -69,7 +69,7 @@ public abstract class SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		return null;
 	}
@@ -131,11 +131,12 @@ public abstract class SpellResult
 		UnifiedActor source,
 		ConditionBearer target,
 		int castingLevel,
-		SpellEffect spellEffect)
+		SpellEffect spellEffect,
+		Spell spell)
 	{
 		if (target instanceof UnifiedActor)
 		{
-			return apply(source, (UnifiedActor)target, castingLevel, spellEffect);
+			return apply(source, (UnifiedActor)target, castingLevel, spellEffect, spell);
 		}
 		else if (target instanceof Tile)
 		{

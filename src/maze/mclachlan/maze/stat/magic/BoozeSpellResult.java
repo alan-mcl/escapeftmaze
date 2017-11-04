@@ -41,7 +41,7 @@ public class BoozeSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		List<MazeEvent> results = new ArrayList<MazeEvent>();
 

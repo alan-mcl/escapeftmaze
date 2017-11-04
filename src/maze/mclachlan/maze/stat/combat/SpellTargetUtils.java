@@ -68,7 +68,7 @@ public class SpellTargetUtils
 		SpellTarget target,
 		int castingLevel,
 		int spellLevel,
-		Spell s,
+		Spell spell,
 		CombatAction action)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
@@ -84,7 +84,7 @@ public class SpellTargetUtils
 		}
 
 		List<SpellEffect> spellEffects =
-			processSpellEffectApplication(caster, castingLevel, s.getEffects().getRandom(), result);
+			processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getRandom(), result);
 
 		// apply to all in the group
 		applyCloudSpellToActorGroup(
@@ -103,6 +103,7 @@ public class SpellTargetUtils
 	 * @return the list of spell effects that apply "as per spell"
 	 */
 	private static List<SpellEffect> processSpellEffectApplication(
+		Spell spell,
 		UnifiedActor caster,
 		int castingLevel,
 		List<SpellEffect> spellEffects,
@@ -124,6 +125,7 @@ public class SpellTargetUtils
 				case APPLY_ONCE_TO_CASTER:
 					events.addAll(
 						applySpellEffectToWillingTarget(
+							spell,
 							se,
 							caster,
 							caster,
@@ -171,6 +173,7 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> resolveTileSpell(
+		Spell spell,
 		Combat combat,
 		UnifiedActor caster,
 		int castingLevel,
@@ -187,7 +190,7 @@ public class SpellTargetUtils
 		}
 
 		List<SpellEffect> spellEffects =
-			processSpellEffectApplication(caster, castingLevel, effects, result);
+			processSpellEffectApplication(spell, caster, castingLevel, effects, result);
 
 		for (SpellEffect effect : spellEffects)
 		{
@@ -205,7 +208,7 @@ public class SpellTargetUtils
 		UnifiedActor caster,
 		int castingLevel,
 		int spellLevel,
-		Spell s,
+		Spell spell,
 		CombatAction action,
 		AnimationContext animationContext)
 	{
@@ -213,7 +216,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result);
 
 		List<ActorGroup> enemyGroups = new ArrayList<ActorGroup>();
 
@@ -240,7 +243,7 @@ public class SpellTargetUtils
 					ag,
 					spellLevel,
 					castingLevel,
-					s,
+					spell,
 					action,
 					animationContext));
 		}
@@ -250,6 +253,7 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> resolveCasterSpell(
+		Spell spell,
 		Combat combat,
 		UnifiedActor actor,
 		int castingLevel,
@@ -259,10 +263,11 @@ public class SpellTargetUtils
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		List<SpellEffect> spellEffects =
-			processSpellEffectApplication(actor, castingLevel, effects, result);
+			processSpellEffectApplication(spell, actor, castingLevel, effects, result);
 
 		result.addAll(
 			applySpellToWillingTarget(
+				spell,
 				spellEffects,
 				actor,
 				actor,
@@ -279,7 +284,7 @@ public class SpellTargetUtils
 		SpellTarget target,
 		int spellLevel,
 		int castingLevel,
-		Spell s,
+		Spell spell,
 		CombatAction action,
 		AnimationContext animationContext)
 	{
@@ -300,7 +305,8 @@ public class SpellTargetUtils
 		{
 			List<MazeEvent> events =
 				applySpellToUnwillingVictim(
-					s.getEffects().getRandom(),
+					spell,
+					spell.getEffects().getRandom(),
 					victim,
 					caster,
 					castingLevel,
@@ -315,13 +321,13 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> resolvePartySpell(Combat combat, UnifiedActor caster,
-		int castingLevel, Spell s, AnimationContext animationContext)
+		int castingLevel, Spell spell, AnimationContext animationContext)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result);
 
 		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
 
@@ -330,7 +336,8 @@ public class SpellTargetUtils
 		{
 			 mazeEvents.addAll(
 				 applySpellToWillingTarget(
-					 s.getEffects().getRandom(),
+					 spell,
+					 spell.getEffects().getRandom(),
 					 caster,
 					 target,
 					 castingLevel,
@@ -344,13 +351,13 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> resolvePartyButNotCasterSpell(Combat combat, UnifiedActor caster,
-		int castingLevel, Spell s, AnimationContext animationContext)
+		int castingLevel, Spell spell, AnimationContext animationContext)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result);
 
 		List<MazeEvent> mazeEvents = new ArrayList<MazeEvent>();
 
@@ -359,7 +366,8 @@ public class SpellTargetUtils
 		{
 			mazeEvents.addAll(
 				applySpellToWillingTarget(
-					s.getEffects().getRandom(),
+					spell,
+					spell.getEffects().getRandom(),
 					caster,
 					target,
 					castingLevel,
@@ -373,17 +381,18 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> resolveAllySpell(Combat combat, UnifiedActor caster,
-		SpellTarget target, int castingLevel, Spell s, AnimationContext animationContext)
+		SpellTarget target, int castingLevel, Spell spell, AnimationContext animationContext)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result);
 
 		List<MazeEvent> mazeEvents =
 			applySpellToWillingTarget(
-				s.getEffects().getRandom(),
+				spell,
+				spell.getEffects().getRandom(),
 				caster,
 				(UnifiedActor)target,
 				castingLevel,
@@ -401,7 +410,7 @@ public class SpellTargetUtils
 		SpellTarget target,
 		int castingLevel,
 		int spellLevel,
-		Spell s,
+		Spell spell,
 		CombatAction action,
 		AnimationContext animationContext)
 	{
@@ -418,7 +427,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(caster, castingLevel, s.getEffects().getPossibilities(), result);
+		processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getPossibilities(), result);
 
 		// spell targeting not affected by Range rules.
 		UnifiedActor victim = (UnifiedActor)target;
@@ -430,7 +439,8 @@ public class SpellTargetUtils
 
 		List<MazeEvent> events =
 			applySpellToUnwillingVictim(
-				s.getEffects().getRandom(),
+				spell,
+				spell.getEffects().getRandom(),
 				victim,
 				caster,
 				castingLevel,
@@ -454,7 +464,7 @@ public class SpellTargetUtils
 
 		// this will apply "once to caster" effects to the caster.
 		// such effects will be skipped later
-		processSpellEffectApplication(caster, castingLevel, effects, result);
+		processSpellEffectApplication(spell, caster, castingLevel, effects, result);
 
 		for (SpellEffect s : effects)
 		{
@@ -470,6 +480,7 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> applySpellToWillingTarget(
+		Spell spell,
 		List<SpellEffect> effects,
 		UnifiedActor caster,
 		UnifiedActor target,
@@ -489,7 +500,7 @@ public class SpellTargetUtils
 			{
 				result.addAll(
 					applySpellEffectToWillingTarget(
-						effect, target, caster, castingLevel));
+						spell, effect, target, caster, castingLevel));
 			}
 		}
 
@@ -498,6 +509,7 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> applySpellEffectToWillingTarget(
+		Spell spell,
 		SpellEffect effect,
 		UnifiedActor target,
 		UnifiedActor caster,
@@ -513,7 +525,7 @@ public class SpellTargetUtils
 
 		if (sr.appliesTo(target))
 		{
-			result.addAll(sr.apply(caster, target, castingLevel, effect));
+			result.addAll(sr.apply(caster, target, castingLevel, effect, spell));
 		}
 		else
 		{
@@ -526,6 +538,7 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> applySpellToUnwillingVictim(
+		Spell spell,
 		List<SpellEffect> effects,
 		UnifiedActor victim,
 		UnifiedActor caster,
@@ -553,6 +566,7 @@ public class SpellTargetUtils
 			{
 				result.addAll(
 					applySpellEffectToUnwillingVictim(
+						spell,
 						effect,
 						victim,
 						caster,
@@ -572,6 +586,7 @@ public class SpellTargetUtils
 
 	/*-------------------------------------------------------------------------*/
 	public static List<MazeEvent> applySpellEffectToUnwillingVictim(
+		Spell spell,
 		SpellEffect effect,
 		UnifiedActor victim,
 		UnifiedActor caster,
@@ -605,7 +620,7 @@ public class SpellTargetUtils
 
 		if (sr != null && sr.appliesTo(victim))
 		{
-			result.addAll(sr.apply(caster, victim, castingLevel, effect));
+			result.addAll(sr.apply(caster, victim, castingLevel, effect, spell));
 		}
 		else
 		{

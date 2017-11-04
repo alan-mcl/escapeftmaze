@@ -82,7 +82,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		Combat combat = Maze.getInstance().getCurrentCombat();
 		if (combat == null)

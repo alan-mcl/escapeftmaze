@@ -30,6 +30,7 @@ import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.NoEffectEvent;
+import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.magic.SpellResult;
 import mclachlan.maze.util.MazeException;
@@ -44,7 +45,7 @@ public class AmmoStashSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 		List<Item> dropped = new ArrayList<Item>();

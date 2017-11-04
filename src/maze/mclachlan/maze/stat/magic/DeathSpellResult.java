@@ -32,7 +32,8 @@ import mclachlan.maze.stat.combat.event.ActorUnaffectedEvent;
 public class DeathSpellResult extends SpellResult
 {
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
+	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
+		int castingLevel, SpellEffect parent, Spell spell)
 	{
 		if (target instanceof Foe)
 		{

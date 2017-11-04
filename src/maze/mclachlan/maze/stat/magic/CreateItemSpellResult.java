@@ -25,6 +25,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.map.LootTable;
+import mclachlan.maze.map.script.GrantItemsEvent;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.UnifiedActor;
 
@@ -38,10 +39,17 @@ public class CreateItemSpellResult extends SpellResult
 	 */
 	private String lootTable;
 
+	/**
+	 * True if the item should be equipped, false if a grant items event should
+	 * be generated
+	 */
+	private boolean equipItems;
+
 	/*-------------------------------------------------------------------------*/
-	public CreateItemSpellResult(String lootTable)
+	public CreateItemSpellResult(String lootTable, boolean equipItems)
 	{
 		this.lootTable = lootTable;
+		this.equipItems = equipItems;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -49,27 +57,40 @@ public class CreateItemSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		LootTable table = Database.getInstance().getLootTable(lootTable);
+		List<ILootEntry> lootEntries = table.getLootEntries().getRandom();
+		List<Item> items = new ArrayList<Item>();
 
-		List<ILootEntry> items = table.getLootEntries().getRandom();
-		List<Item> dropped = new ArrayList<Item>();
-		for (ILootEntry lootEntry : items)
+		for (ILootEntry lootEntry : lootEntries)
 		{
 			Item item = lootEntry.generate();
 			item.setIdentificationState(Item.IdentificationState.IDENTIFIED);
 			item.setCursedState(Item.CursedState.DISCOVERED);
 
-			if (!target.addItemSmartly(item))
-			{
-				dropped.add(item);
-			}
+			items.add(item);
 		}
 
-		Maze.getInstance().dropItemsOnCurrentTile(dropped);
+
+		if (equipItems)
+		{
+			List<Item> dropped = new ArrayList<Item>();
+			for (Item item : items)
+			{
+				if (!target.addItemSmartly(item))
+				{
+					dropped.add(item);
+				}
+			}
+			Maze.getInstance().dropItemsOnCurrentTile(dropped);
+		}
+		else
+		{
+			result.add(new GrantItemsEvent(items));
+		}
 
 		return result;
 	}
@@ -78,5 +99,12 @@ public class CreateItemSpellResult extends SpellResult
 	public String getLootTable()
 	{
 		return lootTable;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public boolean isEquipItems()
+	{
+		return equipItems;
 	}
 }

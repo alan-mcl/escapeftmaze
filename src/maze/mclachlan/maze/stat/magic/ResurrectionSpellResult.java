@@ -35,7 +35,8 @@ public class ResurrectionSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
+	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
+		int castingLevel, SpellEffect parent, Spell spell)
 	{
 		return getList(
 			new ResurrectionEvent(

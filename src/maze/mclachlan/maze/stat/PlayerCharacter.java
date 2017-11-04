@@ -53,6 +53,9 @@ public class PlayerCharacter extends UnifiedActor
 	/** The names of modifiers that this character has activated */
 	private StatModifier activeModifiers;
 
+	/** The keys of any removed level abilities */
+	private List<String> removedLevelAbilities;
+
 	/*-------------------------------------------------------------------------*/
 	private static SignatureWeaponUpgradePath
 		engineeringOmnigun, engineeringXbow, engineeringHandCannon;
@@ -143,7 +146,8 @@ public class PlayerCharacter extends UnifiedActor
 		int spellPicks,
 		Stats stats,
 		Practice practice,
-		StatModifier activeModifiers)
+		StatModifier activeModifiers,
+		List<String> removedLevelAbilities)
 	{
 		super(name, gender, race, characterClass, race.getBodyParts(),
 			levels, stats, spellBook, inventory);
@@ -168,6 +172,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.practice = practice;
 		this.spellPicks = spellPicks;
 		this.personality = personality;
+		this.removedLevelAbilities = removedLevelAbilities;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -193,10 +198,9 @@ public class PlayerCharacter extends UnifiedActor
 
 		this.portrait = portrait;
 		this.activeModifiers = activeModifiers;
-
 		this.practice = new Practice();
-
 		this.kills = 0;
+		this.removedLevelAbilities = new ArrayList<String>();
 
 		getStats().setHitPoints(new CurMaxSub(maxHitPoints));
 		getStats().setActionPoints(new CurMax(maxActionPoints));
@@ -224,6 +228,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.practice = new Practice(pc.practice);
 		this.spellPicks = pc.spellPicks;
 		this.personality = pc.personality;
+		this.removedLevelAbilities = new ArrayList<String>(pc.removedLevelAbilities);
 
 		setEquippedItem(PRIMARY_WEAPON, cloneItem(pc.getEquippedItem(PRIMARY_WEAPON, 0)), 0);
 		setEquippedItem(PRIMARY_WEAPON, cloneItem(pc.getEquippedItem(PRIMARY_WEAPON, 1)), 1);
@@ -669,7 +674,6 @@ public class PlayerCharacter extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
-
 	@Override
 	public boolean addInventoryItem(Item item)
 	{
@@ -689,6 +693,70 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			return super.addInventoryItem(item);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public List<LevelAbility> getLevelAbilities()
+	{
+		List<LevelAbility> levelAbilities = super.getLevelAbilities();
+
+		if (removedLevelAbilities == null || removedLevelAbilities.isEmpty())
+		{
+			return levelAbilities;
+		}
+
+
+		List<LevelAbility> result = new ArrayList<LevelAbility>();
+
+		for (LevelAbility la : levelAbilities)
+		{
+			if (la.getKey() == null || la.getKey().length() == 0 ||
+				!removedLevelAbilities.contains(la.getKey()))
+			{
+				result.add(la);
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void removeLevelAbility(Spell spell)
+	{
+		String key = null;
+
+		List<LevelAbility> levelAbilities = getLevelAbilities();
+		for (LevelAbility la : levelAbilities)
+		{
+			if (la instanceof SpecialAbilityLevelAbility &&
+				la.getAbility().getSpell().equals(spell))
+			{
+				key = la.getKey();
+			}
+		}
+
+		if (key != null)
+		{
+			if (removedLevelAbilities == null)
+			{
+				removedLevelAbilities = new ArrayList<String>();
+			}
+			removedLevelAbilities.add(key);
+		}
+		else
+		{
+			throw new MazeException("No such level ability: "+spell.getName());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public List<String> getRemovedLevelAbilities()
+	{
+		return removedLevelAbilities;
 	}
 
 	/*-------------------------------------------------------------------------*/

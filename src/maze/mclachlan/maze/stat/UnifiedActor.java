@@ -1241,6 +1241,11 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	Level abilities available to this actor at its current level
+	 */
 	public List<LevelAbility> getLevelAbilities()
 	{
 		List<LevelAbility> result = new ArrayList<LevelAbility>();
@@ -1260,6 +1265,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		return result;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * The level ability that represents the given spell.
+	 */
+	public abstract void removeLevelAbility(Spell spell);
 
 	/*-------------------------------------------------------------------------*/
 	private void collectCharacterClassBannerModifiers(
@@ -1955,4 +1967,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract CharacterClass.Focus getFocus();
 
 	public abstract String getFaction();
+
+
 }

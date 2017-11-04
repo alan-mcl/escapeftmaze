@@ -82,6 +82,12 @@ public class SpellBook
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public boolean containsSpell(Spell spell)
+	{
+		return this.spells.contains(spell);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void removeSpell(Spell s)
 	{
 		if (!this.spells.contains(s))

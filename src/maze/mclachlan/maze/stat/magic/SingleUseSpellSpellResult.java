@@ -20,44 +20,39 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.combat.event.NpcMindreadEvent;
 
 /**
- * Cast on an NPC to divine their thoughts
+ * Single use spell = removed from the PCs spellbook or level abililities
+ * after use.
+ * <p>
+ * For a level ability to be removed it requires a unique key.
  */
-public class MindReadSpellResult extends SpellResult
+public class SingleUseSpellSpellResult extends SpellResult
 {
-	ValueList value;
-
 	/*-------------------------------------------------------------------------*/
-	public MindReadSpellResult(ValueList value)
+	public List<MazeEvent> apply(
+		UnifiedActor source,
+		UnifiedActor target,
+		int castingLevel,
+		SpellEffect parent,
+		Spell spell)
 	{
-		this.value = value;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
-		int castingLevel, SpellEffect parent, Spell spell)
-	{
-		if (target instanceof Foe)
+		if (source.getSpellBook().containsSpell(spell))
 		{
-			Foe npc = (Foe)target;
-			int strength = this.value.compute(source, castingLevel);
+			source.getSpellBook().removeSpell(spell);
+		}
+		else
+		{
+			// assume it's a level ability
+			source.removeLevelAbility(spell);
 
-			return getList(
-				new NpcMindreadEvent(npc, strength));
+			// refresh the actor action options
+			Maze.getInstance().getUi().refreshCharacterData();
 		}
 
-		// todo: would be amusing to be able to cast mindread on foes in combat
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ValueList getValue()
-	{
-		return value;
+		return new ArrayList<MazeEvent>();
 	}
 }

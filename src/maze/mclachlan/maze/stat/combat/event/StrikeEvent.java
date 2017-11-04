@@ -194,6 +194,7 @@ public class StrikeEvent extends MazeEvent
 							{
 								result.addAll(
 									SpellTargetUtils.applySpellToUnwillingVictim(
+										null,
 										ase.getSpellEffects(),
 										defender,
 										attacker,

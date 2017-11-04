@@ -93,6 +93,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JCheckBox weaponRequiresBackstab, weaponRequiresSnipe, consumesWeapon;
 	private GroupOfPossibilitiesPanel spellEffects;
 	private JComboBox<String> createItemLootTables;
+	private JCheckBox equipItems;
 	private ValueComponent locatePersonValue;
 	private JComboBox<String> removeItemName;
 
@@ -316,6 +317,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case CREATE_ITEM:
 				CreateItemSpellResult createItemSpellResult = (CreateItemSpellResult)sr;
 				createItemLootTables.setSelectedItem(createItemSpellResult.getLootTable());
+				equipItems.setSelected(createItemSpellResult.isEquipItems());
 				break;
 			case LOCATE_PERSON:
 				LocatePersonSpellResult locatePersonSpellResult = (LocatePersonSpellResult)sr;
@@ -324,6 +326,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case REMOVE_ITEM:
 				RemoveItemSpellResult removeItemSpellResult = (RemoveItemSpellResult)sr;
 				removeItemName.setSelectedItem(removeItemSpellResult.getItemName());
+				break;
+			case SINGLE_USE_SPELL:
+				SingleUseSpellSpellResult singleUseSpellSpellResult = (SingleUseSpellSpellResult)sr;
 				break;
 
 			default: throw new MazeException("Invalid type "+srType);
@@ -367,7 +372,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				return getUnlockPanel();
 			case DRAIN:
 				return getDrainPanel();
-			case CASTER_DEATH:
+			case SINGLE_USE_SPELL:
 				return new JPanel();
 			case CONDITION_REMOVAL:
 				return getConditionRemovalPanel();
@@ -421,8 +426,11 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		vec.addAll(Database.getInstance().getLootTables().keySet());
 		Collections.sort(vec);
 		createItemLootTables = new JComboBox<String>(vec);
+		equipItems = new JCheckBox("Equip/Add to Inventory?");
 
-		return dirtyGridLayoutCrap(new JLabel("Loot Table:"), createItemLootTables);
+		return dirtyGridLayoutCrap(
+			new JLabel("Loot Table:"), createItemLootTables,
+			new JLabel(), equipItems);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -837,7 +845,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case THEFT_FAILED: return "Theft Failed";
 			case UNLOCK: return "Unlock";
 			case DRAIN: return "Drain";
-			case CASTER_DEATH: return "* removed *";
+			case SINGLE_USE_SPELL: return "Single Use Spell";
 			case CONDITION_REMOVAL: return "Condition Removal/Curing";
 			case DEATH: return "Death";
 			case CLOUD_SPELL: return "Cloud Spell";
@@ -1026,7 +1034,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				break;
 			case CREATE_ITEM:
 				result = new CreateItemSpellResult(
-					(String)createItemLootTables.getSelectedItem());
+					(String)createItemLootTables.getSelectedItem(),
+					equipItems.isSelected());
 				break;
 			case LOCATE_PERSON:
 				result = new LocatePersonSpellResult(
@@ -1034,6 +1043,9 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				break;
 			case REMOVE_ITEM:
 				result = new RemoveItemSpellResult((String)removeItemName.getSelectedItem());
+				break;
+			case SINGLE_USE_SPELL:
+				result = new SingleUseSpellSpellResult();
 				break;
 			default: throw new MazeException("Invalid type "+srType);
 		}

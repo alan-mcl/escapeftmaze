@@ -54,7 +54,7 @@ public class V1SpellResult
 	public static final int UNLOCK = 14;
 	public static final int DRAIN = 15;
 	public static final int CREATE_ITEM = 16;
-	/** @deprecated */ public static final int CASTER_DEATH = 17; // removed
+	public static final int SINGLE_USE_SPELL = 17;
 	public static final int CONDITION_REMOVAL = 18;
 	public static final int DEATH = 19;
 	public static final int CLOUD_SPELL = 20;
@@ -98,6 +98,7 @@ public class V1SpellResult
 		types.put(CreateItemSpellResult.class, CREATE_ITEM);
 		types.put(LocatePersonSpellResult.class, LOCATE_PERSON);
 		types.put(RemoveItemSpellResult.class, REMOVE_ITEM);
+		types.put(SingleUseSpellSpellResult.class, SINGLE_USE_SPELL);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -295,6 +296,8 @@ public class V1SpellResult
 			case CREATE_ITEM:
 				CreateItemSpellResult createItemSpellResult = (CreateItemSpellResult)sr;
 				s.append(createItemSpellResult.getLootTable());
+				s.append(SEP);
+				s.append(createItemSpellResult.isEquipItems());
 				break;
 			case LOCATE_PERSON:
 				LocatePersonSpellResult locatePersonSpellResult = (LocatePersonSpellResult)sr;
@@ -303,6 +306,9 @@ public class V1SpellResult
 			case REMOVE_ITEM:
 				RemoveItemSpellResult removeItemSpellResult = (RemoveItemSpellResult)sr;
 				s.append(removeItemSpellResult.getItemName());
+				break;
+			case SINGLE_USE_SPELL:
+				SingleUseSpellSpellResult susr = (SingleUseSpellSpellResult)sr;
 				break;
 
 			default: throw new MazeException("Invalid type: "+type+" ["+sr+"]");
@@ -478,7 +484,8 @@ public class V1SpellResult
 				break;
 			case CREATE_ITEM:
 				String lootTable = strs[i++];
-				result = new CreateItemSpellResult(lootTable);
+				boolean equip = Boolean.valueOf(strs[i++]);
+				result = new CreateItemSpellResult(lootTable, equip);
 				break;
 			case LOCATE_PERSON:
 				v = V1Value.fromString(strs[i++]);
@@ -486,6 +493,9 @@ public class V1SpellResult
 				break;
 			case REMOVE_ITEM:
 				result = new RemoveItemSpellResult(strs[i++]);
+				break;
+			case SINGLE_USE_SPELL:
+				result = new SingleUseSpellSpellResult();
 				break;
 
 			default: throw new MazeException(

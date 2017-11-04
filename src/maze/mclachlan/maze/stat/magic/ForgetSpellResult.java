@@ -45,7 +45,7 @@ public class ForgetSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent)
+		SpellEffect parent, Spell spell)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 

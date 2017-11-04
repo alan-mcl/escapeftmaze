@@ -212,6 +212,10 @@ public class V1PlayerCharacter
 		b.append(V1StatModifier.toString(obj.getActiveModifiers()));
 		b.append(V1Utils.NEWLINE);
 
+		b.append("removedLevelAbilities=");
+		b.append(V1Utils.stringList.toString(obj.getRemovedLevelAbilities()));
+		b.append(V1Utils.NEWLINE);
+
 		return b.toString();
 	}
 
@@ -250,6 +254,7 @@ public class V1PlayerCharacter
 		Stats stats = V1Stats.fromString(p.getProperty("stats"));
 		Practice practice = new Practice(V1StatModifier.fromString(p.getProperty("practice")));
 		StatModifier activeModifiers = V1StatModifier.fromString(p.getProperty("activeModifiers"));
+		List<String> removedLevelAbilities = V1Utils.stringList.fromString(p.getProperty("removedLevelAbilities"));
 
 		return new PlayerCharacter(
 			name,
@@ -278,6 +283,7 @@ public class V1PlayerCharacter
 			spellPicks,
 			stats,
 			practice,
-			activeModifiers);
+			activeModifiers,
+			removedLevelAbilities);
 	}
 }

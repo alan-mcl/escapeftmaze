@@ -411,10 +411,10 @@ public class ActorActionResolver
 		Item item = useItemAction.getItem();
 		events.add(new ItemUseEvent(actor, item));
 
-		Spell s = item.getInvokedSpell();
+		Spell invokedSpell = item.getInvokedSpell();
 		int castingLevel = item.getInvokedSpellLevel();
 
-		if (s == null)
+		if (invokedSpell == null)
 		{
 			// no invoked spell on this item
 			events.add(new NoEffectEvent());
@@ -432,17 +432,17 @@ public class ActorActionResolver
 		SpellAction wildMagic = GameSys.getInstance().applyWildMagic(
 			combat,
 			actor,
-			s,
+			invokedSpell,
 			castingLevel,
 			useItemAction.getTarget());
 
 		if (wildMagic != null)
 		{
-			s = wildMagic.getSpell();
+			invokedSpell = wildMagic.getSpell();
 			useItemAction.setTarget(wildMagic.getTarget());
 		}
 
-		int targetType = s.getTargetType();
+		int targetType = invokedSpell.getTargetType();
 
 		// practise any modifiers
 		StatModifier useRequirements = item.getUseRequirements();
@@ -484,7 +484,7 @@ public class ActorActionResolver
 			if (failureRoll*4 > failureChance || !canBackfire)
 			{
 				// spell fizzles
-				events.add(new SpellFizzlesEvent(actor, s, castingLevel));
+				events.add(new SpellFizzlesEvent(actor, invokedSpell, castingLevel));
 				return;
 			}
 			else
@@ -501,11 +501,11 @@ public class ActorActionResolver
 				{
 					// these spell target types cannot backfire, simply fizzle
 					// todo: may be amusing to provide various backfire effects here
-					events.add(new SpellFizzlesEvent(actor, s, castingLevel));
+					events.add(new SpellFizzlesEvent(actor, invokedSpell, castingLevel));
 					return;
 				}
 
-				events.add(new SpellBackfiresEvent(actor, s, castingLevel));
+				events.add(new SpellBackfiresEvent(actor, invokedSpell, castingLevel));
 				useItemAction.setAttackingAllies(true);
 
 				// warp the target
@@ -531,7 +531,7 @@ public class ActorActionResolver
 					case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
 						// todo: target actors own group
 						targetType = MagicSys.SpellTargetType.PARTY;
-						useItemAction.setTarget(combat.getActorGroup(actor));
+						useItemAction.setTarget(actor.getActorGroup());
 						break;
 				}
 			}
@@ -540,20 +540,20 @@ public class ActorActionResolver
 		// the casting animation (todo: cast by player allies??)
 		if (actor instanceof PlayerCharacter)
 		{
-			if (s.getCastByPlayerScript() != null)
+			if (invokedSpell.getCastByPlayerScript() != null)
 			{
-				events.addAll(s.getCastByPlayerScript().getEvents());
+				events.addAll(invokedSpell.getCastByPlayerScript().getEvents());
 			}
 		}
 		else
 		{
-			if (s.getCastByFoeScript() != null)
+			if (invokedSpell.getCastByFoeScript() != null)
 			{
-				events.addAll(s.getCastByFoeScript().getEvents());
+				events.addAll(invokedSpell.getCastByFoeScript().getEvents());
 			}
 		}
 
-		switch (s.getTargetType())
+		switch (invokedSpell.getTargetType())
 		{
 			case MagicSys.SpellTargetType.FOE:
 			case MagicSys.SpellTargetType.NPC:
@@ -564,7 +564,7 @@ public class ActorActionResolver
 						useItemAction.getTarget(),
 						castingLevel,
 						castingLevel,
-						s,
+						invokedSpell,
 						useItemAction,
 						animationContext));
 				break;
@@ -575,7 +575,7 @@ public class ActorActionResolver
 						actor,
 						useItemAction.getTarget(),
 						castingLevel,
-						s,
+						invokedSpell,
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.PARTY:
@@ -584,7 +584,7 @@ public class ActorActionResolver
 						combat,
 						actor,
 						castingLevel,
-						s,
+						invokedSpell,
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
@@ -593,7 +593,7 @@ public class ActorActionResolver
 						combat,
 						actor,
 						castingLevel,
-						s,
+						invokedSpell,
 						animationContext));
 			case MagicSys.SpellTargetType.FOE_GROUP:
 				events.addAll(
@@ -603,7 +603,7 @@ public class ActorActionResolver
 						useItemAction.getTarget(),
 						castingLevel,
 						castingLevel,
-						s,
+						invokedSpell,
 						useItemAction,
 						animationContext));
 				break;
@@ -626,7 +626,7 @@ public class ActorActionResolver
 
 				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
 					lockOrTrap,
-					s,
+					invokedSpell,
 					(PlayerCharacter)actor,
 					castingLevel));
 				break;
@@ -634,10 +634,11 @@ public class ActorActionResolver
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(
 					SpellTargetUtils.resolveCasterSpell(
+						invokedSpell,
 						combat,
 						actor,
 						castingLevel,
-						s.getEffects().getRandom(),
+						invokedSpell.getEffects().getRandom(),
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.ALL_FOES:
@@ -647,17 +648,18 @@ public class ActorActionResolver
 						actor,
 						castingLevel,
 						castingLevel,
-						s,
+						invokedSpell,
 						useItemAction,
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.TILE:
 				events.addAll(
 					SpellTargetUtils.resolveTileSpell(
+						invokedSpell,
 						combat,
 						actor,
 						castingLevel,
-						s.getEffects().getRandom(),
+						invokedSpell.getEffects().getRandom(),
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
@@ -668,7 +670,7 @@ public class ActorActionResolver
 						useItemAction.getTarget(),
 						castingLevel,
 						castingLevel,
-						s,
+						invokedSpell,
 						useItemAction));
 				break;
 			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
@@ -678,7 +680,7 @@ public class ActorActionResolver
 						actor,
 						castingLevel,
 						castingLevel,
-						s,
+						invokedSpell,
 						useItemAction));
 				break;
 			case MagicSys.SpellTargetType.ITEM:
@@ -688,10 +690,10 @@ public class ActorActionResolver
 						actor,
 						castingLevel,
 						castingLevel,
-						s,
+						invokedSpell,
 						(Item)useItemAction.getTarget()));
 			default:
-				throw new MazeException("Unrecognised spell target type: "+s.getTargetType());
+				throw new MazeException("Unrecognised spell target type: "+invokedSpell.getTargetType());
 		}
 	}
 
@@ -703,7 +705,7 @@ public class ActorActionResolver
 		List<MazeEvent> events,
 		AnimationContext animationContext)
 	{
-		Spell s = action.getSpell();
+		Spell specialAbilitySpell = action.getSpell();
 
 		if (!GameSys.getInstance().canPaySpellCost(
 			action.getSpell(), action.getCastingLevel(), actor))
@@ -713,25 +715,26 @@ public class ActorActionResolver
 		}
 
 		// at this point the spell has been successfully cast
-		events.add(new SpecialAbilityUseEvent(actor, s, action.getCastingLevel(), action.getDescription()));
+		events.add(new SpecialAbilityUseEvent(
+			actor, specialAbilitySpell, action.getCastingLevel(), action.getDescription()));
 
 		// the casting animation (todo: cast by player allies?)
 		if (actor instanceof PlayerCharacter)
 		{
-			if (s.getCastByPlayerScript() != null)
+			if (specialAbilitySpell.getCastByPlayerScript() != null)
 			{
-				events.addAll(s.getCastByPlayerScript().getEvents());
+				events.addAll(specialAbilitySpell.getCastByPlayerScript().getEvents());
 			}
 		}
 		else
 		{
-			if (s.getCastByFoeScript() != null)
+			if (specialAbilitySpell.getCastByFoeScript() != null)
 			{
-				events.addAll(s.getCastByFoeScript().getEvents());
+				events.addAll(specialAbilitySpell.getCastByFoeScript().getEvents());
 			}
 		}
 
-		switch (s.getTargetType())
+		switch (specialAbilitySpell.getTargetType())
 		{
 			case MagicSys.SpellTargetType.FOE:
 			case MagicSys.SpellTargetType.NPC:
@@ -741,8 +744,8 @@ public class ActorActionResolver
 						actor,
 						action.getTarget(),
 						action.getCastingLevel(),
-						s.getLevel(),
-						s,
+						specialAbilitySpell.getLevel(),
+						specialAbilitySpell,
 						action,
 						animationContext));
 				break;
@@ -753,7 +756,7 @@ public class ActorActionResolver
 						actor,
 						action.getTarget(),
 						action.getCastingLevel(),
-						s,
+						specialAbilitySpell,
 						animationContext));
 				break;
 			case MagicSys.SpellTargetType.PARTY:
@@ -761,7 +764,7 @@ public class ActorActionResolver
 					combat,
 					actor,
 					action.getCastingLevel(),
-					s,
+					specialAbilitySpell,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
@@ -769,7 +772,7 @@ public class ActorActionResolver
 					combat,
 					actor,
 					action.getCastingLevel(),
-					s,
+					specialAbilitySpell,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.FOE_GROUP:
@@ -777,25 +780,26 @@ public class ActorActionResolver
 					combat,
 					actor,
 					action.getTarget(),
-					s.getLevel(),
+					specialAbilitySpell.getLevel(),
 					action.getCastingLevel(),
-					s,
+					specialAbilitySpell,
 					action,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
 				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
 					Maze.getInstance().getCurrentChest(),
-					s,
+					specialAbilitySpell,
 					(PlayerCharacter)actor,
 					action.getCastingLevel()));
 				break;
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(SpellTargetUtils.resolveCasterSpell(
+					specialAbilitySpell,
 					combat,
 					actor,
 					action.getCastingLevel(),
-					s.getEffects().getRandom(),
+					specialAbilitySpell.getEffects().getRandom(),
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.ALL_FOES:
@@ -803,17 +807,18 @@ public class ActorActionResolver
 					combat,
 					actor,
 					action.getCastingLevel(),
-					s.getLevel(),
-					s,
+					specialAbilitySpell.getLevel(),
+					specialAbilitySpell,
 					action,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.TILE:
 				events.addAll(SpellTargetUtils.resolveTileSpell(
+					specialAbilitySpell,
 					combat,
 					actor,
 					action.getCastingLevel(),
-					s.getEffects().getRandom(),
+					specialAbilitySpell.getEffects().getRandom(),
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
@@ -822,8 +827,8 @@ public class ActorActionResolver
 					actor,
 					action.getTarget(),
 					action.getCastingLevel(),
-					s.getLevel(),
-					s,
+					specialAbilitySpell.getLevel(),
+					specialAbilitySpell,
 					action));
 				break;
 			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
@@ -831,12 +836,12 @@ public class ActorActionResolver
 					combat,
 					actor,
 					action.getCastingLevel(),
-					s.getLevel(),
-					s,
+					specialAbilitySpell.getLevel(),
+					specialAbilitySpell,
 					action));
 				break;
 			default:
-				throw new MazeException("Unrecognised spell target type: "+s.getTargetType());
+				throw new MazeException("Unrecognised spell target type: "+specialAbilitySpell.getTargetType());
 		}
 	}
 
@@ -853,25 +858,25 @@ public class ActorActionResolver
 
 		List<MazeEvent> events = new ArrayList<MazeEvent>();
 
-		final Spell s = spellAction.getSpell();
+		final Spell spell = spellAction.getSpell();
 
 		if (!isCloudSpell)
 		{
 			// practise modifiers
 
-			GameSys.getInstance().practice(caster, s.getPrimaryModifier(), 1);
+			GameSys.getInstance().practice(caster, spell.getPrimaryModifier(), 1);
 			if (Dice.d2.roll() == 2)
 			{
-				GameSys.getInstance().practice(caster, s.getSecondaryModifier(), 1);
+				GameSys.getInstance().practice(caster, spell.getSecondaryModifier(), 1);
 			}
 		}
 
 		int castingLevel = spellAction.getCastingLevel();
-		int targetType = s.getTargetType();
+		int targetType = spell.getTargetType();
 		if (caster instanceof GameSys.DummyCaster)
 		{
 			// dodgy hack to allow for traps and such
-			events.add(new SpellCastEvent(caster, s, castingLevel)
+			events.add(new SpellCastEvent(caster, spell, castingLevel)
 			{
 				public String getText()
 				{
@@ -883,40 +888,40 @@ public class ActorActionResolver
 		{
 			if (isCloudSpell)
 			{
-				events.add(new SpellCastEvent(caster, s, castingLevel)
+				events.add(new SpellCastEvent(caster, spell, castingLevel)
 				{
 					public String getText()
 					{
-						return s.getDescription();
+						return spell.getDescription();
 					}
 				});
 			}
 			else
 			{
-				events.add(new SpellCastEvent(caster, s, castingLevel));
+				events.add(new SpellCastEvent(caster, spell, castingLevel));
 			}
 		}
 
 		if (!isCloudSpell)
 		{
 			if (caster instanceof PlayerCharacter &&
-				!((PlayerCharacter)caster).canCast(s))
+				!((PlayerCharacter)caster).canCast(spell))
 			{
-				events.add(new SpellFizzlesEvent(caster, s, castingLevel));
+				events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
 				return events;
 			}
 
 			if (!GameSys.getInstance().canPaySpellCost(
 				spellAction.getSpell(), spellAction.getCastingLevel(), caster))
 			{
-				events.add(new SpellFizzlesEvent(caster, s, castingLevel));
+				events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
 				return events;
 			}
 		}
 
 		if (!isCloudSpell)
 		{
-			int spellFailureChance = GameSys.getInstance().getSpellFailureChance(caster, s, castingLevel);
+			int spellFailureChance = GameSys.getInstance().getSpellFailureChance(caster, spell, castingLevel);
 
 			int spellFailureRoll = Dice.d100.roll();
 
@@ -925,7 +930,7 @@ public class ActorActionResolver
 				if (spellFailureRoll*5 > spellFailureChance)
 				{
 					// spell fizzles
-					events.add(new SpellFizzlesEvent(caster, s, castingLevel));
+					events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
 					return events;
 				}
 				else
@@ -943,11 +948,11 @@ public class ActorActionResolver
 						// these spell target types cannot backfire (or there are no
 						// foes to target), simply fizzle
 						// todo: may be amusing to provide various backfire effects here
-						events.add(new SpellFizzlesEvent(caster, s, castingLevel));
+						events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
 						return events;
 					}
 
-					events.add(new SpellBackfiresEvent(caster, s, castingLevel));
+					events.add(new SpellBackfiresEvent(caster, spell, castingLevel));
 
 					// warp the target (can assume combat!=null here)
 					switch(targetType)
@@ -989,16 +994,16 @@ public class ActorActionResolver
 		// the casting animation (todo: cast by player allies?)
 		if (caster instanceof PlayerCharacter)
 		{
-			if (s.getCastByPlayerScript() != null)
+			if (spell.getCastByPlayerScript() != null)
 			{
-				events.addAll(s.getCastByPlayerScript().getEvents());
+				events.addAll(spell.getCastByPlayerScript().getEvents());
 			}
 		}
 		else
 		{
-			if (s.getCastByFoeScript() != null)
+			if (spell.getCastByFoeScript() != null)
 			{
-				events.addAll(s.getCastByFoeScript().getEvents());
+				events.addAll(spell.getCastByFoeScript().getEvents());
 			}
 		}
 
@@ -1011,8 +1016,8 @@ public class ActorActionResolver
 					caster,
 					spellAction.getTarget(),
 					castingLevel,
-					s.getLevel(),
-					s,
+					spell.getLevel(),
+					spell,
 					spellAction,
 					animationContext));
 				break;
@@ -1022,7 +1027,7 @@ public class ActorActionResolver
 					caster,
 					spellAction.getTarget(),
 					castingLevel,
-					s,
+					spell,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.PARTY:
@@ -1030,7 +1035,7 @@ public class ActorActionResolver
 					combat,
 					caster,
 					castingLevel,
-					s,
+					spell,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
@@ -1038,7 +1043,7 @@ public class ActorActionResolver
 					combat,
 					caster,
 					castingLevel,
-					s,
+					spell,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.FOE_GROUP:
@@ -1046,9 +1051,9 @@ public class ActorActionResolver
 					combat,
 					caster,
 					spellAction.getTarget(),
-					s.getLevel(),
+					spell.getLevel(),
 					castingLevel,
-					s,
+					spell,
 					spellAction,
 					animationContext));
 				break;
@@ -1071,17 +1076,18 @@ public class ActorActionResolver
 
 				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
 					lockOrTrap,
-					s,
+					spell,
 					(PlayerCharacter)caster,
 					castingLevel));
 				break;
 
 			case MagicSys.SpellTargetType.CASTER:
 				events.addAll(SpellTargetUtils.resolveCasterSpell(
+					spell,
 					combat,
 					caster,
 					castingLevel,
-					s.getEffects().getRandom(),
+					spell.getEffects().getRandom(),
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.ALL_FOES:
@@ -1089,17 +1095,18 @@ public class ActorActionResolver
 					combat,
 					caster,
 					castingLevel,
-					s.getLevel(),
-					s,
+					spell.getLevel(),
+					spell,
 					spellAction,
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.TILE:
 				events.addAll(SpellTargetUtils.resolveTileSpell(
+					spell,
 					combat,
 					caster,
 					castingLevel,
-					s.getEffects().getRandom(),
+					spell.getEffects().getRandom(),
 					animationContext));
 				break;
 			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
@@ -1108,8 +1115,8 @@ public class ActorActionResolver
 					caster,
 					spellAction.getTarget(),
 					castingLevel,
-					s.getLevel(),
-					s,
+					spell.getLevel(),
+					spell,
 					spellAction));
 				break;
 			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
@@ -1117,8 +1124,8 @@ public class ActorActionResolver
 					combat,
 					caster,
 					castingLevel,
-					s.getLevel(),
-					s,
+					spell.getLevel(),
+					spell,
 					spellAction));
 				break;
 			case MagicSys.SpellTargetType.ITEM:
@@ -1126,8 +1133,8 @@ public class ActorActionResolver
 					combat,
 					caster,
 					castingLevel,
-					s.getLevel(),
-					s,
+					spell.getLevel(),
+					spell,
 					(Item)spellAction.getTarget()));
 				break;
 			default:

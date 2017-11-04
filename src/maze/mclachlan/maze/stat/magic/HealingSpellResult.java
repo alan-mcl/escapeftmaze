@@ -51,7 +51,8 @@ public class HealingSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target, int castingLevel, SpellEffect parent)
+	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
+		int castingLevel, SpellEffect parent, Spell spell)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 		
