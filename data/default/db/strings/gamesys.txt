@@ -949,6 +949,8 @@ lap_name_invention = Invention
 lap_desc_invention = The Gadgeteer creates a nifty invention! This ability is single-use only.
 lap_name_grand_invention = Grand Invention
 lap_desc_grand_invention = The Gadgeteer creates a really amazing invention! This ability is single-use only.
+lap_name_deconstructor = Deconstructor
+lap_desc_deconstructor = The Gadgeteer is a deadly foe of artificial constructs.
 
 
 # Hero
