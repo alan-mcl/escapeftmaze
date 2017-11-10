@@ -19,8 +19,8 @@
 
 package mclachlan.maze.stat.combat;
 
-import mclachlan.maze.stat.ActorActionIntention;
-import mclachlan.maze.stat.ActorActionOption;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.*;
 
 /**
  *
@@ -30,6 +30,21 @@ public class EquipOption extends ActorActionOption
 	public EquipOption()
 	{
 		super("Equip", "aao.equip");
+	}
+
+	@Override
+	public void select(UnifiedActor actor, Combat combat,
+		ActionOptionCallback callback)
+	{
+		if (actor.getModifier(Stats.Modifier.PACK_RAT) > 0)
+		{
+			Maze.getInstance().getUi().characterSelected((PlayerCharacter)actor);
+			Maze.getInstance().setState(Maze.State.INVENTORY, this);
+		}
+		else
+		{
+			super.select(actor, combat, callback);
+		}
 	}
 
 	@Override

@@ -648,6 +648,7 @@ public class Stats
 		POWER_SUMMON_ELEMENTAL(246, "powerSummonElemental"),
 		MASTER_DIVINER(247, "masterDiviner", ModifierMetric.BOOLEAN),
 		BOMB_THROWER(248, "bombThrower", ModifierMetric.BOOLEAN),
+		PACK_RAT(249, "packRat", ModifierMetric.BOOLEAN),
 		;
 
 		/**

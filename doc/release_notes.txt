@@ -15,7 +15,7 @@ Features
    Dispel Illusions
  - Exorcist class abilities: Spirit Form, Dispel Illusions, Weaken Spirits, Anathema
  - Gadgeteer class abilities: Bomb Thrower, Ammo Stash, Destroy Traps, Invention,
-   Grand Invention
+   Grand Invention, Pack Rat
 
 Other
  - Refactored the Value composition into a flat ValueList

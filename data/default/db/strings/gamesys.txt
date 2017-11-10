@@ -269,6 +269,7 @@ modifier_name-reincarnateBeast: Reincarnate: Beast
 modifier_name-powerSummonElemental: Power Summon: Elemental
 modifier_name-masterDiviner: Master Diviner
 modifier_name-bombThrower: Bomb Thrower
+modifier_name-packRat: Pack Rat
 
 # Modifier Descriptions
 
@@ -531,6 +532,7 @@ modifier_desc-reincarnateBeast: If this character dies in combat, a powerful bea
 modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
 modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
 modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
+modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -953,6 +955,8 @@ lap_name_deconstructor = Deconstructor
 lap_desc_deconstructor = The Gadgeteer is a deadly foe of artificial constructs.
 lap_name_bomb_construction = Bomb Construction
 lap_desc_bomb_construction = The Gadgeteer builds a bomb.
+lap_name_pack_rat = Pack Rat
+lap_desc_pack_rat = The Gadgeteer can change equipment during the action selection phase instead of spending a whole combat round on it.
 
 
 # Hero
