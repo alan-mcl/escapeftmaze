@@ -957,7 +957,10 @@ lap_name_bomb_construction = Bomb Construction
 lap_desc_bomb_construction = The Gadgeteer builds a bomb.
 lap_name_pack_rat = Pack Rat
 lap_desc_pack_rat = The Gadgeteer can change equipment during the action selection phase instead of spending a whole combat round on it.
-
+lap_name_fast_hands = Fast Hands
+lap_desc_fast_hands = The Gadgeteer's quick hands grant various bonuses.
+lap_name_urbanite = Urbanite
+lap_desc_urbanite = The Gagdgeteer's urban background provides various bonuses.
 
 # Hero
 lap_name_cheat_death = Cheat Death
