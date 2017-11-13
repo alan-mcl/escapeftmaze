@@ -471,7 +471,7 @@ levelUpActionPoints=0d1
 levelUpMagicPoints=0d1
 levelUpAssignableModifiers=3
 levelUpModifiers=7e0000000000000000,010101010101
-progression=1;;lap_name_cheat_death;lap_desc_cheat_death;40000000000000000000000000000@01/1;;lap_name_melee_master;lap_desc_melee_master;80000000000000000000000000000000000000000@01,,,,,,,,,,,,,,,,,,,
+progression=1;;lap_name_cheat_death;lap_desc_cheat_death;40000000000000000000000000000@01,,1;;lap_name_threaten;lap_desc_threaten;8000000000000000000000000000000000000000000000@01,,1;;lap_name_melee_master;lap_desc_melee_master;80000000000000000000000000000000000000000@01,,,1;;lap_name_bribe;lap_desc_bribe;4000000000000000@01,,,,,1;steal;lap_name_steal;lap_desc_steal;40000000@02,,,,,,,
 @
 name=Amazon
 description=Raised by a fanatical sect of warrior women, the Amazon is a dauntless soldier versed in the ways of purple_magic. The Amazons primary interest is warfare and soldiering. She is also is at home in the wilderness, trained in tracking, survival and ambuscade. %n%nRole: The Amazon is a versatile melee and ranged fighter. Her class abilities give her resilience against many debuffs and her access to the versatile Witchcraft school of magic give her a some non-weaponised options.

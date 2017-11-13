@@ -968,6 +968,7 @@ lap_desc_cheat_death = Through sheer strength of spirit, the Hero can sometimes 
 lap_name_melee_master = Melee Master
 lap_desc_melee_master = The Hero loves being outnumbered and attacks large numbers of foes with increased fervour.
 
+
 # Magician
 lap_name_ambition = Ambition
 lap_desc_ambition = The studious Magician gets an extra starting spell pick.
