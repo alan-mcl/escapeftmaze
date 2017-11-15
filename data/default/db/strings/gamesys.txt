@@ -967,6 +967,17 @@ lap_name_cheat_death = Cheat Death
 lap_desc_cheat_death = Through sheer strength of spirit, the Hero can sometimes cheat certain death.
 lap_name_melee_master = Melee Master
 lap_desc_melee_master = The Hero loves being outnumbered and attacks large numbers of foes with increased fervour.
+lap_name_journeyman = Journeyman
+lap_desc_journeyman = Giant rats and spiders? The Hero is on top of the situation.
+lap_name_veteran = Veteran
+lap_desc_veteran = No Basilisk or Ankheg is safe from the Hero.
+lap_name_master = Master
+lap_desc_master = The Hero fears neither the Mimic nor the Will-o'-Wisp.
+lap_name_champion = Champion
+lap_desc_champion = Giants and their misbegotten kin flee before the mighty Hero.
+lap_name_legend = Legend
+lap_desc_legend = Even Dragons fear the name of the legendary Hero.
+
 
 
 # Magician
