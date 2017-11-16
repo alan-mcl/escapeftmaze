@@ -981,6 +981,8 @@ lap_name_legend = Legend
 lap_desc_legend = Even Dragons fear the name of the legendary Hero.
 lap_name_melee_cleave = Melee Cleave
 lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, the Hero will make a extra attack against another foe.
+lap_name_second_wind = Second Wind
+lap_desc_second_wind = The Hero removes all fatigue and heals a small amount.
 
 
 # Magician

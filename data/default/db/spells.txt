@@ -8293,6 +8293,27 @@ secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
 @
+name=Second Wind
+displayName=Second Wind
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Blue Magic
+spellEffects=second wind:100
+description=gets a second wind
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=BRAWN
+secondaryModifier=POWER
+wildMagicValue=
+wildMagicTable=
+@
 name=Demonic Aspect
 displayName=Demonic Aspect
 hitPointCost=

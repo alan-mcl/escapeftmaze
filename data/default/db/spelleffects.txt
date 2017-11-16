@@ -478,6 +478,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.5:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=second wind
+displayName=second wind
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=5::2/0/NONE//false/2d3:1/50/SCALE_WITH_CLASS_LEVEL/Hero/false::
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=phantasm spell
 displayName=
 type=AIR
