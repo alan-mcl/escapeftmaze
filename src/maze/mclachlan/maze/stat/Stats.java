@@ -175,6 +175,7 @@ public class Stats
 		touches.add(Modifier.TOUCH_STONE);
 		touches.add(Modifier.TOUCH_WEB);
 		touches.add(Modifier.TOUCH_POISON);
+		touches.add(Modifier.TOUCH_KO);
 
 		favouredEnemies.add(Modifier.FAVOURED_ENEMY_BEAST);
 		favouredEnemies.add(Modifier.FAVOURED_ENEMY_CONSTRUCT);
@@ -550,6 +551,7 @@ public class Stats
 		TOUCH_STONE(140, "stoneTouch", ModifierMetric.PERCENTAGE),
 		TOUCH_WEB(141, "webTouch", ModifierMetric.PERCENTAGE),
 		TOUCH_POISON(166, "poisonTouch", ModifierMetric.PERCENTAGE),
+		TOUCH_KO(251, "koTouch", ModifierMetric.PERCENTAGE),
 		RAZOR_CLOAK(142, "razorCloak"),
 		CC_PENALTY(143, "ccPenalty"),
 		DAMAGE_MULTIPLIER(145, "damageMultiplier", ModifierMetric.BOOLEAN),
@@ -649,7 +651,8 @@ public class Stats
 		MASTER_DIVINER(247, "masterDiviner", ModifierMetric.BOOLEAN),
 		BOMB_THROWER(248, "bombThrower", ModifierMetric.BOOLEAN),
 		PACK_RAT(249, "packRat", ModifierMetric.BOOLEAN),
-		MELEE_CLEAVE(250, "meleeCleave", ModifierMetric.BOOLEAN)
+		MELEE_CLEAVE(250, "meleeCleave", ModifierMetric.BOOLEAN),
+		// todo: remember to start on 252
 		;
 
 		/**

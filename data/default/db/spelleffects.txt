@@ -4058,6 +4058,16 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
+name=TOUCH_KO
+displayName=ko
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::GENERIC_KO
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=hidden snakebite damage
 displayName=hidden snakebite damage
 type=PIERCING

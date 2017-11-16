@@ -783,6 +783,7 @@ public class GameSys
 			addTouchEffect(attacker, Stats.Modifier.TOUCH_STONE	, "TOUCH_STONE", touchEffects);
 			addTouchEffect(attacker, Stats.Modifier.TOUCH_WEB, "TOUCH_WEB", touchEffects);
 			addTouchEffect(attacker, Stats.Modifier.TOUCH_POISON, "TOUCH_POISON", touchEffects);
+			addTouchEffect(attacker, Stats.Modifier.TOUCH_KO, "TOUCH_KO", touchEffects);
 
 			result.add(
 				new AttackSpellEffects(

@@ -267,6 +267,7 @@ public class ItemScorer
 		weaponModifierScores.put(TOUCH_WEB, 3D);
 		weaponModifierScores.put(TOUCH_DISEASE, 2D);
 		weaponModifierScores.put(TOUCH_POISON, 2D);
+		weaponModifierScores.put(TOUCH_KO, 2D);
 		weaponModifierScores.put(RAZOR_CLOAK, 1D);
 		weaponModifierScores.put(DAMAGE_MULTIPLIER, 7.5D);
 		weaponModifierScores.put(LIGHTNING_STRIKE_SWORD, 2D);

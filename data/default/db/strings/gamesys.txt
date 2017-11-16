@@ -174,6 +174,7 @@ modifier_name-paralyseTouch: Paralysing Touch
 modifier_name-webTouch: Entangling Touch
 modifier_name-diseaseTouch: Corrupting Touch
 modifier_name-poisonTouch: Poison Touch
+modifier_name-koTouch: KO Touch
 modifier_name-razorCloak: Damage Reflection
 modifier_name-ccPenalty: Carrying Capacity
 modifier_name-damageMultiplier: Damage Multiplier
@@ -438,6 +439,7 @@ modifier_desc-paralyseTouch: Melee attacks by this character may deliver a curse
 modifier_desc-webTouch: Melee attacks by this character may deliver a curse of entanglement.
 modifier_desc-diseaseTouch: Melee attacks by this character may deliver a curse of disease.
 modifier_desc-poisonTouch: Melee attacks by character may deliver a dose of deadly poison.
+modifier_desc-koTouch: Melee attacks by character may knock a foe unconscious.
 modifier_desc-razorCloak: Some damage dealt to this character is reflected to its source.
 modifier_desc-ccPenalty: This character has a modified carrying capacity.
 modifier_desc-damageMultiplier: Multiplier for damage done.
@@ -987,6 +989,8 @@ lap_name_iron_skin = Iron Skin
 lap_desc_iron_skin = The Hero has boosted physical resistance.
 lap_name_provisions = Provisions
 lap_desc_provisions = The Hero always has some spare jerky to go around.
+lap_name_ko_blow = KO Blow
+lap_desc_ko_blow = Blows from the Hero have a chance of knocking a foe unconscious.
 
 
 # Magician
