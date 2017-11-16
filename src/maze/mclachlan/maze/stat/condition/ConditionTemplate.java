@@ -396,8 +396,18 @@ public class ConditionTemplate
 		else
 		{
 			// a bog standard condition
-			int duration = getDuration().compute(source, castingLevel);
-			int strength = getStrength().compute(source, castingLevel);
+			ValueList durationValue = getDuration();
+			int duration = 0;
+			if (durationValue != null)
+			{
+				duration = durationValue.compute(source, castingLevel);
+			}
+			int strength = 0;
+			ValueList strengthValue = getStrength();
+			if (strengthValue != null)
+			{
+				strength = strengthValue.compute(source, castingLevel);
+			}
 			ValueList hpDamage = getHitPointDamage() == null ? null :
 				getHitPointDamage().getSnapShotValue(source, castingLevel);
 			ValueList apDamage = getActionPointDamage() == null ? null :

@@ -270,6 +270,7 @@ modifier_name-powerSummonElemental: Power Summon: Elemental
 modifier_name-masterDiviner: Master Diviner
 modifier_name-bombThrower: Bomb Thrower
 modifier_name-packRat: Pack Rat
+modifier_name-meleeCleave: Melee Cleave
 
 # Modifier Descriptions
 
@@ -533,6 +534,7 @@ modifier_desc-powerSummonElemental: Elementals summoned by this character come i
 modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
 modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
 modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.
+modifier_desc-meleeCleave: On a killing blow with a melee weapon, this character makes an extra attack on another foe.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -977,7 +979,8 @@ lap_name_champion = Champion
 lap_desc_champion = Giants and their misbegotten kin flee before the mighty Hero.
 lap_name_legend = Legend
 lap_desc_legend = Even Dragons fear the name of the legendary Hero.
-
+lap_name_melee_cleave = Melee Cleave
+lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, the Hero will make a extra attack against another foe.
 
 
 # Magician

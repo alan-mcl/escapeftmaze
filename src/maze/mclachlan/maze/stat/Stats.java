@@ -649,6 +649,7 @@ public class Stats
 		MASTER_DIVINER(247, "masterDiviner", ModifierMetric.BOOLEAN),
 		BOMB_THROWER(248, "bombThrower", ModifierMetric.BOOLEAN),
 		PACK_RAT(249, "packRat", ModifierMetric.BOOLEAN),
+		MELEE_CLEAVE(250, "meleeCleave", ModifierMetric.BOOLEAN)
 		;
 
 		/**

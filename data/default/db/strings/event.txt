@@ -76,6 +76,7 @@ msg.summoning.multiple = appear
 msg.summoning.single = appears
 msg.summoning.empowered = %s is empowered!
 msg.ammo.stash = %s produces %s %s!
+msg.melee.cleave = %s cleaves!
 
 #
 # Encounter Actors events

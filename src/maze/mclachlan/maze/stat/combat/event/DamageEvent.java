@@ -164,7 +164,7 @@ public class DamageEvent extends MazeEvent
 				if (defender.getModifier(Stats.Modifier.DYING_BLOW) > 0 &&
 					attackWith != null && !attackWith.isRanged())
 				{
-					Item attackWith = defender.getPrimaryWeapon();
+					Item dyingBlowAttackWith = defender.getPrimaryWeapon();
 					result.add(
 						new UiMessageEvent(
 							StringUtil.getEventText(
@@ -175,16 +175,46 @@ public class DamageEvent extends MazeEvent
 							combat,
 							defender,
 							attacker,
+							dyingBlowAttackWith,
+							GameSys.getInstance().getAttackType(dyingBlowAttackWith),
+							0,
+							1,
+							dyingBlowAttackWith.getAttackScript(),
+							dyingBlowAttackWith.getDefaultDamageType(),
+							animationContext,
+							null));
+				}
+
+				result.add(new ActorDiesEvent(defender, attacker));
+
+				// check for MELEE_CLEAVE
+				if (attacker.getModifier(Stats.Modifier.MELEE_CLEAVE) > 0 &&
+					attackWith != null && !attackWith.isRanged())
+				{
+					UnifiedActor defender = combat.getRandomFoeWithinRangeOf(attacker);
+					System.out.println("MELEE CLEAVE");
+					System.out.println(attacker);
+					System.out.println(defender);
+
+					result.add(
+						new UiMessageEvent(
+							StringUtil.getEventText(
+								"msg.melee.cleave",
+								attacker.getDisplayName())));
+					result.add(
+						new AttackEvent(
+							combat,
+							attacker,
+							defender,
 							attackWith,
 							GameSys.getInstance().getAttackType(attackWith),
 							0,
 							1,
 							attackWith.getAttackScript(),
 							attackWith.getDefaultDamageType(),
-							animationContext, null));
+							animationContext,
+							null));
 				}
-	
-				result.add(new ActorDiesEvent(defender, attacker));
 			}
 		}
 		else if (hitPoints.getSub() >= hitPoints.getCurrent())
