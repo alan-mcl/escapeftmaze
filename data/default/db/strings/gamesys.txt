@@ -985,6 +985,8 @@ lap_name_second_wind = Second Wind
 lap_desc_second_wind = The Hero removes all fatigue and heals a small amount.
 lap_name_iron_skin = Iron Skin
 lap_desc_iron_skin = The Hero has boosted physical resistance.
+lap_name_provisions = Provisions
+lap_desc_provisions = The Hero always has some spare jerky to go around.
 
 
 # Magician
