@@ -652,7 +652,7 @@ public class Stats
 		BOMB_THROWER(248, "bombThrower", ModifierMetric.BOOLEAN),
 		PACK_RAT(249, "packRat", ModifierMetric.BOOLEAN),
 		MELEE_CLEAVE(250, "meleeCleave", ModifierMetric.BOOLEAN),
-		// todo: remember to start on 252
+		WEAPON_MASTER(252, "weaponMaster", ModifierMetric.BOOLEAN),
 		;
 
 		/**

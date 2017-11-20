@@ -318,9 +318,14 @@ public class PlayerCharacter extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public boolean isEquippableItem(Item item)
 	{
+		// check for WEAPON_MASTER
+		if (item.isWeapon() && this.getModifier(Stats.Modifier.WEAPON_MASTER) > 0)
+		{
+			return true;
+		}
+
 		boolean by_gender = item.getUsableByGender().contains(this.getGender().getName());
-		boolean by_class =
-			item.getUsableByCharacterClass().contains(this.getCharacterClass().getName());
+		boolean by_class = item.getUsableByCharacterClass().contains(this.getCharacterClass().getName());
 		boolean by_race = item.getUsableByRace().contains(this.getRace().getName());
 		boolean by_req = meetsRequirements(item.getEquipRequirements());
 

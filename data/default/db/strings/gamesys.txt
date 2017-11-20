@@ -272,6 +272,7 @@ modifier_name-masterDiviner: Master Diviner
 modifier_name-bombThrower: Bomb Thrower
 modifier_name-packRat: Pack Rat
 modifier_name-meleeCleave: Melee Cleave
+modifier_name-weaponMaster: Weapon Master
 
 # Modifier Descriptions
 
@@ -537,6 +538,7 @@ modifier_desc-masterDiviner: This character restores Action Points every time he
 modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
 modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.
 modifier_desc-meleeCleave: On a killing blow with a melee weapon, this character makes an extra attack on another foe.
+modifier_desc-weaponMaster: The character ignores most modifier requirements for wielding weapons.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -991,6 +993,10 @@ lap_name_provisions = Provisions
 lap_desc_provisions = The Hero always has some spare jerky to go around.
 lap_name_ko_blow = KO Blow
 lap_desc_ko_blow = Blows from the Hero have a chance of knocking a foe unconscious.
+lap_name_campfire_tales = Campfire Tales
+lap_desc_campfire_tales = The Hero is always good for a cracking story around the camp fire.
+lap_name_weapon_master = Weapon Master
+lap_desc_weapon_master = The Hero can wield any weapon, ignoring any usual requirements.
 
 
 # Magician

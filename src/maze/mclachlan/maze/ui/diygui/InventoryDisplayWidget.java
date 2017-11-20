@@ -568,31 +568,8 @@ public class InventoryDisplayWidget extends ContainerWidget
 			return true;
 		}
 
-		// check usable by class
-		Set<String> users;
-		users = item.getUsableByCharacterClass();
-
-		if (!(users==null || users.contains(character.getCharacterClass().getName())))
-		{
-			return false;
-		}
-
-		// check usable by race
-		users = item.getUsableByRace();
-		if (!(users==null || users.contains(character.getRace().getName())))
-		{
-			return false;
-		}
-
-		// check usable by gender
-		users = item.getUsableByGender();
-		if (!(users==null || users.contains(character.getGender().getName())))
-		{
-			return false;
-		}
-
-		// check meets requirements
-		if (!(character.meetsRequirements(item.getEquipRequirements())))
+		// check is equipable
+		if (!character.isEquippableItem(item))
 		{
 			return false;
 		}

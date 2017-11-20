@@ -33,11 +33,11 @@ import mclachlan.maze.game.Maze;
  */
 public class RestingWidget extends DIYPane implements ActionListener
 {
-	int inset = 4;
-	int buttonHeight = 18;
-	DIYLabel turn;
+	private int inset = 4;
+	private int buttonHeight = 18;
+	private DIYLabel turn;
 	DIYButton done;
-	int turnNr=0;
+	private int turnNr=0;
 
 	/*-------------------------------------------------------------------------*/
 	public RestingWidget(Rectangle bounds)
