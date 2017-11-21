@@ -192,9 +192,6 @@ public class DamageEvent extends MazeEvent
 					attackWith != null && !attackWith.isRanged())
 				{
 					UnifiedActor defender = combat.getRandomFoeWithinRangeOf(attacker);
-					System.out.println("MELEE CLEAVE");
-					System.out.println(attacker);
-					System.out.println(defender);
 
 					result.add(
 						new UiMessageEvent(

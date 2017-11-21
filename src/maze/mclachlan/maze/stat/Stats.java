@@ -653,6 +653,7 @@ public class Stats
 		PACK_RAT(249, "packRat", ModifierMetric.BOOLEAN),
 		MELEE_CLEAVE(250, "meleeCleave", ModifierMetric.BOOLEAN),
 		WEAPON_MASTER(252, "weaponMaster", ModifierMetric.BOOLEAN),
+		TOE_TO_TOE(253, "toToToe", ModifierMetric.BOOLEAN),
 		;
 
 		/**

@@ -24,8 +24,8 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.stat.BodyPart;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -34,13 +34,16 @@ public class AttackHitEvent extends MazeEvent
 {
 	private UnifiedActor attacker;
 	private UnifiedActor defender;
+	private AttackWith attackWith;
 	private BodyPart bodyPart;
 
 	/*-------------------------------------------------------------------------*/
-	public AttackHitEvent(UnifiedActor attacker, UnifiedActor defender, BodyPart bodyPart)
+	public AttackHitEvent(UnifiedActor attacker, UnifiedActor defender,
+		AttackWith attackWith, BodyPart bodyPart)
 	{
 		this.attacker = attacker;
 		this.defender = defender;
+		this.attackWith = attackWith;
 		this.bodyPart = bodyPart;
 	}
 
@@ -65,6 +68,22 @@ public class AttackHitEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		// check for TOE_TO_TOE
+		if (attacker.getModifier(Stats.Modifier.TOE_TO_TOE) > 0 &&
+			!attackWith.isRanged())
+		{
+			int roll = Dice.d3.roll();
+			switch (roll)
+			{
+				// restore 1 stamina
+				case 1:
+				case 2: attacker.getHitPoints().incSub(-1); break;
+				// restore 1 action point
+				case 3: attacker.getActionPoints().incCurrent(1); break;
+				default: throw new MazeException("invalid die roll "+roll);
+			}
+		}
+
 		MazeScript script = Database.getInstance().getScript("_WEAPON_HIT_");
 		return script.getEvents();
 	}

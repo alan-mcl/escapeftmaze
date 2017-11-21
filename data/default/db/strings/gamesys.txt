@@ -273,6 +273,7 @@ modifier_name-bombThrower: Bomb Thrower
 modifier_name-packRat: Pack Rat
 modifier_name-meleeCleave: Melee Cleave
 modifier_name-weaponMaster: Weapon Master
+modifier_name-toToToe: Toe to Toe
 
 # Modifier Descriptions
 
@@ -539,6 +540,7 @@ modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb 
 modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.
 modifier_desc-meleeCleave: On a killing blow with a melee weapon, this character makes an extra attack on another foe.
 modifier_desc-weaponMaster: The character ignores most modifier requirements for wielding weapons.
+modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to this character.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -997,6 +999,8 @@ lap_name_campfire_tales = Campfire Tales
 lap_desc_campfire_tales = The Hero is always good for a cracking story around the camp fire.
 lap_name_weapon_master = Weapon Master
 lap_desc_weapon_master = The Hero can wield any weapon, ignoring any usual requirements.
+lap_name_toe_to_toe = Toe to Toe
+lap_desc_toe_to_toe = Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to the Hero.
 
 
 # Magician

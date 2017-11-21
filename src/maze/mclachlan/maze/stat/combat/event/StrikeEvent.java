@@ -168,6 +168,7 @@ public class StrikeEvent extends MazeEvent
 				result.add(new AttackHitEvent(
 					attacker,
 					defender,
+					attackWith,
 					bodyPart));
 
 				result.add(new DamageEvent(
