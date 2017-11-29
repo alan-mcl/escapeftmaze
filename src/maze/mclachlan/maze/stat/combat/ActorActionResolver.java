@@ -1409,7 +1409,8 @@ public class ActorActionResolver
 			attackAction.getAttackScript(),
 			attackAction.getDamageType(),
 			animationContext,
-			attackAction.getModifiers());
+			attackAction.getModifiers(),
+			null);
 
 		result.addAll(attackAction.getAttackScript().getEvents());
 		result.add(attackEvent);

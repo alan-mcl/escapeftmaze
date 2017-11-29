@@ -986,7 +986,7 @@ lap_desc_champion = Giants and their misbegotten kin flee before the mighty Hero
 lap_name_legend = Legend
 lap_desc_legend = Even Dragons fear the name of the legendary Hero.
 lap_name_melee_cleave = Melee Cleave
-lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, the Hero will make a extra attack against another foe.
+lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, the Hero will make one extra attack against another foe.
 lap_name_second_wind = Second Wind
 lap_desc_second_wind = The Hero removes all fatigue and heals a small amount.
 lap_name_iron_skin = Iron Skin
@@ -1001,6 +1001,8 @@ lap_name_weapon_master = Weapon Master
 lap_desc_weapon_master = The Hero can wield any weapon, ignoring any usual requirements.
 lap_name_toe_to_toe = Toe to Toe
 lap_desc_toe_to_toe = Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to the Hero.
+lap_name_greater_cleave = Greater Cleave
+lap_desc_greater_cleave = Cleaves on killing blows are no longer limited to just one.
 
 
 # Magician

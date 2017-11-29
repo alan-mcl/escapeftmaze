@@ -87,6 +87,7 @@ public class AttackRipostedEvent extends MazeEvent
 				attackWith.getAttackScript(),
 				attackWith.getDefaultDamageType(),
 				animationContext,
+				null,
 				null));
 
 		return result;

@@ -46,6 +46,9 @@ public class AttackEvent extends MazeEvent
 	private AnimationContext animationContext;
 	private StatModifier modifiers;
 
+	/** a bag of random other state carried along with the attack */
+	private Set<String> tags = new HashSet<String>();
+
 	/*-------------------------------------------------------------------------*/
 	public AttackEvent(
 		Combat combat,
@@ -58,7 +61,8 @@ public class AttackEvent extends MazeEvent
 		MazeScript attackScript,
 		MagicSys.SpellEffectType damageType,
 		AnimationContext animationContext,
-		StatModifier modifiers)
+		StatModifier modifiers,
+		String tag)
 	{
 		this.combat = combat;
 		this.attacker = attacker;
@@ -71,6 +75,11 @@ public class AttackEvent extends MazeEvent
 		this.damageType = damageType;
 		this.animationContext = animationContext;
 		this.modifiers = modifiers;
+
+		if (tag != null)
+		{
+			this.tags.add(tag);
+		}
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -172,7 +181,8 @@ public class AttackEvent extends MazeEvent
 					attackType,
 					damageType,
 					animationContext,
-					modifiers));
+					modifiers,
+					tags));
 		}
 
 		return result;
@@ -200,5 +210,11 @@ public class AttackEvent extends MazeEvent
 	public String getText()
 	{
 		return getAttackWith().describe(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Set<String> getTags()
+	{
+		return tags;
 	}
 }

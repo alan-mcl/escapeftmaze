@@ -54,6 +54,9 @@ public class DamageEvent extends MazeEvent
 	private CombatStatistics stats;
 	private AnimationContext animationContext;
 
+	/** a bag of random other state carried along with the attack */
+	private Set<String> tags = new HashSet<String>();
+
 	/*-------------------------------------------------------------------------*/
 	public DamageEvent(
 		Combat combat,
@@ -63,7 +66,8 @@ public class DamageEvent extends MazeEvent
 		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subtype,
 		AttackWith attackWith,
-		AnimationContext animationContext)
+		AnimationContext animationContext,
+		Collection<String> tags)
 	{
 		this.combat = combat;
 		this.defender = defender;
@@ -81,6 +85,11 @@ public class DamageEvent extends MazeEvent
 		if (subtype == null)
 		{
 			throw new MazeException("null subtype");
+		}
+
+		if (tags != null)
+		{
+			this.tags.addAll(tags);
 		}
 	}
 	
@@ -182,35 +191,42 @@ public class DamageEvent extends MazeEvent
 							dyingBlowAttackWith.getAttackScript(),
 							dyingBlowAttackWith.getDefaultDamageType(),
 							animationContext,
-							null));
+							null,
+							Stats.Modifier.DYING_BLOW.toString()));
 				}
 
 				result.add(new ActorDiesEvent(defender, attacker));
 
 				// check for MELEE_CLEAVE
-				if (attacker.getModifier(Stats.Modifier.MELEE_CLEAVE) > 0 &&
-					attackWith != null && !attackWith.isRanged())
+				int meleeCleave = attacker.getModifier(Stats.Modifier.MELEE_CLEAVE);
+				if (meleeCleave > 0 && attackWith != null && !attackWith.isRanged())
 				{
-					UnifiedActor defender = combat.getRandomFoeWithinRangeOf(attacker);
+					// only add an attack if this is the first one, or the modifier is >1
+					if (meleeCleave > 2 ||
+						!tags.contains(Stats.Modifier.MELEE_CLEAVE.toString()))
+					{
+						UnifiedActor defender = combat.getRandomFoeWithinRangeOf(attacker);
 
-					result.add(
-						new UiMessageEvent(
-							StringUtil.getEventText(
-								"msg.melee.cleave",
-								attacker.getDisplayName())));
-					result.add(
-						new AttackEvent(
-							combat,
-							attacker,
-							defender,
-							attackWith,
-							GameSys.getInstance().getAttackType(attackWith),
-							0,
-							1,
-							attackWith.getAttackScript(),
-							attackWith.getDefaultDamageType(),
-							animationContext,
-							null));
+						result.add(
+							new UiMessageEvent(
+								StringUtil.getEventText(
+									"msg.melee.cleave",
+									attacker.getDisplayName())));
+						result.add(
+							new AttackEvent(
+								combat,
+								attacker,
+								defender,
+								attackWith,
+								GameSys.getInstance().getAttackType(attackWith),
+								0,
+								1,
+								attackWith.getAttackScript(),
+								attackWith.getDefaultDamageType(),
+								animationContext,
+								null,
+								Stats.Modifier.MELEE_CLEAVE.toString()));
+					}
 				}
 			}
 		}
@@ -241,7 +257,8 @@ public class DamageEvent extends MazeEvent
 				type,
 				subtype, 
 				null,
-				animationContext));
+				animationContext,
+				null));
 		}
 
 		// check for BLOODTHIRSTY

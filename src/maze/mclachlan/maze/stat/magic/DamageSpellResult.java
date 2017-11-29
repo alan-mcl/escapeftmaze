@@ -88,6 +88,7 @@ public class DamageSpellResult extends SpellResult
 				parent.getType(),
 				parent.getSubType(),
 				null,
+				null,
 				null));
 			if (transferToCaster)
 			{

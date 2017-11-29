@@ -71,6 +71,7 @@ public class DamageFoeTypeSpellResult extends SpellResult
 						parent.getType(),
 						parent.getSubType(), 
 						null,
+						null,
 						null));
 		}
 		else

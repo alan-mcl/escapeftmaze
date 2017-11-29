@@ -50,6 +50,7 @@ public class EkirthsTombWallOfFire extends TileScript
 						MagicSys.SpellEffectType.FIRE,
 						MagicSys.SpellEffectSubType.HEAT,
 						new DummyAttackWith(),
+						null,
 						null));
 			}
 

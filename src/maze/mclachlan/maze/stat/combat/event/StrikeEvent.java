@@ -46,6 +46,9 @@ public class StrikeEvent extends MazeEvent
 	private StatModifier modifiers;
 	private BodyPart bodyPart;
 
+	/** a bag of random other state carried along with the attack */
+	private Set<String> tags = new HashSet<String>();
+
 	/*-------------------------------------------------------------------------*/
 	public StrikeEvent(
 		Combat combat,
@@ -55,7 +58,8 @@ public class StrikeEvent extends MazeEvent
 		AttackType attackType,
 		MagicSys.SpellEffectType damageType,
 		AnimationContext animationContext,
-		StatModifier modifiers)
+		StatModifier modifiers,
+		Collection<String> tags)
 	{
 		this.combat = combat;
 		this.attacker = attacker;
@@ -65,6 +69,11 @@ public class StrikeEvent extends MazeEvent
 		this.damageType = damageType;
 		this.animationContext = animationContext;
 		this.modifiers = modifiers;
+
+		if (tags != null)
+		{
+			this.tags.addAll(tags);
+		}
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -179,7 +188,8 @@ public class StrikeEvent extends MazeEvent
 					damageType,
 					MagicSys.SpellEffectSubType.NORMAL_DAMAGE,
 					attackWith,
-					animationContext));
+					animationContext,
+					tags));
 
 				// apply any spell effects to the victim
 				if (damagePacket.getAmount() > 0)
@@ -334,8 +344,15 @@ public class StrikeEvent extends MazeEvent
 		return null;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public BodyPart getBodyPart()
 	{
 		return bodyPart;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Set<String> getTags()
+	{
+		return tags;
 	}
 }
