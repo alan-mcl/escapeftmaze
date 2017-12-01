@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
@@ -27,13 +28,13 @@ import mclachlan.maze.stat.UnifiedActor;
 /**
  *
  */
-public class RestoreStealthEvent extends MazeEvent
+public class RestoreActionPointsEvent extends MazeEvent
 {
 	private UnifiedActor target;
 	private int amount;
 
 	/*-------------------------------------------------------------------------*/
-	public RestoreStealthEvent(UnifiedActor target, int amount)
+	public RestoreActionPointsEvent(UnifiedActor target, int amount)
 	{
 		this.target = target;
 		this.amount = amount;
@@ -71,6 +72,6 @@ public class RestoreStealthEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getTarget().getDisplayName()+" is concealed...";
+		return StringUtil.getEventText("msg.restore.action.points", getTarget().getDisplayName());
 	}
 }

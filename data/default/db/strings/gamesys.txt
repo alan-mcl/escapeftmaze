@@ -274,6 +274,7 @@ modifier_name-packRat: Pack Rat
 modifier_name-meleeCleave: Melee Cleave
 modifier_name-weaponMaster: Weapon Master
 modifier_name-toToToe: Toe to Toe
+modifier_name-lastStand: Last Stand
 
 # Modifier Descriptions
 
@@ -541,6 +542,7 @@ modifier_desc-packRat: This character can change equipment during the action sel
 modifier_desc-meleeCleave: On a killing blow with a melee weapon, this character makes an extra attack on another foe.
 modifier_desc-weaponMaster: The character ignores most modifier requirements for wielding weapons.
 modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to this character.
+modifier_desc-lastStand: If this character is the last party member standing, restore hit points and action points.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1003,6 +1005,8 @@ lap_name_toe_to_toe = Toe to Toe
 lap_desc_toe_to_toe = Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to the Hero.
 lap_name_greater_cleave = Greater Cleave
 lap_desc_greater_cleave = Cleaves on killing blows are no longer limited to just one.
+lap_name_last_stand = Last Stand
+lap_desc_last_stand = If the Hero is the last party member still alive in battle, he or she get a boost to carry on the fight.
 
 
 # Magician

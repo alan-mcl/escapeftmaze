@@ -24,6 +24,7 @@ attitude.ALLIED = Allied
 #
 # Other messages to the UI
 #
+msg.restore.action.points = %s restores action points
 msg.encounter.actors = Encountered %s
 msg.party.may.ambush = Party is stealthy and may ambush foes!
 msg.party.may.ambush.or.evade = Party is stealthy and may ambush or evade foes!
@@ -77,6 +78,7 @@ msg.summoning.single = appears
 msg.summoning.empowered = %s is empowered!
 msg.ammo.stash = %s produces %s %s!
 msg.melee.cleave = %s cleaves!
+msg.last.stand = %s prepares to fight to the bitter end!
 
 #
 # Encounter Actors events

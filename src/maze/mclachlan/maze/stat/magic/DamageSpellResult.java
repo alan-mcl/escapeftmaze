@@ -122,7 +122,7 @@ public class DamageSpellResult extends SpellResult
 				parent.getSubType()));
 			if (transferToCaster)
 			{
-				result.add(new RestoreStealthEvent(source, damage));
+				result.add(new RestoreActionPointsEvent(source, damage));
 			}
 		}
 		

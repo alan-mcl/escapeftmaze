@@ -21,9 +21,11 @@ package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.script.GrantExperienceEvent;
@@ -113,11 +115,27 @@ public class ActorDiesEvent extends MazeEvent
 
 		if (victim instanceof PlayerCharacter)
 		{
+			PlayerParty party = Maze.getInstance().getParty();
+			Combat currentCombat = Maze.getInstance().getCurrentCombat();
+
 			List<MazeEvent> speechEvents = SpeechUtil.getInstance().
 				allyDiesSpeech((PlayerCharacter)victim);
 			if (speechEvents != null)
 			{
 				result.addAll(speechEvents);
+			}
+
+			// check for LAST_MAN_STANDING
+			if (currentCombat != null && party.numAlive() == 1)
+			{
+				PlayerCharacter pc = party.getLivePlayerCharacters().get(0);
+				if (pc.getModifier(Stats.Modifier.LAST_STAND) > 0)
+				{
+					result.add(new UiMessageEvent(StringUtil.getEventText("msg.last.stand", pc.getDisplayName())));
+					result.add(new HealingEvent(pc, pc.getHitPoints().getMaximum()/2));
+					result.add(new StaminaEvent(pc, pc.getHitPoints().getMaximum()/4));
+					result.add(new RestoreActionPointsEvent(pc, pc.getActionPoints().getMaximum()/2));
+				}
 			}
 
 			// check for NOTORIETY kills on PCs
@@ -132,8 +150,6 @@ public class ActorDiesEvent extends MazeEvent
 			}
 
 			// check for SLIP_AWAY
-			PlayerParty party = Maze.getInstance().getParty();
-			Combat currentCombat = Maze.getInstance().getCurrentCombat();
 			if (currentCombat != null && party.numAlive() == 1)
 			{
 				PlayerCharacter pc = party.getLivePlayerCharacters().get(0);

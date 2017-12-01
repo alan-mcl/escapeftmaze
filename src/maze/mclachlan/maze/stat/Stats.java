@@ -654,6 +654,7 @@ public class Stats
 		MELEE_CLEAVE(250, "meleeCleave"),
 		WEAPON_MASTER(252, "weaponMaster", ModifierMetric.BOOLEAN),
 		TOE_TO_TOE(253, "toToToe", ModifierMetric.BOOLEAN),
+		LAST_STAND(254, "lastStand", ModifierMetric.BOOLEAN),
 		;
 
 		/**

@@ -17,7 +17,7 @@ Features
  - Gadgeteer class abilities: Bomb Thrower, Ammo Stash, Destroy Traps, Invention,
    Grand Invention, Pack Rat
  - Hero class abilities: Melee Cleave, Second Wind, Iron Skin, Provisions, KO Blow,
-   Weapon Master, Toe to Toe
+   Weapon Master, Toe to Toe, Last Stand
 
 Other
  - Refactored the Value composition into a flat ValueList

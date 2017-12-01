@@ -23,8 +23,8 @@ import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.HealingEvent;
+import mclachlan.maze.stat.combat.event.RestoreActionPointsEvent;
 import mclachlan.maze.stat.combat.event.RestoreMagicEvent;
-import mclachlan.maze.stat.combat.event.RestoreStealthEvent;
 import mclachlan.maze.stat.combat.event.StaminaEvent;
 
 /**
@@ -71,7 +71,7 @@ public class HealingSpellResult extends SpellResult
 		if (actionPointHealing != null)
 		{
 			int amount = actionPointHealing.compute(source, castingLevel);
-			result.add(new RestoreStealthEvent(target, amount));
+			result.add(new RestoreActionPointsEvent(target, amount));
 		}
 		
 		if (magicPointHealing != null)
