@@ -62,13 +62,13 @@ public class GameSys
 		heavyEncumbrance.setModifier(Stats.Modifier.DEFENCE, -5);
 		heavyEncumbrance.setModifier(Stats.Modifier.SKILL, -2);
 		heavyEncumbrance.setModifier(Stats.Modifier.SNEAKING, -4);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_AXE, -1);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_DAGGER, -1);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_MACE, -1);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SPEAR, -1);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_STAFF, -1);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SWORD, -1);
-		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_UNARMED, -1);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_AXE, -3);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_DAGGER, -3);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_MACE, -3);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SPEAR, -3);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_STAFF, -3);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SWORD, -3);
+		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_UNARMED, -3);
 		heavyEncumbrance.setModifier(Stats.Modifier.ARROW_CUTTING, -20);
 		heavyEncumbrance.setModifier(Stats.Modifier.AMBUSHER, -1);
 		heavyEncumbrance.setModifier(Stats.Modifier.DODGE, -20);
@@ -1462,72 +1462,6 @@ public class GameSys
 		}
 
 		return Math.max(1, result);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public boolean isLightningStrike(UnifiedActor attacker, AttackWith attackWith)
-	{
-		Stats.Modifier lightningStrikeModifier;
-
-		if (attackWith instanceof Item)
-		{
-			switch (((Item)(attackWith)).getSubType())
-			{
-				case ItemTemplate.WeaponSubType.AXE: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_AXE; break;
-				case ItemTemplate.WeaponSubType.DAGGER: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_DAGGER; break;
-				case ItemTemplate.WeaponSubType.MACE: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_MACE; break;
-				case ItemTemplate.WeaponSubType.MARTIAL_ARTS: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_UNARMED; break;
-				case ItemTemplate.WeaponSubType.POLEARM: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_SPEAR; break;
-				case ItemTemplate.WeaponSubType.STAFF: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_STAFF; break;
-				case ItemTemplate.WeaponSubType.SWORD: lightningStrikeModifier = Stats.Modifier.LIGHTNING_STRIKE_SWORD; break;
-				default: lightningStrikeModifier = null;
-			}
-		}
-		else
-		{
-			// for foe attacks, use the UNARMED modifier.  It's a hack, but
-			// an easy way of providing for the occasional lightning strike foe.
-			lightningStrikeModifier = Stats.Modifier.TIRELESS_UNARMED;
-		}
-
-		if (attacker.getModifier(lightningStrikeModifier) <= 0)
-		{
-			// early exit;
-			return false;
-		}
-
-		//
-		// build up a chance out of 1000
-		//
-
-		// base 2.5%
-		int chance = 25;
-
-		// add various modifiers
-		chance += attacker.getModifier(Stats.Modifier.SKILL);
-		chance += attacker.getModifier(Stats.Modifier.INITIATIVE);
-
-		// subtract 1 for every 10kg encumbrance
-		if (attacker instanceof PlayerCharacter)
-		{
-			int carryingKg = ((PlayerCharacter)attacker).getCarrying() / 1000;
-			chance -= (carryingKg / 10);
-		}
-
-		// subtract 1 for every 1 kg weapon weight (yes, again)
-		if (attackWith instanceof Item)
-		{
-			int weightKg = ((Item)(attackWith)).getWeight() / 1000;
-			chance -= weightKg;
-		}
-
-		return Dice.d1000.roll() <= chance;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getLightningStrikeNrStrikes()
-	{
-		return Dice.d3.roll() +1;
 	}
 
 	/*-------------------------------------------------------------------------*/

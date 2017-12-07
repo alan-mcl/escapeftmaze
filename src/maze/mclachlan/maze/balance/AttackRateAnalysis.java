@@ -102,7 +102,6 @@ public class AttackRateAnalysis
 					-1,
 					null,
 					true,
-					false,
 					GameSys.getInstance().getAttackType(weapon),
 					MagicSys.SpellEffectType.NONE);
 				aa.setActor(pc);
@@ -128,7 +127,6 @@ public class AttackRateAnalysis
 						-1,
 						null,
 						true,
-						false,
 						GameSys.getInstance().getAttackType(weapon),
 						MagicSys.SpellEffectType.NONE);
 					aa.setActor(pc);

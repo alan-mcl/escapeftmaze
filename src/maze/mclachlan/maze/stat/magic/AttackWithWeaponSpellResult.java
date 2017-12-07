@@ -198,7 +198,6 @@ public class AttackWithWeaponSpellResult extends SpellResult
 			actionNrStrikes,
 			actionAttackScript,
 			true,
-			false,
 			actionAttackType,
 			actionDamageType);
 		action.setActor(source);

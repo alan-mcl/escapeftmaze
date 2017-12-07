@@ -1391,13 +1391,6 @@ public class ActorActionResolver
 				attackAction.getAttackWith()));
 		}
 
-		if (attackAction.isLightningStrike())
-		{
-			result.add(new LightningStrikeEvent(attacker));
-			int strikes = GameSys.getInstance().getLightningStrikeNrStrikes();
-			attackAction.setNrStrikes(attackAction.getNrStrikes() + strikes);
-		}
-
 		AttackEvent attackEvent = new AttackEvent(
 			combat,
 			attacker,

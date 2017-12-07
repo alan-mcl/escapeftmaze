@@ -1558,6 +1558,16 @@ savedResult=
 targetType=5
 application=AS_PER_SPELL
 @
+name=LIGHTNING_STRIKE_UNARMED
+displayName=LIGHTNING_STRIKE_UNARMED
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=1:::1/1/SCALE_WITH_MODIFIER/LIGHTNING_STRIKE_UNARMED/false:BLUDGEONING:generic weapon swish::false:false:11:false:
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=dispel illusions
 displayName=dispel illusions
 type=NONE

@@ -241,7 +241,6 @@ public class ActorIntentionResolver
 					-1,
 					missileScript,
 					true,
-					GameSys.getInstance().isLightningStrike(actor, attackWith),
 					GameSys.getInstance().getAttackType(attackWith),
 					defaultDamageType);
 				action.setModifier(Stats.Modifier.INITIATIVE, -5 * i + attackWith.getToInitiative());
@@ -320,7 +319,6 @@ public class ActorIntentionResolver
 						-1,
 						missileScript,
 						true,
-						GameSys.getInstance().isLightningStrike(actor, weapon),
 						GameSys.getInstance().getAttackType(weapon),
 						defaultDamageType);
 					action.setModifier(Stats.Modifier.INITIATIVE, -5 * i + weapon.getToInitiative());
@@ -364,7 +362,6 @@ public class ActorIntentionResolver
 					-1,
 					attackWith.getAttackScript(),
 					true,
-					false,
 					GameSys.getInstance().getAttackType(weapon),
 					attackWith.getDefaultDamageType());
 				secAction.setModifier(Stats.Modifier.INITIATIVE, -5 * (i + 1) + weapon.getToInitiative());

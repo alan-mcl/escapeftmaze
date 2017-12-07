@@ -8041,6 +8041,27 @@ secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
 @
+name=_LIGHTNING_STRIKE_UNARMED_
+displayName=Lightning Strike - Unarmed
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=3
+school=Conjuration
+book=White Magic
+spellEffects=LIGHTNING_STRIKE_UNARMED:100
+description=strikes with the lighthing speed!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=generic weapon swish
+castByFoeScript=generic weapon swish
+usabilityType=1
+primaryModifier=LIGHTNING_STRIKE_UNARMED
+secondaryModifier=MARTIAL_ARTS
+wildMagicValue=
+wildMagicTable=
+@
 name=Freeze
 displayName=Freeze
 hitPointCost=

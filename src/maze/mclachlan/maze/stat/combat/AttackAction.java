@@ -35,7 +35,6 @@ public class AttackAction extends CombatAction
 	private int nrStrikes;
 	private MazeScript attackScript;
 	private boolean isFirstAttack;
-	private boolean isLightningStrike;
 	private UnifiedActor defender;
 	private AttackType attackType;
 	private MagicSys.SpellEffectType damageType;
@@ -47,7 +46,6 @@ public class AttackAction extends CombatAction
 		int nrStrikes,
 		MazeScript attackScript,
 		boolean isFirstAttack,
-		boolean lightningStrike,
 		AttackType attackType,
 		MagicSys.SpellEffectType damageType)
 	{
@@ -58,7 +56,6 @@ public class AttackAction extends CombatAction
 		this.setNrStrikes(nrStrikes);
 		this.setAttackScript(attackScript);
 		this.setFirstAttack(isFirstAttack);
-		this.setLightningStrike(lightningStrike);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -113,16 +110,6 @@ public class AttackAction extends CombatAction
 		isFirstAttack = firstAttack;
 	}
 
-	public boolean isLightningStrike()
-	{
-		return isLightningStrike;
-	}
-
-	public void setLightningStrike(boolean lightningStrike)
-	{
-		isLightningStrike = lightningStrike;
-	}
-
 	public UnifiedActor getDefender()
 	{
 		return defender;
@@ -163,7 +150,6 @@ public class AttackAction extends CombatAction
 		sb.append(", nrStrikes=").append(nrStrikes);
 		sb.append(", attackScript=").append(attackScript);
 		sb.append(", isFirstAttack=").append(isFirstAttack);
-		sb.append(", isLightningStrike=").append(isLightningStrike);
 		sb.append(", defender=").append(defender);
 		sb.append(", attackType=").append(attackType);
 		sb.append(", damageType=").append(damageType);
