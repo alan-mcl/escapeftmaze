@@ -18,9 +18,11 @@ Features
    Grand Invention, Pack Rat
  - Hero class abilities: Melee Cleave, Second Wind, Iron Skin, Provisions, KO Blow,
    Weapon Master, Toe to Toe, Last Stand
+ - Monk class abilities: Combo Strike, 
 
 Other
  - Refactored the Value composition into a flat ValueList
+ - Lightning Strike is now an activated ability, rather than randomly occurring
 
 ---------------------------------------
 v0.916 (18 December 2016)

@@ -1026,8 +1026,10 @@ lap_name_blind_fighting = Blind Fighting
 lap_desc_blind_fighting = The Monk can attack and defend normally while blind.
 lap_name_combo_strike = Combo Strike
 lap_desc_combo_strike = When fighting unarmed, the Monk has the ability to unleash a flurry of lightning fast blows.
-lap_name_lighting_strike_unarmed = Lightning Strike - Unarmed
+lap_name_lighting_strike_unarmed = Lightning Strike - Unarmed %s
 lap_desc_lighting_strike_unarmed = This modifier governs how many strikes the Monk makes with each Combo Strike.
+lap_name_stunning_blow = Stunning Blow
+lap_desc_stunning_blow = Attacks by the monk have a chance of paralysing opponents.
 
 # Ninja
 lap_name_obfuscation = Obfuscation %s
