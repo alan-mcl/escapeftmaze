@@ -275,6 +275,7 @@ modifier_name-meleeCleave: Melee Cleave
 modifier_name-weaponMaster: Weapon Master
 modifier_name-toToToe: Toe to Toe
 modifier_name-lastStand: Last Stand
+modifier_name-selfAwareness: Self Awareness
 
 # Modifier Descriptions
 
@@ -543,6 +544,7 @@ modifier_desc-meleeCleave: On a killing blow with a melee weapon, this character
 modifier_desc-weaponMaster: The character ignores most modifier requirements for wielding weapons.
 modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to this character.
 modifier_desc-lastStand: If this character is the last party member standing, restore hit points and action points.
+modifier_desc-selfAwareness: This character can always identify baneful conditions that afflict their person.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1030,6 +1032,9 @@ lap_name_lighting_strike_unarmed = Lightning Strike - Unarmed %s
 lap_desc_lighting_strike_unarmed = This modifier governs how many strikes the Monk makes with each Combo Strike.
 lap_name_stunning_blow = Stunning Blow
 lap_desc_stunning_blow = Attacks by the monk have a chance of paralysing opponents.
+lap_name_self_awareness = Self Awareness %s
+lap_desc_self_awareness_1 = The Monk always knows the name and type of conditions afflicting him or her
+lap_desc_self_awareness_2 = The Monk always knows the name, type and strength of conditions afflicting him or her
 
 # Ninja
 lap_name_obfuscation = Obfuscation %s

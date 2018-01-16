@@ -655,6 +655,7 @@ public class Stats
 		WEAPON_MASTER(252, "weaponMaster", ModifierMetric.BOOLEAN),
 		TOE_TO_TOE(253, "toToToe", ModifierMetric.BOOLEAN),
 		LAST_STAND(254, "lastStand", ModifierMetric.BOOLEAN),
+		SELF_AWARENESS(255, "selfAwareness"),
 		;
 
 		/**

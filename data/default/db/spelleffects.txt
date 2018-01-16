@@ -383,7 +383,7 @@ displayName=TEST
 type=WATER
 subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_CLASS_LEVEL/Berserker/false
-unsavedResult=1::8,01:1/1/SCALE_WITH_CHARACTER_LEVEL//false:FIRE:sound - buzz::false:false:0:false:
+unsavedResult=3::SCALING_HEX
 savedResult=
 targetType=2
 application=AS_PER_SPELL
@@ -975,7 +975,7 @@ subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_MODIFIER/BRAWN/false
 unsavedResult=3::RESTING_SLEEP
 savedResult=
-targetType=2
+targetType=4
 application=APPLY_ONCE_TO_CASTER
 @
 name=TestingSpellEffect3
@@ -985,7 +985,7 @@ subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_CHARACTER_LEVEL//false
 unsavedResult=3::BERSERK
 savedResult=
-targetType=2
+targetType=4
 application=AS_PER_SPELL
 @
 name=TestingSpellEffect2
@@ -995,7 +995,7 @@ subtype=NONE
 saveAdjustment=1/1/SCALE_WITH_CASTING_LEVEL//false
 unsavedResult=3::FATIGUE_KO
 savedResult=
-targetType=2
+targetType=4
 application=AS_PER_SPELL
 @
 name=deep freeze spell

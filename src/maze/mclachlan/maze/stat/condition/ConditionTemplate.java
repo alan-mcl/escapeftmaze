@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.game.GameTime;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.ValueList;
@@ -444,12 +445,22 @@ public class ConditionTemplate
 			// strength never begins identified
 			result.setStrengthIdentified(false);
 
+			// bit of a hack, but it's easy and safe to say that afflictions
+			// targeting PCs are the only things the need to be not identified
+			// at the moment.
 			if (result.isAffliction() && target instanceof PlayerCharacter)
 			{
-				// bit of a hack, but it's easy and safe to say that afflictions
-				// targeting PCs are the only things the need to be not identified
-				// at the moment.
 				result.setIdentified(false);
+
+				if (((PlayerCharacter)target).getModifier(Stats.Modifier.SELF_AWARENESS) > 0)
+				{
+					result.setIdentified(true);
+				}
+
+				if (((PlayerCharacter)target).getModifier(Stats.Modifier.SELF_AWARENESS) > 1)
+				{
+					result.setStrengthIdentified(true);
+				}
 			}
 			else
 			{
