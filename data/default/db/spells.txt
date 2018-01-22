@@ -355,6 +355,27 @@ secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
 @
+name=Reflexion
+displayName=Reflexion
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=White Magic
+spellEffects=reflexion:100
+description=dashes into battle!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=MARTIAL_ARTS
+secondaryModifier=MARTIAL_ARTS
+wildMagicValue=
+wildMagicTable=
+@
 name=Petrify
 displayName=Petrify
 hitPointCost=

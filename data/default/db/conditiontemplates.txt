@@ -2350,6 +2350,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=reflexion
+displayName=Reflexion
+icon=condition/reflexion
+adjective=on the move
+conditionEffect=none
+duration=1/1/SCALE_WITH_CLASS_LEVEL/Monk/false,1/2/NONE//false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false,1/1/NONE//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=1000000000000000048000000000000,050501
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=mantle of the seas
 displayName=mantle of the seas
 icon=condition/mantleoftheseas

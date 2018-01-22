@@ -1037,6 +1037,8 @@ lap_desc_stunning_blow = Attacks by the monk have a chance of paralysing opponen
 lap_name_self_awareness = Self Awareness %s
 lap_desc_self_awareness_1 = The Monk always knows the name and type of conditions afflicting him or her
 lap_desc_self_awareness_2 = The Monk always knows the name, type and strength of conditions afflicting him or her
+lap_name_reflexion = Reflexion
+lap_desc_reflexion = The Monk puts on a burst of speed that makes him or her nearly impossible to target.
 
 # Ninja
 lap_name_obfuscation = Obfuscation %s

@@ -4718,6 +4718,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=reflexion
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::reflexion
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=snow spear cold damage
 displayName=cold damage 1d6
 type=WATER

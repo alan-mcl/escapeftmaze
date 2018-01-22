@@ -18,7 +18,7 @@ Features
    Grand Invention, Pack Rat
  - Hero class abilities: Melee Cleave, Second Wind, Iron Skin, Provisions, KO Blow,
    Weapon Master, Toe to Toe, Last Stand
- - Monk class abilities: Combo Strike, Self Awareness
+ - Monk class abilities: Combo Strike, Self Awareness, Reflexion
 
 Other
  - Refactored the Value composition into a flat ValueList
