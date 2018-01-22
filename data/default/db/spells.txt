@@ -6949,6 +6949,27 @@ secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
 @
+name=Inner Force Blow
+displayName=Inner Force Blow
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=3
+school=Transmutation
+book=Black Magic
+spellEffects=inner force blow:100
+description=
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=generic weapon swish
+castByFoeScript=generic weapon swish
+usabilityType=1
+primaryModifier=MARTIAL_ARTS
+secondaryModifier=POWER
+wildMagicValue=
+wildMagicTable=
+@
 name=Crucible
 displayName=Crucible
 hitPointCost=
