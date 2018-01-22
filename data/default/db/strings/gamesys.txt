@@ -1041,6 +1041,12 @@ lap_name_reflexion = Reflexion
 lap_desc_reflexion = The Monk puts on a burst of speed that makes him or her nearly impossible to target.
 
 # Ninja
+lap_name_ninja_initiate = Ninja Initiate
+lap_desc_ninja_initiate = To complete their training an aspiring Ninja must wound his or her master trainer with an unexpected blow. Many do not survive the attempt.
+lap_name_ninja_master = Ninja Master
+lap_desc_ninja_master = No Ninja can earn the title Master without surviving at least one violent assassination attempt.
+lap_name_ninja_grandmaster = Ninja Grandmaster
+lap_desc_ninja_grandmaster = Grandmasters are held in awe by other Ninjas, but are seldom seen by them.
 lap_name_obfuscation = Obfuscation %s
 lap_desc_obfuscation = The Ninja is an expert at escaping attention and is less likely than other party members to be targetted by foe attacks.
 lap_name_shadowmaster = Shadowmaster
