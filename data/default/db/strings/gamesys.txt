@@ -654,6 +654,11 @@ lap_name_arrow_cutting = Arrow Cutting %s
 lap_desc_arrow_cutting = The character is extremely adept at deflecting incoming projectiles.
 lap_name_bard = Bard
 lap_desc_bard = Strangers met on the road always react more favourably to this character, and his or her presence in a party increases the rate of resource regeneration when camping.
+lap_name_bomb_thrower = Bomb Thrower
+lap_desc_bomb_thrower = This character is unlikely to fumble a bomb or powder in combat.
+lap_name_finisher = Finisher
+lap_desc_finisher = Melee attacks by this character against incapacitated enemies are all critical hits.
+
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -762,8 +767,6 @@ lap_name_killer = Killer
 lap_desc_killer = The Blackguard receives combat bonuses against humanoid foes.
 lap_name_dying_blow = Dying Blow
 lap_desc_dying_blow = If slain by a melee attack, the Blackguard strikes out one last time at his or her attacker.
-lap_name_finisher = Finisher
-lap_desc_finisher = The Blackguards melee attacks against incapacitated enemies are all critical hits.
 lap_name_bloodthirsty = Bloodthirsty %s
 lap_desc_bloodthirsty = The Blackguard receives combat bonuses at low hit point levels
 lap_name_cold_hearted = Cold Hearted
@@ -947,8 +950,6 @@ lap_name_pack_mule = Pack Mule
 lap_desc_pack_mule = The Gadgeteer gets a bonus to his or her carrying capacity.
 lap_name_signature_weapon = Signature Weapon
 lap_desc_signature_weapon = On level up, the Gadgeteer has a chance of upgrading a signature weapon in his or her possession.
-lap_name_bomb_thrower = Bomb Thrower
-lap_desc_bomb_thrower = The Gadgeteer is unlikely to fumble a bomb or powder in combat.
 lap_name_ammo_stash1 = Ammo Stash
 lap_name_ammo_stash2 = Greater Ammo Stash
 lap_name_ammo_stash3 = Amazing Ammo Stash
@@ -1047,10 +1048,8 @@ lap_name_ninja_master = Ninja Master
 lap_desc_ninja_master = No Ninja can earn the title Master without surviving at least one violent assassination attempt.
 lap_name_ninja_grandmaster = Ninja Grandmaster
 lap_desc_ninja_grandmaster = Grandmasters are held in awe by other Ninjas, but are seldom seen by them.
-lap_name_obfuscation = Obfuscation %s
-lap_desc_obfuscation = The Ninja is an expert at escaping attention and is less likely than other party members to be targetted by foe attacks.
-lap_name_shadowmaster = Shadowmaster
-lap_desc_shadowmaster = The Ninja gets a bonus to all critical modifiers based on the amount of Black magic present.
+lap_name_shin_ren = Shin Ren
+lap_desc_shin_ren = Hostile magic users will struggle to overcome the the Ninja's great internal discipline.
 
 # Paladin
 lap_name_tactics = Tactics
