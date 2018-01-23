@@ -488,6 +488,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=poison needle
+displayName=poison needle
+type=PIERCING
+subtype=NORMAL_DAMAGE
+saveAdjustment=
+unsavedResult=4::2/0/NONE//false/1d8,1/1/SCALE_WITH_CLASS_LEVEL/Ninja/false::::0.0:false
+savedResult=4::2/0/NONE//false/1d8,1/1/SCALE_WITH_CLASS_LEVEL/Ninja/false::::0.5:false
+targetType=3
+application=AS_PER_SPELL
+@
 name=phantasm spell
 displayName=
 type=AIR
@@ -2286,6 +2296,16 @@ saveAdjustment=
 unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/THOUGHT::::0.0:false
 savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,3/0/NONE//false/THOUGHT::::0.5:false
 targetType=5
+application=AS_PER_SPELL
+@
+name=poison needle poison
+displayName=poison needle poison
+type=EARTH
+subtype=POISON
+saveAdjustment=
+unsavedResult=3::poison type C
+savedResult=
+targetType=3
 application=AS_PER_SPELL
 @
 name=leverage spell

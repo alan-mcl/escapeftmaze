@@ -922,7 +922,7 @@ public class GameSys
 		
 		if (isActorImmuneToSpellEffect(target, subType))
 		{
-			Maze.log(Log.DEBUG, target.getName()+" is immune to this type of attack");
+			Maze.log(Log.DEBUG, target.getName()+" is immune to this type of attack ("+subType+")");
 			return true;
 		}
 

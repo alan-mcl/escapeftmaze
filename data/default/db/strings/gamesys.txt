@@ -1050,6 +1050,8 @@ lap_name_ninja_grandmaster = Ninja Grandmaster
 lap_desc_ninja_grandmaster = Grandmasters are held in awe by other Ninjas, but are seldom seen by them.
 lap_name_inner_force_blow = Inner Force Blow
 lap_desc_inner_force_blow = When fighting unarmed, the Ninja can deliver a single greatly damaging blow.
+lap_name_poison_needles = Poison Needles
+lap_desc_poison_needles = The Ninja can spit a poisoned dart at an unsuspecting foe.
 lap_name_shin_ren = Shin Ren
 lap_desc_shin_ren = Hostile magic users will struggle to overcome the the Ninja's great internal discipline.
 
