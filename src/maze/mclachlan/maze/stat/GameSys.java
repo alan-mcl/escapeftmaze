@@ -3995,6 +3995,13 @@ public class GameSys
 					StringUtil.getModifierName(Stats.Modifier.STAFF_PARRY),
 						actor.getModifier(Stats.Modifier.STAFF_PARRY));
 			}
+			else if (actor.getModifier(Stats.Modifier.UNARMED_PARRY) > 0 &&
+				actor.getPrimaryWeapon() == null && actor.getSecondaryWeapon() == null)
+			{
+				return new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifier.UNARMED_PARRY),
+					actor.getModifier(Stats.Modifier.UNARMED_PARRY));
+			}
 		}
 		else if (Stats.Modifier.ACTION_POINT_REGEN.equals(modifier))
 		{

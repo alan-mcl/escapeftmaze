@@ -34,6 +34,12 @@ public class CombatAction //extends StatModifier
 	private boolean initiativeSet = false;
 	private StatModifier modifiers;
 
+	/**
+	 * The action number the same actor will take this round.
+	 * First action is 0, second is 1, etc
+	 * */
+	private int actorActionIndex;
+
 	/*-------------------------------------------------------------------------*/
 	public static final CombatAction DO_NOTHING = new CombatAction()
 	{
@@ -111,5 +117,15 @@ public class CombatAction //extends StatModifier
 	public int getModifier(Stats.Modifier mod)
 	{
 		return modifiers.getModifier(mod);
+	}
+
+	public int getActorActionIndex()
+	{
+		return actorActionIndex;
+	}
+
+	public void setActorActionIndex(int actorActionIndex)
+	{
+		this.actorActionIndex = actorActionIndex;
 	}
 }

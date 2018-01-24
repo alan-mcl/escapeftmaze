@@ -237,6 +237,7 @@ modifier_name-axeParry: Axe Parry
 modifier_name-maceParry: Mace Parry
 modifier_name-polearmParry: Polearm Parry
 modifier_name-staffParry: Staff Parry
+modifier_name-unarmedParry: Unarmed Parry
 modifier_name-amazonCourage: Amazon Courage
 modifier_name-amazonWillpower: Amazon Willpower
 modifier_name-amazonFury: Amazon Fury
@@ -276,6 +277,7 @@ modifier_name-weaponMaster: Weapon Master
 modifier_name-toToToe: Toe to Toe
 modifier_name-lastStand: Last Stand
 modifier_name-selfAwareness: Self Awareness
+modifier_name-snakespeed: Snakespeed
 
 # Modifier Descriptions
 
@@ -506,6 +508,7 @@ modifier_desc-axeParry: Gains parry when armed with an axe
 modifier_desc-maceParry: Gains parry when armed with a mace or hammer
 modifier_desc-polearmParry: Gains parry when armed with a polearm
 modifier_desc-staffParry: Gains parry when armed with a staff
+modifier_desc-unarmedParry: This character gains parry while fighting unarmed.
 modifier_desc-amazonCourage: Instead of getting afflicted by the Fear condition, this character gains an Amazon Courage condition instead.
 modifier_desc-amazonWillpower: Instead of getting afflicted by Confusion or Possession, this character gains an Amazon Willpower condition instead.
 modifier_desc-amazonFury: Instead of getting afflicted by Web, Sleep, Slow or Paralyse, this character gains an Amazon Fury condition instead.
@@ -545,6 +548,7 @@ modifier_desc-weaponMaster: The character ignores most modifier requirements for
 modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to this character.
 modifier_desc-lastStand: If this character is the last party member standing, restore hit points and action points.
 modifier_desc-selfAwareness: This character can always identify baneful conditions that afflict their person.
+modifier_desc-snakespeed: In combat this character always acts before characters that do not have snakespeed.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1054,6 +1058,10 @@ lap_name_poison_needles = Poison Needles
 lap_desc_poison_needles = The Ninja can spit a poisoned dart at an unsuspecting foe.
 lap_name_shin_ren = Shin Ren
 lap_desc_shin_ren = Hostile magic users will struggle to overcome the the Ninja's great internal discipline.
+lap_name_taijutsu = Taijutsu
+lap_desc_taijutsu = By means of steel rods in his or her sleeves, the Ninja gains parry while fighting unarmed.
+lap_name_snakespeed = Snakespeed
+lap_desc_snakespeed = The Ninja strikes with blinding speed in combat.
 
 # Paladin
 lap_name_tactics = Tactics

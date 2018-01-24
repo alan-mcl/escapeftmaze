@@ -195,6 +195,9 @@ public class Stats
 		favouredEnemies.add(Modifier.FAVOURED_ENEMY_UNDEAD);
 		favouredEnemies.add(Modifier.FAVOURED_ENEMY_VERMIN);
 
+		weaponAbilities.add(Modifier.PARRY);
+		weaponAbilities.add(Modifier.RIPOSTE);
+		weaponAbilities.add(Modifier.IAJUTSU);
 		weaponAbilities.add(Modifier.TIRELESS_AXE);
 		weaponAbilities.add(Modifier.TIRELESS_BOW);
 		weaponAbilities.add(Modifier.TIRELESS_DAGGER);
@@ -216,6 +219,7 @@ public class Stats
 		weaponAbilities.add(Modifier.MACE_PARRY);
 		weaponAbilities.add(Modifier.POLEARM_PARRY);
 		weaponAbilities.add(Modifier.STAFF_PARRY);
+		weaponAbilities.add(Modifier.UNARMED_PARRY);
 		weaponAbilities.add(Modifier.SWORD_1H_WIELD);
 		weaponAbilities.add(Modifier.AXE_1H_WIELD);
 		weaponAbilities.add(Modifier.MACE_1H_WIELD);
@@ -232,7 +236,7 @@ public class Stats
 
 		middleModifiers.addAll(allModifiers);
 		middleModifiers.removeAll(attributeModifiers);
-		middleModifiers.removeAll(resistances);
+		middleModifiers.removeAll(resistancesAndImmunities);
 
 		// validate modifier IDs
 		Set<Integer> ids = new HashSet<Integer>();
@@ -615,6 +619,7 @@ public class Stats
 		MACE_PARRY(210, "maceParry", ModifierMetric.PERCENTAGE),
 		POLEARM_PARRY(211, "polearmParry", ModifierMetric.PERCENTAGE),
 		STAFF_PARRY(212, "staffParry", ModifierMetric.PERCENTAGE),
+		UNARMED_PARRY(256, "unarmedParry", ModifierMetric.PERCENTAGE),
 		AMAZON_COURAGE(213, "amazonCourage", ModifierMetric.BOOLEAN),
 		AMAZON_WILLPOWER(214, "amazonWillpower", ModifierMetric.BOOLEAN),
 		AMAZON_FURY(220, "amazonFury", ModifierMetric.BOOLEAN),
@@ -656,6 +661,7 @@ public class Stats
 		TOE_TO_TOE(253, "toToToe", ModifierMetric.BOOLEAN),
 		LAST_STAND(254, "lastStand", ModifierMetric.BOOLEAN),
 		SELF_AWARENESS(255, "selfAwareness"),
+		SNAKESPEED(257, "snakespeed"),
 		;
 
 		/**

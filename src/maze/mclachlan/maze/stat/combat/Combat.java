@@ -810,9 +810,15 @@ public class Combat
 				actorActions.add(blinkIn);
 			}
 
+			// sort the actor actions, so that we can rank them
+			Collections.shuffle(actorActions);
+			Collections.sort(actorActions, comparator);
+
+			int actorActionIndex = 0;
 			for (CombatAction action : actorActions)
 			{
 				action.setActor(actor);
+				action.setActorActionIndex(actorActionIndex++);
 				if (!action.isInitiativeSet())
 				{
 					action.setInitiative(
@@ -907,9 +913,27 @@ public class Combat
 			
 			CombatAction action1 = (CombatAction)o1;
 			CombatAction action2 = (CombatAction)o2;
-			
-			// reverse this because we want descending order
-			return action2.getInitiative() - action1.getInitiative();
+
+			UnifiedActor actor1 = action1.getActor();
+			UnifiedActor actor2 = action2.getActor();
+
+			// values are reversed because we want descending order
+			if (actor1.getModifier(Stats.Modifier.SNAKESPEED) > 0 &&
+				action1.getActorActionIndex()==0 &&
+				actor2.getModifier(Stats.Modifier.SNAKESPEED) <= 0)
+			{
+				return -1;
+			}
+			else if (actor2.getModifier(Stats.Modifier.SNAKESPEED) > 0 &&
+				action2.getActorActionIndex()==0 &&
+				actor1.getModifier(Stats.Modifier.SNAKESPEED) <= 0)
+			{
+				return 1;
+			}
+			else
+			{
+				return action2.getInitiative() - action1.getInitiative();
+			}
 		}
 	}
 }
