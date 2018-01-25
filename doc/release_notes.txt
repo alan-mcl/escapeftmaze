@@ -19,7 +19,8 @@ Features
  - Hero class abilities: Melee Cleave, Second Wind, Iron Skin, Provisions, KO Blow,
    Weapon Master, Toe to Toe, Last Stand
  - Monk class abilities: Combo Strike, Self Awareness, Reflexion
- - Ninja class abilities: Inner Force Blow, Poison Needles, Taijutsu, Snakespeed
+ - Ninja class abilities: Inner Force Blow, Poison Needles, Taijutsu, Snakespeed,
+   Flash Powder, 
 
 Other
  - Refactored the Value composition into a flat ValueList

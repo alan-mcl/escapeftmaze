@@ -1062,6 +1062,8 @@ lap_name_taijutsu = Taijutsu
 lap_desc_taijutsu = By means of steel rods in his or her sleeves, the Ninja gains parry while fighting unarmed.
 lap_name_snakespeed = Snakespeed
 lap_desc_snakespeed = The Ninja strikes with blinding speed in combat.
+lap_name_flash_powder = Flash Powder
+lap_desc_flash_powder = The Ninja deploys incendiary powder, blinding foes.
 
 # Paladin
 lap_name_tactics = Tactics
