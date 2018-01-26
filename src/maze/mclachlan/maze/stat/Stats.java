@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.util.MazeException;
 
+import static mclachlan.maze.stat.Stats.Modifier.*;
 import static mclachlan.maze.stat.Stats.ModifierType.*;
 
 /**
@@ -64,6 +65,9 @@ public class Stats
 	public static List<Modifier> touches = new ArrayList<Modifier>();
 	public static List<Modifier> weaponAbilities = new ArrayList<Modifier>();
 	public static List<Modifier> favouredEnemies = new ArrayList<Modifier>();
+	public static List<Modifier> otherCombat = new ArrayList<Modifier>();
+	public static List<Modifier> otherStealth = new ArrayList<Modifier>();
+	public static List<Modifier> otherMagic = new ArrayList<Modifier>();
 
 	/** Spell casting level modifiers */
 	public static List<Modifier> spellCastingLevels = new ArrayList<Modifier>();
@@ -126,113 +130,176 @@ public class Stats
 		regularModifiers.addAll(stealthModifiers);
 		regularModifiers.addAll(magicModifiers);
 
-		resistances.add(Modifier.RESIST_BLUDGEONING);
-		resistances.add(Modifier.RESIST_PIERCING);
-		resistances.add(Modifier.RESIST_SLASHING);
-		resistances.add(Modifier.RESIST_FIRE);
-		resistances.add(Modifier.RESIST_WATER);
-		resistances.add(Modifier.RESIST_EARTH);
-		resistances.add(Modifier.RESIST_AIR);
-		resistances.add(Modifier.RESIST_MENTAL);
-		resistances.add(Modifier.RESIST_ENERGY);
+		resistances.add(RESIST_BLUDGEONING);
+		resistances.add(RESIST_PIERCING);
+		resistances.add(RESIST_SLASHING);
+		resistances.add(RESIST_FIRE);
+		resistances.add(RESIST_WATER);
+		resistances.add(RESIST_EARTH);
+		resistances.add(RESIST_AIR);
+		resistances.add(RESIST_MENTAL);
+		resistances.add(RESIST_ENERGY);
 
 		resistancesAndImmunities.addAll(resistances);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_DAMAGE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_HEAT);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_COLD);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_POISON);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_LIGHTNING);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_PSYCHIC);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_ACID);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_BLIND);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_DISEASE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_FEAR);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_HEX);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_INSANE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_INVISIBLE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_IRRITATE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_KO);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_NAUSEA);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_PARALYSE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_POSSESSION);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_SILENCE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_SLEEP);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_STONE);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_SWALLOW);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_WEB);
-		resistancesAndImmunities.add(Modifier.IMMUNE_TO_CRITICALS);
+		resistancesAndImmunities.add(IMMUNE_TO_DAMAGE);
+		resistancesAndImmunities.add(IMMUNE_TO_HEAT);
+		resistancesAndImmunities.add(IMMUNE_TO_COLD);
+		resistancesAndImmunities.add(IMMUNE_TO_POISON);
+		resistancesAndImmunities.add(IMMUNE_TO_LIGHTNING);
+		resistancesAndImmunities.add(IMMUNE_TO_PSYCHIC);
+		resistancesAndImmunities.add(IMMUNE_TO_ACID);
+		resistancesAndImmunities.add(IMMUNE_TO_BLIND);
+		resistancesAndImmunities.add(IMMUNE_TO_DISEASE);
+		resistancesAndImmunities.add(IMMUNE_TO_FEAR);
+		resistancesAndImmunities.add(IMMUNE_TO_HEX);
+		resistancesAndImmunities.add(IMMUNE_TO_INSANE);
+		resistancesAndImmunities.add(IMMUNE_TO_INVISIBLE);
+		resistancesAndImmunities.add(IMMUNE_TO_IRRITATE);
+		resistancesAndImmunities.add(IMMUNE_TO_KO);
+		resistancesAndImmunities.add(IMMUNE_TO_NAUSEA);
+		resistancesAndImmunities.add(IMMUNE_TO_PARALYSE);
+		resistancesAndImmunities.add(IMMUNE_TO_POSSESSION);
+		resistancesAndImmunities.add(IMMUNE_TO_SILENCE);
+		resistancesAndImmunities.add(IMMUNE_TO_SLEEP);
+		resistancesAndImmunities.add(IMMUNE_TO_STONE);
+		resistancesAndImmunities.add(IMMUNE_TO_SWALLOW);
+		resistancesAndImmunities.add(IMMUNE_TO_WEB);
+		resistancesAndImmunities.add(IMMUNE_TO_CRITICALS);
 
-		touches.add(Modifier.TOUCH_BLIND);
-		touches.add(Modifier.TOUCH_DISEASE);
-		touches.add(Modifier.TOUCH_FEAR);
-		touches.add(Modifier.TOUCH_HEX);
-		touches.add(Modifier.TOUCH_INSANE);
-		touches.add(Modifier.TOUCH_IRRITATE);
-		touches.add(Modifier.TOUCH_NAUSEA);
-		touches.add(Modifier.TOUCH_PARALYSE);
-		touches.add(Modifier.TOUCH_SILENCE);
-		touches.add(Modifier.TOUCH_SLEEP);
-		touches.add(Modifier.TOUCH_STONE);
-		touches.add(Modifier.TOUCH_WEB);
-		touches.add(Modifier.TOUCH_POISON);
-		touches.add(Modifier.TOUCH_KO);
+		touches.add(TOUCH_BLIND);
+		touches.add(TOUCH_DISEASE);
+		touches.add(TOUCH_FEAR);
+		touches.add(TOUCH_HEX);
+		touches.add(TOUCH_INSANE);
+		touches.add(TOUCH_IRRITATE);
+		touches.add(TOUCH_NAUSEA);
+		touches.add(TOUCH_PARALYSE);
+		touches.add(TOUCH_SILENCE);
+		touches.add(TOUCH_SLEEP);
+		touches.add(TOUCH_STONE);
+		touches.add(TOUCH_WEB);
+		touches.add(TOUCH_POISON);
+		touches.add(TOUCH_KO);
 
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_BEAST);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_CONSTRUCT);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_MAZE_CREATURE);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_CRYPTOBESTIA);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_DRAGON);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_ELEMENTAL);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_FEY);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_GIANT);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_HORROR);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_HUMANOID);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_ILLUSION);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_MONSTROSITY);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_OOZE);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_OUTSIDER);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_PLANT);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_UNDEAD);
-		favouredEnemies.add(Modifier.FAVOURED_ENEMY_VERMIN);
+		Collections.sort(touches, new ModifierComparatorAlphabetic());
 
-		weaponAbilities.add(Modifier.PARRY);
-		weaponAbilities.add(Modifier.RIPOSTE);
-		weaponAbilities.add(Modifier.IAJUTSU);
-		weaponAbilities.add(Modifier.TIRELESS_AXE);
-		weaponAbilities.add(Modifier.TIRELESS_BOW);
-		weaponAbilities.add(Modifier.TIRELESS_DAGGER);
-		weaponAbilities.add(Modifier.TIRELESS_MACE);
-		weaponAbilities.add(Modifier.TIRELESS_SPEAR);
-		weaponAbilities.add(Modifier.TIRELESS_STAFF);
-		weaponAbilities.add(Modifier.TIRELESS_SWORD);
-		weaponAbilities.add(Modifier.TIRELESS_THROWN);
-		weaponAbilities.add(Modifier.TIRELESS_UNARMED);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_AXE);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_DAGGER);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_MACE);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_SPEAR);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_STAFF);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_SWORD);
-		weaponAbilities.add(Modifier.LIGHTNING_STRIKE_UNARMED);
-		weaponAbilities.add(Modifier.SWORD_PARRY);
-		weaponAbilities.add(Modifier.AXE_PARRY);
-		weaponAbilities.add(Modifier.MACE_PARRY);
-		weaponAbilities.add(Modifier.POLEARM_PARRY);
-		weaponAbilities.add(Modifier.STAFF_PARRY);
-		weaponAbilities.add(Modifier.UNARMED_PARRY);
-		weaponAbilities.add(Modifier.SWORD_1H_WIELD);
-		weaponAbilities.add(Modifier.AXE_1H_WIELD);
-		weaponAbilities.add(Modifier.MACE_1H_WIELD);
-		weaponAbilities.add(Modifier.POLEARM_1H_WIELD);
-		weaponAbilities.add(Modifier.STAFF_1H_WIELD);
+		favouredEnemies.add(FAVOURED_ENEMY_BEAST);
+		favouredEnemies.add(FAVOURED_ENEMY_CONSTRUCT);
+		favouredEnemies.add(FAVOURED_ENEMY_MAZE_CREATURE);
+		favouredEnemies.add(FAVOURED_ENEMY_CRYPTOBESTIA);
+		favouredEnemies.add(FAVOURED_ENEMY_DRAGON);
+		favouredEnemies.add(FAVOURED_ENEMY_ELEMENTAL);
+		favouredEnemies.add(FAVOURED_ENEMY_FEY);
+		favouredEnemies.add(FAVOURED_ENEMY_GIANT);
+		favouredEnemies.add(FAVOURED_ENEMY_HORROR);
+		favouredEnemies.add(FAVOURED_ENEMY_HUMANOID);
+		favouredEnemies.add(FAVOURED_ENEMY_ILLUSION);
+		favouredEnemies.add(FAVOURED_ENEMY_MONSTROSITY);
+		favouredEnemies.add(FAVOURED_ENEMY_OOZE);
+		favouredEnemies.add(FAVOURED_ENEMY_OUTSIDER);
+		favouredEnemies.add(FAVOURED_ENEMY_PLANT);
+		favouredEnemies.add(FAVOURED_ENEMY_UNDEAD);
+		favouredEnemies.add(FAVOURED_ENEMY_VERMIN);
 
-		spellCastingLevels.add(Modifier.BLACK_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.BLUE_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.GREEN_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.WHITE_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.GOLD_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.PURPLE_MAGIC_SPELLS);
-		spellCastingLevels.add(Modifier.RED_MAGIC_SPELLS);
+		Collections.sort(favouredEnemies, new ModifierComparatorAlphabetic());
+
+		weaponAbilities.add(TIRELESS_AXE);
+		weaponAbilities.add(TIRELESS_BOW);
+		weaponAbilities.add(TIRELESS_DAGGER);
+		weaponAbilities.add(TIRELESS_MACE);
+		weaponAbilities.add(TIRELESS_SPEAR);
+		weaponAbilities.add(TIRELESS_STAFF);
+		weaponAbilities.add(TIRELESS_SWORD);
+		weaponAbilities.add(TIRELESS_THROWN);
+		weaponAbilities.add(TIRELESS_UNARMED);
+		weaponAbilities.add(LIGHTNING_STRIKE_AXE);
+		weaponAbilities.add(LIGHTNING_STRIKE_DAGGER);
+		weaponAbilities.add(LIGHTNING_STRIKE_MACE);
+		weaponAbilities.add(LIGHTNING_STRIKE_SPEAR);
+		weaponAbilities.add(LIGHTNING_STRIKE_STAFF);
+		weaponAbilities.add(LIGHTNING_STRIKE_SWORD);
+		weaponAbilities.add(LIGHTNING_STRIKE_UNARMED);
+		weaponAbilities.add(SWORD_PARRY);
+		weaponAbilities.add(AXE_PARRY);
+		weaponAbilities.add(MACE_PARRY);
+		weaponAbilities.add(POLEARM_PARRY);
+		weaponAbilities.add(STAFF_PARRY);
+		weaponAbilities.add(UNARMED_PARRY);
+		weaponAbilities.add(SWORD_1H_WIELD);
+		weaponAbilities.add(AXE_1H_WIELD);
+		weaponAbilities.add(MACE_1H_WIELD);
+		weaponAbilities.add(POLEARM_1H_WIELD);
+		weaponAbilities.add(STAFF_1H_WIELD);
+
+		spellCastingLevels.add(BLACK_MAGIC_SPELLS);
+		spellCastingLevels.add(BLUE_MAGIC_SPELLS);
+		spellCastingLevels.add(GREEN_MAGIC_SPELLS);
+		spellCastingLevels.add(WHITE_MAGIC_SPELLS);
+		spellCastingLevels.add(GOLD_MAGIC_SPELLS);
+		spellCastingLevels.add(PURPLE_MAGIC_SPELLS);
+		spellCastingLevels.add(RED_MAGIC_SPELLS);
+
+		otherCombat.add(BLIND_FIGHTING);
+		otherCombat.add(ARROW_CUTTING);
+		otherCombat.add(DAMAGE_MULTIPLIER);
+		otherCombat.add(BERSERKER);
+		otherCombat.add(DEADLY_STRIKE);
+		otherCombat.add(MASTER_ARCHER);
+		otherCombat.add(KI_FURY);
+		otherCombat.add(PARRY);
+		otherCombat.add(RIPOSTE);
+		otherCombat.add(MELEE_MASTER);
+		otherCombat.add(DEADLY_AIM);
+		otherCombat.add(BONUS_ATTACKS);
+		otherCombat.add(BONUS_STRIKES);
+		otherCombat.add(IAJUTSU);
+		otherCombat.add(FURIOUS_PURPOSE);
+		otherCombat.add(AMAZON_COURAGE);
+		otherCombat.add(AMAZON_WILLPOWER);
+		otherCombat.add(AMAZON_FURY);
+		otherCombat.add(BERSERK_POWERS);
+		otherCombat.add(DYING_BLOW);
+		otherCombat.add(FINISHER);
+		otherCombat.add(SURPRISE_PARRY);
+		otherCombat.add(BOMB_THROWER);
+		otherCombat.add(MELEE_CLEAVE);
+		otherCombat.add(WEAPON_MASTER);
+		otherCombat.add(TOE_TO_TOE);
+		otherCombat.add(LAST_STAND);
+
+		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
+
+		otherStealth.add(AMBUSHER);
+		otherStealth.add(DODGE);
+		otherStealth.add(MASTER_THIEF);
+		otherStealth.add(OBFUSCATION);
+		otherStealth.add(SHADOW_MASTER);
+		otherStealth.add(HIDE);
+		otherStealth.add(ACTION_REGEN_URBAN);
+		otherStealth.add(ACTION_REGEN_DUNGEON);
+		otherStealth.add(ACTION_REGEN_WILDERNESS);
+		otherStealth.add(ACTION_REGEN_WASTELAND);
+		otherStealth.add(DANGER_SENSE);
+		otherStealth.add(QUICK_WITS);
+		otherStealth.add(TRAP_SENSE);
+		otherStealth.add(SLIP_AWAY);
+		otherStealth.add(SNAKESPEED);
+		otherStealth.add(ACROBATICS);
+
+		Collections.sort(otherStealth, new ModifierComparatorAlphabetic());
+
+		otherMagic.add(MAGIC_ABSORPTION);
+		otherMagic.add(DIVINE_PROTECTION);
+		otherMagic.add(FEY_AFFINITY);
+		otherMagic.add(ARCANE_BLOOD);
+		otherMagic.add(CHARMED_DESTINY);
+		otherMagic.add(CHANNELLING);
+		otherMagic.add(POWER_OF_DARKNESS);
+		otherMagic.add(REINCARNATE_BEAST);
+		otherMagic.add(POWER_SUMMON_ELEMENTAL);
+		otherMagic.add(MASTER_DIVINER);
+
+		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
 		middleModifiers.addAll(allModifiers);
 		middleModifiers.removeAll(attributeModifiers);
@@ -737,6 +804,17 @@ public class Stats
 		public int getId()
 		{
 			return id;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class ModifierComparatorAlphabetic implements Comparator<Modifier>
+	{
+
+		@Override
+		public int compare(Modifier m1, Modifier m2)
+		{
+			return m1.toString().compareTo(m2.toString());
 		}
 	}
 

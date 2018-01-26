@@ -71,6 +71,9 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		other.removeAll(Stats.touches);
 		other.removeAll(Stats.weaponAbilities);
 		other.removeAll(Stats.favouredEnemies);
+		other.removeAll(Stats.otherCombat);
+		other.removeAll(Stats.otherStealth);
+		other.removeAll(Stats.otherMagic);
 
 		List<Stats.Modifier> statisticsMinusResistances =
 			new ArrayList<Stats.Modifier>(Stats.statistics);
@@ -82,14 +85,20 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		JPanel touch = getTab(Stats.touches);
 		JPanel weap = getTab(Stats.weaponAbilities);
 		JPanel favEn = getTab(Stats.favouredEnemies);
+		JPanel otherCombat = getTab(Stats.otherCombat);
+		JPanel otherStealth = getTab(Stats.otherStealth);
+		JPanel otherMagic = getTab(Stats.otherMagic);
 		JPanel misc = getTab(other);
 
 		tabs.addTab(getTitle("Regular", regularPlusResource), regular);
-		tabs.addTab(getTitle("Statistics", Stats.statistics), stats);
-		tabs.addTab(getTitle("Resistances & Immunities", Stats.resistancesAndImmunities), rAndI);
+		tabs.addTab(getTitle("Stats", Stats.statistics), stats);
+		tabs.addTab(getTitle("Resist/Immune", Stats.resistancesAndImmunities), rAndI);
 		tabs.addTab(getTitle("Touches", Stats.touches), touch);
-		tabs.addTab(getTitle("Weapon Abilities", Stats.weaponAbilities), weap);
-		tabs.addTab(getTitle("Favoured Enemies", Stats.favouredEnemies), favEn);
+		tabs.addTab(getTitle("Weapons", Stats.weaponAbilities), weap);
+		tabs.addTab(getTitle("Fav Enemies", Stats.favouredEnemies), favEn);
+		tabs.addTab(getTitle("Other/Combat", Stats.otherCombat), otherCombat);
+		tabs.addTab(getTitle("Other/Stealth", Stats.otherStealth), otherStealth);
+		tabs.addTab(getTitle("Other/Magic", Stats.otherMagic), otherMagic);
 		tabs.addTab(getTitle("Other", other), misc);
 
 		ok = new JButton("OK");
