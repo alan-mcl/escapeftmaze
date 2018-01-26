@@ -3472,13 +3472,34 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The cost in action points to dodge an attack.
+	 * @param defender
+	 * 	The actor who is dodging
+	 */
+	public int getDodgeCost(UnifiedActor defender)
+	{
+		if (defender.getModifier(Stats.Modifier.ACROBATICS) > 0)
+		{
+			return 1;
+		}
+		else
+		{
+			return 2;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	True if the attack is dodged
 	 */
 	public boolean isAttackDodged(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
 	{
-		if (defender.getModifier(Stats.Modifier.DODGE) <= 0)
+		if (defender.getModifier(Stats.Modifier.DODGE) <= 0 ||
+			defender.getActionPoints().getCurrent() < getDodgeCost(defender))
 		{
 			return false;
 		}

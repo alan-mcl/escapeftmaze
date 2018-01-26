@@ -278,6 +278,7 @@ modifier_name-toToToe: Toe to Toe
 modifier_name-lastStand: Last Stand
 modifier_name-selfAwareness: Self Awareness
 modifier_name-snakespeed: Snakespeed
+modifier_name-acrobatics: Acrobatics
 
 # Modifier Descriptions
 
@@ -549,6 +550,7 @@ modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent 
 modifier_desc-lastStand: If this character is the last party member standing, restore hit points and action points.
 modifier_desc-selfAwareness: This character can always identify baneful conditions that afflict their person.
 modifier_desc-snakespeed: In combat this character always acts before characters that do not have snakespeed.
+modifier_desc-acrobatics: Dodge actions in combat cost this character fewer action points than usual.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1064,6 +1066,8 @@ lap_name_snakespeed = Snakespeed
 lap_desc_snakespeed = The Ninja strikes with blinding speed in combat.
 lap_name_flash_powder = Flash Powder
 lap_desc_flash_powder = The Ninja deploys incendiary powder, blinding foes.
+lap_name_acrobatics = Acrobatics
+lap_desc_acrobatics = With great agility the Ninja can easily evade melee attacks.
 
 # Paladin
 lap_name_tactics = Tactics

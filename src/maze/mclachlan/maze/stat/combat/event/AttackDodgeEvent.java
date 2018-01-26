@@ -21,8 +21,10 @@ package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
@@ -47,6 +49,11 @@ public class AttackDodgeEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		int dodgeCost = GameSys.getInstance().getDodgeCost(defender);
+
+		Maze.log(Log.DEBUG, "dodge cost for : "+defender.getName()+" = "+dodgeCost);
+
+		defender.getActionPoints().decCurrent(dodgeCost);
 		return null;
 	}
 

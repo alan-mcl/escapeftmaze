@@ -662,6 +662,7 @@ public class Stats
 		LAST_STAND(254, "lastStand", ModifierMetric.BOOLEAN),
 		SELF_AWARENESS(255, "selfAwareness"),
 		SNAKESPEED(257, "snakespeed"),
+		ACROBATICS(258, "acrobatics"),
 		;
 
 		/**
