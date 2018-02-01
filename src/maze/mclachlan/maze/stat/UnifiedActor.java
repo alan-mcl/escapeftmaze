@@ -1191,7 +1191,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		//
 		// Modifiers for any special abilities
 		//
-		result.add(GameSys.getInstance().modifyModifierForSpecialAbility(this, modifier));
+		result.addAll(GameSys.getInstance().modifyModifierForSpecialAbility(this, modifier));
 
 		return result;
 	}

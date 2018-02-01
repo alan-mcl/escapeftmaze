@@ -266,6 +266,7 @@ public class Stats
 		otherCombat.add(WEAPON_MASTER);
 		otherCombat.add(TOE_TO_TOE);
 		otherCombat.add(LAST_STAND);
+		otherCombat.add(YUBI_JUTSU);
 
 		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
 
@@ -730,6 +731,7 @@ public class Stats
 		SELF_AWARENESS(255, "selfAwareness"),
 		SNAKESPEED(257, "snakespeed"),
 		ACROBATICS(258, "acrobatics"),
+		YUBI_JUTSU(259, "yubiJutsu"),
 		;
 
 		/**

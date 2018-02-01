@@ -67,6 +67,15 @@ public class ModifierValue
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void addAll(List<ModifierValue> modifierValues)
+	{
+		for (ModifierValue mv : modifierValues)
+		{
+			add(mv);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<ModifierInfluence> getInfluences()
 	{
 		return influences;

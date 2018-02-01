@@ -279,6 +279,7 @@ modifier_name-lastStand: Last Stand
 modifier_name-selfAwareness: Self Awareness
 modifier_name-snakespeed: Snakespeed
 modifier_name-acrobatics: Acrobatics
+modifier_name-yubiJutsu: Yubi-Jutsu
 
 # Modifier Descriptions
 
@@ -551,6 +552,7 @@ modifier_desc-lastStand: If this character is the last party member standing, re
 modifier_desc-selfAwareness: This character can always identify baneful conditions that afflict their person.
 modifier_desc-snakespeed: In combat this character always acts before characters that do not have snakespeed.
 modifier_desc-acrobatics: Dodge actions in combat cost this character fewer action points than usual.
+modifier_desc-yubiJutsu: This character gets a bonus to melee criticals when fighting unarmed.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1068,6 +1070,10 @@ lap_name_flash_powder = Flash Powder
 lap_desc_flash_powder = The Ninja deploys incendiary powder, blinding foes.
 lap_name_acrobatics = Acrobatics
 lap_desc_acrobatics = With great agility the Ninja can easily evade melee attacks.
+lap_name_kotodama_kata = Kotodama Kata
+lap_desc_kotodama_kata = Arcane training grants the Ninja some bonus spell picks.
+lap_name_yubi_jutsu = Yubi-Jutsu
+lap_desc_yubi_jutsu = The art of nerve striking grants the Ninja a melee critical bonus while fighting unarmed.
 
 # Paladin
 lap_name_tactics = Tactics

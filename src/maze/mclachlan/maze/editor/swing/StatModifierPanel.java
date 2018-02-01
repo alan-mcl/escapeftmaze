@@ -312,11 +312,14 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		if (tabs.getTabCount() > 0)
 		{
 			tabs.setTitleAt(0, getTitle("Regular", regularPlusResource));
-			tabs.setTitleAt(1, getTitle("Statistics", Stats.statistics));
-			tabs.setTitleAt(2, getTitle("Resistances & Immunities", Stats.resistancesAndImmunities));
+			tabs.setTitleAt(1, getTitle("Stats", Stats.statistics));
+			tabs.setTitleAt(2, getTitle("Resist/Immune", Stats.resistancesAndImmunities));
 			tabs.setTitleAt(3, getTitle("Touches", Stats.touches));
-			tabs.setTitleAt(4, getTitle("Weapon Abilities", Stats.weaponAbilities));
-			tabs.setTitleAt(5, getTitle("Favoured Enemies", Stats.favouredEnemies));
+			tabs.setTitleAt(4, getTitle("Weapons", Stats.weaponAbilities));
+			tabs.setTitleAt(5, getTitle("Fav Enemies", Stats.favouredEnemies));
+			tabs.setTitleAt(5, getTitle("Other/Combat", Stats.otherCombat));
+			tabs.setTitleAt(5, getTitle("Other/Stealth", Stats.otherStealth));
+			tabs.setTitleAt(5, getTitle("Other/Magic", Stats.otherMagic));
 			tabs.setTitleAt(6, getTitle("Other", other));
 		}
 	}

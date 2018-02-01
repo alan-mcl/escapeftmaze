@@ -3849,26 +3849,28 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ModifierValue modifyModifierForSpecialAbility(
+	public List<ModifierValue> modifyModifierForSpecialAbility(
 		UnifiedActor actor,
 		Stats.Modifier modifier)
 	{
+		List<ModifierValue> result = new ArrayList<ModifierValue>();
+
 		if (Stats.Modifier.HIT_POINT_REGEN.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.ARCANE_BLOOD) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.ARCANE_BLOOD),
-					actor.getModifier(Stats.Modifier.RED_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.RED_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.MAGIC_POINT_REGEN.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.FEY_AFFINITY) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.FEY_AFFINITY),
-					actor.getModifier(Stats.Modifier.GOLD_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.GOLD_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.BONUS_ATTACKS.equals(modifier))
@@ -3879,8 +3881,8 @@ public class GameSys
 
 				if (green >= 4)
 				{
-					return new ModifierValue(
-						StringUtil.getModifierName(Stats.Modifier.KI_FURY), 1);
+					result.add(new ModifierValue(
+						StringUtil.getModifierName(Stats.Modifier.KI_FURY), 1));
 				}
 			}
 		}
@@ -3888,90 +3890,98 @@ public class GameSys
 		{
 			if (actor.getModifier(Stats.Modifier.DIVINE_PROTECTION) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.DIVINE_PROTECTION),
-					actor.getModifier(Stats.Modifier.WHITE_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.WHITE_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.MELEE_CRITICALS.equals(modifier))
 		{
+			if (actor.getModifier(Stats.Modifier.YUBI_JUTSU) > 0 &&
+				actor.getPrimaryWeapon() == null && actor.getSecondaryWeapon() == null)
+			{
+				result.add(new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifier.YUBI_JUTSU), 10));
+			}
+
+
 			if (actor.getModifier(Stats.Modifier.SHADOW_MASTER) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.SHADOW_MASTER),
-					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.THROWN_CRITICALS.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.SHADOW_MASTER) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.SHADOW_MASTER),
-					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.RANGED_CRITICALS.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.SHADOW_MASTER) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.SHADOW_MASTER),
-					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.OBFUSCATION.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 									StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
-					Math.max(actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN) - 1, 0));
+					Math.max(actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN) - 1, 0)));
 			}
 		}
 		else if (Stats.Modifier.TO_RUN_AWAY.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
-					actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.RESIST_ENERGY.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
-					actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN));
+					actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN)));
 			}
 		}
 		else if (Stats.Modifier.INITIATIVE.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.CHANNELLING) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.CHANNELLING),
-					actor.getModifier(Stats.Modifier.BLUE_MAGIC_GEN)/2);
+					actor.getModifier(Stats.Modifier.BLUE_MAGIC_GEN)/2));
 			}
 		}
 		else if (Stats.Modifier.SUPPLY_CONSUMPTION.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.LARGE_SIZE) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.LARGE_SIZE),
-					1);
+					1));
 			}
 		}
 		else if (Stats.Modifier.POWER_CAST.equals(modifier))
 		{
 			if (actor.getModifier(Stats.Modifier.POWER_OF_DARKNESS) > 0)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.POWER_OF_DARKNESS),
-					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN)*5);
+					actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN)*5));
 			}
 		}
 		else if (Stats.Modifier.PARRY.equals(modifier))
@@ -3980,100 +3990,98 @@ public class GameSys
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.SWORD)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.SWORD_PARRY),
-					actor.getModifier(Stats.Modifier.SWORD_PARRY));
+					actor.getModifier(Stats.Modifier.SWORD_PARRY)));
 			}
 			else if (actor.getModifier(Stats.Modifier.AXE_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.AXE)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.AXE_PARRY),
-						actor.getModifier(Stats.Modifier.AXE_PARRY));
+						actor.getModifier(Stats.Modifier.AXE_PARRY)));
 			}
 			else if (actor.getModifier(Stats.Modifier.MACE_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.MACE)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.MACE_PARRY),
-						actor.getModifier(Stats.Modifier.MACE_PARRY));
+						actor.getModifier(Stats.Modifier.MACE_PARRY)));
 			}
 			else if (actor.getModifier(Stats.Modifier.POLEARM_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.POLEARM)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.POLEARM_PARRY),
-						actor.getModifier(Stats.Modifier.POLEARM_PARRY));
+						actor.getModifier(Stats.Modifier.POLEARM_PARRY)));
 			}
 			else if (actor.getModifier(Stats.Modifier.STAFF_PARRY) > 0 &&
 				actor.getPrimaryWeapon() != null &&
 				actor.getPrimaryWeapon().getSubType() == ItemTemplate.WeaponSubType.STAFF)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.STAFF_PARRY),
-						actor.getModifier(Stats.Modifier.STAFF_PARRY));
+						actor.getModifier(Stats.Modifier.STAFF_PARRY)));
 			}
 			else if (actor.getModifier(Stats.Modifier.UNARMED_PARRY) > 0 &&
 				actor.getPrimaryWeapon() == null && actor.getSecondaryWeapon() == null)
 			{
-				return new ModifierValue(
+				result.add(new ModifierValue(
 					StringUtil.getModifierName(Stats.Modifier.UNARMED_PARRY),
-					actor.getModifier(Stats.Modifier.UNARMED_PARRY));
+					actor.getModifier(Stats.Modifier.UNARMED_PARRY)));
 			}
 		}
 		else if (Stats.Modifier.ACTION_POINT_REGEN.equals(modifier))
 		{
 			Tile currentTile = Maze.getInstance().getCurrentTile();
-			if (currentTile == null)
+			if (currentTile != null)
 			{
-				return null;
-			}
+				Tile.TerrainType terrainType = currentTile.getTerrainType();
 
-			Tile.TerrainType terrainType = currentTile.getTerrainType();
-
-			switch (terrainType)
-			{
-				case FAKE:
-					break;
-				case URBAN:
-					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_URBAN) > 0)
-					{
-						return new ModifierValue(
-							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_URBAN),
-							actor.getModifier(Stats.Modifier.ACTION_REGEN_URBAN));
-					}
-					break;
-				case DUNGEON:
-					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_DUNGEON) > 0)
-					{
-						return new ModifierValue(
-							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_DUNGEON),
-							actor.getModifier(Stats.Modifier.ACTION_REGEN_DUNGEON));
-					}
-					break;
-				case WILDERNESS:
-					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_WILDERNESS) > 0)
-					{
-						return new ModifierValue(
-							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_WILDERNESS),
-							actor.getModifier(Stats.Modifier.ACTION_REGEN_WILDERNESS));
-					}
-					break;
-				case WASTELAND:
-					if (actor.getModifier(Stats.Modifier.ACTION_REGEN_WASTELAND) > 0)
-					{
-						return new ModifierValue(
-							StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_WASTELAND),
-							actor.getModifier(Stats.Modifier.ACTION_REGEN_WASTELAND));
-					}
-					break;
+				switch (terrainType)
+				{
+					case FAKE:
+						break;
+					case URBAN:
+						if (actor.getModifier(Stats.Modifier.ACTION_REGEN_URBAN) > 0)
+						{
+							result.add(new ModifierValue(
+								StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_URBAN),
+								actor.getModifier(Stats.Modifier.ACTION_REGEN_URBAN)));
+						}
+						break;
+					case DUNGEON:
+						if (actor.getModifier(Stats.Modifier.ACTION_REGEN_DUNGEON) > 0)
+						{
+							result.add(new ModifierValue(
+								StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_DUNGEON),
+								actor.getModifier(Stats.Modifier.ACTION_REGEN_DUNGEON)));
+						}
+						break;
+					case WILDERNESS:
+						if (actor.getModifier(Stats.Modifier.ACTION_REGEN_WILDERNESS) > 0)
+						{
+							result.add(new ModifierValue(
+								StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_WILDERNESS),
+								actor.getModifier(Stats.Modifier.ACTION_REGEN_WILDERNESS)));
+						}
+						break;
+					case WASTELAND:
+						if (actor.getModifier(Stats.Modifier.ACTION_REGEN_WASTELAND) > 0)
+						{
+							result.add(new ModifierValue(
+								StringUtil.getModifierName(Stats.Modifier.ACTION_REGEN_WASTELAND),
+								actor.getModifier(Stats.Modifier.ACTION_REGEN_WASTELAND)));
+						}
+						break;
+				}
 			}
 		}
 
-		return null;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
