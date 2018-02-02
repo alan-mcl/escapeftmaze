@@ -8713,6 +8713,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Shurikenjitsu
+displayName=Shurikenjitsu
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=4
+school=Evocation
+book=Black Magic
+spellEffects=shurikenjitsu damage:100
+description=throws shuriken!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=shuriken from player
+castByFoeScript=shuriken from foe
+usabilityType=1
+primaryModifier=MARTIAL_ARTS
+secondaryModifier=THROW
+wildMagicValue=
+wildMagicTable=
+@
 name=Pennywhistle - Remove Conditions
 displayName=Pennywhistle - Remove Conditions
 hitPointCost=

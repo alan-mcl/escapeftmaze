@@ -1074,6 +1074,8 @@ lap_name_kotodama_kata = Kotodama Kata
 lap_desc_kotodama_kata = Arcane training grants the Ninja some bonus spell picks.
 lap_name_yubi_jutsu = Yubi-Jutsu
 lap_desc_yubi_jutsu = The art of nerve striking grants the Ninja a melee critical bonus while fighting unarmed.
+lap_name_shurikenjitsu = Shurikenjitsu
+lap_desc_shurikenjitsu = The Ninja rapidly hurls shuriken at a group of foes.
 
 # Paladin
 lap_name_tactics = Tactics
