@@ -1084,6 +1084,8 @@ lap_name_health = Health
 lap_desc_health = The Paladin receives a boosted hit point regeneration rate.
 lap_name_etiquette = Etiquette
 lap_desc_etiquette = NPCs react more favourably to the Paladin.
+lap_name_code_of_honour = Code of Honour
+lap_desc_code_of_honour = The character loses experience points if the party ever acts dishonourably.
 
 # Priest
 lap_name_holiness = Holiness
