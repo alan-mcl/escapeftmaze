@@ -2048,6 +2048,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d4::::0.0:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=lay on hands
+displayName=lay on hands
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.LayOnHandsSpellResult
+savedResult=
+targetType=1
+application=AS_PER_SPELL
+@
 name=web spell
 displayName=web
 type=EARTH

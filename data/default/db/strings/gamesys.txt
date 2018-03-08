@@ -1086,6 +1086,12 @@ lap_name_etiquette = Etiquette
 lap_desc_etiquette = NPCs react more favourably to the Paladin.
 lap_name_code_of_honour = Code of Honour
 lap_desc_code_of_honour = The character loses experience points if the party ever acts dishonourably.
+lap_name_lay_on_hands_1 = Lay On Hands 1
+lap_name_lay_on_hands_2 = Lay On Hands 2
+lap_name_lay_on_hands_3 = Lay On Hands 3
+lap_name_lay_on_hands_4 = Lay On Hands 4
+lap_name_lay_on_hands_5 = Lay On Hands 5
+lap_desc_lay_on_hands = The Paladin heals an ally and him or her self.
 
 # Priest
 lap_name_holiness = Holiness

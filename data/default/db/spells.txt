@@ -3925,6 +3925,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Lay On Hands
+displayName=Lay On Hands
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=1
+school=Transmutation
+book=Gold Magic
+spellEffects=lay on hands:100
+description=channels healing power
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=POWER
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Fey Pipes - Stone
 displayName=Fey Pipes - Stone
 hitPointCost=

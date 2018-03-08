@@ -86,13 +86,13 @@ activeModifiers=ffe0000027f8,0101010101010101010101010101010101010101
 removedLevelAbilities=
 @
 name=Dwaf
-levels=Hero:20
+levels=Paladin:20
 experience=601416
 kills=25
 race=Dwarf
 gender=Male
 portrait=portrait/dwarf_male_skarn
-characterClass=Hero
+characterClass=Paladin
 personality=Peer
 torsoArmour=Dragon Plate (U)/1/2/1-1/0-0/
 legArmour=Dragon Plate (L)/1/2/1-1/0-0/

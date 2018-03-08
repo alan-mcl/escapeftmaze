@@ -21,7 +21,7 @@ Features
  - Monk class abilities: Combo Strike, Self Awareness, Reflexion
  - Ninja class abilities: Inner Force Blow, Poison Needles, Taijutsu, Snakespeed,
    Flash Powder, Acrobatics, Yubi-Jutsu, Shurikenjitsu
- - Paladin class abilities: 
+ - Paladin class abilities: Lay On Hands, 
 
 Other
  - Refactored the Value composition into a flat ValueList
