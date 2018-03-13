@@ -109,7 +109,10 @@ public class RacePanel extends EditorPanel
 
 		gbc.gridy++;
 		allowedGenders = new GenderSelection(dirtyFlag, true);
-		result.add(allowedGenders, gbc);
+		JPanel temp = new JPanel();
+		temp.setBorder(BorderFactory.createTitledBorder("Genders & Suggested Names"));
+		temp.add(allowedGenders);
+		result.add(temp, gbc);
 
 		return result;
 	}

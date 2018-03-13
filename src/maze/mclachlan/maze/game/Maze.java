@@ -702,6 +702,7 @@ public class Maze implements Runnable
 		}
 		currentChest = null;
 		currentPortal = null;
+		currentActorEncounter = null;
 		MazeVariables.clearAll();
 		if (processor != null)
 		{

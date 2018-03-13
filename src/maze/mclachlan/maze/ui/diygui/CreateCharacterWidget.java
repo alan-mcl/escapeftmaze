@@ -1281,7 +1281,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			race.isLocked());
 		this.raceModifiersWidget1.setStatModifier(mods, race.isLocked());
 		this.raceModifiersWidget2.setStatModifier(mods, race.isLocked());
-		this.raceModifiersWidget3.setStatModifier(mods, race.isLocked());
+		if (!race.isLocked())
+		{
+			this.raceModifiersWidget3.setStatModifier(mods, false);
+		}
+		else
+		{
+			this.raceModifiersWidget3.setStatModifier(new StatModifier(), true);
+		}
 
 		this.raceGenderChoices.show(this.raceGenderWidgets.get(raceName));
 		if (race.getAllowedGenders().contains(this.gender))

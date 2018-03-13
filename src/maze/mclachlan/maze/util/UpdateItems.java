@@ -26,7 +26,6 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ItemTemplate;
-import mclachlan.maze.stat.StatModifier;
 
 /**
  *
@@ -52,14 +51,10 @@ public class UpdateItems
 		{
 			ItemTemplate item = items.get(s);
 
-			if (item.getType() == ItemTemplate.Type.SPELLBOOK)
+			if (item.getUsableByRace().contains("Human"))
 			{
-				if (item.getEquipRequirements() != null && !item.getEquipRequirements().isEmpty())
-				{
-					item.setUseRequirements(item.getEquipRequirements());
-					item.setEquipRequirements(new StatModifier());
-					count++;
-				}
+				item.getUsableByRace().add("Pasht");
+				count++;
 			}
 
 		}

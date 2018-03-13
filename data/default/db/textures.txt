@@ -430,6 +430,12 @@ animationDelay=150
 imageWidth=512
 imageHeight=512
 @
+name=foe.pasht.female.1
+imageResources=crusader/foe/pasht_female
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=foe.imogen
 imageResources=crusader/foe/imogen
 animationDelay=-1
