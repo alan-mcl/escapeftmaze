@@ -3,6 +3,7 @@ v0.917 (???)
 ---------------------------------------
 Features
  - Added Pasht as an unlockable race
+ - Added character race art for character creation: Faerie
  - Class abilities: Supply Consumption modifier
  - Courtesan class abilities: Sense Motive, Barter Expert, Minor Powder Creation,
    Locate Person, Courtesan Skills

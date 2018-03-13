@@ -320,7 +320,7 @@ suggestedNames=Female:Galia,Iarbonel,Nemed,Sera,Braimend,Fiachna,Elada,Indui,Ell
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/faerie
 @
 name=Dryad
 description=Haunting the forests of the First Realm is a race more alien even than the elves.  Called Dryads, they are half-plant, half-faerie and wholly reclusive.%n%nElves say that Dryads came to the Maze willingly and can come and go as they please.  Those Dryads that venture from the idyllic forests of the First Realm do so for reasons of their own, and say nothing.%n%nSpecial: Dryads share the resistances and vulnerabilities of their constituent plants, and regenerate stealth points. Their small size comes with a number of benefits and penalties. Dryads are a walking source of green magic to themselves.

@@ -746,8 +746,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		raceModifiersWidget2 = new StatModifierDisplayWidget(
 			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
+
+		List<Stats.Modifier> otherModifiers = new ArrayList<Stats.Modifier>(Stats.allModifiers);
+		otherModifiers.removeAll(Stats.resourceModifiers);
+		otherModifiers.removeAll(Stats.attributeModifiers);
+		otherModifiers.removeAll(Stats.resistances);
+
 		raceModifiersWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
+			getLabel("cc.other.modifiers"), null, 10, otherModifiers, false, false);
 
 		raceResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
 		raceModifiersWidget1.setBounds(column4, headerOffset+50 +3*15, columnWidth, 6*15);
