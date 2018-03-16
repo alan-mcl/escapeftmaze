@@ -160,6 +160,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=foe.goblin.female
+imageResources=crusader/foe/goblin_female
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=foe.moth.1
 imageResources=crusader/foe/moth_1,crusader/foe/moth_2,crusader/foe/moth_3,crusader/foe/moth_4
 animationDelay=100
