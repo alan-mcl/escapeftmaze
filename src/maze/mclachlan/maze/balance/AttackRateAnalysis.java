@@ -19,6 +19,7 @@
 
 package mclachlan.maze.balance;
 
+import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
@@ -143,7 +144,7 @@ public class AttackRateAnalysis
 							StrikeEvent ae = new StrikeEvent(
 								null, pc, pc, weapon, attackType,
 								aa.getDamageType(), null, null, null);
-							DamagePacket damagePacket = GameSys.getInstance().calcDamage(ae);
+							DamagePacket damagePacket = GameSys.getInstance().calcDamage(ae, new ArrayList());
 
 							// todo: should be using DamageEvent instead?
 							damage += (damagePacket.getAmount()*damagePacket.getMultiplier());

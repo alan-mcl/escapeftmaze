@@ -29,7 +29,7 @@ import java.util.*;
  */
 public class SoundEffectEvent extends MazeEvent
 {
-	List<String> clipNames;
+	private List<String> clipNames;
 	private Dice die;
 
 	/*-------------------------------------------------------------------------*/
@@ -44,6 +44,12 @@ public class SoundEffectEvent extends MazeEvent
 	public SoundEffectEvent(List<String> clipNames)
 	{
 		init(clipNames);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public SoundEffectEvent(String... strings)
+	{
+		this(Arrays.asList(strings));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -131,7 +131,7 @@ public class StrikeEvent extends MazeEvent
 		int hitPercent = GameSys.getInstance().calcHitPercent(this);
 		if (Dice.d100.roll() <= hitPercent)
 		{
-			DamagePacket damagePacket = GameSys.getInstance().calcDamage(this);
+			DamagePacket damagePacket = GameSys.getInstance().calcDamage(this, result);
 			combat.getCombatStatistics().captureAttackHit(this, combat);
 
 			if (GameSys.getInstance().isSurpriseRiposted(defender, attackWith))
@@ -354,5 +354,15 @@ public class StrikeEvent extends MazeEvent
 	public Set<String> getTags()
 	{
 		return tags;
+	}
+
+	public Combat getCombat()
+	{
+		return combat;
+	}
+
+	public AnimationContext getAnimationContext()
+	{
+		return animationContext;
 	}
 }

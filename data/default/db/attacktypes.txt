@@ -76,3 +76,9 @@ modifiers=100000000000000,01
 damageType=BLUDGEONING
 attackModifier=BASH
 @
+name=_SHIELD_BASH_
+verb=bashes
+modifiers=100000000000000,01
+damageType=BLUDGEONING
+attackModifier=NONE
+@

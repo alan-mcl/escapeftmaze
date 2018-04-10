@@ -280,6 +280,7 @@ modifier_name-selfAwareness: Self Awareness
 modifier_name-snakespeed: Snakespeed
 modifier_name-acrobatics: Acrobatics
 modifier_name-yubiJutsu: Yubi-Jutsu
+modifier_name-shieldBash: Shield Bash
 
 # Modifier Descriptions
 
@@ -553,6 +554,7 @@ modifier_desc-selfAwareness: This character can always identify baneful conditio
 modifier_desc-snakespeed: In combat this character always acts before characters that do not have snakespeed.
 modifier_desc-acrobatics: Dodge actions in combat cost this character fewer action points than usual.
 modifier_desc-yubiJutsu: This character gets a bonus to melee criticals when fighting unarmed.
+modifier_desc-shieldBash: When equipped with a shield that takes an enemy blow, this character has a chance of executing a bash attack with the shield.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1092,6 +1094,8 @@ lap_name_lay_on_hands_3 = Lay On Hands 3
 lap_name_lay_on_hands_4 = Lay On Hands 4
 lap_name_lay_on_hands_5 = Lay On Hands 5
 lap_desc_lay_on_hands = The Paladin heals an ally and him or her self.
+lap_name_shield_bash = Shield Bash %s
+lap_desc_shield_bash = The Paladin has a chance of bashing enemies with his or her shield.
 
 # Priest
 lap_name_holiness = Holiness

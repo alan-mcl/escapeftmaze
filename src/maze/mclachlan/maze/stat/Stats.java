@@ -267,6 +267,7 @@ public class Stats
 		otherCombat.add(TOE_TO_TOE);
 		otherCombat.add(LAST_STAND);
 		otherCombat.add(YUBI_JUTSU);
+		otherCombat.add(SHIELD_BASH);
 
 		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
 
@@ -732,6 +733,7 @@ public class Stats
 		SNAKESPEED(257, "snakespeed"),
 		ACROBATICS(258, "acrobatics"),
 		YUBI_JUTSU(259, "yubiJutsu"),
+		SHIELD_BASH(260, "shieldBash", ModifierMetric.PERCENTAGE),
 		;
 
 		/**

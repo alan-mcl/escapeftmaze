@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.event.ShieldBlockEvent;
 import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
@@ -31,6 +32,7 @@ import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.map.script.LoseExperienceEvent;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.combat.event.AttackEvent;
+import mclachlan.maze.stat.combat.event.SoundEffectEvent;
 import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -453,7 +455,7 @@ public class GameSys
 	 * Calculates an attacks damage.  Can return a negative number, which should
 	 * be handled by the caller.
 	 */ 
-	public DamagePacket calcDamage(StrikeEvent event)
+	public DamagePacket calcDamage(StrikeEvent event, List<MazeEvent> events)
 	{
 		Maze.log(Log.DEBUG, "calculating damage");
 
@@ -491,7 +493,34 @@ public class GameSys
 		}
 		
 		// damage prevention from a shield
-		armourSoak += calcShieldDamagePrevention(event);
+		int shieldDamagePrevention = calcShieldDamagePrevention(event);
+		armourSoak += shieldDamagePrevention;
+
+		if (shieldDamagePrevention > 0)
+		{
+			events.add(new SoundEffectEvent(
+				"322150__liamg-sfx__shield-hit-1",
+				"322162__liamg-sfx__shield-hit-9"));
+			events.add(new ShieldBlockEvent());
+
+			if (defender.getModifier(Stats.Modifier.SHIELD_BASH) > 0 &&
+				Dice.d100.roll() <= defender.getModifier(Stats.Modifier.SHIELD_BASH))
+			{
+				events.add(new AttackEvent(
+					event.getCombat(),
+					defender,
+					attacker,
+					getShieldBashWeapon(defender.getSecondaryWeapon()),
+					Database.getInstance().getAttackType("_SHIELD_BASH_"),
+					0,
+					1,
+					Database.getInstance().getMazeScripts().get("generic weapon swish"),
+					MagicSys.SpellEffectType.BLUDGEONING,
+					event.getAnimationContext(),
+					event.getModifiers(),
+					null));
+			}
+		}
 
 		int diceDamageRoll = diceDamage.roll();
 		int ammoDamageRoll = (ammoDamage != null) ? ammoDamage.roll() : 0;
@@ -837,7 +866,7 @@ public class GameSys
 				
 				if (hitArmour(event, basePercent))
 				{
-					int result = pc.getSecondaryWeapon().getDamagePreventionChance();
+					int result = pc.getSecondaryWeapon().getDamagePrevention();
 					practice(pc, Stats.Modifier.CHIVALRY, 1);
 					Maze.log(Log.DEBUG, "shield damage prevention is "+result);
 					return result;
@@ -2884,6 +2913,81 @@ public class GameSys
 			int amount = this.getActionPointsToRegenerateWhileMoving((PlayerCharacter)pc, tile);
 			pc.getActionPoints().incCurrent(amount);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * Generates the shield bash weapon for the given shield
+	 */
+	public Item getShieldBashWeapon(final Item shield)
+	{
+		Dice damage = new Dice(1, shield.getDamagePrevention(), shield.getDamagePrevention());
+
+		Maze.log(Log.DEBUG, "Shield bash weapon for [] does [] damage.");
+
+		ItemTemplate result = new ItemTemplate(
+			shield.getName()+" Bash",
+			shield.getName()+" Bash",
+			shield.getName()+" Bash",
+			ItemTemplate.Type.SHORT_WEAPON,
+			ItemTemplate.WeaponSubType.NONE,
+			"shield bash weapon",
+			StatModifier.NULL_STAT_MODIFIER,
+			"item/defaultitem",
+			new BitSet(),
+			0,
+			1,
+			0,
+			null,
+			0,
+			Dice.d1,
+			ItemTemplate.ChargesType.CHARGES_INFINITE,
+			null,
+			null,
+			null,
+			false,
+			0,
+			0,
+			0,
+			StatModifier.NULL_STAT_MODIFIER,
+			StatModifier.NULL_STAT_MODIFIER,
+			Database.getInstance().getScript("generic weapon swish"),
+			damage,
+			MagicSys.SpellEffectType.BLUDGEONING,
+			new String[]{"_SHIELD_BASH_"},
+			false,
+			false,
+			false,
+			false,
+			false,
+			0,
+			0,
+			0,
+			0,
+			ItemTemplate.WeaponRange.MELEE,
+			ItemTemplate.WeaponRange.MELEE,
+			null,
+			null,
+			0,
+			0,
+			null,
+			null,
+			null,
+			0,
+			0,
+			0,
+			ItemTemplate.EnchantmentCalculation.STRAIGHT,
+			null,
+			null,
+			0F);
+
+		return new Item(result)
+		{
+			public String getDisplayName()
+			{
+				return shield.getDisplayName();
+			}
+		};
 	}
 
 	/*-------------------------------------------------------------------------*/

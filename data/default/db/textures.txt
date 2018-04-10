@@ -604,6 +604,12 @@ animationDelay=-1
 imageWidth=24
 imageHeight=512
 @
+name=foe.hynobi.male
+imageResources=crusader/foe/hynobi_male
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=DUNGEON_STAIR_DOWN
 imageResources=crusader/scene/dungeon_stair_down
 animationDelay=-1
