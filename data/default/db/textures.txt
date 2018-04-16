@@ -520,6 +520,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=foe.hynobi.female
+imageResources=crusader/foe/hynobi_female
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=objects.fungus.3
 imageResources=crusader/scene/fungus_3
 animationDelay=-1

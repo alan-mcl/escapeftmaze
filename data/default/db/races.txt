@@ -50,7 +50,7 @@ suggestedNames=Female:Thseaa,Kith,X'shan,K'sh,Th'shaa,K'seith,S'carss,Asar,Kacer
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/hynobi
 @
 name=Mirka
 description=The dangerous mountainous areas at the center of the First Realm are home to tribes of wild, white-haired Mirka. Fierce warriors with a reputation for savagery, the Mirka are none the less an intelligent folk with a nomadic society of their own.%n%nAround their campfires the Mirka tell stories of being hunted down and banished from their home to the Maze by a conquering human empire.%n%nSpecial: Mirka are immune to cold damage. They have a chance of flying into a berserk rage in combat.
