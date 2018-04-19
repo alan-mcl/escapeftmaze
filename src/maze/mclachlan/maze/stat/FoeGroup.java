@@ -30,8 +30,8 @@ import mclachlan.maze.stat.condition.CloudSpell;
 public class FoeGroup implements ActorGroup
 {
 	/** actors in thie foe group */
-	List<UnifiedActor> foes;
-	List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
+	private List<UnifiedActor> foes;
+	private List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -206,5 +206,15 @@ public class FoeGroup implements ActorGroup
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public String toString()
+	{
+		final StringBuilder sb = new StringBuilder("FoeGroup{");
+		sb.append("foes=").append(foes);
+		sb.append('}');
+		return sb.toString();
 	}
 }

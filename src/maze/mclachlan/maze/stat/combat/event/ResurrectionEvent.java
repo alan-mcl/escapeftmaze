@@ -60,7 +60,7 @@ public class ResurrectionEvent extends MazeEvent
 		if (target.getHitPoints().getCurrent() <= 0)
 		{
 			target.getHitPoints().incMaximum(-1);
-			target.getHitPoints().incCurrent(new Dice(level, 6, level).roll());
+			target.getHitPoints().incCurrent(new Dice(level, 6, level).roll("resurrection current hp"));
 			if (target instanceof PlayerCharacter)
 			{
 				return SpeechUtil.getInstance().resurrectionSpeech((PlayerCharacter)target);

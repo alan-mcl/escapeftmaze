@@ -43,7 +43,7 @@ public class RandomModifierApproach extends CharacterBuilder.ModifierApproach
 	{
 		Dice d = new Dice(1,modifiers.size(),-1);
 
-		int i = d.roll();
+		int i = d.roll("Random Modifier Balance Test");
 		int assignedToCurrent = 0;
 		int maxAssignable = GameSys.getInstance().getMaxAssignableToAModifierOnLevelUp();
 		while (points > 0)
@@ -55,7 +55,7 @@ public class RandomModifierApproach extends CharacterBuilder.ModifierApproach
 			if (cost > points)
 			{
 				// can't afford to raise this modifier
-				i = d.roll();
+				i = d.roll("Random Modifier Balance Test");
 				assignedToCurrent = 0;
 			}
 			else
@@ -65,7 +65,7 @@ public class RandomModifierApproach extends CharacterBuilder.ModifierApproach
 				assignedToCurrent++;
 				if (assignedToCurrent >= maxAssignable)
 				{
-					i = d.roll();
+					i = d.roll("Random Modifier Balance Test");
 					assignedToCurrent = 0;
 				}
 			}

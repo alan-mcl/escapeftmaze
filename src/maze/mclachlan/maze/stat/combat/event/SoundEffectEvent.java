@@ -74,7 +74,7 @@ public class SoundEffectEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().getAudioPlayer().playSound(clipNames.get(die.roll()-1));
+		Maze.getInstance().getAudioPlayer().playSound(clipNames.get(die.roll("random sound effect selection")-1));
 		return null;
 	}
 

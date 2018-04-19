@@ -44,7 +44,7 @@ public class BasicFoeAi extends FoeCombatAi
 			case Foe.EvasionBehaviour.NEVER_EVADE:
 				return false;
 			case Foe.EvasionBehaviour.RANDOM_EVADE:
-				return Dice.d2.roll() == 1;
+				return Dice.d2.roll("basic AI: random evade") == 1;
 			case Foe.EvasionBehaviour.CLEVER_EVADE:
 				//
 				// some heuristics to decide if they should attack
@@ -76,7 +76,7 @@ public class BasicFoeAi extends FoeCombatAi
 	@Override
 	public ActorActionIntention getCombatIntention(Foe foe, Combat combat)
 	{
-		if (!foe.isSummoned() && Dice.d100.roll() <= foe.getFleeChance())
+		if (!foe.isSummoned() && Dice.d100.roll("basic AI: flee") <= foe.getFleeChance())
 		{
 			// summoned foes never run away
 			return new RunAwayIntention();
@@ -91,7 +91,7 @@ public class BasicFoeAi extends FoeCombatAi
 
 		if (foe.getStealthBehaviour() == Foe.StealthBehaviour.OPPORTUNISTIC &&
 			foe.getActionPoints().getCurrent() < 10 &&
-			Dice.d2.roll() == 1)
+			Dice.d2.roll("basic AI: oppo stealth") == 1)
 		{
 			// opportunistic hide attempt
 			return new HideIntention();
@@ -129,7 +129,7 @@ public class BasicFoeAi extends FoeCombatAi
 
 		do
 		{
-			int roll = Dice.d100.roll();
+			int roll = Dice.d100.roll("basic AI: intention decision");
 
 			if (roll <= attackWeight)
 			{
@@ -317,20 +317,20 @@ public class BasicFoeAi extends FoeCombatAi
 			case MagicSys.SpellTargetType.ALLY:
 				List<UnifiedActor> allies = combat.getAllAlliesOf(foe);
 				Dice d = new Dice(1, allies.size(), -1);
-				target = allies.get(d.roll());
+				target = allies.get(d.roll("basic AI: ally spell"));
 				break;
 
 			case MagicSys.SpellTargetType.FOE:
 				List<UnifiedActor> enemies = combat.getAllFoesOf(foe);
 				d = new Dice(1, enemies.size(), -1);
-				target = enemies.get(d.roll());
+				target = enemies.get(d.roll("basic AI: foe spell"));
 				break;
 
 			case MagicSys.SpellTargetType.FOE_GROUP:
 			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
 				List<ActorGroup> groups = combat.getFoesOf(foe);
 				d = new Dice(1, groups.size(), -1);
-				target = groups.get(d.roll());
+				target = groups.get(d.roll("basic AI: foe group spell"));
 				break;
 
 			// these should never really be cast be foes

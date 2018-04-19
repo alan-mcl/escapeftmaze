@@ -409,7 +409,7 @@ public class PlayerParty implements ActorGroup
 	public PlayerCharacter getRandomPlayerCharacter()
 	{
 		Dice d = new Dice(1, actors.size(), -1);
-		return getPlayerCharacter(d.roll());
+		return getPlayerCharacter(d.roll("PlayerParty.getRandomPlayerCharacter"));
 	}
 
 	/*-------------------------------------------------------------------------*/

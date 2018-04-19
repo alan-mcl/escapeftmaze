@@ -666,7 +666,7 @@ public class Maze implements Runnable
 
 					if (!disable_random_spawns)
 					{
-						if (Dice.d1000.roll() <= GameSys.getInstance().getRandomEncounterChance(t))
+						if (Dice.d1000.roll("Wandering monster roll") <= GameSys.getInstance().getRandomEncounterChance(t))
 						{
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
@@ -1096,7 +1096,7 @@ public class Maze implements Runnable
 		this.ui.setFoes(null);
 		this.setState(State.MOVEMENT);
 		this.currentCombat = null;
-		this.ui.backPartyUp(3+Dice.d4.roll());
+		this.ui.backPartyUp(3+Dice.d4.roll("Party flees"));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1725,7 +1725,7 @@ public class Maze implements Runnable
 					if (c instanceof RestingSleep)
 					{
 						if (pc.getModifier(Stats.Modifier.LIGHT_SLEEPER) > 0 ||
-							Dice.d100.roll() <= 30)
+							Dice.d100.roll("Resting combat wakeup") <= 30)
 						{
 							pc.removeCondition(c);
 						}

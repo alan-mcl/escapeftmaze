@@ -100,8 +100,8 @@ public class GameSys
 		int foesValue = GameSys.getInstance().getStealthValue(
 			Maze.getInstance().getCurrentTile(), foes);
 
-		partyValue += Dice.d10.roll();
-		foesValue += Dice.d10.roll();
+		partyValue += Dice.d10.roll("ambush status: party");
+		foesValue += Dice.d10.roll("ambush status: foes");
 
 		if (partyValue > foesValue+20)
 		{
@@ -443,7 +443,7 @@ public class GameSys
 		
 		int actorAgility = actor.getModifier(Stats.Modifier.SKILL);
 		int actorInitiative = actor.getModifier(Stats.Modifier.INITIATIVE);
-		int diceRoll = Dice.d6.roll();
+		int diceRoll = Dice.d6.roll("initiative ["+actor.getName()+"]");
 
 		int result = diceRoll + actorAgility + actorInitiative;
 		Maze.log(Log.DEBUG, actor.getName()+" intiative is "+result);
@@ -504,7 +504,7 @@ public class GameSys
 			events.add(new ShieldBlockEvent());
 
 			if (defender.getModifier(Stats.Modifier.SHIELD_BASH) > 0 &&
-				Dice.d100.roll() <= defender.getModifier(Stats.Modifier.SHIELD_BASH))
+				Dice.d100.roll("shield bash check") <= defender.getModifier(Stats.Modifier.SHIELD_BASH))
 			{
 				events.add(new AttackEvent(
 					event.getCombat(),
@@ -522,8 +522,8 @@ public class GameSys
 			}
 		}
 
-		int diceDamageRoll = diceDamage.roll();
-		int ammoDamageRoll = (ammoDamage != null) ? ammoDamage.roll() : 0;
+		int diceDamageRoll = diceDamage.roll("damage roll");
+		int ammoDamageRoll = (ammoDamage != null) ? ammoDamage.roll("ammo damage roll") : 0;
 		int bpDamageMod = event.getBodyPart().getModifiers().getModifier(Stats.Modifier.DAMAGE);
 		int eventDamageMod = attacker.getModifier(Stats.Modifier.DAMAGE);
 		int brawn = attacker.getModifier(Stats.Modifier.BRAWN);
@@ -626,7 +626,7 @@ public class GameSys
 
 			int value = v.compute(source, castingLevel);
 
-			int roll = Dice.d100.roll();
+			int roll = Dice.d100.roll("wild magic check");
 			if (roll <= 5)
 			{
 				value -= 2;
@@ -673,7 +673,7 @@ public class GameSys
 							allies = party.getActors();
 						}
 						Dice d = new Dice(1, allies.size(), -1);
-						target = allies.get(d.roll());
+						target = allies.get(d.roll("wild magic ally target"));
 						break;
 
 					case MagicSys.SpellTargetType.CASTER:
@@ -719,7 +719,7 @@ public class GameSys
 							enemies.add(new NullActor());
 						}
 						d = new Dice(1, enemies.size(), -1);
-						target = enemies.get(d.roll());
+						target = enemies.get(d.roll("wild magic foe target"));
 						break;
 
 					case MagicSys.SpellTargetType.FOE_GROUP:
@@ -734,7 +734,7 @@ public class GameSys
 							groups = new ArrayList<ActorGroup>();
 						}
 						d = new Dice(1, groups.size(), -1);
-						target = groups.get(d.roll());
+						target = groups.get(d.roll("wild magic foe group target"));
 						break;
 
 					default: throw new MazeException("Invalid target type: "+
@@ -840,7 +840,7 @@ public class GameSys
 		
 		Maze.log(Log.DEBUG, "basePercent is "+basePercent);
 		
-		return (Dice.d100.roll() <= basePercent);
+		return (Dice.d100.roll("hit armour check") <= basePercent);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -962,7 +962,7 @@ public class GameSys
 
 		Maze.log(Log.DEBUG, "resistance = [" + resistance + "]");
 
-		return Dice.d100.roll() <= resistance;
+		return Dice.d100.roll("resistance check") <= resistance;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1105,13 +1105,13 @@ public class GameSys
 		}
 
 		// random factor
-		if (Dice.d100.roll() < 10)
+		if (Dice.d100.roll("item use casting level") < 10)
 		{
-			result += Dice.d5.roll() - 3;
+			result += Dice.d5.roll("item use casting level A") - 3;
 		}
 		else
 		{
-			result += Dice.d3.roll() - 2;
+			result += Dice.d3.roll("item use casting level B") - 2;
 		}
 
 		// at least 1
@@ -1260,7 +1260,7 @@ public class GameSys
 		}
 		else
 		{
-			result = stealth2d2.roll();
+			result = stealth2d2.roll("dodge cost for attack");
 			result += attacker.getModifier(Stats.Modifier.VS_DODGE);
 		}
 
@@ -1285,7 +1285,7 @@ public class GameSys
 		}
 		else
 		{
-			result = stealth4d2.roll();
+			result = stealth4d2.roll("dodge cost for ambush");
 			result += attacker.getModifier(Stats.Modifier.VS_DODGE);
 		}
 
@@ -1628,9 +1628,9 @@ public class GameSys
 		{
 			int playerScore = actor.getModifier(Stats.Modifier.THIEVING)
 				+ actor.getModifier(Stats.Modifier.LOCK_AND_TRAP)
-				+ Dice.d20.roll();
+				+ Dice.d20.roll("inspect trap: player score");
 
-			int trapScore = trapDifficulty[i] + Dice.d20.roll();
+			int trapScore = trapDifficulty[i] + Dice.d20.roll("inspect trap: trap score");
 
 			practice(actor, Stats.Modifier.LOCK_AND_TRAP, 1);
 
@@ -1680,9 +1680,9 @@ public class GameSys
 
 		int playerScore = actor.getModifier(Stats.Modifier.THIEVING)
 			+ actor.getModifier(Stats.Modifier.LOCK_AND_TRAP)
-			+ Dice.d20.roll();
+			+ Dice.d20.roll("disarm trap: player score");
 
-		int trapScore = trap.getDifficulty()[tool] + Dice.d20.roll();
+		int trapScore = trap.getDifficulty()[tool] + Dice.d20.roll("disarm trap: trap score");
 
 		practice(actor, Stats.Modifier.LOCK_AND_TRAP, 1);
 
@@ -1717,7 +1717,7 @@ public class GameSys
 		if (!lockOrTrap.canManualPick())
 		{
 			// can't pick this one. fake it a bit
-			if (Dice.d2.roll() == 1)
+			if (Dice.d2.roll("pick lock fakeout") == 1)
 			{
 				return Trap.DisarmResult.NOTHING;
 			}
@@ -1729,17 +1729,17 @@ public class GameSys
 
 		int playerScore = actor.getModifier(Stats.Modifier.THIEVING)
 			+ actor.getModifier(Stats.Modifier.LOCK_AND_TRAP)
-			+ Dice.d20.roll();
+			+ Dice.d20.roll("pick lock: player score");
 
-		int trapScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll();
+		int loclScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll("pick lock: lock score");
 
 		practice(actor, Stats.Modifier.LOCK_AND_TRAP, 1);
 
-		if (playerScore >= trapScore)
+		if (playerScore >= loclScore)
 		{
 			return Trap.DisarmResult.DISARMED;
 		}
-		else if (playerScore >= trapScore-10)
+		else if (playerScore >= loclScore-10)
 		{
 			return Trap.DisarmResult.NOTHING;
 		}
@@ -1763,8 +1763,8 @@ public class GameSys
 			return Trap.DisarmResult.SPRING_TRAP;
 		}
 
-		int playerScore = spellModifier.compute(caster, castingLevel) +Dice.d20.roll();
-		int trapScore = trap.getDifficulty()[tool] + Dice.d20.roll();
+		int playerScore = spellModifier.compute(caster, castingLevel) +Dice.d20.roll("spell disarm: player score");
+		int trapScore = trap.getDifficulty()[tool] + Dice.d20.roll("spell disarm: trap score");
 
 		if (playerScore >= trapScore)
 		{
@@ -1797,7 +1797,7 @@ public class GameSys
 		if (!lockOrTrap.canSpellPick())
 		{
 			// can't spell-pick this one. fake it a bit
-			if (Dice.d2.roll() == 1)
+			if (Dice.d2.roll("spell pick fakeout") == 1)
 			{
 				return Trap.DisarmResult.NOTHING;
 			}
@@ -1807,14 +1807,14 @@ public class GameSys
 			}
 		}
 
-		int playerScore = spellModifier.compute(caster, castingLevel) +Dice.d20.roll();
-		int trapScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll();
+		int playerScore = spellModifier.compute(caster, castingLevel) +Dice.d20.roll("spell pick: player score");
+		int lockScore = lockOrTrap.getPickLockDifficulty()[tool] + Dice.d20.roll("spell pick: lock score");
 
-		if (playerScore >= trapScore)
+		if (playerScore >= lockScore)
 		{
 			return Trap.DisarmResult.DISARMED;
 		}
-		else if (playerScore >= trapScore-10)
+		else if (playerScore >= lockScore-10)
 		{
 			return Trap.DisarmResult.NOTHING;
 		}
@@ -2003,19 +2003,19 @@ public class GameSys
 		int targetTotal =
 			target.getLevel()*10
 //			+ target.getResistThreats() todo: make a modifier
-			+ Dice.d10.roll();
+			+ Dice.d10.roll("threaten NPC: target score");
 
 		int actorTotal = 0;
 		actorTotal += actor.getLevel();
 		actorTotal += actor.getModifier(Stats.Modifier.BRAWN);
 		actorTotal += actor.getModifier(Stats.Modifier.SKILL);
 		actorTotal += actor.getModifier(Stats.Modifier.THREATEN);
-		actorTotal += Dice.d10.roll();
+		actorTotal += Dice.d10.roll("threaten NPC: player score");
 
 		// PERSUASION bonus if another party member has it.
 		if (actor.getActorGroup().getBestModifier(Stats.Modifier.PERSUASION, actor) > 0)
 		{
-			actorTotal += Dice.d10.roll();
+			actorTotal += Dice.d10.roll("threaten NPC: persuasion bonus");
 		}
 
 		return actorTotal-targetTotal;
@@ -2037,17 +2037,17 @@ public class GameSys
 		int npcTotal =
 			npc.getLevel()*10
 			+ npc.getResistBribes()
-			+ Dice.d10.roll();
+			+ Dice.d10.roll("bribe NPC: target score");
 
 		int partyTotal = 0;
 		partyTotal += amount/10;
 		partyTotal += pc.getModifier(Stats.Modifier.TO_BRIBE);
-		partyTotal += Dice.d10.roll();
+		partyTotal += Dice.d10.roll("bribe NPC: player score");
 
 		// PERSUASION bonus if another party member has it.
 		if (pc.getActorGroup().getBestModifier(Stats.Modifier.PERSUASION, pc) > 0)
 		{
-			partyTotal += Dice.d10.roll();
+			partyTotal += Dice.d10.roll("bribe NPC: persuasion bonus");
 		}
 
 		return partyTotal-npcTotal;
@@ -2075,7 +2075,7 @@ public class GameSys
 			npc.getLevel() +
 			npc.getResistSteal() +
 			npc.getTheftCounter() +
-			Dice.d10.roll();
+			Dice.d10.roll("steal: npc score");
 
 		if (npc.getTheftCounter() > 10)
 		{
@@ -2088,7 +2088,7 @@ public class GameSys
 			pc.getLevel() +
 			pc.getModifier(Stats.Modifier.THIEVING) +
 			pc.getModifier(Stats.Modifier.STEAL) +
-			Dice.d10.roll();
+			Dice.d10.roll("steal: player score");
 		Maze.log(Log.DEBUG, "pcTotal = [" + pcTotal + "]");
 
 		int requiredDifference = npcIsNeutral ? 10 : 5;
@@ -2176,13 +2176,13 @@ public class GameSys
 		Maze.log(Log.DEBUG, "calculating amount of gold stolen from " +
 			"["+victim.getName()+"] by ["+source.getName()+"]");
 
-		int percent = Dice.d10.roll();
+		int percent = Dice.d10.roll("gold stolen: percent");
 		Maze.log(Log.DEBUG, "percent = [" + percent + "]");
 
 		int amount = victim.getMaxStealableGold() *percent /100
 			+ source.getModifier(Stats.Modifier.THIEVING)
 			+ source.getModifier(Stats.Modifier.STEAL)
-			+ Dice.d10.roll();
+			+ Dice.d10.roll("gold stolen: rng");
 
 		Maze.log(Log.DEBUG, "amount = [" + amount + "]");
 
@@ -2212,7 +2212,7 @@ public class GameSys
 
 		List<Item> stealableItems = victim.getStealableItems();
 
-		if (canStealGold && (Dice.d100.roll() <= 30 ||
+		if (canStealGold && (Dice.d100.roll("random steal check") <= 30 ||
 			stealableItems == null || stealableItems.size() == 0))
 		{
 			// 30% chance of gold
@@ -2225,7 +2225,7 @@ public class GameSys
 			{
 				int max = stealableItems.size();
 				Dice d = new Dice(0, max-1, 0);
-				Item item = stealableItems.get(d.roll());
+				Item item = stealableItems.get(d.roll("random steal: item check"));
 				Maze.log(Log.DEBUG, "item = [" + item.getName() + "]");
 				return item;
 			}
@@ -2258,7 +2258,7 @@ public class GameSys
 
 		forceChance = Math.min(99, forceChance);
 
-		if (Dice.d100.roll() <= forceChance)
+		if (Dice.d100.roll("force portal chance") <= forceChance)
 		{
 			return Portal.ForceResult.SUCCESS;
 		}
@@ -2826,7 +2826,7 @@ public class GameSys
 
 		base = base + mod - nrFoes;
 
-		return base >= Dice.d100.roll();
+		return base >= Dice.d100.roll("foe run away chance");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2869,7 +2869,7 @@ public class GameSys
 
 		base = base + mod - nrFoes;
 
-		return Dice.d100.roll() <= base;
+		return Dice.d100.roll("player run away chance") <= base;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3381,8 +3381,8 @@ public class GameSys
 	 */
 	public boolean actorBreaksFreeOfWeb(UnifiedActor actor, Condition condition)
 	{
-		int difficulty = condition.getStrength() + condition.getCastingLevel() + Dice.d4.roll();
-		int actorTotal = actor.getModifier(Stats.Modifier.BRAWN) + Dice.d4.roll();
+		int difficulty = condition.getStrength() + condition.getCastingLevel() + Dice.d4.roll("web difficulty");
+		int actorTotal = actor.getModifier(Stats.Modifier.BRAWN) + Dice.d4.roll("web: player total");
 
 		return actorTotal > difficulty;
 	}
@@ -3419,7 +3419,7 @@ public class GameSys
 
 		int chance = basePercent + foeFactor + woundFactor;
 
-		return Dice.d100.roll() <= chance;
+		return Dice.d100.roll("berserk check") <= chance;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -3445,7 +3445,7 @@ public class GameSys
 		// max 80%
 		chance = Math.min(80, chance);
 		
-		return Dice.d100.roll() <= chance;
+		return Dice.d100.roll("cheat death check") <= chance;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -3456,7 +3456,7 @@ public class GameSys
 	{
 		// reset HP to 20%-50%, with equal fatigue
 		Dice d = new Dice(3, 10, 17);
-		int percentHp = d.roll();
+		int percentHp = d.roll("cheat death: hp");
 		CurMaxSub hp = actor.getHitPoints();
 		int newHp = hp.getMaximum() * percentHp / 100;
 		hp.setCurrent(newHp);
@@ -3548,7 +3548,7 @@ public class GameSys
 			return false;
 		}
 
-		boolean result = Dice.d100.roll() <= percent;
+		boolean result = Dice.d100.roll("critical hit check") <= percent;
 
 		if (result)
 		{
@@ -3612,7 +3612,7 @@ public class GameSys
 
 		percent -= attacker.getModifier(Stats.Modifier.VS_DODGE);
 
-		return Dice.d100.roll() <= percent;
+		return Dice.d100.roll("attack dodge check") <= percent;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3693,7 +3693,7 @@ public class GameSys
 
 		int percent = defender.getModifier(modifier);
 
-		return Dice.d100.roll() <= percent;
+		return Dice.d100.roll("defensive modifier check ["+modifier+"]") <= percent;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3716,7 +3716,7 @@ public class GameSys
 			// Arrow cutting property
 			if (defender.getModifier(Stats.Modifier.ARROW_CUTTING) > 0)
 			{
-				if (Dice.d100.roll() <= defender.getModifier(Stats.Modifier.ARROW_CUTTING))
+				if (Dice.d100.roll("arrow cutting check") <= defender.getModifier(Stats.Modifier.ARROW_CUTTING))
 				{
 					// projectile is deflected
 					return true;
@@ -3917,7 +3917,7 @@ public class GameSys
 				break;
 		}
 
-		return Dice.d100.roll() <= chance;
+		return Dice.d100.roll("item enchantment check") <= chance;
 	}
 
 	/*-------------------------------------------------------------------------*/

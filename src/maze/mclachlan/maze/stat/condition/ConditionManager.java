@@ -93,17 +93,21 @@ public class ConditionManager implements GameCache
 					{
 						li.remove();
 						c.expire();
-						String exitSpellEffect = c.getTemplate().getExitSpellEffect();
-						if (exitSpellEffect != null)
+						ConditionTemplate template = c.getTemplate();
+						if (template != null)
 						{
-							SpellEffect spellEffect = Database.getInstance().getSpellEffect(exitSpellEffect);
-							conditionEvents.addAll(
-								spellEffect.getUnsavedResult().apply(
-									c.getSource(),
-									c.getTarget(),
-									c.getCastingLevel(),
-									spellEffect,
-									null));
+							String exitSpellEffect = template.getExitSpellEffect();
+							if (exitSpellEffect != null)
+							{
+								SpellEffect spellEffect = Database.getInstance().getSpellEffect(exitSpellEffect);
+								conditionEvents.addAll(
+									spellEffect.getUnsavedResult().apply(
+										c.getSource(),
+										c.getTarget(),
+										c.getCastingLevel(),
+										spellEffect,
+										null));
+							}
 						}
 					}
 				}

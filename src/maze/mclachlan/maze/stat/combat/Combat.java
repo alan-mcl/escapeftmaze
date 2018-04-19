@@ -308,14 +308,6 @@ public class Combat
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		for (int i = foes.size()-1; i >=0; i--)
-		{
-			if (foes.get(i).numAlive() == 0)
-			{
-				foes.remove(i);
-			}
-		}
-
 		Maze.log("checking end of round berserk status...");
 		// chance of berserking every round
 		for (UnifiedActor actor : this.actors)
@@ -798,13 +790,13 @@ public class Combat
 			// insert blink actions as required
 			if (actor.getModifier(Stats.Modifier.BLINK) > 0 && actor.getHitPoints().getCurrent() > 0)
 			{
-				int blinkInitiative =  blinkDice.roll();
+				int blinkInitiative =  blinkDice.roll("Combat blink dice 1");
 				
 				BlinkAction blinkOut = new BlinkAction();
 				blinkOut.setInitiative(blinkInitiative);
 
 				BlinkAction blinkIn = new BlinkAction();
-				blinkIn.setInitiative(Dice.d6.roll());
+				blinkIn.setInitiative(blinkInitiative + Dice.d6.roll("Combat blink dice 2"));
 
 				actorActions.add(blinkOut);
 				actorActions.add(blinkIn);

@@ -272,10 +272,10 @@ public class NpcInventoryTemplateComponent extends JPanel
 
 			if (maxPrice == -1 || maxPrice <= it.getBaseCost())
 			{
-				int spawnChance = spawnDice==null ? 15 : spawnDice.roll();
-				int lvlAppearing = lvlDice==null ? GenInv.getDefaultPartyLvlAppearing(it) : lvlDice.roll();
-				int stocked = stockedDice==null ? 1 : stockedDice.roll();
-				int vanishChance = vanishDice==null ? 15 : vanishDice.roll();
+				int spawnChance = spawnDice==null ? 15 : spawnDice.roll("npc inv 1");
+				int lvlAppearing = lvlDice==null ? GenInv.getDefaultPartyLvlAppearing(it) : lvlDice.roll("npc inv 2");
+				int stocked = stockedDice==null ? 1 : stockedDice.roll("npc inv 3");
+				int vanishChance = vanishDice==null ? 15 : vanishDice.roll("npc inv 4");
 				Dice stack = stackDice==null ? getDefaultStackSize(it.getType()) : stackDice;
 
 				// todo: shouldn't this add a Loot Entry? Or maybe be removed?
@@ -312,10 +312,10 @@ public class NpcInventoryTemplateComponent extends JPanel
 		{
 			if (it.getType() == type && (maxPrice <= 0 || it.getBaseCost() <= maxPrice))
 			{
-				int spawnChance = spawnDice==null ? 15 : spawnDice.roll();
-				int lvlAppearing = lvlDice==null ? GenInv.getDefaultPartyLvlAppearing(it) : lvlDice.roll();
-				int stocked = stockedDice==null ? 1 : stockedDice.roll();
-				int vanishChance = vanishDice==null ? 15 : vanishDice.roll();
+				int spawnChance = spawnDice==null ? 15 : spawnDice.roll("npc inv 5");
+				int lvlAppearing = lvlDice==null ? GenInv.getDefaultPartyLvlAppearing(it) : lvlDice.roll("npc inv 6");
+				int stocked = stockedDice==null ? 1 : stockedDice.roll("npc inv 7");
+				int vanishChance = vanishDice==null ? 15 : vanishDice.roll("npc inv 8");
 				Dice stack = stackDice==null ? getDefaultStackSize(type) : stackDice;
 
 				NpcInventoryTemplateRowItem r = new NpcInventoryTemplateRowItem(

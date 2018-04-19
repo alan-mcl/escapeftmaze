@@ -1119,7 +1119,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 					CharacterClassWrapper ccw = null;
 					while (ccw == null)
 					{
-						ccw = characterClassList.get(classD.roll());
+						ccw = characterClassList.get(classD.roll("CCW: class"));
 						if (!characterClasses.isEnabled(ccw))
 						{
 							ccw = null;

@@ -65,7 +65,7 @@ public class BoozeSpellResult extends SpellResult
 			attrib -= castingLevel;
 
 			// roll 1d10, compare to attrib, 1 always good, 10 always bad
-			int roll = Dice.d10.roll();
+			int roll = Dice.d10.roll("booze effect");
 
 			if (roll == 10 || (roll >= attrib && roll != 1))
 			{
@@ -92,7 +92,7 @@ public class BoozeSpellResult extends SpellResult
 	{
 		// roll 1d6, add casting level
 
-		int roll = Dice.d6.roll()+castingLevel;
+		int roll = Dice.d6.roll("booze good effects")+castingLevel;
 
 		switch (roll)
 		{
@@ -119,7 +119,7 @@ public class BoozeSpellResult extends SpellResult
 	{
 		// roll 1d6, add casting level
 
-		int roll = Dice.d6.roll()+castingLevel;
+		int roll = Dice.d6.roll("booze bad effects")+castingLevel;
 
 		switch (roll)
 		{
@@ -145,13 +145,13 @@ public class BoozeSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	private HealingEvent getHealingEvent(UnifiedActor target, int castingLevel)
 	{
-		return new HealingEvent(target, new Dice(castingLevel, 2, 0).roll());
+		return new HealingEvent(target, new Dice(castingLevel, 2, 0).roll("booze healing"));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private StaminaEvent getStaminaEvent(UnifiedActor target, int castingLevel)
 	{
-		return new StaminaEvent(target, new Dice(castingLevel, 2, 0).roll());
+		return new StaminaEvent(target, new Dice(castingLevel, 2, 0).roll("booze stamina"));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -92,7 +92,7 @@ public class GroupOfPossibilities<T>
 
 		for (int i=0; i< possibilities.size(); i++)
 		{
-			if (Dice.d100.roll() <= percentages.get(i))
+			if (Dice.d100.roll("GOP getRandom") <= percentages.get(i))
 			{
 				result.add(possibilities.get(i));
 			}

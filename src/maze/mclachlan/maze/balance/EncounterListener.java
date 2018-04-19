@@ -51,7 +51,7 @@ public class EncounterListener extends MazeWalker.Listener
 			}
 		}
 
-		if (Dice.d1000.roll() <= tile.getRandomEncounterChance())
+		if (Dice.d1000.roll("Random Encounter Balance test") <= tile.getRandomEncounterChance())
 		{
 			randomEncounters++;
 		}

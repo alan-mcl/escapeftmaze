@@ -57,7 +57,7 @@ public class Dice
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public int roll()
+	public int roll(String reason)
 	{
 		int result = 0;
 		for (int i=0; i<numberOfDice; i++)
@@ -72,7 +72,7 @@ public class Dice
 			result = 0;
 		}
 
-		Maze.log(Log.DEBUG, this.toString()+" rolls "+result);
+		Maze.log(Log.DEBUG, this.toString()+" rolls "+result+" ("+reason+")");
 
 		return result;
 	}
@@ -131,7 +131,7 @@ public class Dice
 	public static void main(String[] args)
 	{
 		Dice d = V1Dice.fromString(args[0]);
-		int i = d.roll();
+		int i = d.roll("test");
 		System.out.println("d = [" + d + "]");
 		System.out.println("i = [" + i + "]");
 	}

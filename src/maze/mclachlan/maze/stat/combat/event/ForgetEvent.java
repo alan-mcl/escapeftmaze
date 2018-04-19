@@ -57,7 +57,7 @@ public class ForgetEvent extends MazeEvent
 
 		for (Point p : tilesVisited)
 		{
-			if (Dice.d10.roll() <= strength)
+			if (Dice.d10.roll("forget event map erasure") <= strength)
 			{
 				ptv.removeTileVisited(zone, p);
 			}

@@ -53,7 +53,7 @@ public class Leveler
 
 		do
 		{
-			result = raceList.get(raceD.roll());
+			result = raceList.get(raceD.roll("leveler: race"));
 			r = Database.getInstance().getRace(result);
 		}
 		while (r.isLocked());
@@ -68,7 +68,7 @@ public class Leveler
 		List<Gender> genderList = raceInst.getAllowedGenders();
 		Dice genderD = new Dice(1, genderList.size(), -1);
 
-		return genderList.get(genderD.roll());
+		return genderList.get(genderD.roll("leveler: gender"));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -83,7 +83,7 @@ public class Leveler
 
 		while (result == null)
 		{
-			result = classList.get(classD.roll());
+			result = classList.get(classD.roll("leveler: class"));
 
 			if (!result.getAllowedGenders().contains(gender) ||
 				!result.getAllowedRaces().contains(race))
@@ -107,7 +107,7 @@ public class Leveler
 		}
 
 		Dice kitD = new Dice(1, kitList.size(), -1);
-		return kitList.get(kitD.roll());
+		return kitList.get(kitD.roll("leveler: kit"));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -148,7 +148,7 @@ public class Leveler
 			if (names != null && !names.isEmpty())
 			{
 				Dice d = new Dice(1, names.size(), -1);
-				return names.get(d.roll());
+				return names.get(d.roll("leveler: name"));
 			}
 		}
 		return null;
@@ -161,7 +161,7 @@ public class Leveler
 		List<String> names = getAvailablePortraitName(raceName, genderName);
 		Dice d = new Dice(1, names.size(), -1);
 
-		return names.get(d.roll());
+		return names.get(d.roll("leveler: portrait"));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -208,7 +208,7 @@ public class Leveler
 			Database.getInstance().getPersonalities().values());
 
 		Dice d = new Dice(1, personalities.size(), -1);
-		return personalities.get(d.roll());
+		return personalities.get(d.roll("leveler: personality"));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -222,7 +222,7 @@ public class Leveler
 		for (int i = 0; i < pc.getSpellPicks(); i++)
 		{
 			Dice d = new Dice(1, canBeLearned.size(), -1);
-			Spell spell = canBeLearned.get(d.roll());
+			Spell spell = canBeLearned.get(d.roll("leveler: spells"));
 			result.add(spell);
 			canBeLearned.remove(spell);
 		}
@@ -694,9 +694,9 @@ public class Leveler
 			activeModifiers = pc.getActiveModifiers();
 			curClass = pc.getCharacterClass();
 
-			hpInc = pc.getCharacterClass().getLevelUpHitPoints().roll();
-			spInc = pc.getCharacterClass().getLevelUpActionPoints().roll();
-			mpInc = pc.getCharacterClass().getLevelUpMagicPoints().roll() +
+			hpInc = pc.getCharacterClass().getLevelUpHitPoints().roll("leveler: hp");
+			spInc = pc.getCharacterClass().getLevelUpActionPoints().roll("leveler: ap");
+			mpInc = pc.getCharacterClass().getLevelUpMagicPoints().roll("leveler: mp") +
 				pc.getModifier(Stats.Modifier.BRAINS);
 
 			spellPicksInc = calcSpellPicks(pc, pc.getCurrentClassLevel()+1);

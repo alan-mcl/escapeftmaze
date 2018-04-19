@@ -148,7 +148,7 @@ public class PaintTileMana extends Tool implements ActionListener
 				Tile t = (Tile)obj;
 				mclachlan.maze.map.Tile tile = editor.getMazeTile(t);
 				
-				tile.getStatModifier().setModifier(modifier, d.roll());
+				tile.getStatModifier().setModifier(modifier, d.roll("paint tile mana"));
 			}
 		}
 	}

@@ -112,7 +112,7 @@ public class FatigueKO extends Condition
 		{
 			CurMaxSub hp = ((UnifiedActor)target).getHitPoints();
 			// 50% chance of waking up
-			if (hp.getSub() < hp.getCurrent() && Dice.d2.roll() == 1)
+			if (hp.getSub() < hp.getCurrent() && Dice.d2.roll("fatigue KO recovery check") == 1)
 			{
 				setDuration(-1);
 			}

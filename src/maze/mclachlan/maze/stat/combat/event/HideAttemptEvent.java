@@ -58,7 +58,7 @@ public class HideAttemptEvent extends MazeEvent
 		int hideChance = GameSys.getInstance().getHideChance(
 			actor, combat.getAllFoesOf(actor), combat.getAllAlliesOf(actor));
 
-		if (Dice.d100.roll() <= hideChance)
+		if (Dice.d100.roll("hide chance") <= hideChance)
 		{
 			result.add(new HideSucceedsEvent(actor));
 		}

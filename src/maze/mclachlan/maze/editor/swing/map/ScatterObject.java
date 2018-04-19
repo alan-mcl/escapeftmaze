@@ -152,11 +152,11 @@ public class ScatterObject extends Tool implements ActionListener
 			{
 				Tile t = (Tile)obj;
 				
-				if (Dice.d100.roll() <= prob)
+				if (Dice.d100.roll("scatter object 1") <= prob)
 				{
 					int index = editor.getCrusaderIndexOfTile(t);
 					
-					int nr = nrPerTile.roll();
+					int nr = nrPerTile.roll("scatter object 2");
 					BitSet mask = new BitSet();
 					
 					for (int i=0; i<nr; i++)
@@ -164,7 +164,7 @@ public class ScatterObject extends Tool implements ActionListener
 						int pos;
 						do
 						{
-							pos = posD.roll();
+							pos = posD.roll("scatter object 3");
 						}
 						while (mask.get(pos));
 												

@@ -1906,7 +1906,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/**
 	 * @return
 	 * 	All pre-combat actions that character special abilities allow this
-	 * 	character to take. One one is supported, so if there are multiple
+	 * 	character to take. Only one is supported, so if there are multiple
 	 * 	choose one at random.
 	 */
 	public ActorActionIntention getPreCombatIntentions(Combat combat)
@@ -1931,7 +1931,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 		if (!possibilities.isEmpty())
 		{
-			return possibilities.get(new Dice(1,possibilities.size(),-1).roll());
+			return possibilities.get(new Dice(1,possibilities.size(),-1).roll("UnifiedActor.getPreCombatIntentions"));
 		}
 		else
 		{

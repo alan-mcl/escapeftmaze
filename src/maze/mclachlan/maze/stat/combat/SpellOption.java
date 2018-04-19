@@ -116,7 +116,7 @@ public class SpellOption extends ActorActionOption
 				if (combat != null)
 				{
 					Dice d = new Dice(1, selectedFoeGroup.numAlive(), -1);
-					spellTarget = selectedFoeGroup.getActors().get(d.roll());
+					spellTarget = selectedFoeGroup.getActors().get(d.roll("Spell option foe targeting"));
 				}
 				else
 				{

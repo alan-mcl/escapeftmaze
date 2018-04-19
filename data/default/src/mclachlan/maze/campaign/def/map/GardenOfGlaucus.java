@@ -50,7 +50,7 @@ public class GardenOfGlaucus extends TileScript
 
 			for (UnifiedActor actor : maze.getParty().getActors())
 			{
-				events.add(new HealingEvent(actor, Dice.d12.roll()));
+				events.add(new HealingEvent(actor, Dice.d12.roll("Garden of Glaucus")));
 			}
 
 			return events;

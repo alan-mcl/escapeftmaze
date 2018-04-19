@@ -135,7 +135,7 @@ public class AmmoStashSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	protected int getQuantity(int castingLevel)
 	{
-		int quantity = new Dice(castingLevel, 2, -5).roll();
+		int quantity = new Dice(castingLevel, 2, -5).roll("ammo stash");
 		quantity = Math.max(2, quantity/2);
 		return quantity;
 	}

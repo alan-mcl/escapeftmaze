@@ -76,12 +76,12 @@ public class DestroyTrapSpellResult extends SpellResult
 	public List<Item> getGadgets(int castingLevel)
 	{
 		ArrayList<Item> result = new ArrayList<Item>();
-		int max = new Dice(castingLevel,3,1).roll();
+		int max = new Dice(castingLevel,3,1).roll("destroy trap max");
 		for (int i=0; i< max; i++)
 		{
 			LootEntry gadgets;
 
-			if (Dice.d100.roll() > 5)
+			if (Dice.d100.roll("destroy trap table") > 5)
 			{
 				gadgets = Database.getInstance().getLootEntry("batch.1.gadgets");
 			}

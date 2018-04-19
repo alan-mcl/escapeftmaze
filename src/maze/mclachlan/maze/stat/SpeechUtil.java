@@ -69,7 +69,7 @@ public class SpeechUtil
 		if (backgroundCharacterSpeechOccurs())
 		{
 			String speechKey;
-			switch (Dice.d3.roll())
+			switch (Dice.d3.roll("SpeechUtil.attackEventSpeech"))
 			{
 				case 1: speechKey = Personality.BasicSpeech.MELEE_ATTACK_1.getKey(); break;
 				case 2: speechKey = Personality.BasicSpeech.MELEE_ATTACK_2.getKey(); break;
@@ -106,8 +106,8 @@ public class SpeechUtil
 		switch (Maze.getInstance().getUserConfig().getPersonalityChattiness())
 		{
 			case OFF: return false;
-			case LOW: return Dice.d10.roll() == 1;
-			case MEDIUM: return Dice.d2.roll() == 1;
+			case LOW: return Dice.d10.roll("SpeechUtil.backgroundCharacterSpeechOccurs.1") == 1;
+			case MEDIUM: return Dice.d2.roll("SpeechUtil.backgroundCharacterSpeechOccurs.2") == 1;
 			case HIGH: return true;
 			default: throw new MazeException(
 				"Invalid mclachlan.maze.ui.personality_chattiness: "+ Maze.getInstance().getUserConfig().getPersonalityChattiness());
@@ -211,7 +211,7 @@ public class SpeechUtil
 		}
 		else
 		{
-			switch (Dice.d2.roll())
+			switch (Dice.d2.roll("SpeechUtil.allyDiesSpeech"))
 			{
 				case 1: speechKey = Personality.BasicSpeech.ALLY_DIES_MALE.getKey(); break;
 				case 2: speechKey = Personality.BasicSpeech.ALLY_DIES_FEMALE.getKey(); break;

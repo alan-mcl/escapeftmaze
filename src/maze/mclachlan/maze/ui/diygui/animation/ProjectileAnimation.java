@@ -139,7 +139,7 @@ public class ProjectileAnimation extends Animation
 			if (isPartyAlly)
 			{
 				// random source
-				index = Dice.d6.roll();
+				index = Dice.d6.roll("projectile animation starting index");
 			}
 			else
 			{
@@ -181,7 +181,7 @@ public class ProjectileAnimation extends Animation
 			}
 			else
 			{
-				result.leftHanded = Dice.d2.roll()==1;
+				result.leftHanded = Dice.d2.roll("projectile animation random handedness")==1;
 			}
 
 			if (result.leftHanded)

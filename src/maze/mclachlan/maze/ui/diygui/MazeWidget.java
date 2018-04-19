@@ -226,8 +226,11 @@ public class MazeWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
+		System.out.println("MazeWidget.processMouseClicked");
+
 		if (e.getID() != MouseEvent.MOUSE_CLICKED)
 		{
+			System.out.println(1);
 			return;
 		}
 		
@@ -259,16 +262,15 @@ public class MazeWidget extends ContainerWidget
 				}
 			}
 		}
-		else
+
+		// todo: weird behaviour if this triggers a click script behind the foe group widget?
+		for (int i=0; i<Constants.MAX_FOE_GROUPS; i++)
 		{
-			for (int i=0; i<Constants.MAX_FOE_GROUPS; i++)
+			if (foeGroupWidgets[i].getBounds().contains(e.getPoint())
+				&& foeGroupWidgets[i].getFoeGroup() != null)
 			{
-				if (foeGroupWidgets[i].getBounds().contains(e.getPoint())
-					&& foeGroupWidgets[i].getFoeGroup() != null)
-				{
-					setSelectedFoeGroup(i);
-					break;
-				}
+				setSelectedFoeGroup(i);
+				break;
 			}
 		}
 	}

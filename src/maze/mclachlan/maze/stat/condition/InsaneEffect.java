@@ -47,7 +47,7 @@ public class InsaneEffect extends ConditionEffect
 	@Override
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("insane effect");
 
 		if (roll <= 25)
 		{
@@ -78,7 +78,7 @@ public class InsaneEffect extends ConditionEffect
 	@Override
 	public String getSpeechKey()
 	{
-		switch (Dice.d3.roll())
+		switch (Dice.d3.roll("insane speech"))
 		{
 			case 1: return Personality.BasicSpeech.CONDITION_INSANE_1.getKey();
 			case 2: return Personality.BasicSpeech.CONDITION_INSANE_2.getKey();
@@ -97,7 +97,7 @@ public class InsaneEffect extends ConditionEffect
 			return text;
 		}
 
-		switch (Dice.d3.roll())
+		switch (Dice.d3.roll("insane speech modification"))
 		{
 			case 1: return p.getWords(Personality.BasicSpeech.CONDITION_INSANE_1.getKey());
 			case 2: return p.getWords(Personality.BasicSpeech.CONDITION_INSANE_2.getKey());

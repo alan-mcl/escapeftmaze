@@ -54,7 +54,7 @@ public class IrritateEffect extends ConditionEffect
 	@Override
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("irritate effect");
 
 		if (roll <= 15)
 		{

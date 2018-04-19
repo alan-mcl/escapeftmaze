@@ -139,7 +139,7 @@ public class AttackRateAnalysis
 
 					for (int k=0; k<ns; k++)
 					{
-						if (Dice.d100.roll() <= 50)
+						if (Dice.d100.roll("AttackRateAnalysis") <= 50)
 						{
 							StrikeEvent ae = new StrikeEvent(
 								null, pc, pc, weapon, attackType,

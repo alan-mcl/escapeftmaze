@@ -60,7 +60,7 @@ public class SummoningSpellResult extends SpellResult
 		// CASTER target type
 
 		int str = strength.compute(source, castingLevel);
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("summoning spell result");
 		if (roll <= 10)
 		{
 			str--;

@@ -551,7 +551,7 @@ public class SirKay extends NpcScript
 			else
 			{
 				// random movement
-				if (Dice.d20.roll() == 1)
+				if (Dice.d20.roll("Sir Kay zone") == 1)
 				{
 					// change zone
 					return changeSirKayZone();
@@ -646,7 +646,7 @@ public class SirKay extends NpcScript
 	private Point getRandomIchibaCityTile()
 	{
 		Point newTile;
-		newTile = new Point(Dice.d20.roll()+10, Dice.d20.roll()+10);
+		newTile = new Point(Dice.d20.roll("Sir Kay city coords")+10, Dice.d20.roll("Sir Kay city coords")+10);
 		return newTile;
 	}
 
@@ -654,7 +654,7 @@ public class SirKay extends NpcScript
 	private Point getRandomIchibaCrossroadTile()
 	{
 		Point newTile;
-		newTile = new Point(Dice.d20.roll()+5, Dice.d20.roll()+5);
+		newTile = new Point(Dice.d20.roll("Sir Kay xroads coords")+5, Dice.d20.roll("Sir Kay xroads coords")+5);
 		return newTile;
 	}
 }

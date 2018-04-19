@@ -56,7 +56,7 @@ public class NauseaEffect extends ConditionEffect
 	@Override
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("nausea effect");
 
 		if (roll <= 15)
 		{

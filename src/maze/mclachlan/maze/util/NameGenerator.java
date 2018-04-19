@@ -477,7 +477,7 @@ public class NameGenerator
 
 		for (int i=0; i<count; i++)
 		{
-			String name = ng.compose(d.roll());
+			String name = ng.compose(d.roll("name gen"));
 			System.out.println(name);
 		}
 	}

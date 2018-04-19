@@ -64,14 +64,14 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 		if (getNumInStock(this.getItemName(), currentInventory) < this.getMaxStocked())
 		{
 			if (clvl >= this.getPartyLevelAppearing() &&
-				Dice.d100.roll() <= this.getChanceOfSpawning())
+				Dice.d100.roll("npc inventory spawning") <= this.getChanceOfSpawning())
 			{
 				ItemTemplate itemTemplate = Database.getInstance().getItemTemplate(this.getItemName());
 				Item newItem = null;
 
 				if (itemTemplate.getMaxItemsPerStack() > 0 && this.getStackSize() != null)
 				{
-					newItem = itemTemplate.create(this.getStackSize().roll());
+					newItem = itemTemplate.create(this.getStackSize().roll("npc item stack size"));
 				}
 				else
 				{

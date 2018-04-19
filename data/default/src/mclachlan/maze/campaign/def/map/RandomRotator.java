@@ -20,7 +20,7 @@ public class RandomRotator extends TileScript
 	{
 		int newFacing;
 
-		int roll = Dice.d4.roll();
+		int roll = Dice.d4.roll("Random rotator "+tile.toString()+"");
 		switch (roll)
 		{
 			case 1: newFacing = CrusaderEngine.Facing.NORTH; break;

@@ -98,7 +98,7 @@ public class NpcInventoryTemplate
 			Item item = i.next();
 			int chanceOfVanishing = getChanceOfVanishing(item);
 
-			if (Dice.d100.roll() <= chanceOfVanishing)
+			if (Dice.d100.roll("npc inventory vanishing") <= chanceOfVanishing)
 			{
 				i.remove();
 			}

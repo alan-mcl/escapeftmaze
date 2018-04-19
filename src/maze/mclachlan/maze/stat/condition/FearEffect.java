@@ -54,7 +54,7 @@ public class FearEffect extends ConditionEffect
 	@Override
 	public CombatAction checkAction(UnifiedActor actor, CombatAction action, Condition condition)
 	{
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("fear effect");
 		if (roll <= 10)
 		{
 			return new CowerInFearAction();

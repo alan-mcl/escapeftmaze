@@ -84,13 +84,13 @@ public class Foe extends UnifiedActor
 
 		// set level
 		HashMap<String, Integer> levels = new HashMap<String, Integer>();
-		levels.put(getName(), template.getLevelRange().roll());
+		levels.put(getName(), template.getLevelRange().roll("Foe: level"));
 		this.setLevels(levels);
 
 		// roll up this foes vitals
-		int maxHP = template.getHitPointsRange().roll();
-		int maxStealth = template.getActionPointsRange().roll();
-		int maxMagic = template.getMagicPointsRange().roll();
+		int maxHP = template.getHitPointsRange().roll("Foe: hp");
+		int maxStealth = template.getActionPointsRange().roll("Foe: ap");
+		int maxMagic = template.getMagicPointsRange().roll("Foe: mp");
 
 		getStats().setHitPoints(new CurMaxSub(maxHP));
 		getStats().setActionPoints(new CurMax(maxStealth));
@@ -711,6 +711,7 @@ public class Foe extends UnifiedActor
 		sb.append("Foe");
 		sb.append("{name='").append(template.getName()).append('\'');
 		sb.append(", level=").append(getLevel());
+		sb.append(", hp=").append(getHitPoints());
 		sb.append('}');
 		return sb.toString();
 	}

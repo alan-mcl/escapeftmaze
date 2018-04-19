@@ -77,7 +77,7 @@ public class SleepEffect extends ConditionEffect
 		// 10% per damage point, max 99%
 		int percent = Math.min(damage*10, 99);
 
-		if (Dice.d100.roll() <= percent)
+		if (Dice.d100.roll("damaged while sleeping") <= percent)
 		{
 			actor.removeCondition(condition);
 		}

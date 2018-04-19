@@ -29,7 +29,7 @@ public class AmazingAmmoStashSpellResult extends GreaterAmmoStashSpellResult
 	@Override
 	protected int getQuantity(int castingLevel)
 	{
-		int quantity = new Dice(castingLevel, 2, -5).roll();
+		int quantity = new Dice(castingLevel, 2, -5).roll("amazing ammo stash");
 		quantity = Math.max(2, quantity);
 		return quantity;
 	}

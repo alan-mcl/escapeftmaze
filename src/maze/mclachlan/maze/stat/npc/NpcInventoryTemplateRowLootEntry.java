@@ -86,7 +86,7 @@ public class NpcInventoryTemplateRowLootEntry extends NpcInventoryTemplateRow
 
 		ILootEntry le = Database.getInstance().getLootEntry(lootEntry);
 
-		int count = itemsToSpawn.roll();
+		int count = itemsToSpawn.roll("npc items to spawn");
 
 		for (int i=0; i<count; i++)
 		{
@@ -95,14 +95,14 @@ public class NpcInventoryTemplateRowLootEntry extends NpcInventoryTemplateRow
 			if (getNumInStock(item.getName(), currentInventory) < this.getMaxStocked())
 			{
 				if (clvl >= this.getPartyLevelAppearing() &&
-					Dice.d100.roll() <= this.getChanceOfSpawning())
+					Dice.d100.roll("npc chance of spawning 2") <= this.getChanceOfSpawning())
 				{
 					ItemTemplate itemTemplate = Database.getInstance().getItemTemplate(item.getName());
 					Item newItem = null;
 
 					if (itemTemplate.getMaxItemsPerStack() > 0)
 					{
-						newItem = itemTemplate.create(getDefaultStackSize(item.getName()).roll());
+						newItem = itemTemplate.create(getDefaultStackSize(item.getName()).roll("npc inventory stack size 2"));
 					}
 					else
 					{

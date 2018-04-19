@@ -69,7 +69,7 @@ public class Item implements AttackWith, SpellTarget
 		stack = new CurMax(quantity, template.maxItemsPerStack);
 		if (template.charges != null)
 		{
-			charges = new CurMax(template.charges.roll(), template.charges.getMaxPossible());
+			charges = new CurMax(template.charges.roll("item ["+getName()+"] charges"), template.charges.getMaxPossible());
 		}
 
 		if (GameSys.getInstance().applyEnchantmentToNewItem(template))

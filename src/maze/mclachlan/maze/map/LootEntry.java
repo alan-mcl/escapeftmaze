@@ -83,7 +83,7 @@ public class LootEntry implements ILootEntry
 			throw new MazeException("Invalid stack size: "+itemName+", "+row.getQuantity());
 		}
 
-		item = itemTemplate.create(row.getQuantity().roll());
+		item = itemTemplate.create(row.getQuantity().roll("Loot entry create: ["+getName()+"]"));
 
 		if (item.getType() == ItemTemplate.Type.MONEY || item.getType() == ItemTemplate.Type.SUPPLIES)
 		{

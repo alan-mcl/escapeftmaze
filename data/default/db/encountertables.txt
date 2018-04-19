@@ -53,7 +53,7 @@ name=castle.fangorn.random.enc
 foeEntries=0,groaning.bones.small:15,haunts.small:15,napier's.bones.1:15,revenants.1:15,shades.1:15,ghosts.1:5,zombie.mantis.1:5,frozen.skeletons.1:5,lost.souls.1:5,bat.vampires.1:5
 @
 name=reincarnate.beast
-foeEntries=1,winter.wolf.1:34,owlbear.1:33,griffon.1:33
+foeEntries=0,winter.wolf.1:34,owlbear.1:33,griffon.1:33
 @
 name=call.elemental.spell.5
 foeEntries=0,verdant.force.1:50,force.of.nature.1:50
@@ -305,7 +305,7 @@ name=ichiba.crossroad.mantis
 foeEntries=0,hunting.mantis.2:100
 @
 name=bel.ies.encounter
-foeEntries=1,bel.ies.encounter:100
+foeEntries=0,bel.ies.encounter:100
 @
 name=summon.vermin.spell.2
 foeEntries=0,mud.spiders.medium:50,mud.spiders.medium:50
@@ -320,7 +320,7 @@ name=call.wyrm.spell.1
 foeEntries=0,bloodwyrm.1:100
 @
 name=corrosive.slime.encounter
-foeEntries=1,corrosive.slime.encounter:100
+foeEntries=0,corrosive.slime.encounter:100
 @
 name=call.wyrm.spell.2
 foeEntries=0,frost.wyrm.1:100
@@ -389,13 +389,13 @@ name=call.wyrms.spell.2
 foeEntries=0,call.wyrms.spell.2:100
 @
 name=call.wyrms.spell.5
-foeEntries=0,call.wyrms.spell.5:100
+foeEntries=1,call.wyrms.spell.5:100
 @
 name=call.wyrms.spell.4
 foeEntries=0,call.wyrms.spell.4:100
 @
 name=TestingTable
-foeEntries=1,TestingFoeEntry:100
+foeEntries=1,TestingFoeEntry:100,TestingFoeEntry:100
 @
 name=punch.maker.killer
 foeEntries=0,punch.maker.killer:100
@@ -425,7 +425,7 @@ name=ekirth's.tomb.random.enc
 foeEntries=0,vampire.vulture.1:34,haunts.small:33,foxfire.small:33
 @
 name=temple.of.the.gate.ghost.of.igor
-foeEntries=0,temple.of.the.gate.ghost.of.igor:100
+foeEntries=1,temple.of.the.gate.ghost.of.igor:100
 @
 name=coloniser.omnifids.1
 foeEntries=0,colonizer.ominifids.1:100

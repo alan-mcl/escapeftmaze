@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.combat.Combat;
 
@@ -45,6 +46,16 @@ public class EndCombatRoundEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		ListIterator<FoeGroup> foeGroupListIterator = combat.getFoes().listIterator();
+		while (foeGroupListIterator.hasNext())
+		{
+			FoeGroup fg = (FoeGroup)foeGroupListIterator.next();
+			if (fg.numAlive() == 0)
+			{
+				foeGroupListIterator.remove();
+			}
+		}
 
 		maze.getUi().setFoes(combat.getFoes());
 		maze.reorderPartyIfPending();

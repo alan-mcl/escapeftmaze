@@ -129,7 +129,7 @@ public class StrikeEvent extends MazeEvent
 
 		// Determine hit or miss
 		int hitPercent = GameSys.getInstance().calcHitPercent(this);
-		if (Dice.d100.roll() <= hitPercent)
+		if (Dice.d100.roll("strike vs hit percent ["+hitPercent+"]") <= hitPercent)
 		{
 			DamagePacket damagePacket = GameSys.getInstance().calcDamage(this, result);
 			combat.getCombatStatistics().captureAttackHit(this, combat);

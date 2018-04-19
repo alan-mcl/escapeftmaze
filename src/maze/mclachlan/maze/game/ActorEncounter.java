@@ -116,7 +116,7 @@ public class ActorEncounter
 				attacks(maze, msg);
 				break;
 			case AGGRESSIVE:
-				if (Dice.d100.roll() <= 80)
+				if (Dice.d100.roll("actor encounter: aggro") <= 80)
 				{
 					attacks(maze, msg);
 				}
@@ -126,7 +126,7 @@ public class ActorEncounter
 				}
 				break;
 			case WARY:
-				int roll = Dice.d100.roll();
+				int roll = Dice.d100.roll("actor encounter: wary");
 				if (roll <= 20)
 				{
 					attacks(maze, msg);
@@ -141,7 +141,7 @@ public class ActorEncounter
 				}
 				break;
 			case SCARED:
-				if (Dice.d100.roll() <= 80)
+				if (Dice.d100.roll("actor encounter: scared") <= 80)
 				{
 					flees(maze, msg);
 				}

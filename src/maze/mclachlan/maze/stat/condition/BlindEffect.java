@@ -58,7 +58,7 @@ public class BlindEffect extends ConditionEffect
 			return action;
 		}
 
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("blind check");
 
 		if (roll <= 20)
 		{

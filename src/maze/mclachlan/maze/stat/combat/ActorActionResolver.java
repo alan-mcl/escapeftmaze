@@ -475,7 +475,7 @@ public class ActorActionResolver
 		int failureChance = GameSys.getInstance().getItemUseFailureChance(
 			actor, item);
 
-		int failureRoll = Dice.d100.roll();
+		int failureRoll = Dice.d100.roll("AAR.resolveUseItem failure roll");
 
 		boolean canBackfire = GameSys.getInstance().canBackfire(item);
 
@@ -523,7 +523,7 @@ public class ActorActionResolver
 						targetType = MagicSys.SpellTargetType.ALLY;
 						List<UnifiedActor> allies = combat.getAllAlliesOf(actor);
 						Dice d = new Dice(1, allies.size(), -1);
-						SpellTarget target = allies.get(d.roll());
+						SpellTarget target = allies.get(d.roll("AAR.resolveUseItem foe spell target"));
 						useItemAction.setTarget(target);
 						break;
 
@@ -865,7 +865,7 @@ public class ActorActionResolver
 			// practise modifiers
 
 			GameSys.getInstance().practice(caster, spell.getPrimaryModifier(), 1);
-			if (Dice.d2.roll() == 2)
+			if (Dice.d2.roll("AAR.resolveSpell practise") == 2)
 			{
 				GameSys.getInstance().practice(caster, spell.getSecondaryModifier(), 1);
 			}
@@ -923,7 +923,7 @@ public class ActorActionResolver
 		{
 			int spellFailureChance = GameSys.getInstance().getSpellFailureChance(caster, spell, castingLevel);
 
-			int spellFailureRoll = Dice.d100.roll();
+			int spellFailureRoll = Dice.d100.roll("AAR.resolveSpell spell failure");
 
 			if (spellFailureRoll <= spellFailureChance)
 			{

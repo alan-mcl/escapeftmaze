@@ -247,16 +247,16 @@ public class ThiefToolsPanel extends JPanel implements ActionListener, ChangeLis
 	{
 		refresh(null, null);
 
-		int nrTools = Dice.d3.roll() + level;
+		int nrTools = Dice.d3.roll("thief tools 1") + level;
 		for (int i=0; i<nrTools; i++)
 		{
 			int tool;
 			do
 			{
-				tool = Dice.d8.roll()-1;
+				tool = Dice.d8.roll("thief tools 2")-1;
 			}
 			while (required.get(tool));
-			int diff = Dice.d3.roll() + level*2;
+			int diff = Dice.d3.roll("thief tools 3") + level*2;
 
 			required.set(tool);
 			list[tool] = diff;

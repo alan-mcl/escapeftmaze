@@ -66,7 +66,7 @@ public class RestingCheckpointEvent extends MazeEvent
 		{
 			int perc = GameSys.getInstance().getRestingDangerPercentage(tile);
 
-			if (Dice.d100.roll() <= perc)
+			if (Dice.d100.roll("Resting encounter check") <= perc)
 			{
 				progress.message(StringUtil.getUiLabel("rd.encounter"));
 

@@ -34,7 +34,7 @@ public class DartBoard extends TileScript
 			String hit;
 			int mod = user.getModifier(Stats.Modifier.THROW);
 
-			int die = Dice.d100.roll();
+			int die = Dice.d100.roll("Dart board accuracy");
 			if (die > 50+mod*5)
 			{
 				hit = "You miss the dart board completely.";
@@ -45,8 +45,8 @@ public class DartBoard extends TileScript
 			}
 			else
 			{
-				int nr = Dice.d20.roll();
-				int x = Dice.d100.roll();
+				int nr = Dice.d20.roll("Dart board nr");
+				int x = Dice.d100.roll("Dart board trip");
 
 				if (x <= mod)
 				{

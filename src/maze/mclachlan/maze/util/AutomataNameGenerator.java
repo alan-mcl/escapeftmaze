@@ -51,8 +51,8 @@ public class AutomataNameGenerator
 
 		for (int i=0; i<nr; i++)
 		{
-			String preS = pre[preD.roll()];
-			String postS = post[postD.roll()];
+			String preS = pre[preD.roll("automata name gen 1")];
+			String postS = post[postD.roll("automata name gen 2")];
 
 			System.out.println(Capitaliser.capitaliseWord(preS+postS));
 		}

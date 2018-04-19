@@ -67,11 +67,11 @@ public class DiseaseEffect extends ConditionEffect
 		condition.decDuration(-1);
 
 		// check for spawning new conditions
-		if (Dice.d100.roll() <= 1)
+		if (Dice.d100.roll("disease: new condition check") <= 1)
 		{
 			Maze.log("disease spawns new condition");
 			Condition spawn;
-			int roll = Dice.d10.roll();
+			int roll = Dice.d10.roll("disease: random condition");
 			switch (roll)
 			{
 				case 1:
@@ -80,7 +80,7 @@ public class DiseaseEffect extends ConditionEffect
 					// poison!
 					spawn = new Condition(
 						Database.getInstance().getConditionTemplate("GENERIC_POISON"),
-						new Dice(5, 4, 1).roll(),
+						new Dice(5, 4, 1).roll("poison duration"),
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						new ValueList(new Value(1, Value.SCALE.NONE)),
@@ -102,7 +102,7 @@ public class DiseaseEffect extends ConditionEffect
 					// nausea!
 					spawn = new Condition(
 						Database.getInstance().getConditionTemplate("GENERIC_NAUSEA"),
-						new Dice(10, 4, 10).roll(),
+						new Dice(10, 4, 10).roll("nausea duration"),
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
@@ -122,7 +122,7 @@ public class DiseaseEffect extends ConditionEffect
 					// blind!
 					spawn = new Condition(
 						Database.getInstance().getConditionTemplate("GENERIC_BLIND"),
-						new Dice(5, 4, 1).roll(),
+						new Dice(5, 4, 1).roll("blind duration"),
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
@@ -143,7 +143,7 @@ public class DiseaseEffect extends ConditionEffect
 					// fear!
 					spawn = new Condition(
 						Database.getInstance().getConditionTemplate("GENERIC_FEAR"),
-						new Dice(2, 20, 2).roll(),
+						new Dice(2, 20, 2).roll("fear duration"),
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
@@ -163,7 +163,7 @@ public class DiseaseEffect extends ConditionEffect
 					// insane!
 					spawn = new Condition(
 						Database.getInstance().getConditionTemplate("GENERIC_INSANE"),
-						new Dice(2, 20, 2).roll(),
+						new Dice(2, 20, 2).roll("insane duration"),
 						condition.getStrength(),
 						condition.getCastingLevel(),
 						null,
@@ -187,7 +187,7 @@ public class DiseaseEffect extends ConditionEffect
 			result.add(new ConditionEvent(condition.getTarget(), spawn));
 			return result;
 		}
-		else if (Dice.d1000.roll() <= 2)
+		else if (Dice.d1000.roll("disease: recovery check") <= 2)
 		{
 			// expire disease
 			condition.setDuration(-1);

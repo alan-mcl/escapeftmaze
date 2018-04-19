@@ -37,7 +37,7 @@ public class IchibaCity extends ZoneScript
 					// not imogens tower
 					if (!(pos.x >= 12 && pos.x <= 15 && pos.y >= 29 && pos.y <= 33))
 					{
-						if (Dice.d100.roll() <= 5)
+						if (Dice.d100.roll("Ichiba city gnoll encounters") <= 5)
 						{
 							return new IchibaGnollEncounters().getEncounter();
 						}

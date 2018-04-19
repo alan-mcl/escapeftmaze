@@ -239,7 +239,7 @@ public class PercentageTable<T>
 			throw new MazeException("Percents sum up to "+cumulative.get(cumulative.size()-1));
 		}
 
-		int roll = Dice.d100.roll();
+		int roll = Dice.d100.roll("Percentage Table getRandomItem");
 		
 		for (int i = 0; i < items.size(); i++)
 		{

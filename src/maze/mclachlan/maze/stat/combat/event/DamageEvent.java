@@ -246,7 +246,7 @@ public class DamageEvent extends MazeEvent
 		if (damageReflection > 0 && attackWith != null)
 		{
 			Dice d = new Dice(1, damageReflection, damageReflection/2);
-			int damageReflected = Math.min(finalDamage, d.roll());
+			int damageReflected = Math.min(finalDamage, d.roll("razor cloak damage reflection"));
 
 			// reverse the attacker and defender
 			result.add(new DamageEvent(

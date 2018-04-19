@@ -195,8 +195,8 @@ public class Stenelaus extends NpcScript
 			result.add(new FlavourTextEvent("\n\nYou recall that your bet " +
 				"was on "+main+", and without further ado roll the dice..."));
 
-			int d1 = Dice.d6.roll();
-			int d2 = Dice.d6.roll();
+			int d1 = Dice.d6.roll("Stenelaus 1");
+			int d2 = Dice.d6.roll("Stenelaus 2");
 
 			int total = d1+d2;
 
@@ -246,8 +246,8 @@ public class Stenelaus extends NpcScript
 					result.add(new FlavourTextEvent("You roll the dice...\n\n",
 						MazeEvent.Delay.WAIT_ON_CLICK, true));
 
-					d1 = Dice.d6.roll();
-					d2 = Dice.d6.roll();
+					d1 = Dice.d6.roll("Stenelaus 3");
+					d2 = Dice.d6.roll("Stenelaus 4");
 
 					roll = d1+d2;
 					result.add(new FlavourTextEvent("The dice come up "+d1+" and "+d2+", " +

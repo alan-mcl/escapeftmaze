@@ -213,7 +213,7 @@ public class StickManVendor extends NpcScript
 		{
 			Dice d = new Dice(1, ambiguousResponses.size(), -1);
 			return getList(
-				new NpcSpeechEvent(npc, ambiguousResponses.get(d.roll()), MazeEvent.Delay.WAIT_ON_CLICK),
+				new NpcSpeechEvent(npc, ambiguousResponses.get(d.roll("Stick Man Vendor response")), MazeEvent.Delay.WAIT_ON_CLICK),
 				new WaitForPlayerSpeech(npc, pc));
 		}
 	}

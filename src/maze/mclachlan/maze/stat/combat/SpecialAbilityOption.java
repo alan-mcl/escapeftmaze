@@ -97,7 +97,7 @@ public class SpecialAbilityOption extends ActorActionOption
 				if (combat != null)
 				{
 					Dice d = new Dice(1, selectedFoeGroup.numAlive(), -1);
-					spellTarget = selectedFoeGroup.getActors().get(d.roll());
+					spellTarget = selectedFoeGroup.getActors().get(d.roll("SpecialAbilityOption foe targeting"));
 				}
 				else
 				{

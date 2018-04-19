@@ -96,7 +96,7 @@ public class BerserkEvent extends MazeEvent
 	public String getText()
 	{
 		Dice d = new Dice(1, msgs.length, -1);
-		String s = msgs[d.roll()];
+		String s = msgs[d.roll("berserk flavour text")];
 		Formatter f = new Formatter();
 		f.format(s, getTarget().getDisplayName());
 		return f.toString();

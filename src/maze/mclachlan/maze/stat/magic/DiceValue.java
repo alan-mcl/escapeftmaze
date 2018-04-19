@@ -44,7 +44,7 @@ public class DiceValue extends Value
 
 		for (int i=0; i< iterations; i++)
 		{
-			result += this.dice.roll();
+			result += this.dice.roll("DiceValue");
 		}
 
 		return result;

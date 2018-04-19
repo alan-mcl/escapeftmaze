@@ -129,7 +129,7 @@ public class ItemCacheManager implements GameCache
 						// critical items never vanish
 						if (!item.isQuestItem())
 						{
-							if (Dice.d100.roll() <= 5)
+							if (Dice.d100.roll("item cache: theft") <= 5)
 							{
 								Maze.log(item.getName()+" is stolen");
 								li.remove();

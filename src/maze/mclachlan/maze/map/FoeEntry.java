@@ -76,7 +76,7 @@ public class FoeEntry
 		for (FoeEntryRow t : entries)
 		{
 			FoeTemplate foeTemplate = Database.getInstance().getFoeTemplate(t.foeName);
-			int max = t.quantity.roll();
+			int max = t.quantity.roll("Foe entry generate ["+getName()+"]");
 			FoeGroup fg = new FoeGroup();
 
 			for (int i=0; i<max; i++)

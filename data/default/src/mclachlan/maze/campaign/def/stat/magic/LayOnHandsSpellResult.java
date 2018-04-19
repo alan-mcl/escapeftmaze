@@ -37,7 +37,7 @@ public class LayOnHandsSpellResult extends SpellResult
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
 		int castingLevel, SpellEffect parent, Spell spell)
 	{
-		int target_healing = new Dice(castingLevel, 6, 0).roll();
+		int target_healing = new Dice(castingLevel, 6, 0).roll("lay on hands");
 
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 

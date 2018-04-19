@@ -416,7 +416,7 @@ public class Condition
 				{
 					// This RSE is within it's period of activity
 
-					if (Dice.d100.roll() <= rse.getProbability())
+					if (Dice.d100.roll("condition repeated spell effect check") <= rse.getProbability())
 					{
 						SpellEffect spellEffect =
 							Database.getInstance().getSpellEffect(rse.getSpellEffect());
@@ -550,7 +550,7 @@ public class Condition
 		{
 			// Check for EOT chance expiration
 
-			if (Dice.d1000.roll() <= template.getExitConditionChance())
+			if (Dice.d1000.roll("condition EOT exit check") <= template.getExitConditionChance())
 			{
 				//expire condition
 				setDuration(-1);

@@ -40,7 +40,7 @@ public class EkirthsTombWallOfFire extends TileScript
 
 			for (UnifiedActor actor : party.getActors())
 			{
-				int damage = new Dice(1, 1000, 9000).roll();
+				int damage = new Dice(1, 1000, 9000).roll("Ekirth's tomb");
 				result.add(
 					new DamageEvent(
 						null,

@@ -116,7 +116,7 @@ public class RestingSleep extends Condition
 		{
 			CurMaxSub hp = ((UnifiedActor)target).getHitPoints();
 			// 50% chance of waking up
-			if (hp.getSub() < hp.getCurrent() && Dice.d100.roll() <= 40)
+			if (hp.getSub() < hp.getCurrent() && Dice.d100.roll("resting sleep awaken check") <= 40)
 			{
 				setDuration(-1);
 			}

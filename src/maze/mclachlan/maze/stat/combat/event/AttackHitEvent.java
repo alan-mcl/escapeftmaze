@@ -72,7 +72,7 @@ public class AttackHitEvent extends MazeEvent
 		if (attacker.getModifier(Stats.Modifier.TOE_TO_TOE) > 0 &&
 			!attackWith.isRanged())
 		{
-			int roll = Dice.d3.roll();
+			int roll = Dice.d3.roll("toe to toe effect");
 			switch (roll)
 			{
 				// restore 1 stamina
