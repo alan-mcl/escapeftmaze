@@ -228,7 +228,14 @@ public class PlayerCharacter extends UnifiedActor
 		this.practice = new Practice(pc.practice);
 		this.spellPicks = pc.spellPicks;
 		this.personality = pc.personality;
-		this.removedLevelAbilities = new ArrayList<String>(pc.removedLevelAbilities);
+		if (pc.removedLevelAbilities == null)
+		{
+			this.removedLevelAbilities = new ArrayList<String>();
+		}
+		else
+		{
+			this.removedLevelAbilities = new ArrayList<String>(pc.removedLevelAbilities);
+		}
 
 		setEquippedItem(PRIMARY_WEAPON, cloneItem(pc.getEquippedItem(PRIMARY_WEAPON, 0)), 0);
 		setEquippedItem(PRIMARY_WEAPON, cloneItem(pc.getEquippedItem(PRIMARY_WEAPON, 1)), 1);

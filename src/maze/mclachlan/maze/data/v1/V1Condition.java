@@ -40,7 +40,7 @@ public class V1Condition
 	{
 		StringBuilder s = new StringBuilder();
 
-		s.append(c.getTemplate().getName());
+		s.append(c.getTemplate() == null ? "" : c.getTemplate().getName());
 		s.append(SEP);
 		s.append(c.getDuration());
 		s.append(SEP);
@@ -83,7 +83,16 @@ public class V1Condition
 		String[] strs = s.split(SEP, -1);
 
 		int i=0;
-		ConditionTemplate template = Database.getInstance().getConditionTemplate(strs[i++]);
+		String templateStr = strs[i++];
+		ConditionTemplate template;
+		if ("".equals(templateStr))
+		{
+			template = null;
+		}
+		else
+		{
+			template = Database.getInstance().getConditionTemplate(templateStr);
+		}
 		int duration = Integer.parseInt(strs[i++]);
 		int strength = Integer.parseInt(strs[i++]);
 		int castingLevel = Integer.parseInt(strs[i++]);

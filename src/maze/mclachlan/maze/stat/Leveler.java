@@ -277,11 +277,10 @@ public class Leveler
 		{
 			for (Spell s : startingSpells)
 			{
-				result.getSpellBook().addSpell(s);
-				result.incSpellPicks(-1);
-				if (result.getSpellPicks() < 0)
+				if (result.getSpellPicks() > 0)
 				{
-					throw new MazeException("too many spells, too few spell picks! " + startingSpells);
+					result.getSpellBook().addSpell(s);
+					result.incSpellPicks(-1);
 				}
 			}
 		}

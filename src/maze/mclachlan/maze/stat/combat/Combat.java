@@ -44,9 +44,12 @@ public class Combat
 	private List<FoeGroup> partyAllies;
 
 	/**
-	 * Foes, multiple groups thereof
+	 * Foes, multiple groups thereof. Live ones only.
 	 */
 	private List<FoeGroup> foes = new ArrayList<FoeGroup>();
+
+	/** Foe groups that have no more live members */
+	private List<FoeGroup> deadFoeGroups = new ArrayList<FoeGroup>();
 
 	/**
 	 * All actors in this combat
@@ -197,6 +200,12 @@ public class Combat
 	public List<FoeGroup> getFoes()
 	{
 		return foes;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<FoeGroup> getDeadFoeGroups()
+	{
+		return deadFoeGroups;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -535,6 +544,14 @@ public class Combat
 
 		// check foes
 		for (ActorGroup ag : foes)
+		{
+			if (ag.getActors().contains(actor))
+			{
+				return ag;
+			}
+		}
+
+		for (ActorGroup ag : deadFoeGroups)
 		{
 			if (ag.getActors().contains(actor))
 			{

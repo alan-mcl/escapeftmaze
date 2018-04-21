@@ -2006,23 +2006,7 @@ public class Maze implements Runnable
 
 		if (currentCombat != null)
 		{
-			List<FoeGroup> list = currentCombat.getFoes();
-			for (FoeGroup fg : list)
-			{
-				if (fg.getActors().contains(actor))
-				{
-					return fg;
-				}
-			}
-
-			list = currentCombat.getPartyAllies();
-			for (FoeGroup fg : list)
-			{
-				if (fg.getActors().contains(actor))
-				{
-					return fg;
-				}
-			}
+			return currentCombat.getActorGroup(actor);
 		}
 
 		// not found

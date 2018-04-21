@@ -1007,6 +1007,12 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public Item getArmour(BodyPart bodyPart)
 	{
 		EquipableSlot.Type type = bodyPart.getEquipableSlotType();
+
+		if (type == NONE)
+		{
+			return null;
+		}
+
 		List<EquipableSlot> slots = getEquipableSlots().get(type);
 
 		if (slots == null)

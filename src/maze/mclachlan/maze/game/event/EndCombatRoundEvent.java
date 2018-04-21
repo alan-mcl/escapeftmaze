@@ -54,6 +54,7 @@ public class EndCombatRoundEvent extends MazeEvent
 			if (fg.numAlive() == 0)
 			{
 				foeGroupListIterator.remove();
+				combat.getDeadFoeGroups().add(fg);
 			}
 		}
 
