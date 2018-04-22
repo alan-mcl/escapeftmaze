@@ -485,9 +485,14 @@ public class DIYToolkit
 		{
 			return overlayPane.getHoverComponent(p.x, p.y);
 		}
-		else
+		else if (contentPane != null)
 		{
 			return contentPane.getHoverComponent(p.x, p.y);
+		}
+		else
+		{
+			// hiding possible race conditions here, but wth
+			return null;
 		}
 	}
 

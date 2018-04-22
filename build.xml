@@ -22,7 +22,7 @@
 	<description>Escape From The Maze</description>
 	
 	<!-- load these properties, to get at the version -->
-	<property file="maze.cfg"/>
+	<property file="dist.maze.cfg"/>
 	
 	<!-- set global properties for this build -->
 	<property name="src" location="src"/>
@@ -98,7 +98,7 @@
 		</delete>
 		
 		<!-- copy in files in the base dist dir -->
-		<copy file="maze.cfg" todir="${zipdist}"/>
+		<copy file="dist.maze.cfg" tofile="${zipdist}/maze.cfg"/>
 		<copy file="dist.user.cfg" tofile="${zipdist}/user.cfg"/>
 		<copy file="maze.png" todir="${zipdist}"/>
 		<copy file="run2.cmd" tofile="${zipdist}/run.cmd"/>

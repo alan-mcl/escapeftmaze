@@ -20,13 +20,14 @@
 package mclachlan.maze.game;
 
 import java.io.File;
-import java.io.StringWriter;
-import java.io.PrintWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.*;
 import java.util.logging.*;
+import java.util.logging.Formatter;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -34,9 +35,11 @@ import mclachlan.maze.util.MazeException;
  */
 public class Log
 {
-	String currentDir;
-	Logger logger;
-	int level = LOUD;
+	private String currentDir;
+	private Logger logger;
+	private int level = LOUD;
+	private int maxBufferSize = -1;
+	private List<String> buffer = new ArrayList<String>();
 
 	/*-------------------------------------------------------------------------*/
 	public static final int LOUD = 1;
@@ -71,6 +74,12 @@ public class Log
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void setBufferSize(int bufferSize)
+	{
+		maxBufferSize = bufferSize;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Logs the given message at the DEBUG level.
 	 */
@@ -89,9 +98,16 @@ public class Log
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public synchronized void log(int level, String msg)
+	public void internalLog(int level, String msg)
 	{
-		lazyInit();
+		if (maxBufferSize > 0)
+		{
+			buffer.add(0, msg);
+			if (buffer.size() > maxBufferSize)
+			{
+				buffer.remove(buffer.size()-1);
+			}
+		}
 		if (level <= this.level)
 		{
 			logger.log(Level.ALL, msg);
@@ -99,13 +115,17 @@ public class Log
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public synchronized void log(int level, String msg)
+	{
+		lazyInit();
+		internalLog(level, msg);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public synchronized void log(int level, String msg, Object... args)
 	{
 		lazyInit();
-		if (level <= this.level)
-		{
-			logger.log(Level.ALL, String.format(msg, args));
-		}
+		internalLog(level, String.format(msg, args));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -119,6 +139,17 @@ public class Log
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void dumpBuffer()
+	{
+		logger.log(Level.ALL, "========== DUMPING LOG BUFFER ===========");
+		for (String s : buffer)
+		{
+			logger.log(Level.ALL, s);
+		}
+		logger.log(Level.ALL, "============ LOG BUFFER END =============");
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private synchronized void lazyInit()
 	{
 		try
@@ -127,13 +158,13 @@ public class Log
 			{
 				logger = Logger.getLogger("maze.logger");
 				new File(currentDir).mkdirs();
-	
+
 				FileHandler handler = new FileHandler(getLogPath());
 				logger.addHandler(handler);
 				//need this to stop writing to System.out:
 				logger.setUseParentHandlers(false);
 				logger.setLevel(Level.ALL);
-			
+
 				handler.setFormatter(new SimplerFormatter());
 			}
 		}

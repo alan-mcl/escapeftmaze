@@ -249,19 +249,23 @@ public class Launcher implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private Log getLog(Map<String, String> config) throws ClassNotFoundException, IllegalAccessException, InstantiationException
+	private Log getLog(Map<String, String> config)
+		throws ClassNotFoundException, IllegalAccessException, InstantiationException
 	{
 		String log_impl = this.config.get(Maze.AppConfig.LOG_IMPL);
 		Class log_class = Class.forName(log_impl);
 		Log log = (Log)log_class.newInstance();
 		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.LOG_LEVEL));
 		log.setLevel(logLevel);
+		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
+		log.setBufferSize(bufferSize);
 
 		return log;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private UserInterface getUi(Map<String, String> config) throws ClassNotFoundException, IllegalAccessException, InstantiationException
+	private UserInterface getUi(Map<String, String> config)
+		throws ClassNotFoundException, IllegalAccessException, InstantiationException
 	{
 		String ui_impl = this.config.get(Maze.AppConfig.UI_IMPL);
 		Class ui_class = Class.forName(ui_impl);

@@ -604,6 +604,8 @@ public class Maze implements Runnable
 		s.append("See log file at:\n\n");
 		s.append(log.getLogPath());
 
+		log.dumpBuffer();
+
 		ui.errorDialog(s.toString());
 	}
 
@@ -2214,6 +2216,7 @@ public class Maze implements Runnable
 
 		public static final String LOG_IMPL = "mclachlan.maze.log.impl";
 		public static final String LOG_LEVEL = "mclachlan.maze.log.level";
+		public static final String LOG_BUFFER_SIZE = "mclachlan.maze.log.buffer.size";
 
 		public static final String UI_IMPL = "mclachlan.maze.ui.impl";
 		public static final String UI_DEBUG = "mclachlan.maze.ui.debug";
