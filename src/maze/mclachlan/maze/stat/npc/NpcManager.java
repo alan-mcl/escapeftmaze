@@ -24,6 +24,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
+import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.GameCache;
@@ -170,12 +171,17 @@ public class NpcManager implements GameCache
 		Maze.log("updating NPCs...");
 		for (Npc npc : this.npcs.values())
 		{
+			Maze.log(Log.DEBUG, "["+npc.getName()+"]");
+
 			Maze.getInstance().appendEvents(npc.getScript().endOfTurn(turnNr));
 			if (npc.getTradingInventory()!= null &&
 				npc.getInventoryTemplate() != null &&
 				(turnNr % 200 == 0))
 			{
+				Maze.log(Log.DEBUG, "updating inventory (previous size "+npc.getTradingInventory().size()+")");
 				npc.getInventoryTemplate().update(npc.getTradingInventory());
+				Maze.log(Log.DEBUG, "done (new size "+npc.getTradingInventory().size()+")");
+
 			}
 		}
 		Maze.log("finished updating NPCs");

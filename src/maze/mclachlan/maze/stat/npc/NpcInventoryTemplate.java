@@ -113,6 +113,18 @@ public class NpcInventoryTemplate
 			currentInventory.addAll(spawned);
 		}
 
+		// limit inventory size to keep NPC inventories from growing endlessly
+		int maxSize = currentInventory.size()/2;
+		if (maxSize > rows.size())
+		{
+			int nrToDelete = maxSize - rows.size();
+			for (int j=0; j<nrToDelete; j++)
+			{
+				int n = new Dice(1, currentInventory.size(), -1).roll("removing inventory item");
+				currentInventory.remove(n);
+			}
+		}
+
 		return currentInventory;
 	}
 
