@@ -1415,6 +1415,12 @@ public class GameSys
 
 		result += bonusAttacks;
 
+		// halve it for the secondary weapon
+		if (!primary)
+		{
+			result = Math.max(result/2, 1);
+		}
+
 		return result;
 	}
 

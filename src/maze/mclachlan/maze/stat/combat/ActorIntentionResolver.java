@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat;
 
 import java.util.*;
+import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
@@ -259,17 +260,13 @@ public class ActorIntentionResolver
 	public static void resolveWeaponAttack(UnifiedActor actor,
 		List<CombatAction> result, ActorGroup targetGroup)
 	{
-		boolean canAttackWithPrimary =
-			actor.getPrimaryWeapon() == null ||
-				(actor.getPrimaryWeapon() != null && actor.getPrimaryWeapon().isWeapon());
+		Maze.log(Log.DEBUG, "resolve weapon attack ["+actor.getName()+"]");
 
-		boolean canAttackWithSecondary =
-			actor.getSecondaryWeapon() != null &&
-				actor.getSecondaryWeapon().isWeapon() &&
-				actor.getPrimaryWeapon().getAmmoRequired() != null &&
-				actor.getPrimaryWeapon().getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType())
-				||
-				actor.getSecondaryWeapon() == null && actor.getModifier(Stats.Modifier.MARTIAL_ARTS) > 0;
+		boolean canAttackWithPrimary = canAttackWithPrimary(actor);
+		Maze.log(Log.DEBUG, "canAttackWithPrimary ["+canAttackWithPrimary+"]");
+
+		boolean canAttackWithSecondary = canAttackWithSecondary(actor);
+		Maze.log(Log.DEBUG, "canAttackWithSecondary ["+canAttackWithSecondary+"]");
 
 		Item weapon;
 		if (actor.getPrimaryWeapon() != null)
@@ -346,12 +343,9 @@ public class ActorIntentionResolver
 			}
 			else
 			{
-				attackWith = weapon;
+				attackWith = GameSys.getInstance().getUnarmedWeapon(actor, true);
 			}
 
-			// basic attack with secondary weapon:
-			// -5 intiative
-			// -5 to hit
 			int nrAttacks = GameSys.getInstance().getNrAttacks(actor, false);
 
 			for (int i = 0; i < nrAttacks; i++)
@@ -373,5 +367,68 @@ public class ActorIntentionResolver
 				result.add(secAction);
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static boolean canAttackWithSecondary(UnifiedActor actor)
+	{
+		Item secondaryWeapon = actor.getSecondaryWeapon();
+		if (secondaryWeapon != null && secondaryWeapon.isWeapon())
+		{
+			// must be a weapon
+			if (secondaryWeapon.getAmmoRequired() == null)
+			{
+				// no ammo requirement, can attack
+				return true;
+			}
+			else if (secondaryWeapon.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF))
+			{
+				// stacked throwing item, can secondary attack
+				return true;
+			}
+		}
+		else if (actor.getModifier(Stats.Modifier.MARTIAL_ARTS) > 0)
+		{
+			// no secondary weapon, but has martial arts = secondary unarmed attack
+			return true;
+		}
+
+		// fall through to here - no secondary attack
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static boolean canAttackWithPrimary(UnifiedActor actor)
+	{
+		Item primaryWeapon = actor.getPrimaryWeapon();
+		if (primaryWeapon == null)
+		{
+			// can always attack unarmed
+			return true;
+		}
+		else
+		{
+			// needs to be a weapon
+			if (primaryWeapon.isWeapon())
+			{
+				if (primaryWeapon.getAmmoRequired() == null)
+				{
+					// no ammo requires - can attack
+					return true;
+				}
+				else
+				{
+					// check if secondary is compatible ammo
+					if (primaryWeapon.getAmmoRequired().contains(
+						actor.getSecondaryWeapon().isAmmoType()))
+					{
+						return true;
+					}
+				}
+			}
+		}
+
+		// fall through to here, means cannot attack
+		return false;
 	}
 }

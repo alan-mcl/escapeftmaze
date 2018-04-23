@@ -30,9 +30,7 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.Chest;
-import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.game.Maze.State.*;
 
@@ -169,11 +167,6 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		if (messages.size() > BUFFER_SIZE)
 		{
 			messages.remove(messages.size()-1);
-		}
-
-		if (Dice.d100.roll("test") == 1)
-		{
-			throw new MazeException("foobar");
 		}
 
 		textArea.setText(textArea.getText()+'\n'+message);
