@@ -1,5 +1,5 @@
 ---------------------------------------
-v0.917 (???)
+v0.917 (24 April 2018)
 ---------------------------------------
 Features
  - Added Pasht as an unlockable race
@@ -28,6 +28,11 @@ Features
 Other
  - Refactored the Value composition into a flat ValueList
  - Lightning Strike is now an activated ability, rather than randomly occurring
+ - Capped NOC inventories to prevent them from growing too large
+ - Logging now includes a circular buffer that is dumped to the log file on crash
+ - Added debug logging to every call to Dice.roll(). Very useful.
+ - Updating packaging to use a specific maze.cfg instead of the general dev one
+ - Various bug fixes: dual wielding, multiple foe groups
 
 ---------------------------------------
 v0.916 (18 December 2016)
