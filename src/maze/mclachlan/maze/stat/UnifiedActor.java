@@ -1825,21 +1825,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			this, turnNr, resting, getActorGroup());
 		getHitPoints().incCurrent(hpRegen);
 
+		int actionRegen = GameSys.getInstance().getActionPointsToRegeneratePerTurn(
+			this, turnNr, resting, getActorGroup(), tile);
+		getActionPoints().incCurrent(actionRegen);
+
 		int magicRegen = GameSys.getInstance().getMagicPointsToRegeneratePerTurn(
 			this, turnNr, resting, getActorGroup());
 		getMagicPoints().incCurrent(magicRegen);
-
-		int actionRegen = 0;
-		if (combat)
-		{
-			actionRegen = GameSys.getInstance().getActionPointsToRegenerateInCombat(
-				this, turnNr);
-		}
-		else if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
-		{
-			actionRegen = GameSys.getInstance().getActionPointsToRegenerateWhileMoving(this, tile);
-		}
-		getActionPoints().incCurrent(actionRegen);
 
 		int fatigueRegen = 0;
 		if (Maze.getInstance().getState() == Maze.State.RESTING ||
@@ -1850,8 +1842,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		}
 
 		Maze.log(Log.DEBUG, getName() + " regen " + hpRegen + " hit points (fatigue -" + fatigueRegen + ")");
-		Maze.log(Log.DEBUG, getName() + " regen " + magicRegen + " magic points");
 		Maze.log(Log.DEBUG, getName() + " regen " + actionRegen + " action points");
+		Maze.log(Log.DEBUG, getName() + " regen " + magicRegen + " magic points");
 	}
 
 	/*-------------------------------------------------------------------------*/

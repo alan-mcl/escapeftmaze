@@ -2580,6 +2580,41 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public int getActionPointsToRegeneratePerTurn(
+		UnifiedActor actor,
+		long turnNr,
+		boolean resting,
+		ActorGroup group,
+		Tile tile)
+	{
+		// find the best entertainer
+		int entertainer=0;
+		if (resting && group != null)
+		{
+			for (UnifiedActor a : group.getActors())
+			{
+				if (a.getModifier(Stats.Modifier.ENTERTAINER) > entertainer)
+				{
+					entertainer = a.getModifier(Stats.Modifier.ENTERTAINER);
+				}
+			}
+		}
+
+		int hpRegenModifier = actor.getModifier(Stats.Modifier.ACTION_POINT_REGEN);
+
+		// at this point, the gamesys just gives a +1 for an entertainer present
+		if (entertainer > 0)
+		{
+			entertainer = 1;
+		}
+
+		int hpRegenRate = 1 + hpRegenModifier + entertainer;
+		int hpRegenTurns = (resting&&hpRegenRate>0) ? 10 : 20;
+
+		return getRegenResult(hpRegenRate, hpRegenTurns, turnNr);
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	/**
 	 * @return
@@ -2695,36 +2730,9 @@ public class GameSys
 
 		int magicRegenRate = 1 + magicRegenModifier + entertainer;
 		
-
 		int magicRegenTurns = (resting&&magicRegenRate>0) ? 10 : 20;
 
 		return getRegenResult(magicRegenRate, magicRegenTurns, turnNr);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getActionPointsToRegenerateInCombat(UnifiedActor actor,
-		long turnNr)
-	{
-		int stealthRegenRate = actor.getModifier(Stats.Modifier.ACTION_POINT_REGEN);
-		int stealthRegenTurns = 10;
-
-		return getRegenResult(stealthRegenRate, stealthRegenTurns, turnNr);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public int getActionPointsToRegenerateWhileMoving(UnifiedActor actor,
-		Tile tile)
-	{
-		if (isActorImmobile(actor))
-		{
-			return 0;
-		}
-		
-		Stats.Modifier mod = tile.getStealthModifierRequired();
-		int deficit = actor.getActionPoints().getMaximum() - actor.getActionPoints().getCurrent();
-
-		int modifier = actor.getModifier(mod);
-		return Math.max(deficit / 2 + modifier, modifier);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2916,7 +2924,8 @@ public class GameSys
 	{
 		for (UnifiedActor pc : party.getActors())
 		{
-			int amount = this.getActionPointsToRegenerateWhileMoving((PlayerCharacter)pc, tile);
+			int amount = this.getActionPointsToRegeneratePerTurn(
+				pc, Maze.getInstance().getTurnNr(), false, party, tile);
 			pc.getActionPoints().incCurrent(amount);
 		}
 	}

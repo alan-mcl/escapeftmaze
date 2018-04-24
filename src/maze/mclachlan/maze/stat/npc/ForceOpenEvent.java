@@ -65,7 +65,6 @@ public class ForceOpenEvent extends MazeEvent
 
 		int forcePortalResult = GameSys.getInstance().forcePortal(pc, lockOrTrap);
 
-		pc.getActionPoints().setCurrent(0);
 		CurMaxSub hp = pc.getHitPoints();
 
 		switch (forcePortalResult)

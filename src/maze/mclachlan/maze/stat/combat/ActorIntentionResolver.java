@@ -419,8 +419,8 @@ public class ActorIntentionResolver
 				else
 				{
 					// check if secondary is compatible ammo
-					if (primaryWeapon.getAmmoRequired().contains(
-						actor.getSecondaryWeapon().isAmmoType()))
+					if (actor.getSecondaryWeapon() != null &&
+						primaryWeapon.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
 					{
 						return true;
 					}

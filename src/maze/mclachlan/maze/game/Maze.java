@@ -736,17 +736,6 @@ public class Maze implements Runnable
 			// do not process maze events - everyone just goes to sleep
 			pc.addCondition(sleep.create(
 				pc, pc, 1, MagicSys.SpellEffectType.NONE, MagicSys.SpellEffectSubType.NONE));
-
-			int sneak = pc.getModifier(Stats.Modifier.SNEAKING);
-			CurMax s = pc.getActionPoints();
-			if (sneak == 0 || s.getMaximum() <= sneak)
-			{
-				s.setCurrent(0);
-			}
-			else
-			{
-				s.setCurrent(Math.min(s.getMaximum()/sneak, sneak));
-			}
 		}
 	}
 	
