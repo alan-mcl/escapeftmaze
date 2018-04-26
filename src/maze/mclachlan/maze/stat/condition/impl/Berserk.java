@@ -200,6 +200,18 @@ public class Berserk extends Condition
 		return null;
 	}
 
+	@Override
+	public boolean isAffliction()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isIdentified()
+	{
+		return true;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	static class BerserkEffect extends ConditionEffect
 	{

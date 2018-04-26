@@ -503,7 +503,8 @@ public class GameSys
 				"322162__liamg-sfx__shield-hit-9"));
 			events.add(new ShieldBlockEvent());
 
-			if (defender.getModifier(Stats.Modifier.SHIELD_BASH) > 0 &&
+			if (!GameSys.getInstance().isActorHelpless(defender) &&
+				defender.getModifier(Stats.Modifier.SHIELD_BASH) > 0 &&
 				Dice.d100.roll("shield bash check") <= defender.getModifier(Stats.Modifier.SHIELD_BASH))
 			{
 				events.add(new AttackEvent(

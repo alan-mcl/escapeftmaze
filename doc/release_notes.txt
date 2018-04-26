@@ -2,9 +2,12 @@
 v0.918 (????)
 ---------------------------------------
 Features
+ - Paladin class abilities: Protect
 
 Other
  - Refactoring action point regen to be consistent with other resources
+ - Resting sleep condition always identified and not an affliction
+ - Added missing game time turn increment during combat
 
 ---------------------------------------
 v0.917 (24 April 2018)

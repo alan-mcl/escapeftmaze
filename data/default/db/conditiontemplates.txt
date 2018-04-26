@@ -2470,6 +2470,9 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=PROTECT
+impl=mclachlan.maze.stat.condition.impl.Protect
+@
 name=SCALING_BLINK
 displayName=Blink
 icon=condition/blink_spell

@@ -5647,6 +5647,27 @@ secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
 @
+name=Protect
+displayName=Protect
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=1
+school=Blessing
+book=White Magic
+spellEffects=protect:100
+description=protects!
+level=2
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=CHIVALRY
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Invisible Stalker
 displayName=Invisible Stalker
 hitPointCost=

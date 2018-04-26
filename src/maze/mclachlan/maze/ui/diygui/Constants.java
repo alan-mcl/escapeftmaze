@@ -83,5 +83,6 @@ public class Constants
 		public static final String GUARDIAN_ANGEL = "GUARDIAN_ANGEL";
 		public static final String RESTING_SLEEP = "RESTING_SLEEP";
 		public static final String BERSERK = "BERSERK";
+		public static final String PROTECT = "PROTECT";
 	}
 }

@@ -19,11 +19,14 @@
 
 package mclachlan.maze.stat.condition.impl;
 
-import mclachlan.maze.game.Maze;
+import java.util.*;
+import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.UiMessageEvent;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.combat.event.DamageEvent;
-import mclachlan.maze.stat.combat.event.GuardianAngelEvent;
+import mclachlan.maze.stat.combat.AttackAction;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
 import mclachlan.maze.stat.condition.ConditionEffect;
@@ -31,42 +34,42 @@ import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.ui.diygui.Constants;
 
 /**
- * A custom condition impl for when an actor passes out from fatigue.
+ *
  */
-public class GuardianAngel extends Condition
+public class Protect extends Condition
 {
-	private static ConditionEffect effect = new GuardianAngelEffect();
-	private int hitPoints;
-	
-	/*-------------------------------------------------------------------------*/
-	public GuardianAngel()
-	{
-		setDuration(1);
-	}
+	private static ConditionEffect effect = new ProtectEffect();
 
 	/*-------------------------------------------------------------------------*/
+	public Protect()
+	{
+		setDuration(1);
+		setStrength(1);
+	}
+
+		/*-------------------------------------------------------------------------*/
 	@Override
 	public String getName()
 	{
-		return Constants.Conditions.GUARDIAN_ANGEL;
+		return Constants.Conditions.PROTECT;
 	}
 
 	@Override
 	public String getDisplayName()
 	{
-		return "Guardian Angel";
+		return "Protect";
 	}
 
 	@Override
 	public String getIcon()
 	{
-		return "condition/guardianangel";
+		return "condition/protect";
 	}
 
 	@Override
 	public String getAdjective()
 	{
-		return "warded";
+		return "protected";
 	}
 
 	@Override
@@ -88,17 +91,9 @@ public class GuardianAngel extends Condition
 	}
 
 	@Override
-	public void setCastingLevel(int castingLevel)
-	{
-		super.setCastingLevel(castingLevel);
-		super.setDuration(2+castingLevel);
-		this.hitPoints = castingLevel*7;
-	}
-
-	@Override
 	public MagicSys.SpellEffectType getType()
 	{
-		return MagicSys.SpellEffectType.ENERGY;
+		return MagicSys.SpellEffectType.NONE;
 	}
 
 	@Override
@@ -118,41 +113,30 @@ public class GuardianAngel extends Condition
 	{
 		return true;
 	}
-	
+
+	@Override
+	public List<MazeEvent> endOfTurn(long turnNr)
+	{
+		setDuration(-1);
+		return null;
+	}
+
 	/*-------------------------------------------------------------------------*/
-	static class GuardianAngelEffect extends ConditionEffect
+	private static class ProtectEffect extends ConditionEffect
 	{
 		@Override
-		public int damageToTarget(UnifiedActor actor, Condition condition, int damage, DamageEvent event)
+		public List<MazeEvent> attackOnConditionBearer(AttackAction attackAction, Condition condition)
 		{
-			if (damage <= 0)
+			UnifiedActor source = condition.getSource();
+
+			ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
+			if (!GameSys.getInstance().isActorHelpless(source))
 			{
-				return damage;
+				attackAction.setDefender(source);
+
+				result.add(new UiMessageEvent(StringUtil.getEventText("msg.protect", source.getDisplayName())));
 			}
-			
-			GuardianAngel ga = (GuardianAngel)condition;
-			
-			int damageToCharacter = 0;
-			int damageToAngel = 0;
-			
-			if (ga.hitPoints >= damage)
-			{
-				damageToCharacter = 0;
-				damageToAngel = damage;
-			}
-			else
-			{
-				damageToCharacter = damage - ga.hitPoints;
-				damageToAngel = ga.hitPoints;
-			}
-			
-			ga.hitPoints -= damageToAngel;
-			Maze.getInstance().appendEvents(new GuardianAngelEvent(damageToAngel));
-			if (ga.hitPoints <= 0)
-			{
-				actor.removeCondition(ga);
-			}
-			return damageToCharacter;
+			return result;
 		}
 	}
 }

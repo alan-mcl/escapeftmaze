@@ -28,6 +28,7 @@ import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.npc.*;
@@ -104,7 +105,6 @@ public class ActorActionResolver
 							action.getActor(),
 							(AttackAction)action,
 							combat,
-							result,
 							animationContext));
 				}
 				else
@@ -1149,7 +1149,6 @@ public class ActorActionResolver
 		UnifiedActor actor,
 		AttackAction attackAction,
 		Combat combat,
-		List<MazeEvent> events,
 		AnimationContext animationContext)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
@@ -1188,7 +1187,15 @@ public class ActorActionResolver
 
 		attackAction.setDefender(defender);
 
-		result.addAll(attack(combat, actor, defender, attackAction, animationContext));
+		for (Condition c : defender.getConditions())
+		{
+			if (c.getEffect() != null)
+			{
+				result.addAll(c.getEffect().attackOnConditionBearer(attackAction, c));
+			}
+		}
+
+		result.addAll(attack(combat, actor, attackAction.getDefender(), attackAction, animationContext));
 
 		return result;
 	}

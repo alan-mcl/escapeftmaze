@@ -4258,6 +4258,16 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
+name=protect
+displayName=protect
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::PROTECT
+savedResult=
+targetType=1
+application=AS_PER_SPELL
+@
 name=viridifid leeching
 displayName=
 type=EARTH

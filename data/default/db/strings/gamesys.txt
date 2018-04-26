@@ -1096,6 +1096,8 @@ lap_name_lay_on_hands_5 = Lay On Hands 5
 lap_desc_lay_on_hands = The Paladin heals an ally and him or her self.
 lap_name_shield_bash = Shield Bash %s
 lap_desc_shield_bash = The Paladin has a chance of bashing enemies with his or her shield.
+lap_name_protect = Protect
+lap_desc_protect = The Paladin protects an ally, taking blows on their behalf.
 
 # Priest
 lap_name_holiness = Holiness

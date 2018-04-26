@@ -25,6 +25,7 @@ import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.AttackAction;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
 import mclachlan.maze.stat.combat.event.DamageEvent;
@@ -241,5 +242,11 @@ public class ConditionEffect
 	public String modifyPersonalitySpeech(String speechKey, String text, Personality p)
 	{
 		return text;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> attackOnConditionBearer(AttackAction attackAction, Condition condition)
+	{
+		return new ArrayList<MazeEvent>();
 	}
 }

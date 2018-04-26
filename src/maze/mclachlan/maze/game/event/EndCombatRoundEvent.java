@@ -63,6 +63,8 @@ public class EndCombatRoundEvent extends MazeEvent
 		GameSys.getInstance().attemptManualIdentification(
 			combat.getFoes(), maze.getParty(), combat.getRoundNr());
 
+		Maze.getInstance().incTurn(false);
+
 		Maze.getInstance().getUi().addMessage(
 			StringUtil.getEventText("msg.combat.round.ends", combat.getRoundNr()));
 

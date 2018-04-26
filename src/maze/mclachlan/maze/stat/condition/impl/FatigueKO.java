@@ -101,6 +101,18 @@ public class FatigueKO extends Condition
 		return MagicSys.SpellEffectSubType.NONE;
 	}
 
+	@Override
+	public boolean isAffliction()
+	{
+		return false;
+	}
+
+	@Override
+	public boolean isIdentified()
+	{
+		return true;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> endOfTurn(long turnNr)
