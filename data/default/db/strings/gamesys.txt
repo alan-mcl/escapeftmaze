@@ -281,6 +281,7 @@ modifier_name-snakespeed: Snakespeed
 modifier_name-acrobatics: Acrobatics
 modifier_name-yubiJutsu: Yubi-Jutsu
 modifier_name-shieldBash: Shield Bash
+modifier_name-shieldBlock: Shield Block
 
 # Modifier Descriptions
 
@@ -555,6 +556,7 @@ modifier_desc-snakespeed: In combat this character always acts before characters
 modifier_desc-acrobatics: Dodge actions in combat cost this character fewer action points than usual.
 modifier_desc-yubiJutsu: This character gets a bonus to melee criticals when fighting unarmed.
 modifier_desc-shieldBash: When equipped with a shield that takes an enemy blow, this character has a chance of executing a bash attack with the shield.
+modifier_desc-shieldBlock: When blocking a blow with a shield, this character restores fatigue.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1101,6 +1103,10 @@ lap_desc_protect = The Paladin protects an ally, taking blows on their behalf.
 lap_name_combat_command_3 = Combat Command
 lap_name_combat_command_5 = Greater Combat Command
 lap_desc_combat_command = The Paladin issues combat orders to an ally, granting an extra attack at a bonus to hit.
+lap_name_lifes_champion = Life's Champion
+lap_desc_lifes_champion = The Paladin is very effective at combating undead foes.
+lap_name_shield_block = Shield Block %s
+lap_desc_shield_block = The Paladin restored fatigue when blocking a blow with a shield.
 
 # Priest
 lap_name_holiness = Holiness

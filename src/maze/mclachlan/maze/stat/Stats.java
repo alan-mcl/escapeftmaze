@@ -268,6 +268,7 @@ public class Stats
 		otherCombat.add(LAST_STAND);
 		otherCombat.add(YUBI_JUTSU);
 		otherCombat.add(SHIELD_BASH);
+		otherCombat.add(SHIELD_BLOCK);
 
 		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
 
@@ -734,6 +735,7 @@ public class Stats
 		ACROBATICS(258, "acrobatics"),
 		YUBI_JUTSU(259, "yubiJutsu"),
 		SHIELD_BASH(260, "shieldBash", ModifierMetric.PERCENTAGE),
+		SHIELD_BLOCK(261, "shieldBlock"),
 		;
 
 		/**

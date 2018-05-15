@@ -31,9 +31,7 @@ import mclachlan.maze.map.Trap;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.map.script.LoseExperienceEvent;
 import mclachlan.maze.stat.combat.*;
-import mclachlan.maze.stat.combat.event.AttackEvent;
-import mclachlan.maze.stat.combat.event.SoundEffectEvent;
-import mclachlan.maze.stat.combat.event.StrikeEvent;
+import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.*;
@@ -492,9 +490,13 @@ public class GameSys
 			armourSoak += bodyPart.getDamagePrevention();
 		}
 		
-		// damage prevention from a shield
-		int shieldDamagePrevention = calcShieldDamagePrevention(event);
-		armourSoak += shieldDamagePrevention;
+		// damage prevention from a shield (helpless actors can't block with shields)
+		int shieldDamagePrevention = 0;
+		if (!GameSys.getInstance().isActorHelpless(defender))
+		{
+			shieldDamagePrevention = calcShieldDamagePrevention(event);
+			armourSoak += shieldDamagePrevention;
+		}
 
 		if (shieldDamagePrevention > 0)
 		{
@@ -502,6 +504,12 @@ public class GameSys
 				"322150__liamg-sfx__shield-hit-1",
 				"322162__liamg-sfx__shield-hit-9"));
 			events.add(new ShieldBlockEvent());
+
+			int shieldBlock = defender.getModifier(Stats.Modifier.SHIELD_BLOCK);
+			if (shieldBlock > 0)
+			{
+				events.add(new StaminaEvent(defender, shieldBlock));
+			}
 
 			if (!GameSys.getInstance().isActorHelpless(defender) &&
 				defender.getModifier(Stats.Modifier.SHIELD_BASH) > 0 &&

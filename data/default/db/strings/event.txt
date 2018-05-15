@@ -81,6 +81,7 @@ msg.melee.cleave = %s cleaves!
 msg.last.stand = %s prepares to fight to the bitter end!
 msg.shield.block = Hit shield!
 msg.protect = %s takes the blow!
+msg.restore.stamina = %s restores %s stamina
 
 #
 # Encounter Actors events

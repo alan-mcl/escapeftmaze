@@ -483,13 +483,16 @@ public class DIYToolkit
 	{
 		synchronized (dialogMutex)
 		{
+			int x = p.x;
+			int y = p.y;
+
 			if (overlayPane != null)
 			{
-				return overlayPane.getHoverComponent(p.x, p.y);
+				return overlayPane.getHoverComponent(x, y);
 			}
 			else if (contentPane != null)
 			{
-				return contentPane.getHoverComponent(p.x, p.y);
+				return contentPane.getHoverComponent(x, y);
 			}
 			else
 			{

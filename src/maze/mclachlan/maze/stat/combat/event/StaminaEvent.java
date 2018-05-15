@@ -20,12 +20,13 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
- *
+ * Reduces the target fatigue by the given amount.
  */
 public class StaminaEvent extends MazeEvent
 {
@@ -71,6 +72,8 @@ public class StaminaEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getTarget().getDisplayName()+" recovers "+getAmount();
+		return StringUtil.getEventText("msg.restore.stamina",
+			getTarget().getDisplayName(),
+			getAmount());
 	}
 }
