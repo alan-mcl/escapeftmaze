@@ -1468,6 +1468,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Lead The Charge
+displayName=Lead The Charge
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=12
+school=Blessing
+book=White Magic
+spellEffects=protect:100
+description=takes the point!
+level=2
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=CHIVALRY
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Cerebral Hemorrhage
 displayName=Cerebral Hemorrhage
 hitPointCost=

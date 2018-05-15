@@ -1111,6 +1111,8 @@ lap_name_consecrate = Consecrate
 lap_desc_consecrate = The Paladin consecrates the ground the party stands on. Foes are dismayed, allies are heartened, and white magic wells forth.
 lap_name_holy_champion = Holy Champion
 lap_desc_holy_champion = The Paladin vows to combat demons and outsiders wherever they are found.
+lap_name_lead_the_charge = Lead the Charge
+lap_desc_lead_the_charge = The Paladin charges into battle, becoming the target of all enemy melee attacks.
 
 # Priest
 lap_name_holiness = Holiness
