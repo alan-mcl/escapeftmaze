@@ -625,6 +625,7 @@ public class ActorActionResolver
 				}
 
 				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
+					combat,
 					lockOrTrap,
 					invokedSpell,
 					(PlayerCharacter)actor,
@@ -788,6 +789,7 @@ public class ActorActionResolver
 				break;
 			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
 				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
+					combat,
 					Maze.getInstance().getCurrentChest(),
 					specialAbilitySpell,
 					(PlayerCharacter)actor,
@@ -1075,6 +1077,7 @@ public class ActorActionResolver
 				}
 
 				events.addAll(SpellTargetUtils.resolveLockOrTrapSpell(
+					combat,
 					lockOrTrap,
 					spell,
 					(PlayerCharacter)caster,

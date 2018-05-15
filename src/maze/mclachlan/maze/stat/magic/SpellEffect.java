@@ -253,6 +253,7 @@ public class SpellEffect
 	/*-------------------------------------------------------------------------*/
 	public static enum Application
 	{
+		AS_PER_SPELL_EFFECT,
 		AS_PER_SPELL,
 		APPLY_ONCE_TO_CASTER;
 	}

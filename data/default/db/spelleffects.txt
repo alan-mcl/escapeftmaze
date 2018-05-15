@@ -3058,6 +3058,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6::::0.5:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=consecrate aoe
+displayName=consecrate aoe
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/1/SCALE_WITH_MODIFIER/HIT_POINTS/true
+unsavedResult=4::2/0/SCALE_WITH_MODIFIER/WHITE_MAGIC_GEN/false/1d2::::0.0:false
+savedResult=4::1/1/SCALE_WITH_MODIFIER/WHITE_MAGIC_GEN/false::::1.0:false
+targetType=5
+application=AS_PER_SPELL
+@
 name=null magic trap
 displayName=null magic trap
 type=ENERGY
@@ -3847,6 +3857,16 @@ unsavedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10::::0.0:false
 savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d10::::0.5:false
 targetType=3
 application=AS_PER_SPELL
+@
+name=consecrate tile
+displayName=consecrate aoe
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/1/SCALE_WITH_MODIFIER/HIT_POINTS/true
+unsavedResult=3::holy ground
+savedResult=
+targetType=6
+application=AS_PER_SPELL_EFFECT
 @
 name=rail gun damage
 displayName=rail gun damage
@@ -4917,6 +4937,16 @@ unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d6,4/0/NONE//false/4::
 savedResult=
 targetType=2
 application=AS_PER_SPELL
+@
+name=consecrate healing
+displayName=consecrate aoe
+type=ENERGY
+subtype=NONE
+saveAdjustment=1/1/SCALE_WITH_MODIFIER/HIT_POINTS/true
+unsavedResult=5::2/0/SCALE_WITH_MODIFIER/WHITE_MAGIC_GEN/false/1d2:::
+savedResult=
+targetType=2
+application=AS_PER_SPELL_EFFECT
 @
 name=mortal allure spell plyze vs outsiders
 displayName=paralyse

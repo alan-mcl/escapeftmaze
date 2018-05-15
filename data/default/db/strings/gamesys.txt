@@ -1107,6 +1107,8 @@ lap_name_lifes_champion = Life's Champion
 lap_desc_lifes_champion = The Paladin is very effective at combating undead foes.
 lap_name_shield_block = Shield Block %s
 lap_desc_shield_block = The Paladin restored fatigue when blocking a blow with a shield.
+lap_name_consecrate = Consecrate
+lap_desc_consecrate = The Paladin consecrates the ground the party stands on. Foes are dismayed, allies are heartened, and white magic wells forth.
 
 # Priest
 lap_name_holiness = Holiness

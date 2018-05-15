@@ -2,12 +2,13 @@
 v0.918 (????)
 ---------------------------------------
 Features
- - Paladin class abilities: Protect, Combat Command, Shield Block
+ - Paladin class abilities: Protect, Combat Command, Shield Block, Consecration
 
 Other
  - Refactoring action point regen to be consistent with other resources
  - Resting sleep condition always identified and not an affliction
  - Added missing game time turn increment during combat
+ - Added "as per spell effect" target type for spell effects
 
 ---------------------------------------
 v0.917 (24 April 2018)
