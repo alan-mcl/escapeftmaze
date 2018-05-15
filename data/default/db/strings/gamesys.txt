@@ -1098,6 +1098,9 @@ lap_name_shield_bash = Shield Bash %s
 lap_desc_shield_bash = The Paladin has a chance of bashing enemies with his or her shield.
 lap_name_protect = Protect
 lap_desc_protect = The Paladin protects an ally, taking blows on their behalf.
+lap_name_combat_command_3 = Combat Command
+lap_name_combat_command_5 = Greater Combat Command
+lap_desc_combat_command = The Paladin issues combat orders to an ally, granting an extra attack at a bonus to hit.
 
 # Priest
 lap_name_holiness = Holiness

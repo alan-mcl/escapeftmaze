@@ -79,8 +79,8 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> apply(
-		UnifiedActor source,
-		UnifiedActor target,
+		UnifiedActor spellSource,
+		UnifiedActor spellTarget,
 		int castingLevel,
 		SpellEffect parent, Spell spell)
 	{
@@ -89,6 +89,26 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		{
 			return null;
 		}
+
+		UnifiedActor source;
+		UnifiedActor target;
+
+		// If the source and target are enemies, source attacks target
+		// If the source and target are allies, target attacks an enemy group in range
+
+		if (combat.getAllAlliesOf(spellSource).contains(spellTarget))
+		{
+			source = spellTarget;
+			target = combat.getRandomFoeWithinRangeOf(spellTarget);
+		}
+		else
+		{
+			source = spellSource;
+			target = spellTarget;
+		}
+
+		Maze.log(Log.DEBUG, "Attack with weapon spell result, source=["+
+			source.getName()+"], target=["+target.getName()+"]");
 
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
@@ -111,7 +131,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		MagicSys.SpellEffectType actionDamageType = damageTypeToUse;
 
 		// apply the nr of strikes
-		int actionNrStrikes = nrStrikes.compute(source);
+		int actionNrStrikes = nrStrikes.compute(spellSource, castingLevel);
 
 		// select the attack script
 		MazeScript actionAttackScript = getAttackScript(weapon);
@@ -136,8 +156,11 @@ public class AttackWithWeaponSpellResult extends SpellResult
 				new AnimationContext(source)));
 
 		// consume the weapon?
-		result.add(
-			new RemoveItemEvent(weapon.getName(), source));
+		if (consumesWeapon)
+		{
+			result.add(
+				new RemoveItemEvent(weapon.getName(), source));
+		}
 
 		return result;
 	}

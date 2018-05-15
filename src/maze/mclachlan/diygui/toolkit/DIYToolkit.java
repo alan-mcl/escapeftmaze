@@ -84,7 +84,7 @@ public class DIYToolkit
 	/** The modal dialog stack */
 	private Stack<ContainerWidget> dialogs = new Stack<ContainerWidget>();
 	/** mutex protecting the modal dialog stack */
-	private final Object dialog_mutex = new Object();
+	private final Object dialogMutex = new Object();
 
 	private java.util.List<ActionListener> globalListeners =
 		new ArrayList<ActionListener>();
@@ -245,7 +245,7 @@ public class DIYToolkit
 		// instead of syncing over the whole draw process create a copy
 		java.util.List<ContainerWidget> dd = new ArrayList<ContainerWidget>();
 
-		synchronized(dialog_mutex)
+		synchronized(dialogMutex)
 		{
 			dd.addAll(dialogs);
 		}
@@ -432,7 +432,7 @@ public class DIYToolkit
 	 */ 
 	public void setDialog(ContainerWidget d)
 	{
-		synchronized (dialog_mutex)
+		synchronized (dialogMutex)
 		{
 			this.dialogs.push(d);
 		}
@@ -444,7 +444,7 @@ public class DIYToolkit
 	 */ 
 	public void clearDialog()
 	{
-		synchronized (dialog_mutex)
+		synchronized (dialogMutex)
 		{
 			if (!this.dialogs.isEmpty())
 			{
@@ -460,7 +460,7 @@ public class DIYToolkit
 	 */
 	public void clearAllDialogs()
 	{
-		synchronized (dialog_mutex)
+		synchronized (dialogMutex)
 		{
 			while(!this.dialogs.isEmpty())
 			{
@@ -481,18 +481,21 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 	private Widget getHoverComponent(Point p)
 	{
-		if (overlayPane != null)
+		synchronized (dialogMutex)
 		{
-			return overlayPane.getHoverComponent(p.x, p.y);
-		}
-		else if (contentPane != null)
-		{
-			return contentPane.getHoverComponent(p.x, p.y);
-		}
-		else
-		{
-			// hiding possible race conditions here, but wth
-			return null;
+			if (overlayPane != null)
+			{
+				return overlayPane.getHoverComponent(p.x, p.y);
+			}
+			else if (contentPane != null)
+			{
+				return contentPane.getHoverComponent(p.x, p.y);
+			}
+			else
+			{
+				// hiding possible race conditions here, but wth
+				return null;
+			}
 		}
 	}
 
@@ -502,7 +505,7 @@ public class DIYToolkit
 	 */
 	public void clearDialog(ContainerWidget dialog)
 	{
-		synchronized(dialog_mutex)
+		synchronized(dialogMutex)
 		{
 			this.dialogs.remove(dialog);
 			resetFocusAndHoverWidgets();
@@ -512,7 +515,7 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 	public ContainerWidget getDialog()
 	{
-		synchronized (dialog_mutex)
+		synchronized (dialogMutex)
 		{
 			if (this.dialogs.isEmpty())
 			{

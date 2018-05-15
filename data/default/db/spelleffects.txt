@@ -4408,6 +4408,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=combat command
+displayName=combat command
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=1::10000000000000,02:1/1/SCALE_WITH_CASTING_LEVEL//false::generic weapon swish::false:false:0:false:
+savedResult=
+targetType=1
+application=AS_PER_SPELL
+@
 name=confidence trick spell mindread
 displayName=mindread
 type=MENTAL
