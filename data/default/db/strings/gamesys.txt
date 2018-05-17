@@ -650,8 +650,10 @@ lap_desc_blue_magic=This character has the ability to cast Blue Magic spells up 
 # common to several classes
 lap_name_deadly_aim = Deadly Aim %s
 lap_desc_deadly_aim = This character has a boosted chance to hit with ranged weapons.
-lap_name_turn_undead = Turn Undead
+lap_name_turn_undead = Lesser Turn Undead
 lap_desc_turn_undead = The character can turn undead.
+lap_name_greater_turn_undead = Greater Lesser Turn Undead
+lap_desc_greater_turn_undead = The character can turn undead.
 lap_name_deadly_strike = Deadly Strike %s
 lap_desc_deadly_strike = The character can deal a number of strikes that do double damage.
 lap_name_ambusher = Ambusher %s
@@ -1089,7 +1091,7 @@ lap_desc_health = The Paladin receives a boosted hit point regeneration rate.
 lap_name_etiquette = Etiquette
 lap_desc_etiquette = NPCs react more favourably to the Paladin.
 lap_name_code_of_honour = Code of Honour
-lap_desc_code_of_honour = The character loses experience points if the party ever acts dishonourably.
+lap_desc_code_of_honour = The Paladin is bound to honourable behaviour, and cannot associate with others who act dishonourably.
 lap_name_lay_on_hands_1 = Lay On Hands 1
 lap_name_lay_on_hands_2 = Lay On Hands 2
 lap_name_lay_on_hands_3 = Lay On Hands 3
@@ -1117,6 +1119,8 @@ lap_desc_lead_the_charge = The Paladin charges into battle, becoming the target 
 # Priest
 lap_name_holiness = Holiness
 lap_desc_holiness = The Priest is a walking source of one White magic for the whole party.
+lap_name_code_of_ethics = Code of Ethics
+lap_desc_code_of_ethics = The Priest and is bound to follow the path of light, and keep the company of those who do too.
 
 # Ranger
 lap_name_deadshot = Deadshot

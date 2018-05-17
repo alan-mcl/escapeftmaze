@@ -2978,16 +2978,6 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
-name=turn undead fatigue
-displayName=
-type=NONE
-subtype=NONE
-saveAdjustment=
-unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
-savedResult=
-targetType=0
-application=APPLY_ONCE_TO_CASTER
-@
 name=darkness spell
 displayName=
 type=ENERGY
