@@ -301,6 +301,7 @@ public class Stats
 		otherMagic.add(REINCARNATE_BEAST);
 		otherMagic.add(POWER_SUMMON_ELEMENTAL);
 		otherMagic.add(MASTER_DIVINER);
+		otherMagic.add(EMPOWERED_HEALING);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -736,6 +737,7 @@ public class Stats
 		YUBI_JUTSU(259, "yubiJutsu"),
 		SHIELD_BASH(260, "shieldBash", ModifierMetric.PERCENTAGE),
 		SHIELD_BLOCK(261, "shieldBlock"),
+		EMPOWERED_HEALING(262, "empoweredHealing"),
 		;
 
 		/**

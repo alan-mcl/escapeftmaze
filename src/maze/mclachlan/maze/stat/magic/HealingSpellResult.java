@@ -21,6 +21,7 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.HealingEvent;
 import mclachlan.maze.stat.combat.event.RestoreActionPointsEvent;
@@ -55,28 +56,30 @@ public class HealingSpellResult extends SpellResult
 		int castingLevel, SpellEffect parent, Spell spell)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
-		
+
+		int empoweredHealing = source.getModifier(Stats.Modifier.EMPOWERED_HEALING);
+
 		if (hitPointHealing != null)
 		{
-			int amount = hitPointHealing.compute(source, castingLevel);
+			int amount = hitPointHealing.compute(source, castingLevel) + empoweredHealing;
 			result.add(new HealingEvent(target, amount));
 		}
 		
 		if (staminaHealing != null)
 		{
-			int amount = staminaHealing.compute(source, castingLevel);
+			int amount = staminaHealing.compute(source, castingLevel) + empoweredHealing;
 			result.add(new StaminaEvent(target, amount));
 		}
 		
 		if (actionPointHealing != null)
 		{
-			int amount = actionPointHealing.compute(source, castingLevel);
+			int amount = actionPointHealing.compute(source, castingLevel) + empoweredHealing;
 			result.add(new RestoreActionPointsEvent(target, amount));
 		}
 		
 		if (magicPointHealing != null)
 		{
-			int amount = magicPointHealing.compute(source, castingLevel);
+			int amount = magicPointHealing.compute(source, castingLevel) + empoweredHealing;
 			result.add(new RestoreMagicEvent(target, amount));
 		}
 		
