@@ -3,7 +3,7 @@ v0.918 (????)
 ---------------------------------------
 Features
  - Paladin class abilities: Protect, Combat Command, Shield Block, Consecration
- - Priest class abilities: Empowered Healing
+ - Priest class abilities: Empowered Healing, Sanctify
 
 Other
  - Refactoring action point regen to be consistent with other resources

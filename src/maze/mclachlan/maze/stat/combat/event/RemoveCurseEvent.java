@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.UnifiedActor;
@@ -61,6 +62,6 @@ public class RemoveCurseEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getTarget().getDisplayName()+" loses curse effects.";
+		return StringUtil.getEventText("msg.remove.curse", target.getDisplayName());
 	}
 }

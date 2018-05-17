@@ -1125,6 +1125,8 @@ lap_name_code_of_ethics = Code of Ethics
 lap_desc_code_of_ethics = The Priest and is bound to follow the path of light, and keep the company of those who do too.
 lap_name_empowered_healing = Empowered Healing %s
 lap_desc_empowered_healing = The Priest's healing spells are very effective.
+lap_name_sanctify = Sanctify
+lap_desc_sanctify = The Priest can free party members from cursed items they are bearing.
 
 # Ranger
 lap_name_deadshot = Deadshot

@@ -941,6 +941,7 @@ public class Combat
 			}
 			else
 			{
+				// either both have SNAKESPEED or both do not
 				return action2.getInitiative() - action1.getInitiative();
 			}
 		}

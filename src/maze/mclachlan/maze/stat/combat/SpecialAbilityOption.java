@@ -166,7 +166,7 @@ public class SpecialAbilityOption extends ActorActionOption
 		this.intention = new SpecialAbilityIntention(
 			pc,
 			spellLikeAbility.getSpell(),
-			spellLikeAbility.getCastingLevel().compute(pc));
+			spellLikeAbility.getCastingLevel().compute(getActor()));
 		callback.selected(intention);
 		return true;
 	}

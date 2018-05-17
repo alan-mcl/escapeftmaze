@@ -9070,6 +9070,27 @@ secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Sanctify
+displayName=Sanctify
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=1
+school=Blessing
+book=White Magic
+spellEffects=remove curse spell:100
+description=removes curses
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=CHANT
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Barkskin
 displayName=Barkskin
 hitPointCost=

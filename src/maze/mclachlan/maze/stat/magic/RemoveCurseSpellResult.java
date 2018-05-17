@@ -29,7 +29,7 @@ import mclachlan.maze.stat.combat.event.RemoveCurseEvent;
  */
 public class RemoveCurseSpellResult extends SpellResult
 {
-	ValueList value;
+	private ValueList value;
 
 	/*-------------------------------------------------------------------------*/
 	public RemoveCurseSpellResult(ValueList value)

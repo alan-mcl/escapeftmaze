@@ -82,6 +82,7 @@ msg.last.stand = %s prepares to fight to the bitter end!
 msg.shield.block = Hit shield!
 msg.protect = %s takes the blow!
 msg.restore.stamina = %s restores %s stamina
+msg.remove.curse = %s loses curse effects
 
 #
 # Encounter Actors events

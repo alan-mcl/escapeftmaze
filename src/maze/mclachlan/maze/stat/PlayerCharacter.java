@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.diygui.util.HashMapMutableTree;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.ActorEncounter;
+import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.combat.*;
 import mclachlan.maze.stat.condition.Condition;
@@ -1085,6 +1086,8 @@ public class PlayerCharacter extends UnifiedActor
 	{
 		removeCurse(getPrimaryWeapon(), strength);
 		removeCurse(getSecondaryWeapon(), strength);
+		removeCurse(getAltPrimaryWeapon(), strength);
+		removeCurse(getAltSecondaryWeapon(), strength);
 		removeCurse(getHelm(), strength);
 		removeCurse(getTorsoArmour(), strength);
 		removeCurse(getLegArmour(), strength);
@@ -1121,6 +1124,7 @@ public class PlayerCharacter extends UnifiedActor
 		if (item.getCurseStrengh() > 0 && item.getCurseStrengh() <= strength)
 		{
 			item.setCursedState(Item.CursedState.TEMPORARILY_REMOVED);
+			Maze.log(Log.DEBUG, "removed curse on "+item.getName());
 		}
 	}
 
