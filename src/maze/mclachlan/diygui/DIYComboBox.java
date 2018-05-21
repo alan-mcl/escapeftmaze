@@ -85,7 +85,19 @@ public class DIYComboBox<T> extends ContainerWidget
 	public DIYComboBox(List<T> items, Rectangle bounds)
 	{
 		super(bounds);
+		setModel(items);
+	}
 
+	/*-------------------------------------------------------------------------*/
+	public DIYComboBox(MutableTree<T> model, Rectangle bounds)
+	{
+		super(bounds);
+		setModel(model);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setModel(List<T> items)
+	{
 		HashMapMutableTree<T> model = new HashMapMutableTree<T>();
 
 		for (T t : items)
@@ -93,13 +105,6 @@ public class DIYComboBox<T> extends ContainerWidget
 			model.add(t, null);
 		}
 
-		setModel(model);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public DIYComboBox(MutableTree<T> model, Rectangle bounds)
-	{
-		super(bounds);
 		setModel(model);
 	}
 

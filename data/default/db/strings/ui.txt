@@ -180,7 +180,7 @@ poatw.view.log = View Log
 
 # player character widget
 pcw.levelup = Level Up!
-pcw.take.an.action = Take An Action
+pcw.take.an.action = Take an action...
 
 # modifier display action listener
 mdal.influences = INFLUENCES:
@@ -209,6 +209,9 @@ aao.force.open = Force Open
 aao.surprised = Surprised!
 aao.dead = Dead
 aao.unaware = Unaware...
+aao.front.row = front row
+aao.back.row = back row
+
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.

@@ -50,7 +50,9 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 
 	private DIYButton levelUp;
 	private DIYComboBox<ActorActionOption> action;
-	
+
+	private DIYComboBox<String> stance;
+
 	private final Object pcMutex = new Object();
 
 	private Map<Rectangle, Condition> conditionBounds;
@@ -65,7 +67,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 
 		MutableTree<ActorActionOption> options = new HashMapMutableTree<ActorActionOption>();
 		action = new DIYComboBox<ActorActionOption>(options, new Rectangle(0,0,1,1));
-		action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action"));
+		action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", ""));
 		if (index % 2 == 0)
 		{
 			action.setPopupDirection(DIYComboBox.PopupDirection.RIGHT);
@@ -77,10 +79,15 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			action.setPopupExpansionDirection(DIYComboBox.PopupExpansionDirection.LEFT);
 		}
 
+		ArrayList<String> stances = new ArrayList<String>();
+		stance = new DIYComboBox<String>(stances, new Rectangle(0,0,1,1));
+
 		levelUp.addActionListener(this);
 		action.addActionListener(this);
+		stance.addActionListener(this);
 
 		this.add(action);
+		this.add(stance);
 		this.add(levelUp);
 	}
 	
@@ -118,18 +125,26 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			action.setVisible(true);
 			action.setEnabled(!action.getModel().isEmpty() && !(action.getModel().size()==1));
 
+			stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
+			stance.setVisible(true);
+			stance.setEnabled(!stance.getModel().isEmpty() && !(stance.getModel().size()==1));
+
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
 				Maze.getInstance().getState() == Maze.State.COMBAT)
 			{
 				if (combat == null)
 				{
-					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action"));
+					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
 					action.setEnabled(!action.getModel().isEmpty());
+
+					stance.setEnabled(false);
 				}
 				else
 				{
 					action.setEditorText(null);
 					action.getSelected().select(playerCharacter, combat, this);
+
+					stance.setEnabled(true);
 				}
 			}
 		}
@@ -252,6 +267,12 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	public DIYComboBox<ActorActionOption> getAction()
 	{
 		return action;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public DIYComboBox<String> getStance()
+	{
+		return stance;
 	}
 
 	/*-------------------------------------------------------------------------*/

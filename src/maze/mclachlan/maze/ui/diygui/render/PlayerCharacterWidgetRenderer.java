@@ -43,60 +43,90 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 	{
 		PlayerCharacterWidget widget = (PlayerCharacterWidget)w;
 
-		int border = 15;
+		int border = 20;
 		int inset = 2;
 
 		// warning: this hand-bounds logic is duplicated in the PCWidget
 		int oneThirdWidth = width/3;
 		int oneThirdHeight = height/3;
+		int halfHeight = height/2;
+		int halfWidth = width/2;
 		int twoThirdsWidth = width*2/3;
 		int twoThirdsHeight = height*2/3;
 
-		int barWidth = (oneThirdWidth-inset*2-border)/4;
-		int handWidth = (oneThirdWidth-inset*2-border)/2;
-		int handHeight = handWidth;
+		int portraitWidth = twoThirdsWidth -border*2;
+		int portraitHeight = twoThirdsHeight -border*2;
+		int remainingWidth = oneThirdWidth;
+		int remainingHeight = oneThirdHeight;
 
-		int handY = y+twoThirdsHeight+inset;
-		int rightHandX = x +twoThirdsWidth +inset*2;
-		int leftHandX = rightHandX +handWidth +inset;
+		Rectangle portraitBounds = new Rectangle(
+			x+border,
+			y+border,
+			portraitWidth,
+			portraitHeight);
 
-		Rectangle portraitBounds = new Rectangle(x+border, y+border, twoThirdsWidth, twoThirdsHeight);
-		Rectangle leftHandBounds = new Rectangle(leftHandX, handY, handWidth, handHeight);
-		Rectangle rightHandBounds = new Rectangle(rightHandX, handY, handWidth, handHeight);
+		int barSep = inset;
+		int startX = x + border + portraitWidth + inset;
+		int barTop = y + border + inset;
+		int barWidth = remainingWidth/3 -inset;
+		int barHeight = portraitHeight;
 
-		int nameLabelHeight = DIYToolkit.getDimension("|").height;
+		int nameLabelHeight = remainingHeight/3;
 
 		Rectangle nameLabelBounds = new Rectangle(
 			x + border,
-			y + twoThirdsHeight + inset, twoThirdsWidth, nameLabelHeight);
+			y + border + portraitHeight + inset,
+			portraitWidth,
+			nameLabelHeight);
 		Rectangle classLabelBounds = new Rectangle(
-			x + border,
-			y + twoThirdsHeight + inset + nameLabelHeight + inset, twoThirdsWidth, nameLabelHeight);
+			nameLabelBounds.x + nameLabelBounds.width,
+			y + border + portraitHeight + inset,
+			remainingWidth,
+			nameLabelHeight);
 
-		Rectangle namePlateBounds = new Rectangle(
-			nameLabelBounds.x, nameLabelBounds.y, nameLabelBounds.width,
-			nameLabelHeight *2 + inset*2);
+		// hand icon bounds
+		int handWidth = 24;
+		int handHeight = handWidth;
+		int rightHandY = y + border + portraitHeight + nameLabelHeight + inset;
+		int leftHandY = rightHandY + handHeight + inset;
+		int rightHandX = x + width -border -handWidth;
+		int leftHandX = rightHandX;
 
-		// draw the main background image
-		Image back = Database.getInstance().getImage("screen/pcwidget_back");
-		g.drawImage(back, x, y, width, height, Maze.getInstance().getComponent());
+		Rectangle rightHandBounds = new Rectangle(
+			rightHandX,
+			rightHandY,
+			handWidth,
+			handHeight);
+		Rectangle leftHandBounds = new Rectangle(
+			leftHandX,
+			leftHandY,
+			handWidth,
+			handHeight);
 
 		// action button bounds
-		int actionInset = 10;
 		Rectangle actionBounds = new Rectangle(
-			x +border +actionInset,
-			y +height -border -20,
-			width -border*2 -actionInset*2,
-			20);
+			x + border,
+			y + border + portraitHeight + nameLabelHeight + inset,
+			width -border*2 -handWidth -inset*2,
+			remainingHeight/3 -inset);
 		widget.getAction().setBounds(actionBounds);
 		widget.getAction().setVisible(false);
+
+		// stance button bounds
+		Rectangle stanceBounds = new Rectangle(
+			x + border,
+			y + border + portraitHeight + nameLabelHeight*2 + inset*2,
+			width -border*2 -handWidth -inset*2,
+			remainingHeight/3 -inset);
+		widget.getStance().setBounds(stanceBounds);
+		widget.getStance().setVisible(false);
 
 		// lvl up button
 		DIYButton levelUp = widget.getLevelUp();
 		Dimension ps = levelUp.getPreferredSize();
 		levelUp.setBounds(
-			x +border +twoThirdsWidth/2 -ps.width/2,
-			y +border +twoThirdsHeight -ps.height -inset -20,
+			x +portraitWidth/2 -ps.width/2 +border/2,
+			y +portraitHeight -ps.height -inset*2,
 			ps.width,
 			ps.height);
 		levelUp.setVisible(false);
@@ -107,17 +137,14 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 			if (playerCharacter != null)
 			{
 				// stats bars
-				int barSep = barWidth/3;
-				int startX = x + twoThirdsWidth + inset*3;
-				int barTop = y + border + inset;
 				drawBar(g, Constants.Colour.COMBAT_RED, Constants.Colour.FATIGUE_PINK, playerCharacter.getHitPoints(),
-					startX, barTop, barWidth, twoThirdsHeight-inset*2-border);
+					startX, barTop, barWidth, barHeight);
 				startX += (barWidth+barSep);
 				drawBar(g, Constants.Colour.STEALTH_GREEN, null, playerCharacter.getActionPoints(),
-					startX, barTop, barWidth, twoThirdsHeight-inset*2-border);
+					startX, barTop, barWidth, barHeight);
 				startX += (barWidth+barSep);
 				drawBar(g, Constants.Colour.MAGIC_BLUE, null, playerCharacter.getMagicPoints(),
-					startX, barTop, barWidth, twoThirdsHeight-inset*2-border);
+					startX, barTop, barWidth, barHeight);
 
 				// other buttons (set up by the widget class)
 				for (Widget kid : widget.getChildren())
@@ -125,15 +152,11 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 					kid.draw(g);
 				}
 
-				// name label plate
-				Image nlp = Database.getInstance().getImage("screen/pcnamelabel");
-				DIYToolkit.drawImageCentered(g, nlp, namePlateBounds, DIYToolkit.Align.CENTER);
-
 				// name labels
 				DIYToolkit.drawStringCentered(g, playerCharacter.getName(),
-					nameLabelBounds, DIYToolkit.Align.CENTER, Color.DARK_GRAY, null);
-				DIYToolkit.drawStringCentered(g, playerCharacter.getCharacterClass().getName(),
-					classLabelBounds, DIYToolkit.Align.CENTER, Color.DARK_GRAY, null);
+					nameLabelBounds, DIYToolkit.Align.CENTER, Color.WHITE, null);
+				DIYToolkit.drawStringCentered(g, "("+playerCharacter.getCharacterClass().getName()+")",
+					classLabelBounds, DIYToolkit.Align.RIGHT, Color.WHITE.darker(), null);
 
 				// hand item slots
 				Image slotImage = Database.getInstance().getImage("screen/itemslot");
@@ -142,32 +165,17 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 				widget.setLeftHandBounds(leftHandBounds);
 				widget.setRightHandBounds(rightHandBounds);
 
-				Image img;
 				// left hand item
-				if (playerCharacter.getSecondaryWeapon()!= null)
-				{
-					img = Database.getInstance().getImage(
-						playerCharacter.getSecondaryWeapon().getImage());
-
-				}
-				else
-				{
-					img = Database.getInstance().getImage(
-						playerCharacter.getLeftHandIcon());
-				}
+				Image img;
+				img = playerCharacter.getSecondaryWeapon() != null ?
+					Database.getInstance().getImage(playerCharacter.getSecondaryWeapon().getImage()) :
+					Database.getInstance().getImage(playerCharacter.getLeftHandIcon());
 				DIYToolkit.drawImageCentered(g, img, leftHandBounds, DIYToolkit.Align.CENTER);
 
 				// right hand item
-				if (playerCharacter.getPrimaryWeapon()!= null)
-				{
-					img = Database.getInstance().getImage(
-						playerCharacter.getPrimaryWeapon().getImage());
-				}
-				else
-				{
-					img = Database.getInstance().getImage(
-						playerCharacter.getRightHandIcon());
-				}
+				img = playerCharacter.getPrimaryWeapon() != null ?
+					Database.getInstance().getImage(playerCharacter.getPrimaryWeapon().getImage()) :
+					Database.getInstance().getImage(playerCharacter.getRightHandIcon());
 				DIYToolkit.drawImageCentered(g, img, rightHandBounds, DIYToolkit.Align.CENTER);
 
 				// Portrait
@@ -236,16 +244,17 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 				}
 
 				widget.getAction().setVisible(true);
-
-				// demarcate formation
-				if (Maze.getInstance().getParty() != null
-					&& Maze.getInstance().getParty().getFormation() == widget.getIndex())
-				{
-					g.setColor(Constants.Colour.COMBAT_RED);
-					g.drawLine(x, y, x+20, y);
-					g.drawLine(x, y, x, y+20);
-				}
+				widget.getStance().setVisible(true);
 			}
+
+			// draw the bounds of the whole widget
+
+			Stroke stroke = g.getStroke();
+			g.setStroke(new BasicStroke(2f));
+			g.setPaint(new GradientPaint(x, y, Color.LIGHT_GRAY.brighter(),
+				x + width, y + height, Color.LIGHT_GRAY.darker()));
+			g.drawRoundRect(x + inset, y + inset, width - inset * 2, height - inset * 2, border, border);
+			g.setStroke(stroke);
 		}
 
 		if (DIYToolkit.debug)
@@ -260,9 +269,9 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 
 			// draw the hand bounds
 			g.setColor(Color.WHITE);
-			g.drawRect(leftHandX, handY,
+			g.drawRect(leftHandX, leftHandY,
 				handWidth, handHeight);
-			g.drawRect(rightHandX, handY,
+			g.drawRect(rightHandX, rightHandY,
 				handWidth, handHeight);
 
 //			g.setColor(Color.LIGHT_GRAY);
@@ -313,5 +322,20 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 			g.setPaint(new GradientPaint(x, y, col1, x+barWidth, y+barHeight, col2));
 			g.fill(sub);
 		}
+
+		// draw text vertically
+		g.setColor(Color.LIGHT_GRAY);
+		FontMetrics fm = g.getFontMetrics();
+		int textHeight = fm.getAscent();
+		drawRotate(g, x +barWidth/2 +textHeight/2, y+barHeight-2, -90, String.valueOf(stat.getCurrent()));
+	}
+
+	public static void drawRotate(Graphics2D g2d, double x, double y, int angle, String text)
+	{
+		g2d.translate((float)x,(float)y);
+		g2d.rotate(Math.toRadians(angle));
+		g2d.drawString(text,0,0);
+		g2d.rotate(-Math.toRadians(angle));
+		g2d.translate(-(float)x,-(float)y);
 	}
 }

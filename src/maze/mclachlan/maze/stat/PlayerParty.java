@@ -360,6 +360,11 @@ public class PlayerParty implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The index (started at 0) of the first character in the back row
+	 */
 	public int getFormation()
 	{
 		return this.formation;

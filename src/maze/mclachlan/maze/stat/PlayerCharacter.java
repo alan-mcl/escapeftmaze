@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.diygui.util.HashMapMutableTree;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
@@ -351,6 +352,44 @@ public class PlayerCharacter extends UnifiedActor
 	public String getFaction()
 	{
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<String> getCharacterStanceOptions(
+		Maze maze, Combat combat)
+	{
+		ArrayList<String> result = new ArrayList<String>();
+
+		boolean alive = GameSys.getInstance().isActorAlive(this);
+		boolean aware = GameSys.getInstance().isActorAware(this);
+		if (!alive)
+		{
+			result.add(StringUtil.getUiLabel("aao.dead"));
+		}
+		else if (!aware)
+		{
+			result.add(StringUtil.getUiLabel("aao.unaware"));
+		}
+		else if (maze.getState() == Maze.State.MOVEMENT)
+		{
+			if (maze.getParty().getPlayerCharacterIndex(this) < maze.getParty().getFormation())
+			{
+				result.add(StringUtil.getUiLabel("aao.front.row"));
+			}
+			else
+			{
+				result.add(StringUtil.getUiLabel("aao.back.row"));
+			}
+
+		}
+		else if (maze.getState() == Maze.State.COMBAT)
+		{
+			// todo
+			result.add("Act early");
+			result.add("Act late");
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
