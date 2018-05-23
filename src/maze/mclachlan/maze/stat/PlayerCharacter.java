@@ -391,7 +391,10 @@ public class PlayerCharacter extends UnifiedActor
 			result.add(Stance.ACT_EARLY);
 			result.add(Stance.ACT_LATE);
 
-			// todo: patience
+			if (this.getModifier(Stats.Modifier.PATIENCE) > 0)
+			{
+				result.add(Stance.PATIENCE);
+			}
 		}
 
 		return result;

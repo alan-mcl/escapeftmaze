@@ -283,6 +283,7 @@ modifier_name-yubiJutsu: Yubi-Jutsu
 modifier_name-shieldBash: Shield Bash
 modifier_name-shieldBlock: Shield Block
 modifier_name-empoweredHealing: Empowered Healing
+modifier_name-patience: Patience
 
 # Modifier Descriptions
 
@@ -553,12 +554,13 @@ modifier_desc-weaponMaster: The character ignores most modifier requirements for
 modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to this character.
 modifier_desc-lastStand: If this character is the last party member standing, restore hit points and action points.
 modifier_desc-selfAwareness: This character can always identify baneful conditions that afflict their person.
-modifier_desc-snakespeed: In combat this character always acts before characters that do not have snakespeed.
+modifier_desc-snakespeed: In combat this character can choose to act before characters that do not have snakespeed.
 modifier_desc-acrobatics: Dodge actions in combat cost this character fewer action points than usual.
 modifier_desc-yubiJutsu: This character gets a bonus to melee criticals when fighting unarmed.
 modifier_desc-shieldBash: When equipped with a shield that takes an enemy blow, this character has a chance of executing a bash attack with the shield.
 modifier_desc-shieldBlock: When blocking a blow with a shield, this character restores fatigue.
 modifier_desc-empoweredHealing: This character restores extra hit points with every healing spell.
+modifier_desc_patience: In combat this character can choose to act after any characters that do not also have patience.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1127,6 +1129,8 @@ lap_name_empowered_healing = Empowered Healing %s
 lap_desc_empowered_healing = The Priest's healing spells are very effective.
 lap_name_sanctify = Sanctify
 lap_desc_sanctify = The Priest can free party members from cursed items they are bearing.
+lap_name_patience = Patience
+lap_desc_patience = The Priest can choose to act last almost all the time.
 
 # Ranger
 lap_name_deadshot = Deadshot

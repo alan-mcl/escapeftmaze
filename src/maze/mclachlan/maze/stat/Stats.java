@@ -302,6 +302,7 @@ public class Stats
 		otherMagic.add(POWER_SUMMON_ELEMENTAL);
 		otherMagic.add(MASTER_DIVINER);
 		otherMagic.add(EMPOWERED_HEALING);
+		otherMagic.add(PATIENCE);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -738,6 +739,7 @@ public class Stats
 		SHIELD_BASH(260, "shieldBash", ModifierMetric.PERCENTAGE),
 		SHIELD_BLOCK(261, "shieldBlock"),
 		EMPOWERED_HEALING(262, "empoweredHealing"),
+		PATIENCE(263, "patience"),
 		;
 
 		/**

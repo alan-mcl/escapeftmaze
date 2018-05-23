@@ -3,13 +3,15 @@ v0.918 (????)
 ---------------------------------------
 Features
  - Paladin class abilities: Protect, Combat Command, Shield Block, Consecration
- - Priest class abilities: Empowered Healing, Sanctify
+ - Priest class abilities: Empowered Healing, Sanctify, Patience
 
 Other
  - Refactoring action point regen to be consistent with other resources
  - Resting sleep condition always identified and not an affliction
  - Added missing game time turn increment during combat
  - Added "as per spell effect" target type for spell effects
+ - Redesigned the PC widget, so as to fit in a "stance" combo box
+ - Implemented stances in combat: Snakespeed, Act early, Act late, Patience
 
 ---------------------------------------
 v0.917 (24 April 2018)

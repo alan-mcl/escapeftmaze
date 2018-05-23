@@ -216,7 +216,7 @@ aao.back.row = back row
 aso.snakespeed = Snakespeed
 aso.act.early = Act early
 aso.act.late = Act late
-ase.patience = Patience
+aso.patience = Patience
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.
