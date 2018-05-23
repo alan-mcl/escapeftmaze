@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat;
 
 import java.util.*;
+import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.*;
@@ -820,7 +821,6 @@ public class Combat
 			}
 
 			// sort the actor actions, so that we can rank them
-			Collections.shuffle(actorActions);
 			Collections.sort(actorActions, comparator);
 
 			int actorActionIndex = 0;
@@ -845,8 +845,14 @@ public class Combat
 		
 		// next we need to sort it based on initiative
 		Collections.sort(result, comparator);
-		
-		// return as an array
+
+		// debug logging
+		Maze.log(Log.DEBUG, "Order of play: ");
+		for (CombatAction action : result)
+		{
+			Maze.log(Log.DEBUG, action.getActor().getName() + "(" + action.getActor().getStance() + ") : " + action.getInitiative());
+		}
+
 		return result;
 	}
 
@@ -916,34 +922,40 @@ public class Combat
 		{
 			if (!(o1 instanceof CombatAction && o2 instanceof CombatAction))
 			{
-				throw new MazeException("Should be instances of CombatAction: "+
-					"["+o1+"] ["+o2+"]");
+				throw new MazeException("Should be instances of CombatAction: " +
+					"[" + o1 + "] [" + o2 + "]");
 			}
-			
+
 			CombatAction action1 = (CombatAction)o1;
 			CombatAction action2 = (CombatAction)o2;
 
 			UnifiedActor actor1 = action1.getActor();
 			UnifiedActor actor2 = action2.getActor();
 
-			// values are reversed because we want descending order
-			if (actor1.getModifier(Stats.Modifier.SNAKESPEED) > 0 &&
-				action1.getActorActionIndex()==0 &&
-				actor2.getModifier(Stats.Modifier.SNAKESPEED) <= 0)
+			UnifiedActor.Stance stance1 = getStance(actor1, action1);
+			UnifiedActor.Stance stance2 = getStance(actor2, action2);
+
+			// #2 minus #1 because we want it sorted in descending order
+			if (stance1 != stance2)
 			{
-				return -1;
-			}
-			else if (actor2.getModifier(Stats.Modifier.SNAKESPEED) > 0 &&
-				action2.getActorActionIndex()==0 &&
-				actor1.getModifier(Stats.Modifier.SNAKESPEED) <= 0)
-			{
-				return 1;
+				return stance2.getPriority() - stance1.getPriority();
 			}
 			else
 			{
-				// either both have SNAKESPEED or both do not
 				return action2.getInitiative() - action1.getInitiative();
 			}
+		}
+
+		public UnifiedActor.Stance getStance(UnifiedActor actor, CombatAction action)
+		{
+			UnifiedActor.Stance stance = actor.getStance();
+
+			// only the actor's first action benefits from SNAKESPEED
+			if (stance == UnifiedActor.Stance.SNAKESPEED && action.getActorActionIndex() > 0)
+			{
+				stance = UnifiedActor.Stance.ACT_EARLY;
+			}
+			return stance;
 		}
 	}
 }

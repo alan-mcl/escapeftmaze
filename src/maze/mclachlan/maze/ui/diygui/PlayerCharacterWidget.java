@@ -51,7 +51,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	private DIYButton levelUp;
 	private DIYComboBox<ActorActionOption> action;
 
-	private DIYComboBox<String> stance;
+	private DIYComboBox<PlayerCharacter.Stance> stance;
 
 	private final Object pcMutex = new Object();
 
@@ -79,8 +79,8 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			action.setPopupExpansionDirection(DIYComboBox.PopupExpansionDirection.LEFT);
 		}
 
-		ArrayList<String> stances = new ArrayList<String>();
-		stance = new DIYComboBox<String>(stances, new Rectangle(0,0,1,1));
+		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<PlayerCharacter.Stance>();
+		stance = new DIYComboBox<PlayerCharacter.Stance>(stances, new Rectangle(0,0,1,1));
 
 		levelUp.addActionListener(this);
 		action.addActionListener(this);
@@ -147,6 +147,8 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 					stance.setEnabled(true);
 				}
 			}
+
+			this.getPlayerCharacter().setStance(stance.getSelected());
 		}
 	}
 
@@ -237,6 +239,10 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 				selected.select(this.getPlayerCharacter(), Maze.getInstance().getCurrentCombat(), this);
 			}
 		}
+		else if (event.getSource() == stance)
+		{
+			this.getPlayerCharacter().setStance(stance.getSelected());
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -270,7 +276,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public DIYComboBox<String> getStance()
+	public DIYComboBox<PlayerCharacter.Stance> getStance()
 	{
 		return stance;
 	}

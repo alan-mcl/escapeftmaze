@@ -128,4 +128,10 @@ public class CombatAction //extends StatModifier
 	{
 		this.actorActionIndex = actorActionIndex;
 	}
+
+	@Override
+	public String toString()
+	{
+		return actor.getDisplayName()+": initiative "+initiative;
+	}
 }

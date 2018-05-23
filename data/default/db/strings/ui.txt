@@ -212,6 +212,11 @@ aao.unaware = Unaware...
 aao.front.row = front row
 aao.back.row = back row
 
+# actor stance options
+aso.snakespeed = Snakespeed
+aso.act.early = Act early
+aso.act.late = Act late
+ase.patience = Patience
 
 # start game options
 sgo.small.party.warning = WARNING: You are starting with a party smaller than the maximum of six characters. This may make the game harder than usual to play.

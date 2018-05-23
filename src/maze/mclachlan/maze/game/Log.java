@@ -100,9 +100,10 @@ public class Log
 	/*-------------------------------------------------------------------------*/
 	public void internalLog(int level, String msg)
 	{
+		String str = "<"+Thread.currentThread().getName()+">: "+msg;
 		if (maxBufferSize > 0)
 		{
-			buffer.add(0, msg);
+			buffer.add(0, str);
 			if (buffer.size() > maxBufferSize)
 			{
 				buffer.remove(buffer.size()-1);
@@ -110,7 +111,7 @@ public class Log
 		}
 		if (level <= this.level)
 		{
-			logger.log(Level.ALL, msg);
+			logger.log(Level.ALL, str);
 		}
 	}
 
@@ -134,19 +135,19 @@ public class Log
 		lazyInit();
 		if (level <= this.level)
 		{
-			logger.log(Level.ALL, "exception", x);
+			logger.log(Level.ALL, "<"+Thread.currentThread().getName()+">: exception", x);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void dumpBuffer()
 	{
-		logger.log(Level.ALL, "========== DUMPING LOG BUFFER ===========");
+		logger.log(Level.ALL, "<"+Thread.currentThread().getName()+">: "+"========== DUMPING LOG BUFFER ===========");
 		for (String s : buffer)
 		{
 			logger.log(Level.ALL, s);
 		}
-		logger.log(Level.ALL, "============ LOG BUFFER END =============");
+		logger.log(Level.ALL, "<"+Thread.currentThread().getName()+">: "+"============ LOG BUFFER END =============");
 	}
 
 	/*-------------------------------------------------------------------------*/

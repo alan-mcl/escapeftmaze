@@ -90,6 +90,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	private ActorGroup group;
 	private WieldingCombo currentWieldingCombo;
 
+	private PlayerCharacter.Stance stance;
+
 	/*-------------------------------------------------------------------------*/
 
 	protected UnifiedActor()
@@ -817,6 +819,18 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public CurMax getMagicPoints()
 	{
 		return getStats().getMagicPoints();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Stance getStance()
+	{
+		return stance;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setStance(Stance stance)
+	{
+		this.stance = stance;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1967,4 +1981,39 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract String getFaction();
 
 
+	/*-------------------------------------------------------------------------*/
+	public static enum Stance
+	{
+		DEAD("aao.dead", 0),
+		UNAWARE("aao.unaware", 1),
+		SNAKESPEED("aso.snakespeed", 12),
+		ACT_EARLY("aso.act.early", 8),
+		ACT_LATE("aso.act.late", 4),
+		PATIENCE("aso.patience", 2);
+
+		private String key;
+		private int priority; // higher is faster
+
+		Stance(String key, int priority)
+		{
+			this.key = key;
+			this.priority = priority;
+		}
+
+		public int getPriority()
+		{
+			return priority;
+		}
+
+		public String getKey()
+		{
+			return key;
+		}
+
+		@Override
+		public String toString()
+		{
+			return StringUtil.getUiLabel(key);
+		}
+	}
 }

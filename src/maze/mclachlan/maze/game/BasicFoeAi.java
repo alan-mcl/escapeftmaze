@@ -76,6 +76,8 @@ public class BasicFoeAi extends FoeCombatAi
 	@Override
 	public ActorActionIntention getCombatIntention(Foe foe, Combat combat)
 	{
+		foe.setStance(UnifiedActor.Stance.ACT_EARLY);
+
 		if (!foe.isSummoned() && Dice.d100.roll("basic AI: flee") <= foe.getFleeChance())
 		{
 			// summoned foes never run away
