@@ -658,7 +658,7 @@ lap_name_deadly_aim = Deadly Aim %s
 lap_desc_deadly_aim = This character has a boosted chance to hit with ranged weapons.
 lap_name_turn_undead = Lesser Turn Undead
 lap_desc_turn_undead = The character can turn undead.
-lap_name_greater_turn_undead = Greater Lesser Turn Undead
+lap_name_greater_turn_undead = Greater Turn Undead
 lap_desc_greater_turn_undead = The character can turn undead.
 lap_name_deadly_strike = Deadly Strike %s
 lap_desc_deadly_strike = The character can deal a number of strikes that do double damage.
@@ -1135,6 +1135,8 @@ lap_name_patience = Patience
 lap_desc_patience = The Priest can choose to act last almost all the time.
 lap_name_shed_blights = Shed Blights %s
 lap_desc_shed_blights = Baneful conditions do not afflict the Priest for long.
+lap_name_holy_light = Holy Light
+lap_desc_holy_light = The Priest is very effective at combating undead foes.
 
 # Ranger
 lap_name_deadshot = Deadshot

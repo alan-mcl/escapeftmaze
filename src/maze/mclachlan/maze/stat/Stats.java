@@ -740,7 +740,7 @@ public class Stats
 		SHIELD_BASH(260, "shieldBash", ModifierMetric.PERCENTAGE),
 		SHIELD_BLOCK(261, "shieldBlock"),
 		EMPOWERED_HEALING(262, "empoweredHealing"),
-		PATIENCE(263, "patience"),
+		PATIENCE(263, "patience", ModifierMetric.BOOLEAN),
 		SHED_BLIGHTS(264, "shedBlights", ModifierMetric.PERCENTAGE),
 		;
 
