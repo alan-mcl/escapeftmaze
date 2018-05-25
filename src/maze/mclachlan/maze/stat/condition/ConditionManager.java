@@ -25,7 +25,9 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.GameCache;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
 
@@ -86,6 +88,18 @@ public class ConditionManager implements GameCache
 					if (list != null)
 					{
 						conditionEvents.addAll(list);
+					}
+
+					// check for SHED_BLIGHTS
+					int shedBlights = bearer.getModifier(Stats.Modifier.SHED_BLIGHTS);
+					Maze.log("shedBlights = [" + shedBlights + "]");
+					if (shedBlights > 0)
+					{
+						if (c.isAffliction() && Dice.d100.roll("shed blights") <= shedBlights)
+						{
+							c.setDuration(-1);
+							c.setStrength(-1);
+						}
 					}
 
 					// Expire conditions

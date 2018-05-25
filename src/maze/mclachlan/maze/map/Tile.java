@@ -133,7 +133,7 @@ public class Tile implements ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private int getModifier(Stats.Modifier modifier)
+	public int getModifier(Stats.Modifier modifier)
 	{
 		int result = statModifier.getModifier(modifier);
 

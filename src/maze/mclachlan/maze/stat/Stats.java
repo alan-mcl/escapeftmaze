@@ -303,6 +303,7 @@ public class Stats
 		otherMagic.add(MASTER_DIVINER);
 		otherMagic.add(EMPOWERED_HEALING);
 		otherMagic.add(PATIENCE);
+		otherMagic.add(SHED_BLIGHTS);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -740,6 +741,7 @@ public class Stats
 		SHIELD_BLOCK(261, "shieldBlock"),
 		EMPOWERED_HEALING(262, "empoweredHealing"),
 		PATIENCE(263, "patience"),
+		SHED_BLIGHTS(264, "shedBlights", ModifierMetric.PERCENTAGE),
 		;
 
 		/**

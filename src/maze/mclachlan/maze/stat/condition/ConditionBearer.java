@@ -21,6 +21,7 @@ package mclachlan.maze.stat.condition;
 
 import java.util.List;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.Stats;
 
 public interface ConditionBearer
 {
@@ -45,4 +46,7 @@ public interface ConditionBearer
 
 	/*-------------------------------------------------------------------------*/
 	List<Condition> getConditions();
+
+	/*-------------------------------------------------------------------------*/
+	int getModifier(Stats.Modifier modifier);
 }

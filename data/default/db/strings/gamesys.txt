@@ -284,6 +284,7 @@ modifier_name-shieldBash: Shield Bash
 modifier_name-shieldBlock: Shield Block
 modifier_name-empoweredHealing: Empowered Healing
 modifier_name-patience: Patience
+modifier_name-shedBlights: Shed Blights
 
 # Modifier Descriptions
 
@@ -560,7 +561,8 @@ modifier_desc-yubiJutsu: This character gets a bonus to melee criticals when fig
 modifier_desc-shieldBash: When equipped with a shield that takes an enemy blow, this character has a chance of executing a bash attack with the shield.
 modifier_desc-shieldBlock: When blocking a blow with a shield, this character restores fatigue.
 modifier_desc-empoweredHealing: This character restores extra hit points with every healing spell.
-modifier_desc_patience: In combat this character can choose to act after any characters that do not also have patience.
+modifier_desc-patience: In combat this character can choose to act after any characters that do not also have patience.
+modifier_desc-shedBlights: At the end of every turn this character has a chance of shedding any baneful conditions.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1131,6 +1133,8 @@ lap_name_sanctify = Sanctify
 lap_desc_sanctify = The Priest can free party members from cursed items they are bearing.
 lap_name_patience = Patience
 lap_desc_patience = The Priest can choose to act last almost all the time.
+lap_name_shed_blights = Shed Blights %s
+lap_desc_shed_blights = Baneful conditions do not afflict the Priest for long.
 
 # Ranger
 lap_name_deadshot = Deadshot
