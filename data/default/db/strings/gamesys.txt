@@ -1139,6 +1139,8 @@ lap_name_holy_light = Holy Light
 lap_desc_holy_light = The Priest is very effective at combating undead foes.
 lap_name_pray_for_miracle = Pray for Miracle
 lap_desc_pray_for_miracle = The Priest praysfor divine intervention. Effects will vary depending on past behaviour.
+lap_name_martyr = Martyr
+lap_desc_martyr = The Priest sacrifices him or herself to restore the party to life and health. This sacrifice is permanent.
 
 # Ranger
 lap_name_deadshot = Deadshot

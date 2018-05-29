@@ -1153,6 +1153,27 @@ secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
 @
+name=Martyr
+displayName=Martyr
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=White Magic
+spellEffects=martyr:100
+description=makes the ultimate sacrifice!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=CHANT
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Confidence Trick
 displayName=Confidence Trick
 hitPointCost=

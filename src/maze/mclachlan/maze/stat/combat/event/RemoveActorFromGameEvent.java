@@ -20,72 +20,54 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
-import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.SpeechUtil;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
-public class ResurrectionEvent extends MazeEvent
+public class RemoveActorFromGameEvent extends MazeEvent
 {
-	private UnifiedActor target;
-	private int level;
+	private UnifiedActor actor;
 
 	/*-------------------------------------------------------------------------*/
-	public ResurrectionEvent(UnifiedActor target, int level)
+	/**
+	 * @param actor
+	 * 	the actor who dies
+	 */
+	public RemoveActorFromGameEvent(UnifiedActor actor)
 	{
-		this.target = target;
-		this.level = level;
+		this.actor = actor;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getLevel()
+	public UnifiedActor getActor()
 	{
-		return level;
+		return actor;
 	}
-
-	/*-------------------------------------------------------------------------*/
-	public UnifiedActor getTarget()
-	{
-		return target;
-	}
-
+	
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		if (target.getHitPoints().getCurrent() <= 0)
+		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		actor.getActorGroup().getActors().remove(actor);
+
+		// todo: NPCs?
+
+		if (actor instanceof PlayerCharacter)
 		{
-			target.getHitPoints().incMaximum(-1);
-			target.getHitPoints().incCurrent(new Dice(level, 6, level).roll("resurrection current hp"));
-			if (target instanceof PlayerCharacter)
-			{
-				return SpeechUtil.getInstance().resurrectionSpeech((PlayerCharacter)target);
-			}
-			else
-			{
-				return null;
-			}
+			Maze.getInstance().refreshCharacterData();
 		}
-		else
-		{
-			return null;
-		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		return Maze.getInstance().getUserConfig().getCombatDelay();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return StringUtil.getEventText("msg.resurrection", getTarget().getDisplayName());
 	}
 }

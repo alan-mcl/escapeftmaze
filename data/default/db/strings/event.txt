@@ -83,6 +83,8 @@ msg.shield.block = Hit shield!
 msg.protect = %s takes the blow!
 msg.restore.stamina = %s restores %s stamina
 msg.remove.curse = %s loses curse effects
+msg.resurrection = %s lives!
+msg.dies = %s DIES!
 
 #
 # Encounter Actors events

@@ -130,7 +130,7 @@ public abstract class SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Collection<MazeEvent> apply(
+	public List<MazeEvent> apply(
 		UnifiedActor source,
 		ConditionBearer target,
 		int castingLevel,
@@ -188,6 +188,7 @@ public abstract class SpellResult
 		Spell spell,
 		Combat combat)
 	{
+		// todo should do more implementations of this
 		return SpellTargetUtils.getRandomLegalSpellTarget(caster, spell, combat);
 	}
 

@@ -122,6 +122,17 @@ public class CurMax
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The difference between max and current
+	 */
+	public int getMissing()
+	{
+		return this.maximum - this.current;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public String toString()
 	{
 		return this.current+"/"+this.maximum;

@@ -218,6 +218,6 @@ public class ActorDiesEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getVictim().getDisplayName() + " DIES!";
+		return StringUtil.getEventText("msg.dies", getVictim().getDisplayName());
 	}
 }

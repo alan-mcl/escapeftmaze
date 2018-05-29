@@ -38,7 +38,7 @@ import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
 
 /**
- * Create ammo for the currently equipped ranged weapon
+ * Priest's Pray for Miracle ability
  */
 public class PrayForMiracleSpellResult extends SpellResult
 {

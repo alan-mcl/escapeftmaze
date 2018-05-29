@@ -4968,6 +4968,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=martyr
+displayName=martyr
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.MatyrSpellResult
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=demonic aspect spell
 displayName=
 type=MENTAL
