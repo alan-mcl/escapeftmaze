@@ -1528,6 +1528,16 @@ savedResult=
 targetType=5
 application=AS_PER_SPELL
 @
+name=pray for miracle
+displayName=pray for miracle
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.PrayForMiracleSpellResult
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=backstab spell damage
 displayName=
 type=PIERCING

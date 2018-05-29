@@ -6781,6 +6781,27 @@ secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Pray For Miracle
+displayName=Pray For Miracle
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=White Magic
+spellEffects=pray for miracle:100
+description=prays...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=white portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=CHANT
+secondaryModifier=POSTURE
+wildMagicValue=
+wildMagicTable=
+@
 name=Stoneskin
 displayName=Stoneskin
 hitPointCost=

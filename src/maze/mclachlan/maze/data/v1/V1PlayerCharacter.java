@@ -120,6 +120,10 @@ public class V1PlayerCharacter
 		b.append(obj.getKills());
 		b.append(V1Utils.NEWLINE);
 
+		b.append("karma=");
+		b.append(obj.getKarma());
+		b.append(V1Utils.NEWLINE);
+
 		b.append("race=");
 		b.append(obj.getRace().getName());
 		b.append(V1Utils.NEWLINE);
@@ -226,6 +230,7 @@ public class V1PlayerCharacter
 		Map<String, Integer> levels = levelsMap.fromString(p.getProperty("levels"));
 		int experience = Integer.parseInt(p.getProperty("experience"));
 		int kills = Integer.parseInt(p.getProperty("kills"));
+		int karma = Integer.parseInt(p.getProperty("karma"));
 		Race race = Database.getInstance().getRace(p.getProperty("race"));
 		Gender gender = Database.getInstance().getGender(p.getProperty("gender"));
 		CharacterClass characterClass = Database.getInstance().getCharacterClass(p.getProperty("characterClass"));
@@ -265,6 +270,7 @@ public class V1PlayerCharacter
 			levels,
 			experience,
 			kills,
+			karma,
 			portrait,
 			helm,
 			torsoArmour,

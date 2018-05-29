@@ -2145,9 +2145,15 @@ public class GameSys
 	 * @return
 	 * 	List of events to process
 	 */
-	public List<MazeEvent> processDishonourableAction(PlayerParty party)
+	public List<MazeEvent> processDishonourableAction(PlayerParty party, PlayerCharacter actor)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		// reduce the guilty PC karma
+		if (actor != null)
+		{
+			actor.setKarma(actor.getKarma()-1);
+		}
 
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
@@ -2155,6 +2161,7 @@ public class GameSys
 			{
 				int amount = 50*pc.getLevel();
 				result.add(new LoseExperienceEvent(amount, pc));
+				pc.setKarma(pc.getKarma()-1);
 			}
 		}
 
@@ -2169,9 +2176,15 @@ public class GameSys
 	 * @return
 	 * 	List of events to process
 	 */
-	public List<MazeEvent> processHonourableAction(PlayerParty party)
+	public List<MazeEvent> processHonourableAction(PlayerParty party, PlayerCharacter actor)
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+		// increase the karma of the actor
+		if (actor != null)
+		{
+			actor.setKarma(actor.getKarma()+1);
+		}
 
 		for (PlayerCharacter pc : party.getPlayerCharacters())
 		{
@@ -2179,6 +2192,7 @@ public class GameSys
 			{
 				int amount = 50*pc.getLevel();
 				result.add(new LoseExperienceEvent(amount, pc));
+				pc.setKarma(pc.getKarma()+1);
 			}
 		}
 

@@ -226,8 +226,6 @@ public class MazeWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
-		System.out.println("MazeWidget.processMouseClicked");
-
 		if (e.getID() != MouseEvent.MOUSE_CLICKED)
 		{
 			System.out.println(1);

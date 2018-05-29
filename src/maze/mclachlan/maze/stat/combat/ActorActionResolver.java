@@ -144,6 +144,7 @@ public class ActorActionResolver
 						action.getActor(),
 						spellAction,
 						false,
+						true,
 						animationContext));
 			}
 			else if (action instanceof SpellSilencedAction)
@@ -853,6 +854,7 @@ public class ActorActionResolver
 		final UnifiedActor caster,
 		SpellAction spellAction,
 		boolean isCloudSpell,
+		boolean checkRequirements,
 		AnimationContext animationContext)
 	{
 		Maze.log(Log.DEBUG, "resolving ["+caster.getName()+"] spell action ["+
@@ -906,14 +908,16 @@ public class ActorActionResolver
 
 		if (!isCloudSpell)
 		{
-			if (caster instanceof PlayerCharacter &&
+			if (checkRequirements &&
+				caster instanceof PlayerCharacter &&
 				!((PlayerCharacter)caster).canCast(spell))
 			{
 				events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
 				return events;
 			}
 
-			if (!GameSys.getInstance().canPaySpellCost(
+			if (checkRequirements &&
+				!GameSys.getInstance().canPaySpellCost(
 				spellAction.getSpell(), spellAction.getCastingLevel(), caster))
 			{
 				events.add(new SpellFizzlesEvent(caster, spell, castingLevel));
@@ -955,40 +959,8 @@ public class ActorActionResolver
 					}
 
 					events.add(new SpellBackfiresEvent(caster, spell, castingLevel));
-
-					// warp the target (can assume combat!=null here)
-					switch(targetType)
-					{
-						case MagicSys.SpellTargetType.PARTY:
-							targetType = MagicSys.SpellTargetType.FOE_GROUP;
-							List<ActorGroup> foesOf = combat.getFoesOf(caster);
-							spellAction.setTarget(foesOf.get(GameSys.getInstance().nextInt(foesOf.size())));
-							break;
-
-						case MagicSys.SpellTargetType.ALLY:
-						case MagicSys.SpellTargetType.CASTER:
-							targetType = MagicSys.SpellTargetType.FOE;
-							spellAction.setTarget(combat.getRandomFoeOf(caster));
-							break;
-
-						case MagicSys.SpellTargetType.ALL_FOES:
-						case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
-							// todo: no appropriate ALL_ALLIES target type?
-							targetType = MagicSys.SpellTargetType.PARTY;
-							spellAction.setTarget(combat.getActorGroup(caster));
-							break;
-
-						case MagicSys.SpellTargetType.FOE:
-							targetType = MagicSys.SpellTargetType.ALLY;
-							spellAction.setTarget(combat.getRandomAllyOf(caster));
-							break;
-
-						case MagicSys.SpellTargetType.FOE_GROUP:
-						case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-							targetType = MagicSys.SpellTargetType.PARTY;
-							spellAction.setTarget(combat.getActorGroup(caster));
-							break;
-					}
+					targetType = SpellTargetUtils.getRandomSpellBackfireTargetType(spell);
+					spellAction.setTarget(SpellTargetUtils.getRandomLegalSpellTarget(caster, spell, combat));
 				}
 			}
 		}

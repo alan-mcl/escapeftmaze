@@ -79,7 +79,7 @@ public class TheftEvent extends MazeEvent
 
 		result.addAll(
 			GameSys.getInstance().processDishonourableAction(
-				Maze.getInstance().getParty()));
+				Maze.getInstance().getParty(), pc));
 
 		if (stealItemResult == Npc.TheftResult.SUCCESS)
 		{

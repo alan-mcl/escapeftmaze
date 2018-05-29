@@ -822,4 +822,164 @@ public class SpellTargetUtils
 			return new PlayerParty(actors);
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @param caster The spell caster, may not be null
+	 * @param combat The current combat, may be null
+	 * @return
+	 * 	A random but legal and somewhat optimised target for the given
+	 * 	spell target type. e.g. Healing spells will target damaged allies.
+	 */
+	public static SpellTarget getRandomSensibleSpellTarget(
+		UnifiedActor caster,
+		Spell spell,
+		Combat combat)
+	{
+		int targetType = spell.getTargetType();
+		switch (targetType)
+		{
+			// these target types need no special targeting
+			case MagicSys.SpellTargetType.ALL_FOES:
+			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+			case MagicSys.SpellTargetType.PARTY:
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+			case MagicSys.SpellTargetType.TILE:
+			case MagicSys.SpellTargetType.CASTER:
+			case MagicSys.SpellTargetType.ITEM:
+			case MagicSys.SpellTargetType.NPC:
+			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
+				return getRandomLegalSpellTarget(caster, spell, combat);
+
+			case MagicSys.SpellTargetType.ALLY:
+			case MagicSys.SpellTargetType.FOE:
+			case MagicSys.SpellTargetType.FOE_GROUP:
+			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
+				// pick one random spell effect to examine
+				SpellEffect spellEffect = spell.getEffects().getRandom(1).get(0);
+				return spellEffect.getUnsavedResult().getRandomSensibleSpellTarget(caster, spell, combat);
+
+			default: throw new MazeException("Invalid target type: "+
+				targetType);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @param caster The spell caster, may not be null
+	 * @param combat The current combat, may be null
+	 * @return
+	 * 	A random but legal target for the given spell target type
+	 */
+	public static SpellTarget getRandomLegalSpellTarget(
+		UnifiedActor caster,
+		Spell spell,
+		Combat combat)
+	{
+		int targetType = spell.getTargetType();
+		switch (targetType)
+		{
+			case MagicSys.SpellTargetType.ALL_FOES:
+			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+				return null;
+
+			case MagicSys.SpellTargetType.PARTY:
+				return caster.getActorGroup();
+
+			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
+				return getActorGroupWithoutCaster(caster);
+
+			case MagicSys.SpellTargetType.TILE:
+				return null;
+
+			case MagicSys.SpellTargetType.CASTER:
+				return caster;
+
+			case MagicSys.SpellTargetType.ALLY:
+				List<UnifiedActor> allies;
+				if (combat == null)
+				{
+					allies = caster.getActorGroup().getActors();
+				}
+				else
+				{
+					allies = combat.getAllAlliesOf(caster);
+				}
+				Dice d = new Dice(1, allies.size(), -1);
+				return allies.get(d.roll("STU: ally spell"));
+
+			case MagicSys.SpellTargetType.FOE:
+				if (combat == null)
+				{
+					return null;
+				}
+				else
+				{
+					return getRandomFoeOf(caster, combat);
+				}
+
+			case MagicSys.SpellTargetType.FOE_GROUP:
+			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
+				if (combat == null)
+				{
+					return null;
+				}
+				else
+				{
+					List<ActorGroup> groups = combat.getFoesOf(caster);
+					d = new Dice(1, groups.size(), -1);
+					return groups.get(d.roll("STU: foe group spell"));
+				}
+
+			case MagicSys.SpellTargetType.ITEM:
+			case MagicSys.SpellTargetType.NPC:
+			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
+				return null;
+
+			default: throw new MazeException("Invalid target type: "+
+				targetType);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static SpellTarget getRandomFoeOf(UnifiedActor caster, Combat combat)
+	{
+		Dice d;List<UnifiedActor> enemies = combat.getAllFoesOf(caster);
+		d = new Dice(1, enemies.size(), -1);
+		return enemies.get(d.roll("STU: foe spell"));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static int getRandomSpellBackfireTargetType(
+		Spell spell)
+	{
+		int targetType = spell.getTargetType();
+		switch(targetType)
+		{
+			case MagicSys.SpellTargetType.PARTY:
+				return MagicSys.SpellTargetType.FOE_GROUP;
+
+			case MagicSys.SpellTargetType.ALLY:
+			case MagicSys.SpellTargetType.CASTER:
+				return MagicSys.SpellTargetType.FOE;
+
+			case MagicSys.SpellTargetType.ALL_FOES:
+			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+				// todo: no appropriate ALL_ALLIES target type?
+				return MagicSys.SpellTargetType.PARTY;
+
+			case MagicSys.SpellTargetType.FOE:
+				return MagicSys.SpellTargetType.ALLY;
+
+			case MagicSys.SpellTargetType.FOE_GROUP:
+			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
+				return MagicSys.SpellTargetType.PARTY;
+
+			default:
+				// other target types return a fizzle
+				return MagicSys.SpellTargetType.MAX; // hack
+
+		}
+	}
 }

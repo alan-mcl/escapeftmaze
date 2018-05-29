@@ -99,8 +99,6 @@ public class BasicFoeAi extends FoeCombatAi
 			return new HideIntention();
 		}
 
-		PercentageTable<ActorActionIntention> perc = new PercentageTable<ActorActionIntention>();
-
 		int attackWeight;
 		int stealthWeight;
 		int magicWeight;
@@ -198,7 +196,8 @@ public class BasicFoeAi extends FoeCombatAi
 				castingLevel--;
 			}
 
-			SpellTarget spellTarget = chooseSpellTarget(foe, spell, combat);
+			SpellTarget spellTarget = SpellTargetUtils.getRandomLegalSpellTarget(
+				foe, spell, combat);
 
 			if (spellTarget != null)
 			{
@@ -246,7 +245,8 @@ public class BasicFoeAi extends FoeCombatAi
 			}
 			while (sla == null || count < 20);
 
-			SpellTarget spellTarget = chooseSpellTarget(foe, sla.getSpell(), combat);
+			SpellTarget spellTarget = SpellTargetUtils.getRandomLegalSpellTarget(
+				foe, sla.getSpell(), combat);
 
 			if (spellTarget != null)
 			{
@@ -289,62 +289,4 @@ public class BasicFoeAi extends FoeCombatAi
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public SpellTarget chooseSpellTarget(Foe foe, Spell spell, Combat combat)
-	{
-		SpellTarget target;
-		switch (spell.getTargetType())
-		{
-			case MagicSys.SpellTargetType.ALL_FOES:
-			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
-				target = null;
-				break;
-
-			case MagicSys.SpellTargetType.PARTY:
-				target = combat.getActorGroup(foe);
-				break;
-
-			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
-				target = SpellTargetUtils.getActorGroupWithoutCaster(foe);
-				break;
-
-			case MagicSys.SpellTargetType.TILE:
-				target = null;
-				break;
-
-			case MagicSys.SpellTargetType.CASTER:
-				target = foe;
-				break;
-
-			case MagicSys.SpellTargetType.ALLY:
-				List<UnifiedActor> allies = combat.getAllAlliesOf(foe);
-				Dice d = new Dice(1, allies.size(), -1);
-				target = allies.get(d.roll("basic AI: ally spell"));
-				break;
-
-			case MagicSys.SpellTargetType.FOE:
-				List<UnifiedActor> enemies = combat.getAllFoesOf(foe);
-				d = new Dice(1, enemies.size(), -1);
-				target = enemies.get(d.roll("basic AI: foe spell"));
-				break;
-
-			case MagicSys.SpellTargetType.FOE_GROUP:
-			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-				List<ActorGroup> groups = combat.getFoesOf(foe);
-				d = new Dice(1, groups.size(), -1);
-				target = groups.get(d.roll("basic AI: foe group spell"));
-				break;
-
-			// these should never really be cast be foes
-			case MagicSys.SpellTargetType.ITEM:
-			case MagicSys.SpellTargetType.NPC:
-			case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				target = null;
-				break;
-
-			default: throw new MazeException("Invalid target type: "+
-				spell.getTargetType());
-		}
-		return target;
-	}
 }

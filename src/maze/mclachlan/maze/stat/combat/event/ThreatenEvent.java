@@ -51,7 +51,7 @@ public class ThreatenEvent extends MazeEvent
 
 		result.addAll(
 			GameSys.getInstance().processDishonourableAction(
-				Maze.getInstance().getParty()));
+				Maze.getInstance().getParty(), (mclachlan.maze.stat.PlayerCharacter)actor));
 
 		if (total > 0)
 		{

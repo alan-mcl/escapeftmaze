@@ -111,3 +111,12 @@ msg.force.open.success = Successfully forced open!
 msg.npc.location = %s is at %s.
 msg.npc.dead = %s is dead.
 msg.locate.person.nothing = %s detects nothing.
+
+#
+# Pray For Miracle messages
+#
+pray.caster.name = Heaven answers your prayers!
+msg.pray.gold = Pennies fall from heaven!
+msg.pray.lesson = A voice from heaven booms: "THINK OF THIS AS A LEARNING EXPERIENCE!"
+msg.pray.doom = The party gets a strong feeling of impending doom...
+msg.pray.nothing = Your prayer goes unanswered.

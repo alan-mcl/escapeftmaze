@@ -391,6 +391,7 @@ public class Combat
 				cloudSpell.getSource(),
 				spellAction,
 				true,
+				false,
 				animationContext);
 
 			result.add(new CloudSpellEndOfTurn(cloudSpell, actorGroup));
@@ -449,7 +450,7 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
-	 * 	Return all foes of the given actor.
+	 * 	Return all live foes of the given actor.
 	 */
 	public List<UnifiedActor> getAllFoesOf(UnifiedActor actor)
 	{
@@ -459,7 +460,13 @@ public class Combat
 		{
 			for (FoeGroup fg : foes)
 			{
-				result.addAll(fg.getActors());
+				for (UnifiedActor a : fg.getActors())
+				{
+					if (a.isAlive())
+					{
+						result.add(a);
+					}
+				}
 			}
 		}
 		else
@@ -467,7 +474,13 @@ public class Combat
 			result.addAll(party.getActors());
 			for (FoeGroup fg : partyAllies)
 			{
-				result.addAll(fg.getActors());
+				for (UnifiedActor a : fg.getActors())
+				{
+					if (a.isAlive())
+					{
+						result.add(a);
+					}
+				}
 			}
 		}
 		return result;
@@ -476,7 +489,7 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
-	 * 	all allies of the given actor
+	 * 	all live allies of the given actor
 	 */
 	public List<UnifiedActor> getAllAlliesOf(UnifiedActor actor)
 	{
@@ -487,14 +500,26 @@ public class Combat
 			result.addAll(party.getActors());
 			for (FoeGroup fg : partyAllies)
 			{
-				result.addAll(fg.getActors());
+				for (UnifiedActor a : fg.getActors())
+				{
+					if (a.isAlive())
+					{
+						result.add(a);
+					}
+				}
 			}
 		}
 		else
 		{
 			for (FoeGroup fg : foes)
 			{
-				result.addAll(fg.getActors());
+				for (UnifiedActor a : fg.getActors())
+				{
+					if (a.isAlive())
+					{
+						result.add(a);
+					}
+				}
 			}
 		}
 		return result;

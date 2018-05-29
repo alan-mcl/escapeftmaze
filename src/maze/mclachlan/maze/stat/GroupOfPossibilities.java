@@ -102,6 +102,32 @@ public class GroupOfPossibilities<T>
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	A randomly generated, unsorted list of items.  An empty list will
+	 * 	be returned if no items occur. A maximum of maxNr items will be returned.
+	 */
+	public List<T> getRandom(int maxNr)
+	{
+		List<T> result = new ArrayList<T>();
+
+		for (int i=0; i< possibilities.size(); i++)
+		{
+			if (Dice.d100.roll("GOP getRandom("+maxNr+")") <= percentages.get(i))
+			{
+				result.add(possibilities.get(i));
+
+				if (result.size() >= maxNr)
+				{
+					return result;
+				}
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<Integer> getPercentages()
 	{
 		return percentages;

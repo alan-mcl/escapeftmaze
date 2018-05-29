@@ -53,7 +53,7 @@ public class RunAwaySuccessEvent extends MazeEvent
 		if (actor instanceof PlayerCharacter)
 		{
 			return GameSys.getInstance().processDishonourableAction(
-				Maze.getInstance().getParty());
+				Maze.getInstance().getParty(), (PlayerCharacter)actor);
 		}
 		else
 		{

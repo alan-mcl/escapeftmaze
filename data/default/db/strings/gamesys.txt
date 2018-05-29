@@ -1137,6 +1137,8 @@ lap_name_shed_blights = Shed Blights %s
 lap_desc_shed_blights = Baneful conditions do not afflict the Priest for long.
 lap_name_holy_light = Holy Light
 lap_desc_holy_light = The Priest is very effective at combating undead foes.
+lap_name_pray_for_miracle = Pray for Miracle
+lap_desc_pray_for_miracle = The Priest praysfor divine intervention. Effects will vary depending on past behaviour.
 
 # Ranger
 lap_name_deadshot = Deadshot

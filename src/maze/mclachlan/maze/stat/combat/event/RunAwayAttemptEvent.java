@@ -54,7 +54,11 @@ public class RunAwayAttemptEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		if (combat.isPlayerCharacter(actor))
+		if (combat == null)
+		{
+			result.add(new CowerInFearEvent(actor));
+		}
+		else if (combat.isPlayerCharacter(actor))
 		{
 			int nrFoes = 0;
 			for (FoeGroup fg : combat.getFoes())

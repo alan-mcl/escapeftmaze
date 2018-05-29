@@ -24,8 +24,11 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.SpellTarget;
 import mclachlan.maze.stat.TypeDescriptor;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.SpellTargetUtils;
 import mclachlan.maze.stat.condition.ConditionBearer;
 import mclachlan.maze.util.MazeException;
 
@@ -178,4 +181,14 @@ public abstract class SpellResult
 	{
 		return true;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public SpellTarget getRandomSensibleSpellTarget(
+		UnifiedActor caster,
+		Spell spell,
+		Combat combat)
+	{
+		return SpellTargetUtils.getRandomLegalSpellTarget(caster, spell, combat);
+	}
+
 }

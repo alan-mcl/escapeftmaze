@@ -57,6 +57,10 @@ public class PlayerCharacter extends UnifiedActor
 	/** The keys of any removed level abilities */
 	private List<String> removedLevelAbilities;
 
+	/** A measure of behaviour: better, honourable, "good" behaviour will
+	 * add to this, the opposite will deduct to this. */
+	private int karma;
+
 	/*-------------------------------------------------------------------------*/
 	private static SignatureWeaponUpgradePath
 		engineeringOmnigun, engineeringXbow, engineeringHandCannon;
@@ -129,6 +133,7 @@ public class PlayerCharacter extends UnifiedActor
 		Map<String, Integer> levels,
 		int experience,
 		int kills,
+		int karma,
 		String portrait,
 		Item helm,
 		Item torsoArmour,
@@ -153,6 +158,7 @@ public class PlayerCharacter extends UnifiedActor
 		super(name, gender, race, characterClass, race.getBodyParts(),
 			levels, stats, spellBook, inventory);
 
+
 		setEquippedItem(PRIMARY_WEAPON, primaryWeapon, 0);
 		setEquippedItem(PRIMARY_WEAPON, altPrimaryWeapon, 1);
 		setEquippedItem(SECONDARY_WEAPON, secondaryWeapon, 0);
@@ -169,6 +175,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = activeModifiers;
 		this.experience = experience;
 		this.kills = kills;
+		this.karma = karma;
 		this.portrait = portrait;
 		this.practice = practice;
 		this.spellPicks = spellPicks;
@@ -201,6 +208,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = activeModifiers;
 		this.practice = new Practice();
 		this.kills = 0;
+		this.karma = 0;
 		this.removedLevelAbilities = new ArrayList<String>();
 
 		getStats().setHitPoints(new CurMaxSub(maxHitPoints));
@@ -225,6 +233,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = new StatModifier(pc.activeModifiers);
 		this.experience = pc.experience;
 		this.kills = pc.kills;
+		this.karma = pc.karma;
 		this.portrait = pc.portrait;
 		this.practice = new Practice(pc.practice);
 		this.spellPicks = pc.spellPicks;
@@ -921,6 +930,11 @@ public class PlayerCharacter extends UnifiedActor
 		return kills;
 	}
 
+	public int getKarma()
+	{
+		return karma;
+	}
+
 	public void removeItem(Item item, boolean removeWholeStack)
 	{
 		if (item.getStack().getCurrent() > 1 && !removeWholeStack)
@@ -1534,6 +1548,11 @@ public class PlayerCharacter extends UnifiedActor
 	public void setKills(int kills)
 	{
 		this.kills = kills;
+	}
+
+	public void setKarma(int karma)
+	{
+		this.karma = karma;
 	}
 
 	public void setPortrait(String portrait)
