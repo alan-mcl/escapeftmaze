@@ -1145,6 +1145,11 @@ lap_desc_martyr = The Priest sacrifices him or herself to restore the party to l
 # Ranger
 lap_name_deadshot = Deadshot
 lap_desc_deadshot = The Ranger gets a bonus to ranged criticals.
+lap_name_forager1 = Forager 1
+lap_name_forager2 = Forager 2
+lap_desc_forager = The Ranger supplies him or herself from the land and consumes fewer party supplies while resting.
+lap_name_dual_wielder = Dual Wielder
+lap_desc_dual_wielder = The Ranger gets a bonus to dual wielding melee weapons.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords
