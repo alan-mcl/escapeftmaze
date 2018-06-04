@@ -742,6 +742,7 @@ public class Stats
 		EMPOWERED_HEALING(262, "empoweredHealing"),
 		PATIENCE(263, "patience", ModifierMetric.BOOLEAN),
 		SHED_BLIGHTS(264, "shedBlights", ModifierMetric.PERCENTAGE),
+		MODIFIER_SELECTION_FAVOURED_ENEMY(265, "modifierSelectionFavouredEnemy"),
 		;
 
 		/**

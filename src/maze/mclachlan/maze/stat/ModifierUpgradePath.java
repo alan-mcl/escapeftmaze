@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 Alan McLachlan
+ * Copyright (c) 2011 Alan McLachlan
  *
  * This file is part of Escape From The Maze.
  *
@@ -24,14 +24,14 @@ import java.util.*;
 /**
  *
  */
-public class SignatureWeaponUpgradePath
+public class ModifierUpgradePath
 {
-	private Map<String, ItemUpgrade> upgradePath = new HashMap<String, ItemUpgrade>();
+	private List<ModifierUpgrade> upgradePath = new ArrayList<ModifierUpgrade>();
 
 	/*-------------------------------------------------------------------------*/
-	public void addUpgrade(String fromItem, String toItem, StatModifier required)
+	public void addUpgrade(StatModifier required, List<Stats.Modifier> upgradeOptions)
 	{
-		upgradePath.put(fromItem, new ItemUpgrade(fromItem, toItem, new StatModifier(required)));
+		upgradePath.add(new ModifierUpgrade(new StatModifier(required), upgradeOptions));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -39,33 +39,34 @@ public class SignatureWeaponUpgradePath
 	 * @return
 	 * 	The name of the upgraded weapon, or null if no upgrade applies.
 	 */
-	public String getUpgrade(String fromItem, PlayerCharacter pc)
+	public String getUpgrade(PlayerCharacter pc, int newLevel)
 	{
-		ItemUpgrade iu = upgradePath.get(fromItem);
+//		ItemUpgrade iu = upgradePath.get(fromItem);
+//
+//		if (iu == null)
+//		{
+//			return null;
+//		}
+//
+//		if (!pc.meetsRequirements(iu.required))
+//		{
+//			return null;
+//		}
+//
+//		return iu.toItem;
 
-		if (iu == null)
-		{
-			return null;
-		}
-
-		if (!pc.meetsRequirements(iu.required))
-		{
-			return null;
-		}
-
-		return iu.toItem;
+		return null; // todo
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static class ItemUpgrade
+	private static class ModifierUpgrade
 	{
-		private String fromItem, toItem;
 		private StatModifier required;
+		private List<Stats.Modifier> upgradeOptions;
 
-		private ItemUpgrade(String fromItem, String toItem, StatModifier required)
+		private ModifierUpgrade(StatModifier required, List<Stats.Modifier> upgradeOptions)
 		{
-			this.fromItem = fromItem;
-			this.toItem = toItem;
+			this.upgradeOptions = upgradeOptions;
 			this.required = required;
 		}
 	}

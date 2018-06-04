@@ -204,6 +204,14 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 			lb.setItems(eligibleSignatureWeapons);
 			lb.setSelected(eligibleSignatureWeapons.get(0));
 		}
+		List<String> eligibleModifierUpgrades = pc.getEligibleModifierUpgrades();
+		if (eligibleModifierUpgrades.size() > 0)
+		{
+			availableBonuses.add(Leveler.MODIFIER_UPGRADE);
+			DIYListBox lb = (DIYListBox)bonusDetailsMap.get(Leveler.MODIFIER_UPGRADE);
+			lb.setItems(eligibleModifierUpgrades);
+			lb.setSelected(eligibleModifierUpgrades.get(0));
+		}
 
 		bonuses.setItems(availableBonuses);
 
@@ -271,6 +279,11 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 			DIYListBox list = (DIYListBox)bonusDetailsMap.get(Leveler.UPGRADE_SIGNATURE_WEAPON);
 			bonusDetails = (String)list.getSelected();
 		}
+		else if (bonus.equalsIgnoreCase(Leveler.MODIFIER_UPGRADE))
+		{
+			DIYListBox list = (DIYListBox)bonusDetailsMap.get(Leveler.MODIFIER_UPGRADE);
+			bonusDetails = (String)list.getSelected();
+		}
 
 		this.leveler.applyBonus(pc, levelUpState, bonus, bonusDetails);
 		this.appliedBonus = true;
@@ -304,6 +317,11 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		else if (bonus.equalsIgnoreCase(Leveler.UPGRADE_SIGNATURE_WEAPON))
 		{
 			DIYListBox list = (DIYListBox)bonusDetailsMap.get(Leveler.UPGRADE_SIGNATURE_WEAPON);
+			bonusDetails = (String)list.getSelected();
+		}
+		else if (bonus.equalsIgnoreCase(Leveler.MODIFIER_UPGRADE))
+		{
+			DIYListBox list = (DIYListBox)bonusDetailsMap.get(Leveler.MODIFIER_UPGRADE);
 			bonusDetails = (String)list.getSelected();
 		}
 
@@ -403,6 +421,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		bonusDetailsMap.put(Leveler.UNLOCK_MODIFIER, new DIYListBox(new ArrayList(), bonusDetailsBounds));
 		bonusDetailsMap.put(Leveler.UNLOCK_SPELL_LEVEL, new DIYListBox(new ArrayList(), bonusDetailsBounds));
 		bonusDetailsMap.put(Leveler.UPGRADE_SIGNATURE_WEAPON, new DIYListBox(new ArrayList(), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.MODIFIER_UPGRADE, new DIYListBox(new ArrayList(), bonusDetailsBounds));
 
 		ArrayList<ContainerWidget> widgets = new ArrayList<ContainerWidget>();
 		widgets.addAll(bonusDetailsMap.values());

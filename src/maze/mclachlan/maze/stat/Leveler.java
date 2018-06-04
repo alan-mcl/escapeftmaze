@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
@@ -41,6 +42,7 @@ public class Leveler
 	public static final String REVITALISE = "Revitalise";
 	public static final String CHANGE_CLASS = "Change class";
 	public static final String UPGRADE_SIGNATURE_WEAPON = "Upgrade signature weapon";
+	public static final String MODIFIER_UPGRADE = "Modifier Upgrade";
 
 	/*-------------------------------------------------------------------------*/
 	public static String getRandomRace()
@@ -382,6 +384,19 @@ public class Leveler
 		{
 			pc.upgradeSignatureWeapon((String)bonusDetails);
 		}
+		else if (bonus.equals(MODIFIER_UPGRADE))
+		{
+			for (Stats.Modifier m : Stats.allModifiers)
+			{
+				if (bonusDetails.equals(StringUtil.getModifierName(m)))
+				{
+					pc.incModifier(m, 1);
+					return;
+				}
+			}
+
+			throw new MazeException("Invalid bonusDetails: [" + bonusDetails + "]");
+		}
 		else
 		{
 			throw new MazeException("Invalid bonus: [" + bonus + "]");
@@ -450,6 +465,19 @@ public class Leveler
 		else if (bonus.equalsIgnoreCase(Leveler.UPGRADE_SIGNATURE_WEAPON))
 		{
 			pc.downgradeSignatureWeapon((String)bonusDetails);
+		}
+		else if (bonus.equals(MODIFIER_UPGRADE))
+		{
+			for (Stats.Modifier m : Stats.allModifiers)
+			{
+				if (bonusDetails.equals(StringUtil.getModifierName(m)))
+				{
+					pc.incModifier(m, -1);
+					return;
+				}
+			}
+
+			throw new MazeException("Invalid bonusDetails: [" + bonusDetails + "]");
 		}
 		else
 		{

@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.diygui.util.HashMapMutableTree;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
@@ -1421,6 +1422,38 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			return new ArrayList<String>();
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<String> getEligibleModifierUpgrades()
+	{
+		List<String> result = new ArrayList<String>();
+
+		if (getModifier(Stats.Modifier.MODIFIER_SELECTION_FAVOURED_ENEMY) > 0)
+		{
+			List<String> canBeUpgraded = new ArrayList<String>();
+			List<Stats.Modifier> favouredEnemyModifiers = new ArrayList<Stats.Modifier>(Stats.favouredEnemies);
+
+			int alreadyUpgraded = 0;
+			for (Stats.Modifier m : favouredEnemyModifiers)
+			{
+				if (getBaseModifier(m) > 0)
+				{
+					alreadyUpgraded++;
+				}
+				else
+				{
+					canBeUpgraded.add(StringUtil.getModifierName(m));
+				}
+			}
+
+			if (alreadyUpgraded < getModifier(Stats.Modifier.MODIFIER_SELECTION_FAVOURED_ENEMY))
+			{
+				result.addAll(canBeUpgraded);
+			}
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

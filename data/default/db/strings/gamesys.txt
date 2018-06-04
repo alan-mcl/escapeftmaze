@@ -285,6 +285,7 @@ modifier_name-shieldBlock: Shield Block
 modifier_name-empoweredHealing: Empowered Healing
 modifier_name-patience: Patience
 modifier_name-shedBlights: Shed Blights
+modifier_name-modifierSelectionFavouredEnemy: Modifier Selection/Favoured Enemy
 
 # Modifier Descriptions
 
@@ -563,6 +564,7 @@ modifier_desc-shieldBlock: When blocking a blow with a shield, this character re
 modifier_desc-empoweredHealing: This character restores extra hit points with every healing spell.
 modifier_desc-patience: In combat this character can choose to act after any characters that do not also have patience.
 modifier_desc-shedBlights: At the end of every turn this character has a chance of shedding any baneful conditions.
+modifier_desc-modifierSelectionFavouredEnemy: At level up, this character has a chance of selecting a new favoured enemy type.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1150,6 +1152,8 @@ lap_name_forager2 = Forager 2
 lap_desc_forager = The Ranger supplies him or herself from the land and consumes fewer party supplies while resting.
 lap_name_dual_wielder = Dual Wielder
 lap_desc_dual_wielder = The Ranger gets a bonus to dual wielding melee weapons.
+lap_name_select_favoured_enemy = Select Favoured Enemy
+lap_desc_select_favoured_enemy = The Ranger may select a new favoured enemy type.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords
