@@ -276,6 +276,37 @@ public class PlayerParty implements ActorGroup
 
 	/*-------------------------------------------------------------------------*/
 	@Override
+	public UnifiedActor getActorWithBestModifier(Stats.Modifier modifier)
+	{
+		return getActorWithBestModifier(modifier, null);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public UnifiedActor getActorWithBestModifier(Stats.Modifier modifier,
+		UnifiedActor excluded)
+	{
+		UnifiedActor result = null;
+		int cur = Integer.MIN_VALUE;
+
+		List<UnifiedActor> actors = new ArrayList<UnifiedActor>(getActors());
+		// shuffle to randomise ties
+		Collections.shuffle(actors);
+
+		for (UnifiedActor a : actors)
+		{
+			if (cur < a.getModifier(modifier) && a != excluded)
+			{
+				cur = a.getModifier(modifier);
+				result = a;
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getBestModifier(Stats.Modifier modifier)
 	{
 		return getBestModifier(modifier, null);
@@ -285,17 +316,16 @@ public class PlayerParty implements ActorGroup
 	@Override
 	public int getBestModifier(Stats.Modifier modifier, UnifiedActor excluded)
 	{
-		int result = Integer.MIN_VALUE;
+		UnifiedActor actor = getActorWithBestModifier(modifier, excluded);
 
-		for (UnifiedActor a : getActors())
+		if (actor != null)
 		{
-			if (result < a.getModifier(modifier) && a != excluded)
-			{
-				result = a.getModifier(modifier);
-			}
+			return actor.getModifier(modifier);
 		}
-
-		return result;
+		else
+		{
+			return 0;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

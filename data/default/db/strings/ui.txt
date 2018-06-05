@@ -263,6 +263,7 @@ rd.encounter = An Encounter!
 rd.resting = Resting....
 rd.supplies.consumed = Consumed %s units of supplies
 rd.totals = TOTAL:
+rd.guard.duty = (%s is on guard duty)
 
 # inventory display widget
 idw.cast.spell = (C)ast Spell

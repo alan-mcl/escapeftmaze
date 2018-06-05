@@ -112,6 +112,26 @@ public class NpcActorGroup implements ActorGroup
 		}
 	}
 
+	@Override
+	public UnifiedActor getActorWithBestModifier(Stats.Modifier modifier)
+	{
+		return npc;
+	}
+
+	@Override
+	public UnifiedActor getActorWithBestModifier(Stats.Modifier modifier,
+		UnifiedActor excluded)
+	{
+		if (excluded == npc)
+		{
+			return null;
+		}
+		else
+		{
+			return npc;
+		}
+	}
+
 	public Npc getNpc()
 	{
 		return npc;

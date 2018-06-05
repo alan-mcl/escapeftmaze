@@ -286,6 +286,7 @@ modifier_name-empoweredHealing: Empowered Healing
 modifier_name-patience: Patience
 modifier_name-shedBlights: Shed Blights
 modifier_name-modifierSelectionFavouredEnemy: Modifier Selection/Favoured Enemy
+modifier_name-guardDuty: Guard Duty
 
 # Modifier Descriptions
 
@@ -565,6 +566,7 @@ modifier_desc-empoweredHealing: This character restores extra hit points with ev
 modifier_desc-patience: In combat this character can choose to act after any characters that do not also have patience.
 modifier_desc-shedBlights: At the end of every turn this character has a chance of shedding any baneful conditions.
 modifier_desc-modifierSelectionFavouredEnemy: At level up, this character has a chance of selecting a new favoured enemy type.
+modifier_desc-guardDuty: This character reduces the risk an random encounters each time the party rests.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1154,6 +1156,8 @@ lap_name_dual_wielder = Dual Wielder
 lap_desc_dual_wielder = The Ranger gets a bonus to dual wielding melee weapons.
 lap_name_select_favoured_enemy = Select Favoured Enemy
 lap_desc_select_favoured_enemy = The Ranger may select a new favoured enemy type.
+lap_name_guard_duty = Guard Duty
+lap_desc_guard_duty = With the Ranger on guard the part can rest more safely on the road.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords

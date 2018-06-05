@@ -93,4 +93,21 @@ public interface ActorGroup extends SpellTarget
 	 * 	given actor.
 	 */
 	int getBestModifier(Stats.Modifier modifier, UnifiedActor excluded);
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The actor with the highest modifier in the group. If there is a tie
+	 * 	a random tied highest actor will be returned.
+	 */
+	UnifiedActor getActorWithBestModifier(Stats.Modifier modifier);
+
+	/**
+	 * @return
+	 * 	The actor with the highest modifier in the group (ecluding the given actor).
+	 * 	If there is a tie a random tied highest actor will be returned.
+	 */
+	UnifiedActor getActorWithBestModifier(Stats.Modifier modifier, UnifiedActor excluded);
+
 }

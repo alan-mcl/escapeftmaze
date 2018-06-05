@@ -32,9 +32,7 @@ import mclachlan.maze.game.event.RestingCheckpointEvent;
 import mclachlan.maze.game.event.StartRestingEvent;
 import mclachlan.maze.game.event.StopRestingEvent;
 import mclachlan.maze.map.Tile;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.PlayerParty;
+import mclachlan.maze.stat.*;
 
 import static mclachlan.maze.data.StringUtil.getUiLabel;
 
@@ -67,16 +65,30 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(dialogBounds);
 
+		int rows = 13;
 		Tile tile = Maze.getInstance().getCurrentTile();
 		PlayerParty party = Maze.getInstance().getParty();
 		int partySupplies = party.getSupplies();
 
-		DIYPane infoPane = new DIYPane(new DIYGridLayout(3,13,0,0));
+		UnifiedActor guardDuty = party.getActorWithBestModifier(Stats.Modifier.GUARD_DUTY);
+		if (guardDuty != null && guardDuty.getModifier(Stats.Modifier.GUARD_DUTY) > 0)
+		{
+			rows++;
+		}
+
+		DIYPane infoPane = new DIYPane(new DIYGridLayout(3, rows,0,0));
 		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
 
 		infoPane.add(new DIYLabel(getUiLabel("rd.resting.danger"), DIYToolkit.Align.LEFT));
 		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel(tile.getRestingDanger().toString(), DIYToolkit.Align.LEFT));
+
+		if (guardDuty != null && guardDuty.getModifier(Stats.Modifier.GUARD_DUTY) > 0)
+		{
+			infoPane.add(new DIYLabel());
+			infoPane.add(new DIYLabel(getUiLabel("rd.guard.duty", guardDuty.getDisplayName()), DIYToolkit.Align.LEFT));
+			infoPane.add(new DIYLabel());
+		}
 
 		infoPane.add(new DIYLabel(getUiLabel("rd.resting.efficiency"), DIYToolkit.Align.LEFT));
 		infoPane.add(new DIYLabel());

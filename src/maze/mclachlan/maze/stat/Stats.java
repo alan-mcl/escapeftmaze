@@ -743,6 +743,7 @@ public class Stats
 		PATIENCE(263, "patience", ModifierMetric.BOOLEAN),
 		SHED_BLIGHTS(264, "shedBlights", ModifierMetric.PERCENTAGE),
 		MODIFIER_SELECTION_FAVOURED_ENEMY(265, "modifierSelectionFavouredEnemy"),
+		GUARD_DUTY(266, "guardDuty", ModifierMetric.BOOLEAN),
 		;
 
 		/**

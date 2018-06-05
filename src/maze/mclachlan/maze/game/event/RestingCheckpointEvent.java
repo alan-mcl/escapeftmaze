@@ -21,12 +21,14 @@ package mclachlan.maze.game.event;
 
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.stat.ActorGroup;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.GameSys;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.ui.diygui.ProgressListener;
 
 /**
@@ -65,6 +67,12 @@ public class RestingCheckpointEvent extends MazeEvent
 		if (checkRandomEncounters)
 		{
 			int perc = GameSys.getInstance().getRestingDangerPercentage(tile);
+
+			// check for GUARD DUTY
+			if (Maze.getInstance().getParty().hasModifier(Stats.Modifier.GUARD_DUTY))
+			{
+				perc /= 2;
+			}
 
 			if (Dice.d100.roll("Resting encounter check") <= perc)
 			{

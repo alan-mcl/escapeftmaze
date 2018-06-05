@@ -5,7 +5,7 @@ Features
  - Paladin class abilities: Protect, Combat Command, Shield Block, Consecration
  - Priest class abilities: Empowered Healing, Sanctify, Patience, Shed Blights,
    Pray For Miracle, Martyr
- - Ranger class abilities: Select Favoured Enemy
+ - Ranger class abilities: Select Favoured Enemy, Guard Duty
 
 Other
  - Refactoring action point regen to be consistent with other resources
