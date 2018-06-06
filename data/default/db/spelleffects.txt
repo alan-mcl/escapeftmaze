@@ -948,6 +948,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=volley of arrows
+displayName=volley of arrows
+type=PIERCING
+subtype=NORMAL_DAMAGE
+saveAdjustment=
+unsavedResult=1:::1/1/SCALE_WITH_CASTING_LEVEL//false:PIERCING:willow arrow from player:shoot:false:false:9:false:
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=sonic boom damage
 displayName=damage
 type=AIR

@@ -1158,6 +1158,10 @@ lap_name_select_favoured_enemy = Select Favoured Enemy
 lap_desc_select_favoured_enemy = The Ranger may select a new favoured enemy type.
 lap_name_guard_duty = Guard Duty
 lap_desc_guard_duty = With the Ranger on guard the part can rest more safely on the road.
+lap_name_volley_of_arrows = Volley of Arrows
+lap_desc_volley_of_arrows = The Ranger fires an arrow at every foe in one group.
+lap_name_hail_of_arrows = Hail of Arrows
+lap_desc_hail_of_arrows = The Ranger fires an arrow at every foe.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords
