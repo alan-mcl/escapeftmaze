@@ -1162,6 +1162,8 @@ lap_name_volley_of_arrows = Volley of Arrows
 lap_desc_volley_of_arrows = The Ranger fires an arrow at every foe in one group.
 lap_name_hail_of_arrows = Hail of Arrows
 lap_desc_hail_of_arrows = The Ranger fires an arrow at every foe.
+lap_name_eagle_eye = Eagle Eye
+lap_desc_eagle_eye = The Ranger sees with the eyes of the eagle, gaining great accuracy and other bonuses.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords

@@ -4868,6 +4868,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=eagle eye
+displayName=eagle eye
+type=AIR
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::eagle eye
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=prismic missile spell damage
 displayName=damage
 type=FIRE

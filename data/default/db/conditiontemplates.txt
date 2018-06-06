@@ -2430,6 +2430,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=eagle eye
+displayName=eagle eye
+icon=condition/eagleeye
+adjective=alert
+conditionEffect=none
+duration=1/1/SCALE_WITH_CLASS_LEVEL/Ranger/false,2/0/NONE//false/4d2
+strength=1/1/SCALE_WITH_CLASS_LEVEL/Ranger/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=800000000100000000000001418000c16060000,0a0a0505050a0a020205050505
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=razor cloak
 displayName=Razor Cloak
 icon=condition/razorcloak
