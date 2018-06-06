@@ -1164,6 +1164,12 @@ lap_name_hail_of_arrows = Hail of Arrows
 lap_desc_hail_of_arrows = The Ranger fires an arrow at every foe.
 lap_name_eagle_eye = Eagle Eye
 lap_desc_eagle_eye = The Ranger sees with the eyes of the eagle, gaining great accuracy and other bonuses.
+lap_name_combat_veteran1 = Combat Veteran 1
+lap_name_combat_veteran2 = Combat Veteran 2
+lap_name_combat_veteran3 = Combat Veteran 3
+lap_name_combat_veteran4 = Combat Veteran 4
+lap_name_combat_veteran5 = Combat Veteran 5
+lap_desc_combat_veteran = The Ranger learns a variety of combat styles and tricks.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords
