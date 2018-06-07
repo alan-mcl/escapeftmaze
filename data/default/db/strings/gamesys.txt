@@ -1170,6 +1170,8 @@ lap_name_combat_veteran3 = Combat Veteran 3
 lap_name_combat_veteran4 = Combat Veteran 4
 lap_name_combat_veteran5 = Combat Veteran 5
 lap_desc_combat_veteran = The Ranger learns a variety of combat styles and tricks.
+lap_name_guardian_spirit = Guardian Spirit
+lap_desc_guardian_spirit = The Ranger can summon a guardian spirit to watch over him or her. This spirit varies depending on the local terrain.
 
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords

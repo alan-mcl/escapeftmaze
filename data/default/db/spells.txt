@@ -6151,6 +6151,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Guardian Spirit
+displayName=Guardian Spirit
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Green Magic
+spellEffects=guardian spirit:100
+description=senses the native spirits of this place...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=green portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=WILDERNESS_LORE
+secondaryModifier=HERBAL
+wildMagicValue=
+wildMagicTable=
+@
 name=Chromatic Lyre
 displayName=Chromatic Lyre
 hitPointCost=

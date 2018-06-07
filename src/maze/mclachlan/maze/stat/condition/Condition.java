@@ -60,7 +60,7 @@ public class Condition
 	private boolean hostile;
 
 	/*-------------------------------------------------------------------------*/
-	protected Condition()
+	public Condition()
 	{
 	}
 

@@ -31,7 +31,7 @@ import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.ui.diygui.Constants;
 
 /**
- * A custom condition impl for when an actor passes out from fatigue.
+ * A custom condition impl for when an actor goes berserk.
  */
 public class Berserk extends Condition
 {

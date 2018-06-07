@@ -115,7 +115,8 @@ public class PrayForMiracleSpellResult extends SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent, Spell spell)
+		SpellEffect parent,
+		Spell spell)
 	{
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 		if (!(source instanceof PlayerCharacter))

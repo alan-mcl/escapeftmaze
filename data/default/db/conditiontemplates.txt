@@ -1630,6 +1630,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=guardian spirit
+displayName=guardian spirit
+icon=condition/eagleeye
+adjective=fearless
+conditionEffect=none
+duration=1/3/NONE//false
+strength=1/3/NONE//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=0,
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=twinkling cape
 displayName=Twinkling Cape
 icon=condition/twinklingcape
