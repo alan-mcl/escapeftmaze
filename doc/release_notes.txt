@@ -6,6 +6,7 @@ Features
  - Priest class abilities: Empowered Healing, Sanctify, Patience, Shed Blights,
    Pray For Miracle, Martyr
  - Ranger class abilities: Select Favoured Enemy, Guard Duty
+ - Samurai class abilties: Sword Master
 
 Other
  - Refactoring action point regen to be consistent with other resources

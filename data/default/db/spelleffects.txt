@@ -1648,6 +1648,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.5:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=LIGHTNING_STRIKE_SWORD
+displayName=LIGHTNING_STRIKE_SWORD
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=1:::1/1/SCALE_WITH_MODIFIER/LIGHTNING_STRIKE_SWORD/false:SLASHING:generic weapon swish::false:false:1:false:
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=hellfire damage
 displayName=hellfire damage
 type=FIRE

@@ -960,6 +960,10 @@ public class Combat
 			UnifiedActor.Stance stance1 = getStance(actor1, action1);
 			UnifiedActor.Stance stance2 = getStance(actor2, action2);
 
+			// default to ACT_EARLY. may be hiding bugs here.
+			if (stance1 == null) stance1 = UnifiedActor.Stance.ACT_EARLY;
+			if (stance2 == null) stance2 = UnifiedActor.Stance.ACT_EARLY;
+
 			// #2 minus #1 because we want it sorted in descending order
 			if (stance1 != stance2)
 			{

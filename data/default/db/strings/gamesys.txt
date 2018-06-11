@@ -1176,8 +1176,10 @@ lap_desc_guardian_spirit = The Ranger can summon a guardian spirit to watch over
 # Samurai
 lap_name_tireless_with_swords = Tireless With Swords
 lap_desc_tireless_with_swords = The Samurai suffers no fatigue from wielding his chosen weapon type.
-lap_name_lightning_strike_with_swords = Lightning Strike With Swords
-lap_desc_lightning_strike_with_swords = The Samurai's blazing speed occasionally allows him to strike far more times than usual when attacking with a sword.
+lap_name_sword_master = Sword Master
+lap_desc_sword_master = When fighting with a sword, the Samurai has the ability to unleash a flurry of lightning fast blows.
+lap_name_lightning_strike_with_swords = Lightning Strike - Swords %s
+lap_desc_lightning_strike_with_swords = This modifier governs how many strikes the Samurai makes with each Sword Master strike.
 lap_name_iajutsu = Iajutsu %s
 lap_desc_iajutsu = Iajutsu is the art of rapidly drawing and attacking with a sword.\n\nCost\nCosts 1 Action Point per activation\n\nMechanics\nRequires the character to be wielding a primary weapon that is a sword and has the KENDO weapon focus\nWhen attacked, as a pre-combat action the character makes a single attack with one or more strikes against a random foe within reach.\n\nValue\nA non-zero IAJUTSU modifier enables this ability The value of the modifier indicates how many strikes are made.
 

@@ -8167,6 +8167,27 @@ secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
 @
+name=_LIGHTNING_STRIKE_SWORD_
+displayName=Lightning Strike - Sword
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=3
+school=Conjuration
+book=Red Magic
+spellEffects=LIGHTNING_STRIKE_SWORD:100
+description=strikes with the lighthing speed!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=generic weapon swish
+castByFoeScript=generic weapon swish
+usabilityType=1
+primaryModifier=LIGHTNING_STRIKE_SWORD
+secondaryModifier=SWING
+wildMagicValue=
+wildMagicTable=
+@
 name=Cure Paralysis
 displayName=Cure Paralysis
 hitPointCost=
