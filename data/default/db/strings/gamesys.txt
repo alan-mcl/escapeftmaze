@@ -1187,6 +1187,10 @@ lap_name_nito_ichi4 = Nito Ichi 4
 lap_desc_nito_ichi = The way of two swords: the trademark Samurai fighting style.
 lap_name_samurai_code = Samurai Code
 lap_desc_samurai_code = The Samurai is bound to honourable behaviour, and cannot associate with others who act dishonourably.
+lap_name_iron_will = Iron Will
+lap_desc_iron_will = The Samurai's iron will cannot be broken.
+lap_name_hard_to_kill = Hard to Kill
+lap_desc_hard_to_kill = One does not simply strike the Samurai down.
 
 # Scout
 lap_name_alert = Alert
