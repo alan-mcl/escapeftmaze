@@ -634,6 +634,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=foe.mirka.male.1
+imageResources=crusader/foe/mirka_male
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=objects.ladder.down
 imageResources=crusader/scene/ladder_down
 animationDelay=-1

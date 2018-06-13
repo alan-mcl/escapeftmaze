@@ -77,7 +77,7 @@ suggestedNames=Female:Tashi,Spyang Ki,Khyi,Bya,Khwa Ta,Skye,Lgang Po,Sha Ba,Ri B
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/mirka
 @
 name=Automaton
 description=The First Realm is home to a small and sad colony of robotic Automata.  Deprived of the supplies and energy sources in this primitive realm, the individuals that remain are unable to reproduce and survive by scavenging parts from their comrades as they slowly run down.%n%nThe Automata claim to have fled to the First Realm seeking freedom from cruel masters.  Most are content to live cautiously in the safety of the realm, conserving their energies and not risking the dangers of the Maze.%n%nSpecial: As machines Automata benefit from a range of resistances and immunities, but are unable to use magic.
