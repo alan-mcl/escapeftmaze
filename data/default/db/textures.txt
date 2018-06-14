@@ -694,6 +694,12 @@ animationDelay=-1
 imageWidth=156
 imageHeight=512
 @
+name=foe.mirka.female.1
+imageResources=crusader/foe/mirka_female
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=CHEST_1_SIDE
 imageResources=crusader/scene/chest_side
 animationDelay=-1

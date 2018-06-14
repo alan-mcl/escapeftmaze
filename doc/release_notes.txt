@@ -2,6 +2,7 @@
 v0.918 (????)
 ---------------------------------------
 Features
+ - Added character race art for character creation: Mirka
  - Paladin class abilities: Protect, Combat Command, Shield Block, Consecration
  - Priest class abilities: Empowered Healing, Sanctify, Patience, Shed Blights,
    Pray For Miracle, Martyr
