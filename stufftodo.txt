@@ -27,7 +27,7 @@ abilities: druid 13, 15
 abilities: enchanter 16, 18, 20
 abilities: exorcist 2, 4, 5, 20
 abilities: DIPLOMACY rework to something more interesting
-abilities: PERSUATION hooks on DIPLOMACY
+abilities: PERSUASION hooks on DIPLOMACY
 abilities: CODE_OF_DISHONOUR hooks on DIPLOMACY, others
 
 data: improve foe inventories
@@ -53,6 +53,7 @@ code: character creation: restrict character portraits to race
 code: party camps, leave some characters behind
 code: designate party spokesman, assayer and scout
 code: scouting to locate secret doors/wall buttons
+code: Matyr ability should drop character items on the ground
 
 code+data: balance
 code+data: demo/training mode
@@ -69,7 +70,7 @@ spell: greater and lesser eye-for-an-eye
 ability: favoured terrain (resist surprise etc) 
 
 editor: save games editing of: conditions, item caches, npc templates, npcs, maze variables, journals
-editor: proper dynamic FK support, aka cascading rename
+editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones
 
