@@ -44,6 +44,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 
 	private JTabbedPane tabs;
 	private List<Stats.Modifier> regularPlusResource, other;
+	private final List<Stats.Modifier> statisticsMinusResistances;
 
 	/*-------------------------------------------------------------------------*/
 	public StatModifierPanel(Frame owner, StatModifier modifier)
@@ -75,12 +76,11 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		other.removeAll(Stats.otherStealth);
 		other.removeAll(Stats.otherMagic);
 
-		List<Stats.Modifier> statisticsMinusResistances =
-			new ArrayList<Stats.Modifier>(Stats.statistics);
+		statisticsMinusResistances = new ArrayList<Stats.Modifier>(Stats.statistics);
 		statisticsMinusResistances.removeAll(Stats.resistancesAndImmunities);
 
 		JPanel regular = getTab(regularPlusResource);
-		JPanel stats = getTab(new ArrayList<Stats.Modifier>(statisticsMinusResistances));
+		JPanel stats = getTab(statisticsMinusResistances);
 		JPanel rAndI = getTab(Stats.resistancesAndImmunities);
 		JPanel touch = getTab(Stats.touches);
 		JPanel weap = getTab(Stats.weaponAbilities);
@@ -312,7 +312,7 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		if (tabs.getTabCount() > 0)
 		{
 			tabs.setTitleAt(0, getTitle("Regular", regularPlusResource));
-			tabs.setTitleAt(1, getTitle("Stats", Stats.statistics));
+			tabs.setTitleAt(1, getTitle("Stats", statisticsMinusResistances));
 			tabs.setTitleAt(2, getTitle("Resist/Immune", Stats.resistancesAndImmunities));
 			tabs.setTitleAt(3, getTitle("Touches", Stats.touches));
 			tabs.setTitleAt(4, getTitle("Weapons", Stats.weaponAbilities));

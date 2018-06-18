@@ -1888,6 +1888,27 @@ secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=_LIGHTNING_STRIKE_SPEAR_
+displayName=Lightning Strike - Spear
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=3
+school=Evocation
+book=Blue Magic
+spellEffects=LIGHTNING_STRIKE_SPEAR:100
+description=strikes with the lighthing speed!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=generic weapon swish
+castByFoeScript=generic weapon swish
+usabilityType=1
+primaryModifier=LIGHTNING_STRIKE_SPEAR
+secondaryModifier=THRUST
+wildMagicValue=
+wildMagicTable=
+@
 name=Mage Strength
 displayName=Mage Strength
 hitPointCost=

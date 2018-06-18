@@ -1209,7 +1209,12 @@ lap_name_earth_manifestation = Earth Manifestation
 lap_desc_earth_manifestation = The Shaman's affinity with the element of earth manifests as boosted resistance.
 lap_name_air_manifestation = Air Manifestation
 lap_desc_air_manifestation = The Shaman's affinity with the element of air manifests as boosted resistance.
-
+lap_name_axe_parry = Axe Parry %s
+lap_desc_axe_parry = Fighting with an axe, the Shaman can block incoming blows.
+lap_name_spear_strike = Spear Strike
+lap_desc_spear_strike = Armed with a spear, the Shaman can execute a rapid series of strikes against a foe.
+lap_name_lightning_strike_spear = Lightning Strike - Spear %s
+lap_desc_lightning_strike_spear = This modifier governs how many strikes the Shaman makes with each Spear Strike.
 
 # Shugenja
 lap_name_displacer = Displacer

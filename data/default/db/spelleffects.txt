@@ -4798,6 +4798,16 @@ savedResult=
 targetType=1
 application=AS_PER_SPELL
 @
+name=LIGHTNING_STRIKE_SPEAR
+displayName=LIGHTNING_STRIKE_SPEAR
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=1:::1/1/SCALE_WITH_MODIFIER/LIGHTNING_STRIKE_SPEAR/false:SLASHING:generic weapon swish::false:false:3:false:
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=old igor breath
 displayName=
 type=FIRE
