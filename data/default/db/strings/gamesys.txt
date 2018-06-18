@@ -682,7 +682,9 @@ lap_name_bomb_thrower = Bomb Thrower
 lap_desc_bomb_thrower = This character is unlikely to fumble a bomb or powder in combat.
 lap_name_finisher = Finisher
 lap_desc_finisher = Melee attacks by this character against incapacitated enemies are all critical hits.
-
+lap_name_forager1 = Forager 1
+lap_name_forager2 = Forager 2
+lap_desc_forager = This character supplies him or herself from the land and consumes fewer party supplies while resting.
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -1149,9 +1151,6 @@ lap_desc_martyr = The Priest sacrifices him or herself to restore the party to l
 # Ranger
 lap_name_deadshot = Deadshot
 lap_desc_deadshot = The Ranger gets a bonus to ranged criticals.
-lap_name_forager1 = Forager 1
-lap_name_forager2 = Forager 2
-lap_desc_forager = The Ranger supplies him or herself from the land and consumes fewer party supplies while resting.
 lap_name_dual_wielder = Dual Wielder
 lap_desc_dual_wielder = The Ranger gets a bonus to dual wielding melee weapons.
 lap_name_select_favoured_enemy = Select Favoured Enemy
@@ -1215,6 +1214,8 @@ lap_name_spear_strike = Spear Strike
 lap_desc_spear_strike = Armed with a spear, the Shaman can execute a rapid series of strikes against a foe.
 lap_name_lightning_strike_spear = Lightning Strike - Spear %s
 lap_desc_lightning_strike_spear = This modifier governs how many strikes the Shaman makes with each Spear Strike.
+lap_name_burning_speed = Burning Speed
+lap_desc_burning_speed = The Shaman calls upon the element of fire to speed his or her movements.
 
 # Shugenja
 lap_name_displacer = Displacer

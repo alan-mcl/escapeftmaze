@@ -2208,6 +2208,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=burning speed
+displayName=
+type=FIRE
+subtype=HEAT
+saveAdjustment=
+unsavedResult=3::burning speed
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=astral gate spell
 displayName=
 type=ENERGY

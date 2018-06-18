@@ -2390,6 +2390,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=burning speed
+displayName=Burning Speed
+icon=condition/burningspeed
+adjective=quickened
+conditionEffect=haste
+duration=1/1/NONE//false,1/1/SCALE_WITH_CASTING_LEVEL//false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=8000000000000,01
+bannerModifier=0,
+scaleModifierWithStrength=true
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=mantle of the seas
 displayName=mantle of the seas
 icon=condition/mantleoftheseas
