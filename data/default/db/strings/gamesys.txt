@@ -1201,6 +1201,15 @@ lap_name_tribesman = Tribesman
 lap_desc_tribesman = The Shaman's tribal ancestry provides stealth bonuses, particularly in wilderness and wasteland areas.
 lap_name_chanelling = Channelling
 lap_desc_chanelling = The Shaman draws energy from elements around him or her, and gets a bonus to initiative based on the amount of Blue magic present.
+lap_name_fire_manifestation = Fire Manifestation
+lap_desc_fire_manifestation = The Shaman's affinity with the element of fire manifests as boosted resistance.
+lap_name_water_manifestation = Water Manifestation
+lap_desc_water_manifestation = The Shaman's affinity with the element of water manifests as boosted resistance.
+lap_name_earth_manifestation = Earth Manifestation
+lap_desc_earth_manifestation = The Shaman's affinity with the element of earth manifests as boosted resistance.
+lap_name_air_manifestation = Air Manifestation
+lap_desc_air_manifestation = The Shaman's affinity with the element of air manifests as boosted resistance.
+
 
 # Shugenja
 lap_name_displacer = Displacer
