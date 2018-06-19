@@ -1538,6 +1538,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=windwalker
+displayName=
+type=AIR
+subtype=LIGHTNING
+saveAdjustment=
+unsavedResult=3::windwalker
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=power word blind spell
 displayName=blind or damage
 type=MENTAL
@@ -4846,6 +4856,16 @@ saveAdjustment=
 unsavedResult=14::2/0/NONE//false/1d6
 savedResult=
 targetType=7
+application=AS_PER_SPELL
+@
+name=rockheaded
+displayName=
+type=EARTH
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::rockheaded
+savedResult=
+targetType=0
 application=AS_PER_SPELL
 @
 name=mistform condition
