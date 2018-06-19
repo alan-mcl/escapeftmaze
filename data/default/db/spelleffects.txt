@@ -748,6 +748,16 @@ savedResult=4::4/0/SCALE_WITH_CASTING_LEVEL//false/5::::0.5:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=surge stance
+displayName=
+type=WATER
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::surge stance
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=colour spray ko
 displayName=KO
 type=FIRE

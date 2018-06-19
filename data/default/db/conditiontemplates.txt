@@ -1810,6 +1810,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=surge stance
+displayName=Surge Stance
+icon=condition/surgestance
+adjective=freed
+conditionEffect=none
+duration=1/1/NONE//false,1/1/SCALE_WITH_CASTING_LEVEL//false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=6100000000000000000000000000,010101
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=colour spray ko
 displayName=KO
 icon=condition/ko

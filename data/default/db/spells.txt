@@ -1300,6 +1300,27 @@ secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
 @
+name=Surge Stance
+displayName=Surge Stance
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Blue Magic
+spellEffects=surge stance:100
+description=cannot be stopped!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=0
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Succubus Song - Lifesteal
 displayName=Succubus Song - Lifesteal
 hitPointCost=

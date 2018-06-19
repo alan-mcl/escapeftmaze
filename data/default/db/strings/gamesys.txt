@@ -1216,6 +1216,12 @@ lap_name_lightning_strike_spear = Lightning Strike - Spear %s
 lap_desc_lightning_strike_spear = This modifier governs how many strikes the Shaman makes with each Spear Strike.
 lap_name_burning_speed = Burning Speed
 lap_desc_burning_speed = The Shaman calls upon the element of fire to speed his or her movements.
+lap_name_surge_stance = Surge Stance
+lap_desc_surge_stance = The Shaman calls upon the element of water to free his or her movements.
+lap_name_rockheaded = Rockheaded
+lap_desc_rockheaded = The Shaman calls upon the element of earth to harden his or her resolve.
+lap_name_windwalker = Wind Walker
+lap_desc_windwalker = The Shaman calls upon the element of air to quicken his defences.
 
 # Shugenja
 lap_name_displacer = Displacer
