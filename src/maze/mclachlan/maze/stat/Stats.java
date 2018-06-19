@@ -250,6 +250,7 @@ public class Stats
 		otherCombat.add(RIPOSTE);
 		otherCombat.add(MELEE_MASTER);
 		otherCombat.add(DEADLY_AIM);
+		otherCombat.add(DEADLY_THROW);
 		otherCombat.add(BONUS_ATTACKS);
 		otherCombat.add(BONUS_STRIKES);
 		otherCombat.add(IAJUTSU);
@@ -744,6 +745,7 @@ public class Stats
 		SHED_BLIGHTS(264, "shedBlights", ModifierMetric.PERCENTAGE),
 		MODIFIER_SELECTION_FAVOURED_ENEMY(265, "modifierSelectionFavouredEnemy"),
 		GUARD_DUTY(266, "guardDuty", ModifierMetric.BOOLEAN),
+		DEADLY_THROW(267, "deadlyThrow"),
 		;
 
 		/**

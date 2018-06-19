@@ -378,6 +378,15 @@ public class GameSys
 			result += attacker.getLevel();
 		}
 
+		// deadly throw bonus
+		boolean isThrown = attackWith instanceof Item && ((Item)attackWith).getType() == Type.THROWN_WEAPON ||
+			attackWith.isRanged() && attackWith.getMaxRange() == ItemTemplate.WeaponRange.THROWN;
+		if (isThrown && attacker.getModifier(Stats.Modifier.DEADLY_THROW) > 0)
+		{
+			result += (10 * attacker.getModifier(Stats.Modifier.DEADLY_THROW));
+		}
+
+
 		// +10% per level of favoured enemy
 		result += (10*getFavouredEnemyBonus(attacker, event.getDefender()));
 

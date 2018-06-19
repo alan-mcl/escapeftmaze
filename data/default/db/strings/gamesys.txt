@@ -287,6 +287,7 @@ modifier_name-patience: Patience
 modifier_name-shedBlights: Shed Blights
 modifier_name-modifierSelectionFavouredEnemy: Modifier Selection/Favoured Enemy
 modifier_name-guardDuty: Guard Duty
+modifier_name-deadlyThrow: Deadly Throw
 
 # Modifier Descriptions
 
@@ -567,6 +568,7 @@ modifier_desc-patience: In combat this character can choose to act after any cha
 modifier_desc-shedBlights: At the end of every turn this character has a chance of shedding any baneful conditions.
 modifier_desc-modifierSelectionFavouredEnemy: At level up, this character has a chance of selecting a new favoured enemy type.
 modifier_desc-guardDuty: This character reduces the risk an random encounters each time the party rests.
+modifier_desc-deadlyThrow: This character has a boosted chance to hit with thrown weapons.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -660,6 +662,8 @@ lap_desc_blue_magic=This character has the ability to cast Blue Magic spells up 
 # common to several classes
 lap_name_deadly_aim = Deadly Aim %s
 lap_desc_deadly_aim = This character has a boosted chance to hit with ranged weapons.
+lap_name_deadly_throw = Deadly Throw %s
+lap_desc_deadly_throw = This character has a boosted chance to hit with thrown weapons.
 lap_name_turn_undead = Lesser Turn Undead
 lap_desc_turn_undead = The character can turn undead.
 lap_name_greater_turn_undead = Greater Turn Undead
