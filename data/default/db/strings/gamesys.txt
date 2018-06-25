@@ -1226,6 +1226,8 @@ lap_name_rockheaded = Rockheaded
 lap_desc_rockheaded = The Shaman calls upon the element of earth to harden his or her resolve.
 lap_name_windwalker = Wind Walker
 lap_desc_windwalker = The Shaman calls upon the element of air to quicken his defences.
+lap_name_summon_animal_spirits = Summon Animal Spirits
+lap_desc_summon_animal_spirits = The Shaman summons elemental animal spirits to fight for the party.
 
 # Shugenja
 lap_name_displacer = Displacer

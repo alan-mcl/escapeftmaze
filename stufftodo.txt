@@ -15,8 +15,8 @@ animation: throwing hammer
 
 sprite & sound: angel
 sprite & sound: clockwork beast
-sprite & sound: winter wolf
-sprite & sound: owlbear
+sprite & sound: winter wolf, lava wolf
+sprite & sound: owlbear, stone bear
 sprite & sound: griffon
 
 abilities: acolyte 10, 15

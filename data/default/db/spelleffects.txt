@@ -3348,6 +3348,16 @@ savedResult=
 targetType=5
 application=AS_PER_SPELL
 @
+name=summon animal spirits
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=11::summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1/summon.animal.spirit.1:1/1/SCALE_WITH_CASTING_LEVEL//false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=gadgeteer invention
 displayName=gadgeteer invention
 type=NONE

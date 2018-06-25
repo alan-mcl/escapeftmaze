@@ -100,6 +100,9 @@ contains=Shadow Warrior/2d2+2:100,Shadow Warrior/2d2:100
 name=human.hirebrand.small
 contains=Human Hirebrand/1d3+2:100,Human Hirebrand/1d2+2:10
 @
+name=stone.bear.summon
+contains=Stone Bear/1d2:100,Stone Bear/1d1:25
+@
 name=fruit.bats.small
 contains=Fruit Bat/1d3:100
 @
@@ -159,6 +162,9 @@ contains=Gnome Trooper/2d2+1:100,Gnome Trooper/2d2+1:95,Gnome Elemental/2d2:90
 @
 name=mephit.swarm.spell.med.2
 contains=Glow Mephit/2d2+1:100,Glow Mephit/1d1:15
+@
+name=river.serpents.summon
+contains=River Serpent/1d2:100,River Serpent/1d2:100,River Serpent/1d2:50,River Serpent/1d2:50
 @
 name=zombie.mantis.1
 contains=Zombie Mantis/1d2:100,Zombie Mantis/1d2:80,Zombie Mantis/1d2:10
@@ -592,6 +598,9 @@ contains=Avenging Angel/1d1:100,Avenging Angel/1d1:10
 name=morrigan
 contains=Morrigan/1d1:100
 @
+name=lava.wolf.summon
+contains=Lava Wolf/1d3+2:100
+@
 name=inghean.shades
 contains=Inghean Shade/1d2+1:100,Inghean Shade/1d2+1:100,Inghean Shade/1d1:90
 @
@@ -732,6 +741,9 @@ contains=Light Earth Elemental/1d1:100
 @
 name=boulder.dragon.1
 contains=Boulder Dragon/1d1:100
+@
+name=storm.kestrel.summon
+contains=Storm Kestrel/3d2:100,Storm Kestrel/1d3+1:50
 @
 name=dun.draco.small.pack
 contains=Dun Draco/1d4+2:100

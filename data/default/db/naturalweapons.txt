@@ -628,6 +628,20 @@ spellEffects=TOUCH_HEX:33,TOUCH_INSANE:33,TOUCH_STONE:33
 spellEffectLevel=3
 attackScript=generic weapon swish
 @
+name=lava wolf bite
+ranged=false
+description=bites
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=2,1
+slaysFoeType=
+damage=1d6
+damageType=PIERCING
+spellEffects=bolt of fire damage:100
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
 name=haunt touch
 ranged=false
 description=touches

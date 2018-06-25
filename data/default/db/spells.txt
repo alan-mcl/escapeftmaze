@@ -2014,6 +2014,27 @@ secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
 @
+name=Summon Animal Spirit
+displayName=Summon Animal Spirit
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Blue Magic
+spellEffects=summon animal spirits:100
+description=invokes the ancestors...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Lyre Of Cakes - Both
 displayName=Lyre Of Cakes - Both
 hitPointCost=
