@@ -288,6 +288,7 @@ modifier_name-shedBlights: Shed Blights
 modifier_name-modifierSelectionFavouredEnemy: Modifier Selection/Favoured Enemy
 modifier_name-guardDuty: Guard Duty
 modifier_name-deadlyThrow: Deadly Throw
+modifier_name-battleMaster: Battle Master
 
 # Modifier Descriptions
 
@@ -569,6 +570,7 @@ modifier_desc-shedBlights: At the end of every turn this character has a chance 
 modifier_desc-modifierSelectionFavouredEnemy: At level up, this character has a chance of selecting a new favoured enemy type.
 modifier_desc-guardDuty: This character reduces the risk an random encounters each time the party rests.
 modifier_desc-deadlyThrow: This character has a boosted chance to hit with thrown weapons.
+modifier_desc-battleMaster: This character regains Action Points every time he or she is wounded.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1228,6 +1230,11 @@ lap_name_windwalker = Wind Walker
 lap_desc_windwalker = The Shaman calls upon the element of air to quicken his defences.
 lap_name_summon_animal_spirits = Summon Animal Spirits
 lap_desc_summon_animal_spirits = The Shaman summons elemental animal spirits to fight for the party.
+lap_name_elemental_manifestation = Elemental Manifestation
+lap_desc_elemental_manifestation = The Shaman is one with the elements.
+lap_name_battle_master = Battle Master
+lap_desc_battle_master = The Shaman regains Action Points every time he or she is wounded.
+
 
 # Shugenja
 lap_name_displacer = Displacer

@@ -8,7 +8,7 @@ Features
    Pray For Miracle, Martyr
  - Ranger class abilities: Select Favoured Enemy, Guard Duty
  - Samurai class abilties: Sword Master
- - Shaman class abilities: Deadly Throw
+ - Shaman class abilities: Deadly Throw, Battle Master
 
 Other
  - Refactoring action point regen to be consistent with other resources

@@ -270,6 +270,7 @@ public class Stats
 		otherCombat.add(YUBI_JUTSU);
 		otherCombat.add(SHIELD_BASH);
 		otherCombat.add(SHIELD_BLOCK);
+		otherCombat.add(BATTLE_MASTER);
 
 		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
 
@@ -746,6 +747,7 @@ public class Stats
 		MODIFIER_SELECTION_FAVOURED_ENEMY(265, "modifierSelectionFavouredEnemy"),
 		GUARD_DUTY(266, "guardDuty", ModifierMetric.BOOLEAN),
 		DEADLY_THROW(267, "deadlyThrow"),
+		BATTLE_MASTER(268, "battleMaster", ModifierMetric.BOOLEAN),
 		;
 
 		/**

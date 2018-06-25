@@ -288,6 +288,11 @@ public class DamageEvent extends MazeEvent
 			}
 		}
 
+		if (defender.getModifier(Stats.Modifier.BATTLE_MASTER) > 0 && finalDamage > 0)
+		{
+			defender.getActionPoints().incCurrent(1);
+		}
+
 		// character speech if badly wounded
 		if (defender instanceof PlayerCharacter &&
 			defender.getHitPoints().getCurrent() > 0 &&
