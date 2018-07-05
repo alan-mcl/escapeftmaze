@@ -28,6 +28,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=foe.naga.female
+imageResources=crusader/foe/naga_female
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=DUNGEON_FLOOR_1
 imageResources=crusader/scene/dungeon_floor_1
 animationDelay=-1

@@ -185,7 +185,7 @@ suggestedNames=Female:Aadhi,Shesha,Balarama,Karkotaka,Mucalinda,Padmavati,Vataks
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/naga
 @
 name=Neotroll
 description=The Neotrolls of the First Realm have evolved past the swamp-dwelling bone-gnawing beasts that originally arrived in the Maze. They have a rural iron-age culture and live in small tribal villages in the bleak foothills of the Realm's central mountains. Despite this progress, they remain fierce warriors.%n%nNeotrolls have been imprisoned the longest in the Maze, and the reasons have long been forgotten. Along with those memories has gone much desire to escape from the gilded cage that is the First Realm.%n%nSpecial: Neotrolls retain the greatly boosted body regeneration of their savage ancestors.
