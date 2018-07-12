@@ -691,6 +691,8 @@ lap_desc_finisher = Melee attacks by this character against incapacitated enemie
 lap_name_forager1 = Forager 1
 lap_name_forager2 = Forager 2
 lap_desc_forager = This character supplies him or herself from the land and consumes fewer party supplies while resting.
+lap_name_acrobatics = Acrobatics
+lap_desc_acrobatics = With great agility this character can easily evade melee attacks.
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -1092,8 +1094,6 @@ lap_name_snakespeed = Snakespeed
 lap_desc_snakespeed = The Ninja strikes with blinding speed in combat.
 lap_name_flash_powder = Flash Powder
 lap_desc_flash_powder = The Ninja deploys incendiary powder, blinding foes.
-lap_name_acrobatics = Acrobatics
-lap_desc_acrobatics = With great agility the Ninja can easily evade melee attacks.
 lap_name_kotodama_kata = Kotodama Kata
 lap_desc_kotodama_kata = Arcane training grants the Ninja some bonus spell picks.
 lap_name_yubi_jutsu = Yubi-Jutsu
@@ -1245,6 +1245,9 @@ lap_name_ninjutsu1 = Ninjutsu 1
 lap_name_ninjutsu2 = Ninjutsu 2
 lap_name_ninjutsu3 = Ninjutsu 3
 lap_desc_ninjutsu = The Shugenja is skilled in the arts of deception, misdirection and stealth.
+lap_name_resilience1 = Resilience
+lap_name_resilience2 = Greater Resilience
+lap_desc_resilience = The Shugenja recovers fast from wounds.
 
 # Skald
 lap_name_taunt = Taunt
