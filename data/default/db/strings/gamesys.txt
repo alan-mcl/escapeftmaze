@@ -1241,6 +1241,10 @@ lap_name_displacer = Displacer
 lap_desc_displacer = The Shugenja can change places with another character in the party before each combat round starts.
 lap_name_magic_absorbtion = Magic Absorption %s
 lap_desc_magic_absorbtion = The Shugenja is resistant to enemy magic, and indeed can absorb a portion of any spell that targets him or her.
+lap_name_ninjutsu1 = Ninjutsu 1
+lap_name_ninjutsu2 = Ninjutsu 2
+lap_name_ninjutsu3 = Ninjutsu 3
+lap_desc_ninjutsu = The Shugenja is skilled in the arts of deception, misdirection and stealth.
 
 # Skald
 lap_name_taunt = Taunt
