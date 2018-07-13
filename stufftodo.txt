@@ -26,7 +26,6 @@ abilities: burglar 19
 abilities: druid 13, 15
 abilities: enchanter 16, 18, 20
 abilities: exorcist 2, 4, 5, 20
-abilities: shugenja 11
 abilities: DIPLOMACY rework to something more interesting
 abilities: PERSUASION hooks on DIPLOMACY
 abilities: CODE_OF_DISHONOUR hooks on DIPLOMACY, others

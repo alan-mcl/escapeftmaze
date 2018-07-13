@@ -948,6 +948,16 @@ savedResult=
 targetType=5
 application=AS_PER_SPELL
 @
+name=blend in
+displayName=
+type=EARTH
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::blend in
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=booze effect
 displayName=booze effect
 type=WATER

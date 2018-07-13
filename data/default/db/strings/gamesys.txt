@@ -693,6 +693,8 @@ lap_name_forager2 = Forager 2
 lap_desc_forager = This character supplies him or herself from the land and consumes fewer party supplies while resting.
 lap_name_acrobatics = Acrobatics
 lap_desc_acrobatics = With great agility this character can easily evade melee attacks.
+lap_name_poison_use = Poison Use
+lap_desc_poison_use = This character applies a foul poison to weapons that he or she wields.
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -791,8 +793,6 @@ lap_name_berserk_at_will = Berserk At Will
 lap_desc_berserk_at_will = The Berserker can fly into a berserk rage at will
 
 # Blackguard
-lap_name_poison_use = Poison Use
-lap_desc_poison_use = The Blackguard applies a foul poison to weapons that he wields.
 lap_name_fearless = Fearless
 lap_desc_fearless = The Blackguard knows no fear.
 lap_name_code_of_dishonour = Code of Dishonour
@@ -1248,6 +1248,8 @@ lap_desc_ninjutsu = The Shugenja is skilled in the arts of deception, misdirecti
 lap_name_resilience1 = Resilience
 lap_name_resilience2 = Greater Resilience
 lap_desc_resilience = The Shugenja recovers fast from wounds.
+lap_name_blend_in = Blend In
+lap_desc_blend_in = The Shugenja blends easily into the background, unnoticed by foes.
 
 # Skald
 lap_name_taunt = Taunt

@@ -754,6 +754,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Blend In
+displayName=Blend In
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Blue Magic
+spellEffects=blend in:100
+description=blends in...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=blue portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=ALCHEMIC
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Elemental Swarm
 displayName=Elemental Swarm
 hitPointCost=

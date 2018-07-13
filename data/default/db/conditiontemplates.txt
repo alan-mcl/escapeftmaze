@@ -2290,6 +2290,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=blend in
+displayName=Blend In
+icon=condition/blendin
+adjective=camouflaged
+conditionEffect=none
+duration=1/5/NONE//false,1/1/SCALE_WITH_CASTING_LEVEL//false
+strength=
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=80000000000007800000,0101010101
+bannerModifier=0,
+scaleModifierWithStrength=true
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=unleash power spell
 displayName=Unleash Power
 icon=condition/unleashpower
