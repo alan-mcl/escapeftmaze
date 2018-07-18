@@ -30,7 +30,6 @@ import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
-import mclachlan.maze.stat.combat.event.StrikeEvent;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.Value;
 import mclachlan.maze.stat.magic.ValueList;
@@ -241,16 +240,6 @@ public class Foe extends UnifiedActor
 		return ai.shouldEvade(this, groups, party);
 	}
 
-	public void removeItem(Item item, boolean removeWholeStack)
-	{
-		this.getInventory().remove(item);
-	}
-
-	public void removeItem(String itemName, boolean removeWholeStack)
-	{
-		this.getInventory().remove(itemName);
-	}
-
 	/*-------------------------------------------------------------------------*/
 	public ActorGroup getActorGroup()
 	{
@@ -390,13 +379,6 @@ public class Foe extends UnifiedActor
 	{
 		// foes are only treated as having natural armour, on their BodyParts
 		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public void deductAmmo(StrikeEvent event)
-	{
-		// Foes have no ammo restrictions ;-)
 	}
 
 	/*-------------------------------------------------------------------------*/

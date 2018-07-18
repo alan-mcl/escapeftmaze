@@ -289,6 +289,7 @@ modifier_name-modifierSelectionFavouredEnemy: Modifier Selection/Favoured Enemy
 modifier_name-guardDuty: Guard Duty
 modifier_name-deadlyThrow: Deadly Throw
 modifier_name-battleMaster: Battle Master
+modifier_name-arrowCatching: Arrow Catching
 
 # Modifier Descriptions
 
@@ -429,7 +430,7 @@ modifier_desc-blindFighting: This character can attack and defend normally while
 modifier_desc-extraGold: This character gleans extra gold from foes and chests.
 modifier_desc-cheatDeath: This character has a chance of cheating certain death.
 modifier_desc-magicAbsorption: This character gains magic points when afflicted by enemy spells and special abilities.
-modifier_desc-arrowCutting: This character has a chance of deflecting incoming projectiles
+modifier_desc-arrowCutting: This character has a chance of deflecting incoming projectiles.
 modifier_desc-ambusher: This character is particularly deadly when the party manages to surprise a group of enemies
 modifier_desc-entertainer: This character boosts the parties regeneration rates when camping
 modifier_desc-diplomat: NPCs react more favourably to this character
@@ -571,6 +572,7 @@ modifier_desc-modifierSelectionFavouredEnemy: At level up, this character has a 
 modifier_desc-guardDuty: This character reduces the risk an random encounters each time the party rests.
 modifier_desc-deadlyThrow: This character has a boosted chance to hit with thrown weapons.
 modifier_desc-battleMaster: This character regains Action Points every time he or she is wounded.
+modifier_desc-arrowCatching: This character has a chance of catching incoming projectiles.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1250,6 +1252,9 @@ lap_name_resilience2 = Greater Resilience
 lap_desc_resilience = The Shugenja recovers fast from wounds.
 lap_name_blend_in = Blend In
 lap_desc_blend_in = The Shugenja blends easily into the background, unnoticed by foes.
+lap_name_arrow_catching = Arrow Catching %s
+lap_desc_arrow_catching = The Shugenja can catch incoming projectiles.
+
 
 # Skald
 lap_name_taunt = Taunt

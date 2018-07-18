@@ -241,6 +241,7 @@ public class Stats
 
 		otherCombat.add(BLIND_FIGHTING);
 		otherCombat.add(ARROW_CUTTING);
+		otherCombat.add(ARROW_CATCHING);
 		otherCombat.add(DAMAGE_MULTIPLIER);
 		otherCombat.add(BERSERKER);
 		otherCombat.add(DEADLY_STRIKE);
@@ -748,6 +749,7 @@ public class Stats
 		GUARD_DUTY(266, "guardDuty", ModifierMetric.BOOLEAN),
 		DEADLY_THROW(267, "deadlyThrow"),
 		BATTLE_MASTER(268, "battleMaster", ModifierMetric.BOOLEAN),
+		ARROW_CATCHING(269, "arrowCatching", ModifierMetric.PERCENTAGE),
 		;
 
 		/**

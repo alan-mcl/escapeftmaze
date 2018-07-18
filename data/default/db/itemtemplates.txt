@@ -11173,7 +11173,7 @@ image=item/amulet1_sapphire
 modifiers=40000000000000000,0a
 equipableSlots=000000001
 weight=1000
-usableByCharacterClass=Ranger,Troubadour,Exorcist,Blackguard,Shaman,Sorcerer,Burglar,Elemental,Warlock,Druid,Sohei,Ninja,Acolyte,Enchanter,Magician,Courtesan,Monk,Paladin,Witch,Scout,Cultist,Gadgeteer,Skald,Berserker,Priest,Samurai,Shugenja,Hero,Knave,Amazon,Kamunushi
+usableByCharacterClass=Ranger,Troubadour,Exorcist,Blackguard,Shaman,Sorcerer,Burglar,Elemental,Warlock,Druid,Sohei,Ninja,Acolyte,Enchanter,Courtesan,Monk,Paladin,Witch,Gadgeteer,Skald,Berserker,Priest,Samurai,Shugenja,Hero,Amazon
 usableByRace=Human,Hynobi,Mirka,Automaton,Goblin,Triton,Naga,Neotroll,Dwarf,Pasht,Gnome,Dryad,Faerie,Elf
 usableByGender=Female,Male,None
 questItem=false
@@ -47574,7 +47574,7 @@ disassemblyLootTable=
 conversionRate=0.0
 @
 name=Willow Arrow
-pluralName=Willows Arrows
+pluralName=Willow Arrows
 unidentifiedName=?arrows
 type=4
 subType=0

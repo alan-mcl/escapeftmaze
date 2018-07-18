@@ -100,6 +100,56 @@ public class Inventory implements Iterable<Item>
 	/*-------------------------------------------------------------------------*/
 
 	/**
+	 * Add the given item to the first open slot of this inventory, or to the
+	 * first stack of the same type of item.
+	 * @return false if the item could not be added (usually because the inventory
+	 * 	is full.
+	 */
+	public boolean addAndStack(Item item)
+	{
+		if (!item.isStackable())
+		{
+			return add(item);
+		}
+
+		for (int i=0; i<nrSlots; i++)
+		{
+			Item it = items.get(i);
+			if (it != null && it.getName().equals(item.getName()))
+			{
+				CurMax stack = it.getStack();
+				int space = stack.getMaximum() - stack.getCurrent();
+
+				if (space >= item.getStack().getCurrent())
+				{
+					// we're done
+					stack.incCurrent(item.getStack().getCurrent());
+					return true;
+				}
+				else
+				{
+					//overflow: reduce the stack and continue
+					stack.setCurrentToMax();
+					item.getStack().decCurrent(space);
+				}
+			}
+		}
+
+		// didn't find an existing stack to soak up the items, add to the next open slot
+		for (int i=0; i<nrSlots; i++)
+		{
+			if (items.get(i) == null)
+			{
+				items.set(i, item);
+				return true;
+			}
+		}
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
 	 * Add the given item to the given slot of this inventory.
 	 * @return any item previously in this slot, or null if this was an open slot
 	 */

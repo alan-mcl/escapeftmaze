@@ -121,10 +121,11 @@ public class StrikeEvent extends MazeEvent
 		// Determine random body part targeted
 		bodyPart = getRandomBodyPart(attacker, defender);
 
+		Item ammo = null;
 		// Deduct ammo if required. We assume that the ammo type matches
 		if (attackWith.getAmmoRequired() != null)
 		{
-			this.attacker.deductAmmo(this);
+			ammo = this.attacker.deductAmmo(this);
 		}
 
 		// Determine hit or miss
@@ -161,6 +162,11 @@ public class StrikeEvent extends MazeEvent
 			{
 				// deflected
 				result.add(new AttackDeflectedEvent(attacker, defender, bodyPart));
+			}
+			else if (GameSys.getInstance().isAttackCaught(attacker, defender, attackWith))
+			{
+				// caught
+				result.add(new AttackCaughtEvent(attacker, defender, attackWith, ammo));
 			}
 			else if (GameSys.getInstance().isAttackParried(defender, attackWith))
 			{

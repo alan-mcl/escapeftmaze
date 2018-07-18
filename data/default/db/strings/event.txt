@@ -70,6 +70,7 @@ msg.parry = %s: PARRY!
 msg.riposte = %s: RIPOSTE!
 msg.dodge = %s: Dodges!
 msg.deflected = %s: DEFLECTED!
+msg.caught = %s catches the projectile!
 msg.attack.hit = %s: Hit - %s;
 msg.attack.miss = %s: Missed!
 msg.summoning.succeeds =

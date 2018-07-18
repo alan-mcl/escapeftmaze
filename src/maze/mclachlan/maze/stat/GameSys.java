@@ -70,6 +70,7 @@ public class GameSys
 		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_SWORD, -3);
 		heavyEncumbrance.setModifier(Stats.Modifier.LIGHTNING_STRIKE_UNARMED, -3);
 		heavyEncumbrance.setModifier(Stats.Modifier.ARROW_CUTTING, -20);
+		heavyEncumbrance.setModifier(Stats.Modifier.ARROW_CATCHING, -40);
 		heavyEncumbrance.setModifier(Stats.Modifier.AMBUSHER, -1);
 		heavyEncumbrance.setModifier(Stats.Modifier.DODGE, -20);
 		heavyEncumbrance.setModifier(Stats.Modifier.PARRY, -20);
@@ -522,6 +523,7 @@ public class GameSys
 
 			if (!GameSys.getInstance().isActorHelpless(defender) &&
 				defender.getModifier(Stats.Modifier.SHIELD_BASH) > 0 &&
+				!attackWith.isRanged() &&
 				Dice.d100.roll("shield bash check") <= defender.getModifier(Stats.Modifier.SHIELD_BASH))
 			{
 				events.add(new AttackEvent(
@@ -3770,10 +3772,31 @@ public class GameSys
 				}
 			}
 		}
-		
-		// todo: conditions the deflect stuff
-		// todo: deflecting melee attacks
-		
+
+		// no luck for the defender
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return
+	 * 	True if this attack is caught
+	 */
+	public boolean isAttackCaught(UnifiedActor attacker, UnifiedActor defender, AttackWith attackWith)
+	{
+		if (attackWith.isRanged())
+		{
+			// Arrow catching property
+			if (defender.getModifier(Stats.Modifier.ARROW_CATCHING) > 0)
+			{
+				if (Dice.d100.roll("arrow catching check") <= defender.getModifier(Stats.Modifier.ARROW_CATCHING))
+				{
+					// projectile is caught
+					return true;
+				}
+			}
+		}
+
 		// no luck for the defender
 		return false;
 	}

@@ -866,6 +866,75 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The named item, or null if this actor does not have it equipped or
+	 * 	in inventory.
+	 */
+	public Item getItem(String itemName)
+	{
+		for (Item item : getInventory())
+		{
+			if (item != null && item.getName().equals(itemName))
+			{
+				return item;
+			}
+		}
+
+		if (getPrimaryWeapon() != null && getPrimaryWeapon().getName().equals(itemName))
+		{
+			return getPrimaryWeapon();
+		}
+		if (getAltPrimaryWeapon() != null && getAltPrimaryWeapon().getName().equals(itemName))
+		{
+			return getAltPrimaryWeapon();
+		}
+		if (getSecondaryWeapon() != null && getSecondaryWeapon().getName().equals(itemName))
+		{
+			return getSecondaryWeapon();
+		}
+		if (getAltSecondaryWeapon() != null && getAltSecondaryWeapon().getName().equals(itemName))
+		{
+			return getAltSecondaryWeapon();
+		}
+		if (getHelm() != null && getHelm().getName().equals(itemName))
+		{
+			return getHelm();
+		}
+		if (getTorsoArmour() != null && getTorsoArmour().getName().equals(itemName))
+		{
+			return getTorsoArmour();
+		}
+		if (getLegArmour() != null && getLegArmour().getName().equals(itemName))
+		{
+			return getLegArmour();
+		}
+		if (getGloves() != null && getGloves().getName().equals(itemName))
+		{
+			return getGloves();
+		}
+		if (getBoots() != null && getBoots().getName().equals(itemName))
+		{
+			return getBoots();
+		}
+		if (getMiscItem1() != null && getMiscItem1().getName().equals(itemName))
+		{
+			return getMiscItem1();
+		}
+		if (getMiscItem2() != null && getMiscItem2().getName().equals(itemName))
+		{
+			return getMiscItem2();
+		}
+		if (getBannerItem() != null && getBannerItem().getName().equals(itemName))
+		{
+			return getBannerItem();
+		}
+
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public ActorGroup getActorGroup()
 	{
 		return group;
@@ -1038,7 +1107,13 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void deductAmmo(StrikeEvent event)
+
+	/**
+	 * Deducts any ammo from this actor for the given strike.
+	 * @return
+	 * 	The ammo item that was deducted from.
+	 */
+	public Item deductAmmo(StrikeEvent event)
 	{
 		Item ammoItem;
 
@@ -1051,7 +1126,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			ammoItem = getEquippedItem(SECONDARY_WEAPON, 0);
 		}
 
-		// returning items do no deduct ammo
+		// returning items do not deduct ammo
 		if (ammoItem != null && !ammoItem.isReturning())
 		{
 			ammoItem.getStack().decCurrent(1);
@@ -1067,6 +1142,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			throw new MazeException("Attempt to deduct ammo when there is no " +
 				"ammo.  Something is fuxored.");
 		}
+
+		return ammoItem;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1823,6 +1900,142 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		return result;
 	}
 
+	public void removeItem(Item item, boolean removeWholeStack)
+	{
+		if (item.getStack().getCurrent() > 1 && !removeWholeStack)
+		{
+			item.getStack().decCurrent(1);
+			if (item.getStack().getCurrent() > 0)
+			{
+				// reset the charges to represent a new item on top of the stack
+				item.getCharges().setCurrentToMax();
+				return;
+			}
+		}
+
+		// otherwise we actually have to find the damn thing
+		if (item == getPrimaryWeapon())
+		{
+			setPrimaryWeapon(null);
+		}
+		else if (item == getAltPrimaryWeapon())
+		{
+			setAltPrimaryWeapon(null);
+		}
+		else if (item == getSecondaryWeapon())
+		{
+			setSecondaryWeapon(null);
+		}
+		else if (item == getAltSecondaryWeapon())
+		{
+			setAltPrimaryWeapon(null);
+		}
+		else if (item == getHelm())
+		{
+			setHelm(null);
+		}
+		else if (item == getTorsoArmour())
+		{
+			setTorsoArmour(null);
+		}
+		else if (item == getGloves())
+		{
+			setGloves(null);
+		}
+		else if (item == getLegArmour())
+		{
+			setLegArmour(null);
+		}
+		else if (item == getBoots())
+		{
+			setBoots(null);
+		}
+		else if (item == getBannerItem())
+		{
+			setBannerItem(null);
+		}
+		else if (item == getMiscItem1())
+		{
+			setMiscItem1(null);
+		}
+		else if (item == getMiscItem2())
+		{
+			setMiscItem2(null);
+		}
+		else if (getInventory().contains(item))
+		{
+			getInventory().remove(item);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void removeItem(String itemName, boolean removeWholeStack)
+	{
+		Item item = getItem(itemName);
+
+		if (item != null)
+		{
+			removeItem(item, removeWholeStack);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void replaceItem(Item fromItem, Item toItem)
+	{
+		if (fromItem == getPrimaryWeapon())
+		{
+			setPrimaryWeapon(toItem);
+		}
+		else if (fromItem == getAltPrimaryWeapon())
+		{
+			setAltPrimaryWeapon(toItem);
+		}
+		else if (fromItem == getSecondaryWeapon())
+		{
+			setSecondaryWeapon(toItem);
+		}
+		else if (fromItem == getAltSecondaryWeapon())
+		{
+			setAltPrimaryWeapon(toItem);
+		}
+		else if (fromItem == getHelm())
+		{
+			setHelm(toItem);
+		}
+		else if (fromItem == getTorsoArmour())
+		{
+			setTorsoArmour(toItem);
+		}
+		else if (fromItem == getGloves())
+		{
+			setGloves(toItem);
+		}
+		else if (fromItem == getLegArmour())
+		{
+			setLegArmour(toItem);
+		}
+		else if (fromItem == getBoots())
+		{
+			setBoots(toItem);
+		}
+		else if (fromItem == getBannerItem())
+		{
+			setBannerItem(toItem);
+		}
+		else if (fromItem == getMiscItem1())
+		{
+			setMiscItem1(toItem);
+		}
+		else if (fromItem == getMiscItem2())
+		{
+			setMiscItem2(toItem);
+		}
+		else if (getInventory().contains(fromItem))
+		{
+			getInventory().add(toItem, getInventory().indexOf(fromItem));
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void regenerateResources(long turnNr,
 		boolean resting,
@@ -1970,8 +2183,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public abstract int getBaseModifier(Stats.Modifier modifier);
 	public abstract String getDisplayName();
 	public abstract String getDisplayNamePlural();
-	public abstract void removeItem(Item item, boolean removeWholeStack);
-	public abstract void removeItem(String itemName, boolean removeWholeStack);
 	public abstract void removeCurse(int strength);
 	public abstract void addAllies(List<FoeGroup> foeGroups);
 	public abstract boolean isActiveModifier(Stats.Modifier modifier);

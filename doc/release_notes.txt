@@ -9,6 +9,7 @@ Features
  - Ranger class abilities: Select Favoured Enemy, Guard Duty
  - Samurai class abilties: Sword Master
  - Shaman class abilities: Deadly Throw, Battle Master
+ - Shugenja class abilities: Arrow Catching
 
 Other
  - Refactoring action point regen to be consistent with other resources
