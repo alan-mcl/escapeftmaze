@@ -276,6 +276,7 @@ public class Stats
 		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
 
 		otherStealth.add(AMBUSHER);
+		otherStealth.add(DISPLACER);
 		otherStealth.add(DODGE);
 		otherStealth.add(MASTER_THIEF);
 		otherStealth.add(OBFUSCATION);

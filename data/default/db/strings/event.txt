@@ -86,6 +86,8 @@ msg.restore.stamina = %s restores %s stamina
 msg.remove.curse = %s loses curse effects
 msg.resurrection = %s lives!
 msg.dies = %s DIES!
+msg.cannot.displace.ap = %s does not have enough Action Points to displace.
+msg.already.displaced = %s has already displaced this round.
 
 #
 # Encounter Actors events

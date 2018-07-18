@@ -191,6 +191,7 @@ aao.use.item = Use Item ...
 aao.cast.spell = Cast Spell ...
 aao.spell.like.ability = %s
 aao.hide = Hide In Shadows
+aao.displace = Displace
 aao.equip = Change Equipment
 aao.attack = Attack (%s)
 aao.defend = Defend

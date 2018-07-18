@@ -517,6 +517,12 @@ public class PlayerCharacter extends UnifiedActor
 						null);
 				}
 
+				// check for DISPLACER
+				if (this.getModifier(Stats.Modifier.DISPLACER) > 0)
+				{
+					result.add(new DisplaceOption(), null);
+				}
+
 				// special abilities
 				if (this.getSpellLikeAbilities() != null)
 				{
