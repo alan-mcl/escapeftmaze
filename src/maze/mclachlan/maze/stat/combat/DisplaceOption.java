@@ -20,13 +20,18 @@
 package mclachlan.maze.stat.combat;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.ActorActionOption;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.event.AnimationEvent;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
 /**
  *
@@ -84,6 +89,19 @@ public class DisplaceOption extends ActorActionOption
 		}
 
 		displacer.getActionPoints().decCurrent(2);
+
+		MazeScript script = Database.getInstance().getMazeScripts().get("blue portrait animation");
+		AnimationContext animationContext = new AnimationContext(displacer);
+		animationContext.addTarget(displacer);
+		animationContext.addTarget(target);
+		for (MazeEvent e : script.getEvents())
+		{
+			if (e instanceof AnimationEvent)
+			{
+				((AnimationEvent)e).setAnimationContext(animationContext);
+			}
+		}
+		Maze.getInstance().appendEvents(script.getEvents());
 
 		List<PlayerCharacter> actors = new ArrayList<PlayerCharacter>(
 			Maze.getInstance().getParty().getPlayerCharacters());
