@@ -2258,6 +2258,16 @@ savedResult=4:Outsider:4/0/SCALE_WITH_CASTING_LEVEL//false/4::::0.0:false
 targetType=5
 application=AS_PER_SPELL
 @
+name=song of ambition
+displayName=song of ambition
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::song of ambition
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=blizzard spell blind
 displayName=blind
 type=WATER
@@ -3837,16 +3847,6 @@ unsavedResult=3::crucible
 savedResult=
 targetType=6
 application=AS_PER_SPELL
-@
-name=skald taunt fatigue
-displayName=
-type=NONE
-subtype=NONE
-saveAdjustment=
-unsavedResult=4:::2/0/NONE//false/1d3+2:::0.0:false
-savedResult=
-targetType=0
-application=APPLY_ONCE_TO_CASTER
 @
 name=death cloud cloud
 displayName=

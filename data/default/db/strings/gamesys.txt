@@ -1259,6 +1259,8 @@ lap_desc_arrow_catching = The Shugenja can catch incoming projectiles.
 # Skald
 lap_name_taunt = Taunt
 lap_desc_taunt = The Skald can deliver a creative and infuriating insult to foes that will cause them to target him or her over other party members.
+lap_name_song_of_ambition = Song of Ambition
+lap_desc_song_of_ambition = The Skald sings a song that bolsters the defence of the party.
 
 # Sohei
 lap_name_ki_fury = Ki Fury
