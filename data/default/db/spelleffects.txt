@@ -1738,6 +1738,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=song of heroism
+displayName=song of heroism
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::song of heroism
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=SNIPE_2
 displayName=SNIPE
 type=NONE
