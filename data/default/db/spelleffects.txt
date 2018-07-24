@@ -4878,6 +4878,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=song of endurance
+displayName=song of endurance
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=5:::2/0/SCALE_WITH_CASTING_LEVEL//false/1d2::
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=old igor breath
 displayName=
 type=FIRE

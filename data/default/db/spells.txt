@@ -5269,6 +5269,27 @@ secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/5
 wildMagicTable=Bone Flute,Bone Flute,Bone Flute,Bone Flute,Bone Flute - Rest All,Bone Flute - Rest All,Bone Flute - Rest All,Bone Flute - Heal All,Bone Flute - Heal All,Bone Flute - Heal All
 @
+name=Song of Endurance
+displayName=Song of Endurance
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=2
+school=Blessing
+book=Gold Magic
+spellEffects=song of endurance:100
+description=sings an song of outlasting and enduring!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Prismic Chaos
 displayName=Prismic Chaos
 hitPointCost=
