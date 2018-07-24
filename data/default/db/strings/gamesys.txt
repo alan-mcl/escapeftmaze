@@ -1269,6 +1269,8 @@ lap_name_inspiring_blow = Inspiring Blow
 lap_desc_inspiring_blow = When the Skald strikes the blow that slays a foe, others in the party are inspired to greater feats.
 lap_name_song_of_endurance = Song of Endurance
 lap_desc_song_of_endurance = The Skald sings a song of enduring and outlasting.
+lap_name_song_of_panic = Song of Panic
+lap_desc_song_of_panic = The Skald's performance causes a group of foes to flee in fear.
 
 # Sohei
 lap_name_ki_fury = Ki Fury

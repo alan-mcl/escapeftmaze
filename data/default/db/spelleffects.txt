@@ -3928,6 +3928,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=song of panic
+displayName=song of panic
+type=MENTAL
+subtype=PSYCHIC
+saveAdjustment=
+unsavedResult=3::SCALING_FEAR
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=BACKSTAB_3
 displayName=BACKSTAB
 type=NONE

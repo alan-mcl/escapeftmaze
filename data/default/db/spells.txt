@@ -3043,6 +3043,27 @@ secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
 @
+name=Song of Panic
+displayName=Song of Panic
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=4
+school=Illusion
+book=Gold Magic
+spellEffects=song of panic:100
+description=sings of sudden fright!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold enchantment from player
+castByFoeScript=gold enchantment from foe
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Curing
 displayName=Curing
 hitPointCost=

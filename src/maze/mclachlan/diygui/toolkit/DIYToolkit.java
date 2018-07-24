@@ -481,6 +481,11 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 	private Widget getHoverComponent(Point p)
 	{
+		if (p == null)
+		{
+			return null;
+		}
+
 		synchronized (dialogMutex)
 		{
 			int x = p.x;
