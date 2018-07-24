@@ -1281,6 +1281,8 @@ lap_name_recorder_of_great_deeds = Recorder of Great Deeds
 lap_desc_recorder_of_great_deeds = The Skald immortalises his or her fellow warriors in poem, granting them extra experience.
 lap_name_song_of_rage = Song of Rage
 lap_desc_song_of_rage = The Skald sings a deadly song of unbridled rage and hatred.
+lap_name_song_of_shameful_weakness = Song of Shameful Weakness
+lap_desc_song_of_shameful_weakness = The Skald's dreary dirge weakens his or her foes.
 
 # Sohei
 lap_name_ki_fury = Ki Fury
