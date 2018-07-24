@@ -1263,7 +1263,6 @@ lap_desc_blend_in = The Shugenja blends easily into the background, unnoticed by
 lap_name_arrow_catching = Arrow Catching %s
 lap_desc_arrow_catching = The Shugenja can catch incoming projectiles.
 
-
 # Skald
 lap_name_taunt = Taunt
 lap_desc_taunt = The Skald can deliver a creative and infuriating insult to foes that will cause them to target him or her over other party members.
@@ -1283,6 +1282,8 @@ lap_name_song_of_rage = Song of Rage
 lap_desc_song_of_rage = The Skald sings a deadly song of unbridled rage and hatred.
 lap_name_song_of_shameful_weakness = Song of Shameful Weakness
 lap_desc_song_of_shameful_weakness = The Skald's dreary dirge weakens his or her foes.
+lap_name_lore_master = Lore Master
+lap_desc_lore_master = The Skald's is a master of many different types of lore.
 
 # Sohei
 lap_name_ki_fury = Ki Fury
