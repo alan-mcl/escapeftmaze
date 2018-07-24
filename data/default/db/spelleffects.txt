@@ -878,6 +878,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=inspiring blow
+displayName=inspiring blow
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::inspiring blow
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=mage strength spell
 displayName=
 type=FIRE

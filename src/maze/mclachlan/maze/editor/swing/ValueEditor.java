@@ -253,7 +253,7 @@ public class ValueEditor extends JDialog implements ActionListener
 		{
 			resetReferenceOptions(
 				(Value.SCALE)scaling.getSelectedItem(),
-				(String)reference.getSelectedItem());
+				reference.getSelectedItem());
 		}
 		else if (e.getSource() == constant)
 		{
@@ -328,7 +328,7 @@ public class ValueEditor extends JDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected void resetReferenceOptions(Value.SCALE scale, String ref)
+	protected void resetReferenceOptions(Value.SCALE scale, Object ref)
 	{
 		switch (scale)
 		{

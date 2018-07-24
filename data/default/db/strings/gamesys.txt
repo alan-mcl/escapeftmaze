@@ -290,6 +290,7 @@ modifier_name-guardDuty: Guard Duty
 modifier_name-deadlyThrow: Deadly Throw
 modifier_name-battleMaster: Battle Master
 modifier_name-arrowCatching: Arrow Catching
+modifier_name-inspiringBlow: Inspiring Blow
 
 # Modifier Descriptions
 
@@ -573,6 +574,7 @@ modifier_desc-guardDuty: This character reduces the risk an random encounters ea
 modifier_desc-deadlyThrow: This character has a boosted chance to hit with thrown weapons.
 modifier_desc-battleMaster: This character regains Action Points every time he or she is wounded.
 modifier_desc-arrowCatching: This character has a chance of catching incoming projectiles.
+modifier_desc-inspiringBlow: When this character strikes the blow that slays a foe, others in the party are inspired to greater feats.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1263,6 +1265,8 @@ lap_name_song_of_ambition = Song of Ambition
 lap_desc_song_of_ambition = The Skald sings a song that bolsters the defence of the party.
 lap_name_song_of_heroism = Song of Heroism
 lap_desc_song_of_heroism = The Skald sings a heroic ode that inspires the party to fearlessness.
+lap_name_inspiring_blow = Inspiring Blow
+lap_desc_inspiring_blow = When the Skald strikes the blow that slays a foe, others in the party are inspired to greater feats.
 
 # Sohei
 lap_name_ki_fury = Ki Fury

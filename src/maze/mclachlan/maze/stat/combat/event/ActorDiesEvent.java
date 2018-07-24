@@ -30,7 +30,10 @@ import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.ActorActionResolver;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.SpellAction;
+import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.util.MazeException;
@@ -65,9 +68,9 @@ public class ActorDiesEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		final Maze maze = Maze.getInstance();
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		final Maze maze = Maze.getInstance();
 		// this check in case we're doing the CLI combat testing.
 		if (maze != null)
 		{
@@ -85,6 +88,7 @@ public class ActorDiesEvent extends MazeEvent
 			});
 		}
 
+		// Trigger any PC speech
 		if (attacker instanceof PlayerCharacter)
 		{
 			((PlayerCharacter)attacker).incKills(1);
@@ -92,6 +96,7 @@ public class ActorDiesEvent extends MazeEvent
 			result.addAll(SpeechUtil.getInstance().slayFoeSpeech((PlayerCharacter)attacker));
 		}
 
+		// a Berserker slaying an enemy has a chance of going berserk
 		if (attacker != null && attacker.getModifier(Stats.Modifier.BERSERKER) > 0)
 		{
 			if (GameSys.getInstance().actorGoesBeserk(attacker))
@@ -103,10 +108,14 @@ public class ActorDiesEvent extends MazeEvent
 		if (victim instanceof Foe)
 		{
 			Foe foe = (Foe)victim;
+
+			// check whether an NPC has been killed
 			if (foe.isNpc())
 			{
 				NpcManager.getInstance().npcDies(foe);
 			}
+
+			// trigger any foe death script
 			if (foe.getDeathScript() != null)
 			{
 				result.addAll(foe.getDeathScript().getEvents());
@@ -118,6 +127,7 @@ public class ActorDiesEvent extends MazeEvent
 			PlayerParty party = Maze.getInstance().getParty();
 			Combat currentCombat = Maze.getInstance().getCurrentCombat();
 
+			// Trigger any PC speech
 			List<MazeEvent> speechEvents = SpeechUtil.getInstance().
 				allyDiesSpeech((PlayerCharacter)victim);
 			if (speechEvents != null)
@@ -182,6 +192,19 @@ public class ActorDiesEvent extends MazeEvent
 			result.add(new SummoningSucceedsEvent(foeGroups, victim));
 		}
 
+		// check for INSPIRING_BLOW effects
+		int inspiringBlow = attacker.getModifier(Stats.Modifier.INSPIRING_BLOW);
+		if (inspiringBlow > 0 && maze.getCurrentCombat() != null)
+		{
+			Spell spell = GameSys.getInstance().getInspiringBlowSpell(attacker);
+			SpellAction sa = new SpellAction(attacker.getActorGroup(), spell, inspiringBlow);
+			sa.setActor(attacker);
+
+			result.addAll(ActorActionResolver.resolveAction(sa, maze.getCurrentCombat()));
+		}
+
+		// set victim hits to 0, so that we don't have issues with negative hits
+		// on a later resurrection
 		victim.getHitPoints().setCurrent(0);
 
 		return result;

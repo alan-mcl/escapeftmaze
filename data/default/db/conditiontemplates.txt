@@ -2150,6 +2150,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=inspiring blow
+displayName=inspiring blow
+icon=condition/inspiringblow
+adjective=inspired
+conditionEffect=none
+duration=1/3/NONE//false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=10000000000000,02
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=fists of rock
 displayName=fists of rock
 icon=condition/fistsofrock

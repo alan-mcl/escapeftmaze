@@ -1762,6 +1762,27 @@ secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
 @
+name=Inspiring Blow
+displayName=Inspiring Blow
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=2
+school=Blessing
+book=Gold Magic
+spellEffects=inspiring blow:100
+description=inspires allies to feats of glory!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Bolt Of Lightning
 displayName=Bolt Of Lightning
 hitPointCost=

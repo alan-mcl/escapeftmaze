@@ -272,6 +272,7 @@ public class Stats
 		otherCombat.add(SHIELD_BASH);
 		otherCombat.add(SHIELD_BLOCK);
 		otherCombat.add(BATTLE_MASTER);
+		otherCombat.add(INSPIRING_BLOW);
 
 		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
 
@@ -751,6 +752,7 @@ public class Stats
 		DEADLY_THROW(267, "deadlyThrow"),
 		BATTLE_MASTER(268, "battleMaster", ModifierMetric.BOOLEAN),
 		ARROW_CATCHING(269, "arrowCatching", ModifierMetric.PERCENTAGE),
+		INSPIRING_BLOW(270, "inspiringBlow", ModifierMetric.BOOLEAN),
 		;
 
 		/**

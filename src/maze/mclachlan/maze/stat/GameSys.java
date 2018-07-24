@@ -4529,6 +4529,12 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Spell getInspiringBlowSpell(UnifiedActor attacker)
+	{
+		return Database.getInstance().getSpell("Inspiring Blow");
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static class DummyCaster extends AbstractActor
 	{
 		private Spell spell;
