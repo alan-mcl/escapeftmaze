@@ -1002,6 +1002,29 @@ public class PlayerCharacter extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public void incExperience(int amount)
 	{
+		Stats.Modifier bonusExperienceModifier;
+		switch (this.getCharacterClass().getFocus())
+		{
+			case COMBAT:
+				bonusExperienceModifier = Stats.Modifier.BONUS_EXPERIENCE_COMBAT;
+				break;
+			case STEALTH:
+				bonusExperienceModifier = Stats.Modifier.BONUS_EXPERIENCE_STEALTH;
+				break;
+			case MAGIC:
+				bonusExperienceModifier = Stats.Modifier.BONUS_EXPERIENCE_MAGIC;
+				break;
+			default:
+				throw new MazeException(this.getCharacterClass().getFocus().toString());
+		}
+
+		int modifier = getModifier(bonusExperienceModifier);
+		if (modifier != 0)
+		{
+			amount += (amount*modifier/100);
+		}
+
+		Maze.log(Log.DEBUG, "["+getName()+"] gets "+amount+" experience");
 		this.experience += amount;
 	}
 

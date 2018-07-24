@@ -291,6 +291,9 @@ modifier_name-deadlyThrow: Deadly Throw
 modifier_name-battleMaster: Battle Master
 modifier_name-arrowCatching: Arrow Catching
 modifier_name-inspiringBlow: Inspiring Blow
+modifier_name-bonusExperienceCombat: Bonus Experience: Combat Focus
+modifier_name-bonusExperienceStealth: Bonus Experience: Stealth Focus
+modifier_name-bonusExperienceMagic: Bonus Experience: Magic Focus
 
 # Modifier Descriptions
 
@@ -575,6 +578,9 @@ modifier_desc-deadlyThrow: This character has a boosted chance to hit with throw
 modifier_desc-battleMaster: This character regains Action Points every time he or she is wounded.
 modifier_desc-arrowCatching: This character has a chance of catching incoming projectiles.
 modifier_desc-inspiringBlow: When this character strikes the blow that slays a foe, others in the party are inspired to greater feats.
+modifier_desc-bonusExperienceCombat: If this character belongs to a combat focused class, he or she gains extra experience.
+modifier_desc-bonusExperienceStealth: If this character belongs to a stealth focused class, he or she gains extra experience.
+modifier_desc-bonusExperienceMagic: If this character belongs to a magic focused class, he or she gains extra experience.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1271,6 +1277,8 @@ lap_name_song_of_endurance = Song of Endurance
 lap_desc_song_of_endurance = The Skald sings a song of enduring and outlasting.
 lap_name_song_of_panic = Song of Panic
 lap_desc_song_of_panic = The Skald's performance causes a group of foes to flee in fear.
+lap_name_recorder_of_great_deeds = Recorder of Great Deeds
+lap_desc_recorder_of_great_deeds = The Skald immortalises his or her fellow warriors in poem, granting them extra experience.
 
 # Sohei
 lap_name_ki_fury = Ki Fury

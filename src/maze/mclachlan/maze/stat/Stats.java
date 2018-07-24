@@ -753,6 +753,9 @@ public class Stats
 		BATTLE_MASTER(268, "battleMaster", ModifierMetric.BOOLEAN),
 		ARROW_CATCHING(269, "arrowCatching", ModifierMetric.PERCENTAGE),
 		INSPIRING_BLOW(270, "inspiringBlow", ModifierMetric.BOOLEAN),
+		BONUS_EXPERIENCE_COMBAT(271, "bonusExperienceCombat", ModifierMetric.PERCENTAGE),
+		BONUS_EXPERIENCE_STEALTH(272, "bonusExperienceStealth", ModifierMetric.PERCENTAGE),
+		BONUS_EXPERIENCE_MAGIC(273, "bonusExperienceMagic", ModifierMetric.PERCENTAGE),
 		;
 
 		/**
