@@ -63,13 +63,12 @@ public class Berserk extends Condition
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Berserk(UnifiedActor source)
+	public Berserk()
 	{
 		setDuration(Integer.MAX_VALUE);
 		setStrength(Integer.MAX_VALUE);
 		setIdentified(true);
 		setStrengthIdentified(false);
-		setSource(source);
 	}
 
 	/*-------------------------------------------------------------------------*/

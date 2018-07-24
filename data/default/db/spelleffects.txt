@@ -1168,6 +1168,16 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
+name=song of rage
+displayName=song of rage
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::BERSERK
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=stasis spell
 displayName=paralyse
 type=WATER

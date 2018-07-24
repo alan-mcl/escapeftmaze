@@ -2266,6 +2266,27 @@ secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
 @
+name=Song of Rage
+displayName=Song of Rage
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=2
+school=Beguilement
+book=Gold Magic
+spellEffects=song of rage:100
+description=joyously calls the red mist upon the heroes!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Napalm - Payload
 displayName=Napalm - Payload
 hitPointCost=

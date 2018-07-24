@@ -54,6 +54,7 @@ code: party camps, leave some characters behind
 code: designate party spokesman, assayer and scout
 code: scouting to locate secret doors/wall buttons
 code: Matyr ability should drop character items on the ground
+code: berserk should replace combat actions (for same round things in flight) as well as intentions
 
 code+data: balance
 code+data: demo/training mode

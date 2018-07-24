@@ -56,7 +56,9 @@ public class BerserkEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = target.addCondition(new Berserk(target));
+		Berserk condition = new Berserk();
+		condition.setSource(target);
+		List<MazeEvent> result = target.addCondition(condition);
 
 		// Breaking of Bonds
 		if (target.getModifier(Stats.Modifier.BERSERK_POWERS) >= 1)

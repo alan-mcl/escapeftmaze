@@ -10,6 +10,7 @@ Features
  - Samurai class abilties: Sword Master
  - Shaman class abilities: Deadly Throw, Battle Master
  - Shugenja class abilities: Arrow Catching, Displacer
+ - Skald class abilities: Inspiring Blow, Recorder of Great Deeds
 
 Other
  - Refactoring action point regen to be consistent with other resources
@@ -18,6 +19,7 @@ Other
  - Added "as per spell effect" target type for spell effects
  - Redesigned the PC widget, so as to fit in a "stance" combo box
  - Implemented stances in combat: Snakespeed, Act early, Act late, Patience
+ - Refactored inventory management up the hierarchy to UnifiedActor
 
 ---------------------------------------
 v0.917 (24 April 2018)
