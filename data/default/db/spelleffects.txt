@@ -5078,6 +5078,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=stun into silence
+displayName=stun into silence
+type=MENTAL
+subtype=CURSE
+saveAdjustment=
+unsavedResult=3::SCALING_SILENCE
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=telekinesis spell
 displayName=
 type=AIR

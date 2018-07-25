@@ -8881,6 +8881,27 @@ secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
 @
+name=Stun Into Silence
+displayName=Stun Into Silence
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=4
+school=Blessing
+book=Gold Magic
+spellEffects=stun into silence:100
+description=stuns the audience into silence!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold enchantment from player
+castByFoeScript=gold enchantment from foe
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=_IAJUTSU_
 displayName=Iajutsu
 hitPointCost=

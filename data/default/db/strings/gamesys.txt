@@ -1286,6 +1286,8 @@ lap_name_lore_master = Lore Master
 lap_desc_lore_master = The Skald's is a master of many different types of lore.
 lap_name_song_of_strength = Song of Strength
 lap_desc_song_of_strength = The Skald sings a great song of power to strengthen the party.
+lap_name_stun_into_silence = Stun Into Silence
+lap_desc_stun_into_silence = The Skald's performance stuns the audience into silence.
 
 # Sohei
 lap_name_ki_fury = Ki Fury
