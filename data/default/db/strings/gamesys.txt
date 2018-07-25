@@ -1284,6 +1284,8 @@ lap_name_song_of_shameful_weakness = Song of Shameful Weakness
 lap_desc_song_of_shameful_weakness = The Skald's dreary dirge weakens his or her foes.
 lap_name_lore_master = Lore Master
 lap_desc_lore_master = The Skald's is a master of many different types of lore.
+lap_name_song_of_strength = Song of Strength
+lap_desc_song_of_strength = The Skald sings a great song of power to strengthen the party.
 
 # Sohei
 lap_name_ki_fury = Ki Fury

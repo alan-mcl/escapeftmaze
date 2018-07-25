@@ -1530,6 +1530,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=song of strength
+displayName=song of strength
+icon=condition/songofstrength
+adjective=inspired
+conditionEffect=none
+duration=1/1/SCALE_WITH_CLASS_LEVEL/Skald/false
+strength=1/1/SCALE_WITH_CLASS_LEVEL/Skald/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=8,04
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=SCALING_IRRITATE
 displayName=Irritate
 icon=condition/irritate

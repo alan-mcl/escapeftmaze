@@ -1958,6 +1958,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=song of strength
+displayName=song of strength
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::song of strength
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=striking spell
 displayName=
 type=ENERGY

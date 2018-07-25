@@ -901,6 +901,27 @@ secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
 @
+name=Song of Strength
+displayName=Song of Strength
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=2
+school=Blessing
+book=Gold Magic
+spellEffects=song of strength:100
+description=sings an song of great strength and power!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Mass Blur
 displayName=Mass Blur
 hitPointCost=
