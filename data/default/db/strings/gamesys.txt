@@ -1298,6 +1298,8 @@ lap_name_frightful_boasting = Frightful Boasting
 lap_desc_frightful_boasting = The Skald's boastful proclamations inspires him or her to great deeds.
 lap_name_battle_scion = Battle Scion
 lap_desc_battle_scion = The Skald has a chance of cheating death itself.
+lap_name_song_of_the_warriors_of_valhalla = Song of the Warriors of Valhalla
+lap_desc_song_of_the_warriors_of_valhalla = The Skald sings a song that summons the departed heroes of legend back to battle once more!
 
 
 # Sohei

@@ -3138,6 +3138,16 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
+name=song of the warriors of valhalla
+displayName=song of the warriors of valhalla
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=11::einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1:1/1/NONE//false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=might to magic spell damage
 displayName=
 type=MENTAL

@@ -151,6 +151,9 @@ lootEntries=batch.2.banner.items:100,batch.2.food:10,batch.2.bombs:100,batch.2.b
 name=Ninja.loot
 lootEntries=mid.level.gold:100,I~Shuriken:100,I~Ninja Cowl:100,I~Ninja Garb (L):100,I~Ninja Garb (U):100,I~Tabi Boots:100,I~Ninjato:33
 @
+name=einherjar.berserker.loot
+lootEntries=I~Chain Hauberk:100,I~Buskins:100,I~Steel Helm:100,I~Steel Guantlets:100,I~Bipennis:100
+@
 name=hianbian.chest.1
 lootEntries=batch.2.magic.weapons:100,batch.2.magic.weapons:10,batch.2.magic.armour:100,batch.2.magic.armour:10,batch.2.magic.trinkets:100,batch.2.potions.healing:100,batch.2.potions.healing:100,batch.2.potions.healing:10,batch.2.potions.other:100,batch.2.potions.other:10,gold.1000:100,batch.2.musical.instruments:100
 @

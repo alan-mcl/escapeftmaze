@@ -611,7 +611,10 @@ public class Foe extends UnifiedActor
 	public List<TypeDescriptor> getTypes()
 	{
 		List<TypeDescriptor> result = new ArrayList<TypeDescriptor>();
-		result.addAll(template.getTypes());
+		if (template.getTypes() != null)
+		{
+			result.addAll(template.getTypes());
+		}
 		if (getCharacterClass() != null)
 		{
 			result.add(getCharacterClass());

@@ -367,6 +367,9 @@ contains=Black Stalker/2d2+1:100,Black Stalker/2d2:50
 name=ageyrs.bones.1
 contains=Ageyr's Bones/1d1:100
 @
+name=einherjar.berserkers.1
+contains=Einherjar Berserker/6d2+2:100
+@
 name=frost.wyrm.1
 contains=Frost Wyrm/1d1:100
 @

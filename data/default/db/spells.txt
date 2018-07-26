@@ -4156,6 +4156,27 @@ secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
 @
+name=Song of the Warriors of Valhalla
+displayName=Song of the Warriors of Valhalla
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Conjuration
+book=Gold Magic
+spellEffects=song of the warriors of valhalla:100
+description=sings a song that summons the departed heroes back to battle!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Hexxer - Trap
 displayName=Hexxer - Trap
 hitPointCost=
