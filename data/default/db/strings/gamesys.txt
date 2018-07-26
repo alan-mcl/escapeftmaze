@@ -1288,6 +1288,11 @@ lap_name_song_of_strength = Song of Strength
 lap_desc_song_of_strength = The Skald sings a great song of power to strengthen the party.
 lap_name_stun_into_silence = Stun Into Silence
 lap_desc_stun_into_silence = The Skald's performance stuns the audience into silence.
+lap_name_thick_skinned = Thick Skinned
+lap_desc_thick_skinned = The Skald shrugs off cuts, scratches and critics.
+lap_name_battle_prowess = Battle Prowess
+lap_desc_battle_prowess = The Skald's presence inspires the party to great confidence in combat.
+
 
 # Sohei
 lap_name_ki_fury = Ki Fury
