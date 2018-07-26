@@ -2188,6 +2188,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=song of rejuvenation
+displayName=song of rejuvenation
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=5::1/1/SCALE_WITH_CASTING_LEVEL//false:1/1/SCALE_WITH_CASTING_LEVEL//false::1/1/SCALE_WITH_CASTING_LEVEL//false
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=earthquake spell fear
 displayName=fear
 type=MENTAL

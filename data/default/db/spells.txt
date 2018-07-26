@@ -8671,6 +8671,27 @@ secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
 @
+name=Song of Rejuvenation
+displayName=Song of Rejuvenation
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=2
+school=Blessing
+book=Gold Magic
+spellEffects=song of rejuvenation:100
+description=sings an song of rebirth and renewal!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Burning Hands
 displayName=Burning Hands
 hitPointCost=

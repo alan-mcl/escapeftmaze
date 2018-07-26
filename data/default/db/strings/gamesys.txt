@@ -1292,6 +1292,8 @@ lap_name_thick_skinned = Thick Skinned
 lap_desc_thick_skinned = The Skald shrugs off cuts, scratches and critics.
 lap_name_battle_prowess = Battle Prowess
 lap_desc_battle_prowess = The Skald's presence inspires the party to great confidence in combat.
+lap_name_song_of_rejuvenation = Song of Rejuvenation
+lap_desc_song_of_rejuvenation = The Skald's song restores the party to health and vitality.
 
 
 # Sohei
