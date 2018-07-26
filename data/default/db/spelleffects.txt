@@ -248,6 +248,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=frightful boasting
+displayName=song of ambition
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::frightful boasting
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=cloak of magic spell
 displayName=
 type=AIR

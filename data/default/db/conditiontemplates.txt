@@ -321,6 +321,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=frightful boasting
+displayName=frightful boasting
+icon=condition/frightfulboasting
+adjective=inspired
+conditionEffect=none
+duration=1/2/NONE//false,1/1/SCALE_WITH_CLASS_LEVEL/Skald/false
+strength=1/1/SCALE_WITH_CLASS_LEVEL/Skald/false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=4000000588120000001f8,02020202020202020202020202
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=haste spell
 displayName=Haste
 icon=condition/haste

@@ -3295,6 +3295,27 @@ secondaryModifier=STEAL
 wildMagicValue=
 wildMagicTable=
 @
+name=Frightful Boasting
+displayName=Frightful Boasting
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Blessing
+book=Gold Magic
+spellEffects=frightful boasting:100
+description=makes a string of bold claims!
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold portrait animation
+castByFoeScript=
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=CHANT
+wildMagicValue=
+wildMagicTable=
+@
 name=Darkness
 displayName=Darkness
 hitPointCost=
