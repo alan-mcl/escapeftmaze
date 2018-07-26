@@ -1296,6 +1296,8 @@ lap_name_song_of_rejuvenation = Song of Rejuvenation
 lap_desc_song_of_rejuvenation = The Skald's song restores the party to health and vitality.
 lap_name_frightful_boasting = Frightful Boasting
 lap_desc_frightful_boasting = The Skald's boastful proclamations inspires him or her to great deeds.
+lap_name_battle_scion = Battle Scion
+lap_desc_battle_scion = The Skald has a chance of cheating death itself.
 
 
 # Sohei
