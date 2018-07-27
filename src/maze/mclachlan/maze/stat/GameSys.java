@@ -555,7 +555,7 @@ public class GameSys
 		Maze.log(Log.DEBUG, "ammoDamage = [" + ammoDamage + "]");
 		Maze.log(Log.DEBUG, "diceDamageRoll = [" + diceDamageRoll + "]");
 		Maze.log(Log.DEBUG, "ammoDamageRoll = [" + ammoDamageRoll + "]");
-		Maze.log(Log.DEBUG, "bpDamageMod = [" + bpDamageMod + "]");
+		Maze.log(Log.DEBUG, "bodyPartDamageMod = [" + bpDamageMod + "]");
 		Maze.log(Log.DEBUG, "eventDamageMod = [" + eventDamageMod + "]");
 		Maze.log(Log.DEBUG, "armourSoak = [" + armourSoak + "]");
 		Maze.log(Log.DEBUG, "favouredEnemy = [" + favouredEnemy + "]");

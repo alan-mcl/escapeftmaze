@@ -709,6 +709,8 @@ lap_name_blind_fighting = Blind Fighting
 lap_desc_blind_fighting = This character can attack and defend normally while blind.
 lap_name_melee_cleave = Melee Cleave
 lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, this character will make one extra attack against another foe.
+lap_name_lightning_strike_spear = Lightning Strike - Spear %s
+lap_desc_lightning_strike_spear = This modifier governs how many strikes the character makes with each special ability use.
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -1228,8 +1230,6 @@ lap_name_axe_parry = Axe Parry %s
 lap_desc_axe_parry = Fighting with an axe, the Shaman can block incoming blows.
 lap_name_spear_strike = Spear Strike
 lap_desc_spear_strike = Armed with a spear, the Shaman can execute a rapid series of strikes against a foe.
-lap_name_lightning_strike_spear = Lightning Strike - Spear %s
-lap_desc_lightning_strike_spear = This modifier governs how many strikes the Shaman makes with each Spear Strike.
 lap_name_burning_speed = Burning Speed
 lap_desc_burning_speed = The Shaman calls upon the element of fire to speed his or her movements.
 lap_name_surge_stance = Surge Stance
@@ -1308,6 +1308,12 @@ lap_name_unsurprised = Unsurprised
 lap_desc_unsurprised = When the party is ambushed the Sohei can act in the surprise round.
 lap_name_awareness = Awareness
 lap_desc_awareness = The Sohei's is always scanning the surroundings.
+lap_name_power_strike = Power Strike
+lap_desc_power_Strike = The Sohei's powerful blows deal extra damage.
+lap_name_sohei_grit = Sohei Grit
+lap_desc_sohei_grit = The Sohei can't be knocked unconscious.
+lap_name_yari_kata = Yari Kata
+lap_desc_yari_kata = The Sohei can execute a series of rapid attacks with a polearm.
 
 # Sorcerer
 lap_name_power_within = Power Within
