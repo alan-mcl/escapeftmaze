@@ -705,6 +705,10 @@ lap_name_acrobatics = Acrobatics
 lap_desc_acrobatics = With great agility this character can easily evade melee attacks.
 lap_name_poison_use = Poison Use
 lap_desc_poison_use = This character applies a foul poison to weapons that he or she wields.
+lap_name_blind_fighting = Blind Fighting
+lap_desc_blind_fighting = This character can attack and defend normally while blind.
+lap_name_melee_cleave = Melee Cleave
+lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, this character will make one extra attack against another foe.
 
 # stealth abilities
 lap_name_backstab1 = Backstab 1
@@ -1034,8 +1038,6 @@ lap_name_champion = Champion
 lap_desc_champion = Giants and their misbegotten kin flee before the mighty Hero.
 lap_name_legend = Legend
 lap_desc_legend = Even Dragons fear the name of the legendary Hero.
-lap_name_melee_cleave = Melee Cleave
-lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, the Hero will make one extra attack against another foe.
 lap_name_second_wind = Second Wind
 lap_desc_second_wind = The Hero removes all fatigue and heals a small amount.
 lap_name_iron_skin = Iron Skin
@@ -1071,8 +1073,6 @@ lap_name_monk_resistances = Monk Resistances
 lap_desc_monk_resistances = Monk Resistances
 lap_name_monk_skills = Monk Skills
 lap_desc_monk_skills = The Monk's exotic training and spiritual discipline gives him or her a variety of abilities, resistances and immunities that appear almost supernatural to the uninitiated.
-lap_name_blind_fighting = Blind Fighting
-lap_desc_blind_fighting = The Monk can attack and defend normally while blind.
 lap_name_combo_strike = Combo Strike
 lap_desc_combo_strike = When fighting unarmed, the Monk has the ability to unleash a flurry of lightning fast blows.
 lap_name_lighting_strike_unarmed = Lightning Strike - Unarmed %s
@@ -1301,10 +1301,13 @@ lap_desc_battle_scion = The Skald has a chance of cheating death itself.
 lap_name_song_of_the_warriors_of_valhalla = Song of the Warriors of Valhalla
 lap_desc_song_of_the_warriors_of_valhalla = The Skald sings a song that summons the departed heroes of legend back to battle once more!
 
-
 # Sohei
 lap_name_ki_fury = Ki Fury
 lap_desc_ki_fury = The Sohei gains a bonus to his or her attack rate depending on the amount of Green magic present.
+lap_name_unsurprised = Unsurprised
+lap_desc_unsurprised = When the party is ambushed the Sohei can act in the surprise round.
+lap_name_awareness = Awareness
+lap_desc_awareness = The Sohei's is always scanning the surroundings.
 
 # Sorcerer
 lap_name_power_within = Power Within
