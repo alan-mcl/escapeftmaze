@@ -28,7 +28,7 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class ActorCheatsDeathEvent extends MazeEvent
 {
-	UnifiedActor actor;
+	private UnifiedActor actor;
 
 	/*-------------------------------------------------------------------------*/
 	public ActorCheatsDeathEvent(UnifiedActor actor)

@@ -1,4 +1,4 @@
----------------------------------------
+x---------------------------------------
 v0.918 (????)
 ---------------------------------------
 Features
@@ -11,6 +11,7 @@ Features
  - Shaman class abilities: Deadly Throw, Battle Master
  - Shugenja class abilities: Arrow Catching, Displacer
  - Skald class abilities: Inspiring Blow, Recorder of Great Deeds
+ - Sohei class abilities: Die Hard
 
 Other
  - Refactoring action point regen to be consistent with other resources

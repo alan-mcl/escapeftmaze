@@ -192,15 +192,18 @@ public class ActorDiesEvent extends MazeEvent
 			result.add(new SummoningSucceedsEvent(foeGroups, victim));
 		}
 
-		// check for INSPIRING_BLOW effects
-		int inspiringBlow = attacker.getModifier(Stats.Modifier.INSPIRING_BLOW);
-		if (inspiringBlow > 0 && maze.getCurrentCombat() != null)
+		if (attacker != null)
 		{
-			Spell spell = GameSys.getInstance().getInspiringBlowSpell(attacker);
-			SpellAction sa = new SpellAction(attacker.getActorGroup(), spell, inspiringBlow);
-			sa.setActor(attacker);
+			// check for INSPIRING_BLOW effects
+			int inspiringBlow = attacker.getModifier(Stats.Modifier.INSPIRING_BLOW);
+			if (inspiringBlow > 0 && maze.getCurrentCombat() != null)
+			{
+				Spell spell = GameSys.getInstance().getInspiringBlowSpell(attacker);
+				SpellAction sa = new SpellAction(attacker.getActorGroup(), spell, inspiringBlow);
+				sa.setActor(attacker);
 
-			result.addAll(ActorActionResolver.resolveAction(sa, maze.getCurrentCombat()));
+				result.addAll(ActorActionResolver.resolveAction(sa, maze.getCurrentCombat()));
+			}
 		}
 
 		// set victim hits to 0, so that we don't have issues with negative hits

@@ -239,6 +239,8 @@ public class Stats
 		spellCastingLevels.add(PURPLE_MAGIC_SPELLS);
 		spellCastingLevels.add(RED_MAGIC_SPELLS);
 
+		otherCombat.add(CHEAT_DEATH);
+		otherCombat.add(DIE_HARD);
 		otherCombat.add(BLIND_FIGHTING);
 		otherCombat.add(ARROW_CUTTING);
 		otherCombat.add(ARROW_CATCHING);
@@ -756,6 +758,7 @@ public class Stats
 		BONUS_EXPERIENCE_COMBAT(271, "bonusExperienceCombat", ModifierMetric.PERCENTAGE),
 		BONUS_EXPERIENCE_STEALTH(272, "bonusExperienceStealth", ModifierMetric.PERCENTAGE),
 		BONUS_EXPERIENCE_MAGIC(273, "bonusExperienceMagic", ModifierMetric.PERCENTAGE),
+		DIE_HARD(274, "dieHard", ModifierMetric.BOOLEAN),
 		;
 
 		/**

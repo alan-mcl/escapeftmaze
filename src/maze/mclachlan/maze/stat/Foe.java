@@ -130,7 +130,7 @@ public class Foe extends UnifiedActor
 
 			for (Item i : items)
 			{
-				Maze.log(Log.DEBUG, getName()+" carries "+i.getDisplayName());
+				Maze.log(Log.DEBUG, getName()+" carries "+i.getName());
 				addInventoryItem(i);
 			}
 		}

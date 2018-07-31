@@ -105,6 +105,8 @@ public class DamageEvent extends MazeEvent
 	 */ 
 	public List<MazeEvent> resolve()
 	{
+		final Maze maze = Maze.getInstance();
+
 		// todo: maybe move all this into GameSys?
 
 		int damage = this.damagePacket.getAmount();
@@ -156,10 +158,21 @@ public class DamageEvent extends MazeEvent
 		if (hitPoints.getCurrent() <= 0 || criticalHit)
 		{
 			// defender is dead
+
 			if (GameSys.getInstance().actorCheatsDeath(defender))
 			{
+				// check for CHEAT_DEATH
 				GameSys.getInstance().cheatDeath(defender);
 				result.add(new ActorCheatsDeathEvent(defender));
+			}
+			else if (maze.getCurrentCombat() != null &&
+				defender.getModifier(Stats.Modifier.DIE_HARD) > 0)
+			{
+				// check for DIE_HARD
+				// set to 1 hp so as to keep fighting
+				defender.getHitPoints().setCurrent(1);
+				defender.getCombatantData().setDieHard(true);
+				result.add(new UiMessageEvent(StringUtil.getEventText("msg.die.hard", defender.getDisplayName())));
 			}
 			else
 			{

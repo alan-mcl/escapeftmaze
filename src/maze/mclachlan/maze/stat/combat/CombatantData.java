@@ -37,13 +37,17 @@ public class CombatantData
 
 	private int intiative;
 	private boolean active=true;
-	private boolean displaced =false;
+	private boolean displaced=false;
+	private boolean dieHard=false;
 
 	public void startRound()
 	{
+		this.intiative = 0;
 		this.currentAction = null;
 		this.currentIntention = null;
 		this.miscModifiers = new StatModifier();
+		this.dieHard = false;
+		this.displaced = false;
 	}
 
 	public void endRound()
@@ -151,5 +155,19 @@ public class CombatantData
 	public void setIntiative(int intiative)
 	{
 		this.intiative = intiative;
+	}
+
+	/**
+	 * Flag to indicate that this actor has activated the DIE_HARD ability this
+	 * turn, and will expire at the end of the round.
+	 */
+	public void setDieHard(boolean dieHard)
+	{
+		this.dieHard = dieHard;
+	}
+
+	public boolean isDieHard()
+	{
+		return dieHard;
 	}
 }

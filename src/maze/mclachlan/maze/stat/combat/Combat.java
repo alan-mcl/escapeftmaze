@@ -24,6 +24,7 @@ import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.event.ActorDiesEvent;
 import mclachlan.maze.stat.combat.event.BerserkEvent;
 import mclachlan.maze.stat.combat.event.CloudSpellEndOfTurn;
 import mclachlan.maze.stat.condition.CloudSpell;
@@ -354,6 +355,12 @@ public class Combat
 			if (metaData != null)
 			{
 				metaData.endRound();
+
+				// check for DIE_HARD
+				if (metaData.isDieHard())
+				{
+					result.add(new ActorDiesEvent(actor, null));
+				}
 			}
 		}
 

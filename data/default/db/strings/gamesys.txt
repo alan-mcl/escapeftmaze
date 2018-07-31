@@ -294,6 +294,8 @@ modifier_name-inspiringBlow: Inspiring Blow
 modifier_name-bonusExperienceCombat: Bonus Experience: Combat Focus
 modifier_name-bonusExperienceStealth: Bonus Experience: Stealth Focus
 modifier_name-bonusExperienceMagic: Bonus Experience: Magic Focus
+modifier_name-dieHard = Die Hard
+
 
 # Modifier Descriptions
 
@@ -581,6 +583,7 @@ modifier_desc-inspiringBlow: When this character strikes the blow that slays a f
 modifier_desc-bonusExperienceCombat: If this character belongs to a combat focused class, he or she gains extra experience.
 modifier_desc-bonusExperienceStealth: If this character belongs to a stealth focused class, he or she gains extra experience.
 modifier_desc-bonusExperienceMagic: If this character belongs to a magic focused class, he or she gains extra experience.
+modifier_desc-dieHard = When this character takes lethal damage in combat, he or she keeps fighting until the end of the round.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1314,6 +1317,8 @@ lap_name_sohei_grit = Sohei Grit
 lap_desc_sohei_grit = The Sohei can't be knocked unconscious.
 lap_name_yari_kata = Yari Kata
 lap_desc_yari_kata = The Sohei can execute a series of rapid attacks with a polearm.
+lap_name_die_hard = Die Hard
+lap_desc_die_hard = When the Sohei takes lethal damage in combat, he or she keeps fighting until the end of the round.
 
 # Sorcerer
 lap_name_power_within = Power Within

@@ -76,6 +76,8 @@ public class StatModifierPanel extends JDialog implements ActionListener, Change
 		other.removeAll(Stats.otherStealth);
 		other.removeAll(Stats.otherMagic);
 
+		Collections.sort(other, new Stats.ModifierComparatorAlphabetic());
+
 		statisticsMinusResistances = new ArrayList<Stats.Modifier>(Stats.statistics);
 		statisticsMinusResistances.removeAll(Stats.resistancesAndImmunities);
 
