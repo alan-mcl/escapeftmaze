@@ -1319,6 +1319,11 @@ lap_name_yari_kata = Yari Kata
 lap_desc_yari_kata = The Sohei can execute a series of rapid attacks with a polearm.
 lap_name_die_hard = Die Hard
 lap_desc_die_hard = When the Sohei takes lethal damage in combat, he or she keeps fighting until the end of the round.
+lap_name_prepare_for_battle_1 = Prepare For Battle 1
+lap_name_prepare_for_battle_2 = Prepare For Battle 2
+lap_name_prepare_for_battle_3 = Prepare For Battle 3
+lap_name_prepare_for_battle_4 = Prepare For Battle 4
+lap_desc_prepare_for_battle = Through meditation the Sohei prepares him or herself for upcoming battle.
 
 # Sorcerer
 lap_name_power_within = Power Within

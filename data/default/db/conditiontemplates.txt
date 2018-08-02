@@ -1570,6 +1570,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=prepare for battle
+displayName=prepare for battle
+icon=condition/prepareforbattle
+adjective=resolute
+conditionEffect=none
+duration=1/1/SCALE_WITH_CLASS_LEVEL/Sohei/false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=7000000000000,0a0a0a
+bannerModifier=0,
+scaleModifierWithStrength=true
+strengthWanes=false
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=SCALING_IRRITATE
 displayName=Irritate
 icon=condition/irritate

@@ -7390,6 +7390,27 @@ secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Prepare For Battle
+displayName=Prepare For Battle
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Transmutation
+book=Green Magic
+spellEffects=prepare for battle:100
+description=steels for battle
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=green portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=CHANT
+secondaryModifier=HERBAL
+wildMagicValue=
+wildMagicTable=
+@
 name=Restore Health
 displayName=Restore Health
 hitPointCost=

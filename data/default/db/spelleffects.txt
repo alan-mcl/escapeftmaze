@@ -1978,6 +1978,16 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
+name=prepare for battle
+displayName=prepare for battle
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::prepare for battle
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=striking spell
 displayName=
 type=ENERGY
