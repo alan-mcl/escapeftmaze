@@ -742,6 +742,13 @@ public class SpellTargetUtils
 		else
 		{
 			sr = effect.getSavedResult();
+
+			// check for RESISTANT_SAVES
+			if (sr instanceof DamageSpellResult &&
+				victim.getModifier(Stats.Modifier.RESISTANT_SAVES) > 0)
+			{
+				sr = null;
+			}
 		}
 
 		List<MazeEvent> result = new ArrayList<MazeEvent>();

@@ -759,6 +759,7 @@ public class Stats
 		BONUS_EXPERIENCE_STEALTH(272, "bonusExperienceStealth", ModifierMetric.PERCENTAGE),
 		BONUS_EXPERIENCE_MAGIC(273, "bonusExperienceMagic", ModifierMetric.PERCENTAGE),
 		DIE_HARD(274, "dieHard", ModifierMetric.BOOLEAN),
+		RESISTANT_SAVES(275, "resistantSaves", ModifierMetric.BOOLEAN),
 		;
 
 		/**

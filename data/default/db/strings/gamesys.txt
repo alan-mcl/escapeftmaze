@@ -294,8 +294,8 @@ modifier_name-inspiringBlow: Inspiring Blow
 modifier_name-bonusExperienceCombat: Bonus Experience: Combat Focus
 modifier_name-bonusExperienceStealth: Bonus Experience: Stealth Focus
 modifier_name-bonusExperienceMagic: Bonus Experience: Magic Focus
-modifier_name-dieHard = Die Hard
-
+modifier_name-dieHard: Die Hard
+modifier_name-resistantSaves: Resistant Saves
 
 # Modifier Descriptions
 
@@ -583,7 +583,8 @@ modifier_desc-inspiringBlow: When this character strikes the blow that slays a f
 modifier_desc-bonusExperienceCombat: If this character belongs to a combat focused class, he or she gains extra experience.
 modifier_desc-bonusExperienceStealth: If this character belongs to a stealth focused class, he or she gains extra experience.
 modifier_desc-bonusExperienceMagic: If this character belongs to a magic focused class, he or she gains extra experience.
-modifier_desc-dieHard = When this character takes lethal damage in combat, he or she keeps fighting until the end of the round.
+modifier_desc-dieHard: When this character takes lethal damage in combat, he or she keeps fighting until the end of the round.
+modifier_desc-resistantSaves: When this character succeeds at a saving throw and would still take damage, he or she takes no damage instead.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1324,6 +1325,8 @@ lap_name_prepare_for_battle_2 = Prepare For Battle 2
 lap_name_prepare_for_battle_3 = Prepare For Battle 3
 lap_name_prepare_for_battle_4 = Prepare For Battle 4
 lap_desc_prepare_for_battle = Through meditation the Sohei prepares him or herself for upcoming battle.
+lap_name_sohei_resistance = Sohei Resistance
+lap_desc_sohei_resistance = The Sohei takes no damage from successful saving throws.
 
 # Sorcerer
 lap_name_power_within = Power Within
