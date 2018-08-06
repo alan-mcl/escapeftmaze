@@ -733,6 +733,8 @@ lap_name_dodge = Dodge %s
 lap_desc_dodge = This character has a chance of dodging melee and missile attacks.
 lap_name_lockpicker = Locks and Traps %s
 lap_desc_lockpicker = This character is good at picking locks and disarming traps.
+lap_name_slip_away = Slip Away
+lap_desc_slip_away = If this character is the last one left alive in the party, he or she will automatically escape from combat.
 
 # NPC abilities
 lap_name_threaten = Threaten
@@ -867,8 +869,6 @@ lap_name_evasion = Evasion
 lap_desc_evasion = Discretion being the better part of valour, the Courtesan receives a bonus to attempts to run away from combat.
 lap_name_charmed_destiny = Charmed Destiny
 lap_desc_charmed_destiny = The Courtesan receives a bonus to various protective modifiers based on the amount of Purple magic present.
-lap_name_slip_away = Slip Away
-lap_desc_slip_away = If the Courtesan is the last one left alive in the party, she will automatically escape from combat.
 lap_name_hidden_blade_1 = Hidden Blade 1
 lap_name_hidden_blade_2 = Hidden Blade 2
 lap_name_hidden_blade_3 = Hidden Blade 3
@@ -1242,7 +1242,6 @@ lap_desc_elemental_manifestation = The Shaman is one with the elements.
 lap_name_battle_master = Battle Master
 lap_desc_battle_master = The Shaman regains Action Points every time he or she is wounded.
 
-
 # Shugenja
 lap_name_displacer = Displacer
 lap_desc_displacer = The Shugenja can change places with another character in the party before each combat round starts.
@@ -1344,6 +1343,15 @@ lap_desc_wand_crafting = The Sorcerer can create a powerful wand that can be use
 # Troubadour
 lap_name_tumble = Tumble
 lap_desc_tumble = The agile Troubadour is quick on the draw and hard to hit in combat.
+lap_name_up_to_no_good = Up To No Good
+lap_desc_up_to_no_good = You better watch the Troubadour closely in town.
+lap_name_harmless = Harmless
+lap_desc_harmless = The Troubadour doesn't look like much of a threat and tends to be ignored by foes.
+lap_name_expanded_repertoire = Expanded Repertoire
+lap_desc_expanded_repertoire = The Troubadour learns a few extra spells.
+lap_name_still_up_to_no_good = Still Up To No Good
+lap_desc_still_up_to_no_good = Some rascals just can't be reformed.
+
 
 # Warlock
 lap_name_ruthless = Ruthless
