@@ -1330,7 +1330,10 @@ lap_name_ambition = Ambition
 lap_desc_ambition = The Sorcerer gets an extra starting spell pick.
 lap_name_force_field = Force Field
 lap_desc_force_field = The Sorcerer generates a magical field that enhances the defence of the whole party.
-
+lap_name_cryptozoology = Cryptozoology
+lap_desc_cryptozoology = The Sorcerer has studied the creatures of the Maze.
+lap_name_ancient_history = Ancient History
+lap_desc_ancient_history = The Sorcerer has studied ancient history, myths and legends.
 
 # Troubadour
 lap_name_tumble = Tumble
