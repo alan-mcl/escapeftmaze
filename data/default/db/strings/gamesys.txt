@@ -1063,13 +1063,6 @@ lap_desc_greater_cleave = Cleaves on killing blows are no longer limited to just
 lap_name_last_stand = Last Stand
 lap_desc_last_stand = If the Hero is the last party member still alive in battle, he or she get a boost to carry on the fight.
 
-
-# Magician
-lap_name_ambition = Ambition
-lap_desc_ambition = The studious Magician gets an extra starting spell pick.
-lap_name_force_field = Force Field
-lap_desc_force_field = The Magician generates a magical field that enhances the defence of the whole party.
-
 # Monk
 lap_name_mindshield = Mindshield
 lap_desc_mindshield = The Monk's mind is hard to attack.
@@ -1333,6 +1326,11 @@ lap_name_power_within = Power Within
 lap_desc_power_within = The Sorcerer is a walking source of one red magic for the entire party.
 lap_name_force_of_will = Force of Will
 lap_desc_force_of_will = The Sorcerer gets a boost to his Power Cast skill.
+lap_name_ambition = Ambition
+lap_desc_ambition = The Sorcerer gets an extra starting spell pick.
+lap_name_force_field = Force Field
+lap_desc_force_field = The Sorcerer generates a magical field that enhances the defence of the whole party.
+
 
 # Troubadour
 lap_name_tumble = Tumble
