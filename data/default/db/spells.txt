@@ -4681,6 +4681,27 @@ secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
 @
+name=Wand Crafting
+displayName=Wand Crafting
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=0
+school=Evocation
+book=Red Magic
+spellEffects=WAND_CRAFTING:100
+description=gets crafting...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=red portrait animation
+castByFoeScript=
+usabilityType=2
+primaryModifier=GESTURE
+secondaryModifier=THOUGHT
+wildMagicValue=
+wildMagicTable=
+@
 name=Purify Air
 displayName=Purify Air
 hitPointCost=

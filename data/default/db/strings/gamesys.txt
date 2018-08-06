@@ -1338,6 +1338,8 @@ lap_name_arcane_strike_1 = Arcane Strike 1
 lap_name_arcane_strike_2 = Arcane Strike 2
 lap_name_arcane_strike_3 = Arcane Strike 3
 lap_desc_arcane_strike = The Sorcerer's weapon flies from his hand and strikes a foe at range, then returns.
+lap_name_wand_crafting = Wand Crafting
+lap_desc_wand_crafting = The Sorcerer can create a powerful wand that can be used by other party members.
 
 # Troubadour
 lap_name_tumble = Tumble

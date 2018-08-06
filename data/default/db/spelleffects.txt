@@ -1258,6 +1258,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=WAND_CRAFTING
+displayName=WAND_CRAFTING
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=16::WAND_CRAFTING:true
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=daylight stealth damage
 displayName=
 type=ENERGY

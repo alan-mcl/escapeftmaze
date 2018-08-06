@@ -61,6 +61,9 @@ contains=0,Greek Fire/1d1:13,High Voltage Transformer/1d1:13,Large Battery/1d1:1
 name=batch.4.magic.weapons
 contains=0,Odinsword/1d1:7,Rod Of Sprites/1d1:7,Muramasa Blade/1d1:7,Excalibur/1d1:7,Zatoichi Bo/1d1:7,Cane Of Corpus/1d1:7,Blades Of Aesir/1d1:7,Mindblast Rod/1d1:7,Short Sword Of Swinging/1d1:7,Butterfly Knife/1d1:7,Sylvan Bow/1d1:6,Bloodwand/1d1:6,Was Staff/1d1:6,Claw Of Despair/1d1:6,Minerva's Tresses/1d1:6
 @
+name=wand.crafting.1
+contains=0,Wytch Stix/5d5:8,Fire Stix/5d5:8,Sparkle Stix/5d5:7,Icicle Stix/5d5:7,Knock Pick/2d5:7,Mindread Wand/2d5:7,Charming Wand/2d5:7,Cracker Stix/2d5:7,Fire Stix/2d5:7,Rocket Stix/2d5:7,Bottlerocket/2d5:7,Demolition Stix/2d2:7,Detonation Tube/2d2:7,Null Magic Wand/2d2:7
+@
 name=batch.3.ammo
 contains=0,Mystic Arrow/3d10:12,Viper Arrow/3d10:11,Impaling Stone/3d10:11,Clothyard Shaft/3d10:11,Gold Nugget/3d10:11,Bone Breaker/3d10:11,Demon Quarrel/3d10:11,Fear Bolt/3d10:11,DU Slug/3d10:11
 @
