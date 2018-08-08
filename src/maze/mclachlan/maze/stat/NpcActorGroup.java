@@ -136,4 +136,10 @@ public class NpcActorGroup implements ActorGroup
 	{
 		return npc;
 	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return getNpc().getDisplayName()+" and retinue";
+	}
 }

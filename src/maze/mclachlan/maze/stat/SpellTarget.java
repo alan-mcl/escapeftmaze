@@ -21,4 +21,5 @@ package mclachlan.maze.stat;
 
 public interface SpellTarget
 {
+	String getDisplayName();
 }

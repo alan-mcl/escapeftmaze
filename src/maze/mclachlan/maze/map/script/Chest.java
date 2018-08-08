@@ -346,6 +346,12 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		return result;
 	}
 
+	@Override
+	public String getDisplayName()
+	{
+		return "Treasure Chest";
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public static class State
 	{

@@ -246,4 +246,10 @@ public class FoeGroup implements ActorGroup
 		sb.append('}');
 		return sb.toString();
 	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return "FoeGroup";
+	}
 }

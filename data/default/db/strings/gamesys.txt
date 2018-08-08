@@ -1351,6 +1351,10 @@ lap_name_expanded_repertoire = Expanded Repertoire
 lap_desc_expanded_repertoire = The Troubadour learns a few extra spells.
 lap_name_still_up_to_no_good = Still Up To No Good
 lap_desc_still_up_to_no_good = Some rascals just can't be reformed.
+lap_name_prank_1 = Prank 1
+lap_name_prank_2 = Prank 2
+lap_name_prank_3 = Prank 3
+lap_desc_prank = The Troubadour pranks an opponent somehow, putting them at a disadvantage.
 
 
 # Warlock

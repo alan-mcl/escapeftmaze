@@ -58,6 +58,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=troubadour prank
+displayName=prank spell result
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.PrankSpellResult
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=TOUCH_DISEASE
 displayName=disease
 type=WATER

@@ -2329,6 +2329,27 @@ secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
 @
+name=Prank
+displayName=Prank
+hitPointCost=
+actionPointCost=1/2/NONE//false
+magicPointCost=
+targetType=3
+school=Illusion
+book=Gold Magic
+spellEffects=troubadour prank:100
+description=tries something unusual...
+level=1
+requirementsToLearn=0,
+manaRequirements=
+castByPlayerScript=gold enchantment from player
+castByFoeScript=gold enchantment from foe
+usabilityType=1
+primaryModifier=POSTURE
+secondaryModifier=RHYME
+wildMagicValue=
+wildMagicTable=
+@
 name=Song of Rage
 displayName=Song of Rage
 hitPointCost=

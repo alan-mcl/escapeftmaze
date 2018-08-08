@@ -277,7 +277,7 @@ public class PrayForMiracleSpellResult extends SpellResult
 				maze.getCurrentCombat(),
 				source,
 				sa,
-				false, // todo
+				false,
 				false,
 				new AnimationContext(source));
 		}

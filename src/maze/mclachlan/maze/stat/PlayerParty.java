@@ -561,4 +561,10 @@ public class PlayerParty implements ActorGroup
 
 		return false;
 	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return "Player Party";
+	}
 }
