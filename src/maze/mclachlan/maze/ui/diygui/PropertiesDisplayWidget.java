@@ -193,6 +193,12 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 		int rowCount = STARTING_ROW;
 		for (Stats.Modifier modifier : Stats.propertiesModifiers)
 		{
+			// todo: display excess properties somehow
+			if (rowCount > ROWS)
+			{
+				break;
+			}
+
 			int value = this.character.getModifier(modifier);
 			if (value > 0)
 			{
@@ -200,12 +206,6 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 				propertiesLabels[rowCount].setActionMessage(modifier.toString());
 				propertiesLabels[rowCount].setActionPayload(character);
 				rowCount++;
-			}
-
-			// todo: display excess properties somehow
-			if (rowCount > ROWS)
-			{
-				break;
 			}
 		}
 
