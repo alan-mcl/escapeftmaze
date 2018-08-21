@@ -41,4 +41,10 @@ public class UiMessageEvent extends MazeEvent
 		Maze.getInstance().getUi().addMessage(msg);
 		return null;
 	}
+
+	@Override
+	public int getDelay()
+	{
+		return Maze.getInstance().getUserConfig().getCombatDelay();
+	}
 }

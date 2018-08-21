@@ -834,6 +834,7 @@ public class SpellTargetUtils
 	/**
 	 * @param caster The spell caster, may not be null
 	 * @param combat The current combat, may be null
+	 * @param targetType
 	 * @return
 	 * 	A random but legal and somewhat optimised target for the given
 	 * 	spell target type. e.g. Healing spells will target damaged allies.
@@ -841,9 +842,9 @@ public class SpellTargetUtils
 	public static SpellTarget getRandomSensibleSpellTarget(
 		UnifiedActor caster,
 		Spell spell,
-		Combat combat)
+		Combat combat,
+		int targetType)
 	{
-		int targetType = spell.getTargetType();
 		switch (targetType)
 		{
 			// these target types need no special targeting

@@ -1668,6 +1668,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=spell stealing
+displayName=spell stealing
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.SpellStealingSpellResult
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=paper dragon roar damage
 displayName=
 type=AIR

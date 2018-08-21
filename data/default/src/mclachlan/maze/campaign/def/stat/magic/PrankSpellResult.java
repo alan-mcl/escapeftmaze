@@ -36,7 +36,7 @@ import mclachlan.maze.stat.magic.SpellResult;
 import mclachlan.maze.util.MazeException;
 
 /**
- * Priest's Pray for Miracle ability
+ * Troubadour's Prank ability
  */
 public class PrankSpellResult extends SpellResult
 {

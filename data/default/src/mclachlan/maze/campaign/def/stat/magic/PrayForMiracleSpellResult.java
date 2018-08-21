@@ -265,7 +265,7 @@ public class PrayForMiracleSpellResult extends SpellResult
 			}
 
 			SpellTarget spellTarget = SpellTargetUtils.getRandomSensibleSpellTarget(
-				source, spell, maze.getCurrentCombat());
+				source, spell, maze.getCurrentCombat(), targetType);
 
 			SpellAction sa = new SpellAction(
 				spellTarget,

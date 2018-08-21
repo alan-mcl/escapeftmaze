@@ -143,3 +143,8 @@ msg.prank.irritate.1 = %s tells a bad joke!
 msg.prank.poison.1 = %s scratches a poison needle!
 msg.prank.swallow.1 = % throws a barbed net!
 
+#
+# Spell Stealing messages
+#
+msg.spell.stealing.no.spells = %s knows no spells...
+

@@ -1359,7 +1359,8 @@ lap_name_slick_performance = Slick Performance
 lap_name_wild_performance = Wild Performance
 lap_name_unforgettable_performance = Unforgettable Performance
 lap_desc_slick_performance = The Troubadour unleashes wild magic with an intense performance.
-
+lap_name_spell_stealing = Spell Stealing
+lap_desc_spell_stealing = The Troubadour casts a random spell known by a spell casting foe.
 
 # Warlock
 lap_name_ruthless = Ruthless
