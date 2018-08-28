@@ -296,6 +296,7 @@ modifier_name-bonusExperienceStealth: Bonus Experience: Stealth Focus
 modifier_name-bonusExperienceMagic: Bonus Experience: Magic Focus
 modifier_name-dieHard: Die Hard
 modifier_name-resistantSaves: Resistant Saves
+modifier_name-spellSniping: Spell Sniping
 
 # Modifier Descriptions
 
@@ -585,6 +586,7 @@ modifier_desc-bonusExperienceStealth: If this character belongs to a stealth foc
 modifier_desc-bonusExperienceMagic: If this character belongs to a magic focused class, he or she gains extra experience.
 modifier_desc-dieHard: When this character takes lethal damage in combat, he or she keeps fighting until the end of the round.
 modifier_desc-resistantSaves: When this character succeeds at a saving throw and would still take damage, he or she takes no damage instead.
+modifier_desc-spellSniping: Projectile spells cast by this character count as snipe attacks.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1361,6 +1363,8 @@ lap_name_unforgettable_performance = Unforgettable Performance
 lap_desc_slick_performance = The Troubadour unleashes wild magic with an intense performance.
 lap_name_spell_stealing = Spell Stealing
 lap_desc_spell_stealing = The Troubadour casts a random spell known by a spell casting foe.
+lap_name_spell_sniping = Spell Sniping
+lap_desc_spell_sniping = The Troubadour's projectile spells count as snipe attacks.
 
 # Warlock
 lap_name_ruthless = Ruthless

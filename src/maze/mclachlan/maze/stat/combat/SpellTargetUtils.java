@@ -26,10 +26,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.stat.combat.event.ActorUnaffectedEvent;
-import mclachlan.maze.stat.combat.event.CloudSpellEvent;
-import mclachlan.maze.stat.combat.event.DefendEvent;
-import mclachlan.maze.stat.combat.event.MagicAbsorptionEvent;
+import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.condition.CloudSpell;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
@@ -687,6 +684,31 @@ public class SpellTargetUtils
 			animationContext.addTarget(victim);
 		}
 
+		// projectile spells must make a hit roll here
+		if (spell.isProjectile())
+		{
+			StrikeEvent se = new StrikeEvent(
+				Maze.getInstance().getCurrentCombat(),
+				caster,
+				victim,
+				new Spell.SpellAttackWith(spell, caster, castingLevel),
+				new AttackType(null, null, spell.getPrimaryModifier(), MagicSys.SpellEffectType.NONE),
+				MagicSys.SpellEffectType.NONE,
+				animationContext,
+				StatModifier.NULL_STAT_MODIFIER,
+				null);
+
+			se.setRandomBodyPart(caster, victim);
+
+			// if it missed, early exit
+			int hitPercent = GameSys.getInstance().calcHitPercent(se);
+			if (Dice.d100.roll("projectile spell hit percent ["+hitPercent+"]") > hitPercent)
+			{
+				result.add(new AttackMissEvent(caster, victim));
+				return result;
+			}
+		}
+
 		// iterate over spell effects
 		for (SpellEffect effect : effects)
 		{
@@ -704,7 +726,7 @@ public class SpellTargetUtils
 		}
 
 		// kick in the Magic Absorption ability
-		if (victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION) > 0)
+		if (!spell.isProjectile() && victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION) > 0)
 		{
 			result.add(new MagicAbsorptionEvent(victim));
 		}

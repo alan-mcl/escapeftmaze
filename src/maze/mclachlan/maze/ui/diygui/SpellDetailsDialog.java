@@ -118,7 +118,13 @@ public class SpellDetailsDialog extends GeneralDialog
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.target.type",
 			StringUtil.descSpellTargetType(spell.getTargetType()))));
 		newRow(rows);
-		
+
+		if (spell.isProjectile())
+		{
+			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.projectile")));
+			newRow(rows);
+		}
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.usability.type",
 			StringUtil.descSpellUsabilityType(spell.getUsabilityType()))));
 		newRow(rows);

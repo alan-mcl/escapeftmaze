@@ -191,6 +191,10 @@ public class V1Spell
 			b.append("wildMagicTable=");
 			b.append(V1Utils.toStringStrings(obj.getWildMagicTable(), ","));
 			b.append(V1Utils.NEWLINE);
+
+			b.append("projectile=");
+			b.append(obj.isProjectile());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -226,6 +230,7 @@ public class V1Spell
 			String secondaryModifier = p.getProperty("secondaryModifier");
 			ValueList wildMagicValue = V1Value.fromString(p.getProperty("wildMagicValue"));
 			String[] wildMagicTable = V1Utils.fromStringStrings(p.getProperty("wildMagicTable"), ",");
+			boolean projectile = Boolean.valueOf(p.getProperty("projectile"));
 
 			ValueList hitPointCost = V1Value.fromString(p.getProperty("hitPointCost"));
 			ValueList actionPointCost = V1Value.fromString(p.getProperty("actionPointCost"));
@@ -251,7 +256,8 @@ public class V1Spell
 				Stats.Modifier.valueOf(primaryModifier),
 				Stats.Modifier.valueOf(secondaryModifier),
 				wildMagicValue,
-				wildMagicTable);
+				wildMagicTable,
+				projectile);
 		}
 	}
 }

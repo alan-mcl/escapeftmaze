@@ -18,6 +18,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Death Cloud - Payload
 displayName=Death Cloud - Payload
@@ -39,6 +40,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Grand Invention
 displayName=Grand Invention
@@ -60,6 +62,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rocket Propelled Grenade
 displayName=Rocket Propelled Grenade
@@ -81,6 +84,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Gruesome Aspect
 displayName=Gruesome Aspect
@@ -102,6 +106,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fire Trap
 displayName=Fire Trap
@@ -123,6 +128,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sense Motive
 displayName=Sense Motive
@@ -144,6 +150,7 @@ primaryModifier=BRAINS
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Elemental
 displayName=Elemental
@@ -165,6 +172,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Theft
 displayName=Theft
@@ -186,6 +194,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poet's Lute
 displayName=Poet's Lute
@@ -207,6 +216,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Poet's Lute,Poet's Lute,Poet's Lute,Poet's Lute,Poet's Lute - Plyze,Poet's Lute - Plyze,Poet's Lute - Plyze,Poet's Lute - Confuse,Poet's Lute - Confuse,Poet's Lute - Confuse
+projectile=false
 @
 name=Windwalker
 displayName=Windwalker
@@ -228,6 +238,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Forest Vengeance
 displayName=Forest Vengeance
@@ -249,6 +260,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pan Pipes - Cure All
 displayName=Pan Pipes - Cure All
@@ -270,6 +282,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Infernal Horn - Allies Beserk
 displayName=Infernal Horn - Allies Beserk
@@ -291,6 +304,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Consecrate
 displayName=Consecrate
@@ -312,6 +326,7 @@ primaryModifier=POWER
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Disable
 displayName=Disable
@@ -333,6 +348,7 @@ primaryModifier=SNEAKING
 secondaryModifier=BACKSTAB
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Horn Of Prometheus - Fire
 displayName=Horn Of Prometheus - Fire
@@ -354,6 +370,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Greater Ammo Stash
 displayName=Greater Ammo Stash
@@ -375,6 +392,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pan Pipes - Summoning
 displayName=Pan Pipes - Summoning
@@ -396,6 +414,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Reflexion
 displayName=Reflexion
@@ -417,6 +436,7 @@ primaryModifier=MARTIAL_ARTS
 secondaryModifier=MARTIAL_ARTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Petrify
 displayName=Petrify
@@ -438,6 +458,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pipes Of Doom
 displayName=Pipes Of Doom
@@ -459,6 +480,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=4/0/NONE//false/1
 wildMagicTable=Pipes Of Doom,Pipes Of Doom,Pipes Of Doom,Pipes Of Doom,Pipes Of Doom - Confuse,Pipes Of Doom - Confuse,Pipes Of Doom - Confuse,Pipes Of Doom - Death,Pipes Of Doom - Death,Pipes Of Doom - Death
+projectile=false
 @
 name=paper dragon roar
 displayName=paper dragon roar
@@ -480,6 +502,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pipes Of The Sea
 displayName=Pipes Of The Sea
@@ -501,6 +524,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/6
 wildMagicTable=Pipes Of The Sea,Pipes Of The Sea,Pipes Of The Sea,Pipes Of The Sea,Pipes Of The Sea - Plyze,Pipes Of The Sea - Plyze,Pipes Of The Sea - Plyze,Pipes Of The Sea - Tsunami,Pipes Of The Sea - Tsunami,Pipes Of The Sea - Tsunami
+projectile=false
 @
 name=Deadly Poison
 displayName=Deadly Poison
@@ -522,6 +546,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cure Disease
 displayName=Cure Disease
@@ -543,6 +568,7 @@ primaryModifier=HERBAL
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Destroy Trap
 displayName=Destroy Trap
@@ -564,6 +590,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mental Blast
 displayName=Mental Blast
@@ -585,6 +612,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lightning Cloud
 displayName=Lightning Cloud
@@ -606,6 +634,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Witch Curse
 displayName=Curse
@@ -627,6 +656,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mandolin Of The Magus
 displayName=Mandolin Of The Magus
@@ -648,6 +678,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Mandolin Of The Magus,Mandolin Of The Magus,Mandolin Of The Magus,Mandolin Of The Magus,Mandolin Of The Magus - Screen,Mandolin Of The Magus - Screen,Mandolin Of The Magus - Screen,Mandolin Of The Magus - Both,Mandolin Of The Magus - Both,Mandolin Of The Magus - Both
+projectile=false
 @
 name=Telekinesis
 displayName=Telekinesis
@@ -669,6 +700,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Power Word Mute
 displayName=Power Word Mute
@@ -690,6 +722,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Chromatic Lyre - Element Shield
 displayName=Chromatic Lyre - Element Shield
@@ -711,6 +744,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Dragon
 displayName=Dragon
@@ -732,6 +766,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Djembe Drum - Haste
 displayName=Djembe Drum - Haste
@@ -753,6 +788,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Blend In
 displayName=Blend In
@@ -774,6 +810,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Elemental Swarm
 displayName=Elemental Swarm
@@ -795,6 +832,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Deadly Dart
 displayName=Deadly Dart
@@ -816,6 +854,7 @@ primaryModifier=THROW
 secondaryModifier=THROWN_CRITICALS
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Charm
 displayName=Charm
@@ -837,6 +876,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cure Stone
 displayName=Cure Stone
@@ -858,6 +898,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Turncoat
 displayName=Turncoat
@@ -879,6 +920,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Guardian Angel
 displayName=Guardian Angel
@@ -900,6 +942,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of Strength
 displayName=Song of Strength
@@ -921,6 +964,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mass Blur
 displayName=Mass Blur
@@ -942,6 +986,7 @@ primaryModifier=HERBAL
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Courage
 displayName=Courage
@@ -963,6 +1008,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rune Of Destruction - Trap
 displayName=Rune Of Destruction - Trap
@@ -984,6 +1030,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Luther's Fiddle - Stamina Regen
 displayName=Luther's Fiddle - Stamina Regen
@@ -1005,6 +1052,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cure All
 displayName=Cure All
@@ -1026,6 +1074,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Psionic Bolt - Trap
 displayName=Psionic Bolt - Trap
@@ -1047,6 +1096,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bolt Of Fire
 displayName=Bolt Of Fire
@@ -1068,6 +1118,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Stamina
 displayName=Stamina
@@ -1089,6 +1140,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Djembe Drum - Summon
 displayName=Djembe Drum - Summon
@@ -1110,6 +1162,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Acid Splash
 displayName=Acid Splash
@@ -1131,6 +1184,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Baleful Sax - Hex
 displayName=Baleful Sax - Hex
@@ -1152,6 +1206,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Soulful Sax - Soulshield
 displayName=Soulful Sax - Soulshield
@@ -1173,6 +1228,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Aura of Regeneration
 displayName=Aura of Regeneration
@@ -1194,6 +1250,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Decay
 displayName=Decay
@@ -1215,6 +1272,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Martyr
 displayName=Martyr
@@ -1236,6 +1294,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Confidence Trick
 displayName=Confidence Trick
@@ -1257,6 +1316,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Eagle Eye
 displayName=Eagle Eye
@@ -1278,6 +1338,7 @@ primaryModifier=SKILL
 secondaryModifier=POWER
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Heal Light Wounds
 displayName=Heal Light Wounds
@@ -1299,6 +1360,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bardic Harp - Berserk
 displayName=Bardic Harp - Berserk
@@ -1320,6 +1382,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Vanishing
 displayName=Vanishing
@@ -1341,6 +1404,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_ARCANE_STRIKE_3_
 displayName=Arcane Strike
@@ -1362,6 +1426,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Call Wyrm
 displayName=Call Wyrm
@@ -1383,6 +1448,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Surge Stance
 displayName=Surge Stance
@@ -1404,6 +1470,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Succubus Song - Lifesteal
 displayName=Succubus Song - Lifesteal
@@ -1425,6 +1492,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wave Of Heat
 displayName=Wave Of Heat
@@ -1446,6 +1514,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lightning Gun
 displayName=Lightning Gun
@@ -1467,6 +1536,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Twinkling Cape
 displayName=Twinkling Cape
@@ -1488,6 +1558,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_ARCANE_STRIKE_2_
 displayName=Arcane Strike
@@ -1509,6 +1580,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Viola D'Amore - Turncoat
 displayName=Viola D'Amore - Turncoat
@@ -1530,6 +1602,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Blur
 displayName=Blur
@@ -1551,6 +1624,7 @@ primaryModifier=HERBAL
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mistform
 displayName=Mistform
@@ -1572,6 +1646,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Soulful Sax
 displayName=Soulful Sax
@@ -1593,6 +1668,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/4
 wildMagicTable=Soulful Sax,Soulful Sax,Soulful Sax,Soulful Sax,Soulful Sax - Soulshield,Soulful Sax - Soulshield,Soulful Sax - Soulshield,Soulful Sax - Both,Soulful Sax - Both,Soulful Sax - Both
+projectile=false
 @
 name=Dazzling Lights
 displayName=Dazzling Lights
@@ -1614,6 +1690,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cornu Of The Demonspawn - Summon
 displayName=Cornu Of The Demonspawn - Summon
@@ -1635,6 +1712,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lead The Charge
 displayName=Lead The Charge
@@ -1656,6 +1734,7 @@ primaryModifier=CHIVALRY
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cerebral Hemorrhage
 displayName=Cerebral Hemorrhage
@@ -1677,6 +1756,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Melt Armour
 displayName=Melt Armour
@@ -1698,6 +1778,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Ball Of Fire
 displayName=Ball Of Fire
@@ -1719,6 +1800,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Remedy
 displayName=Remedy
@@ -1740,6 +1822,7 @@ primaryModifier=HERBAL
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Holy Ground
 displayName=Holy Ground
@@ -1761,6 +1844,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Self Destruct
 displayName=Self Destruct
@@ -1782,6 +1866,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Daylight
 displayName=Daylight
@@ -1803,6 +1888,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Magic To Might
 displayName=Magic To Might
@@ -1824,6 +1910,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Inspiring Blow
 displayName=Inspiring Blow
@@ -1845,6 +1932,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bolt Of Lightning
 displayName=Bolt Of Lightning
@@ -1866,6 +1954,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Toxic Gas - Trap
 displayName=Toxic Gas - Trap
@@ -1887,6 +1976,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sane Mind
 displayName=Sane Mind
@@ -1908,6 +1998,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wither Plants
 displayName=Wither Plants
@@ -1929,6 +2020,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Prismic Missile - Trap
 displayName=Prismic Missile - Trap
@@ -1950,6 +2042,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Remove Curse
 displayName=Remove Curse
@@ -1971,6 +2064,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fervour
 displayName=Fervour
@@ -1992,6 +2086,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Call Treant
 displayName=Call Treant
@@ -2013,6 +2108,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Healing Factor
 displayName=Healing Factor
@@ -2034,6 +2130,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_LIGHTNING_STRIKE_SPEAR_
 displayName=Lightning Strike - Spear
@@ -2055,6 +2152,7 @@ primaryModifier=LIGHTNING_STRIKE_SPEAR
 secondaryModifier=THRUST
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mage Strength
 displayName=Mage Strength
@@ -2076,6 +2174,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Melt Into Mist
 displayName=Melt Into Mist
@@ -2097,6 +2196,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=saliopod screech
 displayName=saliopod screech
@@ -2118,6 +2218,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Summon Animal Spirit
 displayName=Summon Animal Spirit
@@ -2139,6 +2240,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lyre Of Cakes - Both
 displayName=Lyre Of Cakes - Both
@@ -2160,6 +2262,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Stunner - Trap
 displayName=Stunner - Trap
@@ -2181,6 +2284,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pennywhistle
 displayName=Pennywhistle
@@ -2202,6 +2306,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Pennywhistle,Pennywhistle,Pennywhistle,Pennywhistle,Pennywhistle - Haste,Pennywhistle - Haste,Pennywhistle - Haste,Pennywhistle - Remove Conditions,Pennywhistle - Remove Conditions,Pennywhistle - Remove Conditions
+projectile=false
 @
 name=Lava Burst
 displayName=Lava Burst
@@ -2223,6 +2328,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pan Pipes
 displayName=Pan Pipes
@@ -2244,6 +2350,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/5
 wildMagicTable=Pan Pipes,Pan Pipes,Pan Pipes,Pan Pipes,Pan Pipes - Cure All,Pan Pipes - Cure All,Pan Pipes - Cure All,Pan Pipes - Summoning,Pan Pipes - Summoning,Pan Pipes - Summoning
+projectile=false
 @
 name=Greater Turn Undead
 displayName=Turn Undead
@@ -2265,6 +2372,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fearsome Aspect
 displayName=Fearsome Aspect
@@ -2286,6 +2394,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lyre Of Cakes
 displayName=Lyre Of Cakes
@@ -2306,7 +2415,8 @@ usabilityType=1
 primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
-wildMagicTable=Lyre Of Cakes,Lyre Of Cakes,Lyre Of Cakes,Lyre Of Cakes,Lyre Of Cakes - Renewal,Lyre Of Cakes - Renewal,Lyre Of Cakes - Renewal,Lyre Of Cakes - Both,Lyre Of Cakes - Both,Lyre Of Cakes - Both
+wildMagicTable=
+projectile=false
 @
 name=Mirror Image
 displayName=Mirror Image
@@ -2328,6 +2438,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Prank
 displayName=Prank
@@ -2349,6 +2460,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of Rage
 displayName=Song of Rage
@@ -2370,6 +2482,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Napalm - Payload
 displayName=Napalm - Payload
@@ -2391,6 +2504,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Blink
 displayName=Blink
@@ -2412,6 +2526,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Goldfingers
 displayName=Goldfingers
@@ -2433,6 +2548,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Identify
 displayName=Identify
@@ -2454,6 +2570,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hades Harp - Reflect Damage
 displayName=Hades Harp - Reflect Damage
@@ -2475,6 +2592,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rest All
 displayName=Rest All
@@ -2496,6 +2614,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Entangle
 displayName=Entangle
@@ -2517,6 +2636,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Midnight Choir - Curse
 displayName=Midnight Choir - Curse
@@ -2538,6 +2658,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bolt Of Magma
 displayName=Bolt Of Magma
@@ -2559,6 +2680,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_ARCANE_STRIKE_1_
 displayName=Arcane Strike
@@ -2580,6 +2702,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Locate Person
 displayName=Locate Person
@@ -2601,6 +2724,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Phantasm
 displayName=Phantasm
@@ -2622,6 +2746,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Death Cloud
 displayName=Death Cloud
@@ -2643,6 +2768,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bardic Harp - Hex
 displayName=Bardic Harp - Hex
@@ -2664,6 +2790,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Left Handed Bane
 displayName=Left Handed Bane
@@ -2685,6 +2812,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Resist Elements
 displayName=Resist Elements
@@ -2706,6 +2834,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Shield of Ice
 displayName=Shield of Ice
@@ -2727,6 +2856,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Clockwork Beast
 displayName=Clockwork Beast
@@ -2748,6 +2878,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Recharge
 displayName=Recharge
@@ -2769,6 +2900,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Midnight Choir
 displayName=Midnight Choir
@@ -2790,6 +2922,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/2
 wildMagicTable=Midnight Choir,Midnight Choir,Midnight Choir,Midnight Choir,Midnight Choir - Curse,Midnight Choir - Curse,Midnight Choir - Curse,Midnight Choir - Summon,Midnight Choir - Summon,Midnight Choir - Summon
+projectile=false
 @
 name=Turtleshell Ukulele - Mephit Swarm
 displayName=Turtleshell Ukulele - Mephit Swarm
@@ -2811,6 +2944,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Forget - Trap
 displayName=Forget - Trap
@@ -2832,6 +2966,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cherry Bomb
 displayName=Cherry Bomb
@@ -2853,6 +2988,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Energy Drain - Trap
 displayName=Energy Drain - Trap
@@ -2874,6 +3010,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Exorcist Exorcism
 displayName=Exorcism
@@ -2895,6 +3032,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Coat of Ooze
 displayName=Coat of Ooze
@@ -2916,6 +3054,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Blinding Flash
 displayName=Blinding Flash
@@ -2937,6 +3076,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fists of Rock
 displayName=Fists of Rock
@@ -2958,6 +3098,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Null Magic - Trap
 displayName=Null Magic - Trap
@@ -2979,6 +3120,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Napalm
 displayName=Napalm
@@ -3000,6 +3142,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Majesty
 displayName=Majesty
@@ -3021,6 +3164,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Angel's Tongue - Armourplate
 displayName=Angel's Tongue - Armourplate
@@ -3042,6 +3186,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of Heroism
 displayName=Song of Heroism
@@ -3063,6 +3208,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Power Word Stun
 displayName=Power Word Stun
@@ -3084,6 +3230,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Armourplate
 displayName=Armourplate
@@ -3105,6 +3252,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Knock Knock
 displayName=Knock Knock
@@ -3126,6 +3274,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Heal Serious Wounds
 displayName=Heal Serious Wounds
@@ -3147,6 +3296,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pneumatic Lance
 displayName=Pneumatic Lance
@@ -3168,6 +3318,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Song of Panic
 displayName=Song of Panic
@@ -3189,6 +3340,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Curing
 displayName=Curing
@@ -3210,6 +3362,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hidden Blade 2
 displayName=Hidden Blade 2
@@ -3231,6 +3384,7 @@ primaryModifier=SNEAKING
 secondaryModifier=STEAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rail Gun
 displayName=Rail Gun
@@ -3252,6 +3406,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Hidden Blade 3
 displayName=Hidden Blade 3
@@ -3273,6 +3428,7 @@ primaryModifier=SNEAKING
 secondaryModifier=STEAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Falling Stars
 displayName=Falling Stars
@@ -3294,6 +3450,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pipes Of The Sea - Plyze
 displayName=Pipes Of The Sea - Plyze
@@ -3315,6 +3472,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Boiling Blood - Trap
 displayName=Boiling Blood - Trap
@@ -3336,6 +3494,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bodhisattva - Heroism
 displayName=Bodhisattva - Heroism
@@ -3357,6 +3516,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hidden Blade 1
 displayName=Hidden Blade 1
@@ -3378,6 +3538,7 @@ primaryModifier=SNEAKING
 secondaryModifier=STEAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Frightful Boasting
 displayName=Frightful Boasting
@@ -3399,6 +3560,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Darkness
 displayName=Darkness
@@ -3420,6 +3582,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Noxious Vapours - Trap
 displayName=Noxious Vapours - Trap
@@ -3441,6 +3604,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bone Flute - Heal All
 displayName=Bone Flute - Heal All
@@ -3462,6 +3626,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Invention
 displayName=Invention
@@ -3483,6 +3648,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Prismic Shield
 displayName=Prismic Shield
@@ -3504,6 +3670,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Unholy Ground
 displayName=Unholy Ground
@@ -3525,6 +3692,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Subtle Glamour
 displayName=Subtle Glamour
@@ -3546,6 +3714,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Whipping Rocks
 displayName=Whipping Rocks
@@ -3567,6 +3736,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fey Bolt
 displayName=Fey Bolt
@@ -3588,6 +3758,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Horn Of Prometheus
 displayName=Horn Of Prometheus
@@ -3609,6 +3780,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/0
 wildMagicTable=Horn Of Prometheus,Horn Of Prometheus,Horn Of Prometheus,Horn Of Prometheus,Horn Of Prometheus - Force,Horn Of Prometheus - Force,Horn Of Prometheus - Force,Horn Of Prometheus - Fire,Horn Of Prometheus - Fire,Horn Of Prometheus - Fire
+projectile=false
 @
 name=Acid Bomb - Trap
 displayName=Acid Bomb
@@ -3630,6 +3802,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Slick Performance - Magic Missiles
 displayName=Slick Performance - Missiles
@@ -3651,6 +3824,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Razor Cloak
 displayName=Razor Cloak
@@ -3672,6 +3846,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wall Of Force
 displayName=Wall Of Force
@@ -3693,6 +3868,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cloud Of Fear - Trap
 displayName=Cloud Of Fear - Trap
@@ -3714,6 +3890,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wild Performance
 displayName=Wild Performance
@@ -3735,6 +3912,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Wild Performance,Wild Performance,Wild Performance - Heal,Wild Performance - Heal,Wild Performance - Heal,Wild Performance - Lights,Wild Performance - Lights,Wild Performance - Lights,Wild Performance - Party Buffs,Wild Performance - Party Buffs
+projectile=false
 @
 name=Baleful Sax
 displayName=Baleful Sax
@@ -3756,6 +3934,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/1
 wildMagicTable=Baleful Sax,Baleful Sax,Baleful Sax,Baleful Sax,Baleful Sax - Pain,Baleful Sax - Pain,Baleful Sax - Pain,Baleful Sax - Hex,Baleful Sax - Hex,Baleful Sax - Hex
+projectile=false
 @
 name=Spirit Form
 displayName=Spirit Form
@@ -3777,6 +3956,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fear
 displayName=Fear
@@ -3798,6 +3978,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Summon Demon
 displayName=Summon Demon
@@ -3819,6 +4000,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Strings Of Seduction - Turncoat
 displayName=Strings Of Seduction - Turncoat
@@ -3840,6 +4022,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Daggers - Trap
 displayName=Daggers - Trap
@@ -3861,6 +4044,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=tsurayogoshi meditation
 displayName=tsurayogoshi meditation
@@ -3882,6 +4066,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poison Needle
 displayName=Poison Needle
@@ -3903,6 +4088,7 @@ primaryModifier=MARTIAL_ARTS
 secondaryModifier=POWER
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Unforgettable Performance
 displayName=Unforgettable Performance
@@ -3924,6 +4110,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Unforgettable Performance,Unforgettable Performance,Unforgettable Performance - Lights,Unforgettable Performance - Lights,Unforgettable Performance - Lights,Unforgettable Performance - Party Buffs,Unforgettable Performance - Party Buffs,Unforgettable Performance - Party Buffs,Unforgettable Performance - Chaos,Unforgettable Performance - Chaos
+projectile=false
 @
 name=Smelling Salts
 displayName=Smelling Salts
@@ -3945,6 +4132,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mental Attack
 displayName=Mental Attack
@@ -3966,6 +4154,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Ammo Stash
 displayName=Ammo Stash
@@ -3987,6 +4176,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Crush
 displayName=Crush
@@ -4008,6 +4198,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Watchbells
 displayName=Watchbells
@@ -4029,6 +4220,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Demon Ally
 displayName=Demon Ally
@@ -4050,6 +4242,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Restore Magic
 displayName=Restore Magic
@@ -4071,6 +4264,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Glowing Curse - Trap
 displayName=Glowing Curse - Trap
@@ -4092,6 +4286,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mage Shield
 displayName=Mage Shield
@@ -4113,6 +4308,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bomb Of Acid
 displayName=Bomb Of Acid
@@ -4134,6 +4330,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Horn Of Prometheus - Force
 displayName=Horn Of Prometheus - Force
@@ -4155,6 +4352,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wild Performance - Party Buffs
 displayName=Wild Performance
@@ -4176,6 +4374,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Ray Of Enfeeblement - Trap
 displayName=Ray Of Enfeeblement - Trap
@@ -4197,6 +4396,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Flash Powder
 displayName=Flash Powder
@@ -4218,6 +4418,7 @@ primaryModifier=THROW
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Skald Taunt
 displayName=Skald Taunt
@@ -4239,6 +4440,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Death Wish
 displayName=Death Wish
@@ -4260,6 +4462,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Backstab
 displayName=Backstab
@@ -4281,6 +4484,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Leverage
 displayName=Leverage
@@ -4302,6 +4506,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Call Plants
 displayName=Call Plants
@@ -4323,6 +4528,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of the Warriors of Valhalla
 displayName=Song of the Warriors of Valhalla
@@ -4344,6 +4550,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hexxer - Trap
 displayName=Hexxer - Trap
@@ -4365,6 +4572,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hidden Dart
 displayName=Hidden Dart
@@ -4386,6 +4594,7 @@ primaryModifier=THROW
 secondaryModifier=THROWN_CRITICALS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Deep Freeze
 displayName=Deep Freeze
@@ -4407,6 +4616,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pickpocket
 displayName=Pickpocket
@@ -4428,6 +4638,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=paper tiger roar
 displayName=paper tiger roar
@@ -4449,6 +4660,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lay On Hands
 displayName=Lay On Hands
@@ -4470,6 +4682,7 @@ primaryModifier=POWER
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fey Pipes - Stone
 displayName=Fey Pipes - Stone
@@ -4491,6 +4704,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Call Elemental
 displayName=Call Elemental
@@ -4512,6 +4726,7 @@ primaryModifier=HERBAL
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hynobi Fire Breath
 displayName=Breath
@@ -4533,6 +4748,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Invisibility
 displayName=Invisibility
@@ -4554,6 +4770,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Turtleshell Ukulele
 displayName=Turtleshell Ukulele
@@ -4575,6 +4792,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/6
 wildMagicTable=Turtleshell Ukulele,Turtleshell Ukulele,Turtleshell Ukulele,Turtleshell Ukulele,Turtleshell Ukulele - Mephit Swarm,Turtleshell Ukulele - Mephit Swarm,Turtleshell Ukulele - Mephit Swarm,Turtleshell Ukulele - Blinding Flash,Turtleshell Ukulele - Blinding Flash,Turtleshell Ukulele - Blinding Flash
+projectile=false
 @
 name=Jumpstart
 displayName=Jumpstart
@@ -4596,6 +4814,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Phantom Guardian
 displayName=Phantom Guardian
@@ -4617,6 +4836,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Boiling Blood
 displayName=Boiling Blood
@@ -4638,6 +4858,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Death
 displayName=Death
@@ -4659,6 +4880,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Heroism
 displayName=Heroism
@@ -4680,6 +4902,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cure Lesser Condition
 displayName=Cure Lesser Condition
@@ -4701,6 +4924,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Priest Turn Undead
 displayName=Turn Undead
@@ -4722,6 +4946,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Magma Spear
 displayName=Magma Spear
@@ -4743,6 +4968,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Starlight
 displayName=Starlight
@@ -4764,6 +4990,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lifestealer - Trap
 displayName=Lifestealer - Trap
@@ -4785,6 +5012,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wand Crafting
 displayName=Wand Crafting
@@ -4806,6 +5034,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Purify Air
 displayName=Purify Air
@@ -4827,6 +5056,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Unforgettable Performance - Chaos
 displayName=Wild Performance
@@ -4848,6 +5078,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fey Pipes - Paralyse
 displayName=Fey Pipes - Paralyse
@@ -4869,6 +5100,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Resurrection
 displayName=Resurrection
@@ -4890,6 +5122,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Steam Blast
 displayName=Steam Blast
@@ -4911,6 +5144,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pennywhistle - Haste
 displayName=Pennywhistle - Haste
@@ -4932,6 +5166,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sonic Boom
 displayName=Sonic Boom
@@ -4953,6 +5188,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Diplomacy
 displayName=Diplomacy
@@ -4974,6 +5210,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Spell Stealing
 displayName=Spell Stealing
@@ -4995,6 +5232,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Strings Of Seduction - Plyze
 displayName=Strings Of Seduction - Plyze
@@ -5016,6 +5254,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Faith
 displayName=Faith
@@ -5037,6 +5276,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cloak Of Magic
 displayName=Cloak Of Magic
@@ -5058,6 +5298,7 @@ primaryModifier=HERBAL
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mind Flay
 displayName=Mind Flay
@@ -5079,6 +5320,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cornu Of The Demonspawn - Banish
 displayName=Cornu Of The Demonspawn - Banish
@@ -5100,6 +5342,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mantle of the Seas
 displayName=Mantles of the Seas
@@ -5121,6 +5364,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_DEADLY_STRIKE_
 displayName=Deadly Strike
@@ -5142,6 +5386,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Unforgettable Performance - Party Buffs
 displayName=Wild Performance
@@ -5163,6 +5408,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Acid Cloud
 displayName=Acid Cloud
@@ -5184,6 +5430,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Midnight Choir - Summon
 displayName=Midnight Choir - Summon
@@ -5205,6 +5452,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poison
 displayName=Poison
@@ -5226,6 +5474,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wild Performance - Heal
 displayName=Wild Performance
@@ -5247,6 +5496,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lifesteal
 displayName=Lifesteal
@@ -5268,6 +5518,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Full Moon
 displayName=Full Moon
@@ -5289,6 +5540,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Frostbite
 displayName=Frostbite
@@ -5310,6 +5562,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fey Voice
 displayName=Fey Voice
@@ -5331,6 +5584,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Slow
 displayName=Slow
@@ -5352,6 +5606,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Ball Of Ice
 displayName=Ball Of Ice
@@ -5373,6 +5628,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Infernal Horn
 displayName=Infernal Horn
@@ -5394,6 +5650,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/1
 wildMagicTable=Infernal Horn,Infernal Horn,Infernal Horn,Infernal Horn,Infernal Horn - Foes Beserk,Infernal Horn - Foes Beserk,Infernal Horn - Foes Beserk,Infernal Horn - Allies Beserk,Infernal Horn - Allies Beserk,Infernal Horn - Allies Beserk
+projectile=false
 @
 name=Divinity
 displayName=Divinity
@@ -5415,6 +5672,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Heal Moderate Wounds
 displayName=Heal Moderate Wounds
@@ -5436,6 +5694,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Element Shield
 displayName=Element Shield
@@ -5457,6 +5716,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bardic Harp
 displayName=Bardic Harp
@@ -5478,6 +5738,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Bardic Harp,Bardic Harp,Bardic Harp,Bardic Harp,Bardic Harp - Berserk,Bardic Harp - Berserk,Bardic Harp - Berserk,Bardic Harp - Hex,Bardic Harp - Hex,Bardic Harp - Hex
+projectile=false
 @
 name=Verdant Growth
 displayName=Verdant Growth
@@ -5499,6 +5760,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Enchanter Invisibility
 displayName=Vanish
@@ -5520,6 +5782,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Weakness
 displayName=Weakness
@@ -5541,6 +5804,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Dispel Illusions
 displayName=Dispel Illusions
@@ -5562,6 +5826,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Robes of the Wind
 displayName=Robes of the Wind
@@ -5583,6 +5848,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poison Darts
 displayName=Poison Darts
@@ -5604,6 +5870,7 @@ primaryModifier=GESTURE
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=_BACKSTAB_2_
 displayName=Backstab
@@ -5625,6 +5892,7 @@ primaryModifier=BACKSTAB
 secondaryModifier=SNEAKING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bone Flute
 displayName=Bone Flute
@@ -5646,6 +5914,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/5
 wildMagicTable=Bone Flute,Bone Flute,Bone Flute,Bone Flute,Bone Flute - Rest All,Bone Flute - Rest All,Bone Flute - Rest All,Bone Flute - Heal All,Bone Flute - Heal All,Bone Flute - Heal All
+projectile=false
 @
 name=Song of Shameful Weakness
 displayName=Song of Shameful Weakness
@@ -5667,6 +5936,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of Endurance
 displayName=Song of Endurance
@@ -5688,6 +5958,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Prismic Chaos
 displayName=Prismic Chaos
@@ -5709,6 +5980,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Life Leech
 displayName=Life Leech
@@ -5730,6 +6002,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lyre Of Cakes - Renewal
 displayName=Lyre Of Cakes - Renewal
@@ -5751,6 +6024,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=pickmeup
 displayName=pickmeup
@@ -5772,6 +6046,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Nuclear Blast
 displayName=Nuclear Blast
@@ -5793,6 +6068,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Navajo Bullroarer
 displayName=Navajo Bullroarer
@@ -5814,6 +6090,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/5
 wildMagicTable=Navajo Bullroarer,Navajo Bullroarer,Navajo Bullroarer,Navajo Bullroarer,Navajo Bullroarer - Barkskin,Navajo Bullroarer - Barkskin,Navajo Bullroarer - Barkskin,Navajo Bullroarer - Whirlwind,Navajo Bullroarer - Whirlwind,Navajo Bullroarer - Whirlwind
+projectile=false
 @
 name=Concussion
 displayName=Concussion
@@ -5835,6 +6112,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poison Gas - Payload
 displayName=Poison Gas - Payload
@@ -5856,6 +6134,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cure Poison
 displayName=Cure Poison
@@ -5877,6 +6156,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Might To Magic
 displayName=Might To Magic
@@ -5898,6 +6178,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Thorns
 displayName=Thorns
@@ -5919,6 +6200,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Anti-Magic
 displayName=Anti-Magic
@@ -5940,6 +6222,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_BACKSTAB_3_
 displayName=Backstab
@@ -5961,6 +6244,7 @@ primaryModifier=BACKSTAB
 secondaryModifier=SNEAKING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Insect Plague
 displayName=Insect Plague
@@ -5982,6 +6266,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Navajo Bullroarer - Barkskin
 displayName=Navajo Bullroarer - Barkskin
@@ -6003,6 +6288,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Minor Powder Creation
 displayName=Minor Powder Creation
@@ -6024,6 +6310,7 @@ primaryModifier=HERBAL
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Acid Spray
 displayName=Acid Spray
@@ -6045,6 +6332,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Berserk At Will
 displayName=Berserk
@@ -6066,6 +6354,7 @@ primaryModifier=CHANT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Dire Wasps
 displayName=Dire Wasps
@@ -6087,6 +6376,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Slick Performance - Fey Fire
 displayName=Slick Performance - Fey Fire
@@ -6108,6 +6398,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rune Of Death
 displayName=Rune Of Death
@@ -6129,6 +6420,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bane
 displayName=Bane
@@ -6150,6 +6442,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mage Blades
 displayName=Mage Blades
@@ -6171,6 +6464,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=rock dragon breath
 displayName=rock dragon breath
@@ -6192,6 +6486,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Chameleon
 displayName=Chameleon
@@ -6213,6 +6508,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=TestingSpell
 displayName=TestingSpell
@@ -6234,6 +6530,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Haste
 displayName=Haste
@@ -6255,6 +6552,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Succubus Song - Plyze
 displayName=Succubus Song - Plyze
@@ -6276,6 +6574,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hurricane
 displayName=Hurricane
@@ -6297,6 +6596,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Deadly Air
 displayName=Deadly Air
@@ -6318,6 +6618,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hail Of Arrows
 displayName=Hail Of Arrows
@@ -6339,6 +6640,7 @@ primaryModifier=RHYME
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Protect
 displayName=Protect
@@ -6360,6 +6662,7 @@ primaryModifier=CHIVALRY
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Invisible Stalker
 displayName=Invisible Stalker
@@ -6381,6 +6684,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cask Of Ill Repute
 displayName=Cask Of Ill Repute
@@ -6402,6 +6706,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bodhisattva
 displayName=Bodhisattva
@@ -6423,6 +6728,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Bodhisattva,Bodhisattva,Bodhisattva,Bodhisattva,Bodhisattva - Vanish,Bodhisattva - Vanish,Bodhisattva - Vanish,Bodhisattva - Heroism,Bodhisattva - Heroism,Bodhisattva - Heroism
+projectile=false
 @
 name=Viola D'Amore
 displayName=Viola D'Amore
@@ -6444,6 +6750,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/2
 wildMagicTable=Viola D'Amore,Viola D'Amore,Viola D'Amore,Viola D'Amore,Viola D'Amore - Charm,Viola D'Amore - Charm,Viola D'Amore - Charm,Viola D'Amore - Turncoat,Viola D'Amore - Turncoat,Viola D'Amore - Turncoat
+projectile=false
 @
 name=braided moth sleep dust
 displayName=braided moth sleep dust
@@ -6465,6 +6772,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sleep
 displayName=Sleep
@@ -6486,6 +6794,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Succubus Song
 displayName=Succubus Song
@@ -6507,6 +6816,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/2
 wildMagicTable=Succubus Song,Succubus Song,Succubus Song,Succubus Song,Succubus Song - Plyze,Succubus Song - Plyze,Succubus Song - Plyze,Succubus Song - Lifesteal,Succubus Song - Lifesteal,Succubus Song - Lifesteal
+projectile=false
 @
 name=frost wyrm ice breath
 displayName=frost wyrm ice breath
@@ -6528,6 +6838,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Revitalise
 displayName=Revitalise
@@ -6549,6 +6860,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Kiss Of Death - Trap
 displayName=Kiss Of Death - Trap
@@ -6570,6 +6882,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mesmerism
 displayName=Mesmerism
@@ -6591,6 +6904,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mephit Swarm
 displayName=Mephit Swarm
@@ -6612,6 +6926,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Colour Spray
 displayName=Colour Spray
@@ -6633,6 +6948,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Luther's Fiddle
 displayName=Luther's Fiddle
@@ -6654,6 +6970,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/0
 wildMagicTable=Luther's Fiddle,Luther's Fiddle,Luther's Fiddle,Luther's Fiddle,Luther's Fiddle - Stamina Regen,Luther's Fiddle - Stamina Regen,Luther's Fiddle - Stamina Regen,Luther's Fiddle - Anti Magic,Luther's Fiddle - Anti Magic,Luther's Fiddle - Anti Magic
+projectile=false
 @
 name=Icicle
 displayName=Icicle
@@ -6675,6 +6992,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Shrill Sound
 displayName=Shrill Sound
@@ -6696,6 +7014,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Blizzard
 displayName=Blizzard
@@ -6717,6 +7036,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Draining Cloud - Payload
 displayName=Draining Cloud - Payload
@@ -6738,6 +7058,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Guardian Spirit
 displayName=Guardian Spirit
@@ -6759,6 +7080,7 @@ primaryModifier=WILDERNESS_LORE
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Chromatic Lyre
 displayName=Chromatic Lyre
@@ -6780,6 +7102,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/6
 wildMagicTable=Chromatic Lyre,Chromatic Lyre,Chromatic Lyre,Chromatic Lyre,Chromatic Lyre - Element Shield,Chromatic Lyre - Element Shield,Chromatic Lyre - Element Shield,Chromatic Lyre - Both,Chromatic Lyre - Both,Chromatic Lyre - Both
+projectile=false
 @
 name=Cornu Of The Demonspawn
 displayName=Cornu Of The Demonspawn
@@ -6801,6 +7124,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/1
 wildMagicTable=Cornu Of The Demonspawn,Cornu Of The Demonspawn,Cornu Of The Demonspawn,Cornu Of The Demonspawn,Cornu Of The Demonspawn - Banish,Cornu Of The Demonspawn - Banish,Cornu Of The Demonspawn - Banish,Cornu Of The Demonspawn - Summon,Cornu Of The Demonspawn - Summon,Cornu Of The Demonspawn - Summon
+projectile=false
 @
 name=Power Word Stone
 displayName=Power Word Stone
@@ -6822,6 +7146,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Amazon Strength
 displayName=Amazon Strength
@@ -6843,6 +7168,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Unforgettable Performance - Lights
 displayName=Unforgettable Performance
@@ -6864,6 +7190,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=ghul laugh
 displayName=ghul laugh
@@ -6885,6 +7212,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bodhisattva - Vanish
 displayName=Bodhisattva - Vanish
@@ -6906,6 +7234,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Power Word Kill
 displayName=Power Word Kill
@@ -6927,6 +7256,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mephit Army
 displayName=Mephit Army
@@ -6948,6 +7278,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Djembe Drum
 displayName=Djembe Drum
@@ -6969,6 +7300,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/5
 wildMagicTable=Djembe Drum,Djembe Drum,Djembe Drum,Djembe Drum,Djembe Drum - Haste,Djembe Drum - Haste,Djembe Drum - Haste,Djembe Drum - Summon,Djembe Drum - Summon,Djembe Drum - Summon
+projectile=false
 @
 name=Shadow Warriors
 displayName=Shadow Warriors
@@ -6990,6 +7322,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Restoration
 displayName=Restoration
@@ -7011,6 +7344,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fire Bomb - Trap
 displayName=Fire Bomb - Trap
@@ -7032,6 +7366,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bomb Of Acid - Payload
 displayName=Bomb Of Acid - Payload
@@ -7053,6 +7388,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Navajo Bullroarer - Whirlwind
 displayName=Navajo Bullroarer - Whirlwind
@@ -7074,6 +7410,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Binding
 displayName=Binding
@@ -7095,6 +7432,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hidden Snakebite - Trap
 displayName=Hidden Snakebite - Trap
@@ -7116,6 +7454,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Power Word Blind
 displayName=Power Word Blind
@@ -7137,6 +7476,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bolt Of Static
 displayName=Bolt Of Static
@@ -7158,6 +7498,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Magic Screen
 displayName=Magic Screen
@@ -7179,6 +7520,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Curse Of Medusa - Trap
 displayName=Curse Of Medusa - Trap
@@ -7200,6 +7542,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fey Pipes
 displayName=Fey Pipes
@@ -7221,6 +7564,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/2
 wildMagicTable=Fey Pipes,Fey Pipes,Fey Pipes,Fey Pipes,Fey Pipes - Paralyse,Fey Pipes - Paralyse,Fey Pipes - Paralyse,Fey Pipes - Stone,Fey Pipes - Stone,Fey Pipes - Stone
+projectile=false
 @
 name=Soul Shield
 displayName=Soul Shield
@@ -7242,6 +7586,7 @@ primaryModifier=CHANT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Dehydrate
 displayName=Dehydrate
@@ -7263,6 +7608,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mandolin Of The Magus - Both
 displayName=Mandolin Of The Magus - Both
@@ -7284,6 +7630,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Astral Gate
 displayName=Astral Gate
@@ -7305,6 +7652,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Right Handed Bane
 displayName=Right Handed Bane
@@ -7326,6 +7674,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Helm of Flames
 displayName=Helm of Flames
@@ -7347,6 +7696,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hailstorm
 displayName=Hailstorm
@@ -7368,6 +7718,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Flak Blast
 displayName=Flak Blast
@@ -7389,6 +7740,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Infernal Horn - Foes Beserk
 displayName=Infernal Horn - Foes Beserk
@@ -7410,6 +7762,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pandemonium
 displayName=Pandemonium
@@ -7431,6 +7784,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Magic Sparks
 displayName=Magic Sparks
@@ -7452,6 +7806,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Pray For Miracle
 displayName=Pray For Miracle
@@ -7473,6 +7828,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Stoneskin
 displayName=Stoneskin
@@ -7494,6 +7850,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Strings Of Seduction
 displayName=Strings Of Seduction
@@ -7515,6 +7872,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/2
 wildMagicTable=Strings Of Seduction,Strings Of Seduction,Strings Of Seduction,Strings Of Seduction,Strings Of Seduction - Plyze,Strings Of Seduction - Plyze,Strings Of Seduction - Plyze,Strings Of Seduction - Turncoat,Strings Of Seduction - Turncoat,Strings Of Seduction - Turncoat
+projectile=false
 @
 name=Zap Undead
 displayName=Zap Undead
@@ -7536,6 +7894,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Phase Shift
 displayName=Phase Shift
@@ -7557,6 +7916,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=winter wolf breath
 displayName=winter wolf breath
@@ -7578,6 +7938,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pain
 displayName=Pain
@@ -7599,6 +7960,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Earthquake
 displayName=Earthquake
@@ -7620,6 +7982,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Heal All
 displayName=Heal All
@@ -7641,6 +8004,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Striking
 displayName=Striking
@@ -7662,6 +8026,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Quicksand
 displayName=Quicksand
@@ -7683,6 +8048,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pipes Of Doom - Death
 displayName=Pipes Of Doom - Death
@@ -7704,6 +8070,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Prepare For Battle
 displayName=Prepare For Battle
@@ -7725,6 +8092,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Restore Health
 displayName=Restore Health
@@ -7746,6 +8114,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poet's Lute - Confuse
 displayName=Poet's Lute - Confuse
@@ -7767,6 +8136,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Fizzle Field - Trap
 displayName=Fizzle Field - Trap
@@ -7788,6 +8158,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bolt Of Acid
 displayName=Bolt Of Acid
@@ -7809,6 +8180,7 @@ primaryModifier=GESTURE
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Inner Force Blow
 displayName=Inner Force Blow
@@ -7830,6 +8202,7 @@ primaryModifier=MARTIAL_ARTS
 secondaryModifier=POWER
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Crucible
 displayName=Crucible
@@ -7851,6 +8224,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Stasis
 displayName=Stasis
@@ -7872,6 +8246,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Ruin
 displayName=Ruin
@@ -7893,6 +8268,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Regenerate Self
 displayName=Regenerate Self
@@ -7914,6 +8290,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rockheaded
 displayName=Rockheaded
@@ -7935,6 +8312,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bless Party
 displayName=Bless Party
@@ -7956,6 +8334,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cloud of Faeries
 displayName=Cloud of Faeries
@@ -7977,6 +8356,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Static Discharge
 displayName=Static Discharge
@@ -7998,6 +8378,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hex
 displayName=Hex
@@ -8019,6 +8400,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Combat Command
 displayName=Combat Command
@@ -8040,6 +8422,7 @@ primaryModifier=GESTURE
 secondaryModifier=CHIVALRY
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rally
 displayName=Rally
@@ -8061,6 +8444,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Dirty Attack
 displayName=Dirty Attack
@@ -8082,6 +8466,7 @@ primaryModifier=SNEAKING
 secondaryModifier=BACKSTAB
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=gigantopithecus taunt
 displayName=gigantopithecus taunt
@@ -8103,6 +8488,7 @@ primaryModifier=CHANT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Lightning Cloud - Payload
 displayName=Lightning Cloud - Payload
@@ -8124,6 +8510,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hades Harp - Summon
 displayName=Hades Harp - Summon
@@ -8145,6 +8532,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Amazing Ammo Stash
 displayName=Amazing Ammo Stash
@@ -8166,6 +8554,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Whirlwind
 displayName=Whirlwind
@@ -8187,6 +8576,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Rune Of Destruction
 displayName=Rune Of Destruction
@@ -8208,6 +8598,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Call Vermin
 displayName=Call Vermin
@@ -8229,6 +8620,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Entwine
 displayName=Entwine
@@ -8250,6 +8642,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Naga Poison Spit
 displayName=Venom
@@ -8271,6 +8664,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Chemical Flash
 displayName=Chemical Flash
@@ -8292,6 +8686,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Renewal
 displayName=Renewal
@@ -8313,6 +8708,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_SNIPE_1_
 displayName=Snipe
@@ -8334,6 +8730,7 @@ primaryModifier=SNIPE
 secondaryModifier=SNEAKING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Spit Venom
 displayName=Spit Venom
@@ -8355,6 +8752,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Clockwork Spider
 displayName=Clockwork Spider
@@ -8376,6 +8774,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Prismic Missile
 displayName=Prismic Missile
@@ -8397,6 +8796,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Unleash Power
 displayName=Unleash Power
@@ -8418,6 +8818,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Angel's Tongue - Rest All
 displayName=Angel's Tongue - Rest All
@@ -8439,6 +8840,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Force Of Nature
 displayName=Force Of Nature
@@ -8460,6 +8862,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Baleful Sax - Pain
 displayName=Baleful Sax - Pain
@@ -8481,6 +8884,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poet's Lute - Plyze
 displayName=Poet's Lute - Plyze
@@ -8502,6 +8906,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bomb Construction
 displayName=Bomb Construction
@@ -8523,6 +8928,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ARTIFACTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Asphixiation
 displayName=Asphixiation
@@ -8544,6 +8950,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Tsunami
 displayName=Tsunami
@@ -8565,6 +8972,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Poison Gas
 displayName=Poison Gas
@@ -8586,6 +8994,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Firestorm
 displayName=Firestorm
@@ -8607,6 +9016,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Web
 displayName=Web
@@ -8628,6 +9038,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wild Performance - Lights
 displayName=Wild Performance
@@ -8649,6 +9060,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=hawk moth sleep dust
 displayName=hawk moth sleep dust
@@ -8670,6 +9082,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=spore moth spores
 displayName=spore moth spores
@@ -8691,6 +9104,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=bloodwyrm acid breath
 displayName=bloodwyrm acid breath
@@ -8712,6 +9126,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Barbed Net
 displayName=Barbed Net
@@ -8733,6 +9148,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Flame Blade
 displayName=Flame Blade
@@ -8754,6 +9170,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_SNIPE_3_
 displayName=Snipe
@@ -8775,6 +9192,7 @@ primaryModifier=SNIPE
 secondaryModifier=SNEAKING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Air Purifier
 displayName=Air Purifier
@@ -8796,6 +9214,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Spooks
 displayName=Spooks
@@ -8817,6 +9236,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Firestorm - Payload
 displayName=Firestorm - Payload
@@ -8838,6 +9258,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_LIGHTNING_STRIKE_SWORD_
 displayName=Lightning Strike - Sword
@@ -8859,6 +9280,7 @@ primaryModifier=LIGHTNING_STRIKE_SWORD
 secondaryModifier=SWING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cure Paralysis
 displayName=Cure Paralysis
@@ -8880,6 +9302,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Dark Majesty
 displayName=Dark Majesty
@@ -8901,6 +9324,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Jinx
 displayName=Jinx
@@ -8922,6 +9346,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sunbeam
 displayName=Sunbeam
@@ -8943,6 +9368,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Noxious Fumes
 displayName=Noxious Fumes
@@ -8964,6 +9390,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bone Flute - Rest All
 displayName=Bone Flute - Rest All
@@ -8985,6 +9412,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Whispers of Evil
 displayName=Whispers of Evil
@@ -9006,6 +9434,7 @@ primaryModifier=CHANT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Faerie Fire
 displayName=Faerie Fire
@@ -9027,6 +9456,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_LIGHTNING_STRIKE_UNARMED_
 displayName=Lightning Strike - Unarmed
@@ -9048,6 +9478,7 @@ primaryModifier=LIGHTNING_STRIKE_UNARMED
 secondaryModifier=MARTIAL_ARTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Freeze
 displayName=Freeze
@@ -9069,6 +9500,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of Rejuvenation
 displayName=Song of Rejuvenation
@@ -9090,6 +9522,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Burning Hands
 displayName=Burning Hands
@@ -9111,6 +9544,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Chromatic Lyre - Both
 displayName=Chromatic Lyre - Both
@@ -9132,6 +9566,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Bolt Of Force
 displayName=Bolt Of Force
@@ -9153,6 +9588,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=_SNIPE_2_
 displayName=Snipe
@@ -9174,6 +9610,7 @@ primaryModifier=SNIPE
 secondaryModifier=SNEAKING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Burning Speed
 displayName=Burning Speed
@@ -9195,6 +9632,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Viola D'Amore - Charm
 displayName=Viola D'Amore - Charm
@@ -9216,6 +9654,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Silence
 displayName=Silence
@@ -9237,6 +9676,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Summon Angel
 displayName=Summon Angel
@@ -9258,6 +9698,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Tag
 displayName=Tag
@@ -9279,6 +9720,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Witchbolt
 displayName=Witchbolt
@@ -9300,6 +9742,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Stun Into Silence
 displayName=Stun Into Silence
@@ -9321,6 +9764,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_IAJUTSU_
 displayName=Iajutsu
@@ -9342,6 +9786,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pipes Of The Sea - Tsunami
 displayName=Pipes Of The Sea - Tsunami
@@ -9363,6 +9808,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Second Wind
 displayName=Second Wind
@@ -9384,6 +9830,7 @@ primaryModifier=BRAWN
 secondaryModifier=POWER
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Demonic Aspect
 displayName=Demonic Aspect
@@ -9405,6 +9852,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Disease
 displayName=Disease
@@ -9426,6 +9874,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hellfire
 displayName=Hellfire
@@ -9447,6 +9896,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Turtleshell Ukulele - Blinding Flash
 displayName=Turtleshell Ukulele - Blinding Flash
@@ -9468,6 +9918,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Acid Cloud - Payload
 displayName=Acid Cloud - Payload
@@ -9489,6 +9940,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Gates Of Hell
 displayName=Gates Of Hell
@@ -9510,6 +9962,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mortal Allure
 displayName=Mortal Allure
@@ -9531,6 +9984,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Freeze All
 displayName=Freeze All
@@ -9552,6 +10006,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Beguilement
 displayName=Beguilement
@@ -9573,6 +10028,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Curse
 displayName=Curse
@@ -9594,6 +10050,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Soulful Sax - Both
 displayName=Soulful Sax - Both
@@ -9615,6 +10072,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Angel's Tongue
 displayName=Angel's Tongue
@@ -9636,6 +10094,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/4
 wildMagicTable=Angel's Tongue,Angel's Tongue,Angel's Tongue,Angel's Tongue,Angel's Tongue - Rest All,Angel's Tongue - Rest All,Angel's Tongue - Rest All,Angel's Tongue - Armourplate,Angel's Tongue - Armourplate,Angel's Tongue - Armourplate
+projectile=false
 @
 name=Luther's Fiddle - Anti Magic
 displayName=Luther's Fiddle - Anti Magic
@@ -9657,6 +10116,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Booze
 displayName=Booze
@@ -9678,6 +10138,7 @@ primaryModifier=HERBAL
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Shurikenjitsu
 displayName=Shurikenjitsu
@@ -9699,6 +10160,7 @@ primaryModifier=MARTIAL_ARTS
 secondaryModifier=THROW
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Pennywhistle - Remove Conditions
 displayName=Pennywhistle - Remove Conditions
@@ -9720,6 +10182,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mindread
 displayName=Mindread
@@ -9741,6 +10204,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Weaken Spirits
 displayName=Weaken Spirits
@@ -9762,6 +10226,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Draining Cloud
 displayName=Draining Cloud
@@ -9783,6 +10248,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Flare
 displayName=Flare
@@ -9804,6 +10270,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Anathema
 displayName=Anathema
@@ -9825,6 +10292,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Obfuscation
 displayName=Obfuscation
@@ -9846,6 +10314,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_UNDERHAND_THROW_3_
 displayName=Underhand Throw
@@ -9867,6 +10336,7 @@ primaryModifier=THROW
 secondaryModifier=THROWN_CRITICALS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Volley of Arrows
 displayName=Volley of Arrows
@@ -9888,6 +10358,7 @@ primaryModifier=SHOOT
 secondaryModifier=SKILL
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Slick Performance - Heal
 displayName=Slick Performance - Heal
@@ -9909,6 +10380,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Skullduggery
 displayName=Skullduggery
@@ -9930,6 +10402,7 @@ primaryModifier=POSTURE
 secondaryModifier=RHYME
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Armourmelt - Trap
 displayName=Armourmelt - Trap
@@ -9951,6 +10424,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sanctify
 displayName=Sanctify
@@ -9972,6 +10446,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Barkskin
 displayName=Barkskin
@@ -9993,6 +10468,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Searchlight
 displayName=Searchlight
@@ -10014,6 +10490,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Minor Wound
 displayName=Minor Wound
@@ -10035,6 +10512,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=gnoll taunt
 displayName=gnoll taunt
@@ -10056,6 +10534,7 @@ primaryModifier=CHANT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=old igor breath
 displayName=old igor breath
@@ -10077,6 +10556,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cloud Of Faeries - Payload
 displayName=Cloud Of Faeries - Payload
@@ -10098,6 +10578,7 @@ primaryModifier=RHYME
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Vampirism
 displayName=Vampirism
@@ -10119,6 +10600,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Sap
 displayName=Sap
@@ -10140,6 +10622,7 @@ primaryModifier=SNEAKING
 secondaryModifier=BACKSTAB
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Enchanted Blade
 displayName=Enchanted Blade
@@ -10161,6 +10644,7 @@ primaryModifier=CHANT
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=boulder dragon breath
 displayName=boulder dragon breath
@@ -10182,6 +10666,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=POSTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Pipes Of Doom - Confuse
 displayName=Pipes Of Doom - Confuse
@@ -10203,6 +10688,7 @@ primaryModifier=HIT_POINTS
 secondaryModifier=HIT_POINTS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Elemental Ally
 displayName=Elemental Ally
@@ -10224,6 +10710,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mage Missiles
 displayName=Mage Missiles
@@ -10245,6 +10732,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Confusion
 displayName=Confusion
@@ -10266,6 +10754,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mandolin Of The Magus - Screen
 displayName=Mandolin Of The Magus - Screen
@@ -10287,6 +10776,7 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_UNDERHAND_THROW_2_
 displayName=Underhand Throw
@@ -10308,6 +10798,7 @@ primaryModifier=THROW
 secondaryModifier=THROWN_CRITICALS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Blades Of Fire
 displayName=Blades Of Fire
@@ -10329,6 +10820,7 @@ primaryModifier=HERBAL
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Call Wyrms
 displayName=Call Wyrms
@@ -10350,6 +10842,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Wilderness Veil
 displayName=Wilderness Veil
@@ -10371,6 +10864,7 @@ primaryModifier=WILDERNESS_LORE
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Automated Lockpick
 displayName=Automated Lockpick
@@ -10392,6 +10886,7 @@ primaryModifier=ENGINEERING
 secondaryModifier=ENGINEERING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Paralysis
 displayName=Paralysis
@@ -10413,6 +10908,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_UNDERHAND_THROW_1_
 displayName=Underhand Throw
@@ -10434,6 +10930,7 @@ primaryModifier=THROW
 secondaryModifier=THROWN_CRITICALS
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Song of Ambition
 displayName=Song of Ambition
@@ -10455,6 +10952,7 @@ primaryModifier=POSTURE
 secondaryModifier=CHANT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Cone Of Cold
 displayName=Cone Of Cold
@@ -10476,6 +10974,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Slick Performance
 displayName=Slick Performance
@@ -10497,6 +10996,7 @@ primaryModifier=RHYME
 secondaryModifier=POSTURE
 wildMagicValue=4/0/NONE//false/3
 wildMagicTable=Slick Performance,Slick Performance,Slick Performance - Heal,Slick Performance - Heal,Slick Performance - Heal,Slick Performance - Fey Fire,Slick Performance - Fey Fire,Slick Performance - Fey Fire,Slick Performance - Magic Missiles,Slick Performance - Magic Missiles
+projectile=false
 @
 name=Hail of Arrows
 displayName=Hail of Arrows
@@ -10518,6 +11018,7 @@ primaryModifier=SHOOT
 secondaryModifier=SKILL
 wildMagicValue=
 wildMagicTable=
+projectile=true
 @
 name=Mephit
 displayName=Mephit
@@ -10539,6 +11040,7 @@ primaryModifier=ALCHEMIC
 secondaryModifier=THOUGHT
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Vacuum - Trap
 displayName=Vacuum - Trap
@@ -10560,6 +11062,7 @@ primaryModifier=THOUGHT
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Power Of The Pit
 displayName=Power Of The Pit
@@ -10581,6 +11084,7 @@ primaryModifier=GESTURE
 secondaryModifier=ALCHEMIC
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Insect Swarm
 displayName=Insect Swarm
@@ -10602,6 +11106,7 @@ primaryModifier=CHANT
 secondaryModifier=HERBAL
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Mage Armour
 displayName=Mage Armour
@@ -10623,6 +11128,7 @@ primaryModifier=THOUGHT
 secondaryModifier=GESTURE
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=_BACKSTAB_1_
 displayName=Backstab
@@ -10644,6 +11150,7 @@ primaryModifier=BACKSTAB
 secondaryModifier=SNEAKING
 wildMagicValue=
 wildMagicTable=
+projectile=false
 @
 name=Hades Harp
 displayName=Hades Harp
@@ -10665,4 +11172,5 @@ primaryModifier=MUSIC
 secondaryModifier=MUSIC
 wildMagicValue=4/0/NONE//false/0
 wildMagicTable=Hades Harp,Hades Harp,Hades Harp,Hades Harp,Hades Harp - Reflect Damage,Hades Harp - Reflect Damage,Hades Harp - Reflect Damage,Hades Harp - Summon,Hades Harp - Summon,Hades Harp - Summon
+projectile=false
 @

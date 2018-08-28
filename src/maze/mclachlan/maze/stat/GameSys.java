@@ -363,8 +363,7 @@ public class GameSys
 		result += event.getBodyPart().getModifiers().getModifier(Stats.Modifier.ATTACK);
 		result += attackWith.getToHit();
 
-		boolean isRanged = attackWith instanceof Item && ((Item)attackWith).getType() == Type.RANGED_WEAPON ||
-			attackWith.isRanged() && attackWith.getMaxRange() == ItemTemplate.WeaponRange.LONG;
+		boolean isRanged = attackWith.isRanged();
 
 		// deadly aim bonus
 		if (isRanged && attacker.getModifier(Stats.Modifier.DEADLY_AIM) > 0)
@@ -373,7 +372,8 @@ public class GameSys
 		}
 
 		// master archer bonus
-		if (isRanged && attacker.getModifier(Stats.Modifier.MASTER_ARCHER) > 0)
+		if (isRanged && attacker.getModifier(Stats.Modifier.MASTER_ARCHER) > 0
+			&& attackWith.getWeaponType() == ItemTemplate.WeaponSubType.BOW)
 		{
 			// master archer bonus with bows
 			result += attacker.getLevel();

@@ -23,10 +23,8 @@ import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.stat.GroupOfPossibilities;
-import mclachlan.maze.stat.StatModifier;
-import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.event.AttackEvent;
 
 /**
  *
@@ -89,6 +87,9 @@ public class Spell
 	/** a table of spell names keyed on the wild magic value */
 	private String[] wildMagicTable;
 
+	/** projectile spells use projectile rules instead of saving throws */
+	private boolean projectile;
+
 	/*-------------------------------------------------------------------------*/
 	public Spell(
 		String name,
@@ -110,8 +111,8 @@ public class Spell
 		Stats.Modifier primaryModifier,
 		Stats.Modifier secondaryModifier,
 		ValueList wildMagicValue,
-		String[] wildMagicTable
-	)
+		String[] wildMagicTable,
+		boolean projectile)
 	{
 		this.displayName = displayName;
 		this.hitPointCost = hitPointCost;
@@ -133,6 +134,7 @@ public class Spell
 		this.secondaryModifier = secondaryModifier;
 		this.wildMagicValue = wildMagicValue;
 		this.wildMagicTable = wildMagicTable;
+		this.projectile = projectile;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -341,6 +343,16 @@ public class Spell
 		this.wildMagicTable = wildMagicTable;
 	}
 
+	public boolean isProjectile()
+	{
+		return projectile;
+	}
+
+	public void setProjectile(boolean projectile)
+	{
+		this.projectile = projectile;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public String toString()
 	{
@@ -386,5 +398,184 @@ public class Spell
 		
 		int present = actor.getAmountMagicPresent(m.colour);
 		return present >= m.amount;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class SpellAttackWith implements AttackWith
+	{
+		private Spell spell;
+		private UnifiedActor caster;
+		private int castingLevel;
+
+		public SpellAttackWith(Spell spell, UnifiedActor caster, int castingLevel)
+		{
+			this.spell = spell;
+			this.caster = caster;
+			this.castingLevel = castingLevel;
+		}
+
+		@Override
+		public String getName()
+		{
+			return spell.getName();
+		}
+
+		@Override
+		public String getDisplayName()
+		{
+			return spell.getDisplayName();
+		}
+
+		@Override
+		public int getToHit()
+		{
+			int result = caster.getModifier(Stats.Modifier.POWER_CAST);
+
+			if (caster.getModifier(Stats.Modifier.SPELL_SNIPING) > 0)
+			{
+				result += caster.getModifier(Stats.Modifier.SNIPE);
+			}
+
+			return result;
+		}
+
+		@Override
+		public int getToPenetrate()
+		{
+			int result = caster.getModifier(Stats.Modifier.POWER_CAST);
+
+			if (caster.getModifier(Stats.Modifier.SPELL_SNIPING) > 0)
+			{
+				result += caster.getModifier(Stats.Modifier.SNIPE);
+			}
+
+			return result;
+		}
+
+		@Override
+		public int getToCritical()
+		{
+			return 0;
+		}
+
+		@Override
+		public int getToInitiative()
+		{
+			int result = caster.getModifier(Stats.Modifier.POWER_CAST);
+
+			if (caster.getModifier(Stats.Modifier.SPELL_SNIPING) > 0)
+			{
+				result += caster.getModifier(Stats.Modifier.SNIPE);
+			}
+
+			return result;
+		}
+
+		@Override
+		public boolean isRanged()
+		{
+			return true;
+		}
+
+		@Override
+		public boolean isBackstabCapable()
+		{
+			return false;
+		}
+
+		@Override
+		public boolean isSnipeCapable()
+		{
+			return caster.getModifier(Stats.Modifier.SPELL_SNIPING) > 0;
+		}
+
+		/*----------------------------------------------------------------------*/
+		// following methods return stub values since the Projectile spells
+		// only use this for hit rolls
+
+		@Override
+		public Dice getDamage()
+		{
+			return null;
+		}
+
+		@Override
+		public MagicSys.SpellEffectType getDefaultDamageType()
+		{
+			return MagicSys.SpellEffectType.NONE;
+		}
+
+		@Override
+		public String describe(AttackEvent e)
+		{
+			return "";
+		}
+
+		@Override
+		public String[] getAttackTypes()
+		{
+			return new String[]{};
+		}
+
+		@Override
+		public int getMaxRange()
+		{
+			return ItemTemplate.WeaponRange.LONG;
+		}
+
+		@Override
+		public int getMinRange()
+		{
+			return ItemTemplate.WeaponRange.MELEE;
+		}
+
+		@Override
+		public GroupOfPossibilities<SpellEffect> getSpellEffects()
+		{
+			return spell.getEffects();
+		}
+
+		@Override
+		public int getSpellEffectLevel()
+		{
+			return castingLevel;
+		}
+
+		@Override
+		public TypeDescriptor slaysFoeType()
+		{
+			return null;
+		}
+
+		@Override
+		public MazeScript getAttackScript()
+		{
+			if (caster instanceof PlayerCharacter)
+			{
+				return spell.getCastByPlayerScript();
+			}
+			else
+			{
+				return spell.getCastByFoeScript();
+			}
+		}
+
+		@Override
+		public ItemTemplate.AmmoType isAmmoType()
+		{
+			return null;
+		}
+
+		@Override
+		public List<ItemTemplate.AmmoType> getAmmoRequired()
+		{
+			return null;
+		}
+
+		@Override
+		public int getWeaponType()
+		{
+			return ItemTemplate.WeaponSubType.NONE;
+		}
 	}
 }

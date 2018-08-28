@@ -311,6 +311,7 @@ public class Stats
 		otherMagic.add(EMPOWERED_HEALING);
 		otherMagic.add(PATIENCE);
 		otherMagic.add(SHED_BLIGHTS);
+		otherMagic.add(SPELL_SNIPING);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -760,6 +761,7 @@ public class Stats
 		BONUS_EXPERIENCE_MAGIC(273, "bonusExperienceMagic", ModifierMetric.PERCENTAGE),
 		DIE_HARD(274, "dieHard", ModifierMetric.BOOLEAN),
 		RESISTANT_SAVES(275, "resistantSaves", ModifierMetric.BOOLEAN),
+		SPELL_SNIPING(276, "spellSniping", ModifierMetric.BOOLEAN),
 		;
 
 		/**

@@ -410,6 +410,7 @@ sdd.secondary.modifier =    Secondary Modifier: %s
 sdd.effects =               Effects:
 sdd.mana.required =         Required:             .
 sdd.mana.available =        Available:            .
+sdd.projectile =            (projectile spell)
 
 # foe details widget
 fdw.unknown = ???

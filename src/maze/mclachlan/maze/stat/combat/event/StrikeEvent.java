@@ -288,6 +288,12 @@ public class StrikeEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void setRandomBodyPart(UnifiedActor attacker, UnifiedActor defender)
+	{
+		this.bodyPart = getRandomBodyPart(attacker, defender);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private static BodyPart getRandomBodyPart(UnifiedActor attacker, UnifiedActor defender)
 	{
 		if (attacker instanceof Foe)

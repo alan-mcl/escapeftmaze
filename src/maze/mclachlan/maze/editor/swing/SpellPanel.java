@@ -51,6 +51,7 @@ public class SpellPanel extends EditorPanel
 	private JCheckBox wildMagic;
 	private ValueComponent wildMagicValue;
 	private JComboBox[] wildMagicTable;
+	private JCheckBox projectile;
 
 	private static Vector<String> schools = new Vector<String>();
 	private static Vector<String> books = new Vector<String>();
@@ -230,6 +231,10 @@ public class SpellPanel extends EditorPanel
 		targetType.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Target Type: "), targetType, gbc);
 
+		projectile = new JCheckBox("Projectile?");
+		projectile.addActionListener(this);
+		dodgyGridBagShite(result, projectile, new JLabel(), gbc);
+
 		usabilityType = new JComboBox(usabilityTypes);
 		usabilityType.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Usable: "), usabilityType, gbc);
@@ -310,6 +315,7 @@ public class SpellPanel extends EditorPanel
 		{
 			wildMagicTable[i].removeActionListener(this);
 		}
+		projectile.removeActionListener(this);
 
 		level.setValue(s.getLevel());
 		displayName.setText(s.getDisplayName());
@@ -321,7 +327,6 @@ public class SpellPanel extends EditorPanel
 		targetType.setSelectedIndex(s.getTargetType());
 		usabilityType.setSelectedIndex(s.getUsabilityType());
 		primaryModifier.setSelectedItem(s.getPrimaryModifier());
-
 		secondaryModifier.setSelectedItem(s.getSecondaryModifier());
 		requirementsToLearn.setModifier(s.getRequirementsToLearn());
 		MazeScript cbps = s.getCastByPlayerScript();
@@ -348,6 +353,7 @@ public class SpellPanel extends EditorPanel
 			wildMagic.setSelected(false);
 			setWildMagicEnabled(false);
 		}
+		projectile.setSelected(s.isProjectile());
 
 		level.addChangeListener(this);
 		book.addActionListener(this);
@@ -363,6 +369,7 @@ public class SpellPanel extends EditorPanel
 		{
 			wildMagicTable[i].addActionListener(this);
 		}
+		projectile.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -388,7 +395,8 @@ public class SpellPanel extends EditorPanel
 			Stats.Modifier.ALCHEMIC,
 			Stats.Modifier.ALCHEMIC,
 			null,
-			null);
+			null,
+			false);
 		Database.getInstance().getSpells().put(name, spell);
 	}
 
@@ -424,7 +432,8 @@ public class SpellPanel extends EditorPanel
 			current.getPrimaryModifier(),
 			current.getSecondaryModifier(),
 			current.getWildMagicValue()==null?null:new ValueList(current.getWildMagicValue()),
-			current.getWildMagicTable()==null?null:Arrays.copyOf(current.getWildMagicTable(), current.getWildMagicTable().length));
+			current.getWildMagicTable()==null?null:Arrays.copyOf(current.getWildMagicTable(), current.getWildMagicTable().length),
+			current.isProjectile());
 		Database.getInstance().getSpells().put(newName, spell);
 	}
 
@@ -458,6 +467,7 @@ public class SpellPanel extends EditorPanel
 		s.setDescription(description.getText());
 		s.setEffects(effects.getGroupOfPossibilties());
 		s.setRequirementsToCast(manaRequirements.getManaRequirements());
+		s.setProjectile(projectile.isSelected());
 
 		if (wildMagic.isSelected())
 		{

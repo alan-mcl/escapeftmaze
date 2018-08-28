@@ -12,6 +12,7 @@ Features
  - Shugenja class abilities: Arrow Catching, Displacer
  - Skald class abilities: Inspiring Blow, Recorder of Great Deeds
  - Sohei class abilities: Die Hard, Sohei Resistance
+ - Troubadour abilities: Spell Sniping, Spell Stealing
 
 Other
  - Refactoring action point regen to be consistent with other resources
