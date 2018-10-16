@@ -22,6 +22,7 @@ Other
  - Redesigned the PC widget, so as to fit in a "stance" combo box
  - Implemented stances in combat: Snakespeed, Act early, Act late, Patience
  - Refactored inventory management up the hierarchy to UnifiedActor
+ - Added projectile spells that require a hit roll
 
 ---------------------------------------
 v0.917 (24 April 2018)
