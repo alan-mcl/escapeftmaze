@@ -3378,6 +3378,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=fire kata damage
+displayName=
+type=FIRE
+subtype=HEAT
+saveAdjustment=
+unsavedResult=4::2/0/NONE//false/1d2,1/1/SCALE_WITH_CLASS_LEVEL/Warlock/false::::0.0:false
+savedResult=4::2/0/NONE//false/1d2,1/1/SCALE_WITH_CLASS_LEVEL/Warlock/false::::0.5:false
+targetType=4
+application=AS_PER_SPELL
+@
 name=life leech damage
 displayName=life leech damage
 type=ENERGY

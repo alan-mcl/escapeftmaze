@@ -1373,6 +1373,8 @@ lap_name_arcane_blood = Arcane Blood
 lap_desc_arcane_blood = The Warlock regenerates hit points faster in the presence of strong Red magic.
 lap_name_focus_of_force = Focus of Force
 lap_desc_focus_of_force = This focus provides the Warlock with boosted defence against melee and missile attacks.
+lap_name_fire_kata = Fire Kata
+lap_desc_fire_kata = A Warlock performing the Fire Kata creates a wave of flame that consumes his foes.
 
 # Witch
 lap_name_curse = Curse
