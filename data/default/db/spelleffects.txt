@@ -1518,6 +1518,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=strength of belief condition
+displayName=strength of belief condition
+type=MENTAL
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::strength of belief
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=wall of force spell
 displayName=
 type=AIR
@@ -1544,6 +1554,16 @@ type=ENERGY
 subtype=NONE
 saveAdjustment=
 unsavedResult=3::divinity spell
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
+name=focus of flame condition
+displayName=focus of flame condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::focus of flame
 savedResult=
 targetType=0
 application=AS_PER_SPELL

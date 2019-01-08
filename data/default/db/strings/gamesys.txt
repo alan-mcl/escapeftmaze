@@ -1375,6 +1375,10 @@ lap_name_focus_of_force = Focus of Force
 lap_desc_focus_of_force = This focus provides the Warlock with boosted defence against melee and missile attacks.
 lap_name_fire_kata = Fire Kata
 lap_desc_fire_kata = A Warlock performing the Fire Kata creates a wave of flame that consumes his foes.
+lap_name_focus_of_flame = Focus of Flame
+lap_desc_focus_of_flame = This focus provides the Warlock with boosted fire resistance and a burning touch.
+lap_name_strength_of_belief = Strength of Belief
+lap_desc_strength_of_belief = The Warlock's belief provides boosted physical strength.
 
 # Witch
 lap_name_curse = Curse
