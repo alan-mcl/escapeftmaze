@@ -1371,6 +1371,8 @@ lap_name_ruthless = Ruthless
 lap_desc_ruthless = A model of efficiency and precision, the Warlock receives a bonus to melee criticals.
 lap_name_arcane_blood = Arcane Blood
 lap_desc_arcane_blood = The Warlock regenerates hit points faster in the presence of strong Red magic.
+lap_name_focus_of_force = Focus of Force
+lap_desc_focus_of_force = This focus provides the Warlock with boosted defence against melee and missile attacks.
 
 # Witch
 lap_name_curse = Curse

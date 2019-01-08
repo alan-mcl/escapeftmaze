@@ -3738,6 +3738,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=focus of force condition
+displayName=focus of force condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::focus of force
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=gates of hell spell
 displayName=
 type=ENERGY

@@ -141,6 +141,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=focus of force
+displayName=focus of force
+icon=condition/focusofforce
+adjective=focussed
+conditionEffect=none
+duration=1/2/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=100000000000000040000000000000,0514
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=spirit form
 displayName=spirit form
 icon=condition/spirit_form
