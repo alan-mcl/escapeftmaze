@@ -44,7 +44,6 @@ code: Scavenger Mode: characters start with nothing, most loot is replaced with 
 code: Ironman Mode: One save only.
 code: Quicksave and quickload.
 code: comprehensive practising of modifiers
-code: extensive logging
 code: refactor: remove DiyGui impl action messages
 code: chests to leave items in securely
 code: validate PC combat actions on a Repeat
@@ -71,7 +70,7 @@ spell: greater and lesser eye-for-an-eye
 
 ability: favoured terrain (resist surprise etc) 
 
-editor: save games editing of: conditions, item caches, npc templates, npcs, maze variables, journals
+editor: save games editing of: item caches, npcs, maze variables, journals
 editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones

@@ -1,4 +1,4 @@
-x---------------------------------------
+---------------------------------------
 v0.918 (????)
 ---------------------------------------
 Features
@@ -13,6 +13,7 @@ Features
  - Skald class abilities: Inspiring Blow, Recorder of Great Deeds
  - Sohei class abilities: Die Hard, Sohei Resistance
  - Troubadour abilities: Spell Sniping, Spell Stealing
+ - Warlock abilities: Unburdening Kata
 
 Other
  - Refactoring action point regen to be consistent with other resources
@@ -23,6 +24,7 @@ Other
  - Implemented stances in combat: Snakespeed, Act early, Act late, Patience
  - Refactored inventory management up the hierarchy to UnifiedActor
  - Added projectile spells that require a hit roll
+ - Added save game condition editing on player characters to the editor UI
 
 ---------------------------------------
 v0.917 (24 April 2018)

@@ -19,26 +19,35 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.util.*;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.util.MazeException;
-import java.util.Vector;
-import java.util.Collections;
-import java.util.Map;
 
 /**
  *
  */
-public class SaveGamePlayerCharacterPanel extends PlayerCharacterPanel
+public class SaveGamePlayerCharactersPanel extends PlayerCharactersPanel
 {
 	private String saveGameName;
 	private Map<String,PlayerCharacter> map;
 
 	/*-------------------------------------------------------------------------*/
-	public SaveGamePlayerCharacterPanel(String saveGameName)
+	public SaveGamePlayerCharactersPanel(String saveGameName)
 	{
 		super(SwingEditor.Tab.SAVE_GAMES);
 		this.saveGameName = saveGameName;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public Vector getCharacterNames()
+	{
+		if (map == null)
+		{
+			return new Vector();
+		}
+		Vector vector = new Vector(map.keySet());
+		Collections.sort(vector);
+		return vector;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -60,19 +69,10 @@ public class SaveGamePlayerCharacterPanel extends PlayerCharacterPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public void refresh(Map<String, PlayerCharacter> playerCharacterCache)
 	{
-		try
-		{
-			map = Database.getInstance().getLoader().loadPlayerCharacters(saveGameName);
-			Vector<String> vec = new Vector<String>(
-				map.keySet());
-			Collections.sort(vec);
-			return vec;
-		}
-		catch (Exception e)
-		{
-			throw new MazeException(e);
-		}
+		map = playerCharacterCache;
+
+		refreshNames(null);
 	}
 }

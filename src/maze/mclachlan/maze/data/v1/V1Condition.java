@@ -104,7 +104,7 @@ public class V1Condition
 		MagicSys.SpellEffectSubType subtype = MagicSys.SpellEffectSubType.valueOf(strs[i++]);
 		UnifiedActor source;
 		String sourceName = strs[i++];
-		source = Maze.getInstance().getPlayerCharacter(sourceName);
+		source = getPlayerCharacter(sourceName);
 		if (source == null)
 		{
 			// fake it
@@ -138,6 +138,19 @@ public class V1Condition
 				isStrengthIdentified,
 				createdTurn,
 				hostile);
+		}
+	}
+
+	public static UnifiedActor getPlayerCharacter(String sourceName)
+	{
+		Maze instance = Maze.getInstance();
+		if (instance != null)
+		{
+			return instance.getPlayerCharacter(sourceName);
+		}
+		else
+		{
+			return null;
 		}
 	}
 }

@@ -233,12 +233,6 @@ public class SwingEditor extends JFrame implements WindowListener
 		{
 			this.editorPanels.add((EditorPanel)panel);
 		}
-		else if (panel instanceof SaveGamePanel)
-		{
-			SaveGamePanel sgp = (SaveGamePanel)panel;
-			this.editorPanels.add(sgp.getSaveGamePlayerCharacterPanel());
-			this.editorPanels.add(sgp.getNpcFactionPanel());
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/

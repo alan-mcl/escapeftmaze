@@ -21,8 +21,8 @@ package mclachlan.maze.data.v1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.lang.annotation.Target;
 import java.util.*;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
 
@@ -32,7 +32,9 @@ import mclachlan.maze.stat.condition.ConditionBearer;
 public class V1ConditionManager
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<ConditionBearer,List<Condition>> load(BufferedReader reader) throws Exception
+	public static Map<ConditionBearer,List<Condition>> load(
+		BufferedReader reader, String saveGameName,
+		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		Map<ConditionBearer,List<Condition>> result = new HashMap<ConditionBearer,List<Condition>>();
 		while (true)
@@ -42,7 +44,10 @@ public class V1ConditionManager
 			{
 				break;
 			}
-			ConditionBearer cb = V1ConditionBearer.fromString(p.getProperty("conditionBearer"));
+			ConditionBearer cb = V1ConditionBearer.fromString(
+				p.getProperty("conditionBearer"),
+				saveGameName,
+				playerCharacterCache);
 			List<Condition> conditions = fromProperties(p, cb);
 			result.put(cb, conditions);
 		}

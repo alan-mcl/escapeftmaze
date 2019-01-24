@@ -685,7 +685,7 @@ public class SpellTargetUtils
 		}
 
 		// projectile spells must make a hit roll here
-		if (spell.isProjectile())
+		if (spell != null && spell.isProjectile())
 		{
 			StrikeEvent se = new StrikeEvent(
 				Maze.getInstance().getCurrentCombat(),
@@ -726,7 +726,7 @@ public class SpellTargetUtils
 		}
 
 		// kick in the Magic Absorption ability
-		if (!spell.isProjectile() && victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION) > 0)
+		if (spell != null && !spell.isProjectile() && victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION) > 0)
 		{
 			result.add(new MagicAbsorptionEvent(victim));
 		}

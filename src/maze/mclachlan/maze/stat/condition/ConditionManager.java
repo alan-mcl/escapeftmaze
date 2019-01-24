@@ -27,6 +27,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.GameCache;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.util.MazeException;
@@ -51,9 +52,10 @@ public class ConditionManager implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void loadGame(String name, Loader loader) throws Exception
+	public void loadGame(String name, Loader loader,
+		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
-		this.conditions = loader.loadConditions(name);
+		this.conditions = loader.loadConditions(name, playerCharacterCache);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -188,6 +190,19 @@ public class ConditionManager implements GameCache
 		synchronized(mutex)
 		{
 			conditions.remove(bearer);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Directly sets the conditions for a bearer. Replaces all existing.
+	 */
+	public void setConditions(ConditionBearer bearer, List<Condition> conditions)
+	{
+		synchronized (mutex)
+		{
+			this.conditions.put(bearer, conditions);
 		}
 	}
 }

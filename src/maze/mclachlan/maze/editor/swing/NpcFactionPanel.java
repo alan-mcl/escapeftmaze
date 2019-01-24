@@ -20,19 +20,30 @@
 package mclachlan.maze.editor.swing;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Vector;
 import java.util.Collections;
 import java.util.Map;
 import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.stat.npc.NpcFaction;
 
 /**
  *
  */
-public class NpcFactionPanel extends EditorPanel
+public class NpcFactionPanel extends JPanel implements ActionListener, ListSelectionListener
 {
+	// names
+	private JList names;
+	private String currentName;
+	private Container editControls;
+	private int dirtyFlag;
+
 	private JComboBox<NpcFaction.Attitude> attitude;
 	private String saveGameName;
 	private Map<String, NpcFaction> map;
@@ -40,8 +51,75 @@ public class NpcFactionPanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public NpcFactionPanel(String saveGameName)
 	{
-		super(SwingEditor.Tab.SAVE_GAMES);
 		this.saveGameName = saveGameName;
+
+		names = new JList();
+
+		refreshNames(null);
+		names.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		names.addListSelectionListener(this);
+		names.setFixedCellWidth(100);
+		JScrollPane nameScroller = new JScrollPane(names);
+
+		setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+		setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		editControls = getEditControls();
+		JScrollPane editControlsScroller = new JScrollPane(editControls);
+
+		JSplitPane splitPane = new JSplitPane(
+			JSplitPane.HORIZONTAL_SPLIT,
+			true,
+			nameScroller,
+			editControlsScroller);
+
+		add(splitPane, gbc);
+
+		if (currentName != null)
+		{
+			refresh(currentName);
+		}
+
+		splitPane.setDividerLocation(-1);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refreshNames(String toBeSelected)
+	{
+		currentName = null;
+		Vector vec = getNames();
+		names.setListData(vec);
+		if (toBeSelected == null)
+		{
+			names.setSelectedIndex(0);
+		}
+		else
+		{
+			names.setSelectedValue(toBeSelected, true);
+		}
+		currentName = (String)names.getSelectedValue();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Vector getNames()
+	{
+		if (map == null)
+		{
+			return new Vector();
+		}
+		Vector vector = new Vector(map.keySet());
+		Collections.sort(vector);
+		return vector;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -121,7 +199,7 @@ public class NpcFactionPanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public void commit(String name)
 	{
-		NpcFaction nf = map.get(name);
+		NpcFaction nf = map.get(name==null?currentName:name);
 		nf.setAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
 	}
 
@@ -129,5 +207,38 @@ public class NpcFactionPanel extends EditorPanel
 	public Map<String, NpcFaction> getNpcFactions()
 	{
 		return map;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refresh(NpcManager instance)
+	{
+		map = instance.getMap();
+
+		refreshNames(null);
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+
+	}
+
+	@Override
+	public void valueChanged(ListSelectionEvent e)
+	{
+		if (currentName != null)
+		{
+			commit(currentName);
+		}
+
+		currentName = (String)names.getSelectedValue();
+		if (currentName == null)
+		{
+			return;
+		}
+		if (currentName != null)
+		{
+			refresh(currentName);
+		}
 	}
 }

@@ -47,7 +47,8 @@ public class TurnCache implements GameCache
 	/**
 	 * Loads item caches state.
 	 */
-	public void loadGame(String name, Loader loader) throws Exception
+	public void loadGame(String name, Loader loader,
+		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		// practise state is not saved
 		this.practise = new HashMap<UnifiedActor, StatModifier>();

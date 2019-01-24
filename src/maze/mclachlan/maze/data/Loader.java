@@ -112,7 +112,8 @@ public abstract class Loader
 	public abstract void loadMazeVariables(String saveGameName) throws Exception;
 	public abstract Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) throws Exception;
 	public abstract PlayerTilesVisited loadPlayerTilesVisited(String saveGameName) throws Exception;
-	public abstract Map<ConditionBearer, List<Condition>> loadConditions(String saveGameName) throws Exception;
+	public abstract Map<ConditionBearer, List<Condition>> loadConditions(
+		String saveGameName, Map<String, PlayerCharacter> playerCharacterCache) throws Exception;
 
 	public abstract Journal loadJournal(String saveGameName, String journalName) throws Exception;
 

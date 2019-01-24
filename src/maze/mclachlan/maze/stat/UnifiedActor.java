@@ -1520,120 +1520,104 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	@Override
 	public List<MazeEvent> addCondition(Condition c)
 	{
-		//
-		// Check for condition-triggering modifiers
-		//
-
 		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		if (this.getModifier(Stats.Modifier.FURIOUS_PURPOSE) > 0 &&
-			c.getEffect() instanceof KOEffect && !(c instanceof FatigueKO) &&
-			this.isAlive() && this.isConscious())
+		if (Maze.getInstance() != null)
 		{
-			// apply healing instead of KO
-			int healing = this.getModifier(Stats.Modifier.FURIOUS_PURPOSE) * this.getLevel();
-			result.add(new HealingEvent(this, healing));
+			//
+			// Check for condition-triggering modifiers
+			//
 
-			return result;
- 		}
-		else if (this.getModifier(Stats.Modifier.AMAZON_COURAGE) > 0 &&
-			c.getEffect() instanceof FearEffect &&
-			this.isAlive() && this.isConscious())
-		{
-			// apply an Amazon Courage condition instead of the fear condition
-			ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon courage");
-			Condition newC = ct.create(
-				this,
-				this,
-				this.getLevel(),
-				MagicSys.SpellEffectType.NONE,
-				MagicSys.SpellEffectSubType.NONE);
-
-			result.add(new UiMessageEvent(
-				StringUtil.getEventText("msg.amazon.courage", this.getDisplayName())));
-			result.add(new ConditionEvent(this, newC));
-
-			return result;
-		}
-		else if (this.getModifier(Stats.Modifier.AMAZON_WILLPOWER) > 0 &&
-			(c.getEffect() instanceof InsaneEffect ||
-				c.getEffect() instanceof PossessionEffect) &&
-			this.isAlive() && this.isConscious())
-		{
-			// apply an Amazon Willpower condition instead of the fear condition
-			ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon willpower");
-			Condition newC = ct.create(
-				this,
-				this,
-				this.getLevel(),
-				MagicSys.SpellEffectType.NONE,
-				MagicSys.SpellEffectSubType.NONE);
-
-			result.add(new UiMessageEvent(
-				StringUtil.getEventText("msg.amazon.willpower", this.getDisplayName())));
-			result.add(new ConditionEvent(this, newC));
-
-			return result;
-		}
-		else if (this.getModifier(Stats.Modifier.AMAZON_FURY) > 0 &&
-			(c.getEffect() instanceof WebEffect ||
-				(c.getEffect() instanceof SleepEffect && !(c instanceof RestingSleep)) ||
-				c.getEffect() instanceof SlowEffect ||
-				c.getEffect() instanceof ParalyseEffect)
-			&&
-			this.isAlive() && this.isConscious())
-		{
-			// apply an Amazon Fury condition instead of the fear condition
-			ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon fury");
-			Condition newC = ct.create(
-				this,
-				this,
-				this.getLevel(),
-				MagicSys.SpellEffectType.NONE,
-				MagicSys.SpellEffectSubType.NONE);
-
-			result.add(new UiMessageEvent(
-				StringUtil.getEventText("msg.amazon.fury", this.getDisplayName())));
-			result.add(new ConditionEvent(this, newC));
-
-			return result;
-		}
-
-
-		//
-		// Prevent duplicates.  The rules are:
-		// 1. Only one of each specific type of condition
-		//     1.1) Conditions are typed by Condition Effect.
-		//     1.2) Except if multiples are allowed.
-		// 2. For untyped conditions, only one of each name.
-		// 3. In both cases the new condition must have strength > the old one
-		//    to replace it.
-		//
-
-		for (Condition condition : ConditionManager.getInstance().getConditions(this))
-		{
-			if (condition.getEffect() == c.getEffect() &&
-				c.getEffect() != ConditionEffect.NONE &&
-				!c.getEffect().isMultiplesAllowed())
+			if (this.getModifier(Stats.Modifier.FURIOUS_PURPOSE) > 0 &&
+				c.getEffect() instanceof KOEffect && !(c instanceof FatigueKO) &&
+				this.isAlive() && this.isConscious())
 			{
-				// conditions of the same type, just check strengths
-				if (condition.getStrength() < c.getStrength())
-				{
-					// The new condition will replace this one
-					removeCondition(condition);
-					break;
-				}
-				else
-				{
-					// The old condition will remain
-					return result;
-				}
+				// apply healing instead of KO
+				int healing = this.getModifier(Stats.Modifier.FURIOUS_PURPOSE) * this.getLevel();
+				result.add(new HealingEvent(this, healing));
+
+				return result;
 			}
-			else if (!c.getEffect().isMultiplesAllowed())
+			else if (this.getModifier(Stats.Modifier.AMAZON_COURAGE) > 0 &&
+				c.getEffect() instanceof FearEffect &&
+				this.isAlive() && this.isConscious())
 			{
-				// untyped condition, check the name
-				if (condition.getName().equals(c.getName()))
+				// apply an Amazon Courage condition instead of the fear condition
+				ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon courage");
+				Condition newC = ct.create(
+					this,
+					this,
+					this.getLevel(),
+					MagicSys.SpellEffectType.NONE,
+					MagicSys.SpellEffectSubType.NONE);
+
+				result.add(new UiMessageEvent(
+					StringUtil.getEventText("msg.amazon.courage", this.getDisplayName())));
+				result.add(new ConditionEvent(this, newC));
+
+				return result;
+			}
+			else if (this.getModifier(Stats.Modifier.AMAZON_WILLPOWER) > 0 &&
+				(c.getEffect() instanceof InsaneEffect ||
+					c.getEffect() instanceof PossessionEffect) &&
+				this.isAlive() && this.isConscious())
+			{
+				// apply an Amazon Willpower condition instead of the fear condition
+				ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon willpower");
+				Condition newC = ct.create(
+					this,
+					this,
+					this.getLevel(),
+					MagicSys.SpellEffectType.NONE,
+					MagicSys.SpellEffectSubType.NONE);
+
+				result.add(new UiMessageEvent(
+					StringUtil.getEventText("msg.amazon.willpower", this.getDisplayName())));
+				result.add(new ConditionEvent(this, newC));
+
+				return result;
+			}
+			else if (this.getModifier(Stats.Modifier.AMAZON_FURY) > 0 &&
+				(c.getEffect() instanceof WebEffect ||
+					(c.getEffect() instanceof SleepEffect && !(c instanceof RestingSleep)) ||
+					c.getEffect() instanceof SlowEffect ||
+					c.getEffect() instanceof ParalyseEffect)
+				&&
+				this.isAlive() && this.isConscious())
+			{
+				// apply an Amazon Fury condition instead of the fear condition
+				ConditionTemplate ct = Database.getInstance().getConditionTemplate("amazon fury");
+				Condition newC = ct.create(
+					this,
+					this,
+					this.getLevel(),
+					MagicSys.SpellEffectType.NONE,
+					MagicSys.SpellEffectSubType.NONE);
+
+				result.add(new UiMessageEvent(
+					StringUtil.getEventText("msg.amazon.fury", this.getDisplayName())));
+				result.add(new ConditionEvent(this, newC));
+
+				return result;
+			}
+
+			//
+			// Prevent duplicates.  The rules are:
+			// 1. Only one of each specific type of condition
+			//     1.1) Conditions are typed by Condition Effect.
+			//     1.2) Except if multiples are allowed.
+			// 2. For untyped conditions, only one of each name.
+			// 3. In both cases the new condition must have strength > the old one
+			//    to replace it.
+			//
+
+			for (Condition condition : ConditionManager.getInstance().getConditions(this))
+			{
+				if (condition.getEffect() == c.getEffect() &&
+					c.getEffect() != ConditionEffect.NONE &&
+					!c.getEffect().isMultiplesAllowed())
 				{
+					// conditions of the same type, just check strengths
 					if (condition.getStrength() < c.getStrength())
 					{
 						// The new condition will replace this one
@@ -1646,13 +1630,31 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 						return result;
 					}
 				}
+				else if (!c.getEffect().isMultiplesAllowed())
+				{
+					// untyped condition, check the name
+					if (condition.getName().equals(c.getName()))
+					{
+						if (condition.getStrength() < c.getStrength())
+						{
+							// The new condition will replace this one
+							removeCondition(condition);
+							break;
+						}
+						else
+						{
+							// The old condition will remain
+							return result;
+						}
+					}
+				}
 			}
 		}
 
 		ConditionManager.getInstance().addCondition(this, c);
 
 		// should this be in the subclass?
-		if (this instanceof PlayerCharacter)
+		if (Maze.getInstance() != null && this instanceof PlayerCharacter)
 		{
 			result.addAll(SpeechUtil.getInstance().conditionSpeech(c, (PlayerCharacter)this));
 		}

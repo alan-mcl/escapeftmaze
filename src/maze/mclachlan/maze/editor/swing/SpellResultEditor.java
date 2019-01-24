@@ -76,7 +76,10 @@ public class SpellResultEditor extends JDialog implements ActionListener
 	private JComboBox drainModifier;
 	private ValueComponent conditionRemovalStrength;
 	private JCheckBox[] conditionEffects;
+	private JCheckBox isDeliverCondition;
+	private JCheckBox[] conditionTransferConditionEffects;
 	private Map<String, JCheckBox> conditionEffectsBoxes = new HashMap<String, JCheckBox>();
+	private Map<String, JCheckBox> conditionTransferConditionEffectsBoxes = new HashMap<String, JCheckBox>();
 	private ValueComponent cloudSpellDuration, cloudSpellStrength;
 	private JComboBox cloudSpellSpell;
 	private JTextField cloudSpellIcon;
@@ -285,6 +288,14 @@ public class SpellResultEditor extends JDialog implements ActionListener
 					conditionEffectsBoxes.get(ce.getName()).setSelected(true);
 				}
 				break;
+			case CONDITION_TRANSFER:
+				ConditionTransferSpellResult ctsr = (ConditionTransferSpellResult)sr;
+				isDeliverCondition.setSelected(ctsr.isDeliver());
+				for (ConditionEffect ce : ctsr.getEffects())
+				{
+					conditionTransferConditionEffectsBoxes.get(ce.getName()).setSelected(true);
+				}
+				break;
 			case DEATH:
 				DeathSpellResult d = (DeathSpellResult)sr;
 				break;
@@ -376,6 +387,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				return new JPanel();
 			case CONDITION_REMOVAL:
 				return getConditionRemovalPanel();
+			case CONDITION_TRANSFER:
+				return getConditionTransferPanel();
 			case DEATH:
 				return new JPanel();
 			case CLOUD_SPELL:
@@ -556,6 +569,35 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		result.add(top, BorderLayout.NORTH);
 		result.add(boxes, BorderLayout.CENTER);
 		
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getConditionTransferPanel()
+	{
+		List<String> ce = new ArrayList<String>(Database.getInstance().getConditionEffects().keySet());
+		Collections.sort(ce);
+
+		isDeliverCondition = new JCheckBox("Deliver?");
+		conditionTransferConditionEffects = new JCheckBox[ce.size()];
+
+		JPanel top = new JPanel();
+		top.add(isDeliverCondition);
+
+		JPanel boxes = new JPanel(new GridLayout(ce.size()/3 +4, 3));
+		for (int i=0; i<conditionTransferConditionEffects.length; i++)
+		{
+			String name = ce.get(i);
+			conditionTransferConditionEffects[i] = new JCheckBox(name);
+			boxes.add(conditionTransferConditionEffects[i]);
+			conditionTransferConditionEffectsBoxes.put(name, conditionTransferConditionEffects[i]);
+		}
+
+		JPanel result = new JPanel(new BorderLayout());
+
+		result.add(top, BorderLayout.NORTH);
+		result.add(boxes, BorderLayout.CENTER);
+
 		return result;
 	}
 
@@ -847,6 +889,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case DRAIN: return "Drain";
 			case SINGLE_USE_SPELL: return "Single Use Spell";
 			case CONDITION_REMOVAL: return "Condition Removal/Curing";
+			case CONDITION_TRANSFER: return "Condition Transfer";
 			case DEATH: return "Death";
 			case CLOUD_SPELL: return "Cloud Spell";
 			case PURIFY_AIR: return "Purify Air";
@@ -1004,6 +1047,17 @@ public class SpellResultEditor extends JDialog implements ActionListener
 					}
 				}
 				result = new ConditionRemovalSpellResult(effects, conditionRemovalStrength.getValue());
+				break;
+			case CONDITION_TRANSFER:
+				List<ConditionEffect> effectsList = new ArrayList<ConditionEffect>();
+				for (JCheckBox cb : conditionTransferConditionEffects)
+				{
+					if (cb.isSelected())
+					{
+						effectsList.add(Database.getInstance().getConditionEffect(cb.getText()));
+					}
+				}
+				result = new ConditionTransferSpellResult(effectsList, isDeliverCondition.isSelected());
 				break;
 			case DEATH:
 				result = new DeathSpellResult();

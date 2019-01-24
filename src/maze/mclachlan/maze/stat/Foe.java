@@ -100,21 +100,25 @@ public class Foe extends UnifiedActor
 			identificationState = Item.IdentificationState.IDENTIFIED;
 		}
 
-		// apply difficulty levels
-		DifficultyLevel dl = Maze.getInstance().getDifficultyLevel();
-		if (dl != null)
+		Maze instance = Maze.getInstance();
+		if (instance != null)
 		{
-			dl.foeIsSpawned(this);
+			// apply difficulty levels
+			DifficultyLevel dl = instance.getDifficultyLevel();
+			if (dl != null)
+			{
+				dl.foeIsSpawned(this);
+			}
+
+			// generate and equip inventory
+			generateInventory();
+			initialEquip();
+
+			Maze.log(Log.DEBUG, "Spawned [" + template.getName() + "] " +
+				"hp=[" + getStats().getHitPoints().getCurrent() + "] " +
+				"sp=[" + getStats().getActionPoints().getCurrent() + "] " +
+				"mp=[" + getStats().getMagicPoints().getCurrent() + "]");
 		}
-
-		// generate and equip inventory
-		generateInventory();
-		initialEquip();
-
-		Maze.log(Log.DEBUG, "Spawned ["+template.getName()+"] " +
-			"hp=["+getStats().getHitPoints().getCurrent()+"] " +
-			"sp=["+getStats().getActionPoints().getCurrent()+"] " +
-			"mp=["+getStats().getMagicPoints().getCurrent()+"]");
 	}
 
 	/*-------------------------------------------------------------------------*/

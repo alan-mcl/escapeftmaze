@@ -19,43 +19,116 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.Container;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
+import java.util.List;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
 
 /**
  *
  */
-public abstract class PlayerCharacterPanel extends EditorPanel
+public abstract class PlayerCharactersPanel extends JPanel implements ListSelectionListener, ChangeListener, ActionListener
 {
 	public static final int MAX_ITEMS = 32;
+
+	// names
+	private JList names;
+	private String currentName;
+	private Container editControls;
+	private int dirtyFlag;
 	
 	// general tab
-	CharacterLevelsTablePanel levels;
-	JSpinner experience, kills, spellPicks;
-	JComboBox gender, race, characterClass, personality;
-	JTextField portrait;
-	CurMaxComponent hitPoints, actionPoints, magicPoints;
-	StatModifierComponent stats, practice, activeModifiers;
+	private CharacterLevelsTablePanel levels;
+	private JSpinner experience, kills, spellPicks;
+	private JComboBox gender, race, characterClass, personality;
+	private JTextField portrait;
+	private CurMaxComponent hitPoints, actionPoints, magicPoints;
+	private StatModifierComponent stats, practice, activeModifiers;
 	
 	// items tab
-	ItemComponent[] items;
+	private ItemComponent[] items;
 	
 	// spells tab
-	SpellListPanel spellList;
+	private SpellListPanel spellList;
+
+	// conditions tab
+	private ConditionListWidget conditionList;
 
 	/*-------------------------------------------------------------------------*/
-	public PlayerCharacterPanel(int dirtyFlag)
+	public PlayerCharactersPanel(int dirtyFlag)
 	{
-		super(dirtyFlag);
+		this.dirtyFlag = dirtyFlag;
+		names = new JList();
+
+		refreshNames(null);
+		names.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		names.addListSelectionListener(this);
+		names.setFixedCellWidth(100);
+		JScrollPane nameScroller = new JScrollPane(names);
+
+		setBorder(BorderFactory.createEmptyBorder(5,5,5,5));
+		setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(3,3,3,3);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.fill = GridBagConstraints.BOTH;
+		gbc.anchor = GridBagConstraints.NORTHWEST;
+
+		editControls = getEditControls();
+		JScrollPane editControlsScroller = new JScrollPane(editControls);
+
+		JSplitPane splitPane = new JSplitPane(
+			JSplitPane.HORIZONTAL_SPLIT,
+			true,
+			nameScroller,
+			editControlsScroller);
+
+		add(splitPane, gbc);
+
+		initForeignKeys();
+		if (currentName != null)
+		{
+			refresh(currentName);
+		}
+
+		splitPane.setDividerLocation(-1);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refreshNames(String toBeSelected)
+	{
+		currentName = null;
+		Vector vec = getCharacterNames();
+		names.setListData(vec);
+		if (toBeSelected == null)
+		{
+			names.setSelectedIndex(0);
+		}
+		else
+		{
+			names.setSelectedValue(toBeSelected, true);
+		}
+		currentName = (String)names.getSelectedValue();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public abstract Vector getCharacterNames();
 
 	/*-------------------------------------------------------------------------*/
 	public Container getEditControls()
@@ -65,7 +138,30 @@ public abstract class PlayerCharacterPanel extends EditorPanel
 		result.addTab("General", getGeneralTab());
 		result.addTab("Items", getItemsTab());
 		result.addTab("Spells", getSpellsTab());
-		
+		result.addTab("Conditions", getConditionsTab());
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getConditionsTab()
+	{
+		JPanel result = new JPanel();
+
+		result.setLayout(new GridBagLayout());
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(2,2,2,2);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 1.0;
+		gbc.weighty = 1.0;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+
+		conditionList = new ConditionListWidget(dirtyFlag);
+		result.add(conditionList, gbc);
+
 		return result;
 	}
 
@@ -271,7 +367,7 @@ public abstract class PlayerCharacterPanel extends EditorPanel
 
 		if (pc == null)
 		{
-			return;
+			pc = getPlayerCharacter(currentName);
 		}
 		
 		pc.setExperience((Integer)experience.getValue());
@@ -314,6 +410,8 @@ public abstract class PlayerCharacterPanel extends EditorPanel
 
 		List<Spell> spells = spellList.getSpells();
 		pc.setSpellBook(new SpellBook(spells));
+
+		ConditionManager.getInstance().setConditions(pc, conditionList.getConditions());
 		
 		commitPlayerCharacter(pc);
 	}
@@ -385,6 +483,7 @@ public abstract class PlayerCharacterPanel extends EditorPanel
 		}
 		
 		spellList.refresh(pc.getSpellBook().getSpells());
+		conditionList.refresh(pc);
 		
 		experience.addChangeListener(this);
 		kills.addChangeListener(this);
@@ -406,4 +505,63 @@ public abstract class PlayerCharacterPanel extends EditorPanel
 	
 	/*-------------------------------------------------------------------------*/
 	public abstract void commitPlayerCharacter(PlayerCharacter pc);
+
+	@Override
+	public void valueChanged(ListSelectionEvent e)
+	{
+		if (currentName != null)
+		{
+			commit(currentName);
+		}
+
+		currentName = (String)names.getSelectedValue();
+		if (currentName == null)
+		{
+			return;
+		}
+		if (currentName != null)
+		{
+			refresh(currentName);
+		}
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e)
+	{
+		// todo
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		// todo
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected void dodgyGridBagShite(JPanel panel, Component a, Component b, GridBagConstraints gbc)
+	{
+		gbc.weightx = 0.0;
+		gbc.weighty = 0.0;
+		gbc.gridx=0;
+		gbc.gridy++;
+		panel.add(a, gbc);
+		gbc.weightx = 1.0;
+		gbc.gridx++;
+		panel.add(b, gbc);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected GridBagConstraints createGridBagConstraints()
+	{
+		GridBagConstraints gbc = new GridBagConstraints();
+		gbc.insets = new Insets(2,2,2,2);
+		gbc.gridx = 0;
+		gbc.gridy = 0;
+		gbc.gridwidth = 1;
+		gbc.gridheight = 1;
+		gbc.weightx = 0.0;
+		gbc.weighty = 1.0;
+		gbc.anchor = GridBagConstraints.FIRST_LINE_START;
+		return gbc;
+	}
 }

@@ -51,7 +51,8 @@ public class ItemCacheManager implements GameCache
 	/**
 	 * Loads item caches state.
 	 */
-	public void loadGame(String name, Loader loader) throws Exception
+	public void loadGame(String name, Loader loader,
+		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		this.caches = loader.loadItemCaches(name);
 	}

@@ -1379,6 +1379,8 @@ lap_name_focus_of_flame = Focus of Flame
 lap_desc_focus_of_flame = This focus provides the Warlock with boosted fire resistance and a burning touch.
 lap_name_strength_of_belief = Strength of Belief
 lap_desc_strength_of_belief = The Warlock's belief provides boosted physical strength.
+lap_name_unburdening_kata = Unburdening Kata
+lap_desc_unburdening_kata = The Warlock executes a melee attack that transfers baneful conditions on the Warlock to the target.
 
 # Witch
 lap_name_curse = Curse

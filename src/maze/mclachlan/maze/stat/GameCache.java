@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat;
 
+import java.util.*;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 
@@ -27,7 +28,8 @@ public interface GameCache
 	/**
 	 * Loads item caches state.
 	 */
-	void loadGame(String name, Loader loader) throws Exception;
+	void loadGame(String name, Loader loader,
+		Map<String, PlayerCharacter> playerCharacterCache) throws Exception;
 
 	/*-------------------------------------------------------------------------*/
 	void saveGame(String saveGameName, Saver saver) throws Exception;

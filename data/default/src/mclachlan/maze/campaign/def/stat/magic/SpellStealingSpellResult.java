@@ -68,7 +68,7 @@ public class SpellStealingSpellResult extends SpellResult
 		// cast the spell
 		int castAtLevel = castingLevel/3;
 		SpellTarget spellTarget = SpellTargetUtils.getRandomSensibleSpellTarget(
-			source, spellToCast, Maze.getInstance().getCurrentCombat(), spell.getTargetType());
+			source, spellToCast, Maze.getInstance().getCurrentCombat(), spellToCast.getTargetType());
 
 		SpellAction sa = new SpellAction(
 			spellTarget,

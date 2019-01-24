@@ -29,6 +29,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.GameCache;
 import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -101,7 +102,8 @@ public class NpcManager implements GameCache
 	/**
 	 * Loads the current NPC status.
 	 */
-	public void loadGame(String name, Loader loader) throws Exception
+	public void loadGame(String name, Loader loader,
+		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		this.npcs = loader.loadNpcs(name);
 		this.factions = loader.loadNpcFactions(name);
@@ -249,5 +251,11 @@ public class NpcManager implements GameCache
 		}
 
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, NpcFaction> getMap()
+	{
+		return factions;
 	}
 }

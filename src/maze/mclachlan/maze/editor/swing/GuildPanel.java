@@ -27,7 +27,7 @@ import mclachlan.maze.stat.PlayerCharacter;
 /**
  *
  */
-public class GuildPanel extends PlayerCharacterPanel
+public class GuildPanel extends PlayerCharactersPanel
 {
 	/*-------------------------------------------------------------------------*/
 	public GuildPanel()
@@ -36,7 +36,8 @@ public class GuildPanel extends PlayerCharacterPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	@Override
+	public Vector getCharacterNames()
 	{
 		Vector<String> vec = new Vector<String>(Database.getInstance().getCharacterGuild().keySet());
 		Collections.sort(vec);

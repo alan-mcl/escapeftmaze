@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
@@ -72,7 +73,7 @@ public class Item implements AttackWith, SpellTarget
 			charges = new CurMax(template.charges.roll("item ["+getName()+"] charges"), template.charges.getMaxPossible());
 		}
 
-		if (GameSys.getInstance().applyEnchantmentToNewItem(template))
+		if (Maze.getInstance() != null && GameSys.getInstance().applyEnchantmentToNewItem(template))
 		{
 			// item pick up an enchantment
 			ItemEnchantments itemEnchantments =

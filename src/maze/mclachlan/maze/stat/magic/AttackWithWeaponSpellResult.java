@@ -46,7 +46,9 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	private AttackType attackType;
 	private MagicSys.SpellEffectType damageType;
 	private String attackScript;
-	private boolean requiresBackstabWeapon, requiresSnipeWeapon, consumesWeapon;
+	private boolean requiresBackstabWeapon;
+	private boolean requiresSnipeWeapon;
+	private boolean consumesWeapon;
 	private int requiredWeaponType;
 	private GroupOfPossibilities<String> spellEffects;
 
@@ -82,7 +84,8 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		UnifiedActor spellSource,
 		UnifiedActor spellTarget,
 		int castingLevel,
-		SpellEffect parent, Spell spell)
+		SpellEffect parent,
+		Spell spell)
 	{
 		Combat combat = Maze.getInstance().getCurrentCombat();
 		if (combat == null)

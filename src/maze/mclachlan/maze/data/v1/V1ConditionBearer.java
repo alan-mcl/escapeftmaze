@@ -19,7 +19,8 @@
 
 package mclachlan.maze.data.v1;
 
-import java.awt.*;
+import java.awt.Point;
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -68,39 +69,48 @@ public class V1ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static ConditionBearer fromString(String s)
+	public static ConditionBearer fromString(String s, String saveGameName,
+		Map<String, PlayerCharacter> playerCharacterCache)
 	{
-		String[] strs = s.split(SEP, -1);
+		try
+		{
+			String[] strs = s.split(SEP, -1);
 
-		int type = Integer.parseInt(strs[0]);
-		String name = strs[1];
-		if (type == PLAYER_CHARACTER)
-		{
-			return Maze.getInstance().getPlayerCharacter(name);
-		}
-		else if (type == TILE)
-		{
-			Point coords = V1Point.fromString(strs[2]);
-			if (Maze.getInstance().getCurrentZone().getName().equals(name))
+			int type = Integer.parseInt(strs[0]);
+			String name = strs[1];
+			Maze instance = Maze.getInstance();
+			if (type == PLAYER_CHARACTER)
 			{
-				// a condition on a tile in the current zone
-				return Maze.getInstance().getCurrentZone().getTile(coords);
+				return playerCharacterCache.get(name);
+			}
+			else if (type == TILE)
+			{
+				Point coords = V1Point.fromString(strs[2]);
+				if (instance != null && instance.getCurrentZone().getName().equals(name))
+				{
+					// a condition on a tile in the current zone
+					return instance.getCurrentZone().getTile(coords);
+				}
+				else
+				{
+					// a condition on a tile in a zone that is not currently loaded
+					// fake it
+					Tile tile = new Tile(null, null, new StatModifier(),
+						Tile.TerrainType.FAKE, "fake", 0,
+						Tile.RestingDanger.NONE, Tile.RestingEfficiency.POOR);
+					tile.setZone(name);
+					tile.setCoords(coords);
+					return tile;
+				}
 			}
 			else
 			{
-				// a condition on a tile in a zone that is not currently loaded
-				// fake it
-				Tile tile = new Tile(null, null, new StatModifier(),
-					Tile.TerrainType.FAKE, "fake", 0,
-					Tile.RestingDanger.NONE, Tile.RestingEfficiency.POOR);
-				tile.setZone(name);
-				tile.setCoords(coords);
-				return tile;
+				throw new MazeException("invalid type: "+type);
 			}
 		}
-		else
+		catch (Exception e)
 		{
-			throw new MazeException("invalid type: "+type);
+			throw new MazeException(e);
 		}
 	}
 }

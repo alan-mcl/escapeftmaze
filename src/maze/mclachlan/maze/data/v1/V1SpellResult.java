@@ -65,8 +65,9 @@ public class V1SpellResult
 	public static final int CONDITION_IDENTIFICATION = 25;
 	public static final int LOCATE_PERSON = 26;
 	public static final int REMOVE_ITEM = 27;
+	public static final int CONDITION_TRANSFER = 28;
 
-	public static final int MAX = 28;
+	public static final int MAX = 29;
 
 	static
 	{
@@ -99,6 +100,7 @@ public class V1SpellResult
 		types.put(LocatePersonSpellResult.class, LOCATE_PERSON);
 		types.put(RemoveItemSpellResult.class, REMOVE_ITEM);
 		types.put(SingleUseSpellSpellResult.class, SINGLE_USE_SPELL);
+		types.put(ConditionTransferSpellResult.class, CONDITION_TRANSFER);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -259,6 +261,12 @@ public class V1SpellResult
 				s.append(V1Value.toString(crsr.getStrength()));
 				s.append(SEP);
 				s.append(conditionEffects.toString(crsr.getEffects()));
+				break;
+			case CONDITION_TRANSFER:
+				ConditionTransferSpellResult ctsr = (ConditionTransferSpellResult)sr;
+				s.append(ctsr.isDeliver());
+				s.append(SEP);
+				s.append(conditionEffects.toString(ctsr.getEffects()));
 				break;
 			case DEATH:
 				DeathSpellResult d = (DeathSpellResult)sr;
@@ -454,6 +462,11 @@ public class V1SpellResult
 				v = V1Value.fromString(strs[i++]);
 				List<ConditionEffect> effects = conditionEffects.fromString(strs[i++]);
 				result = new ConditionRemovalSpellResult(effects, v);
+				break;
+			case CONDITION_TRANSFER:
+				boolean deliver = Boolean.valueOf(strs[i++]);
+				List<ConditionEffect> effectsList = conditionEffects.fromString(strs[i++]);
+				result = new ConditionTransferSpellResult(effectsList, deliver);
 				break;
 			case DEATH:
 				result = new DeathSpellResult();

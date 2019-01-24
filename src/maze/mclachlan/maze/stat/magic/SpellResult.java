@@ -72,7 +72,8 @@ public abstract class SpellResult
 		UnifiedActor source,
 		UnifiedActor target,
 		int castingLevel,
-		SpellEffect parent, Spell spell)
+		SpellEffect parent,
+		Spell spell)
 	{
 		return null;
 	}

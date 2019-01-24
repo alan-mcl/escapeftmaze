@@ -88,13 +88,13 @@ public class Maze implements Runnable
 	/** the current user interface implementation */
 	private UserInterface ui;
 
-	/** the current game rules implentation */
+	/** the current game rules implementation */
 	private GameSys gameSys;
 
 	/** the current magic system implementation */
 	private MagicSys magicSys;
 
-	/** the current persitence implementation */
+	/** the current persistence implementation */
 	private Database db;
 
 	/** the current logging implementation */
@@ -451,6 +451,8 @@ public class Maze implements Runnable
 	{
 		try
 		{
+			// sync with mclachlan.maze.editor.swing.SaveGamePanel.refresh()
+
 			// quiet ui
 			ui.stopAllAnimations();
 			ui.getMusic().stop();
@@ -498,7 +500,7 @@ public class Maze implements Runnable
 
 			// load NPCs
 			progress.message(StringUtil.getUiLabel("ls.npc"));
-			NpcManager.getInstance().loadGame(name, loader);
+			NpcManager.getInstance().loadGame(name, loader, playerCharacterCache);
 			progress.incProgress(1);
 
 			// load maze vars
@@ -508,7 +510,7 @@ public class Maze implements Runnable
 
 			// load item caches
 			progress.message(StringUtil.getUiLabel("ls.item.caches"));
-			ItemCacheManager.getInstance().loadGame(name, loader);
+			ItemCacheManager.getInstance().loadGame(name, loader, playerCharacterCache);
 			progress.incProgress(1);
 
 			// init state
@@ -526,7 +528,7 @@ public class Maze implements Runnable
 			// load conditions
 			// done last, so that conditions on tiles can be loaded after the zone has been loaded
 			progress.message(StringUtil.getUiLabel("ls.conditions"));
-			ConditionManager.getInstance().loadGame(name, loader);
+			ConditionManager.getInstance().loadGame(name, loader, playerCharacterCache);
 			progress.incProgress(1);
 
 			// set message

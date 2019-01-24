@@ -105,23 +105,27 @@ public class NpcInventoryTemplate
 		}
 
 		// now, spawn new items
-		int clvl = Maze.getInstance().getParty().getPartyLevel();
-		for (NpcInventoryTemplateRow row : rows)
+		Maze instance = Maze.getInstance();
+		if (instance != null)
 		{
-			List<Item> spawned = row.spawnNewItems(clvl, currentInventory);
-
-			currentInventory.addAll(spawned);
-		}
-
-		// limit inventory size to keep NPC inventories from growing endlessly
-		int maxSize = currentInventory.size()/2;
-		if (maxSize > rows.size())
-		{
-			int nrToDelete = maxSize - rows.size();
-			for (int j=0; j<nrToDelete; j++)
+			int clvl = instance.getParty().getPartyLevel();
+			for (NpcInventoryTemplateRow row : rows)
 			{
-				int n = new Dice(1, currentInventory.size(), -1).roll("removing inventory item");
-				currentInventory.remove(n);
+				List<Item> spawned = row.spawnNewItems(clvl, currentInventory);
+
+				currentInventory.addAll(spawned);
+			}
+
+			// limit inventory size to keep NPC inventories from growing endlessly
+			int maxSize = currentInventory.size() / 2;
+			if (maxSize > rows.size())
+			{
+				int nrToDelete = maxSize - rows.size();
+				for (int j = 0; j < nrToDelete; j++)
+				{
+					int n = new Dice(1, currentInventory.size(), -1).roll("removing inventory item");
+					currentInventory.remove(n);
+				}
 			}
 		}
 

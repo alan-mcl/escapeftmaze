@@ -388,6 +388,16 @@ savedResult=4::2/0/SCALE_WITH_CASTING_LEVEL//false/1d3::::0.5:false
 targetType=4
 application=AS_PER_SPELL
 @
+name=unburdening kata
+displayName=unburdening kata
+type=MENTAL
+subtype=NONE
+saveAdjustment=
+unsavedResult=1:::1/1/NONE//false::::false:false:0:false:unburdening kata debuff delivery,100
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=acid splash condition
 displayName=acid
 type=WATER
@@ -4926,6 +4936,16 @@ saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
 unsavedResult=4:Outsider:2/0/SCALE_WITH_CASTING_LEVEL//true/1d4+1,4/0/SCALE_WITH_CASTING_LEVEL//true/4::::1.0:false
 savedResult=
 targetType=5
+application=AS_PER_SPELL
+@
+name=unburdening kata debuff delivery
+displayName=unburdening kata debuff delivery
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=28::true:blind,disease,fear,hex,insane,irritate,nausea,poison,silence,slow
+savedResult=
+targetType=3
 application=AS_PER_SPELL
 @
 name=entwine spell web

@@ -601,13 +601,14 @@ public class V1Loader extends Loader
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public Map<ConditionBearer, List<Condition>> loadConditions(String saveGameName) throws Exception
+	public Map<ConditionBearer, List<Condition>> loadConditions(
+		String saveGameName, Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		BufferedReader reader = null;
 		try
 		{
 			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.CONDITIONS);
-			return V1ConditionManager.load(reader);
+			return V1ConditionManager.load(reader, saveGameName, playerCharacterCache);
 		}
 		finally
 		{
