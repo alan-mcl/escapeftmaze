@@ -13,7 +13,7 @@ Features
  - Skald class abilities: Inspiring Blow, Recorder of Great Deeds
  - Sohei class abilities: Die Hard, Sohei Resistance
  - Troubadour abilities: Spell Sniping, Spell Stealing
- - Warlock abilities: Unburdening Kata
+ - Warlock abilities: Unburdening Kata, Power of Restraint
 
 Other
  - Refactoring action point regen to be consistent with other resources

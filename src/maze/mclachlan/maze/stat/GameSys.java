@@ -4254,6 +4254,21 @@ public class GameSys
 				}
 			}
 		}
+		else if (Stats.Modifier.RESIST_FIRE.equals(modifier) ||
+			Stats.Modifier.RESIST_WATER.equals(modifier) ||
+			Stats.Modifier.RESIST_EARTH.equals(modifier) ||
+			Stats.Modifier.RESIST_AIR.equals(modifier) ||
+			Stats.Modifier.RESIST_ENERGY.equals(modifier) ||
+			Stats.Modifier.RESIST_MENTAL.equals(modifier))
+		{
+			if (actor instanceof PlayerCharacter &&
+				actor.getModifier(Stats.Modifier.POWER_OF_RESTRAINT) > 0)
+			{
+				result.add(new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifier.POWER_OF_RESTRAINT),
+					((PlayerCharacter)actor).getSpellPicks()*3));
+			}
+		}
 
 		return result;
 	}

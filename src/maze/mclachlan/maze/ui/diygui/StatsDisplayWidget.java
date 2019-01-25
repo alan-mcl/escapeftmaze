@@ -47,12 +47,13 @@ public class StatsDisplayWidget extends ContainerWidget
 	private PlayerCharacter character;
 
 	Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
+	Map<Stats.Modifier, DIYLabel> nameLabelMap = new HashMap<Stats.Modifier, DIYLabel>();
 	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
 	private DIYButton portraitButton = new DIYButton("Change Portrait");
 	private DIYButton nameButton = new DIYButton("Change Name");
 	private DIYButton personalityButton = new DIYButton("Change Personality");
 	private DIYLabel kills = new DIYLabel("", DIYToolkit.Align.LEFT);
-	private ActionListener listener;
+	private ActionListener modifiersDisplayActionListener;
 
 	private FilledBarWidget hitPoints = new FilledBarWidget(0,0);
 	private FilledBarWidget actionPoints = new FilledBarWidget(0,0);
@@ -74,7 +75,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	{
 		super(bounds);
 
-		this.listener = new ModifiersDisplayActionListener();
+		this.modifiersDisplayActionListener = new ModifiersDisplayActionListener();
 		this.nameLabel.addActionListener(this);
 		this.portraitButton.addActionListener(this);
 		this.nameButton.addActionListener(this);
@@ -248,7 +249,19 @@ public class StatsDisplayWidget extends ContainerWidget
 	private void addResistance(DIYPane parent, Stats.Modifier modifier, FilledBarWidget bar)
 	{
 		DIYPane temp = new DIYPane(new DIYGridLayout(2,1,0,0));
-		temp.add(getLabel(StringUtil.getModifierName(modifier)));
+		DIYLabel label = getLabel(StringUtil.getModifierName(modifier));
+
+		label.setActionMessage(modifier.toString());
+		label.addActionListener(this.modifiersDisplayActionListener);
+		label.setActionPayload(this.character);
+
+		bar.setActionMessage(modifier.toString());
+		bar.addActionListener(this.modifiersDisplayActionListener);
+		bar.setActionPayload(this.character);
+
+		this.nameLabelMap.put(modifier, label);
+
+		temp.add(label);
 		temp.add(bar);
 		parent.add(temp);
 	}
@@ -277,8 +290,9 @@ public class StatsDisplayWidget extends ContainerWidget
 	{
 		parent.add(label);
 		label.setActionMessage(name.toString());
-		label.addActionListener(this.listener);
+		label.addActionListener(this.modifiersDisplayActionListener);
 		label.setActionPayload(this.character);
+		this.nameLabelMap.put(name, label);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -289,7 +303,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	{
 		parent.add(label);
 		label.setActionMessage(name.toString());
-		label.addActionListener(this.listener);
+		label.addActionListener(this.modifiersDisplayActionListener);
 		label.setActionPayload(this.character);
 		this.labelMap.put(name, label);
 	}
@@ -313,6 +327,7 @@ public class StatsDisplayWidget extends ContainerWidget
 			return;
 		}
 
+		// refresh the action messages and event payloads
 		for (Stats.Modifier modifier : this.labelMap.keySet())
 		{
 			DIYLabel label = this.labelMap.get(modifier);
@@ -322,6 +337,23 @@ public class StatsDisplayWidget extends ContainerWidget
 				label.setActionPayload(character);
 			}
 		}
+		for (Stats.Modifier modifier : this.nameLabelMap.keySet())
+		{
+			DIYLabel label = this.nameLabelMap.get(modifier);
+			if (label != null)
+			{
+				label.setActionPayload(character);
+			}
+		}
+		resistBludgeoning.setActionPayload(character);
+		resistPiercing.setActionPayload(character);
+		resistSlashing.setActionPayload(character);
+		resistFire.setActionPayload(character);
+		resistWater.setActionPayload(character);
+		resistAir.setActionPayload(character);
+		resistEarth.setActionPayload(character);
+		resistMental.setActionPayload(character);
+		resistEnergy.setActionPayload(character);
 
 		nameLabel.setForegroundColour(WHITE);
 		nameLabel.setText(this.character.getName()+", "+

@@ -312,6 +312,7 @@ public class Stats
 		otherMagic.add(PATIENCE);
 		otherMagic.add(SHED_BLIGHTS);
 		otherMagic.add(SPELL_SNIPING);
+		otherMagic.add(POWER_OF_RESTRAINT);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -762,6 +763,7 @@ public class Stats
 		DIE_HARD(274, "dieHard", ModifierMetric.BOOLEAN),
 		RESISTANT_SAVES(275, "resistantSaves", ModifierMetric.BOOLEAN),
 		SPELL_SNIPING(276, "spellSniping", ModifierMetric.BOOLEAN),
+		POWER_OF_RESTRAINT(277, "powerOfRestraint", ModifierMetric.BOOLEAN),
 		;
 
 		/**

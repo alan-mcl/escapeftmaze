@@ -62,6 +62,7 @@ public class ModifiersDisplayActionListener implements ActionListener
 		if (pc != null)
 		{
 			ModifierValue modifierValue = pc.getModifierValue(modifier, true);
+
 			if (!modifierValue.getInfluences().isEmpty())
 			{
 				text.append("\n\n").

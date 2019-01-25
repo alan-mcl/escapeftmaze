@@ -36,12 +36,12 @@ public abstract class Widget
 	public int x, y, width, height;
 	protected ContainerWidget parent;
 	protected Renderer renderer;
-	Color background, foreground;
+	private Color background, foreground;
 	
-	java.util.List<ActionListener> listeners = new ArrayList<ActionListener>();
+	private java.util.List<ActionListener> listeners = new ArrayList<ActionListener>();
 	
-	String actionMessage;
-	Object actionPayload;
+	private String actionMessage;
+	private Object actionPayload;
 	boolean focus;
 	boolean enabled = true;
 	boolean visible = true;

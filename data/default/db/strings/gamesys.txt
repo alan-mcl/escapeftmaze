@@ -297,6 +297,7 @@ modifier_name-bonusExperienceMagic: Bonus Experience: Magic Focus
 modifier_name-dieHard: Die Hard
 modifier_name-resistantSaves: Resistant Saves
 modifier_name-spellSniping: Spell Sniping
+modifier_name-powerOfRestraint: Power of Restraint
 
 # Modifier Descriptions
 
@@ -587,6 +588,7 @@ modifier_desc-bonusExperienceMagic: If this character belongs to a magic focused
 modifier_desc-dieHard: When this character takes lethal damage in combat, he or she keeps fighting until the end of the round.
 modifier_desc-resistantSaves: When this character succeeds at a saving throw and would still take damage, he or she takes no damage instead.
 modifier_desc-spellSniping: Projectile spells cast by this character count as snipe attacks.
+modifier_desc-powerOfRestraint: This character gets extra magic resistance for every unspent spellpick.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1381,6 +1383,8 @@ lap_name_strength_of_belief = Strength of Belief
 lap_desc_strength_of_belief = The Warlock's belief provides boosted physical strength.
 lap_name_unburdening_kata = Unburdening Kata
 lap_desc_unburdening_kata = The Warlock executes a melee attack that transfers baneful conditions on the Warlock to the target.
+lap_name_power_of_restraint = Power of Restraint
+lap_desc_power_of_restraint = The Warlock gets increased magic resistance for every unspent spellpick.
 
 # Witch
 lap_name_curse = Curse

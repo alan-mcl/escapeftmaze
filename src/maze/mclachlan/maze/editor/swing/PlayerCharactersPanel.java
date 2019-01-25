@@ -315,6 +315,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		dodgyGridBagShite(result, new JLabel("Active Modifiers:"), activeModifiers, gbc);
 		
 		spellPicks = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		spellPicks.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("Spell Picks:"), spellPicks, gbc);
 		
 		return result;
@@ -523,6 +524,8 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		{
 			refresh(currentName);
 		}
+
+		SwingEditor.instance.setDirty(this.dirtyFlag);
 	}
 
 	@Override
