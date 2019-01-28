@@ -1392,6 +1392,8 @@ lap_name_focus_of_the_moment = Focus of the Moment
 lap_desc_focus_of_the_moment = This focus provides the Warlock with heightened senses and uncanny evasive abilities.
 lap_name_focus_of_speed = Focus of Speed
 lap_desc_focus_of_speed = The Warlock's is quickened for every condition he bears.
+lap_name_stealing_kata = Stealing Kata
+lap_desc_stealing_kata = The Warlock executes a melee attack that transfers a beneficial condition from the victim to the himself.
 
 # Witch
 lap_name_curse = Curse

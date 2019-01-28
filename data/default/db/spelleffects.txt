@@ -1368,6 +1368,16 @@ savedResult=8::2/0/NONE//false/1d6
 targetType=8
 application=AS_PER_SPELL
 @
+name=stealing kata buff steal
+displayName=unburdening kata debuff delivery
+type=NONE
+subtype=NONE
+saveAdjustment=
+unsavedResult=28::false:blink,bloodthirsty,enchanted_blade,gaseous_form,haste,invisible
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=dire wasps damage
 displayName=
 type=EARTH
@@ -3246,6 +3256,16 @@ saveAdjustment=
 unsavedResult=11::einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1/einherjar.berserkers.1:1/1/NONE//false
 savedResult=
 targetType=0
+application=AS_PER_SPELL
+@
+name=stealing kata
+displayName=stealing kata
+type=MENTAL
+subtype=NONE
+saveAdjustment=
+unsavedResult=1:::1/1/NONE//false::::false:false:0:false:stealing kata buff steal,100
+savedResult=
+targetType=3
 application=AS_PER_SPELL
 @
 name=might to magic spell damage

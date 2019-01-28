@@ -69,12 +69,18 @@ public class ConditionTransferSpellResult extends SpellResult
 		UnifiedActor source,
 		int castingLevel)
 	{
-		System.out.println("ConditionTransferSpellResult.transferConditions");
-
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		List<Condition> list = source.getConditions();
-		System.out.println("list = [" + list + "]");
+		List<Condition> list;
+
+		if (deliver)
+		{
+			list = source.getConditions();
+		}
+		else
+		{
+			list = target.getConditions();
+		}
 
 		if (list != null)
 		{
