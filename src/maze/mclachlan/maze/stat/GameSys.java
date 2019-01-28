@@ -4139,6 +4139,13 @@ public class GameSys
 					StringUtil.getModifierName(Stats.Modifier.CHANNELLING),
 					actor.getModifier(Stats.Modifier.BLUE_MAGIC_GEN)/2));
 			}
+			else if (actor.getModifier(Stats.Modifier.FOCUS_OF_SPEED) > 0)
+			{
+				int nrConditions = actor.getConditions().size();
+				result.add(new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifier.FOCUS_OF_SPEED),
+					nrConditions));
+			}
 		}
 		else if (Stats.Modifier.SUPPLY_CONSUMPTION.equals(modifier))
 		{

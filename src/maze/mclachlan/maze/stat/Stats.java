@@ -295,6 +295,7 @@ public class Stats
 		otherStealth.add(SLIP_AWAY);
 		otherStealth.add(SNAKESPEED);
 		otherStealth.add(ACROBATICS);
+		otherStealth.add(FOCUS_OF_SPEED);
 
 		Collections.sort(otherStealth, new ModifierComparatorAlphabetic());
 
@@ -764,6 +765,7 @@ public class Stats
 		RESISTANT_SAVES(275, "resistantSaves", ModifierMetric.BOOLEAN),
 		SPELL_SNIPING(276, "spellSniping", ModifierMetric.BOOLEAN),
 		POWER_OF_RESTRAINT(277, "powerOfRestraint", ModifierMetric.BOOLEAN),
+		FOCUS_OF_SPEED(278, "focusOfSpeed", ModifierMetric.BOOLEAN),
 		;
 
 		/**

@@ -298,6 +298,8 @@ modifier_name-dieHard: Die Hard
 modifier_name-resistantSaves: Resistant Saves
 modifier_name-spellSniping: Spell Sniping
 modifier_name-powerOfRestraint: Power of Restraint
+modifier_name-focusOfSpeed: Focus of Speed
+
 
 # Modifier Descriptions
 
@@ -589,6 +591,7 @@ modifier_desc-dieHard: When this character takes lethal damage in combat, he or 
 modifier_desc-resistantSaves: When this character succeeds at a saving throw and would still take damage, he or she takes no damage instead.
 modifier_desc-spellSniping: Projectile spells cast by this character count as snipe attacks.
 modifier_desc-powerOfRestraint: This character gets extra magic resistance for every unspent spellpick.
+modifier_desc-focusOfSpeed: This character gains +1 initiative for every condition on him or her.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1387,6 +1390,8 @@ lap_name_power_of_restraint = Power of Restraint
 lap_desc_power_of_restraint = The Warlock gets increased magic resistance for every unspent spellpick.
 lap_name_focus_of_the_moment = Focus of the Moment
 lap_desc_focus_of_the_moment = This focus provides the Warlock with heightened senses and uncanny evasive abilities.
+lap_name_focus_of_speed = Focus of Speed
+lap_desc_focus_of_speed = The Warlock's is quickened for every condition he bears.
 
 # Witch
 lap_name_curse = Curse
