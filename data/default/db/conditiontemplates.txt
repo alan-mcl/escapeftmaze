@@ -2670,6 +2670,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=focus of the moment
+displayName=focus of the moment
+icon=condition/focusofthemoment
+adjective=focussed
+conditionEffect=none
+duration=1/2/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=1000000000000401c00000000000000,0303030a01
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=SCALING_STONE
 displayName=Stone
 icon=condition/stone

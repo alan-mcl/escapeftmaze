@@ -19,10 +19,15 @@
 
 package mclachlan.maze.stat.combat;
 
+import mclachlan.maze.stat.UnifiedActor;
+
 /**
  *
  */
 public class BlinkAction extends CombatAction
 {
-
+	public BlinkAction(UnifiedActor actor)
+	{
+		super.setActor(actor);
+	}
 }

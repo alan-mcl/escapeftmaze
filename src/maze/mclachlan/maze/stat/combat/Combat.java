@@ -842,10 +842,10 @@ public class Combat
 			{
 				int blinkInitiative =  blinkDice.roll("Combat blink dice 1");
 				
-				BlinkAction blinkOut = new BlinkAction();
+				BlinkAction blinkOut = new BlinkAction(actor);
 				blinkOut.setInitiative(blinkInitiative);
 
-				BlinkAction blinkIn = new BlinkAction();
+				BlinkAction blinkIn = new BlinkAction(actor);
 				blinkIn.setInitiative(blinkInitiative + Dice.d6.roll("Combat blink dice 2"));
 
 				actorActions.add(blinkOut);

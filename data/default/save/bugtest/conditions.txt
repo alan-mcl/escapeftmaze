@@ -1,26 +1,26 @@
-conditionBearer=1~Dwaf
-0=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
+conditionBearer=1~IG-87
+0=hexxer trap;11;21;31;1/1/NONE//false;1/3/NONE//false;1/5/NONE//false;1/2/NONE//false;ENERGY;CURSE;Abstract Actor;true;true;231;true
 1=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
+2=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
+@
+conditionBearer=1~Silvia
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
+@
+conditionBearer=1~Ug
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
+@
+conditionBearer=1~Dwaf
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
 @
 conditionBearer=1~Brunswick
 0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
 @
-conditionBearer=1~IG-87
-0=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
-1=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
-2=hexxer trap;11;21;31;1/1/NONE//false;1/3/NONE//false;1/5/NONE//false;1/2/NONE//false;ENERGY;CURSE;Abstract Actor;true;true;231;true
-@
 conditionBearer=1~Gibby
-0=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
-1=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
-@
-conditionBearer=1~Ug
-0=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
-1=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
+0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
+1=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
 @
 conditionBearer=2~Ichiba City~16:16
-@
-conditionBearer=1~Silvia
-0=chameleon spell;6;7;5;;;;;EARTH;NONE;Abstract Actor;true;true;1;false
-1=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
 @

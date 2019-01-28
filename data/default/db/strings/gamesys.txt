@@ -1385,6 +1385,8 @@ lap_name_unburdening_kata = Unburdening Kata
 lap_desc_unburdening_kata = The Warlock executes a melee attack that transfers baneful conditions on the Warlock to the target.
 lap_name_power_of_restraint = Power of Restraint
 lap_desc_power_of_restraint = The Warlock gets increased magic resistance for every unspent spellpick.
+lap_name_focus_of_the_moment = Focus of the Moment
+lap_desc_focus_of_the_moment = This focus provides the Warlock with heightened senses and uncanny evasive abilities.
 
 # Witch
 lap_name_curse = Curse

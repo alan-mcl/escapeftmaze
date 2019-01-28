@@ -3278,6 +3278,16 @@ savedResult=4::2/0/NONE//false/2d4::::0.5:false
 targetType=0
 application=AS_PER_SPELL
 @
+name=focus of the moment condition
+displayName=focus of flame condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::focus of the moment
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=vampirism spell
 displayName=
 type=ENERGY

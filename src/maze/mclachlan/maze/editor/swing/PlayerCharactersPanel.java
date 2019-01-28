@@ -115,6 +115,9 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 	{
 		currentName = null;
 		Vector vec = getCharacterNames();
+
+		names.removeListSelectionListener(this);
+
 		names.setListData(vec);
 		if (toBeSelected == null)
 		{
@@ -125,6 +128,8 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 			names.setSelectedValue(toBeSelected, true);
 		}
 		currentName = (String)names.getSelectedValue();
+
+		names.addListSelectionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -524,20 +529,18 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		{
 			refresh(currentName);
 		}
-
-		SwingEditor.instance.setDirty(this.dirtyFlag);
 	}
 
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
-		// todo
+		SwingEditor.instance.setDirty(this.dirtyFlag);
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-		// todo
+		SwingEditor.instance.setDirty(this.dirtyFlag);
 	}
 
 	/*-------------------------------------------------------------------------*/

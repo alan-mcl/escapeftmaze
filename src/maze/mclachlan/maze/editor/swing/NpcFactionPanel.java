@@ -98,6 +98,9 @@ public class NpcFactionPanel extends JPanel implements ActionListener, ListSelec
 	{
 		currentName = null;
 		Vector vec = getNames();
+
+		names.removeListSelectionListener(this);
+
 		names.setListData(vec);
 		if (toBeSelected == null)
 		{
@@ -108,6 +111,8 @@ public class NpcFactionPanel extends JPanel implements ActionListener, ListSelec
 			names.setSelectedValue(toBeSelected, true);
 		}
 		currentName = (String)names.getSelectedValue();
+
+		names.addListSelectionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -220,7 +225,7 @@ public class NpcFactionPanel extends JPanel implements ActionListener, ListSelec
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
-
+		SwingEditor.instance.setDirty(this.dirtyFlag);
 	}
 
 	@Override
