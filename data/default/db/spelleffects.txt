@@ -4968,6 +4968,16 @@ savedResult=
 targetType=5
 application=AS_PER_SPELL
 @
+name=focus of will condition
+displayName=focus of will condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3::focus of will
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=unburdening kata debuff delivery
 displayName=unburdening kata debuff delivery
 type=NONE

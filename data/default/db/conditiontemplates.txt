@@ -2810,6 +2810,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=focus of will
+displayName=focus of will
+icon=condition/focusofwill
+adjective=focussed
+conditionEffect=none
+duration=1/2/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=4000000000000000200000000000000000,1401
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=PROTECT
 impl=mclachlan.maze.stat.condition.impl.Protect
 @
