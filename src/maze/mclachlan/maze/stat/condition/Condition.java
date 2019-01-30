@@ -397,6 +397,7 @@ public class Condition
 		// Apply any repeated spell effects
 		//
 		if (target instanceof UnifiedActor &&
+			template != null &&
 			template.getRepeatedSpellEffects() != null &&
 			!template.getRepeatedSpellEffects().isEmpty())
 		{
@@ -533,7 +534,7 @@ public class Condition
 
 		// check condition exit conditions
 
-		if (template.getExitCondition() == ConditionTemplate.ExitCondition.DURATION_EXPIRES)
+		if (getExitCondition() == ConditionTemplate.ExitCondition.DURATION_EXPIRES)
 		{
 			// Duration only matters for conditions with this exit condition
 
@@ -543,10 +544,10 @@ public class Condition
 				decStrength(1);
 			}
 
-			Maze.log(Log.DEBUG, "exit condition ["+template.getExitCondition()+
+			Maze.log(Log.DEBUG, "exit condition ["+ getExitCondition() +
 				"] duration ["+getDuration()+"] strength ["+getStrength()+"]");
 		}
-		else if (template.getExitCondition() == ConditionTemplate.ExitCondition.CHANCE_AT_EOT)
+		else if (getExitCondition() == ConditionTemplate.ExitCondition.CHANCE_AT_EOT)
 		{
 			// Check for EOT chance expiration
 
@@ -554,16 +555,21 @@ public class Condition
 			{
 				//expire condition
 				setDuration(-1);
-				Maze.log(Log.DEBUG, "exit condition ["+template.getExitCondition()+ "] expires!");
+				Maze.log(Log.DEBUG, "exit condition ["+ getExitCondition() + "] expires!");
 			}
 			else
 			{
-				Maze.log(Log.DEBUG, "exit condition ["+template.getExitCondition()+
+				Maze.log(Log.DEBUG, "exit condition ["+ getExitCondition() +
 					"] does not expire!");
 			}
 		}
 
 		return result;
+	}
+
+	public ConditionTemplate.ExitCondition getExitCondition()
+	{
+		return template.getExitCondition();
 	}
 
 	/*-------------------------------------------------------------------------*/

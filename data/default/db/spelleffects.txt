@@ -98,6 +98,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=enlightening kata
+displayName=
+type=MENTAL
+subtype=NONE
+saveAdjustment=
+unsavedResult=0::mclachlan.maze.campaign.def.stat.magic.EnlighteningKataSpellResult
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=clockwork beast
 displayName=clockwork beast
 type=NONE
