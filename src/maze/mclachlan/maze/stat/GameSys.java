@@ -4276,6 +4276,29 @@ public class GameSys
 					((PlayerCharacter)actor).getSpellPicks()*3));
 			}
 		}
+		else if (Stats.Modifier.DAMAGE.equals(modifier))
+		{
+			if (actor.getModifier(Stats.Modifier.COILED_SPRING) > 0)
+			{
+				double ratio = actor.getActionPoints().getRatio();
+				int bonus = 0;
+				if (ratio <= 0.1D)
+				{
+					bonus = 6;
+				}
+				else if (ratio <= 0.2D)
+				{
+					bonus = 4;
+				}
+				else if (ratio <= 0.5D)
+				{
+					bonus = 2;
+				}
+				result.add(new ModifierValue(
+					StringUtil.getModifierName(Stats.Modifier.COILED_SPRING),
+					bonus));
+			}
+		}
 
 		return result;
 	}

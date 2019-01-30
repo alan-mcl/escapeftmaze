@@ -299,6 +299,7 @@ modifier_name-resistantSaves: Resistant Saves
 modifier_name-spellSniping: Spell Sniping
 modifier_name-powerOfRestraint: Power of Restraint
 modifier_name-focusOfSpeed: Focus of Speed
+modifier_name-coiledSpring: Coiled Spring
 
 
 # Modifier Descriptions
@@ -592,6 +593,7 @@ modifier_desc-resistantSaves: When this character succeeds at a saving throw and
 modifier_desc-spellSniping: Projectile spells cast by this character count as snipe attacks.
 modifier_desc-powerOfRestraint: This character gets extra magic resistance for every unspent spellpick.
 modifier_desc-focusOfSpeed: This character gains +1 initiative for every condition on him or her.
+modifier_desc-coiledSpring: This character does more combat damage as his or her action points run out.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1396,6 +1398,8 @@ lap_name_stealing_kata = Stealing Kata
 lap_desc_stealing_kata = The Warlock executes a melee attack that transfers a beneficial condition from the victim to the himself.
 lap_name_focus_of_will = Focus of Will
 lap_desc_focus_of_will = This focus temporarily increases the Warlock's resistance to psychic effects, and causes insanity in foes with his touch.
+lap_name_coiled_spring = Coiled Spring
+lap_desc_coiled_spring = The Warlock does extra combat damage as his action point total runs low.
 
 # Witch
 lap_name_curse = Curse

@@ -296,6 +296,7 @@ public class Stats
 		otherStealth.add(SNAKESPEED);
 		otherStealth.add(ACROBATICS);
 		otherStealth.add(FOCUS_OF_SPEED);
+		otherStealth.add(COILED_SPRING);
 
 		Collections.sort(otherStealth, new ModifierComparatorAlphabetic());
 
@@ -766,6 +767,7 @@ public class Stats
 		SPELL_SNIPING(276, "spellSniping", ModifierMetric.BOOLEAN),
 		POWER_OF_RESTRAINT(277, "powerOfRestraint", ModifierMetric.BOOLEAN),
 		FOCUS_OF_SPEED(278, "focusOfSpeed", ModifierMetric.BOOLEAN),
+		COILED_SPRING(279, "coiledSpring", ModifierMetric.BOOLEAN),
 		;
 
 		/**
