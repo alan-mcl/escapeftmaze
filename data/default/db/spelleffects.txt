@@ -1448,6 +1448,16 @@ savedResult=
 targetType=2
 application=AS_PER_SPELL
 @
+name=focus of wind condition
+displayName=focus of wind condition
+type=AIR
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:::focus of wind
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=decay spell plant damage
 displayName=
 type=ENERGY

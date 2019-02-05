@@ -1930,6 +1930,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=focus of wind
+displayName=focus of wind
+icon=condition/focusofwind
+adjective=focussed
+conditionEffect=none
+duration=1/2/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=2000000000000000000000000000000000100008000000000000,011401
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=fizzle field trap
 displayName=Anti-Magic
 icon=condition/antimagic

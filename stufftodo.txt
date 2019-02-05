@@ -67,6 +67,7 @@ spell: bind demon, summons a demon to do a task (open door, etc)
 spell: spells that can be dodged
 spell: genie, summon a genie to perform a task or accompany you
 spell: greater and lesser eye-for-an-eye
+spell: flying??? tie in with character class abilities
 
 ability: favoured terrain (resist surprise etc) 
 

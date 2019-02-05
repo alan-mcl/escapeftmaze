@@ -1404,6 +1404,8 @@ lap_name_enlightening_kata = Enlightening Kata
 lap_desc_enlightening_kata = The Warlock temporarily gains expert knowledge of combating a foe's type.
 lap_name_shadow_kata = Shadow Kata
 lap_desc_shadow_kata = The Warlock energised all stealth focused characters in the party.
+lap_name_focus_of_wind = Focus of Wind
+lap_desc_focus_of_wind = This focus makes the Warlock temporarily at one with the winds.
 
 # Witch
 lap_name_curse = Curse
