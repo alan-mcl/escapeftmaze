@@ -818,6 +818,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=inversion kata
+displayName=inversion kata
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=0:::mclachlan.maze.campaign.def.stat.magic.InversionKataSpellResult
+savedResult=
+targetType=3
+application=AS_PER_SPELL
+@
 name=stoneskin spell
 displayName=
 type=EARTH
@@ -2819,7 +2829,7 @@ targetType=3
 application=AS_PER_SPELL
 @
 name=shadow kata
-displayName=
+displayName=shadow kata
 type=ENERGY
 subtype=NONE
 saveAdjustment=

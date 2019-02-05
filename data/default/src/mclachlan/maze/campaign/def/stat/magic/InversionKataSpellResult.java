@@ -21,28 +21,75 @@ package mclachlan.maze.campaign.def.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.Dice;
+import mclachlan.maze.stat.DamagePacket;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.combat.event.DamageEvent;
 import mclachlan.maze.stat.combat.event.HealingEvent;
+import mclachlan.maze.stat.combat.event.NoEffectEvent;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.magic.SpellResult;
 
 /**
- * A spell result that heals
+ * A spell result for the warlock inversion kata ability:
+ * swap the warlock HP with the target HP
  */
-public class LayOnHandsSpellResult extends SpellResult
+public class InversionKataSpellResult extends SpellResult
 {
 	@Override
 	public List<MazeEvent> apply(UnifiedActor source, UnifiedActor target,
 		int castingLevel, SpellEffect parent, Spell spell)
 	{
-		int target_healing = new Dice(castingLevel, 6, 0).roll("lay on hands");
-
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		result.add(new HealingEvent(target, target_healing));
-		result.add(new HealingEvent(source, castingLevel));
+		if (target.getModifier(Stats.Modifier.IMMUNE_TO_CRITICALS) > 0)
+		{
+			result.add(new NoEffectEvent());
+			return result;
+		}
+
+		int targetHp = target.getHitPoints().getCurrent();
+		int sourceHp = source.getHitPoints().getCurrent();
+
+		if (targetHp == sourceHp)
+		{
+			result.add(new NoEffectEvent());
+		}
+		else if (targetHp > sourceHp)
+		{
+			int diff = targetHp - sourceHp;
+
+			result.add(new DamageEvent(
+				null,
+				target,
+				source,
+				new DamagePacket(diff, 1),
+				parent.getType(),
+				parent.getSubType(),
+				null,
+				null,
+				null));
+
+			result.add(new HealingEvent(source, diff));
+		}
+		else
+		{
+			int diff = sourceHp - targetHp;
+
+			result.add(new DamageEvent(
+				null,
+				source,
+				source,
+				new DamagePacket(diff, 1),
+				parent.getType(),
+				parent.getSubType(),
+				null,
+				null,
+				null));
+
+			result.add(new HealingEvent(target, diff));
+		}
 
 		return result;
 	}

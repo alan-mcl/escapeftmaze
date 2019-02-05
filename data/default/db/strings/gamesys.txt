@@ -1410,6 +1410,8 @@ lap_name_focus_of_wind = Focus of Wind
 lap_desc_focus_of_wind = This focus makes the Warlock temporarily at one with the winds.
 lap_name_no_survivors = No Survivors
 lap_desc_no_survivors = The Warlock makes an automatic backstab or snipe attack against any foes that flee.
+lap_name_inversion_kata = Inversion Kata
+lap_desc_inversion_kata = This kata swaps the hit points of the Warlock and the target foe.
 
 # Witch
 lap_name_curse = Curse

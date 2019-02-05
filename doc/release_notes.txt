@@ -14,7 +14,7 @@ Features
  - Sohei class abilities: Die Hard, Sohei Resistance
  - Troubadour abilities: Spell Sniping, Spell Stealing
  - Warlock abilities: Unburdening Kata, Power of Restraint, Focus of Speed,
-   Coiled Spring, Enlightening Kata, No Survivors
+   Coiled Spring, Enlightening Kata, No Survivors, Inversion Kata
 
 Other
  - Refactoring action point regen to be consistent with other resources
