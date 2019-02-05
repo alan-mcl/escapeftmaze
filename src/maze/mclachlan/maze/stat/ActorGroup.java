@@ -110,4 +110,9 @@ public interface ActorGroup extends SpellTarget
 	 */
 	UnifiedActor getActorWithBestModifier(Stats.Modifier modifier, UnifiedActor excluded);
 
+	/**
+	 * @return
+	 * 	All actors in the group with a positive value for the given modifier
+	 */
+	List<UnifiedActor> getActorsWithModifier(Stats.Modifier modifier);
 }

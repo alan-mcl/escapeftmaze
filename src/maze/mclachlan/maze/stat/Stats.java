@@ -297,6 +297,7 @@ public class Stats
 		otherStealth.add(ACROBATICS);
 		otherStealth.add(FOCUS_OF_SPEED);
 		otherStealth.add(COILED_SPRING);
+		otherStealth.add(NO_SURVIVORS);
 
 		Collections.sort(otherStealth, new ModifierComparatorAlphabetic());
 
@@ -768,6 +769,7 @@ public class Stats
 		POWER_OF_RESTRAINT(277, "powerOfRestraint", ModifierMetric.BOOLEAN),
 		FOCUS_OF_SPEED(278, "focusOfSpeed", ModifierMetric.BOOLEAN),
 		COILED_SPRING(279, "coiledSpring", ModifierMetric.BOOLEAN),
+		NO_SURVIVORS(280, "noSurvivors", ModifierMetric.BOOLEAN),
 		;
 
 		/**

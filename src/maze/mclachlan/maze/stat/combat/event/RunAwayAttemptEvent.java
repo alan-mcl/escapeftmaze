@@ -22,10 +22,14 @@ package mclachlan.maze.stat.combat.event;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.ActorActionResolver;
+import mclachlan.maze.stat.combat.AttackAction;
+import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
 /**
  *
@@ -88,6 +92,32 @@ public class RunAwayAttemptEvent extends MazeEvent
 				nrFoes += fg.numAlive();
 			}
 
+			// check for NO_SURVIVORS
+			List<UnifiedActor> noSurvivorsOpponents =
+				combat.getPlayerParty().getActorsWithModifier(Stats.Modifier.NO_SURVIVORS);
+
+			for (UnifiedActor attacker : noSurvivorsOpponents)
+			{
+				Item attackerWeapon = getAttackerWeapon(attacker);
+
+				AttackAction attackAction = getAttackAction(
+					attacker,
+					this.actor,
+					this.combat,
+					attackerWeapon,
+					attackerWeapon.getDefaultDamageType(),
+					1,
+					attackerWeapon.getAttackScript());
+
+				result.addAll(
+					ActorActionResolver.attack(
+						combat,
+						attacker,
+						this.actor,
+						attackAction,
+						new AnimationContext(attacker)));
+			}
+
 			boolean success = GameSys.getInstance().attemptToRunAway(actor, nrFoes);
 
 			if (!success)
@@ -103,6 +133,50 @@ public class RunAwayAttemptEvent extends MazeEvent
 
 		return result;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public Item getAttackerWeapon(UnifiedActor attacker)
+	{
+		Item result = attacker.getPrimaryWeapon();
+
+		if (result == null)
+		{
+			result = attacker.getSecondaryWeapon();
+		}
+
+		if (result == null)
+		{
+			result = GameSys.getInstance().getUnarmedWeapon(attacker, true);
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private AttackAction getAttackAction(
+		UnifiedActor source,
+		UnifiedActor target,
+		Combat combat,
+		AttackWith weapon,
+		MagicSys.SpellEffectType actionDamageType,
+		int actionNrStrikes,
+		MazeScript actionAttackScript)
+	{
+		AttackType actionAttackType  = GameSys.getInstance().getAttackType(weapon);
+
+		AttackAction action = new AttackAction(
+			combat.getActorGroup(target),
+			weapon,
+			actionNrStrikes,
+			actionAttackScript,
+			true,
+			actionAttackType,
+			actionDamageType);
+		action.setActor(source);
+
+		return action;
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	public boolean shouldClearText()

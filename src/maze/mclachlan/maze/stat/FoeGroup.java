@@ -216,6 +216,24 @@ public class FoeGroup implements ActorGroup
 
 	/*-------------------------------------------------------------------------*/
 	@Override
+	public List<UnifiedActor> getActorsWithModifier(Stats.Modifier modifier)
+	{
+		List<UnifiedActor> result = new ArrayList<UnifiedActor>();
+		List<UnifiedActor> actors = new ArrayList<UnifiedActor>(getActors());
+
+		for (UnifiedActor a : actors)
+		{
+			if (a.getModifier(modifier) > 0)
+			{
+				result.add(a);
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public int getBestModifier(Stats.Modifier modifier)
 	{
 		return getBestModifier(modifier, null);

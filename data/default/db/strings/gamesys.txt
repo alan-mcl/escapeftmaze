@@ -300,6 +300,7 @@ modifier_name-spellSniping: Spell Sniping
 modifier_name-powerOfRestraint: Power of Restraint
 modifier_name-focusOfSpeed: Focus of Speed
 modifier_name-coiledSpring: Coiled Spring
+modifier_name-noSurvivors: No Survivors
 
 
 # Modifier Descriptions
@@ -594,6 +595,7 @@ modifier_desc-spellSniping: Projectile spells cast by this character count as sn
 modifier_desc-powerOfRestraint: This character gets extra magic resistance for every unspent spellpick.
 modifier_desc-focusOfSpeed: This character gains +1 initiative for every condition on him or her.
 modifier_desc-coiledSpring: This character does more combat damage as his or her action points run out.
+modifier_desc-noSurvivors: This character does an automatic backstab or snipe attack against any foes that try to flee.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1406,6 +1408,8 @@ lap_name_shadow_kata = Shadow Kata
 lap_desc_shadow_kata = The Warlock energised all stealth focused characters in the party.
 lap_name_focus_of_wind = Focus of Wind
 lap_desc_focus_of_wind = This focus makes the Warlock temporarily at one with the winds.
+lap_name_no_survivors = No Survivors
+lap_desc_no_survivors = The Warlock makes an automatic backstab or snipe attack against any foes that flee.
 
 # Witch
 lap_name_curse = Curse
