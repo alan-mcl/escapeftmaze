@@ -81,6 +81,26 @@ repeatedSpellEffects=
 name=FATIGUE_KO
 impl=mclachlan.maze.stat.condition.impl.FatigueKO
 @
+name=shadow kata
+displayName=Shadow Kata
+icon=condition/shadowkata
+adjective=transformed
+conditionEffect=none
+duration=1/1/SCALE_WITH_CASTING_LEVEL//false
+strength=1/1/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=78000000000000000000000000000000000000000580000000000000000,0a0a0a02030101
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=BOOZE_HEROISM
 displayName=Heroism (booze)
 icon=condition/heroism

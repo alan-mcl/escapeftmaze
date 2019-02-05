@@ -161,6 +161,12 @@ public class V1SpellResult
 		}
 		s.append(SEP);
 
+		if (sr.getFocusAffinity() != null)
+		{
+			s.append(sr.getFocusAffinity().name());
+		}
+		s.append(SEP);
+
 		switch (type)
 		{
 			case CUSTOM:
@@ -340,8 +346,10 @@ public class V1SpellResult
 	{
 		int i=0;
 		int type = Integer.parseInt(strs[i++]);
-		String ft = strs[i++];
-		TypeDescriptor foeType = "".equals(ft)?null:new TypeDescriptorImpl(ft);
+		String s = strs[i++];
+		TypeDescriptor foeType = "".equals(s)?null:new TypeDescriptorImpl(s);
+		s = strs[i++];
+		CharacterClass.Focus affinity = "".equals(s)?null: CharacterClass.Focus.valueOf(s);
 
 		SpellResult result;
 
@@ -516,6 +524,7 @@ public class V1SpellResult
 		}
 
 		result.setFoeType(foeType);
+		result.setFocusAffinity(affinity);
 
 		return result;
 	}

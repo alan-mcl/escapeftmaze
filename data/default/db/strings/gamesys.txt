@@ -1402,6 +1402,8 @@ lap_name_coiled_spring = Coiled Spring
 lap_desc_coiled_spring = The Warlock does extra combat damage as his action point total runs low.
 lap_name_enlightening_kata = Enlightening Kata
 lap_desc_enlightening_kata = The Warlock temporarily gains expert knowledge of combating a foe's type.
+lap_name_shadow_kata = Shadow Kata
+lap_desc_shadow_kata = The Warlock energised all stealth focused characters in the party.
 
 # Witch
 lap_name_curse = Curse

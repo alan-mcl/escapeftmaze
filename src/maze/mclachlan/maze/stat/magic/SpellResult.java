@@ -23,10 +23,7 @@ import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.script.LockOrTrap;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.SpellTarget;
-import mclachlan.maze.stat.TypeDescriptor;
-import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.SpellTargetUtils;
 import mclachlan.maze.stat.condition.ConditionBearer;
@@ -42,6 +39,11 @@ public abstract class SpellResult
 	 */
 	private TypeDescriptor foeType;
 
+	/**
+	 * Any class focus affinity for this spell result. Empty or null means none.
+	 */
+	private CharacterClass.Focus focusAffinity;
+
 	/*-------------------------------------------------------------------------*/
 	public TypeDescriptor getFoeType()
 	{
@@ -55,9 +57,27 @@ public abstract class SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public CharacterClass.Focus getFocusAffinity()
+	{
+		return focusAffinity;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setFocusAffinity(CharacterClass.Focus focusAffinity)
+	{
+		this.focusAffinity = focusAffinity;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public boolean appliesTo(UnifiedActor actor)
 	{
-		return this.foeType == null || actor.getTypes().contains(this.foeType);
+		boolean appliesToFoeType = this.foeType == null || actor.getTypes().contains(this.foeType);
+
+		boolean appliesToClassFocus = this.focusAffinity == null ||
+				(actor.getCharacterClass() != null ||
+				this.focusAffinity == actor.getCharacterClass().getFocus());
+
+		return appliesToFoeType && appliesToClassFocus;
 	}
 
 	/*-------------------------------------------------------------------------*/

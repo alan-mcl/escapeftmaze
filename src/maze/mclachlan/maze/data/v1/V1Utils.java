@@ -19,7 +19,7 @@
 
 package mclachlan.maze.data.v1;
 
-import java.util.Properties;
+import java.util.*;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.ByteArrayInputStream;

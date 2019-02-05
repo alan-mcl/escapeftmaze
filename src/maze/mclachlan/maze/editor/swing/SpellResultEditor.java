@@ -27,10 +27,7 @@ import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1SpellResult;
-import mclachlan.maze.stat.ItemTemplate;
-import mclachlan.maze.stat.StatModifier;
-import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.TypeDescriptorImpl;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -44,13 +41,15 @@ import static mclachlan.maze.data.v1.V1SpellResult.*;
  */
 public class SpellResultEditor extends JDialog implements ActionListener
 {
+	private int dirtyFlag;
 	private SpellResult result;
 
 	private JButton ok, cancel;
 	private JComboBox type;
 	private JComboBox<String> foeType;
+	private JComboBox focusAffinity;
+
 	private JTextField impl;
-	private int dirtyFlag;
 	private ValueComponent casterFatigueValue;
 	private ValueComponent charmValue;
 	private CardLayout cards;
@@ -110,7 +109,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		super(owner, "Edit Spell Result", true);
 		this.dirtyFlag = dirtyFlag;
 
-		JPanel top = new JPanel(new GridLayout(2,1));
+		JPanel top = new JPanel(new GridLayout(3,1));
 
 		JPanel top1 = new JPanel();
 		Vector<String> spellResultTypes = new Vector<String>();
@@ -132,11 +131,20 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		types.add(0, EditorPanel.NONE);
 
 		foeType = new JComboBox<String>(types);
-		top2.add(new JLabel("Foe Type:"));
+		top2.add(new JLabel("Foe Type Affinity:"));
 		top2.add(foeType);
+
+		JPanel top3 = new JPanel();
+		Vector affinities = new Vector(Arrays.asList(CharacterClass.Focus.values()));
+		affinities.add(0, EditorPanel.NONE);
+
+		focusAffinity = new JComboBox(affinities);
+		top3.add(new JLabel("Focus Affinity:"));
+		top3.add(focusAffinity);
 
 		top.add(top1);
 		top.add(top2);
+		top.add(top3);
 
 		cards = new CardLayout(3,3);
 		controls = new JPanel(cards);
@@ -185,6 +193,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 		type.setSelectedIndex(srType);
 
 		foeType.setSelectedItem(sr.getFoeType() == null ? EditorPanel.NONE : sr.getFoeType().getName());
+		focusAffinity.setSelectedItem(sr.getFocusAffinity() == null ? EditorPanel.NONE : sr.getFocusAffinity());
 
 		switch (srType)
 		{
@@ -1106,5 +1115,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 
 		result.setFoeType(foeType.getSelectedItem() == EditorPanel.NONE ?
 			null : new TypeDescriptorImpl((String)foeType.getSelectedItem()));
+
+		result.setFocusAffinity(focusAffinity.getSelectedItem() == EditorPanel.NONE ?
+			null : (CharacterClass.Focus)focusAffinity.getSelectedItem());
 	}
 }

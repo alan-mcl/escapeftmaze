@@ -14,7 +14,7 @@ Features
  - Sohei class abilities: Die Hard, Sohei Resistance
  - Troubadour abilities: Spell Sniping, Spell Stealing
  - Warlock abilities: Unburdening Kata, Power of Restraint, Focus of Speed,
-   Coiled Spring, Enlightening Kata
+   Coiled Spring, Enlightening Kata, Shadow Kata
 
 Other
  - Refactoring action point regen to be consistent with other resources
@@ -26,6 +26,7 @@ Other
  - Refactored inventory management up the hierarchy to UnifiedActor
  - Added projectile spells that require a hit roll
  - Added save game condition editing on player characters to the editor UI
+ - Spell results can now apply to only combat/stealth/magic character classes
 
 ---------------------------------------
 v0.917 (24 April 2018)
