@@ -1425,6 +1425,8 @@ lap_name_witch_fyre = Witch Fyre
 lap_desc_witch_fyre = The Witch lights up a group of foes with eerie witch fyre.
 lap_name_healing_hands = Healing Hands
 lap_desc_healing_hands = The Witch restores health and stamina to one ally.
+lap_name_summon_swarm = Summon Swarm
+lap_desc_summon_swarm = The Witch summons a swarm of vicious insects.
 
 #
 # Item Properties

@@ -151,6 +151,12 @@ contains=Gnome Knave/2d2+1:100,Gnome Knave/2d2+1:50,Gnome Shaman/2d2:20
 name=vampire.vulture.1
 contains=Vampire Vulture/1d3:100,Vampire Vulture/1d3:25,Vampire Vulture/1d3:6
 @
+name=angry.swarm.2
+contains=Angry Swarm/1d2+1:100
+@
+name=angry.swarm.1
+contains=Angry Swarm/1d1:100
+@
 name=frozen.skeletons.1
 contains=Frozen Skeleton/2d2+1:100,Frozen Skeleton/2d3+1:75,Frozen Skeleton/2d3:50
 @
@@ -183,6 +189,9 @@ contains=Archangel/1d1:100,Archangel/1d1:10
 @
 name=napier's.bones.1
 contains=Napiers Bones/2d2+1:100,Napiers Bones/2d3+1:75,Napiers Bones/2d3:50,Parched Vulture/1d4:25
+@
+name=angry.swarm.3
+contains=Angry Swarm/2d2+1:100
 @
 name=clockwork.terrors
 contains=Clockwork Terror/1d2:100,Clockwork Terror/1d2:50

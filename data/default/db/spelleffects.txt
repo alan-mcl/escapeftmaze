@@ -1478,6 +1478,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=summon swarm
+displayName=summon swarm
+type=AIR
+subtype=NONE
+saveAdjustment=
+unsavedResult=11:::angry.swarms.1/angry.swarms.1/angry.swarms.1/angry.swarms.2/angry.swarms.2/angry.swarms.2/angry.swarms.3/angry.swarms.3/angry.swarms.3/angry.swarms.3:1/1/SCALE_WITH_CASTING_LEVEL//false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=decay spell plant damage
 displayName=
 type=ENERGY
