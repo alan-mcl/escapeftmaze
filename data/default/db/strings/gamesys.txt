@@ -1414,10 +1414,15 @@ lap_name_inversion_kata = Inversion Kata
 lap_desc_inversion_kata = This kata swaps the hit points of the Warlock and the target foe.
 
 # Witch
-lap_name_curse = Curse
+lap_name_curse_1 = Curse 1
+lap_name_curse_2 = Curse 2
+lap_name_curse_3 = Curse 3
+lap_name_curse_4 = Curse 4
 lap_desc_curse = The Witch can hurl a powerful curse at a single foe.
 lap_name_mystic_birthright = Mystic Birthright
 lap_desc_mystic_birthright = The Witch is a walking source of one Purple magic for the whole party.
+lap_name_witch_fyre = Witch Fyre
+lap_desc_witch_fyre = The Witch lights up a group of foes with eerie witch fyre.
 
 #
 # Item Properties
