@@ -1128,6 +1128,16 @@ savedResult=
 targetType=9
 application=AS_PER_SPELL
 @
+name=healing hands
+displayName=healing hands
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=5:::2/0/SCALE_WITH_MODIFIER/HIT_POINTS/false/1d4:2/0/SCALE_WITH_MODIFIER/HIT_POINTS/false/1d2::
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=soulstealer lifesteal
 displayName=lifesteal
 type=ENERGY
