@@ -536,14 +536,14 @@ public class Combat
 	public UnifiedActor getRandomAllyOf(UnifiedActor actor)
 	{
 		List<UnifiedActor> allAlliesOf = getAllAlliesOf(actor);
-		return allAlliesOf.get(GameSys.getInstance().nextInt(allAlliesOf.size()));
+		return allAlliesOf.get(Dice.nextInt(allAlliesOf.size()));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public UnifiedActor getRandomFoeOf(UnifiedActor actor)
 	{
 		List<UnifiedActor> allFoesOf = getAllFoesOf(actor);
-		return allFoesOf.get(GameSys.getInstance().nextInt(allFoesOf.size()));
+		return allFoesOf.get(Dice.nextInt(allFoesOf.size()));
 	}
 
 	/*-------------------------------------------------------------------------*/

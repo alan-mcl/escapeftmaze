@@ -1750,6 +1750,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=fey wings
+displayName=fey wings
+icon=condition/feywings
+adjective=transformed
+conditionEffect=none
+duration=1/2/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=2000000000000000000000000000000000500008000000000000,010a0a01
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=melt armour spell
 displayName=Armourmelt
 icon=condition/armourmelt

@@ -658,6 +658,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=fey wings condition
+displayName=focus of wind condition
+type=AIR
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:::fey wings
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=wither plants spell
 displayName=
 type=EARTH
@@ -1133,7 +1143,7 @@ displayName=healing hands
 type=ENERGY
 subtype=NONE
 saveAdjustment=
-unsavedResult=5:::2/0/SCALE_WITH_MODIFIER/HIT_POINTS/false/1d4:2/0/SCALE_WITH_MODIFIER/HIT_POINTS/false/1d2::
+unsavedResult=5:::2/0/SCALE_WITH_MODIFIER/PURPLE_MAGIC_SPELLS/false/1d4:2/0/SCALE_WITH_MODIFIER/PURPLE_MAGIC_SPELLS/false/1d2::
 savedResult=
 targetType=0
 application=AS_PER_SPELL
@@ -2914,7 +2924,7 @@ type=ENERGY
 subtype=NONE
 saveAdjustment=1/-1/SCALE_WITH_CASTING_LEVEL//true
 unsavedResult=4:::2/0/SCALE_WITH_CASTING_LEVEL//true/1d3::::1.0:false
-savedResult=
+savedResult=4:::2/0/SCALE_WITH_CASTING_LEVEL//true/1d3::::0.5:false
 targetType=3
 application=AS_PER_SPELL
 @

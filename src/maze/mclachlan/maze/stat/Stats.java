@@ -316,6 +316,13 @@ public class Stats
 		otherMagic.add(SHED_BLIGHTS);
 		otherMagic.add(SPELL_SNIPING);
 		otherMagic.add(POWER_OF_RESTRAINT);
+		otherMagic.add(BLACK_MAGIC_CIRCLE);
+		otherMagic.add(BLUE_MAGIC_CIRCLE);
+		otherMagic.add(GREEN_MAGIC_CIRCLE);
+		otherMagic.add(WHITE_MAGIC_CIRCLE);
+		otherMagic.add(RED_MAGIC_CIRCLE);
+		otherMagic.add(PURPLE_MAGIC_CIRCLE);
+		otherMagic.add(GOLD_MAGIC_CIRCLE);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -770,6 +777,13 @@ public class Stats
 		FOCUS_OF_SPEED(278, "focusOfSpeed", ModifierMetric.BOOLEAN),
 		COILED_SPRING(279, "coiledSpring", ModifierMetric.BOOLEAN),
 		NO_SURVIVORS(280, "noSurvivors", ModifierMetric.BOOLEAN),
+		RED_MAGIC_CIRCLE(281, "redMagicCircle"),
+		BLACK_MAGIC_CIRCLE(282, "blackMagicCircle"),
+		PURPLE_MAGIC_CIRCLE(283, "purpleMagicCircle"),
+		GOLD_MAGIC_CIRCLE(284, "goldMagicCircle"),
+		WHITE_MAGIC_CIRCLE(285, "whiteMagicCircle"),
+		GREEN_MAGIC_CIRCLE(286, "greenMagicCircle"),
+		BLUE_MAGIC_CIRCLE(287, "blueMagicCircle"),
 		;
 
 		/**

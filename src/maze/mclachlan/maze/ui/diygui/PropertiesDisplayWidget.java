@@ -194,7 +194,7 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 		for (Stats.Modifier modifier : Stats.propertiesModifiers)
 		{
 			// todo: display excess properties somehow
-			if (rowCount > ROWS)
+			if (rowCount >= ROWS)
 			{
 				break;
 			}

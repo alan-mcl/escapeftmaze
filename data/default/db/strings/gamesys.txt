@@ -301,7 +301,13 @@ modifier_name-powerOfRestraint: Power of Restraint
 modifier_name-focusOfSpeed: Focus of Speed
 modifier_name-coiledSpring: Coiled Spring
 modifier_name-noSurvivors: No Survivors
-
+modifier_name-blackMagicCircle: Black Magic Circle
+modifier_name-blueMagicCircle: Blue Magic Circle
+modifier_name-greenMagicCircle: Green Magic Circle
+modifier_name-whiteMagicCircle: White Magic Circle
+modifier_name-redMagicCircle: Red Magic Circle
+modifier_name-purpleMagicCircle: Purple Magic Circle
+modifier_name-goldMagicCircle: Gold Magic Circle
 
 # Modifier Descriptions
 
@@ -596,6 +602,13 @@ modifier_desc-powerOfRestraint: This character gets extra magic resistance for e
 modifier_desc-focusOfSpeed: This character gains +1 initiative for every condition on him or her.
 modifier_desc-coiledSpring: This character does more combat damage as his or her action points run out.
 modifier_desc-noSurvivors: This character does an automatic backstab or snipe attack against any foes that try to flee.
+modifier_desc-blackMagicCircle: This character grants a Power Cast bonus to all Black Magic casters in the party.
+modifier_desc-blueMagicCircle: This character grants a Power Cast bonus to all Blue Magic casters in the party.
+modifier_desc-greenMagicCircle: This character grants a Power Cast bonus to all Green Magic casters in the party.
+modifier_desc-whiteMagicCircle: This character grants a Power Cast bonus to all White Magic casters in the party.
+modifier_desc-redMagicCircle: This character grants a Power Cast bonus to all Red Magic casters in the party.
+modifier_desc-purpleMagicCircle: This character grants a Power Cast bonus to all Purple Magic casters in the party.
+modifier_desc-goldMagicCircle: This character grants a Power Cast bonus to all Gold Magic casters in the party.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1427,6 +1440,11 @@ lap_name_healing_hands = Healing Hands
 lap_desc_healing_hands = The Witch restores health and stamina to one ally.
 lap_name_summon_swarm = Summon Swarm
 lap_desc_summon_swarm = The Witch summons a swarm of vicious insects.
+lap_name_power_of_the_circle_1 = Power of the Circle 1
+lap_name_power_of_the_circle_2 = Power of the Circle 2
+lap_desc_power_of_the_circle = Purple Magic casters in the party get a Power Cast bonus.
+lap_name_fey_wings = Fey Wings
+lap_desc_fey_wings = The witch flies on the wings of the fey.
 
 #
 # Item Properties

@@ -368,7 +368,7 @@ public class ActorActionResolver
 		// get a random target group of allies
 		UnifiedActor actor = action.getActor();
 		int groups = combat.getNrOfAlliedGroups(actor);
-		int targetGroup = GameSys.getInstance().nextInt(groups);
+		int targetGroup = Dice.nextInt(groups);
 
 		// get an attack action
 		ActorActionIntention intention = new AttackIntention(

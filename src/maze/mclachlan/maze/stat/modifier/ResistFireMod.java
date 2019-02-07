@@ -34,13 +34,6 @@ public class ResistFireMod extends ModifierModification
 	@Override
 	public void getModification(UnifiedActor actor, List<ModifierValue> result)
 	{
-		if (actor.getModifier(Stats.Modifier.CHARMED_DESTINY) > 0)
-		{
-			result.add(new ModifierValue(
-				StringUtil.getModifierName(Stats.Modifier.CHARMED_DESTINY),
-				actor.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN)));
-		}
-
 		if (actor instanceof PlayerCharacter &&
 			actor.getModifier(Stats.Modifier.POWER_OF_RESTRAINT) > 0)
 		{
