@@ -4968,6 +4968,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=circle of protection condition
+displayName=circle of protection condition
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:::circle of protection
+savedResult=
+targetType=2
+application=AS_PER_SPELL
+@
 name=tsunami damage
 displayName=
 type=WATER

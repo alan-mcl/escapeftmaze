@@ -2730,6 +2730,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=circle of protection
+displayName=circle of protection
+icon=condition/circleofprotection
+adjective=protected
+conditionEffect=none
+duration=1/1/SCALE_WITH_CASTING_LEVEL//false,1/5/NONE//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=800000000100000000000200242000000000000,0a050a0a1405
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=mantle of the seas
 displayName=mantle of the seas
 icon=condition/mantleoftheseas
