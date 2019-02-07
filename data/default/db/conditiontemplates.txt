@@ -1210,6 +1210,26 @@ exitConditionChance=0
 exitSpellEffect=
 repeatedSpellEffects=
 @
+name=unnatural cold
+displayName=unnatural cold
+icon=condition/unnaturalcold
+adjective=freezing
+conditionEffect=slow
+duration=1/1/SCALE_WITH_CASTING_LEVEL//false
+strength=1/2/SCALE_WITH_CASTING_LEVEL//false
+hitPointDamage=
+staminaDamage=
+actionPointDamage=
+magicPointDamage=
+statModifier=20000000000000000,e2
+bannerModifier=0,
+scaleModifierWithStrength=false
+strengthWanes=true
+exitCondition=DURATION_EXPIRES
+exitConditionChance=0
+exitSpellEffect=
+repeatedSpellEffects=
+@
 name=weakness spell
 displayName=Weakness
 icon=condition/hex

@@ -1444,7 +1444,9 @@ lap_name_power_of_the_circle_1 = Power of the Circle 1
 lap_name_power_of_the_circle_2 = Power of the Circle 2
 lap_desc_power_of_the_circle = Purple Magic casters in the party get a Power Cast bonus.
 lap_name_fey_wings = Fey Wings
-lap_desc_fey_wings = The witch flies on the wings of the fey.
+lap_desc_fey_wings = The Witch flies on the wings of the fey.
+lap_name_unnatural_cold = Unnatural Cold
+lap_desc_unnatural_cold = The Witch emanates unnatural cold that slows and weakens foes.
 
 #
 # Item Properties

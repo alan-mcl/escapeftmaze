@@ -258,6 +258,16 @@ savedResult=
 targetType=0
 application=AS_PER_SPELL
 @
+name=unnatural cold condition
+displayName=unnatural cold condition
+type=WATER
+subtype=COLD
+saveAdjustment=
+unsavedResult=3:::unnatural cold
+savedResult=
+targetType=4
+application=AS_PER_SPELL
+@
 name=weaken spirits illusions
 displayName=weaken spirits condition
 type=ENERGY
@@ -659,7 +669,7 @@ targetType=0
 application=AS_PER_SPELL
 @
 name=fey wings condition
-displayName=focus of wind condition
+displayName=fey wings condition
 type=AIR
 subtype=NONE
 saveAdjustment=
