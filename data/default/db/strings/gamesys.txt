@@ -1449,6 +1449,8 @@ lap_name_unnatural_cold = Unnatural Cold
 lap_desc_unnatural_cold = The Witch emanates unnatural cold that slows and weakens foes.
 lap_name_circle_of_protection = Circle of Protection
 lap_desc_circle_of_protection = The Witch draws a circle of strong protective magic around the party.
+lap_name_summon_vermin = Summon Vermin
+lap_desc_summon_vermin = The Witch calls to her aid hordes of angry vermin.
 
 #
 # Item Properties

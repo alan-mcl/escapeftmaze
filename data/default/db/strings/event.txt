@@ -89,6 +89,7 @@ msg.dies = %s DIES!
 msg.cannot.displace.ap = %s does not have enough Action Points to displace.
 msg.already.displaced = %s has already displaced this round.
 msg.die.hard = %s keeps on fighting!
+msg.nothing.happens = Nothing happens!
 
 #
 # Encounter Actors events

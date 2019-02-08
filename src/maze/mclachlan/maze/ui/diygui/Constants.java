@@ -28,7 +28,7 @@ import java.text.DecimalFormat;
 public class Constants
 {
 	public static final int MAX_FOE_GROUPS = 10;
-	public static final int MAX_PARTY_ALLIES = 6;
+	public static final int MAX_PARTY_ALLIES = 10;
 
 	/*-------------------------------------------------------------------------*/
 	public static class Format

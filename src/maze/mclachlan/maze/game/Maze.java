@@ -244,6 +244,15 @@ public class Maze implements Runnable
 
 	/*-------------------------------------------------------------------------*/
 	/**
+	 * Logs the given message at the {@link Log#DEBUG} level.
+	 */
+	public static void logDebug(String msg)
+	{
+		log(Log.DEBUG, msg);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
 	 * Logs the given message at the given level.
 	 */
 	public static void log(int lvl, String msg)
@@ -995,12 +1004,14 @@ public class Maze implements Runnable
 		if (currentCombat == null)
 		{
 			// cannot summon outside of combat
+			Maze.logDebug(source.getName()+" can't summon outside of combat");
 			return false;
 		}
 
 		if (source instanceof Foe && ((Foe)source).isSummoned())
 		{
 			// summoned foes cannot themselves cast summon spells
+			Maze.logDebug(source.getName()+" is a summoned foe, can't summon");
 			return false;
 		}
 
@@ -1008,6 +1019,7 @@ public class Maze implements Runnable
 		if (source.getCombatantData() != null && 
 			!source.getCombatantData().canSummon())
 		{
+			Maze.logDebug(source.getName()+" has a summoned group already, can't summon.");
 			return false;
 		}
 
@@ -1015,11 +1027,13 @@ public class Maze implements Runnable
 		if (source instanceof Foe && 
 			(currentCombat.getFoes().size()+nrGroups > Constants.MAX_FOE_GROUPS))
 		{
+			Maze.logDebug(source.getName()+": max foe groups exceeded");
 			return false;
 		}
 		else if (source instanceof PlayerCharacter && 
 			(currentCombat.getFoes().size()+nrGroups > Constants.MAX_PARTY_ALLIES))
 		{
+			Maze.logDebug(source.getName()+": max party allies exceeded");
 			return false;
 		}
 		

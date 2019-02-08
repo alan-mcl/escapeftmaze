@@ -42,10 +42,10 @@ import mclachlan.maze.util.MazeException;
 public class FoeEntryRowGroupOfPossibiltiesPanel extends JPanel implements ActionListener
 {
 	private int dirtyFlag;
-	JTable table;
-	JButton add, remove, spread;
-	MyTableModel dataModel;
-	JComboBox foeTemplateCombo;
+	private JTable table;
+	private JButton add, remove, spread;
+	private MyTableModel dataModel;
+	private JComboBox foeTemplateCombo;
 
 	/*-------------------------------------------------------------------------*/
 	protected FoeEntryRowGroupOfPossibiltiesPanel(int dirtyFlag, double scale)

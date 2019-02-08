@@ -205,6 +205,9 @@ contains=Bemiropterix/2d2+1:100
 name=yenluo.1
 contains=Yenluo/1d1:100,Ninja/2d2+2:95,Ninja/2d2+1:33
 @
+name=summon.vermin.1
+contains=Angry Swarm/3d3:30,Malignant Widow/3d2:30,Mud Spider/4d3:100,Jumping Roach/3d3:30,Emerald Spider/3d3:30,Harvestman Spider/3d3:20,Spore Moth/3d3:20,Swarming Roach/4d3:20,Bloated Spider/3d2:20,Sawtooth Snail/2d3:10,Red Spotted Snail/1d10:5,Braided Moth/2d2:5,Screaming Bat/1d3:5
+@
 name=winter.wolf.1
 contains=Winter Wolf/1d1:100
 @
@@ -369,6 +372,12 @@ contains=Hunting Mantis/1d2:100,Hunting Mantis/1d2:100
 @
 name=hunting.mantis.1
 contains=Hunting Mantis/1d1:100,Hunting Mantis/1d1:15
+@
+name=summon.vermin.3
+contains=Angry Swarm/3d3:5,Malignant Widow/3d2:5,Mud Spider/4d3:5,Jumping Roach/3d3:5,Emerald Spider/3d3:10,Harvestman Spider/3d3:20,Spore Moth/3d3:100,Swarming Roach/4d3:40,Bloated Spider/3d2:30,Sawtooth Snail/2d3:30,Red Spotted Snail/1d10:20,Braided Moth/2d2:20,Screaming Bat/1d3:20
+@
+name=summon.vermin.2
+contains=Angry Swarm/3d3:10,Malignant Widow/3d2:10,Mud Spider/4d3:5,Jumping Roach/3d3:10,Emerald Spider/3d3:100,Harvestman Spider/3d3:30,Spore Moth/3d3:30,Swarming Roach/4d3:30,Bloated Spider/3d2:20,Sawtooth Snail/2d3:20,Red Spotted Snail/1d10:10,Braided Moth/2d2:10,Screaming Bat/1d3:10
 @
 name=black.stalkers.1
 contains=Black Stalker/2d2+1:100,Black Stalker/2d2:50

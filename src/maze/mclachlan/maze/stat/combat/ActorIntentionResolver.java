@@ -216,7 +216,7 @@ public class ActorIntentionResolver
 			attackWith.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
 		{
 			MazeScript missileScript;
-			if (attackWith.isRanged())
+			if (attackWith.isRanged() && actor.getSecondaryWeapon() != null)
 			{
 				missileScript = actor.getSecondaryWeapon().getAttackScript();
 			}
@@ -290,7 +290,7 @@ public class ActorIntentionResolver
 				weapon.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
 			{
 				MazeScript missileScript;
-				if (weapon.isRanged())
+				if (weapon.isRanged() && actor.getSecondaryWeapon() != null)
 				{
 					missileScript = actor.getSecondaryWeapon().getAttackScript();
 				}

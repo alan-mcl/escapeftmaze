@@ -29,6 +29,7 @@ Other
  - Added save game condition editing on player characters to the editor UI
  - Spell results can now apply to only combat/stealth/magic character classes
  - Refactoring around modifiers that modifiers other modifiers
+ - Editor UI for testing foe entry generation
 
 ---------------------------------------
 v0.917 (24 April 2018)

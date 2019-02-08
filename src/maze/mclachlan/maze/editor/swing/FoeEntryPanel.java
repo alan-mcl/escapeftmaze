@@ -33,7 +33,8 @@ import mclachlan.maze.stat.GroupOfPossibilities;
  */
 public class FoeEntryPanel extends EditorPanel
 {
-	FoeEntryRowGroupOfPossibiltiesPanel foeEntryRows;
+	private FoeEntryRowGroupOfPossibiltiesPanel foeEntryRows;
+	private GroupOfPossibiltiesTestPanel<FoeEntryRow> tester;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeEntryPanel()
@@ -48,6 +49,17 @@ public class FoeEntryPanel extends EditorPanel
 
 		foeEntryRows = new FoeEntryRowGroupOfPossibiltiesPanel(dirtyFlag, 1.0);
 		result.add(foeEntryRows);
+
+		tester = new GroupOfPossibiltiesTestPanel<FoeEntryRow>(12, 20)
+		{
+			@Override
+			protected String toString(FoeEntryRow foeEntryRow)
+			{
+				int roll = foeEntryRow.getQuantity().roll("foe entry editor test");
+				return roll+"x "+foeEntryRow.getFoeName();
+			}
+		};
+		result.add(tester);
 
 		return result;
 	}
@@ -70,7 +82,9 @@ public class FoeEntryPanel extends EditorPanel
 	public void refresh(String name)
 	{
 		FoeEntry fe = Database.getInstance().getFoeEntry(name);
+
 		foeEntryRows.refresh(fe.getContains());
+		tester.refresh(fe.getContains());
 	}
 
 	/*-------------------------------------------------------------------------*/

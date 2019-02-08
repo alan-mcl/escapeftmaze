@@ -2648,6 +2648,16 @@ savedResult=
 targetType=4
 application=AS_PER_SPELL
 @
+name=summon vermin
+displayName=summon vermin
+type=EARTH
+subtype=NONE
+saveAdjustment=
+unsavedResult=11:::summon.vermin.1/summon.vermin.1/summon.vermin.1/summon.vermin.2/summon.vermin.2/summon.vermin.2/summon.vermin.2/summon.vermin.3/summon.vermin.3/summon.vermin.3:1/1/SCALE_WITH_MODIFIER/PURPLE_MAGIC_SPELLS/false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=pandemonium spell
 displayName=insane or fear
 type=AIR
