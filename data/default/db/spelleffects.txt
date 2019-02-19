@@ -778,6 +778,16 @@ savedResult=
 targetType=3
 application=AS_PER_SPELL
 @
+name=veil of shadows summon
+displayName=
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=11:::shadow.warriors.spell.1/shadow.warriors.spell.1/shadow.warriors.spell.1/shadow.warriors.spell.2/shadow.warriors.spell.2/shadow.warriors.spell.3/shadow.warriors.spell.3/shadow.warriors.spell.4/shadow.warriors.spell.4/shadow.warriors.spell.5:1/1/SCALE_WITH_MODIFIER/PURPLE_MAGIC_SPELLS/false
+savedResult=
+targetType=0
+application=AS_PER_SPELL
+@
 name=heal serious spell
 displayName=
 type=ENERGY
@@ -4267,6 +4277,16 @@ unsavedResult=3:::holy ground
 savedResult=
 targetType=6
 application=AS_PER_SPELL_EFFECT
+@
+name=veil of shadows buff
+displayName=veil of shadows buff
+type=ENERGY
+subtype=NONE
+saveAdjustment=
+unsavedResult=3:::veil of shadows
+savedResult=
+targetType=0
+application=AS_PER_SPELL
 @
 name=rail gun damage
 displayName=rail gun damage
