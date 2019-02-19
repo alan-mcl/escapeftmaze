@@ -1453,6 +1453,8 @@ lap_name_summon_vermin = Summon Vermin
 lap_desc_summon_vermin = The Witch calls to her aid hordes of angry vermin.
 lap_name_veil_of_shadows = Veil of Shadows
 lap_desc_veil_of_shadows = The Witch fades into shadow and summons a haze of shadowy warriors to engage her foes.
+lap_name_moonlight_blessings = Moonlight Blessings
+lap_desc_moonlight_blessings = The Witch gains several supernatural immunities.
 
 #
 # Item Properties
