@@ -33,11 +33,20 @@ public class MagicPointRegenMod extends ModifierModification
 	@Override
 	public void getModification(UnifiedActor actor, List<ModifierValue> result)
 	{
+		// fey affinity
 		if (actor.getModifier(Stats.Modifier.FEY_AFFINITY) > 0)
 		{
 			result.add(new ModifierValue(
 				StringUtil.getModifierName(Stats.Modifier.FEY_AFFINITY),
 				actor.getModifier(Stats.Modifier.GOLD_MAGIC_GEN)));
+		}
+
+		// beyond insanity
+		if (actor.isInsane())
+		{
+			result.add(new ModifierValue(
+				StringUtil.getModifierName(Stats.Modifier.BEYOND_INSANITY),
+				10));
 		}
 	}
 }

@@ -2110,6 +2110,24 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return true if this actor is insane
+	 */
+	public boolean isInsane()
+	{
+		for (Condition c : getConditions())
+		{
+			if (c.getEffect() instanceof InsaneEffect)
+			{
+				return true;
+			}
+		}
+
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public boolean hasEquipableSlot(EquipableSlot.Type slot)
 	{
 		return equipableSlots.containsKey(slot);

@@ -16,6 +16,7 @@ Features
  - Warlock abilities: Unburdening Kata, Power of Restraint, Focus of Speed,
    Coiled Spring, Enlightening Kata, No Survivors, Inversion Kata
  - Witch abilities: Power of the Circle
+ - Acolyte abilities: Beyond Insanity
 
 Other
  - Refactoring action point regen to be consistent with other resources

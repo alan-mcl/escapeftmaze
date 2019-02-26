@@ -33,6 +33,7 @@ public class PowerCastMod extends ModifierModification
 	@Override
 	public void getModification(UnifiedActor actor, List<ModifierValue> result)
 	{
+		// power of darkness
 		if (actor.getModifier(Stats.Modifier.POWER_OF_DARKNESS) > 0)
 		{
 			result.add(new ModifierValue(
@@ -40,6 +41,7 @@ public class PowerCastMod extends ModifierModification
 				actor.getModifier(Stats.Modifier.BLACK_MAGIC_GEN) * 5));
 		}
 
+		// various magic cirles
 		checkCircleMod(actor, Stats.Modifier.BLACK_MAGIC_SPELLS, Stats.Modifier.BLACK_MAGIC_CIRCLE, result);
 		checkCircleMod(actor, Stats.Modifier.BLUE_MAGIC_SPELLS, Stats.Modifier.BLUE_MAGIC_CIRCLE, result);
 		checkCircleMod(actor, Stats.Modifier.RED_MAGIC_SPELLS, Stats.Modifier.RED_MAGIC_CIRCLE, result);
@@ -47,6 +49,14 @@ public class PowerCastMod extends ModifierModification
 		checkCircleMod(actor, Stats.Modifier.WHITE_MAGIC_SPELLS, Stats.Modifier.WHITE_MAGIC_CIRCLE, result);
 		checkCircleMod(actor, Stats.Modifier.GOLD_MAGIC_SPELLS, Stats.Modifier.GOLD_MAGIC_CIRCLE, result);
 		checkCircleMod(actor, Stats.Modifier.PURPLE_MAGIC_SPELLS, Stats.Modifier.PURPLE_MAGIC_CIRCLE, result);
+
+		// beyond insanity
+		if (actor.isInsane())
+		{
+			result.add(new ModifierValue(
+				StringUtil.getModifierName(Stats.Modifier.BEYOND_INSANITY),
+				20));
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

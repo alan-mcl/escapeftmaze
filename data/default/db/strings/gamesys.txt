@@ -308,6 +308,7 @@ modifier_name-whiteMagicCircle: White Magic Circle
 modifier_name-redMagicCircle: Red Magic Circle
 modifier_name-purpleMagicCircle: Purple Magic Circle
 modifier_name-goldMagicCircle: Gold Magic Circle
+modifier_name-beyondInsanity: Beyond Insanity
 
 # Modifier Descriptions
 
@@ -529,7 +530,7 @@ modifier_desc-favouredEnemyOutsider: This character gets bonuses in combat and o
 modifier_desc-favouredEnemyPlant: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-favouredEnemyUndead: This character gets bonuses in combat and other interactions with this type of foe.
 modifier_desc-favouredEnemyVermin: This character gets bonuses in combat and other interactions with this type of foe.
-modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
+modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting this character a Power Cast bonus based on the amount of Black Magic present.
 modifier_desc-flier: This character has some capability to fly.
 modifier_desc-strongSwimmer: Swimming costs this character half the usual fatigue.
 modifier_desc-furiousPurpose: When hit with a KO effect, this character gains hit points instead.
@@ -609,6 +610,7 @@ modifier_desc-whiteMagicCircle: This character grants a Power Cast bonus to all 
 modifier_desc-redMagicCircle: This character grants a Power Cast bonus to all Red Magic casters in the party.
 modifier_desc-purpleMagicCircle: This character grants a Power Cast bonus to all Purple Magic casters in the party.
 modifier_desc-goldMagicCircle: This character grants a Power Cast bonus to all Gold Magic casters in the party.
+modifier_desc-beyondInsanity: While insane, this character gains bonus Magic Point regeneration and Power Cast.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -787,6 +789,8 @@ lap_name_power_of_darkness = Powers of Darkness
 lap_desc_power_of_darkness = The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
 lap_name_apotheosis = Apotheosis
 lap_desc_apotheosis = The Acolyte's demon transformation manifests!
+lap_name_beyond_insanity = Beyond Insanity
+lap_desc_beyond_insanity = Insanity holds no fears for the Acolyte, who while inflicted gains Magic Point regeneration and Power Cast bonus.
 
 # Kamunushi
 lap_name_divine_protection = Divine Protection

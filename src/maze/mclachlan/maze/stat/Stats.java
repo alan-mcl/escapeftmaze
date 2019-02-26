@@ -323,6 +323,7 @@ public class Stats
 		otherMagic.add(RED_MAGIC_CIRCLE);
 		otherMagic.add(PURPLE_MAGIC_CIRCLE);
 		otherMagic.add(GOLD_MAGIC_CIRCLE);
+		otherMagic.add(BEYOND_INSANITY);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -784,6 +785,7 @@ public class Stats
 		WHITE_MAGIC_CIRCLE(285, "whiteMagicCircle"),
 		GREEN_MAGIC_CIRCLE(286, "greenMagicCircle"),
 		BLUE_MAGIC_CIRCLE(287, "blueMagicCircle"),
+		BEYOND_INSANITY(288, "beyondInsanity", ModifierMetric.BOOLEAN),
 		;
 
 		/**
