@@ -28,26 +28,17 @@ import mclachlan.maze.stat.UnifiedActor;
 /**
  *
  */
-public class MagicPointRegenMod extends ModifierModification
+public class PowerMod extends ModifierModification
 {
 	@Override
 	public void getModification(UnifiedActor actor, List<ModifierValue> result)
 	{
-		// fey affinity
-		if (actor.getModifier(Stats.Modifier.FEY_AFFINITY) > 0)
+		if (actor.getModifier(Stats.Modifier.CURSED_POWER) > 0 &&
+			actor.isHexed())
 		{
 			result.add(new ModifierValue(
-				StringUtil.getModifierName(Stats.Modifier.FEY_AFFINITY),
-				actor.getModifier(Stats.Modifier.GOLD_MAGIC_GEN)));
-		}
-
-		// beyond insanity
-		if (actor.getModifier(Stats.Modifier.BEYOND_INSANITY) > 0 &&
-			actor.isInsane())
-		{
-			result.add(new ModifierValue(
-				StringUtil.getModifierName(Stats.Modifier.BEYOND_INSANITY),
-				10));
+				StringUtil.getModifierName(Stats.Modifier.CURSED_POWER),
+				4));
 		}
 	}
 }

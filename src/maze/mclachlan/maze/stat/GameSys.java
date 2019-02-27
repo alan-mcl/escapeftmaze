@@ -95,6 +95,8 @@ public class GameSys
 		modifierMods.put(Stats.Modifier.ACTION_POINT_REGEN, new ActionPointRegenMod());
 		modifierMods.put(Stats.Modifier.MAGIC_POINT_REGEN, new MagicPointRegenMod());
 
+		modifierMods.put(Stats.Modifier.POWER, new PowerMod());
+
 		modifierMods.put(Stats.Modifier.SUPPLY_CONSUMPTION, new SupplyConsumptionMod());
 		modifierMods.put(Stats.Modifier.INITIATIVE, new InitiativeMod());
 		modifierMods.put(Stats.Modifier.DEFENCE, new DefenceMod());

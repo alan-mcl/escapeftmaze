@@ -35,6 +35,7 @@ public class ActionPointRegenMod extends ModifierModification
 	@Override
 	public void getModification(UnifiedActor actor, List<ModifierValue> result)
 	{
+		// terrain type modifiers
 		Tile currentTile = Maze.getInstance().getCurrentTile();
 		if (currentTile != null)
 		{
@@ -77,6 +78,16 @@ public class ActionPointRegenMod extends ModifierModification
 					}
 					break;
 			}
+		}
+
+		// cursed power
+		if (actor.getModifier(Stats.Modifier.CURSED_POWER) > 0 &&
+			actor.isHexed())
+		{
+			result.add(new ModifierValue(
+				StringUtil.getModifierName(Stats.Modifier.CURSED_POWER),
+				10));
+
 		}
 	}
 }

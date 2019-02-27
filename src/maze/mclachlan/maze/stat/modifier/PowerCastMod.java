@@ -51,7 +51,8 @@ public class PowerCastMod extends ModifierModification
 		checkCircleMod(actor, Stats.Modifier.PURPLE_MAGIC_SPELLS, Stats.Modifier.PURPLE_MAGIC_CIRCLE, result);
 
 		// beyond insanity
-		if (actor.isInsane())
+		if (actor.getModifier(Stats.Modifier.BEYOND_INSANITY) > 0 &&
+			actor.isInsane())
 		{
 			result.add(new ModifierValue(
 				StringUtil.getModifierName(Stats.Modifier.BEYOND_INSANITY),

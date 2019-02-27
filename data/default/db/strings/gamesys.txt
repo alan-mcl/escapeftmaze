@@ -309,6 +309,7 @@ modifier_name-redMagicCircle: Red Magic Circle
 modifier_name-purpleMagicCircle: Purple Magic Circle
 modifier_name-goldMagicCircle: Gold Magic Circle
 modifier_name-beyondInsanity: Beyond Insanity
+modifier_name-cursedPower: Cursed Power
 
 # Modifier Descriptions
 
@@ -610,7 +611,8 @@ modifier_desc-whiteMagicCircle: This character grants a Power Cast bonus to all 
 modifier_desc-redMagicCircle: This character grants a Power Cast bonus to all Red Magic casters in the party.
 modifier_desc-purpleMagicCircle: This character grants a Power Cast bonus to all Purple Magic casters in the party.
 modifier_desc-goldMagicCircle: This character grants a Power Cast bonus to all Gold Magic casters in the party.
-modifier_desc-beyondInsanity: While insane, this character gains bonus Magic Point regeneration and Power Cast.
+modifier_desc-beyondInsanity: While insane this character gains bonus Magic Point regeneration and Power Cast.
+modifier_desc-cursedPower: While hexed this character gains bonus Action Point regeneration and Power.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -791,6 +793,8 @@ lap_name_apotheosis = Apotheosis
 lap_desc_apotheosis = The Acolyte's demon transformation manifests!
 lap_name_beyond_insanity = Beyond Insanity
 lap_desc_beyond_insanity = Insanity holds no fears for the Acolyte, who while inflicted gains Magic Point regeneration and Power Cast bonus.
+lap_name_cursed_power = Cursed Power
+lap_desc_cursed_power = The curses of others have give power to the Acolyte, who gets bonuses on Action Point regeneration and Power while Hexed.
 
 # Kamunushi
 lap_name_divine_protection = Divine Protection
