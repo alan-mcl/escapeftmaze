@@ -19,9 +19,7 @@ sprite & sound: winter wolf, lava wolf
 sprite & sound: owlbear, stone bear
 sprite & sound: griffon
 
-abilities: acolyte 10, 15
-abilities: berserker 17
-abilities: blackguard 10, 17
+abilities: blackguard 10
 abilities: burglar 19
 abilities: druid 13, 15
 abilities: enchanter 16, 18
