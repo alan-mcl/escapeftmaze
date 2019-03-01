@@ -17,6 +17,7 @@ Features
    Coiled Spring, Enlightening Kata, No Survivors, Inversion Kata
  - Witch abilities: Power of the Circle
  - Acolyte abilities: Beyond Insanity, Cursed Power
+ - Druid abilities: Attune with Nature
 
 Other
  - Refactoring action point regen to be consistent with other resources

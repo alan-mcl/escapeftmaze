@@ -29,14 +29,14 @@ activeModifiers=441f785e7f8,010101010101010101010101010101010101010101010101
 removedLevelAbilities=
 @
 name=Ug
-levels=Warlock:20
+levels=Druid:20
 experience=5789000
-kills=30
+kills=31
 karma=0
 race=Neotroll
 gender=Male
 portrait=portrait/neotroll_male_magang
-characterClass=Warlock
+characterClass=Druid
 personality=Wit
 torsoArmour=Ameratsu's Gown/1/2/1-1/0-0/
 legArmour=Shino Suneate/1/2/1-1/0-0/

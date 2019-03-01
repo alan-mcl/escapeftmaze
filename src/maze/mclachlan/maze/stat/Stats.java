@@ -298,6 +298,7 @@ public class Stats
 		otherStealth.add(FOCUS_OF_SPEED);
 		otherStealth.add(COILED_SPRING);
 		otherStealth.add(NO_SURVIVORS);
+		otherStealth.add(ATTUNE_WITH_NATURE);
 
 		Collections.sort(otherStealth, new ModifierComparatorAlphabetic());
 
@@ -788,6 +789,7 @@ public class Stats
 		BLUE_MAGIC_CIRCLE(287, "blueMagicCircle"),
 		BEYOND_INSANITY(288, "beyondInsanity", ModifierMetric.BOOLEAN),
 		CURSED_POWER(289, "cursedPower", ModifierMetric.BOOLEAN),
+		ATTUNE_WITH_NATURE(290, "attuneWithNature", ModifierMetric.BOOLEAN),
 		;
 
 		/**

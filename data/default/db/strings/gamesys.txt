@@ -310,6 +310,7 @@ modifier_name-purpleMagicCircle: Purple Magic Circle
 modifier_name-goldMagicCircle: Gold Magic Circle
 modifier_name-beyondInsanity: Beyond Insanity
 modifier_name-cursedPower: Cursed Power
+modifier_name-attuneWithNature: Attune With Nature
 
 # Modifier Descriptions
 
@@ -613,6 +614,7 @@ modifier_desc-purpleMagicCircle: This character grants a Power Cast bonus to all
 modifier_desc-goldMagicCircle: This character grants a Power Cast bonus to all Gold Magic casters in the party.
 modifier_desc-beyondInsanity: While insane this character gains bonus Magic Point regeneration and Power Cast.
 modifier_desc-cursedPower: While hexed this character gains bonus Action Point regeneration and Power.
+modifier_desc-attuneWithNature: This character gets an Action Point regeneration bonus in the presence of Green Magic.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -895,6 +897,8 @@ lap_name_disable = Disable
 lap_desc_disable = The Burglar executes a melee attack that can apply the Web and Confuse conditions.
 lap_name_trap_sense = Trap Sense
 lap_desc_trap_sense = The Burglar automatically identifies traps.
+lap_name_lurker = Lurker
+lap_desc_lurker = Somehow the Burglar doesn't really draw much attention from foes.
 
 # Courtesan
 lap_name_evasion = Evasion
@@ -951,6 +955,10 @@ lap_name_aura_of_regeneration = Aura of Regeneration
 lap_desc_aura_of_regeneration = The Druid can radiate an aura that speeds the recuperation of all party members.
 lap_name_bestial_reincarnate = Bestial Reincarnation
 lap_desc_bestial_reincarnate = If the Druid dies in combat, a powerful beast appears to aid the party.
+lap_name_attune_with_nature = Attune With Nature
+lap_desc_attune_with_nature = The Druid gets an Action Point regeneration bonus in the presence of Green Magic.
+lap_name_verdant_summoner = Verdant Summoner
+lap_desc_verdant_summoner = The Druid's summoned plants and beasts have boosted stats.
 
 # Elemental
 lap_name_elemental_aura = Elemental Aura

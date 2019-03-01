@@ -87,7 +87,14 @@ public class ActionPointRegenMod extends ModifierModification
 			result.add(new ModifierValue(
 				StringUtil.getModifierName(Stats.Modifier.CURSED_POWER),
 				10));
+		}
 
+		// attune with nature
+		if (actor.getModifier(Stats.Modifier.ATTUNE_WITH_NATURE) > 0)
+		{
+			result.add(new ModifierValue(
+				StringUtil.getModifierName(Stats.Modifier.ATTUNE_WITH_NATURE),
+				actor.getModifier(Stats.Modifier.GREEN_MAGIC_GEN)));
 		}
 	}
 }
