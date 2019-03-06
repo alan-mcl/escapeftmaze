@@ -4279,58 +4279,66 @@ public class GameSys
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		int powerSummonElemental = caster.getModifier(Stats.Modifier.POWER_SUMMON_ELEMENTAL);
-		FoeType elementalType = Database.getInstance().getFoeTypes().get("Elemental");
-		ConditionTemplate haste = Database.getInstance().getConditionTemplate("SCALING_HASTE");
-		ConditionTemplate stoneskin = Database.getInstance().getConditionTemplate("SCALING_STONESKIN");
-		ConditionTemplate superman = Database.getInstance().getConditionTemplate("SCALING_SUPERMAN");
+		List<ConditionTemplate> conditionTemplates = new ArrayList<ConditionTemplate>();
+
+		conditionTemplates.add(Database.getInstance().getConditionTemplate("SCALING_HASTE"));
+		conditionTemplates.add(Database.getInstance().getConditionTemplate("SCALING_STONESKIN"));
+		conditionTemplates.add(Database.getInstance().getConditionTemplate("SCALING_SUPERMAN"));
+
 
 		for (FoeGroup fg : foeGroups)
 		{
-			if (powerSummonElemental > 0 && fg.getFoes().get(0).getTypes().contains(elementalType))
+			int powerSummonModifier = getPowerSummonModifier(caster, fg.getFoes().get(0).getTypes());
+			if (powerSummonModifier > 0)
 			{
 				for (Foe foe : fg.getFoes())
 				{
-					if (powerSummonElemental >= 3)
+					for (int i=0; i<powerSummonModifier; i++)
 					{
-						Condition c = superman.create(
+						ConditionTemplate conditionTemplate = conditionTemplates.get(Dice.nextInt(conditionTemplates.size()));
+
+						Condition c = conditionTemplate.create(
 							caster,
 							foe,
-							powerSummonElemental * 2,
+							powerSummonModifier * 2,
 							MagicSys.SpellEffectType.ENERGY,
 							MagicSys.SpellEffectSubType.NONE);
 
 						foe.addCondition(c);
-					}
 
-					if (powerSummonElemental >= 2)
-					{
-						Condition c = stoneskin.create(
-							caster,
-							foe,
-							powerSummonElemental * 2,
-							MagicSys.SpellEffectType.ENERGY,
-							MagicSys.SpellEffectSubType.NONE);
-
-						foe.addCondition(c);
-					}
-
-					if (powerSummonElemental >= 1)
-					{
-						Condition c = haste.create(
-							caster,
-							foe,
-							powerSummonElemental * 2,
-							MagicSys.SpellEffectType.ENERGY,
-							MagicSys.SpellEffectSubType.NONE);
-
-						foe.addCondition(c);
+						Maze.logDebug("Power Summon: "+foe.getName()+" gets "+c.getName());
 					}
 
 					result.add(
 						new UiMessageEvent(
 							StringUtil.getEventText("msg.summoning.empowered", foe.getDisplayName())));
 				}
+			}
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getPowerSummonModifier(
+		UnifiedActor caster,
+		List<TypeDescriptor> types)
+	{
+		Map<FoeType, Stats.Modifier> powerSummonTypes = new HashMap<FoeType, Stats.Modifier>();
+
+		Map<String, FoeType> foeTypes = Database.getInstance().getFoeTypes();
+		powerSummonTypes.put(foeTypes.get("Elemental"), Stats.Modifier.POWER_SUMMON_ELEMENTAL);
+		powerSummonTypes.put(foeTypes.get("Beast"), Stats.Modifier.POWER_SUMMON_BEAST);
+		powerSummonTypes.put(foeTypes.get("Plant"), Stats.Modifier.POWER_SUMMON_PLANT);
+
+		int result = 0;
+
+		for (TypeDescriptor td : types)
+		{
+			Stats.Modifier modifier = powerSummonTypes.get(td);
+			if (modifier != null)
+			{
+				result += caster.getModifier(modifier);
 			}
 		}
 

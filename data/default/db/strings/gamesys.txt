@@ -269,6 +269,8 @@ modifier_name-persuasion: Persuasion
 modifier_name-supplyConsumption: Supply Consumption
 modifier_name-reincarnateBeast: Reincarnate: Beast
 modifier_name-powerSummonElemental: Power Summon: Elemental
+modifier_name-powerSummonBeast: Power Summon: Beast
+modifier_name-powerSummonPlant: Power Summon: Plant
 modifier_name-masterDiviner: Master Diviner
 modifier_name-bombThrower: Bomb Thrower
 modifier_name-packRat: Pack Rat
@@ -573,6 +575,8 @@ modifier_desc-persuasion: When another character in the party tried to influence
 modifier_desc-supplyConsumption: Modifies how many units of supplies this character consumes when resting.
 modifier_desc-reincarnateBeast: If this character dies in combat, a powerful beast appears to aid the party.
 modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
+modifier_desc-powerSummonBeast: Beasts summoned by this character come into play buffed.
+modifier_desc-powerSummonPlant: Plants summoned by this character come into play buffed.
 modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
 modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
 modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.

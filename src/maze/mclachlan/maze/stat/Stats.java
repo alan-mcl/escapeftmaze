@@ -311,6 +311,8 @@ public class Stats
 		otherMagic.add(POWER_OF_DARKNESS);
 		otherMagic.add(REINCARNATE_BEAST);
 		otherMagic.add(POWER_SUMMON_ELEMENTAL);
+		otherMagic.add(POWER_SUMMON_BEAST);
+		otherMagic.add(POWER_SUMMON_PLANT);
 		otherMagic.add(MASTER_DIVINER);
 		otherMagic.add(EMPOWERED_HEALING);
 		otherMagic.add(PATIENCE);
@@ -790,6 +792,8 @@ public class Stats
 		BEYOND_INSANITY(288, "beyondInsanity", ModifierMetric.BOOLEAN),
 		CURSED_POWER(289, "cursedPower", ModifierMetric.BOOLEAN),
 		ATTUNE_WITH_NATURE(290, "attuneWithNature", ModifierMetric.BOOLEAN),
+		POWER_SUMMON_BEAST(291, "powerSummonBeast"),
+		POWER_SUMMON_PLANT(292, "powerSummonPlant"),
 		;
 
 		/**
