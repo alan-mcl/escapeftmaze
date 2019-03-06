@@ -313,6 +313,8 @@ public class Stats
 		otherMagic.add(POWER_SUMMON_ELEMENTAL);
 		otherMagic.add(POWER_SUMMON_BEAST);
 		otherMagic.add(POWER_SUMMON_PLANT);
+		otherMagic.add(POWER_SUMMON_FEY);
+		otherMagic.add(POWER_SUMMON_ILLUSION);
 		otherMagic.add(MASTER_DIVINER);
 		otherMagic.add(EMPOWERED_HEALING);
 		otherMagic.add(PATIENCE);
@@ -794,6 +796,8 @@ public class Stats
 		ATTUNE_WITH_NATURE(290, "attuneWithNature", ModifierMetric.BOOLEAN),
 		POWER_SUMMON_BEAST(291, "powerSummonBeast"),
 		POWER_SUMMON_PLANT(292, "powerSummonPlant"),
+		POWER_SUMMON_FEY(293, "powerSummonFey"),
+		POWER_SUMMON_ILLUSION(294, "powerSummonIllusion"),
 		;
 
 		/**

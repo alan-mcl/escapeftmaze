@@ -271,6 +271,8 @@ modifier_name-reincarnateBeast: Reincarnate: Beast
 modifier_name-powerSummonElemental: Power Summon: Elemental
 modifier_name-powerSummonBeast: Power Summon: Beast
 modifier_name-powerSummonPlant: Power Summon: Plant
+modifier_name-powerSummonFey: Power Summon: Fey
+modifier_name-powerSummonIllusion: Power Summon: Illusion
 modifier_name-masterDiviner: Master Diviner
 modifier_name-bombThrower: Bomb Thrower
 modifier_name-packRat: Pack Rat
@@ -577,6 +579,8 @@ modifier_desc-reincarnateBeast: If this character dies in combat, a powerful bea
 modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
 modifier_desc-powerSummonBeast: Beasts summoned by this character come into play buffed.
 modifier_desc-powerSummonPlant: Plants summoned by this character come into play buffed.
+modifier_desc-powerSummonFey: Fey summoned by this character come into play buffed.
+modifier_desc-powerSummonIllusion: Illusions summoned by this character come into play buffed.
 modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
 modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
 modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.
@@ -1017,7 +1021,10 @@ lap_name_master_diviner = Master Diviner
 lap_desc_master_diviner = The Enchanter restores Action Points whenever he or she identifies an item.
 lap_name_dispel_illusions = Dispel Illusions
 lap_desc_dispel_illusions = The Enchanter can dispel the illusions of others.
-
+lap_name_master_illusionist = Master Illusionist
+lap_desc_master_illusionist = The Enchanter's summoned illusions have boosted stats.
+lap_name_leyline_to_faerie = Leyline to Faerie
+lap_desc_leyline_to_faerie = The Enchanter's summoned fey have boosted stats.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

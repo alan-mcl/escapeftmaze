@@ -20,7 +20,7 @@ sprite & sound: owlbear, stone bear
 sprite & sound: griffon
 
 abilities: blackguard 10
-abilities: enchanter 16, 18
+abilities: enchanter 20
 abilities: exorcist 2, 4, 5, 10, 20
 abilities: troubadour 18
 abilities: witch 16

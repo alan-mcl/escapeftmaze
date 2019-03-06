@@ -4285,7 +4285,6 @@ public class GameSys
 		conditionTemplates.add(Database.getInstance().getConditionTemplate("SCALING_STONESKIN"));
 		conditionTemplates.add(Database.getInstance().getConditionTemplate("SCALING_SUPERMAN"));
 
-
 		for (FoeGroup fg : foeGroups)
 		{
 			int powerSummonModifier = getPowerSummonModifier(caster, fg.getFoes().get(0).getTypes());
@@ -4330,6 +4329,8 @@ public class GameSys
 		powerSummonTypes.put(foeTypes.get("Elemental"), Stats.Modifier.POWER_SUMMON_ELEMENTAL);
 		powerSummonTypes.put(foeTypes.get("Beast"), Stats.Modifier.POWER_SUMMON_BEAST);
 		powerSummonTypes.put(foeTypes.get("Plant"), Stats.Modifier.POWER_SUMMON_PLANT);
+		powerSummonTypes.put(foeTypes.get("Fey"), Stats.Modifier.POWER_SUMMON_FEY);
+		powerSummonTypes.put(foeTypes.get("Illusion"), Stats.Modifier.POWER_SUMMON_ILLUSION);
 
 		int result = 0;
 

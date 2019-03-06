@@ -18,6 +18,7 @@ Features
  - Witch abilities: Power of the Circle
  - Acolyte abilities: Beyond Insanity, Cursed Power
  - Druid abilities: Attune with Nature, Power Summon: Plant, Power Summon: Beast
+ - Enchanter abilities: Power Summon: Illusion, Power Summon: Fey
 
 Other
  - Refactoring action point regen to be consistent with other resources
