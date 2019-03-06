@@ -376,12 +376,15 @@ public class Spell
 		}
 
 		// must meet all spell effect requirements
-		for (SpellEffect se : this.getEffects().getPossibilities())
+		if (this.getEffects() != null)
 		{
-			if (!se.meetsRequirements(actor))
+			for (SpellEffect se : this.getEffects().getPossibilities())
 			{
-				Maze.log(Log.DEBUG, this.getName() + ": failed spell effect requirement: " + se.getName());
-				return false;
+				if (!se.meetsRequirements(actor))
+				{
+					Maze.log(Log.DEBUG, this.getName() + ": failed spell effect requirement: " + se.getName());
+					return false;
+				}
 			}
 		}
 

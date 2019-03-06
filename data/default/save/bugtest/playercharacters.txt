@@ -59,14 +59,14 @@ activeModifiers=4208043fff8,01010101010101010101010101010101010101
 removedLevelAbilities=
 @
 name=Silvia
-levels=Acolyte:20
+levels=Enchanter:20
 experience=601416
 kills=11
 karma=10
 race=Elf
 gender=Female
 portrait=portrait/elf_female_doberge
-characterClass=Acolyte
+characterClass=Enchanter
 personality=Valiant
 torsoArmour=Robes Of Rejuvenation/1/2/1-1/0-0/
 legArmour=Enchanted Robes (L)/1/2/1-1/0-0/
