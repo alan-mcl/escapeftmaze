@@ -1047,6 +1047,16 @@ lap_name_weaken_spirits = Weaken Spirits
 lap_desc_weaken_spirits = The Exorcist greatly reduces the resistances of undead, illusions and outsiders.
 lap_name_anathema = Anathema
 lap_desc_anathema = The Exorcist banishes all outsiders present to their home plane.
+lap_name_seeking_evil = Seeking Evil
+lap_desc_seeking_evil = The Exorcist is committed to seeking out evil in it's own environment.
+lap_name_demonslayer = Demonslayer
+lap_desc_demonslayer = The Exorcist specialises in banishing fiendish foes back whence they came.
+lap_name_eyes_of_righteousness = Eyes of Righteousness
+lap_desc_eyes_of_righteousness = Meer darkness and blindness can't prevent the Exorcist fighting effectively.
+lap_name_hero_of_myth = Hero of Myth
+lap_desc_hero_of_myth = The Exorcist faces down horrors and abominations of all kinds without flinching.
+lap_name_light_of_faith = Light of Faith
+lap_desc_light_of_faith = The light undying burns within the Exorcist.
 
 # Gadgeteer
 lap_name_disbeliever = Disbeliever
