@@ -883,6 +883,9 @@ lap_name_chilling_hatred = Chilling Hatred
 lap_desc_chilling_hatred = Foes of the Blackguard may freeze with terror during melee.
 lap_name_great_notoriety = Great Notoriety
 lap_desc_great_notoriety = The Blackguards terrifying reputation is known throughout the Maze, and he or she benefits greatly from slaying named NPCs or other party members.
+lap_name_wrath = Wrath
+lap_desc_wrath = The Blackgaurd gets a combat bonus for each foe present.
+
 
 # Burglar
 lap_name_extra_loot = Extra Loot %s
