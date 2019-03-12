@@ -585,4 +585,10 @@ public class PlayerParty implements ActorGroup
 	{
 		return "Player Party";
 	}
+
+	@Override
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
 }

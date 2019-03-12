@@ -75,4 +75,10 @@ public class GoldPieces extends Item
 	{
 		return new BitSet();
 	}
+
+	@Override
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
 }

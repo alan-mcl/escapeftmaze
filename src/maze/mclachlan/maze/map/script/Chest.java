@@ -35,6 +35,7 @@ import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.stat.SpellTarget;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.ui.diygui.ChestOptionsCallback;
 
 /**
@@ -350,6 +351,12 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	public String getDisplayName()
 	{
 		return "Treasure Chest";
+	}
+
+	@Override
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
 	}
 
 	/*-------------------------------------------------------------------------*/

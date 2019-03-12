@@ -408,6 +408,12 @@ public class MockCombat
 			{
 				return "";
 			}
+
+			@Override
+			public int getModifier(Stats.Modifier modifier)
+			{
+				return 0;
+			}
 		};
 	}
 
@@ -491,9 +497,16 @@ public class MockCombat
 
 		return new Item(result)
 		{
+			@Override
 			public String getDisplayName()
 			{
 				return "";
+			}
+
+			@Override
+			public int getModifier(Stats.Modifier modifier)
+			{
+				return 0;
 			}
 		};
 	}

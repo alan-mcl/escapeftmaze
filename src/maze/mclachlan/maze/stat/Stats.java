@@ -330,6 +330,8 @@ public class Stats
 		otherMagic.add(GOLD_MAGIC_CIRCLE);
 		otherMagic.add(BEYOND_INSANITY);
 		otherMagic.add(CURSED_POWER);
+		otherMagic.add(CURSED_POWER);
+		otherMagic.add(REVERSE_GLAMOUR);
 
 		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
 
@@ -798,6 +800,7 @@ public class Stats
 		POWER_SUMMON_PLANT(292, "powerSummonPlant"),
 		POWER_SUMMON_FEY(293, "powerSummonFey"),
 		POWER_SUMMON_ILLUSION(294, "powerSummonIllusion"),
+		REVERSE_GLAMOUR(295, "reverseGlamour", ModifierMetric.BOOLEAN),
 		;
 
 		/**

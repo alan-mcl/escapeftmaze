@@ -315,6 +315,7 @@ modifier_name-goldMagicCircle: Gold Magic Circle
 modifier_name-beyondInsanity: Beyond Insanity
 modifier_name-cursedPower: Cursed Power
 modifier_name-attuneWithNature: Attune With Nature
+modifier_name-reverseGlamour: Reverse Glamour
 
 # Modifier Descriptions
 
@@ -623,6 +624,7 @@ modifier_desc-goldMagicCircle: This character grants a Power Cast bonus to all G
 modifier_desc-beyondInsanity: While insane this character gains bonus Magic Point regeneration and Power Cast.
 modifier_desc-cursedPower: While hexed this character gains bonus Action Point regeneration and Power.
 modifier_desc-attuneWithNature: This character gets an Action Point regeneration bonus in the presence of Green Magic.
+modifier_desc-reverseGlamour: Gold magic spells directed at this character are reflected back at the caster.
 
 #
 # LEVEL ABILITY PROGRESSION
@@ -1027,6 +1029,8 @@ lap_name_leyline_to_faerie = Leyline to Faerie
 lap_desc_leyline_to_faerie = The Enchanter's summoned fey have boosted stats.
 lap_name_wild_fey_magic = Wild Fey Magic
 lap_desc_wild_fey_magic = The Enchanter unleashes the wild magic of the fey, with unpredictable results.
+lap_name_reverse_glamour = Reverse Glamour
+lap_desc_reverse_glamour = Gold magic spells directed at the Enchanter are reflected back at the caster.
 
 # Exorcist
 lap_name_wards_and_charms = Wards and Charms

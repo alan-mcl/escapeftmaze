@@ -22,4 +22,6 @@ package mclachlan.maze.stat;
 public interface SpellTarget
 {
 	String getDisplayName();
+
+	int getModifier(Stats.Modifier modifier);
 }

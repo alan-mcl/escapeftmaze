@@ -142,6 +142,12 @@ public class Item implements AttackWith, SpellTarget
 		return result;
 	}
 
+	@Override
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
+
 	public int getToHit()
 	{
 		return template.toHit;

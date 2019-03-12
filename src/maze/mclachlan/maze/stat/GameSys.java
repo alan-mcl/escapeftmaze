@@ -3064,6 +3064,12 @@ public class GameSys
 			{
 				return shield.getDisplayName();
 			}
+
+			@Override
+			public int getModifier(Stats.Modifier modifier)
+			{
+				return 0;
+			}
 		};
 	}
 
@@ -3176,6 +3182,12 @@ public class GameSys
 			public String getDisplayName()
 			{
 				return StringUtil.getGamesysString("unarmed.weapon");
+			}
+
+			@Override
+			public int getModifier(Stats.Modifier modifier)
+			{
+				return 0;
 			}
 		};
 	}

@@ -419,11 +419,26 @@ public class SpellTargetUtils
 		// apply to all in the group
 		for (UnifiedActor victim : attackedGroup.getActors())
 		{
+			UnifiedActor theRealVictim;
+
+			// check for REVERSE_GLAMOUR
+			if (spell.getBook() == MagicSys.SpellBook.GOLD_MAGIC &&
+				victim.getModifier(Stats.Modifier.REVERSE_GLAMOUR) > 0)
+			{
+				// reflect the spell
+				Maze.logDebug("Reverse glamour reflects the spell back to "+caster.getName());
+				theRealVictim = caster;
+			}
+			else
+			{
+				theRealVictim = victim;
+			}
+
 			List<MazeEvent> events =
 				applySpellToUnwillingVictim(
 					spell,
 					spellEffects.getRandom(),
-					victim,
+					theRealVictim,
 					caster,
 					castingLevel,
 					spellLevel,
@@ -545,6 +560,15 @@ public class SpellTargetUtils
 			// no legal targets or all in this group are dead
 			result.add(new DefendEvent(caster));
 			return result;
+		}
+
+		// check for REVERSE_GLAMOUR
+		if (spell.getBook() == MagicSys.SpellBook.GOLD_MAGIC &&
+			target.getModifier(Stats.Modifier.REVERSE_GLAMOUR) > 0)
+		{
+			// reflect the spell
+			Maze.logDebug("Reverse glamour reflects the spell back to "+caster.getName());
+			target = caster;
 		}
 
 		// this will apply "once to caster" effects to the caster.

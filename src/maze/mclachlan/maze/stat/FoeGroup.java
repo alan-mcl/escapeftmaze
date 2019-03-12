@@ -270,4 +270,10 @@ public class FoeGroup implements ActorGroup
 	{
 		return "FoeGroup";
 	}
+
+	@Override
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
 }

@@ -159,4 +159,10 @@ public class NpcActorGroup implements ActorGroup
 	{
 		return getNpc().getDisplayName()+" and retinue";
 	}
+
+	@Override
+	public int getModifier(Stats.Modifier modifier)
+	{
+		return 0;
+	}
 }
