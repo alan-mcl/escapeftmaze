@@ -19,9 +19,6 @@ sprite & sound: winter wolf, lava wolf
 sprite & sound: owlbear, stone bear
 sprite & sound: griffon
 
-abilities: troubadour 18
-abilities: witch 16
-
 abilities: DIPLOMACY rework to something more interesting
 abilities: PERSUASION hooks on DIPLOMACY
 abilities: CODE_OF_DISHONOUR hooks on DIPLOMACY, others

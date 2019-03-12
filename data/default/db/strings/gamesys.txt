@@ -1433,6 +1433,8 @@ lap_name_spell_stealing = Spell Stealing
 lap_desc_spell_stealing = The Troubadour casts a random spell known by a spell casting foe.
 lap_name_spell_sniping = Spell Sniping
 lap_desc_spell_sniping = The Troubadour's projectile spells count as snipe attacks.
+lap_name_escape_artist = Escape Artist
+lap_desc_escape_artist = The Troubadour can't easily be immobilised.
 
 # Warlock
 lap_name_ruthless = Ruthless
@@ -1501,6 +1503,8 @@ lap_name_veil_of_shadows = Veil of Shadows
 lap_desc_veil_of_shadows = The Witch fades into shadow and summons a haze of shadowy warriors to engage her foes.
 lap_name_moonlight_blessings = Moonlight Blessings
 lap_desc_moonlight_blessings = The Witch gains several supernatural immunities.
+lap_name_eye_of_truth = Eye of Truth
+lap_desc_eye_of_truth = The Witche's eye can discern the truth of many things.
 
 #
 # Item Properties
