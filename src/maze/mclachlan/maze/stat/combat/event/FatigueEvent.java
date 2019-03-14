@@ -75,6 +75,8 @@ public class FatigueEvent extends MazeEvent
 	 */ 
 	public List<MazeEvent> resolve()
 	{
+		Maze.getPerfLog().enter("FatigueEvent::resolve");
+
 		// apply resistances and immunities
 		if (GameSys.getInstance().isActorImmuneToSpellEffect(defender, subtype))
 		{
@@ -98,9 +100,11 @@ public class FatigueEvent extends MazeEvent
 			// defender is KO
 			List<MazeEvent> result = new ArrayList<MazeEvent>();
 			result.add(new ConditionEvent(defender, ko));
+			Maze.getPerfLog().exit("FatigueEvent::resolve");
 			return result;
 		}
 
+		Maze.getPerfLog().exit("FatigueEvent::resolve");
 		return null;
 	}
 

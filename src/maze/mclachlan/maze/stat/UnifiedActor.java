@@ -1399,7 +1399,11 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	 */
 	public int getModifier(Stats.Modifier modifier)
 	{
-		return getModifier(modifier, true);
+//		Maze.getPerfLog().enter("UnifiedActor::getModifier");
+		int result = getModifier(modifier, true);
+//		Maze.getPerfLog().exit("UnifiedActor::getModifier");
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

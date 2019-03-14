@@ -33,8 +33,11 @@ import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.game.journal.JournalManager;
-import mclachlan.maze.map.*;
-import mclachlan.maze.map.script.*;
+import mclachlan.maze.map.FoeEntry;
+import mclachlan.maze.map.Portal;
+import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
@@ -51,6 +54,7 @@ import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.util.MazeException;
+import mclachlan.maze.util.PerfLog;
 
 import static mclachlan.crusader.CrusaderEngine.Facing.*;
 
@@ -99,6 +103,7 @@ public class Maze implements Runnable
 
 	/** the current logging implementation */
 	private static Log log;
+	private static PerfLog perfLog;
 
 	/** any combat currently underway */
 	private Combat currentCombat;
@@ -185,9 +190,15 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initLog(Log log) throws ClassNotFoundException, InstantiationException, IllegalAccessException
+	public void initLog(Log log)
 	{
 		Maze.log = log;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initPerfLog(PerfLog log)
+	{
+		Maze.perfLog = log;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -267,6 +278,12 @@ public class Maze implements Runnable
 		{
 			log.log(lvl, msg, args);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static PerfLog getPerfLog()
+	{
+		return perfLog;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -658,7 +675,10 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void incTurn(boolean checkRandomEncounters)
 	{
-		GameTime.incTurn(); // SLOW
+		Maze.getPerfLog().enter("Maze::incTurn");
+
+		GameTime.incTurn();
+
 		checkPartyStatus();
 		reorderPartyToCompensateForDeadCharacters();
 
@@ -690,6 +710,8 @@ public class Maze implements Runnable
 				}
 			}
 		}
+
+		Maze.getPerfLog().exit("Maze::incTurn");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1194,6 +1216,9 @@ public class Maze implements Runnable
 		System.out.println("<"+Thread.currentThread().getName()+"> event = [" + event + "]");
 		//~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+		String perfTag = "Maze::resolveEvent [" + event.getClass().getName() + "]";
+		Maze.getPerfLog().enter(perfTag);
+
 		List<MazeEvent> subEvents = event.resolve();
 		
 		// event resolution may alter some of it's state - thus only display
@@ -1228,8 +1253,11 @@ public class Maze implements Runnable
 					}
 				}
 			}
-			else if (event.getDelay() > MazeEvent.Delay.NONE)
+			else if (event.getDelay() > MazeEvent.Delay.NONE &&
+				Maze.getInstance().getCurrentCombat() != null)
 			{
+				// only apply the combat delay in combat
+				
 				synchronized(Maze.getInstance().getEventMutex())
 				{
 					try
@@ -1252,6 +1280,8 @@ public class Maze implements Runnable
 		{
 			resolveEvents(subEvents, displayEventText);
 		}
+
+		Maze.getPerfLog().exit(perfTag);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2222,6 +2252,8 @@ public class Maze implements Runnable
 		public static final String LOG_IMPL = "mclachlan.maze.log.impl";
 		public static final String LOG_LEVEL = "mclachlan.maze.log.level";
 		public static final String LOG_BUFFER_SIZE = "mclachlan.maze.log.buffer.size";
+		public static final String PERF_LOG_IMPL = "mclachlan.maze.perflog.impl";
+		public static final String PERF_LOG_LEVEL = "mclachlan.maze.perflog.level";
 
 		public static final String UI_IMPL = "mclachlan.maze.ui.impl";
 		public static final String UI_DEBUG = "mclachlan.maze.ui.debug";

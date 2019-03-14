@@ -1504,7 +1504,7 @@ lap_desc_veil_of_shadows = The Witch fades into shadow and summons a haze of sha
 lap_name_moonlight_blessings = Moonlight Blessings
 lap_desc_moonlight_blessings = The Witch gains several supernatural immunities.
 lap_name_eye_of_truth = Eye of Truth
-lap_desc_eye_of_truth = The Witche's eye can discern the truth of many things.
+lap_desc_eye_of_truth = The Witch's eye can discern the truth of many things.
 
 #
 # Item Properties

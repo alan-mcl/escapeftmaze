@@ -62,7 +62,7 @@ public class Log
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String logPath()
+	public String logPath()
 	{
 		return currentDir+"/log.txt";
 	}
@@ -157,7 +157,7 @@ public class Log
 		{
 			if (this.logger == null)
 			{
-				logger = Logger.getLogger("maze.logger");
+				logger = Logger.getLogger(getLoggerName());
 				new File(currentDir).mkdirs();
 
 				FileHandler handler = new FileHandler(getLogPath());
@@ -173,6 +173,12 @@ public class Log
 		{
 			throw new MazeException(e);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected String getLoggerName()
+	{
+		return "maze.logger";
 	}
 
 	/*-------------------------------------------------------------------------*/

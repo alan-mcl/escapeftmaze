@@ -184,10 +184,14 @@ class MazeActionListener implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void movePlayer(CrusaderEngine.PlayerStatus playerStatus, Point oldTile)
 	{
+		Maze.getPerfLog().enter("MazeActionListener::movePlayer");
+
 		DiyGuiUserInterface.instance.raycaster.handleKey(playerStatus);
-		Maze.getInstance().incTurn(true); // SLOW
+		Maze.getInstance().incTurn(true);
 		Point newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
 		int facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-		Maze.getInstance().encounterTile(newTile, oldTile, facing); // SLOW
+		Maze.getInstance().encounterTile(newTile, oldTile, facing);
+
+		Maze.getPerfLog().exit("MazeActionListener::movePlayer");
 	}
 }

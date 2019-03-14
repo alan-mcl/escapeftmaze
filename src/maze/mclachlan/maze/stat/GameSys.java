@@ -939,6 +939,7 @@ public class GameSys
 	 */
 	public int getResistance(UnifiedActor defender, UnifiedActor attacker, MagicSys.SpellEffectType type)
 	{
+		Maze.getPerfLog().enter("GameSys::getResistance");
 		Stats.Modifier modifier = type.getResistanceModifier();
 
 		// minus attacker POWER to defender resistance
@@ -972,7 +973,10 @@ public class GameSys
 
 		// return defender modifier minus all the stuff, minimum 0
 		int defenderModifier = (modifier==null) ? 0 : defender.getModifier(modifier);
-		return Math.max(defenderModifier -power, 0);
+		int result = Math.max(defenderModifier - power, 0);
+
+		Maze.getPerfLog().exit("GameSys::getResistance");
+		return result;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -3322,6 +3326,7 @@ public class GameSys
 	public boolean isActorImmuneToSpellEffect(UnifiedActor actor,
 		MagicSys.SpellEffectSubType type)
 	{
+		Maze.getPerfLog().enter("GameSys::isActorImmuneToSpellEffect");
 		Stats.Modifier modifier;
 
 		modifier = getImmunityModifier(type);
@@ -3331,7 +3336,9 @@ public class GameSys
 			return false;
 		}
 
-		return actor.getModifier(modifier) > 0;
+		boolean result = actor.getModifier(modifier) > 0;
+		Maze.getPerfLog().exit("GameSys::isActorImmuneToSpellEffect");
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

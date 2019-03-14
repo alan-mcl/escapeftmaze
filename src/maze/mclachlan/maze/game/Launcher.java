@@ -35,6 +35,7 @@ import mclachlan.maze.editor.swing.CampaignPanel;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
 import mclachlan.maze.util.MazeException;
+import mclachlan.maze.util.PerfLog;
 
 /**
  *
@@ -240,6 +241,7 @@ public class Launcher implements ActionListener
 
 		maze.initAudio(new WavAudioPlayer());
 		maze.initLog(getLog(config));
+		maze.initPerfLog(getPerfLog(config));
 		maze.initState();
 		// Beware the dependencies between components here.
 		maze.initDb();
@@ -256,6 +258,21 @@ public class Launcher implements ActionListener
 		Class log_class = Class.forName(log_impl);
 		Log log = (Log)log_class.newInstance();
 		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.LOG_LEVEL));
+		log.setLevel(logLevel);
+		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
+		log.setBufferSize(bufferSize);
+
+		return log;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private PerfLog getPerfLog(Map<String, String> config)
+		throws ClassNotFoundException, IllegalAccessException, InstantiationException
+	{
+		String log_impl = this.config.get(Maze.AppConfig.PERF_LOG_IMPL);
+		Class log_class = Class.forName(log_impl);
+		PerfLog log = (PerfLog)log_class.newInstance();
+		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.PERF_LOG_LEVEL));
 		log.setLevel(logLevel);
 		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
 		log.setBufferSize(bufferSize);
