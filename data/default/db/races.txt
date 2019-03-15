@@ -158,7 +158,7 @@ suggestedNames=Female:Antia,Anxo,Beluca,Brais,Branca,Carme,Catarina,Dores,Erea,I
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/triton
 @
 name=Naga
 description=Half man and half snake, a colony of quick tempered Naga inhabit a jewelled city deep in an isolated jungle in the First Realm.%n%nNaga are the race most recently arrived in the Maze, where they were banished along with their whole city after displeasing the capricious god of their people.%n%nSpecial: Naga are resistant to poison and can spit a deadly poison of their own. Their snake-like tails and heads are tough and scaly, but preclude the wearing of many types of armour.

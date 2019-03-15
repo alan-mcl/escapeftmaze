@@ -508,6 +508,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=foe.triton.male
+imageResources=crusader/foe/triton_male
+animationDelay=150
+imageWidth=512
+imageHeight=512
+@
 name=foe.elemental.fire
 imageResources=crusader/foe/fire_elemental
 animationDelay=-1

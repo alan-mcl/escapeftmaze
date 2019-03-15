@@ -1257,7 +1257,7 @@ public class Maze implements Runnable
 				Maze.getInstance().getCurrentCombat() != null)
 			{
 				// only apply the combat delay in combat
-				
+
 				synchronized(Maze.getInstance().getEventMutex())
 				{
 					try
