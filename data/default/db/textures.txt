@@ -76,6 +76,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=foe.elf.male
+imageResources=crusader/foe/elf_male
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=DUNGEON_STAIR_UP
 imageResources=crusader/scene/dungeon_stair_up
 animationDelay=-1

@@ -374,5 +374,5 @@ suggestedNames=Female:Celadia,Seviel,Tithran,Calalith,Lomoniel,Tinilmandra,Isath
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/elf
 @
