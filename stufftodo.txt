@@ -13,6 +13,8 @@ animation: javelin
 animation: throwing axe
 animation: throwing hammer
 
+race art: automation, dryad, dwarf, troll (female)
+
 sprite & sound: angel
 sprite & sound: clockwork beast
 sprite & sound: winter wolf, lava wolf
