@@ -27,11 +27,9 @@ public abstract class MapScript
 	/**
 	 * This method is invoked every frame, giving subclasses a chance to
 	 * change the state of the map.
-	 * 
-	 * @param framecount
+	 *  @param framecount
 	 * 	An indication of the framecount
 	 * @param map
-	 * 	The map instance on which this script must operate
 	 */ 
-	public abstract void execute(int framecount, Map map);
+	public abstract void execute(long framecount, Map map);
 }

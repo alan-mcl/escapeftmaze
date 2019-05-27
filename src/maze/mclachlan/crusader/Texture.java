@@ -122,4 +122,14 @@ public class Texture
 	{
 		return nrFrames;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Texture{" +
+			"name='" + name + '\'' +
+			", nrFrames=" + nrFrames +
+			", currentFrame=" + currentFrame +
+			'}';
+	}
 }

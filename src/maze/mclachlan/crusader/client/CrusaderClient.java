@@ -158,13 +158,25 @@ public class CrusaderClient extends Frame
 
 		GraphicsDevice device = 
 			GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+
+		System.out.println("Supported display modes:");
+		for (DisplayMode dm : device.getDisplayModes())
+		{
+			System.out.println(dm.toString());
+		}
 		
 		this.enableEvents(KeyEvent.KEY_EVENT_MASK);
 		this.setUndecorated(true);
         
 		device.setFullScreenWindow(this);
 		this.enableInputMethods(false);
-		device.setDisplayMode(new DisplayMode(SCREEN_WIDTH, SCREEN_HEIGHT, 32, 0));
+		DisplayMode dm = new DisplayMode(
+				SCREEN_WIDTH,
+				SCREEN_HEIGHT,
+				DisplayMode.BIT_DEPTH_MULTI,
+				DisplayMode.REFRESH_RATE_UNKNOWN);
+		System.out.println("Using display mode: " + dm);
+		device.setDisplayMode(dm);
         
 		this.createBufferStrategy(2);
 		

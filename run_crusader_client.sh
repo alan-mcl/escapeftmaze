@@ -1,0 +1,1 @@
+java -Xmx512M -cp build/classes mclachlan.crusader.client.CrusaderClient $*

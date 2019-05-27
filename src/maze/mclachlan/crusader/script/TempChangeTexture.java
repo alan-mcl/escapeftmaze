@@ -53,7 +53,7 @@ public class TempChangeTexture extends MapScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(int framecount, Map map)
+	public void execute(long framecount, Map map)
 	{
 		// check if it's time to remove ourselves:
 		if (System.currentTimeMillis() > timeToRemove)

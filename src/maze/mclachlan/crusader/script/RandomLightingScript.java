@@ -55,7 +55,7 @@ public class RandomLightingScript extends MapScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(int framecount, Map map)
+	public void execute(long framecount, Map map)
 	{
 		if (rand(0,100)<frequency)
 		{

@@ -121,4 +121,13 @@ public class Wall
 	{
 		this.visible = visible;
 	}
+
+	@Override
+	public String toString()
+	{
+		return "Wall{" +
+			"visible=" + visible +
+			", texture=" + texture +
+			'}';
+	}
 }

@@ -324,7 +324,7 @@ public class Map
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	void executeScripts(int frameCount)
+	void executeScripts(long frameCount)
 	{
 		synchronized(scriptMutex)
 		{

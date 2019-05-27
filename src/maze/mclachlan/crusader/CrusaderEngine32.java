@@ -19,12 +19,14 @@
 
 package mclachlan.crusader;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Image;
+import java.awt.Point;
 import java.awt.image.ColorModel;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
 import java.util.*;
-import java.util.List;
 
 /**
  * Implementation with 32-bit colour
@@ -173,14 +175,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/** Scales the player height */
 	private double playerHeightMult = 1.0;
 
-	/** A record of grid block hits, indexed on cast column */
-	private BlockHitRecord[] blockHitRecord;
+	/** A record of grid block hits, indexed on cast column and then depth */
+	private BlockHitRecord[][] blockHitRecord;
+	private static int MAX_HIT_DEPTH = 1;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
 	private MouseClickScript[] mouseClickScriptRecords;
 	
 	/** Incremented each frame, used for animation */
-	private int frameCount;
+	private long frameCount;
 
 	/** 
 	 * The of mode player movement. A constant from 
@@ -202,7 +205,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * 	The height of the projection plane, in pixels
 	 * @param movementMode
 	 * 	One of the constants 
-	 * 	from {@link mclachlan.crusader.CrusaderEngine.MovementMode}
+	 * 	from {@link MovementMode}
 	 * @param shadeTargetColour
 	 * 	The color towards which to the engine shades.  Set it to black for a
 	 * 	normal effect, white for a fog effect, and so on.
@@ -275,10 +278,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		this.renderBuffer = new int[screenWidth * screenHeight];
 		this.mouseClickScriptRecords = new MouseClickScript[screenWidth * screenHeight];
-		this.blockHitRecord = new BlockHitRecord[screenWidth];
+		this.blockHitRecord = new BlockHitRecord[screenWidth][MAX_HIT_DEPTH];
 		for (int i = 0; i < blockHitRecord.length; i++)
 		{
-			blockHitRecord[i] = new BlockHitRecord();
+			for (int j = 0; j < MAX_HIT_DEPTH; j++)
+			{
+				blockHitRecord[i][j] = new BlockHitRecord();
+			}
 		}
 		
 		mapWidth = map.width;
@@ -466,7 +472,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			//                  distance between xi = x_step[view_angle];
 			//
 			//
-			// facine left
+			// facing left
 			// facing left
 			if (i >= ANGLE90 && i < ANGLE270)
 			{
@@ -529,7 +535,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * </pre>
 	 *
 	 * @param facing
-	 * 	A constant from {@link mclachlan.crusader.CrusaderEngine.Facing} 
+	 * 	A constant from {@link Facing}
 	 * 	determining which way the player is initially facing.
 	 */
 	public void setPlayerPos(int x, int y, int facing)
@@ -638,7 +644,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/**
 	 * @param key
 	 * 	the key code, a constant 
-	 * 	from {@link mclachlan.crusader.CrusaderEngine.KeyStroke}
+	 * 	from {@link KeyStroke}
 	 */
 	public void handleKey(int key)
 	{
@@ -1122,7 +1128,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 			for (castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
 			{
 				this.rayCast(Math.round(castArc), castColumn);
-				this.drawWall(Math.round(castArc), castColumn);
+
+				for (int depth=MAX_HIT_DEPTH-1; depth >= 0; depth--)
+				{
+					this.drawWall(Math.round(castArc), castColumn, depth);
+				}
 				
 				castArc += castInc;
 				if (castArc >= ANGLE360)
@@ -1159,7 +1169,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */
 	private void rayCast(int castArc, int castColumn)
 	{
-		// horizotal or vertical coordinate of intersection
+		// horizontal or vertical coordinate of intersection
 		int verticalGrid;
 		int horizontalGrid;
 
@@ -1193,7 +1203,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 		
 		Wall verticalWallHit=null;
 		Wall horizontalWallHit=null;
-		
+
+		BlockHitRecord horizBlockHitRecord = new BlockHitRecord();
+		BlockHitRecord vertBlockHitRecord = new BlockHitRecord();
+
+		//---- Initialisation --------------------------------------------------//
+
 		// A special case calculation of the X-intersection initial values.
 		if (castArc > ANGLE0 && castArc < ANGLE180)
 		{
@@ -1240,32 +1255,246 @@ public class CrusaderEngine32 implements CrusaderEngine
 			verticalGrid--;
 		}
 
-		//---- Compute X intersection ------------------------------------------//
-		
+		RayState horizRayState = new RayState();
+		horizRayState.grid = horizontalGrid;
+		horizRayState.distToNextGrid = distToNextHorizontalGrid;
+		horizRayState.intersection= xIntersection;
+
+		RayState vertRayState = new RayState();
+		vertRayState.grid = verticalGrid;
+		vertRayState.distToNextGrid = distToNextVerticalGrid;
+		vertRayState.intersection= yIntersection;
+
+/*		//---- Compute X intersection ------------------------------------------//
+
+		while (horizBlockHitRecord.wall == null || !horizBlockHitRecord.wall.visible)
+		{
+			distToHorizontalGridBeingHit = computeNextHorizBlockHit(
+				castArc,
+				horizRayState,
+				horizBlockHitRecord,
+				false);
+
+			if (distToHorizontalGridBeingHit == Float.MAX_VALUE)
+			{
+				break;
+			}
+		}
+
+		//---- Compute Y intersection ------------------------------------------//
+
+		while (vertBlockHitRecord.wall == null || !vertBlockHitRecord.wall.visible)
+		{
+			distToVerticalGridBeingHit = computeNextVertBlockHit(
+				castArc,
+				vertRayState,
+				vertBlockHitRecord,
+				false);
+
+			if (distToVerticalGridBeingHit == Float.MAX_VALUE)
+			{
+				break;
+			}
+		}*/
+
+		// calculate the first two hits. The nearest determines which order we
+		// search for more in
+
+		int depth = 0;
+
+		distToHorizontalGridBeingHit = computeNextHorizBlockHit(
+			castArc,
+			horizRayState,
+			horizBlockHitRecord,
+			true);
+
+		distToVerticalGridBeingHit = computeNextVertBlockHit(
+			castArc,
+			vertRayState,
+			vertBlockHitRecord,
+			true);
+
+		boolean horizFirst = distToHorizontalGridBeingHit < distToVerticalGridBeingHit;
+
+		BlockHitRecord hit = horizFirst ? horizBlockHitRecord : vertBlockHitRecord;
+
+		///// debug /////////
+//		MAX_HIT_DEPTH = 2;
+		/////////////////////
+
+		try
+		{
+			while (depth < MAX_HIT_DEPTH &&
+				(distToHorizontalGridBeingHit < Float.MAX_VALUE ||
+					distToVerticalGridBeingHit < Float.MAX_VALUE))
+			{
+				if (hit.wall.visible)
+				{
+					populatBlockHitRecordGlobal(castColumn, hit, depth);
+					depth++;
+				}
+
+				distToHorizontalGridBeingHit = computeNextHorizBlockHit(
+					castArc,
+					horizRayState,
+					horizBlockHitRecord,
+					true);
+
+				distToVerticalGridBeingHit = computeNextVertBlockHit(
+					castArc,
+					vertRayState,
+					vertBlockHitRecord,
+					true);
+
+/*				if (distToHorizontalGridBeingHit == Float.MAX_VALUE)
+				{
+					// can't ever get a horiz hit on this cast arc
+					// next will be a vertical hit
+					distToVerticalGridBeingHit = computeNextVertBlockHit(
+						castArc,
+						vertRayState,
+						vertBlockHitRecord,
+						false);
+
+					hit = vertBlockHitRecord;
+				}
+				else if (distToVerticalGridBeingHit == Float.MAX_VALUE)
+				{
+					// can't ever get a horiz hit on this cast arc
+					// next will be a horiz hit
+					distToHorizontalGridBeingHit = computeNextHorizBlockHit(
+						castArc,
+						horizRayState,
+						horizBlockHitRecord,
+						false);
+
+					hit = horizBlockHitRecord;
+				}
+				else if (horizFirst)
+				{
+					// next will be a vertical hit
+					distToVerticalGridBeingHit = computeNextVertBlockHit(
+						castArc,
+						vertRayState,
+						vertBlockHitRecord,
+						false);
+
+					hit = vertBlockHitRecord;
+				}
+				else
+				{
+					// next will be a horiz hit
+					distToHorizontalGridBeingHit = computeNextHorizBlockHit(
+						castArc,
+						horizRayState,
+						horizBlockHitRecord,
+						false);
+
+					hit = horizBlockHitRecord;
+				}*/
+
+
+
+				horizFirst = !horizFirst;
+			}
+		}
+		catch (Exception e)
+		{
+			System.out.println("horizBlockHitRecord = [" + horizBlockHitRecord + "]");
+			System.out.println("vertBlockHitRecord = [" + vertBlockHitRecord + "]");
+			System.out.println("hit = [" + hit + "]");
+			e.printStackTrace();
+			System.exit(0);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void populatBlockHitRecordGlobal(
+		int castColumn,
+		BlockHitRecord hit,
+		int depth)
+	{
+		try
+		{
+			blockHitRecord[castColumn][depth].populateFrom(hit);
+
+			// correct distance (compensate for the fishbowl effect)
+			blockHitRecord[castColumn][depth].distance /= fishbowlTable[castColumn];
+
+			blockHitRecord[castColumn][depth].projectedWallHeight = (int)(TILE_SIZE *
+				(float)playerDistToProjectionPlane / blockHitRecord[castColumn][depth].distance);
+		}
+		catch (NullPointerException x)
+		{
+			x.printStackTrace();
+			System.exit(1);
+		}
+	}
+
+	private static class RayState
+	{
+		int grid;
+		float intersection;
+		int distToNextGrid;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private float computeNextHorizBlockHit(
+		int castArc,
+		RayState rayState,
+		BlockHitRecord result,
+		boolean requireVisibleWall)
+	{
+		// horizontal or vertical coordinate of intersection
+		int horizontalGrid = rayState.grid;
+
+		// how far to the next bound (this is multiple of tile size)
+		int distToNextHorizontalGrid = rayState.distToNextGrid;
+
+		float distToHorizontalGridBeingHit = Float.MAX_VALUE;
+
+		// x and y intersections
+		float xIntersection = rayState.intersection;
+		float distToNextXIntersection;
+
+		// the current cell that the ray is in
+		int xGridIndex=0;
+		int yGridIndex=0;
+
+		int horizontalTextureXRecord=0;
+
+		int horizontalBlockHitRecord=0;
+
+		int mapIndex=0;
+
+		xGridIndex = playerX / TILE_SIZE;
+		yGridIndex = playerY / TILE_SIZE;
+
+		Wall horizontalWallHit=null;
 
 		// Step through the grid looking for an intersection
 		if (castArc == ANGLE0 || castArc == ANGLE180)
 		{
-			distToHorizontalGridBeingHit = 9999999F;
+			distToHorizontalGridBeingHit = Float.MAX_VALUE;
 		}
 		else
 		{
 			// Move the ray until it hits a horizontal wall
-			
+
 			distToNextXIntersection = xStepTable[castArc];
 			boolean outOfBounds = false;
 			while (true)
 			{
 				xGridIndex = (int)(xIntersection / TILE_SIZE);
 				yGridIndex = (horizontalGrid / TILE_SIZE);
-				
+
 				if ((xGridIndex >= mapWidth) ||
 					(yGridIndex >= mapLength) ||
 					xGridIndex < 0 || yGridIndex < 0)
 				{
 					outOfBounds = true;
 				}
-				
+
 				if (!outOfBounds)
 				{
 					mapIndex = getMapIndex(xGridIndex, yGridIndex);
@@ -1301,11 +1530,26 @@ public class CrusaderEngine32 implements CrusaderEngine
 					horizontalWallHit = this.map.horizontalWalls[wallIndex];
 					horizontalBlockHitRecord = this.map.getSouthBlock(wallIndex);
 				}
-					
-				if (horizontalWallHit.visible)
+
+				if (horizontalWallHit.visible || !requireVisibleWall)
 				{
 					distToHorizontalGridBeingHit = (xIntersection - playerX) * iCosTable[castArc];
 					horizontalTextureXRecord = (int)(xIntersection) % TILE_SIZE;
+
+					result.distance = distToHorizontalGridBeingHit;
+					result.textureXRecord = horizontalTextureXRecord;
+					result.blockHit = horizontalBlockHitRecord;
+					result.hitType = HIT_HORIZONTAL;
+					result.texture = horizontalWallHit.texture;
+					result.wall = horizontalWallHit;
+
+					// extend to the next block in case the caller chooses to continue
+					xIntersection += distToNextXIntersection;
+					horizontalGrid += distToNextHorizontalGrid;
+					rayState.grid = horizontalGrid;
+					rayState.distToNextGrid = distToNextHorizontalGrid;
+					rayState.intersection = xIntersection;
+
 					break;
 				}
 				else if (outOfBounds)
@@ -1315,15 +1559,50 @@ public class CrusaderEngine32 implements CrusaderEngine
 				else
 				{
 					// The ray is not blocked, extend to the next block
-						
+
 					xIntersection += distToNextXIntersection;
 					horizontalGrid += distToNextHorizontalGrid;
 				}
 			}
 		}
-		
-		//---- Compute Y intersection ------------------------------------------//
-		
+
+		return distToHorizontalGridBeingHit;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private float computeNextVertBlockHit(
+		int castArc,
+		RayState rayState,
+		BlockHitRecord result,
+		boolean requireVisibleWall)
+	{
+		// horizontal or vertical coordinate of intersection
+		int verticalGrid = rayState.grid;
+
+		// how far to the next bound (this is multiple of tile size)
+		int distToNextVerticalGrid = rayState.distToNextGrid;
+
+		float distToVerticalGridBeingHit = Float.MAX_VALUE;
+
+		// x and y intersections
+		float yIntersection = rayState.intersection;
+		float distToNextYIntersection;
+
+		// the current cell that the ray is in
+		int xGridIndex=0;
+		int yGridIndex=0;
+
+		int verticalTextureXRecord=0;
+
+		int verticalBlockHitRecord=0;
+
+		int mapIndex=0;
+
+		xGridIndex = playerX / TILE_SIZE;
+		yGridIndex = playerY / TILE_SIZE;
+
+		Wall verticalWallHit=null;
+
 		// Step through the grid looking for an intersection
 		if (castArc == ANGLE90 || castArc == ANGLE270)
 		{
@@ -1337,14 +1616,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				xGridIndex = (verticalGrid / TILE_SIZE);
 				yGridIndex = (int)(yIntersection / TILE_SIZE);
-				
+
 				if ((xGridIndex >= mapWidth) ||
 					(yGridIndex >= mapLength) ||
 					xGridIndex < 0 || yGridIndex < 0)
 				{
 					outOfBounds = true;
 				}
-				
+
 				if (!outOfBounds)
 				{
 					mapIndex = getMapIndex(xGridIndex, yGridIndex);
@@ -1362,7 +1641,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					{
 						wallIndex = map.getEastWall(mapIndex);
 					}
-					verticalWallHit = this.map.verticalWalls[wallIndex]; 
+					verticalWallHit = this.map.verticalWalls[wallIndex];
 					verticalBlockHitRecord = map.getWestBlock(wallIndex);
 				}
 				else
@@ -1379,11 +1658,26 @@ public class CrusaderEngine32 implements CrusaderEngine
 					verticalWallHit = this.map.verticalWalls[wallIndex];
 					verticalBlockHitRecord = map.getEastBlock(wallIndex);
 				}
-					
-				if (verticalWallHit.visible)
+
+				if (verticalWallHit.visible || !requireVisibleWall)
 				{
 					distToVerticalGridBeingHit = (yIntersection - playerY) * iSinTable[castArc];
 					verticalTextureXRecord = (int)(yIntersection) % TILE_SIZE;
+
+					result.distance = distToVerticalGridBeingHit;
+					result.textureXRecord = verticalTextureXRecord;
+					result.blockHit = verticalBlockHitRecord;
+					result.hitType = HIT_VERTICAL;
+					result.texture = verticalWallHit.texture;
+					result.wall = verticalWallHit;
+
+					// extend to the next block in case the caller chooses to continue
+					yIntersection += distToNextYIntersection;
+					verticalGrid += distToNextVerticalGrid;
+					rayState.grid = verticalGrid;
+					rayState.distToNextGrid = distToNextVerticalGrid;
+					rayState.intersection = yIntersection;
+
 					break;
 				}
 				else if (outOfBounds)
@@ -1398,44 +1692,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			}
 		}
 
-		try
-		{
-			if (distToHorizontalGridBeingHit < distToVerticalGridBeingHit)
-			{
-				// ray strikes a horizontal boundary
-				blockHitRecord[castColumn].distance = distToHorizontalGridBeingHit;
-				blockHitRecord[castColumn].textureXRecord = horizontalTextureXRecord;
-				blockHitRecord[castColumn].blockHit = horizontalBlockHitRecord;
-				blockHitRecord[castColumn].hitType = HIT_HORIZONTAL;
-				blockHitRecord[castColumn].texture = horizontalWallHit.texture;
-				blockHitRecord[castColumn].wall = horizontalWallHit;
-			}
-			else
-			{
-				// ray strikes a vertical boundary
-				blockHitRecord[castColumn].distance = distToVerticalGridBeingHit;
-				blockHitRecord[castColumn].textureXRecord = verticalTextureXRecord;
-				blockHitRecord[castColumn].blockHit = verticalBlockHitRecord;
-				blockHitRecord[castColumn].hitType = HIT_VERTICAL;
-				blockHitRecord[castColumn].texture = verticalWallHit.texture;
-				blockHitRecord[castColumn].wall = verticalWallHit;
-			}
-	
-			// correct distance (compensate for the fishbowl effect)
-			blockHitRecord[castColumn].distance /= fishbowlTable[castColumn];
-	
-			blockHitRecord[castColumn].projectedWallHeight = (int)(TILE_SIZE *
-				(float)playerDistToProjectionPlane / blockHitRecord[castColumn].distance);
-		}
-		catch (NullPointerException x)
-		{
-			System.out.println("castArc = [" + castArc + "]");
-			System.out.println("castColumn = [" + castColumn + "]");
-			System.out.println("distToHorizontalGridBeingHit = [" + distToHorizontalGridBeingHit + "]");
-			System.out.println("distToVerticalGridBeingHit = [" + distToVerticalGridBeingHit + "]");
-			x.printStackTrace();
-			System.exit(1);
-		}
+		return distToVerticalGridBeingHit;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1475,13 +1732,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawWall(int castArc, int column)
+	private void drawWall(int castArc, int column, int depth)
 	{
-		int height = blockHitRecord[column].projectedWallHeight;
-		int blockHit = blockHitRecord[column].blockHit;
+		int height;
+		height = blockHitRecord[column][depth].projectedWallHeight;
+		int blockHit = blockHitRecord[column][depth].blockHit;
 
-		Texture texture = blockHitRecord[column].texture;
-		Texture maskTexture = blockHitRecord[column].wall.maskTexture;
+		Texture texture = blockHitRecord[column][depth].texture;
+		Texture maskTexture = blockHitRecord[column][depth].wall.maskTexture;
 		int[] image = texture.imageData[texture.currentFrame];
 
 		int lightLevel;
@@ -1498,7 +1756,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		if (this.doShading)
 		{
 			// Shading: work out the effective light level for this wall slice
-			shadeMult = calcShadeMult(blockHitRecord[column].distance);
+			shadeMult = calcShadeMult(blockHitRecord[column][depth].distance);
 		}
 
 		int top;
@@ -1506,7 +1764,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		top = Math.max(playerHeight -(height/2) +projPlaneOffset, 0);
 		bottom = Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight);
 
-		int textureX = blockHitRecord[column].textureXRecord;
+		int textureX = blockHitRecord[column][depth].textureXRecord;
 
 		// todo: fix image mapping so this condition doesn't happen
 		if (textureX < 0)
@@ -1544,31 +1802,35 @@ public class CrusaderEngine32 implements CrusaderEngine
 					texture.imageData[texture.currentFrame][textureIndex],
 					maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
 
-				if (blockHitRecord[column].wall.maskTextureMouseClickScript != null)
+				if (blockHitRecord[column][depth].wall.maskTextureMouseClickScript != null)
 				{
 					// use the mask texture mouse click script instead
-					this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column].wall.maskTextureMouseClickScript;
+					this.mouseClickScriptRecords[bufferIndex] =
+						blockHitRecord[column][depth].wall.maskTextureMouseClickScript;
 				}
 			}
 			else
 			{
 				colour = image[textureIndex];
-				this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column].wall.mouseClickScript;
+				this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column][depth].wall.mouseClickScript;
 			}
 
-			int pixel = colourPixel(colour, lightLevel, shadeMult);
-			this.renderBuffer[bufferIndex] = pixel;
+			if (colour != 0)
+			{
+				int pixel = colourPixel(colour, lightLevel, shadeMult);
+				this.renderBuffer[bufferIndex] = pixel;
+			}
 
 			screenY++;
 		}
 
 		if (bottom < projectionPlaneHeight)
 		{
-			drawFloor(castArc, column, height);
+			drawFloor(castArc, column, height, depth);
 		}
 		if (top > 0)
 		{
-			drawCeiling(castArc, column, height);
+			drawCeiling(castArc, column, height, depth);
 		}
 	}
 
@@ -1581,7 +1843,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param wallHeight
 	 * 	how high the wall of this column is.
 	 */
-	private void drawFloor(int castArc, int column, int wallHeight)
+	private void drawFloor(int castArc, int column, int wallHeight, int depth)
 	{
 		int top = playerHeight + (wallHeight/2) +projPlaneOffset;
 		int bottom = projectionPlaneHeight;
@@ -1639,7 +1901,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				xIntersection = (int)(playerX + xDistance);
 				yIntersection = (int)(playerY + yDistance);
 
-				//--- todo: these innacuracies surely point to a bug in the maths somewhere?
+				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
 				xIntersection = Math.min(xIntersection, mapWidth*TILE_SIZE-1);
 				yIntersection = Math.min(yIntersection, mapLength*TILE_SIZE-1);
 				//---
@@ -1714,7 +1976,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				log("[gridX, gridY] = [" + gridX + ","+ gridY +"]");
 				log("[textureX, textureY] = [" + textureX + ","+ textureY +"]");
 				log("mapIndex = [" + mapIndex + "]");
-				log("blockHitRecord = " + blockHitRecord[column]);
+				log("blockHitRecord[column][0] = " + blockHitRecord[column][0]);
 				log("projectionPlaneHeight = [" + projectionPlaneHeight + "]");
 				log("projectionPlaneWidth = [" + projectionPlaneWidth + "]");
 
@@ -1732,7 +1994,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param wallHeight
 	 * 	how high the wall of this column is.
 	 */
-	private void drawCeiling(int castArc, int column, int wallHeight)
+	private void drawCeiling(int castArc, int column, int wallHeight, int depth)
 	{
 		int top = 0;//halfProjectionPlaneHeight + (wallHeight/2);
 		int bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
@@ -1791,7 +2053,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				xIntersection = (int)(playerX + xDistance);
 				yIntersection = (int)(playerY + yDistance);
 
-				//--- todo: these innacuracies surely point to a bug in the maths somewhere?
+				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
 				xIntersection = Math.min(xIntersection, mapWidth*TILE_SIZE-1);
 				yIntersection = Math.min(yIntersection, mapLength*TILE_SIZE-1);
 				//---
@@ -1881,7 +2143,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				log("[gridX, gridY] = [" + gridX + ","+ gridY +"]");
 				log("[textureX, textureY] = [" + textureX + ","+ textureY +"]");
 				log("mapIndex = [" + mapIndex + "]");
-				log("blockHitRecord = " + blockHitRecord[column]);
+				log("blockHitRecord[column][0] = " + blockHitRecord[column][0]);
 
 				throw e;
 			}
@@ -2173,7 +2435,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		synchronized(mutex)
 		{
-			List<EngineObject> result = new ArrayList<EngineObject>();
+			List<EngineObject> result = new ArrayList<>();
 
 			for (int i = 0; i < objects.length; i++)
 			{
@@ -2274,7 +2536,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			distanceToObject /= fishbowlTable[center];
 		}
-		// otherwise approxomate it.
+		// otherwise approximate it.
 		else if (center < 0)
 		{
 			distanceToObject /= fishbowlTable[0];
@@ -2362,7 +2624,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 				while(currentScreenX < endScreenX)
 				{
-					if (blockHitRecord[currentScreenX].distance > distanceToObject)
+					if (blockHitRecord[currentScreenX][0].distance > distanceToObject)
 					{
 						startScreenY = playerHeight - projectedObjectHeight/2 +projPlaneOffset;
 						currentScreenY = startScreenY;
@@ -2564,14 +2826,44 @@ public class CrusaderEngine32 implements CrusaderEngine
 		 * Either {@link CrusaderEngine32#HIT_VERTICAL} or {@link CrusaderEngine32#HIT_HORIZONTAL}
 		 */
 		byte hitType;
-		
+
+		/**
+		 * Clones the given BHR
+		 */
+		public BlockHitRecord(BlockHitRecord other)
+		{
+			this.blockHit = other.blockHit;
+			this.texture = other.texture;
+			this.textureXRecord = other.textureXRecord;
+			this.textureYRecord = other.textureYRecord;
+			this.distance = other.distance;
+			this.wall = other.wall;
+			this.hitType = other.hitType;
+		}
+
+		public BlockHitRecord()
+		{
+		}
+
 		public String toString()
 		{
 			return "blockHit=["+blockHit+"], " +
+				"wall=["+wall+"]" +
 				"texture=["+texture+"], " +
 				"distance=["+distance+"], " +
-				"projectedWallheight=["+projectedWallHeight+"], " +
+				"projectedWallHeight=["+projectedWallHeight+"], " +
 				"hitType=["+hitType+"]"; 
+		}
+
+		public void populateFrom(BlockHitRecord other)
+		{
+			this.blockHit = other.blockHit;
+			this.texture = other.texture;
+			this.textureXRecord = other.textureXRecord;
+			this.textureYRecord = other.textureYRecord;
+			this.distance = other.distance;
+			this.wall = other.wall;
+			this.hitType = other.hitType;
 		}
 	}
 }

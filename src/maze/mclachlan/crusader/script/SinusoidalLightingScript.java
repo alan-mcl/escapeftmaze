@@ -60,7 +60,7 @@ public class SinusoidalLightingScript extends MapScript
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void execute(int framecount, Map map)
+	public void execute(long framecount, Map map)
 	{
 		double delta = this.diff*Math.sin(framecount*frequency*Math.PI/180.0);
 		for (int i = 0; i < affectedTiles.length; i++)
