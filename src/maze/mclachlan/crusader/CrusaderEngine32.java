@@ -177,7 +177,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** A record of grid block hits, indexed on cast column and then depth */
 	private BlockHitRecord[][] blockHitRecord;
-	private static int MAX_HIT_DEPTH = 1;
+	private static int MAX_HIT_DEPTH = 5;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
 	private MouseClickScript[] mouseClickScriptRecords;
@@ -1146,16 +1146,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 			this.frameCount++;
 		}
 		
-		//-- debug --------
-//		for (int i = 0; i < renderBuffer.length; i++)
-//		{
-//			if (this.mouseClickScriptRecords[i] != null)
-//			{
-//				renderBuffer[i] = 0;
-//			}
-//		}
-		//-- end debug ----
-		
 		return this.renderBuffer;
 	}
 
@@ -1183,26 +1173,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		// x and y intersections
 		float xIntersection;
 		float yIntersection;
-		float distToNextXIntersection;
-		float distToNextYIntersection;
-
-		// the current cell that the ray is in
-		int xGridIndex=0;
-		int yGridIndex=0;
-
-		int horizontalTextureXRecord=0;
-		int verticalTextureXRecord=0;
-
-		int horizontalBlockHitRecord=0;
-		int verticalBlockHitRecord=0;
-		
-		int mapIndex=0;
-
-		xGridIndex = playerX / TILE_SIZE;
-		yGridIndex = playerY / TILE_SIZE;
-		
-		Wall verticalWallHit=null;
-		Wall horizontalWallHit=null;
 
 		BlockHitRecord horizBlockHitRecord = new BlockHitRecord();
 		BlockHitRecord vertBlockHitRecord = new BlockHitRecord();
@@ -1265,37 +1235,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		vertRayState.distToNextGrid = distToNextVerticalGrid;
 		vertRayState.intersection= yIntersection;
 
-/*		//---- Compute X intersection ------------------------------------------//
-
-		while (horizBlockHitRecord.wall == null || !horizBlockHitRecord.wall.visible)
-		{
-			distToHorizontalGridBeingHit = computeNextHorizBlockHit(
-				castArc,
-				horizRayState,
-				horizBlockHitRecord,
-				false);
-
-			if (distToHorizontalGridBeingHit == Float.MAX_VALUE)
-			{
-				break;
-			}
-		}
-
-		//---- Compute Y intersection ------------------------------------------//
-
-		while (vertBlockHitRecord.wall == null || !vertBlockHitRecord.wall.visible)
-		{
-			distToVerticalGridBeingHit = computeNextVertBlockHit(
-				castArc,
-				vertRayState,
-				vertBlockHitRecord,
-				false);
-
-			if (distToVerticalGridBeingHit == Float.MAX_VALUE)
-			{
-				break;
-			}
-		}*/
+		//---- Ray Casting -----------------------------------------------------//
 
 		// calculate the first two hits. The nearest determines which order we
 		// search for more in
@@ -1316,93 +1256,60 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		boolean horizFirst = distToHorizontalGridBeingHit < distToVerticalGridBeingHit;
 
-		BlockHitRecord hit = horizFirst ? horizBlockHitRecord : vertBlockHitRecord;
-
-		///// debug /////////
-//		MAX_HIT_DEPTH = 2;
-		/////////////////////
-
 		try
 		{
 			while (depth < MAX_HIT_DEPTH &&
 				(distToHorizontalGridBeingHit < Float.MAX_VALUE ||
 					distToVerticalGridBeingHit < Float.MAX_VALUE))
 			{
-				if (hit.wall.visible)
+				if (horizFirst)
 				{
-					populatBlockHitRecordGlobal(castColumn, hit, depth);
-					depth++;
-				}
-
-				distToHorizontalGridBeingHit = computeNextHorizBlockHit(
-					castArc,
-					horizRayState,
-					horizBlockHitRecord,
-					true);
-
-				distToVerticalGridBeingHit = computeNextVertBlockHit(
-					castArc,
-					vertRayState,
-					vertBlockHitRecord,
-					true);
-
-/*				if (distToHorizontalGridBeingHit == Float.MAX_VALUE)
-				{
-					// can't ever get a horiz hit on this cast arc
-					// next will be a vertical hit
-					distToVerticalGridBeingHit = computeNextVertBlockHit(
-						castArc,
-						vertRayState,
-						vertBlockHitRecord,
-						false);
-
-					hit = vertBlockHitRecord;
-				}
-				else if (distToVerticalGridBeingHit == Float.MAX_VALUE)
-				{
-					// can't ever get a horiz hit on this cast arc
-					// next will be a horiz hit
-					distToHorizontalGridBeingHit = computeNextHorizBlockHit(
-						castArc,
-						horizRayState,
-						horizBlockHitRecord,
-						false);
-
-					hit = horizBlockHitRecord;
-				}
-				else if (horizFirst)
-				{
-					// next will be a vertical hit
-					distToVerticalGridBeingHit = computeNextVertBlockHit(
-						castArc,
-						vertRayState,
-						vertBlockHitRecord,
-						false);
-
-					hit = vertBlockHitRecord;
+					if (distToHorizontalGridBeingHit < Float.MAX_VALUE &&
+						horizBlockHitRecord.wall.visible &&
+						depth < MAX_HIT_DEPTH)
+					{
+						populatBlockHitRecordGlobal(castColumn, horizBlockHitRecord, depth);
+						depth++;
+					}
 				}
 				else
 				{
-					// next will be a horiz hit
-					distToHorizontalGridBeingHit = computeNextHorizBlockHit(
-						castArc,
-						horizRayState,
-						horizBlockHitRecord,
-						false);
+					if (distToVerticalGridBeingHit < Float.MAX_VALUE &&
+						vertBlockHitRecord.wall.visible &&
+						depth < MAX_HIT_DEPTH)
+					{
+						populatBlockHitRecordGlobal(castColumn, vertBlockHitRecord, depth);
+						depth++;
+					}
+				}
 
-					hit = horizBlockHitRecord;
-				}*/
+				if (depth < MAX_HIT_DEPTH)
+				{
+					if (horizFirst)
+					{
+						distToHorizontalGridBeingHit = computeNextHorizBlockHit(
+							castArc,
+							horizRayState,
+							horizBlockHitRecord,
+							true);
+					}
+					else
+					{
+						distToVerticalGridBeingHit = computeNextVertBlockHit(
+							castArc,
+							vertRayState,
+							vertBlockHitRecord,
+							true);
+					}
 
-
-
-				horizFirst = !horizFirst;
+					horizFirst = distToHorizontalGridBeingHit < distToVerticalGridBeingHit;
+				}
 			}
 		}
 		catch (Exception e)
 		{
 			System.out.println("horizBlockHitRecord = [" + horizBlockHitRecord + "]");
 			System.out.println("vertBlockHitRecord = [" + vertBlockHitRecord + "]");
-			System.out.println("hit = [" + hit + "]");
 			e.printStackTrace();
 			System.exit(0);
 		}
@@ -1818,6 +1725,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 			if (colour != 0)
 			{
 				int pixel = colourPixel(colour, lightLevel, shadeMult);
+				if (depth > 0 && depth < MAX_HIT_DEPTH)
+				{
+					pixel = alphaBlend(renderBuffer[bufferIndex], pixel);
+				}
 				this.renderBuffer[bufferIndex] = pixel;
 			}
 
