@@ -44,24 +44,24 @@ import mclachlan.maze.map.Zone;
 public class PortalDetailsPanel extends JPanel
 	implements ActionListener, ChangeListener, KeyListener, ThiefToolsCallback
 {
-	Portal portal;
-	Zone zone;
+	private Portal portal;
+	private Zone zone;
 
 	// portal properties
-	JTextField mazeVariable;
-	JCheckBox twoWay;
-	JComboBox initialState;
-	JLabel from, to;
-	JComboBox fromFacing, toFacing;
-	JCheckBox canForce, canPick, canSpellPick;
-	JSpinner hitPointCostToForce, resistForce;
-	ThiefToolsPanel difficulty;
-	JComboBox keyItem;
-	JCheckBox consumeKey;
-	JComboBox mazeScript;
-	JButton quickAssignMazeVar;
+	private JTextField mazeVariable;
+	private JCheckBox twoWay;
+	private JComboBox initialState;
+	private JLabel from, to;
+	private JComboBox fromFacing, toFacing;
+	private JCheckBox canForce, canPick, canSpellPick;
+	private JSpinner hitPointCostToForce, resistForce;
+	private ThiefToolsPanel difficulty;
+	private JComboBox keyItem;
+	private JCheckBox consumeKey;
+	private JComboBox mazeScript;
+	private JButton quickAssignMazeVar;
 	
-	static final String[] directions = 
+	private static final String[] directions =
 		{
 			"North",
 			"South",
@@ -73,23 +73,25 @@ public class PortalDetailsPanel extends JPanel
 	public PortalDetailsPanel(Zone zone)
 	{
 		this.zone = zone;
-		setLayout(new GridBagLayout());
+
+		JPanel content = new JPanel();
+		content.setLayout(new GridBagLayout());
 
 		GridBagConstraints gbc = createGridBagConstraints();
 		
 		from = new JLabel();
-		dodgyGridBagShite(this, new JLabel("From:"), from, gbc);
+		dodgyGridBagShite(content, new JLabel("From:"), from, gbc);
 		
 		fromFacing = new JComboBox(directions);
 		fromFacing.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("From Facing:"), fromFacing, gbc);
+		dodgyGridBagShite(content, new JLabel("From Facing:"), fromFacing, gbc);
 		
 		to = new JLabel();
-		dodgyGridBagShite(this, new JLabel("To:"), to, gbc);
+		dodgyGridBagShite(content, new JLabel("To:"), to, gbc);
 		
 		toFacing = new JComboBox(directions);
 		toFacing.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("To Facing:"), toFacing, gbc);
+		dodgyGridBagShite(content, new JLabel("To Facing:"), toFacing, gbc);
 		
 		mazeVariable = new JTextField(20);
 		mazeVariable.addActionListener(this);
@@ -102,14 +104,14 @@ public class PortalDetailsPanel extends JPanel
 		gbc.weighty = 0.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		add(quickAssignMazeVar, gbc);
+		content.add(quickAssignMazeVar, gbc);
 		gbc.weightx = 0.0;
 		gbc.gridx++;
-		add(mazeVariable, gbc);
+		content.add(mazeVariable, gbc);
 
 		twoWay = new JCheckBox("Two Way?");
 		twoWay.addActionListener(this);
-		dodgyGridBagShite(this, twoWay, null, gbc);
+		dodgyGridBagShite(content, twoWay, null, gbc);
 		
 		String[] items = new String[]
 			{
@@ -119,27 +121,27 @@ public class PortalDetailsPanel extends JPanel
 			};
 		initialState = new JComboBox(items);
 		initialState.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Initial State:"), initialState, gbc);
+		dodgyGridBagShite(content, new JLabel("Initial State:"), initialState, gbc);
 		
 		canForce = new JCheckBox("Can Force?");
 		canForce.addActionListener(this);
-		dodgyGridBagShite(this, canForce, null, gbc);
+		dodgyGridBagShite(content, canForce, null, gbc);
 		
 		canPick = new JCheckBox("Can Pick?");
 		canPick.addActionListener(this);
-		dodgyGridBagShite(this, canPick, null, gbc);
+		dodgyGridBagShite(content, canPick, null, gbc);
 		
 		canSpellPick = new JCheckBox("Can Spell Pick?");
 		canSpellPick.addActionListener(this);
-		dodgyGridBagShite(this, canSpellPick, null, gbc);
+		dodgyGridBagShite(content, canSpellPick, null, gbc);
 		
 		hitPointCostToForce = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
 		hitPointCostToForce.addChangeListener(this);
-		dodgyGridBagShite(this, new JLabel("HP Cost To Force:"), hitPointCostToForce, gbc);
+		dodgyGridBagShite(content, new JLabel("HP Cost To Force:"), hitPointCostToForce, gbc);
 		
 		resistForce = new JSpinner(new SpinnerNumberModel(0, -128, 128, 1));
 		resistForce.addChangeListener(this);
-		dodgyGridBagShite(this, new JLabel("Resist Force:"), resistForce, gbc);
+		dodgyGridBagShite(content, new JLabel("Resist Force:"), resistForce, gbc);
 		
 		difficulty = new ThiefToolsPanel("Thief Tools To Pick", -1, this);
 
@@ -148,16 +150,16 @@ public class PortalDetailsPanel extends JPanel
 		gbc.gridx=0;
 		gbc.gridy++;
 		gbc.gridwidth = 2;
-		add(difficulty, gbc);
+		content.add(difficulty, gbc);
 		gbc.gridwidth = 1;
 		
 		mazeScript = new JComboBox();
 		mazeScript.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Maze Script:"), mazeScript, gbc);
+		dodgyGridBagShite(content, new JLabel("Maze Script:"), mazeScript, gbc);
 
 		keyItem = new JComboBox();
 		keyItem.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Key Item:"), keyItem, gbc);
+		dodgyGridBagShite(content, new JLabel("Key Item:"), keyItem, gbc);
 		
 		consumeKey = new JCheckBox("Consume Key?");
 		consumeKey.addActionListener(this);
@@ -166,12 +168,20 @@ public class PortalDetailsPanel extends JPanel
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		add(consumeKey, gbc);
+		content.add(consumeKey, gbc);
 		gbc.weightx = 1.0;
 		gbc.gridx++;
-		add(new JLabel(), gbc);
+		content.add(new JLabel(), gbc);
 
 		initForeignKeys();
+
+		this.setLayout(new BorderLayout());
+		this.add(
+			new JScrollPane(
+				content,
+				JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED,
+				ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED),
+			BorderLayout.CENTER);
 	}
 	
 	/*-------------------------------------------------------------------------*/

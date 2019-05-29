@@ -39,13 +39,13 @@ public class WallDetailsPanel extends JPanel
 	implements ActionListener, TileScriptComponentCallback
 {
 	// crusader wall properties
-	JLabel index;
-	JCheckBox isVisible;
-	JComboBox texture, maskTexture;
-	SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript;
+	private JLabel index;
+	private JCheckBox isVisible;
+	private JComboBox texture, maskTexture;
+	private SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript;
 	
 	// the wall being edited
-	WallProxy wall;
+	private WallProxy wall;
 	private Zone zone;
 
 	/*-------------------------------------------------------------------------*/

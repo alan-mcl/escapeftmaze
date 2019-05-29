@@ -280,6 +280,10 @@ playerOrigin: 0:0
 3: arena.portal.3,true,locked,3:2,1,3:1,2,true,true,true,5,0,0:0:9:0:8:0:8:9,00101011,null,true,generic door creak
 4: arena.portal.4,true,locked,2:2,1,2:1,2,true,true,true,5,0,10:10:9:11:9:9:11:0,1111111,null,true,generic door creak
 5: arena.portal.5,true,locked,1:2,1,1:1,2,true,true,true,5,0,5:0:4:3:0:0:0:0,1011,null,true,generic door creak
+6: ,true,unlocked,9:8,3,10:8,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
+7: ,true,unlocked,10:7,2,10:8,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
+8: ,true,unlocked,11:8,4,10:8,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
+9: ,true,unlocked,10:9,1,10:8,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
 
 -sky image-
 0: DEFAULT_SKY
@@ -601,9 +605,11 @@ playerOrigin: 0:0
 127: CITY_WALL_1:::
 128: CITY_WALL_1:::
 135: DIRT_WALL_1:::
+138: CITY_WALL_1_ARCH:::
 142: CITY_WALL_1:::
 143: CITY_WALL_1:::
 144: CITY_WALL_1:::
+154: CITY_WALL_1_ARCH:::
 158: CITY_WALL_1:::
 159: CITY_WALL_1:::
 160: CITY_WALL_1:::
@@ -713,6 +719,8 @@ playerOrigin: 0:0
 135: CITY_WALL_1:::
 136: CITY_WALL_1:::
 137: CITY_WALL_1:::
+146: CITY_WALL_1_ARCH:::
+147: CITY_WALL_1_ARCH:::
 151: DUNGEON_CEILING_1:::
 152: CITY_WALL_1:::
 153: CITY_WALL_1:::

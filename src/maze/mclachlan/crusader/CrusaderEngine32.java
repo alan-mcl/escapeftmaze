@@ -1131,7 +1131,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 				for (int depth=MAX_HIT_DEPTH-1; depth >= 0; depth--)
 				{
-					this.drawWall(Math.round(castArc), castColumn, depth);
+					this.drawWall(Math.round(castArc), castColumn, depth, renderBuffer);
 				}
 				
 				castArc += castInc;
@@ -1141,7 +1141,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 			}
 
-			this.drawObjects();
+			this.drawObjects(0, renderBuffer);
 
 			this.frameCount++;
 		}
@@ -1639,7 +1639,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawWall(int castArc, int column, int depth)
+	private void drawWall(int castArc, int column, int depth, int[] outputBuffer)
 	{
 		int height;
 		height = blockHitRecord[column][depth].projectedWallHeight;
@@ -1727,9 +1727,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int pixel = colourPixel(colour, lightLevel, shadeMult);
 				if (depth > 0 && depth < MAX_HIT_DEPTH)
 				{
-					pixel = alphaBlend(renderBuffer[bufferIndex], pixel);
+					pixel = alphaBlend(outputBuffer[bufferIndex], pixel);
 				}
-				this.renderBuffer[bufferIndex] = pixel;
+				outputBuffer[bufferIndex] = pixel;
 			}
 
 			screenY++;
@@ -1737,24 +1737,24 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		if (bottom < projectionPlaneHeight)
 		{
-			drawFloor(castArc, column, height, depth);
+			drawFloor(castArc, column, height, depth, outputBuffer);
 		}
 		if (top > 0)
 		{
-			drawCeiling(castArc, column, height, depth);
+			drawCeiling(castArc, column, height, depth, outputBuffer);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Can Be Optomised
-	 *
-	 * @param column
+	 *  @param column
 	 * 	the column being drawn
 	 * @param wallHeight
-	 * 	how high the wall of this column is.
+	 * @param outputBuffer
 	 */
-	private void drawFloor(int castArc, int column, int wallHeight, int depth)
+	private void drawFloor(int castArc, int column, int wallHeight, int depth,
+		int[] outputBuffer)
 	{
 		int top = playerHeight + (wallHeight/2) +projPlaneOffset;
 		int bottom = projectionPlaneHeight;
@@ -1860,7 +1860,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 				shade = colourPixel(colour, lightLevel, shadeMult);
 				int bufferIndex = column + screenY * projectionPlaneWidth;
-				this.renderBuffer[bufferIndex] = shade;
+				outputBuffer[bufferIndex] = shade;
 				// mouse click scripts associated with floors and ceilings not yet supported
 				this.mouseClickScriptRecords[bufferIndex] = null;
 
@@ -1899,13 +1899,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Can Be Optomised
-	 *
-	 * @param column
+	 *  @param column
 	 * 	the column being drawn
 	 * @param wallHeight
-	 * 	how high the wall of this column is.
+	 * @param outputBuffer
 	 */
-	private void drawCeiling(int castArc, int column, int wallHeight, int depth)
+	private void drawCeiling(int castArc, int column, int wallHeight, int depth,
+		int[] outputBuffer)
 	{
 		int top = 0;//halfProjectionPlaneHeight + (wallHeight/2);
 		int bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
@@ -2015,7 +2015,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				if (colour != 0)
 				{
 					shade = colourPixel(colour, lightLevel, shadeMult);
-					renderBuffer[bufferIndex] = shade;
+					outputBuffer[bufferIndex] = shade;
 				}
 				else
 				{
@@ -2025,7 +2025,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					// tile the sky texture horizontally
 					textureX = castArc % skyTextureWidth;
 					textureY = screenY*skyTextureHeight/playerHeight;
-					renderBuffer[bufferIndex] =
+					outputBuffer[bufferIndex] =
 						image[textureX + textureY * skyTextureWidth];
 				}
 				// mouse click scripts associated with floors and ceilings not yet supported
@@ -2150,7 +2150,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawObjects()
+	private void drawObjects(int depth, int[] outputBuffer)
 	{
 		synchronized(mutex)
 		{
@@ -2252,7 +2252,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					
 					if (obj.distance > 0)
 					{
-						drawObject(obj, obj.distance, center);
+						drawObject(obj, obj.distance, center, depth, outputBuffer);
 					}
 				}
 			}
@@ -2440,7 +2440,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawObject(EngineObject obj, double distanceToObject, int center)
+	private void drawObject(
+		EngineObject obj,
+		double distanceToObject,
+		int center,
+		int depth,
+		int[] outputBuffer)
 	{
 		// correct distance (compensate for the fishbowl effect)
 		if (center > 0 && center < projectionPlaneWidth)
@@ -2509,7 +2514,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 					if (this.doShading)
 					{
 						// Shading: work out the effective light level for this wall slice
-//						lightLevel = this.shadingTable[lightLevel][((int)distanceToObject)];
 						shadeMult = calcShadeMult(distanceToObject);
 					}
 				}
@@ -2535,7 +2539,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 				while(currentScreenX < endScreenX)
 				{
-					if (blockHitRecord[currentScreenX][0].distance > distanceToObject)
+					if (blockHitRecord[currentScreenX][depth].distance > distanceToObject)
 					{
 						startScreenY = playerHeight - projectedObjectHeight/2 +projPlaneOffset;
 						currentScreenY = startScreenY;
@@ -2605,11 +2609,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 								int bufferIndex = currentScreenX + projectionPlaneWidth * currentScreenY;
 								colour = alphaBlend(
-									this.renderBuffer[bufferIndex],
+									outputBuffer[bufferIndex],
 									colour);
 
 								shade = colourPixel(colour, lightLevel, shadeMult);
-								this.renderBuffer[bufferIndex] = shade;
+								outputBuffer[bufferIndex] = shade;
 								this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
 							}
 

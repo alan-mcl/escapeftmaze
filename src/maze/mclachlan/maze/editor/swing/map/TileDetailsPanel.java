@@ -77,37 +77,41 @@ public class TileDetailsPanel extends JPanel
 	public TileDetailsPanel(Zone zone, boolean multiSelect)
 	{
 		this.zone = zone;
-		setLayout(new GridBagLayout());
+
+		this.setLayout(new BorderLayout());
+
+		JPanel content = new JPanel();
+		content.setLayout(new GridBagLayout());
 
 		GridBagConstraints gbc = createGridBagConstraints();
 		
 		indexLabel = new JLabel();
-		dodgyGridBagShite(this, new JLabel("Index:"), indexLabel, gbc);
+		dodgyGridBagShite(content, new JLabel("Index:"), indexLabel, gbc);
 		
-		dodgyGridBagShite(this, new JLabel("Maze Properties"), new JLabel(), gbc);
+		dodgyGridBagShite(content, new JLabel("Maze Properties"), new JLabel(), gbc);
 		
 		terrainType = new JComboBox(Tile.TerrainType.values());
 		terrainType.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Terrain Type:"), terrainType, gbc);
+		dodgyGridBagShite(content, new JLabel("Terrain Type:"), terrainType, gbc);
 		
 		terrainSubType = new JTextField(15);
 		terrainSubType.addKeyListener(this);
-		dodgyGridBagShite(this, new JLabel("Terrain Sub Type:"), terrainSubType, gbc);
+		dodgyGridBagShite(content, new JLabel("Terrain Sub Type:"), terrainSubType, gbc);
 		
 		statModifier = new StatModifierComponent(null, -1, this);
-		dodgyGridBagShite(this, new JLabel("Stat Modifier:"), statModifier, gbc);
+		dodgyGridBagShite(content, new JLabel("Stat Modifier:"), statModifier, gbc);
 
 		restingDanger = new JComboBox(Tile.RestingDanger.values());
 		restingDanger.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Resting Danger:"), restingDanger, gbc);
+		dodgyGridBagShite(content, new JLabel("Resting Danger:"), restingDanger, gbc);
 
 		restingEfficiency = new JComboBox(Tile.RestingEfficiency.values());
 		restingEfficiency.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Resting Efficiency:"), restingEfficiency, gbc);
+		dodgyGridBagShite(content, new JLabel("Resting Efficiency:"), restingEfficiency, gbc);
 		
 		randomEncounterChance = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
 		randomEncounterChance.addChangeListener(this);
-		dodgyGridBagShite(this, new JLabel("Encounters Chance:"), randomEncounterChance, gbc);
+		dodgyGridBagShite(content, new JLabel("Encounters Chance:"), randomEncounterChance, gbc);
 
 		Vector<String> vec = new Vector<String>(Database.getInstance().getEncounterTables().keySet());
 		if (multiSelect)
@@ -117,12 +121,12 @@ public class TileDetailsPanel extends JPanel
 		Collections.sort(vec);
 		randomEncounterTable = new JComboBox(vec);
 		randomEncounterTable.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Encounter Table:"), randomEncounterTable, gbc);
+		dodgyGridBagShite(content, new JLabel("Encounter Table:"), randomEncounterTable, gbc);
 		
 		tileScript = new MultipleTileScriptComponent(null, -1, this, zone);
-		dodgyGridBagShite(this, new JLabel("Tile Script:"), tileScript, gbc);
+		dodgyGridBagShite(content, new JLabel("Tile Script:"), tileScript, gbc);
 		
-		dodgyGridBagShite(this, new JLabel("Crusader Properties"), new JLabel(), gbc);
+		dodgyGridBagShite(content, new JLabel("Crusader Properties"), new JLabel(), gbc);
 
 		Vector<String> vec1 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
 		if (multiSelect)
@@ -132,14 +136,14 @@ public class TileDetailsPanel extends JPanel
 		Collections.sort(vec1);
 		floorTexture = new JComboBox(vec1);
 		floorTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Floor Texture:"), floorTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("Floor Texture:"), floorTexture, gbc);
 
 		Vector<String> vec2 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
 		vec2.insertElementAt(EditorPanel.NONE, 0);
 		Collections.sort(vec2);
 		floorMaskTexture = new JComboBox(vec2);
 		floorMaskTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Floor Mask Texture:"), floorMaskTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("Floor Mask Texture:"), floorMaskTexture, gbc);
 
 		Vector<String> vec3 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
 		if (multiSelect)
@@ -149,27 +153,27 @@ public class TileDetailsPanel extends JPanel
 		Collections.sort(vec3);
 		ceilingTexture = new JComboBox(vec3);
 		ceilingTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Ceiling Texture:"), ceilingTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("Ceiling Texture:"), ceilingTexture, gbc);
 
 		Vector<String> vec4 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
 		vec4.insertElementAt(EditorPanel.NONE, 0);
 		Collections.sort(vec4);
 		ceilingMaskTexture = new JComboBox(vec4);
 		ceilingMaskTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Ceiling Mask Texture:"), ceilingMaskTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("Ceiling Mask Texture:"), ceilingMaskTexture, gbc);
 
 		
 		lightLevel = new JSpinner(new SpinnerNumberModel(0, 0, 64, 1));
 		lightLevel.addChangeListener(this);
-		dodgyGridBagShite(this, new JLabel("Light Level:"), lightLevel, gbc);
+		dodgyGridBagShite(content, new JLabel("Light Level:"), lightLevel, gbc);
 		
 		hasObject = new JCheckBox("?");
 		hasObject.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Object"), hasObject, gbc);
+		dodgyGridBagShite(content, new JLabel("Object"), hasObject, gbc);
 
 		objectName = new JTextField(20);
 		objectName.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Object Name:"), objectName, gbc);
+		dodgyGridBagShite(content, new JLabel("Object Name:"), objectName, gbc);
 		
 		Vector<String> textures = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
@@ -180,26 +184,26 @@ public class TileDetailsPanel extends JPanel
 
 		northTexture = new JComboBox(textures);
 		northTexture.addActionListener(this);
-		dodgyGridBagShite(this, quickObjectTexture, northTexture, gbc);
+		dodgyGridBagShite(content, quickObjectTexture, northTexture, gbc);
 		
 		southTexture = new JComboBox(textures);
 		southTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("South Texture:"), southTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("South Texture:"), southTexture, gbc);
 		
 		eastTexture = new JComboBox(textures);
 		eastTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("East Texture:"), eastTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("East Texture:"), eastTexture, gbc);
 		
 		westTexture = new JComboBox(textures);
 		westTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("West Texture:"), westTexture, gbc);
+		dodgyGridBagShite(content, new JLabel("West Texture:"), westTexture, gbc);
 		
 		isLightSource = new JCheckBox("Light Source?");
 		isLightSource.addActionListener(this);
-		dodgyGridBagShite(this, isLightSource, new JLabel(), gbc);
+		dodgyGridBagShite(content, isLightSource, new JLabel(), gbc);
 		
 		mouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
-		dodgyGridBagShite(this, new JLabel("Click Script:"), mouseClickScript, gbc);
+		dodgyGridBagShite(content, new JLabel("Click Script:"), mouseClickScript, gbc);
 		
 		JPanel placementPanel = new JPanel(new GridLayout(3,3));
 		placementMask = new ArrayList<JCheckBox>(9);
@@ -214,10 +218,16 @@ public class TileDetailsPanel extends JPanel
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		add(new JLabel("Placement:"), gbc);
+		content.add(new JLabel("Placement:"), gbc);
 		gbc.weightx = 1.0;
 		gbc.gridx++;
-		add(placementPanel, gbc);
+		content.add(placementPanel, gbc);
+
+		JScrollPane scroller = new JScrollPane(
+			content,
+			ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
+			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		this.add(scroller, BorderLayout.CENTER);
 		
 		if (multiSelect)
 		{

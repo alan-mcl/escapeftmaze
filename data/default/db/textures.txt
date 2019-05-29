@@ -28,6 +28,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=CITY_WALL_1_ARCH
+imageResources=crusader/scene/city_wall_1_arch
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
 name=objects.woodsign.side
 imageResources=crusader/scene/woodsign_side
 animationDelay=-1
