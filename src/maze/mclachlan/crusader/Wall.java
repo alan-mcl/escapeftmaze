@@ -26,6 +26,8 @@ public class Wall
 {
 	/** True if this wall is visible*/
 	boolean visible;
+	/** True if this wall is solid and prevent*/
+	boolean solid;
 	/** The texture to map onto this wall*/
 	Texture texture;
 	/** Any texture to mask over this wall*/
@@ -43,6 +45,8 @@ public class Wall
 	 * 	Any texture to mask over this wall
 	 * @param visible
 	 * 	True if this wall is visible
+	 * @param solid
+	 * 	True if this wall is solid and can't be moved through
 	 * @param mouseClickScript
 	 * 	Any script to run when the user clicks on this wall
 	 * @param maskTextureMouseClickScript
@@ -52,6 +56,7 @@ public class Wall
 		Texture texture, 
 		Texture maskTexture, 
 		boolean visible,
+		boolean solid,
 		MouseClickScript mouseClickScript,
 		MouseClickScript maskTextureMouseClickScript)
 	{
@@ -60,6 +65,7 @@ public class Wall
 		this.texture = texture;
 		this.maskTexture = maskTexture;
 		this.visible = visible;
+		this.solid = solid;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -80,7 +86,13 @@ public class Wall
 		return visible;
 	}
 
-	/*-------------------------------------------------------------------------*/	
+	/*-------------------------------------------------------------------------*/
+	public boolean isSolid()
+	{
+		return solid;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public MouseClickScript getMaskTextureMouseClickScript()
 	{
 		return maskTextureMouseClickScript;
@@ -120,6 +132,12 @@ public class Wall
 	public void setVisible(boolean visible)
 	{
 		this.visible = visible;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setSolid(boolean solid)
+	{
+		this.solid = solid;
 	}
 
 	@Override

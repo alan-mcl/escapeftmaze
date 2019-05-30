@@ -98,13 +98,19 @@ public class WrithingMire extends ZoneScript
 				Database.getInstance().getMazeTexture("TREE_WALL_1").getTexture(),
 				null,
 				true,
+				true,
 				null,
 				null);
 		}
 		else
 		{
 			wall_array[index] =
-				new Wall(mclachlan.crusader.Map.NO_WALL, null, false, null, null);
+				new Wall(mclachlan.crusader.Map.NO_WALL,
+					null,
+					false,
+					false,
+					null,
+					null);
 		}
 	}
 }

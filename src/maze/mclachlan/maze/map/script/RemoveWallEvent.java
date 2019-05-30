@@ -54,7 +54,7 @@ public class RemoveWallEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	void removeWall(Map map, boolean horizontal, int index)
 	{
-		map.setWall(horizontal, new Wall(Map.NO_WALL, null, false, null, null), index);
+		map.setWall(horizontal, new Wall(Map.NO_WALL, null, false, false,null, null), index);
 		MazeVariables.set(this.mazeVariable, "1");
 	}
 	

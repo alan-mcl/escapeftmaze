@@ -177,7 +177,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** A record of grid block hits, indexed on cast column and then depth */
 	private BlockHitRecord[][] blockHitRecord;
-	private static int MAX_HIT_DEPTH = 5;
+	private static int MAX_HIT_DEPTH = 3;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
 	private MouseClickScript[] mouseClickScriptRecords;
@@ -775,88 +775,88 @@ public class CrusaderEngine32 implements CrusaderEngine
 					if (newPlayerArc == ANGLE0)
 					{
 						// facing east
-						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE180)
 					{
 						// facing west
-						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE90)
 					{
 						// facing south
-						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE270)
 					{
 						// facing north
-						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].solid;
 					}
 					break;
 				case KeyStroke.STRAFE_RIGHT:
 					if (newPlayerArc == ANGLE0)
 					{
 						// facing east
-						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE180)
 					{
 						// facing west
-						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE90)
 					{
 						// facing south
-						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE270)
 					{
 						// facing north
-						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].solid;
 					}
 					break;
 				case KeyStroke.FORWARD:
 					if (newPlayerArc == ANGLE0)
 					{
 						// facing east
-						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE180)
 					{
 						// facing west
-						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE90)
 					{
 						// facing south
-						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE270)
 					{
 						// facing north
-						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].solid;
 					}
 					break;
 				case KeyStroke.BACKWARD:
 					if (newPlayerArc == ANGLE0)
 					{
 						// facing east
-						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE180)
 					{
 						// facing west
-						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].visible;
+						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE90)
 					{
 						// facing south
-						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].solid;
 					}
 					else if (newPlayerArc == ANGLE270)
 					{
 						// facing north
-						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].visible;
+						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].solid;
 					}
 					break;
 				default:
@@ -1738,7 +1738,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			if (colour != 0)
 			{
 				int pixel = colourPixel(colour, lightLevel, shadeMult);
-				if (depth > 0 && depth < MAX_HIT_DEPTH)
+				if (depth >= 0 && depth < MAX_HIT_DEPTH)
 				{
 					pixel = alphaBlend(outputBuffer[bufferIndex], pixel);
 				}

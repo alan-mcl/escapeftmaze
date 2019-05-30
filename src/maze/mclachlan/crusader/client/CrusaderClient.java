@@ -152,7 +152,7 @@ public class CrusaderClient extends Frame
 					this);
 			}
 		}
-		engine.setPlayerPos(1, 1, CrusaderEngine.Facing.EAST);
+		engine.setPlayerPos(1, 2, CrusaderEngine.Facing.EAST);
 
 		initPaletteImage();
 

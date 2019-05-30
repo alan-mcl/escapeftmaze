@@ -70,10 +70,9 @@ editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones
 
-raycaster: wall transparencies: objects through alpha, performance improvements
+raycaster: wall transparencies: performance improvements
 raycaster: wall height
 raycaster: better sky textures
-raycaster: walls that are visible but can be walked through
 
 --------------------------------------------
 IN PROGRESS

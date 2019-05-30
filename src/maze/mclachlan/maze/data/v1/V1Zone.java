@@ -224,7 +224,7 @@ public class V1Zone
 				horizontalWalls = new Wall[max];
 				for (int i = 0; i < horizontalWalls.length; i++)
 				{
-					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, null, null);
+					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -236,10 +236,11 @@ public class V1Zone
 						String maskTexture = strs[1];
 						MouseClickScript mcs = V1MouseClickScript.fromString(strs[2]);
 						MouseClickScript mtmcs = V1MouseClickScript.fromString(strs[3]);
+						boolean solid = Boolean.valueOf(strs[4]);
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							:Database.getInstance().getMazeTexture(maskTexture).getTexture();
-						horizontalWalls[i] = new Wall(texture, mask, true, mcs, mtmcs);
+						horizontalWalls[i] = new Wall(texture, mask, true, solid, mcs, mtmcs);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);
@@ -254,7 +255,7 @@ public class V1Zone
 				verticalWalls = new Wall[max];
 				for (int i = 0; i < verticalWalls.length; i++)
 				{
-					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, null, null);
+					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -266,10 +267,11 @@ public class V1Zone
 						String maskTexture = strs[1];
 						MouseClickScript mcs = V1MouseClickScript.fromString(strs[2]);
 						MouseClickScript mtmcs = V1MouseClickScript.fromString(strs[3]);
+						boolean solid = Boolean.valueOf(strs[4]);
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							: Database.getInstance().getMazeTexture(maskTexture).getTexture();
-						verticalWalls[i] = new Wall(texture, mask, true, mcs, mtmcs);
+						verticalWalls[i] = new Wall(texture, mask, true, solid, mcs, mtmcs);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);
@@ -469,7 +471,7 @@ public class V1Zone
 		for (int i = 0; i < horizWalls.length; i++)
 		{
 			Texture texture = horizWalls[i].getTexture();
-			if (horizWalls[i].isVisible())
+			if (horizWalls[i].isVisible() || horizWalls[i].isSolid())
 			{
 				writer.write(i+": ");
 				writer.write(texture.getName());
@@ -488,6 +490,8 @@ public class V1Zone
 				{
 					writer.write(V1MouseClickScript.toString(horizWalls[i].getMaskTextureMouseClickScript()));
 				}
+				writer.write(WALL_SEP);
+				writer.write(String.valueOf(horizWalls[i].isSolid()));
 				writer.writeln();
 			}
 		}
@@ -498,7 +502,7 @@ public class V1Zone
 		for (int i = 0; i < vertWalls.length; i++)
 		{
 			Texture texture = vertWalls[i].getTexture();
-			if (vertWalls[i].isVisible())
+			if (vertWalls[i].isVisible() || vertWalls[i].isSolid())
 			{
 				writer.write(i+": ");
 				writer.write(texture.getName());
@@ -517,6 +521,8 @@ public class V1Zone
 				{
 					writer.write(V1MouseClickScript.toString(vertWalls[i].getMaskTextureMouseClickScript()));
 				}
+				writer.write(WALL_SEP);
+				writer.write(String.valueOf(vertWalls[i].isSolid()));
 				writer.writeln();
 			}
 		}

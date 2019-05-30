@@ -35,53 +35,77 @@ public class SingleWallProxy extends WallProxy
 		this.wall = wall;
 	}
 
+	@Override
 	public Texture getMaskTexture()
 	{
 		return wall.getMaskTexture();
 	}
 
+	@Override
 	public Texture getTexture()
 	{
 		return wall.getTexture();
 	}
 
+	@Override
 	public boolean isVisible()
 	{
 		return wall.isVisible();
 	}
 
+	@Override
+	public boolean isSolid()
+	{
+		return wall.isSolid();
+	}
+
+	@Override
 	public MouseClickScript getMaskTextureMouseClickScript()
 	{
 		return wall.getMaskTextureMouseClickScript();
 	}
 
+	@Override
 	public MouseClickScript getMouseClickScript()
 	{
 		return wall.getMouseClickScript();
 	}
 
+	@Override
 	public void setMaskTexture(Texture maskTexture)
 	{
 		wall.setMaskTexture(maskTexture);
 	}
 
+	@Override
 	public void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript)
 	{
 		wall.setMaskTextureMouseClickScript(maskTextureMouseClickScript);
 	}
 
+	@Override
 	public void setMouseClickScript(MouseClickScript mouseClickScript)
 	{
 		wall.setMouseClickScript(mouseClickScript);
 	}
 
+	@Override
 	public void setTexture(Texture texture)
 	{
 		wall.setTexture(texture);
 	}
 
+	@Override
 	public void setVisible(boolean visible)
 	{
 		wall.setVisible(visible);
 	}
+
+	@Override
+	public void setSolid(boolean solid)
+	{
+		wall.setSolid(solid);
+	}
+
+
 }

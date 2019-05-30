@@ -596,12 +596,12 @@ public class ZonePanel extends EditorPanel
 		Wall[] horiz = new Wall[length*width + width];
 		for (int i = 0; i < horiz.length; i++)
 		{
-			horiz[i] = new Wall(Map.NO_WALL, null, false, null, null);
+			horiz[i] = new Wall(Map.NO_WALL, null, false, false, null, null);
 		}
 		Wall[] vert = new Wall[length*width + length];
 		for (int i = 0; i < vert.length; i++)
 		{
-			vert[i] = new Wall(Map.NO_WALL, null, false, null, null);
+			vert[i] = new Wall(Map.NO_WALL, null, false, true, null, null);
 		}
 		mclachlan.maze.map.Tile[][] mazeTiles = new mclachlan.maze.map.Tile[length][width];
 		for (int x = 0; x < mazeTiles.length; x++)

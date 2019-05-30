@@ -4,6 +4,12 @@ animationDelay=-1
 imageWidth=512
 imageHeight=512
 @
+name=WATER_2
+imageResources=crusader/scene/water_2_1,crusader/scene/water_2_2
+animationDelay=300
+imageWidth=512
+imageHeight=512
+@
 name=foe.triton.female
 imageResources=crusader/foe/triton_female
 animationDelay=150
@@ -109,6 +115,12 @@ imageHeight=512
 name=SAND_ROAD_C_SE
 imageResources=crusader/scene/sand_road_c_se
 animationDelay=-1
+imageWidth=512
+imageHeight=512
+@
+name=PURPLE_HAZE
+imageResources=crusader/scene/purple_haze
+animationDelay=300
 imageWidth=512
 imageHeight=512
 @

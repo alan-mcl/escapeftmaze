@@ -20,6 +20,7 @@ length: 32
 10: ./test/crusader/img/wall128_6.png
 11: ./test/crusader/img/plant128_1.png
 12: ./test/crusader/img/wall128_7.png
+13: ./test/crusader/img/purple_haze.png
 
 -sky image-
 0: ./test/crusader/img/sky128_4.png
@@ -38,6 +39,7 @@ length: 32
 10: 1,1,-1
 11: 1,11,-1
 12: 1,12,-1
+13: 1,13,-1
 
 -tiles-
 # floor texture, ceiling texture, light level
@@ -812,6 +814,11 @@ length: 32
 16: 0,11
 17: 0,11
 18: 0,11
+19: 13,11
+20: 13,
+21: 13,
+22: 13,
+23: 13,
 24: 0,11
 25: 0,11
 26: 0,11

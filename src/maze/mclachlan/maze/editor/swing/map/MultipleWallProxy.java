@@ -38,6 +38,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Texture getMaskTexture()
 	{
 		Texture x = walls.get(0).getMaskTexture();
@@ -54,6 +55,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Texture getTexture()
 	{
 		Texture x = walls.get(0).getTexture();
@@ -70,6 +72,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean isVisible()
 	{
 		boolean x = walls.get(0).isVisible();
@@ -86,6 +89,24 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean isSolid()
+	{
+		boolean x = walls.get(0).isSolid();
+
+		for (Wall w : walls)
+		{
+			if (w.isSolid() != x)
+			{
+				return false;
+			}
+		}
+
+		return x;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public MouseClickScript getMaskTextureMouseClickScript()
 	{
 		MouseClickScript x = walls.get(0).getMaskTextureMouseClickScript();
@@ -102,6 +123,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public MouseClickScript getMouseClickScript()
 	{
 		MouseClickScript x = walls.get(0).getMouseClickScript();
@@ -118,6 +140,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setMaskTexture(Texture maskTexture)
 	{
 		for (Wall w : walls)
@@ -127,6 +150,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript)
 	{
 		for (Wall w : walls)
@@ -136,6 +160,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setMouseClickScript(MouseClickScript mouseClickScript)
 	{
 		for (Wall w : walls)
@@ -145,6 +170,7 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setTexture(Texture texture)
 	{
 		for (Wall w : walls)
@@ -154,11 +180,22 @@ public class MultipleWallProxy extends WallProxy
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setVisible(boolean visible)
 	{
 		for (Wall w : walls)
 		{
 			w.setVisible(visible);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void setSolid(boolean solid)
+	{
+		for (Wall w : walls)
+		{
+			w.setSolid(solid);
 		}
 	}
 }

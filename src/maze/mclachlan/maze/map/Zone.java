@@ -24,6 +24,7 @@ import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.Map;
+import mclachlan.crusader.Wall;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -516,22 +517,26 @@ public class Zone
 		if (p2.x == p1.x && p2.y == p1.y-1)
 		{
 			// t2 is adjacent to the north
-			return map.getHorizontalWalls()[map.getNorthWall(map.getIndex(p1))].isVisible();
+			Wall wall = map.getHorizontalWalls()[map.getNorthWall(map.getIndex(p1))];
+			return wall.isVisible() || wall.isSolid();
 		}
 		else if (p2.x == p1.x && p2.y == p1.y+1)
 		{
 			// t2 is adjacent to the south
-			return map.getHorizontalWalls()[map.getSouthWall(map.getIndex(p1))].isVisible();
+			Wall wall = map.getHorizontalWalls()[map.getSouthWall(map.getIndex(p1))];
+			return wall.isVisible() || wall.isSolid();
 		}
 		else if (p2.y == p1.y && p2.x == p1.x-1)
 		{
 			// t2 is adjacent to the west
-			return map.getVerticalWalls()[map.getWestWall(map.getIndex(p1))].isVisible();
+			Wall wall = map.getVerticalWalls()[map.getWestWall(map.getIndex(p1))];
+			return wall.isVisible() || wall.isSolid();
 		}
 		else if (p2.y == p1.y && p2.x == p1.x+1)
 		{
 			// t2 is adjacent to the east
-			return map.getVerticalWalls()[map.getEastWall(map.getIndex(p1))].isVisible();
+			Wall wall = map.getVerticalWalls()[map.getEastWall(map.getIndex(p1))];
+			return wall.isVisible() || wall.isSolid();
 		}
 		else
 		{

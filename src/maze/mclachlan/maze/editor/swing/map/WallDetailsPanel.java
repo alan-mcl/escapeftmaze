@@ -40,7 +40,7 @@ public class WallDetailsPanel extends JPanel
 {
 	// crusader wall properties
 	private JLabel index;
-	private JCheckBox isVisible;
+	private JCheckBox isVisible, isSolid;
 	private JComboBox texture, maskTexture;
 	private SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript;
 	
@@ -63,7 +63,11 @@ public class WallDetailsPanel extends JPanel
 		isVisible = new JCheckBox("Visible?");
 		isVisible.addActionListener(this);
 		dodgyGridBagShite(this, isVisible, new JLabel(), gbc);
-		
+
+		isSolid = new JCheckBox("Solid?");
+		isSolid.addActionListener(this);
+		dodgyGridBagShite(this, isSolid, new JLabel(), gbc);
+
 		texture = new JComboBox();
 		texture.addActionListener(this);
 		dodgyGridBagShite(this, new JLabel("Texture:"), texture, gbc);
@@ -111,6 +115,7 @@ public class WallDetailsPanel extends JPanel
 		this.wall = wall;
 		
 		isVisible.removeActionListener(this);
+		isSolid.removeActionListener(this);
 		texture.removeActionListener(this);
 		maskTexture.removeActionListener(this);
 		
@@ -119,6 +124,7 @@ public class WallDetailsPanel extends JPanel
 			this.index.setText((horiz?"Horiz ":"Vert ")+index);
 		}
 		isVisible.setSelected(wall.isVisible());
+		isSolid.setSelected(wall.isSolid());
 		
 		if (wall.isVisible())
 		{
@@ -142,6 +148,7 @@ public class WallDetailsPanel extends JPanel
 		}
 		
 		isVisible.addActionListener(this);
+		isSolid.addActionListener(this);
 		texture.addActionListener(this);
 		maskTexture.addActionListener(this);
 	}
@@ -193,6 +200,13 @@ public class WallDetailsPanel extends JPanel
 				wall.setVisible(isVisible.isSelected());
 			}	
 			setVisibleState(isVisible.isSelected());
+		}
+		else if (e.getSource() == isSolid)
+		{
+			if (wall != null)
+			{
+				wall.setSolid(isSolid.isSelected());
+			}
 		}
 		else if (e.getSource() == texture)
 		{
