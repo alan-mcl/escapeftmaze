@@ -52,7 +52,7 @@ code: berserk should replace combat actions (for same round things in flight) as
 
 code+data: balance
 code+data: demo/training mode
-code+data: city windows (raycaster update)
+data: city windows & arches
 code+data: Sort out NPC inventories.
 
 spell: magic eye, reveals map
@@ -69,6 +69,11 @@ editor: save games editing of: item caches, npcs, maze variables, journals
 editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones
+
+raycaster: wall transparencies: objects through alpha, performance improvements
+raycaster: wall height
+raycaster: better sky textures
+raycaster: walls that are visible but can be walked through
 
 --------------------------------------------
 IN PROGRESS

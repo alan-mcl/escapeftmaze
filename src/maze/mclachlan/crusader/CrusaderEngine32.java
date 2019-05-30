@@ -76,7 +76,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */ 
 	private EngineObject[] objects;
 	/** used to protect the arrays when things are dynamically added and removed */
-	private final Object mutex = new Object();
+	private final Object objectMutex = new Object();
 
 	private boolean doShading, doLighting;
 	
@@ -146,7 +146,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * Pre-calc correction for the fishbowl effect, indexed on angle 
 	 * expressed in cast columns (ie pixels) 
 	 */
-	private float[] fishbowlTable;
+	static float[] fishbowlTable;
 	
 	/** Pre-calc block step table, indexed on angle expressed in cast columns (ie pixels)*/
 	private float[] xStepTable;
@@ -654,7 +654,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	public void handleKey(PlayerStatus prediction)
 	{
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			this.playerArc = prediction.playerArc;
 			this.playerX = prediction.playerX;
@@ -993,7 +993,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				texture.imageData[i]);
 		}
 		
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			Texture[] temp = new Texture[this.textures.length+1];
 			System.arraycopy(textures, 0, temp, 0, textures.length);
@@ -1101,13 +1101,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */
 	public int[] renderInternal()
 	{
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			//
 			// Render in vertical strips 1 pixel wide.
 			//
 			float castArc, castInc;
-			int castColumn;
 
 			// field of view is PLAYER_FOV degree with the point of view
 			// (player's direction in the middle)
@@ -1122,26 +1121,44 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 			castInc = (float)PLAYER_FOV/(float)projectionPlaneWidth;
 
+			// execute any animations
 			this.animation();
+
+			// execute any map scripts
 			this.map.executeScripts(frameCount);
 
-			for (castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
+			// init object state for rendering
+			initAndSortObjects();
+
+			// ray cast and render each column
+			for (int castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
 			{
 				this.rayCast(Math.round(castArc), castColumn);
 
 				for (int depth=MAX_HIT_DEPTH-1; depth >= 0; depth--)
 				{
 					this.drawWall(Math.round(castArc), castColumn, depth, renderBuffer);
+					for (int i=0; i<objects.length; i++)
+					{
+						if (this.objects[i].distance > 0)
+						{
+							if (this.objects[i].projectedObjectHeight > 0 && this.objects[i].endScreenX > 0)
+							{
+								if (castColumn >= this.objects[i].startScreenX && castColumn < this.objects[i].endScreenX)
+								{
+									drawObjectColumn(this.objects[i], renderBuffer, castColumn, depth);
+								}
+							}
+						}
+					}
 				}
-				
+
 				castArc += castInc;
 				if (castArc >= ANGLE360)
 				{
 					castArc -= ANGLE360;
 				}
 			}
-
-			this.drawObjects(0, renderBuffer);
 
 			this.frameCount++;
 		}
@@ -1268,7 +1285,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 						horizBlockHitRecord.wall.visible &&
 						depth < MAX_HIT_DEPTH)
 					{
-						populatBlockHitRecordGlobal(castColumn, horizBlockHitRecord, depth);
+						populateBlockHitRecordGlobal(castColumn, horizBlockHitRecord, depth);
 						depth++;
 					}
 				}
@@ -1278,7 +1295,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 						vertBlockHitRecord.wall.visible &&
 						depth < MAX_HIT_DEPTH)
 					{
-						populatBlockHitRecordGlobal(castColumn, vertBlockHitRecord, depth);
+						populateBlockHitRecordGlobal(castColumn, vertBlockHitRecord, depth);
 						depth++;
 					}
 				}
@@ -1316,7 +1333,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void populatBlockHitRecordGlobal(
+	private void populateBlockHitRecordGlobal(
 		int castColumn,
 		BlockHitRecord hit,
 		int depth)
@@ -1336,13 +1353,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 			x.printStackTrace();
 			System.exit(1);
 		}
-	}
-
-	private static class RayState
-	{
-		int grid;
-		float intersection;
-		int distToNextGrid;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1618,7 +1628,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * 	The shading multiplier: a number between 0 and 1, where 0 means no 
 	 * 	shading and 1 means complete shading.
 	 */ 
-	private double calcShadeMult(double distance)
+	static double calcShadeMult(
+		double distance,
+		int shadingDistance,
+		int shadingThickness)
 	{
 		if (distance < shadingDistance)
 		{
@@ -1663,7 +1676,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		if (this.doShading)
 		{
 			// Shading: work out the effective light level for this wall slice
-			shadeMult = calcShadeMult(blockHitRecord[column][depth].distance);
+			shadeMult = calcShadeMult(blockHitRecord[column][depth].distance, shadingDistance, shadingThickness);
 		}
 
 		int top;
@@ -1842,7 +1855,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				if (this.doShading)
 				{
 					// Shading: work out the effective light level for this wall slice
-					shadeMult = calcShadeMult(actualDistance);
+					shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
 				}
 
 				// draw the floor:
@@ -1993,7 +2006,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				double shadeMult = 0.0;
 				if (this.doShading)
 				{
-					shadeMult = calcShadeMult(actualDistance);
+					shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
 				}
 
 				// draw the ceiling:
@@ -2062,6 +2075,233 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
+	/**
+	 * First calculates the distance to each object from the player.
+	 * <p>
+	 * Then performs an insertion sort on the array of objects, to arrange them in
+	 * descending order of distance.  Insertion sort is used because it's best
+	 * case is O(n) for data that is already sorted.  The object distances won't
+	 * often change between frames. The array is sorted in-place.
+	 */
+	private void initAndSortObjects()
+	{
+		synchronized(objectMutex)
+		{
+			// calculate each objects distance from the player
+			double objectAngle=0;
+			int center=0;
+			EngineObject obj=null;
+
+			for (int i=0; i<objects.length; i++)
+			{
+				obj = this.objects[i];
+
+				double xDiff = playerX - obj.xPos;
+				double yDiff = playerY - obj.yPos;
+
+				obj.distance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
+
+				if (playerX == obj.xPos)
+				{
+					// in this case tan^-1 is infinity, so:
+					if (obj.yPos > playerY)
+					{
+						// object is south of player
+						objectAngle = ANGLE90;
+					}
+					else
+					{
+						// object is north of player
+						objectAngle = ANGLE270;
+					}
+				}
+				else if (playerY == obj.yPos)
+				{
+					// in this case tan^-1 is 0, so:
+					if (obj.xPos > playerX)
+					{
+						// object is west of player
+						objectAngle = ANGLE0;
+					}
+					else
+					{
+						// object is east of player
+						objectAngle = ANGLE180;
+					}
+				}
+				else
+				{
+					objectAngle = radToArc(Math.atan(Math.abs(yDiff/xDiff)));
+
+					// transform the objectAngle to be in the first quadrant
+
+					if (obj.xPos < playerX)
+					{
+						if (obj.yPos > playerY)
+						{
+							objectAngle = ANGLE180-objectAngle;
+						}
+						else
+						{
+							objectAngle = ANGLE180+objectAngle;
+						}
+					}
+					else
+					{
+						if (obj.yPos < playerY)
+						{
+							objectAngle = ANGLE360-objectAngle;
+						}
+						// else no need to transform
+					}
+
+				}
+
+				center = (int)(objectAngle - (playerArc - PLAYER_FOV_HALF));
+
+				if (center < 0)
+				{
+					center += ANGLE360;
+				}
+				else if (center > ANGLE360)
+				{
+					center -= ANGLE360;
+				}
+
+				obj.center = center;
+
+				obj.prepareForRender(
+					projectionPlaneWidth,
+					fishbowlTable,
+					TILE_SIZE,
+					playerDistToProjectionPlane,
+					map,
+					doLighting,
+					doShading,
+					shadingDistance,
+					shadingThickness,
+					movementMode,
+					getPlayerFacing());
+			}
+
+			int numSorted = 1;
+			int index;
+
+			while(numSorted < objects.length)
+			{
+				EngineObject temp = this.objects[numSorted];
+
+				// insert amongst the sorted values
+				for (index = numSorted; index>0; index--)
+				{
+					if (temp.distance > objects[index-1].distance)
+					{
+						objects[index] = objects[index-1];
+					}
+					else
+					{
+						// this is where we must insert
+						break;
+					}
+				}
+
+				objects[index] = temp;
+				numSorted++;
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawObject(
+		EngineObject obj,
+		int depth,
+		int[] outputBuffer)
+	{
+		int castColumn=0;
+
+		try
+		{
+			if (obj.projectedObjectHeight > 0 && obj.endScreenX > 0)
+			{
+				castColumn = obj.startScreenX;
+
+				if (castColumn < 0)
+				{
+					castColumn = 0;
+				}
+
+				while(castColumn < obj.endScreenX)
+				{
+					drawObjectColumn(obj, outputBuffer, castColumn, depth);
+
+					castColumn++;
+				}
+			}
+		}
+		catch (RuntimeException e)
+		{
+			log("obj.center = [" + obj.center + "]");
+			log("projectedObjectHeight = [" + obj.projectedObjectHeight + "]");
+			log("currentScreenX = [" + castColumn + "]");
+
+			throw e;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawObjectColumn(
+		EngineObject obj,
+		int[] outputBuffer,
+		int castColumn,
+		int depth)
+	{
+		if (blockHitRecord[castColumn][depth].distance > obj.apparentDistance)
+		{
+			int startScreenY = playerHeight - obj.projectedObjectHeight/2 +projPlaneOffset;
+			int currentScreenY = startScreenY;
+			int endScreenY = startScreenY + obj.projectedObjectHeight;
+
+			if (startScreenY < 0)
+			{
+				currentScreenY = 0;
+			}
+
+			if (endScreenY < 0)
+			{
+				return;
+			}
+
+			if (endScreenY > projectionPlaneHeight)
+			{
+				endScreenY = projectionPlaneHeight;
+			}
+
+			while(currentScreenY < endScreenY)
+			{
+				int[] image = obj.renderTexture.imageData[obj.currentTextureFrame];
+				int textureX = TILE_SIZE*(castColumn-obj.startScreenX)/obj.projectedObjectHeight;
+				int textureY = TILE_SIZE*(currentScreenY-startScreenY)/obj.projectedObjectHeight;
+
+				int colour = image[textureX + TILE_SIZE*textureY];
+
+				if (colour != 0)
+				{
+					// 0 is a transparent pixel
+
+					int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
+					colour = alphaBlend(outputBuffer[bufferIndex], colour);
+
+					int shade = colourPixel(colour, obj.adjustedLightLevel, obj.shadeMult);
+					outputBuffer[bufferIndex] = shade;
+					this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
+				}
+
+				currentScreenY++;
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private int alphaBlend(int background, int mask)
 	{
 		int alpha = (mask>>24) &0xFF;
@@ -2103,13 +2343,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 		}
 
 		int result;
-		
+
 		int alpha = (colour>>24) & 0xFF;
 		int red =   (colour>>16) & 0xFF;
 		int green = (colour>>8) & 0xFF;
 		int blue =  colour & 0xFF;
-		
-		// The >> 5 represents "/ NORMAL_LIGHT_LEVEL" 
+
+		// The >> 5 represents "/ NORMAL_LIGHT_LEVEL"
 		red = (red * lightLevel >> 5);
 		green = (green * lightLevel >> 5);
 		blue = (blue * lightLevel >> 5);
@@ -2123,7 +2363,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		blue = shade(blue, shadeBlue, shadingMult);
 
 		result = (alpha<<24) | (red<<16) | (green<<8) | blue;
-		
+
 		return result;
 	}
 
@@ -2150,170 +2390,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawObjects(int depth, int[] outputBuffer)
-	{
-		synchronized(mutex)
-		{
-			int i=0;
-			double objectAngle=0;
-			int center=0;
-			EngineObject obj=null;
-			
-			try
-			{
-				// calculate each objects distance from the player
-				for (i=0; i<objects.length; i++)
-				{
-					obj = this.objects[i];
-					
-					double xDiff = playerX - obj.xPos;
-					double yDiff = playerY - obj.yPos;
-					
-					obj.distance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
-				}
-				
-				// sort the objects in descending order of distance
-				sortObjects();
-				
-				// draw the objects
-				for (i=0; i<objects.length; i++)
-				{
-					obj = this.objects[i];
-					
-					double xDiff = playerX - obj.xPos;
-					double yDiff = playerY - obj.yPos;
-					
-					if (playerX == obj.xPos)
-					{
-						// in this case tan^-1 is infinity, so:
-						if (obj.yPos > playerY)
-						{
-							// object is south of player
-							objectAngle = ANGLE90;
-						}
-						else
-						{
-							// object is north of player
-							objectAngle = ANGLE270;
-						}
-					}
-					else if (playerY == obj.yPos)
-					{
-						// in this case tan^-1 is 0, so:
-						if (obj.xPos > playerX)
-						{
-							// object is west of player
-							objectAngle = ANGLE0;
-						}
-						else
-						{
-							// object is east of player
-							objectAngle = ANGLE180;
-						}
-					}
-					else
-					{
-						objectAngle = radToArc(Math.atan(Math.abs(yDiff/xDiff)));
-						
-						// transform the objectAngle to be in the first quadrant
-						
-						if (obj.xPos < playerX)
-						{
-							if (obj.yPos > playerY)
-							{
-								objectAngle = ANGLE180-objectAngle;
-							}
-							else
-							{
-								objectAngle = ANGLE180+objectAngle;
-							}
-						}
-						else
-						{
-							if (obj.yPos < playerY)
-							{
-								objectAngle = ANGLE360-objectAngle;
-							}
-							// else no need to transform
-						}
-						
-					}
-					
-					center = (int)(objectAngle - (playerArc - PLAYER_FOV_HALF));
-					
-					if (center < 0)
-					{
-						center += ANGLE360;
-					}
-					else if (center > ANGLE360)
-					{
-						center -= ANGLE360;
-					}
-					
-					if (obj.distance > 0)
-					{
-						drawObject(obj, obj.distance, center, depth, outputBuffer);
-					}
-				}
-			}
-			catch (RuntimeException e)
-			{
-				log("i = [" + i + "]");
-				log("objectAngle = [" + objectAngle + "]");
-				log("center = [" + center + "]");
-				log("obj.distance = [" + obj.distance + "]");
-				log("playerX, playerY = [" + playerX + "," + playerY + "]");
-				log("playerArc = [" + playerArc + "]");
-				log("obj.xPos, obj.yPos = [" + obj.xPos + "," + obj.yPos + "]");
-				log("ANGLE360 = [" + ANGLE360 + "]");
-				
-				throw e;
-			}
-		} /* end synchronized(objects_mutex) */
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * Perform an insertion sort on the array of objects, to arrange them in
-	 * descending order of distance.  Insertion sort is used because it's best
-	 * case is O(n) for data that is already sorted.  The object distances won't
-	 * often change between frames.
-	 */ 
-	private void sortObjects()
-	{
-		synchronized(mutex)
-		{
-			int numSorted = 1;
-			int index;
-			
-			while(numSorted < objects.length)
-			{
-				EngineObject temp = this.objects[numSorted];
-				
-				// insert amongst the sorted values
-				for (index = numSorted; index>0; index--)
-				{
-					if (temp.distance > objects[index-1].distance)
-					{
-						objects[index] = objects[index-1];
-					}
-					else
-					{
-						// this is where we must insert
-						break;
-					}
-				}
-				
-				objects[index] = temp;
-				numSorted++;
-			}
-		}
-	}
-	
-	/*-------------------------------------------------------------------------*/
 	public EngineObject removeObject(EngineObject obj)
 	{
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			int index = -1;
 			for (int i = 0; i < objects.length; i++)
@@ -2344,7 +2423,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			return null;
 		}
 
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			List<EngineObject> result = new ArrayList<>();
 
@@ -2374,7 +2453,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	public void addObject(EngineObject obj)
 	{
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			addObject(obj, true);
 		}
@@ -2406,7 +2485,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		double arcOffset,
 		boolean randomStartingFrame)
 	{
-		synchronized(mutex)
+		synchronized(objectMutex)
 		{
 			int dist = (int)(TILE_SIZE*distance);
 			int arc = (int)(playerArc - PLAYER_FOV_HALF + arcOffset*PLAYER_FOV);
@@ -2439,210 +2518,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return this.map.removeScript(script);
 	}
 
-	/*-------------------------------------------------------------------------*/
-	private void drawObject(
-		EngineObject obj,
-		double distanceToObject,
-		int center,
-		int depth,
-		int[] outputBuffer)
-	{
-		// correct distance (compensate for the fishbowl effect)
-		if (center > 0 && center < projectionPlaneWidth)
-		{
-			distanceToObject /= fishbowlTable[center];
-		}
-		// otherwise approximate it.
-		else if (center < 0)
-		{
-			distanceToObject /= fishbowlTable[0];
-		}
-		else
-		{
-			// center > PROJECTION_PLANE_WIDTH
-			distanceToObject /= fishbowlTable[projectionPlaneWidth-1];
-		}
-
-		int projectedObjectHeight = (int)(TILE_SIZE *
-			playerDistToProjectionPlane / distanceToObject);
-		
-		if (center + projectedObjectHeight/2 < 0)
-		{
-			// off screen left
-			return;
-		}
-		else if (center - projectedObjectHeight/2 > projectionPlaneWidth)
-		{
-			// off screen right
-			return;
-		}
-
-		int startScreenX=0;
-		int currentScreenX=0;
-		int endScreenX=0;
-		int startScreenY=0;
-		int currentScreenY=0;
-		int endScreenY=0;
-		int textureX=0;
-		int textureY=0;
-		int lightLevel;
-		int colour=0;
-		int shade=0;
-		Texture texture;
-		double shadeMult=0.0;
-		
-		try
-		{
-			if (projectedObjectHeight > 0)
-			{
-				if (obj.isLightSource)
-				{
-					// "Light source" objects always appear at normal light level
-					lightLevel = NORMAL_LIGHT_LEVEL;
-				}
-				else
-				{
-					if (this.doLighting)
-					{
-						lightLevel = this.map.tiles[obj.tileIndex].currentLightLevel;
-					}
-					else
-					{
-						lightLevel = NORMAL_LIGHT_LEVEL;
-					}
-	
-					if (this.doShading)
-					{
-						// Shading: work out the effective light level for this wall slice
-						shadeMult = calcShadeMult(distanceToObject);
-					}
-				}
-
-				startScreenX = center - projectedObjectHeight/2;
-				currentScreenX = startScreenX;
-				endScreenX = startScreenX + projectedObjectHeight;
-
-				if (currentScreenX < 0)
-				{
-					currentScreenX = 0;
-				}
-
-				if (endScreenX < 0)
-				{
-					return;
-				}
-
-				if (endScreenX > projectionPlaneWidth)
-				{
-					endScreenX = projectionPlaneWidth;
-				}
-
-				while(currentScreenX < endScreenX)
-				{
-					if (blockHitRecord[currentScreenX][depth].distance > distanceToObject)
-					{
-						startScreenY = playerHeight - projectedObjectHeight/2 +projPlaneOffset;
-						currentScreenY = startScreenY;
-						endScreenY = startScreenY + projectedObjectHeight;
-
-						if (startScreenY < 0)
-						{
-							currentScreenY = 0;
-						}
-
-						if (endScreenY < 0)
-						{
-							return;
-						}
-
-						if (endScreenY > projectionPlaneHeight)
-						{
-							endScreenY = projectionPlaneHeight;
-						}
-
-						// pick the object texture
-						if (this.movementMode == MovementMode.DISCRETE
-							&& obj.currentTexture == -1)
-						{
-							int playerFacing = getPlayerFacing();
-							switch(playerFacing)
-							{
-								case Facing.NORTH:
-									texture = obj.textures[obj.northTexture];
-									break;
-								case Facing.SOUTH:
-									texture = obj.textures[obj.southTexture];
-									break;
-								case Facing.EAST:
-									texture = obj.textures[obj.eastTexture];
-									break;
-								case Facing.WEST:
-									texture = obj.textures[obj.westTexture];
-									break;
-								default:
-									throw new CrusaderException(
-										"invalid facing: "+playerFacing);
-							}
-						}
-						else if (this.movementMode == MovementMode.CONTINUOUS)
-						{
-							// object facings only supported for DISCRETE mode
-							texture = obj.textures[obj.northTexture];
-						}
-						else
-						{
-							// the current texture has been set.
-							texture = obj.textures[obj.currentTexture];
-						}
-
-						while(currentScreenY < endScreenY)
-						{
-							int[] image = texture.imageData[obj.currentTextureFrame];
-							textureX = TILE_SIZE*(currentScreenX-startScreenX)/projectedObjectHeight;
-							textureY = TILE_SIZE*(currentScreenY-startScreenY)/projectedObjectHeight;
-
-							colour = image[textureX + TILE_SIZE*textureY];
-
-							if (colour != 0)
-							{
-								// 0 is a transparent pixel
-
-								int bufferIndex = currentScreenX + projectionPlaneWidth * currentScreenY;
-								colour = alphaBlend(
-									outputBuffer[bufferIndex],
-									colour);
-
-								shade = colourPixel(colour, lightLevel, shadeMult);
-								outputBuffer[bufferIndex] = shade;
-								this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
-							}
-
-							currentScreenY++;
-						}
-					}
-
-					currentScreenX++;
-				}
-			}
-		}
-		catch (RuntimeException e)
-		{
-			log("colour = [" + colour + "]");
-			log("center = [" + center + "]");
-			log("projectedObjectHeight = [" + projectedObjectHeight + "]");
-			log("startScreenX = [" + startScreenX + "]");
-			log("currentScreenX = [" + currentScreenX + "]");
-			log("endScreenX = [" + endScreenX + "]");
-			log("startScreenY = [" + startScreenY + "]");
-			log("currentScreenY = [" + currentScreenY + "]");
-			log("endScreenY = [" + endScreenY + "]");
-			log("textureX = [" + textureX + "]");
-			log("textureY = [" + textureY + "]");
-
-			throw e;
-		}
-	}
-	
 	/*-------------------------------------------------------------------------*/
 	private void animation()
 	{
@@ -2722,6 +2597,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private double radToArc(double radianAngle)
 	{
 		return radianAngle / Math.PI * ANGLE180;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class RayState
+	{
+		int grid;
+		float intersection;
+		int distToNextGrid;
 	}
 
 	/*-------------------------------------------------------------------------*/

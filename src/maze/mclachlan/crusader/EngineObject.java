@@ -21,6 +21,8 @@ package mclachlan.crusader;
 
 import java.util.*;
 
+import static mclachlan.crusader.CrusaderEngine.NORMAL_LIGHT_LEVEL;
+
 /**
  * 
  */
@@ -45,8 +47,17 @@ public class EngineObject
 	int xPos, yPos;
 	int gridX, gridY;
 	int tileIndex;
+
+	// volatile data calculated each rendering cycle
 	double distance;
-	
+	int center;
+	double apparentDistance;
+	int projectedObjectHeight;
+	int startScreenX, endScreenX;
+	int adjustedLightLevel;
+	double shadeMult;
+	Texture renderTexture;
+
 	/** whether or not this object is subject to shading */
 	boolean isLightSource;
 
@@ -168,6 +179,122 @@ public class EngineObject
 		this.tileIndex = tileIndex;
 		northTexture = southTexture = eastTexture = westTexture = currentTexture = 0;
 		this.isLightSource = isLightSource;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	void prepareForRender(
+		int projectionPlaneWidth,
+		float[] fishbowlTable,
+		int tile_size,
+		int playerDistToProjectionPlane,
+		Map map,
+		boolean doLighting,
+		boolean doShading,
+		int shadingDistance,
+		int shadingThickness,
+		int movementMode,
+		int playerFacing)
+	{
+		apparentDistance = distance;
+
+		// correct distance (compensate for the fishbowl effect)
+		if (this.center > 0 && this.center < projectionPlaneWidth)
+		{
+			this.apparentDistance /= fishbowlTable[this.center];
+		}
+		else if (this.center < 0)
+		{
+			// otherwise approximate it.
+			this.apparentDistance /= fishbowlTable[0];
+		}
+		else
+		{
+			// center > PROJECTION_PLANE_WIDTH, approximate it
+			this.apparentDistance /= fishbowlTable[projectionPlaneWidth-1];
+		}
+
+		this.projectedObjectHeight = (int)(tile_size *
+			playerDistToProjectionPlane / apparentDistance);
+
+		if (this.center + projectedObjectHeight/2 < 0)
+		{
+			// off screen left
+			this.projectedObjectHeight = -1;
+			return;
+		}
+		else if (this.center - projectedObjectHeight/2 > projectionPlaneWidth)
+		{
+			// off screen right
+			this.projectedObjectHeight = -1;
+			return;
+		}
+
+		this.startScreenX = this.center - this.projectedObjectHeight/2;
+		this.endScreenX = startScreenX + this.projectedObjectHeight;
+
+		if (this.endScreenX > projectionPlaneWidth)
+		{
+			this.endScreenX = projectionPlaneWidth;
+		}
+
+		if (this.isLightSource)
+		{
+			// "Light source" objects always appear at normal light level,
+			// or the tile light level, whichever is higher
+			adjustedLightLevel = Math.max(
+				NORMAL_LIGHT_LEVEL,
+				map.tiles[this.tileIndex].currentLightLevel);
+		}
+		else
+		{
+			if (doLighting)
+			{
+				this.adjustedLightLevel = map.tiles[this.tileIndex].currentLightLevel;
+			}
+			else
+			{
+				this.adjustedLightLevel = NORMAL_LIGHT_LEVEL;
+			}
+
+			if (doShading)
+			{
+				// Shading: work out the effective light level for this wall slice
+				shadeMult = CrusaderEngine32.calcShadeMult(this.apparentDistance, shadingDistance, shadingThickness);
+			}
+		}
+
+		// pick the object texture
+		if (movementMode == CrusaderEngine.MovementMode.DISCRETE && this.currentTexture == -1)
+		{
+			switch(playerFacing)
+			{
+				case CrusaderEngine.Facing.NORTH:
+					renderTexture = this.textures[this.northTexture];
+					break;
+				case CrusaderEngine.Facing.SOUTH:
+					renderTexture = this.textures[this.southTexture];
+					break;
+				case CrusaderEngine.Facing.EAST:
+					renderTexture = this.textures[this.eastTexture];
+					break;
+				case CrusaderEngine.Facing.WEST:
+					renderTexture = this.textures[this.westTexture];
+					break;
+				default:
+					throw new CrusaderException(
+						"invalid facing: "+playerFacing);
+			}
+		}
+		else if (movementMode == CrusaderEngine.MovementMode.CONTINUOUS)
+		{
+			// object facings only supported for DISCRETE mode
+			renderTexture = this.textures[this.northTexture];
+		}
+		else
+		{
+			// the current texture has been set.
+			renderTexture = this.textures[this.currentTexture];
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
