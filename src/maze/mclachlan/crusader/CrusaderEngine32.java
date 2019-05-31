@@ -55,12 +55,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */ 
 	private Texture[] textures;
 
-	/**
-	 * The colour in the palette that is transparent.
-	 */ 
-	private Color transparency;
-
-	/** The color to shade with */  
+	/** The color to shade with */
 	private int shadeRed;
 	private int shadeGreen;
 	private int shadeBlue;
@@ -129,23 +124,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/** Used to represent a ray hit on a vertical (ie east-west) wall*/
 	private static final byte HIT_HORIZONTAL = 2;
 
-	/** Pre-calc trig table, indexed on angle expressed in cast columns (ie pixels)*/
-	private float sinTable[];
-	/** Pre-calc trig table, indexed on angle expressed in cast columns (ie pixels)*/
-	private float iSinTable[];
-	/** Pre-calc trig table, indexed on angle expressed in cast columns (ie pixels)*/
-	private float cosTable[];
-	/** Pre-calc trig table, indexed on angle expressed in cast columns (ie pixels)*/
-	private float iCosTable[];
-	/** Pre-calc trig table, indexed on angle expressed in cast columns (ie pixels)*/
-	private float tanTable[];
-	/** Pre-calc trig table, indexed on angle expressed in cast columns (ie pixels)*/
-	private float iTanTable[];
-	
-	/** 
-	 * Pre-calc correction for the fishbowl effect, indexed on angle 
-	 * expressed in cast columns (ie pixels) 
-	 */
+	// Pre-calc trig tables, indexed on angle expressed in cast columns (ie pixels)
+	private float[] sinTable;
+	private float[] iSinTable;
+	private float[] cosTable;
+	private float[] iCosTable;
+	private float[] tanTable;
+	private float[] iTanTable;
 	static float[] fishbowlTable;
 	
 	/** Pre-calc block step table, indexed on angle expressed in cast columns (ie pixels)*/
@@ -162,7 +147,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** Defined as (ProjectionPlaneWidth/2)/tan(field of view angle/2) */
 	private int playerDistToProjectionPlane;
-	/** Scales the player distance to the proj plane */
+	/** Scales the player distance to the projection plane */
 	private double playerDistanceMult = 1.0;
 	/** Translates the projection plane (in pixels downwards) */
 	private int projPlaneOffset;
@@ -209,8 +194,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param shadeTargetColour
 	 * 	The color towards which to the engine shades.  Set it to black for a
 	 * 	normal effect, white for a fog effect, and so on.
-	 * @param transparentColour
-	 * 	The color in associated images that the engine treats as transparent.
 	 * @param doShading
 	 * 	True if shading of distant objects should be done.
 	 * @param doLighting
@@ -237,7 +220,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int screenHeight,
 		int movementMode,
 		Color shadeTargetColour,
-		Color transparentColour,
 		boolean doShading,
 		boolean doLighting,
 		double shadingDistance,
@@ -248,7 +230,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		Component component)
 	{
 		this.map = map;
-		this.transparency = transparentColour;
 
 		this.textures = new Texture[0];
 		this.initImages();
@@ -981,16 +962,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 		
 		for (int i = 0; i < texture.images.length; i++)
 		{
-			int[] rawPixels = this.grabPixels(
+			texture.imageData[i] = this.grabPixels(
 				texture.images[i],
 				texture.imageWidth,
 				texture.imageHeight);
-			
-			this.convertPixels(
-				texture.imageWidth,
-				texture.imageHeight,
-				rawPixels,
-				texture.imageData[i]);
 		}
 		
 		synchronized(objectMutex)
@@ -1036,47 +1011,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 		
 		for (int i = 0; i < imageGroup.images.length; i++)
 		{
-			int[] rawPixels = this.grabPixels(
+			result[i] = this.grabPixels(
 				imageGroup.images[i],
 				imageGroup.imageWidth,
 				imageGroup.imageHeight);
-			
-			this.convertPixels(
-				imageGroup.imageWidth,
-				imageGroup.imageHeight,
-				rawPixels,
-				result[i]);
 		}
-		
-		return result;
-	}
 
-	/*-------------------------------------------------------------------------*/
-	private void convertPixels(int width, int height, int[] sourcePixels, int[] destPixels)
-	{
-		int currentPixel;
-		int sourceRed, sourceGreen, sourceBlue;
-		
-		ColorModel cm = ColorModel.getRGBdefault();
-		
-		for (currentPixel = 0; currentPixel < (width * height); currentPixel++)
-		{
-			sourceRed = cm.getRed(sourcePixels[currentPixel]);
-			sourceGreen = cm.getGreen(sourcePixels[currentPixel]);
-			sourceBlue = cm.getBlue(sourcePixels[currentPixel]);
-			
-			// default 0, 64, 0
-			if ((sourceRed == transparency.getRed()) 
-				&& (sourceGreen == transparency.getGreen())
-				&& (sourceBlue == transparency.getBlue()))
-			{
-				destPixels[currentPixel] = 0; // transparent pixel
-			}
-			else
-			{
-				destPixels[currentPixel] = sourcePixels[currentPixel]; 
-			}
-		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1135,7 +1076,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				this.rayCast(Math.round(castArc), castColumn);
 
-				for (int depth=MAX_HIT_DEPTH-1; depth >= 0; depth--)
+//				for (int depth=MAX_HIT_DEPTH-1; depth >= 0; depth--)
+				for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
 				{
 					this.drawWall(Math.round(castArc), castColumn, depth, renderBuffer);
 					for (int i=0; i<objects.length; i++)
@@ -1714,8 +1656,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			int textureIndex = textureX + textureY * TILE_SIZE;
 			int bufferIndex = screenX + screenY * projectionPlaneWidth;
 			int colour;
-			if (maskTexture != null &&
-				maskTexture.imageData[maskTexture.currentFrame][textureIndex] != 0)
+			if (maskTexture != null)
 			{
 				// use the mask texture instead of the wall texture
 				colour = alphaBlend(
@@ -1735,15 +1676,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 				this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column][depth].wall.mouseClickScript;
 			}
 
-			if (colour != 0)
+			int pixel = colourPixel(colour, lightLevel, shadeMult);
+			if (depth > 0)
 			{
-				int pixel = colourPixel(colour, lightLevel, shadeMult);
-				if (depth >= 0 && depth < MAX_HIT_DEPTH)
-				{
-					pixel = alphaBlend(outputBuffer[bufferIndex], pixel);
-				}
-				outputBuffer[bufferIndex] = pixel;
+				pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
 			}
+			outputBuffer[bufferIndex] = pixel;
 
 			screenY++;
 		}
@@ -1789,7 +1727,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int textureX=0;
 		int textureY=0;
 		int colour;
-		int shade;
+		int pixel;
 		int lightLevel;
 		Texture texture=null;
 		Texture maskTexture=null;
@@ -1860,8 +1798,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 				// draw the floor:
 				int textureIndex = textureX + textureY * TILE_SIZE;
-				if (maskTexture != null &&
-					maskTexture.imageData[maskTexture.currentFrame][textureIndex] != 0)
+				if (maskTexture != null)
 				{
 					colour = alphaBlend(
 						texture.imageData[texture.currentFrame][textureIndex],
@@ -1871,9 +1808,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 				{
 					colour = texture.imageData[texture.currentFrame][textureIndex];
 				}
-				shade = colourPixel(colour, lightLevel, shadeMult);
+				pixel = colourPixel(colour, lightLevel, shadeMult);
 				int bufferIndex = column + screenY * projectionPlaneWidth;
-				outputBuffer[bufferIndex] = shade;
+
+				if (depth > 0)
+				{
+					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
+				}
+
+				outputBuffer[bufferIndex] = pixel;
 				// mouse click scripts associated with floors and ceilings not yet supported
 				this.mouseClickScriptRecords[bufferIndex] = null;
 
@@ -1939,9 +1882,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int mapIndex=0;
 		int textureX=0;
 		int textureY=0;
-		int[] image;
+		int[] skyImage;
 		int colour;
-		int shade;
+		int pixel;
 		int lightLevel;
 		Texture texture=null;
 		Texture maskTexture=null;
@@ -2012,8 +1955,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				// draw the ceiling:
 				texture = map.tiles[mapIndex].ceilingTexture;
 				int textureIndex = textureX + textureY * TILE_SIZE;
-				if (maskTexture != null &&
-					maskTexture.imageData[maskTexture.currentFrame][textureIndex] != 0)
+				if (maskTexture != null)
 				{
 					colour = alphaBlend(
 						texture.imageData[texture.currentFrame][textureIndex],
@@ -2025,22 +1967,26 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 
 				int bufferIndex = column + screenY * projectionPlaneWidth;
-				if (colour != 0)
-				{
-					shade = colourPixel(colour, lightLevel, shadeMult);
-					outputBuffer[bufferIndex] = shade;
-				}
-				else
-				{
-					// transparent pixel.
-					image = this.skyImage[map.currentSkyImage];
 
-					// tile the sky texture horizontally
-					textureX = castArc % skyTextureWidth;
-					textureY = screenY*skyTextureHeight/playerHeight;
-					outputBuffer[bufferIndex] =
-						image[textureX + textureY * skyTextureWidth];
+				skyImage = this.skyImage[map.currentSkyImage];
+
+				// tile the sky texture horizontally
+				int skyTextureX = castArc % skyTextureWidth;
+				int skyTextureY = screenY*skyTextureHeight/playerHeight;
+
+				int skyPixel = skyImage[skyTextureX + skyTextureY * skyTextureWidth];
+
+				pixel = colourPixel(colour, lightLevel, shadeMult);
+
+				pixel = alphaBlend(skyPixel, pixel);
+
+				if (depth > 0)
+				{
+					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
 				}
+
+				outputBuffer[bufferIndex] = pixel;
+
 				// mouse click scripts associated with floors and ceilings not yet supported
 				this.mouseClickScriptRecords[bufferIndex] = null;
 
@@ -2282,19 +2228,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int textureX = TILE_SIZE*(castColumn-obj.startScreenX)/obj.projectedObjectHeight;
 				int textureY = TILE_SIZE*(currentScreenY-startScreenY)/obj.projectedObjectHeight;
 
-				int colour = image[textureX + TILE_SIZE*textureY];
+				int imagePixel = image[textureX + TILE_SIZE*textureY];
 
-				if (colour != 0)
-				{
-					// 0 is a transparent pixel
+				int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
+				int pixel = colourPixel(imagePixel, obj.adjustedLightLevel, obj.shadeMult);
+				pixel = alphaBlend(outputBuffer[bufferIndex], pixel);
 
-					int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
-					colour = alphaBlend(outputBuffer[bufferIndex], colour);
-
-					int shade = colourPixel(colour, obj.adjustedLightLevel, obj.shadeMult);
-					outputBuffer[bufferIndex] = shade;
-					this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
-				}
+				outputBuffer[bufferIndex] = pixel;
+				this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
 
 				currentScreenY++;
 			}
@@ -2304,7 +2245,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	private int alphaBlend(int background, int mask)
 	{
-		int alpha = (mask>>24) &0xFF;
+		int alpha = (mask>>24) & 0xFF;
 
 		if (alpha == 0xFF)
 		{
@@ -2325,8 +2266,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int blueBack =  background & 0xFF;
 
 		int alphaDiff = 0xFF - alpha;
-		// the >>8 represents "/256",
-		// used because it's faster than "/255" (although a little less accurate)
+
 		int red = (((redBack*alphaDiff)/255) + ((redMask*alpha)/255)) &0xFF;
 		int green = ((((greenBack*alphaDiff)/255) + ((greenMask*alpha)/255))) &0xFF;
 		int blue = ((((blueBack*alphaDiff)/255) + ((blueMask*alpha)/255))) &0xFF;

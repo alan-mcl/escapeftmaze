@@ -248,9 +248,8 @@ public class ClientMapLoader
 					String tile = tileProp.getProperty(""+i);
 					String[] detail = tile.split(",");
 					int floorTextureNr = Integer.parseInt(detail[0]);
-					int ceilingTextureNr = Integer.parseInt(detail[1]);
 					int lightLevel =  Integer.parseInt(detail[2]);
-					Texture ceilingTexture = textures[ceilingTextureNr];
+					Texture ceilingTexture = textures[Integer.parseInt(detail[1])];
 					Texture floorTexture = textures[floorTextureNr];
 					tiles[i] = new Tile(ceilingTexture, floorTexture, lightLevel);
 				}
