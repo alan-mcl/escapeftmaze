@@ -162,7 +162,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** A record of grid block hits, indexed on cast column and then depth */
 	private BlockHitRecord[][] blockHitRecord;
-	private static int MAX_HIT_DEPTH = 3;
+	private static int MAX_HIT_DEPTH = 5;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
 	private MouseClickScript[] mouseClickScriptRecords;
@@ -1071,27 +1071,23 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// init object state for rendering
 			initAndSortObjects();
 
+			// clear the render buffer
+			for (int i = 0; i < renderBuffer.length; i++)
+			{
+				renderBuffer[i] = 0x00000000;
+			}
+
 			// ray cast and render each column
 			for (int castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
 			{
 				this.rayCast(Math.round(castArc), castColumn);
 
-//				for (int depth=MAX_HIT_DEPTH-1; depth >= 0; depth--)
 				for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
 				{
-					this.drawWall(Math.round(castArc), castColumn, depth, renderBuffer);
-					for (int i=0; i<objects.length; i++)
+					this.drawObjects(castColumn, depth);
+					if (!this.drawColumn(Math.round(castArc), castColumn, depth, renderBuffer))
 					{
-						if (this.objects[i].distance > 0)
-						{
-							if (this.objects[i].projectedObjectHeight > 0 && this.objects[i].endScreenX > 0)
-							{
-								if (castColumn >= this.objects[i].startScreenX && castColumn < this.objects[i].endScreenX)
-								{
-									drawObjectColumn(this.objects[i], renderBuffer, castColumn, depth);
-								}
-							}
-						}
+						break;
 					}
 				}
 
@@ -1109,9 +1105,35 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void drawObjects(int castColumn, int depth)
+	{
+		int objectCount = objects.length - 1;
+		for (; objectCount >= 0; objectCount--)
+		{
+			if (this.objects[objectCount].distance > 0 &&
+				this.objects[objectCount].apparentDistance < blockHitRecord[castColumn][depth].distance)
+			{
+				if (this.objects[objectCount].projectedObjectHeight > 0 &&
+					this.objects[objectCount].endScreenX > 0)
+				{
+					if (castColumn >= this.objects[objectCount].startScreenX &&
+						castColumn < this.objects[objectCount].endScreenX)
+					{
+						drawObjectColumn(this.objects[objectCount], renderBuffer, castColumn, depth);
+					}
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * This method sets up the global variables in preparation for calling
-	 * {@link #drawWall} to draw the column.
+	 * {@link #drawColumn} to draw the column.
 	 *
 	 * @param castArc the angle of the cast ray
 	 * @param castColumn the column that is being drawn
@@ -1594,8 +1616,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawWall(int castArc, int column, int depth, int[] outputBuffer)
+	private boolean drawColumn(int castArc, int column, int depth, int[] outputBuffer)
 	{
+		boolean hasAlpha = false;
+
 		int height;
 		height = blockHitRecord[column][depth].projectedWallHeight;
 		int blockHit = blockHitRecord[column][depth].blockHit;
@@ -1644,56 +1668,64 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		while (screenY < bottom)
 		{
-			if (diff <= 0)
-			{
-				textureY = ((screenY-top) * TILE_SIZE) / height;
-			}
-			else
-			{
-				textureY = ((screenY+diff) * TILE_SIZE) / height;
-			}
-
-			int textureIndex = textureX + textureY * TILE_SIZE;
 			int bufferIndex = screenX + screenY * projectionPlaneWidth;
-			int colour;
-			if (maskTexture != null)
-			{
-				// use the mask texture instead of the wall texture
-				colour = alphaBlend(
-					texture.imageData[texture.currentFrame][textureIndex],
-					maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
 
-				if (blockHitRecord[column][depth].wall.maskTextureMouseClickScript != null)
+			if (hasAlpha(outputBuffer[bufferIndex]))
+			{
+				if (diff <= 0)
 				{
-					// use the mask texture mouse click script instead
-					this.mouseClickScriptRecords[bufferIndex] =
-						blockHitRecord[column][depth].wall.maskTextureMouseClickScript;
+					textureY = ((screenY-top) * TILE_SIZE) / height;
+				}
+				else
+				{
+					textureY = ((screenY+diff) * TILE_SIZE) / height;
+				}
+
+				int textureIndex = textureX + textureY * TILE_SIZE;
+				int colour;
+				if (maskTexture != null)
+				{
+					// use the mask texture instead of the wall texture
+					colour = alphaBlend(
+						texture.imageData[texture.currentFrame][textureIndex],
+						maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
+
+					if (blockHitRecord[column][depth].wall.maskTextureMouseClickScript != null)
+					{
+						// use the mask texture mouse click script instead
+						this.mouseClickScriptRecords[bufferIndex] =
+							blockHitRecord[column][depth].wall.maskTextureMouseClickScript;
+					}
+				}
+				else
+				{
+					colour = image[textureIndex];
+					this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column][depth].wall.mouseClickScript;
+				}
+
+				int pixel = colourPixel(colour, lightLevel, shadeMult);
+				pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
+				outputBuffer[bufferIndex] = pixel;
+
+				if (!hasAlpha)
+				{
+					hasAlpha |= hasAlpha(pixel);
 				}
 			}
-			else
-			{
-				colour = image[textureIndex];
-				this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column][depth].wall.mouseClickScript;
-			}
-
-			int pixel = colourPixel(colour, lightLevel, shadeMult);
-			if (depth > 0)
-			{
-				pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
-			}
-			outputBuffer[bufferIndex] = pixel;
 
 			screenY++;
 		}
 
 		if (bottom < projectionPlaneHeight)
 		{
-			drawFloor(castArc, column, height, depth, outputBuffer);
+			hasAlpha |= drawFloor(castArc, column, height, depth, outputBuffer);
 		}
 		if (top > 0)
 		{
-			drawCeiling(castArc, column, height, depth, outputBuffer);
+			hasAlpha |= drawCeiling(castArc, column, height, depth, outputBuffer);
 		}
+
+		return hasAlpha;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1704,9 +1736,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param wallHeight
 	 * @param outputBuffer
 	 */
-	private void drawFloor(int castArc, int column, int wallHeight, int depth,
+	private boolean drawFloor(int castArc, int column, int wallHeight, int depth,
 		int[] outputBuffer)
 	{
+		boolean hasAlpha = false;
+
 		int top = playerHeight + (wallHeight/2) +projPlaneOffset;
 		int bottom = projectionPlaneHeight;
 
@@ -1736,89 +1770,94 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			try
 			{
-				heightOnProjectionPlane = screenY -playerHeight -projPlaneOffset;
-
-				straightDistance = playerDistToProjectionPlane
-					*playerHeightInUnits/(float)(heightOnProjectionPlane);
-
-				beta = playerArc-castArc;
-
-				if (beta < 0)
-				{
-					beta += ANGLE360;
-				}
-				else if (beta > ANGLE360)
-				{
-					beta -= ANGLE360;
-				}
-
-				actualDistance = straightDistance / cosTable[beta];
-
-				// now we know that the ray intersects with the floor at an
-				// angle of (castArc) and a distance of (actualDistance)
-
-				xDistance = actualDistance*cosTable[castArc];
-				yDistance = actualDistance*sinTable[castArc];
-
-				xIntersection = (int)(playerX + xDistance);
-				yIntersection = (int)(playerY + yDistance);
-
-				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-				xIntersection = Math.min(xIntersection, mapWidth*TILE_SIZE-1);
-				yIntersection = Math.min(yIntersection, mapLength*TILE_SIZE-1);
-				//---
-				xIntersection = Math.max(xIntersection, 0);
-				yIntersection = Math.max(yIntersection, 0);
-				//---
-
-				gridX = xIntersection / TILE_SIZE;
-				gridY = yIntersection / TILE_SIZE;
-				mapIndex = gridX + gridY*mapWidth;
-
-				textureX = Math.abs(xIntersection % TILE_SIZE);
-				textureY = Math.abs(yIntersection % TILE_SIZE);
-
-				texture = map.tiles[mapIndex].floorTexture;
-				maskTexture = map.tiles[mapIndex].floorMaskTexture;
-				if (this.doLighting)
-				{
-					lightLevel = map.tiles[mapIndex].currentLightLevel;
-				}
-				else
-				{
-					lightLevel = NORMAL_LIGHT_LEVEL;
-				}
-
-				double shadeMult = 0.0;
-				if (this.doShading)
-				{
-					// Shading: work out the effective light level for this wall slice
-					shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
-				}
-
-				// draw the floor:
-				int textureIndex = textureX + textureY * TILE_SIZE;
-				if (maskTexture != null)
-				{
-					colour = alphaBlend(
-						texture.imageData[texture.currentFrame][textureIndex],
-						maskTexture.imageData[texture.currentFrame][textureIndex]);
-				}
-				else
-				{
-					colour = texture.imageData[texture.currentFrame][textureIndex];
-				}
-				pixel = colourPixel(colour, lightLevel, shadeMult);
 				int bufferIndex = column + screenY * projectionPlaneWidth;
-
-				if (depth > 0)
+				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
-					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
-				}
+					heightOnProjectionPlane = screenY -playerHeight -projPlaneOffset;
 
-				outputBuffer[bufferIndex] = pixel;
-				// mouse click scripts associated with floors and ceilings not yet supported
-				this.mouseClickScriptRecords[bufferIndex] = null;
+					straightDistance = playerDistToProjectionPlane
+						*playerHeightInUnits/(float)(heightOnProjectionPlane);
+
+					beta = playerArc-castArc;
+
+					if (beta < 0)
+					{
+						beta += ANGLE360;
+					}
+					else if (beta > ANGLE360)
+					{
+						beta -= ANGLE360;
+					}
+
+					actualDistance = straightDistance / cosTable[beta];
+
+					// now we know that the ray intersects with the floor at an
+					// angle of (castArc) and a distance of (actualDistance)
+
+					xDistance = actualDistance*cosTable[castArc];
+					yDistance = actualDistance*sinTable[castArc];
+
+					xIntersection = (int)(playerX + xDistance);
+					yIntersection = (int)(playerY + yDistance);
+
+					//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
+					xIntersection = Math.min(xIntersection, mapWidth*TILE_SIZE-1);
+					yIntersection = Math.min(yIntersection, mapLength*TILE_SIZE-1);
+					//---
+					xIntersection = Math.max(xIntersection, 0);
+					yIntersection = Math.max(yIntersection, 0);
+					//---
+
+					gridX = xIntersection / TILE_SIZE;
+					gridY = yIntersection / TILE_SIZE;
+					mapIndex = gridX + gridY*mapWidth;
+
+					textureX = Math.abs(xIntersection % TILE_SIZE);
+					textureY = Math.abs(yIntersection % TILE_SIZE);
+
+					texture = map.tiles[mapIndex].floorTexture;
+					maskTexture = map.tiles[mapIndex].floorMaskTexture;
+					if (this.doLighting)
+					{
+						lightLevel = map.tiles[mapIndex].currentLightLevel;
+					}
+					else
+					{
+						lightLevel = NORMAL_LIGHT_LEVEL;
+					}
+
+					double shadeMult = 0.0;
+					if (this.doShading)
+					{
+						// Shading: work out the effective light level for this wall slice
+						shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
+					}
+
+					// draw the floor:
+					int textureIndex = textureX + textureY * TILE_SIZE;
+					if (maskTexture != null)
+					{
+						colour = alphaBlend(
+							texture.imageData[texture.currentFrame][textureIndex],
+							maskTexture.imageData[texture.currentFrame][textureIndex]);
+					}
+					else
+					{
+						colour = texture.imageData[texture.currentFrame][textureIndex];
+					}
+					pixel = colourPixel(colour, lightLevel, shadeMult);
+					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
+
+					outputBuffer[bufferIndex] = pixel;
+
+					if (!hasAlpha)
+					{
+						hasAlpha |= hasAlpha(pixel);
+					}
+
+					// mouse click scripts associated with floors and ceilings not yet supported
+					this.mouseClickScriptRecords[bufferIndex] = null;
+				}
 
 				screenY++;
 			}
@@ -1850,6 +1889,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 				throw e;
 			}
 		}
+
+		return hasAlpha;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1860,9 +1901,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param wallHeight
 	 * @param outputBuffer
 	 */
-	private void drawCeiling(int castArc, int column, int wallHeight, int depth,
+	private boolean drawCeiling(int castArc, int column, int wallHeight, int depth,
 		int[] outputBuffer)
 	{
+		boolean hasAlpha = false;
+
 		int top = 0;//halfProjectionPlaneHeight + (wallHeight/2);
 		int bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
 
@@ -1893,102 +1936,105 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			try
 			{
-				heightOnProjectionPlane = (projectionPlaneHeight-this.playerHeight) -screenY +projPlaneOffset;
-
-				straightDistance = playerDistToProjectionPlane
-					*playerHeightInUnits/(float)(heightOnProjectionPlane);
-
-				beta = playerArc-castArc;
-
-				if (beta < 0)
-				{
-					beta += ANGLE360;
-				}
-				else if (beta > ANGLE360)
-				{
-					beta -= ANGLE360;
-				}
-
-				actualDistance = straightDistance / cosTable[beta];
-
-				// now we know that the ray intersects with the floor at an
-				// angle of (castArc) and a distance of (actualDistance)
-
-				xDistance = actualDistance*cosTable[castArc];
-				yDistance = actualDistance*sinTable[castArc];
-
-				xIntersection = (int)(playerX + xDistance);
-				yIntersection = (int)(playerY + yDistance);
-
-				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-				xIntersection = Math.min(xIntersection, mapWidth*TILE_SIZE-1);
-				yIntersection = Math.min(yIntersection, mapLength*TILE_SIZE-1);
-				//---
-				xIntersection = Math.max(xIntersection, 0);
-				yIntersection = Math.max(yIntersection, 0);
-				//---
-
-				gridX = xIntersection / TILE_SIZE;
-				gridY = yIntersection / TILE_SIZE;
-				mapIndex = gridX + gridY*mapWidth;
-
-				textureX = Math.abs(xIntersection % TILE_SIZE);
-				textureY = Math.abs(yIntersection % TILE_SIZE);
-
-				texture = map.tiles[mapIndex].floorTexture;
-				maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
-				if (this.doLighting)
-				{
-					lightLevel = map.tiles[mapIndex].currentLightLevel;
-				}
-				else
-				{
-					lightLevel = NORMAL_LIGHT_LEVEL;
-				}
-
-				double shadeMult = 0.0;
-				if (this.doShading)
-				{
-					shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
-				}
-
-				// draw the ceiling:
-				texture = map.tiles[mapIndex].ceilingTexture;
-				int textureIndex = textureX + textureY * TILE_SIZE;
-				if (maskTexture != null)
-				{
-					colour = alphaBlend(
-						texture.imageData[texture.currentFrame][textureIndex],
-						maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
-				}
-				else
-				{
-					colour = texture.imageData[texture.currentFrame][textureIndex];
-				}
-
 				int bufferIndex = column + screenY * projectionPlaneWidth;
 
-				skyImage = this.skyImage[map.currentSkyImage];
-
-				// tile the sky texture horizontally
-				int skyTextureX = castArc % skyTextureWidth;
-				int skyTextureY = screenY*skyTextureHeight/playerHeight;
-
-				int skyPixel = skyImage[skyTextureX + skyTextureY * skyTextureWidth];
-
-				pixel = colourPixel(colour, lightLevel, shadeMult);
-
-				pixel = alphaBlend(skyPixel, pixel);
-
-				if (depth > 0)
+				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
+					heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
+
+					straightDistance = playerDistToProjectionPlane
+						* playerHeightInUnits / (float)(heightOnProjectionPlane);
+
+					beta = playerArc - castArc;
+
+					if (beta < 0)
+					{
+						beta += ANGLE360;
+					}
+					else if (beta > ANGLE360)
+					{
+						beta -= ANGLE360;
+					}
+
+					actualDistance = straightDistance / cosTable[beta];
+
+					// now we know that the ray intersects with the floor at an
+					// angle of (castArc) and a distance of (actualDistance)
+
+					xDistance = actualDistance * cosTable[castArc];
+					yDistance = actualDistance * sinTable[castArc];
+
+					xIntersection = (int)(playerX + xDistance);
+					yIntersection = (int)(playerY + yDistance);
+
+					//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
+					xIntersection = Math.min(xIntersection, mapWidth * TILE_SIZE - 1);
+					yIntersection = Math.min(yIntersection, mapLength * TILE_SIZE - 1);
+					//---
+					xIntersection = Math.max(xIntersection, 0);
+					yIntersection = Math.max(yIntersection, 0);
+					//---
+
+					gridX = xIntersection / TILE_SIZE;
+					gridY = yIntersection / TILE_SIZE;
+					mapIndex = gridX + gridY * mapWidth;
+
+					textureX = Math.abs(xIntersection % TILE_SIZE);
+					textureY = Math.abs(yIntersection % TILE_SIZE);
+
+					texture = map.tiles[mapIndex].floorTexture;
+					maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
+					if (this.doLighting)
+					{
+						lightLevel = map.tiles[mapIndex].currentLightLevel;
+					}
+					else
+					{
+						lightLevel = NORMAL_LIGHT_LEVEL;
+					}
+
+					double shadeMult = 0.0;
+					if (this.doShading)
+					{
+						shadeMult = calcShadeMult(actualDistance, shadingDistance, shadingThickness);
+					}
+
+					// draw the ceiling:
+					texture = map.tiles[mapIndex].ceilingTexture;
+					int textureIndex = textureX + textureY * TILE_SIZE;
+					if (maskTexture != null)
+					{
+						colour = alphaBlend(
+							texture.imageData[texture.currentFrame][textureIndex],
+							maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
+					}
+					else
+					{
+						colour = texture.imageData[texture.currentFrame][textureIndex];
+					}
+
+					skyImage = this.skyImage[map.currentSkyImage];
+
+					// tile the sky texture horizontally
+					int skyTextureX = castArc % skyTextureWidth;
+					int skyTextureY = screenY * skyTextureHeight / playerHeight;
+
+					int skyPixel = skyImage[skyTextureX + skyTextureY * skyTextureWidth];
+
+					pixel = colourPixel(colour, lightLevel, shadeMult);
+					pixel = alphaBlend(skyPixel, pixel);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
+
+					outputBuffer[bufferIndex] = pixel;
+
+					if (!hasAlpha)
+					{
+						hasAlpha |= hasAlpha(pixel);
+					}
+
+					// mouse click scripts associated with floors and ceilings not yet supported
+					this.mouseClickScriptRecords[bufferIndex] = null;
 				}
-
-				outputBuffer[bufferIndex] = pixel;
-
-				// mouse click scripts associated with floors and ceilings not yet supported
-				this.mouseClickScriptRecords[bufferIndex] = null;
 
 				screenY++;
 			}
@@ -2018,6 +2064,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 				throw e;
 			}
 		}
+
+		return hasAlpha;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2224,22 +2272,30 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 			while(currentScreenY < endScreenY)
 			{
-				int[] image = obj.renderTexture.imageData[obj.currentTextureFrame];
-				int textureX = TILE_SIZE*(castColumn-obj.startScreenX)/obj.projectedObjectHeight;
-				int textureY = TILE_SIZE*(currentScreenY-startScreenY)/obj.projectedObjectHeight;
-
-				int imagePixel = image[textureX + TILE_SIZE*textureY];
-
 				int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
-				int pixel = colourPixel(imagePixel, obj.adjustedLightLevel, obj.shadeMult);
-				pixel = alphaBlend(outputBuffer[bufferIndex], pixel);
+				if (hasAlpha(outputBuffer[bufferIndex]))
+				{
+					int[] image = obj.renderTexture.imageData[obj.currentTextureFrame];
+					int textureX = TILE_SIZE * (castColumn - obj.startScreenX) / obj.projectedObjectHeight;
+					int textureY = TILE_SIZE * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
 
-				outputBuffer[bufferIndex] = pixel;
-				this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
+					int imagePixel = image[textureX + TILE_SIZE * textureY];
 
+					int pixel = colourPixel(imagePixel, obj.adjustedLightLevel, obj.shadeMult);
+					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
+
+					outputBuffer[bufferIndex] = pixel;
+					this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
+				}
 				currentScreenY++;
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean hasAlpha(int pixel)
+	{
+		return ((pixel>>24) & 0xFF) < 0xFF;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2256,11 +2312,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 			return background;
 		}
 
+		int backAlpha = (background>>24) & 0xFF;
+		if (backAlpha == 0)
+		{
+			return mask;
+		}
+
 		int redMask =   (mask>>16) & 0xFF;
 		int greenMask = (mask>>8) & 0xFF;
 		int blueMask =  mask & 0xFF;
 
-		int backAlpha = (background>>24) & 0xFF;
 		int redBack =   (background>>16) & 0xFF;
 		int greenBack = (background>>8) & 0xFF;
 		int blueBack =  background & 0xFF;
@@ -2270,8 +2331,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int red = (((redBack*alphaDiff)/255) + ((redMask*alpha)/255)) &0xFF;
 		int green = ((((greenBack*alphaDiff)/255) + ((greenMask*alpha)/255))) &0xFF;
 		int blue = ((((blueBack*alphaDiff)/255) + ((blueMask*alpha)/255))) &0xFF;
+		int newAlpha = Math.min(alpha + backAlpha, 0xFF);
 
-		return (backAlpha<<24) | ((red<<16) | (green<<8) | blue);
+		return (newAlpha<<24) | ((red<<16) | (green<<8) | blue);
 	}
 
 	/*-------------------------------------------------------------------------*/
