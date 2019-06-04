@@ -19,13 +19,13 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.util.*;
 import mclachlan.crusader.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collections;
-import java.util.Vector;
 import javax.swing.*;
+import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
@@ -424,7 +424,7 @@ public class ZonePanel extends EditorPanel
 		scaleDistFromProjPlane.setValue(zone.getScaleDistFromProjPlane());
 		shadeTargetColour.setBackground(zone.getShadeTargetColor());
 		transparentColour.setBackground(zone.getTransparentColor());
-		skyTexture.setSelectedItem(zone.getMap().getSkyImage().getName());
+		skyTexture.setSelectedItem(zone.getMap().getSkyTexture().getName());
 
 		order.setValue(zone.getOrder());
 		playerOriginX.setValue(zone.getPlayerOrigin().x);
@@ -623,17 +623,11 @@ public class ZonePanel extends EditorPanel
 		MazeTexture skyTexture = Database.getInstance().getMazeTexture(
 			(String)initialSkyTexture.getSelectedItem());
 		
-		ImageGroup skyImage = new ImageGroup(
-			skyTexture.getTexture().getName(), 
-			skyTexture.getTexture().getImages(),
-			new String[]{skyTexture.getName()}, 
-			false);
-		
 		Map map = new Map(
 			length, 
 			width, 
-			textureSize, 
-			skyImage,
+			textureSize,
+			Arrays.binarySearch(textureArray, skyTexture.getTexture()),
 			Map.SkyTextureType.CYLINDER, // todo
 			tiles, 
 			textureArray, 
@@ -718,13 +712,7 @@ public class ZonePanel extends EditorPanel
 			MazeTexture txt = Database.getInstance().getMazeTexture(
 				(String)skyTexture.getSelectedItem());
 
-			ImageGroup skyImage = new ImageGroup(
-				txt.getTexture().getName(),
-				txt.getTexture().getImages(),
-				new String[]{txt.getName()},
-				false);
-
-			zone.getMap().setSkyImage(skyImage);
+			zone.getMap().setSkyTexture(txt.getTexture());
 			
 			if (isCustomZoneScript.isSelected())
 			{

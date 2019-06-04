@@ -77,10 +77,10 @@ public class DefaultZoneScript extends ZoneScript
 			//
 			// Sky texture change
 			//
-			int nrSkyImages = zone.getMap().getSkyImage().getImages().length;
+			int nrSkyImages = zone.getMap().getSkyTexture().getNrFrames();
 			int skyImageIndex = (int)((turnNr/turnsBetweenChange)%nrSkyImages);
 
-			zone.getMap().setCurrentSkyImage(skyImageIndex);
+			zone.getMap().getSkyTexture().setCurrentFrame(skyImageIndex);
 
 			//
 			// Light level adjustments

@@ -25,7 +25,7 @@ import java.awt.image.BufferedImage;
 /**
  *
  */
-public class Texture
+public class Texture implements Comparable<Texture>
 {
 	/** The number of different images in this texture */ 
 	int nrFrames;
@@ -88,6 +88,11 @@ public class Texture
 		return currentFrame;
 	}
 
+	public void setCurrentFrame(int currentFrame)
+	{
+		this.currentFrame = currentFrame;
+	}
+
 	public int[][] getImageData()
 	{
 		return imageData;
@@ -131,5 +136,11 @@ public class Texture
 			", nrFrames=" + nrFrames +
 			", currentFrame=" + currentFrame +
 			'}';
+	}
+
+	@Override
+	public int compareTo(Texture other)
+	{
+		return this.getName().compareTo(other.getName());
 	}
 }

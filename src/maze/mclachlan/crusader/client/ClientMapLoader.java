@@ -144,7 +144,7 @@ public class ClientMapLoader
 		int mapWidth = -1, mapLength = -1;
 		Tile[] tiles = null;
 		BufferedImage[] baseImages = null;
-		BufferedImage[] skyImage = null;
+		int skyTextureIndex = 0;
 		String[] imageNames = null;
 		Wall[] horizontalWalls = null, verticalWalls = null;
 		EngineObject[] objects = null;
@@ -190,9 +190,7 @@ public class ClientMapLoader
 					line = reader.readLine();
 				}
 				
-				imageNames = new String[list.size()];
-				list.toArray(imageNames);
-				skyImage = getImages(imageNames);
+				skyTextureIndex = Integer.valueOf((String)list.get(0));
 			}
 			else if (line.equalsIgnoreCase(TEXTURE_HEADER))
 			{
@@ -354,9 +352,7 @@ public class ClientMapLoader
 		reader.close();
 		
 		int baseImageSize = baseImages[0].getHeight();
-		ImageGroup skyImageGroup =
-			new ImageGroup(mapName+"_skyTexture", skyImage, null, false);
-		
+
 		if (objects == null)
 		{
 			objects = new EngineObject[0];
@@ -370,7 +366,7 @@ public class ClientMapLoader
 			mapLength,
 			mapWidth,
 			baseImageSize, 
-			skyImageGroup,
+			skyTextureIndex,
 			skyTextureType,
 			tiles,
 			textures,

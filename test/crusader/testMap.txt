@@ -20,9 +20,10 @@ skyTextureType: HIGH_CEILING
 12: ./test/crusader/img/wall128_7.png
 13: ./test/crusader/img/purple_haze.png
 14: ./test/crusader/img/masktest.png
+15: ./test/crusader/img/sky_5.png
 
 -sky image-
-0: ./test/crusader/img/sky_5.png
+0: 15
 
 -textures-
 0: 1,1,-1
@@ -40,6 +41,7 @@ skyTextureType: HIGH_CEILING
 12: 1,12,-1
 13: 1,13,-1
 14: 1,14,-1
+15: 1,15,-1
 
 -tiles-
 # floor texture, ceiling texture, light level

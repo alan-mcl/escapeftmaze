@@ -42,7 +42,7 @@ public class Map
 
 	/** @deprecated */
 	ImageGroup paletteImage;
-	ImageGroup skyImage;
+	int skyTextureIndex;
 	
 	Tile[] tiles;
 	Wall[] horizontalWalls;
@@ -76,8 +76,8 @@ public class Map
 	 * 	The width of the map (ie east-west), in grid blocks.
 	 * @param baseImageSize
 	 * 	The base width and height of images in this map (in pixels) 
-	 * @param skyImage
-	 * 	An image group containing the sky image.  Expected to be a single image.
+	 * @param skyTextureIndex
+	 * 	The sky texture.
 	 * @param tiles
 	 * 	The grid blocks in this map.  Wall data in this is ignored.
 	 * @param horizontalWalls
@@ -91,7 +91,7 @@ public class Map
 		int length, 
 		int width, 
 		int baseImageSize,
-		ImageGroup skyImage,
+		int skyTextureIndex,
 		SkyTextureType skyTextureType,
 		Tile[] tiles,
 		Texture[] textures,
@@ -103,7 +103,7 @@ public class Map
 		this.length = length;
 		this.width = width;
 		this.baseImageSize = baseImageSize;
-		this.skyImage = skyImage;
+		this.skyTextureIndex = skyTextureIndex;
 		this.skyTextureType = skyTextureType;
 		this.tiles = tiles;
 		this.textures = textures;
@@ -462,14 +462,24 @@ public class Map
 		return scripts;
 	}
 
-	public ImageGroup getSkyImage()
+	public int getSkyTextureIndex()
 	{
-		return skyImage;
+		return skyTextureIndex;
 	}
 
-	public void setSkyImage(ImageGroup skyImage)
+	public void setSkyTextureIndex(int skyTextureIndex)
 	{
-		this.skyImage = skyImage;
+		this.skyTextureIndex = skyTextureIndex;
+	}
+
+	public Texture getSkyTexture()
+	{
+		return textures[skyTextureIndex];
+	}
+
+	public void setSkyTexture(Texture txt)
+	{
+		skyTextureIndex = Arrays.binarySearch(textures, txt);
 	}
 
 	public Texture[] getTextures()

@@ -47,9 +47,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * First index: image nr <br>
 	 * Second index: indexed pixels of the image
 	 */ 
-	private int[][] skyImage;
-	private int skyTextureWidth, skyTextureHeight;
-	
+	private Texture skyImage;
+
 	/**
 	 * 
 	 */ 
@@ -938,10 +937,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			this.addTexture(texture);
 		}
 
-		this.skyImage = this.initImageGroup(map.skyImage);
-		
-		this.skyTextureWidth = map.skyImage.imageWidth;
-		this.skyTextureHeight = map.skyImage.imageHeight;
+		this.skyImage = this.textures[map.skyTextureIndex];
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2067,7 +2063,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */
 	private int getSkyPixel(int castArc, int screenY)
 	{
-		int[] skyImage = this.skyImage[map.currentSkyImage];
+		int[] skyImage = this.skyImage.getImageData()[this.skyImage.currentFrame];
 
 		int skyTextureX;
 		int skyTextureY;
@@ -2076,8 +2072,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		switch (map.skyTextureType)
 		{
 			case CYLINDER:
-				skyTextureX = castArc % skyTextureWidth;
-				skyTextureY = screenY * skyTextureHeight / playerHeight;
+				skyTextureX = castArc % this.skyImage.imageWidth;
+				skyTextureY = screenY * this.skyImage.imageHeight / playerHeight;
 				break;
 			case HIGH_CEILING:
 
@@ -2111,14 +2107,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int xIntersection = (int)(playerX + xDistance);
 				int yIntersection = (int)(playerY + yDistance);
 
-				skyTextureX = Math.abs(xIntersection % skyTextureWidth);
-				skyTextureY = Math.abs(yIntersection % skyTextureHeight);
+				skyTextureX = Math.abs(xIntersection % this.skyImage.imageWidth);
+				skyTextureY = Math.abs(yIntersection % this.skyImage.imageHeight);
 				break;
 			default:
 				throw new CrusaderException("invalid sky texture type: "+map.skyTextureType);
 		}
 
-		return skyImage[skyTextureX + skyTextureY * skyTextureWidth];
+		return skyImage[skyTextureX + skyTextureY * this.skyImage.imageWidth];
 	}
 
 	/*-------------------------------------------------------------------------*/

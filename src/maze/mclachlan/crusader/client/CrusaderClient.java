@@ -28,7 +28,7 @@ import java.io.File;
 import java.io.IOException;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.CrusaderEngine32;
-import mclachlan.crusader.CrusaderEngine8;
+import mclachlan.crusader.CrusaderException;
 import mclachlan.crusader.Map;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Loader;
@@ -92,17 +92,18 @@ public class CrusaderClient extends Frame
 
 		if (eight_bit_mode)
 		{
-			engine = new CrusaderEngine8(
-				getMap(),
-				MAZE_WIN_WIDTH,
-				MAZE_WIN_HEIGHT,
-				engineMode,
-				new Color(0,64,0),
-				doShading,
-				doLighting,
-				shadingDistance,
-				shadingMultiplier,
-				this);
+//			engine = new CrusaderEngine8(
+//				getMap(),
+//				MAZE_WIN_WIDTH,
+//				MAZE_WIN_HEIGHT,
+//				engineMode,
+//				new Color(0,64,0),
+//				doShading,
+//				doLighting,
+//				shadingDistance,
+//				shadingMultiplier,
+//				this);
+			throw new CrusaderException("8-bit engine no longer supported");
 		}
 		else
 		{

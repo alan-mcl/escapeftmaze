@@ -19,18 +19,18 @@
 
 package mclachlan.maze.data.v1;
 
-import mclachlan.crusader.*;
-import mclachlan.crusader.Tile;
-import mclachlan.crusader.Map;
+import java.awt.Color;
+import java.awt.Point;
 import java.io.*;
 import java.util.*;
-import java.util.List;
-import java.awt.image.BufferedImage;
-import java.awt.*;
-import mclachlan.maze.map.*;
-import mclachlan.maze.util.MazeException;
-import mclachlan.maze.data.MazeTexture;
+import mclachlan.crusader.Map;
+import mclachlan.crusader.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.map.Portal;
+import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.ZoneScript;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -70,6 +70,7 @@ public class V1Zone
 		String mapName = null;
 		int mapWidth = -1;
 		int mapLength = -1;
+		Texture skyTexture = null;
 		ZoneScript script = null;
 		Color shadeTargetColor;
 		Color transparentColor;
@@ -83,7 +84,6 @@ public class V1Zone
 		mclachlan.maze.map.Tile[][] mazeTiles = null;
 		Portal[] portals = null;
 		Tile[] crusaderTiles = null;
-		ImageGroup skyImage = null;
 		Wall[] horizontalWalls = null;
 		Wall[] verticalWalls = null;
 		EngineObject[] objects = null;
@@ -152,24 +152,8 @@ public class V1Zone
 			else if (line.equals(CRUSADER_SKY_IMG_HEADER))
 			{
 				p = getProperties(reader);
-				
-				// a bit of a hack, we're translating texture frames into
-				// an image group...
-				List<BufferedImage> list = new ArrayList<BufferedImage>();
-				List<String> names = new ArrayList<String>();
-				
 				MazeTexture texture = Database.getInstance().getMazeTexture(p.getProperty("0"));
-
-				List<String> imageResources = texture.getImageResources();
-				for (String s : imageResources)
-				{
-					list.add(Database.getInstance().getImage(s));
-					names.add(s);
-				}
-
-				BufferedImage[] images = list.toArray(new BufferedImage[list.size()]);
-				String[] imageNames = names.toArray(new String[names.size()]);
-				skyImage = new ImageGroup(texture.getName(), images, imageNames, false);
+				skyTexture = texture.getTexture();
 			}
 			else if (line.equals(CRUSADER_TILE_HEADER))
 			{
@@ -346,14 +330,27 @@ public class V1Zone
 		// hack to get image size
 		int baseImageSize = crusaderTiles[0].getFloorTexture().getImageHeight();
 
+		addTexture(skyTexture, textures);
+		Texture[] textureArray = textures.values().toArray(new Texture[textures.values().size()]);
+
+		int skyImageIndex = -1;
+		for (int i = 0; i < textureArray.length; i++)
+		{
+			if (textureArray[i].getName().equals(skyTexture.getName()))
+			{
+				skyImageIndex = i;
+				break;
+			}
+		}
+
 		Map crusaderMap = new Map(
 			mapLength,
 			mapWidth,
 			baseImageSize,
-			skyImage,
+			skyImageIndex,
 			Map.SkyTextureType.CYLINDER, // todo
 			crusaderTiles,
-			textures.values().toArray(new Texture[textures.values().size()]),
+			textureArray,
 			horizontalWalls,
 			verticalWalls,
 			objects,
@@ -440,7 +437,7 @@ public class V1Zone
 		Map map = zone.getMap();
 
 		writer.writeln(CRUSADER_SKY_IMG_HEADER);
-		writer.writeln(0+": "+ map.getSkyImage().getName());
+		writer.writeln(0+": "+ map.getSkyTexture().getName());
 		writer.writeln();
 
 		Tile[] tiles = map.getTiles();
