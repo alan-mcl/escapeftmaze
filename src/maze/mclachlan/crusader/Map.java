@@ -31,7 +31,7 @@ public class Map
 	 * Can be used in the place of a Tile texture index to indicate that there
 	 * should be no wall on that face.
 	 */ 
-	public static final Texture NO_WALL = new Texture("No_WAll",0, 0, null, -1);
+	public static final Texture NO_WALL = new Texture("No_WAll",0, 0, null, -1, null, -1);
 	
 	/** The width of this map (ie east-west), in grid blocks */
 	int width;

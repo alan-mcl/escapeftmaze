@@ -25,6 +25,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Properties;
+import mclachlan.crusader.Texture;
 import mclachlan.maze.data.MazeTexture;
 
 /**
@@ -95,6 +96,14 @@ public class V1MazeTexture
 			b.append("imageHeight=");
 			b.append(obj.getImageHeight());
 			b.append(V1Utils.NEWLINE);
+
+			b.append("scrollBehaviour=");
+			b.append(obj.getScrollBehaviour()==null ? "" : obj.getScrollBehaviour());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("scrollSpeed=");
+			b.append(obj.getScrollSpeed());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -116,7 +125,11 @@ public class V1MazeTexture
 			int animationDelay = Integer.parseInt(p.getProperty("animationDelay"));
 			int imageWidth = Integer.parseInt(p.getProperty("imageWidth"));
 			int imageHeight = Integer.parseInt(p.getProperty("imageHeight"));
-			return new MazeTexture(name, imageResources, imageWidth, imageHeight, animationDelay);
+			String scrollB = p.getProperty("scrollBehaviour");
+			Texture.ScrollBehaviour scrollBehaviour = scrollB.length() == 0
+				? null : Texture.ScrollBehaviour.valueOf(scrollB);
+			int scrollSpeed = Integer.parseInt(p.getProperty("scrollSpeed"));
+			return new MazeTexture(name, imageResources, imageWidth, imageHeight, animationDelay, scrollBehaviour, scrollSpeed);
 		}
 	}
 }

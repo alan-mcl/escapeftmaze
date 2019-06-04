@@ -202,19 +202,32 @@ public class ClientMapLoader
 					String texture = txtProp.getProperty(""+i);
 					String[] detail = texture.split(",");
 					int nrFrames = Integer.parseInt(detail[0]);
+					String scrollB = detail[1];
+					int scrollSpeed = Integer.parseInt(detail[2]);
 					BufferedImage[] frames = new BufferedImage[nrFrames];
 					for (int j = 0; j < frames.length; j++)
 					{
-						int frameNr = Integer.parseInt(detail[j+1]);
+						int frameNr = Integer.parseInt(detail[j+3]);
 						frames[j] = baseImages[frameNr];
 					}
 					int animDelay = Integer.parseInt(detail[detail.length-1]);
+
+					Texture.ScrollBehaviour scrollBehaviour = null;
+
+					if (scrollB.length() > 0)
+					{
+						scrollBehaviour = Texture.ScrollBehaviour.valueOf(scrollB);
+					}
+
+
 					textures[i] = new Texture(
 						mapName+"_texture_"+i,
 						frames[0].getWidth(),
 						frames[0].getHeight(),
 						frames, 
-						animDelay);
+						animDelay,
+						scrollBehaviour,
+						scrollSpeed);
 				}
 			}
 			else if (line.equalsIgnoreCase(TILE_HEADER))

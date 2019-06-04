@@ -44,14 +44,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private ColorModel colourModel = new CrusaderColourModel();
 	
 	/**
-	 * First index: image nr <br>
-	 * Second index: indexed pixels of the image
+	 * The texture to use for the sky.
 	 */ 
 	private Texture skyImage;
 
 	/**
-	 * 
-	 */ 
+	 * Textures in use in this map.
+	 */
 	private Texture[] textures;
 
 	/** The color to shade with */
@@ -85,7 +84,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private int mapLength;
 
 	/** The length of the edge of a tile, in units */
-	private static int TILE_SIZE;
+	public static int TILE_SIZE;
 	
 	/** width of the projection plane, in cast columns (ie pixels) */  
 	private int projectionPlaneWidth;
@@ -180,6 +179,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private Image displayImage;
 
 	private static Random r = new Random();
+	long timeNow;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -1622,7 +1622,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		Texture texture = blockHitRecord[column][depth].texture;
 		Texture maskTexture = blockHitRecord[column][depth].wall.maskTexture;
-		int[] image = texture.imageData[texture.currentFrame];
 
 		int lightLevel;
 		if (this.doLighting)
@@ -1677,14 +1676,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 					textureY = ((screenY+diff) * TILE_SIZE) / height;
 				}
 
-				int textureIndex = textureX + textureY * TILE_SIZE;
 				int colour;
 				if (maskTexture != null)
 				{
 					// use the mask texture instead of the wall texture
 					colour = alphaBlend(
-						texture.imageData[texture.currentFrame][textureIndex],
-						maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
+						texture.getCurrentImageData(textureX, textureY, timeNow),
+						maskTexture.getCurrentImageData(textureX, textureY, timeNow));
 
 					if (blockHitRecord[column][depth].wall.maskTextureMouseClickScript != null)
 					{
@@ -1695,7 +1693,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 				else
 				{
-					colour = image[textureIndex];
+					colour = texture.getCurrentImageData(textureX, textureY, timeNow);
 					this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column][depth].wall.mouseClickScript;
 				}
 
@@ -1830,16 +1828,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 
 					// draw the floor:
-					int textureIndex = textureX + textureY * TILE_SIZE;
 					if (maskTexture != null)
 					{
 						colour = alphaBlend(
-							texture.imageData[texture.currentFrame][textureIndex],
-							maskTexture.imageData[texture.currentFrame][textureIndex]);
+							texture.getCurrentImageData(textureX, textureY, timeNow),
+							maskTexture.getCurrentImageData(textureX, textureY, timeNow));
 					}
 					else
 					{
-						colour = texture.imageData[texture.currentFrame][textureIndex];
+						colour = texture.getCurrentImageData(textureX, textureY, timeNow);
 					}
 					pixel = colourPixel(colour, lightLevel, shadeMult);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
@@ -1996,16 +1993,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 					// draw the ceiling:
 					texture = map.tiles[mapIndex].ceilingTexture;
-					int textureIndex = textureX + textureY * TILE_SIZE;
 					if (maskTexture != null)
 					{
 						colour = alphaBlend(
-							texture.imageData[texture.currentFrame][textureIndex],
-							maskTexture.imageData[maskTexture.currentFrame][textureIndex]);
+							texture.getCurrentImageData(textureX, textureY, timeNow),
+							maskTexture.getCurrentImageData(textureX, textureY, timeNow));
 					}
 					else
 					{
-						colour = texture.imageData[texture.currentFrame][textureIndex];
+						colour = texture.getCurrentImageData(textureX, textureY, timeNow);
 					}
 
 					pixel = colourPixel(colour, lightLevel, shadeMult);
@@ -2063,8 +2059,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */
 	private int getSkyPixel(int castArc, int screenY)
 	{
-		int[] skyImage = this.skyImage.getImageData()[this.skyImage.currentFrame];
-
 		int skyTextureX;
 		int skyTextureY;
 
@@ -2114,7 +2108,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				throw new CrusaderException("invalid sky texture type: "+map.skyTextureType);
 		}
 
-		return skyImage[skyTextureX + skyTextureY * this.skyImage.imageWidth];
+		return this.skyImage.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2324,11 +2318,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
 				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
-					int[] image = obj.renderTexture.imageData[obj.currentTextureFrame];
 					int textureX = TILE_SIZE * (castColumn - obj.startScreenX) / obj.projectedObjectHeight;
 					int textureY = TILE_SIZE * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
 
-					int imagePixel = image[textureX + TILE_SIZE * textureY];
+					int imagePixel = obj.renderTexture.getCurrentImageData(textureX, textureY, timeNow);
 
 					int pixel = colourPixel(imagePixel, obj.adjustedLightLevel, obj.shadeMult);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
@@ -2572,18 +2565,18 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	private void animation()
 	{
-		long now = System.currentTimeMillis();
+		timeNow = System.currentTimeMillis();
 
 		for (Texture texture1 : textures)
 		{
-			if (now - texture1.lastChanged >= texture1.animationDelay)
+			if (timeNow - texture1.lastChanged >= texture1.animationDelay)
 			{
 				texture1.currentFrame++;
 				if (texture1.currentFrame >= texture1.nrFrames)
 				{
 					texture1.currentFrame = 0;
 				}
-				texture1.lastChanged = now;
+				texture1.lastChanged = timeNow;
 			}
 		}
 
@@ -2600,14 +2593,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 				texture = object.textures[object.northTexture];
 			}
 
-			if (now - object.textureLastChanged >= texture.animationDelay)
+			if (timeNow - object.textureLastChanged >= texture.animationDelay)
 			{
 				object.currentTextureFrame++;
 				if (object.currentTextureFrame >= texture.nrFrames)
 				{
 					object.currentTextureFrame = 0;
 				}
-				object.textureLastChanged = now;
+				object.textureLastChanged = timeNow;
 			}
 		}
 	}

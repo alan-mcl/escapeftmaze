@@ -40,15 +40,22 @@ public class Texture implements Comparable<Texture>
 	int[][] imageData;
 
 	private String name;
+
 	/** Width of all the images, in pixels */
 	public int imageWidth;
 	
 	/** Height of all the images, in pixels */
 	public int imageHeight;
 
+	/** Any scrolling behaviour on this texture, null if none */
+	ScrollBehaviour scrollBehaviour;
+
+	/** how fast the texture scrolls */
+	int scrollSpeed;
+
 	//
 	// Dodgy hack alert.  EngineObjects keep their own versions of these two so
-	// that their frames can change independantly.  These texture-wide counters
+	// that their frames can change independently.  These texture-wide counters
 	// are used by walls floors and ceilings
 	//
 
@@ -64,13 +71,17 @@ public class Texture implements Comparable<Texture>
 		int imageWidth,
 		int imageHeight,
 		BufferedImage[] frames,
-		int animationDelay)
+		int animationDelay,
+		ScrollBehaviour scrollBehaviour,
+		int textureScrollSpeed)
 	{
 		this.name = name;
 		this.imageWidth = imageWidth;
 		this.imageHeight = imageHeight;
 		this.animationDelay = animationDelay;
 		this.images = frames;
+		this.scrollBehaviour = scrollBehaviour;
+		this.scrollSpeed = textureScrollSpeed;
 		if (frames != null)
 		{
 			this.nrFrames = frames.length;
@@ -128,6 +139,62 @@ public class Texture implements Comparable<Texture>
 		return nrFrames;
 	}
 
+	public ScrollBehaviour getScrollBehaviour()
+	{
+		return scrollBehaviour;
+	}
+
+	public int getScrollSpeed()
+	{
+		return scrollSpeed;
+	}
+
+	public void setScrollBehaviour(
+		ScrollBehaviour scrollBehaviour)
+	{
+		this.scrollBehaviour = scrollBehaviour;
+	}
+
+	public void setScrollSpeed(int scrollSpeed)
+	{
+		this.scrollSpeed = scrollSpeed;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	Current image data, taking all frames and transformations into account
+	 */
+	public int getCurrentImageData(int textureX, int textureY, long timeNow)
+	{
+		if (scrollBehaviour == null || scrollBehaviour == ScrollBehaviour.NONE)
+		{
+			return imageData[currentFrame][textureX + textureY * imageWidth];
+		}
+
+		switch (scrollBehaviour)
+		{
+			case LEFT:
+				textureX = Math.abs((int)((textureX - (timeNow/ scrollSpeed)) % imageWidth));
+				break;
+			case RIGHT:
+				textureX = (int)((textureX + (timeNow/ scrollSpeed)) % imageWidth);
+				break;
+			case DOWN:
+				textureY = Math.abs((int)((textureY - (timeNow/ scrollSpeed)) % imageHeight));
+				break;
+			case UP:
+				textureY = (int)((textureY + (timeNow/ scrollSpeed)) % imageHeight);
+				break;
+			default:
+				throw new CrusaderException("invalid scroll behaviour: "+scrollBehaviour);
+		}
+
+		return imageData[currentFrame][textureX + textureY * imageWidth];
+	}
+
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public String toString()
 	{
@@ -138,9 +205,16 @@ public class Texture implements Comparable<Texture>
 			'}';
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public int compareTo(Texture other)
 	{
 		return this.getName().compareTo(other.getName());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public enum ScrollBehaviour
+	{
+		NONE, LEFT, RIGHT, UP, DOWN
 	}
 }

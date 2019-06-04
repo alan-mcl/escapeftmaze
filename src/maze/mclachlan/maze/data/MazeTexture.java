@@ -41,7 +41,9 @@ public class MazeTexture
 		List<String> imageResources,
 		int imageWidth,
 		int imageHeight,
-		int animationDelay)
+		int animationDelay,
+		Texture.ScrollBehaviour scrollBehaviour,
+		int scrollSpeed)
 	{
 		this.name = name;
 		this.imageResources = imageResources;
@@ -55,11 +57,11 @@ public class MazeTexture
 			images[i] = Database.getInstance().getImage(imageResources.get(i));
 		}
 
-		this.texture = new Texture(name, imageWidth, imageHeight, images, animationDelay);
+		this.texture = new Texture(name, imageWidth, imageHeight, images, animationDelay, scrollBehaviour, scrollSpeed);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public MazeTexture(
+	/*public MazeTexture(
 		String name,
 		List<String> imageResources,
 		int animationDelay)
@@ -78,7 +80,7 @@ public class MazeTexture
 		this.imageHeight = images[0].getHeight();
 
 		this.texture = new Texture(name, imageWidth, imageHeight, images, animationDelay);
-	}
+	}*/
 
 	/*-------------------------------------------------------------------------*/
 	public List<String> getImageResources()
@@ -141,6 +143,27 @@ public class MazeTexture
 	{
 		this.texture = texture;
 	}
-	
-	
+
+
+	public Texture.ScrollBehaviour getScrollBehaviour()
+	{
+		return this.texture.getScrollBehaviour();
+	}
+
+	public int getScrollSpeed()
+	{
+		return this.texture.getScrollSpeed();
+	}
+
+	public void setScrollBehaviour(
+		Texture.ScrollBehaviour scrollBehaviour)
+	{
+		this.texture.setScrollBehaviour(scrollBehaviour);
+	}
+
+	public void setScrollSpeed(int scrollSpeed)
+	{
+		this.texture.setScrollSpeed(scrollSpeed);
+	}
+
 }

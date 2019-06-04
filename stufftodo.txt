@@ -71,8 +71,6 @@ editor: resizing map
 editor: copying/renaming zones
 
 raycaster: wall height
-raycaster: better sky textures
-raycaster: scrolling textures
 
 --------------------------------------------
 IN PROGRESS
