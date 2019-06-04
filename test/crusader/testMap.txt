@@ -2,9 +2,7 @@
 name: NoName
 width: 16
 length: 32
-
-#-palette image-
-#0: ./img/proc/palette.png
+skyTextureType: HIGH_CEILING
 
 -base images-
 0: ./test/crusader/img/wall128_1.png
@@ -24,7 +22,7 @@ length: 32
 14: ./test/crusader/img/masktest.png
 
 -sky image-
-0: ./test/crusader/img/sky128_4.png
+0: ./test/crusader/img/sky_5.png
 
 -textures-
 0: 1,1,-1

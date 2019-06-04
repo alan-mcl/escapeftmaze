@@ -40,7 +40,8 @@ public class ClientMapLoader
 	public static final String MAP_WIDTH = "width";
 	public static final String MAP_LENGTH = "length";
 	public static final String MAP_IMG_SIZE = "imageSize";
-	
+	public static final String SKY_TEXTURE_TYPE = "skyTextureType";
+
 	public static final String BASE_IMG_HEADER = "-base images-";
 	public static final String SKY_IMG_HEADER = "-sky image-";
 	public static final String PALETTE_IMG_HEADER = "-palette image-";
@@ -139,10 +140,10 @@ public class ClientMapLoader
 		String line = reader.readLine();
 		
 		String mapName = null;
+		Map.SkyTextureType skyTextureType = null;
 		int mapWidth = -1, mapLength = -1;
 		Tile[] tiles = null;
 		BufferedImage[] baseImages = null;
-		BufferedImage[] paletteImage = null;
 		BufferedImage[] skyImage = null;
 		String[] imageNames = null;
 		Wall[] horizontalWalls = null, verticalWalls = null;
@@ -160,6 +161,7 @@ public class ClientMapLoader
 				mapName = mapProp.getProperty(MAP_NAME);
 				mapWidth = Integer.parseInt(mapProp.getProperty(MAP_WIDTH));
 				mapLength = Integer.parseInt(mapProp.getProperty(MAP_LENGTH));
+				skyTextureType = Map.SkyTextureType.valueOf(mapProp.getProperty(SKY_TEXTURE_TYPE));
 				foundHeader = true;
 			}
 			else if (line.equalsIgnoreCase(BASE_IMG_HEADER))
@@ -176,21 +178,6 @@ public class ClientMapLoader
 				imageNames = new String[list.size()];
 				list.toArray(imageNames);
 				baseImages = getImages(imageNames);
-			}
-			else if (line.equalsIgnoreCase(PALETTE_IMG_HEADER))
-			{
-				ArrayList list = new ArrayList();
-				line = reader.readLine();
-				while (!line.equals(""))
-				{
-					String[] detail = line.split(SEP);
-					list.add(detail[1]);
-					line = reader.readLine();
-				}
-				
-				imageNames = new String[list.size()];
-				list.toArray(imageNames);
-				paletteImage = getImages(imageNames);
 			}
 			else if (line.equalsIgnoreCase(SKY_IMG_HEADER))
 			{
@@ -367,8 +354,6 @@ public class ClientMapLoader
 		reader.close();
 		
 		int baseImageSize = baseImages[0].getHeight();
-//		ImageGroup paletteImageGroup = (paletteImage==null) ? null :
-//			new ImageGroup("palette", paletteImage, null, true);
 		ImageGroup skyImageGroup =
 			new ImageGroup(mapName+"_skyTexture", skyImage, null, false);
 		
@@ -385,8 +370,8 @@ public class ClientMapLoader
 			mapLength,
 			mapWidth,
 			baseImageSize, 
-			null,
 			skyImageGroup,
+			skyTextureType,
 			tiles,
 			textures,
 			horizontalWalls,

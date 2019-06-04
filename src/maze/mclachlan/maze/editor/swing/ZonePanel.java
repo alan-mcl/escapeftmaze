@@ -633,8 +633,8 @@ public class ZonePanel extends EditorPanel
 			length, 
 			width, 
 			textureSize, 
-			null,
-			skyImage, 
+			skyImage,
+			Map.SkyTextureType.CYLINDER, // todo
 			tiles, 
 			textureArray, 
 			horiz,

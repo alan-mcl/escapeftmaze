@@ -39,7 +39,8 @@ public class Map
 	int length;
 	/** The base width and height of images in this map (in pixels) */
 	int baseImageSize;
-	
+
+	/** @deprecated */
 	ImageGroup paletteImage;
 	ImageGroup skyImage;
 	
@@ -54,6 +55,15 @@ public class Map
 	
 	private final Object scriptMutex = new Object();
 	int currentSkyImage;
+	SkyTextureType skyTextureType;
+
+	public static enum SkyTextureType
+	{
+		/** sky texture is rendered as if it were a cylinder around the map */
+		CYLINDER,
+		/** sky texture is rendered as if it were a very high flat ceiling */
+		HIGH_CEILING
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -66,8 +76,6 @@ public class Map
 	 * 	The width of the map (ie east-west), in grid blocks.
 	 * @param baseImageSize
 	 * 	The base width and height of images in this map (in pixels) 
-	 * @param paletteImage
-	 * 	An image group containing the palette.  Expected to be a single image.
 	 * @param skyImage
 	 * 	An image group containing the sky image.  Expected to be a single image.
 	 * @param tiles
@@ -83,8 +91,8 @@ public class Map
 		int length, 
 		int width, 
 		int baseImageSize,
-		ImageGroup paletteImage,
 		ImageGroup skyImage,
+		SkyTextureType skyTextureType,
 		Tile[] tiles,
 		Texture[] textures,
 		Wall[] horizontalWalls,
@@ -95,8 +103,8 @@ public class Map
 		this.length = length;
 		this.width = width;
 		this.baseImageSize = baseImageSize;
-		this.paletteImage = paletteImage;
 		this.skyImage = skyImage;
+		this.skyTextureType = skyTextureType;
 		this.tiles = tiles;
 		this.textures = textures;
 		this.horizontalWalls = horizontalWalls;

@@ -350,8 +350,8 @@ public class V1Zone
 			mapLength,
 			mapWidth,
 			baseImageSize,
-			null,
 			skyImage,
+			Map.SkyTextureType.CYLINDER, // todo
 			crusaderTiles,
 			textures.values().toArray(new Texture[textures.values().size()]),
 			horizontalWalls,

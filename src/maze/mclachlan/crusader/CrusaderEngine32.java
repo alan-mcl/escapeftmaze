@@ -1925,7 +1925,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int mapIndex=0;
 		int textureX=0;
 		int textureY=0;
-		int[] skyImage;
 		int colour;
 		int pixel;
 		int lightLevel;
@@ -2013,16 +2012,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 						colour = texture.imageData[texture.currentFrame][textureIndex];
 					}
 
-					skyImage = this.skyImage[map.currentSkyImage];
-
-					// tile the sky texture horizontally
-					int skyTextureX = castArc % skyTextureWidth;
-					int skyTextureY = screenY * skyTextureHeight / playerHeight;
-
-					int skyPixel = skyImage[skyTextureX + skyTextureY * skyTextureWidth];
-
 					pixel = colourPixel(colour, lightLevel, shadeMult);
-					pixel = alphaBlend(skyPixel, pixel);
+
+					pixel = alphaBlend(getSkyPixel(castArc, screenY), pixel);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
 
 					outputBuffer[bufferIndex] = pixel;
@@ -2066,6 +2058,67 @@ public class CrusaderEngine32 implements CrusaderEngine
 		}
 
 		return hasAlpha;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return the sky pixel to render for the given cast arc and Y coord
+	 */
+	private int getSkyPixel(int castArc, int screenY)
+	{
+		int[] skyImage = this.skyImage[map.currentSkyImage];
+
+		int skyTextureX;
+		int skyTextureY;
+
+		// tile the sky texture as if were a giant cylinder around the map
+		switch (map.skyTextureType)
+		{
+			case CYLINDER:
+				skyTextureX = castArc % skyTextureWidth;
+				skyTextureY = screenY * skyTextureHeight / playerHeight;
+				break;
+			case HIGH_CEILING:
+
+				double heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
+
+				// this scaling makes the sky appear higher than normal
+				heightOnProjectionPlane /= 10;
+
+				double straightDistance = playerDistToProjectionPlane
+					* playerHeightInUnits / (float)(heightOnProjectionPlane);
+
+				int beta = playerArc - castArc;
+
+				if (beta < 0)
+				{
+					beta += ANGLE360;
+				}
+				else if (beta > ANGLE360)
+				{
+					beta -= ANGLE360;
+				}
+
+				double actualDistance = straightDistance / cosTable[beta];
+
+				// now we know that the ray intersects with the floor at an
+				// angle of (castArc) and a distance of (actualDistance)
+
+				double xDistance = actualDistance * cosTable[castArc];
+				double yDistance = actualDistance * sinTable[castArc];
+
+				int xIntersection = (int)(playerX + xDistance);
+				int yIntersection = (int)(playerY + yDistance);
+
+				skyTextureX = Math.abs(xIntersection % skyTextureWidth);
+				skyTextureY = Math.abs(yIntersection % skyTextureHeight);
+				break;
+			default:
+				throw new CrusaderException("invalid sky texture type: "+map.skyTextureType);
+		}
+
+		return skyImage[skyTextureX + skyTextureY * skyTextureWidth];
 	}
 
 	/*-------------------------------------------------------------------------*/

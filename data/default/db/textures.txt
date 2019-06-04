@@ -5,8 +5,8 @@ imageWidth=512
 imageHeight=512
 @
 name=WATER_2
-imageResources=crusader/scene/water_2_1,crusader/scene/water_2_2
-animationDelay=300
+imageResources=crusader/scene/water_2_1,crusader/scene/water_2_2,crusader/scene/water_2_3,crusader/scene/water_2_4,crusader/scene/water_2_5
+animationDelay=500
 imageWidth=512
 imageHeight=512
 @
