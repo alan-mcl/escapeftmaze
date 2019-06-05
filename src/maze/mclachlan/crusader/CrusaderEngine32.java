@@ -2101,8 +2101,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int xIntersection = (int)(playerX + xDistance);
 				int yIntersection = (int)(playerY + yDistance);
 
-				skyTextureX = Math.abs(xIntersection % this.skyImage.imageWidth);
-				skyTextureY = Math.abs(yIntersection % this.skyImage.imageHeight);
+				skyTextureX = xIntersection % this.skyImage.imageWidth;
+				skyTextureY = yIntersection % this.skyImage.imageHeight;
 				break;
 			default:
 				throw new CrusaderException("invalid sky texture type: "+map.skyTextureType);

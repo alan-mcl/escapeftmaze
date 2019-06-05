@@ -176,16 +176,20 @@ public class Texture implements Comparable<Texture>
 		switch (scrollBehaviour)
 		{
 			case LEFT:
-				textureX = Math.abs((int)((textureX - (timeNow/ scrollSpeed)) % imageWidth));
+				textureX = Math.abs((int)((textureX - (timeNow/scrollSpeed)) % imageWidth));
+				textureY = Math.abs(textureY);
 				break;
 			case RIGHT:
-				textureX = (int)((textureX + (timeNow/ scrollSpeed)) % imageWidth);
+				textureX = Math.abs((int)((textureX + (timeNow/scrollSpeed)) % imageWidth));
+				textureY = Math.abs(textureY);
 				break;
 			case DOWN:
-				textureY = Math.abs((int)((textureY - (timeNow/ scrollSpeed)) % imageHeight));
+				textureY = Math.abs((int)((textureY - (timeNow/scrollSpeed)) % imageHeight));
+				textureX = Math.abs(textureX);
 				break;
 			case UP:
-				textureY = (int)((textureY + (timeNow/ scrollSpeed)) % imageHeight);
+				textureY = Math.abs((int)((textureY + (timeNow/scrollSpeed)) % imageHeight));
+				textureX = Math.abs(textureX);
 				break;
 			default:
 				throw new CrusaderException("invalid scroll behaviour: "+scrollBehaviour);
