@@ -1034,100 +1034,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * This will render the scene and return it as a byte array.
-	 */
-	public int[] renderInternal()
-	{
-		synchronized(objectMutex)
-		{
-			//
-			// Render in vertical strips 1 pixel wide.
-			//
-			float castArc, castInc;
-
-			// field of view is PLAYER_FOV degree with the point of view
-			// (player's direction in the middle)
-			// We will trace the rays starting from the leftmost ray
-			castArc = playerArc-PLAYER_FOV_HALF;
-
-			// wrap around if necessary
-			if (castArc < 0)
-			{
-				castArc = ANGLE360 + castArc;
-			}
-
-			castInc = (float)PLAYER_FOV/(float)projectionPlaneWidth;
-
-			// execute any animations
-			this.animation();
-
-			// execute any map scripts
-			this.map.executeScripts(frameCount);
-
-			// init object state for rendering
-			initAndSortObjects();
-
-			// clear the render buffer
-			for (int i = 0; i < renderBuffer.length; i++)
-			{
-				renderBuffer[i] = 0x00000000;
-			}
-
-			// ray cast and render each column
-			for (int castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
-			{
-				this.rayCast(Math.round(castArc), castColumn);
-
-				for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
-				{
-					this.drawObjects(castColumn, depth);
-					if (!this.drawColumn(Math.round(castArc), castColumn, depth, renderBuffer))
-					{
-						break;
-					}
-				}
-
-				castArc += castInc;
-				if (castArc >= ANGLE360)
-				{
-					castArc -= ANGLE360;
-				}
-			}
-
-			this.frameCount++;
-		}
-		
-		return this.renderBuffer;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void drawObjects(int castColumn, int depth)
-	{
-		int objectCount = objects.length - 1;
-		for (; objectCount >= 0; objectCount--)
-		{
-			if (this.objects[objectCount].distance > 0 &&
-				this.objects[objectCount].apparentDistance < blockHitRecord[castColumn][depth].distance)
-			{
-				if (this.objects[objectCount].projectedObjectHeight > 0 &&
-					this.objects[objectCount].endScreenX > 0)
-				{
-					if (castColumn >= this.objects[objectCount].startScreenX &&
-						castColumn < this.objects[objectCount].endScreenX)
-					{
-						drawObjectColumn(this.objects[objectCount], renderBuffer, castColumn, depth);
-					}
-				}
-			}
-			else
-			{
-				break;
-			}
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
 	 * This method sets up the global variables in preparation for calling
 	 * {@link #drawColumn} to draw the column.
 	 *
@@ -1612,16 +1518,107 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean drawColumn(int castArc, int column, int depth, int[] outputBuffer)
+	/**
+	 * This will render the scene and return it as a byte array.
+	 */
+	public int[] renderInternal()
+	{
+		synchronized(objectMutex)
+		{
+			//
+			// Render in vertical strips 1 pixel wide.
+			//
+
+			// field of view is PLAYER_FOV degree with the point of view
+			// (player's direction in the middle)
+			// We will trace the rays starting from the leftmost ray
+			float castArc = playerArc-PLAYER_FOV_HALF;
+			// wrap around if necessary
+			if (castArc < 0)
+			{
+				castArc = ANGLE360 + castArc;
+			}
+			float castInc = (float)PLAYER_FOV/(float)projectionPlaneWidth;;
+
+			// execute any animations
+			this.animation();
+
+			// execute any map scripts
+			this.map.executeScripts(frameCount);
+
+			// init object state for rendering
+			initAndSortObjects();
+
+			// fill the render buffer with alpha
+			for (int i = 0; i < renderBuffer.length; i++)
+			{
+				renderBuffer[i] = 0x00000000;
+			}
+
+			// ray cast and render each column
+			for (int castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
+			{
+				this.rayCast(Math.round(castArc), castColumn);
+
+				for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
+				{
+					this.drawObjects(castColumn, depth);
+					if (!this.drawColumn(Math.round(castArc), castColumn, depth, renderBuffer))
+					{
+						break;
+					}
+				}
+
+				castArc += castInc;
+				if (castArc >= ANGLE360)
+				{
+					castArc -= ANGLE360;
+				}
+			}
+
+			this.frameCount++;
+		}
+
+		return this.renderBuffer;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawObjects(int castColumn, int depth)
+	{
+		int objectCount = objects.length - 1;
+		for (; objectCount >= 0; objectCount--)
+		{
+			if (this.objects[objectCount].distance > 0 &&
+				this.objects[objectCount].apparentDistance < blockHitRecord[castColumn][depth].distance)
+			{
+				if (this.objects[objectCount].projectedObjectHeight > 0 &&
+					this.objects[objectCount].endScreenX > 0)
+				{
+					if (castColumn >= this.objects[objectCount].startScreenX &&
+						castColumn < this.objects[objectCount].endScreenX)
+					{
+						drawObjectColumn(this.objects[objectCount], renderBuffer, castColumn, depth);
+					}
+				}
+			}
+			else
+			{
+				break;
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean drawColumn(int castArc, int screenX, int depth, int[] outputBuffer)
 	{
 		boolean hasAlpha = false;
 
-		int height;
-		height = blockHitRecord[column][depth].projectedWallHeight;
-		int blockHit = blockHitRecord[column][depth].blockHit;
+		int height = blockHitRecord[screenX][depth].projectedWallHeight;
+		int blockHit = blockHitRecord[screenX][depth].blockHit;
+		int wallHeight = blockHitRecord[screenX][depth].wall.height;
 
-		Texture texture = blockHitRecord[column][depth].texture;
-		Texture maskTexture = blockHitRecord[column][depth].wall.maskTexture;
+		Texture texture = blockHitRecord[screenX][depth].texture;
+		Texture maskTexture = blockHitRecord[screenX][depth].wall.maskTexture;
 
 		int lightLevel;
 		if (this.doLighting)
@@ -1637,15 +1634,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 		if (this.doShading)
 		{
 			// Shading: work out the effective light level for this wall slice
-			shadeMult = calcShadeMult(blockHitRecord[column][depth].distance, shadingDistance, shadingThickness);
+			shadeMult = calcShadeMult(blockHitRecord[screenX][depth].distance, shadingDistance, shadingThickness);
 		}
 
-		int top;
-		int bottom;
-		top = Math.max(playerHeight -(height/2) +projPlaneOffset, 0);
-		bottom = Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight);
+		int top = Math.max(playerHeight -(height/2) -(height*(wallHeight-1)) +projPlaneOffset, 0);
+		int bottom = Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight);
 
-		int textureX = blockHitRecord[column][depth].textureXRecord;
+		int textureX = blockHitRecord[screenX][depth].textureXRecord;
 
 		// todo: fix image mapping so this condition doesn't happen
 		if (textureX < 0)
@@ -1654,12 +1649,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 		}
 
 		int textureY = 0;
-
-		int screenX = column;
 		int screenY = top;
 
 		// todo: can probably be optomised
-		int diff = -(playerHeight -(height/2)) -projPlaneOffset;
+		int diff = -(playerHeight -(height/2) -(height*(wallHeight-1))) -projPlaneOffset;
 
 		while (screenY < bottom)
 		{
@@ -1684,17 +1677,17 @@ public class CrusaderEngine32 implements CrusaderEngine
 						texture.getCurrentImageData(textureX, textureY, timeNow),
 						maskTexture.getCurrentImageData(textureX, textureY, timeNow));
 
-					if (blockHitRecord[column][depth].wall.maskTextureMouseClickScript != null)
+					if (blockHitRecord[screenX][depth].wall.maskTextureMouseClickScript != null)
 					{
 						// use the mask texture mouse click script instead
 						this.mouseClickScriptRecords[bufferIndex] =
-							blockHitRecord[column][depth].wall.maskTextureMouseClickScript;
+							blockHitRecord[screenX][depth].wall.maskTextureMouseClickScript;
 					}
 				}
 				else
 				{
 					colour = texture.getCurrentImageData(textureX, textureY, timeNow);
-					this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[column][depth].wall.mouseClickScript;
+					this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[screenX][depth].wall.mouseClickScript;
 				}
 
 				int pixel = colourPixel(colour, lightLevel, shadeMult);
@@ -1712,11 +1705,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		if (bottom < projectionPlaneHeight)
 		{
-			hasAlpha |= drawFloor(castArc, column, height, depth, outputBuffer);
+			hasAlpha |= drawFloor(castArc, screenX, height, depth, bottom, outputBuffer);
 		}
 		if (top > 0)
 		{
-			hasAlpha |= drawCeiling(castArc, column, height, depth, outputBuffer);
+			hasAlpha |= drawCeiling(castArc, screenX, height, depth, top, outputBuffer);
 		}
 
 		return hasAlpha;
@@ -1730,12 +1723,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param wallHeight
 	 * @param outputBuffer
 	 */
-	private boolean drawFloor(int castArc, int column, int wallHeight, int depth,
+	private boolean drawFloor(
+		int castArc,
+		int column,
+		int wallHeight,
+		int depth,
+		int top,
 		int[] outputBuffer)
 	{
 		boolean hasAlpha = false;
 
-		int top = playerHeight + (wallHeight/2) +projPlaneOffset;
 		int bottom = projectionPlaneHeight;
 
 		int screenY = top;
@@ -1894,13 +1891,19 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param wallHeight
 	 * @param outputBuffer
 	 */
-	private boolean drawCeiling(int castArc, int column, int wallHeight, int depth,
+	private boolean drawCeiling(
+		int castArc,
+		int column,
+		int wallHeight,
+		int depth,
+		int bottom,
 		int[] outputBuffer)
 	{
 		boolean hasAlpha = false;
 
 		int top = 0;//halfProjectionPlaneHeight + (wallHeight/2);
-		int bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
+		// this is the bottom if the wall height is 1
+//		int height1bottom = playerHeight - (wallHeight/2) +projPlaneOffset;
 
 		int screenY = top;
 		int screenYInUnits=0;

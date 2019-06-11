@@ -208,7 +208,7 @@ public class V1Zone
 				horizontalWalls = new Wall[max];
 				for (int i = 0; i < horizontalWalls.length; i++)
 				{
-					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false, null, null);
+					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -224,7 +224,7 @@ public class V1Zone
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							:Database.getInstance().getMazeTexture(maskTexture).getTexture();
-						horizontalWalls[i] = new Wall(texture, mask, true, solid, mcs, mtmcs);
+						horizontalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);
@@ -239,7 +239,7 @@ public class V1Zone
 				verticalWalls = new Wall[max];
 				for (int i = 0; i < verticalWalls.length; i++)
 				{
-					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, null, null);
+					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -255,7 +255,7 @@ public class V1Zone
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							: Database.getInstance().getMazeTexture(maskTexture).getTexture();
-						verticalWalls[i] = new Wall(texture, mask, true, solid, mcs, mtmcs);
+						verticalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);

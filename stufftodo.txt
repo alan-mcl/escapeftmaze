@@ -71,6 +71,7 @@ editor: resizing map
 editor: copying/renaming zones
 
 raycaster: wall height
+raycaster: anti aliasing / mip mapping?
 
 --------------------------------------------
 IN PROGRESS

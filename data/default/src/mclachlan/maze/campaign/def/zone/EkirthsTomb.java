@@ -39,7 +39,7 @@ public class EkirthsTomb extends ZoneScript
 			MazeVariables.getBoolean(EkirthsTombGetselsBoneComb.BONE_COMB_USED))
 		{
 			zone.getMap().getVerticalWalls()[522] =
-				new Wall(mclachlan.crusader.Map.NO_WALL, null, false, false, null, null);
+				new Wall(mclachlan.crusader.Map.NO_WALL, null, false, false, 1, null, null);
 		}
 	}
 }

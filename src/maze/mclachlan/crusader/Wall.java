@@ -28,6 +28,8 @@ public class Wall
 	boolean visible;
 	/** True if this wall is solid and prevent*/
 	boolean solid;
+	/** height of this wall, in blocks */
+	int height;
 	/** The texture to map onto this wall*/
 	Texture texture;
 	/** Any texture to mask over this wall*/
@@ -47,6 +49,8 @@ public class Wall
 	 * 	True if this wall is visible
 	 * @param solid
 	 * 	True if this wall is solid and can't be moved through
+	 * @param height
+	 * 	Height of this wall in blocks
 	 * @param mouseClickScript
 	 * 	Any script to run when the user clicks on this wall
 	 * @param maskTextureMouseClickScript
@@ -57,9 +61,11 @@ public class Wall
 		Texture maskTexture, 
 		boolean visible,
 		boolean solid,
+		int height,
 		MouseClickScript mouseClickScript,
 		MouseClickScript maskTextureMouseClickScript)
 	{
+		this.height = height;
 		this.maskTextureMouseClickScript = maskTextureMouseClickScript;
 		this.mouseClickScript = mouseClickScript;
 		this.texture = texture;

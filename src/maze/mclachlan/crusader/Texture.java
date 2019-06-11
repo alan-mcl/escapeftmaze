@@ -168,31 +168,39 @@ public class Texture implements Comparable<Texture>
 	 */
 	public int getCurrentImageData(int textureX, int textureY, long timeNow)
 	{
-		if (scrollBehaviour == null || scrollBehaviour == ScrollBehaviour.NONE)
+		if (scrollBehaviour != null)
 		{
-			return imageData[currentFrame][textureX + textureY * imageWidth];
+			switch (scrollBehaviour)
+			{
+				case LEFT:
+					textureX = Math.abs((int)((textureX - (timeNow / scrollSpeed)) % imageWidth));
+					textureY = Math.abs(textureY);
+					break;
+				case RIGHT:
+					textureX = Math.abs((int)((textureX + (timeNow / scrollSpeed)) % imageWidth));
+					textureY = Math.abs(textureY);
+					break;
+				case DOWN:
+					textureY = Math.abs((int)((textureY - (timeNow / scrollSpeed)) % imageHeight));
+					textureX = Math.abs(textureX);
+					break;
+				case UP:
+					textureY = Math.abs((int)((textureY + (timeNow / scrollSpeed)) % imageHeight));
+					textureX = Math.abs(textureX);
+					break;
+				default:
+					throw new CrusaderException("invalid scroll behaviour: " + scrollBehaviour);
+			}
 		}
 
-		switch (scrollBehaviour)
+		if (textureX < 0 || textureX > imageWidth-1)
 		{
-			case LEFT:
-				textureX = Math.abs((int)((textureX - (timeNow/scrollSpeed)) % imageWidth));
-				textureY = Math.abs(textureY);
-				break;
-			case RIGHT:
-				textureX = Math.abs((int)((textureX + (timeNow/scrollSpeed)) % imageWidth));
-				textureY = Math.abs(textureY);
-				break;
-			case DOWN:
-				textureY = Math.abs((int)((textureY - (timeNow/scrollSpeed)) % imageHeight));
-				textureX = Math.abs(textureX);
-				break;
-			case UP:
-				textureY = Math.abs((int)((textureY + (timeNow/scrollSpeed)) % imageHeight));
-				textureX = Math.abs(textureX);
-				break;
-			default:
-				throw new CrusaderException("invalid scroll behaviour: "+scrollBehaviour);
+			textureX = Math.min(Math.abs(textureX % imageWidth), imageWidth-1);
+		}
+
+		if (textureY < 0 || textureY > imageHeight-1)
+		{
+			textureY = Math.min(Math.abs(textureY % imageHeight), imageHeight-1);
 		}
 
 		return imageData[currentFrame][textureX + textureY * imageWidth];

@@ -264,7 +264,7 @@ public class ClientMapLoader
 				horizontalWalls = new Wall[max];
 				for (int i = 0; i < horizontalWalls.length; i++)
 				{
-					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false,null, null);
+					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false,1, null, null);
 				}
 				
 				for (int i=0; i<max; i++)
@@ -276,7 +276,7 @@ public class ClientMapLoader
 						int textureNr = Integer.parseInt(wall[0]);
 						Texture texture = textures[textureNr];
 						Texture maskTexture = "".equals(wall[1]) ? null : textures[Integer.parseInt(wall[1])];
-						horizontalWalls[i] = new Wall(texture, maskTexture, true, true, null, null);
+						horizontalWalls[i] = new Wall(texture, maskTexture, true, true, 1, null, null);
 					}
 				}
 			}
@@ -292,7 +292,7 @@ public class ClientMapLoader
 				verticalWalls = new Wall[max];
 				for (int i = 0; i < verticalWalls.length; i++)
 				{
-					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, null, null);
+					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null);
 				}
 				
 				for (int i=0; i<max; i++)
@@ -304,7 +304,7 @@ public class ClientMapLoader
 						int textureNr = Integer.parseInt(wall[0]);
 						Texture texture = textures[textureNr];
 						Texture maskTexture = "".equals(wall[1]) ? null : textures[Integer.parseInt(wall[1])];
-						verticalWalls[i] = new Wall(texture, maskTexture, true, true, null, null);
+						verticalWalls[i] = new Wall(texture, maskTexture, true, true, 1, null, null);
 					}
 				}
 			}
