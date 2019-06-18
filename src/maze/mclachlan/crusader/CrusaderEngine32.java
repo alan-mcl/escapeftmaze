@@ -1569,6 +1569,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 				}
 
+				// render the sky
+				for (int i=0; i<projectionPlaneHeight; i++)
+				{
+					int bufferIndex = i + castColumn * projectionPlaneWidth;
+
+					renderBuffer[bufferIndex] = alphaBlend(getSkyPixel(Math.round(castArc), castColumn), renderBuffer[bufferIndex]);
+				}
+
 				castArc += castInc;
 				if (castArc >= ANGLE360)
 				{
@@ -1615,7 +1623,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int height = blockHitRecord[screenX][depth].projectedWallHeight;
 		int blockHit = blockHitRecord[screenX][depth].blockHit;
-		int wallHeight = blockHitRecord[screenX][depth].wall.height;
+//		int wallHeight = blockHitRecord[screenX][depth].wall.height;
+		int wallHeight = 2;
 
 		Texture texture = blockHitRecord[screenX][depth].texture;
 		Texture maskTexture = blockHitRecord[screenX][depth].wall.maskTexture;
@@ -1639,6 +1648,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int top = Math.max(playerHeight -(height/2) -(height*(wallHeight-1)) +projPlaneOffset, 0);
 		int bottom = Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight);
+		int ceilingTop = Math.max(playerHeight -(height/2) +projPlaneOffset, 0);
 
 		int textureX = blockHitRecord[screenX][depth].textureXRecord;
 
@@ -1653,6 +1663,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		// todo: can probably be optomised
 		int diff = -(playerHeight -(height/2) -(height*(wallHeight-1))) -projPlaneOffset;
+
+		if (ceilingTop > 0)
+		{
+			hasAlpha |= drawCeiling(castArc, screenX, height, depth, ceilingTop, outputBuffer);
+		}
 
 		while (screenY < bottom)
 		{
@@ -1706,10 +1721,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		if (bottom < projectionPlaneHeight)
 		{
 			hasAlpha |= drawFloor(castArc, screenX, height, depth, bottom, outputBuffer);
-		}
-		if (top > 0)
-		{
-			hasAlpha |= drawCeiling(castArc, screenX, height, depth, top, outputBuffer);
 		}
 
 		return hasAlpha;
@@ -1886,14 +1897,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Can Be Optomised
-	 *  @param column
+	 *  @param screenX
 	 * 	the column being drawn
 	 * @param wallHeight
 	 * @param outputBuffer
 	 */
 	private boolean drawCeiling(
 		int castArc,
-		int column,
+		int screenX,
 		int wallHeight,
 		int depth,
 		int bottom,
@@ -1924,6 +1935,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int colour;
 		int pixel;
 		int lightLevel;
+		int ceilingHeight;
 		Texture texture=null;
 		Texture maskTexture=null;
 
@@ -1931,54 +1943,69 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			try
 			{
-				int bufferIndex = column + screenY * projectionPlaneWidth;
+				int bufferIndex = screenX + screenY * projectionPlaneWidth;
+
+				heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
+
+				straightDistance = playerDistToProjectionPlane
+					* playerHeightInUnits / (float)(heightOnProjectionPlane);
+
+				beta = playerArc - castArc;
+
+				if (beta < 0)
+				{
+					beta += ANGLE360;
+				}
+				else if (beta > ANGLE360)
+				{
+					beta -= ANGLE360;
+				}
+
+				actualDistance = straightDistance / cosTable[beta];
+
+				// now we know that the ray intersects with the floor at an
+				// angle of (castArc) and a distance of (actualDistance)
+
+				xDistance = actualDistance * cosTable[castArc];
+				yDistance = actualDistance * sinTable[castArc];
+
+				xIntersection = (int)(playerX + xDistance);
+				yIntersection = (int)(playerY + yDistance);
+
+				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
+				xIntersection = Math.min(xIntersection, mapWidth * TILE_SIZE - 1);
+				yIntersection = Math.min(yIntersection, mapLength * TILE_SIZE - 1);
+				//---
+				xIntersection = Math.max(xIntersection, 0);
+				yIntersection = Math.max(yIntersection, 0);
+				//---
+
+				gridX = xIntersection / TILE_SIZE;
+				gridY = yIntersection / TILE_SIZE;
+				mapIndex = gridX + gridY * mapWidth;
+
+				textureX = Math.abs(xIntersection % TILE_SIZE);
+				textureY = Math.abs(yIntersection % TILE_SIZE);
+
+				texture = map.tiles[mapIndex].floorTexture;
+				maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
+				ceilingHeight = map.tiles[mapIndex].ceilingHeight;
+
+/*
+				if (ceilingHeight > 1)
+				{
+					int offsetUpwards = (ceilingHeight-1) * blockHitRecord[screenX][depth].projectedWallHeight;
+					bufferIndex = screenX + ((screenY-offsetUpwards)*projectionPlaneWidth);
+					if (bufferIndex < 0)
+					{
+						screenY++;
+						continue;
+					}
+				}
+*/
 
 				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
-					heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
-
-					straightDistance = playerDistToProjectionPlane
-						* playerHeightInUnits / (float)(heightOnProjectionPlane);
-
-					beta = playerArc - castArc;
-
-					if (beta < 0)
-					{
-						beta += ANGLE360;
-					}
-					else if (beta > ANGLE360)
-					{
-						beta -= ANGLE360;
-					}
-
-					actualDistance = straightDistance / cosTable[beta];
-
-					// now we know that the ray intersects with the floor at an
-					// angle of (castArc) and a distance of (actualDistance)
-
-					xDistance = actualDistance * cosTable[castArc];
-					yDistance = actualDistance * sinTable[castArc];
-
-					xIntersection = (int)(playerX + xDistance);
-					yIntersection = (int)(playerY + yDistance);
-
-					//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-					xIntersection = Math.min(xIntersection, mapWidth * TILE_SIZE - 1);
-					yIntersection = Math.min(yIntersection, mapLength * TILE_SIZE - 1);
-					//---
-					xIntersection = Math.max(xIntersection, 0);
-					yIntersection = Math.max(yIntersection, 0);
-					//---
-
-					gridX = xIntersection / TILE_SIZE;
-					gridY = yIntersection / TILE_SIZE;
-					mapIndex = gridX + gridY * mapWidth;
-
-					textureX = Math.abs(xIntersection % TILE_SIZE);
-					textureY = Math.abs(yIntersection % TILE_SIZE);
-
-					texture = map.tiles[mapIndex].floorTexture;
-					maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
 					if (this.doLighting)
 					{
 						lightLevel = map.tiles[mapIndex].currentLightLevel;
@@ -2009,7 +2036,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 					pixel = colourPixel(colour, lightLevel, shadeMult);
 
-					pixel = alphaBlend(getSkyPixel(castArc, screenY), pixel);
+//					pixel = alphaBlend(getSkyPixel(castArc, screenY), pixel);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
 
 					outputBuffer[bufferIndex] = pixel;
@@ -2030,7 +2057,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				log("playerArc = [" + playerArc + "]");
 				log("castArc = [" + castArc + "]");
 				log("wallHeight = [" + wallHeight + "]");
-				log("column = [" + column + "]");
+				log("column = [" + screenX + "]");
 				log("playerHeight = [" + this.playerHeight + "]");
 				log("playerHeightInUnits = [" + playerHeightInUnits + "]");
 				log("playerDistanceToTheProjectionPlane = [" + playerDistToProjectionPlane + "]");
@@ -2046,7 +2073,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				log("[gridX, gridY] = [" + gridX + ","+ gridY +"]");
 				log("[textureX, textureY] = [" + textureX + ","+ textureY +"]");
 				log("mapIndex = [" + mapIndex + "]");
-				log("blockHitRecord[column][0] = " + blockHitRecord[column][0]);
+				log("blockHitRecord[column][0] = " + blockHitRecord[screenX][0]);
 
 				throw e;
 			}

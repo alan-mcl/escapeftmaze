@@ -587,7 +587,18 @@ public class ZonePanel extends EditorPanel
 		Tile[] tiles = new Tile[length*width];
 		for (int i = 0; i < tiles.length; i++)
 		{
-			tiles[i] = new Tile(ceiling, null, floor, null, walls, walls, walls, walls, false, 32);
+			tiles[i] = new Tile(
+				ceiling,
+				null,
+				floor,
+				null,
+				walls,
+				walls,
+				walls,
+				walls,
+				false,
+				32,
+				1);
 		}
 		Texture[] textureArray = 
 			{

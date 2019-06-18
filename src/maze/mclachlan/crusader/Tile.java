@@ -35,6 +35,7 @@ public class Tile
 	boolean hasWalls;
 	int lightLevel;
 	int currentLightLevel;
+	int ceilingHeight;
 
 	/*-------------------------------------------------------------------------*/
 	public Tile(
@@ -47,7 +48,8 @@ public class Tile
 		Texture eastWallTexture,
 		Texture westWallTexture,
 		boolean hasWalls,
-		int lightLevel)
+		int lightLevel,
+		int ceilingHeight)
 	{
 		this.ceilingTexture = ceilingTexture;
 		this.ceilingMaskTexture = ceilingMaskTexture;
@@ -78,7 +80,8 @@ public class Tile
 			Map.NO_WALL,
 			Map.NO_WALL,
 			false,
-			lightLevel);
+			lightLevel,
+			1);
 	}
 
 	public Texture getNorthWallTexture()
@@ -164,5 +167,15 @@ public class Tile
 	public void setCeilingMaskTexture(Texture ceilingMaskTexture)
 	{
 		this.ceilingMaskTexture = ceilingMaskTexture;
+	}
+
+	public int getCeilingHeight()
+	{
+		return ceilingHeight;
+	}
+
+	public void setCeilingHeight(int ceilingHeight)
+	{
+		this.ceilingHeight = ceilingHeight;
 	}
 }

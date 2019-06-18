@@ -192,7 +192,8 @@ public class V1Zone
 						Map.NO_WALL,
 						Map.NO_WALL,
 						false,
-						lightLevel);
+						lightLevel,
+						1);
 
 					addTexture(ceilingTexture, textures);
 					addTexture(ceilingMaskTexture, textures);
