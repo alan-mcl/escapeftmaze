@@ -1533,6 +1533,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// (player's direction in the middle)
 			// We will trace the rays starting from the leftmost ray
 			float castArc = playerArc-PLAYER_FOV_HALF;
+
 			// wrap around if necessary
 			if (castArc < 0)
 			{
@@ -1570,11 +1571,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 
 				// render the sky
-				for (int i=0; i<projectionPlaneHeight; i++)
+				for (int screenY=0; screenY<projectionPlaneHeight; screenY++)
 				{
-					int bufferIndex = i + castColumn * projectionPlaneWidth;
+					int bufferIndex = castColumn + screenY * projectionPlaneWidth;
 
-					renderBuffer[bufferIndex] = alphaBlend(getSkyPixel(Math.round(castArc), castColumn), renderBuffer[bufferIndex]);
+					if (hasAlpha(renderBuffer[bufferIndex]))
+					{
+						renderBuffer[bufferIndex] = alphaBlend(
+							getSkyPixel(Math.round(castArc), screenY),
+							renderBuffer[bufferIndex]);
+					}
 				}
 
 				castArc += castInc;
@@ -1623,8 +1629,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int height = blockHitRecord[screenX][depth].projectedWallHeight;
 		int blockHit = blockHitRecord[screenX][depth].blockHit;
-//		int wallHeight = blockHitRecord[screenX][depth].wall.height;
-		int wallHeight = 2;
+		int wallHeight = blockHitRecord[screenX][depth].wall.height;
 
 		Texture texture = blockHitRecord[screenX][depth].texture;
 		Texture maskTexture = blockHitRecord[screenX][depth].wall.maskTexture;

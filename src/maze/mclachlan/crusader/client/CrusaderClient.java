@@ -172,7 +172,7 @@ public class CrusaderClient extends Frame
 		DisplayMode dm = new DisplayMode(
 				SCREEN_WIDTH,
 				SCREEN_HEIGHT,
-				DisplayMode.BIT_DEPTH_MULTI,
+				32,
 				DisplayMode.REFRESH_RATE_UNKNOWN);
 		System.out.println("Using display mode: " + dm);
 		device.setDisplayMode(dm);
