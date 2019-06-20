@@ -19,10 +19,8 @@ Features
  - Acolyte abilities: Beyond Insanity, Cursed Power
  - Druid abilities: Attune with Nature, Power Summon: Plant, Power Summon: Beast
  - Enchanter abilities: Power Summon: Illusion, Power Summon: Fey, Reverse Glamour
- - Crusader engine: wall texture transparencies
- - Crusader engine: walls that are visible but not solid
- - Crusader engine: tiled "high ceiling" sky texture
- - Crusader engine: scrolling textures
+ - Crusader engine: wall texture transparencies, walls that are visible but not solid,
+   tiled "high ceiling" sky texture, scrolling textures, wall height
 
 Other
  - Refactoring action point regen to be consistent with other resources

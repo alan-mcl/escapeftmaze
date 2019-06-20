@@ -70,7 +70,7 @@ editor: proper dynamic FK support, aka cascading rename & delete
 editor: resizing map
 editor: copying/renaming zones
 
-raycaster: wall height
+raycaster: ceiling height
 raycaster: anti aliasing / mip mapping?
 
 --------------------------------------------

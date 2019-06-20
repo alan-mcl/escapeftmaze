@@ -1211,8 +1211,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// correct distance (compensate for the fishbowl effect)
 			blockHitRecord[castColumn][depth].distance /= fishbowlTable[castColumn];
 
-			blockHitRecord[castColumn][depth].projectedWallHeight = (int)(TILE_SIZE *
-				(float)playerDistToProjectionPlane / blockHitRecord[castColumn][depth].distance);
+			blockHitRecord[castColumn][depth].projectedWallHeight = TILE_SIZE *
+				(float)playerDistToProjectionPlane / blockHitRecord[castColumn][depth].distance;
 		}
 		catch (NullPointerException x)
 		{
@@ -1627,7 +1627,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		boolean hasAlpha = false;
 
-		int height = blockHitRecord[screenX][depth].projectedWallHeight;
+		float height = blockHitRecord[screenX][depth].projectedWallHeight;
 		int blockHit = blockHitRecord[screenX][depth].blockHit;
 		int wallHeight = blockHitRecord[screenX][depth].wall.height;
 
@@ -1651,9 +1651,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 			shadeMult = calcShadeMult(blockHitRecord[screenX][depth].distance, shadingDistance, shadingThickness);
 		}
 
-		int top = Math.max(playerHeight -(height/2) -(height*(wallHeight-1)) +projPlaneOffset, 0);
-		int bottom = Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight);
-		int ceilingTop = Math.max(playerHeight -(height/2) +projPlaneOffset, 0);
+		int top = Math.round(Math.max(playerHeight -(height/2) -(height*(wallHeight-1)) +projPlaneOffset, 0));
+		int bottom = Math.round(Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight));
+		int ceilingTop = Math.round(Math.max(playerHeight -(height/2) +projPlaneOffset, 0));
 
 		int textureX = blockHitRecord[screenX][depth].textureXRecord;
 
@@ -1667,7 +1667,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int screenY = top;
 
 		// todo: can probably be optomised
-		int diff = -(playerHeight -(height/2) -(height*(wallHeight-1))) -projPlaneOffset;
+		float diff = -(playerHeight -(height/2) -(height*(wallHeight-1))) -projPlaneOffset;
 
 		if (ceilingTop > 0)
 		{
@@ -1682,11 +1682,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				if (diff <= 0)
 				{
-					textureY = ((screenY-top) * TILE_SIZE) / height;
+					textureY = Math.round(((screenY-top) * TILE_SIZE) / height);
 				}
 				else
 				{
-					textureY = ((screenY+diff) * TILE_SIZE) / height;
+					textureY = Math.round(((screenY+diff) * TILE_SIZE) / height);
 				}
 
 				int colour;
@@ -1742,7 +1742,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private boolean drawFloor(
 		int castArc,
 		int column,
-		int wallHeight,
+		float wallHeight,
 		int depth,
 		int top,
 		int[] outputBuffer)
@@ -1910,7 +1910,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private boolean drawCeiling(
 		int castArc,
 		int screenX,
-		int wallHeight,
+		float wallHeight,
 		int depth,
 		int bottom,
 		int[] outputBuffer)
@@ -2696,7 +2696,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		Texture texture;
 		int textureXRecord, textureYRecord;
 		float distance;
-		int projectedWallHeight;
+		float projectedWallHeight;
 		Wall wall;
 
 		/**

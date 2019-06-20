@@ -1,1 +1,1 @@
-"c:\program files\java\jdk1.8.0_45\bin\java" -classpath build\classes mclachlan.crusader.client.CrusaderClient %*
+"%JAVA_HOME%\bin\java" -classpath build\classes mclachlan.crusader.client.CrusaderClient %*
