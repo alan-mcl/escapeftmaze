@@ -1411,6 +1411,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			zone.doLighting(),
 			zone.getShadingDistance(),
 			zone.getShadingMultiplier(),
+			CrusaderEngine.AntiAliasing.NONE,
 			zone.getProjectionPlaneOffset(),
 			zone.getPlayerFieldOfView(),
 			zone.getScaleDistFromProjPlane(),

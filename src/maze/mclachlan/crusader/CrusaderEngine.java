@@ -31,8 +31,8 @@ public interface CrusaderEngine
 	 *  The maximum light level
 	 */
 	public byte MAX_LIGHT_LEVEL = 64;
-	
-	/** 
+
+	/**
 	 * The normal light level. Pixels rendered at this light level will have
 	 * the same colour as in their source texture.
 	 */
@@ -60,15 +60,15 @@ public interface CrusaderEngine
 	 * @return
 	 * 	The X and Y coordinates of the player in the map grid (not in the
 	 * 	ray caster's internal coordiantes)
-	 */ 
+	 */
 	public Point getPlayerPos();
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
-	 * 	In discrete mode, returns a constant from {@link Facing}.  In 
+	 * 	In discrete mode, returns a constant from {@link Facing}.  In
 	 * 	continuous mode, returns the player's facing
-	 */ 
+	 */
 	public int getPlayerFacing();
 
 	/*-------------------------------------------------------------------------*/
@@ -110,7 +110,7 @@ public interface CrusaderEngine
 	/**
 	 * Removes the given object from the map and returns it.
 	 * If the object does not exist in the map this method returns null.
-	 */ 
+	 */
 	public EngineObject removeObject(EngineObject obj);
 
 	/*-------------------------------------------------------------------------*/
@@ -118,45 +118,45 @@ public interface CrusaderEngine
 	 * Removes all objects with the given name from the map and returns a list
 	 * of them.
 	 * If no objects exist in the map with this name this method returns an
-	 * empty list. 
+	 * empty list.
 	 */
 	public List<EngineObject> removeObject(String objectName);
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Adds the given object to the scene.  The objects coordinates are required 
+	 * Adds the given object to the scene.  The objects coordinates are required
 	 * to be set up.
-	 */ 
+	 */
 	public void addObject(EngineObject obj);
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void addObject(EngineObject obj, boolean setup);
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Adds the given object to the scene in front of the player.
-	 * 
+	 *
 	 * @param obj
 	 * 	The object to add
 	 * @param distance
 	 * 	The distance in front of the player, expressed as a multiple of TILE_SIZE.
 	 * @param arcOffset
-	 * 	The angle of view to add, expressed as a fraction of the PLAYER_FOV.  
-	 * 	0.0 will add the object on the left edge of the screen, 1.0 will add 
+	 * 	The angle of view to add, expressed as a fraction of the PLAYER_FOV.
+	 * 	0.0 will add the object on the left edge of the screen, 1.0 will add
 	 * 	it on the right edge.
 	 * @param randomStartingFrame
 	 * 	Set to true if the object begins with a random starting frame of
 	 * 	animation
-	 */ 
+	 */
 	public void addObjectInFrontOfPlayer(
-		EngineObject obj, 
-		double distance, 
+		EngineObject obj,
+		double distance,
 		double arcOffset,
 		boolean randomStartingFrame);
 
 	/*-------------------------------------------------------------------------*/
 	public void addScript(MapScript script);
-	
+
 	/*-------------------------------------------------------------------------*/
 	public MapScript removeScript(MapScript script);
 
@@ -168,8 +168,8 @@ public interface CrusaderEngine
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * X and Y coords are in screen coords: ie, (0,0) is the top left of the 
-	 * maze windows, position [0] in the render buffer 
+	 * X and Y coords are in screen coords: ie, (0,0) is the top left of the
+	 * maze windows, position [0] in the render buffer
 	 */
 	void handleMouseClick(int x, int y);
 
@@ -196,10 +196,10 @@ public interface CrusaderEngine
 		int playerArc;
 
 		public PlayerStatus(
-			int playerX, 
-			int playerY, 
-			int playerArc, 
-			Point position, 
+			int playerX,
+			int playerY,
+			int playerArc,
+			Point position,
 			int facing,
 			boolean willPassThroughWall)
 		{
@@ -251,7 +251,19 @@ public interface CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	public static class ColourMode
 	{
-		public static final int EIGHT_BIT = 1;	
-		public static final int THIRTY_TWO_BIT = 2;	
+		public static final int EIGHT_BIT = 1;
+		public static final int THIRTY_TWO_BIT = 2;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	enum AntiAliasing
+	{
+		NONE,
+		DEFAULT,
+		BOX_SMOOTH,
+		BOX_SHARPEN,
+		BOX_RAISED,
+		BOX_MOTION_BLUR,
+		BOX_EDGE_DETECT,
 	}
 }

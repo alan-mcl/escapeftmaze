@@ -37,7 +37,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * Container for tiles, textures and map information.
 	 */
 	private Map map;
-	
+
 	/**
 	 * Helper class for colour-management.  
 	 */ 
@@ -72,6 +72,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private final Object objectMutex = new Object();
 
 	private boolean doShading, doLighting;
+	private PostProcessor postProcessor;
 	
 	/**
 	 * The pixels that the engine returns to the outside world.
@@ -129,7 +130,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private float[] iCosTable;
 	private float[] tanTable;
 	private float[] iTanTable;
-	static float[] fishbowlTable;
+	private static float[] fishbowlTable;
 	
 	/** Pre-calc block step table, indexed on angle expressed in cast columns (ie pixels)*/
 	private float[] xStepTable;
@@ -179,7 +180,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private Image displayImage;
 
 	private static Random r = new Random();
-	long timeNow;
+	private long timeNow;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -223,6 +224,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		boolean doLighting,
 		double shadingDistance,
 		double shadingMultiplier,
+		AntiAliasing antiAliasing,
 		int projectionPlaneOffset,
 		int playerFieldOfView,
 		double scaleDistFromProjPlane,
@@ -255,6 +257,31 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		this.doLighting = doLighting;
 		this.doShading = doShading;
+		switch (antiAliasing)
+		{
+			case DEFAULT:
+			case NONE:
+				postProcessor = null;
+				break;
+			case BOX_SMOOTH:
+				postProcessor = new BoxFilter(new float[]{1,1,1,1,2,1,1,1,1});
+				break;
+			case BOX_SHARPEN:
+				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,9,-1,-1,-1,-1});
+				break;
+			case BOX_RAISED:
+				postProcessor = new BoxFilter(new float[]{0,0,-2,0,2,0,1,0,0});
+				break;
+			case BOX_MOTION_BLUR:
+				postProcessor = new BoxFilter(new float[]{0,0,1,0,0,0,1,0,0});
+				break;
+			case BOX_EDGE_DETECT:
+//				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,8,-1,-1,-1,-1});
+				postProcessor = new BoxFilter(new float[]{0,1,0,1,-4,1,0,1,0});
+				break;
+			default:
+				throw new CrusaderException("Invalid: "+antiAliasing);
+		}
 
 		this.renderBuffer = new int[screenWidth * screenHeight];
 		this.mouseClickScriptRecords = new MouseClickScript[screenWidth * screenHeight];
@@ -1557,23 +1584,23 @@ public class CrusaderEngine32 implements CrusaderEngine
 			}
 
 			// ray cast and render each column
-			for (int castColumn = 0; castColumn < projectionPlaneWidth; castColumn++)
+			for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
 			{
-				this.rayCast(Math.round(castArc), castColumn);
+				this.rayCast(Math.round(castArc), screenX);
 
 				for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
 				{
-					this.drawObjects(castColumn, depth);
-					if (!this.drawColumn(Math.round(castArc), castColumn, depth, renderBuffer))
+					this.drawObjects(screenX, depth);
+					if (!this.drawColumn(Math.round(castArc), screenX, depth, renderBuffer))
 					{
 						break;
 					}
 				}
 
 				// render the sky
-				for (int screenY=0; screenY<projectionPlaneHeight; screenY++)
+				for (int screenY=0; screenY < projectionPlaneHeight; screenY++)
 				{
-					int bufferIndex = castColumn + screenY * projectionPlaneWidth;
+					int bufferIndex = screenX + screenY * projectionPlaneWidth;
 
 					if (hasAlpha(renderBuffer[bufferIndex]))
 					{
@@ -1588,6 +1615,20 @@ public class CrusaderEngine32 implements CrusaderEngine
 				{
 					castArc -= ANGLE360;
 				}
+			}
+
+			// anti aliasing pass
+			if (postProcessor != null)
+			{
+				System.arraycopy(
+					postProcessor.process(
+						renderBuffer,
+						projectionPlaneWidth,
+						projectionPlaneHeight),
+					0,
+					renderBuffer,
+					0,
+					renderBuffer.length);
 			}
 
 			this.frameCount++;
@@ -1996,19 +2037,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 				maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
 				ceilingHeight = map.tiles[mapIndex].ceilingHeight;
 
-/*
-				if (ceilingHeight > 1)
-				{
-					int offsetUpwards = (ceilingHeight-1) * blockHitRecord[screenX][depth].projectedWallHeight;
-					bufferIndex = screenX + ((screenY-offsetUpwards)*projectionPlaneWidth);
-					if (bufferIndex < 0)
-					{
-						screenY++;
-						continue;
-					}
-				}
-*/
-
 				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
 					if (this.doLighting)
@@ -2040,8 +2068,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 
 					pixel = colourPixel(colour, lightLevel, shadeMult);
-
-//					pixel = alphaBlend(getSkyPixel(castArc, screenY), pixel);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
 
 					outputBuffer[bufferIndex] = pixel;

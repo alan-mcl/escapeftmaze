@@ -75,7 +75,8 @@ public class CrusaderClient extends Frame
 	private boolean doLighting = true;
 	private double shadingDistance = 4.0;
 	private double shadingMultiplier = 4.0;
-//	private String mapFile = "../maze/data/test/arena/testMap.txt";
+	private CrusaderEngine.AntiAliasing antiAliasing = CrusaderEngine.AntiAliasing.DEFAULT;
+	//	private String mapFile = "../maze/data/test/arena/testMap.txt";
 	private String mapFile = "test/crusader/testMap.txt";
 	private boolean eight_bit_mode = false;
 	private String mazeMap;
@@ -119,6 +120,7 @@ public class CrusaderClient extends Frame
 					doLighting,
 					shadingDistance,
 					shadingMultiplier,
+					antiAliasing,
 					0,
 					CrusaderEngine.FieldOfView.FOV_60_DEGREES,
 					1.0,
@@ -145,6 +147,7 @@ public class CrusaderClient extends Frame
 					zone.doLighting(),
 					zone.getShadingDistance(),
 					zone.getShadingMultiplier(),
+					antiAliasing,
 					zone.getProjectionPlaneOffset(),
 					zone.getPlayerFieldOfView(),
 					zone.getScaleDistFromProjPlane(),
@@ -225,6 +228,34 @@ public class CrusaderClient extends Frame
 			else if (arg.equalsIgnoreCase("-mazeMap"))
 			{
 				this.mazeMap = args[++i];
+			}
+			else if (arg.startsWith("-aa:"))
+			{
+				String aa = arg.substring(arg.indexOf(':')+1);
+				if (aa.equalsIgnoreCase("smooth"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.BOX_SMOOTH;
+				}
+				else if (aa.equalsIgnoreCase("sharpen"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.BOX_SHARPEN;
+				}
+				else if (aa.equalsIgnoreCase("raised"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.BOX_RAISED;
+				}
+				else if (aa.equalsIgnoreCase("motion"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.BOX_MOTION_BLUR;
+				}
+				else if (aa.equalsIgnoreCase("edge"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.BOX_EDGE_DETECT;
+				}
+				else
+				{
+					throw new CrusaderException("invalid aa arg: ["+aa+"]");
+				}
 			}
 		}
 	}

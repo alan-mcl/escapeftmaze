@@ -71,7 +71,9 @@ editor: resizing map
 editor: copying/renaming zones
 
 raycaster: ceiling height
-raycaster: anti aliasing / mip mapping?
+raycaster: anti aliasing: FXAA: 
+ - http://developer.download.nvidia.com/assets/gamedev/files/sdk/11/FXAA_WhitePaper.pdf
+ - https://gist.github.com/kosua20/0c506b81b3812ac900048059d2383126
 
 --------------------------------------------
 IN PROGRESS
