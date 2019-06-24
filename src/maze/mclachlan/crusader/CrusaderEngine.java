@@ -266,5 +266,6 @@ public interface CrusaderEngine
 		BOX_MOTION_BLUR,
 		BOX_EDGE_DETECT,
 		BOX_EMBOSS,
+		FXAA,
 	}
 }

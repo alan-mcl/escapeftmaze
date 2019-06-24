@@ -5,5 +5,5 @@ package mclachlan.crusader;
  */
 public interface PostProcessor
 {
-	int[] process(int[] renderBuffer, int width, int height);
+	int[] process(int[] renderBuffer);
 }

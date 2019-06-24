@@ -256,6 +256,14 @@ public class CrusaderClient extends Frame
 				{
 					antiAliasing = CrusaderEngine.AntiAliasing.BOX_EMBOSS;
 				}
+				else if (aa.equalsIgnoreCase("fxaa"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.FXAA;
+				}
+				else if (aa.equalsIgnoreCase("none"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.NONE;
+				}
 				else
 				{
 					throw new CrusaderException("invalid filter arg: ["+aa+"]");

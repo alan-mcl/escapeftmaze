@@ -259,28 +259,36 @@ public class CrusaderEngine32 implements CrusaderEngine
 		this.doShading = doShading;
 		switch (antiAliasing)
 		{
-			case DEFAULT:
 			case NONE:
 				postProcessor = null;
 				break;
 			case BOX_SMOOTH:
-				postProcessor = new BoxFilter(new float[]{1,1,1,1,2,1,1,1,1});
+				postProcessor = new BoxFilter(new float[]{1,1,1,1,2,1,1,1,1},
+					projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			case BOX_SHARPEN:
-				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,9,-1,-1,-1,-1});
+				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,9,-1,-1,-1,-1},
+					projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			case BOX_RAISED:
-				postProcessor = new BoxFilter(new float[]{0,0,-2,0,2,0,1,0,0});
+				postProcessor = new BoxFilter(new float[]{0,0,-2,0,2,0,1,0,0},
+					projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			case BOX_MOTION_BLUR:
-				postProcessor = new BoxFilter(new float[]{0,0,1,0,0,0,1,0,0});
+				postProcessor = new BoxFilter(new float[]{0,0,1,0,0,0,1,0,0},
+					projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			case BOX_EDGE_DETECT:
-//				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,8,-1,-1,-1,-1});
-				postProcessor = new BoxFilter(new float[]{0,1,0,1,-4,1,0,1,0});
+				postProcessor = new BoxFilter(new float[]{0,1,0,1,-4,1,0,1,0},
+					projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			case BOX_EMBOSS:
-				postProcessor = new BoxFilter(new float[]{-4,-2,0,-2,1,2,0,2,4});
+				postProcessor = new BoxFilter(new float[]{-4,-2,0,-2,1,2,0,2,4},
+					projectionPlaneWidth, projectionPlaneHeight);
+				break;
+			case DEFAULT:
+			case FXAA:
+				postProcessor = new FXAAFilter(projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			default:
 				throw new CrusaderException("Invalid: "+antiAliasing);
@@ -1624,10 +1632,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			if (postProcessor != null)
 			{
 				System.arraycopy(
-					postProcessor.process(
-						renderBuffer,
-						projectionPlaneWidth,
-						projectionPlaneHeight),
+					postProcessor.process(renderBuffer),
 					0,
 					renderBuffer,
 					0,

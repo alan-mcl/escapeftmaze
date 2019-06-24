@@ -1,33 +1,54 @@
 package mclachlan.crusader;
 
 /**
+ * See http://developer.download.nvidia.com/assets/gamedev/files/sdk/11/FXAA_WhitePaper.pdf
  *
+ * This filter implements FXAA "lite" - it simply does edge detection via
+ * luminance and then runs the 3x3 blur shader. Does not implement subpixel
+ * antialiasing.
  */
 public class FXAAFilter implements PostProcessor
 {
-	static double FXAA_EDGE_THRESHOLD_MIN = 1/16D;
-	static double FXAA_EDGE_THRESHOLD = 1/8D;
-	static double FXAA_SUBPIX_TRIM = 1/4D;
-	static double FXAA_SUBPIX_TRIM_SCALE = 1D;
-	static double FXAA_SUBPIX_CAP = 3/4D;
+	private static double FXAA_EDGE_THRESHOLD = 1/8D;
+	private static double FXAA_EDGE_THRESHOLD_MIN = 1/16D;
+	private static double FXAA_SUBPIX_TRIM = 1/4D;
+	private static double FXAA_SUBPIX_TRIM_SCALE = 1D;
+	private static double FXAA_SUBPIX_CAP = 3/4D;
+	private final BoxFilter shader;
 
+	private int width;
+	private int height;
+
+	/*-------------------------------------------------------------------------*/
+	public FXAAFilter(int width, int height)
+	{
+		this.width = width;
+		this.height = height;
+
+		shader = new BoxFilter(new float[]{1, 1, 1, 1, 2, 1, 1, 1, 1}, width, height);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	estimated luminance of the given pixel
 	 */
-	double fxaaLuma(int rgba)
+	double calcLuminance(int argb)
 	{
-		int red = (rgba>>16) & 0xFF;
-		int green = (rgba>>8) & 0xFF;
+		int red = (argb>>16) & 0xFF;
+		int green = (argb>>8) & 0xFF;
+		int blue =  argb & 0xFF;
 
-		return red * (0.587/0.299) + green;
+		// fast approx for Y = 0.375 R + 0.5 G + 0.125 B
+		return (red+red+red+green+green+green+green+blue) >> 3;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	new value for the given pixel
 	 */
-	int contrastCheck(int[] buffer, int index, int width, int height)
+	boolean contrastCheck(int[] buffer, int index, int width, int height)
 	{
 		int rgbaN = buffer[index - width];
 		int rgbaW = buffer[index-1];
@@ -35,42 +56,45 @@ public class FXAAFilter implements PostProcessor
 		int rgbaE = buffer[index+1];
 		int rgbaS = buffer[index + width];
 
-		double lumaN = fxaaLuma(rgbaN);
-		double lumaW = fxaaLuma(rgbaW);
-		double lumaM = fxaaLuma(rgbaM);
-		double lumaE = fxaaLuma(rgbaE);
-		double lumaS = fxaaLuma(rgbaS);
+		double lumaN = calcLuminance(rgbaN);
+		double lumaW = calcLuminance(rgbaW);
+		double lumaM = calcLuminance(rgbaM);
+		double lumaE = calcLuminance(rgbaE);
+		double lumaS = calcLuminance(rgbaS);
 
 		double rangeMin = Math.min(lumaM, Math.min(Math.min(lumaN, lumaW), Math.min(lumaS, lumaE)));
 		double rangeMax = Math.max(lumaM, Math.max(Math.max(lumaN, lumaW), Math.max(lumaS, lumaE)));
 		double range = rangeMax - rangeMin;
 
-		if(range < Math.max(FXAA_EDGE_THRESHOLD_MIN, rangeMax * FXAA_EDGE_THRESHOLD))
-		{
-			return fxaaFilter(rgbaM, lumaN, lumaW, lumaM, lumaE, lumaS, range);
-		}
-		else
-		{
-			return buffer[index];
-		}
+		// Should be Math.max(FXAA_EDGE_THRESHOLD_MIN, rangeMax * FXAA_EDGE_THRESHOLD))
+		// but my math isn't working.
+		return range > 75;
 	}
 
-	private int fxaaFilter(int rgbaM, double lumaN, double lumaW, double lumaM,
-		double lumaE, double lumaS, double range)
-	{
-		double lumaL = (lumaN + lumaW + lumaE + lumaS) * 0.25;
-		double rangeL = Math.abs(lumaL -lumaM);
-		double blendL = Math.max(0.0, (rangeL / range) -FXAA_SUBPIX_TRIM) * FXAA_SUBPIX_TRIM_SCALE;
-		blendL = Math.min(FXAA_SUBPIX_CAP, blendL);
-
-
-		// todo
-		return -1;
-	}
-
+	/*-------------------------------------------------------------------------*/
 	@Override
-	public int[] process(int[] renderBuffer, int width, int height)
+	public int[] process(int[] renderBuffer)
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		int bufferIndex;
+		int[] result = new int[width * height];
+
+		for (int i = 1; i < height - 1; i++)
+		{
+			for (int j = 1; j < width - 1; j++)
+			{
+				bufferIndex = (i * width) + j;
+
+				if (contrastCheck(renderBuffer, bufferIndex, width, height))
+				{
+					result[bufferIndex] = shader.processPixel(renderBuffer, bufferIndex);
+				}
+				else
+				{
+					result[bufferIndex] = renderBuffer[bufferIndex];
+				}
+			}
+		}
+
+		return result;
 	}
 }
