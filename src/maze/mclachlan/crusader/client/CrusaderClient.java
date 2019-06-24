@@ -229,7 +229,7 @@ public class CrusaderClient extends Frame
 			{
 				this.mazeMap = args[++i];
 			}
-			else if (arg.startsWith("-aa:"))
+			else if (arg.startsWith("-filter:"))
 			{
 				String aa = arg.substring(arg.indexOf(':')+1);
 				if (aa.equalsIgnoreCase("smooth"))
@@ -252,9 +252,13 @@ public class CrusaderClient extends Frame
 				{
 					antiAliasing = CrusaderEngine.AntiAliasing.BOX_EDGE_DETECT;
 				}
+				else if (aa.equalsIgnoreCase("emboss"))
+				{
+					antiAliasing = CrusaderEngine.AntiAliasing.BOX_EMBOSS;
+				}
 				else
 				{
-					throw new CrusaderException("invalid aa arg: ["+aa+"]");
+					throw new CrusaderException("invalid filter arg: ["+aa+"]");
 				}
 			}
 		}

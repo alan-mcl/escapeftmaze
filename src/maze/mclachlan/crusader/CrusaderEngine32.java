@@ -279,6 +279,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 //				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,8,-1,-1,-1,-1});
 				postProcessor = new BoxFilter(new float[]{0,1,0,1,-4,1,0,1,0});
 				break;
+			case BOX_EMBOSS:
+				postProcessor = new BoxFilter(new float[]{-4,-2,0,-2,1,2,0,2,4});
+				break;
 			default:
 				throw new CrusaderException("Invalid: "+antiAliasing);
 		}
