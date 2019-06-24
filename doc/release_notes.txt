@@ -21,7 +21,7 @@ Features
  - Enchanter abilities: Power Summon: Illusion, Power Summon: Fey, Reverse Glamour
  - Crusader engine: wall texture transparencies, walls that are visible but not solid,
    tiled "high ceiling" sky texture, scrolling textures, wall height, support for 
-   post processing filters (smooth, sharpen, edge, motion, raised)   
+   post processing filters (smooth, sharpen, edge, motion, raised, FXAA)   
 
 Other
  - Refactoring action point regen to be consistent with other resources
