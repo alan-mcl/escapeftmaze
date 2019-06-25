@@ -25,7 +25,7 @@ public class FXAAFilter implements PostProcessor
 		this.width = width;
 		this.height = height;
 
-		shader = new BoxFilter(new float[]{1, 1, 1, 1, 2, 1, 1, 1, 1}, width, height);
+		shader = new BoxFilter(new float[]{1, 1, 1, 1, 2, 1, 1, 1, 1}, width, height, 0);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -44,23 +44,14 @@ public class FXAAFilter implements PostProcessor
 	}
 
 	/*-------------------------------------------------------------------------*/
-	/**
-	 * @return
-	 * 	new value for the given pixel
-	 */
 	boolean contrastCheck(int[] buffer, int index, int width, int height)
 	{
-		int rgbaN = buffer[index - width];
-		int rgbaW = buffer[index-1];
-		int rgbaM = buffer[index];
-		int rgbaE = buffer[index+1];
-		int rgbaS = buffer[index + width];
 
-		double lumaN = calcLuminance(rgbaN);
-		double lumaW = calcLuminance(rgbaW);
-		double lumaM = calcLuminance(rgbaM);
-		double lumaE = calcLuminance(rgbaE);
-		double lumaS = calcLuminance(rgbaS);
+		double lumaN = calcLuminance(buffer[index - width]);
+		double lumaW = calcLuminance(buffer[index-1]);
+		double lumaM = calcLuminance(buffer[index]);
+		double lumaE = calcLuminance(buffer[index+1]);
+		double lumaS = calcLuminance(buffer[index + width]);
 
 		double rangeMin = Math.min(lumaM, Math.min(Math.min(lumaN, lumaW), Math.min(lumaS, lumaE)));
 		double rangeMax = Math.max(lumaM, Math.max(Math.max(lumaN, lumaW), Math.max(lumaS, lumaE)));
@@ -73,28 +64,22 @@ public class FXAAFilter implements PostProcessor
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public int[] process(int[] renderBuffer)
+	public void process(int[] renderBuffer, int[] outputBuffer, int screenX)
 	{
 		int bufferIndex;
-		int[] result = new int[width * height];
 
 		for (int i = 1; i < height - 1; i++)
 		{
-			for (int j = 1; j < width - 1; j++)
-			{
-				bufferIndex = (i * width) + j;
+			bufferIndex = (i * width) + screenX;
 
-				if (contrastCheck(renderBuffer, bufferIndex, width, height))
-				{
-					result[bufferIndex] = shader.processPixel(renderBuffer, bufferIndex);
-				}
-				else
-				{
-					result[bufferIndex] = renderBuffer[bufferIndex];
-				}
+			if (contrastCheck(renderBuffer, bufferIndex, width, height))
+			{
+				outputBuffer[bufferIndex] = shader.processPixel(renderBuffer, bufferIndex);
+			}
+			else
+			{
+				outputBuffer[bufferIndex] = renderBuffer[bufferIndex];
 			}
 		}
-
-		return result;
 	}
 }

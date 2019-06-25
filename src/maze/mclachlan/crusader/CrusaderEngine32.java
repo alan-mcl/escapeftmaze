@@ -27,6 +27,7 @@ import java.awt.image.ColorModel;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
 import java.util.*;
+import java.util.concurrent.*;
 
 /**
  * Implementation with 32-bit colour
@@ -78,6 +79,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * The pixels that the engine returns to the outside world.
 	 */ 
 	private int[] renderBuffer;
+	private int[] postProcessingBuffer;
 	
 	/** The width of the map (ie east-west), in grid cells */
 	private int mapWidth;
@@ -182,6 +184,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private static Random r = new Random();
 	private long timeNow;
 
+	// multi threading support
+	private ExecutorCompletionService executor;
+	private DrawColumn[] columnRenderers;
+	private FilterColumn[] columnFilterers;
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param screenWidth
@@ -204,6 +211,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param shadingMultiplier
 	 * 	The number of tiles (of fraction thereof) at which the shading effect
 	 * 	doubles.  A higher number will result in "thicker" shading.
+	 * @param filter
+	 * 	Any post processing filter (eg anti aliasing), null if none.
 	 * @param projectionPlaneOffset
 	 * 	The vertical offset of the projection plane from player eye level.  A
 	 * 	negative number shifts it towards the floor, a positive one shifts it
@@ -213,6 +222,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param scaleDistFromProjPlane
 	 * 	Scales the player distance from the projection plane.  For example, set
 	 * 	it to 0.5 for half the usual distance, or 2.0 for double.
+	 * @param nrThreads
+	 * 	The number of rendering threads.
 	 */
 	public CrusaderEngine32(
 		Map map,
@@ -224,10 +235,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 		boolean doLighting,
 		double shadingDistance,
 		double shadingMultiplier,
-		AntiAliasing antiAliasing,
+		Filter filter,
 		int projectionPlaneOffset,
 		int playerFieldOfView,
 		double scaleDistFromProjPlane,
+		int nrThreads,
 		Component component)
 	{
 		this.map = map;
@@ -257,44 +269,51 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		this.doLighting = doLighting;
 		this.doShading = doShading;
-		switch (antiAliasing)
+		switch (filter)
 		{
 			case NONE:
 				postProcessor = null;
 				break;
 			case BOX_SMOOTH:
 				postProcessor = new BoxFilter(new float[]{1,1,1,1,2,1,1,1,1},
-					projectionPlaneWidth, projectionPlaneHeight);
+					projectionPlaneWidth, projectionPlaneHeight, 0);
 				break;
 			case BOX_SHARPEN:
 				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,9,-1,-1,-1,-1},
-					projectionPlaneWidth, projectionPlaneHeight);
+					projectionPlaneWidth, projectionPlaneHeight, 0);
 				break;
 			case BOX_RAISED:
 				postProcessor = new BoxFilter(new float[]{0,0,-2,0,2,0,1,0,0},
-					projectionPlaneWidth, projectionPlaneHeight);
+					projectionPlaneWidth, projectionPlaneHeight, 0);
 				break;
 			case BOX_MOTION_BLUR:
 				postProcessor = new BoxFilter(new float[]{0,0,1,0,0,0,1,0,0},
-					projectionPlaneWidth, projectionPlaneHeight);
+					projectionPlaneWidth, projectionPlaneHeight, 0);
 				break;
 			case BOX_EDGE_DETECT:
 				postProcessor = new BoxFilter(new float[]{0,1,0,1,-4,1,0,1,0},
-					projectionPlaneWidth, projectionPlaneHeight);
+					projectionPlaneWidth, projectionPlaneHeight, 0);
 				break;
 			case BOX_EMBOSS:
 				postProcessor = new BoxFilter(new float[]{-4,-2,0,-2,1,2,0,2,4},
-					projectionPlaneWidth, projectionPlaneHeight);
+					projectionPlaneWidth, projectionPlaneHeight, 127);
+				break;
+			case WIREFRAME:
+				postProcessor = new WireframeFilter(projectionPlaneWidth, projectionPlaneHeight);
+				break;
+			case GREYSCALE:
+				postProcessor = new GreyscaleFilter(projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			case DEFAULT:
 			case FXAA:
 				postProcessor = new FXAAFilter(projectionPlaneWidth, projectionPlaneHeight);
 				break;
 			default:
-				throw new CrusaderException("Invalid: "+antiAliasing);
+				throw new CrusaderException("Invalid: "+ filter);
 		}
 
 		this.renderBuffer = new int[screenWidth * screenHeight];
+		this.postProcessingBuffer = new int[screenWidth * screenHeight];
 		this.mouseClickScriptRecords = new MouseClickScript[screenWidth * screenHeight];
 		this.blockHitRecord = new BlockHitRecord[screenWidth][MAX_HIT_DEPTH];
 		for (int i = 0; i < blockHitRecord.length; i++)
@@ -323,6 +342,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 		displayImage = component.createImage(pictureArray);
 		
 		initMouseClickScripts();
+
+		executor = new ExecutorCompletionService(Executors.newFixedThreadPool(nrThreads));
+		columnRenderers = new DrawColumn[projectionPlaneWidth];
+		columnFilterers = new FilterColumn[projectionPlaneWidth];
+
+		for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+		{
+			 columnRenderers[screenX] = new DrawColumn(0, screenX);
+			 columnFilterers[screenX] = new FilterColumn(screenX, postProcessingBuffer);
+		}
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -1229,8 +1258,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 		}
 		catch (Exception e)
 		{
-			System.out.println("horizBlockHitRecord = [" + horizBlockHitRecord + "]");
-			System.out.println("vertBlockHitRecord = [" + vertBlockHitRecord + "]");
 			e.printStackTrace();
 			System.exit(0);
 		}
@@ -1577,7 +1604,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				castArc = ANGLE360 + castArc;
 			}
-			float castInc = (float)PLAYER_FOV/(float)projectionPlaneWidth;;
+			float castInc = (float)PLAYER_FOV/(float)projectionPlaneWidth;
 
 			// execute any animations
 			this.animation();
@@ -1594,50 +1621,54 @@ public class CrusaderEngine32 implements CrusaderEngine
 				renderBuffer[i] = 0x00000000;
 			}
 
-			// ray cast and render each column
-			for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+			try
 			{
-				this.rayCast(Math.round(castArc), screenX);
-
-				for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
+				// ray cast and render each column
+				for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
 				{
-					this.drawObjects(screenX, depth);
-					if (!this.drawColumn(Math.round(castArc), screenX, depth, renderBuffer))
+					columnRenderers[screenX].castArc = castArc;
+					executor.submit(columnRenderers[screenX]);
+
+					castArc += castInc;
+					if (castArc >= ANGLE360)
 					{
-						break;
+						castArc -= ANGLE360;
 					}
 				}
 
-				// render the sky
-				for (int screenY=0; screenY < projectionPlaneHeight; screenY++)
+				// wait for all the render threads to finish
+				for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
 				{
-					int bufferIndex = screenX + screenY * projectionPlaneWidth;
+					executor.take();
+				}
 
-					if (hasAlpha(renderBuffer[bufferIndex]))
+				// post processing filter
+				if (postProcessor != null)
+				{
+					for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
 					{
-						renderBuffer[bufferIndex] = alphaBlend(
-							getSkyPixel(Math.round(castArc), screenY),
-							renderBuffer[bufferIndex]);
+						executor.submit(columnFilterers[screenX]);
 					}
-				}
 
-				castArc += castInc;
-				if (castArc >= ANGLE360)
-				{
-					castArc -= ANGLE360;
+					// wait for all the render threads to finish
+					for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+					{
+						executor.take();
+					}
+
+					System.arraycopy(
+						postProcessingBuffer,
+						0,
+						renderBuffer,
+						0,
+						renderBuffer.length);
 				}
 			}
-
-			// anti aliasing pass
-			if (postProcessor != null)
+			catch (InterruptedException e)
 			{
-				System.arraycopy(
-					postProcessor.process(renderBuffer),
-					0,
-					renderBuffer,
-					0,
-					renderBuffer.length);
+				throw new CrusaderException(e);
 			}
+
 
 			this.frameCount++;
 		}
@@ -2775,6 +2806,69 @@ public class CrusaderEngine32 implements CrusaderEngine
 			this.distance = other.distance;
 			this.wall = other.wall;
 			this.hitType = other.hitType;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	class DrawColumn implements Callable
+	{
+		private float castArc;
+		private int screenX;
+
+		public DrawColumn(float castArc, int screenX)
+		{
+			this.castArc = castArc;
+			this.screenX = screenX;
+		}
+
+		@Override
+		public Object call()
+		{
+			rayCast(Math.round(castArc), screenX);
+
+			for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
+			{
+				drawObjects(screenX, depth);
+				if (!drawColumn(Math.round(castArc), screenX, depth, renderBuffer))
+				{
+					break;
+				}
+			}
+
+			// render the sky
+			for (int screenY=0; screenY < projectionPlaneHeight; screenY++)
+			{
+				int bufferIndex = screenX + screenY * projectionPlaneWidth;
+
+				if (hasAlpha(renderBuffer[bufferIndex]))
+				{
+					renderBuffer[bufferIndex] = alphaBlend(
+						getSkyPixel(Math.round(castArc), screenY),
+						renderBuffer[bufferIndex]);
+				}
+			}
+
+			return null;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	class FilterColumn implements Callable
+	{
+		private int screenX;
+		private int[] outputBuffer;
+
+		public FilterColumn(int screenX, int[] outputBuffer)
+		{
+			this.screenX = screenX;
+			this.outputBuffer = outputBuffer;
+		}
+
+		@Override
+		public Object call() throws Exception
+		{
+			postProcessor.process(renderBuffer, outputBuffer, screenX);
+			return null;
 		}
 	}
 }

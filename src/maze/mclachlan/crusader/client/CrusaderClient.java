@@ -75,7 +75,8 @@ public class CrusaderClient extends Frame
 	private boolean doLighting = true;
 	private double shadingDistance = 4.0;
 	private double shadingMultiplier = 4.0;
-	private CrusaderEngine.AntiAliasing antiAliasing = CrusaderEngine.AntiAliasing.DEFAULT;
+	private CrusaderEngine.Filter filter = CrusaderEngine.Filter.DEFAULT;
+	private int nrThreads = 8;
 	//	private String mapFile = "../maze/data/test/arena/testMap.txt";
 	private String mapFile = "test/crusader/testMap.txt";
 	private boolean eight_bit_mode = false;
@@ -120,10 +121,11 @@ public class CrusaderClient extends Frame
 					doLighting,
 					shadingDistance,
 					shadingMultiplier,
-					antiAliasing,
+					filter,
 					0,
 					CrusaderEngine.FieldOfView.FOV_60_DEGREES,
 					1.0,
+					nrThreads,
 					this);
 			}
 			else
@@ -147,10 +149,11 @@ public class CrusaderClient extends Frame
 					zone.doLighting(),
 					zone.getShadingDistance(),
 					zone.getShadingMultiplier(),
-					antiAliasing,
+					filter,
 					zone.getProjectionPlaneOffset(),
 					zone.getPlayerFieldOfView(),
 					zone.getScaleDistFromProjPlane(),
+					nrThreads,
 					this);
 			}
 		}
@@ -234,40 +237,53 @@ public class CrusaderClient extends Frame
 				String aa = arg.substring(arg.indexOf(':')+1);
 				if (aa.equalsIgnoreCase("smooth"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.BOX_SMOOTH;
+					filter = CrusaderEngine.Filter.BOX_SMOOTH;
 				}
 				else if (aa.equalsIgnoreCase("sharpen"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.BOX_SHARPEN;
+					filter = CrusaderEngine.Filter.BOX_SHARPEN;
 				}
 				else if (aa.equalsIgnoreCase("raised"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.BOX_RAISED;
+					filter = CrusaderEngine.Filter.BOX_RAISED;
 				}
 				else if (aa.equalsIgnoreCase("motion"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.BOX_MOTION_BLUR;
+					filter = CrusaderEngine.Filter.BOX_MOTION_BLUR;
 				}
 				else if (aa.equalsIgnoreCase("edge"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.BOX_EDGE_DETECT;
+					filter = CrusaderEngine.Filter.BOX_EDGE_DETECT;
 				}
 				else if (aa.equalsIgnoreCase("emboss"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.BOX_EMBOSS;
+					filter = CrusaderEngine.Filter.BOX_EMBOSS;
 				}
 				else if (aa.equalsIgnoreCase("fxaa"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.FXAA;
+					filter = CrusaderEngine.Filter.FXAA;
+				}
+				else if (aa.equalsIgnoreCase("wireframe"))
+				{
+					filter = CrusaderEngine.Filter.WIREFRAME;
+				}
+				else if (aa.equalsIgnoreCase("greyscale"))
+				{
+					filter = CrusaderEngine.Filter.GREYSCALE;
 				}
 				else if (aa.equalsIgnoreCase("none"))
 				{
-					antiAliasing = CrusaderEngine.AntiAliasing.NONE;
+					filter = CrusaderEngine.Filter.NONE;
 				}
 				else
 				{
 					throw new CrusaderException("invalid filter arg: ["+aa+"]");
 				}
+			}
+			else if (arg.startsWith("-threads:"))
+			{
+				String nr = arg.substring(arg.indexOf(':') + 1);
+				nrThreads = Integer.parseInt(nr);
 			}
 		}
 	}

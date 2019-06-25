@@ -1411,10 +1411,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			zone.doLighting(),
 			zone.getShadingDistance(),
 			zone.getShadingMultiplier(),
-			CrusaderEngine.AntiAliasing.NONE,
+			CrusaderEngine.Filter.NONE,
 			zone.getProjectionPlaneOffset(),
 			zone.getPlayerFieldOfView(),
 			zone.getScaleDistFromProjPlane(),
+			8,
 			this);
 	}
 

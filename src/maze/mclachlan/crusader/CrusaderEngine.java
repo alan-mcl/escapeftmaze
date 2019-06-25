@@ -256,7 +256,7 @@ public interface CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	enum AntiAliasing
+	enum Filter
 	{
 		NONE,
 		DEFAULT,
@@ -267,5 +267,7 @@ public interface CrusaderEngine
 		BOX_EDGE_DETECT,
 		BOX_EMBOSS,
 		FXAA,
+		WIREFRAME,
+		GREYSCALE,
 	}
 }

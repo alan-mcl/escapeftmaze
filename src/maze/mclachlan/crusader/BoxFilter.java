@@ -11,20 +11,21 @@ public class BoxFilter implements PostProcessor
 	private int width;
 	private int height;
 	private int[] indices;
-	private float denominator;
+	private float denominator, offset;
 
 	/*-------------------------------------------------------------------------*/
-	public BoxFilter(float[] kernel, int width, int height)
+	public BoxFilter(float[] kernel, int width, int height, int colourOffset)
 	{
 		this.kernel = kernel;
 		this.width = width;
 		this.height = height;
 
-		indices = new int[]{
-			-(width + 1), -width, -(width - 1),
-			-1, 0, +1,
-			width - 1, width, width + 1
-		};
+		indices = new int[]
+			{
+				-(width + 1), -width, -(width - 1),
+				-1, 0, +1,
+				width - 1, width, width + 1
+			};
 
 		for (int i = 0; i < kernel.length; i++)
 		{
@@ -35,27 +36,21 @@ public class BoxFilter implements PostProcessor
 		{
 			denominator = 1.0f;
 		}
+
+		this.offset = colourOffset;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public int[] process(int[] renderBuffer)
+	public void process(int[] renderBuffer, int[] outputBuffer, int screenX)
 	{
-		int[] temp = new int[width * height];
-		denominator = 0.0f;
 		int indexOffset;
 
 		for (int i = 1; i < height - 1; i++)
 		{
-			for (int j = 1; j < width - 1; j++)
-			{
-				indexOffset = (i * width) + j;
-
-				int pixel = processPixel(renderBuffer, indexOffset);
-				temp[indexOffset] = pixel;
-			}
+			indexOffset = (i * width) + screenX;
+			outputBuffer[indexOffset] = processPixel(renderBuffer, indexOffset);
 		}
-		return temp;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -78,9 +73,9 @@ public class BoxFilter implements PostProcessor
 			blue += (rgb & 0xff) * kernel[k];
 		}
 
-		ired = (int)(red / denominator);
-		igreen = (int)(green / denominator);
-		iblue = (int)(blue / denominator);
+		ired = (int)(red / denominator +offset);
+		igreen = (int)(green / denominator +offset);
+		iblue = (int)(blue / denominator +offset);
 		if (ired > 0xff)
 		{
 			ired = 0xff;
