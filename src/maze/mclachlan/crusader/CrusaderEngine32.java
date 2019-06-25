@@ -73,7 +73,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private final Object objectMutex = new Object();
 
 	private boolean doShading, doLighting;
-	private PostProcessor postProcessor;
+	private PostProcessor[] filters;
 	
 	/**
 	 * The pixels that the engine returns to the outside world.
@@ -211,8 +211,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param shadingMultiplier
 	 * 	The number of tiles (of fraction thereof) at which the shading effect
 	 * 	doubles.  A higher number will result in "thicker" shading.
-	 * @param filter
-	 * 	Any post processing filter (eg anti aliasing), null if none.
+	 * @param filters
+	 * 	Any post processing filters (eg anti aliasing), null if none.
 	 * @param projectionPlaneOffset
 	 * 	The vertical offset of the projection plane from player eye level.  A
 	 * 	negative number shifts it towards the floor, a positive one shifts it
@@ -235,7 +235,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		boolean doLighting,
 		double shadingDistance,
 		double shadingMultiplier,
-		Filter filter,
+		Filter[] filters,
 		int projectionPlaneOffset,
 		int playerFieldOfView,
 		double scaleDistFromProjPlane,
@@ -269,47 +269,66 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		this.doLighting = doLighting;
 		this.doShading = doShading;
-		switch (filter)
+
+		if (filters != null)
 		{
-			case NONE:
-				postProcessor = null;
-				break;
-			case BOX_SMOOTH:
-				postProcessor = new BoxFilter(new float[]{1,1,1,1,2,1,1,1,1},
-					projectionPlaneWidth, projectionPlaneHeight, 0);
-				break;
-			case BOX_SHARPEN:
-				postProcessor = new BoxFilter(new float[]{-1,-1,-1,-1,9,-1,-1,-1,-1},
-					projectionPlaneWidth, projectionPlaneHeight, 0);
-				break;
-			case BOX_RAISED:
-				postProcessor = new BoxFilter(new float[]{0,0,-2,0,2,0,1,0,0},
-					projectionPlaneWidth, projectionPlaneHeight, 0);
-				break;
-			case BOX_MOTION_BLUR:
-				postProcessor = new BoxFilter(new float[]{0,0,1,0,0,0,1,0,0},
-					projectionPlaneWidth, projectionPlaneHeight, 0);
-				break;
-			case BOX_EDGE_DETECT:
-				postProcessor = new BoxFilter(new float[]{0,1,0,1,-4,1,0,1,0},
-					projectionPlaneWidth, projectionPlaneHeight, 0);
-				break;
-			case BOX_EMBOSS:
-				postProcessor = new BoxFilter(new float[]{-4,-2,0,-2,1,2,0,2,4},
-					projectionPlaneWidth, projectionPlaneHeight, 127);
-				break;
-			case WIREFRAME:
-				postProcessor = new WireframeFilter(projectionPlaneWidth, projectionPlaneHeight);
-				break;
-			case GREYSCALE:
-				postProcessor = new GreyscaleFilter(projectionPlaneWidth, projectionPlaneHeight);
-				break;
-			case DEFAULT:
-			case FXAA:
-				postProcessor = new FXAAFilter(projectionPlaneWidth, projectionPlaneHeight);
-				break;
-			default:
-				throw new CrusaderException("Invalid: "+ filter);
+			List<PostProcessor> processors = new ArrayList<>();
+
+			for (int i = 0; i < filters.length; i++)
+			{
+				Filter filter = filters[i];
+				switch (filter)
+				{
+					case NONE:
+						this.filters = null;
+						break;
+					case SMOOTH:
+						processors.add(new BoxFilter(new float[]{1, 1, 1, 1, 2, 1, 1, 1, 1},
+							projectionPlaneWidth, projectionPlaneHeight, 0));
+						break;
+					case SHARPEN:
+						processors.add(new BoxFilter(new float[]{-1, -1, -1, -1, 9, -1, -1, -1, -1},
+							projectionPlaneWidth, projectionPlaneHeight, 0));
+						break;
+					case RAISED:
+						processors.add(new BoxFilter(new float[]{0, 0, -2, 0, 2, 0, 1, 0, 0},
+							projectionPlaneWidth, projectionPlaneHeight, 0));
+						break;
+					case MOTION_BLUR:
+						processors.add(new BoxFilter(new float[]{0, 0, 1, 0, 0, 0, 1, 0, 0},
+							projectionPlaneWidth, projectionPlaneHeight, 0));
+						break;
+					case EDGE_DETECT:
+						processors.add(new BoxFilter(new float[]{0, 1, 0, 1, -4, 1, 0, 1, 0},
+							projectionPlaneWidth, projectionPlaneHeight, 0));
+						break;
+					case EMBOSS:
+						processors.add(new BoxFilter(new float[]{-4, -2, 0, -2, 1, 2, 0, 2, 4},
+							projectionPlaneWidth, projectionPlaneHeight, 60));
+						processors.add(new GreyscaleFilter(projectionPlaneWidth, projectionPlaneHeight));
+						break;
+					case WIREFRAME:
+						processors.add(new BoxFilter(new float[]{0, 1, 0, 1, -4, 1, 0, 1, 0},
+							projectionPlaneWidth, projectionPlaneHeight, 0));
+						processors.add(new WireframeFilter(projectionPlaneWidth, projectionPlaneHeight));
+						break;
+					case GREYSCALE:
+						processors.add(new GreyscaleFilter(projectionPlaneWidth, projectionPlaneHeight));
+						break;
+					case DEFAULT:
+					case FXAA:
+						processors.add(new FXAAFilter(projectionPlaneWidth, projectionPlaneHeight));
+						break;
+					default:
+						throw new CrusaderException("Invalid: " + filter);
+				}
+			}
+
+			this.filters = processors.toArray(new PostProcessor[0]);
+		}
+		else
+		{
+			this.filters = null;
 		}
 
 		this.renderBuffer = new int[screenWidth * screenHeight];
@@ -1643,25 +1662,29 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 
 				// post processing filter
-				if (postProcessor != null)
+				if (filters != null)
 				{
-					for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+					for (int i = 0; i < filters.length; i++)
 					{
-						executor.submit(columnFilterers[screenX]);
-					}
+						for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+						{
+							columnFilterers[screenX].filter = filters[i];
+							executor.submit(columnFilterers[screenX]);
+						}
 
-					// wait for all the render threads to finish
-					for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
-					{
-						executor.take();
-					}
+						// wait for all the render threads to finish
+						for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+						{
+							executor.take();
+						}
 
-					System.arraycopy(
-						postProcessingBuffer,
-						0,
-						renderBuffer,
-						0,
-						renderBuffer.length);
+						System.arraycopy(
+							postProcessingBuffer,
+							0,
+							renderBuffer,
+							0,
+							renderBuffer.length);
+					}
 				}
 			}
 			catch (InterruptedException e)
@@ -2857,6 +2880,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		private int screenX;
 		private int[] outputBuffer;
+		private PostProcessor filter;
 
 		public FilterColumn(int screenX, int[] outputBuffer)
 		{
@@ -2867,7 +2891,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		@Override
 		public Object call() throws Exception
 		{
-			postProcessor.process(renderBuffer, outputBuffer, screenX);
+			filter.process(renderBuffer, outputBuffer, screenX);
 			return null;
 		}
 	}

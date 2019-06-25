@@ -75,7 +75,7 @@ public class CrusaderClient extends Frame
 	private boolean doLighting = true;
 	private double shadingDistance = 4.0;
 	private double shadingMultiplier = 4.0;
-	private CrusaderEngine.Filter filter = CrusaderEngine.Filter.DEFAULT;
+	private CrusaderEngine.Filter[] filter = {CrusaderEngine.Filter.DEFAULT};
 	private int nrThreads = 8;
 	//	private String mapFile = "../maze/data/test/arena/testMap.txt";
 	private String mapFile = "test/crusader/testMap.txt";
@@ -232,52 +232,58 @@ public class CrusaderClient extends Frame
 			{
 				this.mazeMap = args[++i];
 			}
-			else if (arg.startsWith("-filter:"))
+			else if (arg.startsWith("-filters:"))
 			{
 				String aa = arg.substring(arg.indexOf(':')+1);
-				if (aa.equalsIgnoreCase("smooth"))
+				String[] fStrs = aa.split(",");
+				this.filter = new CrusaderEngine.Filter[fStrs.length];
+
+				for (int x = 0; x < fStrs.length; x++)
 				{
-					filter = CrusaderEngine.Filter.BOX_SMOOTH;
-				}
-				else if (aa.equalsIgnoreCase("sharpen"))
-				{
-					filter = CrusaderEngine.Filter.BOX_SHARPEN;
-				}
-				else if (aa.equalsIgnoreCase("raised"))
-				{
-					filter = CrusaderEngine.Filter.BOX_RAISED;
-				}
-				else if (aa.equalsIgnoreCase("motion"))
-				{
-					filter = CrusaderEngine.Filter.BOX_MOTION_BLUR;
-				}
-				else if (aa.equalsIgnoreCase("edge"))
-				{
-					filter = CrusaderEngine.Filter.BOX_EDGE_DETECT;
-				}
-				else if (aa.equalsIgnoreCase("emboss"))
-				{
-					filter = CrusaderEngine.Filter.BOX_EMBOSS;
-				}
-				else if (aa.equalsIgnoreCase("fxaa"))
-				{
-					filter = CrusaderEngine.Filter.FXAA;
-				}
-				else if (aa.equalsIgnoreCase("wireframe"))
-				{
-					filter = CrusaderEngine.Filter.WIREFRAME;
-				}
-				else if (aa.equalsIgnoreCase("greyscale"))
-				{
-					filter = CrusaderEngine.Filter.GREYSCALE;
-				}
-				else if (aa.equalsIgnoreCase("none"))
-				{
-					filter = CrusaderEngine.Filter.NONE;
-				}
-				else
-				{
-					throw new CrusaderException("invalid filter arg: ["+aa+"]");
+					if (fStrs[x].equalsIgnoreCase("smooth"))
+					{
+						filter[x] = CrusaderEngine.Filter.SMOOTH;
+					}
+					else if (fStrs[x].equalsIgnoreCase("sharpen"))
+					{
+						filter[x] = CrusaderEngine.Filter.SHARPEN;
+					}
+					else if (fStrs[x].equalsIgnoreCase("raised"))
+					{
+						filter[x] = CrusaderEngine.Filter.RAISED;
+					}
+					else if (fStrs[x].equalsIgnoreCase("motion"))
+					{
+						filter[x] = CrusaderEngine.Filter.MOTION_BLUR;
+					}
+					else if (fStrs[x].equalsIgnoreCase("edge"))
+					{
+						filter[x] = CrusaderEngine.Filter.EDGE_DETECT;
+					}
+					else if (fStrs[x].equalsIgnoreCase("emboss"))
+					{
+						filter[x] = CrusaderEngine.Filter.EMBOSS;
+					}
+					else if (fStrs[x].equalsIgnoreCase("fxaa"))
+					{
+						filter[x] = CrusaderEngine.Filter.FXAA;
+					}
+					else if (fStrs[x].equalsIgnoreCase("wireframe"))
+					{
+						filter[x] = CrusaderEngine.Filter.WIREFRAME;
+					}
+					else if (fStrs[x].equalsIgnoreCase("greyscale"))
+					{
+						filter[x] = CrusaderEngine.Filter.GREYSCALE;
+					}
+					else if (fStrs[x].equalsIgnoreCase("none"))
+					{
+						filter[x] = CrusaderEngine.Filter.NONE;
+					}
+					else
+					{
+						throw new CrusaderException("invalid filter arg: [" + fStrs[x] + "]");
+					}
 				}
 			}
 			else if (arg.startsWith("-threads:"))
