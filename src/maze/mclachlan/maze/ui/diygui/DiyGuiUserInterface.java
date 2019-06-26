@@ -1415,6 +1415,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			zone.getProjectionPlaneOffset(),
 			zone.getPlayerFieldOfView(),
 			zone.getScaleDistFromProjPlane(),
+			-1,
 			8,
 			this);
 	}

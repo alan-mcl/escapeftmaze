@@ -77,6 +77,7 @@ public class CrusaderClient extends Frame
 	private double shadingMultiplier = 4.0;
 	private CrusaderEngine.Filter[] filter = {CrusaderEngine.Filter.DEFAULT};
 	private int nrThreads = 8;
+	private int maxHitDepth = -1;
 	//	private String mapFile = "../maze/data/test/arena/testMap.txt";
 	private String mapFile = "test/crusader/testMap.txt";
 	private boolean eight_bit_mode = false;
@@ -125,6 +126,7 @@ public class CrusaderClient extends Frame
 					0,
 					CrusaderEngine.FieldOfView.FOV_60_DEGREES,
 					1.0,
+					maxHitDepth,
 					nrThreads,
 					this);
 			}
@@ -153,6 +155,7 @@ public class CrusaderClient extends Frame
 					zone.getProjectionPlaneOffset(),
 					zone.getPlayerFieldOfView(),
 					zone.getScaleDistFromProjPlane(),
+					maxHitDepth,
 					nrThreads,
 					this);
 			}
@@ -290,6 +293,11 @@ public class CrusaderClient extends Frame
 			{
 				String nr = arg.substring(arg.indexOf(':') + 1);
 				nrThreads = Integer.parseInt(nr);
+			}
+			else if (arg.startsWith("-maxHitDepth:"))
+			{
+				String nr = arg.substring(arg.indexOf(':') + 1);
+				maxHitDepth = Integer.parseInt(nr);
 			}
 		}
 	}

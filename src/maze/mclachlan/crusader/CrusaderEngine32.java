@@ -163,7 +163,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** A record of grid block hits, indexed on cast column and then depth */
 	private BlockHitRecord[][] blockHitRecord;
-	private static int MAX_HIT_DEPTH = 5;
+	private int maxHitDepth = 5;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
 	private MouseClickScript[] mouseClickScriptRecords;
@@ -222,6 +222,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 * @param scaleDistFromProjPlane
 	 * 	Scales the player distance from the projection plane.  For example, set
 	 * 	it to 0.5 for half the usual distance, or 2.0 for double.
+	 * @param maxHitDepth
+	 * 	The max number of wall hits to trace a ray through. 0 or less defaults to 5.
 	 * @param nrThreads
 	 * 	The number of rendering threads.
 	 */
@@ -239,6 +241,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int projectionPlaneOffset,
 		int playerFieldOfView,
 		double scaleDistFromProjPlane,
+		int maxHitDepth,
 		int nrThreads,
 		Component component)
 	{
@@ -262,6 +265,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		this.projPlaneOffset = projectionPlaneOffset;
 		this.playerFovOption = playerFieldOfView;
 		this.playerDistanceMult = scaleDistFromProjPlane;
+
+		this.maxHitDepth = (maxHitDepth <= 0) ? 5 : maxHitDepth;
 
 		this.createTables();
 
@@ -334,10 +339,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 		this.renderBuffer = new int[screenWidth * screenHeight];
 		this.postProcessingBuffer = new int[screenWidth * screenHeight];
 		this.mouseClickScriptRecords = new MouseClickScript[screenWidth * screenHeight];
-		this.blockHitRecord = new BlockHitRecord[screenWidth][MAX_HIT_DEPTH];
+		this.blockHitRecord = new BlockHitRecord[screenWidth][this.maxHitDepth];
 		for (int i = 0; i < blockHitRecord.length; i++)
 		{
-			for (int j = 0; j < MAX_HIT_DEPTH; j++)
+			for (int j = 0; j < this.maxHitDepth; j++)
 			{
 				blockHitRecord[i][j] = new BlockHitRecord();
 			}
@@ -1227,7 +1232,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		try
 		{
-			while (depth < MAX_HIT_DEPTH &&
+			while (depth < maxHitDepth &&
 				(distToHorizontalGridBeingHit < Float.MAX_VALUE ||
 					distToVerticalGridBeingHit < Float.MAX_VALUE))
 			{
@@ -1235,7 +1240,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				{
 					if (distToHorizontalGridBeingHit < Float.MAX_VALUE &&
 						horizBlockHitRecord.wall.visible &&
-						depth < MAX_HIT_DEPTH)
+						depth < maxHitDepth)
 					{
 						populateBlockHitRecordGlobal(castColumn, horizBlockHitRecord, depth);
 						depth++;
@@ -1245,14 +1250,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 				{
 					if (distToVerticalGridBeingHit < Float.MAX_VALUE &&
 						vertBlockHitRecord.wall.visible &&
-						depth < MAX_HIT_DEPTH)
+						depth < maxHitDepth)
 					{
 						populateBlockHitRecordGlobal(castColumn, vertBlockHitRecord, depth);
 						depth++;
 					}
 				}
 
-				if (depth < MAX_HIT_DEPTH)
+				if (depth < maxHitDepth)
 				{
 					if (horizFirst)
 					{
@@ -2847,28 +2852,36 @@ public class CrusaderEngine32 implements CrusaderEngine
 		@Override
 		public Object call()
 		{
-			rayCast(Math.round(castArc), screenX);
-
-			for (int depth = 0; depth < MAX_HIT_DEPTH; depth++)
+			try
 			{
-				drawObjects(screenX, depth);
-				if (!drawColumn(Math.round(castArc), screenX, depth, renderBuffer))
+				rayCast(Math.round(castArc), screenX);
+
+				for (int depth = 0; depth < maxHitDepth; depth++)
 				{
-					break;
+					drawObjects(screenX, depth);
+					if (!drawColumn(Math.round(castArc), screenX, depth, renderBuffer))
+					{
+						break;
+					}
+				}
+
+				// render the sky
+				for (int screenY=0; screenY < projectionPlaneHeight; screenY++)
+				{
+					int bufferIndex = screenX + screenY * projectionPlaneWidth;
+
+					if (hasAlpha(renderBuffer[bufferIndex]))
+					{
+						renderBuffer[bufferIndex] = alphaBlend(
+							getSkyPixel(Math.round(castArc), screenY),
+							renderBuffer[bufferIndex]);
+					}
 				}
 			}
-
-			// render the sky
-			for (int screenY=0; screenY < projectionPlaneHeight; screenY++)
+			catch (Exception e)
 			{
-				int bufferIndex = screenX + screenY * projectionPlaneWidth;
-
-				if (hasAlpha(renderBuffer[bufferIndex]))
-				{
-					renderBuffer[bufferIndex] = alphaBlend(
-						getSkyPixel(Math.round(castArc), screenY),
-						renderBuffer[bufferIndex]);
-				}
+				e.printStackTrace();
+				System.exit(-1);
 			}
 
 			return null;
