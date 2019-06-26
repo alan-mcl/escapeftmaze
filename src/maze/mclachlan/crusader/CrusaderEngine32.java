@@ -72,13 +72,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/** used to protect the arrays when things are dynamically added and removed */
 	private final Object objectMutex = new Object();
 
+	// functionality flags
 	private boolean doShading, doLighting;
+
+	/** pipeline of post processors (eg for anti-aliasing)*/
 	private PostProcessor[] filters;
 	
-	/**
-	 * The pixels that the engine returns to the outside world.
-	 */ 
+	/** The pixels that the engine returns to the outside world. */
 	private int[] renderBuffer;
+	/** A back-buffer for the post-processors to work with */
 	private int[] postProcessingBuffer;
 	
 	/** The width of the map (ie east-west), in grid cells */
@@ -87,14 +89,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private int mapLength;
 
 	/** The length of the edge of a tile, in units */
-	public static int TILE_SIZE;
+	public int tileSize;
 	
 	/** width of the projection plane, in cast columns (ie pixels) */  
 	private int projectionPlaneWidth;
 	/** height of the projection plane, in cast columns (ie pixels) */
 	private int projectionPlaneHeight;
 
-	// Note the difference between measurement units (eg TILE_SIZE) and
+	// Note the difference between measurement units (eg tileSize) and
 	// pixels (eg PROJECTION_PLANE_HEIGHT)
 	private int playerHeightInUnits;
 
@@ -117,8 +119,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/** 5 degrees, expressed in cast columns (ie pixels)*/
 	private static int ANGLE5;
 	
-	private static int PLAYER_FOV;
-	private static int PLAYER_FOV_HALF;
+	private int playerFov;
+	private int playerFovHalf;
 
 	/** Used to represent a ray hit on a vertical (ie north-south) wall*/ 
 	private static final byte HIT_VERTICAL = 1;
@@ -181,13 +183,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private MemoryImageSource pictureArray;
 	private Image displayImage;
 
-	private static Random r = new Random();
-	private long timeNow;
-
 	// multi threading support
 	private ExecutorCompletionService executor;
 	private DrawColumn[] columnRenderers;
 	private FilterColumn[] columnFilterers;
+
+	// admin
+	private static Random r = new Random();
+	private long timeNow;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -250,10 +253,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 		this.textures = new Texture[0];
 		this.initImages();
 
-		TILE_SIZE = map.baseImageSize;
+		tileSize = map.baseImageSize;
 		
-		this.shadingDistance = (int)(TILE_SIZE * shadingDistance);
-		this.shadingThickness = (int)(TILE_SIZE * shadingMultiplier);
+		this.shadingDistance = (int)(tileSize * shadingDistance);
+		this.shadingThickness = (int)(tileSize * shadingMultiplier);
 		this.shadeRed = shadeTargetColour.getRed();
 		this.shadeGreen = shadeTargetColour.getGreen();
 		this.shadeBlue = shadeTargetColour.getBlue();
@@ -261,7 +264,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		this.projectionPlaneWidth = screenWidth;
 		this.projectionPlaneHeight = screenHeight;
 		this.playerHeight = (int)(projectionPlaneHeight/2 *playerHeightMult);
-		this.playerHeightInUnits = (int)(TILE_SIZE/2 *playerHeightMult);
+		this.playerHeightInUnits = (int)(tileSize /2 *playerHeightMult);
 		this.projPlaneOffset = projectionPlaneOffset;
 		this.playerFovOption = playerFieldOfView;
 		this.playerDistanceMult = scaleDistFromProjPlane;
@@ -421,12 +424,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		if (this.movementMode == MovementMode.DISCRETE)
 		{
-			this.playerSpeed = TILE_SIZE;
+			this.playerSpeed = tileSize;
 			this.playerRotation = ANGLE90;
 		}
 		else if (this.movementMode == MovementMode.CONTINUOUS)
 		{
-			this.playerSpeed = TILE_SIZE/8;
+			this.playerSpeed = tileSize /8;
 			this.playerRotation = ANGLE5;
 		}
 		else
@@ -449,7 +452,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE30 / 6);
 
-			PLAYER_FOV = ANGLE30;
+			playerFov = ANGLE30;
 		}
 		else if (playerFovOption == FieldOfView.FOV_60_DEGREES)
 		{
@@ -462,7 +465,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE30 / 6);
 
-			PLAYER_FOV = ANGLE60;
+			playerFov = ANGLE60;
 		}
 		else if (playerFovOption == FieldOfView.FOV_90_DEGREES)
 		{
@@ -475,7 +478,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE90 / 18);
 
-			PLAYER_FOV = ANGLE90;
+			playerFov = ANGLE90;
 		}
 		else if (playerFovOption == FieldOfView.FOV_180_DEGREES)
 		{
@@ -489,7 +492,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE360 = (ANGLE180 * 2);
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE180 / 36);
-			PLAYER_FOV = angle170;
+			playerFov = angle170;
 
 //			ANGLE180 = projectionPlaneWidth;
 //			ANGLE90 = ANGLE180/2;
@@ -500,13 +503,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 //			ANGLE0 = 0;
 //			ANGLE5 = (ANGLE180 / 36);
 
-//			PLAYER_FOV = ANGLE180;
+//			playerFov = ANGLE180;
 		}
 		else
 		{
 			throw new CrusaderException("Invalid playerFieldOfView: "+playerFovOption);
 		}
-		PLAYER_FOV_HALF = PLAYER_FOV/2;
+		playerFovHalf = playerFov /2;
 
 		int i;
 		float radian;
@@ -547,7 +550,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// facing left
 			if (i >= ANGLE90 && i < ANGLE270)
 			{
-				xStepTable[i] = (TILE_SIZE / tanTable[i]);
+				xStepTable[i] = (tileSize / tanTable[i]);
 				if (xStepTable[i] > 0)
 				{
 					xStepTable[i] = -xStepTable[i];
@@ -556,7 +559,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// facing right
 			else
 			{
-				xStepTable[i] = (TILE_SIZE / tanTable[i]);
+				xStepTable[i] = (tileSize / tanTable[i]);
 				if (xStepTable[i] < 0)
 				{
 					xStepTable[i] = -xStepTable[i];
@@ -566,7 +569,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// FACING DOWN
 			if (i >= ANGLE0 && i < ANGLE180)
 			{
-				yStepTable[i] = (TILE_SIZE * tanTable[i]);
+				yStepTable[i] = (tileSize * tanTable[i]);
 				if (yStepTable[i] < 0)
 				{
 					yStepTable[i] = -yStepTable[i];
@@ -575,7 +578,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// FACING UP
 			else
 			{
-				yStepTable[i] = (TILE_SIZE * tanTable[i]);
+				yStepTable[i] = (tileSize * tanTable[i]);
 				if (yStepTable[i] > 0)
 				{
 					yStepTable[i] = -yStepTable[i];
@@ -583,14 +586,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 			}
 		}
 
-		for (i = -PLAYER_FOV_HALF; i <= projectionPlaneWidth-PLAYER_FOV_HALF; i++)
+		for (i = -playerFovHalf; i <= projectionPlaneWidth- playerFovHalf; i++)
 		{
 			radian = arcToRad(i);
-			fishbowlTable[i + PLAYER_FOV_HALF] = (float)(1.0F / Math.cos(radian));
+			fishbowlTable[i + playerFovHalf] = (float)(1.0F / Math.cos(radian));
 		}
 
 		playerDistToProjectionPlane =
-			(int)((projectionPlaneWidth/2) / tanTable[PLAYER_FOV_HALF] *playerDistanceMult);
+			(int)((projectionPlaneWidth/2) / tanTable[playerFovHalf] *playerDistanceMult);
 			// decrease this to show more floor and ceiling
 	}
 
@@ -612,9 +615,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 	public void setPlayerPos(int x, int y, int facing)
 	{
 		// place the player in the middle of the block
-		int halfATile = TILE_SIZE/2;
-		this.playerX = x*TILE_SIZE + halfATile;
-		this.playerY = y*TILE_SIZE + halfATile;
+		int halfATile = tileSize /2;
+		this.playerX = x* tileSize + halfATile;
+		this.playerY = y* tileSize + halfATile;
 
 		// set facing
 		switch (facing)
@@ -667,8 +670,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	private Point getPlayerPos(int x, int y)
 	{
-		int xGridIndex = x / TILE_SIZE;
-		int yGridIndex = y / TILE_SIZE;
+		int xGridIndex = x / tileSize;
+		int yGridIndex = y / tileSize;
 
 		return new Point(xGridIndex, yGridIndex);
 	}
@@ -798,7 +801,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		float strafeRightXDir = cosTable[strafeRight];
 		float strafeRightYDir = sinTable[strafeRight];
 
-		int halfATile = TILE_SIZE/2-1;
+		int halfATile = tileSize /2-1;
 		if (this.movementMode == MovementMode.DISCRETE)
 		{
 			// plop the player in the middle of the block, we'll move him to the
@@ -834,7 +837,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		// detect if we will pass through a wall, bit of a brute force approach here.
 		if (movementMode == MovementMode.DISCRETE)
 		{
-			int tileIndex = getMapIndex(newPlayerX/TILE_SIZE, newPlayerY/TILE_SIZE);
+			int tileIndex = getMapIndex(newPlayerX/ tileSize, newPlayerY/ tileSize);
 
 			switch (key)
 			{
@@ -1158,8 +1161,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			// The ray is facing south
 			
-			horizontalGrid = (playerY / TILE_SIZE) * TILE_SIZE + TILE_SIZE;
-			distToNextHorizontalGrid = TILE_SIZE;
+			horizontalGrid = (playerY / tileSize) * tileSize + tileSize;
+			distToNextHorizontalGrid = tileSize;
 			
 			float xtemp = iTanTable[castArc] * (horizontalGrid - playerY);
 			xIntersection = xtemp + playerX;
@@ -1168,8 +1171,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			// The ray is facing north
 			
-			horizontalGrid = (playerY / TILE_SIZE) * TILE_SIZE;
-			distToNextHorizontalGrid = -TILE_SIZE;
+			horizontalGrid = (playerY / tileSize) * tileSize;
+			distToNextHorizontalGrid = -tileSize;
 			
 			float xtemp = iTanTable[castArc] * (horizontalGrid - playerY);
 			xIntersection = xtemp + playerX;
@@ -1182,16 +1185,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			// ray is facing east
 			
-			verticalGrid = TILE_SIZE + (playerX / TILE_SIZE) * TILE_SIZE;
-			distToNextVerticalGrid = TILE_SIZE;
+			verticalGrid = tileSize + (playerX / tileSize) * tileSize;
+			distToNextVerticalGrid = tileSize;
 			
 			float ytemp = tanTable[castArc] * (verticalGrid - playerX);
 			yIntersection = ytemp + playerY;
 		}
 		else
 		{
-			verticalGrid = (playerX / TILE_SIZE) * TILE_SIZE;
-			distToNextVerticalGrid = -TILE_SIZE;
+			verticalGrid = (playerX / tileSize) * tileSize;
+			distToNextVerticalGrid = -tileSize;
 			
 			float ytemp = tanTable[castArc] * (verticalGrid - playerX);
 			yIntersection = ytemp + playerY;
@@ -1300,7 +1303,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// correct distance (compensate for the fishbowl effect)
 			blockHitRecord[castColumn][depth].distance /= fishbowlTable[castColumn];
 
-			blockHitRecord[castColumn][depth].projectedWallHeight = TILE_SIZE *
+			blockHitRecord[castColumn][depth].projectedWallHeight = tileSize *
 				(float)playerDistToProjectionPlane / blockHitRecord[castColumn][depth].distance;
 		}
 		catch (NullPointerException x)
@@ -1339,8 +1342,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int mapIndex=0;
 
-		xGridIndex = playerX / TILE_SIZE;
-		yGridIndex = playerY / TILE_SIZE;
+		xGridIndex = playerX / tileSize;
+		yGridIndex = playerY / tileSize;
 
 		Wall horizontalWallHit=null;
 
@@ -1357,8 +1360,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 			boolean outOfBounds = false;
 			while (true)
 			{
-				xGridIndex = (int)(xIntersection / TILE_SIZE);
-				yGridIndex = (horizontalGrid / TILE_SIZE);
+				xGridIndex = (int)(xIntersection / tileSize);
+				yGridIndex = (horizontalGrid / tileSize);
 
 				if ((xGridIndex >= mapWidth) ||
 					(yGridIndex >= mapLength) ||
@@ -1406,7 +1409,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				if (horizontalWallHit.visible || !requireVisibleWall)
 				{
 					distToHorizontalGridBeingHit = (xIntersection - playerX) * iCosTable[castArc];
-					horizontalTextureXRecord = (int)(xIntersection) % TILE_SIZE;
+					horizontalTextureXRecord = (int)(xIntersection) % tileSize;
 
 					result.distance = distToHorizontalGridBeingHit;
 					result.textureXRecord = horizontalTextureXRecord;
@@ -1470,8 +1473,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int mapIndex=0;
 
-		xGridIndex = playerX / TILE_SIZE;
-		yGridIndex = playerY / TILE_SIZE;
+		xGridIndex = playerX / tileSize;
+		yGridIndex = playerY / tileSize;
 
 		Wall verticalWallHit=null;
 
@@ -1486,8 +1489,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 			boolean outOfBounds = false;
 			while (true)
 			{
-				xGridIndex = (verticalGrid / TILE_SIZE);
-				yGridIndex = (int)(yIntersection / TILE_SIZE);
+				xGridIndex = (verticalGrid / tileSize);
+				yGridIndex = (int)(yIntersection / tileSize);
 
 				if ((xGridIndex >= mapWidth) ||
 					(yGridIndex >= mapLength) ||
@@ -1534,7 +1537,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				if (verticalWallHit.visible || !requireVisibleWall)
 				{
 					distToVerticalGridBeingHit = (yIntersection - playerY) * iSinTable[castArc];
-					verticalTextureXRecord = (int)(yIntersection) % TILE_SIZE;
+					verticalTextureXRecord = (int)(yIntersection) % tileSize;
 
 					result.distance = distToVerticalGridBeingHit;
 					result.textureXRecord = verticalTextureXRecord;
@@ -1618,17 +1621,17 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// Render in vertical strips 1 pixel wide.
 			//
 
-			// field of view is PLAYER_FOV degree with the point of view
+			// field of view is playerFov degree with the point of view
 			// (player's direction in the middle)
 			// We will trace the rays starting from the leftmost ray
-			float castArc = playerArc-PLAYER_FOV_HALF;
+			float castArc = playerArc- playerFovHalf;
 
 			// wrap around if necessary
 			if (castArc < 0)
 			{
 				castArc = ANGLE360 + castArc;
 			}
-			float castInc = (float)PLAYER_FOV/(float)projectionPlaneWidth;
+			float castInc = (float)playerFov /(float)projectionPlaneWidth;
 
 			// execute any animations
 			this.animation();
@@ -1790,11 +1793,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				if (diff <= 0)
 				{
-					textureY = Math.round(((screenY-top) * TILE_SIZE) / height);
+					textureY = Math.round(((screenY-top) * tileSize) / height);
 				}
 				else
 				{
-					textureY = Math.round(((screenY+diff) * TILE_SIZE) / height);
+					textureY = Math.round(((screenY+diff) * tileSize) / height);
 				}
 
 				int colour;
@@ -1916,19 +1919,19 @@ public class CrusaderEngine32 implements CrusaderEngine
 					yIntersection = (int)(playerY + yDistance);
 
 					//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-					xIntersection = Math.min(xIntersection, mapWidth*TILE_SIZE-1);
-					yIntersection = Math.min(yIntersection, mapLength*TILE_SIZE-1);
+					xIntersection = Math.min(xIntersection, mapWidth* tileSize -1);
+					yIntersection = Math.min(yIntersection, mapLength* tileSize -1);
 					//---
 					xIntersection = Math.max(xIntersection, 0);
 					yIntersection = Math.max(yIntersection, 0);
 					//---
 
-					gridX = xIntersection / TILE_SIZE;
-					gridY = yIntersection / TILE_SIZE;
+					gridX = xIntersection / tileSize;
+					gridY = yIntersection / tileSize;
 					mapIndex = gridX + gridY*mapWidth;
 
-					textureX = Math.abs(xIntersection % TILE_SIZE);
-					textureY = Math.abs(yIntersection % TILE_SIZE);
+					textureX = Math.abs(xIntersection % tileSize);
+					textureY = Math.abs(yIntersection % tileSize);
 
 					texture = map.tiles[mapIndex].floorTexture;
 					maskTexture = map.tiles[mapIndex].floorMaskTexture;
@@ -2086,19 +2089,19 @@ public class CrusaderEngine32 implements CrusaderEngine
 				yIntersection = (int)(playerY + yDistance);
 
 				//--- todo: these inaccuracies surely point to a bug in the maths somewhere?
-				xIntersection = Math.min(xIntersection, mapWidth * TILE_SIZE - 1);
-				yIntersection = Math.min(yIntersection, mapLength * TILE_SIZE - 1);
+				xIntersection = Math.min(xIntersection, mapWidth * tileSize - 1);
+				yIntersection = Math.min(yIntersection, mapLength * tileSize - 1);
 				//---
 				xIntersection = Math.max(xIntersection, 0);
 				yIntersection = Math.max(yIntersection, 0);
 				//---
 
-				gridX = xIntersection / TILE_SIZE;
-				gridY = yIntersection / TILE_SIZE;
+				gridX = xIntersection / tileSize;
+				gridY = yIntersection / tileSize;
 				mapIndex = gridX + gridY * mapWidth;
 
-				textureX = Math.abs(xIntersection % TILE_SIZE);
-				textureY = Math.abs(yIntersection % TILE_SIZE);
+				textureX = Math.abs(xIntersection % tileSize);
+				textureY = Math.abs(yIntersection % tileSize);
 
 				texture = map.tiles[mapIndex].floorTexture;
 				maskTexture = map.tiles[mapIndex].ceilingMaskTexture;
@@ -2322,7 +2325,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 				}
 
-				center = (int)(objectAngle - (playerArc - PLAYER_FOV_HALF));
+				center = (int)(objectAngle - (playerArc - playerFovHalf));
 
 				if (center < 0)
 				{
@@ -2338,7 +2341,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				obj.prepareForRender(
 					projectionPlaneWidth,
 					fishbowlTable,
-					TILE_SIZE,
+					tileSize,
 					playerDistToProjectionPlane,
 					map,
 					doLighting,
@@ -2446,8 +2449,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
 				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
-					int textureX = TILE_SIZE * (castColumn - obj.startScreenX) / obj.projectedObjectHeight;
-					int textureY = TILE_SIZE * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
+					int textureX = tileSize * (castColumn - obj.startScreenX) / obj.projectedObjectHeight;
+					int textureY = tileSize * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
 
 					int imagePixel = obj.renderTexture.getCurrentImageData(textureX, textureY, timeNow);
 
@@ -2659,8 +2662,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		synchronized(objectMutex)
 		{
-			int dist = (int)(TILE_SIZE*distance);
-			int arc = (int)(playerArc - PLAYER_FOV_HALF + arcOffset*PLAYER_FOV);
+			int dist = (int)(tileSize *distance);
+			int arc = (int)(playerArc - playerFovHalf + arcOffset* playerFov);
 			if (arc < 0)
 			{
 				arc += ANGLE360;

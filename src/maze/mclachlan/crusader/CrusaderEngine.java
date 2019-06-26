@@ -30,13 +30,13 @@ public interface CrusaderEngine
 	/**
 	 *  The maximum light level
 	 */
-	public byte MAX_LIGHT_LEVEL = 64;
+	byte MAX_LIGHT_LEVEL = 64;
 
 	/**
 	 * The normal light level. Pixels rendered at this light level will have
 	 * the same colour as in their source texture.
 	 */
-	public byte NORMAL_LIGHT_LEVEL = 32;
+	byte NORMAL_LIGHT_LEVEL = 32;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -53,7 +53,7 @@ public interface CrusaderEngine
 	 * 	A constant from {@link Facing} determining which way the player is
 	 * 	initially facing.
 	 */
-	public void setPlayerPos(int x, int y, int facing);
+	void setPlayerPos(int x, int y, int facing);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -61,7 +61,7 @@ public interface CrusaderEngine
 	 * 	The X and Y coordinates of the player in the map grid (not in the
 	 * 	ray caster's internal coordiantes)
 	 */
-	public Point getPlayerPos();
+	Point getPlayerPos();
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -69,7 +69,7 @@ public interface CrusaderEngine
 	 * 	In discrete mode, returns a constant from {@link Facing}.  In
 	 * 	continuous mode, returns the player's facing
 	 */
-	public int getPlayerFacing();
+	int getPlayerFacing();
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -78,7 +78,7 @@ public interface CrusaderEngine
 	 * @param key
 	 * 	the key code, a constant from {@link KeyStroke}
 	 */
-	public void handleKey(int key);
+	void handleKey(int key);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -87,7 +87,7 @@ public interface CrusaderEngine
 	 * @param prediction
 	 * 	the predicted player status
 	 */
-	public void handleKey(PlayerStatus prediction);
+	void handleKey(PlayerStatus prediction);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -98,20 +98,20 @@ public interface CrusaderEngine
 	 * @return
 	 * 	the player position and facing that would result
 	 */
-	public PlayerStatus predictKey(int key);
+	PlayerStatus predictKey(int key);
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Render the scene and return it as an Image.
 	 */
-	public Image render();
+	Image render();
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Removes the given object from the map and returns it.
 	 * If the object does not exist in the map this method returns null.
 	 */
-	public EngineObject removeObject(EngineObject obj);
+	EngineObject removeObject(EngineObject obj);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -120,17 +120,17 @@ public interface CrusaderEngine
 	 * If no objects exist in the map with this name this method returns an
 	 * empty list.
 	 */
-	public List<EngineObject> removeObject(String objectName);
+	List<EngineObject> removeObject(String objectName);
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Adds the given object to the scene.  The objects coordinates are required
 	 * to be set up.
 	 */
-	public void addObject(EngineObject obj);
+	void addObject(EngineObject obj);
 
 	/*-------------------------------------------------------------------------*/
-	public void addObject(EngineObject obj, boolean setup);
+	void addObject(EngineObject obj, boolean setup);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -139,7 +139,7 @@ public interface CrusaderEngine
 	 * @param obj
 	 * 	The object to add
 	 * @param distance
-	 * 	The distance in front of the player, expressed as a multiple of TILE_SIZE.
+	 * 	The distance in front of the player, expressed as a multiple of tileSize.
 	 * @param arcOffset
 	 * 	The angle of view to add, expressed as a fraction of the PLAYER_FOV.
 	 * 	0.0 will add the object on the left edge of the screen, 1.0 will add
@@ -148,20 +148,20 @@ public interface CrusaderEngine
 	 * 	Set to true if the object begins with a random starting frame of
 	 * 	animation
 	 */
-	public void addObjectInFrontOfPlayer(
+	void addObjectInFrontOfPlayer(
 		EngineObject obj,
 		double distance,
 		double arcOffset,
 		boolean randomStartingFrame);
 
 	/*-------------------------------------------------------------------------*/
-	public void addScript(MapScript script);
+	void addScript(MapScript script);
 
 	/*-------------------------------------------------------------------------*/
-	public MapScript removeScript(MapScript script);
+	MapScript removeScript(MapScript script);
 
 	/*-------------------------------------------------------------------------*/
-	public ColorModel getColourModel();
+	ColorModel getColourModel();
 
 	/*-------------------------------------------------------------------------*/
 	void addTexture(Texture texture);
@@ -185,7 +185,7 @@ public interface CrusaderEngine
 	MouseClickScript handleMouseClickReturnScript(int x, int y);
 
 	/*-------------------------------------------------------------------------*/
-	public class PlayerStatus
+	class PlayerStatus
 	{
 		public Point position;
 		public int facing;
@@ -213,7 +213,7 @@ public interface CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class FieldOfView
+	class FieldOfView
 	{
 		public static final int FOV_30_DEGREES = 1;
 		public static final int FOV_60_DEGREES = 2;
@@ -222,14 +222,14 @@ public interface CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class MovementMode
+	class MovementMode
 	{
 		public static final int CONTINUOUS = 1;
 		public static final int DISCRETE = 2;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class Facing
+	class Facing
 	{
 		public static final int NORTH = 1;
 		public static final int SOUTH = 2;
@@ -238,7 +238,7 @@ public interface CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class KeyStroke
+	class KeyStroke
 	{
 		public static final int FORWARD = 2;
 		public static final int BACKWARD = 3;
@@ -246,13 +246,6 @@ public interface CrusaderEngine
 		public static final int TURN_RIGHT = 5;
 		public static final int STRAFE_LEFT = 6;
 		public static final int STRAFE_RIGHT = 7;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static class ColourMode
-	{
-		public static final int EIGHT_BIT = 1;
-		public static final int THIRTY_TWO_BIT = 2;
 	}
 
 	/*-------------------------------------------------------------------------*/

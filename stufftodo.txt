@@ -71,6 +71,7 @@ editor: resizing map
 editor: copying/renaming zones
 
 raycaster: ceiling height
+raycaster: proper FXAA implementation
 
 --------------------------------------------
 IN PROGRESS

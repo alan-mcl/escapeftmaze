@@ -24,18 +24,13 @@ import java.awt.image.DataBuffer;
 import java.awt.color.ColorSpace;
 
 /**
- * An basic RGBA colour model that uses 32 bits per pixel.  Tests show it's much 
+ * An basic ARGB colour model that uses 32 bits per pixel.  Tests show it's much
  * faster than ColorModel.getRGBDefault, even though it's effectively doing the
  * same thing (with about 2000 less lines of code too) 
  */
 public class CrusaderColourModel extends ColorModel
 {
 	private static int[] opaqueBits = {8, 8, 8};
-	
-	static int alpha_mask = 0xFF000000;
-	static int red_mask = 0x00FF0000;
-	static int green_mask = 0x0000FF00;
-	static int blue_mask = 0x000000FF;
 	
 	/*-------------------------------------------------------------------------*/
 	public CrusaderColourModel()
