@@ -347,7 +347,7 @@ suggestedNames=Female:Jacaranda,Hyacinth,Tigerlily,Blossom,Dahlia,Bellis,Aster,R
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/dryad
 @
 name=Elf
 description=The immortal elves, cousins of the sidhe.  Though they are perhaps the least alien of the faerie folk, they are still steeped in magic and enchantment.%n%nThe elves tell of a war in the realms of Faerie, that ended with a betrayal by one of their own and their current imprisonment in the Maze.  With the patience of the fey they dwell in their white castles in the forests of the First Realm, and few attempt to escape the Maze.%n%nSpecial: An Elf is is immune to disease and to possession effects of most kinds.
