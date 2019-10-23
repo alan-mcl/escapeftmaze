@@ -282,7 +282,7 @@ playerOrigin: 0:0
 5: arena.portal.5,true,locked,1:2,1,1:1,2,true,true,true,5,0,5:0:4:3:0:0:0:0,1011,null,true,generic door creak
 
 -sky image-
-0: DEFAULT_SKY
+0: sky.ichiba
 
 -tiles-
 0: CITY_FLOOR_1,,TRANSPARENT,,32

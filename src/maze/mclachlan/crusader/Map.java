@@ -480,6 +480,22 @@ public class Map
 	public void setSkyTexture(Texture txt)
 	{
 		skyTextureIndex = Arrays.binarySearch(textures, txt);
+
+		if (skyTextureIndex < 0)
+		{
+			skyTextureIndex = addTexture(txt);
+		}
+	}
+
+	public int addTexture(Texture txt)
+	{
+		Texture[] temp = new Texture[textures.length+1];
+		System.arraycopy(textures, 0, temp, 0, textures.length);
+		temp[textures.length] = txt;
+		Arrays.sort(temp);
+		textures = temp;
+
+		return Arrays.binarySearch(textures, txt);
 	}
 
 	public Texture[] getTextures()

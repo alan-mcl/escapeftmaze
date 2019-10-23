@@ -21,6 +21,7 @@
 package mclachlan.crusader;
 
 import java.awt.image.BufferedImage;
+import java.util.*;
 
 /**
  *
@@ -222,6 +223,27 @@ public class Texture implements Comparable<Texture>
 	public int compareTo(Texture other)
 	{
 		return this.getName().compareTo(other.getName());
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Texture))
+		{
+			return false;
+		}
+		Texture texture = (Texture)o;
+		return name.equals(texture.name);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return Objects.hash(name);
 	}
 
 	/*-------------------------------------------------------------------------*/

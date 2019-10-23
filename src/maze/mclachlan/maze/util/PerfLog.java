@@ -68,9 +68,11 @@ public class PerfLog extends Log
 		long now = System.nanoTime();
 		Long start = map.remove(tag);
 
-		long diffMs = (now - start) / 1000000;
-
-		log(tag+": "+diffMs+"ms");
+		if (start != null)
+		{
+			long diffMs = (now - start) / 1000000;
+			log(tag + ": " + diffMs + "ms");
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

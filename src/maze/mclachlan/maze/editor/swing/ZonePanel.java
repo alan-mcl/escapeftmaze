@@ -583,6 +583,9 @@ public class ZonePanel extends EditorPanel
 		Texture floor = Database.getInstance().getMazeTexture((String)initialFloorTexture.getSelectedItem()).getTexture();
 		Texture ceiling = Database.getInstance().getMazeTexture((String)initialCeilingTexture.getSelectedItem()).getTexture();
 		Texture walls = Database.getInstance().getMazeTexture((String)initialWallTexture.getSelectedItem()).getTexture();
+		MazeTexture skyTexture = Database.getInstance().getMazeTexture(
+			(String)initialSkyTexture.getSelectedItem());
+
 
 		Tile[] tiles = new Tile[length*width];
 		for (int i = 0; i < tiles.length; i++)
@@ -602,7 +605,7 @@ public class ZonePanel extends EditorPanel
 		}
 		Texture[] textureArray = 
 			{
-				floor, ceiling, walls
+				floor, ceiling, walls, skyTexture.getTexture()
 			};
 		Wall[] horiz = new Wall[length*width + width];
 		for (int i = 0; i < horiz.length; i++)
@@ -631,9 +634,6 @@ public class ZonePanel extends EditorPanel
 			}
 		}
 
-		MazeTexture skyTexture = Database.getInstance().getMazeTexture(
-			(String)initialSkyTexture.getSelectedItem());
-		
 		Map map = new Map(
 			length, 
 			width, 

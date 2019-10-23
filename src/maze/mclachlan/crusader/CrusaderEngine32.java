@@ -2698,16 +2698,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		timeNow = System.currentTimeMillis();
 
-		for (Texture texture1 : textures)
+		for (Texture texture : textures)
 		{
-			if (timeNow - texture1.lastChanged >= texture1.animationDelay)
+			if (texture.animationDelay > -1 && timeNow - texture.lastChanged >= texture.animationDelay)
 			{
-				texture1.currentFrame++;
-				if (texture1.currentFrame >= texture1.nrFrames)
+				texture.currentFrame++;
+				if (texture.currentFrame >= texture.nrFrames)
 				{
-					texture1.currentFrame = 0;
+					texture.currentFrame = 0;
 				}
-				texture1.lastChanged = timeNow;
+				texture.lastChanged = timeNow;
 			}
 		}
 
@@ -2724,7 +2724,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				texture = object.textures[object.northTexture];
 			}
 
-			if (timeNow - object.textureLastChanged >= texture.animationDelay)
+			if (texture.animationDelay > -1 && timeNow - object.textureLastChanged >= texture.animationDelay)
 			{
 				object.currentTextureFrame++;
 				if (object.currentTextureFrame >= texture.nrFrames)

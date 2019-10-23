@@ -1,6 +1,6 @@
-zone=arena
+zone=Ichiba Crossroad
 difficultyLevel=Normal
-playerPos=9:7
+playerPos=18:13
 facing=4
 partyGold=1000237
 partySupplies=9
