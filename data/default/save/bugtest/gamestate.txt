@@ -1,6 +1,6 @@
-zone=Ichiba Crossroad
+zone=testgen
 difficultyLevel=Normal
-playerPos=18:13
+playerPos=8:8
 facing=4
 partyGold=1000237
 partySupplies=9

@@ -23,6 +23,7 @@ import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Water;
 import mclachlan.maze.map.TileScript;
 
@@ -40,7 +41,7 @@ public class PaintWater extends Tool
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(MapEditor editor)
+	public void execute(MapEditor editor, Zone zone)
 	{
 		this.editor = editor;
 		List<Object> selection = this.editor.getSelection();

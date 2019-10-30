@@ -112,7 +112,7 @@ public class Zone
 		this.order = order;
 		this.playerOrigin = playerOrigin;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void encounterTile(Maze maze, Point tile, Point previousTile, int facing)
 	{
@@ -548,6 +548,12 @@ public class Zone
 	public Point getPoint(Tile t)
 	{
 		return t.getCoords();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setMap(Map map)
+	{
+		this.map = map;
 	}
 
 	/*-------------------------------------------------------------------------*/

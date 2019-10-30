@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2012 Alan McLachlan
+ * Copyright (c) 2011 Alan McLachlan
  *
  * This file is part of Escape From The Maze.
  *
@@ -19,48 +19,24 @@
 
 package mclachlan.maze.editor.swing.map;
 
-import java.util.*;
-import mclachlan.crusader.Tile;
 import mclachlan.maze.map.Zone;
 
 /**
- * Inverts the current selection
+ *
  */
-public class InvertSelection extends Tool
+public class RunZoneScript extends Tool
 {
 	/*-------------------------------------------------------------------------*/
-	@Override
 	public String getName()
 	{
-		return "Invert Selection";
+		return "Init Zone Script";
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Override
 	public void execute(MapEditor editor, Zone zone)
 	{
-		List<Object> selection = editor.getSelection();
-		List<Object> newSelection = new ArrayList<Object>();
+		zone.getScript().init(zone, 0);
 
-		for (Tile tile : editor.getMap().getTiles())
-		{
-			if (!selection.contains(tile))
-			{
-				newSelection.add(tile);
-			}
-		}
-
-		// todo: how to handle walls
-
-//		for (Wall w : editor.getMap().getHorizontalWalls())
-//		{
-//			if (!selection.contains(w))
-//			{
-//				newSelection.add
-//			}
-//		}
-
-		editor.setSelection(newSelection);
-		editor.refreshSelectionSummary();
+		editor.display.repaint();
 	}
 }

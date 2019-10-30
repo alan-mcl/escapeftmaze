@@ -19,6 +19,8 @@
 
 package mclachlan.maze.editor.swing.map;
 
+import mclachlan.maze.map.Zone;
+
 /**
  *
  */
@@ -26,5 +28,5 @@ public abstract class Tool
 {
 	public abstract String getName();
 
-	public abstract void execute(MapEditor editor);
+	public abstract void execute(MapEditor editor, Zone zone);
 }

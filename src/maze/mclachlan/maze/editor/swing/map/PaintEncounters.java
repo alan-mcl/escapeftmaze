@@ -29,6 +29,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.SwingEditor;
 import mclachlan.maze.editor.swing.TileScriptEditor;
 import mclachlan.maze.map.EncounterTable;
+import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Encounter;
 
 /**
@@ -48,7 +49,7 @@ public class PaintEncounters extends Tool implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(MapEditor editor)
+	public void execute(MapEditor editor, Zone zone)
 	{
 		this.editor = editor;
 		List<Object> selection = this.editor.getSelection();

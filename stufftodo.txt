@@ -15,7 +15,7 @@ animation: throwing hammer
 
 race art: dwarf, troll (female)
 
-scene art: city windows, dungeon window, door+window, portcullis, tree wall transparency
+scene art: city windows, dungeon window, door+window, portcullis
 scene art: table, chair, crate, barrel, 
 
 sprite & sound: angel

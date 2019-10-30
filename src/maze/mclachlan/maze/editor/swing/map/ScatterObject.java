@@ -34,6 +34,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.editor.swing.SwingEditor;
+import mclachlan.maze.map.Zone;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.util.MazeException;
 
@@ -54,7 +55,7 @@ public class ScatterObject extends Tool implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(MapEditor editor)
+	public void execute(MapEditor editor, Zone zone)
 	{
 		this.editor = editor;
 		List<Object> selection = this.editor.getSelection();

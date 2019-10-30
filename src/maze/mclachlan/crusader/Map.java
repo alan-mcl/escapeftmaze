@@ -518,6 +518,31 @@ public class Map
 		return originalObjects;
 	}
 
+	public SkyTextureType getSkyTextureType()
+	{
+		return skyTextureType;
+	}
+
+	public void setWidth(int width)
+	{
+		this.width = width;
+	}
+
+	public void setTiles(Tile[] tiles)
+	{
+		this.tiles = tiles;
+	}
+
+	public void setHorizontalWalls(Wall[] horizontalWalls)
+	{
+		this.horizontalWalls = horizontalWalls;
+	}
+
+	public void setVerticalWalls(Wall[] verticalWalls)
+	{
+		this.verticalWalls = verticalWalls;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public int getIndex(Tile t)
 	{

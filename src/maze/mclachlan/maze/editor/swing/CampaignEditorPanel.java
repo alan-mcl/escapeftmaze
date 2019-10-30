@@ -39,10 +39,10 @@ import mclachlan.maze.util.MazeException;
 public class CampaignEditorPanel extends JPanel
 	implements KeyListener, ActionListener, ChangeListener, IEditorPanel
 {
-	JTextField displayName, defaultRace, defaultPortrait;
-	JTextArea description;
-	JComboBox startingScript, introScript;
-	Campaign currentCampaign;
+	private JTextField displayName, defaultRace, defaultPortrait;
+	private JTextArea description;
+	private JComboBox startingScript, introScript;
+	private Campaign currentCampaign;
 
 	/*-------------------------------------------------------------------------*/
 	public CampaignEditorPanel()

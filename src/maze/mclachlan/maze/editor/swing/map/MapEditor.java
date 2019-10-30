@@ -174,7 +174,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 			selectionFeatures.add(b);
 		}
 		
-		ToolsPanel toolsPanel = new ToolsPanel(this);
+		ToolsPanel toolsPanel = new ToolsPanel(this, zone);
 		
 		tabs.add("Selected", selected);
 		tabs.add("Summary", selectionSummaryPanel);
@@ -271,7 +271,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 
 			if (tool != null)
 			{
-				tool.execute(this);
+				tool.execute(this, zone);
 			}
 		}
 	}
@@ -526,6 +526,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		result.add(new PaintEncounters());
 		result.add(new PaintWater());
 		result.add(new AddMapScripts());
+		result.add(new RunZoneScript());
 
 		return result;
 	}

@@ -22,10 +22,11 @@ package mclachlan.maze.editor.swing.map;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.*;
 import javax.swing.*;
+import mclachlan.maze.map.Zone;
 
 /**
  *
@@ -33,12 +34,14 @@ import javax.swing.*;
 public class ToolsPanel extends JPanel implements ActionListener
 {
 	private MapEditor editor;
+	private Zone zone;
 	private Map<String, Tool> tools = new HashMap<String, Tool>();
 
 	/*-------------------------------------------------------------------------*/
-	public ToolsPanel(MapEditor editor)
+	public ToolsPanel(MapEditor editor, Zone zone)
 	{
 		this.editor = editor;
+		this.zone = zone;
 		List<Tool> list = this.editor.getTools();
 
 		setLayout(new GridBagLayout());
@@ -85,6 +88,6 @@ public class ToolsPanel extends JPanel implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		Tool tool = tools.get(e.getActionCommand());
-		tool.execute(editor);
+		tool.execute(editor, zone);
 	}
 }

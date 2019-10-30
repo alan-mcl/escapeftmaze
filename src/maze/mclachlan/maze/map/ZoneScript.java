@@ -51,4 +51,5 @@ public abstract class ZoneScript
 	 * 	Any events to be processed
 	 */
 	public abstract List<MazeEvent> endOfTurn(Zone zone, long turnNr);
+
 }

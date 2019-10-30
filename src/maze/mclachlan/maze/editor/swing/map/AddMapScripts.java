@@ -24,6 +24,7 @@ import javax.swing.*;
 import mclachlan.crusader.MapScript;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.editor.swing.SwingEditor;
+import mclachlan.maze.map.Zone;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -40,7 +41,7 @@ public class AddMapScripts extends Tool
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(MapEditor editor)
+	public void execute(MapEditor editor, Zone zone)
 	{
 		this.editor = editor;
 		List<Object> selection = this.editor.getSelection();

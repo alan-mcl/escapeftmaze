@@ -22,6 +22,7 @@ package mclachlan.maze.editor.swing.map;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.crusader.Tile;
+import mclachlan.maze.map.Zone;
 
 /**
  *
@@ -37,7 +38,7 @@ public class DeleteObjects extends Tool
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void execute(MapEditor editor)
+	public void execute(MapEditor editor, Zone zone)
 	{
 		this.editor = editor;
 		List<Object> selection = this.editor.getSelection();

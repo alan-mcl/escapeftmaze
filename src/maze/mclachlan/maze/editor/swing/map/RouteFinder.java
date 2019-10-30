@@ -22,6 +22,7 @@ package mclachlan.maze.editor.swing.map;
 import java.util.*;
 import mclachlan.maze.balance.ZoneScorer;
 import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.Zone;
 
 /**
  * Selects the reachable route on the map.
@@ -37,7 +38,7 @@ public class RouteFinder extends Tool
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void execute(MapEditor editor)
+	public void execute(MapEditor editor, Zone zone)
 	{
 		ZoneScorer zs = new ZoneScorer();
 
