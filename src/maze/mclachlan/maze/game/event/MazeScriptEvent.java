@@ -45,7 +45,7 @@ public class MazeScriptEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		MazeScript script = Database.getInstance().getScript(this.script);
+		MazeScript script = Database.getInstance().getMazeScript(this.script);
 		return script.getEvents();
 	}
 	

@@ -23,6 +23,7 @@ import java.awt.*;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.BodyPart;
 import mclachlan.maze.stat.EquipableSlot;
 import mclachlan.maze.stat.StatModifier;
@@ -125,18 +126,16 @@ public class BodyPartPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getBodyParts().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getBodyParts().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.BODY_PART);
-		BodyPart g = new BodyPart(
+		BodyPart bodyPart = new BodyPart(
 			name,
 			"",
 			new StatModifier(),
@@ -144,8 +143,9 @@ public class BodyPartPanel extends EditorPanel
 			0,
 			0,
 			EquipableSlot.Type.NONE);
-		Database.getInstance().getBodyParts().put(name, g);
-		refreshNames(name);
+		Database.getInstance().getBodyParts().put(name, bodyPart);
+
+		return bodyPart;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -160,13 +160,13 @@ public class BodyPartPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.BODY_PART);
 
 		BodyPart current = Database.getInstance().getBodyPart((String)names.getSelectedValue());
 
-		BodyPart g = new BodyPart(
+		BodyPart bodyPart = new BodyPart(
 			newName,
 			current.getDisplayName(),
 			new StatModifier(current.getModifiers()),
@@ -174,8 +174,9 @@ public class BodyPartPanel extends EditorPanel
 			current.getDamagePreventionChance(),
 			current.getNrWeaponHardpoints(),
 			current.getEquipableSlotType());
-		Database.getInstance().getBodyParts().put(newName, g);
-		refreshNames(newName);
+		Database.getInstance().getBodyParts().put(newName, bodyPart);
+
+		return bodyPart;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -188,14 +189,17 @@ public class BodyPartPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		BodyPart bp = Database.getInstance().getBodyPart(name);
+
 		bp.setDisplayName(displayName.getText());
 		bp.setDamagePrevention((Integer)(damagePrevention.getValue()));
 		bp.setDamagePreventionChance((Integer)(damagePreventionChance.getValue()));
 		bp.setNrWeaponHardpoints((Integer)(nrWeaponHardpoints.getValue()));
 		bp.setEquipableSlotType((EquipableSlot.Type)equipableSlotType.getSelectedItem());
+
+		return bp;
 	}
 
 	/*-------------------------------------------------------------------------*/

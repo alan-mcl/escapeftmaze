@@ -19,12 +19,16 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.CraftRecipe;
 import mclachlan.maze.stat.StatModifier;
 
@@ -76,11 +80,9 @@ public class CraftRecipePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getCraftRecipes().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getCraftRecipes().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -103,7 +105,7 @@ public class CraftRecipePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		CraftRecipe cr = new CraftRecipe(
 			name,
@@ -113,6 +115,8 @@ public class CraftRecipePanel extends EditorPanel
 			(String)item1.getItemAt(0));
 
 		Database.getInstance().getCraftRecipes().put(name, cr);
+
+		return cr;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -124,7 +128,7 @@ public class CraftRecipePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		CraftRecipe current = Database.getInstance().getCraftRecipes().get(currentName);
 
@@ -136,6 +140,8 @@ public class CraftRecipePanel extends EditorPanel
 			current.getResultingItem());
 
 		Database.getInstance().getCraftRecipes().put(newName, cr);
+
+		return cr;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -145,7 +151,7 @@ public class CraftRecipePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		CraftRecipe cr = Database.getInstance().getCraftRecipes().get(currentName);
 
@@ -153,6 +159,8 @@ public class CraftRecipePanel extends EditorPanel
 		cr.setItem1((String)item1.getSelectedItem());
 		cr.setItem2((String)item2.getSelectedItem());
 		cr.setResultingItem((String)resultingItem.getSelectedItem());
+
+		return cr;
 	}
 
 	/*-------------------------------------------------------------------------*/

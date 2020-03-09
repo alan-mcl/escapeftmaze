@@ -23,7 +23,6 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -39,10 +38,7 @@ public class UpdateCharacterClasses
 
 		V1Loader loader = new V1Loader();
 		V1Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
-		saver.init(campaign);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		Map<String, MagicSys.SpellBook> hybrids = new HashMap<String, MagicSys.SpellBook>();
 		hybrids.put("Samurai", MagicSys.SpellBook.RED_MAGIC);

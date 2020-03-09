@@ -819,7 +819,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		JTabbedPane cckTabs = new JTabbedPane(JTabbedPane.LEFT);
 		cckClassesMap = new HashMap<String, JTextArea>();
 
-		List<String> classes = Database.getInstance().getCharacterClassList();
+		List<String> classes = new ArrayList<>(Database.getInstance().getCharacterClasses().keySet());
 		Collections.sort(classes);
 
 		for (String c : classes)
@@ -1337,8 +1337,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
+		new Database(loader, saver, Maze.getStubCampaign());
 
 		JFrame owner = new JFrame("test");
 		owner.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

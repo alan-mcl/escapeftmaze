@@ -124,8 +124,8 @@ public class SpellResultEditor extends JDialog implements ActionListener
 
 		JPanel top2 = new JPanel();
 		Vector<String> types = new Vector<String>();
-		types.addAll(Database.getInstance().getCharacterClassList());
-		types.addAll(Database.getInstance().getRaceList());
+		types.addAll(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
+		types.addAll(new ArrayList<>(Database.getInstance().getRaces().keySet()));
 		types.addAll(Database.getInstance().getFoeTypes().keySet());
 		Collections.sort(types);
 		types.add(0, EditorPanel.NONE);

@@ -257,7 +257,7 @@ public class V1TileScript
 				String southTexture = strs[i++];
 				String eastTexture = strs[i++];
 				String westTexture = strs[i++];
-				MazeScript script = ("".equals(strs[i])) ? null : Database.getInstance().getScript(strs[i++]);
+				MazeScript script = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i++]);
 				result = new Chest(
 					chestContents, 
 					t, 
@@ -330,8 +330,8 @@ public class V1TileScript
 				String preStr = strs[i++];
 				int spotDifficulty = Integer.parseInt(strs[i++]);
 				int findDifficulty = Integer.parseInt(strs[i++]);
-				MazeScript content = ("".equals(contentStr)) ? null : Database.getInstance().getScript(contentStr);
-				MazeScript preScript = ("".equals(preStr)) ? null : Database.getInstance().getScript(preStr);
+				MazeScript content = ("".equals(contentStr)) ? null : Database.getInstance().getMazeScript(contentStr);
+				MazeScript preScript = ("".equals(preStr)) ? null : Database.getInstance().getMazeScript(preStr);
 				result = new HiddenStuff(content, preScript, mazeVar, spotDifficulty, findDifficulty);
 				break;
 			case WATER:

@@ -25,11 +25,13 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.util.MazeException;
 
@@ -41,7 +43,7 @@ public class CampaignEditorPanel extends JPanel
 {
 	private JTextField displayName, defaultRace, defaultPortrait;
 	private JTextArea description;
-	private JComboBox startingScript, introScript;
+	private JComboBox startingScript, introScript, parentCampaign;
 	private Campaign currentCampaign;
 
 	/*-------------------------------------------------------------------------*/
@@ -102,6 +104,10 @@ public class CampaignEditorPanel extends JPanel
 		defaultRace.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Default Race:"), defaultRace, gbc);
 		
+		parentCampaign = new JComboBox();
+		parentCampaign.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Parent Campaign:"), parentCampaign, gbc);
+
 		defaultPortrait = new JTextField(20);
 		defaultPortrait.addActionListener(this);
 		gbc.weightx = 0.0;
@@ -119,11 +125,26 @@ public class CampaignEditorPanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
+		Vector<String> vec = new Vector<>(Database.getInstance().getMazeScripts().keySet());
 		Collections.sort(vec);
 		
-		startingScript.setModel(new DefaultComboBoxModel(vec));
-		introScript.setModel(new DefaultComboBoxModel(vec));
+		startingScript.setModel(new DefaultComboBoxModel<>(vec));
+		introScript.setModel(new DefaultComboBoxModel<>(vec));
+
+		try
+		{
+			Map<String, Campaign> campaigns = Database.getCampaigns();
+
+			vec = new Vector<>(campaigns.keySet());
+			Collections.sort(vec);
+			vec.add(0, EditorPanel.NONE);
+
+			parentCampaign.setModel(new DefaultComboBoxModel<>(vec));
+		}
+		catch (IOException e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -135,6 +156,7 @@ public class CampaignEditorPanel extends JPanel
 		introScript.removeActionListener(this);
 		defaultPortrait.removeActionListener(this);
 		defaultRace.removeActionListener(this);
+		parentCampaign.removeActionListener(this);
 
 		displayName.setText(c.getDisplayName());
 		startingScript.setSelectedItem(c.getStartingScript());
@@ -143,11 +165,13 @@ public class CampaignEditorPanel extends JPanel
 		description.setCaretPosition(0);
 		defaultPortrait.setText(c.getDefaultPortrait());
 		defaultRace.setText(c.getDefaultRace());
+		parentCampaign.setSelectedItem(c.getParentCampaign());
 
 		startingScript.addActionListener(this);
 		introScript.addActionListener(this);
 		defaultPortrait.addActionListener(this);
 		defaultRace.addActionListener(this);
+		parentCampaign.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -160,6 +184,12 @@ public class CampaignEditorPanel extends JPanel
 		p.setProperty("defaultRace", defaultRace.getText());
 		p.setProperty("defaultPortrait", defaultPortrait.getText());
 		p.setProperty("introScript", introScript.getSelectedItem().toString());
+		String parent = (String)parentCampaign.getSelectedItem();
+		if (EditorPanel.NONE.equals(parent))
+		{
+			parent = null;
+		}
+		p.setProperty("parentCampaign", parent);
 
 		currentCampaign.setDisplayName(displayName.getText());
 		currentCampaign.setDescription(description.getText());
@@ -167,6 +197,7 @@ public class CampaignEditorPanel extends JPanel
 		currentCampaign.setDefaultRace(defaultRace.getText());
 		currentCampaign.setDefaultPortrait(defaultPortrait.getText());
 		currentCampaign.setIntroScript((String)introScript.getSelectedItem());
+		currentCampaign.setParentCampaign(parent);
 
 		try
 		{
@@ -226,7 +257,7 @@ public class CampaignEditorPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
 		return null;
 	}
@@ -238,9 +269,10 @@ public class CampaignEditorPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		// not supported
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -250,9 +282,10 @@ public class CampaignEditorPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		// not supported
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -262,9 +295,10 @@ public class CampaignEditorPanel extends JPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		commit();
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

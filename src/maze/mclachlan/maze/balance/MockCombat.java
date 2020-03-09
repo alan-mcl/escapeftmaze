@@ -49,7 +49,7 @@ public class MockCombat
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		Maze maze = getMockMaze(loader);
 
@@ -372,7 +372,7 @@ public class MockCombat
 			0,
 			StatModifier.NULL_STAT_MODIFIER,
 			StatModifier.NULL_STAT_MODIFIER,
-			Database.getInstance().getScript("generic weapon swish"),
+			Database.getInstance().getMazeScript("generic weapon swish"),
 			damage,
 			MagicSys.SpellEffectType.SLASHING,
 			attackTypes,

@@ -28,6 +28,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1StatModifier;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.stat.ItemEnchantment;
@@ -205,11 +206,9 @@ public class ItemEnchantmentsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getItemEnchantments().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getItemEnchantments().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -238,10 +237,11 @@ public class ItemEnchantmentsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		ItemEnchantments ie = new ItemEnchantments(name, new PercentageTable<ItemEnchantment>());
 		Database.getInstance().getItemEnchantments().put(name, ie);
+		return ie;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -253,15 +253,17 @@ public class ItemEnchantmentsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		ItemEnchantments current = Database.getInstance().getItemEnchantments().get(currentName);
 
 		ItemEnchantments ie = new ItemEnchantments(
 			newName,
-			new PercentageTable<ItemEnchantment>(current.getEnchantments()));
+			new PercentageTable<>(current.getEnchantments()));
 
 		Database.getInstance().getItemEnchantments().put(newName, ie);
+
+		return ie;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -271,11 +273,13 @@ public class ItemEnchantmentsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		ItemEnchantments ie = Database.getInstance().getItemEnchantments().get(currentName);
 
 		ie.setEnchantments(getEnchantments());
+
+		return ie;
 	}
 
 	/*-------------------------------------------------------------------------*/

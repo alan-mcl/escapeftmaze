@@ -19,10 +19,12 @@
 
 package mclachlan.maze.stat;
 
+import mclachlan.maze.data.v1.DataObject;
+
 /**
  *
  */
-public class Gender
+public class Gender extends DataObject
 {
 	private String name;
 
@@ -85,5 +87,14 @@ public class Gender
 	public void setStartingModifiers(StatModifier startingModifiers)
 	{
 		this.startingModifiers = startingModifiers;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Gender{" +
+			"name='" + name + '\'' +
+			"campaign='" + super.getCampaign() + '\'' +
+			"} ";
 	}
 }

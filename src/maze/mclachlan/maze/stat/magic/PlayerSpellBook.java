@@ -20,11 +20,12 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.Collection;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  * A set of spells that player characters can learn.
  */
-public class PlayerSpellBook
+public class PlayerSpellBook extends DataObject
 {
 	private String name;
 	private String description;

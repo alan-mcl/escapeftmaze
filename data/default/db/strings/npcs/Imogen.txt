@@ -1,4 +1,4 @@
-#Tue Oct 08 08:27:51 CAT 2019
+#Fri Jan 31 08:15:21 CAT 2020
 garret=9|I care nothing for the gods.
 leonal,leonals,white\ order=9|The leonals make much of their military might.
 maze=9|Who can know all the mysteries of the Maze? Not I.

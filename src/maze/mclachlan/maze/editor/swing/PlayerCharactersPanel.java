@@ -341,15 +341,15 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys()
 	{
-		Vector<String> v1 = new Vector<String>(Database.getInstance().getGenderList());
+		Vector<String> v1 = new Vector<String>(new ArrayList<>(Database.getInstance().getGenders().keySet()));
 		Collections.sort(v1);
 		gender.setModel(new DefaultComboBoxModel(v1));
-		
-		Vector<String> v2 = new Vector<String>(Database.getInstance().getRaceList());
+
+		Vector<String> v2 = new Vector<String>(new ArrayList<>(Database.getInstance().getRaces().keySet()));
 		Collections.sort(v2);
 		race.setModel(new DefaultComboBoxModel(v2));
-		
-		Vector<String> v3 = new Vector<String>(Database.getInstance().getCharacterClassList());
+
+		Vector<String> v3 = new Vector<String>(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
 		Collections.sort(v3);
 		characterClass.setModel(new DefaultComboBoxModel(v3));
 		
@@ -379,7 +379,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		pc.setExperience((Integer)experience.getValue());
 		pc.setKills((Integer)kills.getValue());
 		pc.setSpellPicks((Integer)spellPicks.getValue());
-		pc.setGender(Database.getInstance().getGender((String)gender.getSelectedItem()));
+		pc.setGender(Database.getInstance().getGenders().get((String)gender.getSelectedItem()));
 		pc.setRace(Database.getInstance().getRace((String)race.getSelectedItem()));
 		pc.setCharacterClass(Database.getInstance().getCharacterClass((String)characterClass.getSelectedItem()));
 		pc.setPersonality(Database.getInstance().getPersonalities().get((String)personality.getSelectedItem()));

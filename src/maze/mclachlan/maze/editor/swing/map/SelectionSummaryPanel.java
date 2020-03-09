@@ -129,7 +129,7 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 			{
 				// hackish attempt to set a default door script. because i keep
 				// forgetting this
-				Database.getInstance().getScript(mazeScript);
+				Database.getInstance().getMazeScript(mazeScript);
 			}
 			catch (Exception x)
 			{

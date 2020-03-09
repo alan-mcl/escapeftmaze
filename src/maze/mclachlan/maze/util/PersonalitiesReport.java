@@ -24,7 +24,6 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Personality;
 
@@ -37,26 +36,17 @@ public class PersonalitiesReport
 	{
 		V1Loader loader = new V1Loader();
 		V1Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
-		saver.init(campaign);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		Map<String, Personality> items = db.getPersonalities();
 
-		List<Personality> list = new ArrayList<Personality>(items.values());
-		Collections.sort(list, new Comparator<Personality>()
-		{
-			public int compare(Personality o1, Personality o2)
-			{
-				return o1.getName().compareTo(o2.getName());
-			}
-		});
+		List<Personality> list = new ArrayList<>(items.values());
+		list.sort(Comparator.comparing(Personality::getName));
 
 		// print HTML for the google site
 		for (Personality p : list)
 		{
-			ArrayList<String> keys = new ArrayList<String>(p.getSpeech().keySet());
+			ArrayList<String> keys = new ArrayList<>(p.getSpeech().keySet());
 			Collections.sort(keys);
 
 			h2(p.getName());

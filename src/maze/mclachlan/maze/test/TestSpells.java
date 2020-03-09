@@ -38,9 +38,8 @@ public class TestSpells
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
-		
+		new Database(loader, saver, Maze.getStubCampaign());
+
 		List result;
 		for (MagicSys.SpellBook book : MagicSys.SpellBook.getAllBooks())
 		{

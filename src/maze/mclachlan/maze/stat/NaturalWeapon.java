@@ -20,6 +20,7 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -28,7 +29,7 @@ import mclachlan.maze.stat.magic.SpellEffect;
 /**
  *
  */
-public class NaturalWeapon implements AttackWith
+public class NaturalWeapon extends DataObject implements AttackWith
 {
 	private String name;
 	private String description;

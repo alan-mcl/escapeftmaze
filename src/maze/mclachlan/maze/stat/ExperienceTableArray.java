@@ -22,7 +22,7 @@ package mclachlan.maze.stat;
 /**
  * An experience table implemented with an array
  */
-public class ExperienceTableArray implements ExperienceTable
+public class ExperienceTableArray extends ExperienceTable
 {
 	String name;
 

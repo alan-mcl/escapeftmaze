@@ -1,0 +1,1 @@
+set java_home=c:\utils\jdk-11.0.4+11

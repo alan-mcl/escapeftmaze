@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.condition;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.Personality;
@@ -34,7 +35,7 @@ import mclachlan.maze.stat.combat.event.DamageEvent;
  * Expresses the effect of a condition on an actor in terms of the actions
  * it forces him or her to take.
  */
-public class ConditionEffect
+public class ConditionEffect extends DataObject
 {
 	public static final ConditionEffect NONE = new ConditionEffect("none");
 

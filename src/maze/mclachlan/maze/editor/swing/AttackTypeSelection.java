@@ -39,10 +39,10 @@ public class AttackTypeSelection extends JPanel implements ActionListener
 	public AttackTypeSelection(int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
-		List<String> attacktypeList = new ArrayList<String>(Database.getInstance().getAttackTypes().keySet());
+		List<String> attacktypeList = new ArrayList<>(Database.getInstance().getAttackTypes().keySet());
 		Collections.sort(attacktypeList);
 		int max = attacktypeList.size();
-		checkBoxes = new HashMap<String, JCheckBox>();
+		checkBoxes = new HashMap<>();
 
 		JPanel panel = new JPanel(new GridLayout(max, 1, 3, 3));
 		for (String s : attacktypeList)
@@ -91,7 +91,7 @@ public class AttackTypeSelection extends JPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public String[] getAttackTypes()
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		for (JCheckBox cb : checkBoxes.values())
 		{
 			if (cb.isSelected())
@@ -99,6 +99,6 @@ public class AttackTypeSelection extends JPanel implements ActionListener
 				result.add(cb.getText());
 			}
 		}
-		return result.toArray(new String[result.size()]);
+		return result.toArray(new String[0]);
 	}
 }

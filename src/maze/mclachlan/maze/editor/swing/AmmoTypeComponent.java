@@ -126,7 +126,7 @@ public class AmmoTypeComponent extends JPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public List<ItemTemplate.AmmoType> getAmmoTypes()
 	{
-		List<ItemTemplate.AmmoType> result = new ArrayList<ItemTemplate.AmmoType>();
+		List<ItemTemplate.AmmoType> result = new ArrayList<>();
 		if (arrow.isSelected()) result.add(ItemTemplate.AmmoType.ARROW);
 		if (axe.isSelected()) result.add(ItemTemplate.AmmoType.AXE);
 		if (bolt.isSelected()) result.add(ItemTemplate.AmmoType.BOLT);

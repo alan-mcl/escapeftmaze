@@ -21,11 +21,10 @@ package mclachlan.maze.data.v1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import mclachlan.maze.stat.Gender;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -33,21 +32,29 @@ import mclachlan.maze.stat.StatModifier;
 public class V1Gender
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, Gender> load(BufferedReader reader) throws Exception
+	public static Map<String, Gender> load(
+		BufferedReader reader)
 	{
-		Map <String, Gender> result = new HashMap<String, Gender>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, Gender> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				Gender g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			Gender g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

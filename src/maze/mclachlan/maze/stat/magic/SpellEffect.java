@@ -19,12 +19,13 @@
 
 package mclachlan.maze.stat.magic;
 
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
  */
-public class SpellEffect
+public class SpellEffect extends DataObject
 {
 	private String name;
 

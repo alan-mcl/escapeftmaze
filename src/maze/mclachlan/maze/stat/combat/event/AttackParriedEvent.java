@@ -56,7 +56,7 @@ public class AttackParriedEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		MazeScript script = Database.getInstance().getScript("_WEAPON_HIT_");
+		MazeScript script = Database.getInstance().getMazeScript("_WEAPON_HIT_");
 		return script.getEvents();
 	}
 

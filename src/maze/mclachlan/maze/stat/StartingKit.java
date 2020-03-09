@@ -20,11 +20,12 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
  */
-public class StartingKit
+public class StartingKit extends DataObject
 {
 	private String name;
 	private String displayName;

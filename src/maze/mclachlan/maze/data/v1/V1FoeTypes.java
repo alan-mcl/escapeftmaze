@@ -30,7 +30,7 @@ import mclachlan.maze.stat.Race;
  */
 public class V1FoeTypes
 {
-	public static Map<String, FoeType> load(BufferedReader reader) throws Exception
+	public static Map<String, FoeType> load(BufferedReader reader)
 	{
 		Map<String, Race> load = V1Race.load(reader);
 

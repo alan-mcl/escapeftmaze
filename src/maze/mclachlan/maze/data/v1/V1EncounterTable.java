@@ -28,6 +28,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.stat.PercentageTable;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -50,21 +51,28 @@ public class V1EncounterTable
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, EncounterTable> load(BufferedReader reader) throws Exception
+	public static Map<String, EncounterTable> load(BufferedReader reader)
 	{
-		Map <String, EncounterTable> result = new HashMap<String, EncounterTable>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, EncounterTable> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				EncounterTable g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			EncounterTable g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

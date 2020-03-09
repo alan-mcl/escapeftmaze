@@ -42,7 +42,7 @@ public class GameOverEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		// party is all dead;
-		MazeScript script = Database.getInstance().getScript("_PARTY_DEAD_");
+		MazeScript script = Database.getInstance().getMazeScript("_PARTY_DEAD_");
 		script.getEvents().get(0).resolve();
 		maze.backToMain();
 

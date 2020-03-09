@@ -47,7 +47,7 @@ public class Leveler
 	/*-------------------------------------------------------------------------*/
 	public static String getRandomRace()
 	{
-		List<String> raceList = Database.getInstance().getRaceList();
+		List<String> raceList = new ArrayList<>(Database.getInstance().getRaces().keySet());
 		Dice raceD = new Dice(1, raceList.size(), -1);
 
 		String result;

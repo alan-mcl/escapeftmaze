@@ -1195,7 +1195,7 @@ public class PlayerCharacter extends UnifiedActor
 		List<String> result = new ArrayList<String>();
 		List<String> temp;
 
-		temp = new ArrayList<String>(Database.getInstance().getCharacterClassList());
+		temp = new ArrayList<String>(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
 
 		for (String s : temp)
 		{
@@ -1221,7 +1221,7 @@ public class PlayerCharacter extends UnifiedActor
 		List<String> result = new ArrayList<String>();
 		List<String> temp;
 
-		temp = new ArrayList<String>(Database.getInstance().getCharacterClassList());
+		temp = new ArrayList<String>(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
 
 		result.addAll(temp);
 		result.removeAll(getEligibleClasses());

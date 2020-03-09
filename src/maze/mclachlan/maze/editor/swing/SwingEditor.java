@@ -27,6 +27,7 @@ import java.util.List;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
@@ -40,10 +41,10 @@ import mclachlan.maze.util.MazeException;
 public class SwingEditor extends JFrame implements WindowListener
 {
 	public static SwingEditor instance;
-	JLabel status;
-	JTabbedPane tabs, staticDataTabs, dynamicDataTabs;
-	BitSet dirty = new BitSet();
-	List<IEditorPanel> editorPanels = new ArrayList<IEditorPanel>();
+	private JLabel status;
+	private JTabbedPane tabs, staticDataTabs, dynamicDataTabs;
+	private BitSet dirty = new BitSet();
+	private List<IEditorPanel> editorPanels = new ArrayList<IEditorPanel>();
 
 	private Map<String, String> config;
 	private List<Campaign> campaigns;
@@ -92,9 +93,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		this.setIconImage(ImageIO.read(new File("maze.png")));
 
 		config = Launcher.getConfig();
-		campaigns = Launcher.loadCampaigns();
-
-		setTitle("Mazemaster "+config.get(Maze.AppConfig.VERSION));
+		campaigns = new ArrayList<>(Database.getCampaigns().values());
 
 		//
 		// if the maze.campaign config property is set, launch straight into
@@ -117,6 +116,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		{
 			currentCampaign = Maze.getStubCampaign();
 		}
+
+		setFrameTitle();
 
 		initDatabase(currentCampaign);
 
@@ -199,6 +200,12 @@ public class SwingEditor extends JFrame implements WindowListener
 		addWindowListener(this);
 		this.setBounds(centerX-width/2, centerY-height/2, width, height);
 		this.setVisible(true);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setFrameTitle()
+	{
+		setTitle("Mazemaster "+config.get(Maze.AppConfig.VERSION)+" [campaign="+currentCampaign.getName()+"]");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -426,9 +433,7 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		V1Loader loader = new V1Loader();
 		V1Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(campaign);
-		saver.init(campaign);
+		new Database(loader, saver, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -498,7 +503,7 @@ public class SwingEditor extends JFrame implements WindowListener
 
 		try
 		{
-			discardChanges();
+//			discardChanges();
 			currentCampaign = c;
 			initDatabase(c);
 			reloadAll();
@@ -507,6 +512,8 @@ public class SwingEditor extends JFrame implements WindowListener
 
 			campaignEditorPanel.initForeignKeys();
 			campaignEditorPanel.refresh(currentCampaign);
+
+			setFrameTitle();
 		}
 		catch (Exception e)
 		{
@@ -522,36 +529,36 @@ public class SwingEditor extends JFrame implements WindowListener
 		// save dirty changes to the database
 		
 		// static data
-		if (dirty.get(Tab.GENDER)) Database.getInstance().getSaver().saveGenders(Database.getInstance().getGenders());
-		if (dirty.get(Tab.BODY_PART)) Database.getInstance().getSaver().saveBodyParts(Database.getInstance().getBodyParts());
-		if (dirty.get(Tab.EXPERIENCE_TABLE)) Database.getInstance().getSaver().saveExperienceTables(Database.getInstance().getExperienceTables());
-		if (dirty.get(Tab.CHARACTER_CLASSES)) Database.getInstance().getSaver().saveCharacterClasses(Database.getInstance().getCharacterClasses());
-		if (dirty.get(Tab.ATTACK_TYPES)) Database.getInstance().getSaver().saveAttackTypes(Database.getInstance().getAttackTypes());
-		if (dirty.get(Tab.CONDITION_EFFECTS)) Database.getInstance().getSaver().saveConditionEffects(Database.getInstance().getConditionEffects());
-		if (dirty.get(Tab.CONDITION_TEMPLATES)) Database.getInstance().getSaver().saveConditionTemplates(Database.getInstance().getConditionTemplates());
-		if (dirty.get(Tab.SPELL_EFFECTS)) Database.getInstance().getSaver().saveSpellEffects(Database.getInstance().getSpellEffects());
-		if (dirty.get(Tab.LOOT_ENTRIES)) Database.getInstance().getSaver().saveLootEntries(Database.getInstance().getLootEntries());
-		if (dirty.get(Tab.LOOT_TABLES)) Database.getInstance().getSaver().saveLootTables(Database.getInstance().getLootTables());
-		if (dirty.get(Tab.SCRIPTS)) Database.getInstance().getSaver().saveMazeScripts(Database.getInstance().getMazeScripts());
-		if (dirty.get(Tab.SPELLS)) Database.getInstance().getSaver().saveSpells(Database.getInstance().getSpells());
-		if (dirty.get(Tab.PLAYER_SPELL_BOOKS)) Database.getInstance().getSaver().savePlayerSpellBooks(Database.getInstance().getPlayerSpellBooks());
-		if (dirty.get(Tab.RACES)) Database.getInstance().getSaver().saveRaces(Database.getInstance().getRaces());
-		if (dirty.get(Tab.TEXTURES)) Database.getInstance().getSaver().saveMazeTextures(Database.getInstance().getMazeTextures());
-		if (dirty.get(Tab.FOE_TEMPLATES)) Database.getInstance().getSaver().saveFoeTemplates(Database.getInstance().getFoeTemplates());
-		if (dirty.get(Tab.TRAPS)) Database.getInstance().getSaver().saveTraps(Database.getInstance().getTraps());
-		if (dirty.get(Tab.FOE_ENTRIES)) Database.getInstance().getSaver().saveFoeEntries(Database.getInstance().getFoeEntries());
-		if (dirty.get(Tab.ENCOUNTER_TABLES)) Database.getInstance().getSaver().saveEncounterTables(Database.getInstance().getEncounterTables());
-		if (dirty.get(Tab.NPC_FACTION_TEMPLATES)) Database.getInstance().getSaver().saveNpcFactionTemplates(Database.getInstance().getNpcFactionTemplates());
-		if (dirty.get(Tab.NPC_TEMPLATES)) Database.getInstance().getSaver().saveNpcTemplates(Database.getInstance().getNpcTemplates());
-		if (dirty.get(Tab.WIELDING_COMBOS)) Database.getInstance().getSaver().saveWieldingCombos(Database.getInstance().getWieldingCombos());
-		if (dirty.get(Tab.ITEM_TEMPLATES)) Database.getInstance().getSaver().saveItemTemplates(Database.getInstance().getItemTemplates());
-		if (dirty.get(Tab.DIFFICULTY_LEVELS)) Database.getInstance().getSaver().saveDifficultyLevels(Database.getInstance().getDifficultyLevels());
-		if (dirty.get(Tab.CRAFT_RECIPES)) Database.getInstance().getSaver().saveCraftRecipes(Database.getInstance().getCraftRecipes());
-		if (dirty.get(Tab.ITEM_ENCHANTMENTS)) Database.getInstance().getSaver().saveItemEnchantments(Database.getInstance().getItemEnchantments());
-		if (dirty.get(Tab.NATURAL_WEAPONS)) Database.getInstance().getSaver().saveNaturalWeapons(Database.getInstance().getNaturalWeapons());
-		if (dirty.get(Tab.STARTING_KITS)) Database.getInstance().getSaver().saveStartingKits(Database.getInstance().getStartingKits());
-		if (dirty.get(Tab.PERSONALITIES)) Database.getInstance().getSaver().savePersonalities(Database.getInstance().getPersonalities());
-		if (dirty.get(Tab.FOE_TYPES)) Database.getInstance().getSaver().saveFoeTypes(Database.getInstance().getFoeTypes());
+		if (dirty.get(Tab.GENDER)) saveGenders();
+		if (dirty.get(Tab.BODY_PART)) saveBodyParts();
+		if (dirty.get(Tab.EXPERIENCE_TABLE)) saveExperienceTables();
+		if (dirty.get(Tab.CHARACTER_CLASSES)) saveCharacterClasses();
+		if (dirty.get(Tab.ATTACK_TYPES)) saveAttackTypes();
+		if (dirty.get(Tab.CONDITION_EFFECTS)) saveConditionEffects();
+		if (dirty.get(Tab.CONDITION_TEMPLATES)) saveConditionTemplates();
+		if (dirty.get(Tab.SPELL_EFFECTS))saveSpellEffects();
+		if (dirty.get(Tab.LOOT_ENTRIES)) saveLootEntries();
+		if (dirty.get(Tab.LOOT_TABLES)) saveLootTables();
+		if (dirty.get(Tab.SCRIPTS)) saveMazeScripts();
+		if (dirty.get(Tab.SPELLS)) saveSpells();
+		if (dirty.get(Tab.PLAYER_SPELL_BOOKS)) savePlayerSpellBooks();
+		if (dirty.get(Tab.RACES)) saveRaces();
+		if (dirty.get(Tab.TEXTURES)) saveMazeTextures();
+		if (dirty.get(Tab.FOE_TEMPLATES)) saveFoeTemplates();
+		if (dirty.get(Tab.TRAPS)) saveTraps();
+		if (dirty.get(Tab.FOE_ENTRIES)) saveFoeEntries();
+		if (dirty.get(Tab.ENCOUNTER_TABLES)) saveEncounterTables();
+		if (dirty.get(Tab.NPC_FACTION_TEMPLATES)) saveNpcFactionTemplates();
+		if (dirty.get(Tab.NPC_TEMPLATES)) saveNpcTemplates();
+		if (dirty.get(Tab.WIELDING_COMBOS)) saveWieldingCombos();
+		if (dirty.get(Tab.ITEM_TEMPLATES)) saveItemTemplates();
+		if (dirty.get(Tab.DIFFICULTY_LEVELS)) saveDifficultyLevels();
+		if (dirty.get(Tab.CRAFT_RECIPES)) saveCraftRecipes();
+		if (dirty.get(Tab.ITEM_ENCHANTMENTS)) saveItemEnchantments();
+		if (dirty.get(Tab.NATURAL_WEAPONS)) saveNaturalWeapons();
+		if (dirty.get(Tab.STARTING_KITS)) saveStartingKits();
+		if (dirty.get(Tab.PERSONALITIES)) savePersonalities();
+		if (dirty.get(Tab.FOE_TYPES)) saveFoeTypes();
 		// zones are not cached
 		
 		// dynamic data
@@ -571,7 +578,10 @@ public class SwingEditor extends JFrame implements WindowListener
 		{
 			editor.initForeignKeys();
 			// that will have reset all the combo boxes, so refresh the view
-			editor.refresh(editor.getCurrentName());
+			if (editor.getCurrentName() != null)
+			{
+				editor.refresh(editor.getCurrentName());
+			}
 
 			if (editor == campaignEditorPanel)
 			{
@@ -584,9 +594,6 @@ public class SwingEditor extends JFrame implements WindowListener
 			sgp.initForeignKeys();
 			sgp.refresh();
 		}
-//		campaignEditorPanel.commit();
-//		campaignEditorPanel.initForeignKeys();
-//		campaignEditorPanel.refresh(campaignEditorPanel.currentCampaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -597,35 +604,36 @@ public class SwingEditor extends JFrame implements WindowListener
 		// save all changes to the database
 
 		// static data
-		Database.getInstance().getSaver().saveGenders(Database.getInstance().getGenders());
-		Database.getInstance().getSaver().saveBodyParts(Database.getInstance().getBodyParts());
-		Database.getInstance().getSaver().saveExperienceTables(Database.getInstance().getExperienceTables());
-		Database.getInstance().getSaver().saveCharacterClasses(Database.getInstance().getCharacterClasses());
-		Database.getInstance().getSaver().saveAttackTypes(Database.getInstance().getAttackTypes());
-		Database.getInstance().getSaver().saveConditionEffects(Database.getInstance().getConditionEffects());
-		Database.getInstance().getSaver().saveConditionTemplates(Database.getInstance().getConditionTemplates());
-		Database.getInstance().getSaver().saveSpellEffects(Database.getInstance().getSpellEffects());
-		Database.getInstance().getSaver().saveLootEntries(Database.getInstance().getLootEntries());
-		Database.getInstance().getSaver().saveLootTables(Database.getInstance().getLootTables());
-		Database.getInstance().getSaver().saveMazeScripts(Database.getInstance().getMazeScripts());
-		Database.getInstance().getSaver().saveSpells(Database.getInstance().getSpells());
-		Database.getInstance().getSaver().savePlayerSpellBooks(Database.getInstance().getPlayerSpellBooks());
-		Database.getInstance().getSaver().saveRaces(Database.getInstance().getRaces());
-		Database.getInstance().getSaver().saveMazeTextures(Database.getInstance().getMazeTextures());
-		Database.getInstance().getSaver().saveFoeTemplates(Database.getInstance().getFoeTemplates());
-		Database.getInstance().getSaver().saveTraps(Database.getInstance().getTraps());
-		Database.getInstance().getSaver().saveFoeEntries(Database.getInstance().getFoeEntries());
-		Database.getInstance().getSaver().saveEncounterTables(Database.getInstance().getEncounterTables());
-		Database.getInstance().getSaver().saveNpcFactionTemplates(Database.getInstance().getNpcFactionTemplates());
-		Database.getInstance().getSaver().saveNpcTemplates(Database.getInstance().getNpcTemplates());
-		Database.getInstance().getSaver().saveWieldingCombos(Database.getInstance().getWieldingCombos());
-		Database.getInstance().getSaver().saveItemTemplates(Database.getInstance().getItemTemplates());
-		Database.getInstance().getSaver().saveDifficultyLevels(Database.getInstance().getDifficultyLevels());
-		Database.getInstance().getSaver().saveCraftRecipes(Database.getInstance().getCraftRecipes());
-		Database.getInstance().getSaver().saveItemEnchantments(Database.getInstance().getItemEnchantments());
-		Database.getInstance().getSaver().savePersonalities(Database.getInstance().getPersonalities());
-		Database.getInstance().getSaver().saveNaturalWeapons(Database.getInstance().getNaturalWeapons());
-		Database.getInstance().getSaver().saveStartingKits(Database.getInstance().getStartingKits());
+		saveGenders();
+		saveBodyParts();
+		saveExperienceTables();
+		saveCharacterClasses();
+		saveAttackTypes();
+		saveConditionEffects();
+		saveConditionTemplates();
+		saveSpellEffects();
+		saveLootEntries();
+		saveLootTables();
+		saveMazeScripts();
+		saveSpells();
+		savePlayerSpellBooks();
+		saveRaces();
+		saveMazeTextures();
+		saveFoeTemplates();
+		saveTraps();
+		saveFoeEntries();
+		saveEncounterTables();
+		saveNpcFactionTemplates();
+		saveNpcTemplates();
+		saveWieldingCombos();
+		saveItemTemplates();
+		saveDifficultyLevels();
+		saveCraftRecipes();
+		saveItemEnchantments();
+		savePersonalities();
+		saveNaturalWeapons();
+		saveStartingKits();
+		saveFoeTypes();
 		// zones are not cached
 
 		// dynamic data
@@ -659,6 +667,160 @@ public class SwingEditor extends JFrame implements WindowListener
 //		campaignEditorPanel.refresh(campaignEditorPanel.currentCampaign);
 	}
 
+	public void saveFoeTypes() throws Exception
+	{
+		Database.getInstance().saveFoeTypes(Database.getInstance().getFoeTypes(), currentCampaign);
+	}
+
+	public void saveMazeScripts() throws Exception
+	{
+		Database.getInstance().saveMazeScripts(Database.getInstance().getMazeScripts(), currentCampaign);
+	}
+
+	public void saveLootEntries() throws Exception
+	{
+		Database.getInstance().saveLootEntries(Database.getInstance().getLootEntries(), currentCampaign);
+	}
+
+	public void saveSpellEffects() throws Exception
+	{
+		Database.getInstance().saveSpellEffects(Database.getInstance().getSpellEffects(), currentCampaign);
+	}
+
+	public void saveConditionEffects() throws Exception
+	{
+		Database.getInstance().saveConditionEffects(Database.getInstance().getConditionEffects(), currentCampaign);
+	}
+
+	public void saveCharacterClasses() throws Exception
+	{
+		Database.getInstance().saveCharacterClasses(
+			Database.getInstance().getCharacterClasses(), currentCampaign);
+	}
+
+	public void saveGenders() throws Exception
+	{
+		Database.getInstance().saveGenders(
+			Database.getInstance().getGenders(), currentCampaign);
+	}
+
+	public void saveStartingKits() throws Exception
+	{
+		Database.getInstance().saveStartingKits(Database.getInstance().getStartingKits(), currentCampaign);
+	}
+
+	public void saveNaturalWeapons() throws Exception
+	{
+		Database.getInstance().saveNaturalWeapons(Database.getInstance().getNaturalWeapons(), currentCampaign);
+	}
+
+	public void savePersonalities() throws Exception
+	{
+		Database.getInstance().savePersonalities(Database.getInstance().getPersonalities(), currentCampaign);
+	}
+
+	public void saveItemEnchantments() throws Exception
+	{
+		Database.getInstance().saveItemEnchantments(Database.getInstance().getItemEnchantments(), currentCampaign);
+	}
+
+	public void saveCraftRecipes() throws Exception
+	{
+		Database.getInstance().saveCraftRecipes(Database.getInstance().getCraftRecipes(), currentCampaign);
+	}
+
+	public void saveDifficultyLevels() throws Exception
+	{
+		Database.getInstance().saveDifficultyLevels(Database.getInstance().getDifficultyLevels(), currentCampaign);
+	}
+
+	public void saveItemTemplates() throws Exception
+	{
+		Database.getInstance().saveItemTemplates(Database.getInstance().getItemTemplates(), currentCampaign);
+	}
+
+	public void saveWieldingCombos() throws Exception
+	{
+		Database.getInstance().saveWieldingCombos(Database.getInstance().getWieldingCombos(), currentCampaign);
+	}
+
+	public void saveNpcTemplates() throws Exception
+	{
+		Database.getInstance().saveNpcTemplates(Database.getInstance().getNpcTemplates(), currentCampaign);
+	}
+
+	public void saveNpcFactionTemplates() throws Exception
+	{
+		Database.getInstance().saveNpcFactionTemplates(Database.getInstance().getNpcFactionTemplates(), currentCampaign);
+	}
+
+	public void saveEncounterTables() throws Exception
+	{
+		Database.getInstance().saveEncounterTables(Database.getInstance().getEncounterTables(), currentCampaign);
+	}
+
+	public void saveFoeEntries() throws Exception
+	{
+		Database.getInstance().saveFoeEntries(Database.getInstance().getFoeEntries(), currentCampaign);
+	}
+
+	public void saveTraps() throws Exception
+	{
+		Database.getInstance().saveTraps(Database.getInstance().getTraps(), currentCampaign);
+	}
+
+	public void saveFoeTemplates() throws Exception
+	{
+		Database.getInstance().saveFoeTemplates(Database.getInstance().getFoeTemplates(), currentCampaign);
+	}
+
+	public void saveMazeTextures() throws Exception
+	{
+		Database.getInstance().saveMazeTextures(Database.getInstance().getMazeTextures(), currentCampaign);
+	}
+
+	public void saveRaces() throws Exception
+	{
+		Database.getInstance().saveRaces(Database.getInstance().getRaces(), currentCampaign);
+	}
+
+	public void savePlayerSpellBooks() throws Exception
+	{
+		Database.getInstance().savePlayerSpellBooks(Database.getInstance().getPlayerSpellBooks(), currentCampaign);
+	}
+
+	public void saveSpells() throws Exception
+	{
+		Database.getInstance().saveSpells(Database.getInstance().getSpells(), currentCampaign);
+	}
+
+	public void saveLootTables() throws Exception
+	{
+		Database.getInstance().saveLootTables(Database.getInstance().getLootTables(), currentCampaign);
+	}
+
+	public void saveConditionTemplates() throws Exception
+	{
+		Database.getInstance().saveConditionTemplates(Database.getInstance().getConditionTemplates(), currentCampaign);
+	}
+
+	public void saveAttackTypes() throws Exception
+	{
+		Database.getInstance().saveAttackTypes(Database.getInstance().getAttackTypes(), currentCampaign);
+	}
+
+	public void saveBodyParts() throws Exception
+	{
+		Database.getInstance().saveBodyParts(
+			Database.getInstance().getBodyParts(), currentCampaign);
+	}
+
+	public void saveExperienceTables() throws Exception
+	{
+		Database.getInstance().saveExperienceTables(
+			Database.getInstance().getExperienceTables(), currentCampaign);
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void discardChanges() throws Exception
 	{
@@ -671,7 +833,10 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		for (IEditorPanel editor : editorPanels)
 		{
-			editor.commit(editor.getCurrentName());
+			if (editor.getCurrentName() != null)
+			{
+				editor.commit(editor.getCurrentName());
+			}
 		}
 		
 		campaignEditorPanel.commit();
@@ -755,6 +920,11 @@ public class SwingEditor extends JFrame implements WindowListener
 
 	public void windowDeactivated(WindowEvent e)
 	{
+	}
+
+	public String getCurrentCampaign()
+	{
+		return currentCampaign.getName();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -977,7 +1147,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (e.getSource() == apply || e.getSource() == applyMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
-				panel.commit(panel.getCurrentName());
+				if (panel.getCurrentName() != null)
+				{
+					panel.commit(panel.getCurrentName());
+				}
 
 				int option = JOptionPane.showConfirmDialog(
 					parent, "Save changes?", "Apply", JOptionPane.YES_NO_OPTION);
@@ -997,7 +1170,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			if (e.getSource() == applyAll || e.getSource() == applyAllMenuItem)
 			{
 				IEditorPanel panel = getEditorPanel();
-				panel.commit(panel.getCurrentName());
+				if (panel.getCurrentName() != null)
+				{
+					panel.commit(panel.getCurrentName());
+				}
 				
 				int option = JOptionPane.showConfirmDialog(
 					parent, "Save ALL files?", "Apply", JOptionPane.YES_NO_OPTION);
@@ -1047,7 +1223,9 @@ public class SwingEditor extends JFrame implements WindowListener
 					{
 						panel.commit(panel.getCurrentName());
 					}
-					panel.newItem(name);
+					DataObject dataObject = panel.newItem(name);
+					dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());
+
 					panel.refreshNames(name);
 					panel.refresh(name);
 					parent.setDirty(panel.getDirtyFlag());
@@ -1081,7 +1259,8 @@ public class SwingEditor extends JFrame implements WindowListener
 				if (name != null)
 				{
 					panel.commit(panel.getCurrentName());
-					panel.copyItem(name);
+					DataObject dataObject = panel.copyItem(name);
+					dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());
 					panel.refreshNames(name);
 					panel.refresh(name);
 					parent.setDirty(panel.getDirtyFlag());
@@ -1091,7 +1270,10 @@ public class SwingEditor extends JFrame implements WindowListener
 			{
 				IEditorPanel panel = getEditorPanel();
 
-				panel.commit(panel.getCurrentName());
+				if (panel.getCurrentName() != null)
+				{
+					panel.commit(panel.getCurrentName());
+				}
 
 				int option = JOptionPane.showConfirmDialog(
 					parent, "Are you sure?", "Delete Item", JOptionPane.YES_NO_OPTION);

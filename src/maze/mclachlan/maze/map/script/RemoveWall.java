@@ -59,7 +59,7 @@ public class RemoveWall extends TileScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		MazeScript script = Database.getInstance().getScript("_SECRET_PASSAGE_");
+		MazeScript script = Database.getInstance().getMazeScript("_SECRET_PASSAGE_");
 		
 		List<MazeEvent> events = script.getEvents();
 		List<MazeEvent> result = new ArrayList<MazeEvent>();

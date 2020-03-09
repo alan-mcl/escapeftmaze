@@ -76,7 +76,7 @@ public class CharacterLevelsTablePanel extends JPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getCharacterClassList());
+		Vector<String> vec = new Vector<String>(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
 		Collections.sort(vec);
 		characterClassCombo.setModel(new DefaultComboBoxModel(vec));
 	}

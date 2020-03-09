@@ -24,17 +24,15 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.audio.WavAudioPlayer;
-import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.CampaignPanel;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
-import mclachlan.maze.util.MazeException;
 import mclachlan.maze.util.PerfLog;
 
 /**
@@ -42,11 +40,11 @@ import mclachlan.maze.util.PerfLog;
  */
 public class Launcher implements ActionListener
 {
-	JButton ok, cancel;
-	List<Campaign> campaignList;
-	JFrame frame;
-	Map<String, String> config;
-	CampaignPanel campaignPanel;
+	private JButton ok, cancel;
+	private List<Campaign> campaignList;
+	private JFrame frame;
+	private Map<String, String> config;
+	private CampaignPanel campaignPanel;
 
 	/*-------------------------------------------------------------------------*/
 	public Launcher() throws Exception
@@ -71,7 +69,7 @@ public class Launcher implements ActionListener
 		try
 		{
 			config = getConfig();
-			campaignList = loadCampaigns();
+			campaignList =  new ArrayList<>(Database.getCampaigns().values());
 
 			campaignPanel = new CampaignPanel(campaignList);
 			panel.add(campaignPanel, BorderLayout.CENTER);
@@ -124,65 +122,6 @@ public class Launcher implements ActionListener
 			frame.setBounds(centerX-width/2, centerY-height/2, width, height);
 			frame.setVisible(true);
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static List<Campaign> loadCampaigns() throws IOException
-	{
-		File dir = new File("./data");
-		if (!dir.isDirectory())
-		{
-			throw new MazeException("Cannot locate data directory ["+dir.getCanonicalPath()+"]");
-		}
-
-		List<File> propertiesFiles = new ArrayList<File>();
-		File[] files = dir.listFiles();
-		for (int i = 0; i < files.length; i++)
-		{
-			if (files[i].isDirectory())
-			{
-				propertiesFiles.add(new File(files[i], "campaign.cfg"));
-			}
-		}
-
-		List<Campaign> result = new ArrayList<Campaign>();
-
-		for (File f : propertiesFiles)
-		{
-			if (!f.exists())
-			{
-				throw new MazeException("Cannot locate campaign file ["+f.getCanonicalPath()+"]");
-			}
-
-			Properties p = new Properties();
-			FileInputStream fis = new FileInputStream(f);
-			p.load(fis);
-			fis.close();
-
-			String name = f.getParentFile().getName().split("\\.")[0];
-			String displayName = p.getProperty("displayName");
-			String description = V1Utils.replaceNewlines(p.getProperty("description"));
-			String startingScript = p.getProperty("startingScript");
-			String defaultRace = p.getProperty("defaultRace");
-			String defaultPortrait = p.getProperty("defaultPortrait");
-			String introScript = p.getProperty("introScript");
-
-			result.add(new Campaign(
-				name,
-				displayName,
-				description,
-				startingScript,
-				defaultRace,
-				defaultPortrait, 
-				introScript));
-		}
-
-		if (result.size() == 0)
-		{
-			throw new MazeException("No campaigns found!");
-		}
-
-		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

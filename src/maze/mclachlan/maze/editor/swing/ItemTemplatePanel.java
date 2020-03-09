@@ -24,6 +24,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
@@ -284,8 +285,8 @@ public class ItemTemplatePanel extends EditorPanel
 		dodgyGridBagShite(result, new JLabel("Discipline:"), discipline, gbc);
 
 		Vector<String> types = new Vector<String>();
-		types.addAll(Database.getInstance().getCharacterClassList());
-		types.addAll(Database.getInstance().getRaceList());
+		types.addAll(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
+		types.addAll(new ArrayList<>(Database.getInstance().getRaces().keySet()));
 		types.addAll(Database.getInstance().getFoeTypes().keySet());
 		Collections.sort(types);
 		types.add(0, NONE);
@@ -479,22 +480,21 @@ public class ItemTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getItemTemplates().keySet());
+		return new Vector<>(Database.getInstance().getItemTemplates().values());
 
-		if (currentSortBy == null)
-		{
-			currentSortBy = SortBy.NAME;
-		}
-
-		switch (currentSortBy)
-		{
-			case NAME: Collections.sort(vec); break;
-			case TYPE: Collections.sort(vec, new ItemTypeComparator()); break;
-		}
-
-		return vec;
+//		if (currentSortBy == null)
+//		{
+//			currentSortBy = SortBy.NAME;
+//		}
+//
+//		switch (currentSortBy)
+//		{
+//			case NAME: Collections.sort(vec); break;
+//			case TYPE: Collections.sort(vec, new ItemTypeComparator()); break;
+//		}
+//
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -701,7 +701,7 @@ public class ItemTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		ItemTemplate it = new ItemTemplate(
 			name,
@@ -760,6 +760,8 @@ public class ItemTemplatePanel extends EditorPanel
 			0F);
 
 		Database.getInstance().getItemTemplates().put(name, it);
+
+		return it;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -771,7 +773,7 @@ public class ItemTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		ItemTemplate current = Database.getInstance().getItemTemplates().get(currentName);
 
@@ -832,6 +834,8 @@ public class ItemTemplatePanel extends EditorPanel
 			current.getConversionRate());
 
 		Database.getInstance().getItemTemplates().put(newName, it);
+
+		return it;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -841,7 +845,7 @@ public class ItemTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		ItemTemplate it = Database.getInstance().getItemTemplate(name);
 
@@ -885,7 +889,7 @@ public class ItemTemplatePanel extends EditorPanel
 		}
 		else
 		{
-			it.setAttackScript(Database.getInstance().getScript((String)attackScript.getSelectedItem()));
+			it.setAttackScript(Database.getInstance().getMazeScript((String)attackScript.getSelectedItem()));
 		}
 		it.setDamage(damage.getDice());
 		it.setDefaultDamageType((MagicSys.SpellEffectType)defaultDamageType.getSelectedItem());
@@ -945,6 +949,8 @@ public class ItemTemplatePanel extends EditorPanel
 		{
 			it.setDisassemblyLootTable((String)dlt);
 		}
+
+		return it;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -953,7 +959,6 @@ public class ItemTemplatePanel extends EditorPanel
 		if (e.getSource() == sortBy)
 		{
 			currentSortBy = (SortBy)sortBy.getSelectedItem();
-			loadData();
 			refreshNames(currentName);
 		}
 		else

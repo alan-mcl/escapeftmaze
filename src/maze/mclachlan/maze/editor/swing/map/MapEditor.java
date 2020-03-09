@@ -547,9 +547,8 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
-		
+		new Database(loader, saver, Maze.getStubCampaign());
+
 		JFrame frame = new JFrame("Map Editor");
 		frame.add(new MapEditor(Database.getInstance().getZone("The Arena"), null, null));
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();

@@ -70,7 +70,7 @@ public class AttackRipostedEvent extends MazeEvent
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		// sound effect
-		MazeScript script = Database.getInstance().getScript("_WEAPON_HIT_");
+		MazeScript script = Database.getInstance().getMazeScript("_WEAPON_HIT_");
 		result.addAll(script.getEvents());
 
 		// riposte attack

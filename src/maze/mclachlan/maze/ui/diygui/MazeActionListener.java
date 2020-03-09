@@ -154,7 +154,7 @@ class MazeActionListener implements ActionListener
 
 		if (portal.getMazeScript() != null)
 		{
-			MazeScript script = Database.getInstance().getScript(portal.getMazeScript());
+			MazeScript script = Database.getInstance().getMazeScript(portal.getMazeScript());
 			maze.appendEvents(script.getEvents());
 		}
 	

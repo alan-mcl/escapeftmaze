@@ -19,11 +19,13 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.*;
 import javax.swing.*;
-import java.util.Vector;
-import java.util.Collections;
-import java.awt.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcFactionTemplate;
 
@@ -67,11 +69,9 @@ public class NpcFactionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getNpcFactionTemplates().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getNpcFactionTemplates().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -85,10 +85,11 @@ public class NpcFactionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		NpcFactionTemplate nft = new NpcFactionTemplate(name, NpcFaction.Attitude.NEUTRAL);
 		Database.getInstance().getNpcFactionTemplates().put(name, nft);
+		return nft;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -100,11 +101,12 @@ public class NpcFactionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		NpcFactionTemplate current = Database.getInstance().getNpcFactionTemplates().get(currentName);
 		NpcFactionTemplate nft = new NpcFactionTemplate(newName, current.getStartingAttitude());
 		Database.getInstance().getNpcFactionTemplates().put(newName, nft);
+		return nft;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -114,9 +116,10 @@ public class NpcFactionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		NpcFactionTemplate nft = Database.getInstance().getNpcFactionTemplates().get(name);
 		nft.setStartingAttitude((NpcFaction.Attitude)startingAttitude.getSelectedItem());
+		return nft;
 	}
 }

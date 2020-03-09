@@ -19,12 +19,13 @@
 
 package mclachlan.maze.stat.combat;
 
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.*;
 
 /**
  *
  */
-public class WieldingCombo
+public class WieldingCombo extends DataObject
 {
 	private String name;
 	private String primaryHand, secondaryHand;

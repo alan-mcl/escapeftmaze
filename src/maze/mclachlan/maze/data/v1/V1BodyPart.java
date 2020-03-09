@@ -25,6 +25,7 @@ import java.util.*;
 import mclachlan.maze.stat.BodyPart;
 import mclachlan.maze.stat.EquipableSlot;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -32,21 +33,28 @@ import mclachlan.maze.stat.StatModifier;
 public class V1BodyPart
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, BodyPart> load(BufferedReader reader) throws Exception
+	public static Map<String, BodyPart> load(BufferedReader reader)
 	{
-		Map <String, BodyPart> result = new HashMap<String, BodyPart>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, BodyPart> result = new HashMap<String, BodyPart>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				BodyPart g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			BodyPart g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

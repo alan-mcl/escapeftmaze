@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Properties;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.combat.WieldingCombo;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -33,21 +34,28 @@ import mclachlan.maze.stat.combat.WieldingCombo;
 public class V1WieldingCombo
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, WieldingCombo> load(BufferedReader reader) throws Exception
+	public static Map<String, WieldingCombo> load(BufferedReader reader)
 	{
-		Map <String, WieldingCombo> result = new HashMap<String, WieldingCombo>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, WieldingCombo> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				WieldingCombo g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			WieldingCombo g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

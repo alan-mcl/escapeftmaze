@@ -24,6 +24,7 @@ import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.CraftRecipe;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -33,21 +34,28 @@ public class V1CraftRecipe
 	public static final String SEP = ",";
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, CraftRecipe> load(BufferedReader reader) throws Exception
+	public static Map<String, CraftRecipe> load(BufferedReader reader)
 	{
-		Map <String, CraftRecipe> result = new HashMap<String, CraftRecipe>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, CraftRecipe> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				CraftRecipe g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			CraftRecipe g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -105,7 +105,7 @@ public class StatPackPanel extends JPanel
 			String s = (String)obj;
 			if (RACE.equals(s))
 			{
-				Object[] races = Database.getInstance().getRaceList().toArray();
+				Object[] races = ((List<String>)new ArrayList<>(Database.getInstance().getRaces().keySet())).toArray();
 				Arrays.sort(races);
 				String option = (String)JOptionPane.showInputDialog(
 					this,
@@ -124,7 +124,7 @@ public class StatPackPanel extends JPanel
 			}
 			else if (CHARACTER_CLASS.equals(s))
 			{
-				Object[] classes = Database.getInstance().getCharacterClassList().toArray();
+				Object[] classes = ((List<String>)new ArrayList<>(Database.getInstance().getCharacterClasses().keySet())).toArray();
 				Arrays.sort(classes);
 				String option = (String)JOptionPane.showInputDialog(
 					this,

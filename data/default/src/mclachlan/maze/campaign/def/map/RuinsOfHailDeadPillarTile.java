@@ -22,7 +22,7 @@ public class RuinsOfHailDeadPillarTile extends TileScript
 	{
 		if (item.getName().equals("Black Blood"))
 		{
-			return Database.getInstance().getScript(
+			return Database.getInstance().getMazeScript(
 				"Ruins Of Hail use black blood").getEvents();
 		}
 

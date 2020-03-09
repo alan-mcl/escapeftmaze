@@ -25,6 +25,7 @@ import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -39,7 +40,7 @@ import mclachlan.maze.stat.npc.NpcManager;
  * Describes a zone in which the party can move around.  Includes the 
  * Crusader Engine map definition.
  */
-public class Zone
+public class Zone extends DataObject
 {
 	private String name;
 	private Map map;

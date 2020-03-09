@@ -21,10 +21,9 @@ package mclachlan.maze.data.v1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import mclachlan.maze.stat.condition.ConditionEffect;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -32,21 +31,28 @@ import mclachlan.maze.stat.condition.ConditionEffect;
 public class V1ConditionEffect
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, ConditionEffect> load(BufferedReader reader) throws Exception
+	public static Map<String, ConditionEffect> load(BufferedReader reader)
 	{
-		Map <String, ConditionEffect> result = new HashMap<String, ConditionEffect>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, ConditionEffect> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				ConditionEffect g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			ConditionEffect g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

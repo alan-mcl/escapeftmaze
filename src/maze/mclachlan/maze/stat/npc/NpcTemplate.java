@@ -22,12 +22,13 @@ package mclachlan.maze.stat.npc;
 import java.awt.*;
 import java.util.BitSet;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.FoeTemplate;
 
 /**
  *
  */
-public class NpcTemplate
+public class NpcTemplate extends DataObject
 {
 	//
 	// general parameters

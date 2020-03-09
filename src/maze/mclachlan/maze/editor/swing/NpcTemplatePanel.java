@@ -26,6 +26,7 @@ import java.util.Vector;
 import javax.swing.*;
 import mclachlan.maze.arena.StickManVendor;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.util.MazeException;
 
@@ -218,11 +219,9 @@ public class NpcTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getNpcTemplates().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getNpcTemplates().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -315,7 +314,7 @@ public class NpcTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		NpcTemplate npc = new NpcTemplate(
 			name,
@@ -340,6 +339,8 @@ public class NpcTemplatePanel extends EditorPanel
 			false, 
 			false);
 		Database.getInstance().getNpcTemplates().put(name, npc);
+
+		return npc;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -351,7 +352,7 @@ public class NpcTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		NpcTemplate current = Database.getInstance().getNpcTemplates().get(currentName);
 
@@ -379,6 +380,8 @@ public class NpcTemplatePanel extends EditorPanel
 			current.isGuildMaster());
 
 		Database.getInstance().getNpcTemplates().put(newName, npc);
+
+		return npc;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -388,7 +391,7 @@ public class NpcTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		NpcTemplate npc = Database.getInstance().getNpcTemplates().get(currentName);
 
@@ -420,5 +423,7 @@ public class NpcTemplatePanel extends EditorPanel
 		npc.setGuildMaster(guildMaster.isSelected());
 		npc.setFaction((String)faction.getSelectedItem());
 		npc.setDialogue(npcSpeechPanel.getDialogue());
+
+		return npc;
 	}
 }

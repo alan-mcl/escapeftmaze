@@ -376,7 +376,7 @@ public class ItemDetailsWidget extends DIYPanel
 		StringBuilder sb = new StringBuilder(getUiLabel("iw.usable.by.races"));
 		sb.append(" ");
 		return buildUsability(rows, sb,
-			Database.getInstance().getRaceList(), item.getUsableByRace());
+			new ArrayList<>(Database.getInstance().getRaces().keySet()), item.getUsableByRace());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -385,7 +385,7 @@ public class ItemDetailsWidget extends DIYPanel
 		StringBuilder sb = new StringBuilder(getUiLabel("iw.usable.by.genders"));
 		sb.append(" ");
 		return buildUsability(rows, sb,
-			Database.getInstance().getGenderList(), item.getUsableByGender());
+			new ArrayList<>(Database.getInstance().getGenders().keySet()), item.getUsableByGender());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -394,7 +394,7 @@ public class ItemDetailsWidget extends DIYPanel
 		StringBuilder sb = new StringBuilder(getUiLabel("iw.usable.by.classes"));
 		sb.append(" ");
 		return buildUsability(rows, sb,
-			Database.getInstance().getCharacterClassList(), item.getUsableByCharacterClass());
+			new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()), item.getUsableByCharacterClass());
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
@@ -29,7 +30,7 @@ import mclachlan.maze.stat.combat.event.AttackEvent;
 /**
  *
  */
-public class Spell
+public class Spell extends DataObject
 {
 	/** spell name, eg Force Bolt */ 
 	private String name;

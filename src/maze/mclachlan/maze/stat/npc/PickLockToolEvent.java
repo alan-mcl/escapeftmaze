@@ -65,7 +65,7 @@ public class PickLockToolEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		MazeScript script = Database.getInstance().getScript("_THIEF_TOOL_");
+		MazeScript script = Database.getInstance().getMazeScript("_THIEF_TOOL_");
 		result.addAll(script.getEvents());
 		int pickLockResult = GameSys.getInstance().pickLock(pc, lockOrTrap, tool);
 
@@ -81,7 +81,7 @@ public class PickLockToolEvent extends MazeEvent
 				{
 					// all required are picked
 					Maze.getInstance().getUi().clearDialog();
-					script = Database.getInstance().getScript("_UNLOCK_");
+					script = Database.getInstance().getMazeScript("_UNLOCK_");
 					result.addAll(script.getEvents());
 
 					result.add(new UiMessageEvent(StringUtil.getEventText("msg.unlocked")));

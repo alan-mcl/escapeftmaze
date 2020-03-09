@@ -20,6 +20,7 @@
 package mclachlan.maze.editor.swing;
 
 import java.util.*;
+import java.util.List;
 import mclachlan.crusader.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -29,6 +30,7 @@ import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.editor.swing.map.MapEditor;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.StatModifier;
@@ -352,11 +354,22 @@ public class ZonePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getZoneNames());
-		Collections.sort(vec);
-		return vec;
+		List<String> zoneNames = Database.getInstance().getZoneNames();
+		Vector<DataObject> result = new Vector<>();
+		for (String zone : zoneNames)
+		{
+			result.add(new DataObject()
+			{
+				@Override
+				public String getName()
+				{
+					return zone;
+				}
+			});
+		}
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -518,7 +531,7 @@ public class ZonePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		final JDialog dialog = new JDialog(SwingEditor.instance, "New Zone", true);
 		dialog.setLayout(new BorderLayout());
@@ -674,6 +687,8 @@ public class ZonePanel extends EditorPanel
 		{
 			throw new MazeException(e);
 		}
+
+		return z;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -683,9 +698,10 @@ public class ZonePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		JOptionPane.showMessageDialog(SwingEditor.instance, "Not supported");
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -702,7 +718,7 @@ public class ZonePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		if (isDirty())
 		{
@@ -760,6 +776,7 @@ public class ZonePanel extends EditorPanel
 				throw new MazeException(e);
 			}
 		}
+		return zone;
 	}
 
 	/*-------------------------------------------------------------------------*/

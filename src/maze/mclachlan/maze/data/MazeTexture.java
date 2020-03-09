@@ -22,11 +22,12 @@ package mclachlan.maze.data;
 import mclachlan.crusader.Texture;
 import java.awt.image.BufferedImage;
 import java.util.List;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
  */
-public class MazeTexture
+public class MazeTexture extends DataObject
 {
 	String name;
 	List<String> imageResources;

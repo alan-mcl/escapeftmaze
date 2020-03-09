@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.condition;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.GameTime;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.StatModifier;
@@ -31,7 +32,7 @@ import mclachlan.maze.util.MazeException;
 
 /**
  */
-public class ConditionTemplate
+public class ConditionTemplate extends DataObject
 {
 	/** The name of this condition */
 	private String name;

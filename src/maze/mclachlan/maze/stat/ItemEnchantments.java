@@ -20,11 +20,12 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
  */
-public class ItemEnchantments
+public class ItemEnchantments extends DataObject
 {
 	private String name;
 	private PercentageTable<ItemEnchantment> enchantments;

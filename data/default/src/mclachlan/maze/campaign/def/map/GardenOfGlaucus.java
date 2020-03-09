@@ -58,7 +58,7 @@ public class GardenOfGlaucus extends TileScript
 		else if (item.getName().equals("Taflen Seeds"))
 		{
 			user.removeItem(item, false);
-			MazeScript script = Database.getInstance().getScript("Ichiba City to Dalen");
+			MazeScript script = Database.getInstance().getMazeScript("Ichiba City to Dalen");
 			return script.getEvents();
 		}
 

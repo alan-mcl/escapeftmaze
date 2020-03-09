@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.Personality;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -35,21 +36,28 @@ public class V1Personalities
 	private static final String COLOUR = "___colour___";
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, Personality> load(BufferedReader reader) throws Exception
+	public static Map<String, Personality> load(BufferedReader reader)
 	{
-		Map <String, Personality> result = new HashMap<String, Personality>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, Personality> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				Personality g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			Personality g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

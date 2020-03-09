@@ -24,6 +24,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.ui.diygui.Constants;
 
@@ -67,11 +68,9 @@ public class PersonalitiesPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getPersonalities().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getPersonalities().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -89,10 +88,11 @@ public class PersonalitiesPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		Personality p = new Personality(name, "", new HashMap<String, String>(), Constants.Colour.LIGHT_BLUE);
 		Database.getInstance().getPersonalities().put(name, p);
+		return p;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -104,7 +104,7 @@ public class PersonalitiesPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		Personality current = Database.getInstance().getPersonalities().get(currentName);
 
@@ -115,6 +115,8 @@ public class PersonalitiesPanel extends EditorPanel
 			current.getColour());
 
 		Database.getInstance().getPersonalities().put(newName, p);
+
+		return p;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -124,13 +126,15 @@ public class PersonalitiesPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		Personality p = Database.getInstance().getPersonalities().get(currentName);
 
 		p.setDescription(desc.getText());
 		p.setSpeech(speechPanel.getSpeech());
 		p.setColour(colourButton.getBackground());
+
+		return p;
 	}
 
 	/*-------------------------------------------------------------------------*/

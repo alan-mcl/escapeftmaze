@@ -24,7 +24,7 @@ import mclachlan.maze.util.MazeException;
 /**
  * An experience table implemented as a formula.
  */
-public class ExperienceTableFormulaic implements ExperienceTable
+public class ExperienceTableFormulaic extends ExperienceTable
 {
 	String name;
 	

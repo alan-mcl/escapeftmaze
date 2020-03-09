@@ -31,6 +31,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.PercentageTable;
@@ -110,11 +111,9 @@ public class LootTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getLootTables().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getLootTables().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -147,10 +146,11 @@ public class LootTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		LootTable le = new LootTable(name, new GroupOfPossibilities<ILootEntry>());
 		Database.getInstance().getLootTables().put(name, le);
+		return le;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -162,11 +162,12 @@ public class LootTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		LootTable current = Database.getInstance().getLootTables().get(currentName);
 		LootTable le = new LootTable(newName, new GroupOfPossibilities<ILootEntry>(current.getLootEntries()));
 		Database.getInstance().getLootTables().put(newName, le);
+		return le;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -176,7 +177,7 @@ public class LootTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		LootTable le = Database.getInstance().getLootTables().get(name);
 
@@ -190,6 +191,7 @@ public class LootTablePanel extends EditorPanel
 		}
 
 		le.setLootEntries(gop);
+		return le;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -1,4 +1,4 @@
-#Tue Oct 08 08:27:51 CAT 2019
+#Fri Jan 31 08:15:21 CAT 2020
 garret=9|He he he, I know little of religion.
 leonal,leonals,white\ order=9|The tall leonals, he he he. They keep trying to tell us what to do. Would that they would just stay in the big castle far north.
 maze=9|The maze is endless, I say. He he he. Have a beer and forget about it.

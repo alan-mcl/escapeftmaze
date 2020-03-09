@@ -19,10 +19,12 @@
 
 package mclachlan.maze.stat;
 
+import mclachlan.maze.data.v1.DataObject;
+
 /**
  * A profile of where an actor can be struck in combat.
  */
-public class BodyPart
+public class BodyPart extends DataObject
 {
 	private String name;
 	private String displayName;

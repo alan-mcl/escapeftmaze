@@ -83,8 +83,7 @@ public class EditorPanelDialog extends JDialog implements WindowListener
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
+		new Database(loader, saver, Maze.getStubCampaign());
 
 		new EditorPanelDialog("TESTING", new MazeScriptPanel());
 		System.exit(0);

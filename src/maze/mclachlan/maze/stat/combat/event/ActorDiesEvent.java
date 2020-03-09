@@ -74,7 +74,7 @@ public class ActorDiesEvent extends MazeEvent
 		// this check in case we're doing the CLI combat testing.
 		if (maze != null)
 		{
-			MazeScript script = Database.getInstance().getScript("_DIE_");
+			MazeScript script = Database.getInstance().getMazeScript("_DIE_");
 			maze.appendEvents(script.getEvents());
 
 			result.add(new MazeEvent()

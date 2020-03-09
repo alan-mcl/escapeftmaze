@@ -21,12 +21,13 @@ package mclachlan.maze.map;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.*;
 
 /**
  * Represents a row in a random encounter table.
  */
-public class FoeEntry
+public class FoeEntry extends DataObject
 {
 	String name;
 	GroupOfPossibilities<FoeEntryRow> contains;

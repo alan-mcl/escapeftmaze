@@ -25,6 +25,7 @@ import java.util.Collections;
 import java.util.Vector;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
 
@@ -215,11 +216,9 @@ public class RacePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getRaceList());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getRaces().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -284,7 +283,7 @@ public class RacePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		Race race = new Race(
 			name,
@@ -315,6 +314,8 @@ public class RacePanel extends EditorPanel
 			null);
 
 		Database.getInstance().getRaces().put(name, race);
+
+		return race;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -326,7 +327,7 @@ public class RacePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		Race current = Database.getInstance().getRaces().get(currentName);
 
@@ -359,6 +360,8 @@ public class RacePanel extends EditorPanel
 			current.getCharacterCreationImage());
 
 		Database.getInstance().getRaces().put(newName, race);
+
+		return race;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -368,7 +371,7 @@ public class RacePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		Race r = Database.getInstance().getRaces().get(name);
 
@@ -403,5 +406,7 @@ public class RacePanel extends EditorPanel
 		r.setSpecialAbility(spellName.equals(NONE)?null:Database.getInstance().getSpell(spellName));
 
 		r.setCharacterCreationImage(characterCreationImage.getText());
+
+		return r;
 	}
 }

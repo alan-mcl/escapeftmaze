@@ -462,7 +462,7 @@ public class Maze implements Runnable
 			JournalManager.getInstance().startGame();
 
 			// start campaign
-			MazeScript startingScript = Database.getInstance().getScript(campaign.getStartingScript());
+			MazeScript startingScript = Database.getInstance().getMazeScript(campaign.getStartingScript());
 			appendEvents(startingScript.getEvents());
 			appendEvents(new StartGameEvent(this, party));
 		}
@@ -594,7 +594,7 @@ public class Maze implements Runnable
 			String script = campaign.getIntroScript();
 			if (script != null && script.length() > 0)
 			{
-				final MazeScript intro = Database.getInstance().getScript(script);
+				final MazeScript intro = Database.getInstance().getMazeScript(script);
 				// this hack here so that the draw thread can draw any stuff 
 				// required by these events.
 				new Thread("Intro event thread")
@@ -966,7 +966,7 @@ public class Maze implements Runnable
 		if (party != null && party.numAlive() == 0)
 		{
 			// party is all dead;
-			MazeScript script = Database.getInstance().getScript("_PARTY_DEAD_");
+			MazeScript script = Database.getInstance().getMazeScript("_PARTY_DEAD_");
 			script.getEvents().get(0).resolve();
 			backToMain();
 		}
@@ -1609,7 +1609,7 @@ public class Maze implements Runnable
 			}
 			else if (state.equalsIgnoreCase(Portal.State.LOCKED))
 			{
-				MazeScript script = Database.getInstance().getScript("_OUCH_");
+				MazeScript script = Database.getInstance().getMazeScript("_OUCH_");
 				resolveEvents(script.getEvents());
 				ui.addMessage("LOCKED!");
 				return null;
@@ -1634,7 +1634,7 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void walkIntoWall()
 	{
-		MazeScript script = Database.getInstance().getScript("_OUCH_");
+		MazeScript script = Database.getInstance().getMazeScript("_OUCH_");
 		resolveEvents(script.getEvents());
 		// todo: should probably make these temp messages maze events
 		ui.addMessage("OUCH!");
@@ -2201,12 +2201,6 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Queue getQueue()
-	{
-		return processor.queue;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public boolean alreadyQueued(Class eventClass)
 	{
 		for (MazeEvent e : processor.queue)
@@ -2229,6 +2223,7 @@ public class Maze implements Runnable
 		return new Campaign(
 			"default",
 			"Episode 1 (default campaign)",
+			null,
 			"The default campaign",
 			"arena load script",
 			"Human",

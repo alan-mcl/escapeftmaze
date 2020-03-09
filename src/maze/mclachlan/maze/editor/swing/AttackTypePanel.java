@@ -19,10 +19,12 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.AttackType;
@@ -86,25 +88,24 @@ public class AttackTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getAttackTypes().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>((Database.getInstance().getAttackTypes().values()));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.ATTACK_TYPES);
-		AttackType g = new AttackType(
+		AttackType attackType = new AttackType(
 			name,
 			"",
 			Stats.Modifier.NONE,
 			MagicSys.SpellEffectType.NONE,
 			new StatModifier());
-		Database.getInstance().getAttackTypes().put(name, g);
-		refreshNames(name);
+		Database.getInstance().getAttackTypes().put(name, attackType);
+
+		return attackType;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -119,20 +120,21 @@ public class AttackTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.ATTACK_TYPES);
 
 		AttackType current = Database.getInstance().getAttackType((String)names.getSelectedValue());
 
-		AttackType g = new AttackType(
+		AttackType attackType = new AttackType(
 			newName,
 			current.getVerb(),
 			current.getAttackModifier(),
 			current.getDamageType(),
 			new StatModifier(current.getModifiers()));
-		Database.getInstance().getAttackTypes().put(newName, g);
-		refreshNames(newName);
+		Database.getInstance().getAttackTypes().put(newName, attackType);
+
+		return attackType;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -171,11 +173,13 @@ public class AttackTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		AttackType attackType = Database.getInstance().getAttackType(name);
 		attackType.setVerb(verb.getText());
 		attackType.setModifiers(modifiers.getModifier());
 		attackType.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
+
+		return attackType;
 	}
 }

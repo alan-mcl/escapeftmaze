@@ -25,6 +25,7 @@ import java.util.*;
 import mclachlan.maze.stat.ItemEnchantment;
 import mclachlan.maze.stat.ItemEnchantments;
 import mclachlan.maze.stat.PercentageTable;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -49,21 +50,28 @@ public class V1ItemEnchantments
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, ItemEnchantments> load(BufferedReader reader) throws Exception
+	public static Map<String, ItemEnchantments> load(BufferedReader reader)
 	{
-		Map <String, ItemEnchantments> result = new HashMap<String, ItemEnchantments>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, ItemEnchantments> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				ItemEnchantments g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			ItemEnchantments g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

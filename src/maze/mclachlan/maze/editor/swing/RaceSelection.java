@@ -39,7 +39,7 @@ public class RaceSelection extends JPanel implements ActionListener
 	public RaceSelection(int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
-		List<String> raceList = Database.getInstance().getRaceList();
+		List<String> raceList = new ArrayList<>(Database.getInstance().getRaces().keySet());
 		Collections.sort(raceList);
 		int max = raceList.size();
 		checkBoxes = new HashMap<String, JCheckBox>();

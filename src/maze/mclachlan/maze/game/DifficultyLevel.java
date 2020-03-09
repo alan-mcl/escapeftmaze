@@ -20,13 +20,14 @@
 
 package mclachlan.maze.game;
 
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.stat.Foe;
 
 /**
  *
  */
-public class DifficultyLevel
+public class DifficultyLevel extends DataObject
 {
 	private String name;
 	private int sortOrder;

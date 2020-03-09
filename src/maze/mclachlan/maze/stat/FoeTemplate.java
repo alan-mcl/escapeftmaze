@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;
@@ -29,7 +30,7 @@ import mclachlan.maze.stat.npc.NpcFaction;
 /**
  *
  */
-public class FoeTemplate
+public class FoeTemplate extends DataObject
 {
 	/** The singular name of the foe, eg "Zombie" */
 	private String name;

@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Value;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.util.MazeException;
@@ -180,11 +181,9 @@ public class SpellEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getSpellEffects().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getSpellEffects().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -240,7 +239,7 @@ public class SpellEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SpellEffect se = new SpellEffect(
 			name,
@@ -254,7 +253,7 @@ public class SpellEffectPanel extends EditorPanel
 			0);
 
 		Database.getInstance().getSpellEffects().put(name, se);
-		refreshNames(name);
+		return se;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -268,7 +267,7 @@ public class SpellEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SpellEffect current = Database.getInstance().getSpellEffect(currentName);
 
@@ -283,7 +282,7 @@ public class SpellEffectPanel extends EditorPanel
 			current.getTargetType());
 
 		Database.getInstance().getSpellEffects().put(newName, se);
-		refreshNames(newName);
+		return se;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -294,7 +293,7 @@ public class SpellEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		SpellEffect se = Database.getInstance().getSpellEffect(name);
 
@@ -323,6 +322,8 @@ public class SpellEffectPanel extends EditorPanel
 			se.setUnsavedResult(unsavedResult.getSpellResult());
 			se.setApplication((SpellEffect.Application)application.getSelectedItem());
 		}
+
+		return se;
 	}
 
 	/*-------------------------------------------------------------------------*/

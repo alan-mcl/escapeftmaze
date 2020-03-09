@@ -26,6 +26,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.ExperienceTable;
 import mclachlan.maze.stat.ExperienceTableArray;
 import mclachlan.maze.util.MazeException;
@@ -110,21 +111,21 @@ public class ExperienceTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getExperienceTables().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getExperienceTables().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
-		ExperienceTable g = new ExperienceTableArray(
+		ExperienceTable experienceTable = new ExperienceTableArray(
 			name,
 			new int[]{0},
 			0);
-		Database.getInstance().getExperienceTables().put(name, g);
+		Database.getInstance().getExperienceTables().put(name, experienceTable);
+
+		return experienceTable;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -137,16 +138,18 @@ public class ExperienceTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		ExperienceTableArray current = (ExperienceTableArray)
 			Database.getInstance().getExperienceTable((String)names.getSelectedValue());
 
-		ExperienceTable g = new ExperienceTableArray(
+		ExperienceTable experienceTable = new ExperienceTableArray(
 			newName,
 			current.getLevels(),
 			current.getPostGygaxIncrement());
-		Database.getInstance().getExperienceTables().put(newName, g);
+		Database.getInstance().getExperienceTables().put(newName, experienceTable);
+
+		return experienceTable;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -194,11 +197,11 @@ public class ExperienceTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		if (!Database.getInstance().getExperienceTables().containsKey(name))
 		{
-			return;
+			return null;
 		}
 
 		ExperienceTableArray eta = (ExperienceTableArray)
@@ -213,6 +216,8 @@ public class ExperienceTablePanel extends EditorPanel
 		}
 
 		eta.setLevels(levels);
+
+		return eta;
 	}
 
 	/*-------------------------------------------------------------------------*/

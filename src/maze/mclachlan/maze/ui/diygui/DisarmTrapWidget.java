@@ -262,7 +262,7 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void manipulateTool(int tool)
 	{
-		MazeScript script = Database.getInstance().getScript("_THIEF_TOOL_");
+		MazeScript script = Database.getInstance().getMazeScript("_THIEF_TOOL_");
 		Maze.getInstance().appendEvents(script.getEvents());
 		int result = GameSys.getInstance().disarm(pc, trap, tool);
 
@@ -294,7 +294,7 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void inspect()
 	{
-		MazeScript script = Database.getInstance().getScript("_INSPECT_TRAP_");
+		MazeScript script = Database.getInstance().getMazeScript("_INSPECT_TRAP_");
 		Maze.getInstance().appendEvents(script.getEvents());
 		
 		int[] insResult = GameSys.getInstance().inspectTrap(pc, trap);

@@ -19,14 +19,13 @@
 
 package mclachlan.maze.util;
 
-import java.util.List;
+import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Campaign;
-import mclachlan.maze.game.Launcher;
 
 /**
  *
@@ -36,7 +35,7 @@ public class DataPorter
 	public static void main(String[] args) throws Exception
 	{
 		Campaign campaign = null;
-		List<Campaign> campaigns = Launcher.loadCampaigns();
+		List<Campaign> campaigns = new ArrayList<>(Database.getCampaigns().values());
 
 		Loader loader = null;//new HardCodedLoader();
 		Saver saver = new V1Saver();
@@ -56,7 +55,7 @@ public class DataPorter
 			throw new RuntimeException("Cannot find Arena campaign");
 		}
 
-		new Database(loader, saver);
+		new Database(loader, saver, campaign);
 
 
 		Loader test = new V1Loader();

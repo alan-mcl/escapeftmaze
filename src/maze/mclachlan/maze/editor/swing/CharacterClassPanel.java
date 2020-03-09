@@ -24,6 +24,7 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.stat.*;
 
@@ -263,10 +264,10 @@ public class CharacterClassPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SwingEditor.instance.setDirty(dirtyFlag);
-		CharacterClass g = new CharacterClass(
+		CharacterClass characterClass = new CharacterClass(
 			name,
 			CharacterClass.Focus.COMBAT,
 			"",
@@ -285,8 +286,9 @@ public class CharacterClassPanel extends EditorPanel
 			0,
 			new StatModifier(),
 			new LevelAbilityProgression());
-		getMap().put(name, g);
-		refreshNames(name);
+		getMap().put(name, characterClass);
+
+		return characterClass;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -301,13 +303,13 @@ public class CharacterClassPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SwingEditor.instance.setDirty(dirtyFlag);
 
 		CharacterClass current = Database.getInstance().getCharacterClass((String)names.getSelectedValue());
 
-		CharacterClass g = new CharacterClass(
+		CharacterClass characterClass = new CharacterClass(
 			newName,
 			current.getFocus(),
 			current.getDescription(),
@@ -317,8 +319,8 @@ public class CharacterClassPanel extends EditorPanel
 			new StatModifier(current.getStartingActiveModifiers()),
 			new StatModifier(current.getStartingModifiers()),
 			new StatModifier(current.getUnlockModifiers()),
-			new HashSet<String>(current.getAllowedGenders()),
-			new HashSet<String>(current.getAllowedRaces()),
+			new HashSet<>(current.getAllowedGenders()),
+			new HashSet<>(current.getAllowedRaces()),
 			current.getExperienceTable(),
 			current.getLevelUpHitPoints(),
 			current.getLevelUpActionPoints(),
@@ -327,8 +329,9 @@ public class CharacterClassPanel extends EditorPanel
 			new StatModifier(current.getLevelUpModifiers()),
 			current.getProgression());
 
-		getMap().put(newName, g);
-		refreshNames(newName);
+		getMap().put(newName, characterClass);
+
+		return characterClass;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -341,11 +344,9 @@ public class CharacterClassPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getCharacterClassList());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>((Database.getInstance().getCharacterClasses().values()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -424,12 +425,12 @@ public class CharacterClassPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		if (!getMap().containsKey(name))
 		{
 			// class is gone for some reason, ignore
-			return;
+			return null;
 		}
 
 		CharacterClass c = Database.getInstance().getCharacterClass(name);
@@ -453,6 +454,8 @@ public class CharacterClassPanel extends EditorPanel
 		c.setExperienceTable(Database.getInstance().getExperienceTable((String)experienceTable.getSelectedItem()));
 
 		c.setProgression(getProgressionData());
+
+		return c;
 	}
 
 	/*-------------------------------------------------------------------------*/

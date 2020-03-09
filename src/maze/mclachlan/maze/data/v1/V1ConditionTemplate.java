@@ -28,6 +28,7 @@ import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.condition.RepeatedSpellEffect;
 import mclachlan.maze.stat.magic.ValueList;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -49,21 +50,28 @@ public class V1ConditionTemplate
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, ConditionTemplate> load(BufferedReader reader) throws Exception
+	public static Map<String, ConditionTemplate> load(BufferedReader reader)
 	{
-		Map <String, ConditionTemplate> result = new HashMap<String, ConditionTemplate>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, ConditionTemplate> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				ConditionTemplate g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			ConditionTemplate g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

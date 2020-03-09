@@ -19,7 +19,7 @@
 
 package mclachlan.maze.data.v1;
 
-import java.awt.*;
+import java.awt.Point;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
@@ -49,8 +49,9 @@ import mclachlan.maze.stat.npc.NpcTemplate;
  */
 public class V1Saver extends Saver
 {
-	private String path = null;
-	private String savePath = null;
+	private String path;
+	private String savePath;
+	private Campaign campaign;
 
 	/*-------------------------------------------------------------------------*/
 	@Override
@@ -58,6 +59,7 @@ public class V1Saver extends Saver
 	{
 		path = "data/"+ c.getName()+"/db/";
 		savePath = "data/"+ c.getName()+"/save/";
+		campaign = c;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -71,8 +73,17 @@ public class V1Saver extends Saver
 	/*-------------------------------------------------------------------------*/
 	public void saveGenders(Map<String, Gender> genders) throws Exception
 	{
+		Map<String, Gender> map = new HashMap<>();
+		for (Map.Entry<String, Gender> e : genders.entrySet())
+		{
+			if (e.getValue().getCampaign().equals(this.campaign.getName()))
+			{
+				map.put(e.getKey(), e.getValue());
+			}
+		}
+
 		BufferedWriter writer = new BufferedWriter(new FileWriter(path+V1Utils.GENDERS));
-		V1Gender.save(writer, genders);
+		V1Gender.save(writer, map);
 		writer.flush();
 		writer.close();
 	}
@@ -179,7 +190,7 @@ public class V1Saver extends Saver
 	public void saveMazeScripts(Map<String, MazeScript> map) throws Exception
 	{
 		BufferedWriter writer = new BufferedWriter(new FileWriter(path+V1Utils.MAZE_SCRIPTS));
-		V1Script.save(writer, map);
+		V1MazeScript.save(writer, map);
 		writer.flush();
 		writer.close();
 	}

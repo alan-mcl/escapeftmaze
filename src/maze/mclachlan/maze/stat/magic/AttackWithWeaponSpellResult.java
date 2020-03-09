@@ -246,7 +246,7 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		}
 		else
 		{
-			actionAttackScript = Database.getInstance().getScript(attackScript);
+			actionAttackScript = Database.getInstance().getMazeScript(attackScript);
 		}
 		return actionAttackScript;
 	}

@@ -23,6 +23,7 @@ import java.awt.*;
 import java.util.Vector;
 import java.util.Collections;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.combat.WieldingCombo;
 import mclachlan.maze.stat.StatModifier;
 import javax.swing.*;
@@ -123,11 +124,9 @@ public class WieldingComboPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getWieldingCombos().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getWieldingCombos().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -147,7 +146,7 @@ public class WieldingComboPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		WieldingCombo wc = new WieldingCombo(
 			name,
@@ -155,6 +154,8 @@ public class WieldingComboPanel extends EditorPanel
 			WieldingCombo.Key.NONE,
 			new StatModifier());
 		Database.getInstance().getWieldingCombos().put(name, wc);
+
+		return wc;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -166,7 +167,7 @@ public class WieldingComboPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		WieldingCombo current = Database.getInstance().getWieldingCombo(currentName);
 		WieldingCombo wc = new WieldingCombo(
@@ -175,6 +176,8 @@ public class WieldingComboPanel extends EditorPanel
 			current.getSecondaryHand(), 
 			new StatModifier(current.getModifiers()));
 		Database.getInstance().getWieldingCombos().put(newName, wc);
+
+		return wc;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -184,11 +187,13 @@ public class WieldingComboPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		WieldingCombo wc = Database.getInstance().getWieldingCombo(name);
 		wc.setPrimaryHand((String)primaryHand.getSelectedItem());
 		wc.setSecondaryHand((String)secondaryHand.getSelectedItem());
 		wc.setModifiers(modifiers.getModifier());
+
+		return wc;
 	}
 }

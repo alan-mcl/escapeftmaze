@@ -23,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -30,21 +31,28 @@ import mclachlan.maze.stat.magic.PlayerSpellBook;
 public class V1PlayerSpellBook
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, PlayerSpellBook> load(BufferedReader reader) throws Exception
+	public static Map<String, PlayerSpellBook> load(BufferedReader reader)
 	{
-		Map <String, PlayerSpellBook> result = new HashMap<String, PlayerSpellBook>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, PlayerSpellBook> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				PlayerSpellBook g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			PlayerSpellBook g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

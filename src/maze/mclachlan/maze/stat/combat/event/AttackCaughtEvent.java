@@ -74,7 +74,7 @@ public class AttackCaughtEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		MazeScript script = Database.getInstance().getScript("generic weapon swish");
+		MazeScript script = Database.getInstance().getMazeScript("generic weapon swish");
 		result.addAll(script.getEvents());
 
 		if (attackWith instanceof Item)

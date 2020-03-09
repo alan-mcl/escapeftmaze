@@ -25,7 +25,6 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
@@ -190,9 +189,7 @@ public class ZoneScorer
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		List<String> zones = db.getZoneNames();
 

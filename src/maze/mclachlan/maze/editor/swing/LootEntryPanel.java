@@ -28,6 +28,7 @@ import javax.swing.*;
 import javax.swing.table.AbstractTableModel;
 import javax.swing.table.DefaultTableCellRenderer;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.LootEntryRow;
@@ -41,10 +42,10 @@ import mclachlan.maze.util.MazeException;
  */
 public class LootEntryPanel extends EditorPanel
 {
-	JTable table;
-	JButton add, remove, spread;
-	JComboBox itemTemplates;
-	LootEntryTableModel dataModel;
+	private JTable table;
+	private JButton add, remove, spread;
+	private JComboBox itemTemplates;
+	private LootEntryTableModel dataModel;
 
 	/*-------------------------------------------------------------------------*/
 	public LootEntryPanel()
@@ -111,11 +112,9 @@ public class LootEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getLootEntries().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getLootEntries().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -141,10 +140,12 @@ public class LootEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		LootEntry le = new LootEntry(name, new PercentageTable<LootEntryRow>());
 		Database.getInstance().getLootEntries().put(name, le);
+
+		return le;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -156,11 +157,13 @@ public class LootEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		LootEntry current = Database.getInstance().getLootEntries().get(currentName);
 		LootEntry le = new LootEntry(newName, new PercentageTable<LootEntryRow>(current.getContains()));
 		Database.getInstance().getLootEntries().put(newName, le);
+
+		return le;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -170,13 +173,13 @@ public class LootEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		LootEntry le = Database.getInstance().getLootEntries().get(name);
 		
 		if (le == null)
 		{
-			return;
+			return null;
 		}
 
 		// we're basically just committing the percentage table
@@ -190,6 +193,8 @@ public class LootEntryPanel extends EditorPanel
 		}
 
 		le.setContains(pt);
+
+		return le;
 	}
 
 	/*-------------------------------------------------------------------------*/

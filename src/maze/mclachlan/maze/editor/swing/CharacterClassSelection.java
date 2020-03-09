@@ -42,7 +42,7 @@ public class CharacterClassSelection extends JPanel implements ActionListener
 	{
 		this.dirtyFlag = dirtyFlag;
 		List<String> characterClassList;
-		characterClassList = Database.getInstance().getCharacterClassList();
+		characterClassList = new ArrayList<>(Database.getInstance().getCharacterClasses().keySet());
 
 		Collections.sort(characterClassList);
 		int max = characterClassList.size();

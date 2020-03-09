@@ -70,19 +70,19 @@ public class ForceOpenEvent extends MazeEvent
 		switch (forcePortalResult)
 		{
 			case Portal.ForceResult.FAILED_NO_DAMAGE:
-				result.addAll(Database.getInstance().getScript("_OUCH_").getEvents());
+				result.addAll(Database.getInstance().getMazeScript("_OUCH_").getEvents());
 				result.add(new UiMessageEvent(StringUtil.getEventText("event.ouch")));
 				break;
 
 			case Portal.ForceResult.FAILED_DAMAGE:
-				result.addAll(Database.getInstance().getScript("_OUCH_").getEvents());
+				result.addAll(Database.getInstance().getMazeScript("_OUCH_").getEvents());
 				result.add(new UiMessageEvent(StringUtil.getEventText("event.ouch")));
 				hp.incSub(lockOrTrap.getHitPointCostToForceLock());
 				break;
 
 			case Portal.ForceResult.SUCCESS:
 
-				result.addAll(Database.getInstance().getScript("_FORCE_PORTAL_").getEvents());
+				result.addAll(Database.getInstance().getMazeScript("_FORCE_PORTAL_").getEvents());
 				result.add(new UiMessageEvent(StringUtil.getEventText("msg.force.open.success")));
 
 				result.add(

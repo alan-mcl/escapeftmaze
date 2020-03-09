@@ -27,6 +27,7 @@ import java.util.Properties;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.FoeEntryRow;
 import mclachlan.maze.stat.GroupOfPossibilities;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -54,21 +55,28 @@ public class V1FoeEntry
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, FoeEntry> load(BufferedReader reader) throws Exception
+	public static Map<String, FoeEntry> load(BufferedReader reader)
 	{
-		Map <String, FoeEntry> result = new HashMap<String, FoeEntry>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, FoeEntry> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				FoeEntry g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			FoeEntry g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

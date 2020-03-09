@@ -25,6 +25,7 @@ import java.util.*;
 import mclachlan.maze.map.LootEntry;
 import mclachlan.maze.map.LootEntryRow;
 import mclachlan.maze.stat.PercentageTable;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -52,22 +53,29 @@ public class V1LootEntry
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, LootEntry> load(BufferedReader reader) throws Exception
+	public static Map<String, LootEntry> load(BufferedReader reader)
 	{
-		Map <String, LootEntry> result = new HashMap<String, LootEntry>();
-
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
-			{
-				break;
-			}
-			LootEntry g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
+			Map <String, LootEntry> result = new HashMap<>();
 
-		return result;
+			while (true)
+			{
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				LootEntry g = fromProperties(p);
+				result.put(g.getName(), g);
+			}
+
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

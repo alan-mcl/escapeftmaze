@@ -28,6 +28,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -79,21 +80,28 @@ public class V1ItemTemplate
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, ItemTemplate> load(BufferedReader reader) throws Exception
+	public static Map<String, ItemTemplate> load(BufferedReader reader)
 	{
-		Map <String, ItemTemplate> result = new HashMap<String, ItemTemplate>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, ItemTemplate> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				ItemTemplate g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			ItemTemplate g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -394,7 +402,7 @@ public class V1ItemTemplate
 			StatModifier equipRequirements = V1StatModifier.fromString(p.getProperty("equipRequirements"));
 			StatModifier useRequirements = V1StatModifier.fromString(p.getProperty("useRequirements"));
 			String attackScriptName = p.getProperty("attackScript");
-			MazeScript attackScript = attackScriptName.equals("")?null:Database.getInstance().getScript(attackScriptName);
+			MazeScript attackScript = attackScriptName.equals("")?null:Database.getInstance().getMazeScript(attackScriptName);
 			Dice damage = V1Dice.fromString(p.getProperty("damage"));
 			MagicSys.SpellEffectType defaultDamageType = MagicSys.SpellEffectType.valueOf(p.getProperty("defaultDamageType"));
 			String[] attackTypes = V1Utils.fromStringStrings(p.getProperty("attackTypes"), SEP);

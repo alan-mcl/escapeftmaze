@@ -27,6 +27,7 @@ import mclachlan.maze.map.ILootEntry;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.map.SingleItemLootEntry;
 import mclachlan.maze.stat.GroupOfPossibilities;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -64,22 +65,29 @@ public class V1LootTable
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, LootTable> load(BufferedReader reader) throws Exception
+	public static Map<String, LootTable> load(BufferedReader reader)
 	{
-		Map <String, LootTable> result = new HashMap<String, LootTable>();
-
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
-			{
-				break;
-			}
-			LootTable g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
+			Map <String, LootTable> result = new HashMap<>();
 
-		return result;
+			while (true)
+			{
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				LootTable g = fromProperties(p);
+				result.put(g.getName(), g);
+			}
+
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

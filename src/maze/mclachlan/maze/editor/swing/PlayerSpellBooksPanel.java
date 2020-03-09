@@ -24,6 +24,7 @@ import java.util.List;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
@@ -106,11 +107,9 @@ public class PlayerSpellBooksPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getPlayerSpellBooks().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getPlayerSpellBooks().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -140,9 +139,10 @@ public class PlayerSpellBooksPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		// do not allow
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -152,9 +152,10 @@ public class PlayerSpellBooksPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		// do not allow
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -164,11 +165,13 @@ public class PlayerSpellBooksPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		PlayerSpellBook psb = Database.getInstance().getPlayerSpellBook(name);
 		psb.setSpellNames(new HashSet<String>(tableModel.spellNames));
 		psb.setDescription(description.getText());
+
+		return psb;
 	}
 
 	/*-------------------------------------------------------------------------*/

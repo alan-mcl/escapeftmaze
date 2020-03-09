@@ -179,8 +179,7 @@ public class SpellLikeAbilityEditor extends JDialog implements ActionListener
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
+		new Database(loader, saver, Maze.getStubCampaign());
 
 		JFrame owner = new JFrame("test");
 		owner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -20,12 +20,13 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 
 
 /**
  *
  */
-public class CharacterClass implements TypeDescriptor
+public class CharacterClass extends DataObject implements TypeDescriptor
 {
 	/** name of this character class */
 	private String name;

@@ -232,7 +232,7 @@ public class V1PlayerCharacter
 		int kills = Integer.parseInt(p.getProperty("kills"));
 		int karma = Integer.parseInt(p.getProperty("karma"));
 		Race race = Database.getInstance().getRace(p.getProperty("race"));
-		Gender gender = Database.getInstance().getGender(p.getProperty("gender"));
+		Gender gender = Database.getInstance().getGenders().get(p.getProperty("gender"));
 		CharacterClass characterClass = Database.getInstance().getCharacterClass(p.getProperty("characterClass"));
 		Personality personality = Database.getInstance().getPersonalities().get(p.getProperty("personality"));
 		String portrait = p.getProperty("portrait");

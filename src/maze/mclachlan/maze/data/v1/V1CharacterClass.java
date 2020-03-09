@@ -24,6 +24,7 @@ import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -63,21 +64,28 @@ public class V1CharacterClass
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, CharacterClass> load(BufferedReader reader) throws Exception
+	public static Map<String, CharacterClass> load(BufferedReader reader)
 	{
-		Map <String, CharacterClass> result = new HashMap<String, CharacterClass>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, CharacterClass> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				CharacterClass g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			CharacterClass g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

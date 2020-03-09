@@ -25,6 +25,7 @@ import java.awt.Insets;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.util.MazeException;
 
@@ -33,7 +34,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class ConditionEffectPanel extends EditorPanel
 {
-	JTextField impl;
+	private JTextField impl;
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionEffectPanel()
@@ -68,17 +69,16 @@ public class ConditionEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getConditionEffects().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>((Database.getInstance().getConditionEffects().values()));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		// todo
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -88,9 +88,10 @@ public class ConditionEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		// todo
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -113,12 +114,12 @@ public class ConditionEffectPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		// custom impls only supported
 		if (name == null)
 		{
-			return;
+			return null;
 		}
 
 		Map<String, ConditionEffect> conditionEffects = Database.getInstance().getConditionEffects();
@@ -129,6 +130,8 @@ public class ConditionEffectPanel extends EditorPanel
 			ConditionEffect ce = (ConditionEffect)clazz.newInstance();
 			ce.setName(name);
 			conditionEffects.put(name, ce);
+
+			return ce;
 		}
 		catch (Exception x)
 		{

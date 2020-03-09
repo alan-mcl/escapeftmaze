@@ -20,6 +20,7 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.util.MazeException;
@@ -27,7 +28,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class Race implements TypeDescriptor
+public class Race extends DataObject implements TypeDescriptor
 {
 	private String name;
 	private String description;
@@ -146,7 +147,7 @@ public class Race implements TypeDescriptor
 		this.characterCreationImage = characterCreationImage;
 
 		// todo: update the actual data model
-		bodyParts = new PercentageTable<BodyPart>();
+		bodyParts = new PercentageTable<>();
 		bodyParts.add(head, 18);
 		bodyParts.add(torso, 33);
 		bodyParts.add(leg, 31);

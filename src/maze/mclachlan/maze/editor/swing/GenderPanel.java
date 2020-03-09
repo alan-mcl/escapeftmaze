@@ -19,10 +19,13 @@
 
 package mclachlan.maze.editor.swing;
 
-import java.awt.*;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.Gender;
 import mclachlan.maze.stat.StatModifier;
 
@@ -31,9 +34,9 @@ import mclachlan.maze.stat.StatModifier;
  */
 public class GenderPanel extends EditorPanel
 {
-	StatModifierComponent startingModifiers;
-	StatModifierComponent constantModifiers;
-	StatModifierComponent bannerModifiers;
+	private StatModifierComponent startingModifiers;
+	private StatModifierComponent constantModifiers;
+	private StatModifierComponent bannerModifiers;
 
 	/*-------------------------------------------------------------------------*/
 	public GenderPanel()
@@ -88,27 +91,25 @@ public class GenderPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getGenderList());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getGenders().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.GENDER);
 		Gender g = new Gender(name, new StatModifier(), new StatModifier(), new StatModifier());
 		Database.getInstance().getGenders().put(name, g);
-		refreshNames(name);
+		return g;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void renameItem(String newName)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.GENDER);
-		Gender current = Database.getInstance().getGender((String)names.getSelectedValue());
+		Gender current = Database.getInstance().getGenders().get(((String)names.getSelectedValue()));
 		Database.getInstance().getGenders().remove(current.getName());
 		current.setName(newName);
 		Database.getInstance().getGenders().put(current.getName(), current);
@@ -116,11 +117,11 @@ public class GenderPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.GENDER);
 
-		Gender current = Database.getInstance().getGender((String)names.getSelectedValue());
+		Gender current = Database.getInstance().getGenders().get((String)names.getSelectedValue());
 
 		Gender g = new Gender(
 			newName,
@@ -128,7 +129,8 @@ public class GenderPanel extends EditorPanel
 			new StatModifier(current.getConstantModifiers()),
 			new StatModifier(current.getBannerModifiers()));
 		Database.getInstance().getGenders().put(newName, g);
-		refreshNames(newName);
+
+		return g;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -141,12 +143,18 @@ public class GenderPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
-		Gender gender = Database.getInstance().getGender(name);
-		gender.setStartingModifiers(startingModifiers.getModifier());
-		gender.setConstantModifiers(constantModifiers.getModifier());
-		gender.setBannerModifiers(bannerModifiers.getModifier());
+		Gender gender = Database.getInstance().getGenders().get(name);
+
+		if (gender != null)
+		{
+			gender.setStartingModifiers(startingModifiers.getModifier());
+			gender.setConstantModifiers(constantModifiers.getModifier());
+			gender.setBannerModifiers(bannerModifiers.getModifier());
+		}
+
+		return gender;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -157,7 +165,7 @@ public class GenderPanel extends EditorPanel
 			return;
 		}
 
-		Gender g = Database.getInstance().getGender(name);
+		Gender g = Database.getInstance().getGenders().get(name);
 
 		startingModifiers.setModifier(g.getStartingModifiers());
 		constantModifiers.setModifier(g.getConstantModifiers());

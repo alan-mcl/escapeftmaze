@@ -21,13 +21,11 @@ package mclachlan.maze.data.v1;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Properties;
-import java.util.List;
+import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.data.Database;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -56,7 +54,7 @@ public class V1Race
 
 		public Gender typeFromString(String s)
 		{
-			return Database.getInstance().getGender(s);
+			return Database.getInstance().getGenders().get(s);
 		}
 	};
 
@@ -115,21 +113,28 @@ public class V1Race
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, Race> load(BufferedReader reader) throws Exception
+	public static Map<String, Race> load(BufferedReader reader)
 	{
-		Map <String, Race> result = new HashMap<String, Race>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, Race> result = new HashMap<String, Race>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				Race g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			Race g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

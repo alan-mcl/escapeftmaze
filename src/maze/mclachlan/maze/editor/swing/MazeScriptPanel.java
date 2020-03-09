@@ -25,6 +25,7 @@ import java.awt.Insets;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 
@@ -74,11 +75,9 @@ public class MazeScriptPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getMazeScripts().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -89,16 +88,17 @@ public class MazeScriptPanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public void refresh(String name)
 	{
-		MazeScript le = Database.getInstance().getScript(name);
+		MazeScript le = Database.getInstance().getMazeScript(name);
 
 		panel.refresh(le.getEvents());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		MazeScript me = new MazeScript(name, new ArrayList<MazeEvent>());
 		Database.getInstance().getMazeScripts().put(name, me);
+		return me;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -110,11 +110,12 @@ public class MazeScriptPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		MazeScript current = Database.getInstance().getMazeScripts().get(currentName);
 		MazeScript me = new MazeScript(newName, current.getEvents());
 		Database.getInstance().getMazeScripts().put(newName, me);
+		return me;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -124,12 +125,13 @@ public class MazeScriptPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		MazeScript me = Database.getInstance().getMazeScripts().get(name);
 		if (me != null)
 		{
 			me.setEvents(panel.getMazeEvents());
 		}
+		return me;
 	}
 }

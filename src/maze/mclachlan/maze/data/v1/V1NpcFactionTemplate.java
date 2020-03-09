@@ -26,6 +26,7 @@ import java.util.Map;
 import java.util.Properties;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.stat.npc.NpcFactionTemplate;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -33,21 +34,28 @@ import mclachlan.maze.stat.npc.NpcFactionTemplate;
 public class V1NpcFactionTemplate
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, NpcFactionTemplate> load(BufferedReader reader) throws Exception
+	public static Map<String, NpcFactionTemplate> load(BufferedReader reader)
 	{
-		Map <String, NpcFactionTemplate> result = new HashMap<String, NpcFactionTemplate>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, NpcFactionTemplate> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				NpcFactionTemplate g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			NpcFactionTemplate g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

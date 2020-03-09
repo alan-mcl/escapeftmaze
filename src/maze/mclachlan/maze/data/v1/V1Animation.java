@@ -56,7 +56,7 @@ public class V1Animation
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		types = new HashMap<Class, Integer>();
+		types = new HashMap<>();
 
 		types.put(ProjectileAnimation.class, PROJECTILE);
 		types.put(ColourMagicPortraitAnimation.class, COLOUR_PORTRAIT);

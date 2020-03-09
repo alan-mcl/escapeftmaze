@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.combat;
 
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -26,7 +27,7 @@ import mclachlan.maze.stat.magic.MagicSys;
 /**
  *
  */
-public class AttackType
+public class AttackType extends DataObject
 {
 	public static final AttackType NULL_ATTACK_TYPE = new AttackType(
 		null, null, Stats.Modifier.NONE, MagicSys.SpellEffectType.NONE);

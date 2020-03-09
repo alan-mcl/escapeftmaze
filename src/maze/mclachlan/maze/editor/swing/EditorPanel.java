@@ -24,6 +24,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.event.*;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
@@ -90,8 +91,23 @@ public abstract class EditorPanel
 	public void refreshNames(String toBeSelected)
 	{
 		currentName = null;
-		Vector vec = loadData();
-		names.setListData(vec);
+
+		Vector<DataObject> loadedData = loadData();
+
+		Vector<String> keys = new Vector<>();
+
+		for (DataObject dataObject : loadedData)
+		{
+			if (dataObject.getCampaign() == null ||
+				dataObject.getCampaign().equals(SwingEditor.instance.getCurrentCampaign()))
+			{
+				keys.add(dataObject.getName());
+			}
+		}
+
+		Collections.sort(keys);
+
+		names.setListData(keys);
 		if (toBeSelected == null)
 		{
 			names.setSelectedIndex(0);
@@ -126,7 +142,6 @@ public abstract class EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public void reload()
 	{
-		loadData();
 		refreshNames(null);
 	}
 
@@ -135,7 +150,8 @@ public abstract class EditorPanel
 	{
 		if (currentName != null)
 		{
-			commit(currentName);
+			DataObject dataObject = commit(currentName);
+			dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());;
 		}
 
 		currentName = (String)names.getSelectedValue();

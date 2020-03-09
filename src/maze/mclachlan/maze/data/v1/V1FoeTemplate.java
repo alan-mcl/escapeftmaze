@@ -87,21 +87,28 @@ public class V1FoeTemplate
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, FoeTemplate> load(BufferedReader reader) throws Exception
+	public static Map<String, FoeTemplate> load(BufferedReader reader)
 	{
-		Map <String, FoeTemplate> result = new HashMap<String, FoeTemplate>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, FoeTemplate> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				FoeTemplate g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			FoeTemplate g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -341,7 +348,7 @@ public class V1FoeTemplate
 			}
 			else
 			{
-				appearanceScript = Database.getInstance().getScript(scriptName);
+				appearanceScript = Database.getInstance().getMazeScript(scriptName);
 			}
 
 			scriptName = p.getProperty("deathScript");
@@ -352,7 +359,7 @@ public class V1FoeTemplate
 			}
 			else
 			{
-				deathScript = Database.getInstance().getScript(scriptName);
+				deathScript = Database.getInstance().getMazeScript(scriptName);
 			}
 
 			List<String> naturalWeapons = V1Utils.stringList.fromString(p.getProperty("naturalWeapons"));

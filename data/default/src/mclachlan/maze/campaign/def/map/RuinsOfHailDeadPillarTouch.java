@@ -26,7 +26,7 @@ public class RuinsOfHailDeadPillarTouch extends TileScript
 		}
 		else
 		{
-			return Database.getInstance().getScript(
+			return Database.getInstance().getMazeScript(
 				"Ruins Of Hail to Castle Fangorn").getEvents();
 		}
 	}

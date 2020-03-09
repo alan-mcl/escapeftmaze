@@ -20,11 +20,12 @@
 package mclachlan.maze.game;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
  */
-public class MazeScript
+public class MazeScript extends DataObject
 {
 	String name;
 	List<MazeEvent> events;

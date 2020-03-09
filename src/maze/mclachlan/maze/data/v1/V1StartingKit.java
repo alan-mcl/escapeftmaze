@@ -24,6 +24,7 @@ import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.StartingKit;
 import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -38,21 +39,28 @@ public class V1StartingKit
 
 	/*-------------------------------------------------------------------------*/
 	public static Map<String, StartingKit> load(
-		BufferedReader reader) throws Exception
+		BufferedReader reader)
 	{
-		Map<String, StartingKit> result = new HashMap<String, StartingKit>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map<String, StartingKit> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				StartingKit g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			StartingKit g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

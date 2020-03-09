@@ -48,21 +48,28 @@ public class V1ExperienceTable
 	private static String separator = ",";
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, ExperienceTable> load(BufferedReader reader) throws Exception
+	public static Map<String, ExperienceTable> load(BufferedReader reader)
 	{
-		Map <String, ExperienceTable> result = new HashMap<String, ExperienceTable>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, ExperienceTable> result = new HashMap<String, ExperienceTable>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				ExperienceTable g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			ExperienceTable g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

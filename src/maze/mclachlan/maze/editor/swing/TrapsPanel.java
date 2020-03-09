@@ -19,12 +19,12 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.util.*;
 import javax.swing.*;
-import java.util.Vector;
-import java.util.Collections;
-import java.util.BitSet;
-import java.awt.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.map.Trap;
 
 /**
@@ -63,11 +63,9 @@ public class TrapsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getTraps().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getTraps().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -78,10 +76,12 @@ public class TrapsPanel extends EditorPanel
 		payload.refresh(trap.getPayload(), null);
 	}
 
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		Trap t = new Trap(name, new int[]{Trap.Tool.MAX_TOOLS}, new BitSet(), null);
 		Database.getInstance().getTraps().put(name, t);
+
+		return t;
 	}
 
 	public void renameItem(String newName)
@@ -91,11 +91,12 @@ public class TrapsPanel extends EditorPanel
 		Database.getInstance().getTraps().put(newName, t);
 	}
 
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		Trap current = Database.getInstance().getTrap(currentName);
 		Trap t = new Trap(newName, current.getDifficulty(), current.getRequired(), current.getPayload());
 		Database.getInstance().getTraps().put(newName, t);
+		return t;
 	}
 
 	public void deleteItem()
@@ -103,12 +104,14 @@ public class TrapsPanel extends EditorPanel
 		Database.getInstance().getTraps().remove(currentName);
 	}
 
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		Trap trap = Database.getInstance().getTrap(name);
 
 		trap.setDifficulty(tools.getDifficulties());
 		trap.setRequired(tools.getRequired());
 		trap.setPayload(payload.getScript());
+
+		return trap;
 	}
 }

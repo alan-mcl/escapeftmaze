@@ -897,7 +897,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case CHEST:
 				MazeScript script = (chestPreScript.getSelectedItem() == EditorPanel.NONE) ?
-					null:Database.getInstance().getScript((String)chestPreScript.getSelectedItem());
+					null:Database.getInstance().getMazeScript((String)chestPreScript.getSelectedItem());
 				result = new Chest(
 					chestContents.getScript(),
 					trap.getPercentageTable(), 
@@ -962,8 +962,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				String preStr = (String)hiddenStuffPreScript.getSelectedItem();
 				int spotDifficulty = (Integer)hiddenStuffSpotDifficulty.getValue();
 				int findDifficulty = (Integer)hiddenStuffFindDifficulty.getValue();
-				MazeScript content = (contentStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getScript(contentStr);
-				MazeScript preScript = (preStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getScript(preStr);
+				MazeScript content = (contentStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getMazeScript(contentStr);
+				MazeScript preScript = (preStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getMazeScript(preStr);
 				result = new HiddenStuff(content, preScript, mazeVar, spotDifficulty, findDifficulty);
 				break;
 			case WATER:
@@ -999,8 +999,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver);
-		loader.init(Maze.getStubCampaign());
+		new Database(loader, saver, Maze.getStubCampaign());
 
 		JFrame owner = new JFrame("test");
 		owner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

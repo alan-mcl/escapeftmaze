@@ -24,7 +24,6 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.StartingKit;
 
@@ -37,26 +36,17 @@ public class StartingKitsReport
 	{
 		V1Loader loader = new V1Loader();
 		V1Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
-		saver.init(campaign);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		Map<String, StartingKit> items = db.getStartingKits();
 
-		List<StartingKit> list = new ArrayList<StartingKit>(items.values());
-		Collections.sort(list, new Comparator<StartingKit>()
-		{
-			public int compare(StartingKit o1, StartingKit o2)
-			{
-				return o1.getDisplayName().compareTo(o2.getDisplayName());
-			}
-		});
+		List<StartingKit> list = new ArrayList<>(items.values());
+		list.sort(Comparator.comparing(StartingKit::getDisplayName));
 
 		// print HTML for the google site
 		for (StartingKit sk : list)
 		{
-			ArrayList<String> classes = new ArrayList<String>(sk.getUsableByCharacterClass());
+			ArrayList<String> classes = new ArrayList<>(sk.getUsableByCharacterClass());
 			Collections.sort(classes);
 
 			h2(sk.getDisplayName());
@@ -66,11 +56,11 @@ public class StartingKitsReport
 		}
 
 		// print CSV for the balancing
-		List<String> columns = new ArrayList<String>();
+		List<String> columns = new ArrayList<>();
 		columns.add("Kit");
 		columns.add("P Weap");
 		columns.add("S Weap");
-		List<String> classes = Database.getInstance().getCharacterClassList();
+		List<String> classes = new ArrayList<>(Database.getInstance().getCharacterClasses().keySet());
 		Collections.sort(classes);
 		columns.addAll(classes);
 

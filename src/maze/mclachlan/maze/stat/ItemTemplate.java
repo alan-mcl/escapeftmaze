@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -32,7 +33,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class ItemTemplate
+public class ItemTemplate extends DataObject
 {
 	protected static final BitSet SECONDARY_WEAPON =
 		new BitSet(PlayerCharacter.EquipableSlots.NUMBER_OF_SLOTS);
@@ -103,7 +104,7 @@ public class ItemTemplate
 
 	/**
 	 * Which genders can user this item. See 
-	 * {@link mclachlan.maze.data.Database#getGenderList()}
+	 * {@link Database#getGenders()}
 	 */
 	Set<String> usableByGender;
 

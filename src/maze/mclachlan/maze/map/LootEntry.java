@@ -21,6 +21,7 @@ package mclachlan.maze.map;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.PercentageTable;
@@ -29,7 +30,7 @@ import mclachlan.maze.util.MazeException;
 /**
  * Represents an row in a table of random loot.
  */
-public class LootEntry implements ILootEntry
+public class LootEntry extends DataObject implements ILootEntry
 {
 	private String name;
 	private PercentageTable<LootEntryRow> contains;

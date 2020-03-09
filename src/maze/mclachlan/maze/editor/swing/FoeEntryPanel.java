@@ -19,11 +19,11 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.awt.FlowLayout;
+import java.util.*;
 import javax.swing.*;
-import java.util.Vector;
-import java.util.Collections;
-import java.awt.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.FoeEntryRow;
 import mclachlan.maze.stat.GroupOfPossibilities;
@@ -65,11 +65,9 @@ public class FoeEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getFoeEntries().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>((Database.getInstance().getFoeEntries().values()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -88,10 +86,12 @@ public class FoeEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		FoeEntry fe = new FoeEntry(name, new GroupOfPossibilities<FoeEntryRow>());
 		Database.getInstance().getFoeEntries().put(name, fe);
+
+		return fe;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -103,11 +103,13 @@ public class FoeEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		FoeEntry current = Database.getInstance().getFoeEntry(currentName);
 		FoeEntry fe = new FoeEntry(newName, new GroupOfPossibilities<FoeEntryRow>(current.getContains()));
 		Database.getInstance().getFoeEntries().put(newName, fe);
+
+		return fe;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -117,9 +119,11 @@ public class FoeEntryPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		FoeEntry fe = Database.getInstance().getFoeEntry(name);
 		fe.setContains(foeEntryRows.getGroupOfPossibilties());
+
+		return fe;
 	}
 }

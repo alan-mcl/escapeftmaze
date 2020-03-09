@@ -21,13 +21,16 @@ package mclachlan.maze.data;
 
 import java.awt.Font;
 import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
+import java.util.function.*;
 import javax.sound.sampled.Clip;
-import mclachlan.maze.game.DifficultyLevel;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.game.UserConfig;
+import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.game.*;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
@@ -47,48 +50,21 @@ import mclachlan.maze.util.MazeException;
 public class Database
 {
 	private static Database instance;
-
-	private Loader loader;
-	private Saver saver;
 	private final Object mutex = new Object();
-	
-	// in mem caches
-	private Map<String, CharacterClass> characterClasses;
-	private List<String> portraitNames;
-	private Map<String, NpcFactionTemplate> npcFactions;
-	private Map<String, NpcTemplate> npcTemplates;
 
-	private Map<String, PlayerCharacter> characterGuild;
-	private Map<String, AttackType> attackTypes;
-	private Map<String, ItemTemplate> itemTemplates;
-	private Map<String, FoeTemplate> foeTemplates;
-	private StringManager stringManager;
-	private Map<String, Spell> spells;
-	private Map<String, PlayerSpellBook> playerSpellBooks;
-	private Map<String, MazeTexture> textures;
-	private Map<String, Race> races;
-	private Map<String, Gender> genders;
-	private Map<String, LootEntry> lootEntries;
-	private Map<String, LootTable> lootTables;
+	/**
+	 * Map of campaign name to campaigns
+	 */
+	private static Map<String, Campaign> campaignMap;
 
-	private Map<String, Trap> traps;
-	private Map<String, EncounterTable> encounterTables;
-	private Map<String, FoeEntry> foeEntries;
-	private Map<String, WieldingCombo> wieldingCombos;
-	private Map<String, ConditionEffect> conditionEffects;
-	private Map<String, SpellEffect> spellEffects;
-	private Map<String, ConditionTemplate> conditionTemplates;
-	private Map<String, MazeScript> scripts;
-	private Map<String, BodyPart> bodyParts;
-	private Map<String, CraftRecipe> craftRecipes;
-	private Map<String, ItemEnchantments> itemEnchantments;
-	private Map<String, Personality> personalities;
-	private Map<String, NaturalWeapon> naturalWeapons;
-	private Map<String, StartingKit> startingKits;
-	private Map<String, FoeType> foeTypes;
+	/**
+	 * List of campaigns, starting with the selected one and followed by it's
+	 * parent if any, then grandparent etc
+	 */
+	private List<CampaignCache> campaignCaches = new ArrayList<>();
 
-	private Map<String, DifficultyLevel> difficultyLevels;
-	private Map<String, ExperienceTable> experienceTables;
+	// temp hack to during transition, remove once done!
+	private CampaignCache defaultCampaign;
 
 	private UserConfig userConfig;
 
@@ -99,40 +75,113 @@ public class Database
 	/*-------------------------------------------------------------------------*/
 	public Saver getSaver()
 	{
-		return saver;
+		return defaultCampaign.saver;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Saver getSaver(Campaign campaign)
+	{
+		// the current campaign should always be index 0
+		CampaignCache c = campaignCaches.get(0);
+		if (!c.campaign.getName().equals(campaign.getName()))
+		{
+			throw new MazeException("Expected campaign ["+c.campaign.getName()+"], " +
+				"got ["+campaign.getName()+"]");
+		}
+		return c.saver;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Loader getLoader()
 	{
-		return loader;
+		return defaultCampaign.loader;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Database() throws Exception
 	{
-		Map<String, String> config = Maze.getInstance().getAppConfig();
-
-		String loader_impl = config.get(Maze.AppConfig.DB_LOADER_IMPL);
-		String saver_impl = config.get(Maze.AppConfig.DB_SAVER_IMPL);
-
-		Class loader_class = Class.forName(loader_impl);
-		Class saver_class = Class.forName(saver_impl);
-
-		Maze.log("init loader: "+loader_impl);
-		loader = (Loader)loader_class.newInstance();
-		loader.init(Maze.getInstance().getCampaign());
-
-		Maze.log("init saver: "+saver_impl);
-		saver = (Saver)saver_class.newInstance();
-		saver.init(Maze.getInstance().getCampaign());
+		this(null, null, Maze.getInstance().getCampaign());
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Database(Loader loader, Saver saver)
+	public Database(Loader loader, Saver saver, Campaign campaign) throws Exception
 	{
-		this.loader = loader;
-		this.saver = saver;
+		Map<String, String> config = Launcher.getConfig();
+		initCampaignCache(loader, saver, campaign, config);
+
+		// init caches
+		getGenders();
+		getBodyParts();
+		getExperienceTables();
+		getAttackTypes();
+		getConditionEffects();
+		getConditionTemplates();
+		getSpellEffects();
+		getLootEntries();
+		getLootTables();
+		getMazeScripts();
+		getSpells();
+		getStartingKits();
+		getCharacterClasses();
+		getPlayerSpellBooks();
+		getNaturalWeapons();
+		getRaces();
+		getMazeTextures();
+		getFoeTypes();
+		getFoeTemplates();
+		getFoeEntries();
+		getEncounterTables();
+		getTraps();
+		getNpcFactionTemplates();
+		getNpcTemplates();
+		getWieldingCombos();
+		getItemTemplates();
+		getDifficultyLevels();
+		getCraftRecipes();
+		getItemEnchantments();
+		getPersonalities();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void initCampaignCache(
+		Loader loader,
+		Saver saver,
+		Campaign campaign,
+		Map<String, String> config) throws Exception
+	{
+		System.out.println("Database.initCampaignCache: "+campaign);
+
+		if (loader == null)
+		{
+			String loader_impl = config.get(Maze.AppConfig.DB_LOADER_IMPL);
+			Class<Loader> loader_class = (Class<Loader>)Class.forName(loader_impl);
+			loader = (Loader)loader_class.newInstance();
+		}
+
+		if (saver == null)
+		{
+			String saver_impl = config.get(Maze.AppConfig.DB_SAVER_IMPL);
+			Class<Saver> saver_class = (Class<Saver>)Class.forName(saver_impl);
+			saver = (Saver)saver_class.newInstance();
+		}
+
+		CampaignCache cache = new CampaignCache(loader, saver, campaign);
+
+		this.campaignCaches.add(cache);
+
+		///// temp hack in transition ///
+		if (campaign.getName().equals("default"))
+		{
+			defaultCampaign = cache;
+		}
+		/////////////////////////////////
+		cache.init();
+
+		if (campaign.getParentCampaign() != null)
+		{
+			Campaign parent = getCampaigns().get(campaign.getParentCampaign());
+			initCampaignCache(null, null, parent, config);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -142,147 +191,153 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, Gender> getGenders()
+	public synchronized static Map<String, Campaign> getCampaigns() throws IOException
 	{
-		synchronized(mutex)
+		if (campaignMap == null)
 		{
-			if (genders == null)
+			campaignMap = new HashMap<>();
+			List<Campaign> campaigns = loadCampaigns();
+
+			for (Campaign c : campaigns)
 			{
-				genders = loader.loadGenders();
+				campaignMap.put(c.getName(), c);
 			}
-			
-			return genders;
 		}
+
+		return campaignMap;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<String> getGenderList()
+	private static List<Campaign> loadCampaigns() throws IOException
 	{
-		synchronized(mutex)
+		File dir = new File("./data");
+		if (!dir.isDirectory())
 		{
-			return new ArrayList<String>(getGenders().keySet());
+			throw new MazeException("Cannot locate data directory ["+dir.getCanonicalPath()+"]");
 		}
-	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<String> getRaceList()
-	{
-		synchronized(mutex)
+		List<File> propertiesFiles = new ArrayList<>();
+		File[] files = dir.listFiles();
+		for (int i = 0; i < files.length; i++)
 		{
-			if (this.races == null)
+			if (files[i].isDirectory())
 			{
-				this.races = loader.loadRaces();
+				propertiesFiles.add(new File(files[i], "campaign.cfg"));
 			}
-			return new ArrayList<String>(this.races.keySet());
 		}
+
+		List<Campaign> result = new ArrayList<>();
+
+		for (File f : propertiesFiles)
+		{
+			if (!f.exists())
+			{
+				throw new MazeException("Cannot locate campaign file ["+f.getCanonicalPath()+"]");
+			}
+
+			Properties p = new Properties();
+			FileInputStream fis = new FileInputStream(f);
+			p.load(fis);
+			fis.close();
+
+			String name = f.getParentFile().getName().split("\\.")[0];
+			String displayName = p.getProperty("displayName");
+			String parentCampaign = "".equals(p.getProperty("parentCampaign"))?null:p.getProperty("parentCampaign");
+			String description = V1Utils.replaceNewlines(p.getProperty("description"));
+			String startingScript = p.getProperty("startingScript");
+			String defaultRace = p.getProperty("defaultRace");
+			String defaultPortrait = p.getProperty("defaultPortrait");
+			String introScript = p.getProperty("introScript");
+
+			result.add(new Campaign(
+				name,
+				displayName,
+				description,
+				parentCampaign,
+				startingScript,
+				defaultRace,
+				defaultPortrait,
+				introScript));
+		}
+
+		if (result.size() == 0)
+		{
+			throw new MazeException("No campaigns found!");
+		}
+
+		return result;
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public List<String> getCharacterClassList()
-	{
-		synchronized(mutex)
-		{
-			return new ArrayList<String>(this.getCharacterClasses().keySet());
-		}
-	}
-	
+	///////////////// new cache, in transition
+	private Map<String, Gender> genders;
+	private Map<String, Race> races;
+	private Map<String, BodyPart> bodyParts;
+	private Map<String, CharacterClass> characterClasses;
+	private Map<String, StartingKit> startingKits;
+	private Map<String, ExperienceTable> experienceTables;
+	private Map<String, AttackType> attackTypes;
+	private Map<String, ConditionEffect> conditionEffects;
+	private Map<String, ConditionTemplate> conditionTemplates;
+	private Map<String, SpellEffect> spellEffects;
+	private Map<String, MazeScript> mazeScripts;
+	private Map<String, LootEntry> lootEntries;
+	private Map<String, LootTable> lootTables;
+	private Map<String, Spell> spells;
+	private Map<String, PlayerSpellBook> playerSpellBooks;
+	private Map<String, MazeTexture> mazeTextures;
+	private Map<String, FoeTemplate> foeTemplates;
+	private Map<String, Trap> traps;
+	private Map<String, FoeEntry> foeEntries;
+	private Map<String, EncounterTable> encounterTables;
+	private Map<String, NpcFactionTemplate> npcFactionTemplates;
+	private Map<String, NpcTemplate> npcTemplates;
+	private Map<String, WieldingCombo> wieldingCombos;
+	private Map<String, ItemTemplate> itemTemplates;
+	private Map<String, DifficultyLevel> difficultyLevels;
+	private Map<String, ItemEnchantments> itemEnchantments;
+	private Map<String, Personality> personalities;
+	private Map<String, CraftRecipe> craftRecipes;
+	private Map<String, FoeType> foeTypes;
+	private Map<String, NaturalWeapon> naturalWeapons;
+
+	Map<String, PlayerCharacter> characterGuild;
+	private Map<String, BufferedImage> images = new HashMap<>();
+
+	//////////////////////////////////////////////
+
+
+
+	//////////////////////////////////////////////////
+	// Non-cached data access
+	//////////////////////////////////////////////////
+
 	/*-------------------------------------------------------------------------*/
 	public List<String> getPortraitNames()
 	{
+		// todo
 		synchronized(mutex)
 		{
-			if (this.portraitNames == null)
-			{
-				portraitNames = loader.getPortraitNames();
-			}
-			return this.portraitNames;
+			return this.defaultCampaign.loader.getPortraitNames();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<String> getZoneNames()
 	{
+		// todo
 		synchronized(mutex)
 		{
-			return this.loader.getZoneNames();
+			return this.defaultCampaign.loader.getZoneNames();
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Map<String, PlayerCharacter> getCharacterGuild()
-	{
-		synchronized(mutex)
-		{
-			if (characterGuild == null)
-			{
-				characterGuild = this.loader.loadCharacterGuild();
-			}
-			
-			return characterGuild;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public CharacterClass getCharacterClass(String name)
-	{
-		synchronized(mutex)
-		{
-			if (characterClasses == null)
-			{
-				characterClasses = loader.loadCharacterClasses();
-			}
-			CharacterClass result = this.characterClasses.get(name);
-			if(result == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public AttackType getAttackType(String name)
-	{
-		synchronized(mutex)
-		{
-			if (attackTypes == null)
-			{
-				attackTypes = this.loader.loadAttackTypes();
-			}
-
-			AttackType result = this.attackTypes.get(name);
-			if (result == null)
-			{
-				throw new MazeException("Invalid attack type ["+name+"]");
-			}
-			return result;
-		}
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public ItemTemplate getItemTemplate(String name)
-	{
-		synchronized(mutex)
-		{
-			if (itemTemplates == null)
-			{
-				itemTemplates = this.loader.loadItemTemplates();
-			}
-			ItemTemplate result = this.itemTemplates.get(name);
-			if (result == null)
-			{
-				throw new MazeException("Invalid item template ["+name+"]");
-			}
-			return result;
-		}
-	}
-	
 	/*-------------------------------------------------------------------------*/
 	public Zone getZone(String name)
 	{
 		synchronized(mutex)
 		{
-			return this.loader.getZone(name);
+			// todo
+			return this.defaultCampaign.loader.getZone(name);
 		}
 	}
 
@@ -291,39 +346,81 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			return this.loader.getFont(name);
+			// todo
+			return this.defaultCampaign.loader.getFont(name);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Clip getClip(String clipName)
+	{
+		synchronized(mutex)
+		{
+			// todo
+			return this.defaultCampaign.loader.getClip(clipName, Maze.getInstance().getAudioPlayer());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public InputStream getMusic(String trackName)
+	{
+		synchronized(mutex)
+		{
+			// todo
+			return this.defaultCampaign.loader.getMusic(trackName);
+		}
+	}
+
+
+
+	//////////////////////////////////////////////////
+	// Lazy-cached data access
+	//////////////////////////////////////////////////
+
+	/*-------------------------------------------------------------------------*/
 	/**
-	 * Image resource names split by forward slashes.
-	 */ 
+	 * @param resourceName
+	 * 	Image resource name split by forward slashes.
+	 */
 	public BufferedImage getImage(String resourceName)
 	{
 		synchronized(mutex)
 		{
-			return this.loader.getImage(resourceName);
+			if (!images.containsKey(resourceName))
+			{
+				// check all the campaigns, return the first image we find
+				for (CampaignCache campaignCache : campaignCaches)
+				{
+					BufferedImage image = campaignCache.loader.getImage(resourceName);
+					if (image != null)
+					{
+						images.put(resourceName, image);
+						return image;
+					}
+				}
+
+				throw new MazeException("invalid image resource ["+resourceName+"]");
+			}
+			else
+			{
+				return images.get(resourceName);
+			}
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public String getString(String namespace, String key, boolean allowNull)
 	{
 		synchronized(mutex)
 		{
-			if (stringManager == null)
-			{
-				stringManager = this.loader.getStringManager();
-			}
-
-			String result = this.stringManager.getString(namespace, key);
+			// todo
+			String result = this.defaultCampaign.loader.getStringManager().getString(namespace, key);
 			if (result == null)
 			{
 				// special case: retry one time to load the resource bundle
-				stringManager = this.loader.getStringManager();
+				this.defaultCampaign.loader.initStringManager();
+				result = this.defaultCampaign.loader.getStringManager().getString(namespace, key);
 
-				result = this.stringManager.getString(namespace, key);
 				if (result == null && !allowNull)
 				{
 					throw new MazeException("Invalid key ["+key+"]");
@@ -333,17 +430,135 @@ public class Database
 		}
 	}
 
+	//////////////////////////////////////////////////
+	// Up-front cached data access
+	//////////////////////////////////////////////////
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, Gender> getGenders()
+	{
+		synchronized(mutex)
+		{
+			if (genders == null)
+			{
+				genders = (Map<String, Gender>)mergeMaps(Loader::loadGenders);
+			}
+			return genders;
+		}
+	}
+
+	public void saveGenders(Map<String, Gender> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveGenders((Map<String, Gender>)filterMap(map, campaign));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public CharacterClass getCharacterClass(String name)
+	{
+		synchronized(mutex)
+		{
+			CharacterClass result = getCharacterClasses().get(name);
+			if(result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
+	public Map<String, CharacterClass> getCharacterClasses()
+	{
+		synchronized(mutex)
+		{
+			if (characterClasses == null)
+			{
+				characterClasses = (Map<String, CharacterClass>)mergeMaps(Loader::loadCharacterClasses);
+			}
+			return characterClasses;
+		}
+	}
+
+	public void saveCharacterClasses(Map<String, CharacterClass> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveCharacterClasses((Map<String, CharacterClass>)filterMap(map, campaign));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public AttackType getAttackType(String name)
+	{
+		synchronized(mutex)
+		{
+			AttackType result = getAttackTypes().get(name);
+			if (result == null)
+			{
+				throw new MazeException("Invalid attack type ["+name+"]");
+			}
+			return result;
+		}
+	}
+
+	public Map<String, AttackType> getAttackTypes()
+	{
+		synchronized(mutex)
+		{
+			if (attackTypes == null)
+			{
+				attackTypes = (Map<String, AttackType>)mergeMaps(Loader::loadAttackTypes);
+			}
+			return attackTypes;
+		}
+	}
+
+	public void saveAttackTypes(Map<String, AttackType> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveAttackTypes((Map<String, AttackType>)filterMap(map, campaign));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public ItemTemplate getItemTemplate(String name)
+	{
+		synchronized(mutex)
+		{
+			ItemTemplate result = getItemTemplates().get(name);
+			if (result == null)
+			{
+				throw new MazeException("Invalid item template ["+name+"]");
+			}
+			return result;
+		}
+	}
+
+	public Map<String, ItemTemplate> getItemTemplates()
+	{
+		synchronized(mutex)
+		{
+			if (itemTemplates == null)
+			{
+				itemTemplates = (Map<String, ItemTemplate>)mergeMaps(Loader::loadItemTemplates);
+			}
+			return itemTemplates;
+		}
+	}
+
+	public List<String> getItemList()
+	{
+		synchronized(mutex)
+		{
+			return new ArrayList<>(this.getItemTemplates().keySet());
+		}
+	}
+
+	public void saveItemTemplates(Map<String, ItemTemplate> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveItemTemplates((Map<String, ItemTemplate>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Spell getSpell(String spellName)
 	{
 		synchronized(mutex)
 		{
-			if (spells == null)
-			{
-				spells = this.loader.loadSpells();
-			}
-
-			Spell result = this.spells.get(spellName);
+			Spell result = this.getSpells().get(spellName);
 			if (result == null)
 			{
 				throw new MazeException("Invalid spell ["+spellName+"]");
@@ -353,17 +568,38 @@ public class Database
 		}
 	}
 
+	public Map<String, Spell> getSpells()
+	{
+		synchronized(mutex)
+		{
+			if (spells == null)
+			{
+				spells = (Map<String, Spell>)mergeMaps(Loader::loadSpells);
+			}
+			return spells;
+		}
+
+	}
+
+	public List<String> getSpellList()
+	{
+		synchronized(mutex)
+		{
+			return new ArrayList<>(this.getSpells().keySet());
+		}
+	}
+
+	public void saveSpells(Map<String, Spell> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveSpells((Map<String, Spell>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public PlayerSpellBook getPlayerSpellBook(String book)
 	{
 		synchronized(mutex)
 		{
-			if (playerSpellBooks == null)
-			{
-				playerSpellBooks = this.loader.loadPlayerSpellBooks();
-			}
-
-			PlayerSpellBook result = this.playerSpellBooks.get(book);
+			PlayerSpellBook result = this.getPlayerSpellBooks().get(book);
 			if (result == null)
 			{
 				throw new MazeException("Invalid book ["+book+"]");
@@ -372,18 +608,21 @@ public class Database
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
 	public Map<String, PlayerSpellBook> getPlayerSpellBooks()
 	{
 		synchronized(mutex)
 		{
 			if (playerSpellBooks == null)
 			{
-				playerSpellBooks = this.loader.loadPlayerSpellBooks();
+				playerSpellBooks = (Map<String, PlayerSpellBook>)mergeMaps(Loader::loadPlayerSpellBooks);
 			}
-			
 			return playerSpellBooks;
 		}
+	}
+
+	public void savePlayerSpellBooks(Map<String, PlayerSpellBook> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).savePlayerSpellBooks((Map<String, PlayerSpellBook>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -391,12 +630,7 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			if (textures == null)
-			{
-				textures = this.loader.loadMazeTextures();
-			}
-
-			MazeTexture result = this.textures.get(textureName);
+			MazeTexture result = this.getMazeTextures().get(textureName);
 			if (result == null)
 			{
 				throw new MazeException("invalid maze texture ["+textureName+"]");
@@ -404,23 +638,22 @@ public class Database
 			return result;
 		}
 	}
-	
-	/*-------------------------------------------------------------------------*/
-	public Clip getClip(String clipName)
+
+	public Map<String, MazeTexture> getMazeTextures()
 	{
 		synchronized(mutex)
 		{
-			return this.loader.getClip(clipName, Maze.getInstance().getAudioPlayer());
+			if (mazeTextures == null)
+			{
+				mazeTextures = (Map<String, MazeTexture>)mergeMaps(Loader::loadMazeTextures);
+			}
+			return mazeTextures;
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public InputStream getMusic(String trackName)
+	public void saveMazeTextures(Map<String, MazeTexture> map, Campaign campaign) throws Exception
 	{
-		synchronized(mutex)
-		{
-			return this.loader.getMusic(trackName);
-		}
+		getSaver(campaign).saveMazeTextures((Map<String, MazeTexture>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -428,49 +661,30 @@ public class Database
 	{
 		synchronized(mutex)
 		{
+			Race result = getRaces().get(name);
+			if (result == null)
+			{
+				throw new MazeException("Invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
+	public Map<String, Race> getRaces()
+	{
+		synchronized(mutex)
+		{
 			if (races == null)
 			{
-				races = this.loader.loadRaces();
+				races = (Map<String, Race>)mergeMaps(Loader::loadRaces);
 			}
-			Race result = races.get(name);
-			if (result == null)
-			{
-				throw new MazeException("Invalid name ["+name+"]");
-			}
-			return result;
+			return races;
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Gender getGender(String name)
+	public void saveRaces(Map<String, Race> map, Campaign campaign) throws Exception
 	{
-		synchronized(mutex)
-		{
-			if (genders == null)
-			{
-				genders = this.loader.loadGenders();
-			}
-			Gender result = genders.get(name);
-			if (result == null)
-			{
-				throw new MazeException("Invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, BodyPart> getBodyParts()
-	{
-		synchronized(mutex)
-		{
-			if (bodyParts == null)
-			{
-				bodyParts = loader.loadBodyParts();
-			}
-
-			return bodyParts;
-		}
+		getSaver(campaign).saveRaces((Map<String, Race>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -478,11 +692,7 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			if (bodyParts == null)
-			{
-				bodyParts = loader.loadBodyParts();
-			}
-			BodyPart result = bodyParts.get(name);
+			BodyPart result = getBodyParts().get(name);
 			if (result == null)
 			{
 				throw new MazeException("Invalid name ["+name+"]");
@@ -491,16 +701,29 @@ public class Database
 		}
 	}
 
+	public Map<String, BodyPart> getBodyParts()
+	{
+		synchronized(mutex)
+		{
+			if (bodyParts == null)
+			{
+				bodyParts = (Map<String, BodyPart>)mergeMaps(Loader::loadBodyParts);
+			}
+			return bodyParts;
+		}
+	}
+
+	public void saveBodyParts(Map<String, BodyPart> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveBodyParts((Map<String, BodyPart>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public LootTable getLootTable(String name)
 	{
 		synchronized(mutex)
 		{
-			if (lootTables == null)
-			{
-				lootTables = loader.loadLootTables();
-			}
-			LootTable lootTable = lootTables.get(name);
+			LootTable lootTable = this.getLootTables().get(name);
 			if (lootTable == null)
 			{
 				throw new MazeException("invalid loot table ["+name+"]");
@@ -509,16 +732,29 @@ public class Database
 		}
 	}
 
+	public Map<String, LootTable> getLootTables()
+	{
+		synchronized(mutex)
+		{
+			if (lootTables == null)
+			{
+				lootTables = (Map<String, LootTable>)mergeMaps(Loader::loadLootTables);
+			}
+			return lootTables;
+		}
+	}
+
+	public void saveLootTables(Map<String, LootTable> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveLootTables((Map<String, LootTable>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public LootEntry getLootEntry(String name)
 	{
 		synchronized(mutex)
 		{
-			if (lootEntries == null)
-			{
-				lootEntries = loader.loadLootEntries();
-			}
-			LootEntry lootEntry = lootEntries.get(name);
+			LootEntry lootEntry = this.getLootEntries().get(name);
 			if (lootEntry == null)
 			{
 				throw new MazeException("invalid loot entry ["+name+"]");
@@ -527,22 +763,52 @@ public class Database
 		}
 	}
 
+	public Map<String, LootEntry> getLootEntries()
+	{
+		synchronized(mutex)
+		{
+			if (lootEntries == null)
+			{
+				lootEntries = (Map<String, LootEntry>)mergeMaps(Loader::loadLootEntries);
+			}
+			return lootEntries;
+		}
+	}
+
+	public void saveLootEntries(Map<String, LootEntry> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveLootEntries((Map<String, LootEntry>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Trap getTrap(String name)
 	{
 		synchronized(mutex)
 		{
-			if (traps == null)
+			Trap trap = getTraps().get(name);
+			if (trap == null)
 			{
-				traps = loader.loadTraps();
-			}
-			Trap trap = traps.get(name);
-			if (traps == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
+				throw new MazeException("invalid trap ["+name+"]");
 			}
 			return trap;
 		}
+	}
+
+	public Map<String, Trap> getTraps()
+	{
+		synchronized(mutex)
+		{
+			if (traps == null)
+			{
+				traps = (Map<String, Trap>)mergeMaps(Loader::loadTraps);
+			}
+			return traps;
+		}
+	}
+
+	public void saveTraps(Map<String, Trap> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveTraps((Map<String, Trap>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -552,10 +818,15 @@ public class Database
 		{
 			if (npcTemplates == null)
 			{
-				npcTemplates = loader.loadNpcTemplates();
+				npcTemplates = (Map<String, NpcTemplate>)mergeMaps(Loader::loadNpcTemplates);
 			}
 			return npcTemplates;
 		}
+	}
+
+	public void saveNpcTemplates(Map<String, NpcTemplate> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveNpcTemplates((Map<String, NpcTemplate>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -563,17 +834,30 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			if (foeTemplates == null)
-			{
-				foeTemplates = this.loader.loadFoeTemplates();
-			}
-			FoeTemplate result = foeTemplates.get(name);
+			FoeTemplate result = this.getFoeTemplates().get(name);
 			if (result == null)
 			{
 				throw new MazeException("invalid name ["+name+"]");
 			}
 			return result;
 		}
+	}
+
+	public Map<String, FoeTemplate> getFoeTemplates()
+	{
+		synchronized(mutex)
+		{
+			if (foeTemplates == null)
+			{
+				foeTemplates = (Map<String, FoeTemplate>)mergeMaps(Loader::loadFoeTemplates);
+			}
+			return foeTemplates;
+		}
+	}
+
+	public void saveFoeTemplates(Map<String, FoeTemplate> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveFoeTemplates((Map<String, FoeTemplate>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -581,11 +865,7 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			if (encounterTables == null)
-			{
-				encounterTables = this.loader.loadEncounterTables();
-			}
-			EncounterTable result = encounterTables.get(name);
+			EncounterTable result = this.getEncounterTables().get(name);
 			if (result == null)
 			{
 				throw new MazeException("invalid name ["+name+"]");
@@ -594,22 +874,52 @@ public class Database
 		}
 	}
 
+	public Map<String, EncounterTable> getEncounterTables()
+	{
+		synchronized(mutex)
+		{
+			if (encounterTables == null)
+			{
+				encounterTables = (Map<String, EncounterTable>)mergeMaps(Loader::loadEncounterTables);
+			}
+			return encounterTables;
+		}
+	}
+
+	public void saveEncounterTables(Map<String, EncounterTable> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveEncounterTables((Map<String, EncounterTable>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public FoeEntry getFoeEntry(String name)
 	{
-		synchronized(name)
+		synchronized(mutex)
 		{
-			if (foeEntries == null)
-			{
-				foeEntries = this.loader.loadFoeEntries();
-			}
-			FoeEntry result = foeEntries.get(name);
+			FoeEntry result = this.getFoeEntries().get(name);
 			if (result == null)
 			{
 				throw new MazeException("invalid name ["+name+"]");
 			}
 			return result;
 		}
+	}
+
+	public Map<String, FoeEntry> getFoeEntries()
+	{
+		synchronized(mutex)
+		{
+			if (foeEntries == null)
+			{
+				foeEntries = (Map<String, FoeEntry>)mergeMaps(Loader::loadFoeEntries);
+			}
+			return foeEntries;
+		}
+	}
+
+	public void saveFoeEntries(Map<String, FoeEntry> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveFoeEntries((Map<String, FoeEntry>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -617,14 +927,26 @@ public class Database
 	{
 		synchronized(mutex)
 		{
+			// in this case we actually want to return null if one is not present
+			return this.getWieldingCombos().get(name);
+		}
+	}
+
+	public Map<String, WieldingCombo> getWieldingCombos()
+	{
+		synchronized(mutex)
+		{
 			if (wieldingCombos == null)
 			{
-				wieldingCombos = this.loader.loadWieldingCombos();
+				wieldingCombos = (Map<String, WieldingCombo>)mergeMaps(Loader::loadWieldingCombos);
 			}
-
-			// in this case we actually want to return null if one is not present
-			return wieldingCombos.get(name);
+			return wieldingCombos;
 		}
+	}
+
+	public void saveWieldingCombos(Map<String, WieldingCombo> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveWieldingCombos((Map<String, WieldingCombo>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -632,11 +954,7 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			if (conditionEffects == null)
-			{
-				conditionEffects = loader.loadConditionEffects();
-			}
-			ConditionEffect result = conditionEffects.get(name);
+			ConditionEffect result = this.getConditionEffects().get(name);
 			if (result == null)
 			{
 				throw new MazeException("invalid name ["+name+"]");
@@ -644,175 +962,6 @@ public class Database
 			return result;
 		}
 	}
-
-	/*-------------------------------------------------------------------------*/
-	public SpellEffect getSpellEffect(String name)
-	{
-		synchronized(mutex)
-		{
-			if (spellEffects == null)
-			{
-				spellEffects = this.loader.loadSpellEffects();
-			}
-
-			SpellEffect result = spellEffects.get(name);
-			if (result == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ConditionTemplate getConditionTemplate(String name)
-	{
-		synchronized(mutex)
-		{
-			if (conditionTemplates == null)
-			{
-				conditionTemplates = loader.loadConditionTemplates();
-			}
-			ConditionTemplate result = conditionTemplates.get(name);
-			if (result == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, NpcFactionTemplate> getNpcFactionTemplates()
-	{
-		synchronized(mutex)
-		{
-			if (npcFactions == null)
-			{
-				npcFactions = loader.loadNpcFactionTemplates();
-			}
-			return npcFactions;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public MazeScript getScript(String name)
-	{
-		synchronized(mutex)
-		{
-			if (scripts == null)
-			{
-				scripts = loader.loadMazeScripts();
-			}
-			MazeScript result = this.scripts.get(name);
-			if (result == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ExperienceTable getExperienceTable(String name)
-	{
-		synchronized(mutex)
-		{
-			if (experienceTables == null)
-			{
-				experienceTables = loader.loadExperienceTables();
-			}
-
-			ExperienceTable result = this.experienceTables.get(name);
-			if (result == null)
-			{
-				throw new MazeException("invalid name ["+name+"]");
-			}
-			return result;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, ExperienceTable> getExperienceTables()
-	{
-		synchronized(mutex)
-		{
-			if (experienceTables == null)
-			{
-				experienceTables = loader.loadExperienceTables();
-			}
-
-			return experienceTables;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<String> getItemList()
-	{
-		synchronized(mutex)
-		{
-			if (this.itemTemplates == null)
-			{
-				itemTemplates = loader.loadItemTemplates();
-			}
-			return new ArrayList<String>(this.itemTemplates.keySet());
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<String> getSpellList()
-	{
-		synchronized(mutex)
-		{
-			if (this.spells == null)
-			{
-				spells = loader.loadSpells();
-			}
-			return new ArrayList<String>(this.spells.keySet());
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, CharacterClass> getCharacterClasses()
-	{
-		synchronized(mutex)
-		{
-			if (characterClasses == null)
-			{
-				characterClasses = loader.loadCharacterClasses();
-			}
-			return characterClasses;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, AttackType> getAttackTypes()
-	{
-		synchronized(mutex)
-		{
-			if (attackTypes == null)
-			{
-				attackTypes = loader.loadAttackTypes();
-			}
-			return attackTypes;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, ConditionTemplate> getConditionTemplates()
-	{
-		synchronized(mutex)
-		{
-			if (conditionTemplates == null)
-			{
-				conditionTemplates = loader.loadConditionTemplates();
-			}
-
-			return conditionTemplates;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
 
 	public Map<String, ConditionEffect> getConditionEffects()
 	{
@@ -820,95 +969,160 @@ public class Database
 		{
 			if (conditionEffects == null)
 			{
-				conditionEffects = loader.loadConditionEffects();
+				conditionEffects = (Map<String, ConditionEffect>)mergeMaps(Loader::loadConditionEffects);
 			}
-
 			return conditionEffects;
 		}
 	}
 
+	public void saveConditionEffects(Map<String, ConditionEffect> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveConditionEffects((Map<String, ConditionEffect>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
+	public SpellEffect getSpellEffect(String name)
+	{
+		synchronized(mutex)
+		{
+			SpellEffect result = this.getSpellEffects().get(name);
+			if (result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
 	public Map<String, SpellEffect> getSpellEffects()
 	{
 		synchronized(mutex)
 		{
 			if (spellEffects == null)
 			{
-				spellEffects = loader.loadSpellEffects();
+				spellEffects = (Map<String, SpellEffect>)mergeMaps(Loader::loadSpellEffects);
 			}
-
 			return spellEffects;
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Map<String, LootEntry> getLootEntries()
+	public void saveSpellEffects(Map<String, SpellEffect> map, Campaign campaign) throws Exception
 	{
-		synchronized(mutex)
-		{
-			if (lootEntries == null)
-			{
-				lootEntries = loader.loadLootEntries();
-			}
-
-			return lootEntries;
-		}
+		getSaver(campaign).saveSpellEffects((Map<String, SpellEffect>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, LootTable> getLootTables()
+	public ConditionTemplate getConditionTemplate(String name)
 	{
 		synchronized(mutex)
 		{
-			if (lootTables == null)
+			ConditionTemplate result = this.getConditionTemplates().get(name);
+			if (result == null)
 			{
-				lootTables = loader.loadLootTables();
+				throw new MazeException("invalid name ["+name+"]");
 			}
-
-			return lootTables;
+			return result;
 		}
 	}
 
+	public Map<String, ConditionTemplate> getConditionTemplates()
+	{
+		synchronized(mutex)
+		{
+			if (conditionTemplates == null)
+			{
+				conditionTemplates = (Map<String, ConditionTemplate>)mergeMaps(Loader::loadConditionTemplates);
+			}
+			return conditionTemplates;
+		}
+	}
+
+	public void saveConditionTemplates(Map<String, ConditionTemplate> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveConditionTemplates((Map<String, ConditionTemplate>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
+	public Map<String, NpcFactionTemplate> getNpcFactionTemplates()
+	{
+		synchronized(mutex)
+		{
+			if (npcFactionTemplates == null)
+			{
+				npcFactionTemplates = (Map<String, NpcFactionTemplate>)mergeMaps(Loader::loadNpcFactionTemplates);
+			}
+			return npcFactionTemplates;
+		}
+	}
+
+	public void saveNpcFactionTemplates(Map<String, NpcFactionTemplate> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveNpcFactionTemplates((Map<String, NpcFactionTemplate>)filterMap(map, campaign));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public MazeScript getMazeScript(String name)
+	{
+		synchronized(mutex)
+		{
+			MazeScript result = this.getMazeScripts().get(name);
+			if (result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
 	public Map<String, MazeScript> getMazeScripts()
 	{
 		synchronized(mutex)
 		{
-			if (scripts == null)
+			if (mazeScripts == null)
 			{
-				scripts = loader.loadMazeScripts();
+				mazeScripts = (Map<String, MazeScript>)mergeMaps(Loader::loadMazeScripts);
 			}
-
-			return scripts;
+			return mazeScripts;
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Map<String, Spell> getSpells()
+	public void saveMazeScripts(Map<String, MazeScript> map, Campaign campaign) throws Exception
 	{
-		synchronized(mutex)
-		{
-			if (spells == null)
-			{
-				spells = loader.loadSpells();
-			}
-
-			return spells;
-		}
+		getSaver(campaign).saveMazeScripts((Map<String, MazeScript>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, Race> getRaces()
+	public ExperienceTable getExperienceTable(String name)
 	{
 		synchronized(mutex)
 		{
-			if (races == null)
+			ExperienceTable result = this.getExperienceTables().get(name);
+			if (result == null)
 			{
-				races = loader.loadRaces();
+				throw new MazeException("invalid name ["+name+"]");
 			}
-
-			return races;
+			return result;
 		}
+	}
+
+	public Map<String, ExperienceTable> getExperienceTables()
+	{
+		synchronized(mutex)
+		{
+			synchronized(mutex)
+			{
+				if (experienceTables == null)
+				{
+					experienceTables = (Map<String, ExperienceTable>)mergeMaps(Loader::loadExperienceTables);
+				}
+				return experienceTables;
+			}
+		}
+	}
+
+	public void saveExperienceTables(Map<String, ExperienceTable> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveExperienceTables((Map<String, ExperienceTable>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -918,109 +1132,15 @@ public class Database
 		{
 			if (foeTypes == null)
 			{
-				foeTypes = loader.loadFoeTypes();
+				foeTypes = (Map<String, FoeType>)mergeMaps(Loader::loadFoeTypes);
 			}
-
 			return foeTypes;
 		}
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public Map<String, MazeTexture> getMazeTextures()
+	public void saveFoeTypes(Map<String, FoeType> map, Campaign campaign) throws Exception
 	{
-		synchronized(mutex)
-		{
-			if (textures == null)
-			{
-				textures = loader.loadMazeTextures();
-			}
-
-			return textures;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, FoeTemplate> getFoeTemplates()
-	{
-		synchronized(mutex)
-		{
-			if (foeTemplates == null)
-			{
-				foeTemplates = loader.loadFoeTemplates();
-			}
-
-			return foeTemplates;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, Trap> getTraps()
-	{
-		synchronized(mutex)
-		{
-			if (traps == null)
-			{
-				traps = loader.loadTraps();
-			}
-
-			return traps;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, FoeEntry> getFoeEntries()
-	{
-		synchronized(mutex)
-		{
-			if (foeEntries == null)
-			{
-				foeEntries = loader.loadFoeEntries();
-			}
-
-			return foeEntries;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, EncounterTable> getEncounterTables()
-	{
-		synchronized(mutex)
-		{
-			if (encounterTables == null)
-			{
-				encounterTables = loader.loadEncounterTables();
-			}
-
-			return encounterTables;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, WieldingCombo> getWieldingCombos()
-	{
-		synchronized(mutex)
-		{
-			if (wieldingCombos == null)
-			{
-				wieldingCombos = loader.loadWieldingCombos();
-			}
-
-			return wieldingCombos;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Map<String, ItemTemplate> getItemTemplates()
-	{
-		synchronized(mutex)
-		{
-			if (itemTemplates == null)
-			{
-				itemTemplates = loader.loadItemTemplates();
-			}
-
-			return itemTemplates;
-		}
+		getSaver(campaign).saveFoeTypes((Map<String, FoeType>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1030,11 +1150,15 @@ public class Database
 		{
 			if (difficultyLevels == null)
 			{
-				difficultyLevels = loader.loadDifficultyLevels();
+				difficultyLevels = (Map<String, DifficultyLevel>)mergeMaps(Loader::loadDifficultyLevels);
 			}
-
 			return difficultyLevels;
 		}
+	}
+
+	public void saveDifficultyLevels(Map<String, DifficultyLevel> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveDifficultyLevels((Map<String, DifficultyLevel>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1044,11 +1168,15 @@ public class Database
 		{
 			if (craftRecipes == null)
 			{
-				craftRecipes = loader.loadCraftRecipes();
+				craftRecipes = (Map<String, CraftRecipe>)mergeMaps(Loader::loadCraftRecipes);
 			}
-
 			return craftRecipes;
 		}
+	}
+
+	public void saveCraftRecipes(Map<String, CraftRecipe> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveCraftRecipes((Map<String, CraftRecipe>)filterMap(map, campaign));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1058,12 +1186,17 @@ public class Database
 		{
 			if (itemEnchantments == null)
 			{
-				itemEnchantments = loader.loadItemEnchantments();
+				itemEnchantments = (Map<String, ItemEnchantments>)mergeMaps(Loader::loadItemEnchantments);
 			}
-
 			return itemEnchantments;
 		}
 	}
+
+	public void saveItemEnchantments(Map<String, ItemEnchantments> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveItemEnchantments((Map<String, ItemEnchantments>)filterMap(map, campaign));
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, Personality> getPersonalities()
@@ -1072,14 +1205,73 @@ public class Database
 		{
 			if (personalities == null)
 			{
-				personalities = loader.loadPersonalities();
+				personalities = (Map<String, Personality>)mergeMaps(Loader::loadPersonalities);
 			}
-
 			return personalities;
 		}
 	}
 
+	public void savePersonalities(Map<String, Personality> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).savePersonalities((Map<String, Personality>)filterMap(map, campaign));
+	}
+
 	/*-------------------------------------------------------------------------*/
+	public Map<String,NaturalWeapon> getNaturalWeapons()
+	{
+		synchronized(mutex)
+		{
+			if (naturalWeapons == null)
+			{
+				naturalWeapons = (Map<String, NaturalWeapon>)mergeMaps(Loader::loadNaturalWeapons);
+			}
+			return naturalWeapons;
+		}
+	}
+
+	public void saveNaturalWeapons(Map<String, NaturalWeapon> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveNaturalWeapons((Map<String, NaturalWeapon>)filterMap(map, campaign));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String,StartingKit> getStartingKits()
+	{
+		synchronized(mutex)
+		{
+			if (startingKits == null)
+			{
+				startingKits = (Map<String, StartingKit>)mergeMaps(Loader::loadStartingKits);
+			}
+			return startingKits;
+		}
+	}
+
+	public void saveStartingKits(Map<String, StartingKit> map, Campaign campaign) throws Exception
+	{
+		getSaver(campaign).saveStartingKits((Map<String, StartingKit>)filterMap(map, campaign));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Map<String, PlayerCharacter> getCharacterGuild()
+	{
+		synchronized(mutex)
+		{
+			if (characterGuild == null)
+			{
+				// can only play with characters created for this campaign
+				characterGuild = campaignCaches.get(0).loader.loadCharacterGuild();
+			}
+			return characterGuild;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	//////////////////////////////////////////////
+	/// Non-campaign data
+	//////////////////////////////////////////////
+
 	public UserConfig getUserConfig()
 	{
 		synchronized (mutex)
@@ -1088,7 +1280,8 @@ public class Database
 			{
 				try
 				{
-					userConfig = loader.loadUserConfig();
+					// we can use any loader to load this
+					userConfig = campaignCaches.get(0).loader.loadUserConfig();
 				}
 				catch (Exception e)
 				{
@@ -1100,46 +1293,60 @@ public class Database
 		}
 	}
 
+	///////////////////////////////////////////////
+	// Utility methods
+	///////////////////////////////////////////////
+
 	/*-------------------------------------------------------------------------*/
-	public Map<String,NaturalWeapon> getNaturalWeapons()
+	private Map<String, ? extends DataObject> mergeMaps(Function<Loader, Map<String, ? extends DataObject>> loadMethod)
 	{
-		synchronized (mutex)
+		Map<String, DataObject> result = new HashMap<>();
+
+		for (int i = campaignCaches.size()-1; i >= 0; i--)
 		{
-			if (naturalWeapons == null)
-			{
-				try
-				{
-					naturalWeapons = loader.getNaturalWeapons();
-				}
-				catch (Exception e)
-				{
-					throw new MazeException("Can't load natural weapons.",e);
-				}
-			}
+			CampaignCache c = campaignCaches.get(i);
+			loadMethod.apply(c.loader).forEach(result::put);
 		}
 
-		return naturalWeapons;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String,StartingKit> getStartingKits()
+	private Map<String, ? extends DataObject> filterMap(
+		Map<String, ? extends DataObject> map,
+		Campaign campaign)
 	{
-		synchronized (mutex)
+		Map<String, DataObject> result = new HashMap<>();
+
+		for (DataObject d : map.values())
 		{
-			if (startingKits == null)
+			if (campaign.getName().equals(d.getCampaign()))
 			{
-				try
-				{
-					startingKits = loader.getStartingKits();
-				}
-				catch (Exception e)
-				{
-					throw new MazeException("Can't load natural weapons.",e);
-				}
+				result.put(d.getName(), d);
 			}
 		}
 
-		return startingKits;
+		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	private static class CampaignCache
+	{
+		private Loader loader;
+		private Saver saver;
+		private Campaign campaign;
+
+		public CampaignCache(Loader loader, Saver saver, Campaign campaign) throws Exception
+		{
+			this.loader = loader;
+			this.saver = saver;
+			this.campaign = campaign;
+		}
+
+		public void init() throws Exception
+		{
+			loader.init(campaign);
+			saver.init(campaign);
+		}
+	}
 }

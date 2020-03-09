@@ -53,6 +53,7 @@ public abstract class Loader
 	{
 	}
 
+	/*-------------------------------------------------------------------------*/
 	// stuff that should be loaded up front
 	public abstract Map<String, Gender> loadGenders();
 	public abstract Map<String, Race> loadRaces();
@@ -81,15 +82,16 @@ public abstract class Loader
 	public abstract Map<String, CraftRecipe> loadCraftRecipes();
 	public abstract Map<String, ItemEnchantments> loadItemEnchantments();
 	public abstract Map<String, Personality> loadPersonalities();
-	public abstract Map<String, StartingKit> getStartingKits();
+	public abstract Map<String, StartingKit> loadStartingKits();
 	public abstract Map<String, FoeType> loadFoeTypes();
-	public abstract Map<String, NaturalWeapon> getNaturalWeapons();
+	public abstract Map<String, NaturalWeapon> loadNaturalWeapons();
+	public abstract StringManager getStringManager();
 
 	/**
 	 * Must reload the resource bundle from disk every time. Caching not to be
 	 * done in this layer.
 	 */
-	public abstract StringManager getStringManager();
+	public abstract void initStringManager();
 
 	// stuff that can be optionally lazy loaded
 	public abstract BufferedImage getImage(String resourceName);

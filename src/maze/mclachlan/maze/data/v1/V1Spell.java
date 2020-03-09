@@ -31,6 +31,7 @@ import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -67,21 +68,28 @@ public class V1Spell
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, Spell> load(BufferedReader reader) throws Exception
+	public static Map<String, Spell> load(BufferedReader reader)
 	{
-		Map <String, Spell> result = new HashMap<String, Spell>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, Spell> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				Spell g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			Spell g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -222,9 +230,9 @@ public class V1Spell
 			StatModifier requirementsToLearn = V1StatModifier.fromString(p.getProperty("requirementsToLearn"));
 			List<ManaRequirement> requirementsToCast = manaRequirements.fromString(p.getProperty("manaRequirements"));
 			String s = p.getProperty("castByPlayerScript");
-			MazeScript castByPlayerScript = s.equals("")?null:Database.getInstance().getScript(s);
+			MazeScript castByPlayerScript = s.equals("")?null:Database.getInstance().getMazeScript(s);
 			s = p.getProperty("castByFoeScript");
-			MazeScript castByFoeScript = s.equals("")?null:Database.getInstance().getScript(s);
+			MazeScript castByFoeScript = s.equals("")?null:Database.getInstance().getMazeScript(s);
 			int usabilityType = Integer.parseInt(p.getProperty("usabilityType"));
 			String primaryModifier = p.getProperty("primaryModifier");
 			String secondaryModifier = p.getProperty("secondaryModifier");

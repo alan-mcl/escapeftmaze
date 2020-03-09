@@ -20,12 +20,13 @@
 package mclachlan.maze.map;
 
 import java.util.BitSet;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class Trap
+public class Trap extends DataObject
 {
 	/**
 	 * Name of this trap

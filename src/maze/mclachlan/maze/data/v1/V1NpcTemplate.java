@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.npc.*;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -33,27 +34,34 @@ public class V1NpcTemplate
 
 	/*-------------------------------------------------------------------------*/
 	public static Map<String, NpcTemplate> load(V1Loader v1Loader,
-		BufferedReader reader) throws Exception
+		BufferedReader reader)
 	{
-		Map <String, NpcTemplate> result = new HashMap<String, NpcTemplate>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, NpcTemplate> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				NpcTemplate nt = fromProperties(p);
+				result.put(nt.getName(), nt);
+
+				// load npc dialogue
+				V1StringManager sm = (V1StringManager)(v1Loader.getStringManager());
+				Properties speechP = sm.loadProperties("npcs/" + nt.getName());
+				NpcSpeech speech = V1NpcSpeech.fromProperties(speechP);
+				nt.setDialogue(speech);
 			}
-			NpcTemplate nt = fromProperties(p);
-			result.put(nt.getName(), nt);
 
-			// load npc dialogue
-			V1StringManager sm = (V1StringManager)(v1Loader.getStringManager());
-			Properties speechP = sm.loadProperties("npcs/" + nt.getName());
-			NpcSpeech speech = V1NpcSpeech.fromProperties(speechP);
-			nt.setDialogue(speech);
+			return result;
 		}
-
-		return result;
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

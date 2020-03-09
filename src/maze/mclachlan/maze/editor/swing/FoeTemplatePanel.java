@@ -26,6 +26,7 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -278,7 +279,7 @@ public class FoeTemplatePanel extends EditorPanel
 		dodgyGridBagShite(result, new JLabel("Unidentified Plural:"), unidentifiedPluralName, gbc);
 
 		Vector races = new Vector();
-		races.addAll(Database.getInstance().getRaceList());
+		races.addAll(new ArrayList<>(Database.getInstance().getRaces().keySet()));
 		Collections.sort(races);
 		races.add(0, NONE);
 
@@ -287,7 +288,7 @@ public class FoeTemplatePanel extends EditorPanel
 		dodgyGridBagShite(result, new JLabel("Race:"), race, gbc);
 
 		Vector classes = new Vector();
-		classes.addAll(Database.getInstance().getCharacterClassList());
+		classes.addAll(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
 		Collections.sort(classes);
 		classes.add(0, NONE);
 
@@ -392,11 +393,9 @@ public class FoeTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getFoeTemplates().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getFoeTemplates().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -519,7 +518,7 @@ public class FoeTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		String raceS = (String)race.getSelectedItem();
 		String classS = (String)characterClass.getSelectedItem();
@@ -573,6 +572,8 @@ public class FoeTemplatePanel extends EditorPanel
 			CharacterClass.Focus.COMBAT,
 			NpcFaction.Attitude.ATTACKING);
 		Database.getInstance().getFoeTemplates().put(name, ft);
+
+		return ft;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -598,7 +599,7 @@ public class FoeTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		FoeTemplate current = Database.getInstance().getFoeTemplate(currentName);
 
@@ -642,6 +643,8 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getDefaultAttitude());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
+
+		return ft;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -651,7 +654,7 @@ public class FoeTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		FoeTemplate ft = Database.getInstance().getFoeTemplate(name);
 
@@ -662,7 +665,7 @@ public class FoeTemplatePanel extends EditorPanel
 		}
 		else
 		{
-			appScript = Database.getInstance().getScript((String)appearanceScript.getSelectedItem());
+			appScript = Database.getInstance().getMazeScript((String)appearanceScript.getSelectedItem());
 		}
 
 		MazeScript dScript;
@@ -672,7 +675,7 @@ public class FoeTemplatePanel extends EditorPanel
 		}
 		else
 		{
-			dScript = Database.getInstance().getScript((String)deathScript.getSelectedItem());
+			dScript = Database.getInstance().getMazeScript((String)deathScript.getSelectedItem());
 		}
 
 		ft.setPluralName(pluralName.getText());
@@ -716,6 +719,8 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setDeathScript(dScript);
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
 		ft.setDefaultAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
+
+		return ft;
 	}
 
 	/*-------------------------------------------------------------------------*/

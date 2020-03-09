@@ -19,11 +19,11 @@
 
 package mclachlan.maze.editor.swing;
 
+import java.awt.FlowLayout;
+import java.util.*;
 import javax.swing.*;
-import java.util.Vector;
-import java.util.Collections;
-import java.awt.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.stat.PercentageTable;
@@ -53,11 +53,9 @@ public class EncounterTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getEncounterTables().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getEncounterTables().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,10 +72,12 @@ public class EncounterTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
-		EncounterTable et = new EncounterTable(name, new PercentageTable<FoeEntry>());
+		EncounterTable et = new EncounterTable(name, new PercentageTable<>());
 		Database.getInstance().getEncounterTables().put(name, et);
+
+		return et;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -89,7 +89,7 @@ public class EncounterTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		EncounterTable current = Database.getInstance().getEncounterTable(currentName);
 
@@ -98,6 +98,8 @@ public class EncounterTablePanel extends EditorPanel
 			new PercentageTable<FoeEntry>(current.getEncounterTable()));
 
 		Database.getInstance().getEncounterTables().put(newName, et);
+
+		return et;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -107,9 +109,11 @@ public class EncounterTablePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		EncounterTable et = Database.getInstance().getEncounterTable(name);
 		et.setEncounterTable(foeEntries.getPercentageTable());
+
+		return et;
 	}
 }

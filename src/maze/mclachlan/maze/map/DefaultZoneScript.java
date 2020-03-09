@@ -110,7 +110,7 @@ public class DefaultZoneScript extends ZoneScript
 			String scriptName = ambientScripts.getRandomItem();
 			if (scriptName != null)
 			{
-				MazeScript script = Database.getInstance().getScript(scriptName);
+				MazeScript script = Database.getInstance().getMazeScript(scriptName);
 				return script.getEvents();
 			}
 		}

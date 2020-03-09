@@ -25,6 +25,7 @@ import java.awt.Insets;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.FoeType;
 import mclachlan.maze.stat.Gender;
 import mclachlan.maze.stat.StatModifier;
@@ -167,11 +168,9 @@ public class FoeTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getFoeTypes().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getFoeTypes().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -219,7 +218,7 @@ public class FoeTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		FoeType ft = new FoeType(
 			name,
@@ -249,6 +248,8 @@ public class FoeTypePanel extends EditorPanel
 			null);
 
 		Database.getInstance().getFoeTypes().put(name, ft);
+
+		return ft;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -260,7 +261,7 @@ public class FoeTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		FoeType current = Database.getInstance().getFoeTypes().get(currentName);
 
@@ -281,7 +282,7 @@ public class FoeTypePanel extends EditorPanel
 			current.getFoot(),
 			current.getLeftHandIcon(),
 			current.getRightHandIcon(),
-			new ArrayList<Gender>(),
+			new ArrayList<>(),
 			current.isMagicDead(),
 			current.getSpecialAbility(),
 			null, //todo: duplicate starting items
@@ -292,6 +293,8 @@ public class FoeTypePanel extends EditorPanel
 			current.getFavouredEnemyModifier());
 
 		Database.getInstance().getFoeTypes().put(newName, ft);
+
+		return ft;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -301,7 +304,7 @@ public class FoeTypePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		FoeType ft = Database.getInstance().getFoeTypes().get(name);
 
@@ -325,5 +328,7 @@ public class FoeTypePanel extends EditorPanel
 
 		Stats.Modifier fem = (Stats.Modifier)favouredEnemyModifier.getSelectedItem();
 		ft.setFavouredEnemyModifier(Stats.Modifier.NONE.equals(fem) ? null : fem);
+
+		return ft;
 	}
 }

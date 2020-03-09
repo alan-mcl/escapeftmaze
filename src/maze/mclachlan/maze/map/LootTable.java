@@ -20,13 +20,14 @@
 package mclachlan.maze.map;
 
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.ItemTemplate;
 
 /**
  *
  */
-public class LootTable
+public class LootTable extends DataObject
 {
 	private String name;
 	private GroupOfPossibilities<ILootEntry> lootEntries;

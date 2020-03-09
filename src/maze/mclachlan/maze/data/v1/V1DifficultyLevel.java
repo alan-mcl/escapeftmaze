@@ -23,6 +23,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.game.DifficultyLevel;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -30,21 +31,28 @@ import mclachlan.maze.game.DifficultyLevel;
 public class V1DifficultyLevel
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, DifficultyLevel> load(BufferedReader reader) throws Exception
+	public static Map<String, DifficultyLevel> load(BufferedReader reader)
 	{
-		Map <String, DifficultyLevel> result = new HashMap<String, DifficultyLevel>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, DifficultyLevel> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				DifficultyLevel g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			DifficultyLevel g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

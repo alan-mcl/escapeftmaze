@@ -19,12 +19,14 @@
 
 package mclachlan.maze.stat.npc;
 
+import mclachlan.maze.data.v1.DataObject;
+
 /**
  * Represents an NPC faction, a group of NPC's and Foes that feel the same
  * way towards the party.  While the starting attitude of NPCs can be different
  * from their Faction, when one changes all are synced up and remain that way.
  */
-public class NpcFactionTemplate
+public class NpcFactionTemplate extends DataObject
 {
 	/** name of this faction */
 	private String name;

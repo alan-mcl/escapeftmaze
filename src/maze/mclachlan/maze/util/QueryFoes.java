@@ -24,7 +24,6 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.FoeTemplate;
 import mclachlan.maze.stat.FoeType;
@@ -42,10 +41,7 @@ public class QueryFoes
 
 		V1Loader loader = new V1Loader();
 		saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
-		saver.init(campaign);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		FoeType vermin = db.getFoeTypes().get("Vermin");
 

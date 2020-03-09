@@ -19,12 +19,13 @@
 
 package mclachlan.maze.map;
 
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.PercentageTable;
 
 /**
  *
  */
-public class EncounterTable
+public class EncounterTable extends DataObject
 {
 	String name;
 	PercentageTable<FoeEntry> encounterTable;

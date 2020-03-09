@@ -106,7 +106,7 @@ public class StartCombatEvent extends MazeEvent
 		});
 
 		// play the encounter fanfare
-		MazeScript script = Database.getInstance().getScript("_ENCOUNTER_");
+		MazeScript script = Database.getInstance().getMazeScript("_ENCOUNTER_");
 		maze.appendEvents(script.getEvents());
 
 		// begin encounter speech

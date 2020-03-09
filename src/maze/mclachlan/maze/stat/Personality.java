@@ -2,11 +2,12 @@ package mclachlan.maze.stat;
 
 import java.awt.Color;
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
  */
-public class Personality
+public class Personality extends DataObject
 {
 	private String name;
 	private String description;

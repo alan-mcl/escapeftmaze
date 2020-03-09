@@ -24,6 +24,7 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
+import java.util.function.*;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.Clip;
 import mclachlan.maze.audio.AudioPlayer;
@@ -54,42 +55,9 @@ import mclachlan.maze.util.MazeException;
  */
 public class V1Loader extends Loader
 {
-
 	private Campaign campaign;
 
-	private Map<String, Gender> genders;
-	private Map<String, Race> races;
-	private Map<String, BodyPart> bodyParts;
-	private Map<String, CharacterClass> characterClasses;
-	private Map<String, StartingKit> startingKits;
-	private Map<String, ExperienceTable> experienceTables;
-	private Map<String, AttackType> attackTypes;
-	private Map<String, ConditionEffect> conditionEffects;
-	private Map<String, ConditionTemplate> conditionTemplates;
-	private Map<String, SpellEffect> spellEffects;
-	private Map<String, MazeScript> scripts;
-	private Map<String, LootEntry> lootEntries;
-	private Map<String, LootTable> lootTables;
-	private Map<String, Spell> spells;
-	private Map<String, PlayerSpellBook> playerSpellBooks;
-	private Map<String, MazeTexture> textures;
-	private Map<String, FoeTemplate> foeTemplates;
-	private Map<String, Trap> traps;
-	private Map<String, FoeEntry> foeEntries;
-	private Map<String, EncounterTable> encounterTables;
-	private Map<String, NpcFactionTemplate> npcFactionTemplates;
-	private Map<String, NpcTemplate> npcTemplates;
-	private Map<String, WieldingCombo> wieldingCombos;
-	private Map<String, ItemTemplate> itemTemplates;
-	private Map<String, DifficultyLevel> difficultyLevels;
-	private Map<String, ItemEnchantments> itemEnchantments;
-	private Map<String, Personality> personalities;
-	private Map<String, CraftRecipe> craftRecipes;
-	private Map<String, FoeType> foeTypes;
-	private Map<String, NaturalWeapon> naturalWeapons;
-
-	private Map<String, PlayerCharacter> characterGuild;
-	private Map<String, BufferedImage> images = new HashMap<String, BufferedImage>();
+	private V1StringManager stringManager;
 
 	/*-------------------------------------------------------------------------*/
 	public V1Loader()
@@ -101,134 +69,14 @@ public class V1Loader extends Loader
 	{
 		this.campaign = campaign;
 
-		BufferedReader reader;
-		String path = getPath();
+		initStringManager();
+	}
 
-		reader = getReader(path+V1Utils.GENDERS);
-		genders = V1Gender.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.BODY_PARTS);
-		bodyParts = V1BodyPart.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.EXPERIENCE_TABLES);
-		experienceTables = V1ExperienceTable.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.ATTACK_TYPES);
-		attackTypes = V1AttackType.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.CONDITION_EFFECTS);
-		conditionEffects = V1ConditionEffect.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.CONDITION_TEMPLATES);
-		conditionTemplates = V1ConditionTemplate.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.SPELL_EFFECTS);
-		spellEffects = V1SpellEffect.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.LOOT_ENTRIES);
-		lootEntries = V1LootEntry.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.LOOT_TABLES);
-		lootTables = V1LootTable.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.MAZE_SCRIPTS);
-		scripts = V1Script.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.SPELLS);
-		spells = V1Spell.load(reader);
-		reader.close();
-		
-		reader = getReader(path+V1Utils.STARTING_KITS);
-		startingKits = V1StartingKit.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.CHARACTER_CLASSES);
-		characterClasses = V1CharacterClass.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.PLAYER_SPELL_BOOKS);
-		playerSpellBooks = V1PlayerSpellBook.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.NATURAL_WEAPONS);
-		naturalWeapons = V1NaturalWeapons.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.RACES);
-		races = V1Race.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.MAZE_TEXTURES);
-		textures = V1MazeTexture.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.FOE_TYPES);
-		foeTypes = V1FoeTypes.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.FOE_TEMPLATES);
-		foeTemplates = V1FoeTemplate.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.FOE_ENTRIES);
-		foeEntries = V1FoeEntry.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.ENCOUNTER_TABLES);
-		encounterTables = V1EncounterTable.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.TRAPS);
-		traps = V1Trap.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.NPC_FACTION_TEMPLATES);
-		npcFactionTemplates = V1NpcFactionTemplate.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.NPC_TEMPLATES);
-		npcTemplates = V1NpcTemplate.load(this, reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.WIELDING_COMBOS);
-		wieldingCombos = V1WieldingCombo.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.ITEM_TEMPLATES);
-		itemTemplates = V1ItemTemplate.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.DIFFICULTY_LEVELS);
-		difficultyLevels = V1DifficultyLevel.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.CRAFT_RECIPES);
-		craftRecipes = V1CraftRecipe.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.ITEM_ENCHANTMENTS);
-		itemEnchantments = V1ItemEnchantments.load(reader);
-		reader.close();
-
-		reader = getReader(path+V1Utils.PERSONALITIES);
-		personalities = V1Personalities.load(reader);
-		reader.close();
-
-		String savePath = getSavePath();
-
-		reader = getReader(savePath+V1Utils.CHARACTER_GUILD);
-		characterGuild = V1PlayerCharacter.load(reader);
-		reader.close();
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void initStringManager()
+	{
+		stringManager = new V1StringManager(getPath());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -262,194 +110,203 @@ public class V1Loader extends Loader
 	/*-------------------------------------------------------------------------*/
 	public Map<String,Gender> loadGenders()
 	{
-		return genders;
+		return (Map<String, Gender>)doV1Crud(V1Utils.GENDERS, V1Gender::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String,Race> loadRaces()
 	{
-		return races;
+		return (Map<String, Race>)doV1Crud(V1Utils.RACES, V1Race::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, BodyPart> loadBodyParts()
 	{
-		return bodyParts;
+		return (Map<String, BodyPart>)doV1Crud(V1Utils.BODY_PARTS, V1BodyPart::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, CharacterClass> loadCharacterClasses()
 	{
-		return characterClasses;
+		return (Map<String, CharacterClass>)doV1Crud(V1Utils.CHARACTER_CLASSES, V1CharacterClass::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, ExperienceTable> loadExperienceTables()
 	{
-		return experienceTables;
+		return (Map<String, ExperienceTable>)doV1Crud(V1Utils.EXPERIENCE_TABLES, V1ExperienceTable::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, AttackType> loadAttackTypes()
 	{
-		return attackTypes;
+		return (Map<String, AttackType>)doV1Crud(V1Utils.ATTACK_TYPES, V1AttackType::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, ConditionEffect> loadConditionEffects()
 	{
-		return conditionEffects;
+		return (Map<String, ConditionEffect>)doV1Crud(V1Utils.CONDITION_EFFECTS, V1ConditionEffect::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, ConditionTemplate> loadConditionTemplates()
 	{
-		return conditionTemplates;
+		return (Map<String, ConditionTemplate>)doV1Crud(V1Utils.CONDITION_TEMPLATES, V1ConditionTemplate::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, SpellEffect> loadSpellEffects()
 	{
-		return spellEffects;
+		return (Map<String, SpellEffect>)doV1Crud(V1Utils.SPELL_EFFECTS, V1SpellEffect::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, MazeScript> loadMazeScripts()
 	{
-		return scripts;
+		return (Map<String, MazeScript>)doV1Crud(V1Utils.MAZE_SCRIPTS, V1MazeScript::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, LootEntry> loadLootEntries()
 	{
-		return lootEntries;
+		return (Map<String, LootEntry>)doV1Crud(V1Utils.LOOT_ENTRIES, V1LootEntry::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, LootTable> loadLootTables()
 	{
-		return lootTables;
+		return (Map<String, LootTable>)doV1Crud(V1Utils.LOOT_TABLES, V1LootTable::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, Spell> loadSpells()
 	{
-		return spells;
+		return (Map<String, Spell>)doV1Crud(V1Utils.SPELLS, V1Spell::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, PlayerSpellBook> loadPlayerSpellBooks()
 	{
-		return playerSpellBooks;
+		return (Map<String, PlayerSpellBook>)doV1Crud(V1Utils.PLAYER_SPELL_BOOKS, V1PlayerSpellBook::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, MazeTexture> loadMazeTextures()
 	{
-		return textures;
+		return (Map<String, MazeTexture>)doV1Crud(V1Utils.MAZE_TEXTURES, V1MazeTexture::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, FoeTemplate> loadFoeTemplates()
 	{
-		return foeTemplates;
+		return (Map<String, FoeTemplate>)doV1Crud(V1Utils.FOE_TEMPLATES, V1FoeTemplate::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, Trap> loadTraps()
 	{
-		return traps;
+		return (Map<String, Trap>)doV1Crud(V1Utils.TRAPS, V1Trap::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, EncounterTable> loadEncounterTables()
 	{
-		return encounterTables;
+		return (Map<String, EncounterTable>)doV1Crud(V1Utils.ENCOUNTER_TABLES, V1EncounterTable::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, FoeEntry> loadFoeEntries()
 	{
-		return foeEntries;
+		return (Map<String, FoeEntry>)doV1Crud(V1Utils.FOE_ENTRIES, V1FoeEntry::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, NpcFactionTemplate> loadNpcFactionTemplates()
 	{
-		return npcFactionTemplates;
+		return (Map<String, NpcFactionTemplate>)doV1Crud(V1Utils.NPC_FACTION_TEMPLATES, V1NpcFactionTemplate::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, NpcTemplate> loadNpcTemplates()
 	{
-		return npcTemplates;
+		try (BufferedReader reader = getReader(getPath() + V1Utils.NPC_TEMPLATES))
+		{
+			Map<String, NpcTemplate> map = V1NpcTemplate.load(this, reader);
+			map.forEach((key, value) -> value.setCampaign(campaign.getName()));
+			return map;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, WieldingCombo> loadWieldingCombos()
 	{
-		return wieldingCombos;
+		return (Map<String, WieldingCombo>)doV1Crud(V1Utils.WIELDING_COMBOS, V1WieldingCombo::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, ItemTemplate> loadItemTemplates()
 	{
-		return itemTemplates;
+		return (Map<String, ItemTemplate>)doV1Crud(V1Utils.ITEM_TEMPLATES, V1ItemTemplate::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, DifficultyLevel> loadDifficultyLevels()
 	{
-		return difficultyLevels;
+		return (Map<String, DifficultyLevel>)doV1Crud(V1Utils.DIFFICULTY_LEVELS, V1DifficultyLevel::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, CraftRecipe> loadCraftRecipes()
 	{
-		return craftRecipes;
+		return (Map<String, CraftRecipe>)doV1Crud(V1Utils.CRAFT_RECIPES, V1CraftRecipe::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, ItemEnchantments> loadItemEnchantments()
 	{
-		return itemEnchantments;
+		return (Map<String, ItemEnchantments>)doV1Crud(V1Utils.ITEM_ENCHANTMENTS, V1ItemEnchantments::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, Personality> loadPersonalities()
 	{
-		return personalities;
+		return (Map<String, Personality>)doV1Crud(V1Utils.PERSONALITIES, V1Personalities::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, NaturalWeapon> getNaturalWeapons()
+	public Map<String, NaturalWeapon> loadNaturalWeapons()
 	{
-		return naturalWeapons;
+		return (Map<String, NaturalWeapon>)doV1Crud(V1Utils.NATURAL_WEAPONS, V1NaturalWeapons::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Map<String, StartingKit> getStartingKits()
+	public Map<String, StartingKit> loadStartingKits()
 	{
-		return startingKits;
+		return (Map<String, StartingKit>)doV1Crud(V1Utils.STARTING_KITS, V1StartingKit::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public Map<String, FoeType> loadFoeTypes()
 	{
-		return foeTypes;
+		return (Map<String, FoeType>)doV1Crud(V1Utils.FOE_TYPES, V1FoeTypes::load, campaign);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public StringManager getStringManager()
 	{
-		return new V1StringManager(getPath());
+		return stringManager;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<String> getZoneNames()
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		File dir = new File(getPath()+V1Utils.ZONES);
 		if (dir.exists())
 		{
@@ -501,13 +358,24 @@ public class V1Loader extends Loader
 	/*-------------------------------------------------------------------------*/
 	public Map<String, PlayerCharacter> loadCharacterGuild()
 	{
-		return characterGuild;
+		try
+		{
+			BufferedReader reader = getReader(getSavePath() +V1Utils.CHARACTER_GUILD);
+			Map<String, PlayerCharacter> characterGuild = V1PlayerCharacter.load(reader);
+			reader.close();
+
+			return characterGuild;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<String> getSaveGames()
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		File dir = new File(getSavePath());
 		if (dir.exists())
 		{
@@ -527,75 +395,45 @@ public class V1Loader extends Loader
 	/*-------------------------------------------------------------------------*/
 	public GameState loadGameState(String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.GAME_STATE))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.GAME_STATE);
 			return V1GameState.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, PlayerCharacter> loadPlayerCharacters(String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.PLAYER_CHARACTERS))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.PLAYER_CHARACTERS);
 			return V1PlayerCharacter.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void loadMazeVariables(String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.MAZE_VARIABLES))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.MAZE_VARIABLES);
 			V1MazeVariables.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, NpcFaction> loadNpcFactions(String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.NPC_FACTIONS))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.NPC_FACTIONS);
 			return V1NpcFaction.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Map<String, Npc> loadNpcs(String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.NPCS))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.NPCS);
 			return V1Npc.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
@@ -604,15 +442,9 @@ public class V1Loader extends Loader
 	public Map<ConditionBearer, List<Condition>> loadConditions(
 		String saveGameName, Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.CONDITIONS))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.CONDITIONS);
 			return V1ConditionManager.load(reader, saveGameName, playerCharacterCache);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
@@ -621,15 +453,9 @@ public class V1Loader extends Loader
 	public Journal loadJournal(String saveGameName,
 		String journalName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.JOURNALS + journalName + ".txt"))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.JOURNALS+journalName+".txt");
 			return V1Journal.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
@@ -648,15 +474,9 @@ public class V1Loader extends Loader
 	@Override
 	public Map<String, Map<Point, List<Item>>> loadItemCaches(String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.ITEM_CACHES))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.ITEM_CACHES);
 			return V1ItemCache.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
@@ -665,15 +485,9 @@ public class V1Loader extends Loader
 	public PlayerTilesVisited loadPlayerTilesVisited(
 		String saveGameName) throws Exception
 	{
-		BufferedReader reader = null;
-		try
+		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.TILES_VISITED))
 		{
-			reader = getReader(getSavePath()+saveGameName+"/"+V1Utils.TILES_VISITED);
 			return V1TilesVisited.load(reader);
-		}
-		finally
-		{
-			reader.close();
 		}
 	}
 
@@ -683,26 +497,18 @@ public class V1Loader extends Loader
 	{
 		try
 		{
-			if (!images.containsKey(resourceName))
+			// try both png and jpg extensions
+			File file = new File("data/"+campaign.getName()+"/img/"+resourceName+".png");
+			if (!file.exists())
 			{
-				File file = new File("data/"+campaign.getName()+"/img/"+resourceName+".png");
+				file = new File("data/"+campaign.getName()+"/img/"+resourceName+".jpg");
 				if (!file.exists())
 				{
-					file = new File("data/"+campaign.getName()+"/img/"+resourceName+".jpg");
-					if (!file.exists())
-					{
-						throw new MazeException("invalid image resource ["+file+"]");
-					}
+					return null;
 				}
+			}
 
-				BufferedImage result = ImageIO.read(file);
-				images.put(resourceName, result);
-				return result;
-			}
-			else
-			{
-				return images.get(resourceName);
-			}
+			return ImageIO.read(file);
 		}
 		catch (IOException e)
 		{
@@ -756,7 +562,7 @@ public class V1Loader extends Loader
 	@Override
 	public List<String> getPortraitNames()
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		File dir = new File("data/"+campaign.getName()+"/img/portrait");
 		if (dir.exists() && dir.isDirectory())
 		{
@@ -769,7 +575,25 @@ public class V1Loader extends Loader
 
 		return result;
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	private Map<String, ? extends DataObject> doV1Crud(
+		String path,
+		Function<BufferedReader, Map<String, ? extends DataObject>> loadMethod,
+		Campaign campaign)
+	{
+		try (BufferedReader reader = getReader(getPath() + path))
+		{
+			Map<String, ? extends DataObject> map = loadMethod.apply(reader);
+			map.forEach((key, value) -> value.setCampaign(campaign.getName()));
+			return map;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	void debug(String s)
 	{

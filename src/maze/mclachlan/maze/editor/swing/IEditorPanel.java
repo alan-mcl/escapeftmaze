@@ -20,22 +20,46 @@
 package mclachlan.maze.editor.swing;
 
 import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 
 public interface IEditorPanel
 {
-	Vector loadData();
+	Vector<DataObject> loadData();
 
 	void refresh(String name);
 
-	void newItem(String name);
+	/**
+	 * Instantiates a new data object for this editor pane, adds it to the
+	 * in-memory database cache, and returns it
+	 * @param name
+	 * 	The key of the new data object
+	 * @return
+	 * 	The newly created data object, already added to the cache
+	 */
+	DataObject newItem(String name);
 
 	void renameItem(String newName);
 
-	void copyItem(String newName);
+	/**
+	 * Copies the current data object into a new instance and adds it to the
+	 * in-memory database cache under a new key.
+	 * @param newName
+	 * 	The key of the copied instance
+	 * @return
+	 * 	The newly created data object, already added to the cache
+	 */
+	DataObject copyItem(String newName);
 
 	void deleteItem();
 
-	void commit(String name);
+	/**
+	 * Writes the current UI values to the in-memory database cache.
+	 * @param name
+	 * 	key of the current data object
+	 * @return
+	 * 	the data object committed to the cache
+	 */
+	DataObject commit(String name);
 
 	String getCurrentName();
 

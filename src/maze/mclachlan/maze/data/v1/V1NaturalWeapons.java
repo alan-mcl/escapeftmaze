@@ -27,6 +27,7 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -47,21 +48,28 @@ public class V1NaturalWeapons
 	};
 
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, NaturalWeapon> load(BufferedReader reader) throws Exception
+	public static Map<String, NaturalWeapon> load(BufferedReader reader)
 	{
-		Map <String, NaturalWeapon> result = new HashMap<String, NaturalWeapon>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, NaturalWeapon> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				NaturalWeapon g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			NaturalWeapon g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -172,7 +180,7 @@ public class V1NaturalWeapons
 			GroupOfPossibilities<SpellEffect> effects = spellEffects.fromString(p.getProperty("spellEffects"));
 			int spellEffectLevel = Integer.parseInt(p.getProperty("spellEffectLevel"));
 			String ass = p.getProperty("attackScript");
-			MazeScript attackScript = ass.equals("")?null:Database.getInstance().getScript(ass);
+			MazeScript attackScript = ass.equals("")?null:Database.getInstance().getMazeScript(ass);
 
 			return new NaturalWeapon(
 				name,

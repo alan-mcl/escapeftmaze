@@ -31,17 +31,20 @@ public class Campaign
 	private String defaultRace;
 	private String defaultPortrait;
 	private String introScript;
+	private String parentCampaign;
 
 	/*-------------------------------------------------------------------------*/
 	public Campaign(
 		String name,
 		String displayName,
 		String description,
+		String parentCampaign,
 		String startingScript,
 		String defaultRace,
 		String defaultPortrait, 
 		String introScript)
 	{
+		this.parentCampaign = "".equalsIgnoreCase(parentCampaign)?null:parentCampaign;
 		this.introScript = introScript;
 		this.defaultPortrait = defaultPortrait;
 		this.defaultRace = defaultRace;
@@ -120,5 +123,23 @@ public class Campaign
 	public void setIntroScript(String introScript)
 	{
 		this.introScript = introScript;
+	}
+
+	public String getParentCampaign()
+	{
+		return parentCampaign;
+	}
+
+	public void setParentCampaign(String parentCampaign)
+	{
+		this.parentCampaign = parentCampaign;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "Campaign{" +
+			"name='" + name + '\'' +
+			'}';
 	}
 }

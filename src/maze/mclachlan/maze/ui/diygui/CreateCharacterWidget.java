@@ -372,7 +372,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private List<String> getRaceList()
 	{
-		List<String> list = Database.getInstance().getRaceList();
+		List<String> list = new ArrayList<>(Database.getInstance().getRaces().keySet());
 		Collections.sort(list);
 		return list;
 	}
@@ -395,15 +395,13 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			CharacterClass cc = wrapper.characterClass;
 			String className = cc.getName();
 
-			List<StartingKit> items = new ArrayList<StartingKit>();
 			List<StartingKit> startingItems = Leveler.getKitsForClass(className);
+			System.out.println("className = [" + className + "]");
+			System.out.println("startingItems = [" + startingItems + "]");
 
-			for (int i=0; i<startingItems.size(); i++)
-			{
-				items.add(startingItems.get(i));
-			}
+			List<StartingKit> items = new ArrayList<>(startingItems);
 
-			Collections.sort(items, new StartingItemsComparator());
+			items.sort(new StartingItemsComparator());
 
 			DIYListBox listBox = new DIYListBox(items);
 			listBox.addActionListener(kitListener);
@@ -690,7 +688,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		setDefaultSelectedRace(raceList);
 		races.addActionListener(this);
 
-		int nrGenders = Database.getInstance().getGenderList().size();
+		int nrGenders = ((List<String>)new ArrayList<>(Database.getInstance().getGenders().keySet())).size();
 		ArrayList<ContainerWidget> genders = new ArrayList<ContainerWidget>();
 
 		raceDesc = new DIYTextArea("");
@@ -1337,7 +1335,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private void setGender(String genderName)
 	{
-		this.gender = Database.getInstance().getGender(genderName);
+		this.gender = Database.getInstance().getGenders().get(genderName);
 
 		for (MagicSys.SpellBook sb : this.spellBookWidgets.keySet())
 		{

@@ -19,16 +19,19 @@
 
 package mclachlan.maze.stat;
 
+import mclachlan.maze.data.v1.DataObject;
+
 /**
  * A table describing the experience required for a character to advance a
  * level.
  */
-public interface ExperienceTable
+public abstract class ExperienceTable extends DataObject
+
 {
 	/*-------------------------------------------------------------------------*/
-	String getName();
+	public abstract String getName();
 
-	void setName(String name);
+	public abstract void setName(String name);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -38,7 +41,7 @@ public interface ExperienceTable
 	 * 	The experience total at which the character will advance to a new
 	 * 	level.
 	 */
-	int getNextLevelUp(int currentLevel);
+	public abstract int getNextLevelUp(int currentLevel);
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -48,5 +51,5 @@ public interface ExperienceTable
 	 * 	The experience total at which the character last advanced to a new
 	 * 	level.
 	 */
-	int getLastLevelUp(int currentLevel);
+	public abstract int getLastLevelUp(int currentLevel);
 }

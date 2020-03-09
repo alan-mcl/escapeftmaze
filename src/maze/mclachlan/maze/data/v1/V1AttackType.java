@@ -26,6 +26,7 @@ import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -33,34 +34,42 @@ import mclachlan.maze.stat.magic.MagicSys;
 public class V1AttackType
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, AttackType> load(BufferedReader reader) throws Exception
+	static Map<String, AttackType> load(BufferedReader reader)
 	{
-		Map <String, AttackType> result = new HashMap<String, AttackType>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, AttackType> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				AttackType g = V1AttackType.fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			AttackType g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void save(BufferedWriter writer, Map<String, AttackType> map) throws Exception
+	static void save(BufferedWriter writer, Map<String, AttackType> map) throws Exception
 	{
 		for (String name : map.keySet())
 		{
 			AttackType g = map.get(name);
-			writer.write(toProperties(g));
+			writer.write(V1AttackType.toProperties(g));
 			writer.write("@");
 			writer.newLine();
 		}
 	}
+
 
 	/*-------------------------------------------------------------------------*/
 	private static String toProperties(AttackType obj)

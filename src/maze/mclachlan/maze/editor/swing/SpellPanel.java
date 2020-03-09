@@ -27,6 +27,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.GroupOfPossibilities;
 import mclachlan.maze.stat.StatModifier;
@@ -271,11 +272,9 @@ public class SpellPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getSpells().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getSpells().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -373,7 +372,7 @@ public class SpellPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		Spell spell = new Spell(
 			name,
@@ -398,6 +397,8 @@ public class SpellPanel extends EditorPanel
 			null,
 			false);
 		Database.getInstance().getSpells().put(name, spell);
+
+		return spell;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -409,7 +410,7 @@ public class SpellPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		Spell current = Database.getInstance().getSpells().get(currentName);
 		Spell spell = new Spell(
@@ -435,6 +436,8 @@ public class SpellPanel extends EditorPanel
 			current.getWildMagicTable()==null?null:Arrays.copyOf(current.getWildMagicTable(), current.getWildMagicTable().length),
 			current.isProjectile());
 		Database.getInstance().getSpells().put(newName, spell);
+
+		return spell;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -444,7 +447,7 @@ public class SpellPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		Spell s = Database.getInstance().getSpell(name);
 
@@ -461,9 +464,9 @@ public class SpellPanel extends EditorPanel
 		s.setSecondaryModifier((Stats.Modifier)secondaryModifier.getSelectedItem());
 		s.setRequirementsToLearn(requirementsToLearn.getModifier());
 		String cbps = (String)castByPlayerScript.getSelectedItem();
-		s.setCastByPlayerScript(cbps.equals(NONE)?null:Database.getInstance().getScript(cbps));
+		s.setCastByPlayerScript(cbps.equals(NONE)?null:Database.getInstance().getMazeScript(cbps));
 		String cbfs = (String)castByFoeScript.getSelectedItem();
-		s.setCastByFoeScript(cbfs.equals(NONE)?null:Database.getInstance().getScript(cbfs));
+		s.setCastByFoeScript(cbfs.equals(NONE)?null:Database.getInstance().getMazeScript(cbfs));
 		s.setDescription(description.getText());
 		s.setEffects(effects.getGroupOfPossibilties());
 		s.setRequirementsToCast(manaRequirements.getManaRequirements());
@@ -485,6 +488,8 @@ public class SpellPanel extends EditorPanel
 			s.setWildMagicValue(null);
 			s.setWildMagicTable(null);
 		}
+
+		return s;
 	}
 
 	/*-------------------------------------------------------------------------*/

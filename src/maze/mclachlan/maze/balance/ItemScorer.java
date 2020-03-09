@@ -6,14 +6,13 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
-import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.util.MazeException;
 
+import static mclachlan.maze.stat.ItemTemplate.Type;
 import static mclachlan.maze.stat.Stats.Modifier.*;
-import static mclachlan.maze.stat.ItemTemplate.*;
 
 /**
  *
@@ -91,9 +90,7 @@ public class ItemScorer
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
 		Map<String, ItemTemplate> map = db.getItemTemplates();
 

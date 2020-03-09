@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Properties;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -34,21 +35,28 @@ import mclachlan.maze.map.Trap;
 public class V1Trap
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, Trap> load(BufferedReader reader) throws Exception
+	public static Map<String, Trap> load(BufferedReader reader)
 	{
-		Map <String, Trap> result = new HashMap<String, Trap>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, Trap> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				Trap g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			Trap g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

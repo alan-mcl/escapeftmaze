@@ -24,28 +24,36 @@ import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class V1Script
+public class V1MazeScript
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, MazeScript> load(BufferedReader reader) throws Exception
+	public static Map<String, MazeScript> load(BufferedReader reader)
 	{
-		Map <String, MazeScript> result = new HashMap<String, MazeScript>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, MazeScript> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				MazeScript g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			MazeScript g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

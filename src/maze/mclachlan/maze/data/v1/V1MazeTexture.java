@@ -27,6 +27,7 @@ import java.util.Map;
 import java.util.Properties;
 import mclachlan.crusader.Texture;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -34,21 +35,28 @@ import mclachlan.maze.data.MazeTexture;
 public class V1MazeTexture
 {
 	/*-------------------------------------------------------------------------*/
-	public static Map<String, MazeTexture> load(BufferedReader reader) throws Exception
+	public static Map<String, MazeTexture> load(BufferedReader reader)
 	{
-		Map <String, MazeTexture> result = new HashMap<String, MazeTexture>();
-		while (true)
+		try
 		{
-			Properties p = V1Utils.getProperties(reader);
-			if (p.isEmpty())
+			Map <String, MazeTexture> result = new HashMap<>();
+			while (true)
 			{
-				break;
+				Properties p = V1Utils.getProperties(reader);
+				if (p.isEmpty())
+				{
+					break;
+				}
+				MazeTexture g = fromProperties(p);
+				result.put(g.getName(), g);
 			}
-			MazeTexture g = fromProperties(p);
-			result.put(g.getName(), g);
-		}
 
-		return result;
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

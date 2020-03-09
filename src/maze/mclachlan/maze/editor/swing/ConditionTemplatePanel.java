@@ -26,6 +26,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
@@ -311,16 +312,13 @@ public class ConditionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(
-			Database.getInstance().getConditionTemplates().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>((Database.getInstance().getConditionTemplates().values()));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.CONDITION_TEMPLATES);
 
@@ -346,7 +344,8 @@ public class ConditionTemplatePanel extends EditorPanel
 			null);
 
 		Database.getInstance().getConditionTemplates().put(name, ct);
-		refreshNames(name);
+
+		return ct;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -363,7 +362,7 @@ public class ConditionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.CONDITION_TEMPLATES);
 
@@ -391,7 +390,8 @@ public class ConditionTemplatePanel extends EditorPanel
 			current.getRepeatedSpellEffects());
 
 		Database.getInstance().getConditionTemplates().put(newName, ct);
-		refreshNames(newName);
+
+		return ct;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -484,11 +484,11 @@ public class ConditionTemplatePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		if (name == null)
 		{
-			return;
+			return null;
 		}
 
 		ConditionTemplate ct = Database.getInstance().getConditionTemplate(name);
@@ -534,6 +534,8 @@ public class ConditionTemplatePanel extends EditorPanel
 			ct.setExitSpellEffect(exitSpellEffect.getSelectedItem()==NONE?null: (String)exitSpellEffect.getSelectedItem());
 			ct.setRepeatedSpellEffects(repeatedEffects.getRepeatedSpellEffects());
 		}
+
+		return ct;
 	}
 
 	/*-------------------------------------------------------------------------*/

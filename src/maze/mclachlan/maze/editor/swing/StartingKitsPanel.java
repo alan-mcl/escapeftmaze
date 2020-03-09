@@ -24,6 +24,7 @@ import java.util.*;
 import java.util.List;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.*;
 
 /**
@@ -217,11 +218,9 @@ public class StartingKitsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getStartingKits().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getStartingKits().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -322,7 +321,7 @@ public class StartingKitsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		StartingKit si = new StartingKit(
 			name,
@@ -345,6 +344,8 @@ public class StartingKitsPanel extends EditorPanel
 			new HashSet<String>());
 
 		Database.getInstance().getStartingKits().put(name, si);
+
+		return si;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -372,7 +373,7 @@ public class StartingKitsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		StartingKit current = Database.getInstance().getStartingKits().get(currentName);
 
@@ -399,6 +400,8 @@ public class StartingKitsPanel extends EditorPanel
 			current.getUsableByCharacterClass());
 
 		Database.getInstance().getStartingKits().put(newName, sk);
+
+		return sk;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -408,7 +411,7 @@ public class StartingKitsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		StartingKit si = Database.getInstance().getStartingKits().get(name);
 
@@ -439,6 +442,8 @@ public class StartingKitsPanel extends EditorPanel
 			}
 		}
 		si.setPackItems(packItemsList);
+
+		return si;
 	}
 
 	/*-------------------------------------------------------------------------*/

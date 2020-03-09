@@ -68,10 +68,8 @@ public class MazeWalker
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		Database db = new Database(loader, saver);
-		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
-		
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
+
 		new MazeWalker().walk(db);
 	}
 

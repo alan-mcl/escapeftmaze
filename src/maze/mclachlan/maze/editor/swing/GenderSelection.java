@@ -46,13 +46,13 @@ public class GenderSelection extends JPanel implements ActionListener, KeyListen
 	{
 		this.dirtyFlag = dirtyFlag;
 		this.captureSuggestedNames = captureSuggestedNames;
-		List<String> genderList = Database.getInstance().getGenderList();
+		List<String> genderList = new ArrayList<>(Database.getInstance().getGenders().keySet());
 		Collections.sort(genderList);
 		int max = genderList.size();
-		checkBoxes = new HashMap<String, JCheckBox>();
+		checkBoxes = new HashMap<>();
 		if (captureSuggestedNames)
 		{
-			suggestedNames = new HashMap<String, JTextField>();
+			suggestedNames = new HashMap<>();
 		}
 
 		JPanel panel = new JPanel(new GridLayout(max, 1, 3, 3));
@@ -194,7 +194,7 @@ public class GenderSelection extends JPanel implements ActionListener, KeyListen
 		{
 			if (cb.isSelected())
 			{
-				result.add(Database.getInstance().getGender(cb.getText()));
+				result.add(Database.getInstance().getGenders().get(cb.getText()));
 			}
 		}
 		return result;

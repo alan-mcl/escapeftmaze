@@ -28,6 +28,7 @@ import javax.swing.table.DefaultTableModel;
 import mclachlan.crusader.Texture;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.data.v1.DataObject;
 
 /**
  *
@@ -104,11 +105,9 @@ public class MazeTexturePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getMazeTextures().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getMazeTextures().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -144,7 +143,7 @@ public class MazeTexturePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		MazeTexture mt = new MazeTexture(
 			name,
@@ -155,6 +154,7 @@ public class MazeTexturePanel extends EditorPanel
 			null,
 			-1);
 		Database.getInstance().getMazeTextures().put(name, mt);
+		return mt;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -166,7 +166,7 @@ public class MazeTexturePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		MazeTexture current = Database.getInstance().getMazeTextures().get(currentName);
 		MazeTexture mt = new MazeTexture(
@@ -178,6 +178,7 @@ public class MazeTexturePanel extends EditorPanel
 			current.getScrollBehaviour(),
 			current.getScrollSpeed());
 		Database.getInstance().getMazeTextures().put(newName, mt);
+		return mt;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -187,7 +188,7 @@ public class MazeTexturePanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		MazeTexture mt = Database.getInstance().getMazeTexture(name);
 
@@ -207,6 +208,8 @@ public class MazeTexturePanel extends EditorPanel
 		mt.setImageResources(images);
 
 		Database.getInstance().getMazeTextures().put(name, mt);
+
+		return mt;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -25,6 +25,7 @@ import java.awt.Insets;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.util.MazeException;
 
@@ -33,8 +34,8 @@ import mclachlan.maze.util.MazeException;
  */
 public class DifficultyLevelPanel extends EditorPanel
 {
-	JTextField impl;
-	JSpinner sortOrder;
+	private JTextField impl;
+	private JSpinner sortOrder;
 
 	/*-------------------------------------------------------------------------*/
 	public DifficultyLevelPanel()
@@ -82,20 +83,19 @@ public class DifficultyLevelPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getDifficultyLevels().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>((Database.getInstance().getDifficultyLevels().values()));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.DIFFICULTY_LEVELS);
 		DifficultyLevel dl = new DifficultyLevel();
 		Database.getInstance().getDifficultyLevels().put(name, dl);
-		refreshNames(name);
+
+		return dl;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -111,7 +111,7 @@ public class DifficultyLevelPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.DIFFICULTY_LEVELS);
 		DifficultyLevel current = Database.getInstance().getDifficultyLevels().get(
@@ -122,7 +122,8 @@ public class DifficultyLevelPanel extends EditorPanel
 			DifficultyLevel dl = current.getClass().newInstance();
 			dl.setName(newName);
 			Database.getInstance().getDifficultyLevels().put(dl.getName(), dl);
-			refreshNames(newName);
+
+			return dl;
 		}
 		catch (Exception x)
 		{
@@ -154,12 +155,12 @@ public class DifficultyLevelPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
 		// custom impls only supported
 		if (name == null)
 		{
-			return;
+			return null;
 		}
 
 		Map<String, DifficultyLevel> difficultyLevels = Database.getInstance().getDifficultyLevels();
@@ -171,6 +172,8 @@ public class DifficultyLevelPanel extends EditorPanel
 			dl.setName(name);
 			dl.setSortOrder((Integer)sortOrder.getValue());
 			difficultyLevels.put(name, dl);
+
+			return dl;
 		}
 		catch (Exception x)
 		{

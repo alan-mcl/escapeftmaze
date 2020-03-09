@@ -25,6 +25,7 @@ import java.awt.event.ActionEvent;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Dice;
 import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.game.MazeScript;
@@ -114,8 +115,8 @@ public class NaturalWeaponsPanel extends EditorPanel
 		dodgyGridBagShite(result, new JLabel("Max Range:"), maxRange, gbc);
 
 		Vector<String> types = new Vector<String>();
-		types.addAll(Database.getInstance().getCharacterClassList());
-		types.addAll(Database.getInstance().getRaceList());
+		types.addAll(new ArrayList<>(Database.getInstance().getCharacterClasses().keySet()));
+		types.addAll(new ArrayList<>(Database.getInstance().getRaces().keySet()));
 		types.addAll(Database.getInstance().getFoeTypes().keySet());
 		Collections.sort(types);
 		types.add(0, EditorPanel.NONE);
@@ -144,11 +145,9 @@ public class NaturalWeaponsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Vector loadData()
+	public Vector<DataObject> loadData()
 	{
-		Vector vec = new Vector(Database.getInstance().getNaturalWeapons().keySet());
-		Collections.sort(vec);
-		return vec;
+		return new Vector<>(Database.getInstance().getNaturalWeapons().values());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -198,7 +197,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void newItem(String name)
+	public DataObject newItem(String name)
 	{
 		// hackish way to set a default script, because I keep forgetting this 
 		MazeScript script =
@@ -207,7 +206,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 		if (script == null)
 		{
 			script =
-				Database.getInstance().getScript((String)attackScript.getItemAt(0));
+				Database.getInstance().getMazeScript((String)attackScript.getItemAt(0));
 		}
 
 		NaturalWeapon nw = new NaturalWeapon(
@@ -226,6 +225,8 @@ public class NaturalWeaponsPanel extends EditorPanel
 			script);
 
 		Database.getInstance().getNaturalWeapons().put(name, nw);
+
+		return nw;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -237,7 +238,7 @@ public class NaturalWeaponsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void copyItem(String newName)
+	public DataObject copyItem(String newName)
 	{
 		NaturalWeapon current = Database.getInstance().getNaturalWeapons().get(currentName);
 
@@ -259,6 +260,8 @@ public class NaturalWeaponsPanel extends EditorPanel
 			current.getAttackScript());
 
 		Database.getInstance().getNaturalWeapons().put(newName, nw);
+
+		return nw;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -268,24 +271,26 @@ public class NaturalWeaponsPanel extends EditorPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void commit(String name)
+	public DataObject commit(String name)
 	{
-		NaturalWeapon fa = Database.getInstance().getNaturalWeapons().get(name);
+		NaturalWeapon nw = Database.getInstance().getNaturalWeapons().get(name);
 
-		fa.setDescription(description.getText());
+		nw.setDescription(description.getText());
 
-		fa.setDamage(V1Dice.fromString(damage.getText()));
-		fa.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
-		fa.setAttacks(V1Utils.fromStringInts(attacks.getText(), ","));
-		fa.setModifiers(modifiers.getModifier());
-		fa.setRanged(isRanged.isSelected());
-		fa.setMinRange(ItemTemplate.WeaponRange.valueOf((String)minRange.getSelectedItem()));
-		fa.setMaxRange(ItemTemplate.WeaponRange.valueOf((String)maxRange.getSelectedItem()));
-		fa.setSlaysFoeType(slaysFoeType.getSelectedItem()==NONE?
+		nw.setDamage(V1Dice.fromString(damage.getText()));
+		nw.setDamageType((MagicSys.SpellEffectType)damageType.getSelectedItem());
+		nw.setAttacks(V1Utils.fromStringInts(attacks.getText(), ","));
+		nw.setModifiers(modifiers.getModifier());
+		nw.setRanged(isRanged.isSelected());
+		nw.setMinRange(ItemTemplate.WeaponRange.valueOf((String)minRange.getSelectedItem()));
+		nw.setMaxRange(ItemTemplate.WeaponRange.valueOf((String)maxRange.getSelectedItem()));
+		nw.setSlaysFoeType(slaysFoeType.getSelectedItem()==NONE?
 			null:new TypeDescriptorImpl(slaysFoeType.getName()));
-		fa.setAttackScript(Database.getInstance().getScript((String)attackScript.getSelectedItem()));
-		fa.setSpellEffectLevel((Integer)spellEffectLevel.getValue());
-		fa.setSpellEffects(spellEffects.getGroupOfPossibilties());
+		nw.setAttackScript(Database.getInstance().getMazeScript((String)attackScript.getSelectedItem()));
+		nw.setSpellEffectLevel((Integer)spellEffectLevel.getValue());
+		nw.setSpellEffects(spellEffects.getGroupOfPossibilties());
+
+		return nw;
 	}
 
 	/*-------------------------------------------------------------------------*/

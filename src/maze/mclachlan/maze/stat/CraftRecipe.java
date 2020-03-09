@@ -19,10 +19,12 @@
 
 package mclachlan.maze.stat;
 
+import mclachlan.maze.data.v1.DataObject;
+
 /**
  *
  */
-public class CraftRecipe
+public class CraftRecipe extends DataObject
 {
 	private String name;
 	private StatModifier requirements;
