@@ -108,8 +108,15 @@ public class Leveler
 			kitList = getKitsForClass(characterClass);
 		}
 
-		Dice kitD = new Dice(1, kitList.size(), -1);
-		return kitList.get(kitD.roll("leveler: kit"));
+		if (kitList.size() > 0)
+		{
+			Dice kitD = new Dice(1, kitList.size(), -1);
+			return kitList.get(kitD.roll("leveler: kit"));
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -619,7 +626,10 @@ public class Leveler
 			personality,
 			noSpells);
 
-		result.applyStartingKit(startingKit);
+		if (startingKit != null)
+		{
+			result.applyStartingKit(startingKit);
+		}
 
 		if (!race.isMagicDead())
 		{

@@ -49,11 +49,14 @@ public class V1StringManager implements StringManager
 	{
 		synchronized (mutex)
 		{
-			if (key != null && key.indexOf("reserved")>-1)
+			// special case for reserved keys - always map to themselves
+			// this is a mechanism for deprecating keys
+			if (key != null && key.contains("reserved"))
 			{
 				return key;
 			}
 
+			// "strings:"
 			if (namespace == null)
 			{
 				namespace = "strings";

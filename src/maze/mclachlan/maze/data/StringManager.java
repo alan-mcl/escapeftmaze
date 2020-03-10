@@ -21,5 +21,5 @@ package mclachlan.maze.data;
 
 public interface StringManager
 {
-	public String getString(String namespace, String key);
+	String getString(String namespace, String key);
 }

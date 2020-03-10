@@ -1,0 +1,3 @@
+zone=arena
+9,7=Frontier Phaser/1/1/1-1/0-0/,Script Of Identify/0/2/1-1/0-0/,Script Of Blur/0/2/1-1/0-0/,Bone Flute/0/2/1-1/0-0/,Djembe Drum/2/2/1-1/0-0/,Chromatic Lyre/1/2/1-1/0-0/,Turtleshell Ukulele/1/1/1-1/0-0/,Cornu Of The Demonspawn/1/2/1-1/0-0/,Pipes Of The Sea/1/2/1-1/0-0/
+@

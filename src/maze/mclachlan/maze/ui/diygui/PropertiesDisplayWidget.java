@@ -200,6 +200,7 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 			}
 
 			int value = this.character.getModifier(modifier);
+
 			if (value > 0)
 			{
 				propertiesLabels[rowCount].setText(descModifier(modifier, value));

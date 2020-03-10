@@ -49,25 +49,63 @@ import mclachlan.maze.util.MazeException;
  */
 public class Database
 {
+	/** Singleton instance */
 	private static Database instance;
+
+	/** Mutex that single-threads all cache access */
 	private final Object mutex = new Object();
 
-	/**
-	 * Map of campaign name to campaigns
-	 */
+	/** Map of campaign name to campaigns */
 	private static Map<String, Campaign> campaignMap;
 
 	/**
-	 * List of campaigns, starting with the selected one and followed by it's
-	 * parent if any, then grandparent etc
+	 * List of campaigns, starting with the selected one at index 0  followed by
+	 * it's parent if any, then grandparent etc
 	 */
 	private List<CampaignCache> campaignCaches = new ArrayList<>();
 
-	// temp hack to during transition, remove once done!
-	private CampaignCache defaultCampaign;
-
+	/** User selected configuration */
 	private UserConfig userConfig;
 
+	// cached game data
+
+	private Map<String, Gender> genders;
+	private Map<String, Race> races;
+	private Map<String, BodyPart> bodyParts;
+	private Map<String, CharacterClass> characterClasses;
+	private Map<String, StartingKit> startingKits;
+	private Map<String, ExperienceTable> experienceTables;
+	private Map<String, AttackType> attackTypes;
+	private Map<String, ConditionEffect> conditionEffects;
+	private Map<String, ConditionTemplate> conditionTemplates;
+	private Map<String, SpellEffect> spellEffects;
+	private Map<String, MazeScript> mazeScripts;
+	private Map<String, LootEntry> lootEntries;
+	private Map<String, LootTable> lootTables;
+	private Map<String, Spell> spells;
+	private Map<String, PlayerSpellBook> playerSpellBooks;
+	private Map<String, MazeTexture> mazeTextures;
+	private Map<String, FoeTemplate> foeTemplates;
+	private Map<String, Trap> traps;
+	private Map<String, FoeEntry> foeEntries;
+	private Map<String, EncounterTable> encounterTables;
+	private Map<String, NpcFactionTemplate> npcFactionTemplates;
+	private Map<String, NpcTemplate> npcTemplates;
+	private Map<String, WieldingCombo> wieldingCombos;
+	private Map<String, ItemTemplate> itemTemplates;
+	private Map<String, DifficultyLevel> difficultyLevels;
+	private Map<String, ItemEnchantments> itemEnchantments;
+	private Map<String, Personality> personalities;
+	private Map<String, CraftRecipe> craftRecipes;
+	private Map<String, FoeType> foeTypes;
+	private Map<String, NaturalWeapon> naturalWeapons;
+
+	private Map<String, Map<String, String>> strings = new HashMap<>();
+	private Map<String, PlayerCharacter> characterGuild;
+	private Map<String, BufferedImage> images = new HashMap<>();
+
+
+	/*-------------------------------------------------------------------------*/
 	{
 		instance = this;
 	}
@@ -75,14 +113,14 @@ public class Database
 	/*-------------------------------------------------------------------------*/
 	public Saver getSaver()
 	{
-		return defaultCampaign.saver;
+		return getCurrentCampaign().saver;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Saver getSaver(Campaign campaign)
 	{
 		// the current campaign should always be index 0
-		CampaignCache c = campaignCaches.get(0);
+		CampaignCache c = getCurrentCampaign();
 		if (!c.campaign.getName().equals(campaign.getName()))
 		{
 			throw new MazeException("Expected campaign ["+c.campaign.getName()+"], " +
@@ -94,7 +132,7 @@ public class Database
 	/*-------------------------------------------------------------------------*/
 	public Loader getLoader()
 	{
-		return defaultCampaign.loader;
+		return getCurrentCampaign().loader;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -169,12 +207,6 @@ public class Database
 
 		this.campaignCaches.add(cache);
 
-		///// temp hack in transition ///
-		if (campaign.getName().equals("default"))
-		{
-			defaultCampaign = cache;
-		}
-		/////////////////////////////////
 		cache.init();
 
 		if (campaign.getParentCampaign() != null)
@@ -182,6 +214,16 @@ public class Database
 			Campaign parent = getCampaigns().get(campaign.getParentCampaign());
 			initCampaignCache(null, null, parent, config);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return the user-selected campaign
+	 */
+	private CampaignCache getCurrentCampaign()
+	{
+		return campaignCaches.get(0);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -266,168 +308,6 @@ public class Database
 		}
 
 		return result;
-	}
-
-	///////////////// new cache, in transition
-	private Map<String, Gender> genders;
-	private Map<String, Race> races;
-	private Map<String, BodyPart> bodyParts;
-	private Map<String, CharacterClass> characterClasses;
-	private Map<String, StartingKit> startingKits;
-	private Map<String, ExperienceTable> experienceTables;
-	private Map<String, AttackType> attackTypes;
-	private Map<String, ConditionEffect> conditionEffects;
-	private Map<String, ConditionTemplate> conditionTemplates;
-	private Map<String, SpellEffect> spellEffects;
-	private Map<String, MazeScript> mazeScripts;
-	private Map<String, LootEntry> lootEntries;
-	private Map<String, LootTable> lootTables;
-	private Map<String, Spell> spells;
-	private Map<String, PlayerSpellBook> playerSpellBooks;
-	private Map<String, MazeTexture> mazeTextures;
-	private Map<String, FoeTemplate> foeTemplates;
-	private Map<String, Trap> traps;
-	private Map<String, FoeEntry> foeEntries;
-	private Map<String, EncounterTable> encounterTables;
-	private Map<String, NpcFactionTemplate> npcFactionTemplates;
-	private Map<String, NpcTemplate> npcTemplates;
-	private Map<String, WieldingCombo> wieldingCombos;
-	private Map<String, ItemTemplate> itemTemplates;
-	private Map<String, DifficultyLevel> difficultyLevels;
-	private Map<String, ItemEnchantments> itemEnchantments;
-	private Map<String, Personality> personalities;
-	private Map<String, CraftRecipe> craftRecipes;
-	private Map<String, FoeType> foeTypes;
-	private Map<String, NaturalWeapon> naturalWeapons;
-
-	Map<String, PlayerCharacter> characterGuild;
-	private Map<String, BufferedImage> images = new HashMap<>();
-
-	//////////////////////////////////////////////
-
-
-
-	//////////////////////////////////////////////////
-	// Non-cached data access
-	//////////////////////////////////////////////////
-
-	/*-------------------------------------------------------------------------*/
-	public List<String> getPortraitNames()
-	{
-		// todo
-		synchronized(mutex)
-		{
-			return this.defaultCampaign.loader.getPortraitNames();
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public List<String> getZoneNames()
-	{
-		// todo
-		synchronized(mutex)
-		{
-			return this.defaultCampaign.loader.getZoneNames();
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Zone getZone(String name)
-	{
-		synchronized(mutex)
-		{
-			// todo
-			return this.defaultCampaign.loader.getZone(name);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Font getFont(String name)
-	{
-		synchronized(mutex)
-		{
-			// todo
-			return this.defaultCampaign.loader.getFont(name);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Clip getClip(String clipName)
-	{
-		synchronized(mutex)
-		{
-			// todo
-			return this.defaultCampaign.loader.getClip(clipName, Maze.getInstance().getAudioPlayer());
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public InputStream getMusic(String trackName)
-	{
-		synchronized(mutex)
-		{
-			// todo
-			return this.defaultCampaign.loader.getMusic(trackName);
-		}
-	}
-
-
-
-	//////////////////////////////////////////////////
-	// Lazy-cached data access
-	//////////////////////////////////////////////////
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * @param resourceName
-	 * 	Image resource name split by forward slashes.
-	 */
-	public BufferedImage getImage(String resourceName)
-	{
-		synchronized(mutex)
-		{
-			if (!images.containsKey(resourceName))
-			{
-				// check all the campaigns, return the first image we find
-				for (CampaignCache campaignCache : campaignCaches)
-				{
-					BufferedImage image = campaignCache.loader.getImage(resourceName);
-					if (image != null)
-					{
-						images.put(resourceName, image);
-						return image;
-					}
-				}
-
-				throw new MazeException("invalid image resource ["+resourceName+"]");
-			}
-			else
-			{
-				return images.get(resourceName);
-			}
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getString(String namespace, String key, boolean allowNull)
-	{
-		synchronized(mutex)
-		{
-			// todo
-			String result = this.defaultCampaign.loader.getStringManager().getString(namespace, key);
-			if (result == null)
-			{
-				// special case: retry one time to load the resource bundle
-				this.defaultCampaign.loader.initStringManager();
-				result = this.defaultCampaign.loader.getStringManager().getString(namespace, key);
-
-				if (result == null && !allowNull)
-				{
-					throw new MazeException("Invalid key ["+key+"]");
-				}
-			}
-			return result;
-		}
 	}
 
 	//////////////////////////////////////////////////
@@ -1260,18 +1140,242 @@ public class Database
 			if (characterGuild == null)
 			{
 				// can only play with characters created for this campaign
-				characterGuild = campaignCaches.get(0).loader.loadCharacterGuild();
+				characterGuild = getCurrentCampaign().loader.loadCharacterGuild();
 			}
 			return characterGuild;
 		}
 	}
 
+	//////////////////////////////////////////////////
+	// Non-cached data access
+	//////////////////////////////////////////////////
+
 	/*-------------------------------------------------------------------------*/
+	public Font getFont(String name)
+	{
+		// try to load from all campaigns, starting with the current one
+		synchronized(mutex)
+		{
+			List<MazeException> errors = new ArrayList<>();
+
+			for (CampaignCache cc : campaignCaches)
+			{
+				try
+				{
+					return cc.loader.getFont(name);
+				}
+				catch (MazeException e)
+				{
+					errors.add(e);
+				}
+			}
+
+			MazeException me = new MazeException("Can't load [" + name + "]");
+			errors.forEach(me::addSuppressed);
+			throw me;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Clip getClip(String clipName)
+	{
+		// try to load from all campaigns, starting with the current one
+		synchronized(mutex)
+		{
+			List<MazeException> errors = new ArrayList<>();
+
+			for (CampaignCache cc : campaignCaches)
+			{
+				try
+				{
+					return cc.loader.getClip(clipName, Maze.getInstance().getAudioPlayer());
+				}
+				catch (MazeException e)
+				{
+					errors.add(e);
+				}
+			}
+
+			MazeException me = new MazeException("Can't load [" + clipName + "]");
+			errors.forEach(me::addSuppressed);
+			throw me;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public InputStream getMusic(String trackName)
+	{
+		// try to load from all campaigns, starting with the current one
+		synchronized(mutex)
+		{
+			List<MazeException> errors = new ArrayList<>();
+
+			for (CampaignCache cc : campaignCaches)
+			{
+				try
+				{
+					return cc.loader.getMusic(trackName);
+				}
+				catch (MazeException e)
+				{
+					errors.add(e);
+				}
+			}
+
+			MazeException me = new MazeException("Can't load [" + trackName + "]");
+			errors.forEach(me::addSuppressed);
+			throw me;
+		}
+	}
+
+
+	//////////////////////////////////////////////////
+	// Lazy-cached data access
+	//////////////////////////////////////////////////
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @param resourceName
+	 * 	Image resource name split by forward slashes.
+	 */
+	public BufferedImage getImage(String resourceName)
+	{
+		synchronized(mutex)
+		{
+			if (!images.containsKey(resourceName))
+			{
+				// check all the campaigns, return the first image we find
+				for (CampaignCache campaignCache : campaignCaches)
+				{
+					BufferedImage image = campaignCache.loader.getImage(resourceName);
+					if (image != null)
+					{
+						images.put(resourceName, image);
+						return image;
+					}
+				}
+
+				throw new MazeException("invalid image resource ["+resourceName+"]");
+			}
+			else
+			{
+				return images.get(resourceName);
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public String getString(String namespace, String key, boolean allowNull)
+	{
+		// try to load from all campaigns, starting with the current one
+		synchronized(mutex)
+		{
+			if (strings.containsKey(namespace))
+			{
+				Map<String, String> namespaceCache = strings.get(namespace);
+				String s = namespaceCache.get(key);
+				if (s != null)
+				{
+					return s;
+				}
+			}
+			else
+			{
+				strings.put(namespace, new HashMap<>());
+			}
+
+			// not cached yet, attempt to load
+			List<MazeException> errors = new ArrayList<>();
+
+			for (CampaignCache cc : campaignCaches)
+			{
+				try
+				{
+					String s = getString(namespace, key, allowNull, cc);
+					strings.get(namespace).put(key, s);
+					return s;
+				}
+				catch (MazeException e)
+				{
+					errors.add(e);
+				}
+			}
+
+			MazeException me = new MazeException("Can't load [" + key + "]");
+			errors.forEach(me::addSuppressed);
+			throw me;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private String getString(String namespace, String key, boolean allowNull, CampaignCache campaignCache)
+	{
+		synchronized(mutex)
+		{
+			String result = campaignCache.loader.getStringManager().getString(namespace, key);
+			if (result == null)
+			{
+				// special case: retry one time to load the resource bundle
+				campaignCache.loader.initStringManager();
+				result = campaignCache.loader.getStringManager().getString(namespace, key);
+
+				if (result == null && !allowNull)
+				{
+					throw new MazeException("Invalid key ["+key+"]");
+				}
+			}
+			return result;
+		}
+	}
+
+	//////////////////////////////////////////////
+	// various special cases
+	//////////////////////////////////////////////
+
+	/*-------------------------------------------------------------------------*/
+	public List<String> getPortraitNames()
+	{
+		// Go through all the campaigns and get all the portrait names.
+		// the lookup and caching in getImage will handle the rest
+
+		synchronized(mutex)
+		{
+			List<String> result = new ArrayList<>();
+			for (CampaignCache cc : campaignCaches)
+			{
+				result.addAll(cc.loader.getPortraitNames());
+			}
+			return result;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<String> getZoneNames()
+	{
+		// only zones from the current campaign are available, no inheritance
+
+		synchronized(mutex)
+		{
+			return this.getCurrentCampaign().loader.getZoneNames();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Zone getZone(String name)
+	{
+		// only zones from the current campaign are available, no inheritance
+
+		synchronized(mutex)
+		{
+			return this.getCurrentCampaign().loader.getZone(name);
+		}
+	}
 
 	//////////////////////////////////////////////
 	/// Non-campaign data
 	//////////////////////////////////////////////
 
+	/*-------------------------------------------------------------------------*/
 	public UserConfig getUserConfig()
 	{
 		synchronized (mutex)
@@ -1281,7 +1385,7 @@ public class Database
 				try
 				{
 					// we can use any loader to load this
-					userConfig = campaignCaches.get(0).loader.loadUserConfig();
+					userConfig = getCurrentCampaign().loader.loadUserConfig();
 				}
 				catch (Exception e)
 				{

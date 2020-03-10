@@ -49,27 +49,39 @@ public class GameTime
 		//
 
 		// Update Conditions
+		Maze.getPerfLog().enter("ConditionManager.endOfTurn");
 		ConditionManager.getInstance().endOfTurn(getTurnNr());
+		Maze.getPerfLog().exit("ConditionManager.endOfTurn");
 
 		// Flush turn cache
+		Maze.getPerfLog().enter("TurnCache.endOfTurn");
 		TurnCache.getInstance().endOfTurn(getTurnNr());
+		Maze.getPerfLog().exit("TurnCache.endOfTurn");
 
 		// Regenerate Resources
-//		Maze.getPerfLog().enter("GameTime::regenerateResources");
+		Maze.getPerfLog().enter("GameTime::regenerateResources");
 		regenerateResources();
-//		Maze.getPerfLog().exit("GameTime::regenerateResources");
+		Maze.getPerfLog().exit("GameTime::regenerateResources");
 
 		// Update all NPCs
+		Maze.getPerfLog().enter("NpcManager.endOfTurn");
 		NpcManager.getInstance().endOfTurn(getTurnNr());
+		Maze.getPerfLog().exit("NpcManager.endOfTurn");
 
 		// Update item caches
+		Maze.getPerfLog().enter("ItemCacheManager.endOfTurn");
 		ItemCacheManager.getInstance().endOfTurn(getTurnNr());
+		Maze.getPerfLog().exit("ItemCacheManager.endOfTurn");
 		
 		// Update the current zone
+		Maze.getPerfLog().enter("Zone.endOfTurn");
 		Maze.getInstance().getCurrentZone().endOfTurn(getTurnNr());
+		Maze.getPerfLog().exit("Zone.endOfTurn");
 
 		// Refresh character options
+		Maze.getPerfLog().enter("GameTime::refreshCharacterData");
 		Maze.getInstance().refreshCharacterData();
+		Maze.getPerfLog().exit("GameTime::refreshCharacterData");
 
 		//
 		// Start next turn

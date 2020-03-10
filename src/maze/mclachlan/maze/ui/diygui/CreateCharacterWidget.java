@@ -396,19 +396,20 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			String className = cc.getName();
 
 			List<StartingKit> startingItems = Leveler.getKitsForClass(className);
-			System.out.println("className = [" + className + "]");
-			System.out.println("startingItems = [" + startingItems + "]");
 
 			List<StartingKit> items = new ArrayList<>(startingItems);
 
-			items.sort(new StartingItemsComparator());
+			if (items.size() > 0)
+			{
+				items.sort(new StartingItemsComparator());
 
-			DIYListBox listBox = new DIYListBox(items);
-			listBox.addActionListener(kitListener);
-			listBox.setSelected(items.get(0));
+				DIYListBox listBox = new DIYListBox(items);
+				listBox.addActionListener(kitListener);
+				listBox.setSelected(items.get(0));
 
-			this.classAndRaceKitWidgets.put(className, listBox);
-			result.add(listBox);
+				this.classAndRaceKitWidgets.put(className, listBox);
+				result.add(listBox);
+			}
 		}
 
 		return result;
@@ -729,7 +730,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		raceImage = new DIYLabel();
 		raceImage.setBounds(column2, raceDesc.y+raceDesc.height+inset,
 			columnWidth*2, raceDesc.height);
-		System.out.println("raceImage.getBounds() = [" + raceImage.getBounds() + "]");
 
 		DIYLabel genderLabel = getSubTitle(getLabel("cc.gender.title"));
 		genderLabel.setBounds(column1, genderY, genderLabel.getPreferredSize().width, 20);
@@ -1135,8 +1135,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 						characterClass.getName(),
 						race.getName());
 
-					kits.setSelected(kit);
-					setStartingKit(kit);
+					if (kit != null)
+					{
+						kits.setSelected(kit);
+						setStartingKit(kit);
+					}
 					break;
 
 				case CHOOSE_SPELLS:

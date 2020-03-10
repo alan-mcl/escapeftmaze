@@ -57,6 +57,8 @@ public class V1Loader extends Loader
 {
 	private Campaign campaign;
 
+	// to avoid loading properties files over and over again we still
+	// cache strings at this level
 	private V1StringManager stringManager;
 
 	/*-------------------------------------------------------------------------*/
@@ -68,7 +70,6 @@ public class V1Loader extends Loader
 	public void init(Campaign campaign) throws Exception
 	{
 		this.campaign = campaign;
-
 		initStringManager();
 	}
 

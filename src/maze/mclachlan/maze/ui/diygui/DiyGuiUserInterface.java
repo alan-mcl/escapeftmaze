@@ -576,12 +576,14 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.statsDisplay.refreshData();
 		this.modifiersDisplay.refreshData();
 		this.propertiesDisplay.refreshData();
+
 		this.charLowLeft.refresh();
 		this.charLowRight.refresh();
 		this.charMidLeft.refresh();
 		this.charMidRight.refresh();
 		this.charTopLeft.refresh();
 		this.charTopRight.refresh();
+
 		this.partyOptionsAndTextWidget.refresh();
 	}
 

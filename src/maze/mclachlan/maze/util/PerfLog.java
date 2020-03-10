@@ -45,7 +45,7 @@ public class PerfLog extends Log
 
 		currentDir = "log/"+dateTime;
 
-		tags = new ThreadLocal<Map<String, Long>>();
+		tags = new ThreadLocal<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -54,7 +54,7 @@ public class PerfLog extends Log
 		Map<String, Long> map = tags.get();
 		if (map == null)
 		{
-			map = new HashMap<String, Long>();
+			map = new HashMap<>();
 			tags.set(map);
 		}
 		map.put(tag, System.nanoTime());
