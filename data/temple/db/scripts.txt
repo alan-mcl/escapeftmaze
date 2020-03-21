@@ -6,4 +6,5 @@ name=lvl1.load
 @
 name=campaign.load
 0=13,_MAIN_MENU_MUSIC_
+1=19,screen/aurora,temple.intro.1,CENTER
 @
