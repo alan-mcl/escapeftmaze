@@ -226,6 +226,7 @@ public interface CrusaderEngine
 	{
 		public static final int CONTINUOUS = 1;
 		public static final int DISCRETE = 2;
+		public static final int OCTO = 3;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -235,6 +236,11 @@ public interface CrusaderEngine
 		public static final int SOUTH = 2;
 		public static final int EAST = 3;
 		public static final int WEST = 4;
+
+		public static final int NORTH_EAST = 5;
+		public static final int NORTH_WEST = 6;
+		public static final int SOUTH_EAST = 7;
+		public static final int SOUTH_WEST = 8;
 	}
 
 	/*-------------------------------------------------------------------------*/

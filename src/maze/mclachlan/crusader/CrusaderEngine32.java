@@ -102,23 +102,21 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** A constant from {@link CrusaderEngine.FieldOfView} */
 	private int playerFovOption;
-	/** 60 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE60;
-	/** 30 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE30;
-	/** 90 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE90;
-	/** 180 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE180;
-	/** 270 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE270;
-	/** 360 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE360;
-	/** 0 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE0;
-	/** 5 degrees, expressed in cast columns (ie pixels)*/
-	private static int ANGLE5;
-	
+	/** various degrees of arc, expressed in cast columns (ie pixels)*/
+	private static int
+		ANGLE360,
+		ANGLE315,
+		ANGLE270,
+		ANGLE225,
+		ANGLE180,
+		ANGLE135,
+		ANGLE90,
+		ANGLE60,
+		ANGLE45,
+		ANGLE30,
+		ANGLE5,
+		ANGLE0;
+
 	private int playerFov;
 	private int playerFovHalf;
 
@@ -422,19 +420,22 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		this.movementMode = movementMode;
 
-		if (this.movementMode == MovementMode.DISCRETE)
+		switch (this.movementMode)
 		{
-			this.playerSpeed = tileSize;
-			this.playerRotation = ANGLE90;
-		}
-		else if (this.movementMode == MovementMode.CONTINUOUS)
-		{
-			this.playerSpeed = tileSize /8;
-			this.playerRotation = ANGLE5;
-		}
-		else
-		{
-			throw new CrusaderException("Unrecognised mode ["+movementMode+"]");
+			case MovementMode.DISCRETE:
+				this.playerSpeed = tileSize;
+				this.playerRotation = ANGLE90;
+				break;
+			case MovementMode.CONTINUOUS:
+				this.playerSpeed = tileSize / 8;
+				this.playerRotation = ANGLE5;
+				break;
+			case MovementMode.OCTO:
+				this.playerSpeed = tileSize;
+				this.playerRotation = ANGLE90 / 2;
+				break;
+			default:
+				throw new CrusaderException("Unrecognised mode [" + movementMode + "]");
 		}
 	}
 
@@ -452,6 +453,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE30 / 6);
 
+			ANGLE45 = ANGLE90 / 2;
+			ANGLE135 = ANGLE90 + ANGLE45;
+			ANGLE225 = ANGLE180 + ANGLE45;
+			ANGLE315 = ANGLE270 + ANGLE45;
+
 			playerFov = ANGLE30;
 		}
 		else if (playerFovOption == FieldOfView.FOV_60_DEGREES)
@@ -464,6 +470,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE360 = (ANGLE60 * 6);
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE30 / 6);
+
+			ANGLE45 = ANGLE90 / 2;
+			ANGLE135 = ANGLE90 + ANGLE45;
+			ANGLE225 = ANGLE180 + ANGLE45;
+			ANGLE315 = ANGLE270 + ANGLE45;
 
 			playerFov = ANGLE60;
 		}
@@ -478,10 +489,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE90 / 18);
 
+			ANGLE45 = ANGLE90 / 2;
+			ANGLE135 = ANGLE90 + ANGLE45;
+			ANGLE225 = ANGLE180 + ANGLE45;
+			ANGLE315 = ANGLE270 + ANGLE45;
+
 			playerFov = ANGLE90;
 		}
 		else if (playerFovOption == FieldOfView.FOV_180_DEGREES)
 		{
+			// fake it out a bit
 			int angle170 = projectionPlaneWidth;
 
 			ANGLE180 = angle170*18/17;
@@ -492,18 +509,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 			ANGLE360 = (ANGLE180 * 2);
 			ANGLE0 = 0;
 			ANGLE5 = (ANGLE180 / 36);
+
+			ANGLE45 = ANGLE90 / 2;
+			ANGLE135 = ANGLE90 + ANGLE45;
+			ANGLE225 = ANGLE180 + ANGLE45;
+			ANGLE315 = ANGLE270 + ANGLE45;
+
 			playerFov = angle170;
-
-//			ANGLE180 = projectionPlaneWidth;
-//			ANGLE90 = ANGLE180/2;
-//			ANGLE30 = (ANGLE180 / 6);
-//			ANGLE60 = ANGLE180/3;
-//			ANGLE270 = (ANGLE90 * 3);
-//			ANGLE360 = (ANGLE180 * 2);
-//			ANGLE0 = 0;
-//			ANGLE5 = (ANGLE180 / 36);
-
-//			playerFov = ANGLE180;
 		}
 		else
 		{
@@ -634,11 +646,23 @@ public class CrusaderEngine32 implements CrusaderEngine
 			case Facing.WEST:
 				this.playerArc = ANGLE180;
 				break;
+			case Facing.NORTH_EAST:
+				this.playerArc = ANGLE315;
+				break;
+			case Facing.NORTH_WEST:
+				this.playerArc = ANGLE225;
+				break;
+			case Facing.SOUTH_EAST:
+				this.playerArc = ANGLE45;
+				break;
+			case Facing.SOUTH_WEST:
+				this.playerArc = ANGLE135;
+				break;
 			default:
 				throw new CrusaderException("Unrecognized facing: "+facing);
 		}
 
-		if (this.movementMode == MovementMode.DISCRETE)
+		if (this.movementMode == MovementMode.DISCRETE || movementMode == MovementMode.OCTO)
 		{
 			// offset based on facing
 			switch (facing)
@@ -656,9 +680,50 @@ public class CrusaderEngine32 implements CrusaderEngine
 					this.playerX += (halfATile-1);
 					break;
 				default:
-					throw new CrusaderException("Unrecognized facing: "+facing);
+					if (this.movementMode == MovementMode.DISCRETE)
+					{
+						throw new CrusaderException("Unrecognized facing for DISCRETE mode: " + facing);
+					}
 			}
 		}
+
+		if (movementMode == MovementMode.OCTO)
+		{
+			// offset based on facing: the offset amount works out dx and dy as
+			// the two right angles sides of a right triangle with hypotenuse = halfATile-1
+			// since |dx| = |dy| it follows that |dx| = (halfATile-1)/sqrt(2)
+
+			int d = (int)((halfATile-1) / Math.sqrt(2D));
+
+			switch (facing)
+			{
+				case Facing.NORTH_EAST:
+					this.playerY += d;
+					this.playerX -= d;
+					break;
+				case Facing.NORTH_WEST:
+					this.playerY += d;
+					this.playerX += d;
+					break;
+				case Facing.SOUTH_EAST:
+					this.playerY -= d;
+					this.playerX -= d;
+					break;
+				case Facing.SOUTH_WEST:
+					this.playerY -= d;
+					this.playerX += d;
+					break;
+				case Facing.WEST:
+				case Facing.EAST:
+				case Facing.SOUTH:
+				case Facing.NORTH:
+					// these have been handles above
+					break;
+				default:
+					throw new CrusaderException("Unrecognized facing for OCTO mode: " + facing);
+			}
+		}
+
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -685,7 +750,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	private int getPlayerFacing(int arc)
 	{
-		if (this.movementMode == MovementMode.DISCRETE)
+		if (this.movementMode == MovementMode.DISCRETE || movementMode == MovementMode.OCTO)
 		{
 			if (arc == ANGLE270)
 			{
@@ -705,13 +770,38 @@ public class CrusaderEngine32 implements CrusaderEngine
 			}
 			else
 			{
-				throw new CrusaderException("Invalid playerArc for discrete mode: "+arc);
+				if (this.movementMode == MovementMode.DISCRETE)
+				{
+					throw new CrusaderException("Invalid playerArc for DISCRETE mode: " + arc);
+				}
 			}
 		}
-		else
+
+		if (movementMode == MovementMode.OCTO)
 		{
-			return arc;
+			if (arc == ANGLE45)
+			{
+				return Facing.SOUTH_EAST;
+			}
+			else if (arc == ANGLE135)
+			{
+				return Facing.SOUTH_WEST;
+			}
+			else if (arc == ANGLE225)
+			{
+				return Facing.NORTH_WEST;
+			}
+			else if (arc == ANGLE315)
+			{
+				return Facing.NORTH_EAST;
+			}
+			else
+			{
+				throw new CrusaderException("Invalid playerArc for OCTO mode: " + arc);
+			}
 		}
+
+		return arc;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -802,7 +892,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 		float strafeRightYDir = sinTable[strafeRight];
 
 		int halfATile = tileSize /2-1;
-		if (this.movementMode == MovementMode.DISCRETE)
+		int diagonalD = (int)(halfATile / Math.sqrt(2D));
+
+		if (this.movementMode == MovementMode.DISCRETE || this.movementMode == MovementMode.OCTO)
 		{
 			// plop the player in the middle of the block, we'll move him to the
 			// edge after rotation.
@@ -827,15 +919,35 @@ public class CrusaderEngine32 implements CrusaderEngine
 				// facing north
 				newPlayerY -= halfATile;
 			}
+			else if (newPlayerArc == ANGLE45)
+			{
+				newPlayerX += diagonalD;
+				newPlayerY += diagonalD;
+			}
+			else if (newPlayerArc == ANGLE135)
+			{
+				newPlayerX -= diagonalD;
+				newPlayerY += diagonalD;
+			}
+			else if (newPlayerArc == ANGLE225)
+			{
+				newPlayerX -= diagonalD;
+				newPlayerY -= diagonalD;
+			}
+			else if (newPlayerArc == ANGLE315)
+			{
+				newPlayerX += diagonalD;
+				newPlayerY -= diagonalD;
+			}
 			else
 			{
 				throw new CrusaderException(
-					"Invalid playerArc for discrete mode: "+newPlayerArc);
+					"Invalid playerArc: "+newPlayerArc);
 			}
 		}
 
 		// detect if we will pass through a wall, bit of a brute force approach here.
-		if (movementMode == MovementMode.DISCRETE)
+		if (movementMode == MovementMode.DISCRETE || movementMode == MovementMode.OCTO)
 		{
 			int tileIndex = getMapIndex(newPlayerX/ tileSize, newPlayerY/ tileSize);
 
@@ -866,6 +978,70 @@ public class CrusaderEngine32 implements CrusaderEngine
 						// facing north
 						willPassThroughWall = map.verticalWalls[map.getWestWall(tileIndex)].solid;
 					}
+					else if (newPlayerArc == ANGLE45)
+					{
+						// facing south east
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid;
+					}
+					else if (newPlayerArc == ANGLE135)
+					{
+						// facing south west
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex + 1)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex + 1)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex+mapWidth)].solid;
+					}
+					else if (newPlayerArc == ANGLE225)
+					{
+						// facing north west
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE315)
+					{
+						// facing north east
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex - mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex - 1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex-1)].solid;
+					}
 					break;
 				case KeyStroke.STRAFE_RIGHT:
 					if (newPlayerArc == ANGLE0)
@@ -887,6 +1063,70 @@ public class CrusaderEngine32 implements CrusaderEngine
 					{
 						// facing north
 						willPassThroughWall = map.verticalWalls[map.getEastWall(tileIndex)].solid;
+					}
+					else if (newPlayerArc == ANGLE45)
+					{
+						// facing south east
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE135)
+					{
+						// facing south west
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex - mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex - 1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE225)
+					{
+						// facing north west
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid;
+					}
+					else if (newPlayerArc == ANGLE315)
+					{
+						// facing north east
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex + 1)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex + 1)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex+mapWidth)].solid;
 					}
 					break;
 				case KeyStroke.FORWARD:
@@ -910,6 +1150,70 @@ public class CrusaderEngine32 implements CrusaderEngine
 						// facing north
 						willPassThroughWall = map.horizontalWalls[map.getNorthWall(tileIndex)].solid;
 					}
+					else if (newPlayerArc == ANGLE45)
+					{
+						// facing south east
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex + 1)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex + 1)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex+mapWidth)].solid;
+					}
+					else if (newPlayerArc == ANGLE135)
+					{
+						// facing south west
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE225)
+					{
+						// facing north west
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex - mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex - 1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE315)
+					{
+						// facing north east
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid;
+					}
 					break;
 				case KeyStroke.BACKWARD:
 					if (newPlayerArc == ANGLE0)
@@ -932,16 +1236,80 @@ public class CrusaderEngine32 implements CrusaderEngine
 						// facing north
 						willPassThroughWall = map.horizontalWalls[map.getSouthWall(tileIndex)].solid;
 					}
+					else if (newPlayerArc == ANGLE45)
+					{
+						// facing south east
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex - mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex - 1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE135)
+					{
+						// facing south west
+						willPassThroughWall =
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex)].solid &&
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid
+							||
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getEastWall(tileIndex-mapWidth)].solid &&
+							map.horizontalWalls[map.getNorthWall(tileIndex+1)].solid;
+					}
+					else if (newPlayerArc == ANGLE225)
+					{
+						// facing north west
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid;
+					}
+					else if (newPlayerArc == ANGLE315)
+					{
+						// facing north east
+						willPassThroughWall =
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex)].solid &&
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid
+							||
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex)].solid
+							||
+							map.verticalWalls[map.getWestWall(tileIndex+mapWidth)].solid &&
+							map.horizontalWalls[map.getSouthWall(tileIndex-1)].solid;
+					}
 					break;
 				default:
 					throw new CrusaderException("Invalid key stroke: "+key);
 			}
 		}
 
-		// rotate left
 		switch (key)
 		{
 			case KeyStroke.TURN_LEFT:
+				// rotate left
 				if ((newPlayerArc -= playerRotation) < ANGLE0)
 				{
 					newPlayerArc += ANGLE360;
@@ -956,29 +1324,65 @@ public class CrusaderEngine32 implements CrusaderEngine
 				break;
 			case KeyStroke.STRAFE_LEFT:
 				// strafe left
-				newPlayerX += (int)(strafeLeftXDir * playerSpeed);
-				newPlayerY += (int)(strafeLeftYDir * playerSpeed);
+				if (newPlayerArc == ANGLE45 || newPlayerArc == ANGLE135 ||
+					newPlayerArc == ANGLE225 || newPlayerArc == ANGLE315)
+				{
+					newPlayerX += (int)(Math.signum(strafeLeftXDir) * tileSize);
+					newPlayerY += (int)(Math.signum(strafeLeftYDir) * playerSpeed);
+				}
+				else
+				{
+					newPlayerX += (int)(strafeLeftXDir * playerSpeed);
+					newPlayerY += (int)(strafeLeftYDir * playerSpeed);
+				}
 				break;
 			case KeyStroke.STRAFE_RIGHT:
 				// strafe right
-				newPlayerX += (int)(strafeRightXDir * playerSpeed);
-				newPlayerY += (int)(strafeRightYDir * playerSpeed);
+				if (newPlayerArc == ANGLE45 || newPlayerArc == ANGLE135 ||
+					newPlayerArc == ANGLE225 || newPlayerArc == ANGLE315)
+				{
+					newPlayerX += (int)(Math.signum(strafeRightXDir) * tileSize);
+					newPlayerY += (int)(Math.signum(strafeRightYDir) * tileSize);
+				}
+				else
+				{
+					newPlayerX += (int)(strafeRightXDir * playerSpeed);
+					newPlayerY += (int)(strafeRightYDir * playerSpeed);
+				}
 				break;
 			case KeyStroke.FORWARD:
 				// move forward
-				newPlayerX += (int)(playerXDir * playerSpeed);
-				newPlayerY += (int)(playerYDir * playerSpeed);
+				if (newPlayerArc == ANGLE45 || newPlayerArc == ANGLE135 ||
+					newPlayerArc == ANGLE225 || newPlayerArc == ANGLE315)
+				{
+					newPlayerX += (int)(Math.signum(playerXDir) * this.tileSize);
+					newPlayerY += (int)(Math.signum(playerYDir) * this.tileSize);
+				}
+				else
+				{
+					newPlayerX += (int)(playerXDir * this.playerSpeed);
+					newPlayerY += (int)(playerYDir * this.playerSpeed);
+				}
 				break;
 			case KeyStroke.BACKWARD:
 				// move backward
-				newPlayerX -= (int)(playerXDir * playerSpeed);
-				newPlayerY -= (int)(playerYDir * playerSpeed);
+				if (newPlayerArc == ANGLE45 || newPlayerArc == ANGLE135 ||
+					newPlayerArc == ANGLE225 || newPlayerArc == ANGLE315)
+				{
+					newPlayerX -= (int)(Math.signum(playerXDir) * this.tileSize);
+					newPlayerY -= (int)(Math.signum(playerYDir) * this.tileSize);
+				}
+				else
+				{
+					newPlayerX -= (int)(playerXDir * this.playerSpeed);
+					newPlayerY -= (int)(playerYDir * this.playerSpeed);
+				}
 				break;
 			default:
 				throw new CrusaderException("Invalid key stroke: "+key);
 		}
 
-		if (this.movementMode == MovementMode.DISCRETE)
+		if (movementMode == MovementMode.DISCRETE || movementMode == MovementMode.OCTO)
 		{
 			// scoot the player over to the proper edge of the block
 
@@ -1001,6 +1405,26 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				// facing north
 				newPlayerY += halfATile;
+			}
+			else if (newPlayerArc == ANGLE45)
+			{
+				newPlayerX -= diagonalD;
+				newPlayerY -= diagonalD;
+			}
+			else if (newPlayerArc == ANGLE135)
+			{
+				newPlayerX += diagonalD;
+				newPlayerY -= diagonalD;
+			}
+			else if (newPlayerArc == ANGLE225)
+			{
+				newPlayerX += diagonalD;
+				newPlayerY += diagonalD;
+			}
+			else if (newPlayerArc == ANGLE315)
+			{
+				newPlayerX -= diagonalD;
+				newPlayerY += diagonalD;
 			}
 			else
 			{

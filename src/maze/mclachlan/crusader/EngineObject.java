@@ -285,6 +285,32 @@ public class EngineObject
 						"invalid facing: "+playerFacing);
 			}
 		}
+		else if (movementMode == CrusaderEngine.MovementMode.OCTO && this.currentTexture == -1)
+		{
+			// yeah this fudges it a bit
+			switch(playerFacing)
+			{
+				case CrusaderEngine.Facing.NORTH:
+				case CrusaderEngine.Facing.NORTH_EAST:
+				case CrusaderEngine.Facing.NORTH_WEST:
+					renderTexture = this.textures[this.northTexture];
+					break;
+				case CrusaderEngine.Facing.SOUTH:
+				case CrusaderEngine.Facing.SOUTH_EAST:
+				case CrusaderEngine.Facing.SOUTH_WEST:
+					renderTexture = this.textures[this.southTexture];
+					break;
+				case CrusaderEngine.Facing.EAST:
+					renderTexture = this.textures[this.eastTexture];
+					break;
+				case CrusaderEngine.Facing.WEST:
+					renderTexture = this.textures[this.westTexture];
+					break;
+				default:
+					throw new CrusaderException(
+						"invalid facing: "+playerFacing);
+			}
+		}
 		else if (movementMode == CrusaderEngine.MovementMode.CONTINUOUS)
 		{
 			// object facings only supported for DISCRETE mode

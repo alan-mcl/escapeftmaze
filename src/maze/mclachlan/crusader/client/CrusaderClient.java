@@ -203,6 +203,10 @@ public class CrusaderClient extends Frame
 			{
 				this.engineMode = CrusaderEngine.MovementMode.DISCRETE;				
 			}
+			else if (arg.equalsIgnoreCase("-o"))
+			{
+				this.engineMode = CrusaderEngine.MovementMode.OCTO;
+			}
 			else if (arg.equalsIgnoreCase("-noshade"))
 			{
 				this.doShading = false;
@@ -422,7 +426,8 @@ public class CrusaderClient extends Frame
 							break;
 					}
 					
-					if (engineMode == CrusaderEngine.MovementMode.DISCRETE)
+					if (engineMode == CrusaderEngine.MovementMode.DISCRETE ||
+						engineMode == CrusaderEngine.MovementMode.OCTO)
 					{
 						key[keys[i]]  = false;
 					}
