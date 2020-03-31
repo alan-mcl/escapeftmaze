@@ -957,18 +957,29 @@ public class DungeonGenerator extends AbstractRoomGenerator
 	{
 		final Grid grid = new Grid(32); // This algorithm likes odd-sized maps, although it works either way.
 
-		final DungeonGenerator dungeonGenerator = new DungeonGenerator();
-		dungeonGenerator.setRoomGenerationAttempts(500);
-		dungeonGenerator.setMaxRoomSize(7);
-		dungeonGenerator.setTolerance(3); // Max difference between width and height.
-		dungeonGenerator.setMinRoomSize(3);
-		dungeonGenerator.generate(grid);
+		final DungeonGenerator dg = new DungeonGenerator();
+		dg.setWallThreshold(1f);
+		dg.setCorridorThreshold(.1f);
+		dg.setFloorThreshold(0f);
+		dg.setRoomGenerationAttempts(500);
+		dg.setMaxRoomSize(7);
+		dg.setTolerance(3); // Max difference between width and height.
+		dg.setMinRoomSize(3);
+		dg.generate(grid);
 
 		for (int x=0; x<grid.getWidth(); x++)
 		{
 			for (int y=0; y<grid.getWidth(); y++)
 			{
-				System.out.print(grid.get(x, y)==1.0 ? 0 : 1);
+				int i = (int)(grid.get(x, y) * 10);
+				switch (i)
+				{
+					case 10: System.out.print('W'); break;
+					case 1: System.out.print('c'); break;
+					case 0: System.out.print('r'); break;
+					default:
+						System.out.println(i);
+				}
 			}
 			System.out.println();
 		}

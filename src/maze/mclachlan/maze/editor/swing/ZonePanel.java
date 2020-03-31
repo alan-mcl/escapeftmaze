@@ -612,7 +612,6 @@ public class ZonePanel extends EditorPanel
 				walls,
 				walls,
 				walls,
-				false,
 				32,
 				1);
 		}

@@ -4,7 +4,7 @@ attitude=NEUTRAL
 @
 name=Gnolls
 template=Gnolls
-attitude=ATTACKING
+attitude=NEUTRAL
 @
 name=Ichiba GSC
 template=Ichiba GSC
@@ -12,7 +12,7 @@ attitude=NEUTRAL
 @
 name=Ichiba Chamber Of Commerce
 template=Ichiba Chamber Of Commerce
-attitude=ATTACKING
+attitude=NEUTRAL
 @
 name=Hags
 template=Hags
@@ -48,11 +48,11 @@ attitude=ATTACKING
 @
 name=Gnomes
 template=Gnomes
-attitude=ATTACKING
+attitude=NEUTRAL
 @
 name=Allies of Imogen
 template=Allies of Imogen
-attitude=ATTACKING
+attitude=NEUTRAL
 @
 name=Allies of Lorelei
 template=Allies of Lorelei

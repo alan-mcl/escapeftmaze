@@ -191,7 +191,6 @@ public class V1Zone
 						Map.NO_WALL,
 						Map.NO_WALL,
 						Map.NO_WALL,
-						false,
 						lightLevel,
 						1);
 
@@ -332,7 +331,7 @@ public class V1Zone
 		int baseImageSize = crusaderTiles[0].getFloorTexture().getImageHeight();
 
 		addTexture(skyTexture, textures);
-		Texture[] textureArray = textures.values().toArray(new Texture[textures.values().size()]);
+		Texture[] textureArray = textures.values().toArray(new Texture[0]);
 
 		int skyImageIndex = -1;
 		for (int i = 0; i < textureArray.length; i++)

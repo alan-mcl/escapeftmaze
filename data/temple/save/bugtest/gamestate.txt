@@ -1,10 +1,10 @@
 zone=testgen
 difficultyLevel=Normal
-playerPos=8:8
-facing=4
-partyGold=1000237
-partySupplies=9
-partyNames=Dwaf,IG-87,Ug,Gibby,Brunswick,Silvia
-formation=4
-turnNr=3259
+playerPos=17:7
+facing=1
+partyGold=0
+partySupplies=100
+partyNames=Lgang Po,Boltac,Boilerplate,Rux Gseron,Wa Shi,Bagnus
+formation=3
+turnNr=42
 @

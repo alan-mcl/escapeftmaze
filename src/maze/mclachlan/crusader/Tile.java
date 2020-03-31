@@ -32,7 +32,6 @@ public class Tile
 	Texture floorMaskTexture;
 	Texture ceilingTexture;
 	Texture ceilingMaskTexture;
-	boolean hasWalls;
 	int lightLevel;
 	int currentLightLevel;
 	int ceilingHeight;
@@ -47,7 +46,6 @@ public class Tile
 		Texture southWallTexture,
 		Texture eastWallTexture,
 		Texture westWallTexture,
-		boolean hasWalls,
 		int lightLevel,
 		int ceilingHeight)
 	{
@@ -59,7 +57,6 @@ public class Tile
 		this.southWallTexture = southWallTexture;
 		this.eastWallTexture = eastWallTexture;
 		this.westWallTexture = westWallTexture;
-		this.hasWalls = hasWalls;
 		this.lightLevel = this.currentLightLevel = lightLevel;
 	}
 	
@@ -79,7 +76,6 @@ public class Tile
 			Map.NO_WALL,
 			Map.NO_WALL,
 			Map.NO_WALL,
-			false,
 			lightLevel,
 			1);
 	}
@@ -104,6 +100,26 @@ public class Tile
 		return westWallTexture;
 	}
 
+	public void setNorthWallTexture(Texture northWallTexture)
+	{
+		this.northWallTexture = northWallTexture;
+	}
+
+	public void setSouthWallTexture(Texture southWallTexture)
+	{
+		this.southWallTexture = southWallTexture;
+	}
+
+	public void setEastWallTexture(Texture eastWallTexture)
+	{
+		this.eastWallTexture = eastWallTexture;
+	}
+
+	public void setWestWallTexture(Texture westWallTexture)
+	{
+		this.westWallTexture = westWallTexture;
+	}
+
 	public Texture getFloorTexture()
 	{
 		return floorTexture;
@@ -112,11 +128,6 @@ public class Tile
 	public Texture getCeilingTexture()
 	{
 		return ceilingTexture;
-	}
-
-	public boolean isHasWalls()
-	{
-		return hasWalls;
 	}
 
 	public int getLightLevel()

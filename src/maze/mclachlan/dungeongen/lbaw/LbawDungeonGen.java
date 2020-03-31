@@ -7,6 +7,7 @@ import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.DungeonGen;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.map.MapGenZoneScript;
 import mclachlan.maze.map.Zone;
 
 /**
@@ -15,7 +16,7 @@ import mclachlan.maze.map.Zone;
 public class LbawDungeonGen implements DungeonGen
 {
 	@Override
-	public Zone generate(Zone base, long seed)
+	public Zone generate(Zone base, long seed, MapGenZoneScript.DungeonDecorator decorator)
 	{
 		MapBuilder mb = new MapBuilder(seed);
 

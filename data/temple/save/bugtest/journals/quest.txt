@@ -1,12 +1,1 @@
 quest
--section-
-Quest 2
-888~Quest granted text
-909~Quest step 1
-9999~Quest complete!
--end-section-
--section-
-Quest 1
-55~Quest granted
-56~Quest step 1
--end-section-
