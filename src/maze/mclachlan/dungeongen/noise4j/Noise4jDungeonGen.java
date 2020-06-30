@@ -50,7 +50,8 @@ public class Noise4jDungeonGen implements DungeonGen
 		Wall[] horizWalls = new Wall[baseMap.getHorizontalWalls().length];
 		Wall[] vertWalls = new Wall[baseMap.getVerticalWalls().length];
 
-		initWalls(grid, width, length, horizWalls, vertWalls, decorator);
+		initWalls(grid, horizWalls, vertWalls, decorator);
+		initDoors(grid, horizWalls, vertWalls, decorator);
 
 		Tile[] baseTiles = baseMap.getTiles();
 		for (int i = 0; i < crusaderTiles.length; i++)
@@ -106,18 +107,45 @@ public class Noise4jDungeonGen implements DungeonGen
 		return base;
 	}
 
-	public void addTexture(java.util.Map<String, Texture> textures, Texture t)
+	private void initDoors(Grid grid, Wall[] horizWalls, Wall[] vertWalls,
+		MapGenZoneScript.DungeonDecorator decorator)
 	{
-		if (t != null && t != Map.NO_WALL)
+		int width = grid.getWidth();
+		int height = grid.getHeight();
+
+		// Find spots to put doors
+		for (int x = 1; x < width - 1; x++)
 		{
-			textures.put(t.getName(), t);
+			for (int y = 1; y < height - 1; y++)
+			{
+				if (getGrid(grid, x, y) == ROOM_THRESHOLD)
+				{
+					if (getGrid(grid, x, y - 1) == CORRIDOR_THRESHOLD)
+					{
+						horizWalls[x + y * width] = decorator.getPortal(grid, x, y);
+					}
+
+					if (getGrid(grid, x, y + 1) == CORRIDOR_THRESHOLD)
+					{
+						horizWalls[x + (y + 1) * width] = decorator.getPortal(grid, x, y);
+					}
+
+					if (getGrid(grid, x - 1, y) == CORRIDOR_THRESHOLD)
+					{
+						vertWalls[x + y * (width + 1)] = decorator.getPortal(grid, x, y);
+					}
+
+					if (getGrid(grid, x + 1, y) == CORRIDOR_THRESHOLD)
+					{
+						vertWalls[x + y * (width + 1) + 1] = decorator.getPortal(grid, x, y);
+					}
+				}
+			}
 		}
 	}
 
 	private void initWalls(
 		Grid grid,
-		int width,
-		int length,
 		Wall[] horizWalls,
 		Wall[] vertWalls,
 		MapGenZoneScript.DungeonDecorator decorator)
@@ -147,10 +175,13 @@ public class Noise4jDungeonGen implements DungeonGen
 				null);
 		}
 
+		int width = grid.getWidth();
+		int height = grid.getHeight();
+
 		// set the generated walls
 		for (int x = 1; x < width - 1; x++)
 		{
-			for (int y = 1; y < length - 1; y++)
+			for (int y = 1; y < height - 1; y++)
 			{
 				// draw boundary walls
 
@@ -167,7 +198,7 @@ public class Noise4jDungeonGen implements DungeonGen
 				{
 					horizWalls[x + y * width] = decorator.getRoomWall(grid, x, y);
 				}
-				else if (y == length - 2)
+				else if (y == height - 2)
 				{
 					horizWalls[x + (y + 1) * width] = decorator.getRoomWall(grid, x, y);
 				}
@@ -216,5 +247,13 @@ public class Noise4jDungeonGen implements DungeonGen
 	private int getGrid(Grid grid, int x, int y)
 	{
 		return (int)(grid.get(x, y) * 10);
+	}
+
+	public void addTexture(java.util.Map<String, Texture> textures, Texture t)
+	{
+		if (t != null && t != Map.NO_WALL)
+		{
+			textures.put(t.getName(), t);
+		}
 	}
 }

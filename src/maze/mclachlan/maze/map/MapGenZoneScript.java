@@ -39,5 +39,7 @@ public class MapGenZoneScript extends ZoneScript
 		Wall getRoomWall(Grid grid, int x, int y);
 
 		Wall getCorridorWall(Grid grid, int x, int y);
+
+		Wall getPortal(Grid grid, int x, int y);
 	}
 }

@@ -42,5 +42,18 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				null,
 				null);
 		}
+
+		@Override
+		public Wall getPortal(Grid grid, int x, int y)
+		{
+			return new Wall(
+				Database.getInstance().getMazeTexture("CITY_DOOR_1").getTexture(),
+				null,
+				true,
+				true,
+				1,
+				null,
+				null);
+		}
 	}
 }

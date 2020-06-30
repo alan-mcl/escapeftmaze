@@ -5,3 +5,4 @@ github.com/alexjc/neural-doodle
 Sound & Music
 freesound.org
 http://www.abundant-music.com/
+http://dig.ccmixter.org: CC licensed music
