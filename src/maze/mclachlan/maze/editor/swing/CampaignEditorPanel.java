@@ -165,7 +165,14 @@ public class CampaignEditorPanel extends JPanel
 		description.setCaretPosition(0);
 		defaultPortrait.setText(c.getDefaultPortrait());
 		defaultRace.setText(c.getDefaultRace());
-		parentCampaign.setSelectedItem(c.getParentCampaign());
+		if (c.getParentCampaign() == null)
+		{
+			parentCampaign.setSelectedItem(EditorPanel.NONE);
+		}
+		else
+		{
+			parentCampaign.setSelectedItem(c.getParentCampaign());
+		}
 
 		startingScript.addActionListener(this);
 		introScript.addActionListener(this);
@@ -185,11 +192,10 @@ public class CampaignEditorPanel extends JPanel
 		p.setProperty("defaultPortrait", defaultPortrait.getText());
 		p.setProperty("introScript", introScript.getSelectedItem().toString());
 		String parent = (String)parentCampaign.getSelectedItem();
-		if (EditorPanel.NONE.equals(parent))
+		if (!EditorPanel.NONE.equals(parent))
 		{
-			parent = null;
+			p.setProperty("parentCampaign", parent);
 		}
-		p.setProperty("parentCampaign", parent);
 
 		currentCampaign.setDisplayName(displayName.getText());
 		currentCampaign.setDescription(description.getText());

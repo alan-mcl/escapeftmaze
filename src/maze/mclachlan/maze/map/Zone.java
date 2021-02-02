@@ -416,10 +416,14 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void init(long turnNr)
+	public void initZoneScript(long turnNr)
 	{
 		this.script.init(this, turnNr);
-		
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initTileScripts(long turnNr)
+	{
 		for (int x = 0; x < tiles.length; x++)
 		{
 			for (int y = 0; y < tiles[x].length; y++)

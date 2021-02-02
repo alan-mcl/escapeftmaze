@@ -239,7 +239,7 @@ suggestedNames=Female:Bolga,Iara,Ada,Blegda,Rali,Sinar,Tinar,Haran,Meran,Boga,So
 unlockVariable=
 unlockDescription=
 favouredEnemyModifier=
-characterCreationImage=race/blank
+characterCreationImage=race/dwarf
 @
 name=Pasht
 description=%n%n%nSpecial: Pasht can often dodge melee attacks.
