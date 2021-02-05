@@ -1,12 +1,14 @@
 package mclachlan.dungeongen.lbaw;
 
 
+import java.util.*;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.DungeonGen;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.MapGenZoneScript;
 import mclachlan.maze.map.Zone;
 
@@ -16,7 +18,8 @@ import mclachlan.maze.map.Zone;
 public class LbawDungeonGen implements DungeonGen
 {
 	@Override
-	public Zone generate(Zone base, long seed, MapGenZoneScript.DungeonDecorator decorator)
+	public List<MazeEvent> generate(Zone base, long seed, int dungeonLevel,
+		MapGenZoneScript.DungeonDecorator decorator)
 	{
 		MapBuilder mb = new MapBuilder(seed);
 
@@ -54,7 +57,7 @@ public class LbawDungeonGen implements DungeonGen
 
 		base.setMap(map);
 
-		return base;
+		return null;
 	}
 
 	private void initWalls(

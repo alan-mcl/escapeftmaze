@@ -66,7 +66,7 @@ public class Encounter extends TileScript
 		return getList(
 			new EncounterActorsEvent(
 				mazeVariable,
-				encounterTable.getName(),
+				encounterTable,
 				attitude,
 				ambushStatus) );
 	}

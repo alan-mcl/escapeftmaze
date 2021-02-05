@@ -1,16 +1,20 @@
 package mclachlan.dungeongen.noise4j;
 
+import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.Map;
-import mclachlan.crusader.Texture;
-import mclachlan.crusader.Tile;
-import mclachlan.crusader.Wall;
+import mclachlan.crusader.*;
 import mclachlan.dungeongen.DungeonGen;
 import mclachlan.dungeongen.noise4j.map.Grid;
+import mclachlan.dungeongen.noise4j.map.generator.room.AbstractRoomGenerator;
 import mclachlan.dungeongen.noise4j.map.generator.room.dungeon.DungeonGenerator;
 import mclachlan.dungeongen.noise4j.map.generator.util.Generators;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.MovePartyEvent;
 import mclachlan.maze.map.MapGenZoneScript;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.script.Encounter;
 
 /**
  *
@@ -22,10 +26,12 @@ public class Noise4jDungeonGen implements DungeonGen
 	public static final int CORRIDOR_THRESHOLD = 1;
 
 	@Override
-	public Zone generate(Zone base, long seed,
+	public List<MazeEvent> generate(
+		Zone zone,
+		long seed, int dungeonLevel,
 		MapGenZoneScript.DungeonDecorator decorator)
 	{
-		Map baseMap = base.getMap();
+		Map baseMap = zone.getMap();
 		int width = baseMap.getWidth();
 		int length = baseMap.getLength();
 
@@ -44,15 +50,21 @@ public class Noise4jDungeonGen implements DungeonGen
 		dg.setTolerance(3); // Max difference between width and height.
 		dg.setMinRoomSize(3);
 
+		// random dungeon generation
 		dg.generate(grid);
 
-		Tile[] crusaderTiles = new Tile[width * length];
+		// create the Crusader Engine objects
+
+		// walls
 		Wall[] horizWalls = new Wall[baseMap.getHorizontalWalls().length];
 		Wall[] vertWalls = new Wall[baseMap.getVerticalWalls().length];
+		List<Portal> portals = new ArrayList<>();
 
 		initWalls(grid, horizWalls, vertWalls, decorator);
-		initDoors(grid, horizWalls, vertWalls, decorator);
+		initDoors(grid, zone, dungeonLevel, horizWalls, vertWalls, portals, decorator);
 
+		// tiles
+		Tile[] crusaderTiles = new Tile[width * length];
 		Tile[] baseTiles = baseMap.getTiles();
 		for (int i = 0; i < crusaderTiles.length; i++)
 		{
@@ -61,7 +73,6 @@ public class Noise4jDungeonGen implements DungeonGen
 				baseTiles[i].getFloorTexture(),
 				baseTiles[i].getLightLevel());
 		}
-
 		java.util.Map<String, Texture> textures = new HashMap<>();
 		for (int i = 0; i < crusaderTiles.length; i++)
 		{
@@ -85,29 +96,51 @@ public class Noise4jDungeonGen implements DungeonGen
 			addTexture(textures, vertWalls[i].getMaskTexture());
 		}
 
+		// create the Crusader engine map
 		Map map = new Map(
 			length,
 			width,
 			baseMap.getBaseImageSize(),
 			baseMap.getSkyTextureIndex(),
 			baseMap.getSkyTextureType(),
-			baseMap.getTiles(),
-//			crusaderTiles,
+			crusaderTiles, //baseMap.getTiles(),
 			textures.values().toArray(new Texture[]{}),
 			horizWalls,
 			vertWalls,
 			baseMap.getObjects(),
 			baseMap.getScripts());
-
 		map.setHorizontalWalls(horizWalls);
 		map.setVerticalWalls(vertWalls);
 
-		base.setMap(map);
+		zone.setMap(map);
 
-		return base;
+		// add Portals to the Maze zone
+		for (Portal p : portals)
+		{
+			zone.addPortal(p);
+		}
+
+		// set the player origin
+		List<AbstractRoomGenerator.Room> rooms = dg.getRooms();
+		AbstractRoomGenerator.Room room = rooms.get(new Random().nextInt(rooms.size()));
+
+		Point playerOrigin = new Point(
+			room.getX() + room.getWidth() / 2,
+			room.getY() + room.getHeight() / 2);
+		zone.setPlayerOrigin(playerOrigin);
+
+		List<MazeEvent> result = new ArrayList<>();
+		result.add(new MovePartyEvent(playerOrigin, CrusaderEngine.Facing.NORTH));
+
+		return result;
 	}
 
-	private void initDoors(Grid grid, Wall[] horizWalls, Wall[] vertWalls,
+	private void initDoors(
+		Grid grid,
+		Zone zone,
+		int dungeonLevel, Wall[] horizWalls,
+		Wall[] vertWalls,
+		List<Portal> portals,
 		MapGenZoneScript.DungeonDecorator decorator)
 	{
 		int width = grid.getWidth();
@@ -120,24 +153,108 @@ public class Noise4jDungeonGen implements DungeonGen
 			{
 				if (getGrid(grid, x, y) == ROOM_THRESHOLD)
 				{
+					boolean isEncounter = false;
+
 					if (getGrid(grid, x, y - 1) == CORRIDOR_THRESHOLD)
 					{
-						horizWalls[x + y * width] = decorator.getPortal(grid, x, y);
+						List<Object> list = decorator.handlePortal(
+							grid,
+							new Point(x, y),
+							CrusaderEngine.Facing.NORTH,
+							new Point(x, y - 1),
+							CrusaderEngine.Facing.SOUTH);
+
+						for (Object obj : list)
+						{
+							if (obj instanceof Wall)
+							{
+								horizWalls[x + y * width] = (Wall)obj;
+							}
+							else if (obj instanceof Portal)
+							{
+								portals.add((Portal)obj);
+							}
+						}
+
+						isEncounter = true;
 					}
 
 					if (getGrid(grid, x, y + 1) == CORRIDOR_THRESHOLD)
 					{
-						horizWalls[x + (y + 1) * width] = decorator.getPortal(grid, x, y);
+						List<Object> list = decorator.handlePortal(
+							grid,
+							new Point(x, y),
+							CrusaderEngine.Facing.SOUTH,
+							new Point(x, y + 1),
+							CrusaderEngine.Facing.NORTH);
+
+						for (Object obj : list)
+						{
+							if (obj instanceof Wall)
+							{
+								horizWalls[x + (y + 1) * width] = (Wall)obj;
+							}
+							else if (obj instanceof Portal)
+							{
+								portals.add((Portal)obj);
+							}
+						}
+
+						isEncounter = true;
 					}
 
 					if (getGrid(grid, x - 1, y) == CORRIDOR_THRESHOLD)
 					{
-						vertWalls[x + y * (width + 1)] = decorator.getPortal(grid, x, y);
+						List<Object> list = decorator.handlePortal(
+							grid,
+							new Point(x, y),
+							CrusaderEngine.Facing.WEST,
+							new Point(x - 1, y),
+							CrusaderEngine.Facing.EAST);
+
+						for (Object obj : list)
+						{
+							if (obj instanceof Wall)
+							{
+								vertWalls[x + y * (width + 1)] = (Wall)obj;
+							}
+							else if (obj instanceof Portal)
+							{
+								portals.add((Portal)obj);
+							}
+						}
+
+						isEncounter = true;
 					}
 
 					if (getGrid(grid, x + 1, y) == CORRIDOR_THRESHOLD)
 					{
-						vertWalls[x + y * (width + 1) + 1] = decorator.getPortal(grid, x, y);
+						List<Object> list = decorator.handlePortal(
+							grid,
+							new Point(x, y),
+							CrusaderEngine.Facing.EAST,
+							new Point(x + 1, y),
+							CrusaderEngine.Facing.WEST);
+
+						for (Object obj : list)
+						{
+							if (obj instanceof Wall)
+							{
+								vertWalls[x + y * (width + 1) + 1] = (Wall)obj;
+							}
+							else if (obj instanceof Portal)
+							{
+								portals.add((Portal)obj);
+							}
+						}
+
+						isEncounter = true;
+					}
+
+					if (isEncounter)
+					{
+						Encounter encounter = decorator.getEncounter(zone, x, y, dungeonLevel);
+						zone.getTile(new Point(x, y)).getScripts().add(encounter);
 					}
 				}
 			}

@@ -3265,7 +3265,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	class DrawColumn implements Callable
+	class DrawColumn implements Callable<Object>
 	{
 		private float castArc;
 		private int screenX;

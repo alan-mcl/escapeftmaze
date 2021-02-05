@@ -16,9 +16,10 @@ import mclachlan.maze.map.ZoneScript;
 public class TempleOfTheGate extends ZoneScript
 {
 	/*-------------------------------------------------------------------------*/
-	public void init(Zone zone, long turnNr)
+	public List<MazeEvent> init(Zone zone, long turnNr)
 	{
 		checkMazeVars(zone);
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

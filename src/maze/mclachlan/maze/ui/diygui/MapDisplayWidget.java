@@ -298,6 +298,7 @@ public class MapDisplayWidget extends DIYPanel
 			case CrusaderEngine.Facing.WEST:
 				xs = new int[]{x1 + width1, x1, x1 + width1};
 				ys = new int[]{y1, y1 + height1 / 2, y1 + height1};
+				break;
 			case CrusaderEngine.Facing.NORTH_EAST:
 				xs = new int[]{x1, x1+width1, x1+width1/2};
 				ys = new int[]{y1+height1/2,y1,y1+height1};

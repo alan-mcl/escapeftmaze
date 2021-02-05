@@ -1934,7 +1934,7 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void changeZone(String zoneName, Point pos, int facing)
+	public List<MazeEvent> changeZone(String zoneName, Point pos, int facing)
 	{
 		// todo: transferal of conditions on tiles in the old zone and the new zone
 
@@ -1949,12 +1949,18 @@ public class Maze implements Runnable
 		}
 
 		this.zone = Database.getInstance().getZone(zoneName);
-		this.zone.initZoneScript(getTurnNr());
+		List<MazeEvent> mazeEvents = this.zone.initZoneScript(getTurnNr());
 		this.ui.setZone(zone, pos, newFacing);
 		this.zone.initTileScripts(getTurnNr());
 
-		Tile t = zone.getTile(pos);
-		setPlayerPos(pos, newFacing);
+//		Tile t = zone.getTile(pos);
+
+		if (pos.x >= 0 || pos.y >= 0)
+		{
+			setPlayerPos(pos, newFacing);
+		}
+
+		return mazeEvents;
 	}
 	
 	/*-------------------------------------------------------------------------*/

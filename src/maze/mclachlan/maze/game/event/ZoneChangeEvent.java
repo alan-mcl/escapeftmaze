@@ -57,12 +57,12 @@ public class ZoneChangeEvent extends MazeEvent
 			JournalManager.getInstance().logbook(StringUtil.getUiLabel("j.depart.zone", zone));
 		}
 
-		Maze.getInstance().changeZone(zone, pos, facing);
+		List<MazeEvent> mazeEvents = Maze.getInstance().changeZone(zone, pos, facing);
 
 		JournalManager.getInstance().zoneJournal(StringUtil.getUiLabel("j.arrive.zone", zone));
 		JournalManager.getInstance().logbook(StringUtil.getUiLabel("j.arrive.zone", zone));
 
-		return null;
+		return mazeEvents;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -17,9 +17,11 @@ import mclachlan.crusader.Wall;
 public class EkirthsTomb extends ZoneScript
 {
 	/*-------------------------------------------------------------------------*/
-	public void init(Zone zone, long turnNr)
+	public List<MazeEvent> init(Zone zone, long turnNr)
 	{
 		checkMazeVars(zone);
+
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -314,7 +314,8 @@ public class V1Loader extends Loader
 			File[] files = dir.listFiles();
 			for (File file : files)
 			{
-				result.add(file.getName().split("\\.")[0]);
+				String name = file.getName();
+				result.add(name.substring(0, name.lastIndexOf(".")));
 			}
 		}
 

@@ -42,6 +42,9 @@ public class EncounterActorsEvent extends MazeEvent
 	private NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
 
+	// volatile
+	private EncounterTable encounterTableRef;
+
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
 		String mazeVariable,
@@ -55,6 +58,20 @@ public class EncounterActorsEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public EncounterActorsEvent(
+		String mazeVariable,
+		EncounterTable encounterTable,
+		NpcFaction.Attitude attitude, Combat.AmbushStatus ambushStatus)
+	{
+		this.mazeVariable = mazeVariable;
+		this.encounterTable = encounterTable.getName();
+		this.attitude = attitude;
+		this.ambushStatus = ambushStatus;
+
+		this.encounterTableRef = encounterTable;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
 		if (this.mazeVariable != null)
@@ -65,7 +82,12 @@ public class EncounterActorsEvent extends MazeEvent
 			}
 		}
 
-		EncounterTable table = Database.getInstance().getEncounterTable(encounterTable);
+		EncounterTable table = encounterTableRef;
+		if (table == null)
+		{
+			table = Database.getInstance().getEncounterTable(encounterTable);
+		}
+
 		FoeEntry foeEntry = table.getEncounterTable().getRandomItem();
 		List<FoeGroup> allFoes = foeEntry.generate();
 

@@ -126,7 +126,15 @@ public class DungeonGenerator extends AbstractRoomGenerator
 		joinRegions(grid);
 		// Removing corridors leading to nowhere:
 		removeDeadEnds(grid);
-		reset(); // Removing all unnecessary references.
+//		reset(); // Removing all unnecessary references.
+	}
+
+	/**
+	 * Returns the rooms
+	 */
+	public List<Room> getRooms()
+	{
+		return rooms;
 	}
 
 	/**

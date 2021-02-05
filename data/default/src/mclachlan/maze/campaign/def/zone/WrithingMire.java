@@ -38,7 +38,7 @@ public class WrithingMire extends ZoneScript
 	public static final String MAZE_VAR = "writhing.mire.zone.script.random.seed";
 
 	/*-------------------------------------------------------------------------*/
-	public void init(Zone zone, long turnNr)
+	public List<MazeEvent> init(Zone zone, long turnNr)
 	{
 		long seed;
 		if (MazeVariables.get(MAZE_VAR) != null)
@@ -51,6 +51,8 @@ public class WrithingMire extends ZoneScript
 		}
 
 		setWallStates(zone, seed);
+
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

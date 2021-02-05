@@ -1079,8 +1079,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		Vector<String> vec = new Vector<String>(Database.getInstance().getZoneNames());
 		Collections.sort(vec);
 		zone = new JComboBox(vec);
-		zoneX = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
-		zoneY = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		zoneX = new JSpinner(new SpinnerNumberModel(0, -1, 256, 1));
+		zoneY = new JSpinner(new SpinnerNumberModel(0, -1, 256, 1));
 		zoneFacing = new JComboBox(FACINGS);
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(

@@ -17,9 +17,9 @@ import mclachlan.maze.stat.Dice;
 public class IchibaCity extends ZoneScript
 {
 	/*-------------------------------------------------------------------------*/
-	public void init(Zone zone, long turnNr)
+	public List<MazeEvent> init(Zone zone, long turnNr)
 	{
-
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

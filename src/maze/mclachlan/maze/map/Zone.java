@@ -416,9 +416,9 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initZoneScript(long turnNr)
+	public List<MazeEvent> initZoneScript(long turnNr)
 	{
-		this.script.init(this, turnNr);
+		return this.script.init(this, turnNr);
 	}
 
 	/*-------------------------------------------------------------------------*/

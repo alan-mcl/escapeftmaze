@@ -37,7 +37,7 @@ public abstract class ZoneScript
 	 * @param turnNr
 	 * 	The turn nr of the current turn
 	 */
-	public abstract void init(Zone zone, long turnNr);
+	public abstract List<MazeEvent> init(Zone zone, long turnNr);
 
 	/*-------------------------------------------------------------------------*/
 	/**
