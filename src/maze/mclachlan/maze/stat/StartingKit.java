@@ -31,8 +31,11 @@ public class StartingKit extends DataObject
 	private String displayName;
 
 	private String description;
+	/** modifiers when chosen by a combat-focus class */
 	private StatModifier combatModifiers;
+	/** modifiers when chosen by a stealth-focus class */
 	private StatModifier stealthModifiers;
+	/** modifiers when chosen by a magic-focus class */
 	private StatModifier magicModifiers;
 
 	private String primaryWeapon;

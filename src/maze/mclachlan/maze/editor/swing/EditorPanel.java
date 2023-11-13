@@ -151,7 +151,7 @@ public abstract class EditorPanel
 		if (currentName != null)
 		{
 			DataObject dataObject = commit(currentName);
-			dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());;
+			dataObject.setCampaign(SwingEditor.instance.getCurrentCampaign());
 		}
 
 		currentName = (String)names.getSelectedValue();

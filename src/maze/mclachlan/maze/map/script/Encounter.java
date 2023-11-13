@@ -21,10 +21,15 @@ package mclachlan.maze.map.script;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.EncounterTable;
+import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.TileScript;
+import mclachlan.maze.stat.FoeGroup;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
 
@@ -61,14 +66,59 @@ public class Encounter extends TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public void initialise(Maze maze, Point tile, int tileIndex)
+	{
+		if (isRovingSpritesMode(maze))
+		{
+			// copied from EncounterActorsEvent
+
+			if (this.mazeVariable != null)
+			{
+				if (MazeVariables.getBoolean(this.mazeVariable))
+				{
+					return;
+				}
+			}
+
+
+			FoeEntry foeEntry = encounterTable.getEncounterTable().getRandomItem();
+			List<FoeGroup> allFoes = foeEntry.generate();
+
+			if (ambushStatus == null)
+			{
+				ambushStatus = GameSys.getInstance().determineAmbushStatus(
+					Maze.getInstance().getParty(),
+					allFoes);
+			}
+
+			Maze.getInstance().encounterActors(
+				new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		return getList(
-			new EncounterActorsEvent(
-				mazeVariable,
-				encounterTable,
-				attitude,
-				ambushStatus) );
+		if (!isRovingSpritesMode(maze))
+		{
+			return getList(
+				new EncounterActorsEvent(
+					mazeVariable,
+					encounterTable,
+					attitude,
+					ambushStatus));
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	public boolean isRovingSpritesMode(Maze maze)
+	{
+		return Boolean.getBoolean(maze.getAppConfig().get(Maze.AppConfig.DEBUG_KNOWLEDGE_EVENTS));
 	}
 
 	/*-------------------------------------------------------------------------*/

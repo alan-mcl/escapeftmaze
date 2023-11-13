@@ -25,7 +25,6 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
 
 /**
  *

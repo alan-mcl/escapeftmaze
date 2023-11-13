@@ -48,6 +48,8 @@ public class DefaultRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.CHECKBOX, new DefaultCheckboxRenderer());
 		renderers.put(DIYToolkit.RADIO_BUTTON, new DefaultRadioButtonRenderer());
 		renderers.put(DIYToolkit.LIST_BOX_ITEM, new DefaultListBoxRenderer());
+		renderers.put(DIYToolkit.COMBO_BOX, new DefaultComboBoxRenderer());
+		renderers.put(DIYToolkit.COMBO_ITEM, new DefaultComboItemRenderer());
 	}
 
 	/*-------------------------------------------------------------------------*/

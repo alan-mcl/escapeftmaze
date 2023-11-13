@@ -850,6 +850,7 @@ public class Database
 			if (conditionEffects == null)
 			{
 				conditionEffects = (Map<String, ConditionEffect>)mergeMaps(Loader::loadConditionEffects);
+
 			}
 			return conditionEffects;
 		}
@@ -1424,6 +1425,10 @@ public class Database
 
 		for (DataObject d : map.values())
 		{
+			if (d.getCampaign() == null)
+			{
+				throw new MazeException("invalid NULL campaign: "+d.getName()+"\n"+d);
+			}
 			if (campaign.getName().equals(d.getCampaign()))
 			{
 				result.put(d.getName(), d);

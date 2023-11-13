@@ -17,21 +17,20 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.ui.diygui.render;
+package mclachlan.diygui.render.dflt;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import mclachlan.diygui.DIYComboBox;
-import mclachlan.diygui.util.MutableTree;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
-import mclachlan.maze.util.MazeException;
+import mclachlan.diygui.util.MutableTree;
 
 /**
  * Renderer for combo box items
  */
-public class MazeComboItemRenderer extends Renderer
+public class DefaultComboItemRenderer extends Renderer
 {
 	/*-------------------------------------------------------------------------*/
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
@@ -56,15 +55,15 @@ public class MazeComboItemRenderer extends Renderer
 			switch (comboItem.getState())
 			{
 				case DEFAULT:
-					col1 = MazeComboBoxRenderer.GRADIENT_COLOUR_1;
-					col2 = MazeComboBoxRenderer.GRADIENT_COLOUR_2;
+					col1 = Color.BLUE;
+					col2 = Color.GREEN;
 					break;
 				case HOVER:
-					col1 = MazeComboBoxRenderer.GRADIENT_COLOUR_1.brighter();
-					col2 = MazeComboBoxRenderer.GRADIENT_COLOUR_2.brighter();
+					col1 = Color.BLUE.brighter();
+					col2 = Color.GREEN.brighter();
 					break;
 				default:
-					throw new MazeException("invalid state "+comboItem.getState());
+					throw new RuntimeException("invalid state "+comboItem.getState());
 			}
 		}
 		else
@@ -83,14 +82,14 @@ public class MazeComboItemRenderer extends Renderer
 		{
 			if (comboItem.getParent().getPopupExpansionDirection() == DIYComboBox.PopupExpansionDirection.RIGHT)
 			{
-				MazeComboBoxRenderer.drawPopupIndicator(g,
+				DefaultComboBoxRenderer.drawPopupIndicator(g,
 					x + width - height, y + indicatorInset, height - indicatorInset * 2, height - indicatorInset * 2,
 					col1, col2,
 					DIYComboBox.PopupDirection.RIGHT);
 			}
 			else
 			{
-				MazeComboBoxRenderer.drawPopupIndicator(g,
+				DefaultComboBoxRenderer.drawPopupIndicator(g,
 					x + indicatorInset, y + indicatorInset, height - indicatorInset * 2, height - indicatorInset * 2,
 					col1, col2,
 					DIYComboBox.PopupDirection.LEFT);

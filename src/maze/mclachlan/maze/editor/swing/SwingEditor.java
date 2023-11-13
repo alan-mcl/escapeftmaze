@@ -835,7 +835,8 @@ public class SwingEditor extends JFrame implements WindowListener
 		{
 			if (editor.getCurrentName() != null)
 			{
-				editor.commit(editor.getCurrentName());
+				DataObject commit = editor.commit(editor.getCurrentName());
+				commit.setCampaign(this.getCurrentCampaign());
 			}
 		}
 		

@@ -988,7 +988,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private PlayerCharacter getTempPlayerCharacterObject()
 	{
-		return new Leveler().createNewPlayerCharacter(
+		PlayerCharacter temp = new Leveler().createNewPlayerCharacter(
 			name,
 			characterClass,
 			race,
@@ -996,6 +996,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			"",
 			personality,
 			null);
+		temp.applyStartingKit(startingKit);
+		return temp;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1444,9 +1446,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				return characterClasses.isEnabled(characterClasses.getSelected());
 			}
 			case CHOOSE_KIT:
-			{
-				return true;
-			}
 			case CHOOSE_SPELLS:
 			{
 				// can save spell picks

@@ -24,12 +24,12 @@ import java.awt.event.KeyEvent;
 import java.awt.image.BufferStrategy;
 import java.util.*;
 import mclachlan.diygui.*;
+import mclachlan.diygui.render.dflt.DefaultRendererFactory;
 import mclachlan.diygui.toolkit.DIYBorderLayout;
 import mclachlan.diygui.toolkit.DIYButtonGroup;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.util.HashMapMutableTree;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
 
 /**
  * A simple client for testing the engine.
@@ -53,7 +53,8 @@ public class TestClient extends Frame
 		this.setTitle("Test Client");
 		
 		gui = new DIYToolkit(SCREEN_WIDTH, SCREEN_HEIGHT, this,
-			MazeRendererFactory.class.getName());
+//			MazeRendererFactory.class.getName());
+			DefaultRendererFactory.class.getName());
 
 		GraphicsDevice device =
 			GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();

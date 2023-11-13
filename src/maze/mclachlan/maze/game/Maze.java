@@ -1936,7 +1936,7 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> changeZone(String zoneName, Point pos, int facing)
 	{
-		// todo: transferal of conditions on tiles in the old zone and the new zone
+		// todo: persistance of conditions on tiles in the old zone and the new zone
 
 		int newFacing;
 		if (facing == ZoneChangeEvent.Facing.UNCHANGED)
@@ -2276,6 +2276,7 @@ public class Maze implements Runnable
 
 		public static final String DEBUG_KNOWLEDGE_EVENTS = "mclachlan.maze.game.debug_knowledge_events";
 		public static final String DISABLE_RANDOM_SPAWNS = "mclachlan.maze.game.disable_random_spawns";
+		public static final String ROVING_SPRITES_MODE = "mclachlan.maze.game.roving_sprites";
 		public static final String DEFAULT_FONT = "mclachlan.maze.screen.default_font";
 		public static final String DEFAULT_FONT_SIZE = "mclachlan.maze.screen.default_font_size";
 	}

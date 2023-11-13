@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.ui.diygui.render;
+package mclachlan.diygui.render.dflt;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -25,17 +25,14 @@ import mclachlan.diygui.DIYComboBox;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
-import mclachlan.maze.util.MazeException;
-
-import static mclachlan.maze.ui.diygui.Constants.Colour;
 
 /**
  *
  */
-public class MazeComboBoxRenderer extends Renderer
+public class DefaultComboBoxRenderer extends Renderer
 {
-	public static final Color GRADIENT_COLOUR_1 = Colour.GOLD.brighter();
-	public static final Color GRADIENT_COLOUR_2 = Colour.GOLD.darker();
+	public static final Color GRADIENT_COLOUR_1 = Color.YELLOW.brighter();
+	public static final Color GRADIENT_COLOUR_2 = Color.YELLOW.darker();
 
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
@@ -68,7 +65,7 @@ public class MazeComboBoxRenderer extends Renderer
 					col2 = GRADIENT_COLOUR_1;
 					break;
 				default:
-					throw new MazeException("invalid state "+combo.getEditorState());
+					throw new RuntimeException("invalid state "+combo.getEditorState());
 			}
 		}
 		else
@@ -176,7 +173,7 @@ public class MazeComboBoxRenderer extends Renderer
 				x2 = x+width/2; y2 = y+height;
 				x3 = x+width; y3 = y;
 				break;
-			default: throw new MazeException(dir.toString());
+			default: throw new RuntimeException(dir.toString());
 		}
 
 		g.setColor(GRADIENT_COLOUR_2);
