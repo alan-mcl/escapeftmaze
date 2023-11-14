@@ -739,6 +739,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		this.mainLayout.show(this.movementScreen);
 		this.partyOptionsAndTextWidget.setCurrentCombat(Maze.getInstance().getCurrentCombat());
+
+		getMusic().stop();
 	}
 
 	public void showMagicScreen()
@@ -782,6 +784,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.refreshCharacterData();
 		this.mainLayout.show(this.movementScreen);
 		this.movementCardLayout.show(this.partyOptionsAndTextWidget);
+
+		getMusic().stop();
 	}
 
 	public void showRestingScreen()
