@@ -1411,7 +1411,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			zone.getMap(),
 			DiyGuiUserInterface.MAZE_WIDTH,
 			DiyGuiUserInterface.MAZE_HEIGHT,
-			CrusaderEngine.MovementMode.OCTO,
+			CrusaderEngine.MovementMode.DISCRETE,
 			zone.getShadeTargetColor(),
 			zone.doShading(),
 			zone.doLighting(),

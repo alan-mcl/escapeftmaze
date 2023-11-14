@@ -41,6 +41,7 @@ Other
  - Only applying the combat event delay while in combat
  - Added performance logging, off by default
  - Crusader engine: removing the legacy transparency colour support
+ - Bugfix to background music playback
 
 ---------------------------------------
 v0.917 (24 April 2018)

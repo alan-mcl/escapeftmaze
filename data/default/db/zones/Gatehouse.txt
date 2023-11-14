@@ -7,8 +7,8 @@ shadeTargetColor: ff000000
 transparentColor: ffffffff
 doShading: true
 doLighting: true
-shadingDistance: 0.5
-shadingMultiplier: 0.85
+shadingDistance: 0.39999999999999997
+shadingMultiplier: 0.65
 projectionPlaneOffset: -40
 playerFieldOfView: 2
 scaleDistFromProjPlane: 0.65

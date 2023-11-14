@@ -35,10 +35,24 @@ public class WavAudioPlayer implements AudioPlayer
 	private Map<String, Clip> clips = new HashMap<String, Clip>();
 
 	/*-------------------------------------------------------------------------*/
-	public void playSound(String clipName)
+
+	/**
+	 * @param clipName
+	 * 	Name of the clip to play
+	 * @param volume
+	 * 	Volume in percent (0..100)
+	 */
+	public void playSound(String clipName, int volume)
 	{
 		Clip clip = Database.getInstance().getClip(clipName);
 		clip.setMicrosecondPosition(0);
+
+		FloatControl volControl = (FloatControl)clip.getControl(FloatControl.Type.MASTER_GAIN);
+
+		float gain = (float) (Math.log(volume/100D) / Math.log(10.0) * 20.0);
+
+		volControl.setValue(gain);
+
 		clip.start();
 	}
 	

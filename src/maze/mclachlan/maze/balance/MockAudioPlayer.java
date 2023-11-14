@@ -28,7 +28,7 @@ import mclachlan.maze.audio.AudioPlayer;
 */
 class MockAudioPlayer implements AudioPlayer
 {
-	public void playSound(String clipName)
+	public void playSound(String clipName, int vol)
 	{
 		//no op
 	}

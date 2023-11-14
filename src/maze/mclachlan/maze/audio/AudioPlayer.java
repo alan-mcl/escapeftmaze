@@ -27,7 +27,7 @@ import javax.sound.sampled.Clip;
  */
 public interface AudioPlayer
 {
-	public void playSound(String clipName);
+	void playSound(String clipName, int volume);
 
 	Clip getClip(String clipName, InputStream stream);
 }
