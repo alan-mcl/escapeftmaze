@@ -386,7 +386,7 @@ public class Maze implements Runnable
 		List<PlayerCharacter> pcs;
 		do
 		{
-			pcs = new ArrayList<PlayerCharacter>();
+			pcs = new ArrayList<>();
 
 			for (int i=0; i<6; i++)
 			{
@@ -397,15 +397,11 @@ public class Maze implements Runnable
 		}
 		while (!leveler.validateParty(pcs));
 
-		Collections.sort(pcs, new Comparator<PlayerCharacter>()
-		{
-			public int compare(PlayerCharacter pc1, PlayerCharacter pc2)
-			{
-				CharacterClass.Focus f1 = pc1.getCharacterClass().getFocus();
-				CharacterClass.Focus f2 = pc2.getCharacterClass().getFocus();
+		pcs.sort((pc1, pc2) -> {
+			CharacterClass.Focus f1 = pc1.getCharacterClass().getFocus();
+			CharacterClass.Focus f2 = pc2.getCharacterClass().getFocus();
 
-				return f1.getSortOrder() - f2.getSortOrder();
-			}
+			return f1.getSortOrder() - f2.getSortOrder();
 		});
 
 		// add PC to the party and go go go!

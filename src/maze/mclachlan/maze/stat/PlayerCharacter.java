@@ -652,7 +652,7 @@ public class PlayerCharacter extends UnifiedActor
 				}
 			}
 
-			if (getModifier(Stats.Modifier.LOCK_AND_TRAP) > 0)
+			if (isActiveModifier(Stats.Modifier.LOCK_AND_TRAP))
 			{
 				result.add(new DisarmTrapOption(), null);
 			}
@@ -682,7 +682,7 @@ public class PlayerCharacter extends UnifiedActor
 				}
 			}
 
-			if (getModifier(Stats.Modifier.LOCK_AND_TRAP) > 0)
+			if (isActiveModifier(Stats.Modifier.LOCK_AND_TRAP))
 			{
 				result.add(new PickLockOption(), null);
 			}
