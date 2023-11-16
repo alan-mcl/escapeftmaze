@@ -2067,10 +2067,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			initAndSortObjects();
 
 			// fill the render buffer with alpha
-			for (int i = 0; i < renderBuffer.length; i++)
-			{
-				renderBuffer[i] = 0x00000000;
-			}
+			Arrays.fill(renderBuffer, 0x00000000);
 
 			try
 			{

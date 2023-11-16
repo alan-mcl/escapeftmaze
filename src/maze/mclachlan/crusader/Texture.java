@@ -40,7 +40,7 @@ public class Texture implements Comparable<Texture>
 	/** Used by the engine */
 	int[][] imageData;
 
-	private String name;
+	private final String name;
 
 	/** Width of all the images, in pixels */
 	public int imageWidth;

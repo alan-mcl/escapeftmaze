@@ -25,13 +25,14 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Texture;
+import mclachlan.crusader.script.MoveObjectScript;
 import mclachlan.crusader.script.TempChangeTexture;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPanel;
@@ -179,6 +180,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			SCREEN_EDGE_INSET + ZONE_DISPLAY_HEIGHT + MAZE_HEIGHT +10,
 			MAZE_WIDTH,
 			SCREEN_HEIGHT - (SCREEN_EDGE_INSET*2 + ZONE_DISPLAY_HEIGHT + MAZE_HEIGHT +10));
+
+		System.out.println("LOW_BOUNDS = [" + LOW_BOUNDS.x + ","+LOW_BOUNDS.y+","+LOW_BOUNDS.width+","+LOW_BOUNDS.height+"]");
 
 		try
 		{
@@ -1349,6 +1352,10 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					double arc = increment * (foeIndex + 1) + (-0.1 * (foeGroup % 2)); // stagger the groups
 					double distance = 0.5 + (0.5 * foeGroup);
 					this.addObjectInFrontOfPlayer(obj, distance, arc, true);
+
+					// debug! todo remove
+					this.raycaster.addScript(new MoveObjectScript(obj, 32, .1));
+
 				}
 			}
 		}
