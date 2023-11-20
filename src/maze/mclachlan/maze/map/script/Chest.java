@@ -89,7 +89,8 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 			0,
 			false,
 			null,
-			null);
+			null,
+			EngineObject.Alignment.BOTTOM);
 	}
 	
 	/*-------------------------------------------------------------------------*/

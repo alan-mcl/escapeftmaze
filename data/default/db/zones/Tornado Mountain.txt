@@ -2902,31 +2902,31 @@ playerOrigin: 28:25
 1055: DIRT_WALL_1::::true
 
 -objects-
-0: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:861:false::00001:
-1: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:108:false::000000001:
-2: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:181:false::000000001:
-3: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:546:false::001:
-4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:610:false::000001:
-5: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:612:false::000000001:
-6: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:649:false::0000001:
-7: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:689:false::000001:
-8: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:739:false::00001:
-9: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:793:false::01:
-10: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:905:false::00000001:
-11: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:911:false::000000001:
-12: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:942:false::000001:
-13: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:962:false::1:
-14: SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:829:true::00001:
-15: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:212:false::001:
-16: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:180:false::000001:
-17: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:148:false::01:
-18: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:115:false::1:
-19: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:114:false::00001:
-20: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:146:false::001:
-21: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:145:false::001:
-22: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:177:false::01:
-23: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:210:false::000000001:
-24: DUNGEON_ARCH_1:DUNGEON_ARCH_1:TRANSPARENT:TRANSPARENT:495:false::00001:
+0: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:861:false::00001::BOTTOM
+1: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:108:false::000000001::BOTTOM
+2: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:181:false::000000001::BOTTOM
+3: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:546:false::001::BOTTOM
+4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:610:false::000001::BOTTOM
+5: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:612:false::000000001::BOTTOM
+6: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:649:false::0000001::BOTTOM
+7: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:689:false::000001::BOTTOM
+8: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:739:false::00001::BOTTOM
+9: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:793:false::01::BOTTOM
+10: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:905:false::00000001::BOTTOM
+11: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:911:false::000000001::BOTTOM
+12: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:942:false::000001::BOTTOM
+13: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:962:false::1::BOTTOM
+14: SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:829:true::00001::BOTTOM
+15: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:212:false::001::BOTTOM
+16: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:180:false::000001::BOTTOM
+17: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:148:false::01::BOTTOM
+18: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:115:false::1::BOTTOM
+19: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:114:false::00001::BOTTOM
+20: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:146:false::001::BOTTOM
+21: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:145:false::001::BOTTOM
+22: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:177:false::01::BOTTOM
+23: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:210:false::000000001::BOTTOM
+24: DUNGEON_ARCH_1:DUNGEON_ARCH_1:TRANSPARENT:TRANSPARENT:495:false::00001::BOTTOM
 
 -scripts-
 

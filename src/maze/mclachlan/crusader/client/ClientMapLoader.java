@@ -341,7 +341,8 @@ public class ClientMapLoader
 							tileIndex, 
 							isLightSource,
 							null,
-							null));
+							null,
+							EngineObject.Alignment.BOTTOM));
 				}
 				
 				objects = new EngineObject[result.size()];

@@ -177,7 +177,7 @@ public class ScatterObject extends Tool implements ActionListener
 					
 					editor.getMap().addObject(
 						new EngineObject(
-							null, tx, tx, tx, tx, index, false, null, mask));
+							null, tx, tx, tx, tx, index, false, null, mask, EngineObject.Alignment.BOTTOM));
 				}
 			}
 		}

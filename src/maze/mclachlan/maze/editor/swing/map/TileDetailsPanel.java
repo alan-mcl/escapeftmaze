@@ -72,6 +72,7 @@ public class TileDetailsPanel extends JPanel
 	private SingleTileScriptComponent mouseClickScript;
 	private List<JCheckBox> placementMask;
 	private JButton quickObjectTexture;
+	private JComboBox<EngineObject.Alignment> verticalAlignment;
 
 	/*-------------------------------------------------------------------------*/
 	public TileDetailsPanel(Zone zone, boolean multiSelect)
@@ -197,6 +198,11 @@ public class TileDetailsPanel extends JPanel
 		westTexture = new JComboBox(textures);
 		westTexture.addActionListener(this);
 		dodgyGridBagShite(content, new JLabel("West Texture:"), westTexture, gbc);
+
+		verticalAlignment = new JComboBox<>(EngineObject.Alignment.values());
+		verticalAlignment.setSelectedItem(EngineObject.Alignment.BOTTOM);
+		verticalAlignment.addActionListener(this);
+		dodgyGridBagShite(content, new JLabel("Vertical Alignment:"), verticalAlignment, gbc);
 		
 		isLightSource = new JCheckBox("Light Source?");
 		isLightSource.addActionListener(this);
@@ -206,7 +212,7 @@ public class TileDetailsPanel extends JPanel
 		dodgyGridBagShite(content, new JLabel("Click Script:"), mouseClickScript, gbc);
 		
 		JPanel placementPanel = new JPanel(new GridLayout(3,3));
-		placementMask = new ArrayList<JCheckBox>(9);
+		placementMask = new ArrayList<>(9);
 		for (int i = 0; i < 9; i++)
 		{
 			placementMask.add(new JCheckBox());
@@ -259,6 +265,7 @@ public class TileDetailsPanel extends JPanel
 		southTexture.removeActionListener(this);
 		eastTexture.removeActionListener(this);
 		westTexture.removeActionListener(this);
+		verticalAlignment.removeActionListener(this);
 		isLightSource.removeActionListener(this);
 		for (JCheckBox b : placementMask)
 		{
@@ -310,6 +317,7 @@ public class TileDetailsPanel extends JPanel
 				southTexture.setSelectedItem(obj.getSouthTexture().getName());
 				eastTexture.setSelectedItem(obj.getEastTexture().getName());
 				westTexture.setSelectedItem(obj.getWestTexture().getName());
+				verticalAlignment.setSelectedItem(obj.getVerticalAlignment());
 				isLightSource.setSelected(obj.isLightSource());
 				BitSet mask = obj.getPlacementMask();
 				MouseClickScriptAdapter m = ((MouseClickScriptAdapter)obj.getMouseClickScript());
@@ -333,6 +341,7 @@ public class TileDetailsPanel extends JPanel
 				southTexture.setSelectedIndex(0);
 				eastTexture.setSelectedIndex(0);
 				westTexture.setSelectedIndex(0);
+				verticalAlignment.setSelectedItem(EngineObject.Alignment.BOTTOM);
 				isLightSource.setSelected(false);
 				mouseClickScript.refresh(null, zone);
 				for (JCheckBox b : placementMask)
@@ -358,6 +367,7 @@ public class TileDetailsPanel extends JPanel
 		southTexture.addActionListener(this);
 		eastTexture.addActionListener(this);
 		westTexture.addActionListener(this);
+		verticalAlignment.addActionListener(this);
 		isLightSource.addActionListener(this);
 		for (JCheckBox b : placementMask)
 		{
@@ -374,6 +384,7 @@ public class TileDetailsPanel extends JPanel
 		southTexture.setEnabled(true);
 		eastTexture.setEnabled(true);
 		westTexture.setEnabled(true);
+		verticalAlignment.setEnabled(true);
 		mouseClickScript.setEnabled(true);
 		isLightSource.setEnabled(true);
 		for (JCheckBox b : placementMask)
@@ -391,6 +402,7 @@ public class TileDetailsPanel extends JPanel
 		southTexture.setEnabled(false);
 		eastTexture.setEnabled(false);
 		westTexture.setEnabled(false);
+		verticalAlignment.setEnabled(false);
 		isLightSource.setEnabled(false);
 		mouseClickScript.setEnabled(false);
 		for (JCheckBox b : placementMask)
@@ -577,7 +589,7 @@ public class TileDetailsPanel extends JPanel
 					name = null;
 				}
 				map.addObject(new EngineObject(
-					name,tx,tx,tx,tx, index, false, null, null));
+					name,tx,tx,tx,tx, index, false, null, null, EngineObject.Alignment.BOTTOM));
 			}
 			else
 			{
@@ -604,6 +616,10 @@ public class TileDetailsPanel extends JPanel
 		{
 			map.getObject(index).setWestTexture(
 				Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture());
+		}
+		else if (e.getSource() == verticalAlignment)
+		{
+			map.getObject(index).setVerticalAlignment((EngineObject.Alignment)verticalAlignment.getSelectedItem());
 		}
 		else if (e.getSource() == isLightSource)
 		{

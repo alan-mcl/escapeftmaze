@@ -77,8 +77,6 @@ public class Texture implements Comparable<Texture>
 		int textureScrollSpeed)
 	{
 		this.name = name;
-		this.imageWidth = imageWidth;
-		this.imageHeight = imageHeight;
 		this.animationDelay = animationDelay;
 		this.images = frames;
 		this.scrollBehaviour = scrollBehaviour;
@@ -86,6 +84,13 @@ public class Texture implements Comparable<Texture>
 		if (frames != null)
 		{
 			this.nrFrames = frames.length;
+			this.imageWidth = frames[0].getWidth();
+			this.imageHeight = frames[0].getHeight();
+		}
+		else
+		{
+			this.imageWidth = 0;
+			this.imageHeight = 0;
 		}
 	}
 

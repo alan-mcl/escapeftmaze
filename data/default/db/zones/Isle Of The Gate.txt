@@ -9064,25 +9064,25 @@ playerOrigin: 33:19
 4159: TREE_WALL_1::::true
 
 -objects-
-0: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:2277:false:7,,,false,Isle Of The Gate to Ekirth's Tomb:00001:
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2212:false::000000001:
-2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2214:false::0000001:
-3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2340:false::001:
-4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2342:false::1:
-5: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2143:false::000000001:
-6: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2021:false::1:
-7: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2215:false::1:
-8: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2464:false::00000001:
-9: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:1887:false::000000001:
-10: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2013:false::0000001:
-11: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2404:false::0001:
-12: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2146:false::0000001:
-13: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2533:false::000001:
-14: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2725:false::000000001:
-15: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2217:false::00001:
-16: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2338:false::001:
-17: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2398:false::000001:
-18: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1888:false::01:
+0: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:2277:false:7,,,false,Isle Of The Gate to Ekirth's Tomb:00001::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2212:false::000000001::BOTTOM
+2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2214:false::0000001::BOTTOM
+3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2340:false::001::BOTTOM
+4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:2342:false::1::BOTTOM
+5: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2143:false::000000001::BOTTOM
+6: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2021:false::1::BOTTOM
+7: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2215:false::1::BOTTOM
+8: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2464:false::00000001::BOTTOM
+9: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:1887:false::000000001::BOTTOM
+10: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2013:false::0000001::BOTTOM
+11: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2404:false::0001::BOTTOM
+12: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2146:false::0000001::BOTTOM
+13: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2533:false::000001::BOTTOM
+14: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2725:false::000000001::BOTTOM
+15: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2217:false::00001::BOTTOM
+16: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2338:false::001::BOTTOM
+17: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:2398:false::000001::BOTTOM
+18: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1888:false::01::BOTTOM
 
 -scripts-
 

@@ -25,16 +25,17 @@ import java.util.List;
 import mclachlan.maze.data.v1.DataObject;
 
 /**
- *
+ * The textures used by the raycaster to render walls, floors, ceilings and
+ * objects/foes in the map.
  */
 public class MazeTexture extends DataObject
 {
-	String name;
-	List<String> imageResources;
-	Texture texture;
-	int imageWidth;
-	int imageHeight;
-	int animationDelay;
+	private String name;
+	private List<String> imageResources;
+	private Texture texture;
+	private int imageWidth; // todo remove
+	private int imageHeight; // todo remove
+	private int animationDelay;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture(
@@ -60,28 +61,6 @@ public class MazeTexture extends DataObject
 
 		this.texture = new Texture(name, imageWidth, imageHeight, images, animationDelay, scrollBehaviour, scrollSpeed);
 	}
-
-	/*-------------------------------------------------------------------------*/
-	/*public MazeTexture(
-		String name,
-		List<String> imageResources,
-		int animationDelay)
-	{
-		this.name = name;
-		this.imageResources = imageResources;
-		this.animationDelay = animationDelay;
-
-		BufferedImage[] images = new BufferedImage[imageResources.size()];
-		for (int i = 0; i < imageResources.size(); i++)
-		{
-			images[i] = Database.getInstance().getImage(imageResources.get(i));
-		}
-
-		this.imageWidth = images[0].getWidth();
-		this.imageHeight = images[0].getHeight();
-
-		this.texture = new Texture(name, imageWidth, imageHeight, images, animationDelay);
-	}*/
 
 	/*-------------------------------------------------------------------------*/
 	public List<String> getImageResources()

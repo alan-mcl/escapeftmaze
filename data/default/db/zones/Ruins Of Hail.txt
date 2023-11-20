@@ -4255,81 +4255,81 @@ playerOrigin: 22:23
 1639: DIRT_WALL_1::::true
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:982:false:7,,,false,Ruins Of Hail to Tornado Mountain::
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:944:false:7,,,false,Ruins Of Hail to Hianbian::
-2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:864:false:7,,,false,Ruins Of Hail to Stygios Forest:00001:
-3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:822:false:7,,,false,Ruins Of Hail to Writhing Mire:00001:
-4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:860:false:7,,,false,Ruins Of Hail to Plain Of Pillars:00001:
-5: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:940:false:0,,,false,mclachlan.maze.campaign.def.map.RuinsOfHailDeadPillarTouch:00001:
-6: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:896:false:::
-7: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:776:false:::
-8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:578:false:::
-9: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:707:false:::
-10: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:988:false:::
-11: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1068:false:::
-12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1141:false:::
-13: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1154:false::0000001:
-14: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1312:false::000001:
-15: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1313:false::00000001:
-16: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1353:false::00001:
-17: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1387:false::000000001:
-18: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1228:false::1:
-19: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1147:false::00000001:
-20: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1148:false::00001:
-21: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1189:false::001:
-22: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1188:false::01:
-23: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:74:false::000000001:
-24: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:194:false::00001:
-25: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:219:false::000001:
-26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:322:false::000001:
-27: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:352:false::001:
-28: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:365:false::01:
-29: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:425:false::00000001:
-30: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:444:false::00001:
-31: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:487:false::000000001:
-32: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:522:false::00000001:
-33: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:554:false::00000001:
-34: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:633:false::1:
-35: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:775:false::0001:
-36: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:790:false::01:
-37: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:791:false::1:
-38: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:815:false::1:
-39: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:890:false::001:
-40: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:891:false::00001:
-41: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:902:false::001:
-42: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1077:false::00001:
-43: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1078:false::000001:
-44: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1135:false::0000001:
-45: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1145:false::000000001:
-46: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1146:false::000000001:
-47: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1216:false::0001:
-48: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1233:false::0001:
-49: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1295:false::00001:
-50: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1297:false::000001:
-51: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1314:false::00000001:
-52: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1317:false::000001:
-53: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1372:false::1:
-54: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1445:false::000000001:
-55: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:88:false::0000001:
-56: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:224:false::001:
-57: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:402:false::00000001:
-58: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:549:false::1:
-59: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:773:false::00000001:
-60: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:903:false::001:
-61: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:927:false::000000001:
-62: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:939:false::01:
-63: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:954:false::00001:
-64: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1070:false::000000001:
-65: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1116:false::000000001:
-66: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1250:false::1:
-67: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1260:false::00000001:
-68: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1342:false::001:
-69: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1364:false::000000001:
-70: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1176:false::00001:
-71: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:447:false::000001:
-72: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:407:false::00001:
-73: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:406:false::0000001:
-74: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:446:false::00010101:
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:982:false:7,,,false,Ruins Of Hail to Tornado Mountain:::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:944:false:7,,,false,Ruins Of Hail to Hianbian:::BOTTOM
+2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:864:false:7,,,false,Ruins Of Hail to Stygios Forest:00001::BOTTOM
+3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:822:false:7,,,false,Ruins Of Hail to Writhing Mire:00001::BOTTOM
+4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:860:false:7,,,false,Ruins Of Hail to Plain Of Pillars:00001::BOTTOM
+5: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:940:false:0,,,false,mclachlan.maze.campaign.def.map.RuinsOfHailDeadPillarTouch:00001::BOTTOM
+6: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:896:false::::BOTTOM
+7: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:776:false::::BOTTOM
+8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:578:false::::BOTTOM
+9: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:707:false::::BOTTOM
+10: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:988:false::::BOTTOM
+11: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1068:false::::BOTTOM
+12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1141:false::::BOTTOM
+13: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1154:false::0000001::BOTTOM
+14: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1312:false::000001::BOTTOM
+15: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1313:false::00000001::BOTTOM
+16: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1353:false::00001::BOTTOM
+17: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1387:false::000000001::BOTTOM
+18: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1228:false::1::BOTTOM
+19: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1147:false::00000001::BOTTOM
+20: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1148:false::00001::BOTTOM
+21: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1189:false::001::BOTTOM
+22: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1188:false::01::BOTTOM
+23: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:74:false::000000001::BOTTOM
+24: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:194:false::00001::BOTTOM
+25: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:219:false::000001::BOTTOM
+26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:322:false::000001::BOTTOM
+27: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:352:false::001::BOTTOM
+28: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:365:false::01::BOTTOM
+29: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:425:false::00000001::BOTTOM
+30: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:444:false::00001::BOTTOM
+31: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:487:false::000000001::BOTTOM
+32: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:522:false::00000001::BOTTOM
+33: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:554:false::00000001::BOTTOM
+34: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:633:false::1::BOTTOM
+35: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:775:false::0001::BOTTOM
+36: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:790:false::01::BOTTOM
+37: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:791:false::1::BOTTOM
+38: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:815:false::1::BOTTOM
+39: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:890:false::001::BOTTOM
+40: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:891:false::00001::BOTTOM
+41: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:902:false::001::BOTTOM
+42: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1077:false::00001::BOTTOM
+43: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1078:false::000001::BOTTOM
+44: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1135:false::0000001::BOTTOM
+45: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1145:false::000000001::BOTTOM
+46: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1146:false::000000001::BOTTOM
+47: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1216:false::0001::BOTTOM
+48: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1233:false::0001::BOTTOM
+49: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1295:false::00001::BOTTOM
+50: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1297:false::000001::BOTTOM
+51: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1314:false::00000001::BOTTOM
+52: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1317:false::000001::BOTTOM
+53: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1372:false::1::BOTTOM
+54: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:1445:false::000000001::BOTTOM
+55: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:88:false::0000001::BOTTOM
+56: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:224:false::001::BOTTOM
+57: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:402:false::00000001::BOTTOM
+58: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:549:false::1::BOTTOM
+59: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:773:false::00000001::BOTTOM
+60: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:903:false::001::BOTTOM
+61: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:927:false::000000001::BOTTOM
+62: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:939:false::01::BOTTOM
+63: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:954:false::00001::BOTTOM
+64: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1070:false::000000001::BOTTOM
+65: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1116:false::000000001::BOTTOM
+66: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1250:false::1::BOTTOM
+67: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1260:false::00000001::BOTTOM
+68: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1342:false::001::BOTTOM
+69: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1364:false::000000001::BOTTOM
+70: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1176:false::00001::BOTTOM
+71: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:447:false::000001::BOTTOM
+72: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:407:false::00001::BOTTOM
+73: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:406:false::0000001::BOTTOM
+74: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:446:false::00010101::BOTTOM
 
 -scripts-
 

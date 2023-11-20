@@ -2230,8 +2230,8 @@ public class Maze implements Runnable
 		return new Campaign(
 			"default",
 			"Episode 1 (default campaign)",
-			null,
 			"The default campaign",
+			null,
 			"arena load script",
 			"Human",
 			"portrait/human_female_margarita", 

@@ -10009,31 +10009,31 @@ playerOrigin: 11:21
 4159: DUNGEON_WALL_1::::true
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1356:false:7,,,false,Castle Fangorn to Ruins Of Hail::
-1: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1156:false::01:
-2: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1166:false::001:
-3: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1547:false::0001:
-4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1223:false::0000011:
-5: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1225:false::00100001:
-6: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1291:false::000010001:
-7: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1350:false::00001:
-8: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:210:false::001:
-9: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:466:false::1:
-10: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:596:false::00001:
-11: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:659:false::00000001:
-12: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:661:false::1:
-13: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:787:false::000000001:
-14: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1107:false::000000001:
-15: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1170:false::001:
-16: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1234:false::00000001:
-17: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1298:false::000001:
-18: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:1096:true::00001:
-19: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:1098:true:::
-20: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1354:false::0000001:
-21: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:906:true:::
-22: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:584:true:::
-23: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:328:true:::
-24: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:202:true:::
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1356:false:7,,,false,Castle Fangorn to Ruins Of Hail:::BOTTOM
+1: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1156:false::01::BOTTOM
+2: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1166:false::001::BOTTOM
+3: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1547:false::0001::BOTTOM
+4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1223:false::0000011::BOTTOM
+5: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1225:false::00100001::BOTTOM
+6: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1291:false::000010001::BOTTOM
+7: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1350:false::00001::BOTTOM
+8: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:210:false::001::BOTTOM
+9: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:466:false::1::BOTTOM
+10: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:596:false::00001::BOTTOM
+11: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:659:false::00000001::BOTTOM
+12: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:661:false::1::BOTTOM
+13: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:787:false::000000001::BOTTOM
+14: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1107:false::000000001::BOTTOM
+15: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1170:false::001::BOTTOM
+16: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1234:false::00000001::BOTTOM
+17: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1298:false::000001::BOTTOM
+18: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:1096:true::00001::BOTTOM
+19: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:1098:true::::BOTTOM
+20: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1354:false::0000001::BOTTOM
+21: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:906:true::::BOTTOM
+22: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:584:true::::BOTTOM
+23: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:328:true::::BOTTOM
+24: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:202:true::::BOTTOM
 
 -scripts-
 0: 2,40,28,38,1096

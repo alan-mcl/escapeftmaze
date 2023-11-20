@@ -1184,12 +1184,12 @@ playerOrigin: 17:10
 419: DUNGEON_WALL_1::::true
 
 -objects-
-0: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:195:true:::
-1: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:235:true:::
-2: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:211:true:::
-3: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:208:true:::
-4: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:205:true:::
-5: objects.altar.1:objects.altar.1:objects.altar.1:objects.altar.1:202:false::00001:
+0: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:195:true::::BOTTOM
+1: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:235:true::::BOTTOM
+2: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:211:true::::BOTTOM
+3: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:208:true::::BOTTOM
+4: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:205:true::::BOTTOM
+5: objects.altar.1:objects.altar.1:objects.altar.1:objects.altar.1:202:false::00001::BOTTOM
 
 -scripts-
 0: 2,25,32,40,195

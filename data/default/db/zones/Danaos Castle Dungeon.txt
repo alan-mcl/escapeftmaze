@@ -754,10 +754,10 @@ playerOrigin: 10:9
 271: DUNGEON_WALL_1::::true
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:70:false:::
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:40:false:::
-2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:74:false:::
-3: SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:72:true::00001:
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:70:false::::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:40:false::::BOTTOM
+2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:74:false::::BOTTOM
+3: SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:SHIMMERING_PORTAL:72:true::00001::BOTTOM
 
 -scripts-
 

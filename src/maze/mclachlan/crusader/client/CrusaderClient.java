@@ -122,9 +122,9 @@ public class CrusaderClient extends Frame
 					shadingDistance,
 					shadingMultiplier,
 					filter,
-					0,
+					-40, //use this for consistency with the Maze UI, for a shooter you'd likely want 0
 					CrusaderEngine.FieldOfView.FOV_60_DEGREES,
-					1.0,
+					1,
 					maxHitDepth,
 					nrThreads,
 					this);

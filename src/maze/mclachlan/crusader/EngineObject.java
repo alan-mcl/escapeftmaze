@@ -28,6 +28,8 @@ import static mclachlan.crusader.CrusaderEngine.NORMAL_LIGHT_LEVEL;
  */
 public class EngineObject
 {
+	public static enum Alignment {TOP, CENTER, BOTTOM}
+
 	String name;
 
 	Texture[] textures;
@@ -41,38 +43,49 @@ public class EngineObject
 	/** texture when viewed from the west */
 	int westTexture;
 
+	/** whether this object is subject to shading */
+	boolean isLightSource;
+
+	/** Any script to run when the user clicks on this object */
+	MouseClickScript mouseClickScript;
+
+	/**
+	 * A bitmap used when adding this object to the Map, determining where to
+	 * place it inside the tile and whether to spawn additional objects.
+	 */
+	BitSet placementMask;
+
+	/** How to align the object, if the texture size is less than the tile size*/
+	Alignment verticalAlignment; // todo configure
+
+	//
+	// volatile data:
+	//
+
 	/** if not -1, this is the texture index that will be used from all angles */
 	int currentTexture = -1;
 
+	// calculate when added to the map
 	int xPos, yPos;
 	int gridX, gridY;
 	int tileIndex;
 
-	// volatile data calculated each rendering cycle
+	// calculated each rendering cycle
 	double distance;
 	int center;
 	double apparentDistance;
-	int projectedObjectHeight;
+	int projectedWallHeight; // height of a hypothetical wall at the location of this object
+	int projectedObjectHeight, projectedObjectWidth;
 	int startScreenX, endScreenX;
 	int adjustedLightLevel;
 	double shadeMult;
 	Texture renderTexture;
-
-	/** whether or not this object is subject to shading */
-	boolean isLightSource;
 
 	/** The current image */
 	int currentTextureFrame;
 
 	/** When this texture last changed */
 	long textureLastChanged = System.currentTimeMillis();
-	
-	/** Any script to run when the user clicks on this object */
-	MouseClickScript mouseClickScript;
-	
-	/** a bitmap used when adding this object to the Map, determining where to 
-	 * place it inside the tile and whether or not to spawn additional objects*/
-	BitSet placementMask;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -94,6 +107,10 @@ public class EngineObject
 	 * 	Sets whether or not this object is a light source
 	 * @param mouseClickScript
 	 * 	Any script to run when the user clicks on this object
+	 * @param placementMask
+	 * 	A bitmap used when adding this object to the Map
+	 * @param verticalAlignment
+	 * 	Where to align the object vertically, if the texture is smaller than the tile size
 	 */ 
 	public EngineObject(
 		String name,
@@ -104,11 +121,13 @@ public class EngineObject
 		int tileIndex,
 		boolean isLightSource,
 		MouseClickScript mouseClickScript,
-		BitSet placementMask)
+		BitSet placementMask,
+		Alignment verticalAlignment)
 	{
 		this.name = name;
 		this.mouseClickScript = mouseClickScript;
 		this.placementMask = placementMask;
+		this.verticalAlignment = verticalAlignment;
 		this.textures = new Texture[]
 		{
 			northTexture,
@@ -136,29 +155,7 @@ public class EngineObject
 		this.westTexture = clone.westTexture;
 		this.tileIndex = clone.tileIndex;
 		this.isLightSource = clone.isLightSource;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * @param texture
-	 * 	The texture of this object when viewed from any angle
-	 * @param tileIndex
-	 * 	The position of this object in the map
-	 * @param isLightSource
-	 * 	Sets whether or not this object is a light source
-	 */ 
-	public EngineObject(
-		Texture texture,
-		int tileIndex, 
-		boolean isLightSource)
-	{
-		this.textures = new Texture[]
-		{
-			texture
-		};
-		northTexture = southTexture = eastTexture = westTexture = 0;
-		this.tileIndex = tileIndex;
-		this.isLightSource = isLightSource;
+		this.verticalAlignment = clone.verticalAlignment;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -179,6 +176,7 @@ public class EngineObject
 		this.tileIndex = tileIndex;
 		northTexture = southTexture = eastTexture = westTexture = currentTexture = 0;
 		this.isLightSource = isLightSource;
+		this.verticalAlignment = Alignment.BOTTOM;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -195,75 +193,9 @@ public class EngineObject
 		int movementMode,
 		int playerFacing)
 	{
-		apparentDistance = distance;
-
-		// correct distance (compensate for the fishbowl effect)
-		if (this.center > 0 && this.center < projectionPlaneWidth)
-		{
-			this.apparentDistance /= fishbowlTable[this.center];
-		}
-		else if (this.center < 0)
-		{
-			// otherwise approximate it.
-			this.apparentDistance /= fishbowlTable[0];
-		}
-		else
-		{
-			// center > PROJECTION_PLANE_WIDTH, approximate it
-			this.apparentDistance /= fishbowlTable[projectionPlaneWidth-1];
-		}
-
-		this.projectedObjectHeight = (int)(tile_size *
-			playerDistToProjectionPlane / apparentDistance);
-
-		if (this.center + projectedObjectHeight/2 < 0)
-		{
-			// off screen left
-			this.projectedObjectHeight = -1;
-			return;
-		}
-		else if (this.center - projectedObjectHeight/2 > projectionPlaneWidth)
-		{
-			// off screen right
-			this.projectedObjectHeight = -1;
-			return;
-		}
-
-		this.startScreenX = this.center - this.projectedObjectHeight/2;
-		this.endScreenX = startScreenX + this.projectedObjectHeight;
-
-		if (this.endScreenX > projectionPlaneWidth)
-		{
-			this.endScreenX = projectionPlaneWidth;
-		}
-
-		if (this.isLightSource)
-		{
-			// "Light source" objects always appear at normal light level,
-			// or the tile light level, whichever is higher
-			adjustedLightLevel = Math.max(
-				NORMAL_LIGHT_LEVEL,
-				map.tiles[this.tileIndex].currentLightLevel);
-		}
-		else
-		{
-			if (doLighting)
-			{
-				this.adjustedLightLevel = map.tiles[this.tileIndex].currentLightLevel;
-			}
-			else
-			{
-				this.adjustedLightLevel = NORMAL_LIGHT_LEVEL;
-			}
-
-			if (doShading)
-			{
-				// Shading: work out the effective light level for this wall slice
-				shadeMult = CrusaderEngine32.calcShadeMult(this.apparentDistance, shadingDistance, shadingThickness);
-			}
-		}
-
+		//
 		// pick the object texture
+		//
 		if (movementMode == CrusaderEngine.MovementMode.DISCRETE && this.currentTexture == -1)
 		{
 			switch(playerFacing)
@@ -320,6 +252,82 @@ public class EngineObject
 		{
 			// the current texture has been set.
 			renderTexture = this.textures[this.currentTexture];
+		}
+
+		//
+		// Calculate data needed for the render
+		//
+		apparentDistance = distance;
+		int textureHeight = renderTexture.imageHeight;
+		int textureWidth = renderTexture.imageWidth;
+
+		// correct distance (compensate for the fishbowl effect)
+		if (this.center > 0 && this.center < projectionPlaneWidth)
+		{
+			this.apparentDistance /= fishbowlTable[this.center];
+		}
+		else if (this.center < 0)
+		{
+			// otherwise approximate it.
+			this.apparentDistance /= fishbowlTable[0];
+		}
+		else
+		{
+			// center > PROJECTION_PLANE_WIDTH, approximate it
+			this.apparentDistance /= fishbowlTable[projectionPlaneWidth-1];
+		}
+
+		this.projectedObjectHeight = (int)(textureHeight * playerDistToProjectionPlane / apparentDistance);
+		this.projectedObjectWidth = (int)(textureWidth * playerDistToProjectionPlane / apparentDistance);
+		this.projectedWallHeight = (int)(tile_size * playerDistToProjectionPlane / apparentDistance);
+
+		if (this.center + projectedObjectWidth/2 < 0)
+		{
+			// off screen left
+			this.projectedObjectWidth = this.projectedObjectHeight = -1;
+			return;
+		}
+		else if (this.center - projectedObjectWidth/2 > projectionPlaneWidth)
+		{
+			// off screen right
+			this.projectedObjectWidth = this.projectedObjectHeight = -1;
+			return;
+		}
+
+		this.startScreenX = this.center - this.projectedObjectWidth/2;
+		this.endScreenX = startScreenX + this.projectedObjectWidth;
+
+
+		// negative startScreenX is ok
+		if (this.endScreenX > projectionPlaneWidth)
+		{
+			this.endScreenX = projectionPlaneWidth;
+		}
+
+		if (this.isLightSource)
+		{
+			// "Light source" objects always appear at normal light level,
+			// or the tile light level, whichever is higher
+			adjustedLightLevel = Math.max(
+				NORMAL_LIGHT_LEVEL,
+				map.tiles[this.tileIndex].currentLightLevel);
+		}
+		else
+		{
+			if (doLighting)
+			{
+				this.adjustedLightLevel = map.tiles[this.tileIndex].currentLightLevel;
+			}
+			else
+			{
+				this.adjustedLightLevel = NORMAL_LIGHT_LEVEL;
+			}
+
+			if (doShading)
+			{
+				// Shading: work out the effective light level for this wall slice
+				shadeMult = CrusaderEngine32.calcShadeMult(this.apparentDistance, shadingDistance, shadingThickness);
+			}
 		}
 	}
 
@@ -485,7 +493,18 @@ public class EngineObject
 	{
 		this.placementMask = placementMask;
 	}
-	
+
+	public Alignment getVerticalAlignment()
+	{
+		return verticalAlignment;
+	}
+
+	public void setVerticalAlignment(
+		Alignment verticalAlignment)
+	{
+		this.verticalAlignment = verticalAlignment;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * There are nine possible placement positions.

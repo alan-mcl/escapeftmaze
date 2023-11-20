@@ -771,11 +771,11 @@ playerOrigin: 0:0
 271: CITY_WALL_1::::true
 
 -objects-
-0: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:201:false::00000001:
-1: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:230:false::01:
-2: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:235:false::000001:
-3: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:198:false::0000001:
-4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:202:false::00001:
+0: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:201:false::00000001::BOTTOM
+1: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:230:false::01::BOTTOM
+2: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:235:false::000001::BOTTOM
+3: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:198:false::0000001::BOTTOM
+4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:202:false::00001::BOTTOM
 
 -scripts-
 

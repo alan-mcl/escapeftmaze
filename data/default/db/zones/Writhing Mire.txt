@@ -2922,9 +2922,9 @@ playerOrigin: 15:4
 1055: TREE_WALL_1::::true
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:111:false:7,,,false,Writhing Mire to Ruins Of Hail:00001:
-1: objects.woodsign.side:objects.woodsign.side:objects.woodsign.front:objects.woodsign.front:175:false::0001:
-2: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:238:false::00000001:
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:111:false:7,,,false,Writhing Mire to Ruins Of Hail:00001::BOTTOM
+1: objects.woodsign.side:objects.woodsign.side:objects.woodsign.front:objects.woodsign.front:175:false::0001::BOTTOM
+2: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:238:false::00000001::BOTTOM
 
 -scripts-
 

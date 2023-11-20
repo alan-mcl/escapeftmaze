@@ -2137,7 +2137,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			if (this.objects[objectCount].distance > 0 &&
 				this.objects[objectCount].apparentDistance < blockHitRecord[castColumn][depth].distance)
 			{
-				if (this.objects[objectCount].projectedObjectHeight > 0 &&
+				if (this.objects[objectCount].projectedObjectWidth > 0 &&
 					this.objects[objectCount].endScreenX > 0)
 				{
 					if (castColumn >= this.objects[objectCount].startScreenX &&
@@ -2801,43 +2801,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawObject(
-		EngineObject obj,
-		int depth,
-		int[] outputBuffer)
-	{
-		int castColumn=0;
-
-		try
-		{
-			if (obj.projectedObjectHeight > 0 && obj.endScreenX > 0)
-			{
-				castColumn = obj.startScreenX;
-
-				if (castColumn < 0)
-				{
-					castColumn = 0;
-				}
-
-				while(castColumn < obj.endScreenX)
-				{
-					drawObjectColumn(obj, outputBuffer, castColumn, depth);
-
-					castColumn++;
-				}
-			}
-		}
-		catch (RuntimeException e)
-		{
-			log("obj.center = [" + obj.center + "]");
-			log("projectedObjectHeight = [" + obj.projectedObjectHeight + "]");
-			log("currentScreenX = [" + castColumn + "]");
-
-			throw e;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
 	private void drawObjectColumn(
 		EngineObject obj,
 		int[] outputBuffer,
@@ -2846,9 +2809,24 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		if (blockHitRecord[castColumn][depth].distance > obj.apparentDistance)
 		{
-			int startScreenY = playerHeight - obj.projectedObjectHeight/2 +projPlaneOffset;
+			int startScreenY;
+			int topY = projectionPlaneHeight/2 -obj.projectedWallHeight/2;
+			switch (obj.verticalAlignment)
+			{
+				case TOP: startScreenY = topY +projPlaneOffset;
+					break;
+				case CENTER: startScreenY = topY +obj.projectedWallHeight/2 -obj.projectedObjectHeight/2 +projPlaneOffset;
+					break;
+				case BOTTOM: startScreenY = topY +obj.projectedWallHeight -obj.projectedObjectHeight +projPlaneOffset;
+					break;
+				default: throw new CrusaderException("invalid alignment "+obj.verticalAlignment);
+			}
+
 			int currentScreenY = startScreenY;
 			int endScreenY = startScreenY + obj.projectedObjectHeight;
+
+			int textureWidth = obj.renderTexture.imageWidth;
+			int textureHeight = obj.renderTexture.imageHeight;
 
 			if (startScreenY < 0)
 			{
@@ -2870,8 +2848,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 				int bufferIndex = castColumn + projectionPlaneWidth * currentScreenY;
 				if (hasAlpha(outputBuffer[bufferIndex]))
 				{
-					int textureX = tileSize * (castColumn - obj.startScreenX) / obj.projectedObjectHeight;
-					int textureY = tileSize * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
+					int textureX = textureWidth * (castColumn - obj.startScreenX) / obj.projectedObjectWidth;
+					int textureY = textureHeight * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
 
 					int imagePixel = obj.renderTexture.getCurrentImageData(textureX, textureY, timeNow);
 

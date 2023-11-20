@@ -3098,15 +3098,15 @@ playerOrigin: 11:13
 1055: CITY_WALL_1::::true
 
 -objects-
-0: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:659:false:::
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:281:false::1:
-2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:250:false::000001:
-3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:252:false::000000001:
-4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:285:false::00000001:
-5: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:349:false::1:
-6: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:380:false::000000001:
-7: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:378:false::001:
-8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:345:false::001:
+0: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:659:false::::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:281:false::1::BOTTOM
+2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:250:false::000001::BOTTOM
+3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:252:false::000000001::BOTTOM
+4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:285:false::00000001::BOTTOM
+5: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:349:false::1::BOTTOM
+6: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:380:false::000000001::BOTTOM
+7: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:378:false::001::BOTTOM
+8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:345:false::001::BOTTOM
 
 -scripts-
 

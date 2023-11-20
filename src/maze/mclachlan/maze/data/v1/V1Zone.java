@@ -286,7 +286,11 @@ public class V1Zone
 					MouseClickScript mouseClickScript = V1MouseClickScript.fromString(strs[6]);
 					BitSet placementMask = V1BitSet.fromString(strs[7]);
 					String name = "".equals(strs[8])?null:strs[8];
-					
+
+					String va = strs[9];
+
+					EngineObject.Alignment alignment = EngineObject.Alignment.valueOf(va);
+
 					list.add(new EngineObject(
 						name,
 						northTexture, 
@@ -296,14 +300,15 @@ public class V1Zone
 						tileIndex, 
 						isLightSource,
 						mouseClickScript,
-						placementMask));
+						placementMask,
+						alignment));
 
 					addTexture(northTexture, textures);
 					addTexture(southTexture, textures);
 					addTexture(eastTexture, textures);
 					addTexture(westTexture, textures);
 				}
-				objects = list.toArray(new EngineObject[list.size()]);
+				objects = list.toArray(new EngineObject[0]);
 			}
 			else if (line.equals(CRUSADER_SCRIPT_HEADER))
 			{
@@ -549,7 +554,9 @@ public class V1Zone
 			writer.write(WALL_SEP);
 			writer.write(V1BitSet.toString(obj.getPlacementMask()));
 			writer.write(WALL_SEP);
-			writer.writeln(obj.getName()==null?"":obj.getName());
+			writer.write(obj.getName()==null?"":obj.getName());
+			writer.write(WALL_SEP);
+			writer.writeln(obj.getVerticalAlignment().name());
 		}
 		writer.writeln();
 

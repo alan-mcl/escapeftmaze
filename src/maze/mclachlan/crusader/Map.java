@@ -150,8 +150,8 @@ public class Map
 			}
 		}
 		
-		this.originalObjects = new ArrayList<EngineObject>(Arrays.asList(objects));
-		this.objects = (EngineObject[])newObjects.toArray(new EngineObject[newObjects.size()]);
+		this.originalObjects = new ArrayList<>(Arrays.asList(objects));
+		this.objects = (EngineObject[])newObjects.toArray(new EngineObject[0]);
 	}
 
 	/*-------------------------------------------------------------------------*/

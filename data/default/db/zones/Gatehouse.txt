@@ -2693,34 +2693,34 @@ playerOrigin: 14:30
 1021: DUNGEON_WALL_1::::true
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:717:false::00001:
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:719:false::00001:
-2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:813:false::00001:
-3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:815:false::00001:
-4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:870:false::000001:
-5: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:820:false::1:
-6: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:854:false::000000001:
-7: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:948:false::001:
-8: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:979:false::00000001:
-9: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:912:false::0101:
-10: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:944:false::0000001:
-11: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:845:false::1:
-12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:134:false::0010101:
-13: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:198:false::100010001:
-14: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:34:true::0101:
-15: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:66:true::000100101:
-16: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:100:true::000000101:
-17: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:69:true::01100101:
-18: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:35:true::010000101:
-19: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:99:true::001000101:
-20: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:68:true::00001:
-21: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:101:true::0010001:
-22: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:102:false::1:
-23: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:286:false::0000011:
-24: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:116:false::1:
-25: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1:
-26: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,These bones feel brittle and dry to the touch.:00001:
-27: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:843:false::00001:
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:717:false::00001::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:719:false::00001::BOTTOM
+2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:813:false::00001::BOTTOM
+3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:815:false::00001::BOTTOM
+4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:870:false::000001::BOTTOM
+5: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:820:false::1::BOTTOM
+6: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:854:false::000000001::BOTTOM
+7: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:948:false::001::BOTTOM
+8: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:979:false::00000001::BOTTOM
+9: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:912:false::0101::BOTTOM
+10: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:944:false::0000001::BOTTOM
+11: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:845:false::1::BOTTOM
+12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:134:false::0010101::BOTTOM
+13: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:198:false::100010001::BOTTOM
+14: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:34:true::0101::BOTTOM
+15: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:66:true::000100101::BOTTOM
+16: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:100:true::000000101::BOTTOM
+17: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:69:true::01100101::BOTTOM
+18: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:35:true::010000101::BOTTOM
+19: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:99:true::001000101::BOTTOM
+20: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:68:true::00001::BOTTOM
+21: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:101:true::0010001::BOTTOM
+22: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:102:false::1::BOTTOM
+23: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:286:false::0000011::BOTTOM
+24: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:116:false::1::BOTTOM
+25: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1::BOTTOM
+26: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,These bones feel brittle and dry to the touch.:00001::BOTTOM
+27: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:843:false::00001::BOTTOM
 
 -scripts-
 

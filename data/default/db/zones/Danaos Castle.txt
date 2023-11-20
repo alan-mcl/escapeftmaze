@@ -3092,21 +3092,21 @@ playerOrigin: 29:15
 1055: CITY_WALL_1::::true
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:470:false::000000001:
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:472:false::0000001:
-2: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:394:true::00001:
-3: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:396:true::00001:
-4: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:398:true::00001:
-5: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:490:true::00001:
-6: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:492:true::00001:
-7: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:494:true::00001:
-8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:534:false::00001:
-9: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:566:false::00001:
-10: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:598:false::00001:
-11: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:536:false::00001:
-12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:568:false::00001:
-13: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:600:false::00001:
-14: objects.altar.1:objects.altar.1:objects.altar.1:objects.altar.1:599:false::00001:
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:470:false::000000001::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:472:false::0000001::BOTTOM
+2: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:394:true::00001::BOTTOM
+3: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:396:true::00001::BOTTOM
+4: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:398:true::00001::BOTTOM
+5: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:490:true::00001::BOTTOM
+6: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:492:true::00001::BOTTOM
+7: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:494:true::00001::BOTTOM
+8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:534:false::00001::BOTTOM
+9: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:566:false::00001::BOTTOM
+10: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:598:false::00001::BOTTOM
+11: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:536:false::00001::BOTTOM
+12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:568:false::00001::BOTTOM
+13: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:600:false::00001::BOTTOM
+14: objects.altar.1:objects.altar.1:objects.altar.1:objects.altar.1:599:false::00001::BOTTOM
 
 -scripts-
 0: 2,25,32,40,394
