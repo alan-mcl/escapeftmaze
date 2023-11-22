@@ -230,7 +230,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
-				flavourText.setText(fte.getText());
+				flavourText.setText(fte.getFlavourText());
 				flavourTextDelay.setValue(fte.getDelay());
 				shouldClearText.setSelected(fte.shouldClearText());
 				break;

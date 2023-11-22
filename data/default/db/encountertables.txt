@@ -199,6 +199,9 @@ foeEntries=0,tower.guardians:100
 name=gatehouse.level.1
 foeEntries=0,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
 @
+name=gatehouse.level.1.bats
+foeEntries=0,fruit.bats.small:100
+@
 name=isle.of.the.gate.random.enc
 foeEntries=0,vampire.vulture.1:34,haunts.small:33,foxfire.small:33
 @

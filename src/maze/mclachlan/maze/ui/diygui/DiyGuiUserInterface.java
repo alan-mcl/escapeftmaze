@@ -33,6 +33,7 @@ import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.script.MoveObjectScript;
+import mclachlan.crusader.script.MoveObjectVerticallyScript;
 import mclachlan.crusader.script.TempChangeTexture;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPanel;
@@ -180,8 +181,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			SCREEN_EDGE_INSET + ZONE_DISPLAY_HEIGHT + MAZE_HEIGHT +10,
 			MAZE_WIDTH,
 			SCREEN_HEIGHT - (SCREEN_EDGE_INSET*2 + ZONE_DISPLAY_HEIGHT + MAZE_HEIGHT +10));
-
-		System.out.println("LOW_BOUNDS = [" + LOW_BOUNDS.x + ","+LOW_BOUNDS.y+","+LOW_BOUNDS.width+","+LOW_BOUNDS.height+"]");
 
 		try
 		{
@@ -1354,7 +1353,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					this.addObjectInFrontOfPlayer(obj, distance, arc, true);
 
 					// debug! todo remove
-					this.raycaster.addScript(new MoveObjectScript(obj, 32, .1));
+					obj.addScript(new MoveObjectScript(obj, 32, .1));
+					obj.addScript(new MoveObjectVerticallyScript(obj, -100, 50, 250, 500));
 
 				}
 			}

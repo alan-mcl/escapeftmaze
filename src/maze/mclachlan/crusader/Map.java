@@ -124,7 +124,7 @@ public class Map
 	 */ 
 	private void initObjectsFromArray()
 	{
-		List<EngineObject> newObjects = new ArrayList<EngineObject>();
+		List<EngineObject> newObjects = new ArrayList<>();
 
 		// place each object in the middle of it's grid block
 		for (int i = 0; i < this.objects.length; i++)

@@ -2063,6 +2063,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 			// execute any map scripts
 			this.map.executeScripts(frameCount);
 
+			for (EngineObject obj : objects)
+			{
+				obj.executeScripts(frameCount);
+			}
+
 			// init object state for rendering
 			initAndSortObjects();
 
@@ -2810,7 +2815,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		if (blockHitRecord[castColumn][depth].distance > obj.apparentDistance)
 		{
 			int startScreenY;
-			int topY = projectionPlaneHeight/2 -obj.projectedWallHeight/2;
+			int topY = projectionPlaneHeight/2 -obj.projectedWallHeight/2 +obj.projectedTextureOffset;
 			switch (obj.verticalAlignment)
 			{
 				case TOP: startScreenY = topY +projPlaneOffset;

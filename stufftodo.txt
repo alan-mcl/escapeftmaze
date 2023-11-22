@@ -30,7 +30,6 @@ data: improve foe inventories
 data: more wielding combos
 data: puzzle boxes: items that require brains to disassemble and contain loot
 data: RESISTANCES: Resistances of foes.
-data: RESISTANCES: Resistances of character races
 data: mind read results from all NPCs
 data: more hidden stashes to find with SCOUTING
 

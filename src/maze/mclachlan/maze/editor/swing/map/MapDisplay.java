@@ -19,15 +19,16 @@
 
 package mclachlan.maze.editor.swing.map;
 
-import mclachlan.crusader.Map;
-import mclachlan.crusader.Wall;
-import mclachlan.crusader.Tile;
-import java.util.*;
-import java.util.List;
-import mclachlan.maze.map.Zone;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
+import java.util.List;
+import java.util.*;
+import javax.swing.*;
+import mclachlan.crusader.Map;
+import mclachlan.crusader.Tile;
+import mclachlan.crusader.Wall;
+import mclachlan.maze.map.Zone;
 
 /**
  *
@@ -45,13 +46,13 @@ public class MapDisplay extends JPanel implements Scrollable
 	BitSet selectionFeatures;
 	
 	/** layers */
-	List<Layer> layers = new ArrayList<Layer>();
+	List<Layer> layers = new ArrayList<>();
 	SelectionLayer selectionLayer;
 	
 	/** a cache of scaled images */
-	private java.util.Map<Image, Image> floorScaledImages = new HashMap<Image, Image>();
-	private java.util.Map<Image, Image> horizScaledImages = new HashMap<Image, Image>();
-	private java.util.Map<Image, Image> vertScaledImages = new HashMap<Image, Image>();
+	private final java.util.Map<Image, Image> floorScaledImages = new HashMap<>();
+	private final java.util.Map<Image, Image> horizScaledImages = new HashMap<>();
+	private final java.util.Map<Image, Image> vertScaledImages = new HashMap<>();
 	
 	private static final int MAX_ZOOM_LEVEL = 4;
 	private ScriptLayer scriptLayer;
@@ -102,37 +103,32 @@ public class MapDisplay extends JPanel implements Scrollable
 	/*-------------------------------------------------------------------------*/
 	private void rescaleImages()
 	{
-		for (Image i : floorScaledImages.keySet())
-		{
-			floorScaledImages.put(i, i.getScaledInstance(
-				tileSize*zoomLevel, tileSize*zoomLevel, Image.SCALE_FAST));
-		}
-		for (Image i : horizScaledImages.keySet())
-		{
-			horizScaledImages.put(i, i.getScaledInstance(
-				tileSize*zoomLevel, wallSize+zoomLevel, Image.SCALE_FAST));
-		}
-		for (Image i : vertScaledImages.keySet())
-		{
-			vertScaledImages.put(i, i.getScaledInstance(
-				wallSize+zoomLevel, tileSize*zoomLevel, Image.SCALE_FAST));
-		}
+		floorScaledImages.replaceAll((i, v) -> i.getScaledInstance(
+			tileSize * zoomLevel, tileSize * zoomLevel, Image.SCALE_FAST));
+
+		horizScaledImages.replaceAll((i, v) -> i.getScaledInstance(
+			tileSize * zoomLevel, wallSize + zoomLevel, Image.SCALE_FAST));
+
+		vertScaledImages.replaceAll((i, v) -> i.getScaledInstance(
+			wallSize + zoomLevel, tileSize * zoomLevel, Image.SCALE_FAST));
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	Image getFloorScaledImage(Image image)
+	Image getFloorScaledImage(BufferedImage image)
 	{
 		Image result = floorScaledImages.get(image);
 		
 		if (result == null)
 		{
-			floorScaledImages.put(image, image.getScaledInstance(
-				tileSize*zoomLevel, tileSize*zoomLevel, Image.SCALE_FAST));
+			Image temp = image.getSubimage(0,0,16,16);
+			Image scaledInstance = temp.getScaledInstance(tileSize * zoomLevel, tileSize * zoomLevel, Image.SCALE_FAST);
+
+			floorScaledImages.put(image, scaledInstance);
 		}
 		
 		return result;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	Image getHorizScaledImage(Image image)
 	{

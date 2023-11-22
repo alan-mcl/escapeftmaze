@@ -776,6 +776,7 @@ playerOrigin: 0:0
 2: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:235:false::000001::BOTTOM
 3: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:198:false::0000001::BOTTOM
 4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:202:false::00001::BOTTOM
+5: objects.lever.left:objects.lever.right:objects.lever.front:objects.lever.back:153:false::::BOTTOM
 
 -scripts-
 

@@ -1,15 +1,13 @@
 package mclachlan.crusader.script;
 
 import mclachlan.crusader.EngineObject;
-import mclachlan.crusader.Map;
-import mclachlan.crusader.MapScript;
+import mclachlan.crusader.ObjectScript;
 
 /**
  *
  */
-public class MoveObjectScript extends MapScript
+public class MoveObjectScript extends ObjectScript
 {
-	EngineObject engineObject;
 	double radius, speed;
 	double startingAngle;
 	private static final double MAX_RADIANS = Math.PI * 2;
@@ -18,26 +16,25 @@ public class MoveObjectScript extends MapScript
 
 	public MoveObjectScript(EngineObject object, double radius, double speed)
 	{
-		engineObject = object;
 		this.radius = radius;
 		this.speed = speed;
 
-		this.startingX = engineObject.getXPos();
-		this.startingY = engineObject.getYPos();
+		this.startingX = object.getXPos();
+		this.startingY = object.getYPos();
 
 		// random starting angle. 360deg = pi*2.
 		startingAngle = Math.random() * MAX_RADIANS;
 	}
 
 	@Override
-	public void execute(long framecount, Map map)
+	public void execute(long framecount, EngineObject obj)
 	{
 		double angle = startingAngle + ((speed * framecount) % MAX_RADIANS);
 
 		int xPos = startingX + (int)(radius * Math.cos(angle));
 		int yPos = startingY + (int)(radius * Math.sin(angle));
 
-		engineObject.setXPos(xPos);
-		engineObject.setYPos(yPos);
+		obj.setXPos(xPos);
+		obj.setYPos(yPos);
 	}
 }

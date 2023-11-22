@@ -272,7 +272,9 @@ public class V1MazeEvent
 				s.append(SEP);
 				s.append(ee.getMazeVariable()==null?"":ee.getMazeVariable());
 				s.append(SEP);
-				s.append(ee.getAttitude()==null?"":ee.getAttitude().toString());
+				s.append(ee.getAttitude()==null?"":ee.getAttitude().name());
+				s.append(SEP);
+				s.append(ee.getAmbushStatus()==null?"":ee.getAmbushStatus().name());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -488,6 +490,9 @@ public class V1MazeEvent
 				int castingLevel = Integer.parseInt(strs[3]);
 				return new CastSpellEvent(spellName, casterLevel, castingLevel);
 			case _EncounterActorsEvent:
+
+				// 1=3,gatehouse.level.1.bats,gatehouse.first.room.bats.1,ATTACKING
+
 				String encounterTable = strs[1];
 				String mazeVariable = strs.length > 2 ? strs[2] : null;
 				NpcFaction.Attitude attitude = null;

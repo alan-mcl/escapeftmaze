@@ -104,7 +104,7 @@ name=stone.bear.summon
 contains=Stone Bear/1d2:100,Stone Bear/1d1:25
 @
 name=fruit.bats.small
-contains=Fruit Bat/1d3:100
+contains=Fruit Bat/1d3+1:100
 @
 name=old.igor.encounter
 contains=Old Igor/1d1:100

@@ -28,7 +28,7 @@ import static mclachlan.crusader.CrusaderEngine.NORMAL_LIGHT_LEVEL;
  */
 public class EngineObject
 {
-	public static enum Alignment {TOP, CENTER, BOTTOM}
+	public enum Alignment {TOP, CENTER, BOTTOM}
 
 	String name;
 
@@ -58,12 +58,13 @@ public class EngineObject
 	/** How to align the object, if the texture size is less than the tile size*/
 	Alignment verticalAlignment; // todo configure
 
+	/** scripts associated with this object */
+	ObjectScript[] scripts;
+	private final Object scriptMutex = new Object();
+
 	//
 	// volatile data:
 	//
-
-	/** if not -1, this is the texture index that will be used from all angles */
-	int currentTexture = -1;
 
 	// calculate when added to the map
 	int xPos, yPos;
@@ -76,16 +77,23 @@ public class EngineObject
 	double apparentDistance;
 	int projectedWallHeight; // height of a hypothetical wall at the location of this object
 	int projectedObjectHeight, projectedObjectWidth;
+	int projectedTextureOffset;
 	int startScreenX, endScreenX;
 	int adjustedLightLevel;
 	double shadeMult;
 	Texture renderTexture;
+
+	/** if not -1, this is the texture index that will be used from all angles */
+	int currentTexture = -1;
 
 	/** The current image */
 	int currentTextureFrame;
 
 	/** When this texture last changed */
 	long textureLastChanged = System.currentTimeMillis();
+
+	/** Any offset to draw this object at, to support up/down animations */
+	int textureOffset = 0;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -277,9 +285,11 @@ public class EngineObject
 			this.apparentDistance /= fishbowlTable[projectionPlaneWidth-1];
 		}
 
-		this.projectedObjectHeight = (int)(textureHeight * playerDistToProjectionPlane / apparentDistance);
-		this.projectedObjectWidth = (int)(textureWidth * playerDistToProjectionPlane / apparentDistance);
-		this.projectedWallHeight = (int)(tile_size * playerDistToProjectionPlane / apparentDistance);
+		double scale = playerDistToProjectionPlane / apparentDistance;
+		this.projectedObjectHeight = (int)(textureHeight * scale);
+		this.projectedObjectWidth = (int)(textureWidth * scale);
+		this.projectedWallHeight = (int)(tile_size * scale);
+		this.projectedTextureOffset = (int)(textureOffset * scale);
 
 		if (this.center + projectedObjectWidth/2 < 0)
 		{
@@ -503,6 +513,91 @@ public class EngineObject
 		Alignment verticalAlignment)
 	{
 		this.verticalAlignment = verticalAlignment;
+	}
+
+	public int getTextureOffset()
+	{
+		return textureOffset;
+	}
+
+	public void setTextureOffset(int textureOffset)
+	{
+		this.textureOffset = textureOffset;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	void executeScripts(long frameCount)
+	{
+		synchronized(scriptMutex)
+		{
+			if (scripts != null)
+			{
+				for (ObjectScript script : scripts)
+				{
+					script.execute(frameCount, this);
+				}
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addScript(ObjectScript script)
+	{
+		synchronized(scriptMutex)
+		{
+			ObjectScript[] temp;
+
+			if (scripts == null)
+			{
+				temp = new ObjectScript[]{script};
+			}
+			else
+			{
+				temp = new ObjectScript[scripts.length+1];
+				System.arraycopy(scripts, 0, temp, 0, scripts.length);
+				temp[scripts.length] = script;
+			}
+
+			this.scripts = temp;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public ObjectScript removeScript(ObjectScript script)
+	{
+		synchronized(scriptMutex)
+		{
+			ObjectScript[] temp = null;
+
+			if (scripts == null)
+			{
+				return null;
+			}
+			else
+			{
+				int index = -1;
+				for (int i = 0; i < scripts.length; i++)
+				{
+					if (scripts[i] == script)
+					{
+						index = i;
+						break;
+					}
+				}
+
+				if (index == -1)
+				{
+					// script not in array
+					return null;
+				}
+
+				temp = new ObjectScript[scripts.length-1];
+				System.arraycopy(scripts, 0, temp, 0, index);
+				System.arraycopy(scripts, index+1, temp, index, scripts.length-index-1);
+				this.scripts = temp;
+				return script;
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
