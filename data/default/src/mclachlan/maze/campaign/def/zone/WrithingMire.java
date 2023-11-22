@@ -103,6 +103,7 @@ public class WrithingMire extends ZoneScript
 				true,
 				1,
 				null,
+				null,
 				null);
 		}
 		else
@@ -113,6 +114,7 @@ public class WrithingMire extends ZoneScript
 					false,
 					false,
 					1,
+					null,
 					null,
 					null);
 		}

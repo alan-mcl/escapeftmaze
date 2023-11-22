@@ -208,7 +208,7 @@ public class V1Zone
 				horizontalWalls = new Wall[max];
 				for (int i = 0; i < horizontalWalls.length; i++)
 				{
-					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null);
+					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -220,11 +220,13 @@ public class V1Zone
 						String maskTexture = strs[1];
 						MouseClickScript mcs = V1MouseClickScript.fromString(strs[2]);
 						MouseClickScript mtmcs = V1MouseClickScript.fromString(strs[3]);
+						MouseClickScript is = null; // todo
 						boolean solid = Boolean.valueOf(strs[4]);
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							:Database.getInstance().getMazeTexture(maskTexture).getTexture();
-						horizontalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs);
+
+						horizontalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs, is);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);
@@ -239,7 +241,7 @@ public class V1Zone
 				verticalWalls = new Wall[max];
 				for (int i = 0; i < verticalWalls.length; i++)
 				{
-					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null);
+					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -251,11 +253,13 @@ public class V1Zone
 						String maskTexture = strs[1];
 						MouseClickScript mcs = V1MouseClickScript.fromString(strs[2]);
 						MouseClickScript mtmcs = V1MouseClickScript.fromString(strs[3]);
+						MouseClickScript is = null; // todo
 						boolean solid = Boolean.valueOf(strs[4]);
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							: Database.getInstance().getMazeTexture(maskTexture).getTexture();
-						verticalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs);
+
+						verticalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs, is);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);

@@ -43,13 +43,13 @@ import mclachlan.maze.ui.diygui.ChestOptionsCallback;
  */
 public class Chest extends TileScript implements SpellTarget, ChestOptionsCallback, LockOrTrap
 {
-	private TileScript chestContents;
-	private PercentageTable<Trap> traps;
-	private String mazeVariable;
-	private String northTexture, southTexture, eastTexture, westTexture;
+	private final TileScript chestContents;
+	private final PercentageTable<Trap> traps;
+	private final String mazeVariable;
+	private final String northTexture, southTexture, eastTexture, westTexture;
 	private MazeScript preScript;
 	
-	private EngineObject engineObject;
+	private final EngineObject engineObject;
 	private Trap currentTrap;
 
 	/*-------------------------------------------------------------------------*/

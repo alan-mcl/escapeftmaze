@@ -50,6 +50,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				true,
 				1,
 				null,
+				null,
 				null);
 		}
 
@@ -62,6 +63,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				true,
 				true,
 				1,
+				null,
 				null,
 				null);
 		}
@@ -79,6 +81,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				true,
 				true,
 				1,
+				null,
 				null,
 				null);
 

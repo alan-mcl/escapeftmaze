@@ -169,7 +169,7 @@ playerOrigin: 0:0
 150: 0:3f800000000000000000,08070807080808:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
 151: 0:3f800000000000000000,08080807080707:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
 152: 0:3f800000000000000000,08070807070707:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
-153: 0:3f800000000000000000,07080708080708:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
+153: 1:12,,,false,arena.lever-state.0,objects.lever.front,objects.lever.back,objects.lever.right,objects.lever.left,,:3f800000000000000000,07080708080708:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
 154: 0:3f800000000000000000,08070808070707:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
 155: 0:3f800000000000000000,08070807080707:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
 156: 0:3f800000000000000000,07070807070808:URBAN:Arena:5:TestingTable:MEDIUM:AVERAGE
@@ -776,7 +776,6 @@ playerOrigin: 0:0
 2: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:235:false::000001::BOTTOM
 3: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:198:false::0000001::BOTTOM
 4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:202:false::00001::BOTTOM
-5: objects.lever.left:objects.lever.right:objects.lever.front:objects.lever.back:153:false::::BOTTOM
 
 -scripts-
 

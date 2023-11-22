@@ -24,10 +24,10 @@ public interface MouseClickScript
 	/**
 	 * Initialise this mouse click script.
 	 */
-	public void initialise(Map map);
+	void initialise(Map map);
 
 	/**
 	 * Execute this mouse click script on a Wall
 	 */
-	public void execute(Map map);	
+	void execute(Map map);
 }

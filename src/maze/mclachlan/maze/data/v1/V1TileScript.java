@@ -55,6 +55,7 @@ public class V1TileScript
 	private static final int SET_MAZE_VARIABLE = 9;
 	private static final int HIDDEN_STUFF = 10;
 	private static final int WATER = 11;
+	private static final int LEVER = 12;
 
 	static V1PercentageTable<Trap> traps = new V1PercentageTable<Trap>()
 	{
@@ -84,6 +85,7 @@ public class V1TileScript
 		types.put(SetMazeVariable.class, SET_MAZE_VARIABLE);
 		types.put(HiddenStuff.class, HIDDEN_STUFF);
 		types.put(Water.class, WATER);
+		types.put(Lever.class, LEVER);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -147,6 +149,22 @@ public class V1TileScript
 				s.append(c.getWestTexture());
 				s.append(SEP);
 				s.append(c.getPreScript()==null?"":c.getPreScript().getName());
+				break;
+			case LEVER:
+				Lever lever = (Lever)t;
+				s.append(lever.getMazeVariable());
+				s.append(SEP);
+				s.append(lever.getNorthTexture());
+				s.append(SEP);
+				s.append(lever.getSouthTexture());
+				s.append(SEP);
+				s.append(lever.getEastTexture());
+				s.append(SEP);
+				s.append(lever.getWestTexture());
+				s.append(SEP);
+				s.append(lever.getPreTransitionScript()==null?"":lever.getPreTransitionScript().getName());
+				s.append(SEP);
+				s.append(lever.getPostTransitionScript()==null?"":lever.getPostTransitionScript().getName());
 				break;
 			case ENCOUNTER:
 				Encounter e = (Encounter)t;
@@ -267,6 +285,23 @@ public class V1TileScript
 					eastTexture, 
 					westTexture, 
 					script);
+				break;
+			case LEVER:
+				String mazeVariableL = strs[i++];
+				String northTextureL = strs[i++];
+				String southTextureL = strs[i++];
+				String eastTextureL = strs[i++];
+				String westTextureL = strs[i++];
+				MazeScript preTransScript = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i++]);
+				MazeScript postTransScript = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i++]);
+				result = new Lever(
+					northTextureL,
+					southTextureL,
+					eastTextureL,
+					westTextureL,
+					mazeVariableL,
+					preTransScript,
+					postTransScript);
 				break;
 			case ENCOUNTER:
 				String encTable = strs[i++];

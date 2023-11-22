@@ -150,6 +150,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		addDisplayFeatureCheckbox("Vert Walls", MapDisplay.Display.VERT_WALLS, displayFeatures);
 		addDisplayFeatureCheckbox("Encounters", MapDisplay.Display.ENCOUNTERS, displayFeatures);
 		addDisplayFeatureCheckbox("Chests", MapDisplay.Display.CHESTS, displayFeatures);
+		addDisplayFeatureCheckbox("Levers", MapDisplay.Display.LEVERS, displayFeatures);
 		addDisplayFeatureCheckbox("Cast Spell Scripts", MapDisplay.Display.CAST_SPELL_SCRIPTS, displayFeatures);
 		addDisplayFeatureCheckbox("Loot Scripts", MapDisplay.Display.LOOT_SCRIPTS, displayFeatures);
 		addDisplayFeatureCheckbox("Flavour Text", MapDisplay.Display.FLAVOUR_TEXT_SCRIPTS, displayFeatures);

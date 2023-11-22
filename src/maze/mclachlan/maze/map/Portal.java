@@ -417,13 +417,13 @@ public class Portal implements LockOrTrap
 	@Override
 	public List<MazeEvent> executeTrapDisarmed()
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	@Override
 	public List<MazeEvent> springTrap()
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	@Override

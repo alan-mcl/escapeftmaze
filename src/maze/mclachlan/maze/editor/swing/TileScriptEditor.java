@@ -59,17 +59,19 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private static final int SET_MAZE_VARIABLE = 9;
 	private static final int HIDDEN_STUFF = 10;
 	private static final int WATER = 11;
+	private static final int LEVER = 12;
 
-	private static final int MAX = 12;
+	private static final int MAX = 13;
 
-	static Map<Class, Integer> types;
+	static Map<Class<?>, Integer> types;
 
 	static
 	{
-		types = new HashMap<Class, Integer>();
+		types = new HashMap<>();
 
 		types.put(CastSpell.class, CAST_SPELL);
 		types.put(Chest.class, CHEST);
+		types.put(Lever.class, LEVER);
 		types.put(Encounter.class, ENCOUNTER);
 		types.put(FlavourText.class, FLAVOUR_TEXT);
 		types.put(Loot.class, LOOT);
@@ -109,6 +111,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox chestWestTexture;
 	private JComboBox encounterTable;
 	private JComboBox chestPreScript;
+
+	private JTextField leverMazeVariable;
+	private JComboBox leverNorthTexture;
+	private JComboBox leverSouthTexture;
+	private JComboBox leverEastTexture;
+	private JComboBox leverWestTexture;
+	private JComboBox leverPreTransScript;
+	private JComboBox leverPostTransScript;
+
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
@@ -311,6 +322,16 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				chestWestTexture.setSelectedItem(c.getWestTexture());
 				chestPreScript.setSelectedItem(c.getPreScript()==null?EditorPanel.NONE:c.getPreScript().getName());
 				break;
+			case LEVER:
+				Lever lever = (Lever)ts;
+				leverMazeVariable.setText(lever.getMazeVariable());
+				leverNorthTexture.setSelectedItem(lever.getNorthTexture());
+				leverSouthTexture.setSelectedItem(lever.getSouthTexture());
+				leverEastTexture.setSelectedItem(lever.getEastTexture());
+				leverWestTexture.setSelectedItem(lever.getWestTexture());
+				leverPreTransScript.setSelectedItem(lever.getPreTransitionScript()==null?EditorPanel.NONE:lever.getPreTransitionScript().getName());
+				leverPostTransScript.setSelectedItem(lever.getPostTransitionScript()==null?EditorPanel.NONE:lever.getPostTransitionScript().getName());
+				break;
 			case ENCOUNTER:
 				Encounter e = (Encounter)ts;
 				encounterTable.setSelectedItem(e.getEncounterTable().getName());
@@ -382,6 +403,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case CUSTOM: return getCustomPanel();
 			case CAST_SPELL: return getCastSpellPanel();
 			case CHEST: return getChestPanel();
+			case LEVER: return getLeverPanel();
 			case ENCOUNTER: return getEncounterPanel();
 			case FLAVOUR_TEXT: return getFlavourTextPanel();
 			case LOOT: return getLootPanel();
@@ -611,6 +633,67 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		return result;
 	}
 
+	private JPanel getLeverPanel()
+	{
+		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
+		Collections.sort(textures);
+
+		leverMazeVariable = new JTextField(20);
+		leverNorthTexture = new JComboBox(textures);
+		leverSouthTexture = new JComboBox(textures);
+		leverEastTexture = new JComboBox(textures);
+		leverWestTexture = new JComboBox(textures);
+
+		Vector<String> scripts = new Vector<>(Database.getInstance().getMazeScripts().keySet());
+		Collections.sort(scripts);
+		scripts.add(0, EditorPanel.NONE);
+
+		leverPreTransScript = new JComboBox(scripts);
+		leverPostTransScript = new JComboBox(scripts);
+
+		JButton edit = getMazeScriptEditButton();
+
+		JButton northTextureButton = new JButton("North Texture:");
+
+		northTextureButton.addActionListener(actionEvent -> {
+			leverSouthTexture.setSelectedItem(leverNorthTexture.getSelectedItem());
+			leverEastTexture.setSelectedItem(leverNorthTexture.getSelectedItem());
+			leverWestTexture.setSelectedItem(leverNorthTexture.getSelectedItem());
+		});
+
+		JButton quickMazeVar = new JButton("*");
+		quickMazeVar.addActionListener(actionEvent -> leverMazeVariable.setText(getLeverMazeVar(zone)));
+
+		JPanel mazeVarPanel = new JPanel();
+		mazeVarPanel.add(leverMazeVariable);
+		mazeVarPanel.add(quickMazeVar);
+
+		Component[] comps = new Component[]
+		{
+			new JLabel("Maze Variable:"), mazeVarPanel,
+			northTextureButton, leverNorthTexture,
+			new JLabel("South Texture:"), leverSouthTexture,
+			new JLabel("East Texture:"), leverEastTexture,
+			new JLabel("West Texture:"), leverWestTexture,
+			new JLabel("Pre-transition Script:"), leverPreTransScript,
+			new JLabel("Post-transition Script:"), leverPostTransScript,
+			new JLabel(), edit
+		};
+		JPanel result = new JPanel(new GridBagLayout());
+		GridBagConstraints gbc = createGridBagConstraints();
+		for (int i=0; i< comps.length; i+=2)
+		{
+			dodgyGridBagShite(result, comps[i], comps[i+1], gbc);
+		}
+
+		gbc.gridx=0;
+		gbc.weighty=1.0;
+		gbc.gridwidth=2;
+		result.add(new JPanel(), gbc);
+
+		return result;
+	}
+
 	private JPanel getCastSpellPanel()
 	{
 		Vector<String> vec = new Vector<String>(Database.getInstance().getSpellList());
@@ -681,6 +764,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case CUSTOM: return "Custom";
 			case CAST_SPELL: return "Cast Spell At Party";
 			case CHEST: return "Chest";
+			case LEVER: return "Lever";
 			case ENCOUNTER: return "Encounter";
 			case FLAVOUR_TEXT: return "Flavour Text";
 			case LOOT: return "Loot";
@@ -784,6 +868,60 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		// iterate over our template string and take the first available one
 		return constructMazeVar(zone, existingEncMazeVars, ".execute.once.");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String getLeverMazeVar(Zone zone)
+	{
+		Set<String> existingEncMazeVars = new HashSet<>();
+
+		// collect all existing encounter maze vars
+		Tile[][] tiles = zone.getTiles();
+		for (Tile[] tt : tiles)
+		{
+			for (Tile t : tt)
+			{
+				List<TileScript> scripts = t.getScripts();
+
+				for (TileScript script : scripts)
+				{
+					if (script instanceof Lever)
+					{
+						existingEncMazeVars.add(((Lever)script).getMazeVariable());
+					}
+				}
+			}
+		}
+
+		// iterate over our template string and take the first available one
+		return constructMazeVar(zone, existingEncMazeVars, ".lever-state.");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String getChestMazeVar(Zone zone)
+	{
+		Set<String> existingEncMazeVars = new HashSet<>();
+
+		// collect all existing encounter maze vars
+		Tile[][] tiles = zone.getTiles();
+		for (Tile[] tt : tiles)
+		{
+			for (Tile t : tt)
+			{
+				List<TileScript> scripts = t.getScripts();
+
+				for (TileScript script : scripts)
+				{
+					if (script instanceof Chest)
+					{
+						existingEncMazeVars.add(((Lever)script).getMazeVariable());
+					}
+				}
+			}
+		}
+
+		// iterate over our template string and take the first available one
+		return constructMazeVar(zone, existingEncMazeVars, ".chest.");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -907,6 +1045,21 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					(String)chestEastTexture.getSelectedItem(),
 					(String)chestWestTexture.getSelectedItem(), 
 					script);
+				break;
+			case LEVER:
+				MazeScript preTransScript = (leverPreTransScript.getSelectedItem() == EditorPanel.NONE) ?
+					null:Database.getInstance().getMazeScript((String)leverPreTransScript.getSelectedItem());
+				MazeScript postTransScript = (leverPostTransScript.getSelectedItem() == EditorPanel.NONE) ?
+					null:Database.getInstance().getMazeScript((String)leverPostTransScript.getSelectedItem());
+
+				result = new Lever(
+					(String)leverNorthTexture.getSelectedItem(),
+					(String)leverSouthTexture.getSelectedItem(),
+					(String)leverEastTexture.getSelectedItem(),
+					(String)leverWestTexture.getSelectedItem(),
+					leverMazeVariable.getText(),
+					preTransScript,
+					postTransScript);
 				break;
 			case ENCOUNTER:
 				NpcFaction.Attitude attitude;

@@ -1,4 +1,4 @@
-#Tue Nov 21 17:00:42 SAST 2023
+#Wed Nov 22 13:30:57 SAST 2023
 garret=9|Do not trust the trickster god of the road.
 leonal,leonals,white\ order=9|We are the children of Dana, her chosen. The White Order has brought law and order to some small portion of this realm, so that cities such as this may prosper.
 maze=9|The horror of the Maze will drive you insane if you think too deeply on it.

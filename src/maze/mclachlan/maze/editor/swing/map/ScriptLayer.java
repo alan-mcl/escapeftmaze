@@ -76,6 +76,14 @@ public class ScriptLayer extends Layer
 							g2d.drawImage(chest, x1+2, y1+2, tileSize-4, tileSize-4, display);
 						}
 					}
+					else if (script instanceof Lever)
+					{
+						if (display.displayFeatures.get(MapDisplay.Display.LEVERS))
+						{
+							Image lever = Database.getInstance().getImage("editor/lever");
+							g2d.drawImage(lever, x1+2, y1+2, tileSize-4, tileSize-4, display);
+						}
+					}
 					else if (script instanceof CastSpell)
 					{
 						if (display.displayFeatures.get(MapDisplay.Display.CAST_SPELL_SCRIPTS))

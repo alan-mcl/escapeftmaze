@@ -36,28 +36,43 @@ public class RemoveWallEvent extends MazeEvent
 	private int wallIndex;
 
 	/*-------------------------------------------------------------------------*/
-	public RemoveWallEvent(String mazeVariable, boolean horizontalWall, int wallIndex)
+	public RemoveWallEvent(String mazeVariable, boolean horizontalWall,
+		int wallIndex)
 	{
 		this.mazeVariable = mazeVariable;
 		this.horizontalWall = horizontalWall;
 		this.wallIndex = wallIndex;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
 		removeWall(Maze.getInstance().getCurrentZone().getMap(), horizontalWall, wallIndex);
-		
+
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	void removeWall(Map map, boolean horizontal, int index)
 	{
-		map.setWall(horizontal, new Wall(Map.NO_WALL, null, false, false,1,null, null), index);
-		MazeVariables.set(this.mazeVariable, "1");
+		map.setWall(horizontal,
+			new Wall(
+				Map.NO_WALL,
+				null,
+				false,
+				false,
+				1,
+				null,
+				null,
+				null),
+			index);
+		if (this.mazeVariable != null && !"".equals(this.mazeVariable))
+		{
+			MazeVariables.set(this.mazeVariable, "1");
+		}
+
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public boolean isHorizontalWall()
 	{

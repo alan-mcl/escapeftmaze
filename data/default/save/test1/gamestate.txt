@@ -1,0 +1,10 @@
+zone=Gatehouse
+difficultyLevel=Normal
+playerPos=1:26
+facing=3
+partyGold=0
+partySupplies=100
+partyNames=Belegad,Badb,Wormwood,Barhara,Wornvoice,Brais
+formation=3
+turnNr=87
+@

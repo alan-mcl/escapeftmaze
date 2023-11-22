@@ -77,6 +77,7 @@ public class LbawDungeonGen implements DungeonGen
 				false,
 				1,
 				null,
+				null,
 				null);
 		}
 
@@ -88,6 +89,7 @@ public class LbawDungeonGen implements DungeonGen
 				false,
 				false,
 				1,
+				null,
 				null,
 				null);
 		}
@@ -153,6 +155,7 @@ public class LbawDungeonGen implements DungeonGen
 			true,
 			true,
 			1,
+			null,
 			null,
 			null);
 	}

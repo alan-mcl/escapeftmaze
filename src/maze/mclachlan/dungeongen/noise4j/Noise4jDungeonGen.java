@@ -277,6 +277,7 @@ public class Noise4jDungeonGen implements DungeonGen
 				false,
 				1,
 				null,
+				null,
 				null);
 		}
 
@@ -288,6 +289,7 @@ public class Noise4jDungeonGen implements DungeonGen
 				false,
 				false,
 				1,
+				null,
 				null,
 				null);
 		}

@@ -859,7 +859,7 @@ playerOrigin: 14:30
 840: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 841: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.1,,:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 842: 0:3f800000000000000000,01020201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-843: 0:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+843: 2:4,gatehouse.execute.once.1,,false,The large lever mechanism looks tarnished and old but otherwise functional.%n%nYou wonder what hidden machinery it connects to...:12,,,false,gatehouse.lever-state.0,objects.lever.front,objects.lever.back,objects.lever.right,objects.lever.left,Gatehouse lever pre transition,Gatehouse lever post transition:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 844: 1:7,gatehouse.execute.once.2,,false,Gatehouse encounter 1 bats:3f800000000000000000,01020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 845: 1:7,gatehouse.execute.once.0,00001,true,Gatehouse first room window:3f800000000000000000,02010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 846: 1:7,,01,true,Gatehouse welcome sign:3f800000000000000000,01010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -1087,6 +1087,7 @@ playerOrigin: 14:30
 42: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1
 43: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
 44: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
+45: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,
 
 -sky image-
 0: sky.ichiba
@@ -2645,7 +2646,6 @@ playerOrigin: 14:30
 896: DUNGEON_WALL_1::::true
 898: DUNGEON_WALL_1::::true
 899: DUNGEON_WALL_1::::true
-903: DUNGEON_WALL_1::::true
 907: DUNGEON_WALL_1::::true
 910: DUNGEON_WALL_1::::true
 911: DUNGEON_WALL_1::::true
@@ -2724,8 +2724,7 @@ playerOrigin: 14:30
 24: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:116:false::1::BOTTOM
 25: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1::BOTTOM
 26: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,These bones feel brittle and dry to the touch.:00001::BOTTOM
-27: objects.lever.back:objects.lever.front:objects.lever.left:objects.lever.right:843:false::::BOTTOM
-28: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false::001::BOTTOM
+27: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false::001::BOTTOM
 
 -scripts-
 

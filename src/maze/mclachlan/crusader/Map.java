@@ -415,6 +415,12 @@ public class Map
 		Wall[] array = horizontal ? horizontalWalls : verticalWalls;
 		array[index] = wall;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public Wall getWall(boolean horizontal, int index)
+	{
+		return horizontal ? horizontalWalls[index] : verticalWalls[index];
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	/** The width of this map (ie east-west), in grid blocks */

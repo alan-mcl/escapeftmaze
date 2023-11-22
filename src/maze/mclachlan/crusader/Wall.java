@@ -38,6 +38,8 @@ public class Wall
 	MouseClickScript mouseClickScript;
 	/** Any script to run when the user clicks on the mask texture on this wall*/
 	MouseClickScript maskTextureMouseClickScript;
+	/** Any internal script run by other means */
+	MouseClickScript internalScript;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -55,6 +57,8 @@ public class Wall
 	 * 	Any script to run when the user clicks on this wall
 	 * @param maskTextureMouseClickScript
 	 * 	Any script to run when the user clicks on the mask texture on this wall
+	 * @param internalScript
+	 * 	Any internal script run by other means
 	 */
 	public Wall(
 		Texture texture, 
@@ -63,7 +67,8 @@ public class Wall
 		boolean solid,
 		int height,
 		MouseClickScript mouseClickScript,
-		MouseClickScript maskTextureMouseClickScript)
+		MouseClickScript maskTextureMouseClickScript,
+		MouseClickScript internalScript)
 	{
 		this.height = height;
 		this.maskTextureMouseClickScript = maskTextureMouseClickScript;
@@ -72,6 +77,7 @@ public class Wall
 		this.maskTexture = maskTexture;
 		this.visible = visible;
 		this.solid = solid;
+		this.internalScript = internalScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -129,6 +135,18 @@ public class Wall
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	public MouseClickScript getInternalScript()
+	{
+		return internalScript;
+	}
+
+	public void setInternalScript(MouseClickScript internalScript)
+	{
+		this.internalScript = internalScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void setTexture(Texture texture)
 	{
 		this.texture = texture;
@@ -144,6 +162,16 @@ public class Wall
 	public void setSolid(boolean solid)
 	{
 		this.solid = solid;
+	}
+
+	public int getHeight()
+	{
+		return height;
+	}
+
+	public void setHeight(int height)
+	{
+		this.height = height;
 	}
 
 	@Override
