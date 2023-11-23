@@ -1434,6 +1434,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void addTexture(Texture t)
+	{
+		this.raycaster.addTexture(t);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void characterSelected(int index)
 	{
 		PlayerCharacter pc = Maze.getInstance().getPlayerCharacter(index);

@@ -156,20 +156,22 @@ public class ScriptLayer extends Layer
 					int x1 = (wallSize*(column+1))+(column*tileSize);
 					int y1 = wallSize*row+tileSize*row;
 					
-					if (horizontalWalls[i].getMouseClickScript() != null)
+					if (horizontalWalls[i].getMouseClickScript() != null ||
+						horizontalWalls[i].getMaskTextureMouseClickScript() != null ||
+						horizontalWalls[i].getInternalScript() != null)
 					{
 						g2d.setColor(Color.YELLOW);
 						g2d.fillOval(x1+tileSize/4,y1-wallSize*2,tileSize/2,wallSize*5);
 						g2d.setColor(Color.BLACK);
 						g2d.drawOval(x1+tileSize/4,y1-wallSize*2,tileSize/2,wallSize*5);
 					}
-					if (horizontalWalls[i].getMaskTextureMouseClickScript() != null)
-					{
-						g2d.setColor(Color.RED);
-						g2d.fillOval(x1+tileSize/3,y1-wallSize,tileSize/3,wallSize*3);
-						g2d.setColor(Color.BLACK);
-						g2d.drawOval(x1+tileSize/3,y1-wallSize,tileSize/3,wallSize*3);
-					}
+//					if (horizontalWalls[i].getMaskTextureMouseClickScript() != null)
+//					{
+//						g2d.setColor(Color.RED);
+//						g2d.fillOval(x1+tileSize/3,y1-wallSize,tileSize/3,wallSize*3);
+//						g2d.setColor(Color.BLACK);
+//						g2d.drawOval(x1+tileSize/3,y1-wallSize,tileSize/3,wallSize*3);
+//					}
 				}
 			}
 			
@@ -183,20 +185,22 @@ public class ScriptLayer extends Layer
 					int x1 = column*(wallSize+tileSize);
 					int y1 = (wallSize*(row+1))+(row*tileSize);
 					
-					if (verticalWalls[i].getMouseClickScript() != null)
+					if (verticalWalls[i].getMouseClickScript() != null ||
+						verticalWalls[i].getMaskTextureMouseClickScript() != null ||
+						verticalWalls[i].getInternalScript() != null)
 					{
 						g2d.setColor(Color.YELLOW);
 						g2d.fillOval(x1-wallSize*2,y1+tileSize/4,wallSize*5,tileSize/2);
 						g2d.setColor(Color.BLACK);
 						g2d.drawOval(x1-wallSize*2,y1+tileSize/4,wallSize*5,tileSize/2);
 					}
-					if (verticalWalls[i].getMaskTextureMouseClickScript() != null)
-					{
-						g2d.setColor(Color.RED);
-						g2d.fillOval(x1-wallSize,y1+tileSize/3,wallSize*3,tileSize/3);
-						g2d.setColor(Color.BLACK);
-						g2d.drawOval(x1-wallSize,y1+tileSize/3,wallSize*3,tileSize/3);
-					}
+//					if (verticalWalls[i].getMaskTextureMouseClickScript() != null)
+//					{
+//						g2d.setColor(Color.RED);
+//						g2d.fillOval(x1-wallSize,y1+tileSize/3,wallSize*3,tileSize/3);
+//						g2d.setColor(Color.BLACK);
+//						g2d.drawOval(x1-wallSize,y1+tileSize/3,wallSize*3,tileSize/3);
+//					}
 				}
 			}
 		}

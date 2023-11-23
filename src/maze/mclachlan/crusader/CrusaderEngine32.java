@@ -384,6 +384,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		for (Wall horizontalWall : map.horizontalWalls)
 		{
+			if (horizontalWall.internalScript != null)
+			{
+				horizontalWall.internalScript.initialise(map);
+			}
 			if (horizontalWall.mouseClickScript != null)
 			{
 				horizontalWall.mouseClickScript.initialise(map);
@@ -396,6 +400,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		for (Wall verticalWall : map.verticalWalls)
 		{
+			if (verticalWall.internalScript != null)
+			{
+				verticalWall.internalScript.initialise(map);
+			}
 			if (verticalWall.mouseClickScript != null)
 			{
 				verticalWall.mouseClickScript.initialise(map);

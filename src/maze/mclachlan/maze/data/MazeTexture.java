@@ -59,7 +59,7 @@ public class MazeTexture extends DataObject
 			images[i] = Database.getInstance().getImage(imageResources.get(i));
 		}
 
-		this.texture = new Texture(name, imageWidth, imageHeight, images, animationDelay, scrollBehaviour, scrollSpeed);
+		this.texture = new Texture(name, images, animationDelay, scrollBehaviour, scrollSpeed);
 	}
 
 	/*-------------------------------------------------------------------------*/

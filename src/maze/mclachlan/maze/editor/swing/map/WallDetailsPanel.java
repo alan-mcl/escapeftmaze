@@ -39,14 +39,14 @@ public class WallDetailsPanel extends JPanel
 	implements ActionListener, TileScriptComponentCallback
 {
 	// crusader wall properties
-	private JLabel index;
-	private JCheckBox isVisible, isSolid;
-	private JComboBox texture, maskTexture;
-	private SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript;
+	private final JLabel index;
+	private final JCheckBox isVisible, isSolid;
+	private final JComboBox<String> texture, maskTexture;
+	private final SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript, internalScript;
 	
 	// the wall being edited
 	private WallProxy wall;
-	private Zone zone;
+	private final Zone zone;
 
 	/*-------------------------------------------------------------------------*/
 	public WallDetailsPanel(boolean multiSelect, Zone zone)
@@ -68,14 +68,17 @@ public class WallDetailsPanel extends JPanel
 		isSolid.addActionListener(this);
 		dodgyGridBagShite(this, isSolid, new JLabel(), gbc);
 
-		texture = new JComboBox();
+		texture = new JComboBox<>();
 		texture.addActionListener(this);
 		dodgyGridBagShite(this, new JLabel("Texture:"), texture, gbc);
 		
-		maskTexture = new JComboBox();
+		maskTexture = new JComboBox<>();
 		maskTexture.addActionListener(this);
 		dodgyGridBagShite(this, new JLabel("Mask Texture:"), maskTexture, gbc);
 		
+		internalScript = new SingleTileScriptComponent(null, -1, this, zone);
+		dodgyGridBagShite(this, new JLabel("Internal Script:"), internalScript, gbc);
+
 		mouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
 		dodgyGridBagShite(this, new JLabel("Click Script:"), mouseClickScript, gbc);
 		
@@ -95,18 +98,18 @@ public class WallDetailsPanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys(boolean multiSelect)
 	{
-		Vector<String> vec = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> vec = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(vec);
 		if (multiSelect)
 		{
 			vec.insertElementAt(EditorPanel.NONE, 0);
 		}
-		texture.setModel(new DefaultComboBoxModel(vec));
+		texture.setModel(new DefaultComboBoxModel<>(vec));
 		
-		Vector<String> vec2 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		vec2.insertElementAt(EditorPanel.NONE, 0);
 		Collections.sort(vec2);
-		maskTexture.setModel(new DefaultComboBoxModel(vec2));
+		maskTexture.setModel(new DefaultComboBoxModel<>(vec2));
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -132,10 +135,16 @@ public class WallDetailsPanel extends JPanel
 
 			texture.setSelectedItem(wall.getTexture()==null?EditorPanel.NONE:wall.getTexture().getName());
 			maskTexture.setSelectedItem(wall.getMaskTexture()==null?EditorPanel.NONE:wall.getMaskTexture().getName());
+
 			MouseClickScriptAdapter m1 = ((MouseClickScriptAdapter)wall.getMouseClickScript());
 			mouseClickScript.refresh(m1==null?null:m1.getScript(), zone);
+
 			MouseClickScriptAdapter m2 = ((MouseClickScriptAdapter)wall.getMaskTextureMouseClickScript());
 			maskTextureMouseClickScript.refresh(m2==null?null:m2.getScript(), zone);
+
+			MouseClickScriptAdapter m3 = ((MouseClickScriptAdapter)wall.getInternalScript());
+			internalScript.refresh(m3==null?null:m3.getScript(), zone);
+
 		}
 		else
 		{
@@ -143,6 +152,7 @@ public class WallDetailsPanel extends JPanel
 			
 			texture.setSelectedIndex(0);
 			maskTexture.setSelectedIndex(0);
+			internalScript.refresh(null, zone);
 			mouseClickScript.refresh(null, zone);
 			maskTextureMouseClickScript.refresh(null, zone);
 		}
@@ -158,6 +168,7 @@ public class WallDetailsPanel extends JPanel
 	{
 		texture.setEnabled(b);
 		maskTexture.setEnabled(b);
+		internalScript.setEnabled(b);
 		mouseClickScript.setEnabled(b);
 		maskTextureMouseClickScript.setEnabled(b);
 	}
@@ -246,6 +257,10 @@ public class WallDetailsPanel extends JPanel
 		{
 			wall.setMaskTextureMouseClickScript(
 				new MouseClickScriptAdapter(maskTextureMouseClickScript.getScript()));
+		}
+		else if (component == internalScript)
+		{
+			wall.setInternalScript(new MouseClickScriptAdapter(internalScript.getScript()));
 		}
 	}
 }

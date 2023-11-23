@@ -19,20 +19,18 @@
 
 package mclachlan.maze.data.v1;
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.BitSet;
+import java.util.*;
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
-import mclachlan.maze.map.HiddenStuff;
-import mclachlan.maze.map.script.RemoveWall;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.PercentageTable;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
-import mclachlan.maze.stat.PercentageTable;
-import mclachlan.maze.game.MazeScript;
 
 /**
  *
@@ -56,6 +54,7 @@ public class V1TileScript
 	private static final int HIDDEN_STUFF = 10;
 	private static final int WATER = 11;
 	private static final int LEVER = 12;
+	private static final int TOGGLE_WALL = 13;
 
 	static V1PercentageTable<Trap> traps = new V1PercentageTable<Trap>()
 	{
@@ -86,6 +85,7 @@ public class V1TileScript
 		types.put(HiddenStuff.class, HIDDEN_STUFF);
 		types.put(Water.class, WATER);
 		types.put(Lever.class, LEVER);
+		types.put(ToggleWall.class, TOGGLE_WALL);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -191,6 +191,45 @@ public class V1TileScript
 				s.append(r.getWallIndex());
 				s.append(SEP);
 				s.append(r.isHorizontalWall());
+				break;
+			case TOGGLE_WALL:
+				ToggleWall tw = (ToggleWall)t;
+				s.append(tw.getMazeVariable());
+				s.append(SEP);
+				s.append(tw.getWallIndex());
+				s.append(SEP);
+				s.append(tw.isHorizontalWall());
+				s.append(SEP);
+				
+				s.append(tw.getState1Texture()==null?"":tw.getState1Texture().getName());
+				s.append(SEP);
+				s.append(tw.getState1MaskTexture()==null?"":tw.getState1MaskTexture().getName());
+				s.append(SEP);
+				s.append(tw.isState1Visible());
+				s.append(SEP);
+				s.append(tw.isState1Solid());
+				s.append(SEP);
+				s.append(tw.getState1Height());
+				s.append(SEP);
+				s.append(V1MouseClickScript.toString(tw.getState1MouseClickScript()));
+				s.append(SEP);
+				s.append(V1MouseClickScript.toString(tw.getState1MaskTextureMouseClickScript()));
+				s.append(SEP);
+				
+				s.append(tw.getState2Texture()==null?"":tw.getState2Texture().getName());
+				s.append(SEP);
+				s.append(tw.getState2MaskTexture()==null?"":tw.getState2MaskTexture().getName());
+				s.append(SEP);
+				s.append(tw.isState2Visible());
+				s.append(SEP);
+				s.append(tw.isState2Solid());
+				s.append(SEP);
+				s.append(tw.getState2Height());
+				s.append(SEP);
+				s.append(V1MouseClickScript.toString(tw.getState2MouseClickScript()));
+				s.append(SEP);
+				s.append(V1MouseClickScript.toString(tw.getState2MaskTextureMouseClickScript()));
+
 				break;
 			case EXECUTE_MAZE_SCRIPT:
 				ExecuteMazeScript eme = (ExecuteMazeScript)t;
@@ -349,6 +388,46 @@ public class V1TileScript
 				break;
 			case REMOVE_WALL:
 				result = new RemoveWall(strs[i++], Integer.parseInt(strs[i++]), Boolean.valueOf(strs[i++]));
+				break;
+			case TOGGLE_WALL:
+				String toggleWallMazeVar = strs[i++];
+				int wallIndex = Integer.parseInt(strs[i++]);
+				boolean horizontalWall = Boolean.valueOf(strs[i++]);
+				
+				String state1Texture = strs[i++]; 
+				String state1MaskTexture = strs[i++];
+				boolean state1Visible = Boolean.valueOf(strs[i++]);
+				boolean state1Solid = Boolean.valueOf(strs[i++]);
+				int state1Height = Integer.parseInt(strs[i++]);
+				MouseClickScript state1MouseClickScript = V1MouseClickScript.fromString(strs[i++]);
+				MouseClickScript state1MaskTextureMouseClickScript = V1MouseClickScript.fromString(strs[i++]);
+				
+				String state2Texture = strs[i++]; 
+				String state2MaskTexture = strs[i++];
+				boolean state2Visible = Boolean.valueOf(strs[i++]);
+				boolean state2Solid = Boolean.valueOf(strs[i++]);
+				int state2Height = Integer.parseInt(strs[i++]);
+				MouseClickScript state2MouseClickScript = V1MouseClickScript.fromString(strs[i++]);
+				MouseClickScript state2MaskTextureMouseClickScript = V1MouseClickScript.fromString(strs[i++]);
+				
+				result = new ToggleWall(
+					toggleWallMazeVar,
+					wallIndex,
+					horizontalWall,
+					"".equals(state1Texture)?null:Database.getInstance().getMazeTexture(state1Texture).getTexture(),
+					"".equals(state1MaskTexture)?null:Database.getInstance().getMazeTexture(state1MaskTexture).getTexture(),
+					state1Visible,
+					state1Solid,
+					state1Height,
+					state1MouseClickScript,
+					state1MaskTextureMouseClickScript,
+					"".equals(state2Texture)?null:Database.getInstance().getMazeTexture(state2Texture).getTexture(),
+					"".equals(state2MaskTexture)?null:Database.getInstance().getMazeTexture(state2MaskTexture).getTexture(),
+					state2Visible,
+					state2Solid,
+					state2Height,
+					state2MouseClickScript,
+					state2MaskTextureMouseClickScript);
 				break;
 			case EXECUTE_MAZE_SCRIPT:
 				result = new ExecuteMazeScript(strs[i++]);

@@ -222,9 +222,7 @@ public class ClientMapLoader
 
 					textures[i] = new Texture(
 						mapName+"_texture_"+i,
-						frames[0].getWidth(),
-						frames[0].getHeight(),
-						frames, 
+						frames,
 						animDelay,
 						scrollBehaviour,
 						scrollSpeed);

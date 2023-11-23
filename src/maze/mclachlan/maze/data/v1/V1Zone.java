@@ -220,13 +220,15 @@ public class V1Zone
 						String maskTexture = strs[1];
 						MouseClickScript mcs = V1MouseClickScript.fromString(strs[2]);
 						MouseClickScript mtmcs = V1MouseClickScript.fromString(strs[3]);
-						MouseClickScript is = null; // todo
-						boolean solid = Boolean.valueOf(strs[4]);
+						MouseClickScript is = V1MouseClickScript.fromString(strs[4]);
+						boolean solid = Boolean.valueOf(strs[5]);
+						int height = Integer.parseInt(strs[6]);
+
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							:Database.getInstance().getMazeTexture(maskTexture).getTexture();
 
-						horizontalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs, is);
+						horizontalWalls[i] = new Wall(texture, mask, true, solid, height, mcs, mtmcs, is);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);
@@ -253,13 +255,15 @@ public class V1Zone
 						String maskTexture = strs[1];
 						MouseClickScript mcs = V1MouseClickScript.fromString(strs[2]);
 						MouseClickScript mtmcs = V1MouseClickScript.fromString(strs[3]);
-						MouseClickScript is = null; // todo
-						boolean solid = Boolean.valueOf(strs[4]);
+						MouseClickScript is = V1MouseClickScript.fromString(strs[4]);
+						boolean solid = Boolean.valueOf(strs[5]);
+						int height = Integer.parseInt(strs[6]);
+
 						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
 						Texture mask = maskTexture.equals("") ? null 
 							: Database.getInstance().getMazeTexture(maskTexture).getTexture();
 
-						verticalWalls[i] = new Wall(texture, mask, true, solid, 1, mcs, mtmcs, is);
+						verticalWalls[i] = new Wall(texture, mask, true, solid, height, mcs, mtmcs, is);
 
 						addTexture(texture, textures);
 						addTexture(mask, textures);
@@ -497,7 +501,15 @@ public class V1Zone
 					writer.write(V1MouseClickScript.toString(horizWalls[i].getMaskTextureMouseClickScript()));
 				}
 				writer.write(WALL_SEP);
+				if (horizWalls[i].getInternalScript() != null)
+				{
+					writer.write(V1MouseClickScript.toString(horizWalls[i].getInternalScript()));
+				}
+				writer.write(WALL_SEP);
 				writer.write(String.valueOf(horizWalls[i].isSolid()));
+				writer.write(WALL_SEP);
+				writer.write(String.valueOf(horizWalls[i].getHeight()));
+
 				writer.writeln();
 			}
 		}
@@ -528,7 +540,15 @@ public class V1Zone
 					writer.write(V1MouseClickScript.toString(vertWalls[i].getMaskTextureMouseClickScript()));
 				}
 				writer.write(WALL_SEP);
+				if (vertWalls[i].getInternalScript() != null)
+				{
+					writer.write(V1MouseClickScript.toString(vertWalls[i].getInternalScript()));
+				}
+				writer.write(WALL_SEP);
 				writer.write(String.valueOf(vertWalls[i].isSolid()));
+				writer.write(WALL_SEP);
+				writer.write(String.valueOf(vertWalls[i].getHeight()));
+
 				writer.writeln();
 			}
 		}

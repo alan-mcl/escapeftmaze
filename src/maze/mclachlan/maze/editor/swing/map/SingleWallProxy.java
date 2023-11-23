@@ -72,6 +72,12 @@ public class SingleWallProxy extends WallProxy
 	}
 
 	@Override
+	public MouseClickScript getInternalScript()
+	{
+		return wall.getInternalScript();
+	}
+
+	@Override
 	public void setMaskTexture(Texture maskTexture)
 	{
 		wall.setMaskTexture(maskTexture);
@@ -87,6 +93,12 @@ public class SingleWallProxy extends WallProxy
 	public void setMouseClickScript(MouseClickScript mouseClickScript)
 	{
 		wall.setMouseClickScript(mouseClickScript);
+	}
+
+	@Override
+	public void setInternalScript(MouseClickScript mouseClickScript)
+	{
+		wall.setInternalScript(mouseClickScript);
 	}
 
 	@Override

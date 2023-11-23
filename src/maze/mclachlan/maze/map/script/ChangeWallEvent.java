@@ -71,7 +71,7 @@ public class ChangeWallEvent extends MazeEvent
 	{
 		Wall wall = new Wall(texture, maskTexture, visible, solid, height, mouseClickScript, maskTextureMouseClickScript, null);
 
-		Maze.getInstance().getCurrentZone().getMap().setWall(horizontalWall, wall, wallIndex);
+		Maze.getInstance().getCurrentZone().getMap().setWall(wallIndex, horizontalWall, wall);
 
 		return null;
 	}

@@ -113,7 +113,7 @@ public class MultipleWallProxy extends WallProxy
 		
 		for (Wall w : walls)
 		{
-			if (w.getMaskTextureMouseClickScript() != walls)
+			if (w.getMaskTextureMouseClickScript() != x)
 			{
 				return null;
 			}
@@ -130,12 +130,29 @@ public class MultipleWallProxy extends WallProxy
 		
 		for (Wall w : walls)
 		{
-			if (w.getMouseClickScript() != walls)
+			if (w.getMouseClickScript() != x)
 			{
 				return null;
 			}
 		}
 		
+		return x;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public MouseClickScript getInternalScript()
+	{
+		MouseClickScript x = walls.get(0).getInternalScript();
+
+		for (Wall w : walls)
+		{
+			if (w.getInternalScript() != x)
+			{
+				return null;
+			}
+		}
+
 		return x;
 	}
 
@@ -166,6 +183,16 @@ public class MultipleWallProxy extends WallProxy
 		for (Wall w : walls)
 		{
 			w.setMouseClickScript(mouseClickScript);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void setInternalScript(MouseClickScript mouseClickScript)
+	{
+		for (Wall w : walls)
+		{
+			w.setInternalScript(mouseClickScript);
 		}
 	}
 

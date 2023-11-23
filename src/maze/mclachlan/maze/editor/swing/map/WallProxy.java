@@ -30,9 +30,13 @@ public abstract class WallProxy
 	public abstract boolean isSolid();
 	public abstract MouseClickScript getMaskTextureMouseClickScript();
 	public abstract MouseClickScript getMouseClickScript();
+
+	public abstract MouseClickScript getInternalScript();
 	public abstract void setMaskTexture(Texture maskTexture);
 	public abstract void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript);
 	public abstract void setMouseClickScript(MouseClickScript mouseClickScript);
+
+	public abstract void setInternalScript(MouseClickScript mouseClickScript);
 	public abstract void setTexture(Texture texture);
 	public abstract void setVisible(boolean visible);
 	public abstract void setSolid(boolean solid);

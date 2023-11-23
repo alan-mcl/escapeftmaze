@@ -69,8 +69,6 @@ public class Texture implements Comparable<Texture>
 	/*-------------------------------------------------------------------------*/
 	public Texture(
 		String name,
-		int imageWidth,
-		int imageHeight,
 		BufferedImage[] frames,
 		int animationDelay,
 		ScrollBehaviour scrollBehaviour,

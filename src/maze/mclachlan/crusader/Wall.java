@@ -80,6 +80,11 @@ public class Wall
 		this.internalScript = internalScript;
 	}
 
+	public Wall()
+	{
+
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Texture getMaskTexture()
 	{

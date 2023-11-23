@@ -27,6 +27,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.Texture;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.game.Maze;
@@ -308,6 +309,12 @@ public class HeadlessUi implements UserInterface
 	public void characterSelected(int index)
 	{
 		
+	}
+
+	@Override
+	public void addTexture(Texture t)
+	{
+
 	}
 
 	public void characterSelected(PlayerCharacter pc)

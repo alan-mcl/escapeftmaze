@@ -27,6 +27,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.Texture;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.game.Maze;
@@ -196,6 +197,9 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	void characterSelected(int index);
+
+	/*-------------------------------------------------------------------------*/
+	public void addTexture(Texture t);
 
 	/*-------------------------------------------------------------------------*/
 	void characterSelected(PlayerCharacter pc);
