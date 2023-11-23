@@ -1042,9 +1042,9 @@ playerOrigin: 2:16
 1023: 0:3f800000000000000000,03040102020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: ichiba.city.depths.portal.0,false,unlocked,6:14,3,7:14,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Ichiba Depths to City (coc)
-1: ichiba.city.depths.portal.1,true,locked,14:1,4,13:1,3,true,true,true,5,0,0:2:3:0:2:3:0:2,01101101,null,true,generic door creak
-2: ichiba.city.depths.portal.2,true,unlocked,8:15,1,8:14,2,true,true,true,15,5,0:7:6:6:0:0:7:0,0111001,null,true,generic door creak
+0: ichiba.city.depths.portal.0,false,unlocked,6:14,3,7:14,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Ichiba Depths to City (coc),
+1: ichiba.city.depths.portal.1,true,locked,14:1,4,13:1,3,true,true,true,5,0,0:2:3:0:2:3:0:2,01101101,null,true,generic door creak,
+2: ichiba.city.depths.portal.2,true,unlocked,8:15,1,8:14,2,true,true,true,15,5,0:7:6:6:0:0:7:0,0111001,null,true,generic door creak,
 
 -sky image-
 0: DEFAULT_SKY

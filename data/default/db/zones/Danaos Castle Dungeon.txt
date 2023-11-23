@@ -274,7 +274,7 @@ playerOrigin: 10:9
 255: 0:3f800000000000000000,02030303020301:DUNGEON:Castle:5:TestingTable:MEDIUM:AVERAGE
 
 -maze portals-
-0: danaos.castle.dungeon.portal.0,false,unlocked,10:9,2,10:10,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Danaos Dungeon to Castle
+0: danaos.castle.dungeon.portal.0,false,unlocked,10:9,2,10:10,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Danaos Dungeon to Castle,
 
 -sky image-
 0: sky.danaos

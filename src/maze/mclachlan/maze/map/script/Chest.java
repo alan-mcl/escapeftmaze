@@ -31,6 +31,7 @@ import mclachlan.maze.game.event.CheckPartyStatusEvent;
 import mclachlan.maze.game.event.MazeScriptEvent;
 import mclachlan.maze.game.event.SetChestStateEvent;
 import mclachlan.maze.game.event.SetStateEvent;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.stat.PercentageTable;
@@ -282,9 +283,15 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	}
 
 	@Override
-	public void setLockState(String unlocked)
+	public void setLockState(String state)
 	{
 		// no op
+	}
+
+	@Override
+	public String getLockState()
+	{
+		return Portal.State.UNLOCKED;
 	}
 
 	@Override
@@ -321,6 +328,19 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	public int getResistForceOpen()
 	{
 		return 0;
+	}
+
+	@Override
+	public String getKeyItem()
+	{
+		// not supported yet
+		return null;
+	}
+
+	@Override
+	public boolean isConsumeKeyItem()
+	{
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

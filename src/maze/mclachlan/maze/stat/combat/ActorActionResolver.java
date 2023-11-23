@@ -24,6 +24,9 @@ import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ActorsTurnToAct;
+import mclachlan.maze.game.event.RemoveItemEvent;
+import mclachlan.maze.game.event.SetLockState;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.stat.*;
@@ -417,9 +420,44 @@ public class ActorActionResolver
 
 		if (invokedSpell == null)
 		{
-			// no invoked spell on this item
-			events.add(new NoEffectEvent());
-			return;
+			LockOrTrap lockOrTrap = null;
+
+			if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+			{
+				lockOrTrap = Maze.getInstance().getCurrentChest();
+			}
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+			{
+				lockOrTrap = Maze.getInstance().getCurrentPortal();
+			}
+
+			if (lockOrTrap != null)
+			{
+				// maybe this is a key item?
+				if (item.getTemplate().getName().equals(lockOrTrap.getKeyItem()))
+				{
+					if (lockOrTrap.isLocked())
+					{
+						events.add(new SetLockState(lockOrTrap, Portal.State.UNLOCKED));
+					}
+					else
+					{
+						events.add(new SetLockState(lockOrTrap, Portal.State.LOCKED));
+					}
+					if (lockOrTrap.isConsumeKeyItem())
+					{
+						events.add(new RemoveItemEvent(lockOrTrap.getKeyItem(), actor));
+					}
+
+					return;
+				}
+			}
+			else
+			{
+				// nope, nothing happens
+				events.add(new NoEffectEvent());
+				return;
+			}
 		}
 
 		if (castingLevel == 0)

@@ -1042,9 +1042,9 @@ playerOrigin: 5:17
 1023: 0:32800000000000000000,01010901:WILDERNESS:Forest:5:dalen.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: dalen.portal.0,true,unlocked,6:5,1,6:4,2,true,true,true,5,0,9:11:10:0:0:10:10:10,11100111,null,true,generic door creak
-1: dalen.portal.1,true,unlocked,5:5,2,5:6,1,true,true,true,5,0,11:0:0:9:11:9:10:0,1001111,null,true,generic door creak
-2: dalen.portal.2,false,unlocked,5:15,4,4:15,3,true,true,true,5,0,11:0:0:9:9:0:9:11,10011011,null,true,Dalen to Ichiba City
+0: dalen.portal.0,true,unlocked,6:5,1,6:4,2,true,true,true,5,0,9:11:10:0:0:10:10:10,11100111,null,true,generic door creak,
+1: dalen.portal.1,true,unlocked,5:5,2,5:6,1,true,true,true,5,0,11:0:0:9:11:9:10:0,1001111,null,true,generic door creak,
+2: dalen.portal.2,false,unlocked,5:15,4,4:15,3,true,true,true,5,0,11:0:0:9:9:0:9:11,10011011,null,true,Dalen to Ichiba City,
 
 -sky image-
 0: sky.dalen

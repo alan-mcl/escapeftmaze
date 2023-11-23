@@ -19,9 +19,9 @@
 
 package mclachlan.maze.map;
 
-import java.awt.*;
+import java.awt.Point;
 import java.util.*;
-import java.util.List;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.script.LockOrTrap;
@@ -85,6 +85,9 @@ public class Portal implements LockOrTrap
 	/** A maze script to execute on activation of this portal */
 	private String mazeScript;
 
+	/** A tile script to execute on state change */
+	private TileScript stateChangeScript;
+
 	//
 	// Volatile data
 	//
@@ -110,7 +113,8 @@ public class Portal implements LockOrTrap
 		BitSet required,
 		String keyItem,
 		boolean consumeKeyItem,
-		String mazeScript)
+		String mazeScript,
+		TileScript stateChangeScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.initialState = initialState;
@@ -129,6 +133,7 @@ public class Portal implements LockOrTrap
 		this.keyItem = keyItem;
 		this.consumeKeyItem = consumeKeyItem;
 		this.mazeScript = mazeScript;
+		this.stateChangeScript = stateChangeScript;
 
 		for (int i = 0; i < toolStatus.length; i++)
 		{
@@ -140,6 +145,15 @@ public class Portal implements LockOrTrap
 			{
 				toolStatus[i] = Trap.InspectionResult.NOT_PRESENT;
 			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initialise(long turnNr, Maze maze)
+	{
+		if (stateChangeScript != null)
+		{
+			stateChangeScript.initialise(maze, this.from, maze.getCurrentZone().getTileIndex(this.from));
 		}
 	}
 
@@ -174,6 +188,12 @@ public class Portal implements LockOrTrap
 	public void setState(String state)
 	{
 		MazeVariables.set(this.mazeVariable, state);
+
+		if (stateChangeScript != null)
+		{
+
+			stateChangeScript.execute(Maze.getInstance(), this.from, this.from, Maze.getInstance().getFacing());
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -202,6 +222,12 @@ public class Portal implements LockOrTrap
 	public void setLockState(String state)
 	{
 		setState(state);
+	}
+
+	@Override
+	public String getLockState()
+	{
+		return getState();
 	}
 
 	@Override
@@ -251,11 +277,6 @@ public class Portal implements LockOrTrap
 	public String getKeyItem()
 	{
 		return keyItem;
-	}
-
-	public boolean consumeKeyItem()
-	{
-		return consumeKeyItem;
 	}
 
 	public boolean isConsumeKeyItem()
@@ -386,6 +407,16 @@ public class Portal implements LockOrTrap
 	public void setMazeScript(String mazeScript)
 	{
 		this.mazeScript = mazeScript;
+	}
+
+	public TileScript getStateChangeScript()
+	{
+		return stateChangeScript;
+	}
+
+	public void setStateChangeScript(TileScript stateChangeScript)
+	{
+		this.stateChangeScript = stateChangeScript;
 	}
 
 	public int[] getToolStatus()

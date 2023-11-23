@@ -1042,34 +1042,34 @@ playerOrigin: 27:15
 1023: 0:0,:DUNGEON:Temple:5:TestingTable:MEDIUM:AVERAGE
 
 -maze portals-
-0: temple.of.the.gate.portal.0,false,unlocked,27:15,3,28:15,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Temple Of The Gate to Ekirth's Tomb
-1: temple.of.the.gate.portal.1,true,unlocked,23:15,4,22:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: temple.of.the.gate.portal.2,true,unlocked,21:14,1,21:13,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: temple.of.the.gate.portal.3,true,unlocked,21:16,2,21:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: temple.of.the.gate.portal.4,true,unlocked,21:12,1,21:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: temple.of.the.gate.portal.5,true,unlocked,20:15,4,19:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-6: temple.of.the.gate.portal.6,true,unlocked,21:18,2,21:19,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-7: temple.of.the.gate.portal.7,true,unlocked,20:20,4,19:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-8: temple.of.the.gate.portal.8,true,unlocked,18:20,4,17:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-9: temple.of.the.gate.portal.9,true,unlocked,18:15,4,17:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-10: temple.of.the.gate.portal.10,true,unlocked,20:10,4,19:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-11: temple.of.the.gate.portal.11,true,unlocked,18:10,4,17:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-12: temple.of.the.gate.portal.12,true,unlocked,16:14,1,16:13,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-13: temple.of.the.gate.portal.13,true,unlocked,16:12,1,16:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-14: temple.of.the.gate.portal.14,true,unlocked,15:10,4,14:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-15: temple.of.the.gate.portal.15,true,unlocked,15:15,4,14:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-16: temple.of.the.gate.portal.16,true,unlocked,16:16,2,16:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-17: temple.of.the.gate.portal.17,true,unlocked,16:18,2,16:19,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-18: temple.of.the.gate.portal.18,true,unlocked,15:20,4,14:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-19: temple.of.the.gate.portal.19,true,unlocked,13:20,4,12:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-20: temple.of.the.gate.portal.20,true,unlocked,13:15,4,12:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-21: temple.of.the.gate.portal.21,true,unlocked,13:10,4,12:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-22: temple.of.the.gate.portal.22,true,unlocked,11:14,1,11:13,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-23: temple.of.the.gate.portal.23,true,unlocked,11:12,1,11:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-24: temple.of.the.gate.portal.24,true,unlocked,11:16,2,11:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-25: temple.of.the.gate.portal.25,true,unlocked,11:18,2,11:19,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-26: temple.of.the.gate.portal.quest.portal,true,locked,10:15,4,9:15,3,false,false,false,77,77,10:11:10:10:10:10:11:9,11111111,null,true,generic door creak
-27: temple.of.the.gate.portal.27,true,unlocked,8:15,4,7:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
+0: temple.of.the.gate.portal.0,false,unlocked,27:15,3,28:15,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Temple Of The Gate to Ekirth's Tomb,
+1: temple.of.the.gate.portal.1,true,unlocked,23:15,4,22:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: temple.of.the.gate.portal.2,true,unlocked,21:14,1,21:13,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: temple.of.the.gate.portal.3,true,unlocked,21:16,2,21:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: temple.of.the.gate.portal.4,true,unlocked,21:12,1,21:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: temple.of.the.gate.portal.5,true,unlocked,20:15,4,19:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+6: temple.of.the.gate.portal.6,true,unlocked,21:18,2,21:19,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+7: temple.of.the.gate.portal.7,true,unlocked,20:20,4,19:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+8: temple.of.the.gate.portal.8,true,unlocked,18:20,4,17:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+9: temple.of.the.gate.portal.9,true,unlocked,18:15,4,17:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+10: temple.of.the.gate.portal.10,true,unlocked,20:10,4,19:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+11: temple.of.the.gate.portal.11,true,unlocked,18:10,4,17:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+12: temple.of.the.gate.portal.12,true,unlocked,16:14,1,16:13,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+13: temple.of.the.gate.portal.13,true,unlocked,16:12,1,16:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+14: temple.of.the.gate.portal.14,true,unlocked,15:10,4,14:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+15: temple.of.the.gate.portal.15,true,unlocked,15:15,4,14:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: temple.of.the.gate.portal.16,true,unlocked,16:16,2,16:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+17: temple.of.the.gate.portal.17,true,unlocked,16:18,2,16:19,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+18: temple.of.the.gate.portal.18,true,unlocked,15:20,4,14:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+19: temple.of.the.gate.portal.19,true,unlocked,13:20,4,12:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: temple.of.the.gate.portal.20,true,unlocked,13:15,4,12:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: temple.of.the.gate.portal.21,true,unlocked,13:10,4,12:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: temple.of.the.gate.portal.22,true,unlocked,11:14,1,11:13,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: temple.of.the.gate.portal.23,true,unlocked,11:12,1,11:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+24: temple.of.the.gate.portal.24,true,unlocked,11:16,2,11:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+25: temple.of.the.gate.portal.25,true,unlocked,11:18,2,11:19,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+26: temple.of.the.gate.portal.quest.portal,true,locked,10:15,4,9:15,3,false,false,false,77,77,10:11:10:10:10:10:11:9,11111111,null,true,generic door creak,
+27: temple.of.the.gate.portal.27,true,unlocked,8:15,4,7:15,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 
 -sky image-
 0: DEFAULT_SKY

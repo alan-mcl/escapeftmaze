@@ -1042,11 +1042,11 @@ playerOrigin: 16:28
 1023: 0:3f800000000000000000,02020302020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: gnoll.village.portal.0,true,unlocked,12:12,4,11:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-1: gnoll.village.portal.1,true,unlocked,14:10,1,14:9,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: gnoll.village.portal.2,true,unlocked,17:10,3,18:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: gnoll.village.portal.3,true,unlocked,17:13,3,18:13,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: gnoll.village.portal.4,true,unlocked,13:14,2,13:15,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
+0: gnoll.village.portal.0,true,unlocked,12:12,4,11:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+1: gnoll.village.portal.1,true,unlocked,14:10,1,14:9,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: gnoll.village.portal.2,true,unlocked,17:10,3,18:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: gnoll.village.portal.3,true,unlocked,17:13,3,18:13,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: gnoll.village.portal.4,true,unlocked,13:14,2,13:15,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 
 -sky image-
 0: sky.ichiba

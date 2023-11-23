@@ -153,7 +153,8 @@ public class SelectionSummaryPanel extends JPanel implements ActionListener
 				new BitSet(),
 				null, 
 				true,
-				mazeScript));
+				mazeScript,
+				null));
 			
 			editor.refreshSelectionSummary();
 		}

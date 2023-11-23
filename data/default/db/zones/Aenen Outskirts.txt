@@ -1042,10 +1042,10 @@ playerOrigin: 3:3
 1023: 0:3f800000000000000000,02020204020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: aenen.outskirts.portal.0,true,unlocked,15:16,1,15:15,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-1: aenen.outskirts.portal.1,true,unlocked,12:18,4,11:18,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: aenen.outskirts.portal.2,true,unlocked,17:19,3,18:19,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: aenen.outskirts.portal.3,true,unlocked,20:12,1,20:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
+0: aenen.outskirts.portal.0,true,unlocked,15:16,1,15:15,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+1: aenen.outskirts.portal.1,true,unlocked,12:18,4,11:18,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: aenen.outskirts.portal.2,true,unlocked,17:19,3,18:19,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: aenen.outskirts.portal.3,true,unlocked,20:12,1,20:11,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 
 -sky image-
 0: sky.aenen

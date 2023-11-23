@@ -1042,52 +1042,52 @@ playerOrigin: 14:30
 1023: 0:3f800000000000000000,02020101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 
 -maze portals-
-0: gatehouse.portal.dontcare,true,unlocked,9:27,1,9:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-1: gatehouse.portal.dontcare,true,unlocked,8:22,2,8:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: gatehouse.portal.dontcare,true,unlocked,7:23,2,7:24,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: gatehouse.portal.dontcare,true,unlocked,6:25,4,5:25,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: gatehouse.portal.dontcare,true,unlocked,18:23,2,18:24,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: gatehouse.portal.dontcare,true,unlocked,3:25,4,2:25,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-6: gatehouse.portal.dontcare,true,unlocked,9:22,2,9:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-7: gatehouse.portal.dontcare,true,unlocked,10:24,3,11:24,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-8: gatehouse.portal.dontcare,true,unlocked,11:23,1,11:22,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-9: maze.lockedoor.1,true,locked,16:24,4,15:24,3,true,true,true,5,0,1:0:0:0:1:1:0:0,100011,null,true,generic door creak
-10: gatehouse.portal.dontcar,true,unlocked,16:20,2,16:21,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-11: gatehouse.portal.dontcare,true,unlocked,18:20,2,18:21,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-12: gatehouse.portal.dontcare,true,unlocked,20:20,2,20:21,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-13: gatehouse.portal.dontcare,true,unlocked,14:21,2,14:22,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-14: gatehouse.stairs,true,unlocked,22:22,2,22:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-15: gatehouse.portal.0,true,unlocked,25:4,4,24:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-16: gatehouse.portal.1,true,unlocked,28:4,3,29:4,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-17: gatehouse.portal.2,true,unlocked,28:7,3,29:7,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-18: gatehouse.portal.3,true,unlocked,25:7,4,24:7,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-19: gatehouse.portal.4,true,unlocked,25:5,3,26:5,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-20: gatehouse.portal.5,true,unlocked,24:6,3,25:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-21: gatehouse.portal.6,true,unlocked,18:5,2,18:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-22: ,true,unlocked,19:5,1,19:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-23: gatehouse.portal.7,true,unlocked,17:4,4,16:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-24: gatehouse.portal.8,true,unlocked,17:3,1,17:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-25: gatehouse.portal.9,true,unlocked,17:1,4,16:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-26: gatehouse.portal.10,true,unlocked,16:2,2,16:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-27: gatehouse.portal.11,true,unlocked,15:3,4,14:3,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-28: gatehouse.portal.12,true,unlocked,15:5,4,14:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-29: gatehouse.portal.13,true,locked,6:5,4,5:5,3,true,true,true,15,5,0:2:0:2:0:2:0:0,010101,null,true,generic door creak
-30: gatehouse.portal.14,true,unlocked,13:3,1,13:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-31: gatehouse.portal.15,true,unlocked,12:1,4,11:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-32: gatehouse.portal.16,true,unlocked,10:2,2,10:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-33: gatehouse.portal.17,true,unlocked,9:4,4,8:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-34: gatehouse.portal.18,true,unlocked,5:1,4,4:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-35: gatehouse.portal.19,true,unlocked,14:5,2,14:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-36: gatehouse.portal.20,true,unlocked,12:5,1,12:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-37: gatehouse.portal.21,true,unlocked,10:5,2,10:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-38: gatehouse.portal.22,true,unlocked,18:7,2,18:8,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-39: gatehouse.portal.23,true,unlocked,4:11,1,4:10,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-40: gatehouse.portal.24,false,unlocked,3:5,4,2:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 2
-41: gatehouse.portal.25,false,unlocked,3:7,1,3:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 3
-42: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1
-43: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-44: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-45: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,
+0: gatehouse.portal.dontcare,true,unlocked,9:27,1,9:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+1: gatehouse.portal.dontcare,true,unlocked,8:22,2,8:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: gatehouse.portal.dontcare,true,unlocked,7:23,2,7:24,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: gatehouse.portal.dontcare,true,unlocked,6:25,4,5:25,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: gatehouse.portal.dontcare,true,unlocked,18:23,2,18:24,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: gatehouse.portal.dontcare,true,unlocked,3:25,4,2:25,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+6: gatehouse.portal.dontcare,true,unlocked,9:22,2,9:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+7: gatehouse.portal.dontcare,true,unlocked,10:24,3,11:24,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+8: gatehouse.portal.dontcare,true,unlocked,11:23,1,11:22,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+9: maze.lockedoor.1,true,locked,16:24,4,15:24,3,true,true,true,5,0,1:0:0:0:1:1:0:0,100011,null,true,generic door creak,
+10: gatehouse.portal.dontcar,true,unlocked,16:20,2,16:21,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+11: gatehouse.portal.dontcare,true,unlocked,18:20,2,18:21,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+12: gatehouse.portal.dontcare,true,unlocked,20:20,2,20:21,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+13: gatehouse.portal.dontcare,true,unlocked,14:21,2,14:22,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+14: gatehouse.stairs,true,unlocked,22:22,2,22:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+15: gatehouse.portal.0,true,unlocked,25:4,4,24:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: gatehouse.portal.1,true,unlocked,28:4,3,29:4,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+17: gatehouse.portal.2,true,unlocked,28:7,3,29:7,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+18: gatehouse.portal.3,true,unlocked,25:7,4,24:7,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+19: gatehouse.portal.4,true,unlocked,25:5,3,26:5,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: gatehouse.portal.5,true,unlocked,24:6,3,25:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: gatehouse.portal.6,true,unlocked,18:5,2,18:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: ,true,unlocked,19:5,1,19:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: gatehouse.portal.7,true,unlocked,17:4,4,16:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+24: gatehouse.portal.8,true,unlocked,17:3,1,17:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+25: gatehouse.portal.9,true,unlocked,17:1,4,16:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+26: gatehouse.portal.10,true,unlocked,16:2,2,16:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+27: gatehouse.portal.11,true,unlocked,15:3,4,14:3,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+28: gatehouse.portal.12,true,unlocked,15:5,4,14:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+29: gatehouse.portal.13,true,locked,6:5,4,5:5,3,true,true,true,15,5,0:2:0:2:0:2:0:0,010101,null,true,generic door creak,
+30: gatehouse.portal.14,true,unlocked,13:3,1,13:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+31: gatehouse.portal.15,true,unlocked,12:1,4,11:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+32: gatehouse.portal.16,true,unlocked,10:2,2,10:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+33: gatehouse.portal.17,true,unlocked,9:4,4,8:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+34: gatehouse.portal.18,true,unlocked,5:1,4,4:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+35: gatehouse.portal.19,true,unlocked,14:5,2,14:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+36: gatehouse.portal.20,true,unlocked,12:5,1,12:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+37: gatehouse.portal.21,true,unlocked,10:5,2,10:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+38: gatehouse.portal.22,true,unlocked,18:7,2,18:8,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+39: gatehouse.portal.23,true,unlocked,4:11,1,4:10,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+40: gatehouse.portal.24,false,unlocked,3:5,4,2:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 2,
+41: gatehouse.portal.25,false,unlocked,3:7,1,3:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 3,
+42: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1,
+43: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+44: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+45: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,
 
 -sky image-
 0: sky.ichiba

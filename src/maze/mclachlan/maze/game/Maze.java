@@ -1947,7 +1947,7 @@ public class Maze implements Runnable
 		this.zone = Database.getInstance().getZone(zoneName);
 		List<MazeEvent> mazeEvents = this.zone.initZoneScript(getTurnNr());
 		this.ui.setZone(zone, pos, newFacing);
-		this.zone.initTileScripts(getTurnNr());
+		this.zone.initialise(getTurnNr());
 
 //		Tile t = zone.getTile(pos);
 

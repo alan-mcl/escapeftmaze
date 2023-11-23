@@ -43,6 +43,8 @@ public interface LockOrTrap
 
 	void setLockState(String unlocked);
 
+	String getLockState();
+
 	boolean canManualPick();
 
 	BitSet getAlreadyLockPicked();
@@ -54,4 +56,8 @@ public interface LockOrTrap
 	boolean canForceOpen();
 
 	int getResistForceOpen();
+
+	String getKeyItem();
+
+	boolean isConsumeKeyItem();
 }

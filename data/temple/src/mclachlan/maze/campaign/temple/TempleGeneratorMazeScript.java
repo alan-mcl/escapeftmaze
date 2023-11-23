@@ -102,7 +102,8 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				new BitSet(),
 				null,
 				false,
-				"generic door creak");
+				"generic door creak",
+				null);
 
 			return Arrays.asList(wall, portal);
 		}

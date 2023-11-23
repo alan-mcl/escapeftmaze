@@ -91,6 +91,12 @@ public class V1TileScript
 	/*-------------------------------------------------------------------------*/
 	public static String toString(TileScript t)
 	{
+		return toString(t, SEP);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static String toString(TileScript t, String sep)
+	{
 		if (t == null)
 		{
 			return "";
@@ -109,13 +115,13 @@ public class V1TileScript
 		}
 
 		s.append(type);
-		s.append(SEP);
+		s.append(sep);
 		s.append(t.getExecuteOnceMazeVariable()==null?"":t.getExecuteOnceMazeVariable());
-		s.append(SEP);
+		s.append(sep);
 		s.append(V1BitSet.toString(t.getFacings()));
-		s.append(SEP);
+		s.append(sep);
 		s.append(t.isReexecuteOnSameTile());
-		s.append(SEP);
+		s.append(sep);
 
 		switch (type)
 		{
@@ -125,55 +131,55 @@ public class V1TileScript
 			case CAST_SPELL:
 				CastSpell cs = (CastSpell)t;
 				s.append(cs.getSpellName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(cs.getCastingLevel());
-				s.append(SEP);
+				s.append(sep);
 				s.append(cs.getCasterLevel());
 				break;
 			case CHEST:
 				Chest c = (Chest)t;
 				String chestContents = toString(c.getChestContents());
-				chestContents = chestContents.replaceAll(SEP, SUB_SEP);
+				chestContents = chestContents.replaceAll(sep, SUB_SEP);
 				s.append(chestContents);
-				s.append(SEP);
+				s.append(sep);
 				s.append(traps.toString(c.getTraps(), "`", "~"));
-				s.append(SEP);
+				s.append(sep);
 				s.append(c.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(c.getNorthTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(c.getSouthTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(c.getEastTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(c.getWestTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(c.getPreScript()==null?"":c.getPreScript().getName());
 				break;
 			case LEVER:
 				Lever lever = (Lever)t;
 				s.append(lever.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(lever.getNorthTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(lever.getSouthTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(lever.getEastTexture());
-				s.append(SEP);
+				s.append(sep);
 				s.append(lever.getWestTexture());
-				s.append(SEP);
-				s.append(lever.getPreTransitionScript()==null?"":lever.getPreTransitionScript().getName());
-				s.append(SEP);
+				s.append(sep);
+				s.append(lever.getPreTransitionScript()==null?"":lever.getPreTransitionScript().getName()); // will the separators work out here?
+				s.append(sep);
 				s.append(lever.getPostTransitionScript()==null?"":lever.getPostTransitionScript().getName());
 				break;
 			case ENCOUNTER:
 				Encounter e = (Encounter)t;
 				s.append(e.getEncounterTable().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(e.getMazeVariable()==null?"":e.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(e.getAttitude()==null?"":e.getAttitude().toString());
-				s.append(SEP);
+				s.append(sep);
 				s.append(e.getAmbushStatus()==null?"":e.getAmbushStatus().toString());
 				break;
 			case FLAVOUR_TEXT:
@@ -187,47 +193,47 @@ public class V1TileScript
 			case REMOVE_WALL:
 				RemoveWall r = (RemoveWall)t;
 				s.append(r.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(r.getWallIndex());
-				s.append(SEP);
+				s.append(sep);
 				s.append(r.isHorizontalWall());
 				break;
 			case TOGGLE_WALL:
 				ToggleWall tw = (ToggleWall)t;
 				s.append(tw.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.getWallIndex());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.isHorizontalWall());
-				s.append(SEP);
+				s.append(sep);
 				
 				s.append(tw.getState1Texture()==null?"":tw.getState1Texture().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.getState1MaskTexture()==null?"":tw.getState1MaskTexture().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.isState1Visible());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.isState1Solid());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.getState1Height());
-				s.append(SEP);
+				s.append(sep);
 				s.append(V1MouseClickScript.toString(tw.getState1MouseClickScript()));
-				s.append(SEP);
+				s.append(sep);
 				s.append(V1MouseClickScript.toString(tw.getState1MaskTextureMouseClickScript()));
-				s.append(SEP);
+				s.append(sep);
 				
 				s.append(tw.getState2Texture()==null?"":tw.getState2Texture().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.getState2MaskTexture()==null?"":tw.getState2MaskTexture().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.isState2Visible());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.isState2Solid());
-				s.append(SEP);
+				s.append(sep);
 				s.append(tw.getState2Height());
-				s.append(SEP);
+				s.append(sep);
 				s.append(V1MouseClickScript.toString(tw.getState2MouseClickScript()));
-				s.append(SEP);
+				s.append(sep);
 				s.append(V1MouseClickScript.toString(tw.getState2MaskTextureMouseClickScript()));
 
 				break;
@@ -242,19 +248,19 @@ public class V1TileScript
 			case SET_MAZE_VARIABLE:
 				SetMazeVariable smv = (SetMazeVariable)t;
 				s.append(smv.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(smv.getValue());
 				break;
 			case HIDDEN_STUFF:
 				HiddenStuff hs = (HiddenStuff)t;
 				s.append(hs.getMazeVariable()==null?"":hs.getMazeVariable());
-				s.append(SEP);
+				s.append(sep);
 				s.append(hs.getContent().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(hs.getPreScript()== null?"":hs.getPreScript().getName());
-				s.append(SEP);
+				s.append(sep);
 				s.append(hs.getSpotDifficulty());
-				s.append(SEP);
+				s.append(sep);
 				s.append(hs.getFindDifficulty());
 				break;
 			case WATER:
@@ -269,13 +275,19 @@ public class V1TileScript
 	/*-------------------------------------------------------------------------*/
 	public static TileScript fromString(String s)
 	{
+		return fromString(s, SEP);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static TileScript fromString(String s, String sep)
+	{
 		if (s.equals(""))
 		{
 			return null;
 		}
 
 		// since hierarchy doesn't matter, treat it as flat
-		String[] strs = s.split(SEP,-1);
+		String[] strs = s.split(sep,-1);
 
 		int i = 0;
 		int type = Integer.parseInt(strs[i++]);
@@ -306,7 +318,7 @@ public class V1TileScript
 				result = new CastSpell(spellName, castingLevel, casterLevel);
 				break;
 			case CHEST:
-				String contents = strs[i++].replaceAll(SUB_SEP, SEP);
+				String contents = strs[i++].replaceAll(SUB_SEP, sep);
 				TileScript chestContents = fromString(contents);
 				PercentageTable<Trap> t = traps.fromString(strs[i++], "`", "~");
 				String mazeVariable = strs[i++];

@@ -1618,34 +1618,34 @@ playerOrigin: 22:23
 1599: 0:0,:URBAN:Ruin:5:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: ruins.of.hail.portal.0,true,unlocked,21:20,1,21:19,2,true,true,true,5,0,0:5:5:7:7:0:0:0,01111,null,true,generic door creak
-1: ruins.of.hail.portal.1,true,unlocked,20:20,4,19:20,3,true,true,true,5,0,0:0:3:0:0:0:4:4,00100011,null,true,generic door creak
-2: ruins.of.hail.portal.2,true,locked,20:22,4,19:22,3,true,true,true,5,0,0:9:7:0:7:9:7:8,01101111,null,true,generic door creak
-3: ruins.of.hail.portal.3,true,unlocked,21:24,2,21:25,1,true,true,true,5,0,0:5:4:3:0:5:0:0,011101,null,true,generic door creak
-4: ruins.of.hail.portal.4,true,unlocked,16:23,3,15:23,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: ruins.of.hail.portal.5,true,locked,19:27,2,19:28,1,true,true,true,5,0,0:9:0:11:11:11:9:9,01011111,null,true,generic door creak
-6: ruins.of.hail.portal.27,true,locked,23:27,1,23:28,1,false,false,false,5,0,0:10:0:0:10:9:11:10,01001111,null,true,generic door creak
-7: ruins.of.hail.portal.6,true,unlocked,30:29,4,29:29,3,true,true,true,5,0,9:9:10:0:0:0:9:11,11100011,null,true,generic door creak
-8: ruins.of.hail.portal.7,true,locked,30:33,4,29:33,3,true,true,true,5,0,0:0:0:0:7:8:9:9,00001111,null,true,generic door creak
-9: ruins.of.hail.portal.8,true,unlocked,31:33,3,32:33,4,true,true,true,5,0,0:0:0:0:3:0:3:0,0000101,null,true,generic door creak
-10: ruins.of.hail.portal.9,true,locked,28:16,3,29:16,4,true,true,true,5,0,0:7:0:0:5:6:5:0,0100111,null,true,generic door creak
-11: ruins.of.hail.portal.10,true,unlocked,26:17,1,26:16,2,true,true,true,5,0,0:4:0:0:4:0:0:0,01001,null,true,generic door creak
-12: ruins.of.hail.portal.11,true,locked,7:26,2,7:27,1,true,true,true,5,0,0:5:7:0:7:0:7:5,01101011,null,true,generic door creak
-13: ruins.of.hail.portal.12,true,unlocked,20:17,1,20:16,2,true,true,true,5,0,0:0:4:0:4:3:0:4,00101101,null,true,generic door creak
-14: ruins.of.hail.portal.13,true,locked,17:17,1,17:16,2,false,false,false,5,0,10:0:11:9:9:10:0:0,101111,null,true,generic door creak
-15: ruins.of.hail.portal.14,true,unlocked,15:17,4,14:17,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-16: ruins.of.hail.portal.15,true,unlocked,7:12,1,7:11,2,true,true,true,5,0,6:0:7:0:0:0:7:0,1010001,null,true,generic door creak
-17: ruins.of.hail.portal.16,true,unlocked,16:12,4,15:12,3,true,true,true,5,0,0:4:0:4:0:0:0:4,01010001,null,true,generic door creak
-18: ruins.of.hail.portal.17,true,unlocked,12:16,1,12:15,2,true,true,true,5,0,0:0:6:0:7:0:7:0,0010101,null,true,generic door creak
-19: ruins.of.hail.portal.18,true,unlocked,9:29,3,10:29,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-20: ruins.of.hail.portal.19,true,unlocked,14:31,3,15:31,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-21: ruins.of.hail.portal.20,true,unlocked,21:31,3,22:31,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-22: ruins.of.hail.portal.21,true,unlocked,19:11,3,20:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-23: ruins.of.hail.portal.22,true,locked,22:10,3,23:10,4,true,true,true,5,0,9:9:11:9:10:10:0:9,11111101,null,true,generic door creak
-24: ruins.of.hail.portal.23,true,unlocked,31:10,1,31:9,2,true,true,true,5,0,0:0:4:0:0:0:3:0,0010001,null,true,generic door creak
-25: ruins.of.hail.portal.24,true,locked,30:23,1,30:22,2,true,true,true,5,0,10:11:0:9:11:0:0:9,11011001,null,true,generic door creak
-26: ruins.of.hail.portal.25,true,unlocked,27:19,3,28:19,4,true,true,true,5,0,0:11:10:0:0:9:11:10,01100111,null,true,generic door creak
-27: ruins.of.hail.portal.26,true,locked,32:19,1,32:18,2,true,true,true,5,0,2:0:0:0:2:0:0:0,10001,null,true,generic door creak
+0: ruins.of.hail.portal.0,true,unlocked,21:20,1,21:19,2,true,true,true,5,0,0:5:5:7:7:0:0:0,01111,null,true,generic door creak,
+1: ruins.of.hail.portal.1,true,unlocked,20:20,4,19:20,3,true,true,true,5,0,0:0:3:0:0:0:4:4,00100011,null,true,generic door creak,
+2: ruins.of.hail.portal.2,true,locked,20:22,4,19:22,3,true,true,true,5,0,0:9:7:0:7:9:7:8,01101111,null,true,generic door creak,
+3: ruins.of.hail.portal.3,true,unlocked,21:24,2,21:25,1,true,true,true,5,0,0:5:4:3:0:5:0:0,011101,null,true,generic door creak,
+4: ruins.of.hail.portal.4,true,unlocked,16:23,3,15:23,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: ruins.of.hail.portal.5,true,locked,19:27,2,19:28,1,true,true,true,5,0,0:9:0:11:11:11:9:9,01011111,null,true,generic door creak,
+6: ruins.of.hail.portal.27,true,locked,23:27,1,23:28,1,false,false,false,5,0,0:10:0:0:10:9:11:10,01001111,null,true,generic door creak,
+7: ruins.of.hail.portal.6,true,unlocked,30:29,4,29:29,3,true,true,true,5,0,9:9:10:0:0:0:9:11,11100011,null,true,generic door creak,
+8: ruins.of.hail.portal.7,true,locked,30:33,4,29:33,3,true,true,true,5,0,0:0:0:0:7:8:9:9,00001111,null,true,generic door creak,
+9: ruins.of.hail.portal.8,true,unlocked,31:33,3,32:33,4,true,true,true,5,0,0:0:0:0:3:0:3:0,0000101,null,true,generic door creak,
+10: ruins.of.hail.portal.9,true,locked,28:16,3,29:16,4,true,true,true,5,0,0:7:0:0:5:6:5:0,0100111,null,true,generic door creak,
+11: ruins.of.hail.portal.10,true,unlocked,26:17,1,26:16,2,true,true,true,5,0,0:4:0:0:4:0:0:0,01001,null,true,generic door creak,
+12: ruins.of.hail.portal.11,true,locked,7:26,2,7:27,1,true,true,true,5,0,0:5:7:0:7:0:7:5,01101011,null,true,generic door creak,
+13: ruins.of.hail.portal.12,true,unlocked,20:17,1,20:16,2,true,true,true,5,0,0:0:4:0:4:3:0:4,00101101,null,true,generic door creak,
+14: ruins.of.hail.portal.13,true,locked,17:17,1,17:16,2,false,false,false,5,0,10:0:11:9:9:10:0:0,101111,null,true,generic door creak,
+15: ruins.of.hail.portal.14,true,unlocked,15:17,4,14:17,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: ruins.of.hail.portal.15,true,unlocked,7:12,1,7:11,2,true,true,true,5,0,6:0:7:0:0:0:7:0,1010001,null,true,generic door creak,
+17: ruins.of.hail.portal.16,true,unlocked,16:12,4,15:12,3,true,true,true,5,0,0:4:0:4:0:0:0:4,01010001,null,true,generic door creak,
+18: ruins.of.hail.portal.17,true,unlocked,12:16,1,12:15,2,true,true,true,5,0,0:0:6:0:7:0:7:0,0010101,null,true,generic door creak,
+19: ruins.of.hail.portal.18,true,unlocked,9:29,3,10:29,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: ruins.of.hail.portal.19,true,unlocked,14:31,3,15:31,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: ruins.of.hail.portal.20,true,unlocked,21:31,3,22:31,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: ruins.of.hail.portal.21,true,unlocked,19:11,3,20:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: ruins.of.hail.portal.22,true,locked,22:10,3,23:10,4,true,true,true,5,0,9:9:11:9:10:10:0:9,11111101,null,true,generic door creak,
+24: ruins.of.hail.portal.23,true,unlocked,31:10,1,31:9,2,true,true,true,5,0,0:0:4:0:0:0:3:0,0010001,null,true,generic door creak,
+25: ruins.of.hail.portal.24,true,locked,30:23,1,30:22,2,true,true,true,5,0,10:11:0:9:11:0:0:9,11011001,null,true,generic door creak,
+26: ruins.of.hail.portal.25,true,unlocked,27:19,3,28:19,4,true,true,true,5,0,0:11:10:0:0:9:11:10,01100111,null,true,generic door creak,
+27: ruins.of.hail.portal.26,true,locked,32:19,1,32:18,2,true,true,true,5,0,2:0:0:0:2:0:0:0,10001,null,true,generic door creak,
 
 -sky image-
 0: sky.hail

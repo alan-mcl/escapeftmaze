@@ -252,6 +252,11 @@ public class Zone extends DataObject
 		return tiles[p.x][p.y];
 	}
 
+	public int getTileIndex(Point p)
+	{
+		return p.y*width+p.x;
+	}
+
 	public Portal[] getPortals()
 	{
 		return portals.toArray(new Portal[portals.size()]);
@@ -422,8 +427,9 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initTileScripts(long turnNr)
+	public void initialise(long turnNr)
 	{
+		// init tile scripts
 		for (int x = 0; x < tiles.length; x++)
 		{
 			for (int y = 0; y < tiles[x].length; y++)
@@ -441,6 +447,12 @@ public class Zone extends DataObject
 					}
 				}
 			}
+		}
+
+		// init portals
+		for (Portal p : portals)
+		{
+			p.initialise(turnNr, Maze.getInstance());
 		}
 	}
 	

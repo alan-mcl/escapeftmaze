@@ -1042,61 +1042,61 @@ playerOrigin: 11:13
 1023: 0:3f800000000000000000,05020707070405:URBAN:Palace:5:hianbian.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: hianbian.portal.0,false,unlocked,11:13,3,12:13,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Hianbian to Ruins Of Hail
-1: hianbian.portal.1,true,unlocked,13:11,3,14:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: hianbian.portal.2,true,unlocked,15:10,3,16:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: hianbian.portal.3,true,unlocked,17:10,2,17:11,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: hianbian.portal.4,true,unlocked,18:11,3,19:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: hianbian.portal.5,true,unlocked,16:9,1,16:8,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-6: hianbian.portal.6,true,unlocked,15:8,4,14:8,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-7: hianbian.portal.7,true,unlocked,18:12,2,18:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-8: hianbian.portal.8,true,unlocked,19:10,1,19:9,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-9: hianbian.portal.9,true,unlocked,19:8,3,20:8,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-10: hianbian.portal.10,true,unlocked,8:11,2,8:12,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-11: hianbian.portal.11,true,unlocked,6:13,4,5:13,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-12: hianbian.portal.12,true,unlocked,5:16,3,6:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-13: hianbian.portal.13,true,unlocked,5:17,2,5:18,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-14: hianbian.portal.14,true,unlocked,24:9,3,25:9,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-15: hianbian.portal.15,true,unlocked,13:16,3,14:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-16: hianbian.portal.17,true,unlocked,15:16,2,15:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-17: hianbian.portal.18,true,unlocked,19:14,3,20:14,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-18: hianbian.portal.16,false,unlocked,23:9,2,15:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-19: hianbian.portal.19,true,unlocked,15:19,4,11:19,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-20: hianbian.portal.21,true,unlocked,19:28,3,20:28,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-21: hianbian.portal.22,false,unlocked,4:25,3,20:28,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-22: hianbian.portal.23,true,unlocked,11:7,1,11:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-23: hianbian.portal.24,true,unlocked,11:6,4,10:6,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-24: hianbian.portal.25,true,unlocked,11:6,3,12:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-25: hianbian.portal.26,true,unlocked,11:6,1,11:5,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-26: hianbian.portal.27,true,unlocked,6:10,2,6:11,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-27: hianbian.portal.28,true,unlocked,2:6,4,1:6,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-28: hianbian.portal.29,true,unlocked,6:2,1,6:1,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-29: hianbian.portal.30,true,unlocked,22:28,3,23:28,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-30: hianbian.portal.31,true,unlocked,19:28,4,18:28,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-31: hianbian.portal.32,true,unlocked,16:28,1,16:27,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-32: hianbian.portal.33,true,unlocked,13:24,3,14:24,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-33: hianbian.portal.34,true,unlocked,13:27,3,14:27,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-34: hianbian.portal.35,true,unlocked,13:22,4,12:22,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-35: hianbian.portal.36,true,unlocked,13:16,4,12:16,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-36: hianbian.portal.37,true,unlocked,27:23,2,27:24,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-37: hianbian.portal.38,true,unlocked,27:24,4,26:24,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-38: hianbian.portal.39,true,unlocked,25:23,4,29:22,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-39: hianbian.portal.40,true,unlocked,28:22,1,28:21,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-40: hianbian.portal.41,true,unlocked,27:20,1,28:25,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-41: hianbian.portal.20,false,unlocked,2:26,4,1:26,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Hianbian to Caves Of Ilast
-42: hianbian.portal.42,true,locked,21:8,3,22:8,4,true,true,true,5,0,8:0:0:0:0:7:7:7,10000111,null,true,generic door creak
-43: hianbian.portal.43,true,locked,13:8,4,12:8,3,true,true,true,5,0,7:0:7:0:9:0:7:0,1010101,null,true,generic door creak
-44: hianbian.portal.44,false,unlocked,16:2,1,9:16,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-45: hianbian.portal.45,false,unlocked,9:16,2,20:2,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-46: hianbian.portal.46,false,unlocked,16:4,2,7:14,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-47: hianbian.portal.47,false,unlocked,7:14,1,24:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-48: hianbian.portal.48,false,unlocked,24:4,2,27:20,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-49: hianbian.portal.49,false,unlocked,20:2,1,6:1,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-50: hianbian.portal.50,false,unlocked,18:4,2,10:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-51: hianbian.portal.51,false,unlocked,10:13,1,22:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-52: hianbian.portal.52,false,unlocked,22:4,2,5:18,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-53: hianbian.portal.53,false,unlocked,20:4,2,11:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-54: hianbian.portal.54,false,unlocked,24:2,1,11:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
+0: hianbian.portal.0,false,unlocked,11:13,3,12:13,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Hianbian to Ruins Of Hail,
+1: hianbian.portal.1,true,unlocked,13:11,3,14:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: hianbian.portal.2,true,unlocked,15:10,3,16:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: hianbian.portal.3,true,unlocked,17:10,2,17:11,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: hianbian.portal.4,true,unlocked,18:11,3,19:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: hianbian.portal.5,true,unlocked,16:9,1,16:8,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+6: hianbian.portal.6,true,unlocked,15:8,4,14:8,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+7: hianbian.portal.7,true,unlocked,18:12,2,18:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+8: hianbian.portal.8,true,unlocked,19:10,1,19:9,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+9: hianbian.portal.9,true,unlocked,19:8,3,20:8,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+10: hianbian.portal.10,true,unlocked,8:11,2,8:12,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+11: hianbian.portal.11,true,unlocked,6:13,4,5:13,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+12: hianbian.portal.12,true,unlocked,5:16,3,6:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+13: hianbian.portal.13,true,unlocked,5:17,2,5:18,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+14: hianbian.portal.14,true,unlocked,24:9,3,25:9,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+15: hianbian.portal.15,true,unlocked,13:16,3,14:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: hianbian.portal.17,true,unlocked,15:16,2,15:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+17: hianbian.portal.18,true,unlocked,19:14,3,20:14,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+18: hianbian.portal.16,false,unlocked,23:9,2,15:17,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+19: hianbian.portal.19,true,unlocked,15:19,4,11:19,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: hianbian.portal.21,true,unlocked,19:28,3,20:28,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: hianbian.portal.22,false,unlocked,4:25,3,20:28,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: hianbian.portal.23,true,unlocked,11:7,1,11:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: hianbian.portal.24,true,unlocked,11:6,4,10:6,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+24: hianbian.portal.25,true,unlocked,11:6,3,12:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+25: hianbian.portal.26,true,unlocked,11:6,1,11:5,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+26: hianbian.portal.27,true,unlocked,6:10,2,6:11,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+27: hianbian.portal.28,true,unlocked,2:6,4,1:6,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+28: hianbian.portal.29,true,unlocked,6:2,1,6:1,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+29: hianbian.portal.30,true,unlocked,22:28,3,23:28,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+30: hianbian.portal.31,true,unlocked,19:28,4,18:28,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+31: hianbian.portal.32,true,unlocked,16:28,1,16:27,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+32: hianbian.portal.33,true,unlocked,13:24,3,14:24,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+33: hianbian.portal.34,true,unlocked,13:27,3,14:27,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+34: hianbian.portal.35,true,unlocked,13:22,4,12:22,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+35: hianbian.portal.36,true,unlocked,13:16,4,12:16,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+36: hianbian.portal.37,true,unlocked,27:23,2,27:24,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+37: hianbian.portal.38,true,unlocked,27:24,4,26:24,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+38: hianbian.portal.39,true,unlocked,25:23,4,29:22,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+39: hianbian.portal.40,true,unlocked,28:22,1,28:21,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+40: hianbian.portal.41,true,unlocked,27:20,1,28:25,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+41: hianbian.portal.20,false,unlocked,2:26,4,1:26,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Hianbian to Caves Of Ilast,
+42: hianbian.portal.42,true,locked,21:8,3,22:8,4,true,true,true,5,0,8:0:0:0:0:7:7:7,10000111,null,true,generic door creak,
+43: hianbian.portal.43,true,locked,13:8,4,12:8,3,true,true,true,5,0,7:0:7:0:9:0:7:0,1010101,null,true,generic door creak,
+44: hianbian.portal.44,false,unlocked,16:2,1,9:16,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+45: hianbian.portal.45,false,unlocked,9:16,2,20:2,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+46: hianbian.portal.46,false,unlocked,16:4,2,7:14,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+47: hianbian.portal.47,false,unlocked,7:14,1,24:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+48: hianbian.portal.48,false,unlocked,24:4,2,27:20,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+49: hianbian.portal.49,false,unlocked,20:2,1,6:1,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+50: hianbian.portal.50,false,unlocked,18:4,2,10:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+51: hianbian.portal.51,false,unlocked,10:13,1,22:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+52: hianbian.portal.52,false,unlocked,22:4,2,5:18,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+53: hianbian.portal.53,false,unlocked,20:4,2,11:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+54: hianbian.portal.54,false,unlocked,24:2,1,11:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 
 -sky image-
 0: DEFAULT_SKY

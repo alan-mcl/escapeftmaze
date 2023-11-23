@@ -1042,9 +1042,9 @@ playerOrigin: 3:15
 1023: 0:0,:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: ,true,unlocked,28:16,3,29:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Ekirth's Tomb to Temple Of The Gate
-1: ekirth's.tomb.portal.0,false,unlocked,23:26,3,24:26,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Ekirth's Tomb to Crypt Of Atrocities
-2: ekirth's.tomb.portal.1,true,locked,23:8,3,24:8,4,false,true,true,20,128,20:20:20:20:20:20:20:20,11111111,null,true,generic door creak
+0: ,true,unlocked,28:16,3,29:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Ekirth's Tomb to Temple Of The Gate,
+1: ekirth's.tomb.portal.0,false,unlocked,23:26,3,24:26,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Ekirth's Tomb to Crypt Of Atrocities,
+2: ekirth's.tomb.portal.1,true,locked,23:8,3,24:8,4,false,true,true,20,128,20:20:20:20:20:20:20:20,11111111,null,true,generic door creak,
 
 -sky image-
 0: DEFAULT_SKY

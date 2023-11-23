@@ -1042,38 +1042,38 @@ playerOrigin: 29:15
 1023: 0:3f800000000000000000,02010102040101:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: danaos.castle.portal.0,false,unlocked,29:15,3,30:15,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Danaos Castle to Village
-1: danaos.castle.portal.1,true,unlocked,14:7,1,14:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: danaos.castle.portal.2,true,unlocked,17:7,1,17:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: danaos.castle.portal.3,true,unlocked,6:11,4,5:11,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: danaos.castle.portal.4,true,unlocked,6:13,4,5:13,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: danaos.castle.portal.5,true,unlocked,6:11,3,7:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-6: danaos.castle.portal.6,true,unlocked,6:13,3,7:13,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-7: danaos.castle.portal.7,true,unlocked,8:14,3,9:14,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-8: danaos.castle.portal.8,true,unlocked,6:17,4,5:17,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-9: danaos.castle.portal.9,true,unlocked,6:17,3,7:17,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-10: danaos.castle.portal.10,true,unlocked,5:19,4,4:19,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-11: danaos.castle.portal.11,true,unlocked,6:19,3,7:19,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-12: danaos.castle.portal.12,true,unlocked,21:10,3,22:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-13: danaos.castle.portal.13,true,unlocked,25:12,4,24:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-14: danaos.castle.portal.14,true,unlocked,25:12,3,26:12,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-15: danaos.castle.portal.15,true,unlocked,25:10,3,26:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-16: ,true,unlocked,25:18,3,26:18,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-17: danaos.castle.portal.18,true,unlocked,25:20,4,24:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-18: danaos.castle.portal.16,true,unlocked,25:20,3,26:20,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-19: danaos.castle.portal.19,true,unlocked,12:25,2,12:26,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-20: danaos.castle.portal.20,true,unlocked,12:25,1,12:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-21: danaos.castle.portal.22,true,unlocked,14:25,2,14:26,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-22: danaos.castle.portal.21,true,unlocked,14:25,1,14:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-23: danaos.castle.portal.24,true,unlocked,16:25,2,16:26,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-24: danaos.castle.portal.23,true,unlocked,16:25,1,16:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-25: danaos.castle.portal.25,true,unlocked,18:25,1,18:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-26: danaos.castle.portal.26,true,unlocked,20:22,4,19:22,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-27: danaos.castle.portal.27,true,unlocked,20:20,4,19:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-28: danaos.castle.portal.28,true,locked,20:17,4,19:17,3,false,true,true,55,25,9:10:9:10:10:10:9:0,1111111,null,true,generic door creak
-29: danaos.castle.portal.29,false,unlocked,22:22,1,22:21,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Danaos Castle to Dungeon
-30: danaos.castle.portal.30,true,locked,21:23,3,22:23,4,false,false,false,99,99,0:0:0:0:0:0:0:0,,null,true,generic door creak
-31: danaos.castle.portal.17,true,locked,22:8,4,21:8,3,true,true,true,55,55,9:9:0:11:9:15:9:0,1101111,null,true,generic door creak
+0: danaos.castle.portal.0,false,unlocked,29:15,3,30:15,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Danaos Castle to Village,
+1: danaos.castle.portal.1,true,unlocked,14:7,1,14:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: danaos.castle.portal.2,true,unlocked,17:7,1,17:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: danaos.castle.portal.3,true,unlocked,6:11,4,5:11,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: danaos.castle.portal.4,true,unlocked,6:13,4,5:13,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: danaos.castle.portal.5,true,unlocked,6:11,3,7:11,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+6: danaos.castle.portal.6,true,unlocked,6:13,3,7:13,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+7: danaos.castle.portal.7,true,unlocked,8:14,3,9:14,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+8: danaos.castle.portal.8,true,unlocked,6:17,4,5:17,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+9: danaos.castle.portal.9,true,unlocked,6:17,3,7:17,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+10: danaos.castle.portal.10,true,unlocked,5:19,4,4:19,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+11: danaos.castle.portal.11,true,unlocked,6:19,3,7:19,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+12: danaos.castle.portal.12,true,unlocked,21:10,3,22:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+13: danaos.castle.portal.13,true,unlocked,25:12,4,24:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+14: danaos.castle.portal.14,true,unlocked,25:12,3,26:12,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+15: danaos.castle.portal.15,true,unlocked,25:10,3,26:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: ,true,unlocked,25:18,3,26:18,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+17: danaos.castle.portal.18,true,unlocked,25:20,4,24:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+18: danaos.castle.portal.16,true,unlocked,25:20,3,26:20,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+19: danaos.castle.portal.19,true,unlocked,12:25,2,12:26,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: danaos.castle.portal.20,true,unlocked,12:25,1,12:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: danaos.castle.portal.22,true,unlocked,14:25,2,14:26,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: danaos.castle.portal.21,true,unlocked,14:25,1,14:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: danaos.castle.portal.24,true,unlocked,16:25,2,16:26,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+24: danaos.castle.portal.23,true,unlocked,16:25,1,16:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+25: danaos.castle.portal.25,true,unlocked,18:25,1,18:24,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+26: danaos.castle.portal.26,true,unlocked,20:22,4,19:22,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+27: danaos.castle.portal.27,true,unlocked,20:20,4,19:20,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+28: danaos.castle.portal.28,true,locked,20:17,4,19:17,3,false,true,true,55,25,9:10:9:10:10:10:9:0,1111111,null,true,generic door creak,
+29: danaos.castle.portal.29,false,unlocked,22:22,1,22:21,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Danaos Castle to Dungeon,
+30: danaos.castle.portal.30,true,locked,21:23,3,22:23,4,false,false,false,99,99,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+31: danaos.castle.portal.17,true,locked,22:8,4,21:8,3,true,true,true,55,55,9:9:0:11:9:15:9:0,1101111,null,true,generic door creak,
 
 -sky image-
 0: sky.danaos

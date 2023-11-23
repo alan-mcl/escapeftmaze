@@ -4114,68 +4114,68 @@ playerOrigin: 11:21
 4095: 0:23800000000000000000,01090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: castle.fangorn.portal.0,true,unlocked,9:17,1,9:16,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-1: castle.fangorn.portal.1,true,unlocked,4:8,4,48:8,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-2: castle.fangorn.portal.2,true,unlocked,7:3,2,7:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: castle.fangorn.portal.3,true,unlocked,5:3,2,5:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: castle.fangorn.portal.4,true,unlocked,7:8,1,7:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: castle.fangorn.portal.5,true,unlocked,5:8,1,5:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-6: castle.fangorn.portal.6,true,unlocked,8:10,4,7:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-7: castle.fangorn.portal.7,true,unlocked,2:10,3,3:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-8: castle.fangorn.portal.8,true,unlocked,8:12,4,7:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-9: castle.fangorn.portal.9,true,unlocked,2:12,3,3:12,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-10: castle.fangorn.portal.10,true,unlocked,3:15,1,3:14,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-11: castle.fangorn.portal.11,true,unlocked,6:15,1,6:14,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-12: castle.fangorn.portal.12,true,unlocked,10:4,3,11:4,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-13: castle.fangorn.portal.13,true,unlocked,15:5,1,15:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-14: castle.fangorn.portal.14,true,unlocked,15:2,2,15:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-15: castle.fangorn.portal.15,true,unlocked,12:5,2,12:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-16: castle.fangorn.portal.16,true,unlocked,14:5,2,14:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-17: castle.fangorn.portal.17,true,locked,16:9,2,16:10,1,true,true,true,50,15,0:0:9:9:11:9:0:10,00111101,null,true,generic door creak
-18: castle.fangorn.portal.18,true,unlocked,10:9,3,11:9,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-19: castle.fangorn.portal.19,true,unlocked,12:9,2,12:10,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-20: castle.fangorn.portal.20,true,unlocked,14:9,2,14:10,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-21: castle.fangorn.portal.21,true,unlocked,12:12,2,12:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-22: castle.fangorn.portal.22,true,unlocked,14:12,2,14:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-23: castle.fangorn.portal.23,true,unlocked,13:8,3,60:8,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-24: castle.fangorn.portal.24,true,unlocked,54:4,1,54:48,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-25: castle.fangorn.portal.26,true,unlocked,48:10,3,49:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-26: castle.fangorn.portal.27,true,unlocked,48:6,3,49:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-27: castle.fangorn.portal.28,true,unlocked,51:12,4,50:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-28: castle.fangorn.portal.29,true,unlocked,52:12,3,53:12,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-29: castle.fangorn.portal.30,true,unlocked,56:12,4,55:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-30: castle.fangorn.portal.31,true,unlocked,57:12,2,57:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-31: castle.fangorn.portal.32,true,unlocked,60:11,2,60:12,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-32: castle.fangorn.portal.33,true,unlocked,52:6,3,53:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-33: castle.fangorn.portal.34,true,unlocked,56:6,4,55:6,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-34: castle.fangorn.portal.35,true,unlocked,57:5,1,57:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-35: castle.fangorn.portal.36,true,unlocked,59:5,1,59:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-36: castle.fangorn.portal.37,true,unlocked,57:3,4,56:3,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-37: castle.fangorn.portal.38,true,unlocked,57:9,3,58:9,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-38: castle.fangorn.portal.39,true,unlocked,57:6,3,58:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-39: castle.fangorn.portal.40,true,unlocked,61:5,1,61:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-40: castle.fangorn.portal.41,true,unlocked,59:16,3,60:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-41: castle.fangorn.portal.42,true,unlocked,49:16,4,48:16,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-42: castle.fangorn.portal.43,true,unlocked,48:14,2,48:15,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-43: castle.fangorn.portal.44,true,unlocked,48:4,1,48:3,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-44: castle.fangorn.portal.25,true,unlocked,54:14,2,54:60,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-45: castle.fangorn.portal.45,true,unlocked,50:54,3,5:54,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,
-46: castle.fangorn.portal.46,true,unlocked,51:58,2,51:59,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-47: castle.fangorn.portal.47,true,unlocked,49:58,2,49:59,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-48: castle.fangorn.portal.48,true,unlocked,50:56,4,49:56,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-49: castle.fangorn.portal.49,true,unlocked,49:49,2,49:50,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-50: castle.fangorn.portal.50,true,unlocked,51:49,2,51:50,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-51: castle.fangorn.portal.51,true,unlocked,57:50,1,57:49,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-52: castle.fangorn.portal.52,true,unlocked,59:50,1,59:49,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-53: castle.fangorn.portal.53,true,unlocked,58:50,2,58:51,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-54: castle.fangorn.portal.54,true,unlocked,58:56,1,58:55,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-55: castle.fangorn.portal.55,true,unlocked,57:59,1,57:58,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-56: castle.fangorn.portal.56,true,unlocked,60:59,1,60:58,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-57: castle.fangorn.portal.57,true,locked,59:60,3,60:60,4,true,true,true,5,0,10:11:0:10:0:9:0:9,11010101,null,true,generic door creak
-58: castle.fangorn.portal.58,true,unlocked,9:53,1,9:52,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-59: castle.fangorn.portal.59,true,unlocked,9:52,1,9:51,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-60: castle.fangorn.portal.60,true,unlocked,12:55,2,12:56,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-61: castle.fangorn.portal.61,true,unlocked,8:57,3,9:57,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
+0: castle.fangorn.portal.0,true,unlocked,9:17,1,9:16,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+1: castle.fangorn.portal.1,true,unlocked,4:8,4,48:8,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+2: castle.fangorn.portal.2,true,unlocked,7:3,2,7:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: castle.fangorn.portal.3,true,unlocked,5:3,2,5:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: castle.fangorn.portal.4,true,unlocked,7:8,1,7:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: castle.fangorn.portal.5,true,unlocked,5:8,1,5:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+6: castle.fangorn.portal.6,true,unlocked,8:10,4,7:10,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+7: castle.fangorn.portal.7,true,unlocked,2:10,3,3:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+8: castle.fangorn.portal.8,true,unlocked,8:12,4,7:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+9: castle.fangorn.portal.9,true,unlocked,2:12,3,3:12,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+10: castle.fangorn.portal.10,true,unlocked,3:15,1,3:14,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+11: castle.fangorn.portal.11,true,unlocked,6:15,1,6:14,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+12: castle.fangorn.portal.12,true,unlocked,10:4,3,11:4,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+13: castle.fangorn.portal.13,true,unlocked,15:5,1,15:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+14: castle.fangorn.portal.14,true,unlocked,15:2,2,15:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+15: castle.fangorn.portal.15,true,unlocked,12:5,2,12:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: castle.fangorn.portal.16,true,unlocked,14:5,2,14:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+17: castle.fangorn.portal.17,true,locked,16:9,2,16:10,1,true,true,true,50,15,0:0:9:9:11:9:0:10,00111101,null,true,generic door creak,
+18: castle.fangorn.portal.18,true,unlocked,10:9,3,11:9,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+19: castle.fangorn.portal.19,true,unlocked,12:9,2,12:10,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: castle.fangorn.portal.20,true,unlocked,14:9,2,14:10,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: castle.fangorn.portal.21,true,unlocked,12:12,2,12:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: castle.fangorn.portal.22,true,unlocked,14:12,2,14:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: castle.fangorn.portal.23,true,unlocked,13:8,3,60:8,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+24: castle.fangorn.portal.24,true,unlocked,54:4,1,54:48,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+25: castle.fangorn.portal.26,true,unlocked,48:10,3,49:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+26: castle.fangorn.portal.27,true,unlocked,48:6,3,49:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+27: castle.fangorn.portal.28,true,unlocked,51:12,4,50:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+28: castle.fangorn.portal.29,true,unlocked,52:12,3,53:12,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+29: castle.fangorn.portal.30,true,unlocked,56:12,4,55:12,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+30: castle.fangorn.portal.31,true,unlocked,57:12,2,57:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+31: castle.fangorn.portal.32,true,unlocked,60:11,2,60:12,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+32: castle.fangorn.portal.33,true,unlocked,52:6,3,53:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+33: castle.fangorn.portal.34,true,unlocked,56:6,4,55:6,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+34: castle.fangorn.portal.35,true,unlocked,57:5,1,57:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+35: castle.fangorn.portal.36,true,unlocked,59:5,1,59:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+36: castle.fangorn.portal.37,true,unlocked,57:3,4,56:3,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+37: castle.fangorn.portal.38,true,unlocked,57:9,3,58:9,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+38: castle.fangorn.portal.39,true,unlocked,57:6,3,58:6,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+39: castle.fangorn.portal.40,true,unlocked,61:5,1,61:4,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+40: castle.fangorn.portal.41,true,unlocked,59:16,3,60:16,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+41: castle.fangorn.portal.42,true,unlocked,49:16,4,48:16,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+42: castle.fangorn.portal.43,true,unlocked,48:14,2,48:15,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+43: castle.fangorn.portal.44,true,unlocked,48:4,1,48:3,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+44: castle.fangorn.portal.25,true,unlocked,54:14,2,54:60,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+45: castle.fangorn.portal.45,true,unlocked,50:54,3,5:54,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+46: castle.fangorn.portal.46,true,unlocked,51:58,2,51:59,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+47: castle.fangorn.portal.47,true,unlocked,49:58,2,49:59,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+48: castle.fangorn.portal.48,true,unlocked,50:56,4,49:56,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+49: castle.fangorn.portal.49,true,unlocked,49:49,2,49:50,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+50: castle.fangorn.portal.50,true,unlocked,51:49,2,51:50,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+51: castle.fangorn.portal.51,true,unlocked,57:50,1,57:49,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+52: castle.fangorn.portal.52,true,unlocked,59:50,1,59:49,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+53: castle.fangorn.portal.53,true,unlocked,58:50,2,58:51,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+54: castle.fangorn.portal.54,true,unlocked,58:56,1,58:55,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+55: castle.fangorn.portal.55,true,unlocked,57:59,1,57:58,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+56: castle.fangorn.portal.56,true,unlocked,60:59,1,60:58,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+57: castle.fangorn.portal.57,true,locked,59:60,3,60:60,4,true,true,true,5,0,10:11:0:10:0:9:0:9,11010101,null,true,generic door creak,
+58: castle.fangorn.portal.58,true,unlocked,9:53,1,9:52,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+59: castle.fangorn.portal.59,true,unlocked,9:52,1,9:51,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+60: castle.fangorn.portal.60,true,unlocked,12:55,2,12:56,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+61: castle.fangorn.portal.61,true,unlocked,8:57,3,9:57,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 
 -sky image-
 0: sky.hail

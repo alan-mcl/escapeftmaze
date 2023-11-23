@@ -19,9 +19,10 @@
 
 package mclachlan.maze.data.v1;
 
+import java.awt.Point;
+import java.util.*;
 import mclachlan.maze.map.Portal;
-import java.awt.*;
-import java.util.BitSet;
+import mclachlan.maze.map.TileScript;
 
 /**
  *
@@ -71,9 +72,11 @@ public class V1Portal
 		s.append(SEP);
 		s.append(t.getKeyItem());
 		s.append(SEP);
-		s.append(t.consumeKeyItem());
+		s.append(t.isConsumeKeyItem());
 		s.append(SEP);
 		s.append(t.getMazeScript()==null?"":t.getMazeScript());
+		s.append(SEP);
+		s.append(t.getStateChangeScript()==null?"":V1TileScript.toString(t.getStateChangeScript(), SUB_SEP));
 
 		return s.toString();
 	}
@@ -104,6 +107,7 @@ public class V1Portal
 		String keyItem = strs[14];
 		boolean consumeKeyItem = Boolean.valueOf(strs[15]);
 		String mazeScript = "".equals(strs[16])?null:strs[16];
+		TileScript stateChangeScript = V1TileScript.fromString(strs[17], SUB_SEP);
 
 		return new Portal(
 			mazeVariable,
@@ -122,7 +126,8 @@ public class V1Portal
 			required,
 			keyItem,
 			consumeKeyItem,
-			mazeScript);
+			mazeScript,
+			stateChangeScript);
 	}
 
 	/*-------------------------------------------------------------------------*/

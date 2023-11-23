@@ -418,14 +418,14 @@ playerOrigin: 17:10
 399: 0:0,:DUNGEON:Crypt:5:isle.of.the.gate.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: crypt.of.atrocities.portal.0,true,locked,15:10,4,14:10,3,true,true,true,50,15,0:11:11:11:9:10:10:0,0111111,null,true,generic door creak
-1: crypt.of.atrocities.portal.1,true,unlocked,11:8,1,11:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-2: crypt.of.atrocities.portal.2,true,unlocked,8:8,1,8:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-3: crypt.of.atrocities.portal.3,true,unlocked,5:8,1,5:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-4: crypt.of.atrocities.portal.4,true,unlocked,5:12,2,5:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-5: crypt.of.atrocities.portal.5,true,unlocked,8:12,2,8:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-6: crypt.of.atrocities.portal.6,true,unlocked,11:12,2,11:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak
-7: crypt.of.atrocities.portal.7,false,unlocked,17:10,3,18:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Crypt Of Atrocities to Ekirth's Tomb
+0: crypt.of.atrocities.portal.0,true,locked,15:10,4,14:10,3,true,true,true,50,15,0:11:11:11:9:10:10:0,0111111,null,true,generic door creak,
+1: crypt.of.atrocities.portal.1,true,unlocked,11:8,1,11:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+2: crypt.of.atrocities.portal.2,true,unlocked,8:8,1,8:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+3: crypt.of.atrocities.portal.3,true,unlocked,5:8,1,5:7,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+4: crypt.of.atrocities.portal.4,true,unlocked,5:12,2,5:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+5: crypt.of.atrocities.portal.5,true,unlocked,8:12,2,8:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+6: crypt.of.atrocities.portal.6,true,unlocked,11:12,2,11:13,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+7: crypt.of.atrocities.portal.7,false,unlocked,17:10,3,18:10,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Crypt Of Atrocities to Ekirth's Tomb,
 
 -sky image-
 0: DEFAULT_SKY

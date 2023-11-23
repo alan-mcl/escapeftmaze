@@ -4114,7 +4114,7 @@ playerOrigin: 33:19
 4095: 1:11,,,true,:3f800000000000000000,07080807080808:WILDERNESS:Island:5:isle.of.the.gate.random.enc:MEDIUM:AVERAGE
 
 -maze portals-
-0: isle.of.the.gate.portal.0,false,unlocked,33:29,3,34:29,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Isle Of The Gate to Caves Of Ilast
+0: isle.of.the.gate.portal.0,false,unlocked,33:29,3,34:29,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Isle Of The Gate to Caves Of Ilast,
 
 -sky image-
 0: sky.aenen

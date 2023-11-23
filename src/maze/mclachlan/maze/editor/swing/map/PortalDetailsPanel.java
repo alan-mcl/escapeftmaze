@@ -24,17 +24,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.Vector;
+import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.editor.swing.EditorPanel;
-import mclachlan.maze.editor.swing.ThiefToolsCallback;
-import mclachlan.maze.editor.swing.ThiefToolsPanel;
+import mclachlan.maze.editor.swing.*;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Zone;
 
@@ -42,7 +37,7 @@ import mclachlan.maze.map.Zone;
  *
  */
 public class PortalDetailsPanel extends JPanel
-	implements ActionListener, ChangeListener, KeyListener, ThiefToolsCallback
+	implements ActionListener, ChangeListener, KeyListener, ThiefToolsCallback, TileScriptComponentCallback
 {
 	private Portal portal;
 	private Zone zone;
@@ -60,6 +55,7 @@ public class PortalDetailsPanel extends JPanel
 	private JCheckBox consumeKey;
 	private JComboBox mazeScript;
 	private JButton quickAssignMazeVar;
+	private SingleTileScriptComponent stateChangeScript;
 	
 	private static final String[] directions =
 		{
@@ -122,6 +118,10 @@ public class PortalDetailsPanel extends JPanel
 		initialState = new JComboBox(items);
 		initialState.addActionListener(this);
 		dodgyGridBagShite(content, new JLabel("Initial State:"), initialState, gbc);
+
+		stateChangeScript = new SingleTileScriptComponent(null, SwingEditor.Tab.ZONES, this, zone);
+		stateChangeScript.addActionListener(this);
+		dodgyGridBagShite(content, new JLabel("State Change Script:"), stateChangeScript, gbc);
 		
 		canForce = new JCheckBox("Can Force?");
 		canForce.addActionListener(this);
@@ -226,6 +226,7 @@ public class PortalDetailsPanel extends JPanel
 		mazeVariable.setText(portal.getMazeVariable());
 		twoWay.setSelected(portal.isTwoWay());
 		initialState.setSelectedItem(portal.getInitialState());
+		stateChangeScript.refresh(portal.getStateChangeScript(), zone);
 		canForce.setSelected(portal.canForce());
 		canPick.setSelected(portal.canPick());
 		canSpellPick.setSelected(portal.canSpellPick());
@@ -300,6 +301,10 @@ public class PortalDetailsPanel extends JPanel
 		else if (obj == initialState)
 		{
 			portal.setInitialState((String)initialState.getSelectedItem());
+		}
+		else if (obj == stateChangeScript)
+		{
+			portal.setStateChangeScript(stateChangeScript.getScript());
 		}
 		else if (obj == fromFacing)
 		{
@@ -428,5 +433,11 @@ public class PortalDetailsPanel extends JPanel
 				portal.setRequired(difficulty.getRequired());
 			}
 		}
+	}
+
+	@Override
+	public void tileScriptChanged(Component component)
+	{
+		portal.setStateChangeScript(((SingleTileScriptComponent)component).getScript());
 	}
 }
