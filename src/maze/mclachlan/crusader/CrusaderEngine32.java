@@ -564,9 +564,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			//  __/__|_________  dist between xi = height/tan where height=tile size
 			// old xi|
 			//                  distance between xi = x_step[view_angle];
-			//
-			//
-			// facing left
+
 			// facing left
 			if (i >= ANGLE90 && i < ANGLE270)
 			{
@@ -3066,7 +3064,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addObjectInFrontOfPlayer(
+
+	public void initObjectInFrontOfPlayer(
 		EngineObject obj, 
 		double distance, 
 		double arcOffset,
@@ -3089,7 +3088,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			obj.xPos = playerX + x;
 			obj.yPos = playerY + y;
 			
-			addObject(obj, false);
+//			addObject(obj, false);
 		}
 	}
 

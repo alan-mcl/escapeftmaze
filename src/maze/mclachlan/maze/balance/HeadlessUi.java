@@ -128,7 +128,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void addObjectInFrontOfPlayer(EngineObject obj, double distance,
+	public void initObjectInFrontOfPlayer(EngineObject obj, double distance,
 		double arcOffset, boolean randomStartingFrame)
 	{
 		

@@ -32,8 +32,7 @@ import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Texture;
-import mclachlan.crusader.script.MoveObjectScript;
-import mclachlan.crusader.script.MoveObjectVerticallyScript;
+import mclachlan.crusader.script.AppearanceFromSide;
 import mclachlan.crusader.script.TempChangeTexture;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPanel;
@@ -608,11 +607,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addObjectInFrontOfPlayer(
+	public void initObjectInFrontOfPlayer(
 		EngineObject obj, double distance, double arcOffset,
 		boolean randomStartingFrame)
 	{
-		this.raycaster.addObjectInFrontOfPlayer(obj, distance, arcOffset, randomStartingFrame);
+		this.raycaster.initObjectInFrontOfPlayer(obj, distance, arcOffset, randomStartingFrame);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1350,12 +1349,26 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					double increment = 1.0 / (maxFoeIndex + 1);
 					double arc = increment * (foeIndex + 1) + (-0.1 * (foeGroup % 2)); // stagger the groups
 					double distance = 0.5 + (0.5 * foeGroup);
-					this.addObjectInFrontOfPlayer(obj, distance, arc, true);
+					this.initObjectInFrontOfPlayer(obj, distance, arc, true);
 
-					// debug! todo remove
-					obj.addScript(new MoveObjectScript(obj, 32, .1));
-					obj.addScript(new MoveObjectVerticallyScript(obj, -100, 50, 250, 500));
+					// todo foe specific animation scripts
 
+					switch (foe.getAppearanceDirection())
+					{
+						case LEFT:
+							obj.addScript(new AppearanceFromSide(obj, true, 2000, (CrusaderEngine32)this.raycaster));
+							break;
+						case RIGHT:
+							obj.addScript(new AppearanceFromSide(obj, false, 2000, (CrusaderEngine32)this.raycaster));
+							break;
+						case LEFT_OR_RIGHT:
+							obj.addScript(new AppearanceFromSide(obj, Math.random()>.5, 2000, (CrusaderEngine32)this.raycaster));
+							break;
+						default:
+							throw new MazeException("invalid appearance direction "+foe.getAppearanceDirection());
+					}
+
+					this.raycaster.addObject(obj, false);
 				}
 			}
 		}

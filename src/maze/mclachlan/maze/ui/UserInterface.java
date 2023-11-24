@@ -103,7 +103,7 @@ public interface UserInterface
 	void removeObject(String objectName);
 
 	/*-------------------------------------------------------------------------*/
-	void addObjectInFrontOfPlayer(
+	void initObjectInFrontOfPlayer(
 		EngineObject obj, double distance, double arcOffset,
 		boolean randomStartingFrame);
 

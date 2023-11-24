@@ -32,6 +32,13 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class FoeTemplate extends DataObject
 {
+	public enum AppearanceDirection
+	{
+		LEFT,
+		RIGHT,
+		LEFT_OR_RIGHT
+	}
+
 	/** The singular name of the foe, eg "Zombie" */
 	private String name;
 	
@@ -112,6 +119,9 @@ public class FoeTemplate extends DataObject
 
 	/** is this Foe an NPC */
 	private boolean isNpc;
+
+	/** how to scroll the sprite onto the screen*/
+	private AppearanceDirection appearanceDirection = AppearanceDirection.LEFT_OR_RIGHT;
 	
 	/** script to run when a group of this foe type appears */
 	private MazeScript appearanceScript;
@@ -395,6 +405,11 @@ public class FoeTemplate extends DataObject
 		return appearanceScript;
 	}
 
+	public AppearanceDirection getAppearanceDirection()
+	{
+		return appearanceDirection;
+	}
+
 	public MazeScript getDeathScript()
 	{
 		return deathScript;
@@ -564,6 +579,12 @@ public class FoeTemplate extends DataObject
 	public void setAppearanceScript(MazeScript appearanceScript)
 	{
 		this.appearanceScript = appearanceScript;
+	}
+
+	public void setAppearanceDirection(
+		AppearanceDirection appearanceDirection)
+	{
+		this.appearanceDirection = appearanceDirection;
 	}
 
 	public void setDeathScript(MazeScript deathScript)

@@ -134,7 +134,7 @@ public interface CrusaderEngine
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Adds the given object to the scene in front of the player.
+	 * Initialises the object in front of the player, but does not add it yet.
 	 *
 	 * @param obj
 	 * 	The object to add
@@ -148,7 +148,7 @@ public interface CrusaderEngine
 	 * 	Set to true if the object begins with a random starting frame of
 	 * 	animation
 	 */
-	void addObjectInFrontOfPlayer(
+	void initObjectInFrontOfPlayer(
 		EngineObject obj,
 		double distance,
 		double arcOffset,

@@ -1,4 +1,4 @@
-#Fri Nov 24 08:53:08 SAST 2023
+#Fri Nov 24 09:27:05 SAST 2023
 garret=9|I cannae advise ye much on matters of the spirit.
 leonal,leonals,white\ order=9|Bah, the lion people and their order are a plague on this realm\!
 maze=9|Aye, the maze. What can be said that has not been said before? Best to get on with yer business.

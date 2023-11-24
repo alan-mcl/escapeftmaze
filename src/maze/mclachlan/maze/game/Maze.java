@@ -1299,13 +1299,6 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addObjectInFrontOfPlayer(
-		EngineObject obj, double distance, double arcOffset, boolean randomStartingFrame)
-	{
-		this.ui.addObjectInFrontOfPlayer(obj, distance, arcOffset, randomStartingFrame);
-	}
-	
-	/*-------------------------------------------------------------------------*/
 	public void transferPlayerCharacterToParty(PlayerCharacter pc, Foe npc)
 	{
 		removePlayerCharacterFromGuild(pc, npc);

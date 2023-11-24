@@ -863,6 +863,11 @@ public class Foe extends UnifiedActor
 		return new ArrayList<String>();
 	}
 
+	public FoeTemplate.AppearanceDirection getAppearanceDirection()
+	{
+		return this.template.getAppearanceDirection();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public static class EvasionBehaviour
 	{

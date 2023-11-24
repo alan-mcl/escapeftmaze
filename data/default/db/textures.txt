@@ -1142,6 +1142,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=CEILING_LIGHT_1
+imageResources=crusader/scene/ceiling_light_1
+animationDelay=-1
+imageWidth=0
+imageHeight=0
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=SAND_ROAD_STUB
 imageResources=crusader/scene/sand_road_stub
 animationDelay=-1
