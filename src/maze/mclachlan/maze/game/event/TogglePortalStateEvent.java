@@ -19,56 +19,63 @@
 
 package mclachlan.maze.game.event;
 
+import java.awt.Point;
 import java.util.*;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Portal;
-import mclachlan.maze.map.script.LockOrTrap;
 import mclachlan.maze.util.MazeException;
 
-public class SetLockState extends MazeEvent
+public class TogglePortalStateEvent extends MazeEvent
 {
-	private final LockOrTrap lockOrTrap;
-	private final String state;
+	private final Point tile;
+	private final int facing;
 
 	/*-------------------------------------------------------------------------*/
-	public SetLockState(
-		LockOrTrap lockOrTrap,
-		String state)
+	public TogglePortalStateEvent(Point tile, int facing)
 	{
-		this.lockOrTrap = lockOrTrap;
-		this.state = state;
+		this.tile = tile;
+		this.facing = facing;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		if (lockOrTrap.getLockState().equals(this.state))
+		Portal portal = Maze.getInstance().getCurrentZone().getPortal(tile, facing);
+
+		if (portal == null)
 		{
-			return null;
+			throw new MazeException("no portal found to toggle: "+tile+"::"+facing);
 		}
 
 		List<MazeEvent> result = new ArrayList<>();
 
-		lockOrTrap.setLockState(this.state);
-
-		if (Portal.State.UNLOCKED.equals(this.state))
+		if (Portal.State.WALL_LIKE.equals(portal.getState()) || Portal.State.LOCKED.equals(portal.getState()))
 		{
-			result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
-			result.add(new UiMessageEvent(StringUtil.getEventText("msg.unlocked")));
+			result.add(new SetLockState(portal, Portal.State.UNLOCKED));
 		}
-		else if (Portal.State.LOCKED.equals(this.state) || Portal.State.WALL_LIKE.equals(this.state))
+		else if (Portal.State.UNLOCKED.equals(portal.getState()))
 		{
-			result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
-			result.add(new UiMessageEvent(StringUtil.getEventText("msg.locked")));
+			result.add(new SetLockState(portal, Portal.State.LOCKED));
 		}
 		else
 		{
-			throw new MazeException("Invalid state: "+this.state);
+			throw new MazeException("Invalid state: "+portal.getState());
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public Point getTile()
+	{
+		return tile;
+	}
+
+	public int getFacing()
+	{
+		return facing;
 	}
 }

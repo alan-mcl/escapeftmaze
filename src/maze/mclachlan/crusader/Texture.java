@@ -79,7 +79,7 @@ public class Texture implements Comparable<Texture>
 		this.images = frames;
 		this.scrollBehaviour = scrollBehaviour;
 		this.scrollSpeed = textureScrollSpeed;
-		if (frames != null)
+		if (frames != null && frames.length>0)
 		{
 			this.nrFrames = frames.length;
 			this.imageWidth = frames[0].getWidth();

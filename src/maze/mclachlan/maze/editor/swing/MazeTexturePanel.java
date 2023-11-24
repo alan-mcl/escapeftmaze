@@ -147,7 +147,7 @@ public class MazeTexturePanel extends EditorPanel
 	{
 		MazeTexture mt = new MazeTexture(
 			name,
-			new ArrayList<String>(),
+			new ArrayList<>(),
 			0,
 			0,
 			-1,

@@ -1087,7 +1087,7 @@ playerOrigin: 14:30
 42: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1,
 43: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
 44: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-45: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,
+45: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:gatehouse.toggle.wall.0:874:false:DUNGEON_PORTCULLIS_1::true:true:1:::DUNGEON_PORTCULLIS_1_UP::true:false:1::
 
 -sky image-
 0: sky.ichiba
@@ -2035,7 +2035,7 @@ playerOrigin: 14:30
 939: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 940: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 941: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
-942: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
+942: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
 943: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 944: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,15
 945: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
@@ -2067,7 +2067,7 @@ playerOrigin: 14:30
 971: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 972: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 973: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
-974: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
+974: DUNGEON_FLOOR_1,MYSTIC_CIRCLE,DUNGEON_CEILING_1,,40
 975: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 976: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 977: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,17
@@ -2409,7 +2409,7 @@ playerOrigin: 14:30
 1002: DUNGEON_WALL_1:::::true:1
 1003: DUNGEON_WALL_1:::::true:1
 1004: DUNGEON_WALL_1:::::true:1
-1006: DUNGEON_WALL_1:RUNES_2::::true:1
+1006: DUNGEON_WALL_1:RUNES_1::::true:1
 1009: DUNGEON_WALL_1:::::true:1
 1010: DUNGEON_WALL_1:::::true:1
 1011: DUNGEON_WALL_1:::::true:1
@@ -2690,7 +2690,7 @@ playerOrigin: 14:30
 997: DUNGEON_WALL_1:::::true:1
 1003: DUNGEON_WALL_1:::::true:1
 1004: DUNGEON_WALL_1:RUNES_1::::true:1
-1005: DUNGEON_WALL_1:RUNES_3::::true:1
+1005: DUNGEON_WALL_1:RUNES_1::::true:1
 1007: DUNGEON_WALL_1:::::true:1
 1010: DUNGEON_WALL_1:::::true:1
 1017: DUNGEON_WALL_1:::::true:1

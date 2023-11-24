@@ -168,7 +168,7 @@ public class V1TileScript
 				s.append(sep);
 				s.append(lever.getWestTexture());
 				s.append(sep);
-				s.append(lever.getPreTransitionScript()==null?"":lever.getPreTransitionScript().getName()); // will the separators work out here?
+				s.append(lever.getPreTransitionScript()==null?"":lever.getPreTransitionScript().getName());
 				s.append(sep);
 				s.append(lever.getPostTransitionScript()==null?"":lever.getPostTransitionScript().getName());
 				break;
@@ -217,7 +217,7 @@ public class V1TileScript
 				s.append(sep);
 				s.append(tw.getState1Height());
 				s.append(sep);
-				s.append(V1MouseClickScript.toString(tw.getState1MouseClickScript()));
+				s.append(V1MouseClickScript.toString(tw.getState1MouseClickScript()));  // will the separators work out here?
 				s.append(sep);
 				s.append(V1MouseClickScript.toString(tw.getState1MaskTextureMouseClickScript()));
 				s.append(sep);
@@ -326,7 +326,8 @@ public class V1TileScript
 				String southTexture = strs[i++];
 				String eastTexture = strs[i++];
 				String westTexture = strs[i++];
-				MazeScript script = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i++]);
+				MazeScript script = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i]);
+				i++;
 				result = new Chest(
 					chestContents, 
 					t, 
@@ -343,8 +344,10 @@ public class V1TileScript
 				String southTextureL = strs[i++];
 				String eastTextureL = strs[i++];
 				String westTextureL = strs[i++];
-				MazeScript preTransScript = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i++]);
-				MazeScript postTransScript = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i++]);
+				MazeScript preTransScript = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i]);
+				i++;
+				MazeScript postTransScript = ("".equals(strs[i])) ? null : Database.getInstance().getMazeScript(strs[i]);
+				i++;
 				result = new Lever(
 					northTextureL,
 					southTextureL,

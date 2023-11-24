@@ -60,6 +60,7 @@ public class V1MazeEvent
 	public static final int _SpeechBubbleEvent = 18;
 	public static final int _StoryboardEvent = 19;
 	public static final int _SetUserConfigEvent = 20;
+	public static final int _TogglePortalStateEvent = 21;
 
 	public static final int _ActorDiesEvent = 100;
 	public static final int _ActorUnaffectedEvent = 101;
@@ -122,7 +123,7 @@ public class V1MazeEvent
 	public static final int _WaitForPlayerSpeech = 208;
 	public static final int _ChangeNpcFactionAttitudeEvent = 209;
 	
-	private static V1List<String> slashSeparatedStringList = new V1List<String>("/")
+	private static final V1List<String> slashSeparatedStringList = new V1List<String>("/")
 	{
 		public String typeToString(String s)
 		{
@@ -168,6 +169,7 @@ public class V1MazeEvent
 		types.put(PersonalitySpeechBubbleEvent.class, _SpeechBubbleEvent);
 		types.put(StoryboardEvent.class, _StoryboardEvent);
 		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
+		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
 
 		types.put(MazeScriptEvent.class, _MazeScript);
 		types.put(RemoveWallEvent.class, _RemoveWall);
@@ -349,7 +351,12 @@ public class V1MazeEvent
 				s.append(suce.getVar());
 				s.append(SEP);
 				s.append(suce.getValue());
+				break;
+			case _TogglePortalStateEvent:
+				TogglePortalStateEvent tpse = (TogglePortalStateEvent)e;
+				s.append(V1Point.toString(tpse.getTile()));
 				s.append(SEP);
+				s.append(tpse.getFacing());
 				break;
 			case _MazeScript:
 				MazeScriptEvent mse = (MazeScriptEvent)e;
@@ -570,7 +577,8 @@ public class V1MazeEvent
 				return new StoryboardEvent(strs[1], strs[2], StoryboardEvent.TextPlacement.valueOf(strs[3]));
 			case _SetUserConfigEvent:
 				return new SetUserConfigEvent(strs[1], strs[2]);
-
+			case _TogglePortalStateEvent:
+				return new TogglePortalStateEvent(V1Point.fromString(strs[1]), Integer.parseInt(strs[2]));
 			case _MazeScript:
 				return new MazeScriptEvent(strs[1]);
 			case _RemoveWall:

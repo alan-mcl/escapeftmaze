@@ -103,6 +103,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField blockingScreenImage;
 	private JSpinner blockingScreenMode;
 	private JTextField setMazeVarMazeVar, setMazeVarValue;
+	private JSpinner fromX, fromY;
+	private JComboBox facing;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeEventEditor(Frame owner, MazeEvent event, int dirtyFlag) throws HeadlessException
@@ -309,6 +311,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				SetMazeVariableEvent sme = (SetMazeVariableEvent)e;
 				setMazeVarMazeVar.setText(sme.getMazeVariable());
 				setMazeVarValue.setText(sme.getValue());
+				break;
+			case _TogglePortalStateEvent:
+				TogglePortalStateEvent tpse = (TogglePortalStateEvent)e;
+				fromX.setValue(tpse.getTile().x);
+				fromY.setValue(tpse.getTile().y);
+				facing.setSelectedItem(FACINGS[tpse.getFacing()]);
 				break;
 
 			case _ActorDiesEvent:
@@ -535,6 +543,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _SetMazeVariableEvent:
 				this.result = new SetMazeVariableEvent(setMazeVarMazeVar.getText(), setMazeVarValue.getText());
 				break;
+			case _TogglePortalStateEvent:
+				this.result = new TogglePortalStateEvent(new Point((Integer)fromX.getValue(), (Integer)fromY.getValue()), facing.getSelectedIndex());
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -651,7 +662,6 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getStoryboardEventPanel();
 			case _SetUserConfigEvent:
 				return getSetUserConfigEventPanel();
-
 			case _MazeScript:
 				return getMazeScriptEventPanel();
 			case _RemoveWall:
@@ -662,6 +672,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getEndGamePanel();
 			case _SetMazeVariableEvent:
 				return getSetMazeVarPanel();
+			case _TogglePortalStateEvent:
+				return getTogglePortalStatePanel();
 				
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -729,6 +741,19 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 			default: return null;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getTogglePortalStatePanel()
+	{
+		fromX = new JSpinner(new SpinnerNumberModel(0, 0, 999999, 1));
+		fromY = new JSpinner(new SpinnerNumberModel(0, 0, 999999, 1));
+		facing = new JComboBox(FACINGS);
+
+		return dirtyGridBagCrap(
+			new JLabel("From X:"), fromX,
+			new JLabel("From Y:"), fromY,
+			new JLabel("Facing:"), facing);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1223,7 +1248,6 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Story Board Screen";
 			case _SetUserConfigEvent:
 				return "Set User Config Value";
-
 			case _MazeScript:
 				return "Execute Maze Script";
 			case _RemoveWall:
@@ -1234,6 +1258,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "End Game";
 			case _SetMazeVariableEvent:
 				return "Set Maze Variable";
+			case _TogglePortalStateEvent:
+				return "Toggle Portal State";
 					
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:

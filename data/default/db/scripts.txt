@@ -51,6 +51,9 @@ name=test script
 name=Danaos Castle feasting hall flava
 0=4,-1,true,You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.
 @
+name=_PORTCULLIS_
+0=138,336888__omnisis__gate-heavy-openclose2
+@
 name=_MAIN_MENU_MUSIC_
 0=149,prescience
 @
@@ -302,6 +305,9 @@ name=purple portrait animation
 0=138,22267__zeuss__The_Chime
 1=104,2:ff800080
 @
+name=z_arena lever
+0=21,10:9,1
+@
 name=shuriken from foe
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/shurikenFromFoe1
@@ -496,7 +502,9 @@ name=red bolt from foe
 2=13,_WEAPON_HIT_
 @
 name=Gatehouse lever post transition
-0=17,gatehouse.portal.29,unlocked
+0=13,_PORTCULLIS_
+1=4,-1,false,A loud clanking and grinding fills the dungeon.
+2=21,15:26,3
 @
 name=gigantopithecus taunt
 0=13,sound - ape
