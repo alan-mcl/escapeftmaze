@@ -33,6 +33,7 @@ import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.script.AppearanceFromSide;
+import mclachlan.crusader.script.AppearanceFromTop;
 import mclachlan.crusader.script.TempChangeTexture;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPanel;
@@ -1355,14 +1356,17 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 					switch (foe.getAppearanceDirection())
 					{
-						case LEFT:
+						case FROM_LEFT:
 							obj.addScript(new AppearanceFromSide(obj, true, 2000, (CrusaderEngine32)this.raycaster));
 							break;
-						case RIGHT:
+						case FROM_RIGHT:
 							obj.addScript(new AppearanceFromSide(obj, false, 2000, (CrusaderEngine32)this.raycaster));
 							break;
-						case LEFT_OR_RIGHT:
+						case FROM_LEFT_OR_RIGHT:
 							obj.addScript(new AppearanceFromSide(obj, Math.random()>.5, 2000, (CrusaderEngine32)this.raycaster));
+							break;
+						case FROM_TOP:
+							obj.addScript(new AppearanceFromTop(obj, 2000));
 							break;
 						default:
 							throw new MazeException("invalid appearance direction "+foe.getAppearanceDirection());

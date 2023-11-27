@@ -43,7 +43,7 @@ public class FoeTemplatePanel extends EditorPanel
 	private StatModifierComponent stats, foeGroupBannerModifiers, allFoesBannerModifiers;
 	private JComboBox baseTexture, meleeTexture, rangedTexture, castSpellTexture,
 		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
-		appearanceScript, deathScript, focus, attitude;
+		appearanceScript, appearanceDirection, deathScript, focus, attitude;
 	private JCheckBox cannotBeEvaded, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
 	private FoeTypeSelection foeTypes;
@@ -131,6 +131,10 @@ public class FoeTemplatePanel extends EditorPanel
 		appearanceScript = new JComboBox();
 		appearanceScript.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Appearance Script:"), appearanceScript, gbc);
+
+		appearanceDirection = new JComboBox();
+		appearanceDirection.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Appearance Direction:"), appearanceDirection, gbc);
 
 		deathScript = new JComboBox();
 		deathScript.addActionListener(this);
@@ -415,6 +419,7 @@ public class FoeTemplatePanel extends EditorPanel
 		Collections.sort(scripts);
 		scripts.add(0, NONE);
 		appearanceScript.setModel(new DefaultComboBoxModel(scripts));
+		appearanceDirection.setModel(new DefaultComboBoxModel(FoeTemplate.AppearanceDirection.values()));
 		deathScript.setModel(new DefaultComboBoxModel(scripts));
 
 		bodyParts.initForeignKeys();
@@ -438,6 +443,7 @@ public class FoeTemplatePanel extends EditorPanel
 		identificationDifficulty.removeChangeListener(this);
 		fleeChance.removeChangeListener(this);
 		appearanceScript.removeActionListener(this);
+		appearanceDirection.removeActionListener(this);
 		deathScript.removeActionListener(this);
 		faction.removeKeyListener(this);
 		focus.removeActionListener(this);
@@ -485,6 +491,7 @@ public class FoeTemplatePanel extends EditorPanel
 		{
 			appearanceScript.setSelectedItem(NONE);
 		}
+		appearanceDirection.setSelectedItem(ft.getAppearanceDirection());
 		mazeScript = ft.getDeathScript();
 		if (mazeScript != null)
 		{
@@ -507,6 +514,7 @@ public class FoeTemplatePanel extends EditorPanel
 		evasionBehaviour.addActionListener(this);
 		stealthBehaviour.addActionListener(this);
 		appearanceScript.addActionListener(this);
+		appearanceDirection.addActionListener(this);
 		deathScript.addActionListener(this);
 		identificationDifficulty.addChangeListener(this);
 		fleeChance.addChangeListener(this);
@@ -565,6 +573,7 @@ public class FoeTemplatePanel extends EditorPanel
 			"",
 			false,
 			null,
+			FoeTemplate.AppearanceDirection.FROM_LEFT_OR_RIGHT,
 			null,
 			null,
 			null,
@@ -635,6 +644,7 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getFaction(),
 			current.isNpc(),
 			current.getAppearanceScript(),
+			current.getAppearanceDirection(),
 			current.getDeathScript(),
 			current.getNaturalWeapons(),
 			current.getSpellBook(),
@@ -716,6 +726,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setFaction(faction.getText().equals("") ? null : faction.getText());
 		ft.setNpc(isNpc.isSelected());
 		ft.setAppearanceScript(appScript);
+		ft.setAppearanceDirection((FoeTemplate.AppearanceDirection)appearanceDirection.getSelectedItem());
 		ft.setDeathScript(dScript);
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
 		ft.setDefaultAttitude((NpcFaction.Attitude)attitude.getSelectedItem());

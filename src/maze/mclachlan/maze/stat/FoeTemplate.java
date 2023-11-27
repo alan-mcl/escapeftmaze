@@ -34,9 +34,10 @@ public class FoeTemplate extends DataObject
 {
 	public enum AppearanceDirection
 	{
-		LEFT,
-		RIGHT,
-		LEFT_OR_RIGHT
+		FROM_LEFT,
+		FROM_RIGHT,
+		FROM_LEFT_OR_RIGHT,
+		FROM_TOP,
 	}
 
 	/** The singular name of the foe, eg "Zombie" */
@@ -121,7 +122,7 @@ public class FoeTemplate extends DataObject
 	private boolean isNpc;
 
 	/** how to scroll the sprite onto the screen*/
-	private AppearanceDirection appearanceDirection = AppearanceDirection.LEFT_OR_RIGHT;
+	private AppearanceDirection appearanceDirection;
 	
 	/** script to run when a group of this foe type appears */
 	private MazeScript appearanceScript;
@@ -189,6 +190,7 @@ public class FoeTemplate extends DataObject
 		String faction,
 		boolean isNpc,
 		MazeScript appearanceScript,
+		AppearanceDirection appearanceDirection,
 		MazeScript deathScript,
 		List<String> naturalWeapons,
 		SpellBook spellBook,
@@ -227,6 +229,7 @@ public class FoeTemplate extends DataObject
 		this.faction = faction;
 		this.isNpc = isNpc;
 		this.appearanceScript = appearanceScript;
+		this.appearanceDirection = appearanceDirection;
 		this.deathScript = deathScript;
 		this.naturalWeapons = naturalWeapons;
 		this.spellBook = spellBook;

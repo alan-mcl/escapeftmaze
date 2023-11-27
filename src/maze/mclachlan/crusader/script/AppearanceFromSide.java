@@ -11,9 +11,6 @@ import mclachlan.maze.util.MazeException;
  */
 public class AppearanceFromSide extends ObjectScript
 {
-	private boolean fromLeft;
-	private final CrusaderEngine32 engine;
-
 	int startX, startY, destX, destY;
 
 	// coordinate change per ms
@@ -28,21 +25,23 @@ public class AppearanceFromSide extends ObjectScript
 
 	public AppearanceFromSide(EngineObject object, boolean fromLeft, int duration, CrusaderEngine32 engine)
 	{
-		this.fromLeft = fromLeft;
-		this.engine = engine;
 
 		this.destX = object.getXPos();
 		this.destY = object.getYPos();
 
 		this.duration = duration;
 
-		int playerX = engine.getPlayerPos().x;
-		int playerY = engine.getPlayerPos().y;
 
-		double distFromPlayer = Math.sqrt(Math.pow(destX - playerX, 2) + Math.pow(destY - playerY, 2));
+		// todo:
+		// work out the distance from the player of the destination x and y
+		// int playerX = engine.getPlayerPos().x;
+		//	int playerY = engine.getPlayerPos().y;
+		// double dfp = Math.sqrt(Math.pow(destX - playerX, 2) + Math.pow(destY - playerY, 2));
+		// assuming a 60deg FOV, use the law of sines to work out the distance from
+		// a point dfp distance directly in front of the player
+//		int dist = (int)(dfp * Math.sin(Math.toRadians(60)) / Math.sin(Math.toRadians(30)));
 
-		// todo: work this out better
-		int dist = (int)(engine.tileSize/3 + distFromPlayer/12);
+		int dist = (int)(engine.tileSize/3);
 
 		incX = 0;
 		incY = 0;

@@ -849,6 +849,7 @@ public class MockCombat
 			null,
 			false,
 			null,
+			FoeTemplate.AppearanceDirection.FROM_LEFT_OR_RIGHT,
 			null,
 			null,
 			null,

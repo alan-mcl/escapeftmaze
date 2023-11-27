@@ -2726,7 +2726,7 @@ playerOrigin: 14:30
 25: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1::BOTTOM
 26: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,These bones feel brittle and dry to the touch.:00001::BOTTOM
 27: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false::001::BOTTOM
-28: CEILING_LIGHT_1:CEILING_LIGHT_1:CEILING_LIGHT_1:CEILING_LIGHT_1:846:true::::TOP
+28: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:846:true::::TOP
 29: objects.fungus.3:CEILING_LIGHT_1:CEILING_LIGHT_1:CEILING_LIGHT_1:811:false::101::BOTTOM
 
 -scripts-

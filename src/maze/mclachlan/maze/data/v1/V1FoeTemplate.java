@@ -263,6 +263,10 @@ public class V1FoeTemplate
 			b.append(obj.getAppearanceScript()==null?"":obj.getAppearanceScript().getName());
 			b.append(V1Utils.NEWLINE);
 
+			b.append("appearanceDirection=");
+			b.append(obj.getAppearanceDirection().name());
+			b.append(V1Utils.NEWLINE);
+
 			b.append("deathScript=");
 			b.append(obj.getDeathScript()==null?"":obj.getDeathScript().getName());
 			b.append(V1Utils.NEWLINE);
@@ -370,6 +374,9 @@ public class V1FoeTemplate
 			CharacterClass.Focus focus = CharacterClass.Focus.valueOf(p.getProperty("focus"));
 			NpcFaction.Attitude attitude = NpcFaction.Attitude.valueOf(p.getProperty("attitude"));
 
+			FoeTemplate.AppearanceDirection appearanceDirection =
+				FoeTemplate.AppearanceDirection.valueOf(p.getProperty("appearanceDirection"));
+
 			return new FoeTemplate(
 				name,
 				pluralName,
@@ -402,6 +409,7 @@ public class V1FoeTemplate
 				faction,
 				isNpc,
 				appearanceScript,
+				appearanceDirection,
 				deathScript,
 				naturalWeapons,
 				spellbook,
