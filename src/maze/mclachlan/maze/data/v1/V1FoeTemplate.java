@@ -22,6 +22,8 @@ package mclachlan.maze.data.v1;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
+import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.ObjectScript;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.MazeScript;
@@ -63,6 +65,21 @@ public class V1FoeTemplate
 		public SpellLikeAbility typeFromString(String s)
 		{
 			return V1SpellLikeAbility.fromString(s);
+		}
+	};
+
+	static V1List<ObjectScript> animationScripts = new V1List<ObjectScript>()
+	{
+		@Override
+		public String typeToString(ObjectScript os)
+		{
+			return V1CrusaderObjectScript.toString(os);
+		}
+
+		@Override
+		public ObjectScript typeFromString(String s)
+		{
+			return V1CrusaderObjectScript.fromString(s);
 		}
 	};
 
@@ -217,6 +234,10 @@ public class V1FoeTemplate
 			b.append(obj.getSpecialAbilityTexture().getName());
 			b.append(V1Utils.NEWLINE);
 
+			b.append("verticalAlignment=");
+			b.append(obj.getVerticalAlignment().name());
+			b.append(V1Utils.NEWLINE);
+
 			b.append("loot=");
 			b.append(obj.getLoot().getName());
 			b.append(V1Utils.NEWLINE);
@@ -261,6 +282,10 @@ public class V1FoeTemplate
 			
 			b.append("appearanceScript=");
 			b.append(obj.getAppearanceScript()==null?"":obj.getAppearanceScript().getName());
+			b.append(V1Utils.NEWLINE);
+
+			b.append("animationScripts=");
+			b.append(obj.getAnimationScripts()==null?"":animationScripts.toString(obj.getAnimationScripts()));
 			b.append(V1Utils.NEWLINE);
 
 			b.append("appearanceDirection=");
@@ -334,6 +359,7 @@ public class V1FoeTemplate
 			MazeTexture rangedAttackTexture = Database.getInstance().getMazeTexture(p.getProperty("rangedAttackTexture"));
 			MazeTexture castSpellTexture = Database.getInstance().getMazeTexture(p.getProperty("castSpellTexture"));
 			MazeTexture specialAbilityTexture = Database.getInstance().getMazeTexture(p.getProperty("specialAbilityTexture"));
+			EngineObject.Alignment verticalAlignment = EngineObject.Alignment.valueOf(p.getProperty("verticalAlignment"));
 			LootTable loot = Database.getInstance().getLootTable(p.getProperty("loot"));
 			int evasionBehaviour = Integer.parseInt(p.getProperty("evasionBehaviour"));
 			boolean cannotBeEvaded = Boolean.valueOf(p.getProperty("cannotBeEvaded"));
@@ -377,6 +403,8 @@ public class V1FoeTemplate
 			FoeTemplate.AppearanceDirection appearanceDirection =
 				FoeTemplate.AppearanceDirection.valueOf(p.getProperty("appearanceDirection"));
 
+			List<ObjectScript> animScripts = animationScripts.fromString(p.getProperty("animationScripts"));
+
 			return new FoeTemplate(
 				name,
 				pluralName,
@@ -398,6 +426,7 @@ public class V1FoeTemplate
 				rangedAttackTexture,
 				castSpellTexture,
 				specialAbilityTexture,
+				verticalAlignment,
 				loot,
 				evasionBehaviour,
 				cannotBeEvaded,
@@ -409,6 +438,7 @@ public class V1FoeTemplate
 				faction,
 				isNpc,
 				appearanceScript,
+				animScripts,
 				appearanceDirection,
 				deathScript,
 				naturalWeapons,

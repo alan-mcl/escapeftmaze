@@ -21,6 +21,7 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.ObjectScript;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.*;
@@ -866,6 +867,16 @@ public class Foe extends UnifiedActor
 	public FoeTemplate.AppearanceDirection getAppearanceDirection()
 	{
 		return this.template.getAppearanceDirection();
+	}
+
+	public List<ObjectScript> getAnimationScripts()
+	{
+		return this.template.getAnimationScripts();
+	}
+
+	public EngineObject.Alignment getVerticalAlignment()
+	{
+		return this.template.getVerticalAlignment();
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -1,5 +1,7 @@
 package mclachlan.crusader.script;
 
+import java.util.*;
+import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
 
@@ -8,28 +10,52 @@ import mclachlan.crusader.ObjectScript;
  */
 public class AppearanceFromTop extends ObjectScript
 {
-	private final int startTextureOffset, destTextureOffset;
-
-	// coordinate change per ms
-	private final double incZ;
-
-	// intended duration of the animation, in ms
+	/** intended duration of the animation, in ms */
 	private final int duration;
+
+	/** animation scripts for this object to run after appearance */
+	private final List<ObjectScript> animationScripts;
+
+	/** starting and destination offsets */
+	private int startTextureOffset, destTextureOffset;
+
+	/** coordinate change per ms */
+	private double incZ;
 
 	/** nano time started */
 	private long started = 0;
+	private CrusaderEngine engine;
 
 	/*-------------------------------------------------------------------------*/
-	public AppearanceFromTop(EngineObject object, int duration)
+	public AppearanceFromTop(int duration, List<ObjectScript> animationScripts)
 	{
+		this.duration = duration;
+		this.animationScripts = animationScripts;
+	}
 
-		int dist = object.getTextures()[0].imageHeight;
-		this.startTextureOffset = -dist;
+	@Override
+	public ObjectScript spawnNewInstance(EngineObject object,
+		CrusaderEngine engine)
+	{
+		AppearanceFromTop result = new AppearanceFromTop(duration, this.animationScripts);
+
+		this.engine = engine;
+		result.init(object, this.engine);
+
+		return result;
+	}
+
+	@Override
+	public void init(EngineObject object, CrusaderEngine engine)
+	{
+		this.startTextureOffset = object.calcFromTopTextureOffset(engine);
+//		this.startTextureOffset -= object.getTextures()[0].imageHeight;
+
+//		this.startTextureOffset = - ((CrusaderEngine32)engine).getProjectionPlaneHeight() / 2;
+
 		this.destTextureOffset = 0;
 
-		this.duration = duration;
-
-		incZ = 1D*dist/duration;
+		incZ = 1D* (destTextureOffset - startTextureOffset) /duration;
 
 		object.setTextureOffset(startTextureOffset);
 	}
@@ -62,6 +88,14 @@ public class AppearanceFromTop extends ObjectScript
 			}
 
 			obj.removeScript(this);
+
+			if (this.animationScripts != null)
+			{
+				for (ObjectScript script : this.animationScripts)
+				{
+					obj.addScript(script.spawnNewInstance(obj, this.engine));
+				}
+			}
 		}
 	}
 }

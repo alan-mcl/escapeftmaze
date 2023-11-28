@@ -20,6 +20,8 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.ObjectScript;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
@@ -32,128 +34,87 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class FoeTemplate extends DataObject
 {
-	public enum AppearanceDirection
-	{
-		FROM_LEFT,
-		FROM_RIGHT,
-		FROM_LEFT_OR_RIGHT,
-		FROM_TOP,
-	}
-
 	/** The singular name of the foe, eg "Zombie" */
 	private String name;
-	
 	/** The plural name of the foe, eg "Zombies" */
 	private String pluralName;
-	
 	/** The unidentified name of the foe, eg "?Undead" */
 	private String unidentifiedName;
-
 	/** The unidentified plural name of the foe, eg "?Plants" */
 	private String unidentifiedPluralName;
-
 	/** The type of this foe, eg "Undead", "Plant", "Legendary" */
 	private List<FoeType> types;
-
 	/** Race of this foe. May be null. */
 	private Race race;
-
 	/** Class of this foe. May be null. */
 	private CharacterClass characterClass;
-
 	/** The potential hit points of this foe, expressed in dice */
 	private Dice hitPointsRange;
-	
 	/** The potential action points of this foe, expressed in dice */
 	private Dice actionPointsRange;
-	
 	/** The potential magic points of this foe, expressed in dice */
 	private Dice magicPointsRange;
-	
 	/** The potential level range of this foe, expressed in dice */
 	private Dice levelRange;
-
 	/** How much experience this foe is worth */
 	private int experience;
-
 	/** The stats bundle of this foe */
 	private StatModifier stats;
-	
 	/** The body parts of this foe */
 	private PercentageTable<BodyPart> bodyParts;
-	
 	/** Which parts of a player character this foe is likely to attack */
 	private PercentageTable<String> playerBodyParts;
-	
 	/** The base texture of this foe, what it does when it's just standing around */
 	private MazeTexture baseTexture;
-	
 	/** The texture to use when this foe executes a melee attack */
 	private MazeTexture meleeAttackTexture;
-	
 	/** The texture to use when this foe executes a ranged attack */
 	private MazeTexture rangedAttackTexture;
-	
 	/** The texture to use when this foe casts a spell */
 	private MazeTexture castSpellTexture;
-	
 	/** The texture to use when this foe uses a special ability */
 	private MazeTexture specialAbilityTexture;
-
+	/** Texture alignment for this foe */
+	private EngineObject.Alignment verticalAlignment;
 	/** What this foe drops when it dies */
 	private LootTable loot;
-
 	/** true if this foe cannot be evaded */
 	private boolean cannotBeEvaded;
-
 	/** the difficulty in identifying this foe */
 	private int identificationDifficulty;
-
 	/** Modifiers that this foe applies to all foes in it's group */
 	private StatModifier foeGroupBannerModifiers;
-
 	/** Modifiers that this foe applies to all foes present */
 	private StatModifier allFoesBannerModifiers;
-
 	/** the faction (if any) that this foe belongs to */
 	private String faction;
-
 	/** is this Foe an NPC */
 	private boolean isNpc;
-
 	/** how to scroll the sprite onto the screen*/
 	private AppearanceDirection appearanceDirection;
-	
 	/** script to run when a group of this foe type appears */
 	private MazeScript appearanceScript;
-
+	/** any scripts to animate this object */
+	private List<ObjectScript> animationScripts;
 	/** script to run each time one of this foe dies */
 	private MazeScript deathScript;
-
 	/** natural weapons of this foe (claw, bite, etc) */
 	private List<String> naturalWeapons;
-
 	/** spell book of this foe */
 	private SpellBook spellBook;
-
 	/** SLAs */
 	private List<SpellLikeAbility> spellLikeAbilities;
-
-	//--- AI parameters
-
 	/** chance of this foe to flee, each turn */
 	private int fleeChance;
 
+	//--- AI parameters
 	/** behaviour of the foe wrt stealth actions */
 	private int stealthBehaviour;
-
 	/** focus of this foe */
 	private CharacterClass.Focus focus;
-
 	/** This foes behaviour when it gets a chance to evade the player.
 	 * A constant from {@link Foe.EvasionBehaviour} */
 	private int evasionBehaviour;
-
 	/** default encounter attitude of this foe, if not overridden */
 	private NpcFaction.Attitude defaultAttitude;
 
@@ -179,6 +140,7 @@ public class FoeTemplate extends DataObject
 		MazeTexture rangedAttackTexture,
 		MazeTexture castSpellTexture,
 		MazeTexture specialAbilityTexture,
+		EngineObject.Alignment verticalAlignment,
 		LootTable loot,
 		int evasionBehaviour,
 		boolean cannotBeEvaded,
@@ -190,6 +152,7 @@ public class FoeTemplate extends DataObject
 		String faction,
 		boolean isNpc,
 		MazeScript appearanceScript,
+		List<ObjectScript> animationScripts,
 		AppearanceDirection appearanceDirection,
 		MazeScript deathScript,
 		List<String> naturalWeapons,
@@ -218,6 +181,7 @@ public class FoeTemplate extends DataObject
 		this.rangedAttackTexture = rangedAttackTexture;
 		this.castSpellTexture = castSpellTexture;
 		this.specialAbilityTexture = specialAbilityTexture;
+		this.verticalAlignment = verticalAlignment;
 		this.loot = loot;
 		this.evasionBehaviour = evasionBehaviour;
 		this.cannotBeEvaded = cannotBeEvaded;
@@ -229,6 +193,7 @@ public class FoeTemplate extends DataObject
 		this.faction = faction;
 		this.isNpc = isNpc;
 		this.appearanceScript = appearanceScript;
+		this.animationScripts = animationScripts;
 		this.appearanceDirection = appearanceDirection;
 		this.deathScript = deathScript;
 		this.naturalWeapons = naturalWeapons;
@@ -247,30 +212,52 @@ public class FoeTemplate extends DataObject
 	/*-------------------------------------------------------------------------*/
 	public StatModifier getStats()
 	{
-		return stats;		
+		return stats;
+	}
+
+	public void setStats(StatModifier stats)
+	{
+		this.stats = stats;
 	}
 	
-	/*-------------------------------------------------------------------------*/
 	public PercentageTable<BodyPart> getBodyParts()
 	{
 		return bodyParts;
 	}
 
-	/*-------------------------------------------------------------------------*/
+	public void setBodyParts(PercentageTable<BodyPart> bodyParts)
+	{
+		this.bodyParts = bodyParts;
+	}
+
 	public String getName()
 	{
 		return name;
 	}
 
-	/*-------------------------------------------------------------------------*/
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
 	public StatModifier getAllFoesBannerModifiers()
 	{
 		return allFoesBannerModifiers;
 	}
 
+	public void setAllFoesBannerModifiers(StatModifier allFoesBannerModifiers)
+	{
+		this.allFoesBannerModifiers = allFoesBannerModifiers;
+	}
+
 	public MazeTexture getBaseTexture()
 	{
 		return baseTexture;
+	}
+
+	public void setBaseTexture(MazeTexture baseTexture)
+	{
+		this.baseTexture = baseTexture;
 	}
 
 	public boolean cannotBeEvaded()
@@ -283,175 +270,14 @@ public class FoeTemplate extends DataObject
 		return castSpellTexture;
 	}
 
-	public int getEvasionBehaviour()
-	{
-		return evasionBehaviour;
-	}
-
-	public int getExperience()
-	{
-		return experience;
-	}
-
-	public String getFaction()
-	{
-		return faction;
-	}
-
-	public int getFleeChance()
-	{
-		return fleeChance;
-	}
-
-	public StatModifier getFoeGroupBannerModifiers()
-	{
-		return foeGroupBannerModifiers;
-	}
-
-	public Dice getHitPointsRange()
-	{
-		return hitPointsRange;
-	}
-
-	public int getIdentificationDifficulty()
-	{
-		return identificationDifficulty;
-	}
-
-	public boolean isNpc()
-	{
-		return isNpc;
-	}
-
-	public Dice getLevelRange()
-	{
-		return levelRange;
-	}
-
-	public LootTable getLoot()
-	{
-		return loot;
-	}
-
-	public Dice getMagicPointsRange()
-	{
-		return magicPointsRange;
-	}
-
-	public MazeTexture getMeleeAttackTexture()
-	{
-		return meleeAttackTexture;
-	}
-
-	public PercentageTable<String> getPlayerBodyParts()
-	{
-		return playerBodyParts;
-	}
-
-	public String getPluralName()
-	{
-		return pluralName;
-	}
-
-	public MazeTexture getRangedAttackTexture()
-	{
-		return rangedAttackTexture;
-	}
-
-	public MazeTexture getSpecialAbilityTexture()
-	{
-		return specialAbilityTexture;
-	}
-
-	public int getStealthBehaviour()
-	{
-		return stealthBehaviour;
-	}
-
-	public Dice getActionPointsRange()
-	{
-		return actionPointsRange;
-	}
-
-	public List<FoeType> getTypes()
-	{
-		return types;
-	}
-
-	public Race getRace()
-	{
-		return race;
-	}
-
-	public CharacterClass getCharacterClass()
-	{
-		return characterClass;
-	}
-
-	public boolean isCannotBeEvaded()
-	{
-		return cannotBeEvaded;
-	}
-
-	public String getUnidentifiedName()
-	{
-		return unidentifiedName;
-	}
-
-	public String getUnidentifiedPluralName()
-	{
-		return unidentifiedPluralName;
-	}
-
-	public MazeScript getAppearanceScript()
-	{
-		return appearanceScript;
-	}
-
-	public AppearanceDirection getAppearanceDirection()
-	{
-		return appearanceDirection;
-	}
-
-	public MazeScript getDeathScript()
-	{
-		return deathScript;
-	}
-
-	public CharacterClass.Focus getFocus()
-	{
-		return focus;
-	}
-
-	public NpcFaction.Attitude getDefaultAttitude()
-	{
-		return defaultAttitude;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setAllFoesBannerModifiers(StatModifier allFoesBannerModifiers)
-	{
-		this.allFoesBannerModifiers = allFoesBannerModifiers;
-	}
-
-	public void setBaseTexture(MazeTexture baseTexture)
-	{
-		this.baseTexture = baseTexture;
-	}
-
-	public void setBodyParts(PercentageTable<BodyPart> bodyParts)
-	{
-		this.bodyParts = bodyParts;
-	}
-
-	public void setCannotBeEvaded(boolean cannotBeEvaded)
-	{
-		this.cannotBeEvaded = cannotBeEvaded;
-	}
-
 	public void setCastSpellTexture(MazeTexture castSpellTexture)
 	{
 		this.castSpellTexture = castSpellTexture;
+	}
+
+	public int getEvasionBehaviour()
+	{
+		return evasionBehaviour;
 	}
 
 	public void setEvasionBehaviour(int evasionBehaviour)
@@ -459,9 +285,19 @@ public class FoeTemplate extends DataObject
 		this.evasionBehaviour = evasionBehaviour;
 	}
 
+	public int getExperience()
+	{
+		return experience;
+	}
+
 	public void setExperience(int experience)
 	{
 		this.experience = experience;
+	}
+
+	public String getFaction()
+	{
+		return faction;
 	}
 
 	public void setFaction(String faction)
@@ -469,9 +305,19 @@ public class FoeTemplate extends DataObject
 		this.faction = faction;
 	}
 
+	public int getFleeChance()
+	{
+		return fleeChance;
+	}
+
 	public void setFleeChance(int fleeChance)
 	{
 		this.fleeChance = fleeChance;
+	}
+
+	public StatModifier getFoeGroupBannerModifiers()
+	{
+		return foeGroupBannerModifiers;
 	}
 
 	public void setFoeGroupBannerModifiers(StatModifier foeGroupBannerModifiers)
@@ -479,9 +325,19 @@ public class FoeTemplate extends DataObject
 		this.foeGroupBannerModifiers = foeGroupBannerModifiers;
 	}
 
+	public Dice getHitPointsRange()
+	{
+		return hitPointsRange;
+	}
+
 	public void setHitPointsRange(Dice hitPointsRange)
 	{
 		this.hitPointsRange = hitPointsRange;
+	}
+
+	public int getIdentificationDifficulty()
+	{
+		return identificationDifficulty;
 	}
 
 	public void setIdentificationDifficulty(int identificationDifficulty)
@@ -489,9 +345,19 @@ public class FoeTemplate extends DataObject
 		this.identificationDifficulty = identificationDifficulty;
 	}
 
+	public boolean isNpc()
+	{
+		return isNpc;
+	}
+
 	public void setNpc(boolean npc)
 	{
 		isNpc = npc;
+	}
+
+	public Dice getLevelRange()
+	{
+		return levelRange;
 	}
 
 	public void setLevelRange(Dice levelRange)
@@ -499,9 +365,19 @@ public class FoeTemplate extends DataObject
 		this.levelRange = levelRange;
 	}
 
+	public LootTable getLoot()
+	{
+		return loot;
+	}
+
 	public void setLoot(LootTable loot)
 	{
 		this.loot = loot;
+	}
+
+	public Dice getMagicPointsRange()
+	{
+		return magicPointsRange;
 	}
 
 	public void setMagicPointsRange(Dice magicPointsRange)
@@ -509,14 +385,19 @@ public class FoeTemplate extends DataObject
 		this.magicPointsRange = magicPointsRange;
 	}
 
+	public MazeTexture getMeleeAttackTexture()
+	{
+		return meleeAttackTexture;
+	}
+
 	public void setMeleeAttackTexture(MazeTexture meleeAttackTexture)
 	{
 		this.meleeAttackTexture = meleeAttackTexture;
 	}
 
-	public void setName(String name)
+	public PercentageTable<String> getPlayerBodyParts()
 	{
-		this.name = name;
+		return playerBodyParts;
 	}
 
 	public void setPlayerBodyParts(PercentageTable<String> playerBodyParts)
@@ -524,9 +405,19 @@ public class FoeTemplate extends DataObject
 		this.playerBodyParts = playerBodyParts;
 	}
 
+	public String getPluralName()
+	{
+		return pluralName;
+	}
+
 	public void setPluralName(String pluralName)
 	{
 		this.pluralName = pluralName;
+	}
+
+	public MazeTexture getRangedAttackTexture()
+	{
+		return rangedAttackTexture;
 	}
 
 	public void setRangedAttackTexture(MazeTexture rangedAttackTexture)
@@ -534,14 +425,30 @@ public class FoeTemplate extends DataObject
 		this.rangedAttackTexture = rangedAttackTexture;
 	}
 
+	public MazeTexture getSpecialAbilityTexture()
+	{
+		return specialAbilityTexture;
+	}
+
 	public void setSpecialAbilityTexture(MazeTexture specialAbilityTexture)
 	{
 		this.specialAbilityTexture = specialAbilityTexture;
 	}
 
-	public void setStats(StatModifier stats)
+	public EngineObject.Alignment getVerticalAlignment()
 	{
-		this.stats = stats;
+		return verticalAlignment;
+	}
+
+	public void setVerticalAlignment(
+		EngineObject.Alignment verticalAlignment)
+	{
+		this.verticalAlignment = verticalAlignment;
+	}
+
+	public int getStealthBehaviour()
+	{
+		return stealthBehaviour;
 	}
 
 	public void setStealthBehaviour(int stealthBehaviour)
@@ -549,9 +456,19 @@ public class FoeTemplate extends DataObject
 		this.stealthBehaviour = stealthBehaviour;
 	}
 
+	public Dice getActionPointsRange()
+	{
+		return actionPointsRange;
+	}
+
 	public void setActionPointsRange(Dice actionPointsRange)
 	{
 		this.actionPointsRange = actionPointsRange;
+	}
+
+	public List<FoeType> getTypes()
+	{
+		return types;
 	}
 
 	public void setTypes(List<FoeType> types)
@@ -559,9 +476,19 @@ public class FoeTemplate extends DataObject
 		this.types = types;
 	}
 
+	public Race getRace()
+	{
+		return race;
+	}
+
 	public void setRace(Race race)
 	{
 		this.race = race;
+	}
+
+	public CharacterClass getCharacterClass()
+	{
+		return characterClass;
 	}
 
 	public void setCharacterClass(CharacterClass characterClass)
@@ -569,9 +496,19 @@ public class FoeTemplate extends DataObject
 		this.characterClass = characterClass;
 	}
 
+	public String getUnidentifiedName()
+	{
+		return unidentifiedName;
+	}
+
 	public void setUnidentifiedName(String unidentifiedName)
 	{
 		this.unidentifiedName = unidentifiedName;
+	}
+
+	public String getUnidentifiedPluralName()
+	{
+		return unidentifiedPluralName;
 	}
 
 	public void setUnidentifiedPluralName(String unidentifiedPluralName)
@@ -579,9 +516,19 @@ public class FoeTemplate extends DataObject
 		this.unidentifiedPluralName = unidentifiedPluralName;
 	}
 
+	public MazeScript getAppearanceScript()
+	{
+		return appearanceScript;
+	}
+
 	public void setAppearanceScript(MazeScript appearanceScript)
 	{
 		this.appearanceScript = appearanceScript;
+	}
+
+	public AppearanceDirection getAppearanceDirection()
+	{
+		return appearanceDirection;
 	}
 
 	public void setAppearanceDirection(
@@ -590,76 +537,30 @@ public class FoeTemplate extends DataObject
 		this.appearanceDirection = appearanceDirection;
 	}
 
+	public List<ObjectScript> getAnimationScripts()
+	{
+		return animationScripts;
+	}
+
+	public void setAnimationScripts(
+		List<ObjectScript> animationScripts)
+	{
+		this.animationScripts = animationScripts;
+	}
+
+	public MazeScript getDeathScript()
+	{
+		return deathScript;
+	}
+
 	public void setDeathScript(MazeScript deathScript)
 	{
 		this.deathScript = deathScript;
 	}
 
-	public List<String> getNaturalWeapons()
+	public CharacterClass.Focus getFocus()
 	{
-		return naturalWeapons;
-
-//		for (FoeAttack fa : attacks.getItems())
-//		{
-//			if (fa.getType() == FoeAttack.Type.MELEE_ATTACK ||
-//				fa.getType() == FoeAttack.Type.RANGED_ATTACK)
-//			{
-//				naturalWeapons.add(new NaturalWeapon(
-//					fa.getName(),
-//					fa.getDescription(),
-//					fa.isRanged(),
-//					fa.getDamage(),
-//					fa.getDefaultDamageType(),
-//					fa.getModifiers(),
-//					fa.getMinRange(),
-//					fa.getMaxRange(),
-//					fa.getSpellEffects(),
-//					fa.getSpellEffectLevel(),
-//					fa.getAttacks(),
-//					fa.getSlaysFoeType(),
-//					fa.getAttackScript()));
-//			}
-//		}
-//
-//		return naturalWeapons;
-	}
-
-	public List<SpellLikeAbility> getSpellLikeAbilities()
-	{
-		return spellLikeAbilities;
-//		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
-//
-//		for (FoeAttack fa : attacks.getItems())
-//		{
-//			if (fa.getType() == FoeAttack.Type.SPECIAL_ABILITY)
-//			{
-//				result.add(new SpellLikeAbility(
-//					fa.getSpecialAbility().getSpell(),
-//					new DiceValue(fa.getSpecialAbility().getCastingLevel())));
-//			}
-//		}
-//
-//		return result;
-	}
-
-	public SpellBook getSpellBook()
-	{
-		return spellBook;
-	}
-
-	public void setNaturalWeapons(List<String> naturalWeapons)
-	{
-		this.naturalWeapons = naturalWeapons;
-	}
-
-	public void setSpellBook(SpellBook spellBook)
-	{
-		this.spellBook = spellBook;
-	}
-
-	public void setSpellLikeAbilities(List<SpellLikeAbility> spellLikeAbilities)
-	{
-		this.spellLikeAbilities = spellLikeAbilities;
+		return focus;
 	}
 
 	public void setFocus(CharacterClass.Focus focus)
@@ -667,8 +568,56 @@ public class FoeTemplate extends DataObject
 		this.focus = focus;
 	}
 
+	public NpcFaction.Attitude getDefaultAttitude()
+	{
+		return defaultAttitude;
+	}
+
 	public void setDefaultAttitude(NpcFaction.Attitude defaultAttitude)
 	{
 		this.defaultAttitude = defaultAttitude;
+	}
+
+	public void setCannotBeEvaded(boolean cannotBeEvaded)
+	{
+		this.cannotBeEvaded = cannotBeEvaded;
+	}
+
+	public List<String> getNaturalWeapons()
+	{
+		return naturalWeapons;
+	}
+
+	public void setNaturalWeapons(List<String> naturalWeapons)
+	{
+		this.naturalWeapons = naturalWeapons;
+	}
+
+	public List<SpellLikeAbility> getSpellLikeAbilities()
+	{
+		return spellLikeAbilities;
+	}
+
+	public void setSpellLikeAbilities(List<SpellLikeAbility> spellLikeAbilities)
+	{
+		this.spellLikeAbilities = spellLikeAbilities;
+	}
+
+	public SpellBook getSpellBook()
+	{
+		return spellBook;
+	}
+
+	public void setSpellBook(SpellBook spellBook)
+	{
+		this.spellBook = spellBook;
+	}
+
+	public enum AppearanceDirection
+	{
+		FROM_LEFT,
+		FROM_RIGHT,
+		FROM_LEFT_OR_RIGHT,
+		FROM_TOP,
 	}
 }

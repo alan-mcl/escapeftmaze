@@ -132,7 +132,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private float[] iCosTable;
 	private float[] tanTable;
 	private float[] iTanTable;
-	private static float[] fishbowlTable;
+	private float[] fishbowlTable;
 	
 	/** Pre-calc block step table, indexed on angle expressed in cast columns (ie pixels)*/
 	private float[] xStepTable;
@@ -751,6 +751,42 @@ public class CrusaderEngine32 implements CrusaderEngine
 	public int getPlayerFacing()
 	{
 		return getPlayerFacing(this.playerArc);
+	}
+
+	@Override
+	public int getTileSize()
+	{
+		return tileSize;
+	}
+
+	public int getProjectionPlaneWidth()
+	{
+		return projectionPlaneWidth;
+	}
+
+	public int getProjectionPlaneHeight()
+	{
+		return projectionPlaneHeight;
+	}
+
+	public int getPlayerHeightInUnits()
+	{
+		return playerHeightInUnits;
+	}
+
+	public int getPlayerDistToProjectionPlane()
+	{
+		return playerDistToProjectionPlane;
+	}
+
+	public int getPlayerHeight()
+	{
+		return playerHeight;
+	}
+
+	public float[] getFishbowlTable()
+	{
+		return fishbowlTable;
 	}
 
 	/*-------------------------------------------------------------------------*/

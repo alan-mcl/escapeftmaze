@@ -1,18 +1,19 @@
 package mclachlan.crusader.script;
 
 import java.util.concurrent.*;
+import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
 
 /**
  *
  */
-public class MoveObjectVerticallyScript extends ObjectScript
+public class JagObjectVertically extends ObjectScript
 {
 	/** min and max offsets, in units of tile_size */
 	private final int minOffset, maxOffset;
 
-	/** min and max speed of movement, in units of tile_size per second */
+	/** min and max speed of movement, in units of rows per second */
 	private final int minSpeed, maxSpeed;
 
 	// volatile
@@ -28,14 +29,30 @@ public class MoveObjectVerticallyScript extends ObjectScript
 
 	private int direction;
 
-	public MoveObjectVerticallyScript(EngineObject obj, int minOffset,
-		int maxOffset, int minSpeed, int maxSpeed)
+	/*-------------------------------------------------------------------------*/
+	public JagObjectVertically(int minOffset, int maxOffset, int minSpeed, int maxSpeed)
 	{
 		this.minOffset = minOffset;
 		this.maxOffset = maxOffset;
 		this.minSpeed = minSpeed;
 		this.maxSpeed = maxSpeed;
-		int startingTextureOffset = (int)(Math.random() * (maxOffset - minOffset));
+	}
+
+	@Override
+	public ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine)
+	{
+		JagObjectVertically result = new JagObjectVertically(minOffset, maxOffset, minSpeed, maxSpeed);
+
+		result.init(object, engine);
+
+		return result;
+	}
+
+	@Override
+	public void init(EngineObject obj, CrusaderEngine engine)
+	{
+//		int startingTextureOffset = (int)(Math.random() * (maxOffset - minOffset));
+		int startingTextureOffset = obj.getTextureOffset();
 		obj.setTextureOffset(startingTextureOffset);
 
 		resetDestAndSpeed(obj);
@@ -43,6 +60,7 @@ public class MoveObjectVerticallyScript extends ObjectScript
 		lastUpdated = System.nanoTime();
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void resetDestAndSpeed(EngineObject obj)
 	{
 		this.nextDest = (int)(minOffset + Math.random() * (maxOffset - minOffset));
@@ -59,6 +77,7 @@ public class MoveObjectVerticallyScript extends ObjectScript
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void execute(long framecount, EngineObject obj)
 	{
@@ -77,5 +96,27 @@ public class MoveObjectVerticallyScript extends ObjectScript
 
 			lastUpdated = System.nanoTime();
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public int getMinOffset()
+	{
+		return minOffset;
+	}
+
+	public int getMaxOffset()
+	{
+		return maxOffset;
+	}
+
+	public int getMinSpeed()
+	{
+		return minSpeed;
+	}
+
+	public int getMaxSpeed()
+	{
+		return maxSpeed;
 	}
 }

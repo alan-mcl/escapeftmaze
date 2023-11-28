@@ -263,7 +263,7 @@ scrollBehaviour=
 scrollSpeed=-1
 @
 name=foe.bat.1
-imageResources=crusader/foe/bat_1,crusader/foe/bat_2,crusader/foe/bat_3,crusader/foe/bat_2
+imageResources=crusader/foe/bat_1
 animationDelay=-1
 imageWidth=512
 imageHeight=512

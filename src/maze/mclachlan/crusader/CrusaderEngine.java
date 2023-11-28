@@ -72,6 +72,14 @@ public interface CrusaderEngine
 	int getPlayerFacing();
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	The tile size in pixels
+	 */
+	int getTileSize();
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Apply the given keystroke to the engine state.
 	 *

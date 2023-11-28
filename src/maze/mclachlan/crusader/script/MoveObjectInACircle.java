@@ -1,12 +1,13 @@
 package mclachlan.crusader.script;
 
+import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
 
 /**
  *
  */
-public class MoveObjectScript extends ObjectScript
+public class MoveObjectInACircle extends ObjectScript
 {
 	double radius, speed;
 	double startingAngle;
@@ -14,11 +15,24 @@ public class MoveObjectScript extends ObjectScript
 
 	int startingX, startingY;
 
-	public MoveObjectScript(EngineObject object, double radius, double speed)
+	public MoveObjectInACircle(double radius, double speed)
 	{
 		this.radius = radius;
 		this.speed = speed;
+	}
 
+	@Override
+	public ObjectScript spawnNewInstance(EngineObject object,
+		CrusaderEngine engine)
+	{
+		MoveObjectInACircle result = new MoveObjectInACircle(radius, speed);
+		result.init(object, engine);
+		return result;
+	}
+
+	@Override
+	public void init(EngineObject object, CrusaderEngine engine)
+	{
 		this.startingX = object.getXPos();
 		this.startingY = object.getYPos();
 

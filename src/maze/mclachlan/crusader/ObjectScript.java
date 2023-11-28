@@ -25,12 +25,13 @@ package mclachlan.crusader;
 public abstract class ObjectScript
 {
 	/**
-	 * This method is invoked every frame, giving subclasses a chance to
-	 * change the state of the object.
-	 *  @param framecount
-	 * 	An indication of the framecount
-	 * @param obj
-	 * 	The object to alter
-	 */ 
+	 * Create a new instance of this script related to the given object.
+	 */	public abstract ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine);
+
+	/**
+	 * Initialise this to operate on the given EngineObject
+	 */
+	public abstract void init(EngineObject obj, CrusaderEngine engine);
+
 	public abstract void execute(long framecount, EngineObject obj);
 }

@@ -22,6 +22,7 @@ package mclachlan.maze.balance;
 import java.awt.Point;
 import java.util.*;
 import java.util.concurrent.*;
+import mclachlan.crusader.EngineObject;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
@@ -838,6 +839,7 @@ public class MockCombat
 			null,
 			null,
 			null,
+			EngineObject.Alignment.BOTTOM,
 			null,
 			Foe.EvasionBehaviour.NEVER_EVADE,
 			true,
@@ -849,6 +851,7 @@ public class MockCombat
 			null,
 			false,
 			null,
+			new ArrayList<>(),
 			FoeTemplate.AppearanceDirection.FROM_LEFT_OR_RIGHT,
 			null,
 			null,

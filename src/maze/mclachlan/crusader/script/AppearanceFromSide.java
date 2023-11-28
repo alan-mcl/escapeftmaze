@@ -1,7 +1,7 @@
 package mclachlan.crusader.script;
 
+import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
-import mclachlan.crusader.CrusaderEngine32;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
 import mclachlan.maze.util.MazeException;
@@ -11,26 +11,46 @@ import mclachlan.maze.util.MazeException;
  */
 public class AppearanceFromSide extends ObjectScript
 {
-	int startX, startY, destX, destY;
+	private int startX, startY, destX, destY;
 
-	// coordinate change per ms
-	double incX, incY;
+	List<ObjectScript> animationScripts;
 
-	// intended duration of the animation, in ms
-	int duration;
+	/** coordinate change per ms */
+	private double incX, incY;
+
+	/** the direction to appear from */
+	private final boolean fromLeft;
+
+	/** intended duration of the animation, in ms */
+	private final int duration;
 
 	/** nano time started and last updated */
-	private long started, lastUpdated;
+	private long started;
+	private CrusaderEngine engine;
 
-
-	public AppearanceFromSide(EngineObject object, boolean fromLeft, int duration, CrusaderEngine32 engine)
+	/*-------------------------------------------------------------------------*/
+	public AppearanceFromSide(boolean fromLeft, int duration, List<ObjectScript> animationScripts)
 	{
+		this.fromLeft = fromLeft;
+		this.duration = duration;
+		this.animationScripts = animationScripts;
+	}
 
+	@Override
+	public ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine)
+	{
+		AppearanceFromSide result = new AppearanceFromSide(fromLeft, duration, this.animationScripts);
+
+		result.init(object, engine);
+
+		return result;
+	}
+
+	@Override
+	public void init(EngineObject object, CrusaderEngine engine)
+	{
 		this.destX = object.getXPos();
 		this.destY = object.getYPos();
-
-		this.duration = duration;
-
 
 		// todo:
 		// work out the distance from the player of the destination x and y
@@ -41,7 +61,8 @@ public class AppearanceFromSide extends ObjectScript
 		// a point dfp distance directly in front of the player
 //		int dist = (int)(dfp * Math.sin(Math.toRadians(60)) / Math.sin(Math.toRadians(30)));
 
-		int dist = (int)(engine.tileSize/3);
+		this.engine = engine;
+		int dist = (int)(this.engine.getTileSize()/3);
 
 		incX = 0;
 		incY = 0;
@@ -104,13 +125,11 @@ public class AppearanceFromSide extends ObjectScript
 				}
 				break;
 			default:
-				throw new MazeException("invalid facing: "+engine.getPlayerFacing());
+				throw new MazeException("invalid facing: "+ engine.getPlayerFacing());
 		}
 
 		object.setXPos(startX);
 		object.setYPos(startY);
-
-		lastUpdated = System.nanoTime();
 	}
 
 	@Override
@@ -147,8 +166,14 @@ public class AppearanceFromSide extends ObjectScript
 			}
 
 			obj.removeScript(this);
-		}
 
-		lastUpdated = System.nanoTime();
+			if (this.animationScripts != null)
+			{
+				for (ObjectScript script : this.animationScripts)
+				{
+					obj.addScript(script.spawnNewInstance(obj, engine));
+				}
+			}
+		}
 	}
 }

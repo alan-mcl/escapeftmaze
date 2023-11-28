@@ -20,6 +20,7 @@
 package mclachlan.crusader;
 
 import java.util.*;
+import mclachlan.maze.util.MazeException;
 
 import static mclachlan.crusader.CrusaderEngine.NORMAL_LIGHT_LEVEL;
 
@@ -339,6 +340,60 @@ public class EngineObject
 				shadeMult = CrusaderEngine32.calcShadeMult(this.apparentDistance, shadingDistance, shadingThickness);
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int calcFromTopTextureOffset(
+		CrusaderEngine engine)
+	{
+		int tile_size = engine.getTileSize();
+		int projectionPlaneWidth = ((CrusaderEngine32)engine).getProjectionPlaneWidth();
+		int playerDistToProjectionPlane = ((CrusaderEngine32)engine).getPlayerDistToProjectionPlane();
+		float[] fishbowlTable = ((CrusaderEngine32)engine).getFishbowlTable();
+
+		double xDiff = engine.getPlayerPos().x - this.xPos;
+		double yDiff = engine.getPlayerPos().y - this.yPos;
+
+		double apparentDistance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
+		int textureHeight = textures[0].imageHeight;
+//		int textureWidth = renderTexture.imageWidth;
+
+		// correct distance (compensate for the fishbowl effect)
+		if (this.center > 0 && this.center < projectionPlaneWidth)
+		{
+			apparentDistance /= fishbowlTable[this.center];
+		}
+		else if (this.center < 0)
+		{
+			// otherwise approximate it.
+			apparentDistance /= fishbowlTable[0];
+		}
+		else
+		{
+			// center > PROJECTION_PLANE_WIDTH, approximate it
+			apparentDistance /= fishbowlTable[projectionPlaneWidth-1];
+		}
+
+		double scale = playerDistToProjectionPlane / apparentDistance;
+		int projectedObjectHeight = (int)(textureHeight * scale);
+//		int projectedObjectWidth = (int)(textureWidth * scale);
+		int projectedWallHeight = (int)(tile_size * scale);
+//		int projectedTextureOffset = (int)(textureOffset * scale);
+
+		int skySize = ((CrusaderEngine32)engine).getProjectionPlaneHeight()/2 - projectedWallHeight/2;
+
+		switch (getVerticalAlignment())
+		{
+			case TOP:
+				return -projectedObjectHeight -skySize;
+			case CENTER:
+				return -(projectedWallHeight/2 + projectedObjectHeight/2) -skySize;
+			case BOTTOM:
+				return -projectedWallHeight -skySize;
+			default:
+				throw new MazeException("invalid "+getVerticalAlignment());
+		}
+
 	}
 
 	/*-------------------------------------------------------------------------*/

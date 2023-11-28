@@ -26,15 +26,11 @@ import java.awt.event.MouseEvent;
 import java.awt.image.BufferStrategy;
 import java.awt.image.BufferedImage;
 import java.util.List;
+import java.util.Map;
 import java.util.*;
 import java.util.concurrent.*;
-import mclachlan.crusader.CrusaderEngine;
-import mclachlan.crusader.CrusaderEngine32;
-import mclachlan.crusader.EngineObject;
-import mclachlan.crusader.Texture;
-import mclachlan.crusader.script.AppearanceFromSide;
-import mclachlan.crusader.script.AppearanceFromTop;
-import mclachlan.crusader.script.TempChangeTexture;
+import mclachlan.crusader.*;
+import mclachlan.crusader.script.*;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.ContainerWidget;
@@ -1336,6 +1332,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					};
 
 				EngineObject obj = new EngineObject(textures, 0, false);
+				obj.setVerticalAlignment(foe.getVerticalAlignment());
 				obj.setMouseClickScript(new FoeInfoMouseClickScript(foe));
 
 				if (foe.getSprite() != null)
@@ -1352,21 +1349,28 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					double distance = 0.5 + (0.5 * foeGroup);
 					this.initObjectInFrontOfPlayer(obj, distance, arc, true);
 
-					// todo foe specific animation scripts
+//					for (ObjectScript script : foe.getAnimationScripts())
+//					{
+//						obj.addScript(script.spawnNewInstance(obj, raycaster));
+//					}
 
 					switch (foe.getAppearanceDirection())
 					{
 						case FROM_LEFT:
-							obj.addScript(new AppearanceFromSide(obj, true, 2000, (CrusaderEngine32)this.raycaster));
+							obj.addScript(new AppearanceFromSide(true, 500, foe.getAnimationScripts()).
+								spawnNewInstance(obj, this.raycaster));
 							break;
 						case FROM_RIGHT:
-							obj.addScript(new AppearanceFromSide(obj, false, 2000, (CrusaderEngine32)this.raycaster));
+							obj.addScript(new AppearanceFromSide(false, 500, foe.getAnimationScripts()).
+								spawnNewInstance(obj, this.raycaster));
 							break;
 						case FROM_LEFT_OR_RIGHT:
-							obj.addScript(new AppearanceFromSide(obj, Math.random()>.5, 2000, (CrusaderEngine32)this.raycaster));
+							obj.addScript(new AppearanceFromSide(Math.random()>.5, 500, foe.getAnimationScripts()).
+								spawnNewInstance(obj, this.raycaster));
 							break;
 						case FROM_TOP:
-							obj.addScript(new AppearanceFromTop(obj, 2000));
+							obj.addScript(new AppearanceFromTop(500, foe.getAnimationScripts()).
+								spawnNewInstance(obj, raycaster));
 							break;
 						default:
 							throw new MazeException("invalid appearance direction "+foe.getAppearanceDirection());

@@ -21,10 +21,10 @@ package mclachlan.maze.editor.swing;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import javax.swing.*;
+import mclachlan.crusader.EngineObject;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.MazeScript;
@@ -43,7 +43,9 @@ public class FoeTemplatePanel extends EditorPanel
 	private StatModifierComponent stats, foeGroupBannerModifiers, allFoesBannerModifiers;
 	private JComboBox baseTexture, meleeTexture, rangedTexture, castSpellTexture,
 		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
-		appearanceScript, appearanceDirection, deathScript, focus, attitude;
+		appearanceScript, appearanceDirection, deathScript, focus, attitude,
+		verticalAlignment;
+	private ObjectScriptListPanel animationScripts;
 	private JCheckBox cannotBeEvaded, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
 	private FoeTypeSelection foeTypes;
@@ -128,6 +130,10 @@ public class FoeTemplatePanel extends EditorPanel
 		specialAbilityTexture.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Special Ability Texture:"), specialAbilityTexture, gbc);
 
+		verticalAlignment = new JComboBox();
+		verticalAlignment.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Vertical Alignment:"), verticalAlignment, gbc);
+
 		appearanceScript = new JComboBox();
 		appearanceScript.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Appearance Script:"), appearanceScript, gbc);
@@ -140,11 +146,13 @@ public class FoeTemplatePanel extends EditorPanel
 		deathScript.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Death Script:"), deathScript, gbc);
 
+		animationScripts = new ObjectScriptListPanel(dirtyFlag);
+
 		gbc.weightx = 0.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		result.add(new JLabel(), gbc);
+		result.add(animationScripts, gbc);
 
 		return result;
 	}
@@ -387,10 +395,12 @@ public class FoeTemplatePanel extends EditorPanel
 		attitude.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Default Attitude:"), attitude, gbc);
 
-		gbc.weightx = 0.0;
+		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
+		gbc.gridwidth = 3;
+		gbc.gridheight = GridBagConstraints.REMAINDER;
 		result.add(new JLabel(), gbc);
 
 		return result;
@@ -412,6 +422,7 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.setModel(new DefaultComboBoxModel(textures));
 		castSpellTexture.setModel(new DefaultComboBoxModel(textures));
 		specialAbilityTexture.setModel(new DefaultComboBoxModel(textures));
+		verticalAlignment.setModel(new DefaultComboBoxModel(EngineObject.Alignment.values()));
 
 		lootTable.initForeignKeys();
 		
@@ -438,6 +449,7 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.removeActionListener(this);
 		castSpellTexture.removeActionListener(this);
 		specialAbilityTexture.removeActionListener(this);
+		verticalAlignment.removeActionListener(this);
 		evasionBehaviour.removeActionListener(this);
 		stealthBehaviour.removeActionListener(this);
 		identificationDifficulty.removeChangeListener(this);
@@ -470,6 +482,7 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.setSelectedItem(ft.getRangedAttackTexture().getName());
 		castSpellTexture.setSelectedItem(ft.getCastSpellTexture().getName());
 		specialAbilityTexture.setSelectedItem(ft.getSpecialAbilityTexture().getName());
+		verticalAlignment.setSelectedItem(ft.getVerticalAlignment());
 		lootTable.refresh(ft.getLoot());
 		evasionBehaviour.setSelectedItem(Foe.EvasionBehaviour.toString(ft.getEvasionBehaviour()));
 		stealthBehaviour.setSelectedItem(Foe.StealthBehaviour.toString(ft.getStealthBehaviour()));
@@ -492,6 +505,7 @@ public class FoeTemplatePanel extends EditorPanel
 			appearanceScript.setSelectedItem(NONE);
 		}
 		appearanceDirection.setSelectedItem(ft.getAppearanceDirection());
+		animationScripts.refresh(ft.getAnimationScripts());
 		mazeScript = ft.getDeathScript();
 		if (mazeScript != null)
 		{
@@ -511,6 +525,7 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.addActionListener(this);
 		castSpellTexture.addActionListener(this);
 		specialAbilityTexture.addActionListener(this);
+		verticalAlignment.addActionListener(this);
 		evasionBehaviour.addActionListener(this);
 		stealthBehaviour.addActionListener(this);
 		appearanceScript.addActionListener(this);
@@ -562,6 +577,7 @@ public class FoeTemplatePanel extends EditorPanel
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
+			EngineObject.Alignment.BOTTOM,
 			Database.getInstance().getLootTable((String)lootTable.getDefault()),
 			Foe.EvasionBehaviour.NEVER_EVADE,
 			false,
@@ -573,6 +589,7 @@ public class FoeTemplatePanel extends EditorPanel
 			"",
 			false,
 			null,
+			new ArrayList<>(),
 			FoeTemplate.AppearanceDirection.FROM_LEFT_OR_RIGHT,
 			null,
 			null,
@@ -626,13 +643,14 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getLevelRange(),
 			current.getExperience(),
 			new StatModifier(current.getStats()),
-			new PercentageTable<BodyPart>(current.getBodyParts()),
-			new PercentageTable<String>(current.getPlayerBodyParts()),
+			new PercentageTable<>(current.getBodyParts()),
+			new PercentageTable<>(current.getPlayerBodyParts()),
 			current.getBaseTexture(),
 			current.getMeleeAttackTexture(),
 			current.getRangedAttackTexture(),
 			current.getCastSpellTexture(),
 			current.getSpecialAbilityTexture(),
+			current.getVerticalAlignment(),
 			current.getLoot(),
 			current.getEvasionBehaviour(),
 			current.cannotBeEvaded(),
@@ -644,6 +662,7 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getFaction(),
 			current.isNpc(),
 			current.getAppearanceScript(),
+			current.getAnimationScripts(),
 			current.getAppearanceDirection(),
 			current.getDeathScript(),
 			current.getNaturalWeapons(),
@@ -717,6 +736,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setRangedAttackTexture(Database.getInstance().getMazeTexture((String)rangedTexture.getSelectedItem()));
 		ft.setCastSpellTexture(Database.getInstance().getMazeTexture((String)castSpellTexture.getSelectedItem()));
 		ft.setSpecialAbilityTexture(Database.getInstance().getMazeTexture((String)specialAbilityTexture.getSelectedItem()));
+		ft.setVerticalAlignment((EngineObject.Alignment)verticalAlignment.getSelectedItem());
 		ft.setLoot(Database.getInstance().getLootTable(lootTable.getSelectedLootTable()));
 		ft.setEvasionBehaviour(Foe.EvasionBehaviour.valueOf((String)evasionBehaviour.getSelectedItem()));
 		ft.setStealthBehaviour(Foe.StealthBehaviour.valueOf((String)stealthBehaviour.getSelectedItem()));
@@ -726,6 +746,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setFaction(faction.getText().equals("") ? null : faction.getText());
 		ft.setNpc(isNpc.isSelected());
 		ft.setAppearanceScript(appScript);
+		ft.setAnimationScripts(animationScripts.getObjectScripts());
 		ft.setAppearanceDirection((FoeTemplate.AppearanceDirection)appearanceDirection.getSelectedItem());
 		ft.setDeathScript(dScript);
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
@@ -772,25 +793,15 @@ public class FoeTemplatePanel extends EditorPanel
 
 		JPanel buttons = new JPanel();
 		JButton ok = new JButton("OK");
-		ok.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				List<StatModifier> modifiers = statPackPanel.getSelectedStatPack();
-				BitSet mode = statPackPanel.getSelectedMode();
+		ok.addActionListener(e -> {
+			List<StatModifier> modifiers = statPackPanel.getSelectedStatPack();
+			BitSet mode = statPackPanel.getSelectedMode();
 
-				applyStatPack(modifiers, mode);
-				dialog.setVisible(false);
-			}
+			applyStatPack(modifiers, mode);
+			dialog.setVisible(false);
 		});
 		JButton cancel = new JButton("Cancel");
-		cancel.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent e)
-			{
-				dialog.setVisible(false);
-			}
-		});
+		cancel.addActionListener(e -> dialog.setVisible(false));
 		buttons.add(ok);
 		buttons.add(cancel);
 
