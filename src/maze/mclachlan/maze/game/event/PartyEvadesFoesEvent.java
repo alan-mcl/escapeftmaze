@@ -42,7 +42,7 @@ public class PartyEvadesFoesEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		maze.getUi().setFoes(null);
+		maze.getUi().setFoes(null, false);
 		maze.setState(Maze.State.MOVEMENT);
 
 		return actorEncounter.evade();

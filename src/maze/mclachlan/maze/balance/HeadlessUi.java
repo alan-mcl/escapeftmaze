@@ -128,12 +128,6 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void initObjectInFrontOfPlayer(EngineObject obj, double distance,
-		double arcOffset, boolean randomStartingFrame)
-	{
-		
-	}
-
 	public void signBoard(String message, MazeEvent event)
 	{
 		
@@ -286,7 +280,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void setFoes(List<FoeGroup> others)
+	public void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
 		
 	}

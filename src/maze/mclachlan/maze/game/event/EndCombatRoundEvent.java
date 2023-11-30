@@ -58,7 +58,7 @@ public class EndCombatRoundEvent extends MazeEvent
 			}
 		}
 
-		maze.getUi().setFoes(combat.getFoes());
+		maze.getUi().setFoes(combat.getFoes(), false);
 		maze.reorderPartyIfPending();
 		GameSys.getInstance().attemptManualIdentification(
 			combat.getFoes(), maze.getParty(), combat.getRoundNr());

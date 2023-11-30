@@ -23,10 +23,10 @@ name=ichiba.city.inhabitants
 foeEntries=0,human.hirebrand.small:20,goblin.cutpurse.small:20,gnome.beggar.small:20,gnoll.thugs.small:20,human.footpads.1:20
 @
 name=gatehouse.level.1.medium
-foeEntries=0,fruit.bats.medium:25,mud.spiders.medium:25,spotted.cruds.medium:25,jumping.roaches.medium:25
+foeEntries=1,fruit.bats.medium:25,mud.spiders.medium:25,spotted.cruds.medium:25,jumping.roaches.medium:25
 @
 name=gatehouse.block.golem
-foeEntries=0,block.golem.1:100
+foeEntries=1,block.golem.1:100
 @
 name=fangorn.allies.on.call
 foeEntries=0,ghosts.1:20,frozen.skeletons.1:20,bat.vampires.1:20,zombie.mantis.1:20,lost.souls.1:20
@@ -71,7 +71,7 @@ name=treant.spell.2
 foeEntries=0,treants.2:100
 @
 name=gatehouse.feral.familiar.pack.1
-foeEntries=0,feral.familiar.pack.1:100
+foeEntries=1,feral.familiar.pack.1:100
 @
 name=shadow.warriors.spell.2
 foeEntries=0,shadow.warriors.spell.2:100
@@ -197,10 +197,10 @@ name=tower.guardians.on.call
 foeEntries=0,tower.guardians:100
 @
 name=gatehouse.level.1
-foeEntries=0,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
+foeEntries=1,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
 @
 name=gatehouse.level.1.bats
-foeEntries=0,fruit.bats.small:100
+foeEntries=1,fruit.bats.small:100
 @
 name=isle.of.the.gate.random.enc
 foeEntries=0,vampire.vulture.1:34,haunts.small:33,foxfire.small:33
@@ -272,7 +272,7 @@ name=ichneumorax
 foeEntries=0,ichneumorax:100
 @
 name=gatehouse.malignant.widows
-foeEntries=0,malignant.widow.party:100
+foeEntries=1,malignant.widow.party:100
 @
 name=summon.vermin.1
 foeEntries=0,summon.vermin.1:100
@@ -316,6 +316,9 @@ foeEntries=0,lorelei.allies.on.call:100
 name=ichiba.city.random.enc
 foeEntries=0,human.hirebrand.small:10,goblin.cutpurse.small:10,gnome.beggar.small:10,gnoll.thugs.small:10,spore.moth.small:10,harvestman.spiders.small:10,dun.draco.small.pack:10,leonal.knights:10,gnome.scouts.party:10,human.footpads.1:10
 @
+name=gatehouse.level.1.spider.1
+foeEntries=1,mud.spiders.1:100
+@
 name=stasis.machines.1
 foeEntries=0,stasis.machine.1:100
 @
@@ -327,6 +330,9 @@ foeEntries=0,bel.ies.encounter:100
 @
 name=summon.vermin.spell.2
 foeEntries=0,mud.spiders.medium:50,mud.spiders.medium:50
+@
+name=gatehouse.level.1.spiders
+foeEntries=1,mud.spiders.small:100
 @
 name=summon.vermin.spell.1
 foeEntries=0,fruit.bats.small:50,mud.spiders.small:50
@@ -407,7 +413,7 @@ name=call.wyrms.spell.2
 foeEntries=0,call.wyrms.spell.2:100
 @
 name=call.wyrms.spell.5
-foeEntries=0,call.wyrms.spell.5:100
+foeEntries=1,call.wyrms.spell.5:100
 @
 name=call.wyrms.spell.4
 foeEntries=0,call.wyrms.spell.4:100
@@ -422,7 +428,7 @@ name=clockwork.beast.1
 foeEntries=0,clockwork.beast.1:100
 @
 name=gatehouse.angry.swarms
-foeEntries=0,angry.swarm.party:100
+foeEntries=1,angry.swarm.party:100
 @
 name=tsurayogoshi
 foeEntries=0,tsurayogoshi:100

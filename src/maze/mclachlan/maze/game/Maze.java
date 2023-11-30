@@ -726,7 +726,7 @@ public class Maze implements Runnable
 		zone = null;
 		if (currentCombat != null)
 		{
-			ui.setFoes(null);
+			ui.setFoes(null, false);
 			ui.setAllies(null);
 			currentCombat.endCombat();
 			currentCombat = null;
@@ -1012,7 +1012,8 @@ public class Maze implements Runnable
 		if (this.currentCombat != null)
 		{
 			this.currentCombat.addPartyAllies(allies);
-			this.ui.setFoes(currentCombat.getFoes());
+			// todo: only the allies should run appearance scripts
+			this.ui.setFoes(currentCombat.getFoes(), false);
 		}
 	}
 
@@ -1118,7 +1119,7 @@ public class Maze implements Runnable
 			this.currentCombat.endCombat();
 		}
 
-		this.ui.setFoes(null);
+		this.ui.setFoes(null, false);
 		this.setState(State.MOVEMENT);
 		this.currentCombat = null;
 		this.ui.backPartyUp(3+Dice.d4.roll("Party flees"));
@@ -1809,7 +1810,7 @@ public class Maze implements Runnable
 				Maze.this.setState(State.ENCOUNTER_ACTORS);
 
 				// show the foe sprites on the screen
-				getUi().setFoes(actors);
+				getUi().setFoes(actors, true);
 
 				// attempt identification of these actors
 				GameSys.getInstance().attemptManualIdentification(actors, getParty(), 0);

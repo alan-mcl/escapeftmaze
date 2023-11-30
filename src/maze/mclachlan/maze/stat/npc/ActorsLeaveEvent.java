@@ -32,7 +32,7 @@ public class ActorsLeaveEvent extends MazeEvent
 	{
 		Maze maze = Maze.getInstance();
 
-		maze.getUi().setFoes(null);
+		maze.getUi().setFoes(null, false);
 		maze.setState(Maze.State.MOVEMENT);
 
 		return null;

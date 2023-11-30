@@ -604,14 +604,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initObjectInFrontOfPlayer(
-		EngineObject obj, double distance, double arcOffset,
-		boolean randomStartingFrame)
-	{
-		this.raycaster.initObjectInFrontOfPlayer(obj, distance, arcOffset, randomStartingFrame);
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void signBoard(String message, MazeEvent event)
 	{
 		Rectangle bounds = new Rectangle(LOW_BOUNDS);
@@ -1281,7 +1273,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setFoes(List<FoeGroup> others)
+	public void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
 		if (others == null)
 		{
@@ -1344,36 +1336,45 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 				if (foe.getHitPoints().getCurrent() > 0)
 				{
+					// todo: space out foes better
+					// - more than one row for big groups
+					// - less space between groups
+
 					double increment = 1.0 / (maxFoeIndex + 1);
 					double arc = increment * (foeIndex + 1) + (-0.1 * (foeGroup % 2)); // stagger the groups
 					double distance = 0.5 + (0.5 * foeGroup);
-					this.initObjectInFrontOfPlayer(obj, distance, arc, true);
+					this.raycaster.initObjectInFrontOfPlayer(obj, distance, arc, true);
 
-//					for (ObjectScript script : foe.getAnimationScripts())
-//					{
-//						obj.addScript(script.spawnNewInstance(obj, raycaster));
-//					}
-
-					switch (foe.getAppearanceDirection())
+					if (runAppearanceAnimations)
 					{
-						case FROM_LEFT:
-							obj.addScript(new AppearanceFromSide(true, 500, foe.getAnimationScripts()).
-								spawnNewInstance(obj, this.raycaster));
-							break;
-						case FROM_RIGHT:
-							obj.addScript(new AppearanceFromSide(false, 500, foe.getAnimationScripts()).
-								spawnNewInstance(obj, this.raycaster));
-							break;
-						case FROM_LEFT_OR_RIGHT:
-							obj.addScript(new AppearanceFromSide(Math.random()>.5, 500, foe.getAnimationScripts()).
-								spawnNewInstance(obj, this.raycaster));
-							break;
-						case FROM_TOP:
-							obj.addScript(new AppearanceFromTop(500, foe.getAnimationScripts()).
-								spawnNewInstance(obj, raycaster));
-							break;
-						default:
-							throw new MazeException("invalid appearance direction "+foe.getAppearanceDirection());
+						switch (foe.getAppearanceDirection())
+						{
+							case FROM_LEFT:
+								obj.addScript(new AppearanceFromSide(true, 500, foe.getAnimationScripts()).
+									spawnNewInstance(obj, this.raycaster));
+								break;
+							case FROM_RIGHT:
+								obj.addScript(new AppearanceFromSide(false, 500, foe.getAnimationScripts()).
+									spawnNewInstance(obj, this.raycaster));
+								break;
+							case FROM_LEFT_OR_RIGHT:
+								obj.addScript(new AppearanceFromSide(Math.random() > .5, 500, foe.getAnimationScripts()).
+									spawnNewInstance(obj, this.raycaster));
+								break;
+							case FROM_TOP:
+								obj.addScript(new AppearanceFromTop(500, foe.getAnimationScripts()).
+									spawnNewInstance(obj, raycaster));
+								break;
+							default:
+								throw new MazeException("invalid appearance direction " + foe.getAppearanceDirection());
+						}
+					}
+					else
+					{
+						for (ObjectScript script : foe.getAnimationScripts())
+						{
+							obj.addScript(script.spawnNewInstance(obj, raycaster));
+						}
 					}
 
 					this.raycaster.addObject(obj, false);

@@ -34,7 +34,7 @@ public class PartyLeavesEvent extends MazeEvent
 		Maze maze = Maze.getInstance();
 
 		maze.getUi().addMessage(StringUtil.getEventText("msg.party.leaves"));
-		maze.getUi().setFoes(null);
+		maze.getUi().setFoes(null, false);
 		maze.setState(Maze.State.MOVEMENT);
 
 		return null;

@@ -89,7 +89,7 @@ public class StartCombatEvent extends MazeEvent
 				@Override
 				public List<MazeEvent> resolve()
 				{
-					maze.getUi().setFoes(actors);
+					maze.getUi().setFoes(actors, true);
 					return null;
 				}
 			});

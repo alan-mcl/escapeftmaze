@@ -20,12 +20,8 @@
 package mclachlan.maze.game.event;
 
 import java.util.*;
-import mclachlan.maze.data.Database;
-import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.LockOrTrap;
-import mclachlan.maze.util.MazeException;
 
 public class SetLockState extends MazeEvent
 {
@@ -54,6 +50,7 @@ public class SetLockState extends MazeEvent
 
 		lockOrTrap.setLockState(this.state);
 
+/*
 		if (Portal.State.UNLOCKED.equals(this.state))
 		{
 			result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
@@ -68,6 +65,7 @@ public class SetLockState extends MazeEvent
 		{
 			throw new MazeException("Invalid state: "+this.state);
 		}
+*/
 
 		return result;
 	}

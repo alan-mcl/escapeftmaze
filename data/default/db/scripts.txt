@@ -661,8 +661,7 @@ name=green portrait animation
 1=104,2:ff00b200
 @
 name=Gatehouse welcome sign
-0=8,-  HE SECON  R ALM -
-1=18,default.gatehouse.welcome.sign,true
+0=4,-1,false,Above you a fixture on the ceiling gives off some kind of soft magical light.
 @
 name=Hianbian intro
 0=4,-1,true,You appear in a low corridor. The walls are pale brick, and the floor is worn cobbles. Nothing unusual presents itself...

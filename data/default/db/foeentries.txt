@@ -67,6 +67,9 @@ contains=Faint Air Elemental/3d2:100
 name=elemental.swarm.air.3
 contains=Howling Air Elemental/3d2:100
 @
+name=mud.spiders.1
+contains=Mud Spider/1d1:100
+@
 name=leonal.champions
 contains=Leonal Champion/2d2+2:100,Leonal Champion/2d2+2:90
 @
@@ -296,7 +299,7 @@ name=leonal.paladins
 contains=Leonal Paladin/2d2+2:100,Leonal Paladin/2d2+2:90
 @
 name=mud.spiders.small
-contains=Mud Spider/1d3:100
+contains=Mud Spider/1d3+1:100
 @
 name=ghul.allies.on.call
 contains=Napiers Bones/2d2+2:100,Napiers Bones/2d2+2:50

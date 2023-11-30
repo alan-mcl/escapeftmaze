@@ -1,4 +1,4 @@
-#Tue Nov 28 14:33:49 SAST 2023
+#Thu Nov 30 09:13:12 SAST 2023
 garret=9|I don't really have time for that sort of thing.
 leonal,leonals,white\ order=9|The lion folk, always stalking around in the clanking armour. Most of them are pious and honest to a fault, thanks to that humourless goddess they worship. Running caravans out to their castle Danaos is a bit tedious - they have little grasp of the the niceties of modern economics. I once spent hours explaining compound interest to their quartermaster... and a month later he flew into a rage when I sent him a bill\!
 maze=9|Yes, we are all stuck in the Maze, aren't we.

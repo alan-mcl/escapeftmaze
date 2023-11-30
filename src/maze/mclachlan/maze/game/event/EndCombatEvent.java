@@ -26,7 +26,6 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.GrantExperienceEvent;
 import mclachlan.maze.map.script.GrantGoldEvent;
 import mclachlan.maze.map.script.GrantItemsEvent;
@@ -61,7 +60,7 @@ public class EndCombatEvent extends MazeEvent
 		//
 		// Clear the UI
 		//
-		maze.getUi().setFoes(null);
+		maze.getUi().setFoes(null, false);
 		maze.getUi().setAllies(null);
 
 		//

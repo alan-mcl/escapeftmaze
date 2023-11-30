@@ -695,7 +695,7 @@ public class Leveler
 		}
 
 		return
-			combat==2 &&
+			combat>=2 &&
 			stealth>0 &&
 			magic>0 &&
 			healing>0 &&

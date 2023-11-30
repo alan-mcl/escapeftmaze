@@ -103,11 +103,6 @@ public interface UserInterface
 	void removeObject(String objectName);
 
 	/*-------------------------------------------------------------------------*/
-	void initObjectInFrontOfPlayer(
-		EngineObject obj, double distance, double arcOffset,
-		boolean randomStartingFrame);
-
-	/*-------------------------------------------------------------------------*/
 	void signBoard(String message, MazeEvent event);
 
 	/*-------------------------------------------------------------------------*/
@@ -184,7 +179,7 @@ public interface UserInterface
 	void backPartyUp(int maxKeys);
 
 	/*-------------------------------------------------------------------------*/
-	void setFoes(List<FoeGroup> others);
+	void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations);
 
 	/*-------------------------------------------------------------------------*/
 	void setAllies(List<FoeGroup> others);
