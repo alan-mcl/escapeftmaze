@@ -19,9 +19,10 @@
 
 package mclachlan.maze.data;
 
-import mclachlan.crusader.Texture;
+import java.awt.Color;
 import java.awt.image.BufferedImage;
-import java.util.List;
+import java.util.*;
+import mclachlan.crusader.Texture;
 import mclachlan.maze.data.v1.DataObject;
 
 /**
@@ -59,7 +60,7 @@ public class MazeTexture extends DataObject
 			images[i] = Database.getInstance().getImage(imageResources.get(i));
 		}
 
-		this.texture = new Texture(name, images, animationDelay, scrollBehaviour, scrollSpeed);
+		this.texture = new Texture(name, images, animationDelay, scrollBehaviour, scrollSpeed, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -144,6 +145,14 @@ public class MazeTexture extends DataObject
 	public void setScrollSpeed(int scrollSpeed)
 	{
 		this.texture.setScrollSpeed(scrollSpeed);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public MazeTexture cloneWithTint(Color tint)
+	{
+		MazeTexture result = new MazeTexture(name, imageResources, imageWidth, imageHeight, animationDelay, getScrollBehaviour(), animationDelay);
+		result.texture.setTint(tint);
+		return result;
 	}
 
 }

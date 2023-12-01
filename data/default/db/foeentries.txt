@@ -85,6 +85,9 @@ contains=Seraph/1d1:100,Seraph/1d1:10
 name=aboroth.1
 contains=Aboroth/1d1:100,Aboroth/1d1:5
 @
+name=bonebrood.1
+contains=Bonebrood/1d1:100,Mud Spider/1d3+1:90
+@
 name=clockwork.diggers
 contains=Clockwork Digger/1d2:100,Clockwork Digger/1d2:50
 @

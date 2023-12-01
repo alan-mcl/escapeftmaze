@@ -253,6 +253,9 @@ lootEntries=I~Chain Hauberk:100,I~Buskins:100,I~Silver Coin:100,I~Bastard Sword:
 name=bomb construction
 lootEntries=gadgeteer.bomb.construction:100
 @
+name=gatehouse.key.loot
+lootEntries=batch.1.mundane.weapons:50,batch.1.mundane.armour:50,batch.1.ammo:50,batch.1.throwing.weapons:50,batch.1.gadgets:50,I~Gatehouse Key:100
+@
 name=A_FAIR_BIT_OF_GOLD
 lootEntries=high.level.gold:100
 @

@@ -29,13 +29,27 @@ public class V1Colour
 	/*-------------------------------------------------------------------------*/
 	public static String toString(Color c)
 	{
-		int i = c.getAlpha()<<24 | c.getRGB();
-		return Integer.toHexString(i);
+		if (c == null)
+		{
+			return "";
+		}
+		else
+		{
+			int i = c.getAlpha() << 24 | c.getRGB();
+			return Integer.toHexString(i);
+		}
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public static Color fromString(String s)
 	{
-		return new Color(Long.valueOf(s, 16).intValue(), true);
+		if (s == null || "".equals(s))
+		{
+			return null;
+		}
+		else
+		{
+			return new Color(Long.valueOf(s, 16).intValue(), true);
+		}
 	}
 }

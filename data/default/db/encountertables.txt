@@ -23,10 +23,10 @@ name=ichiba.city.inhabitants
 foeEntries=0,human.hirebrand.small:20,goblin.cutpurse.small:20,gnome.beggar.small:20,gnoll.thugs.small:20,human.footpads.1:20
 @
 name=gatehouse.level.1.medium
-foeEntries=1,fruit.bats.medium:25,mud.spiders.medium:25,spotted.cruds.medium:25,jumping.roaches.medium:25
+foeEntries=0,fruit.bats.medium:25,mud.spiders.medium:25,spotted.cruds.medium:25,jumping.roaches.medium:25
 @
 name=gatehouse.block.golem
-foeEntries=1,block.golem.1:100
+foeEntries=0,block.golem.1:100
 @
 name=fangorn.allies.on.call
 foeEntries=0,ghosts.1:20,frozen.skeletons.1:20,bat.vampires.1:20,zombie.mantis.1:20,lost.souls.1:20
@@ -71,7 +71,7 @@ name=treant.spell.2
 foeEntries=0,treants.2:100
 @
 name=gatehouse.feral.familiar.pack.1
-foeEntries=1,feral.familiar.pack.1:100
+foeEntries=0,feral.familiar.pack.1:100
 @
 name=shadow.warriors.spell.2
 foeEntries=0,shadow.warriors.spell.2:100
@@ -188,7 +188,7 @@ name=castle.fangorn.random.enc.2
 foeEntries=0,ghosts.1:15,frozen.skeletons.1:15,bat.vampires.1:15,zombie.mantis.1:15,lost.souls.1:15,groaning.bones.small:5,napier's.bones.1:5,revenants.1:5,shades.1:5,haunts.small:5
 @
 name=coc.merc.team.ambush
-foeEntries=0,coc.merc.team.1:100
+foeEntries=1,coc.merc.team.1:100
 @
 name=guardian.trap
 foeEntries=0,tower.guardians.small:7,elemental.swarm.air.3:7,elementals.earth.3:7,elemental.swarm.fire.3:7,elemental.swarm.water.3:6,mephit.army.spell.5:6,call.wyrms.spell.5:6,yreguoth.2:6,fantasmagora.2:6,avenging.angel.1:6,terrifying.phantasm.1:6,necromanis.2:6,verdant.force.1:6,force.of.nature.1:6,inferno.dragon.1:6,boulder.dragon.1:6
@@ -197,7 +197,7 @@ name=tower.guardians.on.call
 foeEntries=0,tower.guardians:100
 @
 name=gatehouse.level.1
-foeEntries=1,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
+foeEntries=0,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
 @
 name=gatehouse.level.1.bats
 foeEntries=1,fruit.bats.small:100
@@ -272,7 +272,7 @@ name=ichneumorax
 foeEntries=0,ichneumorax:100
 @
 name=gatehouse.malignant.widows
-foeEntries=1,malignant.widow.party:100
+foeEntries=0,malignant.widow.party:100
 @
 name=summon.vermin.1
 foeEntries=0,summon.vermin.1:100
@@ -373,6 +373,9 @@ foeEntries=0,ghul.allies.on.call:100
 name=mephit.army.spell.4
 foeEntries=0,mephit.army.spell.4:100
 @
+name=gatehouse.level.1.bonebrood
+foeEntries=1,bonebrood.1:100
+@
 name=mephit.army.spell.5
 foeEntries=0,mephit.army.spell.5:100
 @
@@ -413,7 +416,7 @@ name=call.wyrms.spell.2
 foeEntries=0,call.wyrms.spell.2:100
 @
 name=call.wyrms.spell.5
-foeEntries=1,call.wyrms.spell.5:100
+foeEntries=0,call.wyrms.spell.5:100
 @
 name=call.wyrms.spell.4
 foeEntries=0,call.wyrms.spell.4:100
@@ -452,7 +455,7 @@ name=temple.of.the.gate.ghost.of.igor
 foeEntries=0,temple.of.the.gate.ghost.of.igor:100
 @
 name=coloniser.omnifids.1
-foeEntries=0,colonizer.ominifids.1:100
+foeEntries=1,colonizer.ominifids.1:100
 @
 name=hades.harp.summon.1
 foeEntries=0,elementals.fire.1:50,fiero.1:50

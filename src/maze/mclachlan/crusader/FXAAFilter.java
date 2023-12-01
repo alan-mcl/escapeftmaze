@@ -1,7 +1,7 @@
 package mclachlan.crusader;
 
 /**
- * See http://developer.download.nvidia.com/assets/gamedev/files/sdk/11/FXAA_WhitePaper.pdf
+ * See <a href="http://developer.download.nvidia.com/assets/gamedev/files/sdk/11/FXAA_WhitePaper.pdf">FXAA_WhitePaper.pdf</a>
  *
  * This filter implements FXAA "lite" - it simply does edge detection via
  * luminance and then runs the 3x3 blur shader. Does not implement subpixel
@@ -9,15 +9,15 @@ package mclachlan.crusader;
  */
 public class FXAAFilter implements PostProcessor
 {
-	private static double FXAA_EDGE_THRESHOLD = 1/8D;
-	private static double FXAA_EDGE_THRESHOLD_MIN = 1/16D;
-	private static double FXAA_SUBPIX_TRIM = 1/4D;
-	private static double FXAA_SUBPIX_TRIM_SCALE = 1D;
-	private static double FXAA_SUBPIX_CAP = 3/4D;
+	private static final double FXAA_EDGE_THRESHOLD = 1/8D;
+	private static final double FXAA_EDGE_THRESHOLD_MIN = 1/16D;
+	private static final double FXAA_SUBPIX_TRIM = 1/4D;
+	private static final double FXAA_SUBPIX_TRIM_SCALE = 1D;
+	private static final double FXAA_SUBPIX_CAP = 3/4D;
 	private final BoxFilter shader;
 
-	private int width;
-	private int height;
+	private final int width;
+	private final int height;
 
 	/*-------------------------------------------------------------------------*/
 	public FXAAFilter(int width, int height)

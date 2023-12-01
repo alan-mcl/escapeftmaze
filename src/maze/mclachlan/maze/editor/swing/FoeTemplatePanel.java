@@ -45,6 +45,7 @@ public class FoeTemplatePanel extends EditorPanel
 		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
 		appearanceScript, appearanceDirection, deathScript, focus, attitude,
 		verticalAlignment;
+	private JButton textureTint;
 	private ObjectScriptListPanel animationScripts;
 	private JCheckBox cannotBeEvaded, isNpc;
 	private JButton quickAssignAllTextures, quickApplyStatPack, quickAssignXp;
@@ -129,6 +130,10 @@ public class FoeTemplatePanel extends EditorPanel
 		specialAbilityTexture = new JComboBox();
 		specialAbilityTexture.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Special Ability Texture:"), specialAbilityTexture, gbc);
+
+		textureTint = new JButton("...");
+		textureTint.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Texture Tint:"), textureTint, gbc);
 
 		verticalAlignment = new JComboBox();
 		verticalAlignment.addActionListener(this);
@@ -482,6 +487,7 @@ public class FoeTemplatePanel extends EditorPanel
 		rangedTexture.setSelectedItem(ft.getRangedAttackTexture().getName());
 		castSpellTexture.setSelectedItem(ft.getCastSpellTexture().getName());
 		specialAbilityTexture.setSelectedItem(ft.getSpecialAbilityTexture().getName());
+		textureTint.setBackground(ft.getTextureTint()==null?null:ft.getTextureTint());
 		verticalAlignment.setSelectedItem(ft.getVerticalAlignment());
 		lootTable.refresh(ft.getLoot());
 		evasionBehaviour.setSelectedItem(Foe.EvasionBehaviour.toString(ft.getEvasionBehaviour()));
@@ -736,6 +742,16 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setRangedAttackTexture(Database.getInstance().getMazeTexture((String)rangedTexture.getSelectedItem()));
 		ft.setCastSpellTexture(Database.getInstance().getMazeTexture((String)castSpellTexture.getSelectedItem()));
 		ft.setSpecialAbilityTexture(Database.getInstance().getMazeTexture((String)specialAbilityTexture.getSelectedItem()));
+
+		if (textureTint.getBackground() instanceof Color)
+		{
+			ft.setTextureTint(textureTint.getBackground());
+		}
+		else
+		{
+			ft.setTextureTint(null);
+		}
+
 		ft.setVerticalAlignment((EngineObject.Alignment)verticalAlignment.getSelectedItem());
 		ft.setLoot(Database.getInstance().getLootTable(lootTable.getSelectedLootTable()));
 		ft.setEvasionBehaviour(Foe.EvasionBehaviour.valueOf((String)evasionBehaviour.getSelectedItem()));
@@ -775,6 +791,17 @@ public class FoeTemplatePanel extends EditorPanel
 			commit(currentName);
 			FoeTemplate ft = Database.getInstance().getFoeTemplate(currentName);
 			experience.setValue(FoeXpCalculator.calcXp(ft));
+		}
+		else if (e.getSource() == textureTint)
+		{
+			Color c = JColorChooser.showDialog(
+				SwingEditor.instance,
+				"Shade Target Colour",
+				Color.BLACK);
+
+			textureTint.setBackground(c);
+
+			SwingEditor.instance.setDirty(dirtyFlag);
 		}
 		else
 		{

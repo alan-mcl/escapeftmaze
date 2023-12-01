@@ -19,6 +19,7 @@
 
 package mclachlan.maze.data.v1;
 
+import java.awt.Color;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
@@ -238,6 +239,10 @@ public class V1FoeTemplate
 			b.append(obj.getVerticalAlignment().name());
 			b.append(V1Utils.NEWLINE);
 
+			b.append("textureTint=");
+			b.append(V1Colour.toString(obj.getTextureTint()));
+			b.append(V1Utils.NEWLINE);
+
 			b.append("loot=");
 			b.append(obj.getLoot().getName());
 			b.append(V1Utils.NEWLINE);
@@ -360,6 +365,7 @@ public class V1FoeTemplate
 			MazeTexture castSpellTexture = Database.getInstance().getMazeTexture(p.getProperty("castSpellTexture"));
 			MazeTexture specialAbilityTexture = Database.getInstance().getMazeTexture(p.getProperty("specialAbilityTexture"));
 			EngineObject.Alignment verticalAlignment = EngineObject.Alignment.valueOf(p.getProperty("verticalAlignment"));
+			Color textureTint = V1Colour.fromString(p.getProperty("textureTint"));
 			LootTable loot = Database.getInstance().getLootTable(p.getProperty("loot"));
 			int evasionBehaviour = Integer.parseInt(p.getProperty("evasionBehaviour"));
 			boolean cannotBeEvaded = Boolean.valueOf(p.getProperty("cannotBeEvaded"));
@@ -404,6 +410,16 @@ public class V1FoeTemplate
 				FoeTemplate.AppearanceDirection.valueOf(p.getProperty("appearanceDirection"));
 
 			List<ObjectScript> animScripts = animationScripts.fromString(p.getProperty("animationScripts"));
+
+			// if there is a tint, clone any textures so that the originals are not tinted
+			if (textureTint != null)
+			{
+				baseTexture = baseTexture.cloneWithTint(textureTint);
+				meleeAttackTexture = baseTexture.cloneWithTint(textureTint);
+				rangedAttackTexture = baseTexture.cloneWithTint(textureTint);
+				castSpellTexture = baseTexture.cloneWithTint(textureTint);
+				specialAbilityTexture = baseTexture.cloneWithTint(textureTint);
+			}
 
 			return new FoeTemplate(
 				name,

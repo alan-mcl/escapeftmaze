@@ -32,9 +32,9 @@ import mclachlan.maze.game.journal.JournalManager;
  */
 public class ZoneChangeEvent extends MazeEvent
 {
-	private String zone;
-	private Point pos;
-	private int facing;
+	private final String zone;
+	private final Point pos;
+	private final int facing;
 
 	/*-------------------------------------------------------------------------*/
 	/**

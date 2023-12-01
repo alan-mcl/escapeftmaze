@@ -5,8 +5,8 @@ package mclachlan.crusader;
  */
 public class GreyscaleFilter implements PostProcessor
 {
-	private int width;
-	private int height;
+	private final int width;
+	private final int height;
 
 	/*-------------------------------------------------------------------------*/
 	public GreyscaleFilter(int width, int height)

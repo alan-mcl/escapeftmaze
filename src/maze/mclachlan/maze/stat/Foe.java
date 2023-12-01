@@ -300,10 +300,7 @@ public class Foe extends UnifiedActor
 	@Override
 	public List<SpellLikeAbility> getSpellLikeAbilities()
 	{
-		List<SpellLikeAbility> result = new ArrayList<SpellLikeAbility>();
-
-
-		result.addAll(super.getSpellLikeAbilities());
+		List<SpellLikeAbility> result = new ArrayList<>(super.getSpellLikeAbilities());
 
 		if (template.getSpellLikeAbilities() != null)
 		{
@@ -331,8 +328,7 @@ public class Foe extends UnifiedActor
 	@Override
 	public List<NaturalWeapon> getNaturalWeapons()
 	{
-		List<NaturalWeapon> result = new ArrayList<NaturalWeapon>();
-		result.addAll(super.getNaturalWeapons());
+		List<NaturalWeapon> result = new ArrayList<>(super.getNaturalWeapons());
 
 		// template natural weapons
 		if (template.getNaturalWeapons() != null)

@@ -1,4 +1,6 @@
+conditionBearer=1~Ascxs
+@
 conditionBearer=1~Brunswick
-0=bardic harp bless;20;-1;8;;;;;ENERGY;NONE;Abstract Actor;true;true;1;false
-1=SCALING_HEX;17;11;11;;;;;MENTAL;CURSE;Abstract Actor;true;true;1;true
+@
+conditionBearer=1~Brunswick
 @

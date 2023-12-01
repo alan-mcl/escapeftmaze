@@ -1,4 +1,4 @@
-#Thu Nov 30 09:13:12 SAST 2023
+#Fri Dec 01 13:22:12 SAST 2023
 garret=9|I am not religious.
 leonal,leonals,white\ order=9|We Leonals are the only hope the Second Realm has. It's only a matter of time before Ichiba falls, and the gnomes would rather dig down than fight back.
 maze=9|The Maze can be beaten, and we Leonals will be the ones to do it\!

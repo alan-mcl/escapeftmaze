@@ -20,6 +20,7 @@
 
 package mclachlan.crusader;
 
+import java.awt.Color;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
@@ -54,6 +55,9 @@ public class Texture implements Comparable<Texture>
 	/** how fast the texture scrolls */
 	int scrollSpeed;
 
+	/** any tint to this texture */
+	Color tint;
+
 	//
 	// Dodgy hack alert.  EngineObjects keep their own versions of these two so
 	// that their frames can change independently.  These texture-wide counters
@@ -72,13 +76,15 @@ public class Texture implements Comparable<Texture>
 		BufferedImage[] frames,
 		int animationDelay,
 		ScrollBehaviour scrollBehaviour,
-		int textureScrollSpeed)
+		int textureScrollSpeed,
+		Color tint)
 	{
 		this.name = name;
 		this.animationDelay = animationDelay;
 		this.images = frames;
 		this.scrollBehaviour = scrollBehaviour;
 		this.scrollSpeed = textureScrollSpeed;
+		this.tint = tint;
 		if (frames != null && frames.length>0)
 		{
 			this.nrFrames = frames.length;
@@ -111,6 +117,11 @@ public class Texture implements Comparable<Texture>
 	public int[][] getImageData()
 	{
 		return imageData;
+	}
+
+	public void setImageData(int[][] imageData)
+	{
+		this.imageData = imageData;
 	}
 
 	public int getImageHeight()
@@ -164,6 +175,60 @@ public class Texture implements Comparable<Texture>
 		this.scrollSpeed = scrollSpeed;
 	}
 
+	public Color getTint()
+	{
+		return tint;
+	}
+
+	public void setTint(Color tint)
+	{
+		this.tint = tint;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void applyTint(Color tint)
+	{
+		for (int[] imagePixels : imageData)
+		{
+			applyTint(tint, imagePixels);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void applyTint(Color tint, int[] imagePixels)
+	{
+		int tintRGB = tint.getRGB();
+		int tintedRed = (tintRGB >> 16) & 0xFF;
+		int tintedGreen = (tintRGB >> 8) & 0xFF;
+		int tintedBlue = tintRGB & 0xFF;
+
+		for (int i = 0; i < imagePixels.length; i++)
+		{
+			// ignore transparent pixels
+			if (imagePixels[i] != 0)
+			{
+				// grayscale the pixel first
+				int alpha = (imagePixels[i] >> 24) & 0xFF;
+				int red = (imagePixels[i] >> 16) & 0xFF;
+				int green = (imagePixels[i] >> 8) & 0xFF;
+				int blue = imagePixels[i] & 0xFF;
+
+				int grayscaleValue = (int)(0.299 * red + 0.587 * green + 0.114 * blue);
+
+				// the grayscale pixel
+				imagePixels[i] = (alpha << 24) | (grayscaleValue << 16) | (grayscaleValue << 8) | grayscaleValue;
+
+				// then tint with the given colour RGB
+				// "darken only" and retain the alpha channel
+				int finalRed = (int)(grayscaleValue * (tintedRed / 255.0));
+				int finalGreen = (int)(grayscaleValue * (tintedGreen / 255.0));
+				int finalBlue = (int)(grayscaleValue * (tintedBlue / 255.0));
+
+				imagePixels[i] = (alpha << 24) | (finalRed << 16) | (finalGreen << 8) | finalBlue;
+			}
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	/**
@@ -207,7 +272,7 @@ public class Texture implements Comparable<Texture>
 			textureY = Math.min(Math.abs(textureY % imageHeight), imageHeight-1);
 		}
 
-		return imageData[currentFrame][textureX + textureY * imageWidth];
+		return this.imageData[currentFrame][textureX + textureY * imageWidth];
 	}
 
 	/*-------------------------------------------------------------------------*/

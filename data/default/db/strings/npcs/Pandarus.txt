@@ -1,4 +1,4 @@
-#Thu Nov 30 09:13:12 SAST 2023
+#Fri Dec 01 13:22:12 SAST 2023
 garret=9|I have little time for religion.
 leonal,leonals,white\ order=9|Yes, the Leonals. Hostilities preclude much trade with them. A pity.
 maze=9|The ways of the Maze are beyond my ken, I am a humble merchant seeking to make the best of this world we are in.

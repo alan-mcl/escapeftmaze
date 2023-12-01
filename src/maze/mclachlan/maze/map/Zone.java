@@ -86,7 +86,7 @@ public class Zone extends DataObject
 		this.name = name;
 		this.map = map;
 		this.tiles = tiles;
-		this.portals = new ArrayList<Portal>(Arrays.asList(portals));
+		this.portals = new ArrayList<>(Arrays.asList(portals));
 		this.script = script;
 		this.width = tiles.length;
 		this.length = tiles[0].length;

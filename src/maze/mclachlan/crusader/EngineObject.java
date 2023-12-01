@@ -19,6 +19,7 @@
 
 package mclachlan.crusader;
 
+import java.awt.Color;
 import java.util.*;
 import mclachlan.maze.util.MazeException;
 
@@ -394,6 +395,15 @@ public class EngineObject
 				throw new MazeException("invalid "+getVerticalAlignment());
 		}
 
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void applyTint(Color tint)
+	{
+		for (Texture t : this.textures)
+		{
+			t.applyTint(tint);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

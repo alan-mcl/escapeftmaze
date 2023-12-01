@@ -87,7 +87,7 @@ public class V1Zone
 		Wall[] horizontalWalls = null;
 		Wall[] verticalWalls = null;
 		EngineObject[] objects = null;
-		java.util.Map<String, Texture> textures = new HashMap<String, Texture>();
+		java.util.Map<String, Texture> textures = new HashMap<>();
 		MapScript[] scripts = null;
 		int order = 0;
 		Point playerOrigin = null;

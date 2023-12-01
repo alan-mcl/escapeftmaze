@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat;
 
+import java.awt.Color;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
@@ -76,6 +77,8 @@ public class FoeTemplate extends DataObject
 	private MazeTexture specialAbilityTexture;
 	/** Texture alignment for this foe */
 	private EngineObject.Alignment verticalAlignment;
+	/** Any texture tint for this foe */
+	private Color textureTint;
 	/** What this foe drops when it dies */
 	private LootTable loot;
 	/** true if this foe cannot be evaded */
@@ -444,6 +447,16 @@ public class FoeTemplate extends DataObject
 		EngineObject.Alignment verticalAlignment)
 	{
 		this.verticalAlignment = verticalAlignment;
+	}
+
+	public Color getTextureTint()
+	{
+		return textureTint;
+	}
+
+	public void setTextureTint(Color textureTint)
+	{
+		this.textureTint = textureTint;
 	}
 
 	public int getStealthBehaviour()

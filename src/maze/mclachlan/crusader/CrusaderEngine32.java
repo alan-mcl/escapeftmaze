@@ -1512,18 +1512,23 @@ public class CrusaderEngine32 implements CrusaderEngine
 			}
 		}
 
-		texture.imageData = 
+		texture.setImageData(
 			new int[texture.images.length]
-				[texture.imageHeight*texture.imageWidth];
+				[texture.imageHeight*texture.imageWidth]);
 		
 		for (int i = 0; i < texture.images.length; i++)
 		{
-			texture.imageData[i] = this.grabPixels(
+			texture.getImageData()[i] = this.grabPixels(
 				texture.images[i],
 				texture.imageWidth,
 				texture.imageHeight);
 		}
-		
+
+		if (texture.tint != null)
+		{
+			texture.applyTint(texture.tint);
+		}
+
 		synchronized(objectMutex)
 		{
 			Texture[] temp = new Texture[this.textures.length+1];
@@ -1539,7 +1544,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int[] result = new int[width*height];
 		PixelGrabber grabber = new PixelGrabber(
 			image, 0, 0, width, height , result, 0, width);
-	
+
 		try
 		{
 			grabber.grabPixels();

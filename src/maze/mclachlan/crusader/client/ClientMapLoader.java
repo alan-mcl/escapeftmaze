@@ -23,8 +23,8 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.util.*;
 import javax.imageio.ImageIO;
-import mclachlan.crusader.*;
 import mclachlan.crusader.Map;
+import mclachlan.crusader.*;
 import mclachlan.crusader.script.RandomLightingScript;
 import mclachlan.crusader.script.SinusoidalLightingScript;
 
@@ -225,7 +225,8 @@ public class ClientMapLoader
 						frames,
 						animDelay,
 						scrollBehaviour,
-						scrollSpeed);
+						scrollSpeed,
+						null);
 				}
 			}
 			else if (line.equalsIgnoreCase(TILE_HEADER))

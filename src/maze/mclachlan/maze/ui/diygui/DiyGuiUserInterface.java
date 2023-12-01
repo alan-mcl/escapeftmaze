@@ -1324,6 +1324,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					};
 
 				EngineObject obj = new EngineObject(textures, 0, false);
+
 				obj.setVerticalAlignment(foe.getVerticalAlignment());
 				obj.setMouseClickScript(new FoeInfoMouseClickScript(foe));
 

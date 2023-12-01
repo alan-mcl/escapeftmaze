@@ -407,6 +407,10 @@ name=Danaos Castle to Village
 0=13,generic door creak
 1=1,Danaos Village,4,16,0
 @
+name=Gatehouse Bonebrood bones
+0=4,-1,false,Poking through the pile of moldy bones, you discover several items of interest...
+1=9,gatehouse.key.loot
+@
 name=burning hands from player
 0=138,25712_Erdie_fire_1
 1=104,1:15:animation/redBoltFromPlayer1;animation/redBoltFromPlayer2;animation/redBoltFromPlayer3
@@ -854,9 +858,6 @@ name=Default Campaign Outtro
 0=4,-1,true,Gathering your courage, you step into the Great Gate...
 1=138,24003__Erdie__mega_thunder
 2=16,
-@
-name=Gatehouse chest1 pre script
-0=4,-1,false,Abandoned in this corner there lies a dusty wooden chest...
 @
 name=sound - wings
 0=138,9329__tigersound__pigeon_wings
