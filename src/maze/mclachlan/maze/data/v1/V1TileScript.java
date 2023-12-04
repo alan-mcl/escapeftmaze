@@ -20,7 +20,6 @@
 package mclachlan.maze.data.v1;
 
 import java.util.*;
-import mclachlan.crusader.MouseClickScript;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.HiddenStuff;
@@ -217,11 +216,7 @@ public class V1TileScript
 				s.append(sep);
 				s.append(tw.getState1Height());
 				s.append(sep);
-				s.append(V1MouseClickScript.toString(tw.getState1MouseClickScript()));  // will the separators work out here?
-				s.append(sep);
-				s.append(V1MouseClickScript.toString(tw.getState1MaskTextureMouseClickScript()));
-				s.append(sep);
-				
+
 				s.append(tw.getState2Texture()==null?"":tw.getState2Texture().getName());
 				s.append(sep);
 				s.append(tw.getState2MaskTexture()==null?"":tw.getState2MaskTexture().getName());
@@ -232,9 +227,6 @@ public class V1TileScript
 				s.append(sep);
 				s.append(tw.getState2Height());
 				s.append(sep);
-				s.append(V1MouseClickScript.toString(tw.getState2MouseClickScript()));
-				s.append(sep);
-				s.append(V1MouseClickScript.toString(tw.getState2MaskTextureMouseClickScript()));
 
 				break;
 			case EXECUTE_MAZE_SCRIPT:
@@ -414,17 +406,13 @@ public class V1TileScript
 				boolean state1Visible = Boolean.valueOf(strs[i++]);
 				boolean state1Solid = Boolean.valueOf(strs[i++]);
 				int state1Height = Integer.parseInt(strs[i++]);
-				MouseClickScript state1MouseClickScript = V1MouseClickScript.fromString(strs[i++]);
-				MouseClickScript state1MaskTextureMouseClickScript = V1MouseClickScript.fromString(strs[i++]);
-				
+
 				String state2Texture = strs[i++]; 
 				String state2MaskTexture = strs[i++];
 				boolean state2Visible = Boolean.valueOf(strs[i++]);
 				boolean state2Solid = Boolean.valueOf(strs[i++]);
 				int state2Height = Integer.parseInt(strs[i++]);
-				MouseClickScript state2MouseClickScript = V1MouseClickScript.fromString(strs[i++]);
-				MouseClickScript state2MaskTextureMouseClickScript = V1MouseClickScript.fromString(strs[i++]);
-				
+
 				result = new ToggleWall(
 					toggleWallMazeVar,
 					wallIndex,
@@ -434,15 +422,11 @@ public class V1TileScript
 					state1Visible,
 					state1Solid,
 					state1Height,
-					state1MouseClickScript,
-					state1MaskTextureMouseClickScript,
 					"".equals(state2Texture)?null:Database.getInstance().getMazeTexture(state2Texture).getTexture(),
 					"".equals(state2MaskTexture)?null:Database.getInstance().getMazeTexture(state2MaskTexture).getTexture(),
 					state2Visible,
 					state2Solid,
-					state2Height,
-					state2MouseClickScript,
-					state2MaskTextureMouseClickScript);
+					state2Height);
 				break;
 			case EXECUTE_MAZE_SCRIPT:
 				result = new ExecuteMazeScript(strs[i++]);

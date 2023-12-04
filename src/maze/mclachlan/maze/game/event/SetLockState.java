@@ -20,21 +20,28 @@
 package mclachlan.maze.game.event;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.LockOrTrap;
+import mclachlan.maze.util.MazeException;
 
 public class SetLockState extends MazeEvent
 {
 	private final LockOrTrap lockOrTrap;
 	private final String state;
+	private final boolean playLockSoundAndText;
 
 	/*-------------------------------------------------------------------------*/
 	public SetLockState(
 		LockOrTrap lockOrTrap,
-		String state)
+		String state,
+		boolean playLockSoundAndText)
 	{
 		this.lockOrTrap = lockOrTrap;
 		this.state = state;
+		this.playLockSoundAndText = playLockSoundAndText;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -50,22 +57,23 @@ public class SetLockState extends MazeEvent
 
 		lockOrTrap.setLockState(this.state);
 
-/*
-		if (Portal.State.UNLOCKED.equals(this.state))
+		if (playLockSoundAndText)
 		{
-			result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
-			result.add(new UiMessageEvent(StringUtil.getEventText("msg.unlocked")));
+			if (Portal.State.UNLOCKED.equals(this.state))
+			{
+				result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
+				result.add(new UiMessageEvent(StringUtil.getEventText("msg.unlocked")));
+			}
+			else if (Portal.State.LOCKED.equals(this.state) || Portal.State.WALL_LIKE.equals(this.state))
+			{
+				result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
+				result.add(new UiMessageEvent(StringUtil.getEventText("msg.locked")));
+			}
+			else
+			{
+				throw new MazeException("Invalid state: " + this.state);
+			}
 		}
-		else if (Portal.State.LOCKED.equals(this.state) || Portal.State.WALL_LIKE.equals(this.state))
-		{
-			result.addAll(Database.getInstance().getMazeScript("_UNLOCK_").getEvents());
-			result.add(new UiMessageEvent(StringUtil.getEventText("msg.locked")));
-		}
-		else
-		{
-			throw new MazeException("Invalid state: "+this.state);
-		}
-*/
 
 		return result;
 	}

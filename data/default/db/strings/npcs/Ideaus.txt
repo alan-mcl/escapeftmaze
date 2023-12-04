@@ -1,4 +1,4 @@
-#Fri Dec 01 13:22:12 SAST 2023
+#Fri Dec 01 16:26:56 SAST 2023
 garret=9|I am not a religious man
 leonal,leonals,white\ order=9|The haughty Leonals hide far from here in the fortress called Danaos. The talk a good fight and they harass our borders endlessly, but they have yet to come against these walls.
 maze=9|We are constantly harassed. Three times the Maze has come against us in force with great hosts of foes, fierce and unnatural. The underground city is our salvation. This fortified keep above the entrance is strong; few can defend against many and can be supplied from the halls below.

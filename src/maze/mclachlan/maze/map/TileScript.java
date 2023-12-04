@@ -56,7 +56,7 @@ public abstract class TileScript
 	 */
 	private boolean reexecuteOnSameTile;
 
-	public static final List<MazeEvent> PREVENT_ACTION = new ArrayList<MazeEvent>();
+	public static final List<MazeEvent> PREVENT_ACTION = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	/**

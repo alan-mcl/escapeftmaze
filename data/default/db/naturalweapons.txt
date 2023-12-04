@@ -1804,6 +1804,20 @@ spellEffects=MARTIAL_ARTS_KO:50
 spellEffectLevel=1
 attackScript=generic weapon swish
 @
+name=bonebrood bite
+ranged=false
+description=bites
+modifiers=0,
+minRange=1
+maxRange=1
+attacks=2
+slaysFoeType=
+damage=1d3
+damageType=PIERCING
+spellEffects=
+spellEffectLevel=1
+attackScript=generic weapon swish
+@
 name=punch maker-killer touch
 ranged=false
 description=touches

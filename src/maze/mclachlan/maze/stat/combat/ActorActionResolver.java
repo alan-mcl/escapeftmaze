@@ -438,11 +438,11 @@ public class ActorActionResolver
 				{
 					if (lockOrTrap.isLocked())
 					{
-						events.add(new SetLockState(lockOrTrap, Portal.State.UNLOCKED));
+						events.add(new SetLockState(lockOrTrap, Portal.State.UNLOCKED, true));
 					}
 					else
 					{
-						events.add(new SetLockState(lockOrTrap, Portal.State.LOCKED));
+						events.add(new SetLockState(lockOrTrap, Portal.State.LOCKED, true));
 					}
 					if (lockOrTrap.isConsumeKeyItem())
 					{

@@ -880,6 +880,9 @@ name=throwing knife from foe
 name=sound - earth elemental
 0=138,7135_mystiscool_rocks1
 @
+name=Gatehouse deactivated portal
+0=18,default.gatehouse.deactivated.portal,true
+@
 name=frostbite spell from player
 0=13,generic spell woosh
 1=104,1:10:animation/blueBoltFromPlayer

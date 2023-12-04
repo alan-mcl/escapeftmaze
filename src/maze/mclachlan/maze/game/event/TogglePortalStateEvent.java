@@ -53,11 +53,11 @@ public class TogglePortalStateEvent extends MazeEvent
 
 		if (Portal.State.WALL_LIKE.equals(portal.getState()) || Portal.State.LOCKED.equals(portal.getState()))
 		{
-			result.add(new SetLockState(portal, Portal.State.UNLOCKED));
+			result.add(new SetLockState(portal, Portal.State.UNLOCKED, false));
 		}
 		else if (Portal.State.UNLOCKED.equals(portal.getState()))
 		{
-			result.add(new SetLockState(portal, Portal.State.LOCKED));
+			result.add(new SetLockState(portal, Portal.State.LOCKED, true));
 		}
 		else
 		{

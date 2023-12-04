@@ -607,7 +607,7 @@ playerOrigin: 0:0
 143: CITY_WALL_1:::::false:1
 144: CITY_WALL_1:::::false:1
 149: PURPLE_HAZE:::::false:1
-150: WATER_2:::::false:1
+150: WATER_2:objects.bell::4,,,false,DING DONG::false:1
 154: DUNGEON_PORTCULLIS_1:::::true:1
 158: CITY_WALL_1:::::false:1
 159: CITY_WALL_1:::::false:1

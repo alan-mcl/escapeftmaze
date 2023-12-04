@@ -1343,7 +1343,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 					double increment = 1.0 / (maxFoeIndex + 1);
 					double arc = increment * (foeIndex + 1) + (-0.1 * (foeGroup % 2)); // stagger the groups
-					double distance = 0.5 + (0.5 * foeGroup);
+					double distance = 0.5 + (0.2 * foeGroup);
 					this.raycaster.initObjectInFrontOfPlayer(obj, distance, arc, true);
 
 					if (runAppearanceAnimations)

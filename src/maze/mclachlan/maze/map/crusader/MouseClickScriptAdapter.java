@@ -41,15 +41,7 @@ public class MouseClickScriptAdapter implements MouseClickScript
 	/*-------------------------------------------------------------------------*/
 	public void initialise(Map map)
 	{
-		Maze maze = Maze.getInstance();
-
-		if (maze != null)
-		{
-			Point tile = maze.getTile();
-			int facing = maze.getFacing();
-
-			this.script.initialise(maze, tile, facing);
-		}
+		// nothing to do
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -58,9 +50,11 @@ public class MouseClickScriptAdapter implements MouseClickScript
 		Maze maze = Maze.getInstance();
 		Point tile = maze.getTile();
 		int facing = maze.getFacing();
-		
-		Maze.getInstance().appendEvents(
-			script.execute(maze, tile, tile, facing));
+
+		if (script.shouldExecute(maze, tile, tile, facing, TileScript.PlayerAction.SEARCH))
+		{
+			Maze.getInstance().appendEvents(script.execute(maze, tile, tile, facing));
+		}
 	}
 	
 	/*-------------------------------------------------------------------------*/

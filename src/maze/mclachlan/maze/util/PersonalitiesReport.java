@@ -43,6 +43,17 @@ public class PersonalitiesReport
 		List<Personality> list = new ArrayList<>(items.values());
 		list.sort(Comparator.comparing(Personality::getName));
 
+		for (Personality p : list)
+		{
+			System.out.println(p.getName()+": "+p.getDescription());
+		}
+
+//		printHtml(list);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void printHtml(List<Personality> list)
+	{
 		// print HTML for the google site
 		for (Personality p : list)
 		{

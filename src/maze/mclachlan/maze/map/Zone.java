@@ -29,6 +29,7 @@ import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.stat.FoeGroup;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -440,12 +441,29 @@ public class Zone extends DataObject
 
 					for (TileScript script : scripts)
 					{
-						script.initialise(
-							Maze.getInstance(),
-							new Point(x, y),
-							y*width+x);
+						script.initialise(Maze.getInstance(), new Point(x, y), y*width+x);
 					}
 				}
+			}
+		}
+
+		// init any mouse click scripts
+		List<Wall> walls = new ArrayList<>();
+		walls.addAll(Arrays.asList(map.getHorizontalWalls()));
+		walls.addAll(Arrays.asList(map.getVerticalWalls()));
+
+		for (Wall w : walls)
+		{
+			if (w.getMouseClickScript() instanceof MouseClickScriptAdapter)
+			{
+				((MouseClickScriptAdapter)w.getMouseClickScript()).getScript().initialise(
+					Maze.getInstance(), null, -1);
+			}
+
+			if (w.getMaskTextureMouseClickScript() instanceof MouseClickScriptAdapter)
+			{
+				((MouseClickScriptAdapter)w.getMaskTextureMouseClickScript()).getScript().initialise(
+					Maze.getInstance(), null, -1);
 			}
 		}
 

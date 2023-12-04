@@ -22,8 +22,8 @@ package mclachlan.maze.editor.swing;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.maze.data.Database;
@@ -37,7 +37,6 @@ import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -142,7 +141,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox state1Texture, state1MaskTexture, state2Texture, state2MaskTexture;
 	private JCheckBox state1Visible, state1Solid, state2Visible, state2Solid;
 	private JSpinner state1Height, state2Height;
-	private SingleTileScriptComponent state1MouseClickScript, state1MaskTextureMouseClickScript, state2MouseClickScript, state2MaskTextureMouseClickScript;
 
 	private JComboBox mazeScript;
 	private JTextArea signBoard;
@@ -394,20 +392,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				state1Solid.setSelected(tw.isState1Solid());
 				state1Visible.setSelected(tw.isState1Visible());
 				state1Height.setValue(tw.getState1Height());
-				MouseClickScriptAdapter m1 = ((MouseClickScriptAdapter)tw.getState1MouseClickScript());
-				state1MouseClickScript.refresh(m1==null?null:m1.getScript(), zone);
-				MouseClickScriptAdapter m2 = ((MouseClickScriptAdapter)tw.getState1MaskTextureMouseClickScript());
-				state1MaskTextureMouseClickScript.refresh(m2==null?null:m2.getScript(), zone);
 
 				state2Texture.setSelectedItem(tw.getState2Texture()==null?EditorPanel.NONE:tw.getState2Texture().getName());
 				state2MaskTexture.setSelectedItem(tw.getState2MaskTexture()==null?EditorPanel.NONE:tw.getState2MaskTexture().getName());
 				state2Solid.setSelected(tw.isState2Solid());
 				state2Visible.setSelected(tw.isState2Visible());
 				state2Height.setValue(tw.getState2Height());
-				MouseClickScriptAdapter m3 = ((MouseClickScriptAdapter)tw.getState2MouseClickScript());
-				state2MouseClickScript.refresh(m3==null?null:m3.getScript(), zone);
-				MouseClickScriptAdapter m4 = ((MouseClickScriptAdapter)tw.getState2MaskTextureMouseClickScript());
-				state2MaskTextureMouseClickScript.refresh(m4==null?null:m4.getScript(), zone);
 
 				break;
 			case EXECUTE_MAZE_EVENTS:
@@ -589,16 +579,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		state1Solid = new JCheckBox();
 		state1Visible = new JCheckBox();
 		state1Height = new JSpinner(new SpinnerNumberModel(1,1,99,1));
-		state1MouseClickScript = new SingleTileScriptComponent(dirtyFlag, zone);
-		state1MaskTextureMouseClickScript = new SingleTileScriptComponent(dirtyFlag, zone);
 
 		state2Texture = new JComboBox();
 		state2MaskTexture = new JComboBox();
 		state2Solid = new JCheckBox();
 		state2Visible = new JCheckBox();
 		state2Height = new JSpinner(new SpinnerNumberModel(1,1,99,1));
-		state2MouseClickScript = new SingleTileScriptComponent(dirtyFlag, zone);
-		state2MaskTextureMouseClickScript = new SingleTileScriptComponent(dirtyFlag, zone);
 
 		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		vec2.insertElementAt(EditorPanel.NONE, 0);
@@ -620,16 +606,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Solid?"), state1Solid,
 			new JLabel("Visible?"), state1Visible,
 			new JLabel("Height:"), state1Height,
-			new JLabel("Click Script:"), state1MouseClickScript,
-			new JLabel("Mask Script:"), state1MaskTextureMouseClickScript,
 			new JLabel("_____ State 2 _____:"), new JLabel(),
 			new JLabel("Texture:"), state2Texture,
 			new JLabel("Mask Texture:"), state2MaskTexture,
 			new JLabel("Solid?"), state2Solid,
 			new JLabel("Visible?"), state2Visible,
 			new JLabel("Height:"), state2Height,
-			new JLabel("Click Script:"), state2MouseClickScript,
-			new JLabel("Mask Script:"), state2MaskTextureMouseClickScript,
 		};
 
 		return dirtyGridBagCrap(comps);
@@ -1144,6 +1126,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			}
 		}
 
+		// todo: search portals, click scripts, etc
+
 		// iterate over our template string and take the first available one
 		return constructMazeVar(zone, existingMazeVars, ".toggle.wall.");
 	}
@@ -1251,16 +1235,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					state1Visible.isSelected(),
 					state1Solid.isSelected(),
 					(Integer)state1Height.getValue(),
-					state1MouseClickScript.getScript()==null?null:new MouseClickScriptAdapter(state1MouseClickScript.getScript()),
-					state1MaskTextureMouseClickScript.getScript()==null?null:new MouseClickScriptAdapter(state1MaskTextureMouseClickScript.getScript()),
 
 					EditorPanel.NONE==state2Texture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state2Texture.getSelectedItem()).getTexture(),
 					EditorPanel.NONE==state2MaskTexture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state2MaskTexture.getSelectedItem()).getTexture(),
 					state2Visible.isSelected(),
 					state2Solid.isSelected(),
-					(Integer)state2Height.getValue(),
-					state2MouseClickScript.getScript()==null?null:new MouseClickScriptAdapter(state2MouseClickScript.getScript()),
-					state2MaskTextureMouseClickScript.getScript()==null?null:new MouseClickScriptAdapter(state2MaskTextureMouseClickScript.getScript()));
+					(Integer)state2Height.getValue());
 
 				break;
 			case EXECUTE_MAZE_EVENTS:

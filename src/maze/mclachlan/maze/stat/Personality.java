@@ -90,7 +90,7 @@ public class Personality extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum BasicSpeech
+	public enum BasicSpeech
 	{
 		PERSONALITY_SELECTED("personality.selected"),
 		CHARACTER_RECRUITED("character.recruited"),
@@ -138,9 +138,10 @@ public class Personality extends DataObject
 		}
 	}
 
-	public static enum DefaultCampaignSpeech
+	public enum DefaultCampaignSpeech
 	{
 		GATEHOUSE_1("default.gatehouse.1"),
+		GATEHOUSE_DEACTIVATED_PORTAL("default.gatehouse.deactivated.portal"),
 		GATEHOUSE_WELCOME_SIGN("default.gatehouse.welcome.sign"),
 		GATEHOUSE_BLOCK_GOLEM("default.gatehouse.block.golem"),
 		GATEHOUSE_HIDDEN_STUFF_1("default.gatehouse.hidden.stuff.1"),

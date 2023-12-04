@@ -3,7 +3,6 @@ package mclachlan.maze.map.script;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.Map;
-import mclachlan.crusader.MouseClickScript;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.game.Maze;
@@ -32,8 +31,6 @@ public class ToggleWall extends TileScript
 	private final boolean state1Visible;
 	private final boolean state1Solid;
 	private final int state1Height;
-	private final MouseClickScript state1MouseClickScript;
-	private final MouseClickScript state1MaskTextureMouseClickScript;
 
 	// state 2 wall attributes
 	private final Texture state2Texture;
@@ -41,8 +38,6 @@ public class ToggleWall extends TileScript
 	private final boolean state2Visible;
 	private final boolean state2Solid;
 	private final int state2Height;
-	private final MouseClickScript state2MouseClickScript;
-	private final MouseClickScript state2MaskTextureMouseClickScript;
 
 	public ToggleWall(
 		String mazeVariable, int wallIndex, boolean horizontalWall,
@@ -51,15 +46,11 @@ public class ToggleWall extends TileScript
 		boolean state1Visible,
 		boolean state1Solid,
 		int state1Height,
-		MouseClickScript state1MouseClickScript,
-		MouseClickScript state1MaskTextureMouseClickScript,
 		Texture state2Texture,
 		Texture state2MaskTexture,
 		boolean state2Visible,
 		boolean state2Solid,
-		int state2Height,
-		MouseClickScript state2MouseClickScript,
-		MouseClickScript state2MaskTextureMouseClickScript)
+		int state2Height)
 	{
 		this.horizontalWall = horizontalWall;
 		this.wallIndex = wallIndex;
@@ -71,16 +62,12 @@ public class ToggleWall extends TileScript
 		this.state1Visible = state1Visible;
 		this.state1Solid = state1Solid;
 		this.state1Height = state1Height;
-		this.state1MouseClickScript = state1MouseClickScript;
-		this.state1MaskTextureMouseClickScript = state1MaskTextureMouseClickScript;
 
 		this.state2Texture = state2Texture;
 		this.state2MaskTexture = state2MaskTexture;
 		this.state2Visible = state2Visible;
 		this.state2Solid = state2Solid;
 		this.state2Height = state2Height;
-		this.state2MouseClickScript = state2MouseClickScript;
-		this.state2MaskTextureMouseClickScript = state2MaskTextureMouseClickScript;
 	}
 
 	@Override
@@ -136,33 +123,32 @@ public class ToggleWall extends TileScript
 
 	private void setWallAttributes(Maze maze)
 	{
-		Wall newWall = new Wall();//maze.getCurrentZone().getMap().getWall(horizontalWall, wallIndex);
+		Wall origWall = maze.getCurrentZone().getMap().getWall(wallIndex, horizontalWall);
+		Wall newWall = new Wall();
 
 		switch (State.valueOf(MazeVariables.get(this.mazeVariable)))
 		{
 			case STATE_1:
 				newWall.setTexture(state1Texture==null?Map.NO_WALL:state1Texture);
 				newWall.setMaskTexture(state1MaskTexture);
-				newWall.setMaskTextureMouseClickScript(state1MaskTextureMouseClickScript);
 				newWall.setSolid(state1Solid);
 				newWall.setVisible(state1Visible);
 				newWall.setHeight(state1Height);
-				newWall.setMouseClickScript(state1MouseClickScript);
-				newWall.setMaskTextureMouseClickScript(state1MaskTextureMouseClickScript);
 				break;
 			case STATE_2:
 				newWall.setTexture(state2Texture==null?Map.NO_WALL:state2Texture);
 				newWall.setMaskTexture(state2MaskTexture);
-				newWall.setMaskTextureMouseClickScript(state2MaskTextureMouseClickScript);
 				newWall.setSolid(state2Solid);
 				newWall.setVisible(state2Visible);
 				newWall.setHeight(state2Height);
-				newWall.setMouseClickScript(state2MouseClickScript);
-				newWall.setMaskTextureMouseClickScript(state2MaskTextureMouseClickScript);
 				break;
 			default:
 				throw new MazeException("invalid state "+MazeVariables.get(this.mazeVariable));
 		}
+
+		// copy any mouse click scripts
+		newWall.setMouseClickScript(origWall.getMouseClickScript());
+		newWall.setMaskTextureMouseClickScript(origWall.getMaskTextureMouseClickScript());
 
 		maze.getCurrentZone().getMap().setWall(wallIndex, horizontalWall, newWall);
 	}
@@ -209,16 +195,6 @@ public class ToggleWall extends TileScript
 		return state1Height;
 	}
 
-	public MouseClickScript getState1MouseClickScript()
-	{
-		return state1MouseClickScript;
-	}
-
-	public MouseClickScript getState1MaskTextureMouseClickScript()
-	{
-		return state1MaskTextureMouseClickScript;
-	}
-
 	public Texture getState2Texture()
 	{
 		return state2Texture;
@@ -244,13 +220,4 @@ public class ToggleWall extends TileScript
 		return state2Height;
 	}
 
-	public MouseClickScript getState2MouseClickScript()
-	{
-		return state2MouseClickScript;
-	}
-
-	public MouseClickScript getState2MaskTextureMouseClickScript()
-	{
-		return state2MaskTextureMouseClickScript;
-	}
 }

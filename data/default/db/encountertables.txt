@@ -188,7 +188,7 @@ name=castle.fangorn.random.enc.2
 foeEntries=0,ghosts.1:15,frozen.skeletons.1:15,bat.vampires.1:15,zombie.mantis.1:15,lost.souls.1:15,groaning.bones.small:5,napier's.bones.1:5,revenants.1:5,shades.1:5,haunts.small:5
 @
 name=coc.merc.team.ambush
-foeEntries=1,coc.merc.team.1:100
+foeEntries=0,coc.merc.team.1:100
 @
 name=guardian.trap
 foeEntries=0,tower.guardians.small:7,elemental.swarm.air.3:7,elementals.earth.3:7,elemental.swarm.fire.3:7,elemental.swarm.water.3:6,mephit.army.spell.5:6,call.wyrms.spell.5:6,yreguoth.2:6,fantasmagora.2:6,avenging.angel.1:6,terrifying.phantasm.1:6,necromanis.2:6,verdant.force.1:6,force.of.nature.1:6,inferno.dragon.1:6,boulder.dragon.1:6
@@ -200,7 +200,7 @@ name=gatehouse.level.1
 foeEntries=0,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
 @
 name=gatehouse.level.1.bats
-foeEntries=1,fruit.bats.small:100
+foeEntries=0,fruit.bats.small:100
 @
 name=isle.of.the.gate.random.enc
 foeEntries=0,vampire.vulture.1:34,haunts.small:33,foxfire.small:33
@@ -286,6 +286,9 @@ foeEntries=0,groaning.bones.small:17,patient.mantis.1:17,rabid.gnolls.small:17,n
 name=plain.of.pillars.random.enc
 foeEntries=0,resolution.engine.1:20,exposition.machine.1:20,napier's.bones.1:20,parched.vulture.1:20,saliopod.1:20
 @
+name=gatehouse.level.1.bats.or.spiders
+foeEntries=0,fruit.bats.medium:50,mud.spiders.medium:50
+@
 name=elemental.spell.3
 foeEntries=0,elementals.air.3:25,elementals.earth.3:25,elementals.fire.3:25,elementals.water.3:25
 @
@@ -317,7 +320,7 @@ name=ichiba.city.random.enc
 foeEntries=0,human.hirebrand.small:10,goblin.cutpurse.small:10,gnome.beggar.small:10,gnoll.thugs.small:10,spore.moth.small:10,harvestman.spiders.small:10,dun.draco.small.pack:10,leonal.knights:10,gnome.scouts.party:10,human.footpads.1:10
 @
 name=gatehouse.level.1.spider.1
-foeEntries=1,mud.spiders.1:100
+foeEntries=0,mud.spiders.1:100
 @
 name=stasis.machines.1
 foeEntries=0,stasis.machine.1:100
@@ -332,7 +335,7 @@ name=summon.vermin.spell.2
 foeEntries=0,mud.spiders.medium:50,mud.spiders.medium:50
 @
 name=gatehouse.level.1.spiders
-foeEntries=1,mud.spiders.small:100
+foeEntries=0,mud.spiders.small:100
 @
 name=summon.vermin.spell.1
 foeEntries=0,fruit.bats.small:50,mud.spiders.small:50
@@ -374,7 +377,7 @@ name=mephit.army.spell.4
 foeEntries=0,mephit.army.spell.4:100
 @
 name=gatehouse.level.1.bonebrood
-foeEntries=1,bonebrood.1:100
+foeEntries=0,bonebrood.1:100
 @
 name=mephit.army.spell.5
 foeEntries=0,mephit.army.spell.5:100
@@ -431,7 +434,7 @@ name=clockwork.beast.1
 foeEntries=0,clockwork.beast.1:100
 @
 name=gatehouse.angry.swarms
-foeEntries=1,angry.swarm.party:100
+foeEntries=0,angry.swarm.party:100
 @
 name=tsurayogoshi
 foeEntries=0,tsurayogoshi:100
@@ -455,7 +458,7 @@ name=temple.of.the.gate.ghost.of.igor
 foeEntries=0,temple.of.the.gate.ghost.of.igor:100
 @
 name=coloniser.omnifids.1
-foeEntries=1,colonizer.ominifids.1:100
+foeEntries=0,colonizer.ominifids.1:100
 @
 name=hades.harp.summon.1
 foeEntries=0,elementals.fire.1:50,fiero.1:50
