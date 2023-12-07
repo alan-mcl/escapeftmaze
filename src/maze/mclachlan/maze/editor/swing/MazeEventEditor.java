@@ -907,8 +907,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JPanel getMovePartyPanel()
 	{
 		movePartyFacing = new JComboBox(FACINGS);
-		movePartyX = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
-		movePartyY = new JSpinner(new SpinnerNumberModel(0, 0, 256, 1));
+		movePartyX = new JSpinner(new SpinnerNumberModel(0, -1, 256, 1));
+		movePartyY = new JSpinner(new SpinnerNumberModel(0, -1, 256, 1));
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,

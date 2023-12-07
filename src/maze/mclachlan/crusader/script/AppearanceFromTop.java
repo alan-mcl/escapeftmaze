@@ -1,5 +1,6 @@
 package mclachlan.crusader.script;
 
+import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
@@ -10,19 +11,29 @@ import mclachlan.crusader.ObjectScript;
  */
 public class AppearanceFromTop extends ObjectScript
 {
-	/** intended duration of the animation, in ms */
+	/**
+	 * intended duration of the animation, in ms
+	 */
 	private final int duration;
 
-	/** animation scripts for this object to run after appearance */
+	/**
+	 * animation scripts for this object to run after appearance
+	 */
 	private final List<ObjectScript> animationScripts;
 
-	/** starting and destination offsets */
+	/**
+	 * starting and destination offsets
+	 */
 	private int startTextureOffset, destTextureOffset;
 
-	/** coordinate change per ms */
+	/**
+	 * coordinate change per ms
+	 */
 	private double incZ;
 
-	/** nano time started */
+	/**
+	 * nano time started
+	 */
 	private long started = 0;
 	private CrusaderEngine engine;
 
@@ -55,7 +66,7 @@ public class AppearanceFromTop extends ObjectScript
 
 		this.destTextureOffset = 0;
 
-		incZ = 1D* (destTextureOffset - startTextureOffset) /duration;
+		incZ = 1D * (destTextureOffset - startTextureOffset) / duration;
 
 		object.setTextureOffset(startTextureOffset);
 	}
@@ -77,7 +88,7 @@ public class AppearanceFromTop extends ObjectScript
 
 		obj.setTextureOffset((int)posZ);
 
-		if ((timePassed/1000000) >= duration)
+		if ((timePassed / 1000000) >= duration)
 		{
 			// we're done
 
@@ -97,5 +108,14 @@ public class AppearanceFromTop extends ObjectScript
 				}
 			}
 		}
+	}
+
+	@Override
+	public Point getCurrentRenderTextureData(EngineObject obj,
+		int textureX, int textureY,
+		int imageWidth, int imageHeight)
+
+	{
+		return null;
 	}
 }

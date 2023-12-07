@@ -568,6 +568,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		return font;
 	}
 
+	@Override
+	public Font getSignboardFont()
+	{
+		return font;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void refreshCharacterData()
 	{
@@ -1377,6 +1383,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 							obj.addScript(script.spawnNewInstance(obj, raycaster));
 						}
 					}
+
+					// todo: remove
+//					obj.addScript(new SinusoidalStretch(1.5, .9, 1.1, true, true).spawnNewInstance(obj, raycaster));
 
 					this.raycaster.addObject(obj, false);
 				}

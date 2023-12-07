@@ -2903,7 +2903,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					int textureX = textureWidth * (castColumn - obj.startScreenX) / obj.projectedObjectWidth;
 					int textureY = textureHeight * (currentScreenY - startScreenY) / obj.projectedObjectHeight;
 
-					int imagePixel = obj.renderTexture.getCurrentImageData(textureX, textureY, timeNow);
+					int imagePixel = obj.getCurrentRenderTextureData(textureX, textureY, timeNow);
 
 					int pixel = colourPixel(imagePixel, obj.adjustedLightLevel, obj.shadeMult);
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);

@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.crusader.ObjectScript;
 import mclachlan.crusader.script.JagObjectVertically;
 import mclachlan.crusader.script.JagObjectWithinRadius;
+import mclachlan.crusader.script.SinusoidalStretch;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -38,6 +39,7 @@ public class V1CrusaderObjectScript
 	private static final int CUSTOM = 0;
 	private static final int JAG_VERTICALLY = 1;
 	private static final int JAG_WITHIN_RADIUS = 2;
+	private static final int SINUSOIDAL_STRETCH = 3;
 
 	static
 	{
@@ -45,6 +47,7 @@ public class V1CrusaderObjectScript
 
 		types.put(JagObjectVertically.class, JAG_VERTICALLY);
 		types.put(JagObjectWithinRadius.class, JAG_WITHIN_RADIUS);
+		types.put(SinusoidalStretch.class, SINUSOIDAL_STRETCH);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -88,6 +91,19 @@ public class V1CrusaderObjectScript
 				JagObjectWithinRadius jwr = (JagObjectWithinRadius)script;
 				s.append(jwr.getMaxRadius());
 				break;
+			case SINUSOIDAL_STRETCH:
+				SinusoidalStretch ss = (SinusoidalStretch)script;
+				s.append(ss.getMinStretch());
+				s.append(SEP);
+				s.append(ss.getMaxStretch());
+				s.append(SEP);
+				s.append(ss.getSpeed());
+				s.append(SEP);
+				s.append(ss.isVertical());
+				s.append(SEP);
+				s.append(ss.isHorizontal());
+				s.append(SEP);
+				break;
 			default: throw new MazeException("invalid type "+type);
 		}
 
@@ -125,9 +141,19 @@ public class V1CrusaderObjectScript
 				int minSpeed = Integer.parseInt(strs[3]);
 				int maxSpeed = Integer.parseInt(strs[4]);
 				return new JagObjectVertically(minOffset, maxOffset, minSpeed, maxSpeed);
+
 			case JAG_WITHIN_RADIUS:
 				int maxRadius = Integer.parseInt(strs[1]);
 				return new JagObjectWithinRadius(maxRadius);
+
+			case SINUSOIDAL_STRETCH:
+				double minStretch = Double.parseDouble(strs[1]);
+				double maxStretch = Double.parseDouble(strs[2]);
+				double speed = Double.parseDouble(strs[3]);
+				boolean vertical = Boolean.valueOf(strs[4]);
+				boolean horiz = Boolean.valueOf(strs[5]);
+				return new SinusoidalStretch(speed, minStretch, maxStretch, vertical, horiz);
+
 			default: throw new MazeException("invalid type "+type);
 		}
 	}

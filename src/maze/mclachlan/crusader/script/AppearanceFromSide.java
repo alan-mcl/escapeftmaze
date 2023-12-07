@@ -1,5 +1,6 @@
 package mclachlan.crusader.script;
 
+import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
@@ -175,5 +176,14 @@ public class AppearanceFromSide extends ObjectScript
 				}
 			}
 		}
+	}
+
+	@Override
+	public Point getCurrentRenderTextureData(EngineObject obj,
+		int textureX, int textureY,
+		int imageWidth, int imageHeight)
+
+	{
+		return null;
 	}
 }

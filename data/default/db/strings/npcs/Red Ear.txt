@@ -1,4 +1,4 @@
-#Fri Dec 01 16:26:56 SAST 2023
+#Thu Dec 07 14:02:40 SAST 2023
 c.o.c,chamber\ of\ commerce,coc=9|Bahhhhr. Grrrrr. Laws and soldiers and papers\! Red Ear is an honest trader\! Why must he be harassed and robbed by these? Brrrrrhrmm\!
 garret=9|Red Ear does not know.
 leonal,leonals,white\ order=9|Grrr, sneering lion-folk. Always all swords, shiny armour. Too good to talk to red Ear. Their place northwards, Danaos big white castle.

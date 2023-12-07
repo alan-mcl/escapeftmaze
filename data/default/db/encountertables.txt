@@ -334,6 +334,9 @@ foeEntries=0,bel.ies.encounter:100
 name=summon.vermin.spell.2
 foeEntries=0,mud.spiders.medium:50,mud.spiders.medium:50
 @
+name=gatehouse.level.1.cruds
+foeEntries=0,spotted.cruds.small:100
+@
 name=gatehouse.level.1.spiders
 foeEntries=0,mud.spiders.small:100
 @

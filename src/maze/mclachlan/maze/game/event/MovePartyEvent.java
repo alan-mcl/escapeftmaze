@@ -28,8 +28,8 @@ import java.awt.*;
  */
 public class MovePartyEvent extends MazeEvent
 {
-	private Point pos;
-	private int facing;
+	private final Point pos;
+	private final int facing;
 
 	/*-------------------------------------------------------------------------*/
 	public MovePartyEvent(Point pos, int facing)
@@ -41,7 +41,14 @@ public class MovePartyEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public java.util.List<MazeEvent> resolve()
 	{
-		Maze.getInstance().setPlayerPos(pos, facing);
+		if (pos.x > -1 && pos.y > -1)
+		{
+			Maze.getInstance().setPlayerPos(pos, facing);
+		}
+		else
+		{
+			Maze.getInstance().setPlayerPos(Maze.getInstance().getPlayerPos(), facing);
+		}
 		return null;
 	}
 

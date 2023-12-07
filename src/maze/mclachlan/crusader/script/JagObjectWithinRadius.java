@@ -1,5 +1,6 @@
 package mclachlan.crusader.script;
 
+import java.awt.Point;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
@@ -26,7 +27,9 @@ public class JagObjectWithinRadius extends ObjectScript
 	// time it should take to get to the next destination, in ms
 	private int currentDuration;
 
-	/** nano time started */
+	/**
+	 * nano time started
+	 */
 	private long started = 0;
 
 	/*-------------------------------------------------------------------------*/
@@ -38,7 +41,8 @@ public class JagObjectWithinRadius extends ObjectScript
 	/*-------------------------------------------------------------------------*/
 
 	@Override
-	public ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine)
+	public ObjectScript spawnNewInstance(EngineObject object,
+		CrusaderEngine engine)
 	{
 		JagObjectWithinRadius result = new JagObjectWithinRadius(maxRadius);
 
@@ -65,12 +69,12 @@ public class JagObjectWithinRadius extends ObjectScript
 		this.startY = startY;
 
 		// randomise the next destination
-		currentDuration = (int)(Math.random()*1000 + 500); // 500-1500 ms
-		destX = this.originX + (int)(Math.random()* maxRadius *2 - maxRadius);
-		destY = this.originY + (int)(Math.random()* maxRadius *2 - maxRadius);
+		currentDuration = (int)(Math.random() * 1000 + 500); // 500-1500 ms
+		destX = this.originX + (int)(Math.random() * maxRadius * 2 - maxRadius);
+		destY = this.originY + (int)(Math.random() * maxRadius * 2 - maxRadius);
 
-		incX = 1D*(destX - startX)/currentDuration;
-		incY = 1D*(destY - startY)/currentDuration;
+		incX = 1D * (destX - startX) / currentDuration;
+		incY = 1D * (destY - startY) / currentDuration;
 
 		started = 0;
 	}
@@ -95,7 +99,7 @@ public class JagObjectWithinRadius extends ObjectScript
 		obj.setXPos((int)posX);
 		obj.setYPos((int)posY);
 
-		if ((timePassed/1000000) >= currentDuration)
+		if ((timePassed / 1000000) >= currentDuration)
 		{
 			// we're done
 
@@ -111,6 +115,15 @@ public class JagObjectWithinRadius extends ObjectScript
 
 			nextRandomDestination(destX, destY);
 		}
+	}
+
+	@Override
+	public Point getCurrentRenderTextureData(EngineObject obj,
+		int textureX, int textureY,
+		int imageWidth, int imageHeight)
+
+	{
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

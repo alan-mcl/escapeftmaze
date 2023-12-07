@@ -24,6 +24,11 @@ name=sound - marching
 name=Ichiba Crossroad test load
 0=1,Ichiba Crossroad,19,12,4
 @
+name=Gatehouse encounter 1 cruds
+0=4,-1,false,With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!
+1=11,-1,-1,1
+2=3,gatehouse.level.1.cruds,gatehouse.encounter.cruds.intro,,FOES_MAY_AMBUSH_PARTY
+@
 name=sound - ninjastab
 0=138,63985__iwilldstroyu__quickstab1
 @

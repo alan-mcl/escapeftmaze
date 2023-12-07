@@ -144,6 +144,7 @@ public class FoeTemplate extends DataObject
 		MazeTexture castSpellTexture,
 		MazeTexture specialAbilityTexture,
 		EngineObject.Alignment verticalAlignment,
+		Color textureTint,
 		LootTable loot,
 		int evasionBehaviour,
 		boolean cannotBeEvaded,
@@ -185,6 +186,7 @@ public class FoeTemplate extends DataObject
 		this.castSpellTexture = castSpellTexture;
 		this.specialAbilityTexture = specialAbilityTexture;
 		this.verticalAlignment = verticalAlignment;
+		this.textureTint = textureTint;
 		this.loot = loot;
 		this.evasionBehaviour = evasionBehaviour;
 		this.cannotBeEvaded = cannotBeEvaded;

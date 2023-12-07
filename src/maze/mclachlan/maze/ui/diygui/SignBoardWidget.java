@@ -33,7 +33,7 @@ public class SignBoardWidget extends DIYPanel
 	private String[] text;
 	private int[] textY;
 	private int[] textX;
-	private Rectangle bounds;
+	private final Rectangle bounds;
 	private Font font;
 
 	/*-------------------------------------------------------------------------*/
@@ -51,7 +51,7 @@ public class SignBoardWidget extends DIYPanel
 		textX = new int[this.text.length];
 		textY = new int[this.text.length];
 
-		font = Maze.getInstance().getUi().getDefaultFont().deriveFont(Font.BOLD, 20.0F);
+		font = Maze.getInstance().getUi().getSignboardFont().deriveFont(Font.BOLD, 20.0F);
 		FontMetrics fm = Maze.getInstance().getComponent().getFontMetrics(font);
 		int lineHeight = fm.getHeight();
 

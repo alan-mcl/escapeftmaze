@@ -2536,7 +2536,7 @@ playerOrigin: 11:13
 970: CITY_WALL_1:::::true:1
 971: CITY_WALL_1:::::true:1
 973: CITY_WALL_1:::::true:1
-984: CITY_WALL_1:RUNES_3::::true:1
+984: CITY_WALL_1:RUNES_1::::true:1
 991: CITY_WALL_1:::::true:1
 992: CITY_WALL_1:::::true:1
 993: CITY_WALL_1:::::true:1
@@ -3056,7 +3056,7 @@ playerOrigin: 11:13
 970: CITY_WALL_1:::::true:1
 971: CITY_WALL_1:::::true:1
 981: CITY_WALL_1:RUNES_1::::true:1
-982: CITY_WALL_1:RUNES_2::::true:1
+982: CITY_WALL_1:RUNES_1::::true:1
 988: CITY_WALL_1:::::true:1
 989: CITY_WALL_1:::::true:1
 990: CITY_WALL_1:::::true:1

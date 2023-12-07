@@ -841,6 +841,7 @@ public class MockCombat
 			null,
 			EngineObject.Alignment.BOTTOM,
 			null,
+			null,
 			Foe.EvasionBehaviour.NEVER_EVADE,
 			true,
 			0,

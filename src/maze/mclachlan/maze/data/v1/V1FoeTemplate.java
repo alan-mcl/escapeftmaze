@@ -443,6 +443,7 @@ public class V1FoeTemplate
 				castSpellTexture,
 				specialAbilityTexture,
 				verticalAlignment,
+				textureTint,
 				loot,
 				evasionBehaviour,
 				cannotBeEvaded,

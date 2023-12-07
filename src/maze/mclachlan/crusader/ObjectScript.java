@@ -19,6 +19,8 @@
 
 package mclachlan.crusader;
 
+import java.awt.Point;
+
 /**
  * Base class for scripts that dynamically alter state of an EngineObject.
  */
@@ -26,7 +28,8 @@ public abstract class ObjectScript
 {
 	/**
 	 * Create a new instance of this script related to the given object.
-	 */	public abstract ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine);
+	 */
+	public abstract ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine);
 
 	/**
 	 * Initialise this to operate on the given EngineObject
@@ -34,4 +37,8 @@ public abstract class ObjectScript
 	public abstract void init(EngineObject obj, CrusaderEngine engine);
 
 	public abstract void execute(long framecount, EngineObject obj);
+
+	public abstract Point getCurrentRenderTextureData(EngineObject obj,
+		int textureX, int textureY,
+		int imageWidth, int imageHeight);
 }

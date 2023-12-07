@@ -108,6 +108,12 @@ public class HeadlessUi implements UserInterface
 		return null;
 	}
 
+	@Override
+	public Font getSignboardFont()
+	{
+		return null;
+	}
+
 	public void refreshCharacterData()
 	{
 		

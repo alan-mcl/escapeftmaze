@@ -2301,7 +2301,7 @@ playerOrigin: 3:15
 664: DUNGEON_WALL_1:::::true:1
 671: DUNGEON_WALL_1:::::true:1
 672: DUNGEON_WALL_1:::::true:1
-688: DUNGEON_WALL_1:RUNES_3::::true:1
+688: DUNGEON_WALL_1:RUNES_1::::true:1
 692: DUNGEON_WALL_1:::::true:1
 694: DUNGEON_WALL_1:::::true:1
 695: DUNGEON_WALL_1:::::true:1

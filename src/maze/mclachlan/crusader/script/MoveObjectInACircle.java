@@ -1,5 +1,6 @@
 package mclachlan.crusader.script;
 
+import java.awt.Point;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
@@ -50,5 +51,14 @@ public class MoveObjectInACircle extends ObjectScript
 
 		obj.setXPos(xPos);
 		obj.setYPos(yPos);
+	}
+
+	@Override
+	public Point getCurrentRenderTextureData(EngineObject obj,
+		int textureX, int textureY,
+		int imageWidth, int imageHeight)
+
+	{
+		return null;
 	}
 }

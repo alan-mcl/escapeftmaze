@@ -20,6 +20,7 @@
 package mclachlan.crusader;
 
 import java.awt.Color;
+import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.util.MazeException;
 
@@ -398,6 +399,31 @@ public class EngineObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public int getCurrentRenderTextureData(int textureX, int textureY, long timeNow)
+	{
+		int resultX = textureX;
+		int resultY = textureY;
+
+		if (scripts != null)
+		{
+			synchronized (scriptMutex)
+			{
+				for (ObjectScript script : scripts)
+				{
+					Point p = script.getCurrentRenderTextureData(this, resultX, resultY, renderTexture.imageWidth, renderTexture.imageHeight);
+					if (p != null)
+					{
+						resultX = p.x;
+						resultY = p.y;
+					}
+				}
+			}
+		}
+
+		return renderTexture.getCurrentImageData(resultX, resultY, timeNow);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void applyTint(Color tint)
 	{
 		for (Texture t : this.textures)
@@ -593,9 +619,9 @@ public class EngineObject
 	/*-------------------------------------------------------------------------*/
 	void executeScripts(long frameCount)
 	{
-		synchronized(scriptMutex)
+		if (scripts != null)
 		{
-			if (scripts != null)
+			synchronized (scriptMutex)
 			{
 				for (ObjectScript script : scripts)
 				{

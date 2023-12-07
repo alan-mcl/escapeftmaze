@@ -1,5 +1,6 @@
 package mclachlan.crusader.script;
 
+import java.awt.Point;
 import java.util.concurrent.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
@@ -10,27 +11,38 @@ import mclachlan.crusader.ObjectScript;
  */
 public class JagObjectVertically extends ObjectScript
 {
-	/** min and max offsets, in units of tile_size */
+	/**
+	 * min and max offsets, in units of tile_size
+	 */
 	private final int minOffset, maxOffset;
 
-	/** min and max speed of movement, in units of rows per second */
+	/**
+	 * min and max speed of movement, in units of rows per second
+	 */
 	private final int minSpeed, maxSpeed;
 
 	// volatile
 
-	/** the next offset value at which to reset destination and speed */
+	/**
+	 * the next offset value at which to reset destination and speed
+	 */
 	private int nextDest;
 
-	/** current speed */
+	/**
+	 * current speed
+	 */
 	private double currentSpeed;
 
-	/** nano time last updated */
+	/**
+	 * nano time last updated
+	 */
 	private long lastUpdated;
 
 	private int direction;
 
 	/*-------------------------------------------------------------------------*/
-	public JagObjectVertically(int minOffset, int maxOffset, int minSpeed, int maxSpeed)
+	public JagObjectVertically(int minOffset, int maxOffset, int minSpeed,
+		int maxSpeed)
 	{
 		this.minOffset = minOffset;
 		this.maxOffset = maxOffset;
@@ -39,7 +51,8 @@ public class JagObjectVertically extends ObjectScript
 	}
 
 	@Override
-	public ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine)
+	public ObjectScript spawnNewInstance(EngineObject object,
+		CrusaderEngine engine)
 	{
 		JagObjectVertically result = new JagObjectVertically(minOffset, maxOffset, minSpeed, maxSpeed);
 
@@ -98,6 +111,14 @@ public class JagObjectVertically extends ObjectScript
 		}
 	}
 
+	@Override
+	public Point getCurrentRenderTextureData(EngineObject obj,
+		int textureX, int textureY,
+		int imageWidth, int imageHeight)
+
+	{
+		return null;
+	}
 	/*-------------------------------------------------------------------------*/
 
 	public int getMinOffset()

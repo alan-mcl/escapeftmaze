@@ -702,7 +702,7 @@ playerOrigin: 14:30
 683: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 684: 0:3f800000000000000000,02010102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 685: 0:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-686: 0:3f800000000000000000,01020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+686: 1:8,,001,true,GATEHOUSE:3f800000000000000000,01020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 687: 0:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 688: 0:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 689: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -710,7 +710,7 @@ playerOrigin: 14:30
 691: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 692: 0:3f800000000000000000,01020102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 693: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-694: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.0,,:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+694: 1:7,gatehouse.execute.once.11,,false,Gatehouse encounter 1 cruds:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 695: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 696: 0:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 697: 1:2,,,false,5///false/gatehouse.minor.loot.2,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,gatehouse.chest.5,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -765,7 +765,7 @@ playerOrigin: 14:30
 746: 0:3f800000000000000000,02020102020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 747: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 748: 0:3f800000000000000000,01010102010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-749: 1:7,gatehouse.execute.once.10,00001,true,Gatehouse deactivated portal:3f800000000000000000,01010202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+749: 1:7,,00001,true,Gatehouse deactivated portal:3f800000000000000000,01010202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 750: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 751: 0:3f800000000000000000,02010201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 752: 0:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -797,10 +797,10 @@ playerOrigin: 14:30
 778: 0:3f800000000000000000,01010202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 779: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.9,,:3f800000000000000000,02010101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 780: 0:3f800000000000000000,02020102010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-781: 1:7,gatehouse.execute.once.10,00001,true,Gatehouse deactivated portal:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+781: 1:7,,00001,true,Gatehouse deactivated portal:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 782: 0:3f800000000000000000,01010201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-783: 2:4,,,false,On the far wall of this large room you see what looks like two deactivated inter-domain portals. %n%nBefore you can move over to get a close look, something else draws your urgent attention...:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.16,,:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-784: 0:3f800000000000000000,01010202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+783: 2:4,gatehouse.execute.once.10,,false,On the far wall of this large room you see what looks like two deactivated inter-domain portals. %n%nBefore you can move over to get a close look, something else draws your urgent attention...:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.16,,:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+784: 1:8,,001,true,GATEHOUSE:3f800000000000000000,01010202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 785: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 786: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 787: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -2741,6 +2741,8 @@ playerOrigin: 14:30
 36: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:750:true::00001::TOP
 37: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:656:true::00001::TOP
 38: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:660:false::00001::TOP
+39: objects.hanging.sign.front:objects.hanging.sign.front:objects.hanging.sign.side:objects.hanging.sign.side:784:false::00000001::TOP
+40: objects.hanging.sign.front:objects.hanging.sign.front:objects.hanging.sign.side:objects.hanging.sign.side:686:false::00000001::TOP
 
 -scripts-
 0: 2,8,32,40,757/660

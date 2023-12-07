@@ -97,7 +97,9 @@ public class FoeTemplatePanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	private Component getArtAndScriptsPanel()
 	{
-		JPanel result = new JPanel(new GridBagLayout());
+		JPanel result = new JPanel(new BorderLayout());
+
+		JPanel leftPanel = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.insets = new Insets(3,3,3,3);
 		gbc.gridx = 0;
@@ -113,51 +115,55 @@ public class FoeTemplatePanel extends EditorPanel
 		quickAssignAllTextures = new JButton("Base Texture:");
 		quickAssignAllTextures.addActionListener(this);
 		quickAssignAllTextures.setToolTipText("Quick assign all textures");
-		dodgyGridBagShite(result, quickAssignAllTextures, baseTexture, gbc);
+		dodgyGridBagShite(leftPanel, quickAssignAllTextures, baseTexture, gbc);
 
 		meleeTexture = new JComboBox();
 		meleeTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Melee Texture:"), meleeTexture, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Melee Texture:"), meleeTexture, gbc);
 
 		rangedTexture = new JComboBox();
 		rangedTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Ranged Texture:"), rangedTexture, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Ranged Texture:"), rangedTexture, gbc);
 
 		castSpellTexture = new JComboBox();
 		castSpellTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Cast Spell Texture:"), castSpellTexture, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Cast Spell Texture:"), castSpellTexture, gbc);
 
 		specialAbilityTexture = new JComboBox();
 		specialAbilityTexture.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Special Ability Texture:"), specialAbilityTexture, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Special Ability Texture:"), specialAbilityTexture, gbc);
 
 		textureTint = new JButton("...");
 		textureTint.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Texture Tint:"), textureTint, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Texture Tint:"), textureTint, gbc);
 
 		verticalAlignment = new JComboBox();
 		verticalAlignment.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Vertical Alignment:"), verticalAlignment, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Vertical Alignment:"), verticalAlignment, gbc);
 
 		appearanceScript = new JComboBox();
 		appearanceScript.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Appearance Script:"), appearanceScript, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Appearance Script:"), appearanceScript, gbc);
 
 		appearanceDirection = new JComboBox();
 		appearanceDirection.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Appearance Direction:"), appearanceDirection, gbc);
+		dodgyGridBagShite(leftPanel, new JLabel("Appearance Direction:"), appearanceDirection, gbc);
 
 		deathScript = new JComboBox();
 		deathScript.addActionListener(this);
-		dodgyGridBagShite(result, new JLabel("Death Script:"), deathScript, gbc);
-
-		animationScripts = new ObjectScriptListPanel(dirtyFlag);
+		dodgyGridBagShite(leftPanel, new JLabel("Death Script:"), deathScript, gbc);
 
 		gbc.weightx = 0.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		result.add(animationScripts, gbc);
+		leftPanel.add(new JLabel(), gbc);
+
+
+		animationScripts = new ObjectScriptListPanel(dirtyFlag);
+
+		result.add(leftPanel, BorderLayout.CENTER);
+		result.add(animationScripts, BorderLayout.EAST);
 
 		return result;
 	}
@@ -584,6 +590,7 @@ public class FoeTemplatePanel extends EditorPanel
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
 			Database.getInstance().getMazeTexture((String)baseTexture.getItemAt(0)),
 			EngineObject.Alignment.BOTTOM,
+			null,
 			Database.getInstance().getLootTable((String)lootTable.getDefault()),
 			Foe.EvasionBehaviour.NEVER_EVADE,
 			false,
@@ -657,6 +664,7 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getCastSpellTexture(),
 			current.getSpecialAbilityTexture(),
 			current.getVerticalAlignment(),
+			current.getTextureTint(),
 			current.getLoot(),
 			current.getEvasionBehaviour(),
 			current.cannotBeEvaded(),
@@ -743,7 +751,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setCastSpellTexture(Database.getInstance().getMazeTexture((String)castSpellTexture.getSelectedItem()));
 		ft.setSpecialAbilityTexture(Database.getInstance().getMazeTexture((String)specialAbilityTexture.getSelectedItem()));
 
-		if (textureTint.getBackground() instanceof Color)
+		if (textureTint.isBackgroundSet())
 		{
 			ft.setTextureTint(textureTint.getBackground());
 		}

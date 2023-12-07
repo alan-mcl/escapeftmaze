@@ -2146,7 +2146,7 @@ playerOrigin: 28:25
 101: DIRT_WALL_1:::::true:1
 108: DIRT_WALL_1:::::true:1
 114: DIRT_WALL_1:::::true:1
-115: DIRT_WALL_1:RUNES_2::::true:1
+115: DIRT_WALL_1:RUNES_1::::true:1
 127: DIRT_WALL_1:::::true:1
 128: DIRT_WALL_1:::::true:1
 134: DIRT_WALL_1:::::true:1
