@@ -61,8 +61,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private static final int WATER = 11;
 	private static final int LEVER = 12;
 	private static final int TOGGLE_WALL = 13;
+	private static final int PERSONALITY_SPEECH = 14;
 
-	private static final int MAX = 14;
+	private static final int MAX = 15;
 
 	static Map<Class<?>, Integer> types;
 
@@ -75,6 +76,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		types.put(Lever.class, LEVER);
 		types.put(Encounter.class, ENCOUNTER);
 		types.put(FlavourText.class, FLAVOUR_TEXT);
+		types.put(PersonalitySpeech.class, PERSONALITY_SPEECH);
 		types.put(Loot.class, LOOT);
 		types.put(RemoveWall.class, REMOVE_WALL);
 		types.put(ToggleWall.class, TOGGLE_WALL);
@@ -150,6 +152,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox hiddenStuffContents;
 	private JComboBox hiddenStuffPreScript;
 	private JSpinner hiddenStuffSpotDifficulty, hiddenStuffFindDifficulty;
+
+	private JTextField psSpeechKey;
+	private JCheckBox psModal;
 
 	/*-------------------------------------------------------------------------*/
 	public TileScriptEditor(Frame owner, TileScript tileScript, int dirtyFlag, Zone zone)
@@ -370,6 +375,11 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				flavourText.setText(ft.getText());
 				flavourText.setCaretPosition(0);
 				break;
+			case PERSONALITY_SPEECH:
+				PersonalitySpeech ps = (PersonalitySpeech)ts;
+				psSpeechKey.setText(ps.getSpeechKey());
+				psModal.setSelected(ps.isModal());
+				break;
 			case LOOT:
 				Loot l = (Loot)ts;
 				lootTable.setSelectedItem(l.getLootTable());
@@ -438,6 +448,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case LEVER: return getLeverPanel();
 			case ENCOUNTER: return getEncounterPanel();
 			case FLAVOUR_TEXT: return getFlavourTextPanel();
+			case PERSONALITY_SPEECH: return getPersonalitySpeechPanel();
 			case LOOT: return getLootPanel();
 			case REMOVE_WALL: return getRemoveWallPanel();
 			case TOGGLE_WALL: return getToggleWallPanel();
@@ -626,6 +637,16 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		return dirtyGridBagCrap(
 			new JLabel("Loot Table:"), lootTable,
 			new JLabel(), getLootTableEditButton());
+	}
+
+	private JPanel getPersonalitySpeechPanel()
+	{
+		psSpeechKey = new JTextField(30);
+		psModal = new JCheckBox("Modal?");
+
+		return dirtyGridBagCrap(
+			new JLabel("Speech Key:"), psSpeechKey,
+			psModal, new JLabel());
 	}
 
 	private JPanel getFlavourTextPanel()
@@ -852,6 +873,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case LEVER: return "Lever";
 			case ENCOUNTER: return "Encounter";
 			case FLAVOUR_TEXT: return "Flavour Text";
+			case PERSONALITY_SPEECH: return "Personality Speech";
 			case LOOT: return "Loot";
 			case REMOVE_WALL: return "Remove Wall";
 			case TOGGLE_WALL: return "Toggle Wall";
@@ -1216,6 +1238,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText());
+				break;
+			case PERSONALITY_SPEECH:
+				result = new PersonalitySpeech(psSpeechKey.getText(), psModal.isSelected());
 				break;
 			case LOOT:
 				result = new Loot((String)lootTable.getSelectedItem());

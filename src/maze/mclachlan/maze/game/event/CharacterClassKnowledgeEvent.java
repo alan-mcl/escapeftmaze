@@ -41,7 +41,7 @@ public class CharacterClassKnowledgeEvent extends MazeEvent
 	 */
 	public CharacterClassKnowledgeEvent(String text, String... classes)
 	{
-		this.knowledgeText = new HashMap<String, String>();
+		this.knowledgeText = new HashMap<>();
 		for (String c : classes)
 		{
 			knowledgeText.put(c, text);
@@ -58,7 +58,7 @@ public class CharacterClassKnowledgeEvent extends MazeEvent
 	 */
 	public CharacterClassKnowledgeEvent(List<String> classes, String text)
 	{
-		this.knowledgeText = new HashMap<String, String>();
+		this.knowledgeText = new HashMap<>();
 		for (String c : classes)
 		{
 			knowledgeText.put(c, text);

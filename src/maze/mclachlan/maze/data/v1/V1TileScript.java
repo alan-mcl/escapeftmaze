@@ -54,6 +54,7 @@ public class V1TileScript
 	private static final int WATER = 11;
 	private static final int LEVER = 12;
 	private static final int TOGGLE_WALL = 13;
+	private static final int PERSONALITY_SPEECH = 14;
 
 	static V1PercentageTable<Trap> traps = new V1PercentageTable<Trap>()
 	{
@@ -70,12 +71,13 @@ public class V1TileScript
 
 	static
 	{
-		types = new HashMap<Class, Integer>();
+		types = new HashMap<>();
 
 		types.put(CastSpell.class, CAST_SPELL);
 		types.put(Chest.class, CHEST);
 		types.put(Encounter.class, ENCOUNTER);
 		types.put(FlavourText.class, FLAVOUR_TEXT);
+		types.put(PersonalitySpeech.class, PERSONALITY_SPEECH);
 		types.put(Loot.class, LOOT);
 		types.put(RemoveWall.class, REMOVE_WALL);
 		types.put(ExecuteMazeScript.class, EXECUTE_MAZE_SCRIPT);
@@ -184,6 +186,12 @@ public class V1TileScript
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)t;
 				s.append(V1Utils.escapeNewlines(ft.getText()));
+				break;
+			case PERSONALITY_SPEECH:
+				PersonalitySpeech ps = (PersonalitySpeech)t;
+				s.append(ps.getSpeechKey());
+				s.append(sep);
+				s.append(ps.isModal());
 				break;
 			case LOOT:
 				Loot l = (Loot)t;
@@ -389,6 +397,9 @@ public class V1TileScript
 				}
 				String text = V1Utils.replaceNewlines(sb.substring(0, sb.length()-1));
 				result = new FlavourText(text);
+				break;
+			case PERSONALITY_SPEECH:
+				result = new PersonalitySpeech(strs[i++], Boolean.valueOf(strs[i++]));
 				break;
 			case LOOT:
 				result = new Loot(strs[i++]);

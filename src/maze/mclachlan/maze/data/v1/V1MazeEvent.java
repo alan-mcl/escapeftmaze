@@ -57,7 +57,7 @@ public class V1MazeEvent
 	public static final int _BlockingScreen = 15;
 	public static final int _EndGame = 16;
 	public static final int _SetMazeVariableEvent = 17;
-	public static final int _SpeechBubbleEvent = 18;
+	public static final int _PersonalitySpeechEvent = 18;
 	public static final int _StoryboardEvent = 19;
 	public static final int _SetUserConfigEvent = 20;
 	public static final int _TogglePortalStateEvent = 21;
@@ -166,7 +166,7 @@ public class V1MazeEvent
 		types.put(DelayEvent.class, _DelayEvent);
 		types.put(MovePartyEvent.class, _MovePartyEvent);
 		types.put(CharacterClassKnowledgeEvent.class, _CharacterClassKnowledgeEvent);
-		types.put(PersonalitySpeechBubbleEvent.class, _SpeechBubbleEvent);
+		types.put(PersonalitySpeechBubbleEvent.class, _PersonalitySpeechEvent);
 		types.put(StoryboardEvent.class, _StoryboardEvent);
 		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
 		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
@@ -332,7 +332,7 @@ public class V1MazeEvent
 				}
 
 				break;
-			case _SpeechBubbleEvent:
+			case _PersonalitySpeechEvent:
 				PersonalitySpeechBubbleEvent spbe = (PersonalitySpeechBubbleEvent)e;
 				s.append(spbe.getSpeechKey());
 				s.append(SEP);
@@ -571,7 +571,7 @@ public class V1MazeEvent
 					}
 				}
 				return new CharacterClassKnowledgeEvent(knowledgeText);
-			case _SpeechBubbleEvent:
+			case _PersonalitySpeechEvent:
 				return new PersonalitySpeechBubbleEvent(strs[1], Boolean.valueOf(strs[2]));
 			case _StoryboardEvent:
 				return new StoryboardEvent(strs[1], strs[2], StoryboardEvent.TextPlacement.valueOf(strs[3]));

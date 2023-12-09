@@ -273,7 +273,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					textArea.setText(map.get(characterClass));
 				}
 				break;
-			case _SpeechBubbleEvent:
+			case _PersonalitySpeechEvent:
 				PersonalitySpeechBubbleEvent spbe = (PersonalitySpeechBubbleEvent)e;
 				speechKey.setText(spbe.getSpeechKey());
 				modalSpeech.setSelected(spbe.isModal());
@@ -497,7 +497,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					movePartyFacing.getSelectedIndex());
 				break;
 			case _CharacterClassKnowledgeEvent:
-				Map<String, String> kMap = new HashMap<String, String>();
+				Map<String, String> kMap = new HashMap<>();
 				for (String c : cckClassesMap.keySet())
 				{
 					String value = cckClassesMap.get(c).getText();
@@ -508,7 +508,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				}
 				this.result = new CharacterClassKnowledgeEvent(kMap);
 				break;
-			case _SpeechBubbleEvent:
+			case _PersonalitySpeechEvent:
 				this.result = new PersonalitySpeechBubbleEvent(speechKey.getText(), modalSpeech.isSelected());
 				break;
 			case _StoryboardEvent:
@@ -656,7 +656,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getMovePartyPanel();
 			case _CharacterClassKnowledgeEvent:
 				return getCharacterClassKnowledgePanel();
-			case _SpeechBubbleEvent:
+			case _PersonalitySpeechEvent:
 				return getSpeechBubbleEventPanel();
 			case _StoryboardEvent:
 				return getStoryboardEventPanel();
@@ -1239,11 +1239,11 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _DelayEvent:
 				return "Delay";
 			case _MovePartyEvent:
-				return "Move Party";
+				return "Move/Rotate Party";
 			case _CharacterClassKnowledgeEvent:
 				return "Character Class Knowledge";
-			case _SpeechBubbleEvent:
-				return "Speech Bubble";
+			case _PersonalitySpeechEvent:
+				return "Personality Speech";
 			case _StoryboardEvent:
 				return "Story Board Screen";
 			case _SetUserConfigEvent:
