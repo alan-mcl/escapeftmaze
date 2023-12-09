@@ -1040,7 +1040,7 @@ playerOrigin: 36:21
 1021: 0:3f800000000000000000,02010303020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1022: 0:3f800000000000000000,01020101010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1023: 0:3f800000000000000000,03010103030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1024: 1:7,,,false,Ichiba City Temple of Dana sign:3f800000000000000000,03010302010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1024: 1:7,,,false,Ichiba City Temple of The Lady sign:3f800000000000000000,03010302010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1025: 1:4,ichiba.city.execute.once.4,,false,The temple is clean and quiet, although somewhat spartan in design, to the point of lacking pews altogether. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you.:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1026: 0:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1027: 0:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE

@@ -1,6 +1,6 @@
 #Thu Dec 07 14:02:40 SAST 2023
 garret=9|I am but a blacksmith.
-leonal,leonals,white\ order=9|The White Order keeps these lands safe. By the grace of Dana and the strength of our arms, we keep the chaos and darkness at bay.
+leonal,leonals,white\ order=9|The White Order keeps these lands safe. By the grace of The Lady and the strength of our arms, we keep the chaos and darkness at bay.
 maze=9|I am but a humble blacksmith.
 sarpedon=9|I know him not.
 agenor=9|He is in the castle.
@@ -40,7 +40,7 @@ third\ realm=9|I am but a humble blacksmith.
 asius=9|I know him not.
 lorelei=9|Lorelei? That was the name of druidess who was causing trouble, some time ago. She was banished, and I don't know where she went. Back into the forest, probably.
 first\ realm=9|You must have many tales to tell...
-dana=9|Praise be on the white lady.
+lady=9|Praise be on the white lady.
 three\ eyes=9|I know him not.
 hail=9|I have heard that the city was once great.
 stentor=9|That is my name.

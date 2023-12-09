@@ -704,9 +704,9 @@ name=Ichiba City COC tear off paper slip
 0=4,-1,true, You tear off one of the small paper slips...
 1=9,ichiba.city.coc.paper.slip
 @
-name=Ichiba City Temple of Dana sign
+name=Ichiba City Temple of The Lady sign
 0=4,-1,true,Over the doorway there is etched a striking ikon of crossed spears before a round shield.
-1=18,default.ichiba.city.temple.of.dana.sign,true
+1=18,default.ichiba.city.temple.of.the_lady.sign,true
 @
 name=Temple Of The Gate to Ekirth's Tomb
 0=1,Ekirth's Tomb,28,16,4

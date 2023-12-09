@@ -1,6 +1,6 @@
 #Thu Dec 07 14:02:40 SAST 2023
 garret=9|My sort of godling, Garret. Sometimes I would offer him a prayer..but, well, you know...I'm too busy counting loot. <grins broadly>
-leonal,leonals,white\ order=9|The tall lion folk. They're all about soldiering and law and order... I personally think that they're compensating for something... And that goddess of theirs... pretty boring folks to talk to. Boring to rob, unless you're after armour polish and scriptures of Dana. Still, I hear there's a pile of loot in that castle of theirs...  Hmmm... now that I think about it...
+leonal,leonals,white\ order=9|The tall lion folk. They're all about soldiering and law and order... I personally think that they're compensating for something... And that goddess of theirs... pretty boring folks to talk to. Boring to rob, unless you're after armour polish and scriptures of The Lady. Still, I hear there's a pile of loot in that castle of theirs...  Hmmm... now that I think about it...
 maze=9|What's there to say? We all get by as best we can, according to our abilities. Some of us, just a little better than others\!
 sarpedon=9|Never heard of 'im.
 agenor=9|Never heard of 'im, thus couldn't care.
@@ -27,7 +27,7 @@ imogen=9|Yeah, the witch in the Tower. A shapely one that... But you'd have to g
 ichiba=9|It's a good town. Bit tedious, now that the Chamber is trying to run things instead of letting nature take it's course. But still, the best we have. Better, I wager, than most of your precious First Realm towns.
 thank\ you,thanks=9|Ha ha ha, the treasure... uhm, I mean, the pleasure is all mine\!
 bet,cards,cheat,gamble,play=9|Tell you what, let's flip a coin\: heads I win, tails you lose? 
-diomedes=9|The stiff in the temple? I haven't... uhm... taken my liberties with his moveable possessions yet, alas, the cult of Dana prefers austerity. I find more reason... and profit... in the religious orders that practise the accumulation of copious amounts of wealth. <grins broadly>
+diomedes=9|The stiff in the temple? I haven't... uhm... taken my liberties with his moveable possessions yet, alas, the cult of The Lady prefers austerity. I find more reason... and profit... in the religious orders that practise the accumulation of copious amounts of wealth. <grins broadly>
 aello=9|Who would you pray to in a foxhole?
 mentes=9|Never heard of 'im. Couldn't really care.
 faerie=9|Never heard of it. Is it valuable?
@@ -39,7 +39,7 @@ third\ realm=9|I haven't heard anything good. Give my the warm wenches of Ichiba
 asius=9|Never heard of 'im.
 lorelei=9|I've heard there's a druidess of that name, wandering around somewhere.
 first\ realm=9|Not really interested, to be honest. A place much like a smashed window in a brothel\: fucking broke.
-dana=9|Heh, a shapely goddess she is, if she would just lose the armour and the scowl. I think she needs someone to show her a good time...%n%n
+lady=9|Heh, a shapely goddess she is, if she would just lose the armour and the scowl. I think she needs someone to show her a good time...%n%n
 three\ eyes=9|He's the gnoll shaman.
 information,rumors,rumour,stories,tales=9|Listen, I've lived longer than you could imagine and the only thing that really exists is that tale that you create. I would tell you mine...but you wouldn't believe it. <grins>
 hail=9|Mighty stupid idea to build a city in the wastelands, wasn't it? Where's the profit in that? The Maze sent a bunch of beasties, there was much wailing and gnashing of teeth, now there is no more Hail.%n%nStill, it was a fun town while it lasted. There was an epic pub there, the Black Dog Inn. Good times\! Let's just say that there would be a few little Kay's running around in Hail, if the baddies hadn't come and wiped it out\! Ha ha ha\!

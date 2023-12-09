@@ -1,0 +1,82 @@
+zone
+-section-
+Gatehouse
+1~Arrived in Gatehouse
+2~... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing.
+2~You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.%nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here...
+10~Above you a fixture on the ceiling gives off some kind of soft magical light.
+14~OUCH!
+15~OUCH!
+16~OUCH!
+17~OUCH!
+18~OUCH!
+27~Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.%n%nOn the far side of the room you can just make out what looks like some kind of lever.
+31~OUCH!
+40~With a flurry of wings, you are suddenly assaulted from above!
+40~Encountered Fruit Bats 
+40~COMBAT!
+40~--- combat round 1 starts ---
+41~--- combat round 1 ends ---
+41~Victory!
+55~The large lever mechanism looks tarnished and old but otherwise functional.%n%nYou wonder what hidden machinery it connects to...
+55~You give the lever a hard yank.
+55~A loud clanking and grinding fills the dungeon.
+115~OUCH!
+116~OUCH!
+149~OUCH!
+160~Large silky webs cover the walls and recede around the corner.
+168~This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.%n%nFrom the darkness you seem to feel many eyes watching you through the strands of webbing.
+190~OUCH!
+251~OUCH!
+272~LOCKED!
+273~LOCKED!
+274~OUCH!
+274~OUCH!
+290~OUCH!
+319~OUCH!
+340~OUCH!
+343~OUCH!
+350~Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!
+350~Encountered Mud Spiders 
+350~COMBAT!
+350~--- combat round 1 starts ---
+351~--- combat round 1 ends ---
+351~Victory!
+357~You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.%n%nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!
+357~Encountered Bonebrood, Mud Spiders 
+357~COMBAT!
+357~--- combat round 1 starts ---
+358~--- combat round 1 ends ---
+358~--- combat round 2 starts ---
+358~--- combat round 2 starts ---
+359~--- combat round 2 ends ---
+360~--- combat round 3 ends ---
+360~Victory!
+362~A pile of dry and dusty bones has been heaped in this dark corner.
+362~OUCH!
+373~OUCH!
+376~OUCH!
+417~OUCH!
+420~OUCH!
+439~OUCH!
+442~OUCH!
+467~A large web has been spun across the entrance to this alcove.
+469~Unsurprisingly, the creator of the web is unimpressed with your intrusion.
+469~Encountered Mud Spider 
+469~COMBAT!
+469~--- combat round 1 starts ---
+470~--- combat round 1 ends ---
+470~Victory!
+548~OUCH!
+583~UNLOCKED!
+585~On the far wall of this large room you see what looks like two deactivated inter-domain portals. %n%nBefore you can move over to get a close look, something else draws your urgent attention...
+585~Encountered Spotted Cruds 
+585~COMBAT!
+585~--- combat round 1 starts ---
+586~--- combat round 1 ends ---
+586~--- combat round 2 starts ---
+587~--- combat round 2 ends ---
+587~--- combat round 3 starts ---
+588~--- combat round 3 ends ---
+588~Victory!
+-end-section-

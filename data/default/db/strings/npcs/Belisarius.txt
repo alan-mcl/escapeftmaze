@@ -1,12 +1,12 @@
 #Thu Dec 07 14:02:40 SAST 2023
 garret=9|A fickle god to follow.
-leonal,leonals,white\ order=9|Here we are, holding back the forces of chaos and darkness from this Realm. The children of Dana are few but we are mighty and our sword arms are rightly feared.
+leonal,leonals,white\ order=9|Here we are, holding back the forces of chaos and darkness from this Realm. The children of The Lady are few but we are mighty and our sword arms are rightly feared.
 maze=9|I do not know the why's and wherefore's, my business is survival.
 sarpedon=9|He is some kind of general amongst the gnomes.
 agenor=9|The quartermaster.
 broken\ fang=9|I do not know of him.
 rumors,rumour,rumours=9|I work with plans not rumours.
-thee,thou,you,yourself=9|I am General of the White Order and High Priest of Dana. On my shoulders fall the responsibility for keeping the flame of law and order burning in this Realm. I burdensome task, and one that will some day lead to my death. But I am proud to bear it.
+thee,thou,you,yourself=9|I am General of the White Order and High Priest of The Lady. On my shoulders fall the responsibility for keeping the flame of law and order burning in this Realm. I burdensome task, and one that will some day lead to my death. But I am proud to bear it.
 maze\ master=9|A figure of legend.
 buy,deal,deals,sell,trade=9|Go and see the quartermaster.
 c.o.c.,chamber\ of\ commerce,coc=9|The merchants in Ichiba thrive while our swords and shields keep back the wilds.
@@ -38,7 +38,7 @@ third\ realm=9|Legends tell of a Realm ruled by a temple of deathless knights, r
 asius=9|I do not know of him.
 lorelei=9|The druidess of some sort, caught stirring up trouble a while back.
 first\ realm=9|Is it true that there have been no wars there in living memory? Hrmmmm. It must be a land of plenty indeed.
-dana=9|Dana, the iron goddess of justice and mercy. Patron of the White Order. She watches over the just and the downtrodden, soldiers and priests and peasants. 
+lady=9|The Lady, the iron goddess of justice and mercy. Patron of the White Order. She watches over the just and the downtrodden, soldiers and priests and peasants.
 three\ eyes=9|I have not heard of him.
 hail=9|Once a bustling trading city, Hail has fallen to the forces of chaos. They say a dragon of some sort now lords over the ruins.
 stentor=9|He is without.

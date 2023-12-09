@@ -37,7 +37,7 @@ public class Diomedes extends NpcScript
 		return getList(
 			new NpcSpeechEvent("Greetings, bold adventurers. I am Diomedes, " +
 				"ambassador of the White Order and high priest of the Temple " +
-				"of Dana here in Ichiba.", npc),
+				"of The Lady here in Ichiba.", npc),
 			new NpcSpeechEvent("I have heard of your exploits. Few attempt " +
 				"to escape the First Realm, fewer still survive the attempt.", npc));
 	}
@@ -68,7 +68,7 @@ public class Diomedes extends NpcScript
 	public List<MazeEvent> partyLeavesFriendly()
 	{
 		return getList(
-			new NpcSpeechEvent("The blessing of Dana go with you, friends. " +
+			new NpcSpeechEvent("The blessing of The Lady go with you, friends. " +
 				"You will find me here should you need me.", npc),
 			new ActorsLeaveEvent());
 	}

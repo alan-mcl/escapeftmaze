@@ -238,7 +238,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		addSpeech("chamber of commerce, coc, c.o.c.");
 		addSpeech("thieves, gentlemen's social club, thieves guild");
 
-		addSpeech("dana");
+		addSpeech("lady");
 		addSpeech("garret");
 		addSpeech("wasid");
 		addSpeech("aello");

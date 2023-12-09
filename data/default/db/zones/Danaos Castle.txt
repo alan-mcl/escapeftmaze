@@ -551,7 +551,7 @@ playerOrigin: 29:15
 532: 0:3f800000000000000000,01010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 533: 0:3f800000000000000000,01010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 534: 0:3f800000000000000000,01010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-535: 1:4,danaos.castle.execute.once.7,,false,This chamber is a spartan temple dedicated to the worship of the goddess Dana.:3f800000000000000000,02010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+535: 1:4,danaos.castle.execute.once.7,,false,This chamber is a spartan temple dedicated to the worship of the goddess The Lady.:3f800000000000000000,02010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 536: 0:3f800000000000000000,02010202040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 537: 0:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 538: 0:3f800000000000000000,02010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE

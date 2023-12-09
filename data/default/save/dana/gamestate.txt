@@ -1,0 +1,10 @@
+zone=Gatehouse
+difficultyLevel=Normal
+playerPos=15:24
+facing=4
+partyGold=22
+partySupplies=100
+partyNames=Weldedpiston,Derago,Artur,Th'shaa,Ta Tashi,Aelfred
+formation=3
+turnNr=588
+@
