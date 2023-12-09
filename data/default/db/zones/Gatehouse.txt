@@ -1754,7 +1754,7 @@ playerOrigin: 14:30
 659: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
 660: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
 661: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
-662: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
+662: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,SLIME_CEILING,32
 663: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 664: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 665: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
@@ -2743,6 +2743,7 @@ playerOrigin: 14:30
 38: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:660:false::00001::TOP
 39: objects.hanging.sign.front:objects.hanging.sign.front:objects.hanging.sign.side:objects.hanging.sign.side:784:false::00000001::TOP
 40: objects.hanging.sign.front:objects.hanging.sign.front:objects.hanging.sign.side:objects.hanging.sign.side:686:false::00000001::TOP
+41: objects.slime_ceiling:objects.slime_ceiling:objects.slime_ceiling:objects.slime_ceiling:662:false:4,,,false,You poke the slime. It's disgusting.:01011101::TOP
 
 -scripts-
 0: 2,8,32,40,757/660

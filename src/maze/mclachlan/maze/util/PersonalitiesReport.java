@@ -45,8 +45,19 @@ public class PersonalitiesReport
 
 		for (Personality p : list)
 		{
-			System.out.println(p.getName()+": "+p.getDescription());
+			System.out.println("Personality: "+p.getName());
+			System.out.println("Description: "+p.getDescription());
+			System.out.println("Example speech: ");
+			for (String s : p.getSpeech().values())
+			{
+				if (s.length() > 0)
+				{
+					System.out.println("\"" + s.trim().replaceAll("\n", " ") + "\"");
+				}
+			}
+			System.out.println();
 		}
+
 
 //		printHtml(list);
 	}
