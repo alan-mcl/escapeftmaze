@@ -59,7 +59,7 @@ playerOrigin: 36:21
 40: 0:3f800000000000000000,01020101020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 41: 0:3f800000000000000000,02020302010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 42: 0:3f800000000000000000,03010102010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-43: 1:2,,,false,5///false/ichiba.city.coc.chest,0`0 - Fire Trap~25`1 - Guardian~25`0 - Magic Sparks~25`0 - Poison Darts~25,ichiba.city.coc.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010302030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+43: 1:2,,,false,-1,5///false/-1/ichiba.city.coc.chest,0`0 - Fire Trap~25`1 - Guardian~25`0 - Magic Sparks~25`0 - Poison Darts~25,ichiba.city.coc.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010302030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 44: 0:3f800000000000000000,01020102030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 45: 0:3f800000000000000000,02030303030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 46: 0:3f800000000000000000,01020301030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -137,8 +137,8 @@ playerOrigin: 36:21
 118: 0:3f800000000000000000,01060201020701:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 119: 0:3f800000000000000000,01010202030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 120: 0:3f800000000000000000,01010301020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-121: 1:8,,,false,Accounts:3f800000000000000000,03020201030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-122: 1:8,,,false,W E Pickett%n%nDirector:3f800000000000000000,01010203030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+121: 1:8,,,false,-1,Accounts:3f800000000000000000,03020201030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+122: 1:8,,,false,-1,W E Pickett%n%nDirector:3f800000000000000000,01010203030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 123: 0:3f800000000000000000,02030301020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 124: 0:3f800000000000000000,02010202020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 125: 0:3f800000000000000000,02020203010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -348,8 +348,8 @@ playerOrigin: 36:21
 329: 0:3f800000000000000000,02030201010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 330: 0:3f800000000000000000,02030102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 331: 0:3f800000000000000000,01010202030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-332: 1:2,,,false,5///false/ichiba.city.chest.2,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,ichiba.city.chest.2,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,03030303020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-333: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.18,,:3f800000000000000000,01020202010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+332: 1:2,,,false,-1,5///false/-1/ichiba.city.chest.2,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,ichiba.city.chest.2,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,03030303020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+333: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.18,,:3f800000000000000000,01020202010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 334: 0:3f800000000000000000,01030301030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 335: 0:3f800000000000000000,02030201030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 336: 0:3f800000000000000000,02020203030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -359,7 +359,7 @@ playerOrigin: 36:21
 340: 0:3f800000000000000000,03020201030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 341: 0:3f800000000000000000,01030101020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 342: 0:3f800000000000000000,01010202030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-343: 2:8,,,false,Gentlemen's Social Club:7,ichiba.city.execute.once.3,001,false,Ichiba City thieves guild cck doors:3f800000000000000000,01010301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+343: 2:8,,,false,-1,Gentlemen's Social Club:7,ichiba.city.execute.once.3,001,false,-1,Ichiba City thieves guild cck doors:3f800000000000000000,01010301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 344: 0:3f800000000000000000,03010103010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 345: 0:3f800000000000000000,01030202010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 346: 0:3f800000000000000000,01010201010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -394,14 +394,14 @@ playerOrigin: 36:21
 375: 0:3f800000000000000000,01030102030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 376: 0:3f800000000000000000,02030103010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 377: 0:3f800000000000000000,03030302030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-378: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.16,,:3f800000000000000000,03020201020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+378: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.16,,:3f800000000000000000,03020201020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 379: 0:3f800000000000000000,01020103020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 380: 0:3f800000000000000000,01030201030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-381: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.14,,:3f800000000000000000,03010302030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+381: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.14,,:3f800000000000000000,03010302030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 382: 0:3f800000000000000000,02010301020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-383: 2:4,,,false,The club is empty. A handful of rickety wooden stools stand on a bare stone floor, and a battered dart board hangs on the far wall.%n%nDoesn't look like your idea of a good time.:0,xxx,,false,mclachlan.maze.campaign.def.map.DartBoard:3f800000000000000000,01010303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-384: 2:0,,,false,mclachlan.maze.campaign.def.map.DartBoard:2,,,false,5///false/ichiba.city.incense.chest,0`,ichiba.city.incense.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,01020303020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-385: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.12,,:3f800000000000000000,01010103030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+383: 2:4,,,false,-1,The club is empty. A handful of rickety wooden stools stand on a bare stone floor, and a battered dart board hangs on the far wall.%n%nDoesn't look like your idea of a good time.:0,xxx,,false,-1,mclachlan.maze.campaign.def.map.DartBoard:3f800000000000000000,01010303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+384: 2:0,,,false,-1,mclachlan.maze.campaign.def.map.DartBoard:2,,,false,-1,5///false/-1/ichiba.city.incense.chest,0`,ichiba.city.incense.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,01020303020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+385: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.12,,:3f800000000000000000,01010103030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 386: 0:3f800000000000000000,02010101020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 387: 0:3f800000000000000000,03020103020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 388: 0:3f800000000000000000,03030202010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -425,12 +425,12 @@ playerOrigin: 36:21
 406: 0:3f800000000000000000,02030303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 407: 0:3f800000000000000000,03030102030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 408: 0:3f800000000000000000,03010103010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-409: 1:0,,,false,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,02010102020402:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-410: 1:0,,,false,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,01010102020402:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+409: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,02010102020402:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+410: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,01010102020402:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 411: 0:3f800000000000000000,03010103030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-412: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.19,,:3f800000000000000000,02030103010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-413: 1:0,,,false,mclachlan.maze.campaign.def.map.IchibaAfterGnollAttack:3f800000000000000000,03030303030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-414: 1:3,,,false,gnoll.village.placed.enc,ichiba.city.encounter.17,,:3f800000000000000000,02030303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+412: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.19,,:3f800000000000000000,02030103010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+413: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.IchibaAfterGnollAttack:3f800000000000000000,03030303030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+414: 1:3,,,false,-1,gnoll.village.placed.enc,ichiba.city.encounter.17,,:3f800000000000000000,02030303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 415: 0:3f800000000000000000,02030303030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 416: 0:3f800000000000000000,01010202030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 417: 0:3f800000000000000000,02010101030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -439,12 +439,12 @@ playerOrigin: 36:21
 420: 0:3f800000000000000000,02010102030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 421: 0:3f800000000000000000,02020301020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 422: 0:3f800000000000000000,02020302010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-423: 1:0,,,false,mclachlan.maze.campaign.def.map.DartBoard:3f800000000000000000,02020301010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-424: 1:0,,,false,mclachlan.maze.campaign.def.map.DartBoard:3f800000000000000000,03010302020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+423: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.DartBoard:3f800000000000000000,02020301010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+424: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.DartBoard:3f800000000000000000,03010302020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 425: 0:3f800000000000000000,01010203020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 426: 0:3f800000000000000000,03020103030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 427: 0:3f800000000000000000,01030302020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-428: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.8,,:3f800000000000000000,03010101020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+428: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.8,,:3f800000000000000000,03010101020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 429: 0:3f800000000000000000,01020201020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 430: 0:3f800000000000000000,03030301020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 431: 0:3f800000000000000000,03030102020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -465,8 +465,8 @@ playerOrigin: 36:21
 446: 0:3f800000000000000000,02010203010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 447: 0:3f800000000000000000,03020102020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 448: 0:3f800000000000000000,02020302030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-449: 1:0,,,false,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,01020101020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-450: 2:7,ichiba.gnome.garden.cck,,false,Ichiba City gnome garden cck:0,,,false,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,01020202020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+449: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,01020101020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+450: 2:7,ichiba.gnome.garden.cck,,false,-1,Ichiba City gnome garden cck:0,,,false,-1,mclachlan.maze.campaign.def.map.GardenOfGlaucus:3f800000000000000000,01020202020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 451: 0:3f800000000000000000,03010302030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 452: 0:3f800000000000000000,01030302030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 453: 0:3f800000000000000000,01010203020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -475,8 +475,8 @@ playerOrigin: 36:21
 456: 0:3f800000000000000000,01020301030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 457: 0:3f800000000000000000,03010202020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 458: 0:3f800000000000000000,02010203010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-459: 1:7,ichiba.city.execute.once.0,0001,false,Ichiba City thieves guild cck doors:3f800000000000000000,01030203030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-460: 1:0,,,false,mclachlan.maze.campaign.def.map.GoblinMagsmenEncounter:3f800000000000000000,03020201030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+459: 1:7,ichiba.city.execute.once.0,0001,false,-1,Ichiba City thieves guild cck doors:3f800000000000000000,01030203030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+460: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.GoblinMagsmenEncounter:3f800000000000000000,03020201030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 461: 0:3f800000000000000000,03030103020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 462: 0:3f800000000000000000,02010303030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 463: 0:3f800000000000000000,03030102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -484,7 +484,7 @@ playerOrigin: 36:21
 465: 0:3f800000000000000000,01030101030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 466: 0:3f800000000000000000,01030302010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 467: 0:3f800000000000000000,02030203020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-468: 1:7,ichiba.city.execute.once.2,01,false,Ichiba City thieves guild cck doors:3f800000000000000000,03030102030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+468: 1:7,ichiba.city.execute.once.2,01,false,-1,Ichiba City thieves guild cck doors:3f800000000000000000,03030102030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 469: 0:3f800000000000000000,01010101030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 470: 0:3f800000000000000000,02010101010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 471: 0:3f800000000000000000,01010103020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -514,20 +514,20 @@ playerOrigin: 36:21
 495: 0:3f800000000000000000,02020202010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 496: 0:3f800000000000000000,03010202030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 497: 0:3f800000000000000000,02030102010103:URBAN:City:0:ichiba.city.random.enc:MEDIUM:AVERAGE
-498: 1:9,,,false,ichiba.city.portal.15,locked:3f800000000000000000,03030301030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+498: 1:9,,,false,-1,ichiba.city.portal.15,locked:3f800000000000000000,03030301030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 499: 0:3f800000000000000000,01020201030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 500: 0:3f800000000000000000,02030102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-501: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.11,,:3f800000000000000000,03010203030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+501: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.11,,:3f800000000000000000,03010203030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 502: 0:3f800000000000000000,02020101010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 503: 0:3f800000000000000000,02020102030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 504: 0:3f800000000000000000,01010102010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 505: 0:3f800000000000000000,03020102030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 506: 0:3f800000000000000000,03010101020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-507: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.7,,:3f800000000000000000,01010102010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+507: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.7,,:3f800000000000000000,01010102010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 508: 0:3f800000000000000000,02030201010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 509: 0:3f800000000000000000,01030303010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 510: 0:3f800000000000000000,02010101010301:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-511: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.city.encounter.0,,:3f800000000000000000,01010303020101:WILDERNESS:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+511: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.city.encounter.0,,:3f800000000000000000,01010303020101:WILDERNESS:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 512: 0:3f800000000000000000,03020302010202:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 513: 0:3f800000000000000000,03010102010102:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 514: 0:3f800000000000000000,01030103030103:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -549,17 +549,17 @@ playerOrigin: 36:21
 530: 0:3f800000000000000000,02010202030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 531: 0:3f800000000000000000,03010303020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 532: 0:3f800000000000000000,02020102030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-533: 1:8,,,false,Glaucus%n~%nGeneral Store:3f800000000000000000,03010102010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-534: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.21,,:3f800000000000000000,02010203030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+533: 1:8,,,false,-1,Glaucus%n~%nGeneral Store:3f800000000000000000,03010102010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+534: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.21,,:3f800000000000000000,02010203030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 535: 0:3f800000000000000000,02030202010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 536: 0:3f800000000000000000,03030101010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 537: 0:3f800000000000000000,03030102010102:URBAN:City:0:ichiba.city.random.enc:MEDIUM:AVERAGE
-538: 1:9,,,false,ichiba.city.portal.14,locked:3f800000000000000000,02020303030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+538: 1:9,,,false,-1,ichiba.city.portal.14,locked:3f800000000000000000,02020303030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 539: 0:3f800000000000000000,02020303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 540: 0:3f800000000000000000,03010303020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 541: 0:3f800000000000000000,01010202010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 542: 0:3f800000000000000000,02020101020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-543: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.10,,:3f800000000000000000,02030302010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+543: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.10,,:3f800000000000000000,02030302010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 544: 0:3f800000000000000000,01030102030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 545: 0:3f800000000000000000,03030101020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 546: 0:3f800000000000000000,03010203030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -594,14 +594,14 @@ playerOrigin: 36:21
 575: 0:3f800000000000000000,03030203010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 576: 0:3f800000000000000000,01030302030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 577: 0:3f800000000000000000,03030301020303:URBAN:City:0:ichiba.city.random.enc:MEDIUM:AVERAGE
-578: 1:9,,,false,ichiba.city.portal.13,locked:3f800000000000000000,03010202020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+578: 1:9,,,false,-1,ichiba.city.portal.13,locked:3f800000000000000000,03010202020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 579: 0:3f800000000000000000,03030203030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 580: 0:3f800000000000000000,03010303030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 581: 0:3f800000000000000000,01030302030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 582: 0:3f800000000000000000,03010302030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-583: 1:7,,0001,false,Ichiba City Imogen Door cck:3f800000000000000000,01030201010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-584: 1:3,,,false,ichiba.city.imogen.inghean.shades,ichiba.city.encounter.9,,:3f800000000000000000,01040201010501:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-585: 1:2,,,false,5///false/ichiba.city.imogen.room.chest,0`1 - Noxious Vapours~20`0 - Poison Darts~20`2 - Acid Bomb~20`3 - Hexxer~20`3 - Null Magic~20,ichiba.city.imogen.room.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,02040202010501:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+583: 1:7,,0001,false,-1,Ichiba City Imogen Door cck:3f800000000000000000,01030201010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+584: 1:3,,,false,-1,ichiba.city.imogen.inghean.shades,ichiba.city.encounter.9,,:3f800000000000000000,01040201010501:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+585: 1:2,,,false,-1,5///false/-1/ichiba.city.imogen.room.chest,0`1 - Noxious Vapours~20`0 - Poison Darts~20`2 - Acid Bomb~20`3 - Hexxer~20`3 - Null Magic~20,ichiba.city.imogen.room.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,02040202010501:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 586: 0:3f800000000000000000,02020101030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 587: 0:3f800000000000000000,02030303010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 588: 0:3f800000000000000000,01010302020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -628,14 +628,14 @@ playerOrigin: 36:21
 609: 0:3f800000000000000000,01030301020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 610: 0:3f800000000000000000,01030201010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 611: 0:3f800000000000000000,01020301010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-612: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.22,,:3f800000000000000000,01030301010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+612: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.22,,:3f800000000000000000,01030301010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 613: 0:3f800000000000000000,01030302030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 614: 0:3f800000000000000000,03030301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 615: 0:3f800000000000000000,03020303010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-616: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.20,,:3f800000000000000000,03020101030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+616: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.20,,:3f800000000000000000,03020101030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 617: 0:3f800000000000000000,02020101020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 618: 0:3f800000000000000000,01010202030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-619: 1:8,,,false,The Adventurer's Armoury%nby%nScrymgeour :3f800000000000000000,03010303010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+619: 1:8,,,false,-1,The Adventurer's Armoury%nby%nScrymgeour :3f800000000000000000,03010303010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 620: 0:3f800000000000000000,03020102020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 621: 0:3f800000000000000000,02020103020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 622: 0:3f800000000000000000,03030102030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -679,7 +679,7 @@ playerOrigin: 36:21
 660: 0:3f800000000000000000,03010202010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 661: 0:3f800000000000000000,01030302010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 662: 0:3f800000000000000000,02020201020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-663: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.6,,:3f800000000000000000,02010203020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+663: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.6,,:3f800000000000000000,02010203020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 664: 0:3f800000000000000000,01010202010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 665: 0:3f800000000000000000,03010201030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 666: 0:3f800000000000000000,01010302030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -710,20 +710,20 @@ playerOrigin: 36:21
 691: 0:3f800000000000000000,02030303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 692: 0:3f800000000000000000,03010301010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 693: 0:3f800000000000000000,02010302020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-694: 2:4,,,false,The notice board has a single sheet of paper nailed to it-%n%n"Notice #18. Mercenaries Wanted. Take One And Apply Within."%n%nThe bottom of the paper has been cut to form slips that can be torn off. Several are already gone.:10,,,false,,Ichiba City COC tear off paper slip,,1,0:3f800000000000000000,02030301030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+694: 2:4,,,false,-1,The notice board has a single sheet of paper nailed to it-%n%n"Notice #18. Mercenaries Wanted. Take One And Apply Within."%n%nThe bottom of the paper has been cut to form slips that can be torn off. Several are already gone.:10,,,false,-1,,Ichiba City COC tear off paper slip,,0:3f800000000000000000,02030301030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 695: 0:3f800000000000000000,03010301030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 696: 0:3f800000000000000000,03020301020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 697: 0:3f800000000000000000,01020103020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-698: 1:11,,,true,:3f800000000000000000,03020302020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-699: 1:11,,,true,:3f800000000000000000,02020102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-700: 1:8,,,false,NO SWIMMING:3f800000000000000000,01020301030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+698: 1:11,,,true,-1,:3f800000000000000000,03020302020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+699: 1:11,,,true,-1,:3f800000000000000000,02020102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+700: 1:8,,,false,-1,NO SWIMMING:3f800000000000000000,01020301030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 701: 0:3f800000000000000000,01020102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 702: 0:3f800000000000000000,03030303030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 703: 0:3f800000000000000000,02030201020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-704: 1:3,,,false,ichiba.city.villa.guardians,ichiba.city.encounter.4,,:3f800000000000000000,01020102020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+704: 1:3,,,false,-1,ichiba.city.villa.guardians,ichiba.city.encounter.4,,:3f800000000000000000,01020102020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 705: 0:3f800000000000000000,03020102020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 706: 0:3f800000000000000000,03020302010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-707: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.1,,:3f800000000000000000,01010103030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+707: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.1,,:3f800000000000000000,01010103030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 708: 0:3f800000000000000000,01030102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 709: 0:3f800000000000000000,02020102010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 710: 0:3f800000000000000000,03020103020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -731,7 +731,7 @@ playerOrigin: 36:21
 712: 0:3f800000000000000000,02010303030301:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 713: 0:3f800000000000000000,01030103020102:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 714: 0:3f800000000000000000,03030102020201:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-715: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.city.encounter.42,,:3f800000000000000000,02030101030202:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+715: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.city.encounter.42,,:3f800000000000000000,02030101030202:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 716: 0:3f800000000000000000,03030302020103:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 717: 0:3f800000000000000000,01010301020301:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 718: 0:3f800000000000000000,02030203030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -749,26 +749,26 @@ playerOrigin: 36:21
 730: 0:3f800000000000000000,03020102030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 731: 0:3f800000000000000000,03020102030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 732: 0:3f800000000000000000,03030301010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-733: 1:8,,,false,Ports Authority:3f800000000000000000,03020101020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+733: 1:8,,,false,-1,Ports Authority:3f800000000000000000,03020101020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 734: 0:3f800000000000000000,02020102010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 735: 0:3f800000000000000000,01020101020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 736: 0:3f800000000000000000,01030102020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-737: 1:11,,,true,:3f800000000000000000,02010201020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-738: 1:11,,,true,:3f800000000000000000,01030202030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-739: 1:11,,,true,:3f800000000000000000,01020101030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-740: 1:11,,,true,:3f800000000000000000,03010302010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+737: 1:11,,,true,-1,:3f800000000000000000,02010201020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+738: 1:11,,,true,-1,:3f800000000000000000,01030202030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+739: 1:11,,,true,-1,:3f800000000000000000,01020101030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+740: 1:11,,,true,-1,:3f800000000000000000,03010302010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 741: 0:3f800000000000000000,01030201020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 742: 0:3f800000000000000000,03010202030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 743: 0:3f800000000000000000,01020303030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 744: 0:3f800000000000000000,03030203030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 745: 0:3f800000000000000000,02010201020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-746: 1:2,,,false,5///false/ichiba.city.chest.3,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,ichiba.city.chest.3,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02020301010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+746: 1:2,,,false,-1,5///false/-1/ichiba.city.chest.3,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,ichiba.city.chest.3,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02020301010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 747: 0:3f800000000000000000,03010203010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 748: 0:3f800000000000000000,01020302030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-749: 1:7,ichiba.city.cck,,false,Ichiba City cck:3f800000000000000000,03010203030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-750: 1:8,,,false,ICHIBA%n%nCity In The Crater:3f800000000000000000,01020301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+749: 1:7,ichiba.city.cck,,false,-1,Ichiba City cck:3f800000000000000000,03010203030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+750: 1:8,,,false,-1,ICHIBA%n%nCity In The Crater:3f800000000000000000,01020301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 751: 0:3f800000000000000000,01020202030301:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-752: 1:7,ichiba.city.intro,,false,Ichiba City Intro:3f800000000000000000,02010102020303:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+752: 1:7,ichiba.city.intro,,false,-1,Ichiba City Intro:3f800000000000000000,02010102020303:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 753: 0:3f800000000000000000,01020301030203:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 754: 0:3f800000000000000000,03030101030101:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 755: 0:3f800000000000000000,01020201020201:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -783,23 +783,23 @@ playerOrigin: 36:21
 764: 0:3f800000000000000000,01010303010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 765: 0:3f800000000000000000,01020302030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 766: 0:3f800000000000000000,02020303020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-767: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.23,,:3f800000000000000000,03030102020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-768: 1:7,ichiba.city.execute.once.1,00001,false,Ichiba City thieves guild cck doors:3f800000000000000000,02030101020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-769: 1:8,,,false,Dept Information %nand Statistics:3f800000000000000000,01020303020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+767: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.23,,:3f800000000000000000,03030102020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+768: 1:7,ichiba.city.execute.once.1,00001,false,-1,Ichiba City thieves guild cck doors:3f800000000000000000,02030101020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+769: 1:8,,,false,-1,Dept Information %nand Statistics:3f800000000000000000,01020303020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 770: 0:3f800000000000000000,01030101020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 771: 0:3f800000000000000000,01010203030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 772: 0:3f800000000000000000,01030302020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 773: 0:3f800000000000000000,02010303020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 774: 0:3f800000000000000000,03030301030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-775: 1:8,,,false,Chamber%nof%nCommerce:3f800000000000000000,03010102030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+775: 1:8,,,false,-1,Chamber%nof%nCommerce:3f800000000000000000,03010102030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 776: 0:3f800000000000000000,01010202020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-777: 1:11,,,true,:3f800000000000000000,01010102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-778: 1:11,,,true,:3f800000000000000000,02030103030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-779: 1:11,,,true,:3f800000000000000000,02030103020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-780: 1:11,,,true,:3f800000000000000000,01020102020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+777: 1:11,,,true,-1,:3f800000000000000000,01010102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+778: 1:11,,,true,-1,:3f800000000000000000,02030103030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+779: 1:11,,,true,-1,:3f800000000000000000,02030103020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+780: 1:11,,,true,-1,:3f800000000000000000,01020102020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 781: 0:3f800000000000000000,03010103010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 782: 0:3f800000000000000000,02030301020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-783: 1:8,,,false,RED EAR HAS %nTHE BEST DEALS!:3f800000000000000000,01020202010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+783: 1:8,,,false,-1,RED EAR HAS %nTHE BEST DEALS!:3f800000000000000000,01020202010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 784: 0:3f800000000000000000,03020303030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 785: 0:3f800000000000000000,02030103010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 786: 0:3f800000000000000000,01010203010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -829,13 +829,13 @@ playerOrigin: 36:21
 810: 0:3f800000000000000000,02020301020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 811: 0:3f800000000000000000,02030202030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 812: 0:3f800000000000000000,02010303030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-813: 1:8,,,false,Conference Room 1:3f800000000000000000,03030102020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+813: 1:8,,,false,-1,Conference Room 1:3f800000000000000000,03030102020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 814: 0:3f800000000000000000,02030302030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 815: 0:3f800000000000000000,02010203010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 816: 0:3f800000000000000000,02020102020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 817: 0:3f800000000000000000,03030303020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-818: 1:11,,,true,:3f800000000000000000,02030202030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-819: 1:11,,,true,:3f800000000000000000,01010103030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+818: 1:11,,,true,-1,:3f800000000000000000,02030202030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+819: 1:11,,,true,-1,:3f800000000000000000,01010103030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 820: 0:3f800000000000000000,03020101020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 821: 0:3f800000000000000000,02010201010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 822: 0:3f800000000000000000,03020202010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -843,7 +843,7 @@ playerOrigin: 36:21
 824: 0:3f800000000000000000,02030302020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 825: 0:3f800000000000000000,01020102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 826: 0:3f800000000000000000,02020203020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-827: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.2,,:3f800000000000000000,02020302030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+827: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.2,,:3f800000000000000000,02020302030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 828: 0:3f800000000000000000,03010302010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 829: 0:3f800000000000000000,01030102010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 830: 0:3f800000000000000000,01030101010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -863,36 +863,36 @@ playerOrigin: 36:21
 844: 0:3f800000000000000000,02020102010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 845: 0:3f800000000000000000,03010203030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 846: 0:3f800000000000000000,01020101030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-847: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.24,,:3f800000000000000000,01030203020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+847: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.24,,:3f800000000000000000,01030203020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 848: 0:3f800000000000000000,02020303010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 849: 0:3f800000000000000000,03020202010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 850: 0:3f800000000000000000,01010201020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 851: 0:3f800000000000000000,02030302020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 852: 0:3f800000000000000000,03030202030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 853: 0:3f800000000000000000,01010302020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-854: 1:7,,,false,Ichiba City wanted signboard:3f800000000000000000,01020301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+854: 1:7,,,false,-1,Ichiba City wanted signboard:3f800000000000000000,01020301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 855: 0:3f800000000000000000,01010301010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 856: 0:3f800000000000000000,02030202020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 857: 0:3f800000000000000000,03020202030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-858: 1:7,,,false,Ichiba City villa cck:3f800000000000000000,03030101030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+858: 1:7,,,false,-1,Ichiba City villa cck:3f800000000000000000,03030101030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 859: 0:3f800000000000000000,02010203010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 860: 0:3f800000000000000000,03020102010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 861: 0:3f800000000000000000,01030101010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 862: 0:3f800000000000000000,02020201020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 863: 0:3f800000000000000000,01030302020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 864: 0:3f800000000000000000,03010102010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-865: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.5,,:3f800000000000000000,01010302020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+865: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.5,,:3f800000000000000000,01010302020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 866: 0:3f800000000000000000,02020302030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 867: 0:3f800000000000000000,02010201010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 868: 0:3f800000000000000000,03020203020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 869: 0:3f800000000000000000,01030201010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 870: 0:3f800000000000000000,02020101030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-871: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.city.encounter.13,,:3f800000000000000000,01020302010103:WILDERNESS:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+871: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.city.encounter.13,,:3f800000000000000000,01020302010103:WILDERNESS:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 872: 0:3f800000000000000000,03010201020103:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 873: 0:3f800000000000000000,03030303020203:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 874: 0:3f800000000000000000,02030203030202:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 875: 0:3f800000000000000000,03010201020102:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-876: 1:7,,,false,Ichiba City to Crossroad:3f800000000000000000,03010103030103:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+876: 1:7,,,false,-1,Ichiba City to Crossroad:3f800000000000000000,03010103030103:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 877: 0:3f800000000000000000,01030202030203:URBAN:Forest:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 878: 0:3f800000000000000000,01030301020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 879: 0:3f800000000000000000,02020103020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -914,7 +914,7 @@ playerOrigin: 36:21
 895: 0:3f800000000000000000,01020102010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 896: 0:3f800000000000000000,01020102030103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 897: 0:3f800000000000000000,02010303030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-898: 1:4,ichiba.city.villa.flavour.1,,false,The interior of the villa is luxuriously furnished, and eerily quiet.:3f800000000000000000,01030103020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+898: 1:4,ichiba.city.villa.flavour.1,,false,-1,The interior of the villa is luxuriously furnished, and eerily quiet.:3f800000000000000000,01030103020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 899: 0:3f800000000000000000,03030202020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 900: 0:3f800000000000000000,03030201030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 901: 0:3f800000000000000000,02030102020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -944,14 +944,14 @@ playerOrigin: 36:21
 925: 0:3f800000000000000000,03020301020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 926: 0:3f800000000000000000,02010303030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 927: 0:3f800000000000000000,03020102030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-928: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.25,,:3f800000000000000000,03020102010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+928: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.25,,:3f800000000000000000,03020102010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 929: 0:3f800000000000000000,01010303030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-930: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.26,,:3f800000000000000000,01030102020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+930: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.26,,:3f800000000000000000,01030102020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 931: 0:3f800000000000000000,02030303030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 932: 0:3f800000000000000000,03030301030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-933: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.27,,:3f800000000000000000,01010101020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+933: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.27,,:3f800000000000000000,01010101020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 934: 0:3f800000000000000000,02010203020202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-935: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.28,,:3f800000000000000000,01030201030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+935: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.28,,:3f800000000000000000,01030201030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 936: 0:3f800000000000000000,01030302030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 937: 0:3f800000000000000000,03010101030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 938: 0:3f800000000000000000,02010301020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -993,12 +993,12 @@ playerOrigin: 36:21
 974: 0:3f800000000000000000,01030103030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 975: 0:3f800000000000000000,02030302010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 976: 0:3f800000000000000000,03030102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-977: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.34,,:3f800000000000000000,03010301010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+977: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.34,,:3f800000000000000000,03010301010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 978: 0:3f800000000000000000,01030102010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 979: 0:3f800000000000000000,02010103030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-980: 1:3,,,false,ichiba.city.villa.guardians,ichiba.city.encounter.3,,:3f800000000000000000,03030103010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+980: 1:3,,,false,-1,ichiba.city.villa.guardians,ichiba.city.encounter.3,,:3f800000000000000000,03030103010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 981: 0:3f800000000000000000,01020301010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-982: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.37,,:3f800000000000000000,03010303010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+982: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.37,,:3f800000000000000000,03010303010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 983: 0:3f800000000000000000,01030203010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 984: 0:3f800000000000000000,03020201030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 985: 0:3f800000000000000000,03020303010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1028,23 +1028,23 @@ playerOrigin: 36:21
 1009: 0:3f800000000000000000,03030102030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1010: 0:3f800000000000000000,02010101010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1011: 0:3f800000000000000000,02010301020103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1012: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.30,,:3f800000000000000000,01030203020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1012: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.30,,:3f800000000000000000,01030203020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1013: 0:3f800000000000000000,03030301010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1014: 0:3f800000000000000000,02020103020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1015: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.29,,:3f800000000000000000,03010103030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1015: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.29,,:3f800000000000000000,03010103030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1016: 0:3f800000000000000000,02010103020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1017: 0:3f800000000000000000,01010201020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1018: 0:3f800000000000000000,03020303030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1019: 0:3f800000000000000000,01020103010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1020: 1:2,,,false,5///false/ichiba.city.chest.4,0`1 - Guardian~100,ichiba.city.chest.4,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02010301030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1020: 1:2,,,false,-1,5///false/-1/ichiba.city.chest.4,0`1 - Guardian~100,ichiba.city.chest.4,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02010301030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1021: 0:3f800000000000000000,02010303020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1022: 0:3f800000000000000000,01020101010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1023: 0:3f800000000000000000,03010103030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1024: 1:7,,,false,Ichiba City Temple of The Lady sign:3f800000000000000000,03010302010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1025: 1:4,ichiba.city.execute.once.4,,false,The temple is clean and quiet, although somewhat spartan in design, to the point of lacking pews altogether. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you.:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1024: 1:7,,,false,-1,Ichiba City Temple of The Lady sign:3f800000000000000000,03010302010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1025: 1:4,ichiba.city.execute.once.4,,false,-1,The temple is clean and quiet, although somewhat spartan in design, to the point of lacking pews altogether. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you.:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1026: 0:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1027: 0:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1028: 1:4,,,false,A low stone altar stands at the far end of the temple, covered with a plain white cloth.:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1028: 1:4,,,false,-1,A low stone altar stands at the far end of the temple, covered with a plain white cloth.:3f800000000000000000,01010101040101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1029: 0:3f800000000000000000,01020202030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1030: 0:3f800000000000000000,01010203010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1031: 0:3f800000000000000000,03030303030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1066,7 +1066,7 @@ playerOrigin: 36:21
 1047: 0:3f800000000000000000,01030103030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1048: 0:3f800000000000000000,02010302010303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1049: 0:3f800000000000000000,02030302020301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1050: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.31,,:3f800000000000000000,02010102010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1050: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.31,,:3f800000000000000000,02010102010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1051: 0:3f800000000000000000,02010302010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1052: 0:3f800000000000000000,01020101030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1053: 0:3f800000000000000000,02030203030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1076,7 +1076,7 @@ playerOrigin: 36:21
 1057: 0:3f800000000000000000,02020102010301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1058: 0:3f800000000000000000,01010203030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1059: 0:3f800000000000000000,01020303030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1060: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.32,,:3f800000000000000000,02030202020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1060: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.32,,:3f800000000000000000,02030202020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1061: 0:3f800000000000000000,02030302030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1062: 0:3f800000000000000000,01030203020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1063: 0:3f800000000000000000,02010101030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1156,16 +1156,16 @@ playerOrigin: 36:21
 1137: 0:3f800000000000000000,01030302020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1138: 0:3f800000000000000000,03010103010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1139: 0:3f800000000000000000,01010303020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1140: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.33,,:3f800000000000000000,03010201010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1140: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.33,,:3f800000000000000000,03010201010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1141: 0:3f800000000000000000,03020103010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1142: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.38,,:3f800000000000000000,03010102010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1142: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.38,,:3f800000000000000000,03010102010102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1143: 0:3f800000000000000000,02030101010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1144: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.39,,:3f800000000000000000,03010102030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1144: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.39,,:3f800000000000000000,03010102030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1145: 0:3f800000000000000000,02030201020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1146: 0:3f800000000000000000,02020203020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1147: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.40,,:3f800000000000000000,03030303030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1147: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.40,,:3f800000000000000000,03030303030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1148: 0:3f800000000000000000,01010201010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1149: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.41,,:3f800000000000000000,03020101010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1149: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.41,,:3f800000000000000000,03020101010103:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1150: 0:3f800000000000000000,01010202020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1151: 0:3f800000000000000000,01020302030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1152: 0:3f800000000000000000,01020101030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1191,10 +1191,10 @@ playerOrigin: 36:21
 1172: 0:3f800000000000000000,01010203030202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1173: 0:3f800000000000000000,02020201010202:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1174: 0:3f800000000000000000,01030203030201:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1175: 1:8,,,false,Imogen:3f800000000000000000,02030102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1175: 1:8,,,false,-1,Imogen:3f800000000000000000,02030102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1176: 0:3f800000000000000000,02030302010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1177: 0:3f800000000000000000,03020302010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1178: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.35,,:3f800000000000000000,02030303020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1178: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.35,,:3f800000000000000000,02030303020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1179: 0:3f800000000000000000,03020302030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1180: 0:3f800000000000000000,02020301010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1181: 0:3f800000000000000000,03030303030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1274,9 +1274,9 @@ playerOrigin: 36:21
 1255: 0:3f800000000000000000,02030301020102:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1256: 0:3f800000000000000000,02030201020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1257: 0:3f800000000000000000,03030301030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1258: 1:2,,,false,5///false/ichiba.city.chest.1,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,ichiba.city.chest.1,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,03020103020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1258: 1:2,,,false,-1,5///false/-1/ichiba.city.chest.1,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,ichiba.city.chest.1,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,03020103020101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1259: 0:3f800000000000000000,03020103010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1260: 1:3,,,false,ichiba.city.inhabitants,ichiba.city.encounter.36,,:3f800000000000000000,01030102010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
+1260: 1:3,,,false,-1,ichiba.city.inhabitants,ichiba.city.encounter.36,,:3f800000000000000000,01030102010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1261: 0:3f800000000000000000,02010103010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1262: 0:3f800000000000000000,02030302030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1263: 0:3f800000000000000000,03020102020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1310,7 +1310,7 @@ playerOrigin: 36:21
 1291: 0:3f800000000000000000,03030102030303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1292: 0:3f800000000000000000,01010302030103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1293: 0:3f800000000000000000,02030201020203:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1294: 1:7,ichiba.city.imogens.tower.flava1,,false,Ichiba City Imogens tower lvl1:3f800000000000000000,01020303010103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1294: 1:7,ichiba.city.imogens.tower.flava1,,false,-1,Ichiba City Imogens tower lvl1:3f800000000000000000,01020303010103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1295: 0:3f800000000000000000,03020302010302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1296: 0:3f800000000000000000,03030101010202:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1297: 0:3f800000000000000000,03030302030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1418,7 +1418,7 @@ playerOrigin: 36:21
 1399: 0:3f800000000000000000,03020102030301:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1400: 0:3f800000000000000000,02020302010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1401: 0:3f800000000000000000,01010101030303:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1402: 1:4,ichiba.city.imogens.tower.flava2,,false,Dankness and humidity are your first impressions as you emerge from the stairway. In the dim light, you see that this level of the tower is overgrown with bulbous plants. The tiled floor has been cracked and broken by the burrowing of sinuous roots.%n%nFor a moment you have the oddest feeling, as if you had just walked into a crowded room where people who were talking about you have just fallen silent. But the chamber is empty...:3f800000000000000000,02030101030303:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1402: 1:4,ichiba.city.imogens.tower.flava2,,false,-1,Dankness and humidity are your first impressions as you emerge from the stairway. In the dim light, you see that this level of the tower is overgrown with bulbous plants. The tiled floor has been cracked and broken by the burrowing of sinuous roots.%n%nFor a moment you have the oddest feeling, as if you had just walked into a crowded room where people who were talking about you have just fallen silent. But the chamber is empty...:3f800000000000000000,02030101030303:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1403: 0:3f800000000000000000,03020203020103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1404: 0:3f800000000000000000,02020301030101:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1405: 0:3f800000000000000000,02010302020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1452,8 +1452,8 @@ playerOrigin: 36:21
 1433: 0:3f800000000000000000,03010101020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1434: 0:3f800000000000000000,03020202020203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1435: 0:3f800000000000000000,02030302010202:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1436: 1:4,ichiba.city.imogens.tower.flava4,,false,The susurration growns louder, and you pause to listen...%n%nA chill runs down your spine as it suddenly resolves into a word... a name....%n%n... i m o g e n ...:3f800000000000000000,03020301030103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1437: 1:4,ichiba.city.imogens.tower.flava3,,false,The sinister vegetation chokes this level thicker than ever... stalks and bulbs sway gently, leaves and creepers stir slowly, vines and tendrils furl and unfurl. A sibilant rustle becomes apparent at the edge of your hearing.:3f800000000000000000,03010103020302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1436: 1:4,ichiba.city.imogens.tower.flava4,,false,-1,The susurration growns louder, and you pause to listen...%n%nA chill runs down your spine as it suddenly resolves into a word... a name....%n%n... i m o g e n ...:3f800000000000000000,03020301030103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1437: 1:4,ichiba.city.imogens.tower.flava3,,false,-1,The sinister vegetation chokes this level thicker than ever... stalks and bulbs sway gently, leaves and creepers stir slowly, vines and tendrils furl and unfurl. A sibilant rustle becomes apparent at the edge of your hearing.:3f800000000000000000,03010103020302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1438: 0:3f800000000000000000,03010103020102:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1439: 0:3f800000000000000000,02020101030302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1440: 0:3f800000000000000000,03030202030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1491,9 +1491,9 @@ playerOrigin: 36:21
 1472: 0:3f800000000000000000,02030103030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1473: 0:3f800000000000000000,02020103010302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1474: 0:3f800000000000000000,03030103010203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1475: 1:4,,,false,%n%n... i m o g e n ...:3f800000000000000000,03020303010302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1476: 1:2,,,false,5///false/ichiba.city.imogen.chest.loot,0`4 - Kiss Of Death~20`3 - Toxic Gas~20`3 - Null Magic~20`3 - Lifestealer~20`3 - Curse Of Medusa~20,ichiba.city.imogen.loot,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,01030302010102:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1477: 1:3,,,false,ichiba.city.imogen.allies.on.call,ichiba.city.encounter.15,,:3f800000000000000000,02020202030301:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1475: 1:4,,,false,-1,%n%n... i m o g e n ...:3f800000000000000000,03020303010302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1476: 1:2,,,false,-1,5///false/-1/ichiba.city.imogen.chest.loot,0`4 - Kiss Of Death~20`3 - Toxic Gas~20`3 - Null Magic~20`3 - Lifestealer~20`3 - Curse Of Medusa~20,ichiba.city.imogen.loot,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,01030302010102:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1477: 1:3,,,false,-1,ichiba.city.imogen.allies.on.call,ichiba.city.encounter.15,,:3f800000000000000000,02020202030301:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1478: 0:3f800000000000000000,03010302010301:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1479: 0:3f800000000000000000,01030302010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1480: 0:3f800000000000000000,03010301010101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1531,10 +1531,10 @@ playerOrigin: 36:21
 1512: 0:3f800000000000000000,02010301030102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1513: 0:3f800000000000000000,03030103030203:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1514: 0:3f800000000000000000,02030201010201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1515: 1:4,,,false,... i m o g e n ...:3f800000000000000000,01020202020303:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1516: 1:4,,,false,%n... i m o g e n ...:3f800000000000000000,01010101020103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1517: 1:4,,,false,... i m o g e n ...:3f800000000000000000,03010201030302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
-1518: 1:4,,,false,%n... i m o g e n ...:3f800000000000000000,03030303020203:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1515: 1:4,,,false,-1,... i m o g e n ...:3f800000000000000000,01020202020303:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1516: 1:4,,,false,-1,%n... i m o g e n ...:3f800000000000000000,01010101020103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1517: 1:4,,,false,-1,... i m o g e n ...:3f800000000000000000,03010201030302:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1518: 1:4,,,false,-1,%n... i m o g e n ...:3f800000000000000000,03030303020203:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1519: 0:3f800000000000000000,02020301020302:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1520: 0:3f800000000000000000,02010101020201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1521: 0:3f800000000000000000,01010302030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -1572,7 +1572,7 @@ playerOrigin: 36:21
 1553: 0:3f800000000000000000,03010102020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1554: 0:3f800000000000000000,03010103020303:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1555: 0:3f800000000000000000,02020201030201:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
-1556: 1:4,,,false,%n%n.... i m o g e n ...:3f800000000000000000,03010103020101:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
+1556: 1:4,,,false,-1,%n%n.... i m o g e n ...:3f800000000000000000,03010103020101:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1557: 0:3f800000000000000000,02020102030103:URBAN:City:5:ichiba.city.imogen.tower.random.enc:MEDIUM:AVERAGE
 1558: 0:3f800000000000000000,01010202020102:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
 1559: 0:3f800000000000000000,03010101030101:URBAN:City:5:ichiba.city.random.enc:MEDIUM:AVERAGE
@@ -3396,7 +3396,7 @@ playerOrigin: 36:21
 200: TREE_WALL_1:::::true:1
 201: CITY_WALL_1:DUNGEON_STAIR_DOWN::::true:1
 202: CITY_WALL_1:::::true:1
-203: CITY_WALL_1:WALL_BUTTON::6,,,false,ichiba.city.remove.wall.3,203,true::true:1
+203: CITY_WALL_1:WALL_BUTTON::6,,,false,-1,ichiba.city.remove.wall.3,203,true::true:1
 204: CITY_WALL_1:::::true:1
 205: CITY_WALL_1:::::true:1
 235: CITY_WALL_1:::::true:1
@@ -3465,7 +3465,7 @@ playerOrigin: 36:21
 384: CITY_WALL_1:::::true:1
 385: CITY_WALL_1:CITY_DOOR_1::::true:1
 386: CITY_WALL_1:::::true:1
-387: CITY_WALL_1:WALL_BUTTON::6,,,false,ichiba.city.remove.wall.2,387,true::true:1
+387: CITY_WALL_1:WALL_BUTTON::6,,,false,-1,ichiba.city.remove.wall.2,387,true::true:1
 388: CITY_WALL_1:::::true:1
 389: CITY_WALL_1:::::true:1
 399: TREE_WALL_1:::::true:1
@@ -4122,7 +4122,7 @@ playerOrigin: 36:21
 591: CITY_WALL_1:::::true:1
 592: CITY_WALL_1:CITY_DOOR_1::::true:1
 594: CITY_WALL_1:::::true:1
-598: CITY_WALL_1:CITY_DOOR_1::4,,,false,The wooden door feels strangely warm to the touch...::true:1
+598: CITY_WALL_1:CITY_DOOR_1::4,,,false,-1,The wooden door feels strangely warm to the touch...::true:1
 600: CITY_WALL_1:::::true:1
 603: CITY_WALL_1:::::true:1
 604: CITY_WALL_1:::::true:1
@@ -4192,7 +4192,7 @@ playerOrigin: 36:21
 779: TREE_WALL_1:::::true:1
 780: TREE_WALL_1:::::true:1
 784: CITY_WALL_1:::::true:1
-785: CITY_WALL_1:WALL_BUTTON::6,,,false,ichiba.city.remove.wall.1,785,false::true:1
+785: CITY_WALL_1:WALL_BUTTON::6,,,false,-1,ichiba.city.remove.wall.1,785,false::true:1
 787: CITY_WALL_1:CITY_DOOR_1::::true:1
 788: CITY_WALL_1:::::true:1
 791: CITY_WALL_1:CITY_DOOR_1::::true:1
@@ -4592,10 +4592,10 @@ playerOrigin: 36:21
 83: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:871:false::000011::BOTTOM
 84: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:671:false::0000011::BOTTOM
 85: objects.plant.4:objects.plant.4:objects.plant.4:objects.plant.4:753:false::1000001::BOTTOM
-86: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:335:false:7,,,false,Ichiba City to Depths (gnolls):00001::BOTTOM
-87: objects.woodsign.side:objects.woodsign.side:objects.woodsign.front:objects.woodsign.front:694:false:7,,,false,Ichiba City COC tear off paper slip:00001::BOTTOM
-88: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:765:false:7,,,false,Ichiba City to Depths (gsc1):00001::BOTTOM
-89: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:347:false:7,,,false,Ichiba City to Depths (gsc2):00001::BOTTOM
+86: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:335:false:7,,,false,-1,Ichiba City to Depths (gnolls):00001::BOTTOM
+87: objects.woodsign.side:objects.woodsign.side:objects.woodsign.front:objects.woodsign.front:694:false:7,,,false,-1,Ichiba City COC tear off paper slip:00001::BOTTOM
+88: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:765:false:7,,,false,-1,Ichiba City to Depths (gsc1):00001::BOTTOM
+89: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:347:false:7,,,false,-1,Ichiba City to Depths (gsc2):00001::BOTTOM
 90: objects.altar.1:objects.altar.1:objects.altar.1:objects.altar.1:1028:false::00001::BOTTOM
 91: objects.woodsign.side:objects.woodsign.side:objects.woodsign.front:objects.woodsign.front:854:false::00001::BOTTOM
 

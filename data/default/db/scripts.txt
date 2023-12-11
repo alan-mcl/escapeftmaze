@@ -25,9 +25,10 @@ name=Ichiba Crossroad test load
 0=1,Ichiba Crossroad,19,12,4
 @
 name=Gatehouse encounter 1 cruds
-0=4,-1,false,With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!
-1=11,-1,-1,1
-2=3,gatehouse.level.1.cruds,gatehouse.encounter.cruds.intro,,FOES_MAY_AMBUSH_PARTY
+0=13,sound - crud
+1=4,-1,false,With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!
+2=11,-1,-1,1
+3=3,gatehouse.level.1.cruds,gatehouse.encounter.cruds.intro,,FOES_MAY_AMBUSH_PARTY
 @
 name=sound - ninjastab
 0=138,63985__iwilldstroyu__quickstab1
@@ -183,6 +184,10 @@ name=sound - clockwork
 name=white cloud from foe
 0=138,26722__Leady__women_singing_1
 1=104,1:20:animation/whiteCloudFromPlayer1;animation/whiteCloudFromPlayer2;animation/whiteCloudFromPlayer3
+@
+name=Ichiba City Temple of The Lady sign
+0=4,-1,true,Over the doorway there is etched a striking ikon of crossed spears before a round shield.
+1=18,default.ichiba.city.temple.of.the_lady.sign,true
 @
 name=_WEAPON_HIT_
 0=138,27826_Erdie_sword01/27856_Erdie_sword02/27857_Erdie_sword03
@@ -703,10 +708,6 @@ name=Hianbian to Caves Of Ilast
 name=Ichiba City COC tear off paper slip
 0=4,-1,true, You tear off one of the small paper slips...
 1=9,ichiba.city.coc.paper.slip
-@
-name=Ichiba City Temple of The Lady sign
-0=4,-1,true,Over the doorway there is etched a striking ikon of crossed spears before a round shield.
-1=18,default.ichiba.city.temple.of.the_lady.sign,true
 @
 name=Temple Of The Gate to Ekirth's Tomb
 0=1,Ekirth's Tomb,28,16,4

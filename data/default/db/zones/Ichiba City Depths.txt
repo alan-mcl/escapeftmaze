@@ -61,7 +61,7 @@ playerOrigin: 2:16
 42: 0:3f800000000000000000,03040101010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 43: 0:3f800000000000000000,01040302020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 44: 0:3f800000000000000000,03040302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-45: 1:3,,,false,ichiba.depths.random.enc,ichiba.city.depths.encounter.4,,:3f800000000000000000,02030101010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+45: 1:3,,,false,-1,ichiba.depths.random.enc,ichiba.city.depths.encounter.4,,:3f800000000000000000,02030101010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 46: 0:3f800000000000000000,01030301010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 47: 0:3f800000000000000000,03030201020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 48: 0:3f800000000000000000,02040302010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -99,7 +99,7 @@ playerOrigin: 2:16
 80: 0:3f800000000000000000,01030302010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 81: 0:3f800000000000000000,01040202010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 82: 0:3f800000000000000000,03040101020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-83: 1:3,,,false,gnoll.village.placed.enc,ichiba.city.depths.encounter.1,,:3f800000000000000000,01040202010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+83: 1:3,,,false,-1,gnoll.village.placed.enc,ichiba.city.depths.encounter.1,,:3f800000000000000000,01040202010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 84: 0:3f800000000000000000,01040101010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 85: 0:3f800000000000000000,03030201010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 86: 0:3f800000000000000000,03040301020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -134,7 +134,7 @@ playerOrigin: 2:16
 115: 0:3f800000000000000000,02040102010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 116: 0:3f800000000000000000,02030201020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 117: 0:3f800000000000000000,02030301010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-118: 1:3,,,false,gnoll.village.placed.enc,ichiba.city.depths.encounter.2,,:3f800000000000000000,01040201020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+118: 1:3,,,false,-1,gnoll.village.placed.enc,ichiba.city.depths.encounter.2,,:3f800000000000000000,01040201020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 119: 0:3f800000000000000000,03040101020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 120: 0:3f800000000000000000,01030201010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 121: 0:3f800000000000000000,02030301020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -191,19 +191,19 @@ playerOrigin: 2:16
 172: 0:3f800000000000000000,02030201020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 173: 0:3f800000000000000000,01030201020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 174: 0:3f800000000000000000,02030302010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-175: 1:3,,,false,gnoll.village.placed.enc,ichiba.city.depths.encounter.0,,:3f800000000000000000,02030301010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+175: 1:3,,,false,-1,gnoll.village.placed.enc,ichiba.city.depths.encounter.0,,:3f800000000000000000,02030301010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 176: 0:3f800000000000000000,02040301020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 177: 0:3f800000000000000000,01040302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 178: 0:3f800000000000000000,02030202020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 179: 0:3f800000000000000000,01040101010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-180: 1:3,,,false,ichiba.depths.random.enc,ichiba.city.depths.encounter.3,,:3f800000000000000000,03040202010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+180: 1:3,,,false,-1,ichiba.depths.random.enc,ichiba.city.depths.encounter.3,,:3f800000000000000000,03040202010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 181: 0:3f800000000000000000,03030301020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 182: 0:3f800000000000000000,01040101010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 183: 0:3f800000000000000000,01030301020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 184: 0:3f800000000000000000,02030102020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 185: 0:3f800000000000000000,02030301020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-186: 1:11,,,true,:3f800000000000000000,01030101020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-187: 1:11,,,true,:3f800000000000000000,01040302010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+186: 1:11,,,true,-1,:3f800000000000000000,01030101020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+187: 1:11,,,true,-1,:3f800000000000000000,01040302010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 188: 0:3f800000000000000000,03030101010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 189: 0:3f800000000000000000,01040101010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 190: 0:3f800000000000000000,02040301020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -221,7 +221,7 @@ playerOrigin: 2:16
 202: 0:3f800000000000000000,01030302010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 203: 0:3f800000000000000000,01030102010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 204: 0:3f800000000000000000,03040201010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-205: 1:4,ichiba.depths.flava.1,,false,The purpose of this dreary catacomb is not immediately clear to you. The air smells dank and musty, and the floor is dusty and cold.:3f800000000000000000,02040202010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+205: 1:4,ichiba.depths.flava.1,,false,-1,The purpose of this dreary catacomb is not immediately clear to you. The air smells dank and musty, and the floor is dusty and cold.:3f800000000000000000,02040202010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 206: 0:3f800000000000000000,02030201010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 207: 0:3f800000000000000000,03040201020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 208: 0:3f800000000000000000,02040101020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -235,7 +235,7 @@ playerOrigin: 2:16
 216: 0:3f800000000000000000,02040101020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 217: 0:3f800000000000000000,03030302010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 218: 0:3f800000000000000000,02030102020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-219: 1:11,,,true,:3f800000000000000000,02040302020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+219: 1:11,,,true,-1,:3f800000000000000000,02040302020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 220: 0:3f800000000000000000,03030201010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 221: 0:3f800000000000000000,03030201020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 222: 0:3f800000000000000000,02030102020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -267,7 +267,7 @@ playerOrigin: 2:16
 248: 0:3f800000000000000000,03030301020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 249: 0:3f800000000000000000,01040102020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 250: 0:3f800000000000000000,01040102010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-251: 1:11,,,true,:3f800000000000000000,02040202020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+251: 1:11,,,true,-1,:3f800000000000000000,02040202020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 252: 0:3f800000000000000000,01030201020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 253: 0:3f800000000000000000,02040201020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 254: 0:3f800000000000000000,01030101010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -409,7 +409,7 @@ playerOrigin: 2:16
 390: 0:3f800000000000000000,02030302010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 391: 0:3f800000000000000000,02030201020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 392: 0:3f800000000000000000,07070404030403:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-393: 1:2,,,false,5///false/ichiba.depths.rhys.chest.loot,0`2 - Boiling Blood~17`3 - Curse Of Medusa~17`3 - Hexxer~17`3 - Lifestealer~17`3 - Toxic Gas~16`4 - Kiss Of Death~16,ichiba.depths.rhys.chest.loot,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,08070306050303:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+393: 1:2,,,false,-1,5///false/-1/ichiba.depths.rhys.chest.loot,0`2 - Boiling Blood~17`3 - Curse Of Medusa~17`3 - Hexxer~17`3 - Lifestealer~17`3 - Toxic Gas~16`4 - Kiss Of Death~16,ichiba.depths.rhys.chest.loot,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,08070306050303:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 394: 0:3f800000000000000000,02030101010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 395: 0:3f800000000000000000,02040302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 396: 0:3f800000000000000000,02040101020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -427,7 +427,7 @@ playerOrigin: 2:16
 408: 0:3f800000000000000000,02030301020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 409: 0:3f800000000000000000,02040202010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 410: 0:3f800000000000000000,03030102020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-411: 1:11,,,true,:3f800000000000000000,03040102010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+411: 1:11,,,true,-1,:3f800000000000000000,03040102010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 412: 0:3f800000000000000000,01040301010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 413: 0:3f800000000000000000,02040301020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 414: 0:3f800000000000000000,03030101010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -579,7 +579,7 @@ playerOrigin: 2:16
 560: 0:3f800000000000000000,02040202020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 561: 0:3f800000000000000000,01040201010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 562: 0:3f800000000000000000,02040102010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-563: 1:11,,,true,:3f800000000000000000,02030102010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+563: 1:11,,,true,-1,:3f800000000000000000,02030102010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 564: 0:3f800000000000000000,02040201010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 565: 0:3f800000000000000000,03030202020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 566: 0:3f800000000000000000,01030101010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -603,19 +603,19 @@ playerOrigin: 2:16
 584: 0:3f800000000000000000,01030202020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 585: 0:3f800000000000000000,03030302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 586: 0:3f800000000000000000,02040101010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-587: 1:11,,,true,:3f800000000000000000,02040202020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-588: 1:11,,,true,:3f800000000000000000,02040301020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+587: 1:11,,,true,-1,:3f800000000000000000,02040202020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+588: 1:11,,,true,-1,:3f800000000000000000,02040301020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 589: 0:3f800000000000000000,03030202010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 590: 0:3f800000000000000000,02040301010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 591: 0:3f800000000000000000,02040102020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 592: 0:3f800000000000000000,01040302010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-593: 1:0,,,false,mclachlan.maze.campaign.def.map.CorrosiveSlimeEncounter:3f800000000000000000,03030102010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+593: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.CorrosiveSlimeEncounter:3f800000000000000000,03030102010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 594: 0:3f800000000000000000,02030202010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-595: 1:11,,,true,:3f800000000000000000,02030102020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+595: 1:11,,,true,-1,:3f800000000000000000,02030102020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 596: 0:3f800000000000000000,01040101010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 597: 0:3f800000000000000000,03030302020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 598: 0:3f800000000000000000,03030302020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-599: 1:11,,,true,:3f800000000000000000,02030302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+599: 1:11,,,true,-1,:3f800000000000000000,02030302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 600: 0:3f800000000000000000,02030101010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 601: 0:3f800000000000000000,03030101010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 602: 0:3f800000000000000000,02040202020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -647,7 +647,7 @@ playerOrigin: 2:16
 628: 0:3f800000000000000000,01040201010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 629: 0:3f800000000000000000,02030302020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 630: 0:3f800000000000000000,03040301020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-631: 1:11,,,true,:3f800000000000000000,01030302020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+631: 1:11,,,true,-1,:3f800000000000000000,01030302020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 632: 0:3f800000000000000000,02030102010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 633: 0:3f800000000000000000,03030102010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 634: 0:3f800000000000000000,01040301010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -659,7 +659,7 @@ playerOrigin: 2:16
 640: 0:3f800000000000000000,01040101020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 641: 0:3f800000000000000000,03030101020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 642: 0:3f800000000000000000,03040302010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-643: 1:11,,,true,:3f800000000000000000,02040301020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+643: 1:11,,,true,-1,:3f800000000000000000,02040301020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 644: 0:3f800000000000000000,03040302010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 645: 0:3f800000000000000000,02030102010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 646: 0:3f800000000000000000,03030301010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -733,7 +733,7 @@ playerOrigin: 2:16
 714: 0:3f800000000000000000,03030102010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 715: 0:3f800000000000000000,01040101010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 716: 0:3f800000000000000000,03040202020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-717: 1:11,,,true,:3f800000000000000000,01030302020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+717: 1:11,,,true,-1,:3f800000000000000000,01030302020201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 718: 0:3f800000000000000000,02040202010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 719: 0:3f800000000000000000,02040302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 720: 0:3f800000000000000000,01040302010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -765,8 +765,8 @@ playerOrigin: 2:16
 746: 0:3f800000000000000000,03030201010101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 747: 0:3f800000000000000000,02040301010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 748: 0:3f800000000000000000,03030302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-749: 1:11,,,true,:3f800000000000000000,02030102010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-750: 1:11,,,true,:3f800000000000000000,02030201020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+749: 1:11,,,true,-1,:3f800000000000000000,02030102010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+750: 1:11,,,true,-1,:3f800000000000000000,02030201020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 751: 0:3f800000000000000000,03030201020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 752: 0:3f800000000000000000,03030301020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 753: 0:3f800000000000000000,01040201020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -792,8 +792,8 @@ playerOrigin: 2:16
 773: 0:3f800000000000000000,01040102010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 774: 0:3f800000000000000000,02030202020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 775: 0:3f800000000000000000,03030102020101:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-776: 1:11,,,true,:3f800000000000000000,01030301010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-777: 1:11,,,true,:3f800000000000000000,03040302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+776: 1:11,,,true,-1,:3f800000000000000000,01030301010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+777: 1:11,,,true,-1,:3f800000000000000000,03040302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 778: 0:3f800000000000000000,02040302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 779: 0:3f800000000000000000,02030101020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 780: 0:3f800000000000000000,03040102020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -904,7 +904,7 @@ playerOrigin: 2:16
 885: 0:3f800000000000000000,02040102020103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 886: 0:3f800000000000000000,03040301010202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 887: 0:3f800000000000000000,01040302020102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-888: 1:11,,,true,:3f800000000000000000,03030301020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+888: 1:11,,,true,-1,:3f800000000000000000,03030301020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 889: 0:3f800000000000000000,03040202010201:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 890: 0:3f800000000000000000,03040102010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 891: 0:3f800000000000000000,01040301020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -964,8 +964,8 @@ playerOrigin: 2:16
 945: 0:3f800000000000000000,03030101010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 946: 0:3f800000000000000000,01040301010102:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 947: 0:3f800000000000000000,01040302010203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-948: 1:11,,,true,:3f800000000000000000,02040201020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
-949: 1:11,,,true,:3f800000000000000000,01040302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+948: 1:11,,,true,-1,:3f800000000000000000,02040201020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
+949: 1:11,,,true,-1,:3f800000000000000000,01040302020202:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 950: 0:3f800000000000000000,03040202010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 951: 0:3f800000000000000000,02030201010103:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
 952: 0:3f800000000000000000,03040302020203:DUNGEON:Catacomb:5:ichiba.depths.random.enc:MEDIUM:AVERAGE
@@ -2755,10 +2755,10 @@ playerOrigin: 2:16
 1055: DUNGEON_WALL_1:::::true:1
 
 -objects-
-0: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:205:false:7,,,false,Ichiba Depths to City (gnolls):00001::BOTTOM
-1: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:149:false:7,,,false,Ichiba Depths to Gnoll Village:00001::BOTTOM
-2: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:514:false:7,,,false,Ichiba Depths to City (gsc1):00001::BOTTOM
-3: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:284:false:7,,,false,Ichiba Depths to City (gsc2):00001::BOTTOM
+0: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:205:false:7,,,false,-1,Ichiba Depths to City (gnolls):00001::BOTTOM
+1: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:149:false:7,,,false,-1,Ichiba Depths to Gnoll Village:00001::BOTTOM
+2: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:514:false:7,,,false,-1,Ichiba Depths to City (gsc1):00001::BOTTOM
+3: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:284:false:7,,,false,-1,Ichiba Depths to City (gsc2):00001::BOTTOM
 
 -scripts-
 

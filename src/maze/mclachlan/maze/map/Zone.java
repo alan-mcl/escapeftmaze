@@ -30,9 +30,7 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcManager;
@@ -141,6 +139,61 @@ public class Zone extends DataObject
 		// process any tile scripts present
 		List<TileScript> scripts = this.tiles[tile.x][tile.y].getScripts();
 
+		// first, alert if there is any hidden secrets
+		PlayerCharacter secretSpottedPc = null;
+		for (TileScript script : scripts)
+		{
+			if (script.isHiddenSecret())
+			{
+				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze, script.getScoutSecretDifficulty());
+				if (pc != null)
+				{
+					secretSpottedPc = pc;
+				}
+			}
+		}
+		for (Wall w : maze.getCurrentZone().getMap().getWalls(tile))
+		{
+			MouseClickScriptAdapter mouseClickScript = (MouseClickScriptAdapter)w.getMouseClickScript();
+			MouseClickScriptAdapter maskTextureMouseClickScript = (MouseClickScriptAdapter)w.getMaskTextureMouseClickScript();
+			MouseClickScriptAdapter internalScript = (MouseClickScriptAdapter)w.getInternalScript();
+
+			if (mouseClickScript != null && mouseClickScript.getScript().isHiddenSecret())
+			{
+				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
+					mouseClickScript.getScript().getScoutSecretDifficulty());
+				if (pc != null)
+				{
+					secretSpottedPc = pc;
+				}
+			}
+			if (maskTextureMouseClickScript != null && maskTextureMouseClickScript.getScript().isHiddenSecret())
+			{
+				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
+					maskTextureMouseClickScript.getScript().getScoutSecretDifficulty());
+				if (pc != null)
+				{
+					secretSpottedPc = pc;
+				}
+			}
+			if (internalScript != null && internalScript.getScript().isHiddenSecret())
+			{
+				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
+					internalScript.getScript().getScoutSecretDifficulty());
+				if (pc != null)
+				{
+					secretSpottedPc = pc;
+				}
+			}
+		}
+
+		// if anyone spotted a secret, add the speech event
+		if (secretSpottedPc != null)
+		{
+			Maze.getInstance().appendEvents(SpeechUtil.getInstance().spotStashSpeech(secretSpottedPc));
+		}
+
+		// then execute any tile scripts that should trigger
 		for (TileScript script : scripts)
 		{
 			if (script != null && Maze.getInstance().getCurrentCombat() == null)

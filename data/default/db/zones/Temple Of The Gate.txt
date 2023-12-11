@@ -357,7 +357,7 @@ playerOrigin: 27:15
 338: 0:3f800000000000000000,08070807070808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 339: 0:3f800000000000000000,08080707070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 340: 0:3f800000000000000000,07080707080708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-341: 2:4,,,false,A low stone altar stands in the center of the chamber, squat and mostly unremarkable. Examining it, you note a small slot in the surface.:0,,,false,mclachlan.maze.campaign.def.map.TempleOfTheGateGholaCoin:3f800000000000000000,07080708080708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+341: 2:4,,,false,-1,A low stone altar stands in the center of the chamber, squat and mostly unremarkable. Examining it, you note a small slot in the surface.:0,,,false,-1,mclachlan.maze.campaign.def.map.TempleOfTheGateGholaCoin:3f800000000000000000,07080708080708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 342: 0:3f800000000000000000,08070808070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 343: 0:3f800000000000000000,08080808070707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 344: 0:3f800000000000000000,07080707080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
@@ -498,9 +498,9 @@ playerOrigin: 27:15
 479: 0:0,:DUNGEON:Temple:5:TestingTable:MEDIUM:AVERAGE
 480: 0:0,:DUNGEON:Temple:5:TestingTable:MEDIUM:AVERAGE
 481: 0:3f800000000000000000,07070708080808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-482: 1:7,,,false,Default Campaign Outtro:3f800000000000000000,08090909090909:DUNGEON:Temple:0:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-483: 2:4,temple.of.the.gate.execute.once.0,,false,Finally, you stand before the second Great Gate. The Second Realm lies behind you, the way to the Third Realm is open. The Gate flickers and pulses before you; one more step on your journey to escape from the Maze.:7,temple.of.the.gate.execute.once.1,,false,Temple Of The Gate endgame cck:3f800000000000000000,09090808090908:DUNGEON:Temple:0:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-484: 1:4,,,false,A low stone altar stands here. Dried blood cakes the surface.:3f800000000000000000,09090909080808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+482: 1:7,,,false,-1,Default Campaign Outtro:3f800000000000000000,08090909090909:DUNGEON:Temple:0:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+483: 2:4,temple.of.the.gate.execute.once.0,,false,-1,Finally, you stand before the second Great Gate. The Second Realm lies behind you, the way to the Third Realm is open. The Gate flickers and pulses before you; one more step on your journey to escape from the Maze.:7,temple.of.the.gate.execute.once.1,,false,-1,Temple Of The Gate endgame cck:3f800000000000000000,09090808090908:DUNGEON:Temple:0:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+484: 1:4,,,false,-1,A low stone altar stands here. Dried blood cakes the surface.:3f800000000000000000,09090909080808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 485: 0:3f800000000000000000,08080809080909:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 486: 0:3f800000000000000000,08090808080909:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 487: 0:3f800000000000000000,09090909090908:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
@@ -512,14 +512,14 @@ playerOrigin: 27:15
 493: 0:3f800000000000000000,08080807080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 494: 0:3f800000000000000000,07080707070707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 495: 0:3f800000000000000000,07070707080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-496: 2:4,,,false,A stone shaft descends from the floor of the room, it's end lost in darkness.:0,,,false,mclachlan.maze.campaign.def.map.TempleOfTheGateRagDoll:3f800000000000000000,08080808070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+496: 2:4,,,false,-1,A stone shaft descends from the floor of the room, it's end lost in darkness.:0,,,false,-1,mclachlan.maze.campaign.def.map.TempleOfTheGateRagDoll:3f800000000000000000,08080808070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 497: 0:3f800000000000000000,08070808080708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 498: 0:3f800000000000000000,08070807080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 499: 0:3f800000000000000000,08070707080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 500: 0:3f800000000000000000,07070707080708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-501: 3:4,,,false,Without warning, the runes on the floor and ceiling pulse with deadly light!:0,,,false,mclachlan.maze.campaign.def.map.RandomRotator:1,,,false,Rune Of Destruction - Trap,7,7:3f800000000000000000,08070807080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+501: 3:4,,,false,-1,Without warning, the runes on the floor and ceiling pulse with deadly light!:0,,,false,-1,mclachlan.maze.campaign.def.map.RandomRotator:1,,,false,-1,Rune Of Destruction - Trap,7,7:3f800000000000000000,08070807080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 502: 0:3f800000000000000000,07070808070707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-503: 1:8,,,false,TEMPLE OF THE GATE:3f800000000000000000,08070707080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+503: 1:8,,,false,-1,TEMPLE OF THE GATE:3f800000000000000000,08070707080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 504: 0:3f800000000000000000,07070708070807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 505: 0:3f800000000000000000,08080707080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 506: 0:3f800000000000000000,08080707070808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
@@ -667,17 +667,17 @@ playerOrigin: 27:15
 648: 0:3f800000000000000000,08080708080808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 649: 0:3f800000000000000000,08080808080808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 650: 0:3f800000000000000000,08080807070807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-651: 1:0,,,false,mclachlan.maze.campaign.def.map.TempleOfTheGateDragonRod:3f800000000000000000,07080708070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+651: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.TempleOfTheGateDragonRod:3f800000000000000000,07080708070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 652: 0:3f800000000000000000,08070708070807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 653: 0:3f800000000000000000,08070708080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 654: 0:3f800000000000000000,07080807070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 655: 0:3f800000000000000000,08070708080708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-656: 1:4,,,false,The pillar is covered with reliefs depicting evil looking frogs and snakes devouring eachother.:3f800000000000000000,08070807080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+656: 1:4,,,false,-1,The pillar is covered with reliefs depicting evil looking frogs and snakes devouring eachother.:3f800000000000000000,08070807080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 657: 0:3f800000000000000000,07070708070808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 658: 0:3f800000000000000000,07080708070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 659: 0:3f800000000000000000,08070707080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 660: 0:3f800000000000000000,07070808070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-661: 1:3,,,false,force.of.fury.1,temple.of.the.gate.encounter.0,,:3f800000000000000000,07080807080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+661: 1:3,,,false,-1,force.of.fury.1,temple.of.the.gate.encounter.0,,:3f800000000000000000,07080807080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 662: 0:3f800000000000000000,07080707070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 663: 0:3f800000000000000000,08070807070808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 664: 0:3f800000000000000000,07080807070807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
@@ -2691,7 +2691,7 @@ playerOrigin: 27:15
 11: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:470:false::0000001::BOTTOM
 12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:534:false::1::BOTTOM
 13: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:532:false::001::BOTTOM
-14: objects.pit.1:objects.pit.1:objects.pit.1:objects.pit.1:496:false:4,,,false,You decide against jumping into the bottomless pit.:00001::BOTTOM
+14: objects.pit.1:objects.pit.1:objects.pit.1:objects.pit.1:496:false:4,,,false,-1,You decide against jumping into the bottomless pit.:00001::BOTTOM
 15: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:623:false::01::BOTTOM
 16: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:624:false::001000101::BOTTOM
 17: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:625:false::00011::BOTTOM
@@ -2725,7 +2725,7 @@ playerOrigin: 27:15
 45: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:628:false::000011001::BOTTOM
 46: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:660:false::100010001::BOTTOM
 47: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:692:false::001101::BOTTOM
-48: objects.bell:objects.bell:objects.bell:objects.bell:651:false:4,,,false,You strike the bell as hard as you are able, but no sound emerges.%n%nPerhaps you need something heavier?:::BOTTOM
+48: objects.bell:objects.bell:objects.bell:objects.bell:651:false:4,,,false,-1,You strike the bell as hard as you are able, but no sound emerges.%n%nPerhaps you need something heavier?:::BOTTOM
 49: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:419:true::00001::BOTTOM
 50: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:422:true::00001::BOTTOM
 51: objects.torch.1:objects.torch.1:objects.torch.1:objects.torch.1:550:true::00001::BOTTOM

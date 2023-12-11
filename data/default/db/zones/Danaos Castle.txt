@@ -254,7 +254,7 @@ playerOrigin: 29:15
 235: 0:3f800000000000000000,02010102050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 236: 0:3f800000000000000000,02010102050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 237: 0:3f800000000000000000,01010102050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-238: 1:8,,,false,Commissary In Arms%n~ Agenor ~:3f800000000000000000,01010102050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+238: 1:8,,,false,-1,Commissary In Arms%n~ Agenor ~:3f800000000000000000,01010102050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 239: 0:3f800000000000000000,02010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 240: 0:3f800000000000000000,02010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 241: 0:3f800000000000000000,02010201050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -292,7 +292,7 @@ playerOrigin: 29:15
 273: 0:3f800000000000000000,01010201050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 274: 0:3f800000000000000000,02010101050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 275: 0:3f800000000000000000,01010202050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-276: 1:2,,,false,5///false/danaos.castle.belisarius.chest,0`4 - Vacuum~34`4 - Rune Of Destruction~33`4 - Kiss Of Death~33,danaos.castle.belisarius.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010101040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+276: 1:2,,,false,-1,5///false/-1/danaos.castle.belisarius.chest,0`4 - Vacuum~34`4 - Rune Of Destruction~33`4 - Kiss Of Death~33,danaos.castle.belisarius.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010101040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 277: 0:3f800000000000000000,01010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,01010201040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 279: 0:3f800000000000000000,02010101050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -357,7 +357,7 @@ playerOrigin: 29:15
 338: 0:3f800000000000000000,01010201040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 339: 0:3f800000000000000000,01010102040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 340: 0:3f800000000000000000,02010101050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-341: 1:8,,,false,Commander In Chief:3f800000000000000000,01010202050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+341: 1:8,,,false,-1,Commander In Chief:3f800000000000000000,01010202050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 342: 0:3f800000000000000000,02010201040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 343: 0:3f800000000000000000,02010101050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 344: 0:3f800000000000000000,01010102040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -473,13 +473,13 @@ playerOrigin: 29:15
 454: 0:3f800000000000000000,02010202040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 455: 0:3f800000000000000000,01010101050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 456: 0:3f800000000000000000,02010102050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-457: 1:7,danaos.castle.execute.once.6,,false,Danaos Castle feasting hall flava:3f800000000000000000,02010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+457: 1:7,danaos.castle.execute.once.6,,false,-1,Danaos Castle feasting hall flava:3f800000000000000000,02010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 458: 0:3f800000000000000000,02010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 459: 0:3f800000000000000000,01010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 460: 0:3f800000000000000000,02010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 461: 0:3f800000000000000000,01010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 462: 0:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-463: 1:7,danaos.castle.execute.once.6,,false,Danaos Castle feasting hall flava:3f800000000000000000,01010201040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+463: 1:7,danaos.castle.execute.once.6,,false,-1,Danaos Castle feasting hall flava:3f800000000000000000,01010201040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 464: 0:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 465: 0:3f800000000000000000,02010202040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 466: 0:3f800000000000000000,02010102050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -492,7 +492,7 @@ playerOrigin: 29:15
 473: 0:3f800000000000000000,02010201040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 474: 0:3f800000000000000000,01010201050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 475: 0:3f800000000000000000,01010101040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-476: 1:7,danaos.castle.execute.once.8,,false,Danaos Castle intro:3f800000000000000000,02010101050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+476: 1:7,danaos.castle.execute.once.8,,false,-1,Danaos Castle intro:3f800000000000000000,02010101050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 477: 0:3f800000000000000000,01010101040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 478: 0:3f800000000000000000,01010202040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 479: 0:3f800000000000000000,01010202050202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -507,7 +507,7 @@ playerOrigin: 29:15
 488: 0:3f800000000000000000,02010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 489: 0:3f800000000000000000,02010102040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 490: 0:3f800000000000000000,01010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-491: 1:7,danaos.castle.execute.once.6,,false,Danaos Castle feasting hall flava:3f800000000000000000,02010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+491: 1:7,danaos.castle.execute.once.6,,false,-1,Danaos Castle feasting hall flava:3f800000000000000000,02010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 492: 0:3f800000000000000000,01010202050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 493: 0:3f800000000000000000,02010101040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 494: 0:3f800000000000000000,01010101040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -524,7 +524,7 @@ playerOrigin: 29:15
 505: 0:3f800000000000000000,01010202050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 506: 0:3f800000000000000000,02010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 507: 0:3f800000000000000000,01010101050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-508: 1:7,danaos.castle.execute.once.8,,false,Danaos Castle intro:3f800000000000000000,02010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+508: 1:7,danaos.castle.execute.once.8,,false,-1,Danaos Castle intro:3f800000000000000000,02010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 509: 0:3f800000000000000000,02010102040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 510: 0:3f800000000000000000,02010101050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 511: 0:3f800000000000000000,02010102050101:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -545,18 +545,18 @@ playerOrigin: 29:15
 526: 0:3f800000000000000000,02010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 527: 0:3f800000000000000000,02010101050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 528: 0:3f800000000000000000,02010201050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-529: 1:5,danaos.castle.execute.once.5,,false,danaos.castle.armoury.floor:3f800000000000000000,02010101050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-530: 1:5,danaos.castle.execute.once.2,,false,danaos.castle.armoury.floor:3f800000000000000000,01010201050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+529: 1:5,danaos.castle.execute.once.5,,false,-1,danaos.castle.armoury.floor:3f800000000000000000,02010101050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+530: 1:5,danaos.castle.execute.once.2,,false,-1,danaos.castle.armoury.floor:3f800000000000000000,01010201050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 531: 0:3f800000000000000000,02010202040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 532: 0:3f800000000000000000,01010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 533: 0:3f800000000000000000,01010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 534: 0:3f800000000000000000,01010202040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-535: 1:4,danaos.castle.execute.once.7,,false,This chamber is a spartan temple dedicated to the worship of the goddess The Lady.:3f800000000000000000,02010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+535: 1:4,danaos.castle.execute.once.7,,false,-1,This chamber is a spartan temple dedicated to the worship of the goddess The Lady.:3f800000000000000000,02010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 536: 0:3f800000000000000000,02010202040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 537: 0:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 538: 0:3f800000000000000000,02010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 539: 0:3f800000000000000000,01010101050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-540: 1:7,danaos.castle.execute.once.8,,false,Danaos Castle intro:3f800000000000000000,02010102050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+540: 1:7,danaos.castle.execute.once.8,,false,-1,Danaos Castle intro:3f800000000000000000,02010102050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 541: 0:3f800000000000000000,01010101040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 542: 0:3f800000000000000000,02010201040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 543: 0:3f800000000000000000,01010202040202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -577,10 +577,10 @@ playerOrigin: 29:15
 558: 0:3f800000000000000000,02010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 559: 0:3f800000000000000000,02010201050101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 560: 0:3f800000000000000000,02010102050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-561: 1:2,,,false,5///false/danaos.castle.armoury.chest,0`3 - Toxic Gas~20`3 - Curse Of Medusa~20`3 - Lifestealer~20`3 - Fizzle Field~20`3 - Hexxer~20,danaos.castle.armoury.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010101040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+561: 1:2,,,false,-1,5///false/-1/danaos.castle.armoury.chest,0`3 - Toxic Gas~20`3 - Curse Of Medusa~20`3 - Lifestealer~20`3 - Fizzle Field~20`3 - Hexxer~20,danaos.castle.armoury.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010101040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 562: 0:3f800000000000000000,01010201040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-563: 1:4,danaos.castle.execute.once.0,,false,You enter the armoury. Great store of fine swords and spears and other arms line the walls and are heaped on the floors.:3f800000000000000000,01010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-564: 1:8,,,false, - ARMOURY -:3f800000000000000000,01010102050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+563: 1:4,danaos.castle.execute.once.0,,false,-1,You enter the armoury. Great store of fine swords and spears and other arms line the walls and are heaped on the floors.:3f800000000000000000,01010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+564: 1:8,,,false,-1, - ARMOURY -:3f800000000000000000,01010102050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 565: 0:3f800000000000000000,02010102040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 566: 0:3f800000000000000000,01010101040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 567: 0:3f800000000000000000,02010201040101:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -605,12 +605,12 @@ playerOrigin: 29:15
 586: 0:3f800000000000000000,01010201040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 587: 0:3f800000000000000000,01010102040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 588: 0:3f800000000000000000,02010202040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-589: 1:4,danaos.castle.execute.once.1,,false,You enter the great kitchens of the castle. Huge pots simmer over red coals, and the smell of freshly baked bread comes from giant ovens. Cooks and servants bustle this way that, ignoring you.:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+589: 1:4,danaos.castle.execute.once.1,,false,-1,You enter the great kitchens of the castle. Huge pots simmer over red coals, and the smell of freshly baked bread comes from giant ovens. Cooks and servants bustle this way that, ignoring you.:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 590: 0:3f800000000000000000,01010101040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 591: 0:3f800000000000000000,02010102040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 592: 0:3f800000000000000000,02010102050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-593: 1:5,danaos.castle.execute.once.4,,false,danaos.castle.armoury.floor:3f800000000000000000,02010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-594: 1:5,danaos.castle.execute.once.3,,false,danaos.castle.armoury.floor:3f800000000000000000,01010101040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+593: 1:5,danaos.castle.execute.once.4,,false,-1,danaos.castle.armoury.floor:3f800000000000000000,02010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+594: 1:5,danaos.castle.execute.once.3,,false,-1,danaos.castle.armoury.floor:3f800000000000000000,01010101040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 595: 0:3f800000000000000000,01010201040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 596: 0:3f800000000000000000,01010202050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 597: 0:3f800000000000000000,02010201040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -773,7 +773,7 @@ playerOrigin: 29:15
 754: 0:3f800000000000000000,01010201040201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 755: 0:3f800000000000000000,02010202050201:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 756: 0:3f800000000000000000,01010201050202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
-757: 1:8,,,false,Access To The %nGate Is Restricted:3f800000000000000000,01010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
+757: 1:8,,,false,-1,Access To The %nGate Is Restricted:3f800000000000000000,01010201050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 758: 0:3f800000000000000000,02010101040202:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 759: 0:3f800000000000000000,01010202050102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE
 760: 0:3f800000000000000000,02010201040102:DUNGEON:Castle:20:danaos.castle.random.enc:MEDIUM:AVERAGE

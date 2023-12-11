@@ -195,7 +195,7 @@ playerOrigin: 3:15
 176: 0:3f800000000000000000,05050505060606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 177: 0:3f800000000000000000,06050505060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 178: 0:3f800000000000000000,07070606050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-179: 1:3,,,false,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.3,,:3f800000000000000000,05050706060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+179: 1:3,,,false,-1,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.3,,:3f800000000000000000,05050706060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 180: 0:3f800000000000000000,05070707070506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 181: 0:3f800000000000000000,07060507070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 182: 0:3f800000000000000000,07060607060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -218,7 +218,7 @@ playerOrigin: 3:15
 199: 0:3f800000000000000000,06050707050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 200: 0:3f800000000000000000,05060607070506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 201: 0:3f800000000000000000,05070606070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-202: 1:3,,,false,naba.uga.gobo.1,ekirth's.tomb.encounter.5,,:3f800000000000000000,05050506070607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+202: 1:3,,,false,-1,naba.uga.gobo.1,ekirth's.tomb.encounter.5,,:3f800000000000000000,05050506070607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 203: 0:3f800000000000000000,05060506050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 204: 0:3f800000000000000000,05070506060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 205: 0:3f800000000000000000,05050606060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -286,7 +286,7 @@ playerOrigin: 3:15
 267: 0:3f800000000000000000,07070505070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 268: 0:3f800000000000000000,06060606070605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 269: 0:3f800000000000000000,07060607060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-270: 1:2,,,false,5///false/ekirths.tomb.chest.2,0`3 - Curse Of Medusa~1`3 - Lifestealer~1`3 - Toxic Gas~1`4 - Kiss Of Death~1`4 - Rune Of Destruction~95`4 - Vacuum~1,ekirths.tomb.chest.2,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,05060706060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+270: 1:2,,,false,-1,5///false/-1/ekirths.tomb.chest.2,0`3 - Curse Of Medusa~1`3 - Lifestealer~1`3 - Toxic Gas~1`4 - Kiss Of Death~1`4 - Rune Of Destruction~95`4 - Vacuum~1,ekirths.tomb.chest.2,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,05060706060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 271: 0:3f800000000000000000,06070505050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 272: 0:3f800000000000000000,07050605070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 273: 0:3f800000000000000000,06070705050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -296,8 +296,8 @@ playerOrigin: 3:15
 277: 0:3f800000000000000000,06050607070506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,06050507050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 279: 0:3f800000000000000000,05070507060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-280: 1:3,,,false,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.7,,:3f800000000000000000,05050706050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-281: 1:2,,,false,5///false/ekirths.tomb.chest.1,0`4 - Vacuum~100,ekirths.tomb.chest.1,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,06070707060606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+280: 1:3,,,false,-1,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.7,,:3f800000000000000000,05050706050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+281: 1:2,,,false,-1,5///false/-1/ekirths.tomb.chest.1,0`4 - Vacuum~100,ekirths.tomb.chest.1,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,06070707060606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 282: 0:3f800000000000000000,06050705050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 283: 0:3f800000000000000000,07060606060606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 284: 0:3f800000000000000000,07070506070506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -311,19 +311,19 @@ playerOrigin: 3:15
 292: 0:3f800000000000000000,05070705060605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 293: 0:3f800000000000000000,07060506070607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 294: 0:3f800000000000000000,05070707050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-295: 2:4,ekirths.tomb.execute.once.3,,false,The flaming wall was keeping something in.%n%nWhirring and clicking, several sinister machines emerge from the shadows.:3,,,false,stasis.machines.1,ekirth's.tomb.encounter.0,,:3f800000000000000000,05060607060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-296: 1:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombWallOfFire:3f800000000000000000,07070706070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-297: 2:4,ekirths.tomb.execute.once.2,,false,A blazing, crackling wall of fire fills the corridor before you. The heat is stifling, and the stone walls, floor and ceiling around it glow a dull red.%n%nPassing might be perilous.:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombSpearOfIneoth:3f800000000000000000,06060707060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+295: 2:4,ekirths.tomb.execute.once.3,,false,-1,The flaming wall was keeping something in.%n%nWhirring and clicking, several sinister machines emerge from the shadows.:3,,,false,-1,stasis.machines.1,ekirth's.tomb.encounter.0,,:3f800000000000000000,05060607060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+296: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombWallOfFire:3f800000000000000000,07070706070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+297: 2:4,ekirths.tomb.execute.once.2,,false,-1,A blazing, crackling wall of fire fills the corridor before you. The heat is stifling, and the stone walls, floor and ceiling around it glow a dull red.%n%nPassing might be perilous.:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombSpearOfIneoth:3f800000000000000000,06060707060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 298: 0:3f800000000000000000,07060606070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 299: 0:3f800000000000000000,07060506050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 300: 0:3f800000000000000000,06060705050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-301: 1:3,,,false,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.1,,:3f800000000000000000,07070507060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+301: 1:3,,,false,-1,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.1,,:3f800000000000000000,07070507060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 302: 0:3f800000000000000000,07050507070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 303: 0:3f800000000000000000,06050706050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 304: 0:3f800000000000000000,05060607060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 305: 0:3f800000000000000000,06050506070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 306: 0:3f800000000000000000,07050605060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-307: 1:3,,,false,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.2,,:3f800000000000000000,06050705070607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+307: 1:3,,,false,-1,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.2,,:3f800000000000000000,06050705070607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 308: 0:3f800000000000000000,07060707070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 309: 0:3f800000000000000000,06070607060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 310: 0:3f800000000000000000,07050606050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -381,7 +381,7 @@ playerOrigin: 3:15
 362: 0:3f800000000000000000,05060605070606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 363: 0:3f800000000000000000,05070606060605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 364: 0:3f800000000000000000,06070605070605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-365: 1:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombYenluosEye:3f800000000000000000,07060506050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+365: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombYenluosEye:3f800000000000000000,07060506050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 366: 0:3f800000000000000000,07060706070606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 367: 0:3f800000000000000000,07060707070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 368: 0:3f800000000000000000,07050506070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -582,7 +582,7 @@ playerOrigin: 3:15
 563: 0:3f800000000000000000,06070505070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 564: 0:3f800000000000000000,05070507070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 565: 0:3f800000000000000000,05060605060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-566: 1:2,,,false,5///false/ekirths.tomb.chest.3,0`3 - Lifestealer~20`4 - Vacuum~20`4 - Rune Of Destruction~20`4 - Kiss Of Death~20`3 - Toxic Gas~20,ekirths.tomb.chext.3,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,06070506070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+566: 1:2,,,false,-1,5///false/-1/ekirths.tomb.chest.3,0`3 - Lifestealer~20`4 - Vacuum~20`4 - Rune Of Destruction~20`4 - Kiss Of Death~20`3 - Toxic Gas~20,ekirths.tomb.chext.3,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,06070506070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 567: 0:3f800000000000000000,06070705050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 568: 0:3f800000000000000000,06070605060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 569: 0:3f800000000000000000,06050506050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -621,7 +621,7 @@ playerOrigin: 3:15
 602: 0:3f800000000000000000,05050507060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 603: 0:3f800000000000000000,05060705070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 604: 0:3f800000000000000000,06060706050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-605: 1:3,,,false,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.4,,:3f800000000000000000,07070606070606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+605: 1:3,,,false,-1,ekirth's.tomb.random.enc,ekirth's.tomb.encounter.4,,:3f800000000000000000,07070606070606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 606: 0:3f800000000000000000,05050607050606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 607: 0:0,:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 608: 0:0,:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -666,7 +666,7 @@ playerOrigin: 3:15
 647: 0:3f800000000000000000,05050705060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 648: 0:3f800000000000000000,06070607070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 649: 0:3f800000000000000000,06060606050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-650: 1:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombMedallionOfBelEncounter:3f800000000000000000,06070505050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+650: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombMedallionOfBelEncounter:3f800000000000000000,06070505050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 651: 0:3f800000000000000000,07070605070605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 652: 0:3f800000000000000000,07060705060507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 653: 0:3f800000000000000000,06060505050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -675,7 +675,7 @@ playerOrigin: 3:15
 656: 0:3f800000000000000000,06050506050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 657: 0:3f800000000000000000,06070606050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 658: 0:3f800000000000000000,05060507070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-659: 1:11,,,true,:3f800000000000000000,06070605060605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+659: 1:11,,,true,-1,:3f800000000000000000,06070605060605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 660: 0:3f800000000000000000,06060506050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 661: 0:3f800000000000000000,07060505050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 662: 0:3f800000000000000000,05060705050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -707,8 +707,8 @@ playerOrigin: 3:15
 688: 0:3f800000000000000000,06050707050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 689: 0:3f800000000000000000,05060605070506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 690: 0:3f800000000000000000,06050605050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-691: 1:11,,,true,:3f800000000000000000,07070607060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-692: 1:11,,,true,:3f800000000000000000,05070506070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+691: 1:11,,,true,-1,:3f800000000000000000,07070607060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+692: 1:11,,,true,-1,:3f800000000000000000,05070506070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 693: 0:3f800000000000000000,06050506060705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 694: 0:3f800000000000000000,06050605070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 695: 0:3f800000000000000000,05070507060507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -729,18 +729,18 @@ playerOrigin: 3:15
 710: 0:3f800000000000000000,07060707070507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 711: 0:3f800000000000000000,06050507060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 712: 0:3f800000000000000000,07070507060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-713: 2:4,ekirths.tomb.execute.once.0,,false,A low stone altar rests in a west-facing niche in the wall. Above it, a crude sunburst ikon has been etched, with long wavy rays reaching down towards the squat altar.:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombMedallionOfBel:3f800000000000000000,07070707060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+713: 2:4,ekirths.tomb.execute.once.0,,false,-1,A low stone altar rests in a west-facing niche in the wall. Above it, a crude sunburst ikon has been etched, with long wavy rays reaching down towards the squat altar.:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombMedallionOfBel:3f800000000000000000,07070707060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 714: 0:3f800000000000000000,07050505060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 715: 0:3f800000000000000000,06070607060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 716: 0:3f800000000000000000,05050705070605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-717: 1:3,,,false,spawn.of.ekirth.1,ekirth's.tomb.encounter.6,,:3f800000000000000000,07070707050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+717: 1:3,,,false,-1,spawn.of.ekirth.1,ekirth's.tomb.encounter.6,,:3f800000000000000000,07070707050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 718: 0:3f800000000000000000,05070606050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 719: 0:3f800000000000000000,07060705050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 720: 0:3f800000000000000000,06060505070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 721: 0:3f800000000000000000,07070507060507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 722: 0:3f800000000000000000,06050705050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 723: 0:3f800000000000000000,07070507070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-724: 1:11,,,true,:3f800000000000000000,07070506060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+724: 1:11,,,true,-1,:3f800000000000000000,07070506060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 725: 0:3f800000000000000000,05070605070507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 726: 0:3f800000000000000000,06060706050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 727: 0:3f800000000000000000,06050505050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -772,11 +772,11 @@ playerOrigin: 3:15
 753: 0:3f800000000000000000,06070706050607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 754: 0:3f800000000000000000,06050507070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 755: 0:3f800000000000000000,06060705050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-756: 1:11,,,true,:3f800000000000000000,07070706050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+756: 1:11,,,true,-1,:3f800000000000000000,07070706050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 757: 0:3f800000000000000000,07070707060607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 758: 0:3f800000000000000000,05060705060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 759: 0:3f800000000000000000,07070507070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-760: 2:4,ekirths.tomb.execute.once.1,,false,The passage reaches a dead end. Some unfortunate adventurer met his or her fate here - a skeleton lies slumped against the far wall. The bones are dusty and ancient, and appear to have been chewed by some kind of small creature. The lower jaw is missing.%n%nYou wander who it was, and what story ended here in this grim crypt. :0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombGetselsBoneComb:3f800000000000000000,06060606060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+760: 2:4,ekirths.tomb.execute.once.1,,false,-1,The passage reaches a dead end. Some unfortunate adventurer met his or her fate here - a skeleton lies slumped against the far wall. The bones are dusty and ancient, and appear to have been chewed by some kind of small creature. The lower jaw is missing.%n%nYou wander who it was, and what story ended here in this grim crypt. :0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombGetselsBoneComb:3f800000000000000000,06060606060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 761: 0:3f800000000000000000,06070605060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 762: 0:3f800000000000000000,06060607070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 763: 0:3f800000000000000000,05060605070507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -804,7 +804,7 @@ playerOrigin: 3:15
 785: 0:3f800000000000000000,06070605050707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 786: 0:3f800000000000000000,06060606050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 787: 0:3f800000000000000000,05070606050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-788: 1:11,,,true,:3f800000000000000000,07060705070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+788: 1:11,,,true,-1,:3f800000000000000000,07060705070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 789: 0:3f800000000000000000,06060506050506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 790: 0:3f800000000000000000,05050707050606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 791: 0:3f800000000000000000,05060706070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -833,10 +833,10 @@ playerOrigin: 3:15
 814: 0:3f800000000000000000,05070706070505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 815: 0:3f800000000000000000,07050607060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 816: 0:3f800000000000000000,06070705060606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-817: 1:11,,,true,:3f800000000000000000,06070607060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-818: 1:11,,,true,:3f800000000000000000,07070505060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-819: 1:11,,,true,:3f800000000000000000,05060605050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-820: 1:11,,,true,:3f800000000000000000,07070506050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+817: 1:11,,,true,-1,:3f800000000000000000,06070607060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+818: 1:11,,,true,-1,:3f800000000000000000,07070505060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+819: 1:11,,,true,-1,:3f800000000000000000,05060605050605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+820: 1:11,,,true,-1,:3f800000000000000000,07070506050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 821: 0:3f800000000000000000,07060606050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 822: 0:3f800000000000000000,07050507070605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 823: 0:3f800000000000000000,06050606050706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -865,11 +865,11 @@ playerOrigin: 3:15
 846: 0:3f800000000000000000,05070507050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 847: 0:3f800000000000000000,07050705050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 848: 0:3f800000000000000000,06050707050507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-849: 1:11,,,true,:3f800000000000000000,07050506070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+849: 1:11,,,true,-1,:3f800000000000000000,07050506070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 850: 0:3f800000000000000000,07060705070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 851: 0:3f800000000000000000,07060607070507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 852: 0:3f800000000000000000,05060506050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-853: 1:11,,,true,:3f800000000000000000,05070707070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+853: 1:11,,,true,-1,:3f800000000000000000,05070707070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 854: 0:3f800000000000000000,06070505060605:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 855: 0:3f800000000000000000,06070707070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 856: 0:3f800000000000000000,07060706060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -897,11 +897,11 @@ playerOrigin: 3:15
 878: 0:3f800000000000000000,07060705050505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 879: 0:3f800000000000000000,07050706050705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 880: 0:3f800000000000000000,05060506060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-881: 1:11,,,true,:3f800000000000000000,06060505060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+881: 1:11,,,true,-1,:3f800000000000000000,06060505060706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 882: 0:3f800000000000000000,07060507060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 883: 0:3f800000000000000000,07060505070506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 884: 0:3f800000000000000000,06050607050506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-885: 1:11,,,true,:3f800000000000000000,07050605060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+885: 1:11,,,true,-1,:3f800000000000000000,07050605060506:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 886: 0:3f800000000000000000,05060606070606:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 887: 0:3f800000000000000000,05060706060707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 888: 0:3f800000000000000000,05070605060607:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -929,11 +929,11 @@ playerOrigin: 3:15
 910: 0:3f800000000000000000,07070506070507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 911: 0:3f800000000000000000,07050707070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 912: 0:3f800000000000000000,07070706070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-913: 1:11,,,true,:3f800000000000000000,05060606070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-914: 1:11,,,true,:3f800000000000000000,06050505070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-915: 1:11,,,true,:3f800000000000000000,07060706070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-916: 1:11,,,true,:3f800000000000000000,07070607070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
-917: 1:11,,,true,:3f800000000000000000,07060506070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+913: 1:11,,,true,-1,:3f800000000000000000,05060606070706:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+914: 1:11,,,true,-1,:3f800000000000000000,06050505070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+915: 1:11,,,true,-1,:3f800000000000000000,07060706070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+916: 1:11,,,true,-1,:3f800000000000000000,07070607070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
+917: 1:11,,,true,-1,:3f800000000000000000,07060506070707:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 918: 0:3f800000000000000000,05060607070705:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 919: 0:3f800000000000000000,05070705060507:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
 920: 0:3f800000000000000000,06070705060505:DUNGEON:Tomb:5:ekirth's.tomb.random.enc:MEDIUM:AVERAGE
@@ -2157,7 +2157,7 @@ playerOrigin: 3:15
 144: DUNGEON_WALL_1:::::true:1
 159: DUNGEON_WALL_1:::::true:1
 160: DUNGEON_WALL_1:::::true:1
-170: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,ekirths.tomb.remove.wall.2,170,true::true:1
+170: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,ekirths.tomb.remove.wall.2,170,true::true:1
 171: DUNGEON_WALL_1:::::true:1
 172: DUNGEON_WALL_1:::::true:1
 173: DUNGEON_WALL_1:::::true:1
@@ -2509,8 +2509,8 @@ playerOrigin: 3:15
 264: DUNGEON_WALL_1:::::true:1
 265: DUNGEON_WALL_1:::::true:1
 270: DUNGEON_WALL_1:::::true:1
-272: DUNGEON_WALL_1:WALL_BUTTON:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombWallButton1:::true:1
-276: DUNGEON_WALL_1:WALL_BUTTON:0,,,false,mclachlan.maze.campaign.def.map.EkirthsTombWallButton2:::true:1
+272: DUNGEON_WALL_1:WALL_BUTTON:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombWallButton1:::true:1
+276: DUNGEON_WALL_1:WALL_BUTTON:0,,,false,-1,mclachlan.maze.campaign.def.map.EkirthsTombWallButton2:::true:1
 279: DUNGEON_WALL_1:::::true:1
 280: DUNGEON_WALL_1:::::true:1
 281: DUNGEON_WALL_1:::::true:1
@@ -2627,7 +2627,7 @@ playerOrigin: 3:15
 580: DUNGEON_WALL_1:::::true:1
 581: DUNGEON_WALL_1:::::true:1
 583: DUNGEON_WALL_1:::::true:1
-584: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,ekirths.tomb.remove.wall.0,584,false::true:1
+584: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,ekirths.tomb.remove.wall.0,584,false::true:1
 585: DUNGEON_WALL_1:::::true:1
 588: DUNGEON_WALL_1:::::true:1
 589: DUNGEON_WALL_1:::::true:1
@@ -2714,7 +2714,7 @@ playerOrigin: 3:15
 825: DUNGEON_WALL_1:::::true:1
 826: DUNGEON_WALL_1:::::true:1
 842: DUNGEON_WALL_1:::::true:1
-845: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,ekirths.tomb.wall.button.1,845,false::true:1
+845: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,ekirths.tomb.wall.button.1,845,false::true:1
 846: DUNGEON_WALL_1:::::true:1
 856: DUNGEON_WALL_1:::::true:1
 857: DUNGEON_WALL_1:::::true:1
@@ -2783,7 +2783,7 @@ playerOrigin: 3:15
 1055: DUNGEON_WALL_1:::::true:1
 
 -objects-
-0: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:483:false:7,,,false,Ekirth's Tomb to Isle Of The Gate:00001::BOTTOM
+0: objects.ladder.up:objects.ladder.up:objects.ladder.up:objects.ladder.up:483:false:7,,,false,-1,Ekirth's Tomb to Isle Of The Gate:00001::BOTTOM
 1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:458:false::00001::BOTTOM
 2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:464:false::00001::BOTTOM
 3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:470:false::00001::BOTTOM

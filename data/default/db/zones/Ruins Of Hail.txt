@@ -158,7 +158,7 @@ playerOrigin: 22:23
 139: 0:3f800000000000000000,05050405040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 140: 0:3f800000000000000000,04050505040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 141: 0:3f800000000000000000,04050405050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-142: 1:4,,,false,Not far ahead, the road comes to an abrupt end in a large pile of stones. It appears that some sort of massive rock fall has blocked the way.:3f800000000000000000,05050504050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+142: 1:4,,,false,-1,Not far ahead, the road comes to an abrupt end in a large pile of stones. It appears that some sort of massive rock fall has blocked the way.:3f800000000000000000,05050504050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 143: 0:3f800000000000000000,05050505050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 144: 0:3f800000000000000000,05040405050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 145: 0:3f800000000000000000,05050505050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -422,8 +422,8 @@ playerOrigin: 22:23
 403: 0:3f800000000000000000,05040405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 404: 0:3f800000000000000000,05050504050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 405: 0:3f800000000000000000,04040405050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-406: 1:3,,,false,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,05040505050505:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-407: 1:3,,,false,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,04050405040405:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+406: 1:3,,,false,-1,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,05040505050505:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+407: 1:3,,,false,-1,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,04050405040405:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 408: 0:3f800000000000000000,04040505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 409: 0:3f800000000000000000,05040405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 410: 0:3f800000000000000000,04050504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -462,8 +462,8 @@ playerOrigin: 22:23
 443: 0:3f800000000000000000,04050505040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 444: 0:3f800000000000000000,05040405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 445: 0:3f800000000000000000,05040505050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-446: 1:3,,,false,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,05050505040404:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-447: 1:3,,,false,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,05050404050505:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+446: 1:3,,,false,-1,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,05050505040404:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+447: 1:3,,,false,-1,coloniser.omnifids.1,ruins.of.hail.colonising.omnifids,,:3f800000000000000000,05050404050505:URBAN:Ruin:0:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 448: 0:3f800000000000000000,05040404050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 449: 0:3f800000000000000000,04050405040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 450: 0:3f800000000000000000,04040404040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -492,7 +492,7 @@ playerOrigin: 22:23
 473: 0:3f800000000000000000,05050404040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 474: 0:3f800000000000000000,05050504050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 475: 0:3f800000000000000000,05050504050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-476: 1:2,,,false,5///false/ruins.of.hail.black.dog.chest,0`,ruins.of.hail.black.dog.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,04050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+476: 1:2,,,false,-1,5///false/-1/ruins.of.hail.black.dog.chest,0`,ruins.of.hail.black.dog.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,04050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 477: 0:3f800000000000000000,04050404040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 478: 0:3f800000000000000000,04050405040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 479: 0:0,:URBAN:Ruin:5:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -649,7 +649,7 @@ playerOrigin: 22:23
 630: 0:3f800000000000000000,05040504040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 631: 0:3f800000000000000000,04050504050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 632: 0:3f800000000000000000,04040505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-633: 2:8,,,false,~~  L  CK  O  ~~:4,,,false,Little remains of this building. Weeds and mould sprout from the ruins.:3f800000000000000000,05040504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+633: 2:8,,,false,-1,~~  L  CK  O  ~~:4,,,false,-1,Little remains of this building. Weeds and mould sprout from the ruins.:3f800000000000000000,05040504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 634: 0:3f800000000000000000,04040505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 635: 0:3f800000000000000000,05050405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 636: 0:3f800000000000000000,04040405040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -838,7 +838,7 @@ playerOrigin: 22:23
 819: 0:3f800000000000000000,05050405050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 820: 0:3f800000000000000000,04040505050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 821: 0:3f800000000000000000,05040505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-822: 1:8,,,false, ~ T lem kar ch s ~:3f800000000000000000,04040505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+822: 1:8,,,false,-1, ~ T lem kar ch s ~:3f800000000000000000,04040505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 823: 0:3f800000000000000000,05040505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 824: 0:3f800000000000000000,05050404050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 825: 0:3f800000000000000000,05040504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -876,11 +876,11 @@ playerOrigin: 22:23
 857: 0:3f800000000000000000,04050504050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 858: 0:3f800000000000000000,04050405040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 859: 0:3f800000000000000000,05040505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-860: 1:8,,,false,~ Pl  n O   illar  ~:3f800000000000000000,05040505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+860: 1:8,,,false,-1,~ Pl  n O   illar  ~:3f800000000000000000,05040505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 861: 0:3f800000000000000000,04040405050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 862: 0:3f800000000000000000,05040504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-863: 1:7,ruins.of.hail.intro,,false,Ruins Of Hail intro:3f800000000000000000,04040404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-864: 1:8,,,false,~ Stygi s ~:3f800000000000000000,05040505050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+863: 1:7,ruins.of.hail.intro,,false,-1,Ruins Of Hail intro:3f800000000000000000,04040404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+864: 1:8,,,false,-1,~ Stygi s ~:3f800000000000000000,05040505050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 865: 0:3f800000000000000000,04050404050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 866: 0:3f800000000000000000,04040404050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 867: 0:3f800000000000000000,05050504050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -956,11 +956,11 @@ playerOrigin: 22:23
 937: 0:3f800000000000000000,05050505040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 938: 0:3f800000000000000000,04050504050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 939: 0:3f800000000000000000,05040404050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-940: 2:8,,,false,~ Benef l  ~:0,,,false,mclachlan.maze.campaign.def.map.RuinsOfHailDeadPillarTile:3f800000000000000000,04090403020303:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+940: 2:8,,,false,-1,~ Benef l  ~:0,,,false,-1,mclachlan.maze.campaign.def.map.RuinsOfHailDeadPillarTile:3f800000000000000000,04090403020303:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 941: 0:3f800000000000000000,04050504050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-942: 1:7,ruins.of.hail.intro,,false,Ruins Of Hail intro:3f800000000000000000,05040505050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+942: 1:7,ruins.of.hail.intro,,false,-1,Ruins Of Hail intro:3f800000000000000000,05040505050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 943: 0:3f800000000000000000,05050405050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-944: 1:8,,,false,~ Hian ian :3f800000000000000000,04040505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+944: 1:8,,,false,-1,~ Hian ian :3f800000000000000000,04040505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 945: 0:3f800000000000000000,05050405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 946: 0:3f800000000000000000,05040405040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 947: 0:3f800000000000000000,05050404040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -970,7 +970,7 @@ playerOrigin: 22:23
 951: 0:3f800000000000000000,04040504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 952: 0:3f800000000000000000,05050405040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 953: 0:3f800000000000000000,05050505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-954: 2:4,,,false,The area around these remains is blackened and scorched.:10,,,false,ruins.of.hail.damla's.bones.hidden.stuff,Ruins Of Hail damla's bones hidden stuff,,1,0:3f800000000000000000,04050404050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+954: 2:4,,,false,-1,The area around these remains is blackened and scorched.:10,,,false,-1,ruins.of.hail.damla's.bones.hidden.stuff,Ruins Of Hail damla's bones hidden stuff,,0:3f800000000000000000,04050404050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 955: 0:3f800000000000000000,05040504050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 956: 0:3f800000000000000000,05040504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 957: 0:3f800000000000000000,05050405050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -998,7 +998,7 @@ playerOrigin: 22:23
 979: 0:3f800000000000000000,04050505040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 980: 0:3f800000000000000000,04040505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 981: 0:3f800000000000000000,04050505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-982: 1:8,,,false,~ T  nad  M  nta n ~:3f800000000000000000,05040404050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+982: 1:8,,,false,-1,~ T  nad  M  nta n ~:3f800000000000000000,05040404050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 983: 0:3f800000000000000000,05040404040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 984: 0:3f800000000000000000,05050504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 985: 0:3f800000000000000000,05050505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -1110,7 +1110,7 @@ playerOrigin: 22:23
 1091: 0:3f800000000000000000,04040504050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1092: 0:3f800000000000000000,04050505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1093: 0:3f800000000000000000,05050405040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-1094: 1:8,,,false,P blic Libra y:3f800000000000000000,05050404040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+1094: 1:8,,,false,-1,P blic Libra y:3f800000000000000000,05050404040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1095: 0:3f800000000000000000,05040504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1096: 0:3f800000000000000000,04050505040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1097: 0:3f800000000000000000,05050405050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -1150,7 +1150,7 @@ playerOrigin: 22:23
 1131: 0:3f800000000000000000,05050505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1132: 0:3f800000000000000000,05040504050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1133: 0:3f800000000000000000,04040504040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-1134: 2:4,,,false,The door of the library and the wall around it have been staved in. Smashed brickwork and shelving litter the floor, all covered by a fine layer of dust and mould.%n%nWithin, you see damage from battle and years of exposure to the weather. Torn and scorched books lie everywhere - what wasn't destroyed by fire and sack has succumbed to rain and mould.:4,,,false,Yet, in the far corner, you see a large coffer partly buried by debris...:3f800000000000000000,05050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+1134: 2:4,,,false,-1,The door of the library and the wall around it have been staved in. Smashed brickwork and shelving litter the floor, all covered by a fine layer of dust and mould.%n%nWithin, you see damage from battle and years of exposure to the weather. Torn and scorched books lie everywhere - what wasn't destroyed by fire and sack has succumbed to rain and mould.:4,,,false,-1,Yet, in the far corner, you see a large coffer partly buried by debris...:3f800000000000000000,05050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1135: 0:3f800000000000000000,05050504040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1136: 0:3f800000000000000000,04050404040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1137: 0:3f800000000000000000,05050505040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -1168,7 +1168,7 @@ playerOrigin: 22:23
 1149: 0:3f800000000000000000,05040404040404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1150: 0:3f800000000000000000,05050504050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1151: 0:3f800000000000000000,05040405040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-1152: 2:4,ruins.of.hail.execute.once.0,,false,All you can find of the dragon's hoard is one small chest. Somewhat disappointing.:2,,,false,5///false/ruins.of.hail.old.igor.chest,0`3 - Toxic Gas~25`3 - Lifestealer~25`3 - Hexxer~25`3 - Curse Of Medusa~25,ruins.of.hail.old.igor.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,05050405050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+1152: 2:4,ruins.of.hail.execute.once.0,,false,-1,All you can find of the dragon's hoard is one small chest. Somewhat disappointing.:2,,,false,-1,5///false/-1/ruins.of.hail.old.igor.chest,0`3 - Toxic Gas~25`3 - Lifestealer~25`3 - Hexxer~25`3 - Curse Of Medusa~25,ruins.of.hail.old.igor.chest,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,05050405050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1153: 0:3f800000000000000000,04040405050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1154: 0:3f800000000000000000,05050504050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1155: 0:3f800000000000000000,04050505050505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -1192,8 +1192,8 @@ playerOrigin: 22:23
 1173: 0:3f800000000000000000,05050504050504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1174: 0:3f800000000000000000,05040504040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1175: 0:3f800000000000000000,04040404050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-1176: 2:4,,,false,You step over the bones of some poor scribe who appears to have died in defence of his books.:10,,,false,ruins.of.hail.hidden.stuff.1,Ruins Of Hail hidden stuff 1,,1,0:3f800000000000000000,05050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
-1177: 2:4,,,false,The ancient coffer has been blackened by fire, chipped and dented by the years, and is covered with dirt and mould.:2,,,false,5///false/ruins.of.hail.library.books,0`2 - Energy Drain~17`2 - Stunner~17`2 - Ray Of Enfeeblement~17`1 - Glowing Curse~17`3 - Curse Of Medusa~16`3 - Hexxer~16,ruins.of.hail.chest.1,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,04050504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+1176: 2:4,,,false,-1,You step over the bones of some poor scribe who appears to have died in defence of his books.:10,,,false,-1,ruins.of.hail.hidden.stuff.1,Ruins Of Hail hidden stuff 1,,0:3f800000000000000000,05050404040505:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
+1177: 2:4,,,false,-1,The ancient coffer has been blackened by fire, chipped and dented by the years, and is covered with dirt and mould.:2,,,false,-1,5///false/-1/ruins.of.hail.library.books,0`2 - Energy Drain~17`2 - Stunner~17`2 - Ray Of Enfeeblement~17`1 - Glowing Curse~17`3 - Curse Of Medusa~16`3 - Hexxer~16,ruins.of.hail.chest.1,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,04050504040405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1178: 0:3f800000000000000000,05050505050404:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1179: 0:3f800000000000000000,04050505040504:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
 1180: 0:3f800000000000000000,04050505050405:URBAN:Ruin:7:ruins.of.hail.random.enc:MEDIUM:AVERAGE
@@ -4255,12 +4255,12 @@ playerOrigin: 22:23
 1639: DIRT_WALL_1:::::true:1
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:982:false:7,,,false,Ruins Of Hail to Tornado Mountain:::BOTTOM
-1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:944:false:7,,,false,Ruins Of Hail to Hianbian:::BOTTOM
-2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:864:false:7,,,false,Ruins Of Hail to Stygios Forest:00001::BOTTOM
-3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:822:false:7,,,false,Ruins Of Hail to Writhing Mire:00001::BOTTOM
-4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:860:false:7,,,false,Ruins Of Hail to Plain Of Pillars:00001::BOTTOM
-5: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:940:false:0,,,false,mclachlan.maze.campaign.def.map.RuinsOfHailDeadPillarTouch:00001::BOTTOM
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:982:false:7,,,false,-1,Ruins Of Hail to Tornado Mountain:::BOTTOM
+1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:944:false:7,,,false,-1,Ruins Of Hail to Hianbian:::BOTTOM
+2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:864:false:7,,,false,-1,Ruins Of Hail to Stygios Forest:00001::BOTTOM
+3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:822:false:7,,,false,-1,Ruins Of Hail to Writhing Mire:00001::BOTTOM
+4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:860:false:7,,,false,-1,Ruins Of Hail to Plain Of Pillars:00001::BOTTOM
+5: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:940:false:0,,,false,-1,mclachlan.maze.campaign.def.map.RuinsOfHailDeadPillarTouch:00001::BOTTOM
 6: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:896:false::::BOTTOM
 7: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:776:false::::BOTTOM
 8: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:578:false::::BOTTOM

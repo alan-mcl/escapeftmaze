@@ -1378,14 +1378,14 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					}
 					else
 					{
-						for (ObjectScript script : foe.getAnimationScripts())
+						if (foe.getAnimationScripts() != null)
 						{
-							obj.addScript(script.spawnNewInstance(obj, raycaster));
+							for (ObjectScript script : foe.getAnimationScripts())
+							{
+								obj.addScript(script.spawnNewInstance(obj, raycaster));
+							}
 						}
 					}
-
-					// todo: remove
-//					obj.addScript(new SinusoidalStretch(1.5, .9, 1.1, true, true).spawnNewInstance(obj, raycaster));
 
 					this.raycaster.addObject(obj, false);
 				}

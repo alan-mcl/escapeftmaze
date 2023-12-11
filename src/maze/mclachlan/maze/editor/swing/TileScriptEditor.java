@@ -102,6 +102,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField executeOnceMazeVariable;
 	private JCheckBox north, south, east, west;
 	private JCheckBox reexecuteOnSameTile;
+	private JSpinner scoutSecretDifficulty;
 
 	private JComboBox spell;
 	private JSpinner castingLevel;
@@ -151,7 +152,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField hiddenStuffVariable;
 	private JComboBox hiddenStuffContents;
 	private JComboBox hiddenStuffPreScript;
-	private JSpinner hiddenStuffSpotDifficulty, hiddenStuffFindDifficulty;
+	private JSpinner hiddenStuffFindDifficulty;
 
 	private JTextField psSpeechKey;
 	private JCheckBox psModal;
@@ -264,9 +265,19 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		reexecuteOnSameTile = new JCheckBox("Re-execute On Same Tile?");
 		reexecuteOnSameTile.addActionListener(this);
 		result.add(reexecuteOnSameTile, gbc);
+
+		gbc.gridy++;
+		gbc.weightx = 1.0;
+		gbc.weighty = 0.0;
+		JPanel panel2 = new JPanel();
+		scoutSecretDifficulty = new JSpinner(new SpinnerNumberModel(-1,-1,256,1));
+		panel2.add(new JLabel("Scout Secret Difficulty:"));
+		panel2.add(scoutSecretDifficulty);
+		result.add(panel2, gbc);
 		
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
+		gbc.gridx = 0;
 		gbc.gridy++;
 		result.add(new JLabel(), gbc);
 		
@@ -318,6 +329,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			east.setSelected(false);
 			west.setSelected(false);
 		}
+
+		scoutSecretDifficulty.setValue(ts.getScoutSecretDifficulty());
 
 		switch (tsType)
 		{
@@ -428,7 +441,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				hiddenStuffContents.setSelectedItem(hs.getContent().getName());
 				hiddenStuffPreScript.setSelectedItem(hs.getPreScript()==null?EditorPanel.NONE:hs.getPreScript().getName());
 				hiddenStuffVariable.setText(hs.getMazeVariable());
-				hiddenStuffSpotDifficulty.setValue(hs.getSpotDifficulty());
 				hiddenStuffFindDifficulty.setValue(hs.getFindDifficulty());
 				break;
 			case WATER:
@@ -470,7 +482,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		hiddenStuffContents = new JComboBox(scripts);
 		hiddenStuffPreScript = new JComboBox(scripts);
 		hiddenStuffVariable = new JTextField(20);
-		hiddenStuffSpotDifficulty = new JSpinner(new SpinnerNumberModel(1,0,127,1));
 		hiddenStuffFindDifficulty = new JSpinner(new SpinnerNumberModel(1,0,127,1));
 
 		JButton edit = getMazeScriptEditButton();
@@ -479,7 +490,6 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Maze Variable:"), hiddenStuffVariable,
 			new JLabel("Contents:"), hiddenStuffContents,
 			new JLabel("Pre Script:"), hiddenStuffPreScript,
-			new JLabel("Spot Difficulty:"), hiddenStuffSpotDifficulty,
 			new JLabel("Find Difficulty:"), hiddenStuffFindDifficulty,
 			new JLabel(), edit);
 	}
@@ -1283,11 +1293,10 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				String mazeVar = hiddenStuffVariable.getText();
 				String contentStr = (String)hiddenStuffContents.getSelectedItem();
 				String preStr = (String)hiddenStuffPreScript.getSelectedItem();
-				int spotDifficulty = (Integer)hiddenStuffSpotDifficulty.getValue();
 				int findDifficulty = (Integer)hiddenStuffFindDifficulty.getValue();
 				MazeScript content = (contentStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getMazeScript(contentStr);
 				MazeScript preScript = (preStr.equals(EditorPanel.NONE)) ? null : Database.getInstance().getMazeScript(preStr);
-				result = new HiddenStuff(content, preScript, mazeVar, spotDifficulty, findDifficulty);
+				result = new HiddenStuff(content, preScript, mazeVar, findDifficulty);
 				break;
 			case WATER:
 				result = new Water();
@@ -1313,6 +1322,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			if (west.isSelected()) bs.set(CrusaderEngine.Facing.WEST);
 			result.setFacings(bs);
 		}
+
+		result.setScoutSecretDifficulty((Integer)scoutSecretDifficulty.getValue());
 		
 		result.setReexecuteOnSameTile(reexecuteOnSameTile.isSelected());
 	}

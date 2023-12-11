@@ -253,7 +253,7 @@ playerOrigin: 16:28
 234: 0:3f800000000000000000,03020203030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 235: 0:3f800000000000000000,03020203030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 236: 0:3f800000000000000000,02020203030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-237: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,03020203030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+237: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,03020203030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 238: 0:3f800000000000000000,02030303030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 239: 0:3f800000000000000000,03030303020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 240: 0:3f800000000000000000,02030303020302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -289,7 +289,7 @@ playerOrigin: 16:28
 270: 0:3f800000000000000000,03030203020302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 271: 0:3f800000000000000000,03030202030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 272: 0:3f800000000000000000,03030203020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-273: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,03030202020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+273: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,03030202020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 274: 0:3f800000000000000000,03030302020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 275: 0:3f800000000000000000,02020302020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 276: 0:3f800000000000000000,03020202030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -345,7 +345,7 @@ playerOrigin: 16:28
 326: 0:3f800000000000000000,03030203030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 327: 0:3f800000000000000000,03030303020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 328: 0:3f800000000000000000,03030202030402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-329: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,03020203020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+329: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,03020203020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 330: 0:3f800000000000000000,03020202030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 331: 0:3f800000000000000000,02020203030402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 332: 0:3f800000000000000000,03030202020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -389,7 +389,7 @@ playerOrigin: 16:28
 370: 0:3f800000000000000000,02030203020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 371: 0:3f800000000000000000,02030203030402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 372: 0:3f800000000000000000,03020203030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-373: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,02020202020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+373: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,02020202020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 374: 0:3f800000000000000000,03030302020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 375: 0:3f800000000000000000,03030303020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 376: 0:3f800000000000000000,02030303020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -506,7 +506,7 @@ playerOrigin: 16:28
 487: 0:3f800000000000000000,02020202020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 488: 0:3f800000000000000000,02020203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 489: 0:3f800000000000000000,03020303030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-490: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,03020302020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+490: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,03020302020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 491: 0:3f800000000000000000,03030302030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 492: 0:3f800000000000000000,02020303030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 493: 0:3f800000000000000000,03030303030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -517,7 +517,7 @@ playerOrigin: 16:28
 498: 0:3f800000000000000000,03030302030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 499: 0:3f800000000000000000,03020303020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 500: 0:3f800000000000000000,03030302030402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-501: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,02020203030402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+501: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,02020203030402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 502: 0:3f800000000000000000,02020202030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 503: 0:3f800000000000000000,02030203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 504: 0:3f800000000000000000,02020202030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -548,7 +548,7 @@ playerOrigin: 16:28
 529: 0:3f800000000000000000,02030203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 530: 0:3f800000000000000000,03020302030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 531: 0:3f800000000000000000,03020203020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-532: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,02030303020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+532: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,02030303020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 533: 0:3f800000000000000000,02020303020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 534: 0:3f800000000000000000,03020203030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 535: 0:3f800000000000000000,03020203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -605,9 +605,9 @@ playerOrigin: 16:28
 586: 0:3f800000000000000000,02020303020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 587: 0:3f800000000000000000,02020302030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 588: 0:3f800000000000000000,03020202020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-589: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,02030203020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+589: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,02030203020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 590: 0:3f800000000000000000,02020203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-591: 1:7,gnoll.village.intro,,false,Gnoll Village intro:3f800000000000000000,02030203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+591: 1:7,gnoll.village.intro,,false,-1,Gnoll Village intro:3f800000000000000000,02030203020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 592: 0:3f800000000000000000,03020303020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 593: 0:3f800000000000000000,03020302020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 594: 0:3f800000000000000000,02020202020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -928,7 +928,7 @@ playerOrigin: 16:28
 909: 0:3f800000000000000000,02030202020303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 910: 0:3f800000000000000000,02020202030302:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 911: 0:3f800000000000000000,03020202030303:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
-912: 1:4,gnoll.village.execute.once.0,,false,You emerge into the forest... the sun shines above, and birds and insects can be heard nearby.:3f800000000000000000,02020203020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
+912: 1:4,gnoll.village.execute.once.0,,false,-1,You emerge into the forest... the sun shines above, and birds and insects can be heard nearby.:3f800000000000000000,02020203020403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 913: 0:3f800000000000000000,02020202020402:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 914: 0:3f800000000000000000,03030203030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
 915: 0:3f800000000000000000,03030202030403:WILDERNESS:Forest:15:gnoll.village.random.enc:MEDIUM:AVERAGE
@@ -3057,7 +3057,7 @@ playerOrigin: 16:28
 1055: TREE_WALL_1:::::true:1
 
 -objects-
-0: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:912:false:7,,,false,Gnoll Village to Ichiba Depths:::BOTTOM
+0: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:912:false:7,,,false,-1,Gnoll Village to Ichiba Depths:::BOTTOM
 1: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:51:false::0001::BOTTOM
 2: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:104:false::000000101::BOTTOM
 3: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:107:false::0000001::BOTTOM

@@ -1049,7 +1049,7 @@ playerOrigin: 11:21
 1030: 0:13800000000000000000,01090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1031: 0:13000000000000000000,080101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1032: 0:3800000000000000000,010801:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
-1033: 1:7,castle.fangorn.flava.2,,false,Castle Fangorn castle intro:1d800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
+1033: 1:7,castle.fangorn.flava.2,,false,-1,Castle Fangorn castle intro:1d800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1034: 0:33800000000000000000,0109010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1035: 0:39800000000000000000,0109010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1036: 0:31000000000000000000,080101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
@@ -1113,7 +1113,7 @@ playerOrigin: 11:21
 1094: 0:2b800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1095: 0:33000000000000000000,08010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1096: 0:17000000000000000000,09010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
-1097: 1:8,,,false,* FANGORN *:3b800000000000000000,010801010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
+1097: 1:8,,,false,-1,* FANGORN *:3b800000000000000000,010801010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1098: 0:5800000000000000000,010801:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1099: 0:2d800000000000000000,0109010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1100: 0:35000000000000000000,08010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
@@ -1371,7 +1371,7 @@ playerOrigin: 11:21
 1352: 0:f000000000000000000,08010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1353: 0:29800000000000000000,01090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1354: 0:13000000000000000000,090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
-1355: 1:7,castle.fangorn.flava.1,,false,Castle Fangorn intro:1d800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
+1355: 1:7,castle.fangorn.flava.1,,false,-1,Castle Fangorn intro:1d800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1356: 0:3d000000000000000000,0901010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1357: 0:1000000000000000000,08:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 1358: 0:f000000000000000000,08010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
@@ -3477,7 +3477,7 @@ playerOrigin: 11:21
 3458: 0:31800000000000000000,01090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3459: 0:35800000000000000000,0109010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3460: 0:35800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
-3461: 1:4,castle.fangorn.flava.3,,false,You emerge onto the freezing roof of the castle. The icy wind howls over the battlements behind you, strips of ragged cloud race past barely a few hundred meters above your head. The cold is almost unbearable.%n%nYou hunch deeper in your clothing and wonder what it is that you're doing here...:3000000000000000000,0901:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
+3461: 1:4,castle.fangorn.flava.3,,false,-1,You emerge onto the freezing roof of the castle. The icy wind howls over the battlements behind you, strips of ragged cloud race past barely a few hundred meters above your head. The cold is almost unbearable.%n%nYou hunch deeper in your clothing and wonder what it is that you're doing here...:3000000000000000000,0901:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3462: 0:11800000000000000000,010801:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3463: 0:1f000000000000000000,0901010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3464: 0:b000000000000000000,080101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
@@ -3677,7 +3677,7 @@ playerOrigin: 11:21
 3658: 0:23800000000000000000,01080101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3659: 0:3d000000000000000000,0801010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3660: 0:29000000000000000000,080101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
-3661: 1:2,,,false,5///false/castle.fangorn.eokil.loot,0`0 - Fire Trap~25`1 - Guardian~25`0 - Magic Sparks~25`0 - Poison Darts~25,castle.fangorn.chest.1,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:15000000000000000000,090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
+3661: 1:2,,,false,-1,5///false/-1/castle.fangorn.eokil.loot,0`0 - Fire Trap~25`1 - Guardian~25`0 - Magic Sparks~25`0 - Poison Darts~25,castle.fangorn.chest.1,CHEST_1_FRONT,CHEST_1_BACK,CHEST_1_SIDE,CHEST_1_SIDE,:15000000000000000000,090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3662: 0:1b800000000000000000,0108010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3663: 0:2f800000000000000000,010901010101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
 3664: 0:25000000000000000000,090101:DUNGEON:Castle:5:castle.fangorn.random.enc:MEDIUM:AVERAGE
@@ -9342,7 +9342,7 @@ playerOrigin: 11:21
 466: DUNGEON_WALL_1:::::true:1
 468: DUNGEON_WALL_1:::::true:1
 470: DUNGEON_WALL_1:::::true:1
-471: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,castle.fangorn.remove.wall.1,471,false::true:1
+471: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,castle.fangorn.remove.wall.1,471,false::true:1
 472: DUNGEON_WALL_1:::::true:1
 476: DIRT_WALL_1:::::true:1
 502: DUNGEON_WALL_1:::::true:1
@@ -9458,7 +9458,7 @@ playerOrigin: 11:21
 833: DUNGEON_WALL_1:DUNGEON_DOOR_1::::true:1
 836: DUNGEON_WALL_1:DUNGEON_DOOR_1::::true:1
 838: DUNGEON_WALL_1:::::true:1
-839: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,castle.fangorn.remove.wall.2,839,false::true:1
+839: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,castle.fangorn.remove.wall.2,839,false::true:1
 841: DUNGEON_WALL_1:::::true:1
 842: DUNGEON_WALL_1:::::true:1
 843: DUNGEON_WALL_1:::::true:1
@@ -9732,7 +9732,7 @@ playerOrigin: 11:21
 3252: DUNGEON_WALL_1:::::true:1
 3253: DUNGEON_WALL_1:::::true:1
 3257: DUNGEON_WALL_1:::::true:1
-3258: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,castle.fangorn.remove.wall.4,3258,false::true:1
+3258: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,castle.fangorn.remove.wall.4,3258,false::true:1
 3262: DUNGEON_WALL_1:::::true:1
 3266: DUNGEON_WALL_1:::::true:1
 3267: DUNGEON_WALL_1:::::true:1
@@ -9916,7 +9916,7 @@ playerOrigin: 11:21
 3918: DUNGEON_WALL_1:::::true:1
 3946: DUNGEON_WALL_1:::::true:1
 3948: DUNGEON_WALL_1:::::true:1
-3950: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,castle.fangorn.remove.wall.3,3950,false::true:1
+3950: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,castle.fangorn.remove.wall.3,3950,false::true:1
 3951: DUNGEON_WALL_1:::::true:1
 3953: DUNGEON_WALL_1:::::true:1
 3956: DUNGEON_WALL_1:::::true:1
@@ -10009,7 +10009,7 @@ playerOrigin: 11:21
 4159: DUNGEON_WALL_1:::::true:1
 
 -objects-
-0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1356:false:7,,,false,Castle Fangorn to Ruins Of Hail:::BOTTOM
+0: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:1356:false:7,,,false,-1,Castle Fangorn to Ruins Of Hail:::BOTTOM
 1: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1156:false::01::BOTTOM
 2: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1166:false::001::BOTTOM
 3: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:1547:false::0001::BOTTOM

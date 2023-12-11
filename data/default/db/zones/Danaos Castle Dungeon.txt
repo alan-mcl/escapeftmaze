@@ -88,7 +88,7 @@ playerOrigin: 10:9
 69: 0:3f800000000000000000,03030303030201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 70: 0:3f800000000000000000,01010301010103:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 71: 0:3f800000000000000000,02010102010203:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
-72: 1:7,,,false,Danaos Dungeon to Stygios Forest:3f800000000000000000,03020301030302:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
+72: 1:7,,,false,-1,Danaos Dungeon to Stygios Forest:3f800000000000000000,03020301030302:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 73: 0:3f800000000000000000,01010202010202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 74: 0:3f800000000000000000,03020101030303:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 75: 0:3f800000000000000000,03020101020201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -104,7 +104,7 @@ playerOrigin: 10:9
 85: 0:3f800000000000000000,03030102010202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 86: 0:3f800000000000000000,03020202020103:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 87: 0:3f800000000000000000,02020303010103:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
-88: 1:7,danaos.castle.dungeon.execute.once.0,,false,Danaos Dungeon Portal intro:3f800000000000000000,02010103010202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
+88: 1:7,danaos.castle.dungeon.execute.once.0,,false,-1,Danaos Dungeon Portal intro:3f800000000000000000,02010103010202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 89: 0:3f800000000000000000,03010201020102:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 90: 0:3f800000000000000000,03030102030301:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 91: 0:3f800000000000000000,02010303030201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
@@ -120,7 +120,7 @@ playerOrigin: 10:9
 101: 0:3f800000000000000000,03010101010201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 102: 0:3f800000000000000000,02030301030203:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 103: 0:3f800000000000000000,01020201030201:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
-104: 2:4,danaos.castle.dungeon.execute.once.1,,false,With a horrifying roar, a huge wyrm hurls itself towards you!:3,,,false,ichneumorax,danaos.castle.dungeon.encounter.0,,:3f800000000000000000,03010103030303:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
+104: 2:4,danaos.castle.dungeon.execute.once.1,,false,-1,With a horrifying roar, a huge wyrm hurls itself towards you!:3,,,false,-1,ichneumorax,danaos.castle.dungeon.encounter.0,,:3f800000000000000000,03010103030303:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 105: 0:3f800000000000000000,02010203020202:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 106: 0:3f800000000000000000,03020202010101:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE
 107: 0:3f800000000000000000,02020102010101:DUNGEON:Castle:5:danaos.castle.random.enc:MEDIUM:AVERAGE

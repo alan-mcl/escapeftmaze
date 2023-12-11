@@ -213,7 +213,7 @@ playerOrigin: 27:15
 194: 0:3f800000000000000000,04050302030403:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 195: 0:3f800000000000000000,03050202020303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 196: 0:3f800000000000000000,04050302030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-197: 1:2,,,false,5///false/stygios.forest.chest.1,0`2 - Acid Bomb~13`2 - Armourmelt~13`2 - Boiling Blood~13`2 - Cloud Of Fear~13`2 - Energy Drain~12`2 - Fire Bomb~12`2 - Ray Of Enfeeblement~12`2 - Stunner~12,stygios.forest.chest.1,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02050402020303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+197: 1:2,,,false,-1,5///false/-1/stygios.forest.chest.1,0`2 - Acid Bomb~13`2 - Armourmelt~13`2 - Boiling Blood~13`2 - Cloud Of Fear~13`2 - Energy Drain~12`2 - Fire Bomb~12`2 - Ray Of Enfeeblement~12`2 - Stunner~12,stygios.forest.chest.1,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02050402020303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 198: 0:3f800000000000000000,04050304030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 199: 0:3f800000000000000000,03050202030302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 200: 0:3f800000000000000000,03040202030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
@@ -266,7 +266,7 @@ playerOrigin: 27:15
 247: 0:3f800000000000000000,03060403030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 248: 0:3f800000000000000000,04050304020202:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 249: 0:3f800000000000000000,03050302020302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-250: 1:7,stygios.forest.intro,,false,Stygios Forest intro:3f800000000000000000,03060302020302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+250: 1:7,stygios.forest.intro,,false,-1,Stygios Forest intro:3f800000000000000000,03060302020302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 251: 0:3f800000000000000000,02040403020202:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 252: 0:3f800000000000000000,03060303020303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 253: 0:3f800000000000000000,03050303030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
@@ -298,7 +298,7 @@ playerOrigin: 27:15
 279: 0:3f800000000000000000,03050304030403:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 280: 0:3f800000000000000000,02060204030403:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 281: 0:3f800000000000000000,03050202030403:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-282: 2:11,,,true,:7,,,false,Stygios Forest to Ruins Of Hail:3f800000000000000000,03050204030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+282: 2:11,,,true,-1,:7,,,false,-1,Stygios Forest to Ruins Of Hail:3f800000000000000000,03050204030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 283: 0:3f800000000000000000,02050203030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 284: 0:3f800000000000000000,03060303030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 285: 0:3f800000000000000000,03040303030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
@@ -523,8 +523,8 @@ playerOrigin: 27:15
 504: 0:3f800000000000000000,03050202020404:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 505: 0:3f800000000000000000,03050203020302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 506: 0:3f800000000000000000,03060304030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-507: 1:7,stygios.forest.intro,,false,Stygios Forest intro:3f800000000000000000,02040304030204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-508: 1:7,,,false,Stygios Forest to Danaos Dungeon:3f800000000000000000,03060303030204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+507: 1:7,stygios.forest.intro,,false,-1,Stygios Forest intro:3f800000000000000000,02040304030204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+508: 1:7,,,false,-1,Stygios Forest to Danaos Dungeon:3f800000000000000000,03060303030204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 509: 0:3f800000000000000000,03040203030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 510: 0:3f800000000000000000,03050303030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 511: 0:3f800000000000000000,03050304030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
@@ -544,8 +544,8 @@ playerOrigin: 27:15
 525: 0:3f800000000000000000,04050304020404:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 526: 0:3f800000000000000000,04050203020304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 527: 0:3f800000000000000000,02050303020302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-528: 1:7,stygios.forest.faerie.circle,,false,Stygios Forest faerie circle:3f800000000000000000,04040204030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-529: 1:7,stygios.forest.faerie.circle,,false,Stygios Forest faerie circle:3f800000000000000000,04060403020204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+528: 1:7,stygios.forest.faerie.circle,,false,-1,Stygios Forest faerie circle:3f800000000000000000,04040204030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+529: 1:7,stygios.forest.faerie.circle,,false,-1,Stygios Forest faerie circle:3f800000000000000000,04060403020204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 530: 0:3f800000000000000000,02060203030203:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 531: 0:3f800000000000000000,04050403020403:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 532: 0:3f800000000000000000,04050304020304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
@@ -566,7 +566,7 @@ playerOrigin: 27:15
 547: 0:3f800000000000000000,04040303030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 548: 0:3f800000000000000000,03050303030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 549: 0:3f800000000000000000,02050304030302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-550: 4:4,stygios.forest.flava.2,,false,The gloomy clearing is scattered with bones and offal, and reeks of death and decay. Your nose crinkes in disgust as you peer around...:4,stygios.forest.flava.3,,false,... when suddenly a hideous guttural growl breaks the silence. Your blood chills and your fingers freeze on your weapons...:4,stygios.forest.flava.4,,false,Out of the gloom a pack of menacing figures appear, led by a staggering, gaunt gnoll of some kind. Another growl rumbles from it's throat, and with mounting fear you realise that you are facing no ordinary foe here.:3,,,false,ineoth.encounter,stygios.forest.encounter.0,,:3f800000000000000000,04060202020203:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+550: 4:4,stygios.forest.flava.2,,false,-1,The gloomy clearing is scattered with bones and offal, and reeks of death and decay. Your nose crinkes in disgust as you peer around...:4,stygios.forest.flava.3,,false,-1,... when suddenly a hideous guttural growl breaks the silence. Your blood chills and your fingers freeze on your weapons...:4,stygios.forest.flava.4,,false,-1,Out of the gloom a pack of menacing figures appear, led by a staggering, gaunt gnoll of some kind. Another growl rumbles from it's throat, and with mounting fear you realise that you are facing no ordinary foe here.:3,,,false,-1,ineoth.encounter,stygios.forest.encounter.0,,:3f800000000000000000,04060202020203:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 551: 0:3f800000000000000000,02060204020303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 552: 0:3f800000000000000000,03050403020302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 553: 0:3f800000000000000000,03040404020403:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
@@ -605,7 +605,7 @@ playerOrigin: 27:15
 586: 0:3f800000000000000000,03050404030304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 587: 0:3f800000000000000000,02060204030302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 588: 0:3f800000000000000000,03050303030303:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
-589: 2:7,,,false,Stygios Forest shrine to nergal:0,,,false,mclachlan.maze.campaign.def.map.StygiosForestAltarToNergal:3f800000000000000000,02040204020203:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
+589: 2:7,,,false,-1,Stygios Forest shrine to nergal:0,,,false,-1,mclachlan.maze.campaign.def.map.StygiosForestAltarToNergal:3f800000000000000000,02040204020203:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 590: 0:3f800000000000000000,04060302020304:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 591: 0:3f800000000000000000,03050204030204:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE
 592: 0:3f800000000000000000,03040304030302:WILDERNESS:Forest:6:stygios.forest.random.enc:MEDIUM:AVERAGE

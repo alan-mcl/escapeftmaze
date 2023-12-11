@@ -421,7 +421,27 @@ public class Map
 	{
 		return horizontal ? horizontalWalls[index] : verticalWalls[index];
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	public Wall[] getWalls(Point tile)
+	{
+		int gridIndex = getGridIndex(tile.y * width, tile.x);
+
+		return new Wall[]
+			{
+				horizontalWalls[getNorthWall(gridIndex)],
+				horizontalWalls[getSouthWall(gridIndex)],
+				verticalWalls[getEastWall(gridIndex)],
+				verticalWalls[getWestWall(gridIndex)],
+			};
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private int getGridIndex(int y, int tile)
+	{
+		return y + tile;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/** The width of this map (ie east-west), in grid blocks */
 	public int getWidth()

@@ -1,145 +1,145 @@
 name=2 - Boiling Blood
 difficulty=0,6,0,5,5,0,5,0
 required=0101101
-payload=1,,,false,Boiling Blood - Trap,7,20
+payload=1,,,false,-1,Boiling Blood - Trap,7,20
 @
 name=2 - Ray Of Enfeeblement
 difficulty=0,0,5,5,6,0,5,5
 required=00111011
-payload=1,,,false,Ray Of Enfeeblement - Trap,7,20
+payload=1,,,false,-1,Ray Of Enfeeblement - Trap,7,20
 @
 name=2 - Armourmelt
 difficulty=0,7,0,7,6,7,0,6
 required=01011101
-payload=1,,,false,Armourmelt - Trap,7,20
+payload=1,,,false,-1,Armourmelt - Trap,7,20
 @
 name=3 - Curse Of Medusa
 difficulty=9,8,9,7,0,9,0,8
 required=11110101
-payload=1,,,false,Curse Of Medusa - Trap,7,20
+payload=1,,,false,-1,Curse Of Medusa - Trap,7,20
 @
 name=4 - Vacuum
 difficulty=0,10,0,9,11,9,0,9
 required=01011101
-payload=1,,,false,Vacuum - Trap,7,20
+payload=1,,,false,-1,Vacuum - Trap,7,20
 @
 name=1 - Forget
 difficulty=0,3,0,0,0,0,5,4
 required=01000011
-payload=1,,,false,Forget - Trap,5,20
+payload=1,,,false,-1,Forget - Trap,5,20
 @
 name=2 - Acid Bomb
 difficulty=7,0,0,7,7,0,6,6
 required=10011011
-payload=1,,,false,Acid Bomb - Trap,7,20
+payload=1,,,false,-1,Acid Bomb - Trap,7,20
 @
 name=1 - Glowing Curse
 difficulty=0,0,0,4,0,5,4,0
 required=0001011
-payload=1,,,false,Glowing Curse - Trap,7,20
+payload=1,,,false,-1,Glowing Curse - Trap,7,20
 @
 name=3 - Null Magic
 difficulty=9,0,8,0,8,8,8,7
 required=10101111
-payload=1,,,false,Null Magic - Trap,7,20
+payload=1,,,false,-1,Null Magic - Trap,7,20
 @
 name=3 - Hexxer
 difficulty=8,8,7,7,0,8,0,9
 required=11110101
-payload=1,,,false,Hexxer - Trap,7,20
+payload=1,,,false,-1,Hexxer - Trap,7,20
 @
 name=1 - Prismic Missile
 difficulty=3,0,0,3,0,5,0,0
 required=100101
-payload=1,,,false,Prismic Missile - Trap,7,20
+payload=1,,,false,-1,Prismic Missile - Trap,7,20
 @
 name=4 - Kiss Of Death
 difficulty=10,11,0,11,0,11,9,10
 required=11010111
-payload=1,,,false,Kiss Of Death - Trap,7,20
+payload=1,,,false,-1,Kiss Of Death - Trap,7,20
 @
 name=4 - Rune Of Destruction
 difficulty=10,9,10,0,11,11,10,10
 required=11101111
-payload=1,,,false,Rune Of Destruction - Trap,18,20
+payload=1,,,false,-1,Rune Of Destruction - Trap,18,20
 @
 name=0 - Daggers
 difficulty=0,0,1,0,3,0,0,0
 required=00101
-payload=1,,,false,Daggers - Trap,3,20
+payload=1,,,false,-1,Daggers - Trap,3,20
 @
 name=2 - Stunner
 difficulty=5,6,0,0,0,0,7,0
 required=1100001
-payload=1,,,false,Stunner - Trap,7,20
+payload=1,,,false,-1,Stunner - Trap,7,20
 @
 name=0 - Magic Sparks
 difficulty=1,0,0,1,0,0,0,0
 required=1001
-payload=1,,,false,Magic Sparks,3,3
+payload=1,,,false,-1,Magic Sparks,3,3
 @
 name=1 - Hidden Snakebite
 difficulty=0,3,0,5,0,4,0,4
 required=01010101
-payload=1,,,false,Hidden Snakebite - Trap,15,5
+payload=1,,,false,-1,Hidden Snakebite - Trap,15,5
 @
 name=3 - Fizzle Field
 difficulty=8,0,8,7,0,7,8,0
 required=1011011
-payload=1,,,false,Fizzle Field - Trap,7,20
+payload=1,,,false,-1,Fizzle Field - Trap,7,20
 @
 name=1 - Guardian
 difficulty=0,0,3,0,0,0,5,4
 required=00100011
-payload=3,,,false,guardian.trap,,,
+payload=3,,,false,-1,guardian.trap,,,
 @
 name=2 - Cloud Of Fear
 difficulty=0,0,0,0,7,6,7,0
 required=0000111
-payload=1,,,false,Cloud Of Fear - Trap,7,20
+payload=1,,,false,-1,Cloud Of Fear - Trap,7,20
 @
 name=3 - Lifestealer
 difficulty=7,0,0,7,0,9,0,8
 required=10010101
-payload=1,,,false,Lifestealer - Trap,3,20
+payload=1,,,false,-1,Lifestealer - Trap,3,20
 @
 name=2 - Fire Bomb
 difficulty=6,6,0,0,0,6,0,6
 required=11000101
-payload=1,,,false,Fire Bomb - Trap,7,20
+payload=1,,,false,-1,Fire Bomb - Trap,7,20
 @
 name=3 - Toxic Gas
 difficulty=8,7,8,9,0,8,0,9
 required=11110101
-payload=1,,,false,Toxic Gas - Trap,7,20
+payload=1,,,false,-1,Toxic Gas - Trap,7,20
 @
 name=1 - Noxious Vapours
 difficulty=0,5,5,5,0,0,3,0
 required=0111001
-payload=1,,,false,Noxious Vapours - Trap,7,20
+payload=1,,,false,-1,Noxious Vapours - Trap,7,20
 @
 name=0 - Fire Trap
 difficulty=1,0,1,0,1,0,0,0
 required=10101
-payload=1,,,false,Fire Trap,6,6
+payload=1,,,false,-1,Fire Trap,6,6
 @
 name=0 - Poison Darts
 difficulty=8,1,1,0,0,0,0,0
 required=011
-payload=1,,,false,Poison Darts,3,3
+payload=1,,,false,-1,Poison Darts,3,3
 @
 name=2 - Energy Drain
 difficulty=0,5,0,0,5,7,7,7
 required=01001111
-payload=1,,,false,Energy Drain - Trap,7,20
+payload=1,,,false,-1,Energy Drain - Trap,7,20
 @
 name=1 - Psionic Bolt
 difficulty=3,5,0,0,0,0,5,0
 required=1100001
-payload=1,,,false,Psionic Bolt - Trap,7,20
+payload=1,,,false,-1,Psionic Bolt - Trap,7,20
 @
 name=3 - Forget
 difficulty=7,7,9,0,0,7,8,9
 required=11100111
-payload=1,,,false,Forget - Trap,10,20
+payload=1,,,false,-1,Forget - Trap,10,20
 @

@@ -46,57 +46,63 @@ public abstract class TileScript
 
 	/**
 	 * If non-null, this var determines for which facings the script executes.
-	 * Bit indices are the same as {@link mclachlan.crusader.CrusaderEngine.Facing} constants.
+	 * Bit indices are the same as
+	 * {@link mclachlan.crusader.CrusaderEngine.Facing} constants.
 	 */
 	private BitSet facings;
 
 	/**
-	 * Set to true if the script should execute again when the player rotates
-	 * on the tile.
+	 * Set to true if the script should execute again when the player rotates on
+	 * the tile.
 	 */
 	private boolean reexecuteOnSameTile;
 
+	/**
+	 * Set to >-1 if this script is a "hidden secret" that should be highlighted
+	 * by skills and effects that interact with such.
+	 */
+	private int scoutSecretDifficulty;
+
+
+	/** Constant returned by scripts that prevent other player actions (e.g. while swimming) */
 	public static final List<MazeEvent> PREVENT_ACTION = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * This method is called when the zone is initialised, this tile script must
 	 * take any actions needed to get the zone in the required state.
 	 * <p>
-	 * This default implementation does nothing. 
-	 * 
-	 * @param maze
-	 * 	The maze to execute on
+	 * This default implementation does nothing.
+	 *
+	 * @param maze The maze to execute on
 	 */
 	public void initialise(Maze maze, Point tile, int tileIndex)
 	{
-		
+
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+
 	/**
-	 * @param maze
-	 * 	The maze to execute on
-	 * @param tile
-	 * 	The tile that the player is on.
-	 * @param previousTile
-	 * 	The tile the player was on last move.
-	 * @param facing
-	 * 	The current facing of the player, a constant from 
-	 * 	{@link mclachlan.crusader.CrusaderEngine.Facing}
+	 * @param maze         The maze to execute on
+	 * @param tile         The tile that the player is on.
+	 * @param previousTile The tile the player was on last move.
+	 * @param facing       The current facing of the player, a constant from
+	 *                     {@link mclachlan.crusader.CrusaderEngine.Facing}
 	 * @param playerAction
-	 * @return
-	 * 	true if this script should execute, false otherwise
+	 * @return true if this script should execute, false otherwise
 	 */
-	public boolean shouldExecute(Maze maze, Point tile, Point previousTile, int facing, int playerAction)
+	public boolean shouldExecute(Maze maze, Point tile, Point previousTile,
+		int facing, int playerAction)
 	{
-		if (executeOnceMazeVariable != null && 
-			MazeVariables.get(executeOnceMazeVariable) != null )
+		if (executeOnceMazeVariable != null &&
+			MazeVariables.get(executeOnceMazeVariable) != null)
 		{
 			// script has already executed once
 			return false;
 		}
-		
+
 		if (facings != null)
 		{
 			if (!(facings.get(facing)))
@@ -105,56 +111,54 @@ public abstract class TileScript
 				return false;
 			}
 		}
-		
-		if (!reexecuteOnSameTile && tile.equals(previousTile) 
+
+		if (!reexecuteOnSameTile && tile.equals(previousTile)
+			&& playerAction != PlayerAction.MOUSE_CLICK
 			&& playerAction != PlayerAction.SEARCH
 			&& playerAction != PlayerAction.LOCKS)
 		{
 			// player has simply rotated
 			return false;
 		}
-		
-		// otherwise this script is going to execute.
+
+		// In all other cases this script is going to execute.
+		// so set the execute once flag if needed and return true
 		if (executeOnceMazeVariable != null)
 		{
-			// might as well set this var now
 			MazeVariables.set(executeOnceMazeVariable, "1");
 		}
 		return true;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * This default implementation does nothing.
 	 *
-	 * @param maze
-	 * 	The maze to execute on
-	 * @param tile
-	 * 	The tile that the player is on.
-	 * @param previousTile
-	 * 	The tile the player was on last move.
-	 * @param facing
-	 * 	The current facing of the player, a constant from CrusaderEngine.Facing.
+	 * @param maze         The maze to execute on
+	 * @param tile         The tile that the player is on.
+	 * @param previousTile The tile the player was on last move.
+	 * @param facing       The current facing of the player, a constant from
+	 *                     CrusaderEngine.Facing.
 	 * @see mclachlan.crusader.CrusaderEngine.Facing
-	 */ 
-	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
+	 */
+	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
+		int facing)
 	{
 		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * This default implementation does nothing.
 	 *
-	 * @param maze
-	 * 	The maze to execute on.
-	 * @param tile
- * 	The tile that the player is on.
-	 * @param facing
-* 	The current facing of the player, a constant from
-* 	{@link mclachlan.crusader.CrusaderEngine.Facing}.
-	 * @param playerAction
-* 	The action that the player has taken, a constant from {@link mclachlan.maze.map.TileScript.PlayerAction}
+	 * @param maze         The maze to execute on.
+	 * @param tile         The tile that the player is on.
+	 * @param facing       The current facing of the player, a constant from
+	 *                     {@link mclachlan.crusader.CrusaderEngine.Facing}.
+	 * @param playerAction The action that the player has taken, a constant from
+	 *                     {@link mclachlan.maze.map.TileScript.PlayerAction}
 	 */
 	public List<MazeEvent> handlePlayerAction(
 		Maze maze,
@@ -166,18 +170,15 @@ public abstract class TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * This default implementation does nothing.
 	 *
-	 * @param maze
-	 * 	The maze to execute on
-	 * @param tile
-	 * 	The tile that the player is on
-	 * @param facing
-	 * 	The current facing of the player, a constant from
-	 * 	{@link mclachlan.crusader.CrusaderEngine.Facing}.
-	 * @param item
-	 * 	The item involved
+	 * @param maze   The maze to execute on
+	 * @param tile   The tile that the player is on
+	 * @param facing The current facing of the player, a constant from
+	 *               {@link mclachlan.crusader.CrusaderEngine.Facing}.
+	 * @param item   The item involved
 	 * @param user
 	 * @return
 	 */
@@ -189,7 +190,7 @@ public abstract class TileScript
 	{
 		return null;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public String getExecuteOnceMazeVariable()
 	{
@@ -221,14 +222,28 @@ public abstract class TileScript
 		this.reexecuteOnSameTile = reexecuteOnSameTile;
 	}
 
+	public int getScoutSecretDifficulty()
+	{
+		return scoutSecretDifficulty;
+	}
+
+	public void setScoutSecretDifficulty(int scoutSecretDifficulty)
+	{
+		this.scoutSecretDifficulty = scoutSecretDifficulty;
+	}
+
+	public boolean isHiddenSecret()
+	{
+		return scoutSecretDifficulty > -1;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	// static utility methods!  bah, get thee gone!
 	/*-------------------------------------------------------------------------*/
+
 	/**
-	 * @param items
-	 * 	The list of loot items.
-	 * @return
-	 * 	An array of events to give all the stuff to the player.
+	 * @param items The list of loot items.
+	 * @return An array of events to give all the stuff to the player.
 	 */
 	public static List<MazeEvent> getLootingEvents(java.util.List<Item> items)
 	{
@@ -260,11 +275,10 @@ public abstract class TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
-	 * @param loot
-	 * 	The list of loot items. Money items will be removed.
-	 * @return
-	 * 	The amount of gold contained in the list.
+	 * @param loot The list of loot items. Money items will be removed.
+	 * @return The amount of gold contained in the list.
 	 */
 	public static int extractGold(java.util.List<Item> loot)
 	{
@@ -283,11 +297,10 @@ public abstract class TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
-	 * @param loot
-	 * 	The list of loot items. Supply items will be removed
-	 * @return
-	 * 	The amount of supplies contained in the list.
+	 * @param loot The list of loot items. Supply items will be removed
+	 * @return The amount of supplies contained in the list.
 	 */
 	public static int extractSupplies(java.util.List<Item> loot)
 	{
@@ -319,5 +332,6 @@ public abstract class TileScript
 		public static final int SEARCH = 1;
 		public static final int LOCKS = 2;
 		public static final int REST = 3;
+		public static final int MOUSE_CLICK = 4;
 	}
 }

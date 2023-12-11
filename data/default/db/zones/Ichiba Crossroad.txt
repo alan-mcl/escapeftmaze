@@ -53,7 +53,7 @@ playerOrigin: 19:12
 34: 0:3f800000000000000000,01010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 35: 0:3f800000000000000000,01010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 36: 0:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-37: 1:7,,,false,Ichiba Crossroad to Domain North:3f800000000000000000,01010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+37: 1:7,,,false,-1,Ichiba Crossroad to Domain North:3f800000000000000000,01010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 38: 0:3f800000000000000000,01020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 39: 0:3f800000000000000000,02020101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 40: 0:3f800000000000000000,01020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -64,9 +64,9 @@ playerOrigin: 19:12
 45: 0:3f800000000000000000,01010101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 46: 0:3f800000000000000000,01010201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 47: 0:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-48: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.8,,:3f800000000000000000,01010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+48: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.8,,:3f800000000000000000,01010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 49: 0:3f800000000000000000,02010101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-50: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.8,,:3f800000000000000000,02010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+50: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.8,,:3f800000000000000000,02010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 51: 0:3f800000000000000000,02010102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 52: 0:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 53: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -90,7 +90,7 @@ playerOrigin: 19:12
 71: 0:3f800000000000000000,01010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 72: 0:3f800000000000000000,02020101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 73: 0:3f800000000000000000,01010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-74: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.5,,:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+74: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.5,,:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 75: 0:3f800000000000000000,01020102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 76: 0:3f800000000000000000,02020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 77: 0:3f800000000000000000,02010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -122,11 +122,11 @@ playerOrigin: 19:12
 103: 0:3f800000000000000000,02010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 104: 0:3f800000000000000000,02020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 105: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-106: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.5,,:3f800000000000000000,02020201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+106: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.5,,:3f800000000000000000,02020201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 107: 0:3f800000000000000000,02020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 108: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 109: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-110: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.11,,:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+110: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.11,,:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 111: 0:3f800000000000000000,01010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 112: 0:3f800000000000000000,02020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 113: 0:3f800000000000000000,01010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -158,7 +158,7 @@ playerOrigin: 19:12
 139: 0:3f800000000000000000,02010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 140: 0:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 141: 0:3f800000000000000000,01020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-142: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.11,,:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+142: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.11,,:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 143: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 144: 0:3f800000000000000000,01020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 145: 0:3f800000000000000000,01010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -196,7 +196,7 @@ playerOrigin: 19:12
 177: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 178: 0:3f800000000000000000,01020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 179: 0:3f800000000000000000,02020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-180: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.13,,:3f800000000000000000,02010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+180: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.13,,:3f800000000000000000,02010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 181: 0:3f800000000000000000,02010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 182: 0:3f800000000000000000,01010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 183: 0:3f800000000000000000,01010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -230,7 +230,7 @@ playerOrigin: 19:12
 211: 0:3f800000000000000000,02020201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 212: 0:3f800000000000000000,02010101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 213: 0:3f800000000000000000,02020101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-214: 1:7,ichiba.crossroad.pre.mantis.cck,,false,Ichiba Crossroad pre mantis cck:3f800000000000000000,02010102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+214: 1:7,ichiba.crossroad.pre.mantis.cck,,false,-1,Ichiba Crossroad pre mantis cck:3f800000000000000000,02010102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 215: 0:3f800000000000000000,02010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 216: 0:3f800000000000000000,01020201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 217: 0:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -253,8 +253,8 @@ playerOrigin: 19:12
 234: 0:3f800000000000000000,02020202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 235: 0:3f800000000000000000,01020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 236: 0:3f800000000000000000,02020101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-237: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.4,,:3f800000000000000000,01010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-238: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.4,,:3f800000000000000000,01010101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+237: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.4,,:3f800000000000000000,01010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+238: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.4,,:3f800000000000000000,01010101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 239: 0:3f800000000000000000,02020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 240: 0:3f800000000000000000,02010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 241: 0:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -263,7 +263,7 @@ playerOrigin: 19:12
 244: 0:3f800000000000000000,02010101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 245: 0:3f800000000000000000,02010102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 246: 0:3f800000000000000000,02010201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-247: 1:3,,,false,ichiba.crossroad.mantis,ichiba.crossroad.encounter.14,,:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+247: 1:3,,,false,-1,ichiba.crossroad.mantis,ichiba.crossroad.encounter.14,,:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 248: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 249: 0:3f800000000000000000,01010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 250: 0:3f800000000000000000,02010201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -277,12 +277,12 @@ playerOrigin: 19:12
 258: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 259: 0:3f800000000000000000,01010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 260: 0:3f800000000000000000,01020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-261: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.7,,:3f800000000000000000,01020201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+261: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.7,,:3f800000000000000000,01020201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 262: 0:3f800000000000000000,01010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 263: 0:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 264: 0:3f800000000000000000,01020202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-265: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.6,,:3f800000000000000000,01020202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-266: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.6,,:3f800000000000000000,01010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+265: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.6,,:3f800000000000000000,01020202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+266: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.6,,:3f800000000000000000,01010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 267: 0:3f800000000000000000,01020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 268: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 269: 0:3f800000000000000000,01020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -291,12 +291,12 @@ playerOrigin: 19:12
 272: 0:3f800000000000000000,02010201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 273: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 274: 0:3f800000000000000000,02020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-275: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.12,,:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+275: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.12,,:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 276: 0:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 277: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 279: 0:3f800000000000000000,01020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-280: 1:10,,,false,ichiba.crossroad.hidden.stuff.1,Ichiba Crossroad bones hidden stuff,,1,0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+280: 1:10,,,false,-1,ichiba.crossroad.hidden.stuff.1,Ichiba Crossroad bones hidden stuff,,0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 281: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 282: 0:3f800000000000000000,01020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 283: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -309,7 +309,7 @@ playerOrigin: 19:12
 290: 0:3f800000000000000000,01010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 291: 0:3f800000000000000000,02020102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 292: 0:3f800000000000000000,02010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-293: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.7,,:3f800000000000000000,01020202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+293: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.7,,:3f800000000000000000,01020202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 294: 0:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 295: 0:3f800000000000000000,02020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 296: 0:3f800000000000000000,02010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -323,7 +323,7 @@ playerOrigin: 19:12
 304: 0:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 305: 0:3f800000000000000000,01010102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 306: 0:3f800000000000000000,02010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-307: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.12,,:3f800000000000000000,01010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+307: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.12,,:3f800000000000000000,01010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 308: 0:3f800000000000000000,02010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 309: 0:3f800000000000000000,01010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 310: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -352,7 +352,7 @@ playerOrigin: 19:12
 333: 0:3f800000000000000000,01020201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 334: 0:3f800000000000000000,02010101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 335: 0:3f800000000000000000,01010102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-336: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.3,,:3f800000000000000000,02010202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+336: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.3,,:3f800000000000000000,02010202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 337: 0:3f800000000000000000,01020101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 338: 0:3f800000000000000000,01020202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 339: 0:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -361,7 +361,7 @@ playerOrigin: 19:12
 342: 0:3f800000000000000000,02020101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 343: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 344: 0:3f800000000000000000,01010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-345: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.1,,:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+345: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.1,,:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 346: 0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 347: 0:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 348: 0:3f800000000000000000,01020101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -374,13 +374,13 @@ playerOrigin: 19:12
 355: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 356: 0:3f800000000000000000,02020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 357: 0:3f800000000000000000,01020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-358: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.10,,:3f800000000000000000,02010102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-359: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.10,,:3f800000000000000000,02020101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+358: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.10,,:3f800000000000000000,02010102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+359: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.10,,:3f800000000000000000,02020101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 360: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 361: 0:3f800000000000000000,01020201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 362: 0:3f800000000000000000,02010101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 363: 0:3f800000000000000000,01020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-364: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.9,,:3f800000000000000000,01020201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+364: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.9,,:3f800000000000000000,01020201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 365: 0:3f800000000000000000,02010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 366: 0:3f800000000000000000,01020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 367: 0:3f800000000000000000,02010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -419,7 +419,7 @@ playerOrigin: 19:12
 400: 0:3f800000000000000000,02010102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 401: 0:3f800000000000000000,02010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 402: 0:3f800000000000000000,01010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-403: 1:7,ichiba.crossroad.intro,,false,Ichiba Crossroad intro:3f800000000000000000,01010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+403: 1:7,ichiba.crossroad.intro,,false,-1,Ichiba Crossroad intro:3f800000000000000000,01010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 404: 0:3f800000000000000000,02020101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 405: 0:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 406: 0:3f800000000000000000,02020201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -440,7 +440,7 @@ playerOrigin: 19:12
 421: 0:3f800000000000000000,02010202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 422: 0:3f800000000000000000,01020101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 423: 0:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-424: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.27,,:3f800000000000000000,01010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+424: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.27,,:3f800000000000000000,01010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 425: 0:3f800000000000000000,01020101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 426: 0:3f800000000000000000,02010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 427: 0:3f800000000000000000,02020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -449,11 +449,11 @@ playerOrigin: 19:12
 430: 0:3f800000000000000000,01020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 431: 0:3f800000000000000000,02010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 432: 0:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-433: 1:8,,00001,false,TO ICHIBA:3f800000000000000000,02010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+433: 1:8,,00001,false,-1,TO ICHIBA:3f800000000000000000,02010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 434: 0:3f800000000000000000,01020201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 435: 0:3f800000000000000000,01010201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 436: 0:3f800000000000000000,01010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-437: 1:4,,,false,This section of path appears to be losing the battle with the encroaching jungle.:3f800000000000000000,02020102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+437: 1:4,,,false,-1,This section of path appears to be losing the battle with the encroaching jungle.:3f800000000000000000,02020102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 438: 0:3f800000000000000000,01010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 439: 0:3f800000000000000000,02010202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 440: 0:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -471,9 +471,9 @@ playerOrigin: 19:12
 452: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 453: 0:3f800000000000000000,02010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 454: 0:3f800000000000000000,02020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-455: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.27,,:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+455: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.27,,:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 456: 0:3f800000000000000000,01020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-457: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.27,,:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+457: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.27,,:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 458: 0:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 459: 0:3f800000000000000000,01020101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 460: 0:3f800000000000000000,02020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -500,7 +500,7 @@ playerOrigin: 19:12
 481: 0:3f800000000000000000,01020202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 482: 0:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 483: 0:3f800000000000000000,01020102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-484: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.29,,:3f800000000000000000,01020201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+484: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.29,,:3f800000000000000000,01020201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 485: 0:3f800000000000000000,02010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 486: 0:3f800000000000000000,02020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 487: 0:3f800000000000000000,01020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -510,7 +510,7 @@ playerOrigin: 19:12
 491: 0:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 492: 0:3f800000000000000000,02020202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 493: 0:3f800000000000000000,01020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-494: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.24,,:3f800000000000000000,01010202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+494: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.24,,:3f800000000000000000,01010202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 495: 0:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 496: 0:3f800000000000000000,01020201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 497: 0:3f800000000000000000,01010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -519,8 +519,8 @@ playerOrigin: 19:12
 500: 0:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 501: 0:3f800000000000000000,02020201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 502: 0:3f800000000000000000,01010202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-503: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.2,,:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-504: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.2,,:3f800000000000000000,02010101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+503: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.2,,:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+504: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.2,,:3f800000000000000000,02010101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 505: 0:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 506: 0:3f800000000000000000,01020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 507: 0:3f800000000000000000,01020102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -539,7 +539,7 @@ playerOrigin: 19:12
 520: 0:3f800000000000000000,01010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 521: 0:3f800000000000000000,01010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 522: 0:3f800000000000000000,01010102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-523: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.25,,:3f800000000000000000,02010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+523: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.25,,:3f800000000000000000,02010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 524: 0:3f800000000000000000,01010102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 525: 0:3f800000000000000000,01010101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 526: 0:3f800000000000000000,02010102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -567,12 +567,12 @@ playerOrigin: 19:12
 548: 0:3f800000000000000000,01010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 549: 0:3f800000000000000000,02020102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 550: 0:3f800000000000000000,02020101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-551: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.30,,:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+551: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.30,,:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 552: 0:3f800000000000000000,01020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 553: 0:3f800000000000000000,02010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 554: 0:3f800000000000000000,01010202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 555: 0:3f800000000000000000,02020202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-556: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.25,,:3f800000000000000000,01020101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+556: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.25,,:3f800000000000000000,01020101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 557: 0:3f800000000000000000,02010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 558: 0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 559: 0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -610,7 +610,7 @@ playerOrigin: 19:12
 591: 0:3f800000000000000000,02020102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 592: 0:3f800000000000000000,02020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 593: 0:3f800000000000000000,01010102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-594: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.15,,:3f800000000000000000,01020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+594: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.15,,:3f800000000000000000,01020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 595: 0:3f800000000000000000,01020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 596: 0:3f800000000000000000,02020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 597: 0:3f800000000000000000,02020201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -648,7 +648,7 @@ playerOrigin: 19:12
 629: 0:3f800000000000000000,02020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 630: 0:3f800000000000000000,01010202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 631: 0:3f800000000000000000,02020202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-632: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.16,,:3f800000000000000000,02010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+632: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.16,,:3f800000000000000000,02010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 633: 0:3f800000000000000000,02010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 634: 0:3f800000000000000000,01010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 635: 0:3f800000000000000000,01020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -663,7 +663,7 @@ playerOrigin: 19:12
 644: 0:3f800000000000000000,02020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 645: 0:3f800000000000000000,01020202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 646: 0:3f800000000000000000,02010102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-647: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.26,,:3f800000000000000000,02010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+647: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.26,,:3f800000000000000000,02010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 648: 0:3f800000000000000000,01010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 649: 0:3f800000000000000000,02010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 650: 0:3f800000000000000000,02020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -686,7 +686,7 @@ playerOrigin: 19:12
 667: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 668: 0:3f800000000000000000,02020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 669: 0:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-670: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.17,,:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+670: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.17,,:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 671: 0:3f800000000000000000,02010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 672: 0:3f800000000000000000,01010202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 673: 0:3f800000000000000000,01020101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -697,22 +697,22 @@ playerOrigin: 19:12
 678: 0:3f800000000000000000,01010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 679: 0:3f800000000000000000,02010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 680: 0:3f800000000000000000,02020201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-681: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.26,,:3f800000000000000000,02010101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+681: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.26,,:3f800000000000000000,02010101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 682: 0:3f800000000000000000,02020201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 683: 0:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 684: 0:3f800000000000000000,02020101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 685: 0:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 686: 0:3f800000000000000000,01010101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-687: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.22,,:3f800000000000000000,02010202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+687: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.22,,:3f800000000000000000,02010202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 688: 0:3f800000000000000000,01010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-689: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.21,,:3f800000000000000000,02020102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+689: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.21,,:3f800000000000000000,02020102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 690: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 691: 0:3f800000000000000000,01010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 692: 0:3f800000000000000000,02020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 693: 0:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 694: 0:3f800000000000000000,02010202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 695: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-696: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.16,,:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+696: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.16,,:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 697: 0:3f800000000000000000,02020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 698: 0:3f800000000000000000,02010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 699: 0:3f800000000000000000,02020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -732,7 +732,7 @@ playerOrigin: 19:12
 713: 0:3f800000000000000000,01010201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 714: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 715: 0:3f800000000000000000,01010102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-716: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.23,,:3f800000000000000000,01020201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+716: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.23,,:3f800000000000000000,01020201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 717: 0:3f800000000000000000,02010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 718: 0:3f800000000000000000,01020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 719: 0:3f800000000000000000,02010202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -740,14 +740,14 @@ playerOrigin: 19:12
 721: 0:3f800000000000000000,02020101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 722: 0:3f800000000000000000,01010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 723: 0:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-724: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.20,,:3f800000000000000000,02020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+724: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.20,,:3f800000000000000000,02020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 725: 0:3f800000000000000000,02010201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 726: 0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-727: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.16,,:3f800000000000000000,02020201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+727: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.16,,:3f800000000000000000,02020201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 728: 0:3f800000000000000000,01010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 729: 0:3f800000000000000000,02010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 730: 0:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-731: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.18,,:3f800000000000000000,02010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+731: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.18,,:3f800000000000000000,02010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 732: 0:3f800000000000000000,02020202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 733: 0:3f800000000000000000,02010202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 734: 0:3f800000000000000000,02010201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -756,7 +756,7 @@ playerOrigin: 19:12
 737: 0:3f800000000000000000,01010101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 738: 0:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 739: 0:3f800000000000000000,01010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-740: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.28,,:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+740: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.28,,:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 741: 0:3f800000000000000000,01020102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 742: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 743: 0:3f800000000000000000,01020201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -767,9 +767,9 @@ playerOrigin: 19:12
 748: 0:3f800000000000000000,02020201010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 749: 0:3f800000000000000000,01020102010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 750: 0:3f800000000000000000,01020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-751: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.21,,:3f800000000000000000,02020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+751: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.21,,:3f800000000000000000,02020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 752: 0:3f800000000000000000,02020102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-753: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.22,,:3f800000000000000000,02010201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+753: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.22,,:3f800000000000000000,02010201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 754: 0:3f800000000000000000,02020201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 755: 0:3f800000000000000000,01010101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 756: 0:3f800000000000000000,01010101010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -778,7 +778,7 @@ playerOrigin: 19:12
 759: 0:3f800000000000000000,01020202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 760: 0:3f800000000000000000,01010102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 761: 0:3f800000000000000000,02020101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-762: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.18,,:3f800000000000000000,01020101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+762: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.18,,:3f800000000000000000,01020101020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 763: 0:3f800000000000000000,02010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 764: 0:3f800000000000000000,01020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 765: 0:3f800000000000000000,01010201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -792,7 +792,7 @@ playerOrigin: 19:12
 773: 0:3f800000000000000000,02020201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 774: 0:3f800000000000000000,01010202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 775: 0:3f800000000000000000,01010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-776: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.31,,:3f800000000000000000,02020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+776: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.31,,:3f800000000000000000,02020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 777: 0:3f800000000000000000,02020202020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 778: 0:3f800000000000000000,02020101010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 779: 0:3f800000000000000000,02010202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -808,7 +808,7 @@ playerOrigin: 19:12
 789: 0:3f800000000000000000,02020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 790: 0:3f800000000000000000,01020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 791: 0:3f800000000000000000,01010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-792: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.18,,:3f800000000000000000,01010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+792: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.18,,:3f800000000000000000,01010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 793: 0:3f800000000000000000,01020101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 794: 0:3f800000000000000000,01010201010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 795: 0:3f800000000000000000,01010102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -823,7 +823,7 @@ playerOrigin: 19:12
 804: 0:3f800000000000000000,02020102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 805: 0:3f800000000000000000,01010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 806: 0:3f800000000000000000,01010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-807: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.31,,:3f800000000000000000,02010102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+807: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.31,,:3f800000000000000000,02010102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 808: 0:3f800000000000000000,02020202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 809: 0:3f800000000000000000,02020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 810: 0:3f800000000000000000,02020202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -850,7 +850,7 @@ playerOrigin: 19:12
 831: 0:3f800000000000000000,02020101010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 832: 0:3f800000000000000000,01010102010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 833: 0:3f800000000000000000,02010202020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-834: 1:0,,,false,mclachlan.maze.campaign.def.map.CocMercTeamEncounter:3f800000000000000000,05020502020205:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+834: 1:0,,,false,-1,mclachlan.maze.campaign.def.map.CocMercTeamEncounter:3f800000000000000000,05020502020205:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 835: 0:3f800000000000000000,01020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 836: 0:3f800000000000000000,01020202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 837: 0:3f800000000000000000,01010102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -869,7 +869,7 @@ playerOrigin: 19:12
 850: 0:3f800000000000000000,01010101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 851: 0:3f800000000000000000,02010101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 852: 0:3f800000000000000000,01010202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-853: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.19,,:3f800000000000000000,01010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+853: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.19,,:3f800000000000000000,01010202020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 854: 0:3f800000000000000000,02010201020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 855: 0:3f800000000000000000,01010202010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 856: 0:3f800000000000000000,01010202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -922,7 +922,7 @@ playerOrigin: 19:12
 903: 0:3f800000000000000000,01020102010302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 904: 0:3f800000000000000000,01010202010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 905: 0:3f800000000000000000,01010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-906: 1:3,,,false,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.32,,:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+906: 1:3,,,false,-1,ichiba.crossroad.random.enc,ichiba.crossroad.encounter.32,,:3f800000000000000000,01020101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 907: 0:3f800000000000000000,01020101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 908: 0:3f800000000000000000,01020201010202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 909: 0:3f800000000000000000,01010202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -941,7 +941,7 @@ playerOrigin: 19:12
 922: 0:3f800000000000000000,02020202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 923: 0:3f800000000000000000,02020202010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 924: 0:3f800000000000000000,02020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-925: 1:7,,,false,Ichiba Crossroad to Domain South:3f800000000000000000,02020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+925: 1:7,,,false,-1,Ichiba Crossroad to Domain South:3f800000000000000000,02020102020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 926: 0:3f800000000000000000,01010101020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 927: 0:3f800000000000000000,01010102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 928: 0:3f800000000000000000,02010102020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -978,7 +978,7 @@ playerOrigin: 19:12
 959: 0:3f800000000000000000,02010201020302:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 960: 0:3f800000000000000000,01020201010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 961: 0:3f800000000000000000,02010101010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-962: 1:7,,,false,Ichiba Crossroad to City:3f800000000000000000,02010201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+962: 1:7,,,false,-1,Ichiba Crossroad to City:3f800000000000000000,02010201020202:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 963: 0:3f800000000000000000,02010102020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 964: 0:3f800000000000000000,02010101020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 965: 0:3f800000000000000000,01010101020201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE

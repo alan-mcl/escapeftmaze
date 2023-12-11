@@ -123,6 +123,8 @@ public class V1TileScript
 		s.append(sep);
 		s.append(t.isReexecuteOnSameTile());
 		s.append(sep);
+		s.append(t.getScoutSecretDifficulty());
+		s.append(sep);
 
 		switch (type)
 		{
@@ -259,8 +261,6 @@ public class V1TileScript
 				s.append(sep);
 				s.append(hs.getPreScript()== null?"":hs.getPreScript().getName());
 				s.append(sep);
-				s.append(hs.getSpotDifficulty());
-				s.append(sep);
 				s.append(hs.getFindDifficulty());
 				break;
 			case WATER:
@@ -295,7 +295,8 @@ public class V1TileScript
 		String executeOnceMazeVariable = "".equals(ss)?null:ss;
 		BitSet facings = V1BitSet.fromString(strs[i++]);
 		boolean reexecuteOnSameTile = Boolean.valueOf(strs[i++]);
-		
+		int scoutSecretDifficulty = Integer.parseInt(strs[i++]);
+
 		TileScript result;
 
 		switch (type)
@@ -452,11 +453,10 @@ public class V1TileScript
 				String mazeVar = strs[i++];
 				String contentStr = strs[i++];
 				String preStr = strs[i++];
-				int spotDifficulty = Integer.parseInt(strs[i++]);
 				int findDifficulty = Integer.parseInt(strs[i++]);
 				MazeScript content = ("".equals(contentStr)) ? null : Database.getInstance().getMazeScript(contentStr);
 				MazeScript preScript = ("".equals(preStr)) ? null : Database.getInstance().getMazeScript(preStr);
-				result = new HiddenStuff(content, preScript, mazeVar, spotDifficulty, findDifficulty);
+				result = new HiddenStuff(content, preScript, mazeVar, findDifficulty);
 				break;
 			case WATER:
 				result = new Water();
@@ -467,6 +467,7 @@ public class V1TileScript
 		result.setExecuteOnceMazeVariable(executeOnceMazeVariable);
 		result.setFacings(facings);
 		result.setReexecuteOnSameTile(reexecuteOnSameTile);
+		result.setScoutSecretDifficulty(scoutSecretDifficulty);
 		
 		return result;
 	}

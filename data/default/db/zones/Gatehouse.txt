@@ -52,19 +52,19 @@ playerOrigin: 14:30
 33: 0:3f800000000000000000,01020101020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 34: 0:3f800000000000000000,01010101020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 35: 0:3f800000000000000000,02020101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-36: 1:7,gatehouse.malignant.widows,,false,Gatehouse malignant widow encounter:3f800000000000000000,01020202020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-37: 1:7,,,false,Gatehouse pre widows cck:3f800000000000000000,01010102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+36: 1:7,gatehouse.malignant.widows,,false,-1,Gatehouse malignant widow encounter:3f800000000000000000,01020202020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+37: 1:7,,,false,-1,Gatehouse pre widows cck:3f800000000000000000,01010102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 38: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 39: 0:3f800000000000000000,02010102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 40: 0:3f800000000000000000,01020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 41: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 42: 0:3f800000000000000000,01010201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-43: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.30,,:3f800000000000000000,02010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+43: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.30,,:3f800000000000000000,02010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 44: 0:3f800000000000000000,01020101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 45: 0:3f800000000000000000,01010101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 46: 0:3f800000000000000000,01020202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 47: 0:3f800000000000000000,02010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-48: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.27,,:3f800000000000000000,02010102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+48: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.27,,:3f800000000000000000,02010102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 49: 0:3f800000000000000000,01020202020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 50: 0:3f800000000000000000,01020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 51: 0:3f800000000000000000,02010102010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -93,11 +93,11 @@ playerOrigin: 14:30
 74: 0:3f800000000000000000,01020202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 75: 0:3f800000000000000000,02020202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 76: 0:3f800000000000000000,01020202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-77: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.29,,:3f800000000000000000,02010201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+77: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.29,,:3f800000000000000000,02010201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 78: 0:3f800000000000000000,01010101010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 79: 0:3f800000000000000000,01020101010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 80: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-81: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.26,,:3f800000000000000000,01020202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+81: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.26,,:3f800000000000000000,01020202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 82: 0:3f800000000000000000,01020101010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 83: 0:3f800000000000000000,02010102010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 84: 0:3f800000000000000000,02020102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -115,18 +115,18 @@ playerOrigin: 14:30
 96: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 97: 0:3f800000000000000000,01020201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 98: 0:3f800000000000000000,01010201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-99: 1:4,,,false,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02020101010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+99: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02020101010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 100: 0:3f800000000000000000,02010101010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 101: 0:3f800000000000000000,02010101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 102: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 103: 0:3f800000000000000000,01020102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 104: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 105: 0:3f800000000000000000,01020102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-106: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.31,,:3f800000000000000000,01020102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+106: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.31,,:3f800000000000000000,01020102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 107: 0:3f800000000000000000,01020202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 108: 0:3f800000000000000000,02020102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 109: 0:3f800000000000000000,02020101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-110: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.28,,:3f800000000000000000,02020102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+110: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.28,,:3f800000000000000000,02020102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 111: 0:3f800000000000000000,01020202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 112: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 113: 0:3f800000000000000000,01010101010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -156,32 +156,32 @@ playerOrigin: 14:30
 137: 0:3f800000000000000000,01020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 138: 0:3f800000000000000000,02020101020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 139: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-140: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.32,,:3f800000000000000000,01010101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+140: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.32,,:3f800000000000000000,01010101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 141: 0:3f800000000000000000,02010102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 142: 0:3f800000000000000000,02020101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 143: 0:3f800000000000000000,02020101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-144: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.36,,:3f800000000000000000,02010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+144: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.36,,:3f800000000000000000,02010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 145: 0:3f800000000000000000,02010101020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 146: 0:3f800000000000000000,02020201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-147: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.25,,:3f800000000000000000,02020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+147: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.25,,:3f800000000000000000,02020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 148: 0:3f800000000000000000,01020201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 149: 0:3f800000000000000000,02020102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 150: 0:3f800000000000000000,02010201020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 151: 0:3f800000000000000000,02010101010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-152: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.21,,:3f800000000000000000,02010201010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+152: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.21,,:3f800000000000000000,02010201010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 153: 0:3f800000000000000000,01010102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 154: 0:3f800000000000000000,01020201010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 155: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 156: 0:3f800000000000000000,01020102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-157: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.23,,:3f800000000000000000,02010201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+157: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.23,,:3f800000000000000000,02010201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 158: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 159: 0:3f800000000000000000,02010101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 160: 0:3f800000000000000000,02020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 161: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 162: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-163: 1:4,,,false,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,01010202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+163: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,01010202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 164: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-165: 1:7,gatehouse.block.golem,,false,Gatehouse block golem encounter:3f800000000000000000,01010202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+165: 1:7,gatehouse.block.golem,,false,-1,Gatehouse block golem encounter:3f800000000000000000,01010202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 166: 0:3f800000000000000000,01020102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 167: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 168: 0:3f800000000000000000,01010101010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -202,8 +202,8 @@ playerOrigin: 14:30
 183: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 184: 0:3f800000000000000000,01020201020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 185: 0:3f800000000000000000,01020101010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-186: 1:3,,,false,gatehouse.feral.familiar.pack.1,gatehouse.encounter.20,,:3f800000000000000000,02020102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-187: 1:2,,,false,5///false/gatehouse.minor.loot,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_SIDE,:3f800000000000000000,01010101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+186: 1:3,,,false,-1,gatehouse.feral.familiar.pack.1,gatehouse.encounter.20,,:3f800000000000000000,02020102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+187: 1:2,,,false,-1,5///false/-1/gatehouse.minor.loot,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_SIDE,:3f800000000000000000,01010101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 188: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 189: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 190: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -218,15 +218,15 @@ playerOrigin: 14:30
 199: 0:3f800000000000000000,01020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 200: 0:3f800000000000000000,01020101010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 201: 0:3f800000000000000000,01020102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-202: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.34,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+202: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.34,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 203: 0:3f800000000000000000,01010202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 204: 0:3f800000000000000000,01020202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 205: 0:3f800000000000000000,01020102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-206: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.33,,:3f800000000000000000,02020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+206: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.33,,:3f800000000000000000,02020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 207: 0:3f800000000000000000,02010201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 208: 0:3f800000000000000000,01020102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 209: 0:3f800000000000000000,02010102010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-210: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.37,,:3f800000000000000000,02020202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+210: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.37,,:3f800000000000000000,02020202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 211: 0:3f800000000000000000,02010201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 212: 0:3f800000000000000000,02010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 213: 0:3f800000000000000000,02020202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -243,16 +243,16 @@ playerOrigin: 14:30
 224: 0:3f800000000000000000,01010101010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 225: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 226: 0:3f800000000000000000,02020101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-227: 1:4,,,false,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+227: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 228: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 229: 0:3f800000000000000000,01020202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-230: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.35,,:3f800000000000000000,02020101020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-231: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.42,,:3f800000000000000000,02020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+230: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.35,,:3f800000000000000000,02020101020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+231: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.42,,:3f800000000000000000,02020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 232: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 233: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 234: 0:3f800000000000000000,01020101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 235: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-236: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.39,,:3f800000000000000000,02020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+236: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.39,,:3f800000000000000000,02020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 237: 0:3f800000000000000000,01020202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 238: 0:3f800000000000000000,02020101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 239: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -264,12 +264,12 @@ playerOrigin: 14:30
 245: 0:3f800000000000000000,02010102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 246: 0:3f800000000000000000,02020201010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 247: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-248: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.22,,:3f800000000000000000,01010201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+248: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.22,,:3f800000000000000000,01010201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 249: 0:3f800000000000000000,02010101020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 250: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 251: 0:3f800000000000000000,01020102010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 252: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-253: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.24,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+253: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.24,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 254: 0:3f800000000000000000,01020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 255: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 256: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -280,7 +280,7 @@ playerOrigin: 14:30
 261: 0:3f800000000000000000,02020201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 262: 0:3f800000000000000000,01020101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 263: 0:3f800000000000000000,02010201010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-264: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.41,,:3f800000000000000000,02020201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+264: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.41,,:3f800000000000000000,02020201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 265: 0:3f800000000000000000,01020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 266: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 267: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -313,7 +313,7 @@ playerOrigin: 14:30
 294: 0:3f800000000000000000,02020202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 295: 0:3f800000000000000000,02020201010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 296: 0:3f800000000000000000,02020201020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-297: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.41,,:3f800000000000000000,01010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+297: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.41,,:3f800000000000000000,01010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 298: 0:3f800000000000000000,01010102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 299: 0:3f800000000000000000,01010102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 300: 0:3f800000000000000000,02010202020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -340,9 +340,9 @@ playerOrigin: 14:30
 321: 0:3f800000000000000000,01020202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 322: 0:3f800000000000000000,02010101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 323: 0:3f800000000000000000,01010202020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-324: 1:7,gatehouse.angry.swarms.encounter,,false,Gatehouse angry swarms encounter:3f800000000000000000,02020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+324: 1:7,gatehouse.angry.swarms.encounter,,false,-1,Gatehouse angry swarms encounter:3f800000000000000000,02020102020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 325: 0:3f800000000000000000,01020201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-326: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.43,,:3f800000000000000000,02010101010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+326: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.43,,:3f800000000000000000,02010101010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 327: 0:3f800000000000000000,01010101020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 328: 0:3f800000000000000000,01020202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 329: 0:3f800000000000000000,02020202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -350,7 +350,7 @@ playerOrigin: 14:30
 331: 0:3f800000000000000000,02010202020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 332: 0:3f800000000000000000,01020201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 333: 0:3f800000000000000000,01010201010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-334: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.38,,:3f800000000000000000,02010202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+334: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.38,,:3f800000000000000000,02010202010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 335: 0:3f800000000000000000,02010201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 336: 0:3f800000000000000000,02010201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 337: 0:3f800000000000000000,01020202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -372,13 +372,13 @@ playerOrigin: 14:30
 353: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 354: 0:3f800000000000000000,02020201010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 355: 0:3f800000000000000000,02020201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-356: 1:4,gatehouse.humming.door,,false,Coming from behind this door is a faint hum. You pause to listen for a few moments, but no explanation is readily apparent.:3f800000000000000000,01010102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+356: 1:4,gatehouse.humming.door,,false,-1,Coming from behind this door is a faint hum. You pause to listen for a few moments, but no explanation is readily apparent.:3f800000000000000000,01010102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 357: 0:3f800000000000000000,01020101020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 358: 0:3f800000000000000000,01020201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-359: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.43,,:3f800000000000000000,02010202010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+359: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.43,,:3f800000000000000000,02010202010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 360: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 361: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-362: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.40,,:3f800000000000000000,02020202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+362: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.40,,:3f800000000000000000,02020202020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 363: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 364: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 365: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -411,7 +411,7 @@ playerOrigin: 14:30
 392: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 393: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 394: 0:3f800000000000000000,01020202010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-395: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.40,,:3f800000000000000000,01020201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
+395: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.40,,:3f800000000000000000,01020201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 396: 0:3f800000000000000000,02020202020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 397: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 398: 0:3f800000000000000000,01010101020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -698,24 +698,24 @@ playerOrigin: 14:30
 679: 0:3f800000000000000000,01010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 680: 0:3f800000000000000000,01010101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 681: 0:3f800000000000000000,01010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-682: 1:2,,,false,5///false/gatehouse.minor.loot.3,0`0 - Daggers~17`0 - Fire Trap~17`0 - Magic Sparks~17`0 - Poison Darts~17`1 - Glowing Curse~16`2 - Stunner~16,gatehouse.chest.3,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,01020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+682: 1:2,,,false,-1,5///false/-1/gatehouse.minor.loot.3,0`0 - Daggers~17`0 - Fire Trap~17`0 - Magic Sparks~17`0 - Poison Darts~17`1 - Glowing Curse~16`2 - Stunner~16,gatehouse.chest.3,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,01020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 683: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 684: 0:3f800000000000000000,02010102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 685: 0:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-686: 1:8,,001,true,GATEHOUSE:3f800000000000000000,01020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+686: 1:8,,001,true,-1,GATEHOUSE:3f800000000000000000,01020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 687: 0:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 688: 0:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 689: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 690: 0:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 691: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-692: 1:4,gatehouse.execute.once.12,,false,Something about this room seems intangibly different... maybe the air currents?:3f800000000000000000,01020102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+692: 1:4,gatehouse.execute.once.12,,false,-1,Something about this room seems intangibly different... maybe the air currents?:3f800000000000000000,01020102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 693: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-694: 1:7,gatehouse.execute.once.11,,false,Gatehouse encounter 1 cruds:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+694: 1:7,gatehouse.execute.once.11,,false,-1,Gatehouse encounter 1 cruds:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 695: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 696: 0:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-697: 1:2,,,false,5///false/gatehouse.minor.loot.2,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,gatehouse.chest.5,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+697: 1:2,,,false,-1,5///false/-1/gatehouse.minor.loot.2,0`0 - Fire Trap~34`0 - Magic Sparks~33`0 - Poison Darts~33,gatehouse.chest.5,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_BACK,CHEST_1_FRONT,:3f800000000000000000,02010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 698: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-699: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.45,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+699: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.45,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 700: 0:3f800000000000000000,02010101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 701: 0:3f800000000000000000,02010102010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 702: 0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -728,17 +728,17 @@ playerOrigin: 14:30
 709: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 710: 0:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 711: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-712: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.3,,:3f800000000000000000,02010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+712: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.3,,:3f800000000000000000,02010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 713: 0:3f800000000000000000,02020101020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 714: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-715: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.10,,:3f800000000000000000,01020101020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+715: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.10,,:3f800000000000000000,01020101020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 716: 0:3f800000000000000000,01010201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 717: 0:3f800000000000000000,02010101020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 718: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 719: 0:3f800000000000000000,01010202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 720: 0:3f800000000000000000,02010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 721: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-722: 1:2,,001,true,5///false/gatehouse.potion.chest,0`0 - Daggers~50`0 - Fire Trap~50,gatehouse.chest.5,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02020201020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+722: 1:2,,001,true,-1,5///false/-1/gatehouse.potion.chest,0`0 - Daggers~50`0 - Fire Trap~50,gatehouse.chest.5,CHEST_1_BACK,CHEST_1_FRONT,CHEST_1_SIDE,CHEST_1_SIDE,:3f800000000000000000,02020201020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 723: 0:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 724: 0:3f800000000000000000,01010202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 725: 0:3f800000000000000000,02020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -761,18 +761,18 @@ playerOrigin: 14:30
 742: 0:3f800000000000000000,02020201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 743: 0:3f800000000000000000,01010101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 744: 0:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-745: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.8,,:3f800000000000000000,02020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+745: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.8,,:3f800000000000000000,02020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 746: 0:3f800000000000000000,02020102020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 747: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 748: 0:3f800000000000000000,01010102010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-749: 1:14,,00001,true,default.gatehouse.deactivated.portal,false:3f800000000000000000,01010202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+749: 1:14,,00001,true,-1,default.gatehouse.deactivated.portal,false:3f800000000000000000,01010202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 750: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 751: 0:3f800000000000000000,02010201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 752: 0:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 753: 0:3f800000000000000000,02010101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 754: 0:3f800000000000000000,01020201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 755: 0:3f800000000000000000,02020202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-756: 1:4,gatehouse.execute.once.4,,false,Large silky webs cover the walls and recede around the corner.:3f800000000000000000,02010101010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+756: 1:4,gatehouse.execute.once.4,,false,-1,Large silky webs cover the walls and recede around the corner.:3f800000000000000000,02010101010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 757: 0:3f800000000000000000,02010202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 758: 0:3f800000000000000000,02010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 759: 0:3f800000000000000000,01010201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -782,7 +782,7 @@ playerOrigin: 14:30
 763: 0:3f800000000000000000,01010101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 764: 0:3f800000000000000000,01010202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 765: 0:3f800000000000000000,02020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-766: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.44,,:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+766: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.44,,:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 767: 0:3f800000000000000000,02020201010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 768: 0:3f800000000000000000,02020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 769: 0:3f800000000000000000,01020102020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -791,16 +791,16 @@ playerOrigin: 14:30
 772: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 773: 0:3f800000000000000000,02020202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 774: 0:3f800000000000000000,01020101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-775: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.4,,:3f800000000000000000,02010102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+775: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.4,,:3f800000000000000000,02010102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 776: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 777: 0:3f800000000000000000,02020102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 778: 0:3f800000000000000000,01010202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-779: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.9,,:3f800000000000000000,02010101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+779: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.9,,:3f800000000000000000,02010101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 780: 0:3f800000000000000000,02020102010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-781: 1:14,,00001,true,default.gatehouse.deactivated.portal,false:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+781: 1:14,,00001,true,-1,default.gatehouse.deactivated.portal,false:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 782: 0:3f800000000000000000,01010201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-783: 2:4,gatehouse.execute.once.10,,false,On the far wall of this large room you see what looks like two deactivated inter-domain portals. %n%nBefore you can move over to get a close look, something else draws your urgent attention...:3,,,false,gatehouse.level.1.bats.or.spiders,gatehouse.encounter.16,,:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-784: 1:8,,001,true,GATEHOUSE:3f800000000000000000,01010202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+783: 2:4,gatehouse.execute.once.10,,false,-1,On the far wall of this large room you see what looks like two deactivated inter-domain portals. %n%nBefore you can move over to get a close look, something else draws your urgent attention...:3,,,false,-1,gatehouse.level.1.bats.or.spiders,gatehouse.encounter.16,,:3f800000000000000000,01010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+784: 1:8,,001,true,-1,GATEHOUSE:3f800000000000000000,01010202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 785: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 786: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 787: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -818,11 +818,11 @@ playerOrigin: 14:30
 799: 0:3f800000000000000000,02010202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 800: 0:3f800000000000000000,01020201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 801: 0:3f800000000000000000,02010101020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-802: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.11,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+802: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.11,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 803: 0:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 804: 0:3f800000000000000000,01020102010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 805: 0:3f800000000000000000,01010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-806: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.4,,:3f800000000000000000,01010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+806: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.4,,:3f800000000000000000,01010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 807: 0:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 808: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 809: 0:3f800000000000000000,02020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -837,7 +837,7 @@ playerOrigin: 14:30
 818: 0:3f800000000000000000,02010201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 819: 0:3f800000000000000000,01020102020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 820: 0:3f800000000000000000,01010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-821: 2:4,gatehouse.flavour.1,,false,This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.%n%nFrom the darkness you seem to feel many eyes watching you through the strands of webbing.:14,gatehouse.execute.once.13,,false,default.gatehouse.dark.cobweb.area,false:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+821: 2:4,gatehouse.flavour.1,,false,-1,This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.%n%nFrom the darkness you seem to feel many eyes watching you through the strands of webbing.:14,gatehouse.execute.once.13,,false,-1,default.gatehouse.dark.cobweb.area,false:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 822: 0:3f800000000000000000,01020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 823: 0:3f800000000000000000,02020201010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 824: 0:3f800000000000000000,02010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -857,20 +857,20 @@ playerOrigin: 14:30
 838: 0:3f800000000000000000,01020102020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 839: 0:3f800000000000000000,02020101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 840: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-841: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.1,,:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+841: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.1,,:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 842: 0:3f800000000000000000,01020201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-843: 2:4,gatehouse.execute.once.1,,false,The large lever mechanism looks tarnished and old but otherwise functional.%n%nYou wonder what hidden machinery it connects to...:12,,,false,gatehouse.lever-state.0,objects.lever.front,objects.lever.back,objects.lever.right,objects.lever.left,Gatehouse lever pre transition,Gatehouse lever post transition:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-844: 1:7,gatehouse.execute.once.2,,false,Gatehouse encounter 1 bats:3f800000000000000000,01020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-845: 1:7,gatehouse.execute.once.0,00001,true,Gatehouse first room window:3f800000000000000000,02010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-846: 1:7,gatehouse.execute.once.3,,false,Gatehouse welcome sign:3f800000000000000000,01010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+843: 2:4,gatehouse.execute.once.1,,false,-1,The large lever mechanism looks tarnished and old but otherwise functional.%n%nYou wonder what hidden machinery it connects to...:12,,,false,-1,gatehouse.lever-state.0,objects.lever.front,objects.lever.back,objects.lever.right,objects.lever.left,Gatehouse lever pre transition,Gatehouse lever post transition:3f800000000000000000,02020203020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+844: 1:7,gatehouse.execute.once.2,,false,-1,Gatehouse encounter 1 bats:3f800000000000000000,01020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+845: 1:7,gatehouse.execute.once.0,00001,true,-1,Gatehouse first room window:3f800000000000000000,02010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+846: 1:7,gatehouse.execute.once.3,,false,-1,Gatehouse welcome sign:3f800000000000000000,01010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 847: 0:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 848: 0:3f800000000000000000,02010102010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 849: 0:3f800000000000000000,02010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 850: 0:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 851: 0:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 852: 0:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-853: 1:4,gatehouse.execute.once.6,0001,true,A large web has been spun across the entrance to this alcove.:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-854: 2:4,gatehouse.execute.once.5,,false,Unsurprisingly, the creator of the web is unimpressed with your intrusion.:3,,,false,gatehouse.level.1.spider.1,gatehouse.encounter.5,,:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+853: 1:4,gatehouse.execute.once.6,0001,true,-1,A large web has been spun across the entrance to this alcove.:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+854: 2:4,gatehouse.execute.once.5,,false,-1,Unsurprisingly, the creator of the web is unimpressed with your intrusion.:3,,,false,-1,gatehouse.level.1.spider.1,gatehouse.encounter.5,,:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 855: 0:3f800000000000000000,01010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 856: 0:3f800000000000000000,02010102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 857: 0:3f800000000000000000,02010101020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -886,7 +886,7 @@ playerOrigin: 14:30
 867: 0:3f800000000000000000,01010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 868: 0:3f800000000000000000,01010102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 869: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-870: 1:10,,,false,gatehouse.hiddenstuff.1,Gatehouse hidden stuff 1 contents,Gatehouse hidden stuff 1 pre,1,0:3f800000000000000000,02020201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+870: 1:10,,,false,-1,gatehouse.hiddenstuff.1,Gatehouse hidden stuff 1 contents,Gatehouse hidden stuff 1 pre,0:3f800000000000000000,02020201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 871: 0:3f800000000000000000,02020102010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 872: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 873: 0:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -894,7 +894,7 @@ playerOrigin: 14:30
 875: 0:3f800000000000000000,02020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 876: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 877: 0:3f800000000000000000,02010102010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-878: 1:7,gatehouse.first.room.cck,01111,false,Gatehouse first room:3f800000000000000000,02010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+878: 1:7,gatehouse.first.room.cck,01111,false,-1,Gatehouse first room:3f800000000000000000,02010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 879: 0:3f800000000000000000,02010201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 880: 0:3f800000000000000000,02020102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 881: 0:3f800000000000000000,01020202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -906,11 +906,11 @@ playerOrigin: 14:30
 887: 0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 888: 0:3f800000000000000000,02010201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 889: 0:3f800000000000000000,01020202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-890: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.46,,:3f800000000000000000,02020101010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+890: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.46,,:3f800000000000000000,02020101010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 891: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 892: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 893: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-894: 1:10,,,false,gatehouse.bones.2,Gatehouse bones2 hidden stuff,,1,0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+894: 1:10,,,false,-1,gatehouse.bones.2,Gatehouse bones2 hidden stuff,,0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 895: 0:3f800000000000000000,02010102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 896: 0:3f800000000000000000,01010101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 897: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -928,11 +928,11 @@ playerOrigin: 14:30
 909: 0:3f800000000000000000,01020101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 910: 0:3f800000000000000000,02010201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 911: 0:3f800000000000000000,02020102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-912: 1:4,gatehouse.execute.once.9,,false,A pile of dry and dusty bones has been heaped in this dark corner.:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-913: 2:4,gatehouse.execute.once.8,,false,You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.%n%nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!:3,,,false,gatehouse.level.1.bonebrood,gatehouse.encounter.7,,:3f800000000000000000,01020202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+912: 1:4,gatehouse.execute.once.9,,false,0,A pile of dry and dusty bones has been heaped in this dark corner.:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+913: 2:4,gatehouse.execute.once.8,,false,-1,You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.%n%nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!:3,,,false,-1,gatehouse.level.1.bonebrood,gatehouse.encounter.7,,:3f800000000000000000,01020202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 914: 0:3f800000000000000000,02010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-915: 2:4,gatehouse.execute.once.7,,false,Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!:3,,,false,gatehouse.level.1.spiders,gatehouse.encounter.6,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-916: 2:4,gatehouse.execute.once.7,,false,Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!:3,,,false,gatehouse.level.1.spiders,gatehouse.encounter.6,,:3f800000000000000000,02020201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+915: 2:4,gatehouse.execute.once.7,,false,-1,Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!:3,,,false,-1,gatehouse.level.1.spiders,gatehouse.encounter.6,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+916: 2:4,gatehouse.execute.once.7,,false,-1,Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!:3,,,false,-1,gatehouse.level.1.spiders,gatehouse.encounter.6,,:3f800000000000000000,02020201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 917: 0:3f800000000000000000,01010101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 918: 0:3f800000000000000000,01020202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 919: 0:3f800000000000000000,02020101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -952,16 +952,16 @@ playerOrigin: 14:30
 933: 0:3f800000000000000000,02020202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 934: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 935: 0:3f800000000000000000,02010202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-936: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.13,,:3f800000000000000000,01020202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+936: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.13,,:3f800000000000000000,01020202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 937: 0:3f800000000000000000,02020202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-938: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.14,,:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+938: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.14,,:3f800000000000000000,02010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 939: 0:3f800000000000000000,01020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-940: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.15,,:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-941: 1:2,,0001,true,5///false/gatehouse.potion.chest,0`0 - Daggers~25`0 - Fire Trap~25`0 - Magic Sparks~25`0 - Poison Darts~25,gatehouse.chest.2,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,02010202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+940: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.15,,:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+941: 1:2,,0001,true,-1,5///false/-1/gatehouse.potion.chest,0`0 - Daggers~25`0 - Fire Trap~25`0 - Magic Sparks~25`0 - Poison Darts~25,gatehouse.chest.2,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,02010202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 942: 0:3f800000000000000000,01010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 943: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 944: 0:3f800000000000000000,02010101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-945: 2:4,gatehouse.execute.once.8,,false,You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.%n%nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!:3,,,false,gatehouse.level.1.bonebrood,gatehouse.encounter.7,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+945: 2:4,gatehouse.execute.once.8,,false,-1,You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.%n%nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!:3,,,false,-1,gatehouse.level.1.bonebrood,gatehouse.encounter.7,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 946: 0:3f800000000000000000,02020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 947: 0:3f800000000000000000,01020102020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 948: 0:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -980,7 +980,7 @@ playerOrigin: 14:30
 961: 0:3f800000000000000000,02020101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 962: 0:3f800000000000000000,01020101020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 963: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-964: 1:3,,,false,gatehouse.level.1,gatehouse.encounter.12,,:3f800000000000000000,01010101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+964: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.12,,:3f800000000000000000,01010101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 965: 0:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 966: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 967: 0:3f800000000000000000,02020202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -990,7 +990,7 @@ playerOrigin: 14:30
 971: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 972: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 973: 0:3f800000000000000000,01010201010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-974: 1:7,gatehouse.intro,,false,Gatehouse intro:3f800000000000000000,01010201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+974: 1:7,gatehouse.intro,,false,-1,Gatehouse intro:3f800000000000000000,01010201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 975: 0:3f800000000000000000,01010201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 976: 0:3f800000000000000000,02010101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 977: 0:3f800000000000000000,02020201010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -1005,7 +1005,7 @@ playerOrigin: 14:30
 986: 0:3f800000000000000000,02020201020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 987: 0:3f800000000000000000,02010101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 988: 0:3f800000000000000000,02010201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-989: 1:3,,,false,gatehouse.level.1.medium,gatehouse.encounter.47,,:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+989: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.47,,:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 990: 0:3f800000000000000000,02010101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 991: 0:3f800000000000000000,02010102020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 992: 0:3f800000000000000000,01010202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -1086,7 +1086,7 @@ playerOrigin: 14:30
 41: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1,
 42: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
 43: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-44: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:gatehouse.toggle.wall.0:874:false:DUNGEON_PORTCULLIS_1::true:true:1:DUNGEON_PORTCULLIS_1_UP::true:false:1:
+44: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:-1:gatehouse.toggle.wall.0:874:false:DUNGEON_PORTCULLIS_1::true:true:1:DUNGEON_PORTCULLIS_1_UP::true:false:1:
 
 -sky image-
 0: sky.ichiba
@@ -2168,7 +2168,7 @@ playerOrigin: 14:30
 155: DUNGEON_WALL_1:::::true:1
 156: DUNGEON_WALL_1:::::true:1
 157: DUNGEON_WALL_1:::::true:1
-158: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,gatehouse.button.2,158,true::true:1
+158: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,gatehouse.button.2,158,true::true:1
 163: DUNGEON_WALL_1:::::true:1
 168: DUNGEON_WALL_1:::::true:1
 169: DUNGEON_WALL_1:::::true:1
@@ -2578,7 +2578,7 @@ playerOrigin: 14:30
 739: DUNGEON_WALL_1:::::true:1
 742: DUNGEON_WALL_1:::::true:1
 744: DUNGEON_WALL_1:::::true:1
-746: DUNGEON_WALL_1:WALL_BUTTON::13,,,false,gatehouse.toggle.wall.0,746,false,DUNGEON_WALL_1,WALL_BUTTON,true,true,1,DUNGEON_WALL_1_GAP,,true,false,1,::true:1
+746: DUNGEON_WALL_1:WALL_BUTTON::13,,,false,-1,gatehouse.toggle.wall.0,746,false,DUNGEON_WALL_1,WALL_BUTTON,true,true,1,DUNGEON_WALL_1_GAP,,true,false,1,::true:1
 748: DUNGEON_WALL_1:::::true:1
 749: DUNGEON_WALL_1:::::true:1
 751: DUNGEON_WALL_1:::::true:1
@@ -2629,7 +2629,7 @@ playerOrigin: 14:30
 851: DUNGEON_WALL_1:::::true:1
 856: DUNGEON_WALL_1:::::true:1
 859: DUNGEON_WALL_1:::::true:1
-861: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,gatehouse.button.1,861,false::true:1
+861: DUNGEON_WALL_1:WALL_BUTTON::6,,,false,-1,gatehouse.button.1,861,false::true:1
 863: DUNGEON_WALL_1:::::true:1
 864: DUNGEON_WALL_1:::::true:1
 866: DUNGEON_WALL_1:::::true:1
@@ -2707,12 +2707,12 @@ playerOrigin: 14:30
 2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:813:false::00001::BOTTOM
 3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:815:false::00001::BOTTOM
 4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:870:false::000001::BOTTOM
-5: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:820:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:1::BOTTOM
-6: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:854:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:000000001::BOTTOM
-7: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:948:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
-8: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:979:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:00000001::BOTTOM
+5: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:820:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:1::BOTTOM
+6: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:854:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:000000001::BOTTOM
+7: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:948:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
+8: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:979:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:00000001::BOTTOM
 9: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:944:false::1000011::BOTTOM
-10: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:845:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:1::BOTTOM
+10: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:845:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:1::BOTTOM
 11: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:134:false::0010101::BOTTOM
 12: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:198:false::100010001::BOTTOM
 13: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:34:true::0101::BOTTOM
@@ -2727,11 +2727,11 @@ playerOrigin: 14:30
 22: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:286:false::0000011::BOTTOM
 23: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:116:false::1::BOTTOM
 24: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1::BOTTOM
-25: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,These bones feel brittle and dry to the touch.:00001::BOTTOM
-26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
+25: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,-1,These bones feel brittle and dry to the touch.:00001::BOTTOM
+26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
 27: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:846:true::::TOP
-28: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:811:false:4,,,false,The fungus looks toxic. You decide to leave it alone.:101::BOTTOM
-29: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:912:false:7,gatehouse.execute.once.10,,false,Gatehouse Bonebrood bones:00001::BOTTOM
+28: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:811:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:101::BOTTOM
+29: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:912:false:7,gatehouse.execute.once.10,,false,-1,Gatehouse Bonebrood bones:00001::BOTTOM
 30: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:913:false::10101::BOTTOM
 31: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:945:false::01110001::BOTTOM
 32: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:850:true::00001::TOP
@@ -2743,7 +2743,7 @@ playerOrigin: 14:30
 38: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:660:false::00001::TOP
 39: objects.hanging.sign.front:objects.hanging.sign.front:objects.hanging.sign.side:objects.hanging.sign.side:784:false::00000001::TOP
 40: objects.hanging.sign.front:objects.hanging.sign.front:objects.hanging.sign.side:objects.hanging.sign.side:686:false::00000001::TOP
-41: objects.slime_ceiling:objects.slime_ceiling:objects.slime_ceiling:objects.slime_ceiling:662:false:4,,,false,You poke the slime. It's disgusting.:01011101::TOP
+41: objects.slime_ceiling:objects.slime_ceiling:objects.slime_ceiling:objects.slime_ceiling:662:false:4,,,false,-1,You poke the slime. It's disgusting.:01011101::TOP
 
 -scripts-
 0: 2,8,32,40,757/660

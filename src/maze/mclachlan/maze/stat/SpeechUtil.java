@@ -275,7 +275,7 @@ public class SpeechUtil
 		}
 		else
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 	}
 
@@ -284,7 +284,7 @@ public class SpeechUtil
 	{
 		if (!backgroundCharacterSpeechOccurs())
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 
 		ConditionEffect effect = condition.getEffect();

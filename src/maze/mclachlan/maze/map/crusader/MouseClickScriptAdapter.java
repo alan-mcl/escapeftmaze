@@ -51,7 +51,7 @@ public class MouseClickScriptAdapter implements MouseClickScript
 		Point tile = maze.getTile();
 		int facing = maze.getFacing();
 
-		if (script.shouldExecute(maze, tile, tile, facing, TileScript.PlayerAction.SEARCH))
+		if (script.shouldExecute(maze, tile, tile, facing, TileScript.PlayerAction.MOUSE_CLICK))
 		{
 			Maze.getInstance().appendEvents(script.execute(maze, tile, tile, facing));
 		}

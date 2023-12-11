@@ -29,28 +29,27 @@ import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.SpeechUtil;
 
 /**
  *
  */
 public class HiddenStuff extends TileScript
 {
-	private int spotDifficulty, findDifficulty;
-	private String mazeVariable;
-	private MazeScript preScript, content;
+	private final int findDifficulty;
+	private final String mazeVariable;
+	private final MazeScript preScript;
+	private final MazeScript content;
 	
 	/*-------------------------------------------------------------------------*/
 	public HiddenStuff(
 		MazeScript content,
 		MazeScript preScript,
 		String mazeVariable,
-		int spotDifficulty, int findDifficulty)
+		int findDifficulty)
 	{
 		this.mazeVariable = mazeVariable;
 		this.content = content;
 		this.preScript = preScript;
-		this.spotDifficulty = spotDifficulty;
 		this.findDifficulty = findDifficulty;
 	}
 	
@@ -64,19 +63,13 @@ public class HiddenStuff extends TileScript
 			result.addAll(preScript.getEvents());
 		}
 
-		PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze, spotDifficulty);
-		if (pc != null)
-		{
-			result.addAll(SpeechUtil.getInstance().spotStashSpeech(pc));
-		}
-
 		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handlePlayerAction(Maze maze, Point tile, int facing, int playerAction)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (playerAction == PlayerAction.SEARCH)
 		{
@@ -115,11 +108,6 @@ public class HiddenStuff extends TileScript
 	public MazeScript getPreScript()
 	{
 		return preScript;
-	}
-
-	public int getSpotDifficulty()
-	{
-		return spotDifficulty;
 	}
 
 	public int getFindDifficulty()

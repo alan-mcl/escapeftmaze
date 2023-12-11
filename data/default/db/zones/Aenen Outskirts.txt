@@ -86,7 +86,7 @@ playerOrigin: 3:3
 67: 0:3f800000000000000000,03020204020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 68: 0:3f800000000000000000,03030205030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 69: 0:3f800000000000000000,02020205020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-70: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.0,,:3f800000000000000000,02020202030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+70: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.0,,:3f800000000000000000,02020202030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 71: 0:3f800000000000000000,03030205020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 72: 0:3f800000000000000000,02030303020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 73: 0:3f800000000000000000,03020203030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -115,7 +115,7 @@ playerOrigin: 3:3
 96: 0:3f800000000000000000,03030205030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 97: 0:3f800000000000000000,03020205020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 98: 0:3f800000000000000000,02020305030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-99: 1:7,,011,false,Aenen to Ichiba Domain South:3f800000000000000000,02030202020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+99: 1:7,,011,false,-1,Aenen to Ichiba Domain South:3f800000000000000000,02030202020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 100: 0:3f800000000000000000,02020305030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 101: 0:3f800000000000000000,03020205020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 102: 0:3f800000000000000000,03020205030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -147,7 +147,7 @@ playerOrigin: 3:3
 128: 0:3f800000000000000000,02020302020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 129: 0:3f800000000000000000,02030302030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 130: 0:3f800000000000000000,02020202030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-131: 2:4,aenen.outskirts.intro,,false,... you step into a dense jungle, slumbering under a brilliant blue sky in which several yellow suns are visible. The air here smells different to you, spicier, and the humidity is far more oppressive than the previous domain; already your clothes feel wet and clingy.:4,,,false,Water drips from the exotic foliage, and beneath your feet tendrils of steam snake upwards from the moist and spongy ground. A colourful bird of some exotic type flutters lazily over you, its raucous cry cutting through the lingering feeling that something is watching you from just behind the jungle's shadow.:3f800000000000000000,03030203020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+131: 2:4,aenen.outskirts.intro,,false,-1,... you step into a dense jungle, slumbering under a brilliant blue sky in which several yellow suns are visible. The air here smells different to you, spicier, and the humidity is far more oppressive than the previous domain; already your clothes feel wet and clingy.:4,,,false,-1,Water drips from the exotic foliage, and beneath your feet tendrils of steam snake upwards from the moist and spongy ground. A colourful bird of some exotic type flutters lazily over you, its raucous cry cutting through the lingering feeling that something is watching you from just behind the jungle's shadow.:3f800000000000000000,03030203020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 132: 0:3f800000000000000000,03030303020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 133: 0:3f800000000000000000,02030302020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 134: 0:3f800000000000000000,02030202030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -156,7 +156,7 @@ playerOrigin: 3:3
 137: 0:3f800000000000000000,03020205030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 138: 0:3f800000000000000000,02030203030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 139: 0:3f800000000000000000,02020202030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-140: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.25,,:3f800000000000000000,03030304030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+140: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.25,,:3f800000000000000000,03030304030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 141: 0:3f800000000000000000,03030204030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 142: 0:3f800000000000000000,02020205020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 143: 0:3f800000000000000000,02030202020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -194,14 +194,14 @@ playerOrigin: 3:3
 175: 0:3f800000000000000000,03020202030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 176: 0:3f800000000000000000,02020304030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 177: 0:3f800000000000000000,02020304030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-178: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.24,,:3f800000000000000000,02020203020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+178: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.24,,:3f800000000000000000,02020203020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 179: 0:3f800000000000000000,02020303030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 180: 0:3f800000000000000000,02030302030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 181: 0:3f800000000000000000,03030302020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-182: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.23,,:3f800000000000000000,03030303030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+182: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.23,,:3f800000000000000000,03030303030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 183: 0:3f800000000000000000,02020203020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 184: 0:3f800000000000000000,02030302030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-185: 1:7,aenen.outskirts.solar.panel.flava,,false,Aenen Outskirts solar array flava:3f800000000000000000,02020304020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+185: 1:7,aenen.outskirts.solar.panel.flava,,false,-1,Aenen Outskirts solar array flava:3f800000000000000000,02020304020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 186: 0:3f800000000000000000,02020202020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 187: 0:3f800000000000000000,02030205020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 188: 0:3f800000000000000000,03030202020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -210,7 +210,7 @@ playerOrigin: 3:3
 191: 0:3f800000000000000000,02020205020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 192: 0:3f800000000000000000,03020304020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 193: 0:3f800000000000000000,03030204030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-194: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.1,,:3f800000000000000000,03020304030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+194: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.1,,:3f800000000000000000,03020304030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 195: 0:3f800000000000000000,02020302030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 196: 0:3f800000000000000000,02030202030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 197: 0:3f800000000000000000,03030305020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -235,7 +235,7 @@ playerOrigin: 3:3
 216: 0:3f800000000000000000,02020203030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 217: 0:3f800000000000000000,02030202030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 218: 0:3f800000000000000000,02020202020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-219: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.22,,:3f800000000000000000,03030305020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+219: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.22,,:3f800000000000000000,03030305020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 220: 0:3f800000000000000000,03030204020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 221: 0:3f800000000000000000,02030302020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 222: 0:3f800000000000000000,02030205020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -251,7 +251,7 @@ playerOrigin: 3:3
 232: 0:3f800000000000000000,02030202020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 233: 0:3f800000000000000000,03030202030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 234: 0:3f800000000000000000,03020202030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-235: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.29,,:3f800000000000000000,02030202020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+235: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.29,,:3f800000000000000000,02030202020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 236: 0:3f800000000000000000,03020204030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 237: 0:3f800000000000000000,02020305020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 238: 0:3f800000000000000000,02020305030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -281,22 +281,22 @@ playerOrigin: 3:3
 262: 0:3f800000000000000000,02030302020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 263: 0:3f800000000000000000,03020204020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 264: 0:3f800000000000000000,02030204020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-265: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.28,,:3f800000000000000000,03030203020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+265: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.28,,:3f800000000000000000,03030203020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 266: 0:3f800000000000000000,02030203020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 267: 0:3f800000000000000000,02020303030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 268: 0:3f800000000000000000,03030203020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 269: 0:3f800000000000000000,03030305030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 270: 0:3f800000000000000000,03030305030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 271: 0:3f800000000000000000,03020305020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-272: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,02030203030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+272: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,02030203030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 273: 0:3f800000000000000000,02030205020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-274: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,03020304020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+274: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,03020304020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 275: 0:3f800000000000000000,03020204020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-276: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,02020302020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+276: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,02020302020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 277: 0:3f800000000000000000,03020303020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,02020203030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 279: 0:3f800000000000000000,02020204020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-280: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.20,,:3f800000000000000000,02030303020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+280: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.20,,:3f800000000000000000,02030303020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 281: 0:3f800000000000000000,03020303030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 282: 0:3f800000000000000000,02030203020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 283: 0:3f800000000000000000,03020204020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -313,10 +313,10 @@ playerOrigin: 3:3
 294: 0:3f800000000000000000,02030305030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 295: 0:3f800000000000000000,02030205020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 296: 0:3f800000000000000000,03020204020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-297: 1:7,aenen.outskirts.clearing.intro,,false,Aenen City to Outskirts:3f800000000000000000,03030302020203:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+297: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen City to Outskirts:3f800000000000000000,03030302020203:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 298: 0:3f800000000000000000,02030305020203:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-299: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,03020302020303:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-300: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,03030204030503:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+299: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,03020302020303:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+300: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,03030204030503:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 301: 0:3f800000000000000000,02030205020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 302: 0:3f800000000000000000,03020304030302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 303: 0:3f800000000000000000,02030304020202:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -332,13 +332,13 @@ playerOrigin: 3:3
 313: 0:3f800000000000000000,03020305030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 314: 0:3f800000000000000000,02030304030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 315: 0:3f800000000000000000,02020203020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-316: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.21,,:3f800000000000000000,03020205020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+316: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.21,,:3f800000000000000000,03020205020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 317: 0:3f800000000000000000,03030302030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 318: 0:3f800000000000000000,03020205020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 319: 0:3f800000000000000000,03030204020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 320: 0:3f800000000000000000,02030203020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 321: 0:3f800000000000000000,02030205020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-322: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.2,,:3f800000000000000000,02020304020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+322: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.2,,:3f800000000000000000,02020304020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 323: 0:3f800000000000000000,03030305020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 324: 0:3f800000000000000000,02020303020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 325: 0:3f800000000000000000,02020202020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -373,15 +373,15 @@ playerOrigin: 3:3
 354: 0:3f800000000000000000,03030305030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 355: 0:3f800000000000000000,03020204020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 356: 0:3f800000000000000000,02030302030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-357: 1:7,aenen.outskirts.solar.panel.flava,,false,Aenen Outskirts solar array flava:3f800000000000000000,03020204020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+357: 1:7,aenen.outskirts.solar.panel.flava,,false,-1,Aenen Outskirts solar array flava:3f800000000000000000,03020204020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 358: 0:3f800000000000000000,02020303030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-359: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.27,,:3f800000000000000000,02020303030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-360: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,03020202030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+359: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.27,,:3f800000000000000000,02020303030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+360: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,03020202030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 361: 0:3f800000000000000000,03020305020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 362: 0:3f800000000000000000,02030303030202:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 363: 0:3f800000000000000000,02020202030402:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 364: 0:3f800000000000000000,02030202020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-365: 1:7,aenen.outskirts.solar.panel.flava,,false,Aenen Outskirts solar array flava:3f800000000000000000,03020303020403:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+365: 1:7,aenen.outskirts.solar.panel.flava,,false,-1,Aenen Outskirts solar array flava:3f800000000000000000,03020303020403:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 366: 0:3f800000000000000000,03030303020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 367: 0:3f800000000000000000,02030204030302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 368: 0:3f800000000000000000,03030303030303:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -420,11 +420,11 @@ playerOrigin: 3:3
 401: 0:3f800000000000000000,02030205030502:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 402: 0:3f800000000000000000,03020303020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 403: 0:3f800000000000000000,02030302030503:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-404: 1:8,,,false,Asius' Place:3f800000000000000000,02030304020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+404: 1:8,,,false,-1,Asius' Place:3f800000000000000000,02030304020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 405: 0:3f800000000000000000,02020305030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-406: 1:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3f800000000000000000,03030203030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+406: 1:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3f800000000000000000,03030203030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 407: 0:3f800000000000000000,02020205030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-408: 2:7,aenen.outskirts.clearing.intro,,false,Aenen Outskirts clearing intro:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.19,,:3f800000000000000000,02020203030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+408: 2:7,aenen.outskirts.clearing.intro,,false,-1,Aenen Outskirts clearing intro:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.19,,:3f800000000000000000,02020203030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 409: 0:3f800000000000000000,03030202020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 410: 0:3f800000000000000000,03030205030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 411: 0:3f800000000000000000,03030202030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -433,7 +433,7 @@ playerOrigin: 3:3
 414: 0:3f800000000000000000,02020203030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 415: 0:3f800000000000000000,02030203030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 416: 0:3f800000000000000000,03020205030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-417: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.3,,:3f800000000000000000,03020304030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+417: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.3,,:3f800000000000000000,03020304030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 418: 0:3f800000000000000000,03030303030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 419: 0:3f800000000000000000,03020302030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 420: 0:3f800000000000000000,03030204030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -523,7 +523,7 @@ playerOrigin: 3:3
 504: 0:3f800000000000000000,02020302020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 505: 0:3f800000000000000000,02020202030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 506: 0:3f800000000000000000,02030304030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-507: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.30,,:3f800000000000000000,02020202030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+507: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.30,,:3f800000000000000000,02020202030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 508: 0:3f800000000000000000,03030303030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 509: 0:3f800000000000000000,02020202030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 510: 0:3f800000000000000000,03020203030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -562,11 +562,11 @@ playerOrigin: 3:3
 543: 0:3f800000000000000000,03030202020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 544: 0:3f800000000000000000,03020304020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 545: 0:3f800000000000000000,02030302030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-546: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.4,,:3f800000000000000000,03030202030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+546: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.4,,:3f800000000000000000,03030202030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 547: 0:3f800000000000000000,02020205030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 548: 0:3f800000000000000000,03020205020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 549: 0:3f800000000000000000,02030204020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-550: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.5,,:3f800000000000000000,03020204020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+550: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.5,,:3f800000000000000000,03020204020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 551: 0:3f800000000000000000,02020304030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 552: 0:3f800000000000000000,02030202020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 553: 0:3f800000000000000000,03030305020503:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -575,7 +575,7 @@ playerOrigin: 3:3
 556: 0:3f800000000000000000,02020204020302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 557: 0:3f800000000000000000,03030305030402:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 558: 0:3f800000000000000000,02030304020303:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-559: 1:8,,,false,AENEN:3f800000000000000000,02020305030303:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+559: 1:8,,,false,-1,AENEN:3f800000000000000000,02020305030303:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 560: 0:3f800000000000000000,03030302030302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 561: 0:3f800000000000000000,02030302030203:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 562: 0:3f800000000000000000,03030202030203:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -614,7 +614,7 @@ playerOrigin: 3:3
 595: 0:3f800000000000000000,03030305030302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 596: 0:3f800000000000000000,02030302030302:WILDERNESS:Forest:5:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 597: 0:3f800000000000000000,03020205020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-598: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.18,,:3f800000000000000000,03020204030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+598: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.18,,:3f800000000000000000,03020204030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 599: 0:3f800000000000000000,02030304030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 600: 0:3f800000000000000000,03030302020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 601: 0:3f800000000000000000,03020304030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -699,7 +699,7 @@ playerOrigin: 3:3
 680: 0:3f800000000000000000,03030303020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 681: 0:3f800000000000000000,02030304030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 682: 0:3f800000000000000000,02030203030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-683: 1:10,,,false,aenen.outskirts.charred.stump.search,Aenen Outskirts charred stump search,Aenen Outskirts charred stump,1,0:3f800000000000000000,03030303020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+683: 1:10,,,false,-1,aenen.outskirts.charred.stump.search,Aenen Outskirts charred stump search,Aenen Outskirts charred stump,0:3f800000000000000000,03030303020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 684: 0:3f800000000000000000,03020205030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 685: 0:3f800000000000000000,03020202030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 686: 0:3f800000000000000000,02020303020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -748,7 +748,7 @@ playerOrigin: 3:3
 729: 0:3f800000000000000000,02030204020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 730: 0:3f800000000000000000,03030302030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 731: 0:3f800000000000000000,02020204020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-732: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.16,,:3f800000000000000000,03030304030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+732: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.16,,:3f800000000000000000,03030304030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 733: 0:3f800000000000000000,03020302030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 734: 0:3f800000000000000000,02020303020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 735: 0:3f800000000000000000,03030302020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -761,7 +761,7 @@ playerOrigin: 3:3
 742: 0:3f800000000000000000,02020204030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 743: 0:3f800000000000000000,03020202020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 744: 0:3f800000000000000000,02030202030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-745: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.26,,:3f800000000000000000,02030205020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+745: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.26,,:3f800000000000000000,02030205020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 746: 0:3f800000000000000000,02030204030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 747: 0:3f800000000000000000,03030202020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 748: 0:3f800000000000000000,02020304020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -774,10 +774,10 @@ playerOrigin: 3:3
 755: 0:3f800000000000000000,02020204030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 756: 0:3f800000000000000000,02020304020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 757: 0:3f800000000000000000,03020304030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-758: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.17,,:3f800000000000000000,03030205020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+758: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.17,,:3f800000000000000000,03030205020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 759: 0:3f800000000000000000,03020304020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 760: 0:3f800000000000000000,03030302030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-761: 1:7,aenen.outskirts.solar.panel.flava,,false,Aenen Outskirts solar array flava:3f800000000000000000,03030302020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+761: 1:7,aenen.outskirts.solar.panel.flava,,false,-1,Aenen Outskirts solar array flava:3f800000000000000000,03030302020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 762: 0:3f800000000000000000,02020303020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 763: 0:3f800000000000000000,03030205030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 764: 0:3f800000000000000000,03030305030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -790,7 +790,7 @@ playerOrigin: 3:3
 771: 0:3f800000000000000000,02030304020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 772: 0:3f800000000000000000,02020203020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 773: 0:3f800000000000000000,02030205030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-774: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.9,,:3f800000000000000000,02030204030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+774: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.9,,:3f800000000000000000,02030204030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 775: 0:3f800000000000000000,02020203030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 776: 0:3f800000000000000000,02030302030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 777: 0:3f800000000000000000,02020305030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -818,7 +818,7 @@ playerOrigin: 3:3
 799: 0:3f800000000000000000,02020305020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 800: 0:3f800000000000000000,03030204030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 801: 0:3f800000000000000000,02030302030503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-802: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.6,,:3f800000000000000000,03020305020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+802: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.6,,:3f800000000000000000,03020305020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 803: 0:3f800000000000000000,02020204030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 804: 0:3f800000000000000000,02020302030502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 805: 0:3f800000000000000000,03020302030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -830,7 +830,7 @@ playerOrigin: 3:3
 811: 0:3f800000000000000000,02030303030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 812: 0:3f800000000000000000,02030302020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 813: 0:3f800000000000000000,02020304020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-814: 1:7,aenen.outskirts.solar.panel.flava,,false,Aenen Outskirts solar array flava:3f800000000000000000,03030305020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+814: 1:7,aenen.outskirts.solar.panel.flava,,false,-1,Aenen Outskirts solar array flava:3f800000000000000000,03030305020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 815: 0:3f800000000000000000,03030202030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 816: 0:3f800000000000000000,03020204020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 817: 0:3f800000000000000000,03030304030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -887,9 +887,9 @@ playerOrigin: 3:3
 868: 0:3f800000000000000000,03020303030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 869: 0:3f800000000000000000,02030203030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 870: 0:3f800000000000000000,02030205020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-871: 1:3,,,false,rogue.clockwork,aenen.outskirts.encounter.31,,:3f800000000000000000,02030204020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+871: 1:3,,,false,-1,rogue.clockwork,aenen.outskirts.encounter.31,,:3f800000000000000000,02030204020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 872: 0:3f800000000000000000,03030205030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-873: 1:7,aenen.outskirts.solar.panel.flava,,false,Aenen Outskirts solar array flava:3f800000000000000000,02030202020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+873: 1:7,aenen.outskirts.solar.panel.flava,,false,-1,Aenen Outskirts solar array flava:3f800000000000000000,02030202020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 874: 0:3f800000000000000000,02020204030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 875: 0:3f800000000000000000,03020303030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 876: 0:3f800000000000000000,03020305020403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -910,11 +910,11 @@ playerOrigin: 3:3
 891: 0:3f800000000000000000,02030304020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 892: 0:3f800000000000000000,02030304020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 893: 0:3f800000000000000000,02020204020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-894: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.15,,:3f800000000000000000,03020202020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+894: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.15,,:3f800000000000000000,03020202020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 895: 0:3f800000000000000000,03020302030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 896: 0:3f800000000000000000,02030204020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 897: 0:3f800000000000000000,03030302030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-898: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.7,,:3f800000000000000000,02030205020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+898: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.7,,:3f800000000000000000,02030205020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 899: 0:3f800000000000000000,03030205030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 900: 0:3f800000000000000000,03020204020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 901: 0:3f800000000000000000,03020304030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -923,24 +923,24 @@ playerOrigin: 3:3
 904: 0:3f800000000000000000,03020304020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 905: 0:3f800000000000000000,02020203020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 906: 0:3f800000000000000000,02020303020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-907: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.10,,:3f800000000000000000,03030305020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+907: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.10,,:3f800000000000000000,03030305020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 908: 0:3f800000000000000000,02020303020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 909: 0:3f800000000000000000,02030305030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 910: 0:3f800000000000000000,02030202030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-911: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.11,,:3f800000000000000000,02030305020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+911: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.11,,:3f800000000000000000,02030305020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 912: 0:3f800000000000000000,03030205020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 913: 0:3f800000000000000000,02030203030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 914: 0:3f800000000000000000,02030305020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-915: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.12,,:3f800000000000000000,02030303020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+915: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.12,,:3f800000000000000000,02030303020202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 916: 0:3f800000000000000000,03030202020503:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 917: 0:3f800000000000000000,02020204030202:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 918: 0:3f800000000000000000,03020303030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 919: 0:3f800000000000000000,03020205030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 920: 0:3f800000000000000000,02020303030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 921: 0:3f800000000000000000,03020304030403:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-922: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.14,,:3f800000000000000000,02030203020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+922: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.14,,:3f800000000000000000,02030203020502:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 923: 0:3f800000000000000000,03020304030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-924: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.13,,:3f800000000000000000,03020303020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+924: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.13,,:3f800000000000000000,03020303020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 925: 0:3f800000000000000000,03020302020303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 926: 0:3f800000000000000000,02030303030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 927: 0:3f800000000000000000,03030303030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -953,7 +953,7 @@ playerOrigin: 3:3
 934: 0:3f800000000000000000,03020203030303:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 935: 0:3f800000000000000000,03020205020302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 936: 0:3f800000000000000000,02020205020203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
-937: 1:3,,,false,aenen.outskirts.placed.enc,aenen.outskirts.encounter.8,,:3f800000000000000000,03020305030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
+937: 1:3,,,false,-1,aenen.outskirts.placed.enc,aenen.outskirts.encounter.8,,:3f800000000000000000,03020305030203:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 938: 0:3f800000000000000000,02020305030302:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 939: 0:3f800000000000000000,03020302020402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
 940: 0:3f800000000000000000,02020303030402:WILDERNESS:Forest:10:aenen.outskirts.random.enc:MEDIUM:AVERAGE
@@ -3134,7 +3134,7 @@ playerOrigin: 3:3
 95: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:924:false::10000001::BOTTOM
 96: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:967:false::001::BOTTOM
 97: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:968:false::00110001::BOTTOM
-98: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:464:false:7,,,false,Aenen Outskirts to City:00001::BOTTOM
+98: objects.ladder.down:objects.ladder.down:objects.ladder.down:objects.ladder.down:464:false:7,,,false,-1,Aenen Outskirts to City:00001::BOTTOM
 99: objects.solar.array:objects.solar.array:objects.solar.array:objects.solar.array:365:false::00001::BOTTOM
 100: objects.solar.array:objects.solar.array:objects.solar.array:objects.solar.array:814:false::00001::BOTTOM
 101: objects.solar.array:objects.solar.array:objects.solar.array:objects.solar.array:761:false::00001::BOTTOM
