@@ -1086,7 +1086,7 @@ playerOrigin: 14:30
 41: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1,
 42: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
 43: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-44: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:-1:gatehouse.toggle.wall.0:874:false:DUNGEON_PORTCULLIS_1::true:true:1:DUNGEON_PORTCULLIS_1_UP::true:false:1:
+44: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:-1:gatehouse.toggle.wall.0:874:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::
 
 -sky image-
 0: sky.ichiba
@@ -2578,7 +2578,7 @@ playerOrigin: 14:30
 739: DUNGEON_WALL_1:::::true:1
 742: DUNGEON_WALL_1:::::true:1
 744: DUNGEON_WALL_1:::::true:1
-746: DUNGEON_WALL_1:WALL_BUTTON::13,,,false,-1,gatehouse.toggle.wall.0,746,false,DUNGEON_WALL_1,WALL_BUTTON,true,true,1,DUNGEON_WALL_1_GAP,,true,false,1,::true:1
+746: DUNGEON_WALL_1:WALL_BUTTON::13,,,false,0,gatehouse.toggle.wall.0,746,false,DUNGEON_WALL_1,WALL_BUTTON,true,true,true,1,DUNGEON_WALL_1_GAP,,true,false,false,1,Gatehouse first wall button pre toggle,_SECRET_PASSAGE_::true:1
 748: DUNGEON_WALL_1:::::true:1
 749: DUNGEON_WALL_1:::::true:1
 751: DUNGEON_WALL_1:::::true:1

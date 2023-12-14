@@ -224,6 +224,8 @@ public class V1TileScript
 				s.append(sep);
 				s.append(tw.isState1Solid());
 				s.append(sep);
+				s.append(tw.isState1Secret());
+				s.append(sep);
 				s.append(tw.getState1Height());
 				s.append(sep);
 
@@ -235,8 +237,14 @@ public class V1TileScript
 				s.append(sep);
 				s.append(tw.isState2Solid());
 				s.append(sep);
+				s.append(tw.isState2Secret());
+				s.append(sep);
 				s.append(tw.getState2Height());
 				s.append(sep);
+
+				s.append(tw.getPreToggleScript()==null?"":tw.getPreToggleScript());
+				s.append(sep);
+				s.append(tw.getPostToggleScript()==null?"":tw.getPostToggleScript());
 
 				break;
 			case EXECUTE_MAZE_SCRIPT:
@@ -417,13 +425,18 @@ public class V1TileScript
 				String state1MaskTexture = strs[i++];
 				boolean state1Visible = Boolean.valueOf(strs[i++]);
 				boolean state1Solid = Boolean.valueOf(strs[i++]);
+				boolean state1Secret = Boolean.valueOf(strs[i++]);
 				int state1Height = Integer.parseInt(strs[i++]);
 
 				String state2Texture = strs[i++]; 
 				String state2MaskTexture = strs[i++];
 				boolean state2Visible = Boolean.valueOf(strs[i++]);
 				boolean state2Solid = Boolean.valueOf(strs[i++]);
+				boolean state2Secret = Boolean.valueOf(strs[i++]);
 				int state2Height = Integer.parseInt(strs[i++]);
+
+				String preToggleScript = strs[i++];
+				String postToggleScript = strs[i++];
 
 				result = new ToggleWall(
 					toggleWallMazeVar,
@@ -433,12 +446,16 @@ public class V1TileScript
 					"".equals(state1MaskTexture)?null:Database.getInstance().getMazeTexture(state1MaskTexture).getTexture(),
 					state1Visible,
 					state1Solid,
+					state1Secret,
 					state1Height,
 					"".equals(state2Texture)?null:Database.getInstance().getMazeTexture(state2Texture).getTexture(),
 					"".equals(state2MaskTexture)?null:Database.getInstance().getMazeTexture(state2MaskTexture).getTexture(),
 					state2Visible,
 					state2Solid,
-					state2Height);
+					state2Secret,
+					state2Height,
+					"".equals(preToggleScript)?null:preToggleScript,
+					"".equals(postToggleScript)?null:postToggleScript);
 				break;
 			case EXECUTE_MAZE_SCRIPT:
 				result = new ExecuteMazeScript(strs[i++]);

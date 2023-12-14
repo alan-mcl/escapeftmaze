@@ -485,6 +485,9 @@ name=Caves Of Ilast Brass Pillar
 name=Ichiba Depths to City (gnolls)
 0=1,Ichiba City,15,8,0
 @
+name=Gatehouse first wall button pre toggle
+0=4,-1,false,Searching the wall, one of the stones shifts inwards at your touch!
+@
 name=Danaos Village to Castle
 0=13,generic door creak
 1=1,Danaos Castle,29,15,0

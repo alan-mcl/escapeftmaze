@@ -5,6 +5,7 @@ import java.util.*;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.Wall;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
@@ -30,6 +31,7 @@ public class ToggleWall extends TileScript
 	private final Texture state1MaskTexture;
 	private final boolean state1Visible;
 	private final boolean state1Solid;
+	private final boolean state1Secret;
 	private final int state1Height;
 
 	// state 2 wall attributes
@@ -37,20 +39,31 @@ public class ToggleWall extends TileScript
 	private final Texture state2MaskTexture;
 	private final boolean state2Visible;
 	private final boolean state2Solid;
+	private final boolean state2Secret;
 	private final int state2Height;
 
+	// something to do before and afterwards
+	private final String preToggleScript;
+	private final String postToggleScript;
+
 	public ToggleWall(
-		String mazeVariable, int wallIndex, boolean horizontalWall,
+		String mazeVariable,
+		int wallIndex,
+		boolean horizontalWall,
 		Texture state1Texture,
 		Texture state1MaskTexture,
 		boolean state1Visible,
 		boolean state1Solid,
+		boolean state1Secret,
 		int state1Height,
 		Texture state2Texture,
 		Texture state2MaskTexture,
 		boolean state2Visible,
 		boolean state2Solid,
-		int state2Height)
+		boolean state2Secret,
+		int state2Height,
+		String preToggleScript,
+		String postToggleScript)
 	{
 		this.horizontalWall = horizontalWall;
 		this.wallIndex = wallIndex;
@@ -61,13 +74,18 @@ public class ToggleWall extends TileScript
 		this.state1MaskTexture = state1MaskTexture;
 		this.state1Visible = state1Visible;
 		this.state1Solid = state1Solid;
+		this.state1Secret = state1Secret;
 		this.state1Height = state1Height;
 
 		this.state2Texture = state2Texture;
 		this.state2MaskTexture = state2MaskTexture;
 		this.state2Visible = state2Visible;
 		this.state2Solid = state2Solid;
+		this.state2Secret = state2Secret;
 		this.state2Height = state2Height;
+
+		this.preToggleScript = preToggleScript;
+		this.postToggleScript = postToggleScript;
 	}
 
 	@Override
@@ -97,36 +115,77 @@ public class ToggleWall extends TileScript
 			maze.getUi().addTexture(state2MaskTexture);
 		}
 
-
-		setWallAttributes(maze);
+		setWallAttributes(
+			maze,
+			mazeVariable,
+			wallIndex,
+			horizontalWall,
+			state1Texture,
+			state1MaskTexture,
+			state1Visible,
+			state1Solid,
+			state1Height,
+			state2Texture,
+			state2MaskTexture,
+			state2Visible,
+			state2Solid,
+			state2Height);
 	}
 
 	@Override
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
 		int facing)
 	{
-		switch (State.valueOf(MazeVariables.get(this.mazeVariable)))
+		List<MazeEvent> result = new ArrayList<>();
+
+		if (preToggleScript != null)
 		{
-			case STATE_1:
-				MazeVariables.set(this.mazeVariable, State.STATE_2.name());
-				break;
-			case STATE_2:
-				MazeVariables.set(this.mazeVariable, State.STATE_1.name());
-				break;
-			default:
-				throw new MazeException("invalid state: "+MazeVariables.get(this.mazeVariable));
+			result.addAll(Database.getInstance().getMazeScript(preToggleScript).getEvents());
 		}
 
-		setWallAttributes(maze);
-		return null;
+		result.add(
+			new ToggleWallEvent(mazeVariable,
+				wallIndex,
+				horizontalWall,
+				state1Texture,
+				state1MaskTexture,
+				state1Visible,
+				state1Solid,
+				state1Height,
+				state2Texture,
+				state2MaskTexture,
+				state2Visible,
+				state2Solid,
+				state2Height));
+
+		if (postToggleScript != null)
+		{
+			result.addAll(Database.getInstance().getMazeScript(postToggleScript).getEvents());
+		}
+
+		return result;
 	}
 
-	private void setWallAttributes(Maze maze)
+	static void setWallAttributes(
+		Maze maze,
+		String mazeVariable,
+		int wallIndex,
+		boolean horizontalWall,
+		Texture state1Texture,
+		Texture state1MaskTexture,
+		boolean state1Visible,
+		boolean state1Solid,
+		int state1Height,
+		Texture state2Texture,
+		Texture state2MaskTexture,
+		boolean state2Visible,
+		boolean state2Solid,
+		int state2Height)
 	{
 		Wall origWall = maze.getCurrentZone().getMap().getWall(wallIndex, horizontalWall);
 		Wall newWall = new Wall();
 
-		switch (State.valueOf(MazeVariables.get(this.mazeVariable)))
+		switch (State.valueOf(MazeVariables.get(mazeVariable)))
 		{
 			case STATE_1:
 				newWall.setTexture(state1Texture==null?Map.NO_WALL:state1Texture);
@@ -143,7 +202,7 @@ public class ToggleWall extends TileScript
 				newWall.setHeight(state2Height);
 				break;
 			default:
-				throw new MazeException("invalid state "+MazeVariables.get(this.mazeVariable));
+				throw new MazeException("invalid state "+MazeVariables.get(mazeVariable));
 		}
 
 		// copy any mouse click scripts
@@ -215,9 +274,49 @@ public class ToggleWall extends TileScript
 		return state2Solid;
 	}
 
+	public boolean isState1Secret()
+	{
+		return state1Secret;
+	}
+
+	public boolean isState2Secret()
+	{
+		return state2Secret;
+	}
+
 	public int getState2Height()
 	{
 		return state2Height;
 	}
 
+	public String getPreToggleScript()
+	{
+		return preToggleScript;
+	}
+
+	public String getPostToggleScript()
+	{
+		return postToggleScript;
+	}
+
+	@Override
+	public boolean isHiddenSecret()
+	{
+		if (MazeVariables.get(mazeVariable) != null)
+		{
+			switch (State.valueOf(MazeVariables.get(mazeVariable)))
+			{
+				case STATE_1:
+					return state1Secret && super.isHiddenSecret();
+				case STATE_2:
+					return state2Secret && super.isHiddenSecret();
+				default:
+					throw new MazeException("invalid state " + MazeVariables.get(mazeVariable));
+			}
+		}
+		else
+		{
+			return super.isHiddenSecret();
+		}
+	}
 }

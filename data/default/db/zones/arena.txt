@@ -280,7 +280,7 @@ playerOrigin: 0:0
 3: arena.portal.3,true,locked,3:2,1,3:1,2,true,true,true,5,0,0:0:9:0:8:0:8:9,00101011,null,true,generic door creak,
 4: arena.portal.4,true,locked,2:2,1,2:1,2,true,true,true,5,0,10:10:9:11:9:9:11:0,1111111,null,true,generic door creak,
 5: arena.portal.5,true,locked,1:2,1,1:1,2,true,true,true,5,0,5:0:4:3:0:0:0:0,1011,null,true,generic door creak,
-6: arena.portal.6,true,locked,10:9,1,10:8,2,false,false,false,5,0,0:0:0:0:0:0:0:0,,Aenen Cavegrown Tobacco,true,ghul laugh,13:::false:-1:arena.toggle.wall.0:154:true:DUNGEON_PORTCULLIS_1::true:true:1:DUNGEON_ARCH_1::true:true:1:
+6: arena.portal.6,true,locked,10:9,1,10:8,2,false,false,false,5,0,0:0:0:0:0:0:0:0,,Aenen Cavegrown Tobacco,true,ghul laugh,13:::false:-1:arena.toggle.wall.0:154:true:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_ARCH_1::true:true:false:1::
 
 -sky image-
 0: sky.ichiba

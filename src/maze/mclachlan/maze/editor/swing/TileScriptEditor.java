@@ -142,8 +142,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JButton toggleWallQuick;
 	private JCheckBox toggleWallIsHoriz;
 	private JComboBox state1Texture, state1MaskTexture, state2Texture, state2MaskTexture;
-	private JCheckBox state1Visible, state1Solid, state2Visible, state2Solid;
+	private JCheckBox state1Visible, state1Solid, state1Secret, state2Visible, state2Solid, state2Secret;
 	private JSpinner state1Height, state2Height;
+	private JComboBox preToggleScript, postToggleScript;
 
 	private JComboBox mazeScript;
 	private JTextArea signBoard;
@@ -414,13 +415,18 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				state1MaskTexture.setSelectedItem(tw.getState1MaskTexture()==null?EditorPanel.NONE:tw.getState1MaskTexture().getName());
 				state1Solid.setSelected(tw.isState1Solid());
 				state1Visible.setSelected(tw.isState1Visible());
+				state1Secret.setSelected(tw.isState1Secret());
 				state1Height.setValue(tw.getState1Height());
 
 				state2Texture.setSelectedItem(tw.getState2Texture()==null?EditorPanel.NONE:tw.getState2Texture().getName());
 				state2MaskTexture.setSelectedItem(tw.getState2MaskTexture()==null?EditorPanel.NONE:tw.getState2MaskTexture().getName());
 				state2Solid.setSelected(tw.isState2Solid());
 				state2Visible.setSelected(tw.isState2Visible());
+				state2Secret.setSelected(tw.isState2Secret());
 				state2Height.setValue(tw.getState2Height());
+
+				preToggleScript.setSelectedItem(tw.getPreToggleScript()==null?EditorPanel.NONE:tw.getPreToggleScript());
+				postToggleScript.setSelectedItem(tw.getPostToggleScript()==null?EditorPanel.NONE:tw.getPostToggleScript());
 
 				break;
 			case EXECUTE_MAZE_EVENTS:
@@ -599,22 +605,33 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		state1MaskTexture = new JComboBox();
 		state1Solid = new JCheckBox();
 		state1Visible = new JCheckBox();
+		state1Secret = new JCheckBox();
 		state1Height = new JSpinner(new SpinnerNumberModel(1,1,99,1));
 
 		state2Texture = new JComboBox();
 		state2MaskTexture = new JComboBox();
 		state2Solid = new JCheckBox();
 		state2Visible = new JCheckBox();
+		state2Secret = new JCheckBox();
 		state2Height = new JSpinner(new SpinnerNumberModel(1,1,99,1));
+
+		preToggleScript = new JComboBox();
+		postToggleScript = new JComboBox();
 
 		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		vec2.insertElementAt(EditorPanel.NONE, 0);
 		Collections.sort(vec2);
 
+		Vector<String> vec3 = new Vector<>(Database.getInstance().getMazeScripts().keySet());
+		vec3.insertElementAt(EditorPanel.NONE, 0);
+		Collections.sort(vec3);
+
 		state1Texture.setModel(new DefaultComboBoxModel(vec2));
 		state1MaskTexture.setModel(new DefaultComboBoxModel(vec2));
 		state2Texture.setModel(new DefaultComboBoxModel(vec2));
 		state2MaskTexture.setModel(new DefaultComboBoxModel(vec2));
+		preToggleScript.setModel(new DefaultComboBoxModel(vec3));
+		postToggleScript.setModel(new DefaultComboBoxModel(vec3));
 
 		Component[] comps = {
 			toggleWallQuick, toggleWallMazeVariable,
@@ -626,13 +643,17 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Mask Texture:"), state1MaskTexture,
 			new JLabel("Solid?"), state1Solid,
 			new JLabel("Visible?"), state1Visible,
+			new JLabel("Secret?"), state1Secret,
 			new JLabel("Height:"), state1Height,
 			new JLabel("_____ State 2 _____:"), new JLabel(),
 			new JLabel("Texture:"), state2Texture,
 			new JLabel("Mask Texture:"), state2MaskTexture,
 			new JLabel("Solid?"), state2Solid,
 			new JLabel("Visible?"), state2Visible,
+			new JLabel("Secret?"),state2Secret,
 			new JLabel("Height:"), state2Height,
+			new JLabel("Pre toggle script:"), preToggleScript,
+			new JLabel("Post toggle script:"), postToggleScript,
 		};
 
 		return dirtyGridBagCrap(comps);
@@ -1269,13 +1290,18 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					EditorPanel.NONE==state1MaskTexture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state1MaskTexture.getSelectedItem()).getTexture(),
 					state1Visible.isSelected(),
 					state1Solid.isSelected(),
+					state1Secret.isSelected(),
 					(Integer)state1Height.getValue(),
 
 					EditorPanel.NONE==state2Texture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state2Texture.getSelectedItem()).getTexture(),
 					EditorPanel.NONE==state2MaskTexture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state2MaskTexture.getSelectedItem()).getTexture(),
 					state2Visible.isSelected(),
 					state2Solid.isSelected(),
-					(Integer)state2Height.getValue());
+					state2Secret.isSelected(),
+					(Integer)state2Height.getValue(),
+
+					EditorPanel.NONE==preToggleScript.getSelectedItem()?null: (String)preToggleScript.getSelectedItem(),
+					EditorPanel.NONE==postToggleScript.getSelectedItem()?null: (String)postToggleScript.getSelectedItem());
 
 				break;
 			case EXECUTE_MAZE_EVENTS:
