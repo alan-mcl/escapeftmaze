@@ -85,6 +85,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JComboBox lootTable;
 	private JTextArea clipNames;
 	private JTextArea trackNames;
+	private JTextField musicState;
 	private JSpinner delay;
 	private JTextArea signBoardText;
 	private JComboBox movePartyFacing;
@@ -385,6 +386,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					sb1.append(s).append('\n');
 				}
 				trackNames.setText(sb1.toString());
+				musicState.setText(me.getMusicState()==null?"":me.getMusicState());
 				break;
 			case _AnimationEvent:
 				AnimationEvent ae = (AnimationEvent)e;
@@ -600,7 +602,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				break;
 			case _MusicEvent:
 				List<String> list1 = Arrays.asList(trackNames.getText().split("\\n"));
-				this.result = new MusicEvent(list1);
+				this.result = new MusicEvent(list1, "".equals(musicState.getText())?null:musicState.getText());
 				break;
 			case _AnimationEvent:
 				this.result = new AnimationEvent(animation.getAnimation());
@@ -968,10 +970,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JPanel getMusicPanel()
 	{
 		trackNames = new JTextArea(20, 30);
+		musicState = new JTextField(20);
 
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
+			new JLabel("Music State:"), musicState,
 			new JLabel(), new JLabel("One track per line, they will be looped in random order"),
 			new JLabel("Tracks: "), trackNames);
 		return result;

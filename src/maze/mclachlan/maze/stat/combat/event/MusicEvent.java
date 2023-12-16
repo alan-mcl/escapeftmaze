@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.audio.Music;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
@@ -29,18 +30,23 @@ import mclachlan.maze.game.MazeEvent;
 public class MusicEvent extends MazeEvent
 {
 	private List<String> trackNames;
+	private String musicState;
 
 	/*-------------------------------------------------------------------------*/
-	public MusicEvent(String clipName)
+	public MusicEvent(String clipName, String musicState)
 	{
-		List list = new ArrayList(1);
+		List<String> list = new ArrayList<>(1);
 		list.add(clipName);
+
+		this.musicState = musicState;
+
 		init(list);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public MusicEvent(List<String> clipNames)
+	public MusicEvent(List<String> clipNames, String musicState)
 	{
+		this.musicState = musicState;
 		init(clipNames);
 	}
 
@@ -63,11 +69,19 @@ public class MusicEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	public String getMusicState()
+	{
+		return musicState;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		Music music = Maze.getInstance().getUi().getMusic();
 		if (trackNames == null || trackNames.isEmpty())
 		{
-			Maze.getInstance().getUi().getMusic().stop();
+			music.stop();
 			return null;
 		}
 		else
@@ -76,9 +90,11 @@ public class MusicEvent extends MazeEvent
 			List<String> t = new ArrayList<String>(trackNames);
 			Collections.shuffle(t);
 
-			Maze.getInstance().getUi().getMusic().playLooped(
+			music.setState(musicState);
+
+			music.playLooped(
 				Maze.getInstance().getUserConfig().getMusicVolume(),
-				t.toArray(new String[t.size()]));
+				t.toArray(new String[0]));
 			return null;
 		}
 	}

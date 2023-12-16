@@ -639,8 +639,7 @@ public class Maze implements Runnable
 	 */
 	public void setState(State state)
 	{
-		this.state = state;
-		changeState(state);
+		setState(state, statePopMutex);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -650,9 +649,19 @@ public class Maze implements Runnable
 	 */
 	public void setState(State state, Object waiter)
 	{
-		this.state = state;
-		this.statePopMutex = waiter;
-		changeState(state);
+		appendEvents(
+			new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					Maze.this.state = state;
+					Maze.this.changeState(state);
+					Maze.this.statePopMutex = waiter;
+					return null;
+				};
+			}
+		);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -61,7 +61,7 @@ name=_PORTCULLIS_
 0=138,336888__omnisis__gate-heavy-openclose2
 @
 name=_MAIN_MENU_MUSIC_
-0=149,prescience
+0=149,prescience,MAINMENU
 @
 name=_OPEN_CHEST_
 0=138,24244__Corsica_S__cupboard_creak_3
@@ -379,7 +379,7 @@ name=red bolt from player
 2=13,_WEAPON_HIT_
 @
 name=_INVENTORY_MUSIC_
-0=149,paper_dolls
+0=149,paper_dolls,INVENTORY
 @
 name=Ichiba City thieves guild cck doors
 0=18,default.ichiba.thieves.guild.door,true
@@ -461,7 +461,7 @@ name=throwing knife from player
 1=104,1:10:animation/throwingKnifeFromPlayer1
 @
 name=_CREATE_CHARACTER_MUSIC_
-0=149,shattered_windows
+0=149,shattered_windows,CREATE_CHARACTER
 @
 name=Ichiba City Intro
 0=4,-1,true,Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.%n
@@ -579,14 +579,14 @@ name=blinding flash spell from player
 @
 name=Gatehouse load
 0=1,Gatehouse,14,30,1
-1=149,shadows_in_an_empty_cathedral
+1=149,shadows_in_an_empty_cathedral,
 2=19,screen/default_intro_1,default.intro.1,BOTTOM_RIGHT
 3=19,screen/default_intro_2,default.intro.2,BOTTOM_RIGHT
 4=19,screen/default_intro_3,default.intro.3,BOTTOM_RIGHT
 5=19,screen/default_intro_1,default.intro.4,BOTTOM_LEFT
 6=19,screen/default_intro_1,default.intro.5,LEFT
 7=19,screen/default_intro_1,default.intro.6,CENTER
-8=149,
+8=149,,
 @
 name=frontier phaser from player
 0=13,generic spell woosh

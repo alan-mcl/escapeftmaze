@@ -42,6 +42,7 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.game.event.StopMusicEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
@@ -724,7 +725,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		if (!Maze.State.CREATE_CHARACTER.name().equals(getMusic().getState()))
 		{
-			getMusic().setState(Maze.State.CREATE_CHARACTER.name());
 			executeMazeScript("_CREATE_CHARACTER_MUSIC_");
 		}
 		this.mainLayout.show(this.createCharacterScreen);
@@ -736,7 +736,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.mainLayout.show(this.movementScreen);
 		this.partyOptionsAndTextWidget.setCurrentCombat(Maze.getInstance().getCurrentCombat());
 
-		getMusic().stop();
+		stopMusic();
+	}
+
+	private void stopMusic()
+	{
+		Maze.getInstance().appendEvents(new StopMusicEvent());
 	}
 
 	public void showMagicScreen()
@@ -749,7 +754,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		if (!Maze.State.INVENTORY.name().equals(getMusic().getState()))
 		{
-			getMusic().setState(Maze.State.INVENTORY.name());
 			executeMazeScript("_INVENTORY_MUSIC_");
 		}
 		stopAllAnimations();
@@ -781,7 +785,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.mainLayout.show(this.movementScreen);
 		this.movementCardLayout.show(this.partyOptionsAndTextWidget);
 
-		getMusic().stop();
+		stopMusic();
 	}
 
 	public void showRestingScreen()
@@ -797,7 +801,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		if (!Maze.State.MAINMENU.name().equals(getMusic().getState()))
 		{
-			getMusic().setState(Maze.State.MAINMENU.name());
 			executeMazeScript("_MAIN_MENU_MUSIC_");
 		}
 		tipOfTheDayWidget.refresh();

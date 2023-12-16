@@ -439,6 +439,8 @@ public class V1MazeEvent
 			case _MusicEvent:
 				MusicEvent me = (MusicEvent)e;
 				s.append(slashSeparatedStringList.toString(me.getTrackNames()));
+				s.append(SEP);
+				s.append(me.getMusicState()==null?"":me.getMusicState());
 				break;
 			case _AnimationEvent:
 				AnimationEvent ae = (AnimationEvent)e;
@@ -650,7 +652,12 @@ public class V1MazeEvent
 				{
 					trackNames = slashSeparatedStringList.fromString(strs[1]);
 				}
-				return new MusicEvent(trackNames);
+				String musicState = null;
+				if (strs.length > 2)
+				{
+					musicState = "".equals(strs[2]) ? null : strs[2];
+				}
+				return new MusicEvent(trackNames, musicState);
 			case _AnimationEvent:
 				Animation a = V1Animation.fromString(strs[1]);
 				return new AnimationEvent(a);
