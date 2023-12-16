@@ -740,7 +740,7 @@ public class Foe extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public String getAlliesOnCall()
 	{
-		return null;
+		return template.getAlliesOnCall();
 	}
 
 	/*-------------------------------------------------------------------------*/

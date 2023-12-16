@@ -146,7 +146,7 @@ public class BasicFoeAi extends FoeCombatAi
 
 			count++;
 		}
-		while (result == null || count < 20);
+		while (result != null || count < 20);
 
 		if (result != null)
 		{

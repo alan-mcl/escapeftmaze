@@ -859,7 +859,8 @@ public class MockCombat
 			null,
 			null,
 			CharacterClass.Focus.COMBAT,
-			NpcFaction.Attitude.ATTACKING);
+			NpcFaction.Attitude.ATTACKING,
+			null);
 
 		return new Foe(ft);
 	}

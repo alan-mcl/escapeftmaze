@@ -44,7 +44,7 @@ public class FoeTemplatePanel extends EditorPanel
 	private JComboBox baseTexture, meleeTexture, rangedTexture, castSpellTexture,
 		specialAbilityTexture, evasionBehaviour, stealthBehaviour,
 		appearanceScript, appearanceDirection, deathScript, focus, attitude,
-		verticalAlignment;
+		verticalAlignment, alliesOnCall;
 	private JButton textureTint;
 	private ObjectScriptListPanel animationScripts;
 	private JCheckBox cannotBeEvaded, isNpc;
@@ -406,6 +406,10 @@ public class FoeTemplatePanel extends EditorPanel
 		attitude.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Default Attitude:"), attitude, gbc);
 
+		alliesOnCall = new JComboBox();
+		alliesOnCall.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Allies On Call:"), alliesOnCall, gbc);
+
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
@@ -426,27 +430,32 @@ public class FoeTemplatePanel extends EditorPanel
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys()
 	{
-		Vector<String> textures = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
-		baseTexture.setModel(new DefaultComboBoxModel(textures));
-		meleeTexture.setModel(new DefaultComboBoxModel(textures));
-		rangedTexture.setModel(new DefaultComboBoxModel(textures));
-		castSpellTexture.setModel(new DefaultComboBoxModel(textures));
-		specialAbilityTexture.setModel(new DefaultComboBoxModel(textures));
-		verticalAlignment.setModel(new DefaultComboBoxModel(EngineObject.Alignment.values()));
+		baseTexture.setModel(new DefaultComboBoxModel<>(textures));
+		meleeTexture.setModel(new DefaultComboBoxModel<>(textures));
+		rangedTexture.setModel(new DefaultComboBoxModel<>(textures));
+		castSpellTexture.setModel(new DefaultComboBoxModel<>(textures));
+		specialAbilityTexture.setModel(new DefaultComboBoxModel<>(textures));
+		verticalAlignment.setModel(new DefaultComboBoxModel<>(EngineObject.Alignment.values()));
 
 		lootTable.initForeignKeys();
 		
-		Vector<String> scripts = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
+		Vector<String> scripts = new Vector<>(Database.getInstance().getMazeScripts().keySet());
 		Collections.sort(scripts);
 		scripts.add(0, NONE);
-		appearanceScript.setModel(new DefaultComboBoxModel(scripts));
-		appearanceDirection.setModel(new DefaultComboBoxModel(FoeTemplate.AppearanceDirection.values()));
-		deathScript.setModel(new DefaultComboBoxModel(scripts));
+		appearanceScript.setModel(new DefaultComboBoxModel<>(scripts));
+		appearanceDirection.setModel(new DefaultComboBoxModel<>(FoeTemplate.AppearanceDirection.values()));
+		deathScript.setModel(new DefaultComboBoxModel<>(scripts));
 
 		bodyParts.initForeignKeys();
 		playerBodyParts.initForeignKeys();
 		spellBook.initForeignKeys();
+
+		Vector<String> encounterTables = new Vector<>(Database.getInstance().getEncounterTables().keySet());
+		Collections.sort(encounterTables);
+		encounterTables.add(0, NONE);
+		alliesOnCall.setModel(new DefaultComboBoxModel<>(encounterTables));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -473,6 +482,7 @@ public class FoeTemplatePanel extends EditorPanel
 		attitude.removeActionListener(this);
 		race.removeActionListener(this);
 		characterClass.removeActionListener(this);
+		alliesOnCall.removeActionListener(this);
 
 		pluralName.setText(ft.getPluralName());
 		unidentifiedName.setText(ft.getUnidentifiedName());
@@ -530,6 +540,7 @@ public class FoeTemplatePanel extends EditorPanel
 		faction.setText(ft.getFaction());
 		focus.setSelectedItem(ft.getFocus());
 		attitude.setSelectedItem(ft.getDefaultAttitude());
+		alliesOnCall.setSelectedItem(ft.getAlliesOnCall()==null?NONE:ft.getAlliesOnCall());
 
 		experience.addChangeListener(this);
 		baseTexture.addActionListener(this);
@@ -550,6 +561,7 @@ public class FoeTemplatePanel extends EditorPanel
 		attitude.addActionListener(this);
 		race.addActionListener(this);
 		characterClass.addActionListener(this);
+		alliesOnCall.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -609,7 +621,8 @@ public class FoeTemplatePanel extends EditorPanel
 			null,
 			null,
 			CharacterClass.Focus.COMBAT,
-			NpcFaction.Attitude.ATTACKING);
+			NpcFaction.Attitude.ATTACKING,
+			null);
 		Database.getInstance().getFoeTemplates().put(name, ft);
 
 		return ft;
@@ -683,7 +696,8 @@ public class FoeTemplatePanel extends EditorPanel
 			current.getSpellBook(),
 			current.getSpellLikeAbilities(),
 			current.getFocus(),
-			current.getDefaultAttitude());
+			current.getDefaultAttitude(),
+			current.getAlliesOnCall());
 
 		Database.getInstance().getFoeTemplates().put(newName, ft);
 
@@ -775,6 +789,7 @@ public class FoeTemplatePanel extends EditorPanel
 		ft.setDeathScript(dScript);
 		ft.setFocus((CharacterClass.Focus)focus.getSelectedItem());
 		ft.setDefaultAttitude((NpcFaction.Attitude)attitude.getSelectedItem());
+		ft.setAlliesOnCall(NONE==alliesOnCall.getSelectedItem()?null: (String)alliesOnCall.getSelectedItem());
 
 		return ft;
 	}

@@ -61,7 +61,7 @@ public abstract class TileScript
 	 * Set to >-1 if this script is a "hidden secret" that should be highlighted
 	 * by skills and effects that interact with such.
 	 */
-	private int scoutSecretDifficulty;
+	private int scoutSecretDifficulty = -1;
 
 
 	/** Constant returned by scripts that prevent other player actions (e.g. while swimming) */

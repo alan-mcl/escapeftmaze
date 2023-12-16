@@ -30,9 +30,9 @@ import mclachlan.maze.ui.diygui.FlavourTextDialog;
  */
 public class FlavourTextEvent extends MazeEvent
 {
-	private String flavourText;
-	private int delay;
-	private boolean shouldClearText;
+	private final String flavourText;
+	private final int delay;
+	private final boolean shouldClearText;
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextEvent(String flavourText)

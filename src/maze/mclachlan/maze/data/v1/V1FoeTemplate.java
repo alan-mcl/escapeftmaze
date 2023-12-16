@@ -320,6 +320,10 @@ public class V1FoeTemplate
 			b.append("attitude=");
 			b.append(obj.getDefaultAttitude());
 			b.append(V1Utils.NEWLINE);
+
+			b.append("alliesOnCall=");
+			b.append(obj.getAlliesOnCall()==null?"":obj.getAlliesOnCall());
+			b.append(V1Utils.NEWLINE);
 		}
 
 		return b.toString();
@@ -406,6 +410,8 @@ public class V1FoeTemplate
 			CharacterClass.Focus focus = CharacterClass.Focus.valueOf(p.getProperty("focus"));
 			NpcFaction.Attitude attitude = NpcFaction.Attitude.valueOf(p.getProperty("attitude"));
 
+			String alliesOnCall = "".equals(p.getProperty("alliesOnCall"))?null:p.getProperty("alliesOnCall");
+
 			FoeTemplate.AppearanceDirection appearanceDirection =
 				FoeTemplate.AppearanceDirection.valueOf(p.getProperty("appearanceDirection"));
 
@@ -462,7 +468,8 @@ public class V1FoeTemplate
 				spellbook,
 				spellLikeAbilityList,
 				focus,
-				attitude);
+				attitude,
+				alliesOnCall);
 		}
 	}
 }

@@ -40,9 +40,9 @@ import mclachlan.maze.stat.npc.NpcManager;
  */
 public class StartCombatEvent extends MazeEvent
 {
-	private Maze maze;
-	private PlayerParty party;
-	private ActorEncounter actorEncounter;
+	private final Maze maze;
+	private final PlayerParty party;
+	private final ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
 	public StartCombatEvent(Maze maze, PlayerParty party,
@@ -69,6 +69,8 @@ public class StartCombatEvent extends MazeEvent
 		}
 		actorEncounter.setEncounterAttitude(NpcFaction.Attitude.ATTACKING);
 
+		//maze.getUi().setFoes(actors, true);
+
 		// call for help?
 		if (leader.getAlliesOnCall() != null)
 		{
@@ -79,8 +81,7 @@ public class StartCombatEvent extends MazeEvent
 
 			actors.addAll(foeGroups);
 			List<MazeEvent> evts = getList(
-				new FlavourTextEvent(StringUtil.getEventText("msg.call.for.help", leader.getDisplayName()),
-					Maze.getInstance().getUserConfig().getCombatDelay(), true),
+				new FlavourTextEvent(StringUtil.getEventText("msg.call.for.help", leader.getDisplayName())),
 				new SummoningSucceedsEvent(foeGroups, leader));
 
 			maze.appendEvents(evts);
@@ -89,7 +90,7 @@ public class StartCombatEvent extends MazeEvent
 				@Override
 				public List<MazeEvent> resolve()
 				{
-					maze.getUi().setFoes(actors, true);
+					maze.getUi().addFoes(foeGroups, true);
 					return null;
 				}
 			});

@@ -291,6 +291,12 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
+	@Override
+	public void addFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
+	{
+
+	}
+
 	public void setAllies(List<FoeGroup> others)
 	{
 		

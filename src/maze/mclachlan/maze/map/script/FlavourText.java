@@ -30,7 +30,7 @@ import mclachlan.maze.map.TileScript;
  */
 public class FlavourText extends TileScript
 {
-	String text;
+	private final String text;
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourText(String text)

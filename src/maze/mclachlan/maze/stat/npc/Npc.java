@@ -29,7 +29,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class Npc extends Foe
 {
-	private static Comparator<Item> cmp = new InventoryComparator<Item>();
+	private static final Comparator<Item> cmp = new InventoryComparator<Item>();
 
 	private NpcTemplate template;
 
@@ -45,7 +45,7 @@ public class Npc extends Foe
 	//
 
 	/** what this NPC has in stock at the moment */
-	private List<Item> currentInventory;
+	private final List<Item> currentInventory;
 
 	//
 	// Interaction parameters
@@ -78,7 +78,7 @@ public class Npc extends Foe
 	private List<String> guild;
 
 	/** manager for quests, if the NPC has them */
-	private QuestManager questManager;
+	private final QuestManager questManager;
 
 	/*-------------------------------------------------------------------------*/
 	/**

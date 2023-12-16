@@ -185,6 +185,9 @@ public interface UserInterface
 	void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations);
 
 	/*-------------------------------------------------------------------------*/
+	void addFoes(List<FoeGroup> others, boolean runAppearanceAnimations);
+
+	/*-------------------------------------------------------------------------*/
 	void setAllies(List<FoeGroup> others);
 
 	/*-------------------------------------------------------------------------*/

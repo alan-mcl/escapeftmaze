@@ -120,6 +120,8 @@ public class FoeTemplate extends DataObject
 	private int evasionBehaviour;
 	/** default encounter attitude of this foe, if not overridden */
 	private NpcFaction.Attitude defaultAttitude;
+	/** any allies that this foe can summon at the start of combat */
+	private String alliesOnCall;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeTemplate(
@@ -163,7 +165,8 @@ public class FoeTemplate extends DataObject
 		SpellBook spellBook,
 		List<SpellLikeAbility> spellLikeAbilities,
 		CharacterClass.Focus focus,
-		NpcFaction.Attitude defaultAttitude)
+		NpcFaction.Attitude defaultAttitude,
+		String alliesOnCall)
 	{
 		this.unidentifiedPluralName = unidentifiedPluralName;
 		this.types = types;
@@ -206,6 +209,7 @@ public class FoeTemplate extends DataObject
 		this.spellLikeAbilities = spellLikeAbilities;
 		this.focus = focus;
 		this.defaultAttitude = defaultAttitude;
+		this.alliesOnCall = alliesOnCall;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -628,6 +632,17 @@ public class FoeTemplate extends DataObject
 		this.spellBook = spellBook;
 	}
 
+	public String getAlliesOnCall()
+	{
+		return alliesOnCall;
+	}
+
+	public void setAlliesOnCall(String alliesOnCall)
+	{
+		this.alliesOnCall = alliesOnCall;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public enum AppearanceDirection
 	{
 		FROM_LEFT,

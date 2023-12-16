@@ -1301,12 +1301,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			return;
 		}
 
+		addFoes(others, runAppearanceAnimations);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
+	{
 		int maxFoeGroups = others.size();
 
 		//
 		// Add the foe group widgets
 		//
-		this.mazeWidget.setFoes(others);
+		this.mazeWidget.addFoes(others);
 
 		this.foeGroups = others;
 
@@ -1315,7 +1321,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		//
 		for (int foeGroup = 0; foeGroup < maxFoeGroups; foeGroup++)
 		{
-			java.util.List<UnifiedActor> group = others.get(foeGroup).getActors();
+			List<UnifiedActor> group = others.get(foeGroup).getActors();
 			int maxFoeIndex = group.size();
 			for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
 			{
@@ -1349,7 +1355,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 					double increment = 1.0 / (maxFoeIndex + 1);
 					double arc = increment * (foeIndex + 1) + (-0.1 * (foeGroup % 2)); // stagger the groups
-					double distance = 0.5 + (0.2 * foeGroup);
+					double distance = 0.51 + (0.2 * foeGroup);
 					this.raycaster.initObjectInFrontOfPlayer(obj, distance, arc, true);
 
 					if (runAppearanceAnimations)

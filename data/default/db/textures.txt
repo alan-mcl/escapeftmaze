@@ -518,6 +518,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=foe.familiar.1
+imageResources=crusader/foe/familiar_1
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=foe.fangorn
 imageResources=crusader/foe/fangorn
 animationDelay=-1

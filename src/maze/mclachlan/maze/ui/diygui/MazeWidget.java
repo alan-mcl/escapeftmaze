@@ -40,15 +40,15 @@ import mclachlan.maze.stat.FoeGroup;
 public class MazeWidget extends ContainerWidget
 {
 	private CrusaderEngine engine;
-	private Rectangle bounds;
+	private final Rectangle bounds;
 
-	private FoeGroupWidget[] foeGroupWidgets =
+	private final FoeGroupWidget[] foeGroupWidgets =
 		new FoeGroupWidget[Constants.MAX_FOE_GROUPS];
 	
-	private FoeGroupWidget[] partyAllyWidgets =
+	private final FoeGroupWidget[] partyAllyWidgets =
 		new FoeGroupWidget[Constants.MAX_PARTY_ALLIES];
 
-	int selectedFoeGroupWidget = -1;
+	private int selectedFoeGroupWidget = -1;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -102,27 +102,45 @@ public class MazeWidget extends ContainerWidget
 			return;
 		}
 
+		addFoes(foes);
+
+		selectedFoeGroupWidget = 0;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void addFoes(List<FoeGroup> foes)
+	{
 		int i = 0;
+
+		int current = 0;
+		while (foeGroupWidgets[current].getFoeGroup() != null)
+		{
+			current++;
+		}
+
 		int max = foes.size();
 		for (i = 0; i < max; i++)
 		{
 			FoeGroup group = foes.get(i);
 			if (group.numAlive() > 0)
 			{
-				foeGroupWidgets[i].setFoeGroup(group);
+				foeGroupWidgets[current + i].setFoeGroup(group);
 			}
 			else
 			{
-				foeGroupWidgets[i].setFoeGroup(null);
+				foeGroupWidgets[current + i].setFoeGroup(null);
 			}
 		}
 
-		for (; i < foeGroupWidgets.length; i++)
-		{
-			foeGroupWidgets[i].setFoeGroup(null);
-		}
+//		for (i = current + i + 1; i < foeGroupWidgets.length; i++)
+//		{
+//			foeGroupWidgets[i].setFoeGroup(null);
+//		}
 
-		selectedFoeGroupWidget = 0;
+		if (selectedFoeGroupWidget == -1)
+		{
+			selectedFoeGroupWidget = 0;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

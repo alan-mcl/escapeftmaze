@@ -38,9 +38,9 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class Encounter extends TileScript
 {
-	private EncounterTable encounterTable;
-	private String mazeVariable;
-	private NpcFaction.Attitude attitude;
+	private final EncounterTable encounterTable;
+	private final String mazeVariable;
+	private final NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
 
 	/*-------------------------------------------------------------------------*/
