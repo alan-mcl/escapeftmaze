@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|Hrrrr, a shifty god.
 leonal,leonals,white\ order=9|The White Order, a potent forrce forr good in this Realm.
 maze=9|Hrrmmm. The maze sees all.
@@ -40,7 +40,6 @@ third\ realm=9|I have hearrrrd tales of black horses underrr a sunless sky. None
 asius=9|I know him not.
 lorelei=9|She is banished from our lands.
 first\ realm=9|Where you arrrre from, yes? I have met few others in my lifetime.
-lady=9|Patrrron of our White Order.
 three\ eyes=9|I know him not.
 hail=9|That city has fallen, darkness has engulfed the wilder half of this Rrrrealm.
 stentor=9|A good soldierrr.
@@ -48,6 +47,7 @@ quest,quests=9|Betterrrr make sure you arrre properly equipped.
 beiweh=9|Hrmmmm, I do not know much of the spring goddess.
 aenen=9|Hrrrrr, it is the gloomy lairr of the gnomes, deep underground where they work theirr dark magicks.
 bye,farewell,goodbye=9|Au~revoirrrrrr.
+lady=9|Patrrron of our White Order.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|There arrrre always those who cannot live within the law.
 danaos=9|Ourrr mighty castle, home of the White Order. A bastion of defence forrrr the civilised parts of this Realm.
 gate=9|Gates arrre not my business.

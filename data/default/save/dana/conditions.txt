@@ -1,24 +1,8 @@
-conditionBearer=1~Brais
-@
-conditionBearer=1~Ta Tashi
-@
-conditionBearer=1~Badb
-@
-conditionBearer=1~Th'shaa
-@
-conditionBearer=1~Weldedpiston
-@
-conditionBearer=1~Artur
-@
-conditionBearer=1~Derago
-@
-conditionBearer=1~Bakunawa
-@
-conditionBearer=1~Violet
+conditionBearer=1~Brunswick
 @
 conditionBearer=1~Aelfred
 @
-conditionBearer=1~Ebath
+conditionBearer=1~Ascxs
 @
-conditionBearer=1~Ku Ya
+conditionBearer=1~Brunswick
 @

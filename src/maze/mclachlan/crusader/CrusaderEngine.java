@@ -162,6 +162,11 @@ public interface CrusaderEngine
 		double arcOffset,
 		boolean randomStartingFrame);
 
+	void moveObjectToFrontOfPlayer(
+		EngineObject obj,
+		double distance,
+		double arcOffset);
+
 	/*-------------------------------------------------------------------------*/
 	void addScript(MapScript script);
 

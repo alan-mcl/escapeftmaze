@@ -1166,8 +1166,12 @@ public class ActorActionResolver
 	{
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
-		ActorGroup attackedGroup;
-		attackedGroup = attackAction.getTargetGroup();
+		ActorGroup attackedGroup = attackAction.getTargetGroup();
+
+		if (attackedGroup == null)
+		{
+			throw new MazeException("null attackedGroup for ["+actor.getName()+"] ["+attackAction+"]");
+		}
 
 		if (attackedGroup.numAlive() < 1)
 		{

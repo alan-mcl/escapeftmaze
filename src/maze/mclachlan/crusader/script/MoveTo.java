@@ -5,22 +5,18 @@ import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
-import mclachlan.maze.util.MazeException;
 
 /**
- * A script to make an object appear from the side of the players field of view
+ * A script to make an object move to a given x, y and texture offset
  */
-public class AppearanceFromSide extends ObjectScript
+public class MoveTo extends ObjectScript
 {
-	private int startX, startY, destX, destY;
+	private int startX, startY, startOffset, destX, destY, destOffset;
 
 	private final List<ObjectScript> animationScripts;
 
 	/** coordinate change per ms */
-	private double incX, incY;
-
-	/** the direction to appear from */
-	private final boolean fromLeft;
+	private double incX, incY, incOffset;
 
 	/** intended duration of the animation, in ms */
 	private final int duration;
@@ -30,9 +26,11 @@ public class AppearanceFromSide extends ObjectScript
 	private CrusaderEngine engine;
 
 	/*-------------------------------------------------------------------------*/
-	public AppearanceFromSide(boolean fromLeft, int duration, List<ObjectScript> animationScripts)
+	public MoveTo(int destX, int destY, int destOffset, int duration, List<ObjectScript> animationScripts)
 	{
-		this.fromLeft = fromLeft;
+		this.destX = destX;
+		this.destY = destY;
+		this.destOffset = destOffset;
 		this.duration = duration;
 		this.animationScripts = animationScripts;
 	}
@@ -40,7 +38,7 @@ public class AppearanceFromSide extends ObjectScript
 	@Override
 	public ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine)
 	{
-		AppearanceFromSide result = new AppearanceFromSide(fromLeft, duration, this.animationScripts);
+		MoveTo result = new MoveTo(destX, destY, destOffset, duration, this.animationScripts);
 
 		result.init(object, engine);
 
@@ -50,8 +48,9 @@ public class AppearanceFromSide extends ObjectScript
 	@Override
 	public void init(EngineObject object, CrusaderEngine engine)
 	{
-		this.destX = object.getXPos();
-		this.destY = object.getYPos();
+		this.startX = object.getXPos();
+		this.startY = object.getYPos();
+		this.startOffset = object.getTextureOffset();
 
 		// todo:
 		// work out the distance from the player of the destination x and y
@@ -63,74 +62,10 @@ public class AppearanceFromSide extends ObjectScript
 //		int dist = (int)(dfp * Math.sin(Math.toRadians(60)) / Math.sin(Math.toRadians(30)));
 
 		this.engine = engine;
-		int dist = (int)(this.engine.getTileSize()/3);
 
-		incX = 0;
-		incY = 0;
-
-		// todo: only working for DISCRETE mode now
-		this.startX = destX;
-		this.startY = destY;
-		switch (engine.getPlayerFacing())
-		{
-			case CrusaderEngine.Facing.NORTH:
-				startY = destY;
-				if (fromLeft)
-				{
-					startX = destX - dist;
-					incX = 1D*dist/duration;
-				}
-				else
-				{
-					startX = destX + dist;
-					incX = -1D*dist/duration;
-				}
-				break;
-			case CrusaderEngine.Facing.SOUTH:
-				startY = destY;
-				if (fromLeft)
-				{
-					startX = destX + dist;
-					incX = -1D*dist/duration;
-				}
-				else
-				{
-					startX = destX - dist;
-					incX = 1D*dist/duration;
-				}
-				break;
-			case CrusaderEngine.Facing.EAST:
-				startX = destX;
-				if (fromLeft)
-				{
-					startY = destY - dist;
-					incY = 1D*dist/duration;
-				}
-				else
-				{
-					startY = destY + dist;
-					incY = -1D*dist/duration;
-				}
-				break;
-			case CrusaderEngine.Facing.WEST:
-				startX = destX;
-				if (fromLeft)
-				{
-					startY = destY + dist;
-					incY = -1D*dist/duration;
-				}
-				else
-				{
-					startY = destY - dist;
-					incY = 1D*dist/duration;
-				}
-				break;
-			default:
-				throw new MazeException("invalid facing: "+ engine.getPlayerFacing());
-		}
-
-		object.setXPos(startX);
-		object.setYPos(startY);
+		incX = 1D*(destX-startX)/duration;
+		incY = 1D*(destY-startY)/duration;
+		incOffset = 1D*(destOffset-startOffset)/duration;
 	}
 
 	@Override
@@ -145,12 +80,15 @@ public class AppearanceFromSide extends ObjectScript
 
 		double dX = incX * timePassed / 1000000D;
 		double dY = incY * timePassed / 1000000D;
+		double dOffset = incOffset * timePassed / 1000000D;
 
 		double posX = startX + dX;
 		double posY = startY + dY;
+		double offset = startOffset + dOffset;
 
 		obj.setXPos((int)posX);
 		obj.setYPos((int)posY);
+		obj.setTextureOffset((int)offset);
 
 		if ((timePassed/1000000) >= duration)
 		{
@@ -164,6 +102,10 @@ public class AppearanceFromSide extends ObjectScript
 			if (incY > 0 && posY > destY || incY < 0 && posY < destY)
 			{
 				obj.setYPos(destY);
+			}
+			if (incOffset > 0 && offset > destOffset || incOffset < 0 && offset < destOffset)
+			{
+				obj.setTextureOffset(destOffset);
 			}
 
 			obj.removeScript(this);

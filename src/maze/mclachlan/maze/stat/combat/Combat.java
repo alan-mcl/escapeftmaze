@@ -48,20 +48,20 @@ public class Combat
 	/**
 	 * Foes, multiple groups thereof. Live ones only.
 	 */
-	private List<FoeGroup> foes = new ArrayList<FoeGroup>();
+	private List<FoeGroup> foes = new ArrayList<>();
 
 	/** Foe groups that have no more live members */
-	private List<FoeGroup> deadFoeGroups = new ArrayList<FoeGroup>();
+	private List<FoeGroup> deadFoeGroups = new ArrayList<>();
 
 	/**
 	 * All actors in this combat
 	 */
-	private List<UnifiedActor> actors = new ArrayList<UnifiedActor>();
+	private List<UnifiedActor> actors = new ArrayList<>();
 	
 	private Map<UnifiedActor, ActorActionIntention> combatIntentions =
 		new HashMap<UnifiedActor, ActorActionIntention>();
 	
-	private List<Foe> deadFoes = new ArrayList<Foe>();
+	private List<Foe> deadFoes = new ArrayList<>();
 
 	private Comparator comparator = new CombatActionComparator();
 
@@ -134,7 +134,7 @@ public class Combat
 		int result = 0;
 
 		// collect dead foes
-		List<Foe> allFoes = new ArrayList<Foe>();
+		List<Foe> allFoes = new ArrayList<>();
 		allFoes.addAll(deadFoes);
 
 		// collect live foes
@@ -550,6 +550,7 @@ public class Combat
 	public UnifiedActor getRandomFoeWithinRangeOf(UnifiedActor actor)
 	{
 		// todo
+
 		return getRandomFoeOf(actor);
 	}
 

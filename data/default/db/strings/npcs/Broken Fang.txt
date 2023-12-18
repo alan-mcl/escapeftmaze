@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|Hmpf. Speak to Three Eyes.
 leonal,leonals,white\ order=9| Lion people many and strong, but they stay on road. Grrrr, gnolls watch from forest.
 maze=9|Hmpf. Gnolls in Maze. Gnolls in forest. Broken Fang chieftain. Life not ending.
@@ -38,13 +38,13 @@ third\ realm=9|Hmpf. Speak to Three Eyes.
 asius=9|Don't know.
 lorelei=9|Don't know.
 first\ realm=9|Don't know.
-lady=9|Hmpf. Speak to Three Eyes.
 three\ eyes=9|Three Eyes shaman. Great magick.
 hail=9|Don't know.
 stentor=9|Don't know.
 quest,quests=9|Don't know.
 beiweh=9|Hmpf. Speak to Three Eyes.
 aenen=9|Gnome place far away. Broken Fang has gone to look. Gnomes did not see\! Grrrrr.
+lady=9|Hmpf. Speak to Three Eyes.
 bye,farewell,goodbye=9|Grrrr.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|
 gate=9|Hmpf. Speak to Three Eyes.

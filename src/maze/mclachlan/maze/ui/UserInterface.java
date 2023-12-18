@@ -36,6 +36,7 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
 import mclachlan.maze.ui.diygui.MessageDestination;
@@ -183,6 +184,9 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations);
+
+	/*-------------------------------------------------------------------------*/
+	void rebalanceFoeSprites(Combat combat);
 
 	/*-------------------------------------------------------------------------*/
 	void addFoes(List<FoeGroup> others, boolean runAppearanceAnimations);

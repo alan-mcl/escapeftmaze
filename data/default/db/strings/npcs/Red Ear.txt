@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 c.o.c,chamber\ of\ commerce,coc=9|Bahhhhr. Grrrrr. Laws and soldiers and papers\! Red Ear is an honest trader\! Why must he be harassed and robbed by these? Brrrrrhrmm\!
 garret=9|Red Ear does not know.
 leonal,leonals,white\ order=9|Grrr, sneering lion-folk. Always all swords, shiny armour. Too good to talk to red Ear. Their place northwards, Danaos big white castle.
@@ -39,12 +39,12 @@ third\ realm=9|Red Ear does not know. Hears stories of darkness and fear. Not in
 asius=9|Red Ear does not know him.
 lorelei=9|Forest lady comes sometimes to the village. Red Ear thinks she is gone north now-a-days.
 first\ realm=9|Red Ear smelled that you come from beyond the Gate\! Far journey, few come to Red Ear. This place better than the other place, Red Ear thinks\!
-lady=9|Red Ear does not know.
 three\ eyes=9|Mighty shaman of the Gnoll-people, wise in the ways of magic and wisdom\!
 hail=9|Red Ear has heard of that place, does not know though.
 stentor=9|Red Ear does not know him.
 beiweh=9|Red Ear does not know.
 aenen=9|Farrr south, Red Ear has not visited the town of the Gnome-folk.
+lady=9|Red Ear does not know.
 bye,farewell,goodbye=9|Arf\! I am Red Ear\!
 gentlemen's\ social\ club,thieves,thieves\ guild=9|...
 gate=9|Red Ear does not know about gates.

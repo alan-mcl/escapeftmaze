@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|I am not religious.
 leonal,leonals,white\ order=9|We Leonals are the only hope the Second Realm has. It's only a matter of time before Ichiba falls, and the gnomes would rather dig down than fight back.
 maze=9|The Maze can be beaten, and we Leonals will be the ones to do it\!
@@ -39,13 +39,13 @@ third\ realm=9|Perhaps one day I will see it for myself.
 asius=9|Don't know him.
 lorelei=9|She was banished from Danaos for practising witchcraft.
 first\ realm=9|You are from the First Realm? Remarkable, few make it through the great gate.
-lady=9|The Lady protect us.
 three\ eyes=9|Don't know him.
 hail=9|That city fell to the Maze years ago.
 stentor=9|His smithy is in town. Good quality weapons and armour. A good smith, despite the mild disgrace attached to one who grew too old for active service rather than dying gloriously.
 quest,quests=9|If your quest involved business within the castle, I would know about it.
 beiweh=9|I'm not religious.
 aenen=9|That's the hole that the gnomes call home.
+lady=9|The Lady protect us.
 bye,farewell,goodbye=9|Farewell strangers. The castle is open only to those with business here.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|There are indeed thieves in Ichiba. What else would you expect from a city run by merchants?
 gate=9|The gate back to Ichiba lies to the east of the village.

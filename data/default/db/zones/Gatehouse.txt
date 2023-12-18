@@ -203,7 +203,7 @@ playerOrigin: 14:30
 184: 0:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 185: 1:4,gatehouse.execute.once.14,0001,true,-1,From behind the door you hear scraping noises, as if a large object were being dragged across the floor.:3f800000000000000000,01020101010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 186: 1:3,,,false,-1,gatehouse.feral.familiar.1,gatehouse.encounter.20,,:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-187: 1:2,,,false,-1,5///false/-1/gatehouse.minor.loot,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_SIDE,:3f800000000000000000,01010101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+187: 1:2,,,false,-1,5///false/-1/gatehouse.minor.loot,1`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,01010101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 188: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 189: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 190: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE

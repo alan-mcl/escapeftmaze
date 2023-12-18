@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|The wayfarers god.
 ideaus=9|Keeper of the gate by heritage. His line have been the wardens of Aenen for many generations.
 leonal,leonals,white\ order=9|Hmmm. The servants a The Lady are fierce warriors, and a proud people. They seek to control this Crater. But, we gnomes answer to no one. We were here first, and we shall endure.
@@ -39,7 +39,6 @@ third\ realm=9|Hmmm, what have I heard? I have heard of fear and danger. Terror 
 asius=9|He is above.
 lorelei=9|I do not know her.
 first\ realm=9|Do you regret leaving your home? Well, we must all forge our own paths.
-lady=9|She is a better goddess than the leonals are worshippers, I think.
 three\ eyes=9|I do not know him.
 skull,stone\ doors,throne\ room=9|The relief on the throne room doors speaks to our beliefs that even the living body is merely a complicated machine, albeit far beyond our ken.
 hail=9|Hail was a brave venture, foolish but initially successful. Several years back the Maze moved against the settlers in force, and they were destroyed. I have hear that a dragon inhabits the ruins now.
@@ -47,6 +46,7 @@ stentor=9|I do not know him.
 quest,quests=9|Hmmm.
 beiweh=9|The gentle goddess of fertility, sunshine and spring time.
 aenen=9|The city of Aenen is a safe haven. Us gnomes where here first in this Realm, in those dark days building underground was the only way to survive.
+lady=9|She is a better goddess than the leonals are worshippers, I think.
 bye,farewell,goodbye=9|Farewell.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Their influence in Ichiba should not be underestimated.
 gate=9|The great gate to the Third Realm lies beyond the ruins of Hail. I have stood at the entrance to the caves that lead there, but I did not enter.

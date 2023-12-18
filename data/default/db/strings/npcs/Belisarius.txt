@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|A fickle god to follow.
 leonal,leonals,white\ order=9|Here we are, holding back the forces of chaos and darkness from this Realm. The children of The Lady are few but we are mighty and our sword arms are rightly feared.
 maze=9|I do not know the why's and wherefore's, my business is survival.
@@ -38,13 +38,13 @@ third\ realm=9|Legends tell of a Realm ruled by a temple of deathless knights, r
 asius=9|I do not know of him.
 lorelei=9|The druidess of some sort, caught stirring up trouble a while back.
 first\ realm=9|Is it true that there have been no wars there in living memory? Hrmmmm. It must be a land of plenty indeed.
-lady=9|The Lady, the iron goddess of justice and mercy. Patron of the White Order. She watches over the just and the downtrodden, soldiers and priests and peasants.
 three\ eyes=9|I have not heard of him.
 hail=9|Once a bustling trading city, Hail has fallen to the forces of chaos. They say a dragon of some sort now lords over the ruins.
 stentor=9|He is without.
 quest,quests=9|Yes, adventurers call them quests.
 beiweh=9|The goddess of fertility and growth. Her followers mean well.
 aenen=9|The underground city of the gnomes. As well defended as our castle, and for the same reasons.
+lady=9|The Lady, the iron goddess of justice and mercy. Patron of the White Order. She watches over the just and the downtrodden, soldiers and priests and peasants.
 bye,farewell,goodbye=9|Goodbye.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Thieves are probably to be found in Ichiba. Hrmmmrmmm.
 gate=9|We all seek gates. The Gate to the Third Realm lies deep within the wastes.

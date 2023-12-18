@@ -29,8 +29,8 @@ import mclachlan.maze.game.MazeEvent;
  */
 public class PartyEvadesFoesEvent extends MazeEvent
 {
-	private Maze maze;
-	private ActorEncounter actorEncounter;
+	private final Maze maze;
+	private final ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
 	public PartyEvadesFoesEvent(Maze maze, ActorEncounter actorEncounter)

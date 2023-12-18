@@ -45,7 +45,7 @@ public class EndCombatRoundEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		ListIterator<FoeGroup> foeGroupListIterator = combat.getFoes().listIterator();
 		while (foeGroupListIterator.hasNext())
@@ -58,7 +58,9 @@ public class EndCombatRoundEvent extends MazeEvent
 			}
 		}
 
-		maze.getUi().setFoes(combat.getFoes(), false);
+		// todo: reorg foe sprites
+		maze.getUi().rebalanceFoeSprites(combat);
+
 		maze.reorderPartyIfPending();
 		GameSys.getInstance().attemptManualIdentification(
 			combat.getFoes(), maze.getParty(), combat.getRoundNr());

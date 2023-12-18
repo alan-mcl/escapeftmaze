@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|May he bless us with luck.
 leonal,leonals,white\ order=9|The high and mighty lion folk, always marching this way and that, building fortifications, planning wars.
 maze=9|Honestly, I'm pretty comfortable where I am.
@@ -38,13 +38,13 @@ third\ realm=9|I hear all kinds of tales. Giants the size of mountains. Black ni
 asius=9|Nope, dunno.
 lorelei=9|Nope, dunno.
 first\ realm=9|Well done on escaping\! Back home, you'd be a legend. Here, you're just another unemployment statistic. Har har har. How about a beer?
-lady=9|May she bless and protect us.
 three\ eyes=9|The witchdoctor of the gnolls? Why d'ye ask - looking for a love potion? Or, something to cure your boils or make your hair grow back? Har har har.
 hail=9|Aye, the city in the wastelands. It has fallen now. The makes the Adventurers Arms the best pub in the Realm\!
 stentor=9|Nope, dunno.
 quest,quests=9|Har har har. Here's your quest\: have another beer\!
 beiweh=9|Her blessings on our produce. Especially my beer. Har har har.
 aenen=9|Yep, the gnomish city? It's to the south, and under the ground.
+lady=9|May she bless and protect us.
 bye,farewell,goodbye=9|Bye.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Damn bandits. The C.O.C. keep hiring mercenaries, but the blasted brigands keep harassing us.
 gate=9|There's a gate to the next Realm, somewhere. You'd do better to ask someone other than me though.

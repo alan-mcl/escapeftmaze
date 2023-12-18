@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|I care nothing for the gods.
 leonal,leonals,white\ order=9|The leonals make much of their military might.
 maze=9|Who can know all the mysteries of the Maze? Not I.
@@ -38,13 +38,13 @@ third\ realm=9|You would like to know what is there? Fear and death, little more
 asius=9|Who is that?
 lorelei=9|Who is that?
 first\ realm=9|I care little for the First Realm. No doubt it is much like here.
-lady=9|I care nothing for the gods.
 three\ eyes=9|The shaman of the gnolls is more cunning than he looks.
 hail=9|Hail was in the wastelands, but it has fallen to the Maze. Like a living thing, the Maze direct its creatures at settlements and people within it. Hail lies in ruins now, an ancient dragon brooding amongst the lesser beasts.
 stentor=9|Who is that?
 quest,quests=9|Indeed.
 beiweh=9|I care nothing for the gods.
 aenen=9|The gnome city is to the south.
+lady=9|I care nothing for the gods.
 bye,farewell,goodbye=9|Goodbye.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|The criminal elements in Ichiba are well organised. They and the Chamber Of Commerce keep each other very busy.
 gate=9|You seek the great gate? No doubt. Well, you have a hard road ahead. It lies beyond the caves called Ilast, which themselves are beyond the wastelands. There used to be a city in the wastes called Hail, but many years ago it fell to the creatures of the Maze.

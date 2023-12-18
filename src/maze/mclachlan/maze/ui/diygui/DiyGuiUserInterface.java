@@ -48,6 +48,7 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.ui.UserInterface;
@@ -1282,32 +1283,51 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Remove all current foes and add the given new ones.
+	 *
+	 * @param runAppearanceAnimations
+	 * 	True if entrance animations should be run for the foes
+	 */
 	public void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
-		if (others == null)
+		// remove any existing sprites
+		if (this.foeGroups != null)
 		{
-			// remove any existing sprites
-			if (this.foeGroups != null)
+			for (FoeGroup foeGroup1 : this.foeGroups)
 			{
-				for (FoeGroup foeGroup1 : this.foeGroups)
-				{
-					List<UnifiedActor> group = foeGroup1.getActors();
-					int maxFoeIndex = group.size();
-					for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
-					{
-						Foe foe = (Foe)group.get(foeIndex);
-						this.raycaster.removeObject(foe.getSprite());
-					}
-				}
+				removeFoeGroupSprites(foeGroup1);
 			}
-			this.mazeWidget.setFoes(null);
-			return;
+			this.foeGroups = null;
 		}
+		this.mazeWidget.setFoes(null);
 
-		addFoes(others, runAppearanceAnimations);
+		if (others != null)
+		{
+			addFoes(others, runAppearanceAnimations);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void removeFoeGroupSprites(FoeGroup foeGroup1)
+	{
+		List<UnifiedActor> group = foeGroup1.getActors();
+		int maxFoeIndex = group.size();
+		for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
+		{
+			Foe foe = (Foe)group.get(foeIndex);
+			this.raycaster.removeObject(foe.getSprite());
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Adds the given foes to any already in view.
+	 * @param runAppearanceAnimations
+	 * 	True if appearance animations should be run
+	 */
 	public void addFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
 		int maxFoeGroups = others.size();
@@ -1317,7 +1337,20 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		//
 		this.mazeWidget.addFoes(others);
 
-		this.foeGroups = others;
+		//
+		// Add to the internal cache of foe groups
+		//
+		int groupOffset;
+		if (this.foeGroups == null)
+		{
+			groupOffset = 0;
+			this.foeGroups = new ArrayList<>(others);
+		}
+		else
+		{
+			groupOffset = foeGroups.size();
+			this.foeGroups.addAll(others);
+		}
 
 		//
 		// Add the foe sprites to the raycasting engine
@@ -1325,6 +1358,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		for (int foeGroup = 0; foeGroup < maxFoeGroups; foeGroup++)
 		{
 			List<UnifiedActor> group = others.get(foeGroup).getActors();
+
 			int maxFoeIndex = group.size();
 			for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
 			{
@@ -1356,9 +1390,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					// - more than one row for big groups
 					// - less space between groups
 
+					int rank = groupOffset + foeGroup;
+
 					double increment = 1.0 / (maxFoeIndex + 1);
-					double arc = increment * (foeIndex + 1) + (-0.1 * (foeGroup % 2)); // stagger the groups
-					double distance = 0.51 + (0.2 * foeGroup);
+					double arc = increment * (foeIndex + 1) + (-0.1 * (rank % 2)); // stagger the groups
+					double distance = 0.51 + (0.2 * rank);
 					this.raycaster.initObjectInFrontOfPlayer(obj, distance, arc, true);
 
 					if (runAppearanceAnimations)
@@ -1399,6 +1435,50 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					this.raycaster.addObject(obj, false);
 				}
 			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void rebalanceFoeSprites(Combat combat)
+	{
+		ListIterator<FoeGroup> foeGroupListIterator = foeGroups.listIterator();
+		while (foeGroupListIterator.hasNext())
+		{
+			FoeGroup fg = foeGroupListIterator.next();
+
+			if (fg.numAlive() == 0)
+			{
+				// time to remove this foe group
+				removeFoeGroupSprites(fg);
+				mazeWidget.removeFoeGroup(fg);
+				foeGroupListIterator.remove();
+			}
+		}
+
+		// determine locations of live foes and move them there
+		int rank = 0;
+		for (FoeGroup fg : combat.getFoes())
+		{
+			int maxFoeIndex = fg.getFoes().size();
+			for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
+			{
+				Foe foe = (Foe)fg.getFoes().get(foeIndex);
+
+				if (foe.getHitPoints().getCurrent() > 0)
+				{
+					// todo: space out foes better
+					// - more than one row for big groups
+					// - less space between groups
+
+					double increment = 1.0 / (maxFoeIndex + 1);
+					double arc = increment * (foeIndex + 1) + (-0.1 * (rank % 2)); // stagger the groups
+					double distance = 0.51 + (0.2 * rank);
+					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), distance, arc);
+				}
+			}
+
+			rank++;
 		}
 	}
 

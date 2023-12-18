@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|I am but a blacksmith.
 leonal,leonals,white\ order=9|The White Order keeps these lands safe. By the grace of The Lady and the strength of our arms, we keep the chaos and darkness at bay.
 maze=9|I am but a humble blacksmith.
@@ -40,13 +40,13 @@ third\ realm=9|I am but a humble blacksmith.
 asius=9|I know him not.
 lorelei=9|Lorelei? That was the name of druidess who was causing trouble, some time ago. She was banished, and I don't know where she went. Back into the forest, probably.
 first\ realm=9|You must have many tales to tell...
-lady=9|Praise be on the white lady.
 three\ eyes=9|I know him not.
 hail=9|I have heard that the city was once great.
 stentor=9|That is my name.
 quest,quests=9|I am but a humble blacksmith...
 beiweh=9|I am but a blacksmith.
 aenen=9|The city of the gnomes is far south, I believe.
+lady=9|Praise be on the white lady.
 bye,farewell,goodbye=9|Farewell.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|
 gate=9|I am but a humble blacksmith.

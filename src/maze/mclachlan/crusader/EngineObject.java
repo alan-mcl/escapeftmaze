@@ -692,6 +692,17 @@ public class EngineObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public ObjectScript[] removeAllScripts()
+	{
+		synchronized (scriptMutex)
+		{
+			ObjectScript[] temp = this.scripts;
+			this.scripts = null;
+			return temp;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * There are nine possible placement positions.
 	 */

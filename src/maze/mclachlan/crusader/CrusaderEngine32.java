@@ -28,6 +28,7 @@ import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
 import java.util.*;
 import java.util.concurrent.*;
+import mclachlan.crusader.script.MoveTo;
 
 /**
  * Implementation with 32-bit colour
@@ -3128,8 +3129,31 @@ public class CrusaderEngine32 implements CrusaderEngine
 			
 			obj.xPos = playerX + x;
 			obj.yPos = playerY + y;
-			
-//			addObject(obj, false);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public void moveObjectToFrontOfPlayer(
+		EngineObject obj,
+		double distance,
+		double arcOffset)
+	{
+		synchronized(objectMutex)
+		{
+			int dist = (int)(tileSize *distance);
+			int arc = (int)(playerArc - playerFovHalf + arcOffset* playerFov);
+			if (arc < 0)
+			{
+				arc += ANGLE360;
+			}
+
+			int x = (int)(dist * cosTable[arc]);
+			int y = (int)(dist * sinTable[arc]);
+			int textureOffset = 0;
+
+			ObjectScript[] objectScripts = obj.removeAllScripts();
+			obj.addScript(new MoveTo(playerX + x, playerY + y, textureOffset, 1000, Arrays.asList(objectScripts)).spawnNewInstance(obj, this));
 		}
 	}
 

@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|My sort of godling, Garret. Sometimes I would offer him a prayer..but, well, you know...I'm too busy counting loot. <grins broadly>
 leonal,leonals,white\ order=9|The tall lion folk. They're all about soldiering and law and order... I personally think that they're compensating for something... And that goddess of theirs... pretty boring folks to talk to. Boring to rob, unless you're after armour polish and scriptures of The Lady. Still, I hear there's a pile of loot in that castle of theirs...  Hmmm... now that I think about it...
 maze=9|What's there to say? We all get by as best we can, according to our abilities. Some of us, just a little better than others\!
@@ -39,7 +39,6 @@ third\ realm=9|I haven't heard anything good. Give my the warm wenches of Ichiba
 asius=9|Never heard of 'im.
 lorelei=9|I've heard there's a druidess of that name, wandering around somewhere.
 first\ realm=9|Not really interested, to be honest. A place much like a smashed window in a brothel\: fucking broke.
-lady=9|Heh, a shapely goddess she is, if she would just lose the armour and the scowl. I think she needs someone to show her a good time...%n%n
 three\ eyes=9|He's the gnoll shaman.
 information,rumors,rumour,stories,tales=9|Listen, I've lived longer than you could imagine and the only thing that really exists is that tale that you create. I would tell you mine...but you wouldn't believe it. <grins>
 hail=9|Mighty stupid idea to build a city in the wastelands, wasn't it? Where's the profit in that? The Maze sent a bunch of beasties, there was much wailing and gnashing of teeth, now there is no more Hail.%n%nStill, it was a fun town while it lasted. There was an epic pub there, the Black Dog Inn. Good times\! Let's just say that there would be a few little Kay's running around in Hail, if the baddies hadn't come and wiped it out\! Ha ha ha\!
@@ -47,6 +46,7 @@ stentor=9|Can't be worth my time, as I've never heard of 'im.
 quest,quests=9|Ha ha ha. Get rich or die trying? <grins>
 beiweh=9|Heh, the goddess of farmers and their chubby wives.
 aenen=9|The gnomes are fiendishly proud of their underground city. I prefer Ichiba... more loose items.
+lady=9|Heh, a shapely goddess she is, if she would just lose the armour and the scowl. I think she needs someone to show her a good time...%n%n
 bye,farewell,goodbye=9|Later...
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Aaaah... the Gentlemen's Social Club of Ichiba. I am the humble chairman. <winks> We're a grouping of upstanding fellows interested in a bit of adventure and profit - with some fun and laughs thrown in. The humourless penny pinchers in the Chamber of Commerce hate us, only because jealousy makes them nasty. Ha ha ha\!
 gate=9|Sure, there's a gate to the Third Realm somewhere in the wastes. Gimme some coinage and we'll flip about where is it... As an honest guy I should inform you, though, that you'll likely get killed before you get there. And even if you do, word is the Third Realm has little to recommend it.

@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|He is the god of the road.
 leonal,leonals,white\ order=9|The lion folk live in their castle, to the north.
 maze=9|We are all victims. We are all survivors.
@@ -38,13 +38,13 @@ third\ realm=9|I cannot say.
 asius=9|I cannot say.
 lorelei=9|I cannot say.
 first\ realm=9|I cannot say.
-lady=9|She is the goddess of the leonals.
 three\ eyes=9|I am he.
 hail=9|I cannot say.
 stentor=9|I cannot say.
 quest,quests=9|I cannot say.
 beiweh=9|Blessed be her name, the lady of the harvest.
 aenen=9|The gnomes build below ground, for safety I believe.
+lady=9|She is the goddess of the leonals.
 bye,farewell,goodbye=9|Good hunting.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Ichiba attracts many types, some good, some bad.
 gate=9|I cannot say.

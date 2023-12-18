@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|I have little time for religion.
 leonal,leonals,white\ order=9|Yes, the Leonals. Hostilities preclude much trade with them. A pity.
 maze=9|The ways of the Maze are beyond my ken, I am a humble merchant seeking to make the best of this world we are in.
@@ -38,7 +38,6 @@ third\ realm=9|I would give much to a caravan that could go there and return. It
 asius=9|Yes, he trades outside the gate. Risky, risky but lucrative. You will of course find fare superior wares here within Ichiba.
 lorelei=9|I do not know her.
 first\ realm=9|I have heard that the First Realm is much larger than the Second. More populous, more cities, more trade. A caravan that could make the journey, and return, would reap great reward\!
-lady=9|I have little time for religion.
 three\ eyes=9|I do not know him.
 hail=9|Hail fell years ago. A pity, there was good trade to be had with that outpost. A risky route, but such brings great reward.
 stentor=9|I believe that is the name of a Leonal smith in Danaos.
@@ -46,6 +45,7 @@ quest,quests=9|I know of no such things.
 beiweh=9|I have little time for religion.
 pipe,smoke,tobacco,weed=9|Yes, tobacco, called pipe weed by the vulgar. A fine herb, a speciality of mine. You will not find better for sale anywhere in the Realm.
 aenen=9|Aenen, the greatest city in the Second Realm. The products of our craftsmen and machinists are sought after throughout the lands. Our defenses are second to none. If I sound prideful, it is merely because I speak the truth.
+lady=9|I have little time for religion.
 bye,farewell,goodbye=9|Farewell, come again soon\!
 gentlemen's\ social\ club,thieves,thieves\ guild=9|
 gate=9|I have no doubt that your journey to the gate will be long and ardous. Why not stock a little tobacco? It greatly refreshes and restores the weary traveller.

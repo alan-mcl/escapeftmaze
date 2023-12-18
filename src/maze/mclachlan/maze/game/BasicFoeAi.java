@@ -144,9 +144,12 @@ public class BasicFoeAi extends FoeCombatAi
 				result = getMagicIntention(foe, combat);
 			}
 
-			count++;
+			if (count++ > 20)
+			{
+				break;
+			}
 		}
-		while (result != null || count < 20);
+		while (result == null);
 
 		if (result != null)
 		{

@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|I am not a religious man
 leonal,leonals,white\ order=9|The haughty Leonals hide far from here in the fortress called Danaos. The talk a good fight and they harass our borders endlessly, but they have yet to come against these walls.
 maze=9|We are constantly harassed. Three times the Maze has come against us in force with great hosts of foes, fierce and unnatural. The underground city is our salvation. This fortified keep above the entrance is strong; few can defend against many and can be supplied from the halls below.
@@ -39,13 +39,13 @@ third\ realm=9|I know little. You would do as well listening to tales at the bar
 asius=9|Yes, Asius keeps the store near here. There is always a trade to be had as travellers pass through, but he'll be the first through my gate when trouble comes\!
 lorelei=9|I do not know her.
 first\ realm=9|I have heard that you come from there.
-lady=9|I am not a religious man.
 three\ eyes=9|Who?
 hail=9|I heard that it fell to the Maze many years ago.
 stentor=9|That sounds like a Leonal name.
 quest,quests=9|You are on a quest? Good for you.
 beiweh=9|I am not a religious man.
 aenen=9|This be it. The halls of Aenen, home of the gnomes. Underground, of course, save for these fortifications around the entrance. It has protected us well against the persecutions of the Maze.
+lady=9|I am not a religious man.
 bye,farewell,goodbye=9|Farewell.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Ichiba is home to many kinds of scum.
 gate=9|What about a gate?%n%nI do not know where the gate to the Third Realm is. Far from here, no doubt.

@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|Do not trust the trickster god of the road.
 leonal,leonals,white\ order=9|We are the children of The Lady, her chosen. The White Order has brought law and order to some small portion of this realm, so that cities such as this may prosper.
 maze=9|The horror of the Maze will drive you insane if you think too deeply on it.
@@ -39,13 +39,13 @@ third\ realm=9|Legends of the Third Realm are few. The Gate is reached through t
 asius=9|I do not know of him.
 lorelei=9|I do not know of her.
 first\ realm=9|Some time you must tell me of your home. Is my lady The Lady worshipped there too?
-lady=9|Our goddess, The Lady of the spear and shield. To the faithful she is merciful and just. %nShe is the patron of the White Order, who guard the borders north of here at Danaos castle. By her grace we hold back the darkness from these civilised lands.
 three\ eyes=9|I do not know him.
 hail=9|Hail was once a great city, but it has fallen. One used to be able to reach it from Danaos, but the way is closed now.
 stentor=9|I do not know him.
 quest,quests=9|The Order may have use for you. You should travel north, to Danaos.
 beiweh=9|May she bring us rain and sun, life and laughter, growth and health.
 aenen=9|Aenen is the largest gnome settlement, south of here.
+lady=9|Our goddess, The Lady of the spear and shield. To the faithful she is merciful and just. %nShe is the patron of the White Order, who guard the borders north of here at Danaos castle. By her grace we hold back the darkness from these civilised lands.
 bye,farewell,goodbye=9|Farewell.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Some elements of society tend always towards crime. I do not associate with them.
 gate=9|The gate to the third Realm is somewhere in the wastelands. Belisarius, the general of my Order, would know more.

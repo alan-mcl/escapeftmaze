@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|I cannae advise ye much on matters of the spirit.
 leonal,leonals,white\ order=9|Bah, the lion people and their order are a plague on this realm\!
 maze=9|Aye, the maze. What can be said that has not been said before? Best to get on with yer business.
@@ -38,7 +38,6 @@ third\ realm=9|I dinnae have time for fairy tales.
 asius=9|He is above ground.
 lorelei=9|I ken her not.
 first\ realm=9|I havenae met many from there. There was a man came through here not long ago... Dorian? Do ye know him? Hi didnae stay long before moving on.
-lady=9|I cannae advise ye much on matters of the spirit.
 three\ eyes=9|I ken him not.
 skull,stone\ doors,throne\ room=9|Aye, the throne room doors. It is a cunning work.%n%nWe gnomes believe that all is a machine, even the living. One day, maybe, we will unravel all of it's secrets.
 hail=9|The city in the wastes? Aye, it fell long ago.
@@ -46,6 +45,7 @@ stentor=9|I ken him not.
 quest,quests=9|Har har.
 beiweh=9|I cannae advise ye much on matters of the spirit.
 aenen=9|Aye, this is the city of the gnomes. Our ancenstors carved it out of the natural caverns many generations ago.
+lady=9|I cannae advise ye much on matters of the spirit.
 bye,farewell,goodbye=9|Goodbye.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|I cannae say.
 gate=9|Aye, there be a Gate, into the Third Realm. But it is far from here, amidst the wastelands. A perilous journey to reach it...

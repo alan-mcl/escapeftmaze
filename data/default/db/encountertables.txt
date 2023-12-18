@@ -26,7 +26,7 @@ name=gatehouse.level.1.medium
 foeEntries=0,fruit.bats.medium:25,mud.spiders.medium:25,spotted.cruds.medium:25,jumping.roaches.medium:25
 @
 name=gatehouse.block.golem
-foeEntries=1,block.golem.1:100
+foeEntries=0,block.golem.1:100
 @
 name=fangorn.allies.on.call
 foeEntries=0,ghosts.1:20,frozen.skeletons.1:20,bat.vampires.1:20,zombie.mantis.1:20,lost.souls.1:20
@@ -71,7 +71,7 @@ name=treant.spell.2
 foeEntries=0,treants.2:100
 @
 name=gatehouse.feral.familiar.pack.1
-foeEntries=1,feral.familiar.pack.1:100
+foeEntries=0,feral.familiar.pack.1:100
 @
 name=shadow.warriors.spell.2
 foeEntries=0,shadow.warriors.spell.2:100
@@ -128,7 +128,7 @@ name=gnoll.village.allies.on.call
 foeEntries=0,gnoll.heroes.small:100,gnoll.hunters.small:100,gnoll.hunters.small:100
 @
 name=aenen.city.allies.on.call
-foeEntries=0,gnome.troopers.party:34,gnome.warlocks.party:33,clockwork.vengeance:33
+foeEntries=1,gnome.troopers.party:34,gnome.warlocks.party:33,clockwork.vengeance:33
 @
 name=dragon.spell.5
 foeEntries=0,inferno.dragon.1:100
@@ -161,7 +161,7 @@ name=rhys.allies.on.call
 foeEntries=0,rhys.allies.on.call:100
 @
 name=aenen.city.random.enc
-foeEntries=0,gnome.robbers.small:5,gnome.knaves.small:5,gnome.troopers.party:13,gnome.warlocks.party:13,gnome.scouts.party:12,clockwork.diggers:13,clockwork.soldiers:13,clockwork.terrors:13,clockwork.vengeance:13
+foeEntries=1,gnome.robbers.small:5,gnome.knaves.small:5,gnome.troopers.party:13,gnome.warlocks.party:13,gnome.scouts.party:12,clockwork.diggers:13,clockwork.soldiers:13,clockwork.terrors:13,clockwork.vengeance:13
 @
 name=summon.angel.spell.1
 foeEntries=0,serra.angel.1:50,seraph.1:50
@@ -197,10 +197,10 @@ name=tower.guardians.on.call
 foeEntries=0,tower.guardians:100
 @
 name=gatehouse.level.1
-foeEntries=1,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
+foeEntries=0,fruit.bats.small:20,mud.spiders.small:20,spotted.cruds.small:20,jumping.roaches.small:20,mud.spiders.medium:5,spotted.cruds.medium:5,fruit.bats.medium:5,jumping.roaches.medium:5
 @
 name=gatehouse.level.1.bats
-foeEntries=1,fruit.bats.small:100
+foeEntries=0,fruit.bats.small:100
 @
 name=isle.of.the.gate.random.enc
 foeEntries=0,vampire.vulture.1:34,haunts.small:33,foxfire.small:33
@@ -221,7 +221,7 @@ name=elemental.swarm.spell.3
 foeEntries=0,elemental.swarm.air.3:25,elemental.swarm.earth.3:25,elemental.swarm.fire.3:25,elemental.swarm.water.3:25
 @
 name=aenen.outskirts.placed.enc
-foeEntries=0,gnome.beggar.small:20,gnome.robbers.small:20,spotted.boas.small:20,seeding.omnifid.small:20,moulders.small:20
+foeEntries=1,gnome.beggar.small:20,gnome.robbers.small:20,spotted.boas.small:20,seeding.omnifid.small:20,moulders.small:20
 @
 name=aenen.outskirts.random.enc
 foeEntries=0,gnome.beggar.small:10,gnome.robbers.small:9,spotted.boas.small:9,seeding.omnifid.small:9,gnome.knaves.small:9,gnome.scouts.small:9,gnome.troopers.small:9,gnome.warlocks.small:9,moulders.small:9,clockwork.diggers:9,clockwork.soldiers:9
@@ -305,7 +305,7 @@ name=ineoth.encounter
 foeEntries=0,ineoth.encounter:100
 @
 name=danaos.castle.allies.on.call
-foeEntries=1,leonal.champions:34,leonal.paladins:33,leonal.peers:33
+foeEntries=0,leonal.champions:34,leonal.paladins:33,leonal.peers:33
 @
 name=glaucus.allies.on.call
 foeEntries=0,gnome.beggar.small:100
@@ -338,7 +338,7 @@ name=gatehouse.level.1.cruds
 foeEntries=0,spotted.cruds.small:100
 @
 name=gatehouse.feral.familiar.1
-foeEntries=1,feral.familiar.1:100
+foeEntries=0,feral.familiar.1:100
 @
 name=gatehouse.level.1.spiders
 foeEntries=0,mud.spiders.small:100
@@ -440,7 +440,7 @@ name=clockwork.beast.1
 foeEntries=0,clockwork.beast.1:100
 @
 name=gatehouse.angry.swarms
-foeEntries=1,angry.swarm.party:100
+foeEntries=0,angry.swarm.party:100
 @
 name=tsurayogoshi
 foeEntries=0,tsurayogoshi:100

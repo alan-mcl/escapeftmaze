@@ -144,6 +144,31 @@ public class MazeWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void removeFoeGroup(FoeGroup fg)
+	{
+		int i;
+		for (i=0; i<foeGroupWidgets.length; i++)
+		{
+			if (foeGroupWidgets[i].getFoeGroup() == fg)
+			{
+				break;
+			}
+		}
+
+		for (; i<foeGroupWidgets.length-1; i++)
+		{
+			if (i<foeGroupWidgets.length-1)
+			{
+				foeGroupWidgets[i].setFoeGroup(foeGroupWidgets[i + 1].getFoeGroup());
+			}
+			else
+			{
+				foeGroupWidgets[i].setFoeGroup(null);
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void setAllies(List<FoeGroup> allies)
 	{
 		if (allies == null)

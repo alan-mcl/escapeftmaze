@@ -36,6 +36,7 @@ import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.ChooseCharacterCallback;
@@ -289,6 +290,11 @@ public class HeadlessUi implements UserInterface
 	public void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
 		
+	}
+
+	@Override
+	public void rebalanceFoeSprites(Combat combat)
+	{
 	}
 
 	@Override

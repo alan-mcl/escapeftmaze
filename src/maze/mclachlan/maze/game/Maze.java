@@ -1021,8 +1021,7 @@ public class Maze implements Runnable
 		if (this.currentCombat != null)
 		{
 			this.currentCombat.addPartyAllies(allies);
-			// todo: only the allies should run appearance scripts
-			this.ui.setFoes(currentCombat.getFoes(), false);
+			this.ui.addFoes(currentCombat.getFoes(), true);
 		}
 	}
 

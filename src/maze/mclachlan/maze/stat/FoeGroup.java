@@ -29,8 +29,8 @@ import mclachlan.maze.util.MazeException;
 public class FoeGroup implements ActorGroup
 {
 	/** actors in thie foe group */
-	private List<UnifiedActor> foes;
-	private List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
+	private final List<UnifiedActor> foes;
+	private final List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -38,7 +38,7 @@ public class FoeGroup implements ActorGroup
 	 */
 	public FoeGroup()
 	{
-		this(new ArrayList<UnifiedActor>());
+		this(new ArrayList<>());
 	}
 
 	/*-------------------------------------------------------------------------*/

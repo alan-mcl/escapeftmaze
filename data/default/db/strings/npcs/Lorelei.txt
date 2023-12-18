@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|The grey god of the wayfarer, patron of heroes. The bat, the cat and spider are holy to him.
 leonal,leonals,white\ order=9|The leonals pride themselves on their military might. They have little time for peace and tolerance, and less for the beauty of nature. I hope to change that.
 maze=9|I can add little to your knowledge.
@@ -38,13 +38,13 @@ third\ realm=9|You would know of the next Realm? I have heard that an undying pr
 asius=9|I do not know that person.
 lorelei=9|I am she.
 first\ realm=9|My mother came from there. She told me tales of white elven castles sleeping in shady forest glades, of the undying patient wait of my folk. She chose another path, but did not manage to travel further than this Realm.
-lady=9|The white goddess. She is the patron of the leonals and their Order.
 three\ eyes=9|I do not know that person.
 hail=9|The city in the wastelands has fallen.
 stentor=9|He is the blacksmith in the village, an honest enough fellow.
 quest,quests=9|I have none for you.
 beiweh=9|The blessings of The Lady of the rains are sought by many. Praised be her name, Beiweh of the shining face, may she bring growth and health on all creatures.
 aenen=9|The city of the gnomes is to the south.
+lady=9|The white goddess. She is the patron of the leonals and their Order.
 bye,farewell,goodbye=9|Farewell.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|I avoid the city...
 gate=9|No doubt you mean the Great Gate, portal to the Third Realm? It lies beyond the wastelands. It is a perilous path that you seek to tread.

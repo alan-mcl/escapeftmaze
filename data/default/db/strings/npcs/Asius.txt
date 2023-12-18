@@ -1,4 +1,4 @@
-#Thu Dec 07 14:02:40 SAST 2023
+#Mon Dec 18 15:57:56 SAST 2023
 garret=9|He he he, I know little of religion.
 leonal,leonals,white\ order=9|The tall leonals, he he he. They keep trying to tell us what to do. Would that they would just stay in the big castle far north.
 maze=9|The maze is endless, I say. He he he. Have a beer and forget about it.
@@ -39,7 +39,6 @@ third\ realm=9|I have heard it's a poor place for trade... he he he.
 asius=9|Heh, that is my name. Don't wear it out\!
 lorelei=9|I don't know her.
 first\ realm=9|You say you come from there? I have met few who do. Is it true that there are a folk who live under the sea, and another who made of tin? Hee hee hee. It must be a strange place.
-lady=9|The proud goddess of the leonals has little time for common folk.
 three\ eyes=9|I don't know him.
 clockwork,rogue=0|He he he, Mnesus the Mighty got you doing his dirty work?%n%nHeh, yes, one of the clockwork soldiers went AWOL. Last I saw it was heading southwards into the forest. 
 hail=9|Hee hee, we used to trade with the people of Hail. Then, then Maze brought it's forces against them. Now Hail is no more.
@@ -47,6 +46,7 @@ stentor=9|I don't know him.
 quest,quests=9|He he he. How about an ale?
 beiweh=9|Blessed be her name, the goddess of life.
 aenen=9|He hehe, yes, you have reached Aenen. The outskirts thereof, I dare say, hee hee. The city is below though, not up here.
+lady=9|The proud goddess of the leonals has little time for common folk.
 bye,farewell,goodbye=9|Bye\!
 gentlemen's\ social\ club,thieves,thieves\ guild=9|One man's thief is another's hero.
 gate=9|Gates, he he he, always your sort seeks them.
