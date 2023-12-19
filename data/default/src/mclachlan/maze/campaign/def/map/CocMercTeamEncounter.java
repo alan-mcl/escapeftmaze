@@ -34,7 +34,7 @@ public class CocMercTeamEncounter extends TileScript
 					"COMMERCE YOU ARE HEREBY ARRESTED AND SENTENCED TO DEATH!",
 					MazeEvent.Delay.WAIT_ON_CLICK, true),
 				new FlavourTextEvent("PREPARE TO DIE, SCUM!", MazeEvent.Delay.WAIT_ON_CLICK, false),
-				new EncounterActorsEvent(COC_MERC_TEAM_ENCOUNTER, COC_MERC_TEAM_ENCOUNTER, null, null));
+				new EncounterActorsEvent(COC_MERC_TEAM_ENCOUNTER, COC_MERC_TEAM_ENCOUNTER, null, null, null));
 		}
 		else
 		{

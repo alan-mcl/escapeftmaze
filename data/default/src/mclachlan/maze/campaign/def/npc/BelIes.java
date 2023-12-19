@@ -41,7 +41,7 @@ public class BelIes extends NpcScript
 			new CharacterClassKnowledgeEvent("The language bears some " +
 				"resemblance to ancient Eridu. You don't know enough to " +
 				"translate, but you recall that 'lagab' meant 'death'.\n\n" +
-				"Regardless of linguistic preferences, npc individual is " +
+				"Regardless of linguistic preferences, the individual is " +
 				"obviously a powerful magic user.", "Sorcerer"),
 			new NpcAttacksEvent(npc));
 	}

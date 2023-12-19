@@ -38,7 +38,7 @@ public class GoblinMagsmenEncounter extends TileScript
 					"attack!",
 					MazeEvent.Delay.WAIT_ON_CLICK,
 					true),
-				new EncounterActorsEvent(GOBLIN_MAGSMEN_ENCOUNTER, GOBLIN_MAGSMEN_ENCOUNTER, null, null));
+				new EncounterActorsEvent(GOBLIN_MAGSMEN_ENCOUNTER, GOBLIN_MAGSMEN_ENCOUNTER, null, null, null));
 		}
 		else
 		{

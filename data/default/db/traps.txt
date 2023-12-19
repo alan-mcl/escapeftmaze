@@ -91,7 +91,7 @@ payload=1,,,false,-1,Fizzle Field - Trap,7,20
 name=1 - Guardian
 difficulty=0,0,3,0,0,0,5,4
 required=00100011
-payload=3,,,false,-1,guardian.trap,,,
+payload=3,,,false,-1,guardian.trap,,,,
 @
 name=2 - Cloud Of Fear
 difficulty=0,0,0,0,7,6,7,0

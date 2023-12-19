@@ -126,7 +126,7 @@ public class PaintEncounters extends Tool implements ActionListener
 				mclachlan.maze.map.Tile tile = editor.getMazeTile(t);
 
 				String mazeVar = TileScriptEditor.getEncounterMazeVariable(editor.zone);
-				Encounter enc = new Encounter(table, mazeVar, null, null);
+				Encounter enc = new Encounter(table, mazeVar, null, null, null);
 
 				tile.getScripts().add(enc);
 			}
@@ -139,14 +139,14 @@ public class PaintEncounters extends Tool implements ActionListener
 	 */
 	static class OptionsPanel extends JPanel
 	{
-		private JComboBox encounterTable;
+		private final JComboBox<String> encounterTable;
 
 		/*----------------------------------------------------------------------*/
 		public OptionsPanel()
 		{
-			Vector<String> vec = new Vector<String>(Database.getInstance().getEncounterTables().keySet());
+			Vector<String> vec = new Vector<>(Database.getInstance().getEncounterTables().keySet());
 			Collections.sort(vec);
-			encounterTable = new JComboBox(vec);
+			encounterTable = new JComboBox<>(vec);
 
 			add(new JLabel("Encounter table:"));
 			add(encounterTable);

@@ -35,7 +35,7 @@ import mclachlan.maze.stat.npc.PartyLeavesEvent;
  */
 public class DefaultFoeAiScript extends NpcScript
 {
-	private ActorEncounter actorEncounter;
+	private final ActorEncounter actorEncounter;
 
 	/*-------------------------------------------------------------------------*/
 	public DefaultFoeAiScript(ActorEncounter actorEncounter)

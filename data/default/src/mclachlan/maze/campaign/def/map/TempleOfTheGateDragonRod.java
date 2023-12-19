@@ -37,7 +37,7 @@ public class TempleOfTheGateDragonRod extends TileScript
 					"deafening in the small room...",
 					MazeEvent.Delay.WAIT_ON_CLICK, false));
 			result.add(new SetMazeVariableEvent(DRAGON_ROD_USED, "true"));
-			result.add(new EncounterActorsEvent(null, "temple.of.the.gate.ghost.of.igor", null, null));
+			result.add(new EncounterActorsEvent(null, "temple.of.the.gate.ghost.of.igor", null, null, null));
 
 			return result;
 		}

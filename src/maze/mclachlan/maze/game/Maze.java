@@ -709,7 +709,7 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							this.encounterActors(new ActorEncounter(foes, null, null, null));
+							this.encounterActors(new ActorEncounter(foes, null, null, null, null));
 						}
 					}
 				}
@@ -1796,12 +1796,14 @@ public class Maze implements Runnable
 			}
 		}
 
-
 		Maze.this.currentActorEncounter =
-			new ActorEncounter(actors, mazeVar, attitude, ambushStatus);
+			new ActorEncounter(actors, mazeVar, attitude, ambushStatus, actorEncounter.getPreScript());
 
 		// first, any pre-encounter events need to be executed
-		appendEvents(leader.getActionScript().preAppearance());
+		if (currentActorEncounter.getPreScript() != null)
+		{
+			appendEvents(currentActorEncounter.getPreScript());
+		}
 
 		final NpcFaction.Attitude fAttitude = attitude;
 		final Combat.AmbushStatus fAmbushStatus = ambushStatus;

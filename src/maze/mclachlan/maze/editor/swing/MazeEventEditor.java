@@ -77,6 +77,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField encounterMazeVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
+	private JComboBox encounterPreScript;
 	private JSpinner flavourTextDelay;
 	private JCheckBox shouldClearText;
 	private JTextArea flavourText;
@@ -229,6 +230,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				else
 				{
 					encounterAmbushStatus.setSelectedItem(ee.getAmbushStatus());
+				}
+				if (ee.getPreScript() == null)
+				{
+					encounterPreScript.setSelectedItem(EditorPanel.NONE);
+				}
+				else
+				{
+					encounterPreScript.setSelectedItem(ee.getPreScript());
 				}
 				break;
 			case _FlavourTextEvent:
@@ -459,11 +468,22 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					ambushStatus = (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
 				}
 
+				String preScript;
+				if (encounterPreScript.getSelectedItem() == EditorPanel.NONE)
+				{
+					preScript = null;
+				}
+				else
+				{
+					preScript = (String)encounterPreScript.getSelectedItem();
+				}
+
 				this.result = new EncounterActorsEvent(
 					encounterMazeVariable.getText(),
 					(String)encounterTable.getSelectedItem(),
 					attitude,
-					ambushStatus);
+					ambushStatus,
+					preScript);
 				break;
 			case _FlavourTextEvent:
 				this.result = new FlavourTextEvent(
@@ -1074,13 +1094,19 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		ambushStatuses.add(0, EditorPanel.NONE);
 		encounterAmbushStatus = new JComboBox(ambushStatuses);
 
+		Vector vec2 = new Vector(Database.getInstance().getMazeScripts().keySet());
+		Collections.sort(vec2);
+		vec2.add(0, EditorPanel.NONE);
+		encounterPreScript = new JComboBox(vec2);
+
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
 			new JLabel("Encounter Table: "), encounterTable,
 			new JLabel("Maze Variable: "), encounterMazeVariable,
 			new JLabel("Attitude: "), encounterAttitude,
-			new JLabel("Ambush Status: "), encounterAmbushStatus
+			new JLabel("Ambush Status: "), encounterAmbushStatus,
+			new JLabel("Pre Script: "), encounterPreScript
 			);
 		return result;
 	}

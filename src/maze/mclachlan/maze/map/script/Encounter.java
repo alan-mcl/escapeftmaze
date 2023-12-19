@@ -21,15 +21,10 @@ package mclachlan.maze.map.script;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.EncounterTable;
-import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.TileScript;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
 
@@ -42,6 +37,7 @@ public class Encounter extends TileScript
 	private final String mazeVariable;
 	private final NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
+	private String preScript;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -57,12 +53,14 @@ public class Encounter extends TileScript
 		EncounterTable encounterTable,
 		String mazeVariable,
 		NpcFaction.Attitude attitude,
-		Combat.AmbushStatus ambushStatus)
+		Combat.AmbushStatus ambushStatus,
+		String preScript)
 	{
 		this.encounterTable = encounterTable;
 		this.mazeVariable = mazeVariable;
 		this.attitude = attitude;
 		this.ambushStatus = ambushStatus;
+		this.preScript = preScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -71,7 +69,7 @@ public class Encounter extends TileScript
 	{
 		if (isRovingSpritesMode(maze))
 		{
-			// copied from EncounterActorsEvent
+/*			// copied from EncounterActorsEvent
 
 			if (this.mazeVariable != null)
 			{
@@ -80,7 +78,6 @@ public class Encounter extends TileScript
 					return;
 				}
 			}
-
 
 			FoeEntry foeEntry = encounterTable.getEncounterTable().getRandomItem();
 			List<FoeGroup> allFoes = foeEntry.generate();
@@ -92,8 +89,19 @@ public class Encounter extends TileScript
 					allFoes);
 			}
 
+			List<MazeEvent> events;
+			if (preScript != null)
+			{
+				events = Database.getInstance().getMazeScript(preScript).getEvents();
+			}
+			else
+			{
+				events = new ArrayList<>();
+				events.add(new FlavourTextEvent("BLAH")); // todo remove
+			}
+
 			Maze.getInstance().encounterActors(
-				new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus));
+				new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus, events));*/
 		}
 	}
 
@@ -108,7 +116,8 @@ public class Encounter extends TileScript
 					mazeVariable,
 					encounterTable,
 					attitude,
-					ambushStatus));
+					ambushStatus,
+					preScript));
 		}
 		else
 		{
@@ -140,5 +149,10 @@ public class Encounter extends TileScript
 	public Combat.AmbushStatus getAmbushStatus()
 	{
 		return ambushStatus;
+	}
+
+	public String getPreScript()
+	{
+		return preScript;
 	}
 }

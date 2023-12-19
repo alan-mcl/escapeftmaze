@@ -277,6 +277,8 @@ public class V1MazeEvent
 				s.append(ee.getAttitude()==null?"":ee.getAttitude().name());
 				s.append(SEP);
 				s.append(ee.getAmbushStatus()==null?"":ee.getAmbushStatus().name());
+				s.append(SEP);
+				s.append(ee.getPreScript()==null?"":ee.getPreScript());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -472,7 +474,7 @@ public class V1MazeEvent
 			return null;
 		}
 
-		String[] strs = s.split(SEP);
+		String[] strs = s.split(SEP, -1);
 		int type = Integer.parseInt(strs[0]);
 
 		switch (type)
@@ -500,33 +502,20 @@ public class V1MazeEvent
 				return new CastSpellEvent(spellName, casterLevel, castingLevel);
 			case _EncounterActorsEvent:
 
-				// 1=3,gatehouse.level.1.bats,gatehouse.first.room.bats.1,ATTACKING
+				// 1=3,gatehouse.level.1.bats,gatehouse.first.room.bats.1,ATTACKING,preScript
 
 				String encounterTable = strs[1];
 				String mazeVariable = strs.length > 2 ? strs[2] : null;
 				NpcFaction.Attitude attitude = null;
 				Combat.AmbushStatus ambushStatus = null;
+				String preScript = null;
 				if (strs.length > 3)
 				{
-					if ("".equals(strs[3]))
-					{
-						attitude = null;
-					}
-					else
-					{
-						attitude = NpcFaction.Attitude.valueOf(strs[3]);
-					}
-
-					if ("".equals(strs[4]))
-					{
-						ambushStatus = null;
-					}
-					else
-					{
-						ambushStatus = Combat.AmbushStatus.valueOf(strs[4]);
-					}
+					attitude = "".equals(strs[3]) ? null : NpcFaction.Attitude.valueOf(strs[3]);
+					ambushStatus = "".equals(strs[4]) ? null : Combat.AmbushStatus.valueOf(strs[4]);
+					preScript = "".equals(strs[5])?null:strs[5];
 				}
-				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus);
+				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus, preScript);
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);

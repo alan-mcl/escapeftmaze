@@ -3153,7 +3153,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			int textureOffset = 0;
 
 			ObjectScript[] objectScripts = obj.removeAllScripts();
-			obj.addScript(new MoveTo(playerX + x, playerY + y, textureOffset, 1000, Arrays.asList(objectScripts)).spawnNewInstance(obj, this));
+			obj.addScript(new MoveTo(playerX + x, playerY + y, textureOffset, 750, Arrays.asList(objectScripts)).spawnNewInstance(obj, this));
 		}
 	}
 

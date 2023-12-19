@@ -19,7 +19,7 @@
 
 package mclachlan.maze.map.script;
 
-import java.util.List;
+import java.util.*;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -37,10 +37,11 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class EncounterActorsEvent extends MazeEvent
 {
-	private String mazeVariable;
-	private String encounterTable;
-	private NpcFaction.Attitude attitude;
+	private final String mazeVariable;
+	private final String encounterTable;
+	private final NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
+	private final String preScript;
 
 	// volatile
 	private EncounterTable encounterTableRef;
@@ -49,19 +50,24 @@ public class EncounterActorsEvent extends MazeEvent
 	public EncounterActorsEvent(
 		String mazeVariable,
 		String encounterTable,
-		NpcFaction.Attitude attitude, Combat.AmbushStatus ambushStatus)
+		NpcFaction.Attitude attitude,
+		Combat.AmbushStatus ambushStatus,
+		String preScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
 		this.attitude = attitude;
 		this.ambushStatus = ambushStatus;
+		this.preScript = preScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
 		String mazeVariable,
 		EncounterTable encounterTable,
-		NpcFaction.Attitude attitude, Combat.AmbushStatus ambushStatus)
+		NpcFaction.Attitude attitude,
+		Combat.AmbushStatus ambushStatus,
+		String preScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable.getName();
@@ -69,6 +75,7 @@ public class EncounterActorsEvent extends MazeEvent
 		this.ambushStatus = ambushStatus;
 
 		this.encounterTableRef = encounterTable;
+		this.preScript = preScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -98,8 +105,19 @@ public class EncounterActorsEvent extends MazeEvent
 				allFoes);
 		}
 
+		List<MazeEvent> events;
+		if (preScript != null)
+		{
+			events = Database.getInstance().getMazeScript(preScript).getEvents();
+		}
+		else
+		{
+			events = new ArrayList<>();
+			events.add(new FlavourTextEvent("BLAH")); // todo remove
+		}
+
 		Maze.getInstance().encounterActors(
-			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus));
+			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus, events));
 
 		return null;
 	}
@@ -110,22 +128,23 @@ public class EncounterActorsEvent extends MazeEvent
 		return encounterTable;
 	}
 
-	/*-------------------------------------------------------------------------*/
 	public String getMazeVariable()
 	{
 		return mazeVariable;
 	}
 
-	/*-------------------------------------------------------------------------*/
 	public NpcFaction.Attitude getAttitude()
 	{
 		return attitude;
 	}
 
-	/*-------------------------------------------------------------------------*/
-
 	public Combat.AmbushStatus getAmbushStatus()
 	{
 		return ambushStatus;
+	}
+
+	public String getPreScript()
+	{
+		return preScript;
 	}
 }

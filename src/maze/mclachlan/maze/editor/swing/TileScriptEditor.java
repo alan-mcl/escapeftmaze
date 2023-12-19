@@ -128,6 +128,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
+	private JComboBox encounterPreScript;
 	private JButton encounterQuickAssignMazeVar;
 	private JTextArea flavourText;
 	private JComboBox lootTable;
@@ -367,22 +368,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				Encounter e = (Encounter)ts;
 				encounterTable.setSelectedItem(e.getEncounterTable().getName());
 				encounterVariable.setText(e.getMazeVariable());
-				if (e.getAttitude() == null)
-				{
-					encounterAttitude.setSelectedItem(EditorPanel.NONE);
-				}
-				else
-				{
-					encounterAttitude.setSelectedItem(e.getAttitude());
-				}
-				if (e.getAmbushStatus() == null)
-				{
-					encounterAmbushStatus.setSelectedItem(EditorPanel.NONE);
-				}
-				else
-				{
-					encounterAmbushStatus.setSelectedItem(e.getAmbushStatus());
-				}
+				encounterAttitude.setSelectedItem(e.getAttitude() == null ? EditorPanel.NONE : e.getAttitude());
+				encounterAmbushStatus.setSelectedItem(e.getAmbushStatus() == null ? EditorPanel.NONE : e.getAmbushStatus());
+				encounterPreScript.setSelectedItem(e.getPreScript() == null ? EditorPanel.NONE : e.getPreScript());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -711,11 +699,17 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		ambushStatuses.add(0, EditorPanel.NONE);
 		encounterAmbushStatus = new JComboBox(ambushStatuses);
 
+		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeScripts().keySet());
+		Collections.sort(vec2);
+		vec2.add(0, EditorPanel.NONE);
+		encounterPreScript = new JComboBox<>(vec2);
+
 		return dirtyGridBagCrap(
 			new JLabel("Encounter Table:"), encounterTable,
 			encounterQuickAssignMazeVar, encounterVariable,
 			new JLabel("Attitude:"), encounterAttitude,
-			new JLabel("Ambush Status:"), encounterAmbushStatus
+			new JLabel("Ambush Status:"), encounterAmbushStatus,
+			new JLabel("Pre Script:"), encounterPreScript
 		);
 	}
 
@@ -1243,29 +1237,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					postTransScript);
 				break;
 			case ENCOUNTER:
-				NpcFaction.Attitude attitude;
-				if (encounterAttitude.getSelectedItem() == EditorPanel.NONE)
-				{
-					attitude = null;
-				}
-				else
-				{
-					attitude = (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
-				}
-				Combat.AmbushStatus ambushStatus;
-				if (encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE)
-				{
-					ambushStatus = null;
-				}
-				else
-				{
-					ambushStatus = (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
-				}
+				NpcFaction.Attitude attitude = encounterAttitude.getSelectedItem() == EditorPanel.NONE ? null : (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
+				Combat.AmbushStatus ambushStatus = encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE ? null : (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
+				String encPreScript = encounterPreScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPreScript.getSelectedItem();
 				result = new Encounter(
 					Database.getInstance().getEncounterTable((String)encounterTable.getSelectedItem()),
 					encounterVariable.getText(),
 					attitude,
-					ambushStatus);
+					ambushStatus,
+					encPreScript);
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText());

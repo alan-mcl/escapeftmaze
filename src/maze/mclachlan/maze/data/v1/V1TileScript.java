@@ -184,6 +184,8 @@ public class V1TileScript
 				s.append(e.getAttitude()==null?"":e.getAttitude().toString());
 				s.append(sep);
 				s.append(e.getAmbushStatus()==null?"":e.getAmbushStatus().toString());
+				s.append(sep);
+				s.append(e.getPreScript()==null?"":e.getPreScript());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)t;
@@ -370,32 +372,18 @@ public class V1TileScript
 				String encTable = strs[i++];
 				String encMazVar = strs[i++];
 				String str = strs[i++];
-				NpcFaction.Attitude attitude;
-				if ("".equals(str))
-				{
-					attitude = null;
-				}
-				else
-				{
-					attitude = NpcFaction.Attitude.valueOf(str);
-				}
-
-				Combat.AmbushStatus ambushStatus = null;
+				NpcFaction.Attitude attitude = "".equals(str) ? null : NpcFaction.Attitude.valueOf(str);
 				str = strs[i++];
-				if ("".equals(str))
-				{
-					ambushStatus = null;
-				}
-				else
-				{
-					ambushStatus = Combat.AmbushStatus.valueOf(str);
-				}
+				Combat.AmbushStatus ambushStatus = "".equals(str) ? null : Combat.AmbushStatus.valueOf(str);
+				str = strs[i++];
+				String preEncounterScript = "".equals(str) ? null : str;
 
 				result = new Encounter(
 					Database.getInstance().getEncounterTable(encTable),
 					encMazVar,
 					attitude,
-					ambushStatus);
+					ambushStatus,
+					preEncounterScript);
 				break;
 			case FLAVOUR_TEXT:
 				// hack alert.  Any commas will have been split above.  Replace them

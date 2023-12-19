@@ -677,7 +677,7 @@ playerOrigin: 27:15
 658: 0:3f800000000000000000,07080708070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 659: 0:3f800000000000000000,08070707080807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 660: 0:3f800000000000000000,07070808070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
-661: 1:3,,,false,-1,force.of.fury.1,temple.of.the.gate.encounter.0,,:3f800000000000000000,07080807080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
+661: 1:3,,,false,-1,force.of.fury.1,temple.of.the.gate.encounter.0,,,:3f800000000000000000,07080807080707:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 662: 0:3f800000000000000000,07080707070708:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 663: 0:3f800000000000000000,08070807070808:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE
 664: 0:3f800000000000000000,07080807070807:DUNGEON:Temple:5:temple.of.the.gate.random.enc:MEDIUM:AVERAGE

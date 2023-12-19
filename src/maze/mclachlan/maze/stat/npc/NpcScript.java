@@ -55,7 +55,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> preAppearance()
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -65,7 +65,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> firstGreeting()
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -85,7 +85,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> neutralGreeting()
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
