@@ -462,6 +462,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=objects.barrel.1
+imageResources=crusader/scene/barrel_1
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=sky.aenen
 imageResources=crusader/scene/aenen_sky
 animationDelay=-1

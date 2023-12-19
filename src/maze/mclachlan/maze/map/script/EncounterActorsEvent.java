@@ -41,7 +41,7 @@ public class EncounterActorsEvent extends MazeEvent
 	private final String encounterTable;
 	private final NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
-	private final String preScript;
+	private final String preScript, postAppearanceScript;
 
 	// volatile
 	private EncounterTable encounterTableRef;
@@ -52,13 +52,15 @@ public class EncounterActorsEvent extends MazeEvent
 		String encounterTable,
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
-		String preScript)
+		String preScript,
+		String postAppearanceScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable;
 		this.attitude = attitude;
 		this.ambushStatus = ambushStatus;
 		this.preScript = preScript;
+		this.postAppearanceScript = postAppearanceScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -67,7 +69,8 @@ public class EncounterActorsEvent extends MazeEvent
 		EncounterTable encounterTable,
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
-		String preScript)
+		String preScript,
+		String postAppearanceScript)
 	{
 		this.mazeVariable = mazeVariable;
 		this.encounterTable = encounterTable.getName();
@@ -76,6 +79,7 @@ public class EncounterActorsEvent extends MazeEvent
 
 		this.encounterTableRef = encounterTable;
 		this.preScript = preScript;
+		this.postAppearanceScript = postAppearanceScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -105,19 +109,29 @@ public class EncounterActorsEvent extends MazeEvent
 				allFoes);
 		}
 
-		List<MazeEvent> events;
+		List<MazeEvent> preScriptEvents;
 		if (preScript != null)
 		{
-			events = Database.getInstance().getMazeScript(preScript).getEvents();
+			preScriptEvents = Database.getInstance().getMazeScript(preScript).getEvents();
 		}
 		else
 		{
-			events = new ArrayList<>();
-			events.add(new FlavourTextEvent("BLAH")); // todo remove
+			preScriptEvents = new ArrayList<>();
 		}
 
+		List<MazeEvent> postAppearanceScriptEvents;
+		if (postAppearanceScript != null)
+		{
+			postAppearanceScriptEvents = Database.getInstance().getMazeScript(postAppearanceScript).getEvents();
+		}
+		else
+		{
+			postAppearanceScriptEvents = new ArrayList<>();
+		}
+
+
 		Maze.getInstance().encounterActors(
-			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus, events));
+			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus, preScriptEvents, postAppearanceScriptEvents));
 
 		return null;
 	}
@@ -146,5 +160,10 @@ public class EncounterActorsEvent extends MazeEvent
 	public String getPreScript()
 	{
 		return preScript;
+	}
+
+	public String getPostAppearanceScript()
+	{
+		return postAppearanceScript;
 	}
 }

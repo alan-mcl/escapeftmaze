@@ -36,8 +36,8 @@ public class Encounter extends TileScript
 	private final EncounterTable encounterTable;
 	private final String mazeVariable;
 	private final NpcFaction.Attitude attitude;
+	private final String preScript, postAppearanceScript;
 	private Combat.AmbushStatus ambushStatus;
-	private String preScript;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -54,13 +54,15 @@ public class Encounter extends TileScript
 		String mazeVariable,
 		NpcFaction.Attitude attitude,
 		Combat.AmbushStatus ambushStatus,
-		String preScript)
+		String preScript,
+		String postAppearanceScript)
 	{
 		this.encounterTable = encounterTable;
 		this.mazeVariable = mazeVariable;
 		this.attitude = attitude;
 		this.ambushStatus = ambushStatus;
 		this.preScript = preScript;
+		this.postAppearanceScript = postAppearanceScript;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -117,7 +119,8 @@ public class Encounter extends TileScript
 					encounterTable,
 					attitude,
 					ambushStatus,
-					preScript));
+					preScript,
+					postAppearanceScript));
 		}
 		else
 		{
@@ -154,5 +157,10 @@ public class Encounter extends TileScript
 	public String getPreScript()
 	{
 		return preScript;
+	}
+
+	public String getPostAppearanceScript()
+	{
+		return postAppearanceScript;
 	}
 }

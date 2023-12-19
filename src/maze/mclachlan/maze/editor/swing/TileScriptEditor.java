@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.crusader.Wall;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
@@ -37,6 +38,7 @@ import mclachlan.maze.map.HiddenStuff;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -128,7 +130,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField encounterVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
-	private JComboBox encounterPreScript;
+	private JComboBox encounterPreScript, encounterPostAppearanceScript;
 	private JButton encounterQuickAssignMazeVar;
 	private JTextArea flavourText;
 	private JComboBox lootTable;
@@ -160,7 +162,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JCheckBox psModal;
 
 	/*-------------------------------------------------------------------------*/
-	public TileScriptEditor(Frame owner, TileScript tileScript, int dirtyFlag, Zone zone)
+	public TileScriptEditor(Frame owner, TileScript tileScript, int dirtyFlag,
+		Zone zone)
 	{
 		super(owner, "Edit Tile Script", true);
 		this.dirtyFlag = dirtyFlag;
@@ -168,7 +171,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		JPanel top = new JPanel();
 		Vector<String> vec = new Vector<String>();
-		for (int i=0; i<MAX; i++)
+		for (int i = 0; i < MAX; i++)
 		{
 			vec.addElement(describeType(i));
 		}
@@ -177,9 +180,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		top.add(new JLabel("Type:"));
 		top.add(type);
 
-		cards = new CardLayout(3,3);
+		cards = new CardLayout(3, 3);
 		controls = new JPanel(cards);
-		for (int i=0; i<MAX; i++)
+		for (int i = 0; i < MAX; i++)
 		{
 			JPanel c = getControls(i);
 			controls.add(c, String.valueOf(i));
@@ -195,10 +198,10 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		buttons.add(cancel);
 
 		controls.setBorder(BorderFactory.createEtchedBorder());
-		
+
 		JPanel commonOptions = getCommonOptionsPanel();
 
-		this.setLayout(new BorderLayout(3,3));
+		this.setLayout(new BorderLayout(3, 3));
 		this.add(top, BorderLayout.NORTH);
 		this.add(controls, BorderLayout.CENTER);
 		this.add(commonOptions, BorderLayout.EAST);
@@ -219,13 +222,13 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
-		
+
 //		dodgyGridBagShite(result, new JLabel("Common Options"), new JLabel(), gbc);
-		
+
 		executeOnce = new JCheckBox("Execute Only Once (maze var)?");
 		executeOnce.addActionListener(this);
 		gbc.weightx = 0.0;
-		gbc.gridx=0;
+		gbc.gridx = 0;
 		result.add(executeOnce, gbc);
 		gbc.weightx = 1.0;
 		gbc.gridy++;
@@ -240,7 +243,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		result.add(panel, gbc);
 		gbc.gridy++;
 
-		JPanel facing = new JPanel(new GridLayout(3,3));
+		JPanel facing = new JPanel(new GridLayout(3, 3));
 		north = new JCheckBox("N");
 		south = new JCheckBox("S");
 		east = new JCheckBox("E");
@@ -272,17 +275,17 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		gbc.weightx = 1.0;
 		gbc.weighty = 0.0;
 		JPanel panel2 = new JPanel();
-		scoutSecretDifficulty = new JSpinner(new SpinnerNumberModel(-1,-1,256,1));
+		scoutSecretDifficulty = new JSpinner(new SpinnerNumberModel(-1, -1, 256, 1));
 		panel2.add(new JLabel("Scout Secret Difficulty:"));
 		panel2.add(scoutSecretDifficulty);
 		result.add(panel2, gbc);
-		
+
 		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.gridx = 0;
 		gbc.gridy++;
 		result.add(new JLabel(), gbc);
-		
+
 		return result;
 	}
 
@@ -299,7 +302,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			tsType = CUSTOM;
 		}
 		type.setSelectedIndex(tsType);
-		
+
 		if (ts.getExecuteOnceMazeVariable() != null)
 		{
 			executeOnce.setSelected(true);
@@ -314,9 +317,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			executeOnceMazeVariable.setEnabled(false);
 			executeOnceMazeVariable.setText("");
 		}
-		
+
 		reexecuteOnSameTile.setSelected(ts.isReexecuteOnSameTile());
-		
+
 		if (ts.getFacings() != null)
 		{
 			north.setSelected(ts.getFacings().get(CrusaderEngine.Facing.NORTH));
@@ -336,7 +339,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		switch (tsType)
 		{
-			case CUSTOM: impl.setText(ts.getClass().getName()); break;
+			case CUSTOM:
+				impl.setText(ts.getClass().getName());
+				break;
 			case CAST_SPELL:
 				CastSpell cs = (CastSpell)ts;
 				spell.setSelectedItem(cs.getSpellName());
@@ -352,7 +357,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				chestSouthTexture.setSelectedItem(c.getSouthTexture());
 				chestEastTexture.setSelectedItem(c.getEastTexture());
 				chestWestTexture.setSelectedItem(c.getWestTexture());
-				chestPreScript.setSelectedItem(c.getPreScript()==null?EditorPanel.NONE:c.getPreScript().getName());
+				chestPreScript.setSelectedItem(c.getPreScript() == null ? EditorPanel.NONE : c.getPreScript().getName());
 				break;
 			case LEVER:
 				Lever lever = (Lever)ts;
@@ -361,8 +366,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				leverSouthTexture.setSelectedItem(lever.getSouthTexture());
 				leverEastTexture.setSelectedItem(lever.getEastTexture());
 				leverWestTexture.setSelectedItem(lever.getWestTexture());
-				leverPreTransScript.setSelectedItem(lever.getPreTransitionScript()==null?EditorPanel.NONE:lever.getPreTransitionScript().getName());
-				leverPostTransScript.setSelectedItem(lever.getPostTransitionScript()==null?EditorPanel.NONE:lever.getPostTransitionScript().getName());
+				leverPreTransScript.setSelectedItem(lever.getPreTransitionScript() == null ? EditorPanel.NONE : lever.getPreTransitionScript().getName());
+				leverPostTransScript.setSelectedItem(lever.getPostTransitionScript() == null ? EditorPanel.NONE : lever.getPostTransitionScript().getName());
 				break;
 			case ENCOUNTER:
 				Encounter e = (Encounter)ts;
@@ -371,6 +376,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				encounterAttitude.setSelectedItem(e.getAttitude() == null ? EditorPanel.NONE : e.getAttitude());
 				encounterAmbushStatus.setSelectedItem(e.getAmbushStatus() == null ? EditorPanel.NONE : e.getAmbushStatus());
 				encounterPreScript.setSelectedItem(e.getPreScript() == null ? EditorPanel.NONE : e.getPreScript());
+				encounterPostAppearanceScript.setSelectedItem(e.getPostAppearanceScript() == null ? EditorPanel.NONE : e.getPostAppearanceScript());
 				break;
 			case FLAVOUR_TEXT:
 				FlavourText ft = (FlavourText)ts;
@@ -399,22 +405,22 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				toggleWallWallIndex.setValue(tw.getWallIndex());
 				toggleWallIsHoriz.setSelected(tw.isHorizontalWall());
 
-				state1Texture.setSelectedItem(tw.getState1Texture()==null?EditorPanel.NONE:tw.getState1Texture().getName());
-				state1MaskTexture.setSelectedItem(tw.getState1MaskTexture()==null?EditorPanel.NONE:tw.getState1MaskTexture().getName());
+				state1Texture.setSelectedItem(tw.getState1Texture() == null ? EditorPanel.NONE : tw.getState1Texture().getName());
+				state1MaskTexture.setSelectedItem(tw.getState1MaskTexture() == null ? EditorPanel.NONE : tw.getState1MaskTexture().getName());
 				state1Solid.setSelected(tw.isState1Solid());
 				state1Visible.setSelected(tw.isState1Visible());
 				state1Secret.setSelected(tw.isState1Secret());
 				state1Height.setValue(tw.getState1Height());
 
-				state2Texture.setSelectedItem(tw.getState2Texture()==null?EditorPanel.NONE:tw.getState2Texture().getName());
-				state2MaskTexture.setSelectedItem(tw.getState2MaskTexture()==null?EditorPanel.NONE:tw.getState2MaskTexture().getName());
+				state2Texture.setSelectedItem(tw.getState2Texture() == null ? EditorPanel.NONE : tw.getState2Texture().getName());
+				state2MaskTexture.setSelectedItem(tw.getState2MaskTexture() == null ? EditorPanel.NONE : tw.getState2MaskTexture().getName());
 				state2Solid.setSelected(tw.isState2Solid());
 				state2Visible.setSelected(tw.isState2Visible());
 				state2Secret.setSelected(tw.isState2Secret());
 				state2Height.setValue(tw.getState2Height());
 
-				preToggleScript.setSelectedItem(tw.getPreToggleScript()==null?EditorPanel.NONE:tw.getPreToggleScript());
-				postToggleScript.setSelectedItem(tw.getPostToggleScript()==null?EditorPanel.NONE:tw.getPostToggleScript());
+				preToggleScript.setSelectedItem(tw.getPreToggleScript() == null ? EditorPanel.NONE : tw.getPreToggleScript());
+				postToggleScript.setSelectedItem(tw.getPostToggleScript() == null ? EditorPanel.NONE : tw.getPostToggleScript());
 
 				break;
 			case EXECUTE_MAZE_EVENTS:
@@ -433,13 +439,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case HIDDEN_STUFF:
 				HiddenStuff hs = (HiddenStuff)ts;
 				hiddenStuffContents.setSelectedItem(hs.getContent().getName());
-				hiddenStuffPreScript.setSelectedItem(hs.getPreScript()==null?EditorPanel.NONE:hs.getPreScript().getName());
+				hiddenStuffPreScript.setSelectedItem(hs.getPreScript() == null ? EditorPanel.NONE : hs.getPreScript().getName());
 				hiddenStuffVariable.setText(hs.getMazeVariable());
 				hiddenStuffFindDifficulty.setValue(hs.getFindDifficulty());
 				break;
 			case WATER:
 				break;
-			default: throw new MazeException("Invalid type "+tsType);
+			default:
+				throw new MazeException("Invalid type " + tsType);
 		}
 	}
 
@@ -448,22 +455,38 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		switch (type)
 		{
-			case CUSTOM: return getCustomPanel();
-			case CAST_SPELL: return getCastSpellPanel();
-			case CHEST: return getChestPanel();
-			case LEVER: return getLeverPanel();
-			case ENCOUNTER: return getEncounterPanel();
-			case FLAVOUR_TEXT: return getFlavourTextPanel();
-			case PERSONALITY_SPEECH: return getPersonalitySpeechPanel();
-			case LOOT: return getLootPanel();
-			case REMOVE_WALL: return getRemoveWallPanel();
-			case TOGGLE_WALL: return getToggleWallPanel();
-			case EXECUTE_MAZE_EVENTS: return getExecuteMazeEventsPanel();
-			case SIGNBOARD: return getSignBoardPanel();
-			case SET_MAZE_VARIABLE: return getSetMazeVariablePanel();
-			case HIDDEN_STUFF: return getHiddenStuffPanel();
-			case WATER: return new JPanel();
-			default: throw new MazeException("Invalid type "+type);
+			case CUSTOM:
+				return getCustomPanel();
+			case CAST_SPELL:
+				return getCastSpellPanel();
+			case CHEST:
+				return getChestPanel();
+			case LEVER:
+				return getLeverPanel();
+			case ENCOUNTER:
+				return getEncounterPanel();
+			case FLAVOUR_TEXT:
+				return getFlavourTextPanel();
+			case PERSONALITY_SPEECH:
+				return getPersonalitySpeechPanel();
+			case LOOT:
+				return getLootPanel();
+			case REMOVE_WALL:
+				return getRemoveWallPanel();
+			case TOGGLE_WALL:
+				return getToggleWallPanel();
+			case EXECUTE_MAZE_EVENTS:
+				return getExecuteMazeEventsPanel();
+			case SIGNBOARD:
+				return getSignBoardPanel();
+			case SET_MAZE_VARIABLE:
+				return getSetMazeVariablePanel();
+			case HIDDEN_STUFF:
+				return getHiddenStuffPanel();
+			case WATER:
+				return new JPanel();
+			default:
+				throw new MazeException("Invalid type " + type);
 		}
 	}
 
@@ -472,14 +495,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		Vector<String> scripts = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
 		Collections.sort(scripts);
 		scripts.add(0, EditorPanel.NONE);
-		
+
 		hiddenStuffContents = new JComboBox(scripts);
 		hiddenStuffPreScript = new JComboBox(scripts);
 		hiddenStuffVariable = new JTextField(20);
-		hiddenStuffFindDifficulty = new JSpinner(new SpinnerNumberModel(1,0,127,1));
+		hiddenStuffFindDifficulty = new JSpinner(new SpinnerNumberModel(1, 0, 127, 1));
 
 		JButton edit = getMazeScriptEditButton();
-		
+
 		return dirtyGridBagCrap(
 			new JLabel("Maze Variable:"), hiddenStuffVariable,
 			new JLabel("Contents:"), hiddenStuffContents,
@@ -492,7 +515,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		setMazeVariableVariable = new JTextField(20);
 		setMazeVariableValue = new JTextField(20);
-		
+
 		return dirtyGridBagCrap(
 			new JLabel("Maze Variable:"), setMazeVariableVariable,
 			new JLabel("Value:"), setMazeVariableValue);
@@ -500,7 +523,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getSignBoardPanel()
 	{
-		signBoard = new JTextArea(20,30);
+		signBoard = new JTextArea(20, 30);
 		signBoard.setLineWrap(true);
 		signBoard.setWrapStyleWord(true);
 
@@ -573,7 +596,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		removeWallQuick.setToolTipText("Auto assign maz var");
 		removeWallWallIndex = new JSpinner(new SpinnerNumberModel(0, 0, 999999, 1));
 		removeWallIsHoriz = new JCheckBox("Horizontal?");
-		
+
 		return dirtyGridBagCrap(
 			removeWallQuick, removeWallMazeVariable,
 			new JLabel("Wall Index:"), removeWallWallIndex,
@@ -594,14 +617,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		state1Solid = new JCheckBox();
 		state1Visible = new JCheckBox();
 		state1Secret = new JCheckBox();
-		state1Height = new JSpinner(new SpinnerNumberModel(1,1,99,1));
+		state1Height = new JSpinner(new SpinnerNumberModel(1, 1, 99, 1));
 
 		state2Texture = new JComboBox();
 		state2MaskTexture = new JComboBox();
 		state2Solid = new JCheckBox();
 		state2Visible = new JCheckBox();
 		state2Secret = new JCheckBox();
-		state2Height = new JSpinner(new SpinnerNumberModel(1,1,99,1));
+		state2Height = new JSpinner(new SpinnerNumberModel(1, 1, 99, 1));
 
 		preToggleScript = new JComboBox();
 		postToggleScript = new JComboBox();
@@ -638,7 +661,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			new JLabel("Mask Texture:"), state2MaskTexture,
 			new JLabel("Solid?"), state2Solid,
 			new JLabel("Visible?"), state2Visible,
-			new JLabel("Secret?"),state2Secret,
+			new JLabel("Secret?"), state2Secret,
 			new JLabel("Height:"), state2Height,
 			new JLabel("Pre toggle script:"), preToggleScript,
 			new JLabel("Post toggle script:"), postToggleScript,
@@ -670,7 +693,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getFlavourTextPanel()
 	{
-		flavourText = new JTextArea(20,30);
+		flavourText = new JTextArea(20, 30);
 		flavourText.setLineWrap(true);
 		flavourText.setWrapStyleWord(true);
 
@@ -704,12 +727,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		vec2.add(0, EditorPanel.NONE);
 		encounterPreScript = new JComboBox<>(vec2);
 
+		encounterPostAppearanceScript = new JComboBox<>(vec2);
+
 		return dirtyGridBagCrap(
 			new JLabel("Encounter Table:"), encounterTable,
 			encounterQuickAssignMazeVar, encounterVariable,
 			new JLabel("Attitude:"), encounterAttitude,
 			new JLabel("Ambush Status:"), encounterAmbushStatus,
-			new JLabel("Pre Script:"), encounterPreScript
+			new JLabel("Pre Script:"), encounterPreScript,
+			new JLabel("Post Appearance Script:"), encounterPostAppearanceScript
 		);
 	}
 
@@ -720,47 +746,47 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		trap = new TrapPercentageTablePanel("Trap", SwingEditor.Tab.SCRIPTS, 0.5, 0.5);
 		trap.initForeignKeys();
 		chestContents = new SingleTileScriptComponent(dirtyFlag, zone);
-		
+
 		Vector<String> textures = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
-		
+
 		chestMazeVariable = new JTextField(20);
 		chestNorthTexture = new JComboBox(textures);
 		chestSouthTexture = new JComboBox(textures);
 		chestEastTexture = new JComboBox(textures);
 		chestWestTexture = new JComboBox(textures);
-		
+
 		Vector<String> scripts = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
 		Collections.sort(scripts);
 		scripts.add(0, EditorPanel.NONE);
-		
+
 		chestPreScript = new JComboBox(scripts);
 
 		JButton edit = getMazeScriptEditButton();
 
 		Component[] comps = new Component[]
-		{
-			new JLabel("Chest Contents:"), chestContents, 
-			new JLabel("Maze Variable:"), chestMazeVariable,
-			new JLabel("North Texture:"), chestNorthTexture,
-			new JLabel("South Texture:"), chestSouthTexture,
-			new JLabel("East Texture:"), chestEastTexture,
-			new JLabel("West Texture:"), chestWestTexture,
-			new JLabel("Pre Script:"), chestPreScript,
-			new JLabel(), edit
-		};
+			{
+				new JLabel("Chest Contents:"), chestContents,
+				new JLabel("Maze Variable:"), chestMazeVariable,
+				new JLabel("North Texture:"), chestNorthTexture,
+				new JLabel("South Texture:"), chestSouthTexture,
+				new JLabel("East Texture:"), chestEastTexture,
+				new JLabel("West Texture:"), chestWestTexture,
+				new JLabel("Pre Script:"), chestPreScript,
+				new JLabel(), edit
+			};
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
-		for (int i=0; i< comps.length; i+=2)
+		for (int i = 0; i < comps.length; i += 2)
 		{
-			dodgyGridBagShite(result, comps[i], comps[i+1], gbc);
+			dodgyGridBagShite(result, comps[i], comps[i + 1], gbc);
 		}
 
-		gbc.gridx=0;
-		gbc.weighty=1.0;
-		gbc.gridwidth=2;
+		gbc.gridx = 0;
+		gbc.weighty = 1.0;
+		gbc.gridwidth = 2;
 		result.add(trap, gbc);
-		
+
 		return result;
 	}
 
@@ -800,26 +826,26 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		mazeVarPanel.add(quickMazeVar);
 
 		Component[] comps = new Component[]
-		{
-			new JLabel("Maze Variable:"), mazeVarPanel,
-			northTextureButton, leverNorthTexture,
-			new JLabel("South Texture:"), leverSouthTexture,
-			new JLabel("East Texture:"), leverEastTexture,
-			new JLabel("West Texture:"), leverWestTexture,
-			new JLabel("Pre-transition Script:"), leverPreTransScript,
-			new JLabel("Post-transition Script:"), leverPostTransScript,
-			new JLabel(), edit
-		};
+			{
+				new JLabel("Maze Variable:"), mazeVarPanel,
+				northTextureButton, leverNorthTexture,
+				new JLabel("South Texture:"), leverSouthTexture,
+				new JLabel("East Texture:"), leverEastTexture,
+				new JLabel("West Texture:"), leverWestTexture,
+				new JLabel("Pre-transition Script:"), leverPreTransScript,
+				new JLabel("Post-transition Script:"), leverPostTransScript,
+				new JLabel(), edit
+			};
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
-		for (int i=0; i< comps.length; i+=2)
+		for (int i = 0; i < comps.length; i += 2)
 		{
-			dodgyGridBagShite(result, comps[i], comps[i+1], gbc);
+			dodgyGridBagShite(result, comps[i], comps[i + 1], gbc);
 		}
 
-		gbc.gridx=0;
-		gbc.weighty=1.0;
-		gbc.gridwidth=2;
+		gbc.gridx = 0;
+		gbc.weighty = 1.0;
+		gbc.gridwidth = 2;
 		result.add(new JPanel(), gbc);
 
 		return result;
@@ -850,9 +876,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		JPanel result = new JPanel(new GridBagLayout());
 		GridBagConstraints gbc = createGridBagConstraints();
-		for (int i=0; i<comps.length; i+=2)
+		for (int i = 0; i < comps.length; i += 2)
 		{
-			dodgyGridBagShite(result, comps[i], comps[i+1], gbc);
+			dodgyGridBagShite(result, comps[i], comps[i + 1], gbc);
 		}
 
 		gbc.weighty = 1.0;
@@ -862,10 +888,11 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected void dodgyGridBagShite(JPanel panel, Component a, Component b, GridBagConstraints gbc)
+	protected void dodgyGridBagShite(JPanel panel, Component a, Component b,
+		GridBagConstraints gbc)
 	{
 		gbc.weightx = 0.0;
-		gbc.gridx=0;
+		gbc.gridx = 0;
 		panel.add(a, gbc);
 		gbc.weightx = 1.0;
 		gbc.gridx++;
@@ -876,7 +903,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	protected GridBagConstraints createGridBagConstraints()
 	{
 		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(2,2,2,2);
+		gbc.insets = new Insets(2, 2, 2, 2);
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 1;
@@ -892,22 +919,38 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		switch (type)
 		{
-			case CUSTOM: return "Custom";
-			case CAST_SPELL: return "Cast Spell At Party";
-			case CHEST: return "Chest";
-			case LEVER: return "Lever";
-			case ENCOUNTER: return "Encounter";
-			case FLAVOUR_TEXT: return "Flavour Text";
-			case PERSONALITY_SPEECH: return "Personality Speech";
-			case LOOT: return "Loot";
-			case REMOVE_WALL: return "Remove Wall";
-			case TOGGLE_WALL: return "Toggle Wall";
-			case EXECUTE_MAZE_EVENTS: return "Execute Maze Script";
-			case SIGNBOARD: return "Sign Board";
-			case SET_MAZE_VARIABLE: return "Set Maze Variable";
-			case HIDDEN_STUFF: return "Hidden Stuff";
-			case WATER: return "Water";
-			default: throw new MazeException("Invalid type "+type);
+			case CUSTOM:
+				return "Custom";
+			case CAST_SPELL:
+				return "Cast Spell At Party";
+			case CHEST:
+				return "Chest";
+			case LEVER:
+				return "Lever";
+			case ENCOUNTER:
+				return "Encounter";
+			case FLAVOUR_TEXT:
+				return "Flavour Text";
+			case PERSONALITY_SPEECH:
+				return "Personality Speech";
+			case LOOT:
+				return "Loot";
+			case REMOVE_WALL:
+				return "Remove Wall";
+			case TOGGLE_WALL:
+				return "Toggle Wall";
+			case EXECUTE_MAZE_EVENTS:
+				return "Execute Maze Script";
+			case SIGNBOARD:
+				return "Sign Board";
+			case SET_MAZE_VARIABLE:
+				return "Set Maze Variable";
+			case HIDDEN_STUFF:
+				return "Hidden Stuff";
+			case WATER:
+				return "Water";
+			default:
+				throw new MazeException("Invalid type " + type);
 		}
 	}
 
@@ -954,7 +997,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				return;
 			}
 
-			executeOnceMazeVariable.setText(getExecuteOnceMazeVariable(zone));			
+			executeOnceMazeVariable.setText(getExecuteOnceMazeVariable(zone));
 		}
 		else if (e.getSource() == encounterQuickAssignMazeVar)
 		{
@@ -962,7 +1005,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			{
 				return;
 			}
-			
+
 			encounterVariable.setText(getEncounterMazeVariable(zone));
 		}
 		else if (e.getSource() == removeWallQuick)
@@ -1173,7 +1216,48 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			}
 		}
 
-		// todo: search portals, click scripts, etc
+		List<Wall> walls = new Vector<>(Arrays.asList(zone.getMap().getHorizontalWalls()));
+		walls.addAll(Arrays.asList(zone.getMap().getVerticalWalls()));
+		for (Wall w : walls)
+		{
+			if (w.getMouseClickScript() != null)
+			{
+				TileScript s = ((MouseClickScriptAdapter)w.getMouseClickScript()).getScript();
+				if (s instanceof ToggleWall)
+				{
+					if (((ToggleWall)s).getMazeVariable() != null)
+					{
+						existingMazeVars.add(((ToggleWall)s).getMazeVariable());
+					}
+				}
+			}
+
+			if (w.getMaskTextureMouseClickScript() != null)
+			{
+				TileScript s = ((MouseClickScriptAdapter)w.getMaskTextureMouseClickScript()).getScript();
+				if (s instanceof ToggleWall)
+				{
+					if (((ToggleWall)s).getMazeVariable() != null)
+					{
+						existingMazeVars.add(((ToggleWall)s).getMazeVariable());
+					}
+				}
+			}
+
+			if (w.getInternalScript() != null)
+			{
+				TileScript s = ((MouseClickScriptAdapter)w.getInternalScript()).getScript();
+				if (s instanceof ToggleWall)
+				{
+					if (((ToggleWall)s).getMazeVariable() != null)
+					{
+						existingMazeVars.add(((ToggleWall)s).getMazeVariable());
+					}
+				}
+			}
+		}
+
+		// todo: search portals
 
 		// iterate over our template string and take the first available one
 		return constructMazeVar(zone, existingMazeVars, ".toggle.wall.");
@@ -1210,22 +1294,22 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case CHEST:
 				MazeScript script = (chestPreScript.getSelectedItem() == EditorPanel.NONE) ?
-					null:Database.getInstance().getMazeScript((String)chestPreScript.getSelectedItem());
+					null : Database.getInstance().getMazeScript((String)chestPreScript.getSelectedItem());
 				result = new Chest(
 					chestContents.getScript(),
-					trap.getPercentageTable(), 
+					trap.getPercentageTable(),
 					chestMazeVariable.getText(),
 					(String)chestNorthTexture.getSelectedItem(),
 					(String)chestSouthTexture.getSelectedItem(),
 					(String)chestEastTexture.getSelectedItem(),
-					(String)chestWestTexture.getSelectedItem(), 
+					(String)chestWestTexture.getSelectedItem(),
 					script);
 				break;
 			case LEVER:
 				MazeScript preTransScript = (leverPreTransScript.getSelectedItem() == EditorPanel.NONE) ?
-					null:Database.getInstance().getMazeScript((String)leverPreTransScript.getSelectedItem());
+					null : Database.getInstance().getMazeScript((String)leverPreTransScript.getSelectedItem());
 				MazeScript postTransScript = (leverPostTransScript.getSelectedItem() == EditorPanel.NONE) ?
-					null:Database.getInstance().getMazeScript((String)leverPostTransScript.getSelectedItem());
+					null : Database.getInstance().getMazeScript((String)leverPostTransScript.getSelectedItem());
 
 				result = new Lever(
 					(String)leverNorthTexture.getSelectedItem(),
@@ -1240,12 +1324,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				NpcFaction.Attitude attitude = encounterAttitude.getSelectedItem() == EditorPanel.NONE ? null : (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
 				Combat.AmbushStatus ambushStatus = encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE ? null : (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
 				String encPreScript = encounterPreScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPreScript.getSelectedItem();
+				String encPostAppearanceScript = encounterPostAppearanceScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPostAppearanceScript.getSelectedItem();
 				result = new Encounter(
 					Database.getInstance().getEncounterTable((String)encounterTable.getSelectedItem()),
 					encounterVariable.getText(),
 					attitude,
 					ambushStatus,
-					encPreScript);
+					encPreScript,
+					encPostAppearanceScript);
 				break;
 			case FLAVOUR_TEXT:
 				result = new FlavourText(flavourText.getText());
@@ -1258,7 +1344,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case REMOVE_WALL:
 				result = new RemoveWall(
-					removeWallMazeVariable.getText(), 
+					removeWallMazeVariable.getText(),
 					(Integer)removeWallWallIndex.getValue(),
 					removeWallIsHoriz.isSelected());
 				break;
@@ -1266,22 +1352,22 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				result = new ToggleWall(
 					toggleWallMazeVariable.getText(), (Integer)toggleWallWallIndex.getValue(), toggleWallIsHoriz.isSelected(),
 
-					EditorPanel.NONE==state1Texture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state1Texture.getSelectedItem()).getTexture(),
-					EditorPanel.NONE==state1MaskTexture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state1MaskTexture.getSelectedItem()).getTexture(),
+					EditorPanel.NONE == state1Texture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state1Texture.getSelectedItem()).getTexture(),
+					EditorPanel.NONE == state1MaskTexture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state1MaskTexture.getSelectedItem()).getTexture(),
 					state1Visible.isSelected(),
 					state1Solid.isSelected(),
 					state1Secret.isSelected(),
 					(Integer)state1Height.getValue(),
 
-					EditorPanel.NONE==state2Texture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state2Texture.getSelectedItem()).getTexture(),
-					EditorPanel.NONE==state2MaskTexture.getSelectedItem()?null:Database.getInstance().getMazeTexture((String)state2MaskTexture.getSelectedItem()).getTexture(),
+					EditorPanel.NONE == state2Texture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state2Texture.getSelectedItem()).getTexture(),
+					EditorPanel.NONE == state2MaskTexture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state2MaskTexture.getSelectedItem()).getTexture(),
 					state2Visible.isSelected(),
 					state2Solid.isSelected(),
 					state2Secret.isSelected(),
 					(Integer)state2Height.getValue(),
 
-					EditorPanel.NONE==preToggleScript.getSelectedItem()?null: (String)preToggleScript.getSelectedItem(),
-					EditorPanel.NONE==postToggleScript.getSelectedItem()?null: (String)postToggleScript.getSelectedItem());
+					EditorPanel.NONE == preToggleScript.getSelectedItem() ? null : (String)preToggleScript.getSelectedItem(),
+					EditorPanel.NONE == postToggleScript.getSelectedItem() ? null : (String)postToggleScript.getSelectedItem());
 
 				break;
 			case EXECUTE_MAZE_EVENTS:
@@ -1307,9 +1393,10 @@ public class TileScriptEditor extends JDialog implements ActionListener
 			case WATER:
 				result = new Water();
 				break;
-			default: throw new MazeException("Invalid type "+srType);
+			default:
+				throw new MazeException("Invalid type " + srType);
 		}
-		
+
 		if (executeOnceMazeVariable.getText() != null && executeOnceMazeVariable.getText().length() > 0)
 		{
 			result.setExecuteOnceMazeVariable(executeOnceMazeVariable.getText());
@@ -1318,19 +1405,31 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		{
 			result.setExecuteOnceMazeVariable(null);
 		}
-		
+
 		if (north.isSelected() || south.isSelected() || east.isSelected() || west.isSelected())
 		{
 			BitSet bs = new BitSet();
-			if (north.isSelected()) bs.set(CrusaderEngine.Facing.NORTH);
-			if (south.isSelected()) bs.set(CrusaderEngine.Facing.SOUTH);
-			if (east.isSelected()) bs.set(CrusaderEngine.Facing.EAST);
-			if (west.isSelected()) bs.set(CrusaderEngine.Facing.WEST);
+			if (north.isSelected())
+			{
+				bs.set(CrusaderEngine.Facing.NORTH);
+			}
+			if (south.isSelected())
+			{
+				bs.set(CrusaderEngine.Facing.SOUTH);
+			}
+			if (east.isSelected())
+			{
+				bs.set(CrusaderEngine.Facing.EAST);
+			}
+			if (west.isSelected())
+			{
+				bs.set(CrusaderEngine.Facing.WEST);
+			}
 			result.setFacings(bs);
 		}
 
 		result.setScoutSecretDifficulty((Integer)scoutSecretDifficulty.getValue());
-		
+
 		result.setReexecuteOnSameTile(reexecuteOnSameTile.isSelected());
 	}
 
@@ -1343,11 +1442,11 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 		JFrame owner = new JFrame("test");
 		owner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		while (1==1)
+		while (1 == 1)
 		{
 			TileScriptEditor test = new TileScriptEditor(
-				owner, 
-				new CastSpell("Force Bolt", 2, 3), 
+				owner,
+				new CastSpell("Force Bolt", 2, 3),
 				-1,
 				null);
 			System.out.println("test.result = [" + test.result + "]");

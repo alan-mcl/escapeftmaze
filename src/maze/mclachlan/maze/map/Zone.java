@@ -131,7 +131,7 @@ public class Zone extends DataObject
 				actors.add(fg);
 
 				ActorEncounter actorEncounter = new ActorEncounter(
-					actors, null, null, Combat.AmbushStatus.NONE, npc.getScript().preAppearance());
+					actors, null, null, Combat.AmbushStatus.NONE, npc.getScript().preAppearance(), null);
 				Maze.getInstance().encounterActors(actorEncounter);
 			}
 		}

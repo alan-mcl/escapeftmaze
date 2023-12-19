@@ -279,6 +279,8 @@ public class V1MazeEvent
 				s.append(ee.getAmbushStatus()==null?"":ee.getAmbushStatus().name());
 				s.append(SEP);
 				s.append(ee.getPreScript()==null?"":ee.getPreScript());
+				s.append(SEP);
+				s.append(ee.getPostAppearanceScript()==null?"":ee.getPostAppearanceScript());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -508,14 +510,15 @@ public class V1MazeEvent
 				String mazeVariable = strs.length > 2 ? strs[2] : null;
 				NpcFaction.Attitude attitude = null;
 				Combat.AmbushStatus ambushStatus = null;
-				String preScript = null;
+				String preScript = null, postAppearanceScript = null;
 				if (strs.length > 3)
 				{
 					attitude = "".equals(strs[3]) ? null : NpcFaction.Attitude.valueOf(strs[3]);
 					ambushStatus = "".equals(strs[4]) ? null : Combat.AmbushStatus.valueOf(strs[4]);
 					preScript = "".equals(strs[5])?null:strs[5];
+					postAppearanceScript = "".equals(strs[6])?null:strs[6];
 				}
-				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus, preScript);
+				return new EncounterActorsEvent(mazeVariable, encounterTable, attitude, ambushStatus, preScript, postAppearanceScript);
 			case _FlavourTextEvent:
 				int delay = Integer.parseInt(strs[1]);
 				boolean shouldClearTest = Boolean.valueOf(strs[2]);

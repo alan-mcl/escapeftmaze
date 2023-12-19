@@ -38,7 +38,7 @@ public class ActorEncounter
 	private NpcFaction.Attitude encounterAttitude;
 	private Combat.AmbushStatus ambushStatus;
 	private final UnifiedActor leader;
-	private final List<MazeEvent> preScript;
+	private final List<MazeEvent> preScript, postAppearanceScript;
 
 	/*-------------------------------------------------------------------------*/
 	public ActorEncounter(
@@ -46,13 +46,15 @@ public class ActorEncounter
 		String mazeVar,
 		NpcFaction.Attitude encounterAttitude,
 		Combat.AmbushStatus ambushStatus,
-		List<MazeEvent> preScript)
+		List<MazeEvent> preScript,
+		List<MazeEvent> postAppearanceScript)
 	{
 		this.encounterAttitude = encounterAttitude;
 		this.actors = actors;
 		this.mazeVar = mazeVar;
 		this.ambushStatus = ambushStatus;
 		this.preScript = preScript;
+		this.postAppearanceScript = postAppearanceScript;
 		leader = GameSys.getInstance().getLeader(this.actors);
 	}
 
@@ -270,5 +272,10 @@ public class ActorEncounter
 	public List<MazeEvent> getPreScript()
 	{
 		return preScript;
+	}
+
+	public List<MazeEvent> getPostAppearanceScript()
+	{
+		return postAppearanceScript;
 	}
 }

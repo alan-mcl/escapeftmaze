@@ -709,7 +709,7 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							this.encounterActors(new ActorEncounter(foes, null, null, null, null));
+							this.encounterActors(new ActorEncounter(foes, null, null, null, null, null));
 						}
 					}
 				}
@@ -1797,7 +1797,7 @@ public class Maze implements Runnable
 		}
 
 		Maze.this.currentActorEncounter =
-			new ActorEncounter(actors, mazeVar, attitude, ambushStatus, actorEncounter.getPreScript());
+			new ActorEncounter(actors, mazeVar, attitude, ambushStatus, actorEncounter.getPreScript(), actorEncounter.getPostAppearanceScript());
 
 		// first, any pre-encounter events need to be executed
 		if (currentActorEncounter.getPreScript() != null)
@@ -1867,6 +1867,12 @@ public class Maze implements Runnable
 					case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
 						getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
 						break;
+				}
+
+				// any post-appearance events from the encounter
+				if (currentActorEncounter.getPostAppearanceScript() != null)
+				{
+					result.addAll(currentActorEncounter.getPostAppearanceScript());
 				}
 
 				if (!leader.isFound())

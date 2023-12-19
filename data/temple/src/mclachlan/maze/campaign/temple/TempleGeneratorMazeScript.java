@@ -134,6 +134,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 				mazeVar,
 				NpcFaction.Attitude.ATTACKING,
 				Combat.AmbushStatus.NONE,
+				null,
 				null);
 		}
 	}

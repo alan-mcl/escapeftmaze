@@ -28,7 +28,7 @@ name=Gatehouse encounter 1 cruds
 0=13,sound - crud
 1=4,-1,false,With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!
 2=11,-1,-1,1
-3=3,gatehouse.level.1.cruds,gatehouse.encounter.cruds.intro,,FOES_MAY_AMBUSH_PARTY,
+3=3,gatehouse.level.1.cruds,gatehouse.encounter.cruds.intro,,FOES_MAY_AMBUSH_PARTY,,
 @
 name=sound - ninjastab
 0=138,63985__iwilldstroyu__quickstab1
@@ -53,7 +53,7 @@ name=Ekirth's Tomb to Crypt Of Atrocities
 @
 name=test script
 0=18,hello world,true
-1=3,TestingTable,xxxxxxxx,ATTACKING,PARTY_MAY_AMBUSH_FOES,
+1=3,TestingTable,xxxxxxxx,ATTACKING,PARTY_MAY_AMBUSH_FOES,,
 @
 name=Danaos Castle feasting hall flava
 0=4,-1,true,You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.
@@ -105,7 +105,7 @@ name=Sir Kay Death
 @
 name=Gatehouse angry swarms encounter
 0=4,-1,true,Stepping through the door, you are assailed by swarms of angry insects!
-1=3,gatehouse.angry.swarms,gatehouse.encounter.angry.swarms,,NONE,
+1=3,gatehouse.angry.swarms,gatehouse.encounter.angry.swarms,,NONE,,
 @
 name=willow arrow from player
 0=138,50773__smcameron__arrow_whoosh
@@ -234,7 +234,7 @@ name=Danaos Dungeon to Castle
 name=Gatehouse malignant widow encounter
 0=4,-1,true,You enter the dank chamber.  Small clumps of fungi give off a sickly radiance, and moving amongst the stalks are a number of large spiders.
 1=4,-1,true,The arachnids pause and regard you in silence for a moment. Then as one they scuttle towards you, an uncanny malice glittering in their dark eyes.
-2=3,gatehouse.malignant.widows,gatehouse.encounter.malignant.widows,,,
+2=3,gatehouse.malignant.widows,gatehouse.encounter.malignant.widows,,,,
 @
 name=bullet stone from foe
 0=138,50773__smcameron__arrow_whoosh
@@ -283,7 +283,7 @@ name=Gatehouse block golem encounter
 0=4,-1,true,Standing in the middle of the chamber is a large humanoid stone construct.
 1=18,default.gatehouse.block.golem,true
 2=4,-1,true,The eyes of the stone construct flare to life and it lumbers towards you...
-3=3,gatehouse.block.golem,gatehouse.encounter.block.golem,,,
+3=3,gatehouse.block.golem,gatehouse.encounter.block.golem,,,,
 @
 name=Ichiba City wanted signboard
 0=8,WANTED%nDEAD OR ALIVE%nBounty collectable at C.O.C.
@@ -339,7 +339,7 @@ name=Hianbian Yenluo encounter
 2=4,-1,false,%nSuddenly, your eyes register a blur of motion. With speed that takes your breath away a deadly looking insectoid figure appears before you. Behind it, the still waters are disturbed as black garbed warriors spring from the pools, discarding breathing tubes.
 3=4,-1,false,%nThe mantis pauses for a moment and flexes it's limbs with fearsome purpose, then flashes towards you in attack.
 4=18,default.hianbian.yenluo.encounter,true
-5=3,yenluo.encounter,hianbian.yenluo.encounter,,,
+5=3,yenluo.encounter,hianbian.yenluo.encounter,,,,
 @
 name=Caves Of Ilast to Plain Of Pillars
 0=138,24003__Erdie__mega_thunder
@@ -480,7 +480,7 @@ name=Isle Of The Gate to Ekirth's Tomb
 @
 name=Caves Of Ilast Brass Pillar
 0=4,-1,true,You strike the hollow brass pillar hard with a nearby rock.%n%nA loud CLANG echoes through the caves...
-1=3,caves.of.ilast.random.enc,null,,,
+1=3,caves.of.ilast.random.enc,null,,,,
 @
 name=Ichiba Depths to City (gnolls)
 0=1,Ichiba City,15,8,0
@@ -721,7 +721,7 @@ name=Stygios Forest to Danaos Dungeon
 @
 name=Gatehouse encounter 1 bats
 0=4,-1,false,With a flurry of wings, you are suddenly assaulted from above!
-1=3,gatehouse.level.1.bats,gatehouse.encounter.1.bats,ATTACKING,NONE,
+1=3,gatehouse.level.1.bats,gatehouse.encounter.1.bats,ATTACKING,NONE,,
 @
 name=quarrel from player
 0=138,50773__smcameron__arrow_whoosh
@@ -799,8 +799,8 @@ name=sound - buzz
 0=138,35089__Erdie__bee_colony_1
 @
 name=Gatehouse feral familiar encounter
-0=4,-1,false,You meet a small, fierce looking creature scratching amidst the debris in this room you.
-1=4,-1,false,I freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non violently ... but then the creatures eyes blaze with fury and it moves to attack!
+0=4,-1,false,You find a small, fierce looking creature rooting and scratching in the debris in this room.
+1=4,-1,false,It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creatures eyes blaze with fury and it moves to attack!
 @
 name=sound - air elemental
 0=138,17645__Cyril_Laurier__Wind

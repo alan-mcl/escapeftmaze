@@ -31,6 +31,6 @@ public class IchibaGnollEncounters extends TileScript
 	public List<MazeEvent> getEncounter()
 	{
 		return getList(
-			new EncounterActorsEvent(null, "gnoll.village.allies.on.call", null, null, null));
+			new EncounterActorsEvent(null, "gnoll.village.allies.on.call", null, null, null, null));
 	}
 }

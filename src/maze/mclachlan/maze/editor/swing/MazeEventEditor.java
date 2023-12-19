@@ -77,7 +77,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField encounterMazeVariable;
 	private JComboBox encounterAttitude;
 	private JComboBox encounterAmbushStatus;
-	private JComboBox encounterPreScript;
+	private JComboBox encounterPreScript, encounterPostAppearanceScript;
 	private JSpinner flavourTextDelay;
 	private JCheckBox shouldClearText;
 	private JTextArea flavourText;
@@ -215,30 +215,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				EncounterActorsEvent ee = (EncounterActorsEvent)e;
 				encounterMazeVariable.setText(ee.getMazeVariable());
 				encounterTable.setSelectedItem(ee.getEncounterTable());
-				if (ee.getAttitude() == null)
-				{
-					encounterAttitude.setSelectedItem(EditorPanel.NONE);
-				}
-				else
-				{
-					encounterAttitude.setSelectedItem(ee.getAttitude());
-				}
-				if (ee.getAmbushStatus() == null)
-				{
-					encounterAmbushStatus.setSelectedItem(Combat.AmbushStatus.NONE);
-				}
-				else
-				{
-					encounterAmbushStatus.setSelectedItem(ee.getAmbushStatus());
-				}
-				if (ee.getPreScript() == null)
-				{
-					encounterPreScript.setSelectedItem(EditorPanel.NONE);
-				}
-				else
-				{
-					encounterPreScript.setSelectedItem(ee.getPreScript());
-				}
+				encounterAttitude.setSelectedItem(ee.getAttitude() == null ? EditorPanel.NONE : ee.getAttitude());
+				encounterAmbushStatus.setSelectedItem(ee.getAmbushStatus() == null ? Combat.AmbushStatus.NONE : ee.getAmbushStatus());
+				encounterPreScript.setSelectedItem(ee.getPreScript() == null ? EditorPanel.NONE : ee.getPreScript());
+				encounterPostAppearanceScript.setSelectedItem(ee.getPostAppearanceScript() == null ? EditorPanel.NONE : ee.getPostAppearanceScript());
 				break;
 			case _FlavourTextEvent:
 				FlavourTextEvent fte = (FlavourTextEvent)e;
@@ -448,42 +428,18 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					(Integer)castingLevel.getValue());
 				break;
 			case _EncounterActorsEvent:
-				NpcFaction.Attitude attitude;
-				if (encounterAttitude.getSelectedItem() == EditorPanel.NONE)
-				{
-					attitude = null;
-				}
-				else
-				{
-					attitude = (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
-				}
-
-				Combat.AmbushStatus ambushStatus;
-				if (encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE)
-				{
-					ambushStatus = null;
-				}
-				else
-				{
-					ambushStatus = (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
-				}
-
-				String preScript;
-				if (encounterPreScript.getSelectedItem() == EditorPanel.NONE)
-				{
-					preScript = null;
-				}
-				else
-				{
-					preScript = (String)encounterPreScript.getSelectedItem();
-				}
+				NpcFaction.Attitude attitude = encounterAttitude.getSelectedItem() == EditorPanel.NONE ? null : (NpcFaction.Attitude)encounterAttitude.getSelectedItem();
+				Combat.AmbushStatus ambushStatus = encounterAmbushStatus.getSelectedItem() == EditorPanel.NONE ? null : (Combat.AmbushStatus)encounterAmbushStatus.getSelectedItem();
+				String preScript = encounterPreScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPreScript.getSelectedItem();
+				String postAppearanceScript = encounterPostAppearanceScript.getSelectedItem() == EditorPanel.NONE ? null : (String)encounterPostAppearanceScript.getSelectedItem();
 
 				this.result = new EncounterActorsEvent(
 					encounterMazeVariable.getText(),
 					(String)encounterTable.getSelectedItem(),
 					attitude,
 					ambushStatus,
-					preScript);
+					preScript,
+					postAppearanceScript);
 				break;
 			case _FlavourTextEvent:
 				this.result = new FlavourTextEvent(
@@ -1099,6 +1055,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		vec2.add(0, EditorPanel.NONE);
 		encounterPreScript = new JComboBox(vec2);
 
+		encounterPostAppearanceScript = new JComboBox(vec2);
+
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
@@ -1106,7 +1064,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			new JLabel("Maze Variable: "), encounterMazeVariable,
 			new JLabel("Attitude: "), encounterAttitude,
 			new JLabel("Ambush Status: "), encounterAmbushStatus,
-			new JLabel("Pre Script: "), encounterPreScript
+			new JLabel("Pre Script: "), encounterPreScript,
+			new JLabel("Post Appearance Script: "), encounterPostAppearanceScript
 			);
 		return result;
 	}
