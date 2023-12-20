@@ -32,8 +32,8 @@ import mclachlan.maze.stat.combat.Combat;
  */
 public class EndCombatRoundEvent extends MazeEvent
 {
-	private Maze maze;
-	private Combat combat;
+	private final Maze maze;
+	private final Combat combat;
 
 	/*-------------------------------------------------------------------------*/
 	public EndCombatRoundEvent(Maze maze, Combat combat)
@@ -47,7 +47,8 @@ public class EndCombatRoundEvent extends MazeEvent
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-		ListIterator<FoeGroup> foeGroupListIterator = combat.getFoes().listIterator();
+		List<FoeGroup> foes = combat.getFoes();
+		ListIterator<FoeGroup> foeGroupListIterator = foes.listIterator();
 		while (foeGroupListIterator.hasNext())
 		{
 			FoeGroup fg = (FoeGroup)foeGroupListIterator.next();
@@ -58,12 +59,45 @@ public class EndCombatRoundEvent extends MazeEvent
 			}
 		}
 
+		// foe groups can advance or retreat
+		FoeGroup[] strongestAndWeakestFoeGroups = combat.getStrongestAndWeakestFoeGroups();
+		FoeGroup strongest = strongestAndWeakestFoeGroups[0];
+		FoeGroup weakest = strongestAndWeakestFoeGroups[1];
+
+		if (foes.size() > 1)
+		{
+			if (strongest != weakest && strongest != null && weakest != null)
+			{
+				if (foes.indexOf(strongest) > 0)
+				{
+					String verb = "advance";
+					if (strongest.getFoes().size() == 1)
+					{
+						verb += "s";
+					}
+					maze.getUi().addMessage(strongest.getDescription() + " " + verb + "!");
+					combat.advanceFoeGroup(strongest);
+				}
+
+				if (foes.size() > 2 && foes.indexOf(weakest) < foes.size()-1)
+				{
+					String verb = "retreat";
+					if (weakest.getFoes().size() == 1)
+					{
+						verb += "s";
+					}
+					maze.getUi().addMessage(weakest.getDescription()+ " " + verb + "!");
+					combat.retreatFoeGroup(weakest);
+				}
+			}
+		}
+
 		// todo: reorg foe sprites
 		maze.getUi().rebalanceFoeSprites(combat);
 
 		maze.reorderPartyIfPending();
 		GameSys.getInstance().attemptManualIdentification(
-			combat.getFoes(), maze.getParty(), combat.getRoundNr());
+			foes, maze.getParty(), combat.getRoundNr());
 
 		Maze.getInstance().incTurn(false);
 

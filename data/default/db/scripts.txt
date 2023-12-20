@@ -799,8 +799,8 @@ name=sound - buzz
 0=138,35089__Erdie__bee_colony_1
 @
 name=Gatehouse feral familiar encounter
-0=4,-1,false,You find a small, fierce looking creature rooting and scratching in the debris in this room.
-1=4,-1,false,It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creatures eyes blaze with fury and it moves to attack!
+0=4,-1,false,You find a small, fierce looking creature rooting and scratching in the barrels in this room.
+1=4,-1,false,It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creature's eyes blaze with fury and it moves to attack!
 @
 name=sound - air elemental
 0=138,17645__Cyril_Laurier__Wind

@@ -1442,7 +1442,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	@Override
 	public void rebalanceFoeSprites(Combat combat)
 	{
+		this.foeGroups = combat.getFoes();
 		ListIterator<FoeGroup> foeGroupListIterator = foeGroups.listIterator();
+		mazeWidget.setFoes(null);
 		while (foeGroupListIterator.hasNext())
 		{
 			FoeGroup fg = foeGroupListIterator.next();
@@ -1451,8 +1453,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			{
 				// time to remove this foe group
 				removeFoeGroupSprites(fg);
-				mazeWidget.removeFoeGroup(fg);
 				foeGroupListIterator.remove();
+			}
+			else
+			{
+				mazeWidget.addFoes(Collections.singletonList(fg));
 			}
 		}
 

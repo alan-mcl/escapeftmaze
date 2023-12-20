@@ -158,6 +158,87 @@ public class Combat
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	the "strongest" foe group in the combat
+	 */
+	public FoeGroup[] getStrongestAndWeakestFoeGroups()
+	{
+		FoeGroup strongest = null, weakest = null;
+		float max = Integer.MIN_VALUE;
+		float min = Integer.MAX_VALUE;
+
+		for (FoeGroup fg : this.foes)
+		{
+			float fgStr = 0;
+
+			// nr x level
+			fgStr += (fg.numActive() * fg.getAverageLevel());
+
+			// weighting to get combat foes at the front
+
+			switch (fg.getFoes().get(0).getFocus())
+			{
+				case COMBAT:
+					fgStr *= 2;
+					break;
+				case STEALTH:
+					fgStr *= 1.5;
+					break;
+				case MAGIC:
+					fgStr *= .5;
+					break;
+				default:
+					throw new MazeException("invalid "+fg.getFoes().get(0).getFocus());
+			}
+
+			if (fgStr > max)
+			{
+				strongest = fg;
+				max = fgStr;
+			}
+
+			if (fgStr < min)
+			{
+				weakest = fg;
+				min = fgStr;
+			}
+		}
+
+		if (strongest != null)
+		{
+			Maze.logDebug("Strongest FG [" + strongest.getDescription() + "] [" + max + "]");
+		}
+		if (weakest != null)
+		{
+			Maze.logDebug("Weakest FG [" + weakest.getDescription() + "] [" + min + "]");
+		}
+
+		return new FoeGroup[]{strongest, weakest};
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void advanceFoeGroup(FoeGroup foeGroup)
+	{
+		System.out.println("Combat.advanceFoeGroup");
+		int index = foes.indexOf(foeGroup);
+		int newIndex = index -1;
+
+		Collections.swap(foes, index, newIndex);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void retreatFoeGroup(FoeGroup foeGroup)
+	{
+		System.out.println("Combat.retreatFoeGroup");
+		int index = foes.indexOf(foeGroup);
+		int newIndex = index +1;
+
+		Collections.swap(foes, index, newIndex);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void addFoeAllies(List<FoeGroup> allies)
 	{
 		this.foes.addAll(allies);
