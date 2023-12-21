@@ -86,10 +86,30 @@ public class V1CrusaderObjectScript
 				s.append(jv.getMinSpeed());
 				s.append(SEP);
 				s.append(jv.getMaxSpeed());
+				s.append(SEP);
+				s.append(jv.getMinPause());
+				s.append(SEP);
+				s.append(jv.getMaxPause());
+				s.append(SEP);
+				s.append(jv.isPauseTop());
+				s.append(SEP);
+				s.append(jv.isPauseBottom());
+				s.append(SEP);
+				s.append(jv.isHomeTop());
+				s.append(SEP);
+				s.append(jv.isHomeBottom());
 				break;
 			case JAG_WITHIN_RADIUS:
 				JagObjectWithinRadius jwr = (JagObjectWithinRadius)script;
 				s.append(jwr.getMaxRadius());
+				s.append(SEP);
+				s.append(jwr.getMinSpeed());
+				s.append(SEP);
+				s.append(jwr.getMaxSpeed());
+				s.append(SEP);
+				s.append(jwr.getMinPause());
+				s.append(SEP);
+				s.append(jwr.getMaxPause());
 				break;
 			case SINUSOIDAL_STRETCH:
 				SinusoidalStretch ss = (SinusoidalStretch)script;
@@ -140,11 +160,23 @@ public class V1CrusaderObjectScript
 				int maxOffset = Integer.parseInt(strs[2]);
 				int minSpeed = Integer.parseInt(strs[3]);
 				int maxSpeed = Integer.parseInt(strs[4]);
-				return new JagObjectVertically(minOffset, maxOffset, minSpeed, maxSpeed);
+				int minPause = Integer.parseInt(strs[5]);
+				int maxPause = Integer.parseInt(strs[6]);
+				boolean pauseTop = Boolean.parseBoolean(strs[7]);
+				boolean pauseBottom = Boolean.parseBoolean(strs[8]);
+				boolean homeTop = Boolean.parseBoolean(strs[9]);
+				boolean homeBottom = Boolean.parseBoolean(strs[10]);
+				return new JagObjectVertically(
+					minOffset, maxOffset, minSpeed, maxSpeed,
+					minPause, maxPause, pauseTop, pauseBottom, homeTop, homeBottom);
 
 			case JAG_WITHIN_RADIUS:
 				int maxRadius = Integer.parseInt(strs[1]);
-				return new JagObjectWithinRadius(maxRadius);
+				minSpeed = Integer.parseInt(strs[2]);
+				maxSpeed = Integer.parseInt(strs[3]);
+				int jwrMminPause = Integer.parseInt(strs[4]);
+				int jwrMaxPause = Integer.parseInt(strs[5]);
+				return new JagObjectWithinRadius(maxRadius, minSpeed, maxSpeed, jwrMminPause, jwrMaxPause);
 
 			case SINUSOIDAL_STRETCH:
 				double minStretch = Double.parseDouble(strs[1]);

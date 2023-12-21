@@ -70,7 +70,9 @@ public class ObjectScriptEditor extends JDialog implements ActionListener
 	private JTextField impl;
 	private int dirtyFlag;
 
-	private JSpinner maxRadius, minSpeed, maxSpeed, minOffset, maxOffset;
+	private JSpinner jvMinSpeed, jvMaxSpeed, minOffset, maxOffset, jvMinPause, jvMaxPause;
+	private JCheckBox jvPauseTop, jvPauseBottom, jvHomeTop, jvHomeBottom;
+	private JSpinner maxRadius, jwrMinSpeed, jwrMaxSpeed, jwrMinPause, jwrMaxPause;
 	private JSpinner ssMinStretch, ssMaxStretch, ssSpeed;
 	private JCheckBox ssVertical, ssHorizontal;
 
@@ -153,12 +155,22 @@ public class ObjectScriptEditor extends JDialog implements ActionListener
 				JagObjectVertically jv = (JagObjectVertically)ms;
 				minOffset.setValue(jv.getMinOffset());
 				maxOffset.setValue(jv.getMaxOffset());
-				minSpeed.setValue(jv.getMinSpeed());
-				maxSpeed.setValue(jv.getMaxSpeed());
+				jvMinSpeed.setValue(jv.getMinSpeed());
+				jvMaxSpeed.setValue(jv.getMaxSpeed());
+				jvMinPause.setValue(jv.getMinPause());
+				jvMaxPause.setValue(jv.getMaxPause());
+				jvPauseTop.setSelected(jv.isPauseTop());
+				jvPauseBottom.setSelected(jv.isPauseBottom());
+				jvHomeTop.setSelected(jv.isHomeTop());
+				jvHomeBottom.setSelected(jv.isHomeBottom());
 				break;
 			case JAG_WITHIN_RADIUS:
 				JagObjectWithinRadius jwr = (JagObjectWithinRadius)ms;
 				maxRadius.setValue(jwr.getMaxRadius());
+				jwrMinSpeed.setValue(jwr.getMinSpeed());
+				jwrMaxSpeed.setValue(jwr.getMaxSpeed());
+				jwrMinPause.setValue(jwr.getMinPause());
+				jwrMaxPause.setValue(jwr.getMaxPause());
 				break;
 			case SINUSOIDAL_STRETCH:
 				SinusoidalStretch ss = (SinusoidalStretch)ms;
@@ -208,23 +220,43 @@ public class ObjectScriptEditor extends JDialog implements ActionListener
 	{
 		minOffset = new JSpinner(new SpinnerNumberModel(0, -500, 500, 1));
 		maxOffset = new JSpinner(new SpinnerNumberModel(0, -500, 500, 1));
-		minSpeed = new JSpinner(new SpinnerNumberModel(0, 0, 500, 1));
-		maxSpeed = new JSpinner(new SpinnerNumberModel(0, 0, 500, 1));
+		jvMinSpeed = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jvMaxSpeed = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jvMinPause = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jvMaxPause = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jvPauseTop = new JCheckBox("Pause Top?");
+		jvPauseBottom = new JCheckBox("Pause Bottom?");
+		jvHomeTop = new JCheckBox("Home Top?");
+		jvHomeBottom = new JCheckBox("Home Bottom?");
 
 		return dirtyGridLayoutCrap(
 			new JLabel("Min Offset:"), minOffset,
 			new JLabel("Max Offset:"), maxOffset,
-			new JLabel("Min Speed:"), minSpeed,
-			new JLabel("Max Speed:"), maxSpeed);
+			new JLabel("Min Speed:"), jvMinSpeed,
+			new JLabel("Max Speed:"), jvMaxSpeed,
+			new JLabel("Min Pause:"), jvMinPause,
+			new JLabel("Max Pause:"), jvMaxPause,
+			jvPauseTop, new JLabel(),
+			jvPauseBottom, new JLabel(),
+			jvHomeTop, new JLabel(),
+			jvHomeBottom, new JLabel());
 	}
 
 	/*-------------------------------------------------------------------------*/
 	protected JPanel getJagWithinRadiusPanel()
 	{
 		maxRadius = new JSpinner(new SpinnerNumberModel(0, 0, 500, 1));
+		jwrMinSpeed = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jwrMaxSpeed = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jwrMinPause = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
+		jwrMaxPause = new JSpinner(new SpinnerNumberModel(0, 0, 5000, 1));
 
 		return dirtyGridLayoutCrap(
-			new JLabel("Max Radius:"), maxRadius);
+			new JLabel("Max Radius:"), maxRadius,
+			new JLabel("Min Speed:"), jwrMinSpeed,
+			new JLabel("Max Speed:"), jwrMaxSpeed,
+			new JLabel("Min Pause:"), jwrMinPause,
+			new JLabel("Max Pause:"), jwrMaxPause);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -364,12 +396,22 @@ public class ObjectScriptEditor extends JDialog implements ActionListener
 				result = new JagObjectVertically(
 					(Integer)minOffset.getValue(),
 					(Integer)maxOffset.getValue(),
-					(Integer)minSpeed.getValue(),
-					(Integer)maxSpeed.getValue());
+					(Integer)jvMinSpeed.getValue(),
+					(Integer)jvMaxSpeed.getValue(),
+					(Integer)jvMinPause.getValue(),
+					(Integer)jvMaxPause.getValue(),
+					jvPauseTop.isSelected(),
+					jvPauseBottom.isSelected(),
+					jvHomeTop.isSelected(),
+					jvHomeBottom.isSelected());
 				break;
 			case JAG_WITHIN_RADIUS:
 				result = new JagObjectWithinRadius(
-					(Integer)maxRadius.getValue());
+					(Integer)maxRadius.getValue(),
+					(Integer)jwrMinSpeed.getValue(),
+					(Integer)jwrMaxSpeed.getValue(),
+					(Integer)jwrMinPause.getValue(),
+					(Integer)jwrMaxPause.getValue());
 				break;
 			case SINUSOIDAL_STRETCH:
 				result = new SinusoidalStretch(
@@ -394,7 +436,7 @@ public class ObjectScriptEditor extends JDialog implements ActionListener
 		owner.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		while (1==1)
 		{
-			ObjectScriptEditor test = new ObjectScriptEditor(owner, new JagObjectWithinRadius(99), -1);
+			ObjectScriptEditor test = new ObjectScriptEditor(owner, new JagObjectWithinRadius(99,1,2,3,4), -1);
 			System.out.println("test.result = [" + test.result + "]");
 		}
 	}

@@ -338,7 +338,7 @@ name=fantasmagora.1
 contains=Fantasmagora/1d1:100,Fantasmagora/1d1:5
 @
 name=jumping.roaches.small
-contains=Jumping Roach/1d3:100
+contains=Jumping Roach/1d3+1:100
 @
 name=fantasmagora.2
 contains=Fantasmagora/2d2:100,Fantasmagora/2d2:5
@@ -791,5 +791,5 @@ name=colonizer.ominifids.1
 contains=Coloniser Omnifid/1d2+1:100,Coloniser Omnifid/1d2:100,Coloniser Omnifid/1d2:100
 @
 name=jumping.roaches.medium
-contains=Jumping Roach/2d3:100,Feral Familiar/1d1:5
+contains=Jumping Roach/2d3:100
 @

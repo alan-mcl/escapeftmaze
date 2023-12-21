@@ -50,7 +50,7 @@ name=caves.of.ilast.random.enc
 foeEntries=0,gigantopithecus.small:15,screaming.bat.small:15,bloodwyrm.2:14,flying.hagspawn.1:14,creeping.hagspawn.1:14,slithering.hagspawn.1:14,rockeater.1:14
 @
 name=castle.fangorn.random.enc
-foeEntries=0,groaning.bones.small:15,haunts.small:15,napier's.bones.1:15,revenants.1:15,shades.1:15,ghosts.1:5,zombie.mantis.1:5,frozen.skeletons.1:5,lost.souls.1:5,bat.vampires.1:5
+foeEntries=1,groaning.bones.small:15,haunts.small:15,napier's.bones.1:15,revenants.1:15,shades.1:15,ghosts.1:5,zombie.mantis.1:5,frozen.skeletons.1:5,lost.souls.1:5,bat.vampires.1:5
 @
 name=reincarnate.beast
 foeEntries=0,winter.wolf.1:34,owlbear.1:33,griffon.1:33
@@ -127,8 +127,11 @@ foeEntries=0,tornado.dragon.1:50,glacier.dragon.1:50
 name=gnoll.village.allies.on.call
 foeEntries=0,gnoll.heroes.small:100,gnoll.hunters.small:100,gnoll.hunters.small:100
 @
+name=gatehouse.level.1.roaches
+foeEntries=1,jumping.roaches.small:100
+@
 name=aenen.city.allies.on.call
-foeEntries=1,gnome.troopers.party:34,gnome.warlocks.party:33,clockwork.vengeance:33
+foeEntries=0,gnome.troopers.party:34,gnome.warlocks.party:33,clockwork.vengeance:33
 @
 name=dragon.spell.5
 foeEntries=0,inferno.dragon.1:100
@@ -161,7 +164,7 @@ name=rhys.allies.on.call
 foeEntries=0,rhys.allies.on.call:100
 @
 name=aenen.city.random.enc
-foeEntries=1,gnome.robbers.small:5,gnome.knaves.small:5,gnome.troopers.party:13,gnome.warlocks.party:13,gnome.scouts.party:12,clockwork.diggers:13,clockwork.soldiers:13,clockwork.terrors:13,clockwork.vengeance:13
+foeEntries=0,gnome.robbers.small:5,gnome.knaves.small:5,gnome.troopers.party:13,gnome.warlocks.party:13,gnome.scouts.party:12,clockwork.diggers:13,clockwork.soldiers:13,clockwork.terrors:13,clockwork.vengeance:13
 @
 name=summon.angel.spell.1
 foeEntries=0,serra.angel.1:50,seraph.1:50
@@ -221,7 +224,7 @@ name=elemental.swarm.spell.3
 foeEntries=0,elemental.swarm.air.3:25,elemental.swarm.earth.3:25,elemental.swarm.fire.3:25,elemental.swarm.water.3:25
 @
 name=aenen.outskirts.placed.enc
-foeEntries=1,gnome.beggar.small:20,gnome.robbers.small:20,spotted.boas.small:20,seeding.omnifid.small:20,moulders.small:20
+foeEntries=0,gnome.beggar.small:20,gnome.robbers.small:20,spotted.boas.small:20,seeding.omnifid.small:20,moulders.small:20
 @
 name=aenen.outskirts.random.enc
 foeEntries=0,gnome.beggar.small:10,gnome.robbers.small:9,spotted.boas.small:9,seeding.omnifid.small:9,gnome.knaves.small:9,gnome.scouts.small:9,gnome.troopers.small:9,gnome.warlocks.small:9,moulders.small:9,clockwork.diggers:9,clockwork.soldiers:9
@@ -335,7 +338,7 @@ name=summon.vermin.spell.2
 foeEntries=0,mud.spiders.medium:50,mud.spiders.medium:50
 @
 name=gatehouse.level.1.cruds
-foeEntries=0,spotted.cruds.small:100
+foeEntries=1,spotted.cruds.small:100
 @
 name=gatehouse.feral.familiar.1
 foeEntries=0,feral.familiar.1:100
@@ -383,7 +386,7 @@ name=mephit.army.spell.4
 foeEntries=0,mephit.army.spell.4:100
 @
 name=gatehouse.level.1.bonebrood
-foeEntries=0,bonebrood.1:100
+foeEntries=1,bonebrood.1:100
 @
 name=mephit.army.spell.5
 foeEntries=0,mephit.army.spell.5:100
@@ -425,7 +428,7 @@ name=call.wyrms.spell.2
 foeEntries=0,call.wyrms.spell.2:100
 @
 name=call.wyrms.spell.5
-foeEntries=0,call.wyrms.spell.5:100
+foeEntries=1,call.wyrms.spell.5:100
 @
 name=call.wyrms.spell.4
 foeEntries=0,call.wyrms.spell.4:100
@@ -440,7 +443,7 @@ name=clockwork.beast.1
 foeEntries=0,clockwork.beast.1:100
 @
 name=gatehouse.angry.swarms
-foeEntries=0,angry.swarm.party:100
+foeEntries=1,angry.swarm.party:100
 @
 name=tsurayogoshi
 foeEntries=0,tsurayogoshi:100
