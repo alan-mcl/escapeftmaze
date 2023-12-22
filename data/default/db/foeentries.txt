@@ -791,5 +791,5 @@ name=colonizer.ominifids.1
 contains=Coloniser Omnifid/1d2+1:100,Coloniser Omnifid/1d2:100,Coloniser Omnifid/1d2:100
 @
 name=jumping.roaches.medium
-contains=Jumping Roach/1d3+3:100,Jumping Roach/1d3+3:75,Jumping Roach/1d3+3:50
+contains=Jumping Roach/2d3:100,Jumping Roach/1d3+2:75,Jumping Roach/1d3+1:50
 @

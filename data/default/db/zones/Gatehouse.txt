@@ -168,7 +168,7 @@ playerOrigin: 14:30
 149: 0:3f800000000000000000,02020102020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 150: 0:3f800000000000000000,02010201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 151: 0:3f800000000000000000,02010101010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-152: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.21,,,,:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+152: 0:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 153: 0:3f800000000000000000,01010102010102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 154: 0:3f800000000000000000,01020201010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 155: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -200,10 +200,10 @@ playerOrigin: 14:30
 181: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 182: 0:3f800000000000000000,02010102010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 183: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-184: 0:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+184: 1:10,,,false,1,gatehouse.bones.3,Gatehouse bones2 hidden stuff,,1:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 185: 1:4,gatehouse.execute.once.14,0001,true,-1,From behind the door you hear faint scraping and rustling noises.:3f800000000000000000,01020101010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 186: 1:3,,,false,-1,gatehouse.feral.familiar.1,gatehouse.encounter.20,,NONE,,Gatehouse feral familiar encounter:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-187: 1:2,,,false,-1,5///false/-1/gatehouse.minor.loot,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,01010101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+187: 1:2,,,false,-1,5///false/-1/gatehouse.key.loot,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,01010101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 188: 0:3f800000000000000000,01020101020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 189: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 190: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -229,7 +229,7 @@ playerOrigin: 14:30
 210: 1:3,,,false,-1,gatehouse.level.1.medium,gatehouse.encounter.37,,,,:3f800000000000000000,02020202010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 211: 0:3f800000000000000000,02010201020101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 212: 0:3f800000000000000000,02010202020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
-213: 0:3f800000000000000000,02020202010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+213: 1:4,gatehouse.execute.once.17,00001,true,-1,The portcullis is lowered and will not budge. You note a small lock mechanism with a keyhole near the ground...:3f800000000000000000,02020202010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 214: 0:3f800000000000000000,01010101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 215: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 216: 0:3f800000000000000000,02010202020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -269,7 +269,7 @@ playerOrigin: 14:30
 250: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 251: 0:3f800000000000000000,01020102010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 252: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-253: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.24,,,,:3f800000000000000000,02010201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+253: 0:3f800000000000000000,02010201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 254: 0:3f800000000000000000,01020102010102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 255: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 256: 0:3f800000000000000000,01010201010101:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
@@ -910,7 +910,7 @@ playerOrigin: 14:30
 891: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 892: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 893: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-894: 1:10,,,false,-1,gatehouse.bones.2,Gatehouse bones2 hidden stuff,,0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+894: 1:10,,,false,1,gatehouse.bones.2,Gatehouse bones2 hidden stuff,,0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 895: 0:3f800000000000000000,02010102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 896: 0:3f800000000000000000,01010101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 897: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -1082,6 +1082,7 @@ playerOrigin: 14:30
 37: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
 38: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 39: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:-1:gatehouse.toggle.wall.0:874:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::
+40: gatehouse.portal.0,true,locked,21:6,4,20:6,3,false,false,false,256,128,99:99:90:90:90:90:90:90,11111111,Gatehouse Key,true,,13:::false:-1:gatehouse.toggle.wall.2:219:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::_PORTCULLIS_
 
 -sky image-
 0: sky.ichiba
@@ -2722,7 +2723,7 @@ playerOrigin: 14:30
 22: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:286:false::0000011::BOTTOM
 23: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:116:false::1::BOTTOM
 24: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1::BOTTOM
-25: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,-1,These bones feel brittle and dry to the touch.:00001::BOTTOM
+25: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,-1,These bones feel brittle and dry to the touch. Maybe you should search them more carefully...:00001::BOTTOM
 26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
 27: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:846:true::::TOP
 28: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:811:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:101::BOTTOM
@@ -2759,13 +2760,20 @@ playerOrigin: 14:30
 59: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:893:true::1000001::BOTTOM
 60: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:922:true::01::BOTTOM
 61: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:958:true::000000001::BOTTOM
-62: objects.eggs.1:objects.eggs.1:objects.eggs.1:objects.eggs.1:701:false::0001001::BOTTOM
-63: objects.eggs.1:objects.eggs.1:objects.eggs.1:objects.eggs.1:989:false::000000011::BOTTOM
-64: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:700:false::1011::BOTTOM
-65: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:830:false::011000011::BOTTOM
-66: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:955:false::110010001::BOTTOM
-67: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:957:false::01000001::BOTTOM
-68: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:826:false::1001::BOTTOM
+62: objects.eggs.1:objects.eggs.1:objects.eggs.1:objects.eggs.1:701:false:4,,,false,-1,The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls.:0001001::BOTTOM
+63: objects.eggs.1:objects.eggs.1:objects.eggs.1:objects.eggs.1:989:false:4,,,false,-1,The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls.:000000011::BOTTOM
+64: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:700:false:4,,,false,-1,Some of these eggs have hatched and are mere empty husks...:1011::BOTTOM
+65: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:830:false:4,,,false,-1,Some of these eggs have hatched and are mere empty husks...:011000011::BOTTOM
+66: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:955:false:4,,,false,-1,Some of these eggs have hatched and are mere empty husks...:110010001::BOTTOM
+67: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:957:false:4,,,false,-1,Some of these eggs have hatched and are mere empty husks...:01000001::BOTTOM
+68: objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:objects.eggs.1.hatched:826:false:4,,,false,-1,Some of these eggs have hatched and are mere empty husks...:1001::BOTTOM
+69: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:254:false::101000001::BOTTOM
+70: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:253:false::001::BOTTOM
+71: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:285:false::110011::BOTTOM
+72: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:247:false:4,,,false,-1,The barrel is empty.:1001001::BOTTOM
+73: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:279:false:4,,,false,-1,The barrel is empty.:10010001::BOTTOM
+74: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:280:false:4,,,false,-1,The barrel is empty.:000010101::BOTTOM
+75: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:184:false:4,,,false,-1,You find a pile of very ancient very dry bones.%nMaybe you should search them more carefully...:00001::BOTTOM
 
 -scripts-
 0: 2,8,32,40,757/660

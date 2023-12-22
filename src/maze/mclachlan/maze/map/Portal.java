@@ -191,8 +191,9 @@ public class Portal implements LockOrTrap
 
 		if (stateChangeScript != null)
 		{
-
-			stateChangeScript.execute(Maze.getInstance(), this.from, this.from, Maze.getInstance().getFacing());
+			Maze.getInstance().appendEvents(
+				stateChangeScript.execute(
+					Maze.getInstance(), this.from, this.from, Maze.getInstance().getFacing()));
 		}
 	}
 

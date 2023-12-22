@@ -460,6 +460,13 @@ public class ActorActionResolver
 			}
 		}
 
+		if (invokedSpell == null)
+		{
+			// nope, nothing happens
+			events.add(new NoEffectEvent());
+			return;
+		}
+
 		if (castingLevel == 0)
 		{
 			// zero casting level implies that the effective level should scale

@@ -1,8 +1,20 @@
-conditionBearer=1~Brunswick
+conditionBearer=1~IG-87
 @
-conditionBearer=1~Aelfred
+conditionBearer=1~Ug
+@
+conditionBearer=1~Wa Na
+@
+conditionBearer=1~Silvia
+@
+conditionBearer=1~Dwaf
+@
+conditionBearer=1~Brunswick
 @
 conditionBearer=1~Ascxs
 @
 conditionBearer=1~Brunswick
+@
+conditionBearer=1~Gibby
+@
+conditionBearer=1~Aelfred
 @
