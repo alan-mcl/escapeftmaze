@@ -19,6 +19,9 @@ lootEntries=I~Thorn Staff:100,I~Gold Piece:100,I~Cloth Pants:100,I~Sandals:100,I
 name=magma.spear.spell
 lootEntries=I~Magma Spear:100
 @
+name=Emmons.loot
+lootEntries=I~Skull Dagger:100,I~Thieves Ring:100,I~Thieves Tools:100,I~Silver Coin:100,I~Thieves Dagger:100,I~Chamail Doublet:100,I~Chamail Pants:100,I~Snakeskin Boots:100,I~Snakeskin Belt:100,batch.3.magic.trinkets:100,batch.3.bombs:100
+@
 name=rogue.clockwork.loot
 lootEntries=I~Clockwork Head:100
 @

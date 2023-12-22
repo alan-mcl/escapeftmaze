@@ -1142,6 +1142,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=foe.goblin.2
+imageResources=crusader/foe/goblin_2
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=foe.goblin.1
 imageResources=crusader/foe/goblin_1
 animationDelay=-1

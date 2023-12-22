@@ -355,6 +355,27 @@ found=false
 dead=false
 guildMaster=false
 @
+name=Emmons
+foeName=Emmons
+faction=Ichiba GSC
+attitude=NEUTRAL
+script=mclachlan.maze.campaign.def.npc.Emmons
+alliesOnCall=sir.kay.allies.on.call
+buysAt=50
+sellsAt=150
+maxPurchasePrice=4000
+willBuyItemTypes=0000000000000101
+inventoryTemplate=
+resistThreats=4
+resistBribes=4
+resistSteal=4
+theftCounter=1
+zone=Gatehouse
+tile=19,5
+found=false
+dead=false
+guildMaster=false
+@
 name=Scrymgeour
 foeName=Scrymgeour
 faction=Ichiba Chamber Of Commerce

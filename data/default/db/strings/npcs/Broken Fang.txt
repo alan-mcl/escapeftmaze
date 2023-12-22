@@ -1,4 +1,4 @@
-#Mon Dec 18 15:57:56 SAST 2023
+#Fri Dec 22 13:28:14 SAST 2023
 garret=9|Hmpf. Speak to Three Eyes.
 leonal,leonals,white\ order=9| Lion people many and strong, but they stay on road. Grrrr, gnolls watch from forest.
 maze=9|Hmpf. Gnolls in Maze. Gnolls in forest. Broken Fang chieftain. Life not ending.
