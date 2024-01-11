@@ -1,0 +1,10 @@
+zone=Gatehouse
+difficultyLevel=Normal
+playerPos=20:5
+facing=4
+partyGold=0
+partySupplies=100
+partyNames=Rowan,Wa Na,Sreka,Ascxs,Khalif,Haakon
+formation=3
+turnNr=529
+@

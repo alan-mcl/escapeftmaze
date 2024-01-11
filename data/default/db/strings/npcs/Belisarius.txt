@@ -1,4 +1,4 @@
-#Fri Dec 22 13:28:14 SAST 2023
+#Wed Jan 10 10:55:55 SAST 2024
 garret=9|A fickle god to follow.
 leonal,leonals,white\ order=9|Here we are, holding back the forces of chaos and darkness from this Realm. The children of The Lady are few but we are mighty and our sword arms are rightly feared.
 maze=9|I do not know the why's and wherefore's, my business is survival.

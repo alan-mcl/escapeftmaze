@@ -631,8 +631,8 @@ scrollBehaviour=
 scrollSpeed=-1
 @
 name=foe.swarm.1
-imageResources=crusader/foe/swarm_1
-animationDelay=-1
+imageResources=crusader/foe/swarm_1,crusader/foe/swarm_2,crusader/foe/swarm_3
+animationDelay=150
 imageWidth=512
 imageHeight=512
 scrollBehaviour=

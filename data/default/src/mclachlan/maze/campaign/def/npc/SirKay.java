@@ -24,8 +24,8 @@ public class SirKay extends NpcScript
 	public static final String SIR_KAY_WAIT_FOR_RESPONSE_2 = "sir.kay.wait.for.response.2";
 	public static final String SIR_KAY_OWED_500GP = "sir.kay.owed.500.gp";
 	public static final String SIGNED_UP_WITH_THIEVES_GUILD = "gsc.signed.up";
-	private static final String ICHIBA_CITY = "Ichiba City";
-	private static final String ICHIBA_CROSSROAD= "Ichiba Crossroad";
+	public static final String ICHIBA_CITY = "Ichiba City";
+	public static final String ICHIBA_CROSSROAD= "Ichiba Crossroad";
 
 	public static final String CORROSIVE_SLIME_SLAIN = "sir.kay.corrosive.slime.slain";
 	public static final String CORROSIVE_SLIME_REWARD = "sir.kay.corrosive.slime.reward";

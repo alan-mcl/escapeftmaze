@@ -37,6 +37,7 @@ import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.npc.InitiateGuildEvent;
+import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcScript;
 import mclachlan.maze.util.MazeException;
 
@@ -45,12 +46,12 @@ import mclachlan.maze.util.MazeException;
  */
 public class EncounterActorsStateHandler implements ActionListener
 {
-	private Maze maze;
+	private final Maze maze;
 	private final int buttonRows;
 	private final int inset;
-	private MessageDestination msg;
+	private final MessageDestination msg;
 
-	private DIYButton leave, attack, flee, wait, surprise, evade, guild;
+	private final DIYButton leave, attack, flee, wait, surprise, evade, guild;
 	private ActorEncounter actorEncounter;
 	private NpcScript npcScript;
 	private DIYPane leftPane;
@@ -365,6 +366,13 @@ public class EncounterActorsStateHandler implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private NpcScript getNpcScriptFromActorEncounter(ActorEncounter actorEncounter)
 	{
-		return new DefaultFoeAiScript(actorEncounter);
+		if (actorEncounter.getLeader() instanceof Npc)
+		{
+			return actorEncounter.getLeader().getActionScript();
+		}
+		else
+		{
+			return new DefaultFoeAiScript(actorEncounter);
+		}
 	}
 }
