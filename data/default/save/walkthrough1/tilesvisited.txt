@@ -1,0 +1,3 @@
+zone=Gatehouse
+visited=14:30,
+@
