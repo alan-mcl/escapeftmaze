@@ -90,11 +90,11 @@ public class MusicEvent extends MazeEvent
 			List<String> t = new ArrayList<String>(trackNames);
 			Collections.shuffle(t);
 
-			music.setState(musicState);
-
 			music.playLooped(
 				Maze.getInstance().getUserConfig().getMusicVolume(),
 				t.toArray(new String[0]));
+
+			music.setState(musicState);
 			return null;
 		}
 	}

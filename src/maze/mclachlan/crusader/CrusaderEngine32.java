@@ -2214,8 +2214,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		float height = blockHitRecord[screenX][depth].projectedWallHeight;
 		int blockHit = blockHitRecord[screenX][depth].blockHit;
-		int wallHeight = blockHitRecord[screenX][depth].wall.height;
 
+		Wall wall = blockHitRecord[screenX][depth].wall;
+
+		if (wall == null)
+		{
+			// no block hit at this depth. Nothing to do
+			return true;
+		}
+
+		int wallHeight = wall.height;
 		Texture texture = blockHitRecord[screenX][depth].texture;
 		Texture maskTexture = blockHitRecord[screenX][depth].wall.maskTexture;
 

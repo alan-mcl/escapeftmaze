@@ -6,5 +6,5 @@ partyGold=0
 partySupplies=100
 partyNames=Mos Rabek,Glaivas,Ya Ten,Vataksha,Grog Nol,Hecche
 formation=3
-turnNr=2
+turnNr=4
 @

@@ -11,8 +11,8 @@ imageResources=crusader/scene/water_2_1
 animationDelay=500
 imageWidth=512
 imageHeight=512
-scrollBehaviour=LEFT
-scrollSpeed=100
+scrollBehaviour=
+scrollSpeed=-1
 @
 name=foe.triton.female
 imageResources=crusader/foe/triton_female

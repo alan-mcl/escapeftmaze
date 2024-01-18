@@ -782,6 +782,10 @@ name=Plain Of Pillars to Ruins Of Hail
 1=138,24003__Erdie__mega_thunder
 2=1,Ruins Of Hail,21,21,3
 @
+name=Gatehouse hidden pool contents
+0=4,-1,true,Searching a crack in the paving, you come across a small cache under the shallow water.
+1=9,gatehouse.potion.chest
+@
 name=spine from player
 0=138,50773__smcameron__arrow_whoosh
 1=104,1:10:animation/spineFromPlayer1

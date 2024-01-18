@@ -479,6 +479,7 @@ public class Maze implements Runnable
 			ui.stopAllAnimations();
 			ui.getMusic().stop();
 			ui.getMusic().setState(null);
+//			ui.changeState(State.MAINMENU);
 
 			final int MAX_PROGRESS = 11;
 
