@@ -2267,7 +2267,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			hasAlpha |= drawCeiling(castArc, screenX, height, depth, ceilingTop, outputBuffer);
 		}
 
-		while (screenY < bottom)
+		while (screenY <= bottom)
 		{
 			int bufferIndex = screenX + screenY * projectionPlaneWidth;
 
@@ -2316,9 +2316,9 @@ public class CrusaderEngine32 implements CrusaderEngine
 			screenY++;
 		}
 
-		if (bottom < projectionPlaneHeight)
+		if (bottom+1 < projectionPlaneHeight)
 		{
-			hasAlpha |= drawFloor(castArc, screenX, height, depth, bottom, outputBuffer);
+			hasAlpha |= drawFloor(castArc, screenX, height, depth, bottom+1, outputBuffer);
 		}
 
 		return hasAlpha;

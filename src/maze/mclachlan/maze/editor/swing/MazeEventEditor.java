@@ -100,6 +100,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private AnimationPanel animation;
 	private JComboBox mazeScript;
 	private JTextField removeWallMazeVariable;
+	private JTextField removeObjectName;
 	private JSpinner removeWallWallIndex;
 	private JCheckBox removeWallIsHoriz;
 	private JTextField blockingScreenImage;
@@ -307,6 +308,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				fromX.setValue(tpse.getTile().x);
 				fromY.setValue(tpse.getTile().y);
 				facing.setSelectedItem(FACINGS[tpse.getFacing()]);
+				break;
+			case _RemoveObjectEvent:
+				RemoveObjectEvent roe = (RemoveObjectEvent)e;
+				removeObjectName.setText(roe.getObjectName());
 				break;
 
 			case _ActorDiesEvent:
@@ -524,6 +529,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _TogglePortalStateEvent:
 				this.result = new TogglePortalStateEvent(new Point((Integer)fromX.getValue(), (Integer)fromY.getValue()), facing.getSelectedIndex());
 				break;
+			case _RemoveObjectEvent:
+				this.result = new RemoveObjectEvent(removeObjectName.getText());
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -652,6 +660,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getSetMazeVarPanel();
 			case _TogglePortalStateEvent:
 				return getTogglePortalStatePanel();
+			case _RemoveObjectEvent:
+				return getRemoveObjectEventPanel();
 				
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -719,6 +729,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 			default: return null;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getRemoveObjectEventPanel()
+	{
+		removeObjectName = new JTextField(30);
+
+		return dirtyGridBagCrap(new JLabel("Object Name:"), removeObjectName);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1249,6 +1267,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Set Maze Variable";
 			case _TogglePortalStateEvent:
 				return "Toggle Portal State";
+			case _RemoveObjectEvent:
+				return "Remove Object";
 					
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:

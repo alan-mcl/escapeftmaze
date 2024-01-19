@@ -61,6 +61,7 @@ public class V1MazeEvent
 	public static final int _StoryboardEvent = 19;
 	public static final int _SetUserConfigEvent = 20;
 	public static final int _TogglePortalStateEvent = 21;
+	public static final int _RemoveObjectEvent = 22;
 
 	public static final int _ActorDiesEvent = 100;
 	public static final int _ActorUnaffectedEvent = 101;
@@ -170,6 +171,7 @@ public class V1MazeEvent
 		types.put(StoryboardEvent.class, _StoryboardEvent);
 		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
 		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
+		types.put(RemoveObjectEvent.class, _RemoveObjectEvent);
 
 		types.put(MazeScriptEvent.class, _MazeScript);
 		types.put(RemoveWallEvent.class, _RemoveWall);
@@ -373,6 +375,10 @@ public class V1MazeEvent
 				s.append(rwe.getMazeVariable());
 				s.append(SEP);
 				s.append(rwe.getWallIndex());
+				break;
+			case _RemoveObjectEvent:
+				RemoveObjectEvent roe = (RemoveObjectEvent)e;
+				s.append(roe.getObjectName());
 				break;
 			case _BlockingScreen:
 				BlockingScreenEvent bse = (BlockingScreenEvent)e;
@@ -580,6 +586,8 @@ public class V1MazeEvent
 				String mazeVar = strs[2];
 				int wallIndex = Integer.parseInt(strs[3]);
 				return new RemoveWallEvent(mazeVar, isHoriz, wallIndex);
+			case _RemoveObjectEvent:
+				return new RemoveObjectEvent(strs[1]);
 			case _BlockingScreen:
 				String imageResource = strs[1];
 				int mode = Integer.parseInt(strs[2]);

@@ -58,4 +58,11 @@ public class RemoveObjectEvent extends MazeEvent
 
 		return null;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public String getObjectName()
+	{
+		return objectName;
+	}
 }

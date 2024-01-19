@@ -146,6 +146,7 @@ public class Personality extends DataObject
 		GATEHOUSE_BLOCK_GOLEM("default.gatehouse.block.golem"),
 		GATEHOUSE_HIDDEN_STUFF_1("default.gatehouse.hidden.stuff.1"),
 		GATEHOUSE_MALIGNANT_WIDOWS("default.gatehouse.malignant.widows"),
+		GATEHOUSE_ANGRY_SWARMS("default.gatehouse.angry.swarms"),
 		ICHIBA_CROSSROAD_INTRO("default.ichiba.crossroad.intro"),
 		ICHIBA_CROSSROAD_HIDDEN_STUFF_1("default.ichiba.crossroad.hidden.stuff.1"),
 		ICHIBA_CROSSROAD_MANTIS_GLEN("default.ichiba.crossroad.mantis.glen"),
