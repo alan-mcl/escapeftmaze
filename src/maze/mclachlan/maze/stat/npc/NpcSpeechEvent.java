@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
@@ -28,6 +29,7 @@ import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 import mclachlan.maze.ui.diygui.animation.SpeechBubbleAnimation;
+import mclachlan.maze.util.MazeException;
 
 
 /**
@@ -59,10 +61,27 @@ public class NpcSpeechEvent extends MazeEvent
 	{
 		String s = npc.getDisplayName() + ":\n" + text;
 
+		Rectangle origination = Maze.getInstance().getUi().getObjectBounds(npc.getSprite());
+
+		SpeechBubbleAnimation.Orientation orientation;
+		switch (npc.getSprite().getVerticalAlignment())
+		{
+			case TOP:
+				orientation = SpeechBubbleAnimation.Orientation.BELOW;
+				break;
+			case CENTER:
+			case BOTTOM:
+				orientation = SpeechBubbleAnimation.Orientation.ABOVE;
+				break;
+			default:
+				throw new MazeException("Invalid vertical alignment: "+npc.getSprite().getVerticalAlignment());
+		}
+
 		Animation a = new SpeechBubbleAnimation(
 			Constants.Colour.STEALTH_GREEN, //todo: NPC speech colour
 			s,
-			null,
+			origination,
+			orientation,
 			SpeechBubbleAnimation.WAIT_FOR_CLICK);
 
 		Maze.getInstance().startAnimation(a, this, new AnimationContext(null));

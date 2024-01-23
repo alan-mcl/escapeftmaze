@@ -105,9 +105,8 @@ name=Sir Kay Death
 @
 name=Gatehouse angry swarms encounter
 0=4,-1,true,Stepping through the door, you are assailed by swarms of angry insects!
-1=18,default.gatehouse.angry.swarms,true
-2=4,-1,false,??
-3=3,gatehouse.angry.swarms,gatehouse.encounter.angry.swarms,,NONE,,
+1=18,default.gatehouse.angry.swarms,false
+2=3,gatehouse.angry.swarms,gatehouse.encounter.angry.swarms,,NONE,,
 @
 name=willow arrow from player
 0=138,50773__smcameron__arrow_whoosh

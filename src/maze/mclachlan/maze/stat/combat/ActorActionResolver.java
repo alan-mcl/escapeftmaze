@@ -1206,6 +1206,7 @@ public class ActorActionResolver
 		if (defender == null)
 		{
 			// cannot attack
+			result.add(new DefendEvent(actor));
 			return result;
 		}
 
@@ -1259,9 +1260,14 @@ public class ActorActionResolver
 
 		if (actors == null)
 		{
-			throw new MazeException("No legal targets found for attack by ["+
+//			throw new MazeException("No legal targets found for attack by ["+
+//				attacker.getName()+"] eng="+engagementRange+", min="+
+//				attackWith.getMinRange()+", max=" + attackWith.getMinRange());
+			Maze.logDebug("No legal targets found for attack by ["+
 				attacker.getName()+"] eng="+engagementRange+", min="+
 				attackWith.getMinRange()+", max=" + attackWith.getMinRange());
+
+			return null;
 		}
 
 		return getRandomDefender(attacker, actors);

@@ -531,6 +531,27 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Rectangle getObjectBounds(EngineObject obj)
+	{
+		if (raycaster != null)
+		{
+			// bounds in raycaster coords
+			Rectangle objBounds = raycaster.getObjectBounds(obj);
+			Rectangle thisBounds = mazeWidget.getBounds();
+
+			return new Rectangle(
+				thisBounds.x+objBounds.x,
+				thisBounds.y+objBounds.y,
+				objBounds.width,
+				objBounds.height);
+		}
+		else
+		{
+			return null;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void chooseACharacter(ChooseCharacterCallback callback)
 	{
 		ContainerWidget dialog = new WhoDialog(callback);
@@ -540,21 +561,21 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void showDialog(ContainerWidget dialog)
 	{
-		stopAllAnimations();
+//		stopAllAnimations();
 		DIYToolkit.getInstance().setDialog(dialog);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void clearDialog()
 	{
-		stopAllAnimations();
+//		stopAllAnimations();
 		DIYToolkit.getInstance().clearDialog();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void clearAllDialogs()
 	{
-		stopAllAnimations();
+//		stopAllAnimations();
 		DIYToolkit.getInstance().clearAllDialogs();
 	}
 

@@ -351,7 +351,7 @@ public class SpeechUtil
 	/*-------------------------------------------------------------------------*/
 	public int getSpeechBubbleDuration(String text)
 	{
-		// todo: configutable, and/or worked out by text length
+		// todo: configurable, and/or worked out by text length
 		return 5000;
 	}
 

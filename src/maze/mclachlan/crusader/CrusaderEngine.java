@@ -80,6 +80,15 @@ public interface CrusaderEngine
 	int getTileSize();
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	An approximate bounds (within this raycaster's XY coord system) that
+	 * 	will contain the sprite of the given EngineObject
+	 */
+	Rectangle getObjectBounds(EngineObject obj);
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Apply the given keystroke to the engine state.
 	 *

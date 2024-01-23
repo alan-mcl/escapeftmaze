@@ -79,12 +79,22 @@ public class SpeechBubbleEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Animation a = new SpeechBubbleAnimation(colour, speech, origination, duration);
+		SpeechBubbleAnimation.Orientation orientation = switch (Maze.getInstance().getParty().getPlayerCharacterIndex(playerCharacter))
+			{
+				case 0,2 -> SpeechBubbleAnimation.Orientation.RIGHT;
+				case 1,3 -> SpeechBubbleAnimation.Orientation.LEFT;
+				case 4 -> SpeechBubbleAnimation.Orientation.ABOVE_RIGHT;
+				case 5 -> SpeechBubbleAnimation.Orientation.ABOVE_LEFT;
+				default -> null;
+			};
+
+		Animation a = new SpeechBubbleAnimation(colour, speech, origination, orientation, duration);
 		Object eventMutex = null;
 		if (duration == Delay.WAIT_ON_CLICK)
 		{
 			eventMutex = Maze.getInstance().getEventMutex();
 		}
+
 		Maze.getInstance().startAnimation(a, eventMutex, new AnimationContext(playerCharacter));
 
 		return null;

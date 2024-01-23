@@ -83,6 +83,9 @@ public interface UserInterface
 	int getFacing();
 
 	/*-------------------------------------------------------------------------*/
+	Rectangle getObjectBounds(EngineObject obj);
+
+	/*-------------------------------------------------------------------------*/
 	void chooseACharacter(ChooseCharacterCallback callback);
 
 	/*-------------------------------------------------------------------------*/

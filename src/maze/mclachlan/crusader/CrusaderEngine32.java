@@ -19,13 +19,11 @@
 
 package mclachlan.crusader;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Image;
-import java.awt.Point;
+import java.awt.*;
 import java.awt.image.ColorModel;
 import java.awt.image.MemoryImageSource;
 import java.awt.image.PixelGrabber;
+import java.util.List;
 import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.script.MoveTo;
@@ -746,6 +744,37 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int yGridIndex = y / tileSize;
 
 		return new Point(xGridIndex, yGridIndex);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	An approximate bounds (within this raycaster's XY coord system) that
+	 * 	will contain the sprite of the given EngineObject
+	 */
+	public Rectangle getObjectBounds(EngineObject obj)
+	{
+		int projectedObjectWidth = obj.projectedObjectWidth;
+		int projectedObjectHeight = obj.projectedObjectHeight;
+		int projectedTextureOffset = obj.projectedTextureOffset;
+		int projectedWallHeight = obj.projectedWallHeight;
+		int x = obj.startScreenX;
+
+		int y;
+		int topY = projectionPlaneHeight/2 -projectedWallHeight/2 +projectedTextureOffset;
+		switch (obj.verticalAlignment)
+		{
+			case TOP: y = topY +projPlaneOffset;
+				break;
+			case CENTER: y = topY +projectedWallHeight/2 -projectedObjectHeight/2 +projPlaneOffset;
+				break;
+			case BOTTOM: y = topY +projectedWallHeight -projectedObjectHeight +projPlaneOffset;
+				break;
+			default: throw new CrusaderException("invalid alignment "+obj.verticalAlignment);
+		}
+
+		return new Rectangle(x, y, projectedObjectWidth, projectedObjectHeight);
 	}
 
 	/*-------------------------------------------------------------------------*/

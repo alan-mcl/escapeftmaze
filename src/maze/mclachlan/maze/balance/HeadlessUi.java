@@ -94,6 +94,12 @@ public class HeadlessUi implements UserInterface
 		return 0;
 	}
 
+	@Override
+	public Rectangle getObjectBounds(EngineObject obj)
+	{
+		return null;
+	}
+
 	public void chooseACharacter(ChooseCharacterCallback callback)
 	{
 		

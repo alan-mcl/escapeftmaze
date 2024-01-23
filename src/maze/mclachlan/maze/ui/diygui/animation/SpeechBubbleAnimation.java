@@ -23,8 +23,8 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.awt.geom.RoundRectangle2D;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -36,7 +36,7 @@ import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
  */
 public class SpeechBubbleAnimation extends Animation
 {
-	private static List<SpeechBubbleAnimation> bubbles = new ArrayList<SpeechBubbleAnimation>();
+	private static final List<SpeechBubbleAnimation> bubbles = new ArrayList<>();
 
 	private String text;
 	private Rectangle origination;
@@ -45,11 +45,10 @@ public class SpeechBubbleAnimation extends Animation
 	// instance parameters
 	private long startTime = System.currentTimeMillis();
 	private PlayerCharacter pc;
-	private DIYToolkit.Align align;
+	private Orientation orientation;
 	private int duration;
-	private int bHeight;
-	private int bWidth;
-	private int bX;
+	private int bHeight, bWidth;
+	private int bX, bY;
 	private Color col1;
 	private Color col2;
 	private static final int INSET = 40;
@@ -60,7 +59,6 @@ public class SpeechBubbleAnimation extends Animation
 	private Polygon poly;
 	private int textHeight;
 	private int textWidth;
-	private int bY;
 
 	private Rectangle bounds;
 	private int index;
@@ -68,17 +66,31 @@ public class SpeechBubbleAnimation extends Animation
 
 	public static final int WAIT_FOR_CLICK = -1;
 
+	private final boolean debug = false;
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Orientation of the speech bubble relative to it's origination bounds
+	 */
+	public enum Orientation
+	{
+		LEFT, RIGHT, ABOVE, BELOW, ABOVE_LEFT, ABOVE_RIGHT, BELOW_LEFT, BELOW_RIGHT, CENTERED
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public SpeechBubbleAnimation(
 		Color colour,
 		String text,
 		Rectangle origination,
+		Orientation orientation,
 		int duration)
 	{
 		this.colour = colour;
 		this.text = text;
 		this.origination = origination;
 		this.duration = duration;
+		this.orientation = orientation;
 
 		synchronized (bubbles)
 		{
@@ -111,18 +123,24 @@ public class SpeechBubbleAnimation extends Animation
 		if (duration == WAIT_FOR_CLICK)
 		{
 			g.setPaint(colour);
-			if (poly != null)
-			{
-				g.draw(poly);
-			}
+//			if (poly != null)
+//			{
+//				g.draw(poly);
+//			}
 			g.draw(rect);
 		}
-		
+
+		// debug
+		if (debug)
+		{
+			g.drawRect(origination.x, origination.y, origination.width, origination.height);
+		}
+
 		g.setColor(Color.DARK_GRAY);
 		int line = 1;
 		for (String s : strings)
 		{
-			g.drawString(s, bX + PADDING, bY + PADDING + line*textHeight);
+			g.drawString(s, bX + PADDING, bY + PADDING + line * textHeight);
 			line++;
 		}
 	}
@@ -130,22 +148,20 @@ public class SpeechBubbleAnimation extends Animation
 	/*-------------------------------------------------------------------------*/
 	private void computeBounds(Graphics2D g)
 	{
-		// todo: character slots 5 and 6 need special handling in movement mode
-
 		FontMetrics fm = g.getFontMetrics();
 
 		int maxWidth;
 		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
-			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH/3;
+			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH / 3;
 		}
 		else
 		{
-			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH/4;
+			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH / 4;
 		}
 		textWidth = Math.min(fm.stringWidth(text), maxWidth);
 
-		strings = new ArrayList<String>();
+		strings = new ArrayList<>();
 		String[] paragraphs = text.split("\\n");
 
 		for (int i = 0; i < paragraphs.length; i++)
@@ -157,21 +173,48 @@ public class SpeechBubbleAnimation extends Animation
 
 		textHeight = fm.getAscent();
 
-		bHeight = textHeight *strings.size() + PADDING *2;
-		bWidth = textWidth + PADDING *3;
-		switch (align)
+		bHeight = textHeight * strings.size() + PADDING * 2;
+		bWidth = textWidth + PADDING * 3;
+		switch (orientation)
 		{
-			case LEFT:
-				bX = origination.x + origination.width + INSET;
-				break;
 			case RIGHT:
-				bX = origination.x - INSET - bWidth;
+				bX = origination.x + origination.width + INSET;
+				bY = origination.y + origination.height / 2 - bHeight / 2;
 				break;
-			case CENTER:
-				bX = origination.x +origination.width/2 -bWidth/2;
+			case LEFT:
+				bX = origination.x - INSET - bWidth;
+				bY = origination.y + origination.height / 2 - bHeight / 2;
+				break;
+			case ABOVE:
+				bX = origination.x + origination.width / 2 - bWidth / 2;
+				bY = origination.y - INSET - bHeight;
+				break;
+			case BELOW:
+				bX = origination.x + origination.width / 2 - bWidth / 2;
+				bY = origination.y + origination.height + INSET;
+				break;
+			case ABOVE_LEFT:
+				bX = origination.x - INSET/2 - bWidth;
+				bY = origination.y - INSET/2 - bHeight;
+				break;
+			case ABOVE_RIGHT:
+				bX = origination.x + origination.width + INSET/2;
+				bY = origination.y - INSET/2 - bHeight;
+				break;
+			case BELOW_LEFT:
+				bX = origination.x - INSET/2 - bWidth;
+				bY = origination.y + origination.height + INSET/2;
+				break;
+			case BELOW_RIGHT:
+				bX = origination.x + origination.width + INSET/2;
+				bY = origination.y + origination.height + INSET/2;
+				break;
+			case CENTERED:
+				bX = origination.x + origination.width / 2 - bWidth / 2;
+				bY = origination.y + origination.height / 2 - bHeight / 2;
 				break;
 		}
-		bY = origination.y + origination.height/2 - bHeight /2;
+
 
 		bounds = new Rectangle(bX, bY, bWidth, bHeight);
 
@@ -213,12 +256,12 @@ public class SpeechBubbleAnimation extends Animation
 					if (this.index < a.index)
 					{
 						// place this bubble above the other one
-						this.bY = a.bY -this.bHeight -PADDING;
+						this.bY = a.bY - this.bHeight - PADDING;
 					}
 					else
 					{
 						// place this bubble below the other one
-						this.bY = a.bY +a.bHeight +PADDING;
+						this.bY = a.bY + a.bHeight + PADDING;
 					}
 
 					// reset to the start again
@@ -233,43 +276,142 @@ public class SpeechBubbleAnimation extends Animation
 
 		rect = new RoundRectangle2D.Double(bX, bY, bWidth, bHeight, 10, 10);
 
-		if (align == DIYToolkit.Align.LEFT)
+		switch (orientation)
 		{
-			poly = new Polygon(
-				new int[]
-					{
-						origination.x + origination.width - POLY_INTRUSION,
-						bX,
-						bX,
-					},
-				new int[]
-					{
-						origination.y + origination.height/2,
-						bY + bHeight /2 - POLY_FATNESS,
-						bY + bHeight /2 + POLY_FATNESS,
-					},
-				3);
-		}
-		else if (align == DIYToolkit.Align.RIGHT)
-		{
-			poly = new Polygon(
-				new int[]
-					{
-						origination.x + POLY_INTRUSION,
-						bX + bWidth,
-						bX + bWidth,
-					},
-				new int[]
-					{
-						origination.y + origination.height/2,
-						bY + bHeight /2 - POLY_FATNESS,
-						bY + bHeight /2 + POLY_FATNESS,
-					},
-				3);
-		}
-		else
-		{
-			// no prong
+			case LEFT:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x + POLY_INTRUSION,
+							bX + bWidth,
+							bX + bWidth,
+						},
+					new int[]
+						{
+							origination.y + origination.height / 2,
+							bY + bHeight / 2 - POLY_FATNESS,
+							bY + bHeight / 2 + POLY_FATNESS,
+						},
+					3);
+				break;
+			case RIGHT:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x + origination.width - POLY_INTRUSION,
+							bX,
+							bX,
+						},
+					new int[]
+						{
+							origination.y + origination.height / 2,
+							bY + bHeight / 2 - POLY_FATNESS,
+							bY + bHeight / 2 + POLY_FATNESS,
+						},
+					3);
+				break;
+			case ABOVE:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x + origination.width / 2,
+							bX + bWidth/2 - POLY_FATNESS,
+							bX + bWidth/2 + POLY_FATNESS,
+						},
+					new int[]
+						{
+							origination.y + POLY_INTRUSION,
+							bY + bHeight,
+							bY + bHeight,
+						},
+					3);
+				break;
+			case BELOW:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x + origination.width / 2,
+							bX + bWidth/2 - POLY_FATNESS,
+							bX + bWidth/2 + POLY_FATNESS,
+						},
+					new int[]
+						{
+							origination.y + origination.height - POLY_INTRUSION,
+							bY,
+							bY,
+						},
+					3);
+				break;
+			case ABOVE_LEFT:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x + POLY_INTRUSION,
+							bX + bWidth,
+							bX + bWidth - POLY_FATNESS,
+						},
+					new int[]
+						{
+							origination.y + POLY_INTRUSION,
+							bY + bHeight - POLY_FATNESS /2,
+							bY + bHeight,
+						},
+					3);
+				break;
+			case ABOVE_RIGHT:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x +origination.width - POLY_INTRUSION,
+							bX,
+							bX + POLY_FATNESS,
+						},
+					new int[]
+						{
+							origination.y + POLY_INTRUSION,
+							bY + bHeight - POLY_FATNESS /2,
+							bY + bHeight,
+						},
+					3);
+				break;
+			case BELOW_LEFT:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x + POLY_INTRUSION,
+							bX + bWidth - POLY_FATNESS,
+							bX + bWidth,
+						},
+					new int[]
+						{
+							origination.y + origination.height - POLY_INTRUSION,
+							bY,
+							bY + POLY_FATNESS,
+						},
+					3);
+				break;
+			case BELOW_RIGHT:
+				poly = new Polygon(
+					new int[]
+						{
+							origination.x +origination.width - POLY_INTRUSION,
+							bX + POLY_FATNESS,
+							bX,
+						},
+					new int[]
+						{
+							origination.y + origination.height - POLY_INTRUSION,
+							bY,
+							bY + POLY_FATNESS,
+						},
+					3);
+				break;
+
+
+			case CENTERED:
+			default:
+				// no prong
+				break;
 		}
 	}
 
@@ -278,25 +420,70 @@ public class SpeechBubbleAnimation extends Animation
 	public Animation spawn(AnimationContext context)
 	{
 		SpeechBubbleAnimation result = new SpeechBubbleAnimation(
-			colour, text, origination, duration);
-
-		result.origination = origination;
+			colour, text, origination, orientation, duration);
 
 		if (this.origination == null)
 		{
+			// originate from the whole screen
 			result.origination = new Rectangle(
-				DiyGuiUserInterface.SCREEN_WIDTH/2-50,
-				DiyGuiUserInterface.SCREEN_HEIGHT/2-50,
-				100,100);
-			result.align = DIYToolkit.Align.CENTER;
+				DiyGuiUserInterface.SCREEN_WIDTH / 2 - 50,
+				DiyGuiUserInterface.SCREEN_HEIGHT / 2 - 50,
+				100, 100);
 		}
-		else if (this.origination.x < DiyGuiUserInterface.SCREEN_WIDTH/2)
+
+		if (this.orientation == null)
 		{
-			result.align = DIYToolkit.Align.LEFT;
-		}
-		else
-		{
-			result.align = DIYToolkit.Align.RIGHT;
+			// guess the orientation
+			int leftLimit = DiyGuiUserInterface.SCREEN_WIDTH / 3 * 2;
+			int rightLimit = DiyGuiUserInterface.SCREEN_WIDTH / 3;
+			int aboveLimit = DiyGuiUserInterface.SCREEN_HEIGHT / 3 *2;
+			int belowLimit = DiyGuiUserInterface.SCREEN_HEIGHT / 3;
+
+			if (origination.x > leftLimit)
+			{
+				if (origination.y > aboveLimit)
+				{
+					result.orientation = Orientation.ABOVE_LEFT;
+				}
+				else if (origination.y < belowLimit)
+				{
+					result.orientation = Orientation.BELOW_LEFT;
+				}
+				else
+				{
+					result.orientation = Orientation.LEFT;
+				}
+			}
+			else if (origination.x < rightLimit)
+			{
+				if (origination.y > aboveLimit)
+				{
+					result.orientation = Orientation.ABOVE_RIGHT;
+				}
+				else if (origination.y < belowLimit)
+				{
+					result.orientation = Orientation.BELOW_RIGHT;
+				}
+				else
+				{
+					result.orientation = Orientation.RIGHT;
+				}
+			}
+			else
+			{
+				if (origination.y > aboveLimit)
+				{
+					result.orientation = Orientation.ABOVE;
+				}
+				else if (origination.y < belowLimit)
+				{
+					result.orientation = Orientation.BELOW;
+				}
+				else
+				{
+					result.orientation = Orientation.CENTERED;
+				}
+			}
 		}
 
 		result.pc = (PlayerCharacter)context.getCaster();

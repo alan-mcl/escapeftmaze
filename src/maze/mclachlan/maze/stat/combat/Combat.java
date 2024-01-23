@@ -221,7 +221,6 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	public void advanceFoeGroup(FoeGroup foeGroup)
 	{
-		System.out.println("Combat.advanceFoeGroup");
 		int index = foes.indexOf(foeGroup);
 		int newIndex = index -1;
 
@@ -231,7 +230,6 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	public void retreatFoeGroup(FoeGroup foeGroup)
 	{
-		System.out.println("Combat.retreatFoeGroup");
 		int index = foes.indexOf(foeGroup);
 		int newIndex = index +1;
 

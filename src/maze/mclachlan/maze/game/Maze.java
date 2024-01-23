@@ -41,6 +41,7 @@ import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
+import mclachlan.maze.stat.combat.DefendIntention;
 import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionManager;
@@ -932,7 +933,9 @@ public class Maze implements Runnable
 		{
 			if (partyIntentions[j] == null)
 			{
-				throw new MazeException("null actor intention at party index "+j);
+//				throw new MazeException("null actor intention at party index "+j);
+				log("null actor intention at party index "+j);
+				partyIntentions[j] = new DefendIntention();
 			}
 		}
 
@@ -1507,7 +1510,7 @@ public class Maze implements Runnable
 			bounds,
 			false);
 
-		getUi().stopAllAnimations();
+//		getUi().stopAllAnimations();
 		resolveEvent(e, false);
 	}
 
@@ -2152,6 +2155,8 @@ public class Maze implements Runnable
 	{
 		return playerPos;
 	}
+
+	/*-------------------------------------------------------------------------*/
 	public Point getTile()
 	{
 		return playerPos;

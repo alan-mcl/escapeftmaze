@@ -84,13 +84,14 @@ public class SpellTargetUtils
 			processSpellEffectApplication(spell, caster, castingLevel, spell.getEffects().getRandom(), result, combat);
 
 		// apply to all in the group
-		applyCloudSpellToActorGroup(
-			combat,
-			spellEffects,
-			attackedGroup,
-			caster,
-			castingLevel,
-			action.isAttackingAllies());
+		result.addAll(
+			applyCloudSpellToActorGroup(
+				combat,
+				spellEffects,
+				attackedGroup,
+				caster,
+				castingLevel,
+				action.isAttackingAllies()));
 
 		return result;
 	}

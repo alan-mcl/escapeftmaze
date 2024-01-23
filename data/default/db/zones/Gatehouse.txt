@@ -1055,31 +1055,30 @@ playerOrigin: 14:30
 10: gatehouse.portal.4,true,unlocked,25:5,3,26:5,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 11: gatehouse.portal.6,true,unlocked,18:5,2,18:6,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 12: gatehouse.portal.7,true,unlocked,17:4,4,16:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-13: gatehouse.portal.8,true,unlocked,17:3,1,17:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-14: gatehouse.portal.9,true,unlocked,17:1,4,16:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-15: gatehouse.portal.10,true,unlocked,16:2,2,16:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-16: gatehouse.portal.11,true,unlocked,15:3,4,14:3,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-17: gatehouse.portal.12,true,unlocked,15:5,4,14:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-18: gatehouse.portal.13,true,locked,6:5,4,5:5,3,true,true,true,15,5,0:2:0:2:0:2:0:0,010101,null,true,generic door creak,
-19: gatehouse.portal.14,true,unlocked,13:3,1,13:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-20: gatehouse.portal.15,true,unlocked,12:1,4,11:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-21: gatehouse.portal.16,true,unlocked,10:2,2,10:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-22: gatehouse.portal.17,true,unlocked,9:4,4,8:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-23: gatehouse.portal.18,true,unlocked,5:1,4,4:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-24: gatehouse.portal.23,true,unlocked,4:11,1,4:10,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-25: gatehouse.portal.24,false,unlocked,3:5,4,2:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 2,
-26: gatehouse.portal.25,false,unlocked,3:7,1,3:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 3,
-27: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1,
-28: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
-29: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-30: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:-1:gatehouse.toggle.wall.portcullis.0:874:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::
-31: gatehouse.portal.0,true,locked,21:6,4,20:6,3,false,false,false,256,128,99:99:90:90:90:90:90:90,11111111,Gatehouse Key,true,,13:::false:-1:gatehouse.toggle.wall.portcullis.1:219:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::_PORTCULLIS_
-32: gatehouse.portal.1,true,unlocked,20:3,1,9:25,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
-33: gatehouse.portal.2,true,unlocked,14:1,3,15:1,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-34: gatehouse.portal.3,true,unlocked,13:2,3,14:2,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-35: gatehouse.portal.5,true,unlocked,10:2,4,9:2,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-36: gatehouse.portal.19,true,unlocked,8:2,2,8:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
-37: gatehouse.portal.20,true,unlocked,8:1,4,7:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+13: gatehouse.portal.9,true,unlocked,17:1,4,16:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+14: gatehouse.portal.10,true,unlocked,16:2,2,16:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+15: gatehouse.portal.11,true,unlocked,15:3,4,14:3,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+16: gatehouse.portal.12,true,unlocked,15:5,4,14:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+17: gatehouse.portal.13,true,locked,6:5,4,5:5,3,true,true,true,15,5,0:2:0:2:0:2:0:0,010101,null,true,generic door creak,
+18: gatehouse.portal.14,true,unlocked,13:3,1,13:2,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+19: gatehouse.portal.15,true,unlocked,12:1,4,11:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+20: gatehouse.portal.16,true,unlocked,10:2,2,10:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+21: gatehouse.portal.17,true,unlocked,9:4,4,8:4,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+22: gatehouse.portal.18,true,unlocked,5:1,4,4:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+23: gatehouse.portal.23,true,unlocked,4:11,1,4:10,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+24: gatehouse.portal.24,false,unlocked,3:5,4,2:5,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 2,
+25: gatehouse.portal.25,false,unlocked,3:7,1,3:6,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 3,
+26: gatehouse.portal.26,false,unlocked,3:3,2,3:4,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,Gatehouse exit portal 1,
+27: gatehouse.portal.27,true,unlocked,28:2,2,28:23,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+28: gatehouse.portal.28,true,unlocked,12:27,1,12:26,2,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+29: gatehouse.portal.29,true,wall-like,15:26,3,16:26,4,false,false,false,5,0,0:0:0:0:0:0:0:0,,null,true,,13:::false:-1:gatehouse.toggle.wall.portcullis.0:874:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::
+30: gatehouse.portal.0,true,locked,21:6,4,20:6,3,false,false,false,256,128,99:99:90:90:90:90:90:90,11111111,Gatehouse Key,true,,13:::false:-1:gatehouse.toggle.wall.portcullis.1:219:false:DUNGEON_PORTCULLIS_1::true:true:false:1:DUNGEON_PORTCULLIS_1_UP::true:false:false:1::_PORTCULLIS_
+31: gatehouse.portal.1,true,unlocked,20:3,1,9:25,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,,
+32: gatehouse.portal.2,true,unlocked,14:1,3,15:1,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+33: gatehouse.portal.3,true,unlocked,13:2,3,14:2,4,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+34: gatehouse.portal.5,true,unlocked,10:2,4,9:2,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+35: gatehouse.portal.19,true,unlocked,8:2,2,8:3,1,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
+36: gatehouse.portal.20,true,unlocked,8:1,4,7:1,3,true,true,true,5,0,0:0:0:0:0:0:0:0,,null,true,generic door creak,
 
 -sky image-
 0: sky.ichiba
@@ -1124,16 +1123,16 @@ playerOrigin: 14:30
 36: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 37: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 38: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
-39: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,18
-40: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
-41: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
-42: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,24
-43: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,24
-44: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-45: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-46: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,28
-47: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,30
-48: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,30
+39: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+40: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+41: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+42: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,44
+43: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
+44: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+45: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+46: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,44
+47: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+48: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 49: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 50: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 51: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
@@ -1157,16 +1156,16 @@ playerOrigin: 14:30
 69: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 70: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 71: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
-72: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
-73: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
-74: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,24
-75: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,24
-76: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-77: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-78: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,28
-79: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,30
-80: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,30
-81: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
+72: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+73: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+74: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
+75: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
+76: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+77: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+78: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
+79: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+80: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+81: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
 82: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 83: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 84: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
@@ -1190,14 +1189,14 @@ playerOrigin: 14:30
 102: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 103: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 104: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
-105: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
-106: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
+105: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+106: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 107: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,36
 108: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,44
-109: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-110: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-111: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,28
-112: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,28
+109: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+110: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+111: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+112: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 113: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
 114: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
 115: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,36
@@ -1222,12 +1221,12 @@ playerOrigin: 14:30
 134: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
 135: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
 136: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
-137: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
-138: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
+137: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+138: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 139: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,38
 140: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,36
-141: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
-142: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
+141: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
+142: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
 143: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
 144: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,34
 145: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,44
@@ -1312,7 +1311,7 @@ playerOrigin: 14:30
 224: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 225: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 226: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
-227: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,24
+227: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,28
 228: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 229: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 230: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16
@@ -1344,9 +1343,9 @@ playerOrigin: 14:30
 256: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 257: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 258: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
-259: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,21
-260: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,18
-261: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,15
+259: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,26
+260: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,24
+261: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
 262: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
 263: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,22
 264: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,24
@@ -1376,9 +1375,9 @@ playerOrigin: 14:30
 288: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 289: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 290: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
-291: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,18
-292: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,18
-293: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,15
+291: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,24
+292: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
+293: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,20
 294: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,18
 295: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,8
 296: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,24
@@ -1408,9 +1407,9 @@ playerOrigin: 14:30
 320: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 321: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
 322: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32
-323: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,15
-324: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,15
-325: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,15
+323: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,22
+324: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,20
+325: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,18
 326: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20
 327: DUNGEON_FLOOR_1,WATER_2,DUNGEON_CEILING_1,,20
 328: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,8
@@ -2145,7 +2144,7 @@ playerOrigin: 14:30
 110: DUNGEON_WALL_1:::::true:1
 111: DUNGEON_WALL_1:::::true:1
 112: DUNGEON_WALL_1:DUNGEON_DOOR_1::::true:1
-113: DUNGEON_WALL_1:DUNGEON_DOOR_1::::true:1
+113: DUNGEON_PORTCULLIS_1_UP:::::false:1
 114: DUNGEON_WALL_1:::::true:1
 115: DUNGEON_WALL_1:::::true:1
 116: DUNGEON_WALL_1:DUNGEON_STAIR_DOWN::::true:1
@@ -2871,6 +2870,8 @@ playerOrigin: 14:30
 148: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:70:true::000001001::BOTTOM
 149: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:38:true::1::BOTTOM
 150: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:37:true::011101::BOTTOM
+151: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:46:true::::TOP
+152: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:42:true::::TOP
 
 -scripts-
 0: 2,8,32,40,757/660/300
