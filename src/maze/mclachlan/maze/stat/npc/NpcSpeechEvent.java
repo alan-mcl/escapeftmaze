@@ -37,9 +37,9 @@ import mclachlan.maze.util.MazeException;
  */
 public class NpcSpeechEvent extends MazeEvent
 {
-	private Foe npc;
-	private String text;
-	private int delay;
+	private final Foe npc;
+	private final String text;
+	private final int delay;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcSpeechEvent(String text, Foe npc)
@@ -59,7 +59,7 @@ public class NpcSpeechEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		String s = npc.getDisplayName() + ":\n" + text;
+		String s = text;
 
 		Rectangle origination = Maze.getInstance().getUi().getObjectBounds(npc.getSprite());
 

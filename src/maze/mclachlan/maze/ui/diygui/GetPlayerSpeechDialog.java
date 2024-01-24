@@ -41,9 +41,9 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/6;
 
-	private DIYButton okButton, cancel;
-	private DIYTextField inputField;
-	private TextDialogCallback textDialogCallback;
+	private final DIYButton okButton, cancel;
+	private final DIYTextField inputField;
+	private final TextDialogCallback textDialogCallback;
 
 	/*-------------------------------------------------------------------------*/
 	public GetPlayerSpeechDialog(
@@ -53,8 +53,8 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 		super();
 		this.textDialogCallback = textDialogCallback;
 
-		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
-		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
+		int startX = DiyGuiUserInterface.LOW_BOUNDS.x + DiyGuiUserInterface.LOW_BOUNDS.width/2 - DIALOG_WIDTH/2;
+		int startY = DiyGuiUserInterface.LOW_BOUNDS.y + DiyGuiUserInterface.LOW_BOUNDS.height/2 - DIALOG_HEIGHT/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 
@@ -67,6 +67,7 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 
 		inputField = new DIYTextField();
 		inputField.setBounds(x + inset, y + inset + buttonPaneHeight, width - inset * 2, buttonPaneHeight);
+		inputField.addActionListener(this);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		int inset = 10;
@@ -106,7 +107,7 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == okButton)
+		if (event.getSource() == okButton || event.getSource() == inputField)
 		{
 			finished();
 		}

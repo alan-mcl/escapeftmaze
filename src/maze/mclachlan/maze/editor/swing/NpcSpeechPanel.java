@@ -216,6 +216,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 		addSpeech("belisarius");
 		addSpeech("broken fang");
 		addSpeech("diomedes");
+		addSpeech("emmons");
 		addSpeech("fangorn");
 		addSpeech("glaucus");
 		addSpeech("imogen");

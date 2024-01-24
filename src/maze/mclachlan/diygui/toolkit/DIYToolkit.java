@@ -300,7 +300,7 @@ public class DIYToolkit
 
 		FontMetrics fm = g.getFontMetrics(f);
 	
-		int textHeight = fm.getAscent();
+		int textHeight = fm.getHeight();
 		int textWidth = fm.stringWidth(s);
 		
 		return new Dimension(textWidth, textHeight);

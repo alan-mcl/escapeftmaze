@@ -71,7 +71,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public static int PC_WIDTH;
 	public static int PC_RIGHT_X;
 	public static Rectangle SCREEN_BOUNDS;
-	private static Rectangle LOW_BOUNDS;
+	public static Rectangle LOW_BOUNDS;
 	private static int ZONE_DISPLAY_HEIGHT;
 
 	private static Font font = null;

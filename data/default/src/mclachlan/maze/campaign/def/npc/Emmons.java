@@ -28,7 +28,7 @@ public class Emmons extends NpcScript
 	{
 		return getList(
 			new FlavourTextEvent("Rounding the corner you nearly " +
-				"collide with a short, scruffy goblin who is furtively using a knife" +
+				"collide with a short, scruffy goblin who is furtively picking with a knife" +
 				" between the cracks of the northern wall.",
 				MazeEvent.Delay.WAIT_ON_CLICK, true));
 	}

@@ -1,4 +1,4 @@
-#Wed Jan 10 10:55:55 SAST 2024
+#Wed Jan 24 11:41:26 SAST 2024
 garret=9|He he he, I know little of religion.
 leonal,leonals,white\ order=9|The tall leonals, he he he. They keep trying to tell us what to do. Would that they would just stay in the big castle far north.
 maze=9|The maze is endless, I say. He he he. Have a beer and forget about it.

@@ -41,9 +41,9 @@ public class FlavourTextDialog extends GeneralDialog
 		List<String> lines = DIYToolkit.wrapText(
 			text,
 			DiyGuiUserInterface.gui.getComponent().getGraphics(),
-			DIALOG_WIDTH);
+			DIALOG_WIDTH-border*2);
 
-		int dialogHeight = (int)(lines.size() * (DIYToolkit.getDimension("|").getHeight()+5)) +border*2;
+		int dialogHeight = (int)((lines.size()+1) * (DIYToolkit.getDimension("|").getHeight())) +border*2;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
