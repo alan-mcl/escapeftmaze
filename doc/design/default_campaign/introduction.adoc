@@ -1,0 +1,32 @@
+[#_introduction]
+= Introduction
+
+== Original Intro
+
+No one remembers any more how the various races came to be imprisoned in the Maze.For uncounted generations the Maze has been their jail and their jailer, and few have ever escaped its clutches.
+
+The Maze is formed of many domains, some as large as continents, others as small as houses.Domains are joined by lesser gates, various in appearance but uniform in their function of transporting a traveller across time and space.Domains that are interconnected by easily passable gates make up a Realm; Realms are joined by greater Gates, always perilously guarded, and form the outward path a traveller seeking to escape the Maze must follow...
+
+The First Realm is, perhaps, the most subtle and dangerous trap that the Maze has in it's arsenal.Offering several large, safe domains, it is a gilded cage that few banished there care to escape.Here the races of the Realm have established their peaceful and prosperous settlements, where most are content to remain rather than brave the terrors of the Maze.
+
+YOU are different.Not for you the passive acceptance of captivity, silence in the face of this ancient injustice - an injustice that no one even bothers to speak of any more.Whispered rumours told you of those before you that had left the First Realm to try their hand at escaping the Maze.None have ever returned.
+
+And so you gathered what equipment and like minded comrades that you could and left your home behind, setting out into the wild areas in the centre of the First Realm where none dared tread. The journey was long and hard, beset by hazards and foes you could barely have imagined before you left, but you prevailed and at long last came to the chamber of the Gate atop a unnamed windswept mountain, and defeated in battle the guardian beast left there to watch over it.
+
+Without hesitation, you step through the first Great Gate and forever leave the First Realm behind...
+
+== New Intro
+
+
+Many generations ago your ancestors were cast into the Maze. For sins or crimes that you do not remember they were exiled from their own time and place. They did not know the origins of the Maze, but it became their jail and their jailer. Few ever escaped it's clutches.
+
+You were born into this captivity. You spent your youth wandering the domains and gates of First Realm. Always you felt the eyes of the Maze upon you. The Maze watched but seldom acted, for most of the first Realm is safe. Such is the nature of the prison.
+
+Many others shared your fate, but few were willing to risk escaping. You were different. For you the injustice of your fate always burned brightly. Ever your eyes were set towards the forbidden domains at the center of the First Realm, for you knew that there lay passage from this realm to the second.
+
+And so you gathered what equipment and like minded comrades you could and left safety behind. You passed through the guarded gates and departed from the inhabited domains of the first Realm. And so the eyes of the Maze were turned upon you, and the will of the Maze began to move against you.
+
+The journey was long and hard. You were beset by hazards and foes you could barely have imagined before you left. But at long last you came to the chamber of the Great Gate atop a unnamed windswept mountain, and defeated in battle the guardian beast left there to watch over it.
+
+The passage to the Second Realm lies open. Without hesitation, you step through the first Great Gate and forever leave the domains of your birth behind you...
+

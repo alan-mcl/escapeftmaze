@@ -10,7 +10,7 @@ The First Realm is, perhaps, the most subtle and dangerous trap that the Maze ha
 
 YOU are different. Not for you the passive acceptance of captivity, silence in the face of this ancient injustice - an injustice that no one even bothers to speak of any more. Whispered rumours told you of those before you that had left the First Realm to try their hand at escaping the Maze. None have ever returned.
 
-And so you gathered what equipment and like minded comrades that you could and left your home behind, setting out into the wild areas in the centre of the First Realm where none dared tread. The journey was long and hard, beset by hazards and foes you could barely have imagined before you left, but you prevailed and at long last came to the chamber of the Gate atop a unnamed windswept mountain, and defeated in battle the guardian beast left there to watch over it.
+And so you gathered what equipment and like-minded comrades that you could and left your home behind, setting out into the wild areas in the centre of the First Realm where none dared tread. The journey was long and hard, beset by hazards and foes you could barely have imagined before you left, but you prevailed and at long last came to the chamber of the Gate atop a unnamed windswept mountain, and defeated in battle the guardian beast left there to watch over it.
 
 Without hesitation, you step through the first Great Gate and forever leave the First Realm behind...
 
@@ -26,10 +26,9 @@ The theme of the default campaign is of the party leaving comfort zones, going a
 
 Text in colour is not yet implemented.
 
-Introduction
+<<_introduction, Introduction>>
 
 === Setting
-
 * The Maze: An overview of the Maze, the mysterious prison that the party seeks to escape.
 * The First Realm: A summary of the First Realm that the party has left behind.
 * The Second Realm: Details and the places and people encountered in the Second Realm.
