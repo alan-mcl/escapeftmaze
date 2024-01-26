@@ -1,0 +1,528 @@
+= The Second Realm
+
+:toc:
+
+The second realm is one of warring city-states. Danaos is the bastion of the Leonals of the White Order, who are constantly at war with the gnomes of Aenen, wielders of intricate machines and elemental magic. Between lies prosperous Ichiba, the City in the Crater, who welcomes all comers.
+
+Beyond the civilised areas bounded by Danaos and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland domains are haunted by seven deadly spirits, and any wishing to escape from the Realm must defeat them all. The inhabitants of the realm founded a settlement in a flat place in the wilds - Hail town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.
+
+The traveller passing through the wilds will eventually navigate the dark Caves of Ilast and come to the restful Isle of the Gate. Below the Isle lies the tomb of the dragon Ekirth, and below that the Temple if the Great Gate, the exit to the Third Realm.
+
+== Places
+Unless otherwise noted, all gates between domains are two-way.
+
+=== Gatehouse
+The Gatehouse dungeon complex is where the party arrives, having stepped through the Great Gate from the First Realm. It was a one-way trip; there is no gate back to the First.
+
+It is a gloomy dungeon with a bunch of low level monsters in it. There are three possible exits, one guarded by a golem (easiest to beat for a stealth focussed party), one guarded by spell casting spiders (easiest to beat for a combat focussed party) and one guarded by insect swarms (easiest to beat for a magic focussed party). They deposit the party in different places along the north-south road in Ichiba domain.
+
+Foes: bats, spiders, roaches
+
+Notes
+
+* An illegible “Second Realm” signpost greets the party. A thief can spot secret "thieves guild claims this area" signs on it.
+* The west-most room contains a secret passage that leads to a chest of potions and Resurrection Powders
+* A dark area contains glowing fungus, and hides chest with some equipment
+* A northern room contains a secret passage which leads to a chest
+* A feral familiar abandoned by a deceased adventurer leads a pack of bats and spiders. It guards a chest.
+* A series of rooms with encounters leads to a chest containing gold and some non-magical weapons and armour
+
+=== Ichiba
+----
+... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover. You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird's shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy. What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin? Of more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.
+----
+
+Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this domain, and there are much-used gates to Aenen and Danaos. The player appears from thin air - the gates from Gatehouse dungeon are one way only.
+
+A large road runs north-south through most of the domain, crossed by an east-west road that leads to Ichiba City in the west.
+
+==== Ichiba Crossroads
+The north-south road is crossed by an equally well-travelled pathway going east-west. To the west, it leads to Ichiba City. To the east, it fast peters out into nothingness. Perhaps it once led somewhere, but the forest has overgrown it.
+
+Foes: giant mantis', roaches, walking plants, velociraptors, moths, flying lizards, giant snails
+
+Notes
+
+* A cache of items (including a few Resurrection Powders) is hidden in a secluded glade and is guarded by a giant mantis's
+
+==== Ichiba Domain North
+The road wends northwards from the crossroads, passing through thick forest. It ends in a glade that contains a gate in the form of a door stands alone without walls or support. The gate leads to Danaos Castle.
+
+Foes: giant mantis', roaches, walking plants, velociraptors, moths, flying lizards, giant snails
+
+Notes
+
+* A mouldy chest hidden in a remote glade contains a cache of food, ammo, supplies and booze.
+
+==== Ichiba Domain South
+
+The road wends back and forth, tending southwards from the crossroads. It ends in a glade that contains a gate in the form of a door stands alone without walls or support, but with moons, stars and cogs of a great machine carved into its relief. The gate leads to the outskirts of Aenen.
+
+Foes: giant mantis', roaches, walking plants, velociraptors, moths, flying lizards, giant snails
+
+Notes
+
+* A small stone shrine stands at the side of the road, weathered and moss covered. It is a shrine to Garret, the ambivalent patron of heroes, adventurers and wayfarers. Inscribed on it in obscure text are the words "Hail to ye traveller from afar. Fortunate is he who fashions his own fortune. I, Badr al-Din Hasan, erected this shrine to the glory of Garret in gratitude and fulfilment of my oath on reaching the Second Realm and in preparation for my attempt to escape to the Third. Freedom or death."
+
+==== Ichiba City
+
+----
+"Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you can sense the sounds and stenches of a busy town. The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the second Realm?"
+
+"Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all. The inhabitants hurry about their business, many casting you curious glances but none approaching... Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby. You espy many Humans and Goblins amongst them, as well as several representatives that you don't recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at grubby street children and you alike."
+----
+
+Called the "city in the crater", this is the most cosmopolitan city in the Second Realm, a bustling commercial hub of trade and business. Humans, Goblins and Gnolls predominate, with many Gnomes and Leonals present too.
+
+Foes: moths, flying lizards and spiders. thieves, thugs and beggars.
+
+Notes
+
+* Behind two locked doors a chest contains a set of ranger gear
+* Behind two locked doors a chest contains a heavy weapon and some equipment
+* A chest in a magic workshop contains potions, scrolls and one random spellbook
+* A verdant garden behind Glaucus the Gnome's shop emanates green magic. Magical seeds used there produce surprising results. Mistletoe berries, purchased from Glaucus, heal the party when used there.
+* The temple of The Lady emanates strong white magic
+* A villa on the waterfront is locked and guarded by golems. It contains a chest with lots of gold
+* The thieves guild maintains two safe houses that include access to the sewers
+* A signboard outside the Chamber of Commerce advertises that mercenaries are wanted.
+* Imogens tower rises above the southern wall, but a guardian golem denies access to all
+
+==== Gnoll Village
+----
+"There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle as smoke curls lazily upwards from their hearths. A large number of dog-like gnolls lounge around, drinking something from clay mug and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach."
+----
+
+The gnolls are based in a village to the north of Ichiba City.
+
+=== Aenen
+----
+"You step into a dense steamy jungle, slumbering under a brilliant blue sky in which several yellow suns are visible. The air here smells different to you, spicier, and the humidity is far more oppressive than Ichiba domain; already your clothes feel wet and clingy. Water drips from the exotic foliage, and beneath your feet tendrils of steam snake upwards from the moist and spongy ground. A colourful bird of some exotic type flutters lazily over you, its raucous cry cutting through the lingering feeling that something is watching you from just behind the jungle's shadow."
+
+"You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them. Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely. Suddenly the open ground of the clearing feels very exposed..."
+----
+
+The domain of the Gnomes is set in a temperate, forested area. The gnomish city of the same name is burrowed underground, with its entrance in a small above ground fortress in a clearing in the jungle. Poking up through the jungle floor surrounding the fort are solar panels that collect energy to power the Gnomes mysterious machines.
+
+Foes: gnomes, gnome clockworks, giant snakes, omnifids, moulders, giant jungle butterflies, giant mantises, jaguars
+
+Notes
+
+* The party is free to roam the area, but Ideaus at the gate of the fort denies all entry.
+* When wandering around the clearing, at one point the characters pass a twisted, burnt stump of an old tree that the gnomes hacked down. They get a chilly feeling. A wizard can spot that this stump has been used for some sort of ritual, but cannot place it. They find nothing if they search the stump. If they search it again, a snake hiding in its roots bites one of them (damage and minor poison) and then slips away, never to be found again.
+
+==== Aenen City
+----
+"You step into the shadowy halls of Aenen. Your footsteps echo from the tall vaulted ceilings and sturdy stone walls, many of which have been carven with strange mechanical looking reliefs. Here and there tar torches crackle and flicker, and in many places strange luminous globes on the ceiling provide light. Despite the gloom, the air smells surprisingly fresh and wholesome. Gnomes can be seen all around, hurrying here and there in small groups holding strange metallic objects you do not recognise. A quiet buzz of movement and conversation fills the passages. You draw some curious glances but nobody approaches you."
+----
+
+Notes
+
+* King Mnesus broods on his granite throne in the throne room to the west. The door to the chamber has carved into it a large series of cogs forming a pattern that from a distance form a shape vaguely resembling a skull. If characters comment on this design to any gnomes, they explain simply that the even the living body is just a complicated machine.
+* To the south is the Storytellers Market, which contains Sarpedon the Guildmaster, various shops and the apothecary.
+* One of these shops in the Storytellers Market is "Pandarus Finest Tobaccos". A small silver bell tinkles as the players enter the finely attired shop. A small, well-fed gnome in expensive red robes looks up and smiles. "Gentlemen, gentlemen... What fine pipe weed are you seeking?" Players can buy a range of very expensive and very useless items here, but included on the list is one called "Time Tobacco, for the timeless taste". This is the tobacco that Benne O'Corren is looking for.
+* To the north are living areas, mostly locked _and the rest of are simply too small for most characters to even enter.... a good idea, but unclear how to implement. Perhaps Aenen needs a second level that will include more living areas, tobacco plantations, machine shops, and so on._
+* To the north east is the prison. All the cells are empty.
+* To the south east is the forbidden delvings. The gnomes have discovered a gate to Tornado Mountain. A mechanical servant denies access to the area.
+* A chest in the apothecary off the Storytellers Market contains potions, powders and spellbooks.
+* A chest in a locked room near the throne room contains equipment and ammunition.
+* A chest in a locked room near the prison contains magical weapons and armour.
+* _Todo: add a pub/inn to the first level of Aenen. Add more vendors in the Storytellers Market: gadgets, fortune teller, etc._
+
+=== Danaos
+----
+"You appear in a warm and pleasant seeming domain. Puffy white clouds dot a pale blue sky, and the gentle breeze fanning your cheeks reminds you of your life in the First Realm and, perhaps, some earlier childhood memory. Chimney smoke rises in lazy columns over a small hamlet in the forest clearing before you. Looming over the dwellings you see the dark stone ramparts of a powerful looking castle to the west, overlooking the friendly scene with brooding sternness."
+----
+
+The castle of the Leonals is set in a temperate forest.
+
+Foes: leonals, gnome scouts, bats, spiders, giant mantis'
+
+Notes
+
+* Stentor the smith trades weapons and armour from his workshop. He is retired from the army, but may regale you with war tales.
+* Lorelei runs a secret druidic sanctuary in a dwelling to the north of the village. She works to protect the forests of the domain from the Leonals. She has been banished but has returned in secret.
+* Stenelaus the door warden denies all access to the castle, but is always up to pass the time with the characters playing simply dice (a basic gambling game).
+
+Danaos Castle
+"Smells of leather and sweat reach your nostrils. The clink of armour and weapons, bootsteps and gruff leonal voices echo down the stone corridors of Danaos Castle. Patrols are visible moving around the passages, and the whole structure gives you the impression bustle and confidence, and an underlying a martial edginess. This would be a bad place for an enemy of the White Order to find themselves..."
+
+Notes
+
+* The General, Belisarius, keeps his spartan rooms to the north of the castle.
+* _There are always sparring warriors in the courtyard, willing and able to put money on a duel with the characters._
+* _Drackurus of the White Order (his parchment can be found in Ichiba city) lives here. The players may return his parchment to him and he pays them for it._
+* A mighty feasting hall, high roofed and heavy gabled, contains a dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.
+* Agenor at the Commissary is a vendor and a guild master
+* To the east, a bare and simple temple for the worship of The Lady
+* The armoury is locked. Inside are lots of swords, spears and armour.
+* To the south, a locked door bears the sign "Access to the Gate is Restricted." The leonals built the castle on top of a gate to Stygios Forest.
+* The castle dungeons contain a gate to Stygios Forest - a whirling, shimmering golden portal in laid with golden and silver vines across its regal frame.
+
+
+=== Stygios Forest
+----
+"Dark gnarled trees crowd you from all sides, their presence somehow malevolent. Clumps of malignant fungi sprout from the mouldy forest floor. Smells of rot and decay fill your nostrils, reminding you of your own mortality. The ominous silence of the Stygios Forest makes the hair on the back of your neck rise. Your skin tingles with danger and you hold your breath as your ears strain to detect movement in your surroundings, but the forest is quiet. Dead quiet."
+----
+
+Foes: panthers, living trees, mantis', undead, possessed gnolls, apes, _fungi zombies, spore clouds_
+
+Notes
+
+* In the center of the forest, a sinister fey circle of mushrooms stands in a dark glade.
+* "Luminous toadstools grow around this small cracked stone shrine, which is covered in moss and lichen. Peering closer at the carvings, you make out the form of some squat, malignant godling hunched over a pile of bones with a sinister leer across his skeletal face. You instantly recognise it as a shrine to Nergal, the deathly god of the underworld. Nergal is the god of emptiness and endings.All is ashes and dust in his eyes. You reflect that you've seldom seem a shrine dedicated to this gloomy god in a more appropriate setting." _If the statue of Nergal that characters can find in the Writhing Mire is placed on this altar, the statue disintegrates with a haunting moan and a bag of resurrection powder appears._
+* A hidden chest contains magical items
+* To the north east, a dank pool is a gate to the next domain. Diving into it, the party is transported to the Ruins of Hail.
+* A glade to the west is surrounded by scattered bones. Within it, the deadly spirit Ineoth-Em-Risiss-Mar (a gnoll-like demon) lurks. _todo: summoning ritual_
+
+=== Tornado Mountain
+----
+"As you step out of the gate on Tornado Mountain the air explodes around you. Wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel."
+----
+
+Foes: storm crows, earth and air elementals, golems, crag sprites, rock dragons
+
+Notes
+
+* A chest in a niche in the rock contains magical items.
+* _At one point the characters hear something in the howling winds... A shriek or a cry? A priest in the party recognises this as a bad omen._
+* _As the party is walking along, one of them spots what looks like a shiny gold coin just below a sheer drop of a cliff. If the party "searches" their, they get a choice to reach out and try and take the gold object. If they do, the cliff collapses and they all plunge to their deaths as the wind shrieks in wicked laughter at their demise._
+
+=== Hail
+----
+"You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitfully through the devastation. A cursory glance reveals to you all the signs of a settlement that has been sacked and subsequently forgotten. Walls and doors have been broken and torn down, rather than crumbling with age. Many buildings are blackened with fire. In a few places, you spy what must be the remains of slain defenders, _half of a burnt shield, rusting broken spears and dented, blackened armour lying scatterd through the ruins._ All is covered with a layer of dust and mould. Whatever violence happened here, it was a long time ago. It seems pretty clear to you that this city has been deserted by it's inhabitants..."
+----
+
+Hail was once a prosperous trading hub, but the Maze moved against it and it has been destroyed. Little remains in the ruins, but a central courtyard contains five stone pillars that when touched act as gates to Hianbian, the Plain of Pillars, Stygios Forest, Tornado Mountain and the Writhing Mire.
+
+Foes: maneater mantis, ghosts, smart reptiles, _witches and/or hags._
+
+Notes
+
+* The library contains a stack of books, mostly useless. It also contains the remains of the librarian, his diary tells of the last days of Hail. _The library's one wall has strange red writing on it and evidence of candles being burnt there. A wizard in the group recognises this as the signs of black magic rituals. If thief can find a secret passage near this wall, behind a movable bookcase that leads down a dark winding staircase that leads to the Hail Catacombs_
+* Behind the ruins of the Black Dog Inn, a chest contains a cache of Hail Cider.
+* To the east, the area around the remains of the hero Damla is blackened and scorched. Her magical sword is still there.
+* The dragon Igor, one of the seven deadly spirits, squats in the ruins of the old Town Hall.
+* To the north west, a ruined building contains a group of Colonising Omnifids
+* The north road out of town comes to an abrupt end in a large pile of stones. It appears that some sort of massive rock fall has blocked the way. _If the players dig through the rocks a bit, they find the skeleton of a Hail messenger that was caught by the rock slide. All he has on him is a parchment from the old King of Hail to his cousin complaining about his wife and how she keeps on dabbling with black magic, locking herself in the library for days on end and talking about the 'coming darkness'. The old Queen is the Witch of Hail now._
+
+==== _Hail Catacombs_
+_Beneath the ruins of Hail town lie some caverns._
+
+_A hidden stair from the library leads into a large underground cavern with strangely glowing moss on its walls. "Out of the eerie darkness of the cavern a loud high-pitched cackle makes you jump. 'Comes to our homes, they do... Tastes nice, we thinks, in a stew!' And sudden mass of tangled hair, fangs and shredded black robes flies at you from the recesses of the cavern." The players are attacked by the Witch of Hail, who throws nasty curses and claws them with her poisoned nails. If they defeat her, they find that she has some poisonous potions on herself, some jewels of value and she is missing her one eye. If the players snoop around the cavern a bit, they could be attacked by her familiar (a black cat with a horde of ghosts), but they find nothing other than an assortment of skeletons and twisted body parts in various jars._
+
+=== The Writhing Mire
+----
+"You appear in a gloomy, brooding marsh. You are almost deafened by the sound of small buzzing insects that rise from pools of fetid water. Jagged twisted trees, weighed down with lichen and ivy from their sickly branches poke intermittently out from this muck, as just off to your right something sinister disturbs the surface of a pool as it disappears below its murky surface. The air is warm and humid and the stench of rotting vegetation pervasives everything. Swamps are always an unfortunate necessity of travel. Gnats getting in your armour are never much fun, but these hardships must be endured."
+----
+
+The Writing Mire has a number of shifting pathways that appear and vanish at random intervals. A road that used to lead somewhere (a faded sign reads "Tel maka   hus   15 _leagues_") begins before the player, but the mire has drowned it. The only gate (a free standing door) leads back to the Ruins of Hail.
+
+Foes: snakes, moths, snails, moulders, will-o-wisps, fetid mosquito swarms (a collective)
+
+Notes
+
+* Two hidden chests contain caches of weapons and armour respectively.
+* While walking along one of the characters stubs their toe on a obsidian statue half buried by the mud. The statue is of a the form of Nergal, the Death God (a squat, malignant godling hunched over a pile of bones with a sinister leer across his skeletal face). If this statue is placed on the altar to Nergal in Stygios Forest, it disintegrates with a haunting moan and in its place a bag of resurrection powder appears.
+* One of the seven deadly spirits: the mad sorcerer Bel Ies lives in a hut in the middle of the Mire. _todo: summoning ritual_
+
+=== Hianbian
+----
+"You appear in a low corridor. The walls are pale forgettable brick, and the floor is nothing more than worn cobbles. Nothing unusual presents itself..."
+----
+
+_todo: make this a maze of bamboo tunnels suspended in the air?_
+
+Hianbian is a crazy maze of corridors and tiny rooms. Random rotators spin the player around. Random doors teleport the party across the map, often with no indication of the fact that they haven't just stepped onto the next tile, designed to make the whole thing as confusing as possible. Gates are doors that look just like any others - one lead back to the Ruins of Hail, one leads to the Caves of Ilast.
+
+Foes: magical puppets, mad kami, paper tigers and dragons, ninjas.
+
+Notes:
+
+* Three hidden chests contain magical items.
+* In a waterlogged chamber, the deadly spirit Yenlou (a ninja mantis) await the party. He and his ninja acolytes spring from pools of water in ambush. _todo: summoning ritual_
+
+=== The Plain of Pillars
+----
+"You appear in the domain several feet above the ground, and drop in an undignified heap on a bare, crusty surface. Shaking your head, you picking yourself up and are confronted by an alien and inhospitable landscape. A small orange sun looks apologetically down from a blood red sky on a parched white desert. Mysterious pillars and rocky outcroppings dot the landscape as far as you can see. A hot dry northerly breeze stirs your clothing, already sapping your energy and you swallow a lump in your throat. The desert surface crunches beneath your boots, and on impulse you stoop and taste a few grains... salt."
+----
+
+Gates are pillars, no different from many others standing in the desert. One leads to the Ruins of Hail, one leads to the Caves of Ilast.
+
+Foes: giant mechanical engines, vultures, raptors, skeletons, _pillar golems, salt scorpions_
+
+Notes:
+
+* Two chests in rock niches contain magical items. A third hidden chest contains only dust. _A fourth hidden chest is trapped with poison darts._
+* In a stinking cave in the south west corner, the undead monster Ghul is one of the deadly spirits. _todo: summoning ritual_
+
+=== Caves of Ilast
+----
+"___You are suddenly surrounded by absolute silence and darkness. The air is stuffy and old wherever you are and, once you manage to light a torch, you understand why. Old dark rock walls, seeping with ancient stalactites, surround you in oppressive silence and faded into absolute blackness just beyond the torch's sputtering feeble light. You are in the Caves of Ilast and, briefly, wonder how many have been lost for all time to the light of day down here?____"
+----
+
+The Caves of Ilast are a dark cave complex, deep under ground. Swirling golden gates lead back to the Plain of Pillars and Hianbian. A third, guarded by the hag sisters, leads to the Isle of the Gate.
+
+Foes: hagspawn (flying, creeping, slithering), wyrms, apes, rockeaters, bats, _cave scorpions_
+
+Notes:
+
+* A cavern contains a brass pillar. Striking it summons monsters to fight. _Every seventh time the party strikes the pillar and wins the fight, a chest appears and they are rewarded with a low-level magical item._
+* To the south the hag sisters and deadly spirits Miriam Marrowsucker and Getsel Gnawtooth guard the gate to the Isle.
+
+=== Isle of the Gate
+----
+"A cool, fresh breeze washes over you; welcome after the dank and stuffy caves. You gratefully suck in the sweet fresh air and glance around your surroundings. You appear to be on a green island in the middle of a large crystal blue lake reflecting the quiet sky above, streaked with wandering grey and white clouds. Ethereal tendrils of mist drift across the calm, cool water, and the grass beneath your feet is soft and green. You are tempted to tarry here a while, in this deceptively peaceful sanctuary. But at the back of your mind, you can't help wondering what terrors lurk in this seeming paradise..."
+----
+
+Below the Isle lies the Ekirth's Tomb and the Temple of the Gate, containing the great Gate to the Third Realm.
+
+=== Ekirths Tomb
+The tomb of the dragon Ekirth lies empty, save for the evil tempered spawn of the beast that nests there.
+
+=== Temple of the Gate
+The deep temple of the gate contains the Great Gate to the Third Realm.
+
+== People
+
+=== Ichiba
+==== WE Pickett
+----
+"You step into a plush if somewhat musty smelling office. Tasteful pot plants and portraits decorate the walls, framing a polished wooden desk at the far end. A sharply dressed fellow smiles and rises from the luxurious leather chair behind the desk to approach you, hand extended in greeting."
+----
+
+WE Pickett is the Director of the Ichiba Chamber of Commerce. He is a bureaucrat, and the public figure head for the CoC in Ichiba. He can be found in his office in the CoC HQ.
+
+==== Imogen
+----
+"The overgrown chamber is moist and dank. Vines and creepers festoon the walls and floor and ceiling; bulbous stalks and strange sinister flowers nod lazily in your direction as you you enter. At first you think the room is empty, but then you make out a slender feminine figure reclining at the far end, so enwrapped in her throne of foliage that you missed her at first. She regards you with interest for a moment, then rises from her leafy boudoir, shoots and stems and tendrils unwrapping themselves sensuously and reluctantly from her form, and saunters towards you."
+----
+
+Imogen the witch resides in her tower on the south wall of Ichiba. She is a master of green and black magic. Her tower is filled with living plants and golem servants. She has a secret alliance with the Gnolls.
+
+==== Sir Kay
+----
+"From out of the shadows, a slim figure silently emerges and blocks your path."
+----
+
+Kay is the leader of the Gentlemen's Social Club - the thieves guild in Ichiba. He wanders the streets of the city.
+
+==== Scrymgeour
+----
+"The interior of the building is dark and smoky, with wooden tables and stools arranged around a stained and scratched bar. Against the walls, various items of weapons and armour are stacked, most clearly well used. The proprietor approaches you..."
+----
+
+Scrymgeour is the keeper of the Adventurers Arms Inn, and the guildmaster in Ichiba. He is allied with the Chamber of Commerce.
+
+==== Glaucus
+----
+"You stoop to enter the low-roofed structure. Your nose wrinkles at a pungent combination of spices, chemicals, grease and burning sticks of incense. Shelves all around you are stacked with bottles, packages and devices most of which you find impossible to identify. A diminutive figure appears from behind a counter and approaches you..."
+----
+
+Glaucus the gnome runs a small shop in Ichiba that doubles as the gnomish embassy in the city.
+
+==== Diomedes
+----
+"The temple is clean and quiet, although somewhat spartan in design, to the point of lacking pews altogether. In front of a cloth covered altar at the far end of the chamber stands a tall armoured figure, it's back towards you. The knight turns and approaches you, gracefully covering the distance in surprisingly few long legged strides..."
+----
+
+Diomedes the leonal keeps the temple of The Lady in Ichiba. He is the Leonal representative in the city.
+
+==== Red Ear
+----
+"You pass through the low doorway and enter a dingy shop of some sort. Piles of miscelaneous merchandise are heaped on shelves and tables, and hides and skins of various kinds are draped over most of the walls and windows. Dust and mold assault your nostrils. From the shadows bounds a hunched figure clad in scruffy rags, tongue lolling and yellow eyes glinting as he sizes you up..."
+----
+
+Red Ear the gnoll runs a small shop on the Ichiba waterfront.
+
+==== Broken Fang
+----
+"The hut is clean and dry, hung with colourful tapestries. From behind one of the hangings appears a tall, muscular gnoll. He approaches you..."
+----
+
+Broken Fang is the chieftain of the gnolls. He is to be found in his hut in the gnoll village.
+
+==== Three Eyes
+----
+"You stoop to enter the small hut. The interior is dim and smokey, and the walls are lined with crude shelves bearing various trinkets and bundles. On the far wall, illuminated by a halo of smoking candles, a horned skull leers at you. Seated crosslegged before a small fire pit is a wizened gnoll, grey about the snout. He rises to greet you."
+----
+
+Three Eyes is the gnoll shaman, unusually educated for a gnoll. He resides in his hut in the gnoll village.
+
+==== Rhys
+----
+"You emerge in a dark room that is decorated with blood red drapes and thick red carpets. The temperature is icy cold. A hunched figure stands in the center of the room. As it turns to face you, it becomes apparent that you are dealing with something horrifying. Your hair stands on end as the grim figure moves slowly towards you, speaking as it comes..."
+----
+
+The vampire Rhys is the secret leader of the Ichiba Chamber of Commerce. He lives in a chamber deep beneath the city streets.
+
+=== Aenen
+==== Asius
+----
+"The dingy interior is littered with wooden tables and stools, and the walls are lined with cluttered shelves. This appears to be some sort of cross between a watering hole and a general store."
+----
+
+Asius the gnome runs a small shop above ground, just outside the fortress that leads to the underground city.
+
+==== Ideaus
+----
+"Before the doorway stands a stern looking gnome warrior, clad in mail and bearing a glittering silver poleaxe."
+----
+
+Ideaus is the gatekeeper of the fortress that protects the entrance to the underground city of the gnomes.
+
+==== Mentes
+----
+"Neat racks of weapons and armour line the walls. Behind a low counter, the beaming gnome vendor of this establishment puts down the sword that he was polishing and bids you welcome."
+----
+
+Mentes the smith runs a shop in the Storytellers Market in Aenen.
+
+==== Mnesus
+----
+"The throne room is large and echoing, lined with stone pillars. At the far end on an imposing stone throne sits a tall and regal gnome, who rises and approaches you."
+----
+
+King Mnesus of Aenen rules the gnomes from his throne room deep underground.
+
+==== Sarpedon
+----
+"Wooden benches line the walls of this building. A notice board on the wall bears a variety of notices and rosters. From behind a battered counter, a muscular gnome scowls at you and approaches."
+----
+
+Sarpedon the gnome is the guild master in Aenen. His office is off the Storyteller's Market.
+
+==== Pandarus
+----
+"A small silver bell tinkles as you enter the finely attired shop. Polished wooden shelves stoked with neatly packaged and labelled bundles line the walls, and your feet sink into the plushly carpeted floor. A well-fed gnome in expensive red robes looks up from behind a glass-topped counter and smiles."
+----
+
+Pandarus is a tobacconist who keeps a shop in the Storyteller's Market.
+
+=== Danaos
+==== Agenor
+----
+"The commissary appears to be well stocked and ordered. Shelves of supplies, equipment, weapons and armour line the walls. A tall leonal with a clipboard approaches you."
+----
+Agenor runs the commissary and is the guild master in Danaos Castle.
+
+==== Belisarius
+----
+"The room is clean and spartanly furnished with a large wooden desk and several functional looking stools. Campaign maps, some of them still glinting with fresh ink, cover the walls and desk. Propped in one corner is a small camp bed that looks like it's been used in the recent past. A solitary leonal straightens from where he is perusing the maps on the desk and approaches you."
+----
+
+General Belisarius commands the White Order. His office in Danaos castle is always open, and he spends most nights on the cot there near his charts.
+
+==== Stenelaus
+----
+"A tall mailed leonal stands with a drawn blade before the gateway."
+----
+
+Stenelaus the Doorwarden stands guard before the gate of Danaos Castle.
+
+==== Stentor
+----
+"A wave of dry heat assails you as you enter the smithy. Weapons and armour of various sorts are stacked around the walls, gleaming in the flickering light emanating from a roaring furnace, in front of which a tall elderly leonal is bent in labour. Feeling a breeze from the door, the leonal turns and straightens, removes his furnace blackened gloves and strides towards you."
+----
+
+Stentor keeps his smithty outside the walls of Danaos castle. He is a former officer of the White Order.
+
+=== The Seven Deadly Spirits
+==== Bel Ies
+----
+"You espy a small, damp looking hut in this gloomy swamp clearing. Before you can examine the surroundings in greater detail, the door of the hut flies open with a clatter! A scrawny man emerges at pace and staggers towards you with a stilted gate, arms flailing. Tiny marsh insects rise in alarmed swarms in his path. Naked hatred contorts his face into a snarl, and mad eyes are locked unblinkingly on you."
+----
+
+The mad sorcerer Bel Ies lives alone in a tiny hut in the middle of the Writhing Mire
+
+==== Miriam Marrowsucker
+----
+"The dingy cavern is littered with broken furniture and half eaten food. Charred bones poke from a blackened fire pit to one side, and the stench of filth and decay makes you flinch. The largest pile of trash shakes and shudders and suddenly from under it emerges a bent old crone, hideously ugly, clad in little more than tattered rags. Tottering towards you, she grins a toothy smile and flexes yellow fingers that bear alarmingly sharp nails."
+----
+
+The hag Miriam Marrowsucker lurks in the Caves of Ilast.
+
+==== Getsel Gnawtooth
+----
+"If anything, the stench in this chamber is worse than the last one. Heaps of garbage line the walls, yet it's obvious that someone or something lives here. Your inspection is suddenly cut short as a mad eyed hag drops from the cavernous ceiling where she has been hiding and hurls herself at you!"
+----
+
+The hag Getsel Gnawtooth lurks in the Caves of Ilast.
+
+==== Ghul
+----
+"The stench in the cavern is sickening. Dry bones and pertrified corpses litter the floor... though you have little time to take it in. A hunched figure shambles towards you from one of the dark corners with deceptive speed, giggling and wheezing gleefully."
+----
+
+The monstrous Ghul gnaws dry bones in his cave on the Plain of Pillars.
+
+==== Old Igor
+----
+"A bestial stench clogs your nostrils, acrid and hot. Your eyes water and some sort of primordial fear grips at your bowels. You have not long to wait or think, with a hiss of scales the beast emerges from the darkness."
+----
+
+The dragon Igor nests in the Ruins of Hail.
+
+==== Ineoth-Em-Risiss-Mar
+----
+"The gloomy clearing is scattered with bones and offal, and reeks of death and decay. Your nose crinkes in disgust as you peer around, when suddenly a hideous guttural growl breaks the silence. Your blood chills and your fingers freeze on your weapons. Out of the gloom a pack of menacing figures appear, lead by a staggering, gaunt gnoll of some kind. Another growl rumbles from it's throat, and with mounting fear you realise that you are facing no ordinary foe here."
+----
+
+Ineoth lurks in the gloom of Stygios Forest.
+
+==== Yenluo
+----
+"The vaulted roof of the chamber is lost in darkness above you. Stone pillars stand in seemingly random order near the walls, and still pools of water betray no hint of their depth. You pause for a moment. From somewhere within the room comes the sound of water slowly dripping. Suddenly, your eyes register a blur of motion. With speed that takes your breath away a deadly looking insectoid figure appears before you. Behind it, the still waters are disturbed as black garbed warriors spring from the pools, discarding breathing tubes. The mantis pauses for a moment and flexes it's limbs with fearsome purpose, then flashes towards you in attack. With a chill you recognise the movements of your foe - it is closing on you using a Wing Chun kata of the Inner Circle, a style based on flurries of punches from close range. You have fought and trained with students from this school before, but never a graduate of the Inner School, and never one that had giant razor sharp blades instead of fists..."
+----
+
+Yenluo inhabits the corridors of Hianbian.
+
+=== Minions of Usark
+
+==== Kepnasha Deatheater
+----
+"You climb to the top of the tower and enter Imogens leafy inner chamber, hopeful for more loot. Suddenly, the stench of sulphur assails you, and you see standing within a tall red-skinned humanoid. The creature fixes its burning eyes on you and you involuntatily freeze in fear. It speaks in a voice like a clash of cymbals and a thunder of wild horses..."
+----
+
+==== Nhapukom Banesoul
+----
+"You enter a large, domed chamber. Torches flicker in alcoves, and the vaulted ceiling is lost in the gloom above. On the far side, a great magical portal flickers and shimmers, emitting a tangible hum that makes your hair stand on end. Surely, after all this time, you have found the second Great Gate! Standing between you and the gate waits a tall horned demon, it's red skin glowing and smoking gently. You have the impression that it has been waiting for you, frozen still with a deadly immortal patience..."
+----
+
+==== Nusor the Torturer
+----
+"Suddenly, a blinding flash of light stabs through the gloomy forest, searing your unready eyes. When you recover your vision, the vegetation all around you is scorched and charred, and a terrifying creature stands before you wreathed in crackling flames. You feel the heat of the fire on your faces. The creature's empty eyes regard you silently for a moment, then a chilling voice issues from it's featureless face."
+----
+
+==== Saropon the Vile
+----
+"With starling suddenness, the howling wind stops clutching at your clothing, and silence fills your ears. Gazing around, you see a bird frozen in flight, wheeling above your head. The meagre vegetation around you is still, bent and twisted in the midst of it's struggle against the pervasive winds. Time around you is standing still. Without warning, the still air before you bends and warps, shimmering in some kind of force field. A bizarre apparition appears before you. Your skin crawls as the creature regards you from behind it's bizarre mask. Suddenly it speaks, with a voice that is oiled with charm and menace."
+----
+
+==== Imunos
+----
+Imunos, Minion of Usark, is held captive in the Crypt of Atrocities. Woe to any who release him from his cell.
+----
+
+=== Other
+==== Fangorn
+----
+"At first you think that the dark chamber is empty. Your breath forms white clouds in the unbelievable cold. You are about to turn away, when suddenly you realise that a dark figure is standing motionless before you, watching. Fear tingles up your spine as you wonder where he came from and how he evaded your detection. Seeing that you have noticed him, the tall figure speaks..."
+----
+
+The ancient vampire Fangorn broods in his dark castle, hidden far from the beaten track.
+
+==== Ren San
+----
+"Suddenly, a slight figure drops from the moss covered boughs above, and lands with feline grace before you. The cat-warrior crouches low for a moment, fingers lightly touching the hilt of his sword. Then he straightens and addresses you..."
+----
+
+The mysterious cat warrior Ren San and his brother Tao guard the secret forest domain of Dalen.
+
+==== Tao
+----
+"Without warning, a slender figure saunters from behind a gnarled trunk, and blocks your path. It is another cat-warrior, similar to the first. His whiskers twitch as he examines you, then he speaks."
+----
+
+The mysterious cat warrior Ren San and his brother Tao guard the secret forest domain of Dalen.
+

@@ -24,7 +24,7 @@ The default campaign begins as the party, having just escaped from the First Rea
 
 The theme of the default campaign is of the party leaving comfort zones, going against the grain, of not accepting the status quo, of taking risks and venturing into uncertainty to achieve greatness. It is the story of voluntarily leaving safety and ease and journeying into the vast unknown where the danger is great and the chance of success and value of the rewards is uncertain. The ultimate lesson is that change is the only constant, that strife leads to growth and that limitations need not be unthinkingly accepted.
 
-Text in colour is not yet implemented.
+_Text in italics is not yet implemented._
 
 <<_introduction, Introduction>>
 
