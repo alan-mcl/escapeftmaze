@@ -283,7 +283,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void foeFlees(UnifiedActor coward)
+	public void foeLeaves(UnifiedActor foe)
 	{
 		
 	}

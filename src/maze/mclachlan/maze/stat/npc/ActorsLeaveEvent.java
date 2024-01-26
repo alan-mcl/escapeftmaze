@@ -19,9 +19,11 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import java.util.*;
+import mclachlan.maze.stat.Foe;
+import mclachlan.maze.stat.FoeGroup;
 
 /**
  *
@@ -32,9 +34,35 @@ public class ActorsLeaveEvent extends MazeEvent
 	{
 		Maze maze = Maze.getInstance();
 
-		maze.getUi().setFoes(null, false);
-		maze.setState(Maze.State.MOVEMENT);
+		for (FoeGroup fg : maze.getCurrentActorEncounter().getActors())
+		{
+			for (Foe foe : fg.getFoes())
+			{
+				maze.getUi().foeLeaves(foe);
+			}
+		}
 
-		return null;
+		ArrayList<MazeEvent> result = new ArrayList<>();
+
+		result.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				try
+				{
+					Thread.sleep(500);
+				}
+				catch (InterruptedException e)
+				{
+					throw new RuntimeException(e);
+				}
+				maze.getUi().setFoes(null, false);
+				maze.setState(Maze.State.MOVEMENT);
+				return null;
+			}
+		});
+
+		return result;
 	}
 }

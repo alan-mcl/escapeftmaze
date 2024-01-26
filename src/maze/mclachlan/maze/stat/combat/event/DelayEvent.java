@@ -23,7 +23,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
 /**
- *
+ * Note only works in combat
  */
 public class DelayEvent extends MazeEvent
 {

@@ -180,7 +180,7 @@ public interface UserInterface
 	void actorDies(UnifiedActor victim);
 
 	/*-------------------------------------------------------------------------*/
-	void foeFlees(UnifiedActor coward);
+	void foeLeaves(UnifiedActor foe);
 
 	/*-------------------------------------------------------------------------*/
 	void backPartyUp(int maxKeys);

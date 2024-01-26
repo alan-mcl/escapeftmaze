@@ -1,0 +1,63 @@
+
+= Episode 1: The Second Realm
+
+== Intro
+No one remembers any more how the various races came to be imprisoned in the Maze. For uncounted generations the Maze has been their jail and their jailer, and few have ever escaped its clutches.
+
+The Maze is formed of many domains, some as large as continents, others as small as houses. Domains are joined by lesser gates, various in appearance but uniform in their function of transporting a traveller across time and space. Domains that are interconnected by easily passable gates make up a Realm; Realms are joined by greater Gates, always perilously guarded, and form the outward path a traveller seeking to escape the Maze must follow...
+
+The First Realm is, perhaps, the most subtle and dangerous trap that the Maze has in it's arsenal. Offering several large, safe domains, it is a gilded cage that few banished there care to escape. Here the races of the Realm have established their peaceful and prosperous settlements, where most are content to remain rather than brave the terrors of the Maze.
+
+YOU are different. Not for you the passive acceptance of captivity, silence in the face of this ancient injustice - an injustice that no one even bothers to speak of any more. Whispered rumours told you of those before you that had left the First Realm to try their hand at escaping the Maze. None have ever returned.
+
+And so you gathered what equipment and like minded comrades that you could and left your home behind, setting out into the wild areas in the centre of the First Realm where none dared tread. The journey was long and hard, beset by hazards and foes you could barely have imagined before you left, but you prevailed and at long last came to the chamber of the Gate atop a unnamed windswept mountain, and defeated in battle the guardian beast left there to watch over it.
+
+Without hesitation, you step through the first Great Gate and forever leave the First Realm behind...
+
+About the setting, plot, characters and more...
+
+*Warning: SPOILERS lurk behind this link*
+
+== Default Campaign Storyboard
+
+The default campaign begins as the party, having just escaped from the First Realm, steps through the great gate and enters the Second.
+
+The theme of the default campaign is of the party leaving comfort zones, going against the grain, of not accepting the status quo, of taking risks and venturing into uncertainty to achieve greatness. It is the story of voluntarily leaving safety and ease and journeying into the vast unknown where the danger is great and the chance of success and value of the rewards is uncertain. The ultimate lesson is that change is the only constant, that strife leads to growth and that limitations need not be unthinkingly accepted.
+
+Text in colour is not yet implemented.
+
+Introduction
+
+=== Setting
+
+* The Maze: An overview of the Maze, the mysterious prison that the party seeks to escape.
+* The First Realm: A summary of the First Realm that the party has left behind.
+* The Second Realm: Details and the places and people encountered in the Second Realm.
+* The Third Realm: Hints and rumours of what the Third Realm may contain.
+* Theology: Descriptions of some of the deities mentioned in the realms of the Maze.
+
+=== Mechanics
+* Races: Player character races.
+* Classes: Player character classes.
+* Starting Kits: Starting kits for character classes.
+* Personalities: Player character personalities.
+* Magic: Magic schools in the default campaign.
+
+=== Plot Lines
+* Against the Maze: The main quest - escaping from the Maze.
+* Profit and Loss: This plot line deals with the Chamber of Commerce and it's struggle for power in Ichiba.
+* The Gentlemen's Social Club: This plot line deals with the guild of thieves and it's struggle for power in Ichiba.
+* Imogen: This plot line deals with the witch Imogen and her struggle for power both magical and political in Ichiba.
+* Disciples of Dana: This plot line deals with the Leonals in Danaos Castle and their battle against the Gnomes of Aenen.
+* On a Granite Throne: This plot line deals with the Gnomes in the underground city Aenen and their battle against the Leonals of Danaos.
+* _The Tale of Azael: The tale of the Maze's most legendary escapee._
+* _The Eye of Azael: A powerful artefact that surfaced a century or so ago._
+* _Pixie Dust: Benne O'Corren is a pixie trapped by the Maze._
+* _Our Last Hope: This plot line deals with the stranded Mûk from the MTV Iyala._
+* _Other Wayfarers: Others who tread the paths of the Second Realm._
+
+=== Hidden Areas
+* Dalen: A secret forest domain of green magic.
+* Castle Fangorn: A secret domain of black magic.
+* _The Wild Hunt: A secret domain of gold magic._
+* Crypt of Atrocities: A secret domain of unique high level monsters.

@@ -2315,11 +2315,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 				if (maskTexture != null)
 				{
 					// use the mask texture instead of the wall texture
+					int maskPixel = maskTexture.getCurrentImageData(textureX, textureY, timeNow);
+
 					colour = alphaBlend(
 						texture.getCurrentImageData(textureX, textureY, timeNow),
-						maskTexture.getCurrentImageData(textureX, textureY, timeNow));
+						maskPixel);
 
-					if (blockHitRecord[screenX][depth].wall.maskTextureMouseClickScript != null)
+					// if this click is on a visible piece of the mask texture, use that script
+					if (blockHitRecord[screenX][depth].wall.maskTextureMouseClickScript != null &&
+						getAlpha(maskPixel) != 0)
 					{
 						// use the mask texture mouse click script instead
 						this.mouseClickScriptRecords[bufferIndex] =
@@ -2958,6 +2962,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private boolean hasAlpha(int pixel)
 	{
 		return ((pixel>>24) & 0xFF) < 0xFF;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private byte getAlpha(int pixel)
+	{
+		return (byte)((pixel>>24) & 0xFF);
 	}
 
 	/*-------------------------------------------------------------------------*/

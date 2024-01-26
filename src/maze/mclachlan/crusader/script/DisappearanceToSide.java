@@ -1,26 +1,23 @@
 package mclachlan.crusader.script;
 
 import java.awt.Point;
-import java.util.*;
 import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;
 import mclachlan.maze.util.MazeException;
 
 /**
- * A script to make an object appear from the side of the players field of view
+ * A script to make an object disappear from the players field of view towards the side
  */
-public class AppearanceFromSide extends ObjectScript
+public class DisappearanceToSide extends ObjectScript
 {
 	private int startX, startY, destX, destY;
-
-	private final List<ObjectScript> animationScripts;
 
 	/** coordinate change per ms */
 	private double incX, incY;
 
 	/** the direction to appear from */
-	private final boolean fromLeft;
+	private final boolean toLeft;
 
 	/** intended duration of the animation, in ms */
 	private final int duration;
@@ -30,17 +27,16 @@ public class AppearanceFromSide extends ObjectScript
 	private CrusaderEngine engine;
 
 	/*-------------------------------------------------------------------------*/
-	public AppearanceFromSide(boolean fromLeft, int duration, List<ObjectScript> animationScripts)
+	public DisappearanceToSide(boolean toLeft, int duration)
 	{
-		this.fromLeft = fromLeft;
+		this.toLeft = toLeft;
 		this.duration = duration;
-		this.animationScripts = animationScripts;
 	}
 
 	@Override
 	public ObjectScript spawnNewInstance(EngineObject object, CrusaderEngine engine)
 	{
-		AppearanceFromSide result = new AppearanceFromSide(fromLeft, duration, this.animationScripts);
+		DisappearanceToSide result = new DisappearanceToSide(toLeft, duration);
 
 		result.init(object, engine);
 
@@ -50,8 +46,8 @@ public class AppearanceFromSide extends ObjectScript
 	@Override
 	public void init(EngineObject object, CrusaderEngine engine)
 	{
-		this.destX = object.getXPos();
-		this.destY = object.getYPos();
+		this.startX = object.getXPos();
+		this.startY = object.getYPos();
 
 		// todo:
 		// work out the distance from the player of the destination x and y
@@ -69,59 +65,59 @@ public class AppearanceFromSide extends ObjectScript
 		incY = 0;
 
 		// todo: only working for DISCRETE mode now
-		this.startX = destX;
-		this.startY = destY;
+		this.destX = 0;
+		this.destY = 0;
 		switch (engine.getPlayerFacing())
 		{
 			case CrusaderEngine.Facing.NORTH:
-				startY = destY;
-				if (fromLeft)
+				destY = startY;
+				if (toLeft)
 				{
-					startX = destX - dist;
+					destX = startX - dist;
 					incX = 1D*dist/duration;
 				}
 				else
 				{
-					startX = destX + dist;
+					destX = startX + dist;
 					incX = -1D*dist/duration;
 				}
 				break;
 			case CrusaderEngine.Facing.SOUTH:
-				startY = destY;
-				if (fromLeft)
+				destY = startY;
+				if (toLeft)
 				{
-					startX = destX + dist;
+					destX = startX + dist;
 					incX = -1D*dist/duration;
 				}
 				else
 				{
-					startX = destX - dist;
+					destX = startX - dist;
 					incX = 1D*dist/duration;
 				}
 				break;
 			case CrusaderEngine.Facing.EAST:
-				startX = destX;
-				if (fromLeft)
+				destX = startX;
+				if (toLeft)
 				{
-					startY = destY - dist;
+					destY = startY - dist;
 					incY = 1D*dist/duration;
 				}
 				else
 				{
-					startY = destY + dist;
+					destY = startY + dist;
 					incY = -1D*dist/duration;
 				}
 				break;
 			case CrusaderEngine.Facing.WEST:
-				startX = destX;
-				if (fromLeft)
+				destX = startX;
+				if (toLeft)
 				{
-					startY = destY + dist;
+					destY = startY + dist;
 					incY = -1D*dist/duration;
 				}
 				else
 				{
-					startY = destY - dist;
+					destY = startY - dist;
 					incY = 1D*dist/duration;
 				}
 				break;
@@ -129,8 +125,8 @@ public class AppearanceFromSide extends ObjectScript
 				throw new MazeException("invalid facing: "+ engine.getPlayerFacing());
 		}
 
-		object.setXPos(startX);
-		object.setYPos(startY);
+//		object.setXPos(startX);
+//		object.setYPos(startY);
 	}
 
 	@Override
@@ -168,13 +164,7 @@ public class AppearanceFromSide extends ObjectScript
 
 			obj.removeScript(this);
 
-			if (this.animationScripts != null)
-			{
-				for (ObjectScript script : this.animationScripts)
-				{
-					obj.addScript(script.spawnNewInstance(obj, engine));
-				}
-			}
+			engine.removeObject(obj);
 		}
 	}
 

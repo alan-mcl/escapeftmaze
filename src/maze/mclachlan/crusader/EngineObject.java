@@ -697,7 +697,7 @@ public class EngineObject
 		synchronized (scriptMutex)
 		{
 			ObjectScript[] temp = this.scripts;
-			this.scripts = null;
+			this.scripts = new ObjectScript[0];
 			return temp;
 		}
 	}

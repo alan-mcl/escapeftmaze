@@ -2158,7 +2158,7 @@ playerOrigin: 14:30
 144: DUNGEON_WALL_1:::::true:1
 151: DUNGEON_WALL_1:::::true:1
 152: DUNGEON_WALL_1:::::true:1
-153: DUNGEON_WALL_1:::::true:1
+153: DUNGEON_WALL_1:DUNGEON_WALL_1_TEXT_1::4,,,false,-1,Someone has carved a few lines in the stone wall here.%n%n"Azael was here. A journey of a thousand leagues starts with one step."::true:1
 154: DUNGEON_WALL_1:::::true:1
 155: DUNGEON_WALL_1:::::true:1
 156: DUNGEON_WALL_1:::::true:1

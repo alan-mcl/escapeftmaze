@@ -1229,11 +1229,16 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void foeFlees(UnifiedActor coward)
+	public void foeLeaves(UnifiedActor foe)
 	{
-		if (coward instanceof Foe)
+		if (foe instanceof Foe)
 		{
-			this.raycaster.removeObject(((Foe)coward).getSprite());
+//			this.raycaster.removeObject(((Foe)coward).getSprite());
+
+			EngineObject sprite = ((Foe)foe).getSprite();
+
+			sprite.removeAllScripts();
+			sprite.addScript(new DisappearanceToSide(Math.random()>.5, 500).spawnNewInstance(sprite, raycaster));
 		}
 	}
 

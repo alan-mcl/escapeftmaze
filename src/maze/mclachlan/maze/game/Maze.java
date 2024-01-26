@@ -1110,7 +1110,7 @@ public class Maze implements Runnable
 			// a single foe flees from battle
 			Foe foe = (Foe)coward;
 			currentCombat.removeFoe(foe);
-			this.ui.foeFlees(coward);
+			this.ui.foeLeaves(coward);
 		}
 		else if (coward instanceof PlayerCharacter)
 		{

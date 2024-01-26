@@ -174,6 +174,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=DUNGEON_WALL_1_TEXT_1
+imageResources=crusader/scene/dungeon_wall_text_1
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=SAND_ROAD_C_SE
 imageResources=crusader/scene/sand_road_c_se
 animationDelay=-1
