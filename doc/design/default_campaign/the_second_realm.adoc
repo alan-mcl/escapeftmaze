@@ -14,18 +14,24 @@ Unless otherwise noted, all gates between domains are two-way.
 === Gatehouse
 The Gatehouse dungeon complex is where the party arrives, having stepped through the Great Gate from the First Realm. It was a one-way trip; there is no gate back to the First.
 
-It is a gloomy dungeon with a bunch of low level monsters in it. There are three possible exits, one guarded by a golem (easiest to beat for a stealth focussed party), one guarded by spell casting spiders (easiest to beat for a combat focussed party) and one guarded by insect swarms (easiest to beat for a magic focussed party). They deposit the party in different places along the north-south road in Ichiba domain.
+It is a gloomy training dungeon with a bunch of low level monsters in it. There are three possible exits, one guarded by a golem (easiest to beat for a stealth focussed party), one guarded by spell casting spiders (easiest to beat for a combat focussed party) and one guarded by insect swarms (easiest to beat for a magic focussed party). They deposit the party in different places along the north-south road in Ichiba domain.
 
-Foes: bats, spiders, roaches
+Foes: bats, spiders, roaches, oozes
 
 Notes
 
-* An illegible “Second Realm” signpost greets the party. A thief can spot secret "thieves guild claims this area" signs on it.
-* The west-most room contains a secret passage that leads to a chest of potions and Resurrection Powders
-* A dark area contains glowing fungus, and hides chest with some equipment
-* A northern room contains a secret passage which leads to a chest
-* A feral familiar abandoned by a deceased adventurer leads a pack of bats and spiders. It guards a chest.
-* A series of rooms with encounters leads to a chest containing gold and some non-magical weapons and armour
+* To progress past the first portcullis the part must pull a lever guarded by bats.
+* The key to the second portcullis is hidden in a pile of bones in a gloomy webbed area guarded by spiders.
+* The 'Gatehouse' room contains deactivated Gates. _Later in the game the party can activate them for fast travel purposes._
+* Past the Gates, a secret passage in a room of empty barrels leads to a trapped chest
+* Just before the stairs up to the second level, oozes drop from the ceiling and ambush the party
+* A feral familiar abandoned by a deceased adventurer leads a pack of bats and spiders. It guards a chest containing the key to the third portcullis.
+* A corner room contains roaches that attack the party. A secret passage leads to stairs down to a basement level filled with roaches and roach eggs. A chest in the basement is trapped, a pile of bones yields nothing when searched.
+* Past the third portcullis the party meets Emmons. He stays to talk to the party, then leaves giving some information about the Gates out.
+* If the party can find the secret passage the Emmons left by, it leads down to an otherwise inaccessible part of the first level. A portcullis can't be opened, Emmons must have gone that way. A secret passage leads to a room with a trapped chest. _One room contains a altar to Aello_.
+* Beyond Emmons, the left path leads to a gloomy partly flooded series of passages. One pool contains hidden items. Beyond this is the chamber of the insect swarms.
+* The center path leads to a straight corridor flanked by distracting chambers that contain nothing useful. Beyond this is the chamber of the block golem.
+* The right path leads to a confusing maze of connected rooms, some very dark, others brightly lit. Beyond this lies the chamber of the spell casting spiders.
 
 === Ichiba
 ----
