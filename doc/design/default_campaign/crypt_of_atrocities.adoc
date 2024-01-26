@@ -1,0 +1,29 @@
+= Crypt of Atrocities
+
+Exploring the tomb of Ekirth, the party discovers a well hidden secret door. This reveals a stairway down to the Crypt of Atrocities.
+
+The crypt contains six cells, each containing a foe of unique deadliness guarding a chest with potent treasures.
+
+== Morrigan
+
+A faerie magic user. Her spells cannot be countered.
+
+== Punch The Maker-Killer
+
+An animated puppet who brings madness and fear. Beware his wooden touch.
+
+== Lord of Eight Banners
+
+A masterful samurai cat warrior with unmatched speed and skill. His flashing blade is deadly.
+
+== Tsurayogoshi
+
+A fallen kami wearing a bizarre mask. He meditates on your demise.
+
+== Imunos, Minion of Usark
+
+A captive minion of the dark lord Usark. A deadly demon who wields the power of the pit.
+
+== Orngog
+
+A hulking ape-like monster bearing a massive club. He crushes.

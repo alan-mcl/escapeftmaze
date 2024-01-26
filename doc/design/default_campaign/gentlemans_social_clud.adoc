@@ -1,0 +1,23 @@
+= The Gentlemen's Social Club
+
+This plot line deals with the Gentlemen's Social Club and it's struggle for power in Ichiba.
+
+The Thieves live by crime and extortion. Headed by Sir Kay, master thief, their power stems from their support in the streets and knowledge of the tunnels beneath the city. They conflict with the CoC over it's enforcement of laws. They live in fear that Imogen will unite with the CoC against them.
+
+Sir Kay has eyes and ears everywhere. The party, freshly arrived from the first realm, reach Ichiba and unwittingly steal from one of the local merchants. Kay makes his appearance, giving them a choice between joining the Social Club or death. The fee, he says, is 500 gold for lifetime membership. Paying this hefty sum, the party are inducted into the guild.
+
+As a first task, Kay sends them to destroy some kind of slime in the sewers that is making the tunnels below the city unsafe for his thieves to traverse. He directs them to one of the entrances to the sewers, in a safe house behind the Chamber of Commerce. Exploring the sewer network, the party finds and kills the slime monster. Kay rewards them with gold.
+
+Trusting the party with more information, Kay reveals that he has discovered that Imogen is planning to rouse the gnolls from the nearby village to attack the city, in an attempt to wrest power from both the thieves and the CoC. He doesn't think it will work, but dislikes the disruption to business that it would cause. The gnolls won't go to war without an omen from their totem - the Dreamer Skull. Kay sends the party to infiltrate the gnoll village and steal the totem from under the nose of the gnoll shaman Three Eyes. He directs them to the underground passage the leads beyond the walls and surfaces near the village. Stealing the totem from Three Eyes, the party returns and is rewarded with gold.
+
+Kay has no more tasks for the party at the moment, but warns them that he has learned that the CoC has taken note of their growing notoriety and has put a price on their heads. Even as they speak, mercenaries are attempting to track and slay them. He advises them to leave town and lay low for a while. As the party is leaving Ichiba, they are ambushed by a group of mercenaries. Victorious in the ensuing battle, the party go about their business further.
+
+When they return to Ichiba, Kay approaches them and offers a final task. He has learned that the witch Imogen is about to perform an arcane ritual that will grant her eternal life and greatly enhanced powers. He sees her ambitions to rule Ichiba alone as a great threat - and would rather take his chances with the CoC. Without wasting any time, the party storm Imogen's tower in the south wall. Fighting first her golem servants, they then battle up through levels filled with plants, all animated against the party. Finally they encounter Imogen in the topmost room of the tower. Battle ensues, and Imogen is slain.
+
+Without Imogen, the CoC is free to focus its attention on eradicating the thieves. But Kay and his henchmen are resourceful and the council can never quite win the battle against them.
+
+== Other characters
+
+Emmons the Hand: A goblin, Kay's lieutenant. The party encounter him in the gatehouse...
+
+_Virgilio Patrico: An assassin, Kay's rival for the leading the Thieves Guild. Called 'Patrico' because he used to be a priest._
