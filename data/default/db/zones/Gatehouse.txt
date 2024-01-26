@@ -837,7 +837,7 @@ playerOrigin: 14:30
 818: 0:3f800000000000000000,02010201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 819: 0:3f800000000000000000,01020102020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 820: 0:3f800000000000000000,01010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-821: 2:4,gatehouse.flavour.1,,false,-1,This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.%n%nFrom the darkness you seem to feel many eyes watching you through the strands of webbing.:14,gatehouse.execute.once.13,,false,-1,default.gatehouse.dark.cobweb.area,false:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+821: 2:4,gatehouse.flavour.1,,false,-1,This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.%n%nFrom the darkness you seem to feel many eyes watching you through the strands of webbing.:14,gatehouse.execute.once.13,,false,-1,default.gatehouse.dark.cobweb.area,true:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 822: 0:3f800000000000000000,01020201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 823: 0:3f800000000000000000,02020201010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 824: 0:3f800000000000000000,02010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE

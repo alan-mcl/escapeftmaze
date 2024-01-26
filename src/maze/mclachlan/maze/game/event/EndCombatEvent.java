@@ -62,6 +62,7 @@ public class EndCombatEvent extends MazeEvent
 		//
 		maze.getUi().setFoes(null, false);
 		maze.getUi().setAllies(null);
+		maze.getUi().clearDialog();
 
 		//
 		// Party status check

@@ -38,21 +38,21 @@ import mclachlan.maze.stat.combat.Combat;
  */
 public class CombatStateHandler implements ActionListener, ConfirmCallback, FormationCallback
 {
-	private Maze maze;
+	private final Maze maze;
 	private final int buttonRows;
 	private final int inset;
-	private MessageDestination msg;
+	private final MessageDestination messageDestination;
 
 	private DIYButton startRound, terminateGame, formation;
 
 	/*-------------------------------------------------------------------------*/
 	public CombatStateHandler(Maze maze, int buttonRows, int inset,
-		MessageDestination msg)
+		MessageDestination messageDestination)
 	{
 		this.maze = maze;
 		this.buttonRows = buttonRows;
 		this.inset = inset;
-		this.msg = msg;
+		this.messageDestination = messageDestination;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -111,6 +111,9 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	{
 		if (startRound.isVisible())
 		{
+			// transparent modal dialog to block all user input while combat runs
+			maze.getUi().showDialog(new DIYPane(DiyGuiUserInterface.SCREEN_BOUNDS));
+
 			maze.executeCombatRound(maze.getCurrentCombat());
 		}
 	}
@@ -152,7 +155,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	@Override
 	public void formationChanged(List<PlayerCharacter> actors, int formation)
 	{
-		msg.addMessage(StringUtil.getUiLabel("cow.formation.changed"));
+		messageDestination.addMessage(StringUtil.getUiLabel("cow.formation.changed"));
 		maze.setPendingFormationChanges(actors, formation);
 	}
 

@@ -60,37 +60,46 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private ContainerWidget contentPane, overlayPane;
-	private RendererFactory rendererFactory;
-	
-	/** The widget currently under the mouse */
-	private Widget hoverWidget;
+	/** the singleton instance */
+	private static DIYToolkit instance;
 
-	/** The widget that currently has focus */
-	private Widget focusWidget;
+	/** render factory for the widgets */
+	private RendererFactory rendererFactory;
 
 	/** for debugging components */
 	public static boolean debug = false;
 
-	private static DIYToolkit instance;
-	
 	/** The AWT frame */
-	private Component comp;
+	private final Component comp;
 	
+	/** the main content pane */
+	private ContainerWidget contentPane;
+	/** and overlay pane, typically used for modal dialogs */
+	private ContainerWidget overlayPane;
+	/** The widget currently under the mouse */
+	private Widget hoverWidget;
+	/** The widget that currently has focus */
+	private Widget focusWidget;
 	/** The current cursor, null if the default */
 	private Cursor cursor;
 	/** The contents of the drag and drop cursor */
 	private Object cursorContents;
 	/** The modal dialog stack */
-	private Stack<ContainerWidget> dialogs = new Stack<ContainerWidget>();
+	private final Stack<ContainerWidget> dialogs = new Stack<>();
 	/** mutex protecting the modal dialog stack */
 	private final Object dialogMutex = new Object();
 
-	private java.util.List<ActionListener> globalListeners =
-		new ArrayList<ActionListener>();
+	/** any global event listeners */
+	private final java.util.List<ActionListener> globalListeners = new ArrayList<>();
 
-	private Queue<InputEvent> queue;
+	/**
+	 * True if this DIYToolkit must use an internal queue for event processing.
+	 * This queue then shares the draw thread. DIYToolkit does not start any of
+	 * its own threads.
+	 */
 	private boolean internalQueue;
+	/** The queue used to process input events. */
+	private final Queue<InputEvent> queue;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -102,7 +111,7 @@ public class DIYToolkit
 		int height,
 		Component comp)
 	{
-		this(width, height, comp, new ConcurrentLinkedQueue<InputEvent>(), null);
+		this(width, height, comp, new ConcurrentLinkedQueue<>(), null);
 		this.internalQueue = true;
 	}
 
@@ -117,7 +126,7 @@ public class DIYToolkit
 		Component comp,
 		String renderFactoryImpl)
 	{
-		this(width, height, comp, new ConcurrentLinkedQueue<InputEvent>(), renderFactoryImpl);
+		this(width, height, comp, new ConcurrentLinkedQueue<>(), renderFactoryImpl);
 		this.internalQueue = true;
 	}
 
@@ -133,14 +142,18 @@ public class DIYToolkit
 		Queue<InputEvent> queue, 
 		String rendererFactoryImpl)
 	{
-		Listener tap = new Listener();
+		this.instance = this;
+
 		this.comp = comp;
+
+		// the listeners job is to intercept the AWT events and put them on the
+		// queue for processing
+		Listener tap = new Listener();
 		comp.addKeyListener(tap);
 		comp.addMouseListener(tap);
 		comp.addMouseMotionListener(tap);
 
-		instance = this;
-		initRendererFactory(rendererFactoryImpl);
+		this.initRendererFactory(rendererFactoryImpl);
 
 		this.contentPane = new DIYPane(0, 0, width, height);
 		this.contentPane.setLayoutManager(new NullLayout());
@@ -243,11 +256,11 @@ public class DIYToolkit
 		}
 
 		// instead of syncing over the whole draw process create a copy
-		java.util.List<ContainerWidget> dd = new ArrayList<ContainerWidget>();
+		java.util.List<ContainerWidget> dd;
 
 		synchronized(dialogMutex)
 		{
-			dd.addAll(dialogs);
+			dd = new ArrayList<>(dialogs);
 		}
 
 		for (ContainerWidget d : dd)
@@ -257,7 +270,7 @@ public class DIYToolkit
 
 		if (internalQueue)
 		{
-			// todo: throttling?
+			// not sure if we should be throttling here?
 			while (queue.peek() != null)
 			{
 				processEvent(queue.poll());
@@ -579,16 +592,11 @@ public class DIYToolkit
 			KeyEvent event = (KeyEvent)e;
 			switch (event.getID())
 			{
-				case KeyEvent.KEY_PRESSED:
-					this.keyPressed(event);
-					break;
-				case KeyEvent.KEY_RELEASED:
-					this.keyReleased(event);
-					break;
-				case KeyEvent.KEY_TYPED:
-					this.keyTyped(event);
-					break;
-				default: throw new DIYException("Unrecognised KeyEvent ID: "+event.getID());
+				case KeyEvent.KEY_PRESSED -> this.keyPressed(event);
+				case KeyEvent.KEY_RELEASED -> this.keyReleased(event);
+				case KeyEvent.KEY_TYPED -> this.keyTyped(event);
+				default ->
+					throw new DIYException("Unrecognised KeyEvent ID: " + event.getID());
 			}
 		}
 		else if (e instanceof MouseEvent)
@@ -596,28 +604,15 @@ public class DIYToolkit
 			MouseEvent event = (MouseEvent)e;
 			switch (event.getID())
 			{
-				case MouseEvent.MOUSE_CLICKED:
-					this.mouseClicked(event);
-					break;
-				case MouseEvent.MOUSE_DRAGGED:
-					this.mouseDragged(event);
-					break;
-				case MouseEvent.MOUSE_ENTERED:
-					this.mouseEntered(event);
-					break;
-				case MouseEvent.MOUSE_EXITED:
-					this.mouseExited(event);
-					break;
-				case MouseEvent.MOUSE_MOVED:
-					this.mouseMoved(event);
-					break;
-				case MouseEvent.MOUSE_PRESSED:
-					this.mousePressed(event);
-					break;
-				case MouseEvent.MOUSE_RELEASED:
-					this.mouseReleased(event);
-					break;
-				default: throw new DIYException("Unrecognised MouseEvent ID: "+event.getID());
+				case MouseEvent.MOUSE_CLICKED -> this.mouseClicked(event);
+				case MouseEvent.MOUSE_DRAGGED -> this.mouseDragged(event);
+				case MouseEvent.MOUSE_ENTERED -> this.mouseEntered(event);
+				case MouseEvent.MOUSE_EXITED -> this.mouseExited(event);
+				case MouseEvent.MOUSE_MOVED -> this.mouseMoved(event);
+				case MouseEvent.MOUSE_PRESSED -> this.mousePressed(event);
+				case MouseEvent.MOUSE_RELEASED -> this.mouseReleased(event);
+				default ->
+					throw new DIYException("Unrecognised MouseEvent ID: " + event.getID());
 			}
 		}
 		else if (e == null)
@@ -795,8 +790,8 @@ public class DIYToolkit
 
 		Scanner scanner = new Scanner(s);
 
-		ArrayList<String> result = new ArrayList<String>();
-		String temp = "";
+		ArrayList<String> result = new ArrayList<>();
+		StringBuilder temp = new StringBuilder();
 
 		// dunno why this is necessary, probably hides a bug
 		int inset = 10;
@@ -809,15 +804,15 @@ public class DIYToolkit
 
 			if (bounds.getWidth() > width- inset)
 			{
-				result.add(temp.trim());
-				temp = cur;
+				result.add(temp.toString().trim());
+				temp = new StringBuilder(cur);
 			}
 			else
 			{
-				temp += " " + cur;
+				temp.append(" ").append(cur);
 			}
 		}
-		result.add(temp.trim());
+		result.add(temp.toString().trim());
 
 		return result;
 	}

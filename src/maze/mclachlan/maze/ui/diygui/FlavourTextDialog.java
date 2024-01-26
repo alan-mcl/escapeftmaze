@@ -25,10 +25,12 @@ import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextArea;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 
-public class FlavourTextDialog extends GeneralDialog
+public class FlavourTextDialog extends GeneralDialog implements ActionListener
 {
 	private DIYTextArea text;
 
@@ -76,6 +78,7 @@ public class FlavourTextDialog extends GeneralDialog
 		this.text = new DIYTextArea(text);
 		this.text.setTransparent(true);
 		this.text.setBounds(textBounds);
+		this.text.addActionListener(this);
 
 		setBackground();
 
@@ -85,6 +88,16 @@ public class FlavourTextDialog extends GeneralDialog
 		}
 		this.add(this.text);
 		this.doLayout();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void exitDialog()
+	{
+		synchronized (Maze.getInstance().getEventMutex())
+		{
+			Maze.getInstance().getEventMutex().notifyAll();
+		}
+		Maze.getInstance().getUi().clearDialog();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -99,12 +112,15 @@ public class FlavourTextDialog extends GeneralDialog
 	{
 		return DIYToolkit.PANEL;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void processKeyPressed(KeyEvent e)
 	{
-		exitDialog();
+		if (e.getKeyCode() == KeyEvent.VK_ENTER || e.getKeyCode() == KeyEvent.VK_ESCAPE)
+		{
+			exitDialog();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -115,12 +131,9 @@ public class FlavourTextDialog extends GeneralDialog
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void exitDialog()
+	@Override
+	public void actionPerformed(ActionEvent event)
 	{
-		synchronized (Maze.getInstance().getEventMutex())
-		{
-			Maze.getInstance().getEventMutex().notifyAll();
-		}
-		Maze.getInstance().getUi().clearDialog();
+		exitDialog();
 	}
 }

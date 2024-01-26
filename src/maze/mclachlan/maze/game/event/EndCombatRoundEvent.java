@@ -112,6 +112,7 @@ public class EndCombatRoundEvent extends MazeEvent
 			public List<MazeEvent> resolve()
 			{
 				maze.getUi().refreshCharacterData();
+				maze.getUi().clearDialog();
 				return null;
 			}
 		});

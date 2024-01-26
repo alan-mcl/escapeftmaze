@@ -223,7 +223,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		instance = this;
 		this.setTitle("Maze");
 
-		BlockingQueue<InputEvent> queue = new ArrayBlockingQueue<InputEvent>(1000);
+		BlockingQueue<InputEvent> queue = new ArrayBlockingQueue<>(1000);
 
 		this.setFont(this.getDefaultFont());
 
@@ -252,7 +252,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		}
 		else
 		{
-			this.setUndecorated(true); // todo: support the native menu bar?
+			this.setUndecorated(true); // should we support the native menu bar?
 			this.setBounds(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 			this.setVisible(true);
 		}
@@ -1804,11 +1804,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	class EventProcessor extends Thread
+	static class EventProcessor extends Thread
 	{
-		BlockingQueue queue;
+		private final BlockingQueue<InputEvent> queue;
 
-		public EventProcessor(BlockingQueue queue)
+		public EventProcessor(BlockingQueue<InputEvent> queue)
 		{
 			super("MAZE UI THREAD");
 			this.queue = queue;
@@ -1817,7 +1817,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		public void run()
 		{
 			long time, counter=0, sumProcessingTime=0;
-			while (1 == 1)
+
+			while (true)
 			{
 				try
 				{
@@ -1829,8 +1830,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 					if (counter==10)
 					{
-						double ave = 1D*sumProcessingTime/counter;//100000D;
-//						System.out.println("ave = [" + ave + "]");
+						//double ave = 1D*sumProcessingTime/counter;//100000D;
+						//System.out.println("ave = [" + ave + "]");
+
 						counter=0;
 						sumProcessingTime=0;
 					}
