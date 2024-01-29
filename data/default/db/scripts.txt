@@ -583,11 +583,11 @@ name=Gatehouse load
 0=1,Gatehouse,14,30,1
 1=149,shadows_in_an_empty_cathedral,
 2=19,screen/default_intro_1,default.intro.1,BOTTOM_RIGHT
-3=19,screen/default_intro_2,default.intro.2,BOTTOM_RIGHT
+3=19,screen/default_intro_2,default.intro.2,TOP_LEFT
 4=19,screen/default_intro_3,default.intro.3,BOTTOM_RIGHT
-5=19,screen/default_intro_1,default.intro.4,BOTTOM_LEFT
-6=19,screen/default_intro_1,default.intro.5,LEFT
-7=19,screen/default_intro_1,default.intro.6,CENTER
+5=19,screen/default_intro_4,default.intro.4,TOP_RIGHT
+6=19,screen/default_intro_5,default.intro.5,BOTTOM_RIGHT
+7=19,screen/default_intro_6,default.intro.6,BOTTOM_LEFT
 8=149,,
 @
 name=frontier phaser from player
