@@ -2,9 +2,9 @@
 
 :toc:
 
-The second realm is one of warring city-states. Danaos is the bastion of the Leonals of the White Order, who are constantly at war with the gnomes of Aenen, wielders of intricate machines and elemental magic. Between lies prosperous Ichiba, the City in the Crater, who welcomes all comers.
+The Second Realm is one of warring city-states. Danaos is the bastion of the Leonals of the White Order, who are constantly at war with the gnomes of Aenen, wielders of intricate machines and elemental magic. Between lies prosperous Ichiba, the City in the Crater, who welcomes all comers.
 
-Beyond the civilised areas bounded by Danaos and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland domains are haunted by seven deadly spirits, and any wishing to escape from the Realm must defeat them all. The inhabitants of the realm founded a settlement in a flat place in the wilds - Hail town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.
+Beyond the civilised areas bounded by Danaos and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland domains are haunted by seven deadly spirits, and any wishing to escape from the Realm must defeat them all. The inhabitants of the Realm founded a settlement in a flat place in the wilds - Hail town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.
 
 The traveller passing through the wilds will eventually navigate the dark Caves of Ilast and come to the restful Isle of the Gate. Below the Isle lies the tomb of the dragon Ekirth, and below that the Temple if the Great Gate, the exit to the Third Realm.
 
@@ -12,9 +12,9 @@ The traveller passing through the wilds will eventually navigate the dark Caves 
 Unless otherwise noted, all gates between domains are two-way.
 
 === Gatehouse
-The Gatehouse dungeon complex is where the party arrives, having stepped through the Great Gate from the First Realm. It was a one-way trip; there is no gate back to the First.
+The Gatehouse dungeon complex is where the party arrives, having stepped through the Great Gate from the First Realm. It was a one-way trip; there is no Gate back to the First.
 
-It is a gloomy training dungeon with a bunch of low level monsters in it. There are three possible exits, one guarded by a golem (easiest to beat for a stealth focussed party), one guarded by spell casting spiders (easiest to beat for a combat focussed party) and one guarded by insect swarms (easiest to beat for a magic focussed party). They deposit the party in different places along the north-south road in Ichiba domain.
+It is a gloomy training dungeon with a bunch of low level monsters in it. There are three possible exits, one guarded by a golem (easiest to beat for a stealth focussed party), one guarded by spell casting spiders (easiest to beat for a combat focussed party) and one guarded by insect swarms (easiest to beat for a magic focussed party). They deposit the party in different places along the north-south road in Ichiba Domain.
 
 Foes: bats, spiders, roaches, oozes
 
@@ -38,9 +38,9 @@ Notes
 ... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover. You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird's shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy. What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin? Of more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.
 ----
 
-Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this domain, and there are much-used gates to Aenen and Danaos. The player appears from thin air - the gates from Gatehouse dungeon are one way only.
+Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this Domain, and there are much-used gates to Aenen and Danaos. The player appears from thin air - the gates from Gatehouse dungeon are one way only.
 
-A large road runs north-south through most of the domain, crossed by an east-west road that leads to Ichiba City in the west.
+A large road runs north-south through most of the Domain, crossed by an east-west road that leads to Ichiba City in the west.
 
 ==== Ichiba Crossroads
 The north-south road is crossed by an equally well-travelled pathway going east-west. To the west, it leads to Ichiba City. To the east, it fast peters out into nothingness. Perhaps it once led somewhere, but the forest has overgrown it.
@@ -52,7 +52,7 @@ Notes
 * A cache of items (including a few Resurrection Powders) is hidden in a secluded glade and is guarded by a giant mantis's
 
 ==== Ichiba Domain North
-The road wends northwards from the crossroads, passing through thick forest. It ends in a glade that contains a gate in the form of a door stands alone without walls or support. The gate leads to Danaos Castle.
+The road wends northwards from the crossroads, passing through thick forest. It ends in a glade that contains a Gate in the form of a door stands alone without walls or support. The Gate leads to Danaos Castle.
 
 Foes: giant mantis', roaches, walking plants, velociraptors, moths, flying lizards, giant snails
 
@@ -62,7 +62,7 @@ Notes
 
 ==== Ichiba Domain South
 
-The road wends back and forth, tending southwards from the crossroads. It ends in a glade that contains a gate in the form of a door stands alone without walls or support, but with moons, stars and cogs of a great machine carved into its relief. The gate leads to the outskirts of Aenen.
+The road wends back and forth, tending southwards from the crossroads. It ends in a glade that contains a Gate in the form of a door stands alone without walls or support, but with moons, stars and cogs of a great machine carved into its relief. The Gate leads to the outskirts of Aenen.
 
 Foes: giant mantis', roaches, walking plants, velociraptors, moths, flying lizards, giant snails
 
@@ -73,7 +73,7 @@ Notes
 ==== Ichiba City
 
 ----
-"Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you can sense the sounds and stenches of a busy town. The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the second Realm?"
+"Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you can sense the sounds and stenches of a busy town. The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm?"
 
 "Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all. The inhabitants hurry about their business, many casting you curious glances but none approaching... Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby. You espy many Humans and Goblins amongst them, as well as several representatives that you don't recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at grubby street children and you alike."
 ----
@@ -103,18 +103,18 @@ The gnolls are based in a village to the north of Ichiba City.
 
 === Aenen
 ----
-"You step into a dense steamy jungle, slumbering under a brilliant blue sky in which several yellow suns are visible. The air here smells different to you, spicier, and the humidity is far more oppressive than Ichiba domain; already your clothes feel wet and clingy. Water drips from the exotic foliage, and beneath your feet tendrils of steam snake upwards from the moist and spongy ground. A colourful bird of some exotic type flutters lazily over you, its raucous cry cutting through the lingering feeling that something is watching you from just behind the jungle's shadow."
+"You step into a dense steamy jungle, slumbering under a brilliant blue sky in which several yellow suns are visible. The air here smells different to you, spicier, and the humidity is far more oppressive than Ichiba Domain; already your clothes feel wet and clingy. Water drips from the exotic foliage, and beneath your feet tendrils of steam snake upwards from the moist and spongy ground. A colourful bird of some exotic type flutters lazily over you, its raucous cry cutting through the lingering feeling that something is watching you from just behind the jungle's shadow."
 
 "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them. Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely. Suddenly the open ground of the clearing feels very exposed..."
 ----
 
-The domain of the Gnomes is set in a temperate, forested area. The gnomish city of the same name is burrowed underground, with its entrance in a small above ground fortress in a clearing in the jungle. Poking up through the jungle floor surrounding the fort are solar panels that collect energy to power the Gnomes mysterious machines.
+The Domain of the Gnomes is set in a temperate, forested area. The gnomish city of the same name is burrowed underground, with its entrance in a small above ground fortress in a clearing in the jungle. Poking up through the jungle floor surrounding the fort are solar panels that collect energy to power the Gnomes mysterious machines.
 
 Foes: gnomes, gnome clockworks, giant snakes, omnifids, moulders, giant jungle butterflies, giant mantises, jaguars
 
 Notes
 
-* The party is free to roam the area, but Ideaus at the gate of the fort denies all entry.
+* The party is free to roam the area, but Ideaus at the Gate of the fort denies all entry.
 * When wandering around the clearing, at one point the characters pass a twisted, burnt stump of an old tree that the gnomes hacked down. They get a chilly feeling. A wizard can spot that this stump has been used for some sort of ritual, but cannot place it. They find nothing if they search the stump. If they search it again, a snake hiding in its roots bites one of them (damage and minor poison) and then slips away, never to be found again.
 
 ==== Aenen City
@@ -129,7 +129,7 @@ Notes
 * One of these shops in the Storytellers Market is "Pandarus Finest Tobaccos". A small silver bell tinkles as the players enter the finely attired shop. A small, well-fed gnome in expensive red robes looks up and smiles. "Gentlemen, gentlemen... What fine pipe weed are you seeking?" Players can buy a range of very expensive and very useless items here, but included on the list is one called "Time Tobacco, for the timeless taste". This is the tobacco that Benne O'Corren is looking for.
 * To the north are living areas, mostly locked _and the rest of are simply too small for most characters to even enter.... a good idea, but unclear how to implement. Perhaps Aenen needs a second level that will include more living areas, tobacco plantations, machine shops, and so on._
 * To the north east is the prison. All the cells are empty.
-* To the south east is the forbidden delvings. The gnomes have discovered a gate to Tornado Mountain. A mechanical servant denies access to the area.
+* To the south east is the forbidden delvings. The gnomes have discovered a Gate to Tornado Mountain. A mechanical servant denies access to the area.
 * A chest in the apothecary off the Storytellers Market contains potions, powders and spellbooks.
 * A chest in a locked room near the throne room contains equipment and ammunition.
 * A chest in a locked room near the prison contains magical weapons and armour.
@@ -137,7 +137,7 @@ Notes
 
 === Danaos
 ----
-"You appear in a warm and pleasant seeming domain. Puffy white clouds dot a pale blue sky, and the gentle breeze fanning your cheeks reminds you of your life in the First Realm and, perhaps, some earlier childhood memory. Chimney smoke rises in lazy columns over a small hamlet in the forest clearing before you. Looming over the dwellings you see the dark stone ramparts of a powerful looking castle to the west, overlooking the friendly scene with brooding sternness."
+"You appear in a warm and pleasant seeming Domain. Puffy white clouds dot a pale blue sky, and the gentle breeze fanning your cheeks reminds you of your life in the First Realm and, perhaps, some earlier childhood memory. Chimney smoke rises in lazy columns over a small hamlet in the forest clearing before you. Looming over the dwellings you see the dark stone ramparts of a powerful looking castle to the west, overlooking the friendly scene with brooding sternness."
 ----
 
 The castle of the Leonals is set in a temperate forest.
@@ -147,7 +147,7 @@ Foes: leonals, gnome scouts, bats, spiders, giant mantis'
 Notes
 
 * Stentor the smith trades weapons and armour from his workshop. He is retired from the army, but may regale you with war tales.
-* Lorelei runs a secret druidic sanctuary in a dwelling to the north of the village. She works to protect the forests of the domain from the Leonals. She has been banished but has returned in secret.
+* Lorelei runs a secret druidic sanctuary in a dwelling to the north of the village. She works to protect the forests of the Domain from the Leonals. She has been banished but has returned in secret.
 * Stenelaus the door warden denies all access to the castle, but is always up to pass the time with the characters playing simply dice (a basic gambling game).
 
 Danaos Castle
@@ -162,8 +162,8 @@ Notes
 * Agenor at the Commissary is a vendor and a guild master
 * To the east, a bare and simple temple for the worship of The Lady
 * The armoury is locked. Inside are lots of swords, spears and armour.
-* To the south, a locked door bears the sign "Access to the Gate is Restricted." The leonals built the castle on top of a gate to Stygios Forest.
-* The castle dungeons contain a gate to Stygios Forest - a whirling, shimmering golden portal in laid with golden and silver vines across its regal frame.
+* To the south, a locked door bears the sign "Access to the Gate is Restricted." The leonals built the castle on top of a Gate to Stygios Forest.
+* The castle dungeons contain a Gate to Stygios Forest - a whirling, shimmering golden portal in laid with golden and silver vines across its regal frame.
 
 
 === Stygios Forest
@@ -178,12 +178,12 @@ Notes
 * In the center of the forest, a sinister fey circle of mushrooms stands in a dark glade.
 * "Luminous toadstools grow around this small cracked stone shrine, which is covered in moss and lichen. Peering closer at the carvings, you make out the form of some squat, malignant godling hunched over a pile of bones with a sinister leer across his skeletal face. You instantly recognise it as a shrine to Nergal, the deathly god of the underworld. Nergal is the god of emptiness and endings.All is ashes and dust in his eyes. You reflect that you've seldom seem a shrine dedicated to this gloomy god in a more appropriate setting." _If the statue of Nergal that characters can find in the Writhing Mire is placed on this altar, the statue disintegrates with a haunting moan and a bag of resurrection powder appears._
 * A hidden chest contains magical items
-* To the north east, a dank pool is a gate to the next domain. Diving into it, the party is transported to the Ruins of Hail.
+* To the north east, a dank pool is a Gate to the next Domain. Diving into it, the party is transported to the Ruins of Hail.
 * A glade to the west is surrounded by scattered bones. Within it, the deadly spirit Ineoth-Em-Risiss-Mar (a gnoll-like demon) lurks. _todo: summoning ritual_
 
 === Tornado Mountain
 ----
-"As you step out of the gate on Tornado Mountain the air explodes around you. Wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel."
+"As you step out of the Gate on Tornado Mountain the air explodes around you. Wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel."
 ----
 
 Foes: storm crows, earth and air elementals, golems, crag sprites, rock dragons
@@ -222,7 +222,7 @@ _A hidden stair from the library leads into a large underground cavern with stra
 "You appear in a gloomy, brooding marsh. You are almost deafened by the sound of small buzzing insects that rise from pools of fetid water. Jagged twisted trees, weighed down with lichen and ivy from their sickly branches poke intermittently out from this muck, as just off to your right something sinister disturbs the surface of a pool as it disappears below its murky surface. The air is warm and humid and the stench of rotting vegetation pervasives everything. Swamps are always an unfortunate necessity of travel. Gnats getting in your armour are never much fun, but these hardships must be endured."
 ----
 
-The Writing Mire has a number of shifting pathways that appear and vanish at random intervals. A road that used to lead somewhere (a faded sign reads "Tel maka   hus   15 _leagues_") begins before the player, but the mire has drowned it. The only gate (a free standing door) leads back to the Ruins of Hail.
+The Writing Mire has a number of shifting pathways that appear and vanish at random intervals. A road that used to lead somewhere (a faded sign reads "Tel maka   hus   15 _leagues_") begins before the player, but the mire has drowned it. The only Gate (a free standing door) leads back to the Ruins of Hail.
 
 Foes: snakes, moths, snails, moulders, will-o-wisps, fetid mosquito swarms (a collective)
 
@@ -250,7 +250,7 @@ Notes:
 
 === The Plain of Pillars
 ----
-"You appear in the domain several feet above the ground, and drop in an undignified heap on a bare, crusty surface. Shaking your head, you picking yourself up and are confronted by an alien and inhospitable landscape. A small orange sun looks apologetically down from a blood red sky on a parched white desert. Mysterious pillars and rocky outcroppings dot the landscape as far as you can see. A hot dry northerly breeze stirs your clothing, already sapping your energy and you swallow a lump in your throat. The desert surface crunches beneath your boots, and on impulse you stoop and taste a few grains... salt."
+"You appear in the Domain several feet above the ground, and drop in an undignified heap on a bare, crusty surface. Shaking your head, you picking yourself up and are confronted by an alien and inhospitable landscape. A small orange sun looks apologetically down from a blood red sky on a parched white desert. Mysterious pillars and rocky outcroppings dot the landscape as far as you can see. A hot dry northerly breeze stirs your clothing, already sapping your energy and you swallow a lump in your throat. The desert surface crunches beneath your boots, and on impulse you stoop and taste a few grains... salt."
 ----
 
 Gates are pillars, no different from many others standing in the desert. One leads to the Ruins of Hail, one leads to the Caves of Ilast.
@@ -274,7 +274,7 @@ Foes: hagspawn (flying, creeping, slithering), wyrms, apes, rockeaters, bats, _c
 Notes:
 
 * A cavern contains a brass pillar. Striking it summons monsters to fight. _Every seventh time the party strikes the pillar and wins the fight, a chest appears and they are rewarded with a low-level magical item._
-* To the south the hag sisters and deadly spirits Miriam Marrowsucker and Getsel Gnawtooth guard the gate to the Isle.
+* To the south the hag sisters and deadly spirits Miriam Marrowsucker and Getsel Gnawtooth guard the Gate to the Isle.
 
 === Isle of the Gate
 ----
@@ -287,7 +287,7 @@ Below the Isle lies the Ekirth's Tomb and the Temple of the Gate, containing the
 The tomb of the dragon Ekirth lies empty, save for the evil tempered spawn of the beast that nests there.
 
 === Temple of the Gate
-The deep temple of the gate contains the Great Gate to the Third Realm.
+The deep Temple of the Gate contains the Great Gate to the Third Realm.
 
 == People
 
@@ -424,7 +424,7 @@ General Belisarius commands the White Order. His office in Danaos castle is alwa
 "A tall mailed leonal stands with a drawn blade before the gateway."
 ----
 
-Stenelaus the Doorwarden stands guard before the gate of Danaos Castle.
+Stenelaus the Doorwarden stands guard before the gates of Danaos Castle.
 
 ==== Stentor
 ----
@@ -492,7 +492,7 @@ Yenluo inhabits the corridors of Hianbian.
 
 ==== Nhapukom Banesoul
 ----
-"You enter a large, domed chamber. Torches flicker in alcoves, and the vaulted ceiling is lost in the gloom above. On the far side, a great magical portal flickers and shimmers, emitting a tangible hum that makes your hair stand on end. Surely, after all this time, you have found the second Great Gate! Standing between you and the gate waits a tall horned demon, it's red skin glowing and smoking gently. You have the impression that it has been waiting for you, frozen still with a deadly immortal patience..."
+"You enter a large, domed chamber. Torches flicker in alcoves, and the vaulted ceiling is lost in the gloom above. On the far side, a great magical portal flickers and shimmers, emitting a tangible hum that makes your hair stand on end. Surely, after all this time, you have found the second Great Gate! Standing between you and the Gate waits a tall horned demon, it's red skin glowing and smoking gently. You have the impression that it has been waiting for you, frozen still with a deadly immortal patience..."
 ----
 
 ==== Nusor the Torturer
@@ -523,12 +523,12 @@ The ancient vampire Fangorn broods in his dark castle, hidden far from the beate
 "Suddenly, a slight figure drops from the moss covered boughs above, and lands with feline grace before you. The cat-warrior crouches low for a moment, fingers lightly touching the hilt of his sword. Then he straightens and addresses you..."
 ----
 
-The mysterious cat warrior Ren San and his brother Tao guard the secret forest domain of Dalen.
+The mysterious cat warrior Ren San and his brother Tao guard the secret forest Domain of Dalen.
 
 ==== Tao
 ----
 "Without warning, a slender figure saunters from behind a gnarled trunk, and blocks your path. It is another cat-warrior, similar to the first. His whiskers twitch as he examines you, then he speaks."
 ----
 
-The mysterious cat warrior Ren San and his brother Tao guard the secret forest domain of Dalen.
+The mysterious cat warrior Ren San and his brother Tao guard the secret forest Domain of Dalen.
 

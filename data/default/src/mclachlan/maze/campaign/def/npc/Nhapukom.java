@@ -25,7 +25,7 @@ public class Nhapukom extends NpcScript
 				"end. Surely, after all this time, you have found the second Great " +
 				"Gate!",
 				MazeEvent.Delay.WAIT_ON_CLICK, true),
-			new FlavourTextEvent("Standing between you and the gate waits a " +
+			new FlavourTextEvent("Standing between you and the Great Gate waits a " +
 				"tall horned demon, it's red skin glowing and smoking gently. You " +
 				"have the impression that it has been waiting for you, frozen " +
 				"still with a deadly immortal patience...",

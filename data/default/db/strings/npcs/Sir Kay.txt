@@ -50,5 +50,5 @@ bye,farewell,goodbye=9|Later...
 lady=9|Heh, a shapely goddess she is, if she would just lose the armour and the scowl. I think she needs someone to show her a good time...%n%n
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Aaaah... the Gentlemen's Social Club of Ichiba. I am the humble chairman. <winks> We're a grouping of upstanding fellows interested in a bit of adventure and profit - with some fun and laughs thrown in. The humourless penny pinchers in the Chamber of Commerce hate us, only because jealousy makes them nasty. Ha ha ha\!
 danaos=9|That big drafty pile of stones is what the leonals call home.
-gate=9|Sure, there's a gate to the Third Realm somewhere in the wastes. Gimme some coinage and we'll flip about where is it... As an honest guy I should inform you, though, that you'll likely get killed before you get there. And even if you do, word is the Third Realm has little to recommend it.
+gate=9|Sure, there's a Gate to the Third Realm somewhere in the wastes. Gimme some coinage and we'll flip about where is it... As an honest guy I should inform you, though, that you'll likely get killed before you get there. And even if you do, word is the Third Realm has little to recommend it.
 wasid=9|The war god. All about gore and glory. Probably making up for his small package. Ha ha ha\!

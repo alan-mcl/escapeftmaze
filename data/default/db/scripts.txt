@@ -467,7 +467,7 @@ name=_CREATE_CHARACTER_MUSIC_
 @
 name=Ichiba City Intro
 0=4,-1,true,Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.%n
-1=4,-1,true,The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the second Realm.
+1=4,-1,true,The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.
 @
 name=Castle Fangorn to Ruins Of Hail
 0=4,1500,true,The pillar feels warm beneath your hand...
@@ -582,12 +582,12 @@ name=blinding flash spell from player
 name=Gatehouse load
 0=1,Gatehouse,14,30,1
 1=149,shadows_in_an_empty_cathedral,
-2=19,screen/default_intro_1,default.intro.1,BOTTOM_RIGHT
-3=19,screen/default_intro_2,default.intro.2,TOP_LEFT
+2=19,screen/default_intro_1,default.intro.1,TOP_LEFT
+3=19,screen/default_intro_2,default.intro.2,BOTTOM_LEFT
 4=19,screen/default_intro_3,default.intro.3,BOTTOM_RIGHT
-5=19,screen/default_intro_4,default.intro.4,TOP_RIGHT
-6=19,screen/default_intro_5,default.intro.5,BOTTOM_RIGHT
-7=19,screen/default_intro_6,default.intro.6,BOTTOM_LEFT
+5=19,screen/default_intro_4,default.intro.4,BOTTOM_LEFT
+6=19,screen/default_intro_5,default.intro.5,BOTTOM_LEFT
+7=19,screen/default_intro_6,default.intro.6,TOP_LEFT
 8=149,,
 @
 name=frontier phaser from player

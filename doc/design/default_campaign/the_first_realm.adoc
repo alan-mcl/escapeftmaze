@@ -2,7 +2,7 @@
 
 The First Realm is, perhaps, the most subtle and dangerous trap that the Maze has in it's arsenal. Offering several large, safe domains, it is a gilded cage that few banished there care to escape. Here the races of the Realm have established their peaceful and prosperous settlements, where most are content to remain rather than brave the terrors of the Maze.
 
-The first realm consists of two rings of domains. On the outside are six large temperate domains. These surround three less hospitable domains - predominantly mountainous. In the center is a large, wild domain that contains the Great Gate to the Second Realm.
+The First Realm consists of two rings of domains. On the outside are six large temperate domains. These surround three less hospitable domains - predominantly mountainous. In the center is a large, wild Domain that contains the Great Gate to the Second Realm.
 
 Of the outer domains:
 
@@ -21,13 +21,13 @@ Of the inner domains:
 * A colony of Salamanders has inhabited a dormant volcano.
 
 
-In the center of the realm, dire foes lurk in a wild, uninhabited domain. Dark forests and swamps surround a central mountain range of young, jagged peaks. In a cave beneath the highest peak, a guardian beast defends the chamber of the Great Gate, the only way to proceed to the Second Realm.
+In the center of the Realm, dire foes lurk in a wild, uninhabited Domain. Dark forests and swamps surround a central mountain range of young, jagged peaks. In a cave beneath the highest peak, a guardian beast defends the chamber of the Great Gate, the only way to proceed to the Second Realm.
 
 == Places
 
 Bleak Hills: In winter the Bleak Hills are frosted still and the wilder Mirka tribes cross the gates from the snow-bound mountains to hunt in the pale sunlight. In summer the rains come falling sideways in the east wind and turn the hills into a labyrinth of flash floods and mud slides. Inhabited by few villages and crofters.
 
-The Six Seas: Mariners count six seas in the first Realm: three adjacent to each of the three cities and three sea-only domains. Gates large enough to pass ships through accommodate all the seas.
+The Six Seas: Mariners count six seas in the First Realm: three adjacent to each of the three cities and three sea-only domains. Gates large enough to pass ships through accommodate all the seas.
 
 Janpur: One of the three cities.
 
@@ -45,7 +45,7 @@ Naomasa Domain: One of the outer domains.
 
 North Road: Road linking Janpur and Kilin
 
-Red Valley: Secret valley in Naomasa domain.
+Red Valley: Secret valley in Naomasa Domain.
 
 Emyn Bryn: Rugged hills on the borders of civilised lands. Inhabited by Neotroll tribes and bandits
 
@@ -53,15 +53,15 @@ Bramblewood: large forest
 
 Mount Miska: dormant volcano standing alone amidst the civilised lands
 
-Ponang: One of the three cities. Different domain to Kilin and Janpur.
+Ponang: One of the three cities. Different Domain to Kilin and Janpur.
 
 Menyr: Site of a great temple.
 
-Monastery of the Five Flowers: High in the moutains of Naomasa domain.
+Monastery of the Five Flowers: High in the moutains of Naomasa Domain.
 
 Dao River: River running through one of the uncivilised outer domains.
 
-Daningrad: Large city, not counted as one of the three cities because it is landlocked and in a different domain to Kilin and Janpur.
+Daningrad: Large city, not counted as one of the three cities because it is landlocked and in a different Domain to Kilin and Janpur.
 
 The Spiral: Notorious dungeon.
 
@@ -69,9 +69,9 @@ Tomb of Uatna: Notorious dungeon.
 
 Carpenters Workshop: Notorious dungeon.
 
-Yamashiro Monastery: High in the moutains of the Naomasa domain.
+Yamashiro Monastery: High in the moutains of the Naomasa Domain.
 
-Broken Hills: Hills in Janpur domain.
+Broken Hills: Hills in Janpur Domain.
 
 == People
 
@@ -79,7 +79,7 @@ Argivo: Famous fencing master in Kilin.
 
 Armand: General who defeated the invasion of the creatures of the Maze.
 
-The Prince: Ruler of Kilin domain.
+The Prince: Ruler of Kilin Domain.
 
 Commission of Justice: An organisation to dedicated to tracking down and eradicating evil in whatever form it reared it's head.
 
@@ -101,14 +101,14 @@ Cyme: Former female gladiator, runs a school in Daningrad.
 
 Shun Oko: Master of Yamashiro Monastery.
 
-Shogun of Naomasa: Ruler of Naomasa domain.
+Shogun of Naomasa: Ruler of Naomasa Domain.
 
 == Events
 
 Invasion of the Maze: Creatures of the Maze invaded in force in the year of the Lizard.
 
-Battle of Gernoed: Defenders of the first Realm united but were defeated on the moors of Gernoed.
+Battle of Gernoed: Defenders of the First Realm united but were defeated on the moors of Gernoed.
 
 Armand's campaign: General Armand rallied the survivors and fought a strategic retreat until he was able to take a stand.
 
-Battle of Caradam River: Armand met and decisively defeated the creatures of the Maze at Caradam River. The first Realm was safe, for now.
+Battle of Caradam River: Armand met and decisively defeated the creatures of the Maze at Caradam River. The First Realm was safe, for now.

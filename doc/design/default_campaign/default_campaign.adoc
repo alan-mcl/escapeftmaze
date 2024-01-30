@@ -20,7 +20,7 @@ About the setting, plot, characters and more...
 
 == Default Campaign Storyboard
 
-The default campaign begins as the party, having just escaped from the First Realm, steps through the great gate and enters the Second.
+The default campaign begins as the party, having just escaped from the First Realm, steps through the Great Gate and enters the Second.
 
 The theme of the default campaign is of the party leaving comfort zones, going against the grain, of not accepting the status quo, of taking risks and venturing into uncertainty to achieve greatness. It is the story of voluntarily leaving safety and ease and journeying into the vast unknown where the danger is great and the chance of success and value of the rewards is uncertain. The ultimate lesson is that change is the only constant, that strife leads to growth and that limitations need not be unthinkingly accepted.
 
@@ -56,7 +56,7 @@ _Text in italics is not yet implemented._
 * _Other Wayfarers: Others who tread the paths of the Second Realm._
 
 === Hidden Areas
-* Dalen: A secret forest domain of green magic.
-* Castle Fangorn: A secret domain of black magic.
-* _The Wild Hunt: A secret domain of gold magic._
-* Crypt of Atrocities: A secret domain of unique high level monsters.
+* Dalen: A secret forest Domain of green magic.
+* Castle Fangorn: A secret Domain of black magic.
+* _The Wild Hunt: A secret Domain of gold magic._
+* Crypt of Atrocities: A secret Domain of unique high level monsters.

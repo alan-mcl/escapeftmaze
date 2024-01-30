@@ -50,7 +50,7 @@ public class Lorelei extends NpcScript
 				"An earthy aura of magic infuses the area... you sense rather than " +
 					"see a variety of tiny sprites and faeries at play amongst the " +
 					"plants... and the figure before you is undoubtedly one of the " +
-					"deathless fey, a child of the realm of Faerie..."),
+					"deathless fey, a child of the Realm of Faerie..."),
 			new CharacterClassKnowledgeEvent(
 				sorcerer,
 				"The aura of Druidic magic is strong here. No doubt the " +

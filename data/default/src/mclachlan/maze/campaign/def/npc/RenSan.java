@@ -49,7 +49,7 @@ public class RenSan extends NpcScript
 				new FlavourTextEvent("The cat-warrior crouches low for a " +
 					"moment, fingers lightly touching the hilt of his sword. " +
 					"Then he straightens and addresses you..."),
-				new NpcSpeechEvent("Strangers. Go no further. This domain is " +
+				new NpcSpeechEvent("Strangers. Go no further. This Domain is " +
 					"not for mortals like yourselves. The forest keeps it's " +
 					"own secrets, you are not welcome. Leave, or you will come " +
 					"to grief.", npc),

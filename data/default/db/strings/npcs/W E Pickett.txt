@@ -47,6 +47,6 @@ aenen=9|Yes, where the gnomes live. We run some caravans out that way.
 lady=9|I don't really have time for that sort of thing.
 bye,farewell,goodbye=9|Goodbye.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Those blasted thieves are an incessant nuisance\! They're led by a fellow called Kay, who styles himself as some sort of glorified brigand king. Needless to say, their banditry comes straight off our bottom line. They have no regard for the hard work an honest merchant puts into making a living\!
-gate=9|The great gate? Oh, I'm sure it's around somewhere. Try looking in the furthest, most dangerous part of the Realm that you can find. Ha ha ha.
+gate=9|The Great Gate? Oh, I'm sure it's around somewhere. Try looking in the furthest, most dangerous part of the Realm that you can find. Ha ha ha.
 danaos=9|An expensive construction project, that castle.
 wasid=9|I don't really have time for that sort of thing.

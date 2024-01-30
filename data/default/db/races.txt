@@ -80,7 +80,7 @@ favouredEnemyModifier=
 characterCreationImage=race/mirka
 @
 name=Automaton
-description=The First Realm is home to a dwindling colony of robotic Automata.  Deprived of supplies and energy sources in this primitive realm, the individuals that remain are cobbled together from the scavenged parts of their run-down comrades.%n%nThe Automata claim to have fled to the First Realm seeking freedom from cruel masters.  Most are content to live cautiously in the safety of the realm, conserving their energies and not risking the dangers of the Maze.%n%nSpecial: As machines Automata benefit from a range of resistances and immunities, but are unable to use magic.
+description=The First Realm is home to a dwindling colony of robotic Automata.  Deprived of supplies and energy sources in this primitive Realm, the individuals that remain are cobbled together from the scavenged parts of their run-down comrades.%n%nThe Automata claim to have fled to the First Realm seeking freedom from cruel masters.  Most are content to live cautiously in the safety of the Realm, conserving their energies and not risking the dangers of the Maze.%n%nSpecial: As machines Automata benefit from a range of resistances and immunities, but are unable to use magic.
 startingHitPointPercentage=100
 startingActionPointPercentage=100
 startingMagicPointPercentage=0
@@ -264,7 +264,7 @@ startingItems=
 naturalWeapons=
 suggestedNames=Female:Ru Muri,Ki Hechi,Tsu Tamu,Re Tsuni,Ka Muto,Su Sosu,Sa Wako,Me Reho,Sa Saha,Yo Muko,Wa Shi,Chi Mehe,Ta Tashi~Male:Wa Na,Nri,Ku Ya,Ya Ten,Ka Fu,Ken,Han Ma,Nwa,Yu Na,Shi Mo,Jin An,Shi Mo,Shi Ma,Nkan,Yon Shi
 unlockVariable=unlock.race.pasht
-unlockDescription=Pasht are unlocked by entering the hidden forest domain of Dalen.
+unlockDescription=Pasht are unlocked by entering the hidden forest Domain of Dalen.
 favouredEnemyModifier=
 characterCreationImage=race/pasht
 @

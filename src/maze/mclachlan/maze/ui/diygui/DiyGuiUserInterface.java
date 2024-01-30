@@ -1263,19 +1263,27 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		// reverse the players recent movements
 		for (Integer key1 : keys)
 		{
-			// todo: 
-			// this will simply prevent random encounters while the player
-			// is running away.  It would be more amusing to allow them and
-			// stop the flight when one happens.
-			mazeActionListener.handleKeyCode(getFleeKey(key1), false);
-			try
+			Maze.getInstance().appendEvents(new MazeEvent()
 			{
-				Thread.sleep(100);
-			}
-			catch (InterruptedException e)
-			{
-				throw new MazeException(e);
-			}
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					// todo:
+					// this will simply prevent random encounters while the player
+					// is running away.  It would be more amusing to allow them and
+					// stop the flight when one happens.
+					mazeActionListener.handleKeyCode(getFleeKey(key1), false);
+					try
+					{
+						Thread.sleep(100);
+					}
+					catch (InterruptedException e)
+					{
+						throw new MazeException(e);
+					}
+					return null;
+				}
+			});
 
 			if (maxKeys > 0 && count++ >= maxKeys)
 			{

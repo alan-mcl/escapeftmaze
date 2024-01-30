@@ -1,6 +1,6 @@
 #Wed Jan 24 11:41:26 SAST 2024
 garret=9|I cannae advise ye much on matters of the spirit.
-leonal,leonals,white\ order=9|Bah, the lion people and their order are a plague on this realm\!
+leonal,leonals,white\ order=9|Bah, the lion people and their order are a plague on this Realm\!
 maze=9|Aye, the maze. What can be said that has not been said before? Best to get on with yer business.
 sarpedon=9|Aye, at yer service.
 agenor=9|I ken him not.
@@ -20,7 +20,7 @@ wastelands,wastes,wilds=9|Well now. There be dragons. Har har har\!
 red\ ear=9|I ken him not.
 fangorn=9|I ken him not.
 gnome,gnomes=9|What will ye hear me say of us gnomes? Here we are, here we have been, here we shall remain whether ye or anyone else like it or not. Yar, we will be here after ye all have gone to dust or moved on.
-second\ realm=9|This realm, it isnae so bad, if ye stick to the safer areas. That means here in the Crater.
+second\ realm=9|This Realm, it isnae so bad, if ye stick to the safer areas. That means here in the Crater.
 gnoll,gnolls=9|The dog people? Keen noses and a bad temper.
 imogen=9|I ken her not.
 pickett,we\ pickett=9|I ken him not.

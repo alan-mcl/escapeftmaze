@@ -278,7 +278,7 @@ public class SirKay extends NpcScript
 		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Salutations, travellers.", npc),
 			new NpcSpeechEvent("Your reputation precedes you, we don't see " +
-				"many come through the Gate from the first Realm.", npc),
+				"many come through the Gate from the First Realm.", npc),
 			new NpcSpeechEvent("My name is Kay.", npc));
 
 		checkPartyHasStolen(result);

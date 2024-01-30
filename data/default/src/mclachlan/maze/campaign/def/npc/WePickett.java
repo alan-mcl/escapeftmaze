@@ -214,7 +214,7 @@ public class WePickett extends NpcScript
 				"trading partner, and the biggest settlement in the Second " +
 				"Realm after Ichiba. It was a younger settlement - a brave " +
 				"band of adventurers founded a city deep in the Realm, in a " +
-				"mountainous domain. Paths that lead there were perilous at best.", npc),
+				"mountainous Domain. Paths that lead there were perilous at best.", npc),
 			new NpcSpeechEvent("Of course, perilous paths mean lucrative " +
 				"caravans if you can make it through, and we had good profits " +
 				"from Hail for many years.", npc),

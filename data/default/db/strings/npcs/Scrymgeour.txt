@@ -48,5 +48,5 @@ bye,farewell,goodbye=9|Bye.
 lady=9|May she bless and protect us.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Damn bandits. The C.O.C. keep hiring mercenaries, but the blasted brigands keep harassing us.
 danaos=9|It's a big castle, with a small village. North of here. You'd better be on good terms with the leonals if you head up that way.
-gate=9|There's a gate to the next Realm, somewhere. You'd do better to ask someone other than me though.
+gate=9|There's a Gate to the next Realm, somewhere. You'd do better to ask someone other than me though.
 wasid=9|May his blessing give us strength.

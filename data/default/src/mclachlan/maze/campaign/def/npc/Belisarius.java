@@ -43,18 +43,18 @@ public class Belisarius extends NpcScript
 	{
 		List<MazeEvent> intro = getList(
 			new NpcSpeechEvent("Your type is usually here asking with " +
-				"varying degrees of politeness for access to the lesser gate " +
+				"varying degrees of politeness for access to the lesser Gate " +
 				"below the castle.", npc),
 			new NpcSpeechEvent("I am seldom happy to grant it. We of the White " +
 				"Order work hard to keep the Maze at bay. The more who seek " +
 				"to escape it, the more it assails our defences.", npc),
 			new NpcSpeechEvent("But you have arrived at an opportune time.\n\n" +
 				"Just yesterday, a vicious wyrm of some sort " +
-				"came writhing through the gate. It is contained in the " +
+				"came writhing through the Gate. It is contained in the " +
 				"chamber below the castle.", npc),
 			new NpcSpeechEvent("Instead of risking valuable soldiers on this " +
 				"trivial task, I will send you.\n\nIf you triumph, you will find " +
-				"the gate in the same chamber.", npc),
+				"the Gate in the same chamber.", npc),
 			new SetMazeVariableEvent("danaos.castle.portal.30", "unlocked"));
 
 		List<MazeEvent> encouragement = getList(
@@ -64,8 +64,8 @@ public class Belisarius extends NpcScript
 		List<MazeEvent> reward = getList(
 			new NpcSpeechEvent("You have arrived to report your success. Well " +
 				"done.", npc),
-			new NpcSpeechEvent("You may use the gate freely, but be on your " +
-				"guard. The dark forest of Stygios is the domain that lies " +
+			new NpcSpeechEvent("You may use the Gate freely, but be on your " +
+				"guard. The dark forest of Stygios is the Domain that lies " +
 				"beyond - you will find little but danger there.", npc),
 			new GrantExperienceEvent(100, null));
 

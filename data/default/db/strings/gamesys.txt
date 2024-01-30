@@ -394,12 +394,12 @@ modifier_desc-toRunAway: Makes this character better at running away from combat
 modifier_desc-resistBludgeoning: Reduces bludgeoning damage. Such damage is usually dealt by blunt weapons and crushing attacks.
 modifier_desc-resistPiercing: Reduces piercing damage. Such damage is usually dealt by pointed weapons and impaling attacks.
 modifier_desc-resistSlashing: Reduces slashing damage. Such damage is usually dealt by edged weapons and slicing attacks.
-modifier_desc-resistFire: Reduces damage and effects to this character from the realm of fire.
-modifier_desc-resistWater: Reduces damage and effects to this character from the realm of water.
-modifier_desc-resistEarth: Reduces damage and effects to this character from the realm of earth.
-modifier_desc-resistAir: Reduces damage and effects to this character from the realm of air.
-modifier_desc-resistMental: Reduces psychic damage and effects to this character.
-modifier_desc-resistEnergy: Reduces damage and effects to this character from the realm of energy.
+modifier_desc-resistFire: Reduces fire-type damage and effects to this character.
+modifier_desc-resistWater: Reduces water-type damage and effects to this character.
+modifier_desc-resistEarth: Reduces earth-type damage and effects to this character.
+modifier_desc-resistAir: Reduces air-type damage and effects to this character.
+modifier_desc-resistMental: Reduces psychic-type damage and effects to this character.
+modifier_desc-resistEnergy: Reduces energy-type damage and effects to this character.
 
 modifier_desc-saveVsBeguilement: Modifies this characters saves against beguilement spells and effects.
 modifier_desc-saveVsTransmutation: Modifies this characters saves against transmutation spells and effects.

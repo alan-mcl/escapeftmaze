@@ -48,5 +48,5 @@ bye,farewell,goodbye=9|Goodbye.
 lady=9|I care nothing for the gods.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|The criminal elements in Ichiba are well organised. They and the Chamber Of Commerce keep each other very busy.
 danaos=9|The leonal castle is north of Ichiba.
-gate=9|You seek the great gate? No doubt. Well, you have a hard road ahead. It lies beyond the caves called Ilast, which themselves are beyond the wastelands. There used to be a city in the wastes called Hail, but many years ago it fell to the creatures of the Maze.
+gate=9|You seek the Great Gate? No doubt. Well, you have a hard road ahead. It lies beyond the caves called Ilast, which themselves are beyond the wastelands. There used to be a city in the wastes called Hail, but many years ago it fell to the creatures of the Maze.
 wasid=9|I care nothing for the gods.

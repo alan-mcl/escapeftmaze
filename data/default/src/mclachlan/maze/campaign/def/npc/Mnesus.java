@@ -109,7 +109,7 @@ public class Mnesus extends NpcScript
 
 			return getList(
 				new NpcSpeechEvent("Excellent work.", npc),
-				new NpcSpeechEvent("I will open the way to the gate for you. " +
+				new NpcSpeechEvent("I will open the way to the Gate for you. " +
 					"Be warned though, beyond you will face sterner foes.", npc),
 				new FlavourTextEvent("Mnesus takes the severed clockwork head from you. " +
 					"You see him open a small panel on the rear and remove some kind " +
@@ -136,14 +136,14 @@ public class Mnesus extends NpcScript
 		{
 			return getList(
 				new NpcSpeechEvent("Yes, as you may already know, here in " +
-					"the depths of Aenen, we gnomes guard a minor gate.", npc),
+					"the depths of Aenen, we gnomes guard a minor Gate.", npc),
 				new NpcSpeechEvent("It leads to a windswept mountain wasteland, " +
 					"a dangerous place to go. None the less, you will have to " +
 					"pass that way if you are travelling to Hail, or going beyond " +
 					"that to seek the great Gate to the Third Realm.", npc),
 				new NpcSpeechEvent("I expected you to approach me about it.", npc),
 				new NpcSpeechEvent("You have already earned the freedom of my city, " +
-					"but for passage through the gate I am minded to ask more of " +
+					"but for passage through the Gate I am minded to ask more of " +
 					"you - to test your mettle a bit, for mettle you will need " +
 					"if you are to venture the wastelands.", npc),
 				new NpcSpeechEvent("One of Sarpedon's clockwork servants has " +

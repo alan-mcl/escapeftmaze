@@ -771,7 +771,7 @@ playerOrigin: 3:2
 752: 0:3f800000000000000000,02030103030201:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 753: 0:3f800000000000000000,01010301030302:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 754: 0:3f800000000000000000,03010103020302:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
-755: 1:4,ichiba.domain.south.flava.1,,false,-1,The clearing is occupied by a door, standing free of any visible support. Moons, stars and the cogs of some great machine are intricately carved into its stone frame and mantle.%n%nYou experience in the Maze suggests that this will be some type of portal, probably a minor one to another domain.:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
+755: 1:4,ichiba.domain.south.flava.1,,false,-1,The clearing is occupied by a door, standing free of any visible support. Moons, stars and the cogs of some great machine are intricately carved into its stone frame and mantle.%n%nYou experience in the Maze suggests that this will be some type of portal, probably a minor one to another Domain.:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 756: 0:3f800000000000000000,03030202010303:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 757: 1:7,,00011,false,-1,Ichiba Domain South to Aenen:3f800000000000000000,03030101020203:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE
 758: 0:3f800000000000000000,03030101010203:WILDERNESS:Forest:5:ichiba.domain.south.random.enc:MEDIUM:AVERAGE

@@ -58,7 +58,7 @@ public class Tao extends NpcScript
 					"I can see in your eyes that you know this to be truth. " +
 					"Bravery and skill will not help you if you go further.", npc),
 				new NpcSpeechEvent("My brother has warned you once. I, Tao, " +
-					"deliver the second warning. Leave this domain or you " +
+					"deliver the second warning. Leave this Domain or you " +
 					"will be slain.", npc),
 				new ChangeNpcLocationEvent((Npc)npc, new Point(0,0), Maze.getInstance().getCurrentZone().getName()),
 				new SetMazeVariableEvent(TAO_LOCATION_VAR, "2"),

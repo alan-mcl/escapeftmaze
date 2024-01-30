@@ -1,6 +1,6 @@
 #Wed Jan 24 11:41:26 SAST 2024
 garret=9|Do not trust the trickster god of the road.
-leonal,leonals,white\ order=9|We are the children of The Lady, her chosen. The White Order has brought law and order to some small portion of this realm, so that cities such as this may prosper.
+leonal,leonals,white\ order=9|We are the children of The Lady, her chosen. The White Order has brought law and order to some small portion of this Realm, so that cities such as this may prosper.
 maze=9|The horror of the Maze will drive you insane if you think too deeply on it.
 sarpedon=9|I do not know him?
 agenor=9|The quartermaster at Danaos is a friend of mine.
@@ -49,5 +49,5 @@ bye,farewell,goodbye=9|Farewell.
 lady=9|Our goddess, The Lady of the spear and shield. To the faithful she is merciful and just. %nShe is the patron of the White Order, who guard the borders north of here at Danaos castle. By her grace we hold back the darkness from these civilised lands.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Some elements of society tend always towards crime. I do not associate with them.
 danaos=9|Danaos, the white castle, home of my order. Have you seen it?%nMighty towers rising above the forest, grim battlements glittering with the helms of my folk. Smoke rising from the forges and ovens, the clatter of arms and the marching footsteps of the faithful going early and eager about their business\! O how I long to return\!
-gate=9|The gate to the third Realm is somewhere in the wastelands. Belisarius, the general of my Order, would know more.
+gate=9|The Gate to the Third Realm is somewhere in the wastelands. Belisarius, the general of my Order, would know more.
 wasid=9|Do not trifle with the fearsome god of war.

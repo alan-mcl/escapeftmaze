@@ -39,12 +39,12 @@ public class Ideaus extends NpcScript
 	{
 		return getList(
 			new NpcSpeechEvent("Halt, strangers. I am Ideaus Ap Agorlan, " +
-				"by royal decree keeper of the gate to Aenen.", npc),
+				"by royal decree keeper of the Gate to Aenen.", npc),
 			new NpcSpeechEvent("Many are those who wander the woods and " +
 				"glades here in the Second Realm, but the Buried City of the Gnomes " +
 				"is closed to most.", npc),
 			new NpcSpeechEvent("You are free to pass through the lands " +
-				"here, but you may not enter this gate.", npc));
+				"here, but you may not enter this Gate.", npc));
 	}
 
 	/*-------------------------------------------------------------------------*/

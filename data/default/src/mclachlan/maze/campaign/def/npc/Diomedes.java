@@ -105,7 +105,7 @@ public class Diomedes extends NpcScript
 				new NpcSpeechEvent("I cannot compensate you materially, I'm " +
 					"afraid. But perhaps I can open doors in your future.", npc),
 				new NpcSpeechEvent("If you ever come to Danaos Castle, the " +
-					"stronghold of my Order, tell Stenelaus at the gate that " +
+					"stronghold of my Order, tell Stenelaus the Doorwarden that " +
 					"Diomedes sent you with his blessing.", npc),
 				new SetMazeVariableEvent(INVITATION_FROM_DIOMEDES, "true"));
 		}
