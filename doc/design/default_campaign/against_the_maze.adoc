@@ -2,7 +2,7 @@
 
 This is the main line plot of Episode 1. The player arrives in the Second Realm with little idea of what lies ahead but with one clear goal - progressing past it into the Third Realm.
 
-There is initially little information on the Second Realm. The party explores and discovers the inhabited domains: Ichiba, Danaos and Aenen. Most tell the party not to bother escaping, for beyond lies only wilderness. The party learns that the wilderness areas are haunted by seven deadly spirits, who must be defeated by any seeking to escape the Realm.
+There is initially little information on the Second Realm. The party explores and discovers the inhabited Domains: Ichiba, Danaos and Aenen. Most tell the party not to bother escaping, for beyond lies only wilderness. The party learns that the wilderness areas are haunted by seven deadly spirits, who must be defeated by any seeking to escape the Realm.
 
 To travel beyond the inhabited areas, the player gains access to either the Leonal castle Danaos and thence to Stygios Forest, or the gnome city of Aenen and thence to Tornado Mountain.
 

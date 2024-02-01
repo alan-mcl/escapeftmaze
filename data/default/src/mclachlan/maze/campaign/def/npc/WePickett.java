@@ -250,11 +250,11 @@ public class WePickett extends NpcScript
 				"two routes to Hail are controlled by the White Order and the " +
 				"Gnomes. It's a pain, but you will have to travel to either " +
 				"Danaos or Aenen and barter with the authorities there for " +
-				"access to the gates that will transport you towards Hail.\n\n" +
+				"access to the Gates that will transport you towards Hail.\n\n" +
 				"The C.O.C. will expense any reasonable claims in this regard " +
 				"if necessary, just bring the receipts back.", npc),
 			new NpcSpeechEvent("There is some dangerous wilderness between " +
-				"those gates and Hail, so best be prepared.", npc),
+				"those Gates and Hail, so best be prepared.", npc),
 			new NpcSpeechEvent("Good luck.", npc));
 
 		List<MazeEvent> encouragement = getList(
@@ -319,7 +319,7 @@ public class WePickett extends NpcScript
 				"history of Ichiba!", npc),
 			new NpcSpeechEvent("Good hunting, I hope you get him.\n\nKay tends " +
 				"to lurk around the city and skulk in the forest outside the " +
-				"gates. You may already have seen him...", npc));
+				"Gates. You may already have seen him...", npc));
 
 		List<MazeEvent> encouragement = getList(
 			new NpcSpeechEvent("My sources say that Kay is still at large.", npc),

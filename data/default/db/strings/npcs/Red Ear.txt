@@ -47,6 +47,6 @@ aenen=9|Farrr south, Red Ear has not visited the town of the Gnome-folk.
 lady=9|Red Ear does not know.
 bye,farewell,goodbye=9|Arf\! I am Red Ear\!
 gentlemen's\ social\ club,thieves,thieves\ guild=9|...
-gate=9|Red Ear does not know about gates.
+gate=9|Red Ear does not know about Gates.
 danaos=9|Hrmmm. White castle of the lion-folk, far north of here. Red Ear does not like the unfriendly lion-folk.
 wasid=9|Red Ear does not know.

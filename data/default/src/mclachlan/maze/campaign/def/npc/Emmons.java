@@ -76,7 +76,7 @@ public class Emmons extends NpcScript
 		if (!MazeVariables.getBoolean(EMMONS_FIRST_ENCOUNTER_COMPLETE))
 		{
 			return getList(
-				new NpcSpeechEvent("So listen mateys.\n\nEmmons know these halls. There are three gates outta here.", npc),
+				new NpcSpeechEvent("So listen mateys.\n\nEmmons know these halls. There are three Gates outta here.", npc),
 				new NpcSpeechEvent("All will take ye to places in the crater.\n\nIf I were ye I'd take the center and make for the city. It's where all the action is.", npc),
 				new NpcSpeechEvent("Emmons has his own ways out. Farewell, mayhap ye'll find me in Ichiba some day!", npc),
 				new FlavourTextEvent("With a casual but surprisingly fast saunter, the goblin steps around the corner and out of sight."),

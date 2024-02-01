@@ -115,7 +115,7 @@ playerOrigin: 14:30
 96: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 97: 0:3f800000000000000000,01020201020202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 98: 0:3f800000000000000000,01010201010102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-99: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02020101010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+99: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor Gates that you used to travel between the Domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02020101010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 100: 0:3f800000000000000000,02010101010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 101: 0:3f800000000000000000,02010101020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 102: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -179,7 +179,7 @@ playerOrigin: 14:30
 160: 0:3f800000000000000000,02020102010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 161: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 162: 0:3f800000000000000000,01010202010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-163: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,01010202010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+163: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor Gates that you used to travel between the Domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,01010202010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 164: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 165: 1:7,gatehouse.block.golem,,false,-1,Gatehouse block golem encounter:3f800000000000000000,01010202020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 166: 0:3f800000000000000000,01020102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -243,7 +243,7 @@ playerOrigin: 14:30
 224: 0:3f800000000000000000,01010101010201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 225: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 226: 0:3f800000000000000000,02020101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-227: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor gates that you used to travel between the domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02010102020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+227: 1:4,,,false,-1,You stand before a colourful swirling phenomenon that is clearly a magical gateway of some sort, not dissimilar to the minor Gates that you used to travel between the Domains of the First Realm.%n%nThere is no immediate indication of where this one leads...:3f800000000000000000,02010102020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 228: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 229: 0:3f800000000000000000,01020202020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 230: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.35,,,,:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE

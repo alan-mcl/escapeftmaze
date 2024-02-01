@@ -9,7 +9,7 @@ Emmons
 533~Emmons- "Ha! Newly arrived through the Great Gate eh! Been a while, quite a while, since Emmons has seen the likes of ye!"
 533~Emmons- "Where are me manners?%n%nGreetings travellers, from Emmons, called by some The Hand. On account of me skill at juggling."
 533~Emmons- "Now mind you I have have little time for prattle. Got business to take care of.%n%nNo doubt ye'll be wanting to move on quickly to Ichiba..."
-533~Emmons- "So listen mateys.%n%nEmmons know these halls. There are three gates outta here."
+533~Emmons- "So listen mateys.%n%nEmmons know these halls. There are three Gates outta here."
 533~Emmons- "All will take ye to places in the crater.%n%nIf I were ye I'd take the center and make for the city. It's where all the action is."
 533~Emmons- "Emmons has his own ways out. Farewell, mayhap ye'll find me in Ichiba some day!"
 533~With a casual but surprisingly fast saunter, the goblin steps around the corner and out of sight.

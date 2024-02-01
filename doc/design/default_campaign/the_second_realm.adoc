@@ -4,12 +4,12 @@
 
 The Second Realm is one of warring city-states. Danaos is the bastion of the Leonals of the White Order, who are constantly at war with the gnomes of Aenen, wielders of intricate machines and elemental magic. Between lies prosperous Ichiba, the City in the Crater, who welcomes all comers.
 
-Beyond the civilised areas bounded by Danaos and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland domains are haunted by seven deadly spirits, and any wishing to escape from the Realm must defeat them all. The inhabitants of the Realm founded a settlement in a flat place in the wilds - Hail town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.
+Beyond the civilised areas bounded by Danaos and Aenen, the dangers of the Maze close in. Inhospitable wilderness and wasteland Domains are haunted by seven deadly spirits, and any wishing to escape from the Realm must defeat them all. The inhabitants of the Realm founded a settlement in a flat place in the wilds - Hail town, for a while a hub of trade routes. But they had ventured too much, and the Maze moved against them. Today Hail lies in ruins.
 
 The traveller passing through the wilds will eventually navigate the dark Caves of Ilast and come to the restful Isle of the Gate. Below the Isle lies the tomb of the dragon Ekirth, and below that the Temple if the Great Gate, the exit to the Third Realm.
 
 == Places
-Unless otherwise noted, all gates between domains are two-way.
+Unless otherwise noted, all Gates between Domains are two-way.
 
 === Gatehouse
 The Gatehouse dungeon complex is where the party arrives, having stepped through the Great Gate from the First Realm. It was a one-way trip; there is no Gate back to the First.
@@ -38,7 +38,7 @@ Notes
 ... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover. You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird's shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy. What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin? Of more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.
 ----
 
-Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this Domain, and there are much-used gates to Aenen and Danaos. The player appears from thin air - the gates from Gatehouse dungeon are one way only.
+Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this Domain, and there are much-used Gates to Aenen and Danaos. The player appears from thin air - the Gates from Gatehouse dungeon are one way only.
 
 A large road runs north-south through most of the Domain, crossed by an east-west road that leads to Ichiba City in the west.
 
@@ -73,7 +73,7 @@ Notes
 ==== Ichiba City
 
 ----
-"Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you can sense the sounds and stenches of a busy town. The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm?"
+"Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you can sense the sounds and stenches of a busy town. The ancient Gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm?"
 
 "Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all. The inhabitants hurry about their business, many casting you curious glances but none approaching... Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby. You espy many Humans and Goblins amongst them, as well as several representatives that you don't recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at grubby street children and you alike."
 ----
@@ -199,7 +199,7 @@ Notes
 "You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitfully through the devastation. A cursory glance reveals to you all the signs of a settlement that has been sacked and subsequently forgotten. Walls and doors have been broken and torn down, rather than crumbling with age. Many buildings are blackened with fire. In a few places, you spy what must be the remains of slain defenders, _half of a burnt shield, rusting broken spears and dented, blackened armour lying scatterd through the ruins._ All is covered with a layer of dust and mould. Whatever violence happened here, it was a long time ago. It seems pretty clear to you that this city has been deserted by it's inhabitants..."
 ----
 
-Hail was once a prosperous trading hub, but the Maze moved against it and it has been destroyed. Little remains in the ruins, but a central courtyard contains five stone pillars that when touched act as gates to Hianbian, the Plain of Pillars, Stygios Forest, Tornado Mountain and the Writhing Mire.
+Hail was once a prosperous trading hub, but the Maze moved against it and it has been destroyed. Little remains in the ruins, but a central courtyard contains five stone pillars that when touched act as Gates to Hianbian, the Plain of Pillars, Stygios Forest, Tornado Mountain and the Writhing Mire.
 
 Foes: maneater mantis, ghosts, smart reptiles, _witches and/or hags._
 
@@ -267,7 +267,7 @@ Notes:
 "___You are suddenly surrounded by absolute silence and darkness. The air is stuffy and old wherever you are and, once you manage to light a torch, you understand why. Old dark rock walls, seeping with ancient stalactites, surround you in oppressive silence and faded into absolute blackness just beyond the torch's sputtering feeble light. You are in the Caves of Ilast and, briefly, wonder how many have been lost for all time to the light of day down here?____"
 ----
 
-The Caves of Ilast are a dark cave complex, deep under ground. Swirling golden gates lead back to the Plain of Pillars and Hianbian. A third, guarded by the hag sisters, leads to the Isle of the Gate.
+The Caves of Ilast are a dark cave complex, deep under ground. Swirling golden Gates lead back to the Plain of Pillars and Hianbian. A third, guarded by the hag sisters, leads to the Isle of the Gate.
 
 Foes: hagspawn (flying, creeping, slithering), wyrms, apes, rockeaters, bats, _cave scorpions_
 
@@ -424,7 +424,7 @@ General Belisarius commands the White Order. His office in Danaos castle is alwa
 "A tall mailed leonal stands with a drawn blade before the gateway."
 ----
 
-Stenelaus the Doorwarden stands guard before the gates of Danaos Castle.
+Stenelaus the Doorwarden stands guard before the entrance of Danaos Castle.
 
 ==== Stentor
 ----

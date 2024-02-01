@@ -1,20 +1,20 @@
 = The First Realm
 
-The First Realm is, perhaps, the most subtle and dangerous trap that the Maze has in it's arsenal. Offering several large, safe domains, it is a gilded cage that few banished there care to escape. Here the races of the Realm have established their peaceful and prosperous settlements, where most are content to remain rather than brave the terrors of the Maze.
+The First Realm is, perhaps, the most subtle and dangerous trap that the Maze has in it's arsenal. Offering several large, safe Domains, it is a gilded cage that few banished there care to escape. Here the races of the Realm have established their peaceful and prosperous settlements, where most are content to remain rather than brave the terrors of the Maze.
 
-The First Realm consists of two rings of domains. On the outside are six large temperate domains. These surround three less hospitable domains - predominantly mountainous. In the center is a large, wild Domain that contains the Great Gate to the Second Realm.
+The First Realm consists of two rings of Domains. On the outside are six large temperate Domains. These surround three less hospitable domains - predominantly mountainous. In the center is a large, wild Domain that contains the Great Gate to the Second Realm.
 
-Of the outer domains:
+Of the outer Domains:
 
-* Cosmopolitan human cities with thriving trade dot most of the large outer domains.
+* Cosmopolitan human cities with thriving trade dot most of the large outer Domains.
 * Immortal elves bide their time in white castles in the forests.
-* The warm coastlines and island chains of several domains are dotted with Merfolk villages.
-* Troll hamlets are scattered in the hills of many domains here, as well as some of the inner domains.
+* The warm coastlines and island chains of several Domains are dotted with Merfolk villages.
+* Troll hamlets are scattered in the hills of many Domains here, as well as some of the inner Domains.
 * Atop an isolated plateau, a domed and spired city of Naga has been transported from outside the Maze.
 * A small colony of Automata inhabit a shanty town and slowly dwindle as their resources run out.
 
 
-Of the inner domains:
+Of the inner Domains:
 
 * Dwarves keep a large city delved deep into the mountains.
 * Mirka tribes roam above ground and dwell in villages shallow cave complexes.
@@ -25,9 +25,9 @@ In the center of the Realm, dire foes lurk in a wild, uninhabited Domain. Dark f
 
 == Places
 
-Bleak Hills: In winter the Bleak Hills are frosted still and the wilder Mirka tribes cross the gates from the snow-bound mountains to hunt in the pale sunlight. In summer the rains come falling sideways in the east wind and turn the hills into a labyrinth of flash floods and mud slides. Inhabited by few villages and crofters.
+Bleak Hills: In winter the Bleak Hills are frosted still and the wilder Mirka tribes cross the Gates from the snow-bound mountains to hunt in the pale sunlight. In summer the rains come falling sideways in the east wind and turn the hills into a labyrinth of flash floods and mud slides. Inhabited by few villages and crofters.
 
-The Six Seas: Mariners count six seas in the First Realm: three adjacent to each of the three cities and three sea-only domains. Gates large enough to pass ships through accommodate all the seas.
+The Six Seas: Mariners count six seas in the First Realm: three adjacent to each of the three cities and three sea-only Domains. Gates large enough to pass ships through accommodate all the seas.
 
 Janpur: One of the three cities.
 
@@ -35,13 +35,13 @@ Red Hills: Forested hills on the border of inhabited lands.
 
 Briarwood: large forest
 
-White Mountains: Snow clad mountains in the inner domains. Inhabited by Mirka tribes.
+White Mountains: Snow clad mountains in the inner Domains. Inhabited by Mirka tribes.
 
 Emyn Beowyn: Rugged hills on the borders of civilised lands. Inhabited by Neotroll tribes.
 
 Kilin: One of the three cities.
 
-Naomasa Domain: One of the outer domains.
+Naomasa Domain: One of the outer Domains.
 
 North Road: Road linking Janpur and Kilin
 
@@ -59,7 +59,7 @@ Menyr: Site of a great temple.
 
 Monastery of the Five Flowers: High in the moutains of Naomasa Domain.
 
-Dao River: River running through one of the uncivilised outer domains.
+Dao River: River running through one of the uncivilised outer Domains.
 
 Daningrad: Large city, not counted as one of the three cities because it is landlocked and in a different Domain to Kilin and Janpur.
 

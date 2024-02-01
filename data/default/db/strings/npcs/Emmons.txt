@@ -50,5 +50,5 @@ bye,farewell,goodbye=9|Back to business.
 lady=9|The White Lady. Her priests like the colour of gold too though, heh heh.
 gentlemen's\ social\ club,thieves,thieves\ guild=9|Careful what ye ask, sometimes it's better not to know.
 danaos=9|What's yer interest in the lion's den then?%n%nNot many ways in, though Emmons knows of one extra way out, yes indeed...
-gate=9|Gates, yeah there be gates. Minor gates between the domains of the Second Realm - Ichiba, Danaos, Aenen, Hail, all of them.%n%nOf course Emmons knows ye're looking for the Great Gate, the Gate to the Third Realm. Cannae help ye there, alas.
+gate=9|Gates, yeah there be Gates. Minor Gates between the Domains of the Second Realm - Ichiba, Danaos, Aenen, Hail, all of them.%n%nOf course Emmons knows ye're looking for the Great Gate, the Gate to the Third Realm. Cannae help ye there, alas.
 wasid=9|Aye the god of war, Emmons couldn't care.
