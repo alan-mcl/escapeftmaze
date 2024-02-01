@@ -19,6 +19,8 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import java.awt.Color;
+import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
@@ -32,8 +34,10 @@ import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.ui.diygui.animation.BloodSplatAnimation;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -41,21 +45,21 @@ import mclachlan.maze.util.MazeException;
  */
 public class DamageEvent extends MazeEvent
 {
-	private Combat combat;
-	private UnifiedActor defender;
-	private UnifiedActor attacker;
-	private DamagePacket damagePacket;
-	private MagicSys.SpellEffectType type;
-	private MagicSys.SpellEffectSubType subtype;
+	private final Combat combat;
+	private final UnifiedActor defender;
+	private final UnifiedActor attacker;
+	private final DamagePacket damagePacket;
+	private final MagicSys.SpellEffectType type;
+	private final MagicSys.SpellEffectSubType subtype;
 	/** may be null in the case of spells/conditions */
-	private AttackWith attackWith;
+	private final AttackWith attackWith;
 
 	private int finalDamage;
 	private CombatStatistics stats;
-	private AnimationContext animationContext;
+	private final AnimationContext animationContext;
 
 	/** a bag of random other state carried along with the attack */
-	private Set<String> tags = new HashSet<String>();
+	private final Set<String> tags = new HashSet<String>();
 
 	/*-------------------------------------------------------------------------*/
 	public DamageEvent(
@@ -107,7 +111,7 @@ public class DamageEvent extends MazeEvent
 	{
 		final Maze maze = Maze.getInstance();
 
-		// todo: maybe move all this into GameSys?
+		// maybe this should all be moved this into GameSys?
 
 		int damage = this.damagePacket.getAmount();
 
@@ -139,6 +143,22 @@ public class DamageEvent extends MazeEvent
 		{
 			stats.captureAttackDamage(attacker, finalDamage);
 		}
+
+		// animation
+		Rectangle origination;
+		if (defender instanceof PlayerCharacter)
+		{
+			origination = maze.getUi().getPlayerCharacterPortraitBounds((PlayerCharacter)defender);
+		}
+		else
+		{
+			origination = maze.getUi().getObjectBounds(((Foe)defender).getSprite());
+		}
+		Animation a = new BloodSplatAnimation(Color.RED,
+			"-"+finalDamage,
+			origination,
+			1000);
+		Maze.getInstance().startAnimation(a, null, new AnimationContext(defender));
 
 		CurMaxSub hitPoints = defender.getHitPoints();
 		boolean criticalHit = false;

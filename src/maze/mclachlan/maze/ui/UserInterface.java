@@ -44,17 +44,6 @@ import mclachlan.maze.ui.diygui.TextDialogWidget;
 
 public interface UserInterface
 {
-	public enum CombatOption
-	{
-		BACKUP,
-		CANCEL,
-		REPEAT,
-		START_ROUND,
-		EVADE_FOES,
-		SURPRISE_FOES,
-		TERMINATE_GAME,
-	}
-
 	/*-------------------------------------------------------------------------*/
 	void addAnimation(Animation a);
 
@@ -225,6 +214,9 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	Rectangle getPlayerCharacterWidgetBounds(PlayerCharacter playerCharacter);
+
+	/*-------------------------------------------------------------------------*/
+	Rectangle getPlayerCharacterPortraitBounds(PlayerCharacter defender);
 
 	/*-------------------------------------------------------------------------*/
 	Rectangle getPortraitWidgetBounds(PlayerCharacter pc);

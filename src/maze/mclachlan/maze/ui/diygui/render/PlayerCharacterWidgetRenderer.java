@@ -59,12 +59,15 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 		int remainingWidth = oneThirdWidth;
 		int remainingHeight = oneThirdHeight;
 
+		// portrait bounds
 		Rectangle portraitBounds = new Rectangle(
 			x+border,
 			y+border,
 			portraitWidth,
 			portraitHeight);
+		widget.setPortraitBounds(portraitBounds);
 
+		// name label bounds
 		int barSep = inset;
 		int startX = x + border + portraitWidth + inset;
 		int barTop = y + border + inset;

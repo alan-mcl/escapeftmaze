@@ -1710,6 +1710,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public Rectangle getPlayerCharacterPortraitBounds(PlayerCharacter defender)
+	{
+		return getPlayerCharacterWidget(defender).getPortraitBounds();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Rectangle getPortraitWidgetBounds(PlayerCharacter pc)
 	{
 		return partyDisplay.getCharacterBounds(pc);

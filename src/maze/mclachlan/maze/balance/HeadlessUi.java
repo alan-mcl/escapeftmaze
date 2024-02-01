@@ -381,6 +381,12 @@ public class HeadlessUi implements UserInterface
 		return null;
 	}
 
+	@Override
+	public Rectangle getPlayerCharacterPortraitBounds(PlayerCharacter defender)
+	{
+		return null;
+	}
+
 	public Rectangle getPortraitWidgetBounds(PlayerCharacter pc)
 	{
 		return null;

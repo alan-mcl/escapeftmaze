@@ -791,7 +791,7 @@ scrollBehaviour=
 scrollSpeed=-1
 @
 name=foe.roach.1
-imageResources=crusader/foe/roach_1,crusader/foe/roach_2,crusader/foe/roach_3,crusader/foe/roach_2
+imageResources=crusader/foe/roach_1
 animationDelay=-1
 imageWidth=512
 imageHeight=512

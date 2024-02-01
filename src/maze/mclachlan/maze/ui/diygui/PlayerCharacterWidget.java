@@ -44,14 +44,14 @@ import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
 public class PlayerCharacterWidget extends ContainerWidget implements ActionListener, ActorActionOption.ActionOptionCallback
 {
 	private PlayerCharacter playerCharacter;
-	private int index;
-	private Rectangle leftHandBounds;
-	private Rectangle rightHandBounds;
+	private final int index;
 
-	private DIYButton levelUp;
-	private DIYComboBox<ActorActionOption> action;
+	private Rectangle portraitBounds, leftHandBounds, rightHandBounds;
 
-	private DIYComboBox<PlayerCharacter.Stance> stance;
+	private final DIYButton levelUp;
+	private final DIYComboBox<ActorActionOption> action;
+
+	private final DIYComboBox<PlayerCharacter.Stance> stance;
 
 	private final Object pcMutex = new Object();
 
@@ -66,7 +66,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 		levelUp = new DIYButton(StringUtil.getUiLabel("pcw.levelup"));
 
 		MutableTree<ActorActionOption> options = new HashMapMutableTree<ActorActionOption>();
-		action = new DIYComboBox<ActorActionOption>(options, new Rectangle(0,0,1,1));
+		action = new DIYComboBox<>(options, new Rectangle(0,0,1,1));
 		action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", ""));
 		if (index % 2 == 0)
 		{
@@ -80,7 +80,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 		}
 
 		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<PlayerCharacter.Stance>();
-		stance = new DIYComboBox<PlayerCharacter.Stance>(stances, new Rectangle(0,0,1,1));
+		stance = new DIYComboBox<>(stances, new Rectangle(0,0,1,1));
 
 		levelUp.addActionListener(this);
 		action.addActionListener(this);
@@ -110,7 +110,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	public void refresh()
 	{
-		conditionBounds = new HashMap<Rectangle, Condition>();
+		conditionBounds = new HashMap<>();
 
 		if (playerCharacter == null)
 		{
@@ -291,6 +291,18 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	public void setRightHandBounds(Rectangle rightHandBounds)
 	{
 		this.rightHandBounds = rightHandBounds;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setPortraitBounds(Rectangle portraitBounds)
+	{
+		this.portraitBounds = portraitBounds;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Rectangle getPortraitBounds()
+	{
+		return portraitBounds;
 	}
 
 	/*-------------------------------------------------------------------------*/
