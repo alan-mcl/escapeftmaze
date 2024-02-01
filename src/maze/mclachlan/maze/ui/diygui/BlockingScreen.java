@@ -23,6 +23,8 @@ import java.awt.Image;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import mclachlan.diygui.DIYPanel;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
@@ -30,10 +32,10 @@ import mclachlan.maze.game.Maze;
 /**
  *
  */
-public class BlockingScreen extends DIYPanel
+public class BlockingScreen extends DIYPanel implements ActionListener
 {
-	private int delay;
-	private Object mutex;
+	private final int delay;
+	private final Object mutex;
 
 	/*-------------------------------------------------------------------------*/
 	public BlockingScreen(String imageResource, int delay, Object mutex)
@@ -53,6 +55,7 @@ public class BlockingScreen extends DIYPanel
 		this.mutex = mutex;
 		dialog.setBounds(this.getBounds());
 		dialog.doLayout();
+		dialog.addActionListener(this);
 		this.add(dialog);
 	}
 
@@ -84,6 +87,26 @@ public class BlockingScreen extends DIYPanel
 		if (delay > -1)
 		{
 			Maze.getInstance().getUi().clearDialog();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void actionPerformed(ActionEvent event)
+	{
+		if (event.getEvent() instanceof MouseEvent)
+		{
+			if (event.getEvent().getID() == MouseEvent.MOUSE_CLICKED)
+			{
+				this.processMouseClicked((MouseEvent)event.getEvent());
+			}
+		}
+		else if (event.getEvent() instanceof KeyEvent)
+		{
+			if (event.getEvent().getID() == KeyEvent.KEY_TYPED)
+			{
+				this.processKeyTyped((KeyEvent)event.getEvent());
+			}
 		}
 	}
 
