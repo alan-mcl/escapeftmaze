@@ -5,12 +5,13 @@ STUFFTODO
 GATEHOUSE DEMO
 --------------
 Bug: Party runs away from fear effect causes crash
-Bonebrood bones still triggering scouting even after found
 'Search' button should turn up Bonebrood bones cache
 'Search' button progress bar / animation
 Movement mode log text doesn't scroll to latest
 max distance for mouse click scripts
 disable UI elements for ambush combat round
+enter keypress on flavour text dialog clears subsequent speech bubble
+Defend action not working, characters attack
 
 BACKLOG
 ----------

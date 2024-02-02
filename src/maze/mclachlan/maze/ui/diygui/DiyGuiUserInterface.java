@@ -846,6 +846,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.refreshCharacterData();
 		this.mainLayout.show(this.movementScreen);
 		this.movementCardLayout.show(this.partyOptionsAndTextWidget);
+		
 
 		stopMusic();
 	}

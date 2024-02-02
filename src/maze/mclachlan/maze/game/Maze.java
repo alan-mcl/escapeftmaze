@@ -651,19 +651,9 @@ public class Maze implements Runnable
 	 */
 	public void setState(State state, Object waiter)
 	{
-		appendEvents(
-			new MazeEvent()
-			{
-				@Override
-				public List<MazeEvent> resolve()
-				{
-					Maze.this.state = state;
-					Maze.this.changeState(state);
-					Maze.this.statePopMutex = waiter;
-					return null;
-				};
-			}
-		);
+		this.state = state;
+		this.changeState(state);
+		this.statePopMutex = waiter;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1131,9 +1121,20 @@ public class Maze implements Runnable
 			this.currentCombat.endCombat();
 		}
 
+		// nuke anything else that may happen this combat
+		this.processor.queue.clear();
+
+		// remove foes
 		this.ui.setFoes(null, false);
+
+		// back to movement
 		this.setState(State.MOVEMENT);
+
+		// nuke current combat
+		this.ui.endCombatRound();
 		this.currentCombat = null;
+
+		// back up the party along their previous path of travel
 		this.ui.backPartyUp(3+Dice.d4.roll("Party flees"));
 	}
 

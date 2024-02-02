@@ -241,7 +241,7 @@ public abstract class TileScript
 	public boolean isHiddenSecret()
 	{
 		return scoutSecretDifficulty > -1 && !isFinishedExecuting();
-		
+
 	}
 
 	/*-------------------------------------------------------------------------*/
