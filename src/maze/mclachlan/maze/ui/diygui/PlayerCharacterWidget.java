@@ -65,7 +65,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 		levelUp = new DIYButton(StringUtil.getUiLabel("pcw.levelup"));
 
 		MutableTree<ActorActionOption> options = new HashMapMutableTree<ActorActionOption>();
-		action = new DIYComboBox<>(options, new Rectangle(0,0,1,1));
+		action = new DIYComboBox<>(options, new Rectangle(0, 0, 1, 1));
 		action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", ""));
 		if (index % 2 == 0)
 		{
@@ -79,7 +79,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 		}
 
 		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<PlayerCharacter.Stance>();
-		stance = new DIYComboBox<>(stances, new Rectangle(0,0,1,1));
+		stance = new DIYComboBox<>(stances, new Rectangle(0, 0, 1, 1));
 
 		levelUp.addActionListener(this);
 		action.addActionListener(this);
@@ -89,7 +89,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 		this.add(stance);
 		this.add(levelUp);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public String getWidgetName()
 	{
@@ -99,7 +99,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	public void setPlayerCharacter(PlayerCharacter playerCharacter)
 	{
-		synchronized(pcMutex)
+		synchronized (pcMutex)
 		{
 			this.playerCharacter = playerCharacter;
 		}
@@ -110,7 +110,47 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	public void setEnabled(boolean enabled)
 	{
 		super.setEnabled(enabled);
-		refresh();
+		refreshStates();
+	}
+
+	private void refreshStates()
+	{
+		boolean thisEnabled = this.isEnabled();
+		if (playerCharacter == null)
+		{
+			levelUp.setVisible(false);
+			action.setVisible(false);
+			stance.setVisible(false);
+			return;
+		}
+		else
+		{
+			Combat combat = Maze.getInstance().getCurrentCombat();
+			action.setVisible(true);
+			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
+
+			stance.setVisible(true);
+			stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size() == 1));
+
+			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
+				Maze.getInstance().getState() == Maze.State.COMBAT)
+			{
+				if (combat == null)
+				{
+					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
+					action.setEnabled(!action.getModel().isEmpty());
+
+					stance.setEnabled(false);
+				}
+				else
+				{
+					action.setEditorText(null);
+					action.getSelected().select(playerCharacter, combat, this);
+
+					stance.setEnabled(thisEnabled);
+				}
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -132,11 +172,11 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			Combat combat = Maze.getInstance().getCurrentCombat();
 			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
 			action.setVisible(true);
-			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size()==1));
+			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
 
 			stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
 			stance.setVisible(true);
-			stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size()==1));
+			stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size() == 1));
 
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
 				Maze.getInstance().getState() == Maze.State.COMBAT)
@@ -230,7 +270,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == levelUp 
+		if (event.getSource() == levelUp
 			&& Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
 			Maze.getInstance().levelUp(this.playerCharacter);

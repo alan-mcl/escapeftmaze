@@ -4,7 +4,6 @@ STUFFTODO
 
 GATEHOUSE DEMO
 --------------
-Bug: Party runs away from fear effect causes crash
 'Search' button should turn up Bonebrood bones cache
 'Search' button progress bar / animation
 Movement mode log text doesn't scroll to latest

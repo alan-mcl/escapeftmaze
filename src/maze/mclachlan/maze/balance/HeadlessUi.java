@@ -425,6 +425,13 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
+	@Override
+	public void setPlayerCharacterActionOption(PlayerCharacter pc,
+		Class<? extends ActorActionOption> option)
+	{
+
+	}
+
 	public boolean supportsAnimation()
 	{
 		return false;

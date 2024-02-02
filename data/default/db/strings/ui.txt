@@ -170,6 +170,7 @@ poatw.evade = (E)vade
 poatw.surprise = Ambu(s)h
 poatw.guild = (G)uild
 poatw.start.round = (S)tart Round
+poatw.defend.all = (D)efend All
 poatw.terminate.game = Terminate Game
 poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
 poatw.actor.encounter = Encounter: %s (%s)

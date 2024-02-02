@@ -846,7 +846,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.refreshCharacterData();
 		this.mainLayout.show(this.movementScreen);
 		this.movementCardLayout.show(this.partyOptionsAndTextWidget);
-		
+
 
 		stopMusic();
 	}
@@ -1844,6 +1844,20 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void setSelectedFoeGroup(int i)
 	{
 		mazeWidget.setSelectedFoeGroup(i);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setPlayerCharacterActionOption(PlayerCharacter pc, Class<? extends ActorActionOption> option)
+	{
+		PlayerCharacterWidget pcw = getPlayerCharacterWidget(pc);
+
+		for (ActorActionOption aao : charTopLeft.getAction().getModel().getNodes())
+		{
+			if (option == aao.getClass())
+			{
+				pcw.getAction().setSelected(aao);
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

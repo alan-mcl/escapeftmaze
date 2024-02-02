@@ -90,10 +90,10 @@ public interface UserInterface
 	void refreshCharacterData();
 
 	/*-------------------------------------------------------------------------*/
-	public void startCombatRound();
+	void startCombatRound();
 
 	/*-------------------------------------------------------------------------*/
-	public void endCombatRound();
+	void endCombatRound();
 
 	/*-------------------------------------------------------------------------*/
 	void addObject(EngineObject obj);
@@ -238,6 +238,9 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	void setSelectedFoeGroup(int i);
+
+	/*-------------------------------------------------------------------------*/
+	void setPlayerCharacterActionOption(PlayerCharacter pc, Class<? extends ActorActionOption> option);
 
 	/*-------------------------------------------------------------------------*/
 	boolean supportsAnimation();

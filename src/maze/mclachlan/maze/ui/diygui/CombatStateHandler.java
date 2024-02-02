@@ -22,6 +22,7 @@ package mclachlan.maze.ui.diygui;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
@@ -32,6 +33,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.event.TerminateGameEvent;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.DefendOption;
 
 /**
  *
@@ -43,7 +45,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	private final int inset;
 	private final MessageDestination messageDestination;
 
-	private DIYButton startRound, terminateGame, formation;
+	private DIYButton startRound, terminateGame, formation, defendAll;
 
 	/*-------------------------------------------------------------------------*/
 	public CombatStateHandler(Maze maze, int buttonRows, int inset,
@@ -66,7 +68,12 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		formation = new DIYButton(StringUtil.getUiLabel("poatw.formation"));
 		formation.addActionListener(this);
 
+		defendAll = new DIYButton(StringUtil.getUiLabel("poatw.defend.all"));
+		defendAll.addActionListener(this);
+
 		result.add(startRound);
+		result.add(new DIYLabel());
+		result.add(defendAll);
 		result.add(formation);
 
 		return result;
@@ -99,6 +106,10 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		else if (obj == formation)
 		{
 			formation();
+		}
+		else if (obj == defendAll)
+		{
+			defendAll();
 		}
 		else if (obj == terminateGame)
 		{
@@ -133,6 +144,17 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		}
 	}
 
+	public void defendAll()
+	{
+		if (defendAll.isVisible())
+		{
+			for (PlayerCharacter pc : maze.getParty().getPlayerCharacters())
+			{
+				maze.getUi().setPlayerCharacterActionOption(pc, DefendOption.class);
+			}
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void setCurrentCombat(Combat currentCombat)
 	{
@@ -162,9 +184,9 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	{
 		switch (keyCode)
 		{
-			case KeyEvent.VK_ENTER:
-			case KeyEvent.VK_S: startRound(); break;
-			case KeyEvent.VK_F: formation(); break;
+			case KeyEvent.VK_ENTER, KeyEvent.VK_S -> startRound();
+			case KeyEvent.VK_F -> formation();
+			case KeyEvent.VK_D -> defendAll();
 		}
 	}
 
@@ -174,5 +196,6 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		startRound.setEnabled(b);
 		terminateGame.setEnabled(b);
 		formation.setEnabled(b);
+		defendAll.setEnabled(b);
 	}
 }
