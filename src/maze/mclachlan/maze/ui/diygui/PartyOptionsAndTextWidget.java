@@ -201,6 +201,20 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void startCombatRound()
+	{
+		combatStateHandler.setEnabled(false);
+		viewLog.setEnabled(false);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void endCombatRound()
+	{
+		combatStateHandler.setEnabled(true);
+		viewLog.setEnabled(true);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void setGameState(Maze.State state, Maze maze)
 	{
 		switch (state)

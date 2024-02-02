@@ -50,7 +50,6 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 
 	private final DIYButton levelUp;
 	private final DIYComboBox<ActorActionOption> action;
-
 	private final DIYComboBox<PlayerCharacter.Stance> stance;
 
 	private final Object pcMutex = new Object();
@@ -107,15 +106,25 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 		refresh();
 	}
 
+	@Override
+	public void setEnabled(boolean enabled)
+	{
+		super.setEnabled(enabled);
+		refresh();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void refresh()
 	{
+		boolean thisEnabled = this.isEnabled();
+
 		conditionBounds = new HashMap<>();
 
 		if (playerCharacter == null)
 		{
 			levelUp.setVisible(false);
 			action.setVisible(false);
+			stance.setVisible(false);
 			return;
 		}
 		else
@@ -123,11 +132,11 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			Combat combat = Maze.getInstance().getCurrentCombat();
 			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
 			action.setVisible(true);
-			action.setEnabled(!action.getModel().isEmpty() && !(action.getModel().size()==1));
+			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size()==1));
 
 			stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
 			stance.setVisible(true);
-			stance.setEnabled(!stance.getModel().isEmpty() && !(stance.getModel().size()==1));
+			stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size()==1));
 
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
 				Maze.getInstance().getState() == Maze.State.COMBAT)
@@ -144,7 +153,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 					action.setEditorText(null);
 					action.getSelected().select(playerCharacter, combat, this);
 
-					stance.setEnabled(true);
+					stance.setEnabled(thisEnabled);
 				}
 			}
 

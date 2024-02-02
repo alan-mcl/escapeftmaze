@@ -111,9 +111,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	{
 		if (startRound.isVisible())
 		{
-			// transparent modal dialog to block all user input while combat runs
-			maze.getUi().showDialog(new DIYPane(DiyGuiUserInterface.SCREEN_BOUNDS));
-
+			maze.getUi().startCombatRound();
 			maze.executeCombatRound(maze.getCurrentCombat());
 		}
 	}
@@ -168,5 +166,13 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 			case KeyEvent.VK_S: startRound(); break;
 			case KeyEvent.VK_F: formation(); break;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setEnabled(boolean b)
+	{
+		startRound.setEnabled(b);
+		terminateGame.setEnabled(b);
+		formation.setEnabled(b);
 	}
 }

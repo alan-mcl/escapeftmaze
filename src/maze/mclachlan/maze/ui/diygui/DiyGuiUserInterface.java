@@ -32,6 +32,7 @@ import java.util.concurrent.*;
 import mclachlan.crusader.*;
 import mclachlan.crusader.script.*;
 import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
@@ -595,6 +596,39 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public Font getSignboardFont()
 	{
 		return font;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void startCombatRound()
+	{
+		// transparent modal dialog to block all user input while combat runs
+		showDialog(new DIYPane(DiyGuiUserInterface.SCREEN_BOUNDS));
+
+		this.charLowLeft.setEnabled(false);
+		this.charLowRight.setEnabled(false);
+		this.charMidLeft.setEnabled(false);
+		this.charMidRight.setEnabled(false);
+		this.charTopLeft.setEnabled(false);
+		this.charTopRight.setEnabled(false);
+
+		partyOptionsAndTextWidget.startCombatRound();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void endCombatRound()
+	{
+		clearDialog();
+
+		this.charLowLeft.setEnabled(true);
+		this.charLowRight.setEnabled(true);
+		this.charMidLeft.setEnabled(true);
+		this.charMidRight.setEnabled(true);
+		this.charTopLeft.setEnabled(true);
+		this.charTopRight.setEnabled(true);
+
+		refreshCharacterData();
+
+		partyOptionsAndTextWidget.endCombatRound();
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -92,7 +92,6 @@ public class EndCombatRoundEvent extends MazeEvent
 			}
 		}
 
-		// todo: reorg foe sprites
 		maze.getUi().rebalanceFoeSprites(combat);
 
 		maze.reorderPartyIfPending();
@@ -111,8 +110,7 @@ public class EndCombatRoundEvent extends MazeEvent
 			@Override
 			public List<MazeEvent> resolve()
 			{
-				maze.getUi().refreshCharacterData();
-				maze.getUi().clearDialog();
+				maze.getUi().endCombatRound();
 				return null;
 			}
 		});

@@ -1,6 +1,19 @@
 --------------------------------------------
 STUFFTODO
 --------------------------------------------
+
+GATEHOUSE DEMO
+--------------
+Bug: Party runs away from fear effect causes crash
+Bonebrood bones still triggering scouting even after found
+'Search' button should turn up Bonebrood bones cache
+'Search' button progress bar / animation
+Arrow keys clear modal character speech bubbles
+Movement mode log text doesn't scroll to latest
+
+
+BACKLOG
+----------
 bug: zone change flickering bug
 bug: should not be able to evade foes while resting (really?  maybe just adjust stealth)
 
