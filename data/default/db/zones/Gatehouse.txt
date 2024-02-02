@@ -928,7 +928,7 @@ playerOrigin: 14:30
 909: 0:3f800000000000000000,01020101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 910: 0:3f800000000000000000,02010201020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 911: 0:3f800000000000000000,02020102010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-912: 1:4,gatehouse.execute.once.9,,false,0,A pile of dry and dusty bones has been heaped in this dark corner.:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+912: 1:4,gatehouse.execute.once.9,,false,-1,A pile of dry and dusty bones has been heaped in this dark corner.:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 913: 2:4,gatehouse.execute.once.8,,false,-1,You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.%n%nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!:3,,,false,-1,gatehouse.level.1.bonebrood,gatehouse.encounter.7,,,,:3f800000000000000000,01020202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 914: 0:3f800000000000000000,02010202010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 915: 2:4,gatehouse.execute.once.7,,false,-1,Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!:3,,,false,-1,gatehouse.level.1.spiders,gatehouse.encounter.6,,,,:3f800000000000000000,02020101020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -2748,7 +2748,7 @@ playerOrigin: 14:30
 26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
 27: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:846:true::::TOP
 28: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:811:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:101::BOTTOM
-29: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:912:false:7,gatehouse.execute.once.10,,false,-1,Gatehouse Bonebrood bones:00001::BOTTOM
+29: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:912:false:7,gatehouse.execute.once.10,,false,0,Gatehouse Bonebrood bones:00001::BOTTOM
 30: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:913:false::10101::BOTTOM
 31: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:945:false::01110001::BOTTOM
 32: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:850:true::00001::TOP

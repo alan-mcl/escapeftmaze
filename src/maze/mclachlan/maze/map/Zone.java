@@ -23,6 +23,7 @@ package mclachlan.maze.map;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.data.v1.DataObject;
@@ -180,6 +181,21 @@ public class Zone extends DataObject
 			{
 				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
 					internalScript.getScript().getScoutSecretDifficulty());
+				if (pc != null)
+				{
+					secretSpottedPc = pc;
+				}
+			}
+		}
+		EngineObject object = maze.getCurrentZone().getMap().getObject(getTileIndex(tile));
+		if (object != null && object.getMouseClickScript() != null &&
+			object.getMouseClickScript() instanceof MouseClickScriptAdapter)
+		{
+			TileScript objMouseClickScript = ((MouseClickScriptAdapter)object.getMouseClickScript()).getScript();
+			if (objMouseClickScript.isHiddenSecret())
+			{
+				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
+					objMouseClickScript.getScoutSecretDifficulty());
 				if (pc != null)
 				{
 					secretSpottedPc = pc;

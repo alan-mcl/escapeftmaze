@@ -96,10 +96,8 @@ public abstract class TileScript
 	public boolean shouldExecute(Maze maze, Point tile, Point previousTile,
 		int facing, int playerAction)
 	{
-		if (executeOnceMazeVariable != null &&
-			MazeVariables.get(executeOnceMazeVariable) != null)
+		if (isFinishedExecuting())
 		{
-			// script has already executed once
 			return false;
 		}
 
@@ -128,6 +126,14 @@ public abstract class TileScript
 			MazeVariables.set(executeOnceMazeVariable, "1");
 		}
 		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean isFinishedExecuting()
+	{
+		// script has already executed once
+		return executeOnceMazeVariable != null &&
+			MazeVariables.get(executeOnceMazeVariable) != null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -234,7 +240,8 @@ public abstract class TileScript
 
 	public boolean isHiddenSecret()
 	{
-		return scoutSecretDifficulty > -1;
+		return scoutSecretDifficulty > -1 && !isFinishedExecuting();
+		
 	}
 
 	/*-------------------------------------------------------------------------*/

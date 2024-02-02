@@ -8,9 +8,9 @@ Bug: Party runs away from fear effect causes crash
 Bonebrood bones still triggering scouting even after found
 'Search' button should turn up Bonebrood bones cache
 'Search' button progress bar / animation
-Arrow keys clear modal character speech bubbles
 Movement mode log text doesn't scroll to latest
-
+max distance for mouse click scripts
+disable UI elements for ambush combat round
 
 BACKLOG
 ----------
