@@ -59,8 +59,19 @@ public abstract class Animation
 	public abstract boolean isFinished();
 
 	/*-------------------------------------------------------------------------*/
-	public void processMouseEvent(MouseEvent event) { }
+
+	/**
+	 * @return
+	 * 	true if the animation consumes this event, in this case no other
+	 * 	listeners in the UI get it
+	 */
+	public boolean processMouseEvent(MouseEvent event) { return false; }
 
 	/*-------------------------------------------------------------------------*/
-	public void processKeyEvent(KeyEvent event) { }
+	/**
+	 * @return
+	 * 	true if the animation consumes this event, in this case no other
+	 * 	listeners in the UI get it
+	 */
+	public boolean processKeyEvent(KeyEvent event) { return false; }
 }

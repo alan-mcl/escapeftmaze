@@ -339,8 +339,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void mouseEventToAnimations(MouseEvent event)
+	public boolean mouseEventToAnimations(MouseEvent event)
 	{
+		boolean consumed = false;
 		synchronized (animations)
 		{
 			for (Animation a : animations)
@@ -348,18 +349,23 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				a.processMouseEvent(event);
 			}
 		}
+
+		return consumed;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void keyEventToAnimations(KeyEvent event)
+	public boolean keyEventToAnimations(KeyEvent event)
 	{
+		boolean consumed = false;
 		synchronized (animations)
 		{
 			for (Animation a : animations)
 			{
-				a.processKeyEvent(event);
+				consumed =  consumed || a.processKeyEvent(event);
 			}
 		}
+
+		return consumed;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -724,7 +730,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		mazeActionListener = new MazeActionListener();
 		DiyGuiUserInterface.gui.addGlobalListener(mazeActionListener);
 
-		ArrayList<ContainerWidget> cards = new ArrayList<ContainerWidget>();
+		ArrayList<ContainerWidget> cards = new ArrayList<>();
 
 		this.initCommonWidgets();
 

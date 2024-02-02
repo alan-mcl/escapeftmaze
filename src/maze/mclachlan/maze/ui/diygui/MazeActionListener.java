@@ -69,39 +69,49 @@ class MazeActionListener implements ActionListener
 			return;
 		}
 
-		if (message.equals(Constants.Messages.BACK_TO_GAME))
+		boolean eventConsumed = DiyGuiUserInterface.instance.mouseEventToAnimations((MouseEvent)event.getEvent());
+
+		if (!eventConsumed)
 		{
-			Maze.getInstance().setState(Maze.State.MOVEMENT);
-		}
-		else if (message.equals(Constants.Messages.DISPOSE_DIALOG))
-		{
-			DiyGuiUserInterface.gui.clearDialog();
-		}
-		else
-		{
-//				System.out.println("message = [" + message + "]");
+			if (message.equals(Constants.Messages.BACK_TO_GAME))
+			{
+				Maze.getInstance().setState(Maze.State.MOVEMENT);
+			}
+			else if (message.equals(Constants.Messages.DISPOSE_DIALOG))
+			{
+				DiyGuiUserInterface.gui.clearDialog();
+			}
+			else
+			{
+				Maze.logDebug("UI MSG: "+message);
+			}
 		}
 	}
 
 	/*----------------------------------------------------------------------*/
 	private void processKey(ActionEvent event)
 	{
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
+		boolean eventConsumed = DiyGuiUserInterface.instance.keyEventToAnimations((KeyEvent)event.getEvent());
+
+		if (!eventConsumed)
 		{
-			KeyEvent e = (KeyEvent)event.getEvent();
-			if(e.getID() != KeyEvent.KEY_PRESSED)
+			if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 			{
-				return;
-			}
+				KeyEvent e = (KeyEvent)event.getEvent();
+				if (e.getID() != KeyEvent.KEY_PRESSED)
+				{
+					return;
+				}
 
-			int code = e.getKeyCode();
+				int code = e.getKeyCode();
 
-			if (DiyGuiUserInterface.crusaderKeys.containsKey(code) &&
-				Maze.getInstance().getState() == Maze.State.MOVEMENT &&
-				DIYToolkit.getInstance().getDialog() == null)
-			{
-				int crusaderKey = DiyGuiUserInterface.crusaderKeys.get(code);
-				handleKeyCode(crusaderKey, true);
+				if (DiyGuiUserInterface.crusaderKeys.containsKey(code) &&
+					Maze.getInstance().getState() == Maze.State.MOVEMENT &&
+					DIYToolkit.getInstance().getDialog() == null)
+				{
+					int crusaderKey = DiyGuiUserInterface.crusaderKeys.get(code);
+					handleKeyCode(crusaderKey, true);
+				}
 			}
 		}
 	}

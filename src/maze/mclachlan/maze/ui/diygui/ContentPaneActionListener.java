@@ -61,48 +61,51 @@ class ContentPaneActionListener implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void processMouseEvent(MouseEvent event)
 	{
-		DiyGuiUserInterface.instance.mouseEventToAnimations(event);
+		boolean consumed = DiyGuiUserInterface.instance.mouseEventToAnimations(event);
 
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
+		if (!consumed)
 		{
-			synchronized (Maze.getInstance().getEventMutex())
+			if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 			{
-				Maze.getInstance().getEventMutex().notifyAll();
+				synchronized (Maze.getInstance().getEventMutex())
+				{
+					Maze.getInstance().getEventMutex().notifyAll();
+				}
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
-		{
-			synchronized (Maze.getInstance().getEventMutex())
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
 			{
-				Maze.getInstance().getEventMutex().notifyAll();
+				synchronized (Maze.getInstance().getEventMutex())
+				{
+					Maze.getInstance().getEventMutex().notifyAll();
+				}
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
-		{
-//			if (ui.combatDisplayIsVisible())
-//			{
-//				ui.combatDisplay.processMouseClicked(event);
-//			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
-		{
-//			if (ui.combatDisplayIsVisible())
-//			{
-//				ui.combatDisplay.processMouseClicked(event);
-//			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
-		{
-//			if (ui.combatDisplayIsVisible())
-//			{
-//				ui.combatDisplay.processMouseClicked(event);
-//			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.RESTING)
-		{
-			if (ui.restingWidget.done == event.getSource())
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
 			{
-				ui.restingWidget.done();
+				//			if (ui.combatDisplayIsVisible())
+				//			{
+				//				ui.combatDisplay.processMouseClicked(event);
+				//			}
+			}
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+			{
+				//			if (ui.combatDisplayIsVisible())
+				//			{
+				//				ui.combatDisplay.processMouseClicked(event);
+				//			}
+			}
+			else if (Maze.getInstance().getState() == Maze.State.COMBAT)
+			{
+				//			if (ui.combatDisplayIsVisible())
+				//			{
+				//				ui.combatDisplay.processMouseClicked(event);
+				//			}
+			}
+			else if (Maze.getInstance().getState() == Maze.State.RESTING)
+			{
+				if (ui.restingWidget.done == event.getSource())
+				{
+					ui.restingWidget.done();
+				}
 			}
 		}
 	}
@@ -115,218 +118,345 @@ class ContentPaneActionListener implements ActionListener
 			return;
 		}
 
-		DiyGuiUserInterface.instance.keyEventToAnimations(event);
+		boolean eventConsumed = DiyGuiUserInterface.instance.keyEventToAnimations(event);
 
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
+		if (!eventConsumed)
 		{
-			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
-		}
-		else if (Maze.getInstance().getState() == Maze.State.MODIFIERSDISPLAY)
-		{
-			switch (event.getKeyCode())
+			if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 			{
-				case KeyEvent.VK_1: ui.characterSelected(0); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); break;
-				case KeyEvent.VK_A: ui.buttonToolbar.magic(); break;
-				case KeyEvent.VK_M: ui.buttonToolbar.modifiers(); break;
-				case KeyEvent.VK_S: ui.buttonToolbar.stats(); break;
-				case KeyEvent.VK_P: ui.buttonToolbar.properties(); break;
-				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
-				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
-				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE:
-					if (Maze.getInstance().isInCombat())
-					{
-						Maze.getInstance().setState(Maze.State.COMBAT);
-					}
-					else
-					{
-						Maze.getInstance().setState(Maze.State.MOVEMENT);
-					}
-					break;
+				ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.STATSDISPLAY)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.MODIFIERSDISPLAY)
 			{
-				case KeyEvent.VK_1: ui.characterSelected(0); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); break;
-				case KeyEvent.VK_A: ui.buttonToolbar.magic(); break;
-				case KeyEvent.VK_M: ui.buttonToolbar.modifiers(); break;
-				case KeyEvent.VK_S: ui.buttonToolbar.stats(); break;
-				case KeyEvent.VK_P: ui.buttonToolbar.properties(); break;
-				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
-				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
-				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE:
-					if (Maze.getInstance().isInCombat())
-					{
-						Maze.getInstance().setState(Maze.State.COMBAT);
-					}
-					else
-					{
-						Maze.getInstance().setState(Maze.State.MOVEMENT);
-					}
-					break;
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_1:
+						ui.characterSelected(0);
+						break;
+					case KeyEvent.VK_2:
+						ui.characterSelected(1);
+						break;
+					case KeyEvent.VK_3:
+						ui.characterSelected(2);
+						break;
+					case KeyEvent.VK_4:
+						ui.characterSelected(3);
+						break;
+					case KeyEvent.VK_5:
+						ui.characterSelected(4);
+						break;
+					case KeyEvent.VK_6:
+						ui.characterSelected(5);
+						break;
+					case KeyEvent.VK_A:
+						ui.buttonToolbar.magic();
+						break;
+					case KeyEvent.VK_M:
+						ui.buttonToolbar.modifiers();
+						break;
+					case KeyEvent.VK_S:
+						ui.buttonToolbar.stats();
+						break;
+					case KeyEvent.VK_P:
+						ui.buttonToolbar.properties();
+						break;
+					case KeyEvent.VK_I:
+						ui.buttonToolbar.inventory();
+						break;
+					case KeyEvent.VK_E:
+						ui.buttonToolbar.exit();
+						break;
+					case KeyEvent.VK_ENTER:
+					case KeyEvent.VK_ESCAPE:
+						if (Maze.getInstance().isInCombat())
+						{
+							Maze.getInstance().setState(Maze.State.COMBAT);
+						}
+						else
+						{
+							Maze.getInstance().setState(Maze.State.MOVEMENT);
+						}
+						break;
+				}
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.INVENTORY)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.STATSDISPLAY)
 			{
-				case KeyEvent.VK_1: ui.characterSelected(0); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); break;
-				case KeyEvent.VK_A: ui.buttonToolbar.magic(); break;
-				case KeyEvent.VK_M: ui.buttonToolbar.modifiers(); break;
-				case KeyEvent.VK_S: ui.buttonToolbar.stats(); break;
-				case KeyEvent.VK_P: ui.buttonToolbar.properties(); break;
-				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
-				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
-				case KeyEvent.VK_C: ui.inventoryDisplay.spell(); break;
-				case KeyEvent.VK_U: ui.inventoryDisplay.use(); break;
-				case KeyEvent.VK_R: ui.inventoryDisplay.craft(); break;
-				case KeyEvent.VK_D: ui.inventoryDisplay.drop(); break;
-				case KeyEvent.VK_L: ui.inventoryDisplay.split(); break;
-				case KeyEvent.VK_B: ui.inventoryDisplay.disassemble(); break;
-				case KeyEvent.VK_ENTER:
-				case KeyEvent.VK_ESCAPE:
-					if (Maze.getInstance().isInCombat())
-					{
-						Maze.getInstance().setState(Maze.State.COMBAT);
-					}
-					else
-					{
-						Maze.getInstance().setState(Maze.State.MOVEMENT);
-					}
-					break;
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_1:
+						ui.characterSelected(0);
+						break;
+					case KeyEvent.VK_2:
+						ui.characterSelected(1);
+						break;
+					case KeyEvent.VK_3:
+						ui.characterSelected(2);
+						break;
+					case KeyEvent.VK_4:
+						ui.characterSelected(3);
+						break;
+					case KeyEvent.VK_5:
+						ui.characterSelected(4);
+						break;
+					case KeyEvent.VK_6:
+						ui.characterSelected(5);
+						break;
+					case KeyEvent.VK_A:
+						ui.buttonToolbar.magic();
+						break;
+					case KeyEvent.VK_M:
+						ui.buttonToolbar.modifiers();
+						break;
+					case KeyEvent.VK_S:
+						ui.buttonToolbar.stats();
+						break;
+					case KeyEvent.VK_P:
+						ui.buttonToolbar.properties();
+						break;
+					case KeyEvent.VK_I:
+						ui.buttonToolbar.inventory();
+						break;
+					case KeyEvent.VK_E:
+						ui.buttonToolbar.exit();
+						break;
+					case KeyEvent.VK_ENTER:
+					case KeyEvent.VK_ESCAPE:
+						if (Maze.getInstance().isInCombat())
+						{
+							Maze.getInstance().setState(Maze.State.COMBAT);
+						}
+						else
+						{
+							Maze.getInstance().setState(Maze.State.MOVEMENT);
+						}
+						break;
+				}
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.PROPERTIESDISPLAY)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.INVENTORY)
 			{
-				case KeyEvent.VK_1: ui.characterSelected(0); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); break;
-				case KeyEvent.VK_A: ui.buttonToolbar.magic(); break;
-				case KeyEvent.VK_M: ui.buttonToolbar.modifiers(); break;
-				case KeyEvent.VK_S: ui.buttonToolbar.stats(); break;
-				case KeyEvent.VK_P: ui.buttonToolbar.properties(); break;
-				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
-				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
-				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE:
-					if (Maze.getInstance().isInCombat())
-					{
-						Maze.getInstance().setState(Maze.State.COMBAT);
-					}
-					else
-					{
-						Maze.getInstance().setState(Maze.State.MOVEMENT);
-					}
-					break;
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_1:
+						ui.characterSelected(0);
+						break;
+					case KeyEvent.VK_2:
+						ui.characterSelected(1);
+						break;
+					case KeyEvent.VK_3:
+						ui.characterSelected(2);
+						break;
+					case KeyEvent.VK_4:
+						ui.characterSelected(3);
+						break;
+					case KeyEvent.VK_5:
+						ui.characterSelected(4);
+						break;
+					case KeyEvent.VK_6:
+						ui.characterSelected(5);
+						break;
+					case KeyEvent.VK_A:
+						ui.buttonToolbar.magic();
+						break;
+					case KeyEvent.VK_M:
+						ui.buttonToolbar.modifiers();
+						break;
+					case KeyEvent.VK_S:
+						ui.buttonToolbar.stats();
+						break;
+					case KeyEvent.VK_P:
+						ui.buttonToolbar.properties();
+						break;
+					case KeyEvent.VK_I:
+						ui.buttonToolbar.inventory();
+						break;
+					case KeyEvent.VK_E:
+						ui.buttonToolbar.exit();
+						break;
+					case KeyEvent.VK_C:
+						ui.inventoryDisplay.spell();
+						break;
+					case KeyEvent.VK_U:
+						ui.inventoryDisplay.use();
+						break;
+					case KeyEvent.VK_R:
+						ui.inventoryDisplay.craft();
+						break;
+					case KeyEvent.VK_D:
+						ui.inventoryDisplay.drop();
+						break;
+					case KeyEvent.VK_L:
+						ui.inventoryDisplay.split();
+						break;
+					case KeyEvent.VK_B:
+						ui.inventoryDisplay.disassemble();
+						break;
+					case KeyEvent.VK_ENTER:
+					case KeyEvent.VK_ESCAPE:
+						if (Maze.getInstance().isInCombat())
+						{
+							Maze.getInstance().setState(Maze.State.COMBAT);
+						}
+						else
+						{
+							Maze.getInstance().setState(Maze.State.MOVEMENT);
+						}
+						break;
+				}
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.MAGIC)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.PROPERTIESDISPLAY)
 			{
-				case KeyEvent.VK_1: ui.characterSelected(0); break;
-				case KeyEvent.VK_2: ui.characterSelected(1); break;
-				case KeyEvent.VK_3: ui.characterSelected(2); break;
-				case KeyEvent.VK_4: ui.characterSelected(3); break;
-				case KeyEvent.VK_5: ui.characterSelected(4); break;
-				case KeyEvent.VK_6: ui.characterSelected(5); break;
-				case KeyEvent.VK_A: ui.buttonToolbar.magic(); break;
-				case KeyEvent.VK_M: ui.buttonToolbar.modifiers(); break;
-				case KeyEvent.VK_S: ui.buttonToolbar.stats(); break;
-				case KeyEvent.VK_P: ui.buttonToolbar.properties(); break;
-				case KeyEvent.VK_I: ui.buttonToolbar.inventory(); break;
-				case KeyEvent.VK_E: ui.buttonToolbar.exit(); break;
-				case KeyEvent.VK_ENTER: 
-				case KeyEvent.VK_ESCAPE:
-					if (Maze.getInstance().isInCombat())
-					{
-						Maze.getInstance().setState(Maze.State.COMBAT);
-					}
-					else
-					{
-						Maze.getInstance().setState(Maze.State.MOVEMENT);
-					}
-					break;
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_1:
+						ui.characterSelected(0);
+						break;
+					case KeyEvent.VK_2:
+						ui.characterSelected(1);
+						break;
+					case KeyEvent.VK_3:
+						ui.characterSelected(2);
+						break;
+					case KeyEvent.VK_4:
+						ui.characterSelected(3);
+						break;
+					case KeyEvent.VK_5:
+						ui.characterSelected(4);
+						break;
+					case KeyEvent.VK_6:
+						ui.characterSelected(5);
+						break;
+					case KeyEvent.VK_A:
+						ui.buttonToolbar.magic();
+						break;
+					case KeyEvent.VK_M:
+						ui.buttonToolbar.modifiers();
+						break;
+					case KeyEvent.VK_S:
+						ui.buttonToolbar.stats();
+						break;
+					case KeyEvent.VK_P:
+						ui.buttonToolbar.properties();
+						break;
+					case KeyEvent.VK_I:
+						ui.buttonToolbar.inventory();
+						break;
+					case KeyEvent.VK_E:
+						ui.buttonToolbar.exit();
+						break;
+					case KeyEvent.VK_ENTER:
+					case KeyEvent.VK_ESCAPE:
+						if (Maze.getInstance().isInCombat())
+						{
+							Maze.getInstance().setState(Maze.State.COMBAT);
+						}
+						else
+						{
+							Maze.getInstance().setState(Maze.State.MOVEMENT);
+						}
+						break;
+				}
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.MAINMENU)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.MAGIC)
 			{
-				case KeyEvent.VK_S: ui.mainMenu.startGame(); break;
-				case KeyEvent.VK_C: ui.mainMenu.createCharacter(); break;
-				case KeyEvent.VK_A: ui.mainMenu.addCharacter(); break;
-				case KeyEvent.VK_R: ui.mainMenu.removeCharacter(); break;
-				case KeyEvent.VK_D: ui.mainMenu.saveOrLoad(); break;
-				case KeyEvent.VK_G: ui.mainMenu.showSettingsDialog(); break;
-				case KeyEvent.VK_Q: ui.mainMenu.quit(); break;
-				case KeyEvent.VK_U: ui.mainMenu.quickStart(); break;
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_1:
+						ui.characterSelected(0);
+						break;
+					case KeyEvent.VK_2:
+						ui.characterSelected(1);
+						break;
+					case KeyEvent.VK_3:
+						ui.characterSelected(2);
+						break;
+					case KeyEvent.VK_4:
+						ui.characterSelected(3);
+						break;
+					case KeyEvent.VK_5:
+						ui.characterSelected(4);
+						break;
+					case KeyEvent.VK_6:
+						ui.characterSelected(5);
+						break;
+					case KeyEvent.VK_A:
+						ui.buttonToolbar.magic();
+						break;
+					case KeyEvent.VK_M:
+						ui.buttonToolbar.modifiers();
+						break;
+					case KeyEvent.VK_S:
+						ui.buttonToolbar.stats();
+						break;
+					case KeyEvent.VK_P:
+						ui.buttonToolbar.properties();
+						break;
+					case KeyEvent.VK_I:
+						ui.buttonToolbar.inventory();
+						break;
+					case KeyEvent.VK_E:
+						ui.buttonToolbar.exit();
+						break;
+					case KeyEvent.VK_ENTER:
+					case KeyEvent.VK_ESCAPE:
+						if (Maze.getInstance().isInCombat())
+						{
+							Maze.getInstance().setState(Maze.State.COMBAT);
+						}
+						else
+						{
+							Maze.getInstance().setState(Maze.State.MOVEMENT);
+						}
+						break;
+				}
 			}
-			
-			ui.mainMenu.updateState();
-		}
-		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
-		{
-			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
-		{
-			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
-		{
-			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
-		{
-//			if (ui.combatDisplayIsVisible())
-//			{
-//				ui.combatDisplay.processKeyPressed(event);
-//			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
-		{
-			ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
-		}
-		else if (Maze.getInstance().getState() == Maze.State.RESTING)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.MAINMENU)
 			{
-				case KeyEvent.VK_ESCAPE:
-				case KeyEvent.VK_ENTER:
-				case KeyEvent.VK_D: ui.restingWidget.done(); break;
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_S -> ui.mainMenu.startGame();
+					case KeyEvent.VK_C -> ui.mainMenu.createCharacter();
+					case KeyEvent.VK_A -> ui.mainMenu.addCharacter();
+					case KeyEvent.VK_R -> ui.mainMenu.removeCharacter();
+					case KeyEvent.VK_D -> ui.mainMenu.saveOrLoad();
+					case KeyEvent.VK_G -> ui.mainMenu.showSettingsDialog();
+					case KeyEvent.VK_Q -> ui.mainMenu.quit();
+					case KeyEvent.VK_U -> ui.mainMenu.quickStart();
+				}
+
+				ui.mainMenu.updateState();
 			}
-		}
-		else if (Maze.getInstance().getState() == Maze.State.SAVE_LOAD)
-		{
-			switch (event.getKeyCode())
+			else if (Maze.getInstance().getState() == Maze.State.COMBAT)
 			{
-				case KeyEvent.VK_D: ui.saveLoad.loadGame(); break;
-				case KeyEvent.VK_S: ui.saveLoad.saveGame(); break;
-				default: ui.saveLoad.keyPressed(event);
+				ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+			}
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+			{
+				ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+			}
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
+			{
+				ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+			}
+			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+			{
+				ui.partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+			}
+			else if (Maze.getInstance().getState() == Maze.State.RESTING)
+			{
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER, KeyEvent.VK_SPACE, KeyEvent.VK_D ->
+						ui.restingWidget.done();
+				}
+			}
+			else if (Maze.getInstance().getState() == Maze.State.SAVE_LOAD)
+			{
+				switch (event.getKeyCode())
+				{
+					case KeyEvent.VK_D -> ui.saveLoad.loadGame();
+					case KeyEvent.VK_S -> ui.saveLoad.saveGame();
+					default -> ui.saveLoad.keyPressed(event);
+				}
 			}
 		}
 	}

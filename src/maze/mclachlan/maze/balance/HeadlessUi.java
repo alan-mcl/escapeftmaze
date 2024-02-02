@@ -58,14 +58,14 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void mouseEventToAnimations(MouseEvent event)
+	public boolean mouseEventToAnimations(MouseEvent event)
 	{
-		
+		return false;
 	}
 
-	public void keyEventToAnimations(KeyEvent event)
+	public boolean keyEventToAnimations(KeyEvent event)
 	{
-		
+		return false;
 	}
 
 	public void changeState(Maze.State state)

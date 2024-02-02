@@ -38,12 +38,12 @@ public class SpeechBubbleAnimation extends Animation
 {
 	private static final List<SpeechBubbleAnimation> bubbles = new ArrayList<>();
 
-	private String text;
+	private final String text;
 	private Rectangle origination;
 
-	private Color colour;
+	private final Color colour;
 	// instance parameters
-	private long startTime = System.currentTimeMillis();
+	private final long startTime = System.currentTimeMillis();
 	private PlayerCharacter pc;
 	private Orientation orientation;
 	private int duration;
@@ -57,8 +57,7 @@ public class SpeechBubbleAnimation extends Animation
 	private static final int POLY_FATNESS = 5;
 	private RoundRectangle2D rect;
 	private Polygon poly;
-	private int textHeight;
-	private int textWidth;
+	private int textHeight, textWidth;
 
 	private Rectangle bounds;
 	private int index;
@@ -514,21 +513,37 @@ public class SpeechBubbleAnimation extends Animation
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void processMouseEvent(MouseEvent event)
+	public boolean processMouseEvent(MouseEvent event)
 	{
 		if (duration == WAIT_FOR_CLICK)
 		{
-			duration = 0;
+			if (event.getID() == MouseEvent.MOUSE_CLICKED)
+			{
+				duration = 0;
+			}
+
+			// we want the modal speech bubble to consume any other mouse events
+			return true;
 		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void processKeyEvent(KeyEvent event)
+	public boolean processKeyEvent(KeyEvent event)
 	{
+		int keyCode = event.getKeyCode();
 		if (duration == WAIT_FOR_CLICK)
 		{
-			duration = 0;
+			if (keyCode == KeyEvent.VK_ESCAPE || keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_SPACE)
+			{
+				duration = 0;
+			}
+
+			// we want the modal speech bubble to prevent any other actions even if
+			// the key pressed doesn't clear it
+			return true;
 		}
+		return false;
 	}
 }

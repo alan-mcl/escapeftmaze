@@ -51,10 +51,10 @@ public interface UserInterface
 	void stopAllAnimations();
 
 	/*-------------------------------------------------------------------------*/
-	void mouseEventToAnimations(MouseEvent event);
+	boolean mouseEventToAnimations(MouseEvent event);
 
 	/*-------------------------------------------------------------------------*/
-	void keyEventToAnimations(KeyEvent event);
+	boolean keyEventToAnimations(KeyEvent event);
 
 	/*-------------------------------------------------------------------------*/
 	void changeState(Maze.State state);
