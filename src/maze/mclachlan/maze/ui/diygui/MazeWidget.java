@@ -280,7 +280,7 @@ public class MazeWidget extends ContainerWidget
 
 		if (x >= 0 && x < width && y >= 0 && y < height)
 		{
-			MouseClickScript script = engine.handleMouseClickReturnScript(x, y);
+			MouseClickScript script = engine.handleMouseClickAndReturnScript(x, y);
 
 			// restrict what game states the scripts can run in
 			if (script != null)

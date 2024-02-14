@@ -204,7 +204,7 @@ public interface CrusaderEngine
 	 * @return the script under the click, or null if there is none. It's up
 	 * to the caller to decide whether to execute it.
 	 */
-	MouseClickScript handleMouseClickReturnScript(int x, int y);
+	MouseClickScript handleMouseClickAndReturnScript(int x, int y);
 
 	/*-------------------------------------------------------------------------*/
 	class PlayerStatus

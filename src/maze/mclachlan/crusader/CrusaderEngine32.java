@@ -911,19 +911,25 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public MouseClickScript handleMouseClickReturnScript(int x, int y)
+	public MouseClickScript handleMouseClickAndReturnScript(int x, int y)
 	{
 		int bufferIndex = x + y * projectionPlaneWidth;
 
-		if (mouseClickScriptRecords[bufferIndex] != null)
+		MouseClickScript script = mouseClickScriptRecords[bufferIndex];
+		if (script != null)
 		{
 			// todo: figure out if it's a wall, wall mask or object
-			return mouseClickScriptRecords[bufferIndex];
+
+			float d = blockHitRecord[x][0].distance;
+			int distanceInTiles = (int)Math.ceil(d/tileSize);
+
+			if (distanceInTiles <= script.getMaxDist())
+			{
+				return script;
+			}
+
 		}
-		else
-		{
-			return null;
-		}
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

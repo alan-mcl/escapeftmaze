@@ -56,7 +56,13 @@ public class MouseClickScriptAdapter implements MouseClickScript
 			Maze.getInstance().appendEvents(script.execute(maze, tile, tile, facing));
 		}
 	}
-	
+
+	@Override
+	public int getMaxDist()
+	{
+		return 1;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public TileScript getScript()
 	{

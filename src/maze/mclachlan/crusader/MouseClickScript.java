@@ -30,4 +30,10 @@ public interface MouseClickScript
 	 * Execute this mouse click script on a Wall
 	 */
 	void execute(Map map);
+
+	/**
+	 * Returns the maximum distance this should be clickable from, in tiles, rounded up.
+	 * 0 means this is not clickable.
+	 */
+	int getMaxDist();
 }

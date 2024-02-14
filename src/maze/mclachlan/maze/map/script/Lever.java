@@ -224,5 +224,11 @@ public class Lever extends TileScript
 
 			Maze.getInstance().appendEvents(events);
 		}
+
+		@Override
+		public int getMaxDist()
+		{
+			return 1;
+		}
 	}
 }

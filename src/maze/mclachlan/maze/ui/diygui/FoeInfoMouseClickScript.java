@@ -60,6 +60,12 @@ public class FoeInfoMouseClickScript implements MouseClickScript, ConfirmCallbac
 		DiyGuiUserInterface.gui.setDialog(new FoeDetailsDialog(foe, information));
 	}
 
+	@Override
+	public int getMaxDist()
+	{
+		return 1;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void confirm()
