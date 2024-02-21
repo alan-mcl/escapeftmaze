@@ -202,17 +202,20 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
 		// this shit only works in movement mode
 		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
 			handleMovementOptions(e);
+			return true;
 		}
 		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
 		{
 
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -268,12 +271,13 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == levelUp
 			&& Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
 			Maze.getInstance().levelUp(this.playerCharacter);
+			return true;
 		}
 		else if (event.getSource() == action)
 		{
@@ -282,16 +286,21 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 			{
 				selected.select(this.getPlayerCharacter(), null, this);
+				return true;
 			}
 			else
 			{
 				selected.select(this.getPlayerCharacter(), Maze.getInstance().getCurrentCombat(), this);
+				return true;
 			}
 		}
 		else if (event.getSource() == stance)
 		{
 			this.getPlayerCharacter().setStance(stance.getSelected());
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

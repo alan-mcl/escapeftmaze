@@ -353,12 +353,13 @@ public class SpellDisplayWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private class SpellSelectionActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent e)
+		public boolean actionPerformed(ActionEvent e)
 		{
 			String school = schoolButtons.get(e.getSource());
 			if (school != null)
 			{
 				filterSpells();
+				return true;
 			}
 			else if (e.getSource() == spellList)
 			{
@@ -370,6 +371,7 @@ public class SpellDisplayWidget extends DIYPane
 					{
 						// right click: select + display details
 						popupSpellDetailsDialog(spell);
+						return true;
 					}
 				}
 
@@ -379,11 +381,15 @@ public class SpellDisplayWidget extends DIYPane
 			else if (e.getSource() == levelMinus)
 			{
 				setSpellLevel(castingLevel-1);
+				return true;
 			}
 			else if (e.getSource() == levelPlus)
 			{
 				setSpellLevel(castingLevel+1);
+				return true;
 			}
+
+			return false;
 		}
 	}
 }

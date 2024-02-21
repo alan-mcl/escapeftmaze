@@ -576,12 +576,16 @@ public class DIYToolkit
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	void notifyGlobalListeners(ActionEvent e)
+	boolean notifyGlobalListeners(ActionEvent e)
 	{
+		boolean consumed = false;
+
 		for (ActionListener l : this.globalListeners)
 		{
-			l.actionPerformed(e);
+			consumed |= l.actionPerformed(e);
 		}
+
+		return consumed;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -687,6 +691,8 @@ public class DIYToolkit
 	{
 		if (e.getButton() != MouseEvent.NOBUTTON)
 		{
+			boolean consumed = false;
+
 			hoverWidget = getHoverComponent(e.getPoint());
 			if (hoverWidget != null)
 			{
@@ -698,16 +704,16 @@ public class DIYToolkit
 					focusWidget.setFocus(true);
 				}
 
-				hoverWidget.processMouseClicked(e);
+				consumed |= hoverWidget.processMouseClicked(e);
 			}
 			else if (getDialog() != null)
 			{
 				// special case: there is a modal dialog visible but the user
-				// has clicked outside of it.  In this case, notify the dialog
+				// has clicked outside it.  In this case, notify the dialog
 				// anyway.
 				Widget child = contentPane.getChild(e.getX(), e.getY());
 				e.setSource(child);
-				getDialog().processMouseClicked(e);
+				consumed |= getDialog().processMouseClicked(e);
 			}
 			else
 			{
@@ -719,9 +725,12 @@ public class DIYToolkit
 				}
 			}
 			
-			// in all cases, notify the content pane.  this is a hack to allow
+			// if not consumed, notify the content pane.  this is a hack to allows
 			// applications to write a global mouse click handler
-			this.contentPane.processMouseClicked(e);
+			if (!consumed)
+			{
+				this.contentPane.processMouseClicked(e);
+			}
 		}
 	}
 

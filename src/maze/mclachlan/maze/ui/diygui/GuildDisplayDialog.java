@@ -121,20 +121,25 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			addCharacter();
+			return true;
 		}
 		else if (event.getSource() == cancel)
 		{
 			exit();
+			return true;
 		}
 		else if (event.getSource() == delete)
 		{
 			deleteCharacter();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

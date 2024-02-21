@@ -279,7 +279,7 @@ public class FormationWidget extends DIYPane implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 		if (obj instanceof DIYLabel)
@@ -289,8 +289,11 @@ public class FormationWidget extends DIYPane implements ActionListener
 			if (!text.equals(""))
 			{
 				setSelected(label);
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

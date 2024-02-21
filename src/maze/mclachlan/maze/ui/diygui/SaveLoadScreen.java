@@ -117,24 +117,29 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent e)
+	public boolean actionPerformed(ActionEvent e)
 	{
 		if (e.getSource() == exit)
 		{
 			exit();
+			return true;
 		}
 		else if (e.getSource() == save)
 		{
 			saveGame();
+			return true;
 		}
 		else if (e.getSource() == load)
 		{
 			loadGame();
+			return true;
 		}
 		else if (e.getSource() == list)
 		{
 			refresh();
+			return true;
 		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

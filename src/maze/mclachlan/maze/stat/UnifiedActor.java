@@ -991,7 +991,6 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 			this.hasEquipableSlot(PRIMARY_WEAPON) &&
 			this.getPrimaryWeapon() == null)
 		{
-			System.out.println("primary weapon");
 			this.setPrimaryWeapon(item);
 			return true;
 		}

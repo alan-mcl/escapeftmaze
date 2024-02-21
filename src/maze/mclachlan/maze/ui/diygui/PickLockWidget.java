@@ -196,19 +196,23 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
 		if (obj == cancel)
 		{
 			cancel();
+			return true;
 		}
 		else if (buttonList.contains(obj))
 		{
 			int tool = buttonList.indexOf(obj);
 			manipulateTool(tool);
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

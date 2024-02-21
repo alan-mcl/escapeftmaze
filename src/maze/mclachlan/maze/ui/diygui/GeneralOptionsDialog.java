@@ -104,11 +104,12 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == cancel)
 		{
 			cancel();
+			return true;
 		}
 		else
 		{
@@ -118,9 +119,12 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 				{
 					Maze.getInstance().getUi().clearDialog();
 					callback.optionChosen(b.getText());
+					return true;
 				}
 			}
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

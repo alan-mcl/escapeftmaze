@@ -113,15 +113,17 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			setPersonality();
+			return true;
 		}
 		else if (event.getSource() == cancel)
 		{
 			exit();
+			return true;
 		}
 		else if (event.getSource() == personalities)
 		{
@@ -130,7 +132,11 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 				pc,
 				Database.getInstance().getPersonalities().get((String)personalities.getSelected()),
 				DiyGuiUserInterface.instance.partyDisplay.getSelectedCharacterBounds());
+
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

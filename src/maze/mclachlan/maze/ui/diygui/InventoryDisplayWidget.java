@@ -919,7 +919,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	private class InventoryActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() instanceof ItemWidget
 				&& event.getEvent() instanceof MouseEvent)
@@ -935,6 +935,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 						itemWidget.refresh();
 					}
 					popupItemDetailsDialog(itemWidget);
+					return true;
 				}
 				else if (e.getButton() == MouseEvent.BUTTON1)
 				{
@@ -956,34 +957,42 @@ public class InventoryDisplayWidget extends ContainerWidget
 						grabItem(itemWidget);
 						Maze.getInstance().refreshCharacterData();
 					}
+					return true;
 				}
 			}
 			else if (event.getSource() == castSpell)
 			{
 				spell();
+				return true;
 			}
 			else if (event.getSource() == dropItem)
 			{
 				drop();
+				return true;
 			}
 			else if (event.getSource() == useItem)
 			{
 				use();
+				return true;
 			}
 			else if (event.getSource() == craftItem)
 			{
 				craft();
+				return true;
 			}
 			else if (event.getSource() == splitStack)
 			{
 				split();
+				return true;
 			}
 			else if (event.getSource() == disassemble)
 			{
 				disassemble();
+				return true;
 			}
 
 			refreshCarryingCapacity();
+			return false;
 		}
 	}
 }

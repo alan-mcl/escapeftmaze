@@ -727,8 +727,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		this.getGraphics().setFont(this.getDefaultFont());
 
-		mazeActionListener = new MazeActionListener();
-		DiyGuiUserInterface.gui.addGlobalListener(mazeActionListener);
+//		mazeActionListener = new MazeActionListener();
+//		DiyGuiUserInterface.gui.addGlobalListener(mazeActionListener);
 
 		ArrayList<ContainerWidget> cards = new ArrayList<>();
 

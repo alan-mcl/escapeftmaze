@@ -331,7 +331,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == viewLog)
 		{
@@ -351,6 +351,8 @@ public class PartyOptionsAndTextWidget extends DIYPane
 			OkDialogWidget dialog = new OkDialogWidget(bounds, null, text);
 
 			DiyGuiUserInterface.instance.showDialog(dialog);
+			return true;
 		}
+		return false;
 	}
 }

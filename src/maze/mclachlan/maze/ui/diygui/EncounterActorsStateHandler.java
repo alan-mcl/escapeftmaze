@@ -113,7 +113,7 @@ public class EncounterActorsStateHandler implements ActionListener
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
@@ -121,31 +121,40 @@ public class EncounterActorsStateHandler implements ActionListener
 		if (obj == attack)
 		{
 			attack();
+			return true;
 		}
 		else if (obj == wait)
 		{
 			partyWaits();
+			return true;
 		}
 		else if (obj == flee)
 		{
 			flee();
+			return true;
 		}
 		else if (obj == leave)
 		{
 			leave();
+			return true;
 		}
 		else if (obj == evade)
 		{
 			evade();
+			return true;
 		}
 		else if (obj == surprise)
 		{
 			ambush();
+			return true;
 		}
 		else if (obj == guild)
 		{
 			guild();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -454,12 +454,13 @@ public class StatsDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == nameLabel && event.getEvent() instanceof KeyEvent)
 		{
 			// player has pressed enter in the name text field: rename the pc
 			Maze.getInstance().renamePlayerCharacter(character, nameLabel.getText());
+			return true;
 		}
 		else if (event.getSource() == portraitButton)
 		{
@@ -467,6 +468,7 @@ public class StatsDisplayWidget extends ContainerWidget
 				new PortraitSelectionDialog(
 					this,
 					character.getPortrait()));
+			return true;
 		}
 		else if (event.getSource() == nameButton)
 		{
@@ -474,6 +476,7 @@ public class StatsDisplayWidget extends ContainerWidget
 				new NameEditDialog(
 					this,
 					"Enter New Name"));
+			return true;
 		}
 		else if (event.getSource() == personalityButton)
 		{
@@ -481,7 +484,10 @@ public class StatsDisplayWidget extends ContainerWidget
 				new PersonalitySelectionDialog(
 					character.getPersonality().getName(),
 					character));
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -76,7 +76,7 @@ public class EncounterPortalStateHandler implements ActionListener
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
@@ -84,7 +84,10 @@ public class EncounterPortalStateHandler implements ActionListener
 		if (obj == leave)
 		{
 			leave();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

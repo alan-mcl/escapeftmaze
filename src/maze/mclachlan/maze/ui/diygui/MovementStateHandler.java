@@ -117,7 +117,7 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
@@ -125,44 +125,55 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 		if (obj == formation)
 		{
 			formation();
+			return true;
 		}
 		else if (obj == hide)
 		{
 			hide();
+			return true;
 		}
 		else if (obj == saveload)
 		{
 			saveOrLoad();
+			return true;
 		}
 		else if (obj == mainMenu)
 		{
 			mainMenu();
+			return true;
 		}
 		else if (obj == search)
 		{
 			search();
+			return true;
 		}
 		else if (obj == locks)
 		{
 			open();
+			return true;
 		}
 		else if (obj == rest)
 		{
 			rest();
+			return true;
 		}
 		else if (obj == settings)
 		{
 			showSettingsDialog();
+			return true;
 		}
 		else if (obj == map)
 		{
 			showMap();
+			return true;
 		}
 		else if (obj == journal)
 		{
 			showJournal();
+			return true;
 		}
 
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

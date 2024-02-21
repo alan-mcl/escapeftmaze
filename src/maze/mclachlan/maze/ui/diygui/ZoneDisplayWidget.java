@@ -114,7 +114,7 @@ public class ZoneDisplayWidget extends DIYPane implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == cacheItem)
 		{
@@ -127,8 +127,11 @@ public class ZoneDisplayWidget extends DIYPane implements ActionListener
 					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
 
 				Maze.getInstance().grantItems(items);
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -56,7 +56,7 @@ class WhoDialog extends DIYPane
 	}
 
 	/*----------------------------------------------------------------------*/
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
 		if (e.getSource() instanceof PlayerCharacterWidget)
 		{
@@ -67,6 +67,8 @@ class WhoDialog extends DIYPane
 			// a mouse click elsewhere deselects "WHO?" mode.
 			destroy();
 		}
+
+		return true;
 	}
 
 	/*----------------------------------------------------------------------*/

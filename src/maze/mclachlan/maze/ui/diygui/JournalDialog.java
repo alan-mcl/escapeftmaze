@@ -229,34 +229,42 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == exitButton)
 		{
 			exit();
+			return true;
 		}
 		else if (event.getSource() == logbook)
 		{
 			refresh(JournalManager.JournalType.LOGBOOK);
+			return true;
 		}
 		else if (event.getSource() == zones)
 		{
 			refresh(JournalManager.JournalType.ZONE);
+			return true;
 		}
 		else if (event.getSource() == npcs)
 		{
 			refresh(JournalManager.JournalType.NPC);
+			return true;
 		}
 		else if (event.getSource() == quests)
 		{
 			refresh(JournalManager.JournalType.QUEST);
+			return true;
 		}
 		else if (event.getSource() == journalKeys)
 		{
 			String key = (String)journalKeys.getSelected();
 
 			refreshText(key, JournalManager.getInstance().getJournal(journalType));
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

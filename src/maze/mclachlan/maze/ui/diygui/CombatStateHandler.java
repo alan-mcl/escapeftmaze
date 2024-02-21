@@ -94,7 +94,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
@@ -102,19 +102,24 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		if (obj == startRound)
 		{
 			startRound();
+			return true;
 		}
 		else if (obj == formation)
 		{
 			formation();
+			return true;
 		}
 		else if (obj == defendAll)
 		{
 			defendAll();
+			return true;
 		}
 		else if (obj == terminateGame)
 		{
 			terminateGame();
+			return true;
 		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -43,15 +43,15 @@ class MazeActionListener implements ActionListener
 	List<Integer> keyCodeHistory = new LinkedList<Integer>();
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getEvent() instanceof MouseEvent)
 		{
-			this.processMouse(event);
+			return this.processMouse(event);
 		}
 		else if (event.getEvent() instanceof KeyEvent)
 		{
-			this.processKey(event);
+			return this.processKey(event);
 		}
 		else
 		{
@@ -60,38 +60,44 @@ class MazeActionListener implements ActionListener
 	}
 
 	/*----------------------------------------------------------------------*/
-	private void processMouse(ActionEvent event)
+	private boolean processMouse(ActionEvent event)
 	{
 		String message = event.getMessage();
 
 		if (message == null)
 		{
-			return;
+			return false;
 		}
 
-		boolean eventConsumed = DiyGuiUserInterface.instance.mouseEventToAnimations((MouseEvent)event.getEvent());
+//		boolean eventConsumed = DiyGuiUserInterface.instance.mouseEventToAnimations((MouseEvent)event.getEvent());
+		boolean eventConsumed = false;
 
 		if (!eventConsumed)
 		{
 			if (message.equals(Constants.Messages.BACK_TO_GAME))
 			{
 				Maze.getInstance().setState(Maze.State.MOVEMENT);
+				return true;
 			}
 			else if (message.equals(Constants.Messages.DISPOSE_DIALOG))
 			{
 				DiyGuiUserInterface.gui.clearDialog();
+				return true;
 			}
 			else
 			{
 				Maze.logDebug("UI MSG: "+message);
 			}
 		}
+
+		return eventConsumed;
 	}
 
 	/*----------------------------------------------------------------------*/
-	private void processKey(ActionEvent event)
+	private boolean processKey(ActionEvent event)
 	{
-		boolean eventConsumed = DiyGuiUserInterface.instance.keyEventToAnimations((KeyEvent)event.getEvent());
+//		boolean eventConsumed = DiyGuiUserInterface.instance.keyEventToAnimations((KeyEvent)event.getEvent());
+		boolean eventConsumed = false;
 
 		if (!eventConsumed)
 		{
@@ -100,7 +106,7 @@ class MazeActionListener implements ActionListener
 				KeyEvent e = (KeyEvent)event.getEvent();
 				if (e.getID() != KeyEvent.KEY_PRESSED)
 				{
-					return;
+					return false;
 				}
 
 				int code = e.getKeyCode();
@@ -110,14 +116,16 @@ class MazeActionListener implements ActionListener
 					DIYToolkit.getInstance().getDialog() == null)
 				{
 					int crusaderKey = DiyGuiUserInterface.crusaderKeys.get(code);
-					handleKeyCode(crusaderKey, true);
+					return handleKeyCode(crusaderKey, true);
 				}
 			}
 		}
+
+		return eventConsumed;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	void handleKeyCode(int crusaderKey, boolean checkRandomEncounters)
+	boolean handleKeyCode(int crusaderKey, boolean checkRandomEncounters)
 	{
 		keyCodeHistory.add(0, crusaderKey);
 		if (keyCodeHistory.size() > KEY_HISTORY)
@@ -146,14 +154,18 @@ class MazeActionListener implements ActionListener
 			{
 				Maze.getInstance().incTurn(true);
 			}
+			return true;
 		}
 		else
 		{
 			if (Maze.getInstance().getCurrentCombat() == null)
 			{
 				movePlayer(playerStatus, oldTile);
+				return true;
 			}
 		}
+
+		return false;
 	}
 	
 	/*-------------------------------------------------------------------------*/

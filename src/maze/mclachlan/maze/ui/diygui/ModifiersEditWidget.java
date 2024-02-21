@@ -502,18 +502,22 @@ public class ModifiersEditWidget extends ContainerWidget
 		}
 
 		/*----------------------------------------------------------------------*/
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			Object obj = event.getSource();
 
 			if (obj == plus)
 			{
 				plus();
+				return true;
 			}
 			else if (obj == minus)
 			{
 				minus();
+				return true;
 			}
+
+			return false;
 		}
 
 		/*-------------------------------------------------------------------------*/

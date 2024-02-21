@@ -535,9 +535,16 @@ public class SpeechBubbleAnimation extends Animation
 		int keyCode = event.getKeyCode();
 		if (duration == WAIT_FOR_CLICK)
 		{
-			if (keyCode == KeyEvent.VK_ESCAPE || keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_SPACE)
+			if (event.getID() == KeyEvent.KEY_PRESSED && (keyCode == KeyEvent.VK_ESCAPE || keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_SPACE))
 			{
+				Thread.dumpStack();
+
 				duration = 0;
+
+				synchronized (Maze.getInstance().getEventMutex())
+				{
+					Maze.getInstance().getEventMutex().notifyAll();
+				}
 			}
 
 			// we want the modal speech bubble to prevent any other actions even if

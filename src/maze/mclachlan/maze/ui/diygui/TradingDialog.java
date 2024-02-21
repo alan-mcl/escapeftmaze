@@ -220,7 +220,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 		if (obj instanceof TradingWidget.TradingItemWidget)
@@ -250,19 +250,29 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 					npcWidget.setSelected(null);
 				}
 			}
+
+			return true;
 		}
 		else if (obj == sell)
 		{
 			sell();
+
+			return true;
 		}
 		else if (obj == buy)
 		{
 			buy();
+
+			return true;
 		}
 		else if (obj == exit)
 		{
 			exit();
+
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

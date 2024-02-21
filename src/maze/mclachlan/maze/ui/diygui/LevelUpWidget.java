@@ -589,22 +589,25 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 		if (obj == bonuses)
 		{
 			bonusDetails.show(bonusDetailsMap.get((String)bonuses.getSelected()));
+			return true;
 		}
 		else if (obj == next)
 		{
 			this.state++;
 			updateState();
+			return true;
 		}
 		else if (obj == previous)
 		{
 			this.state--;
 			updateState();
+			return true;
 		}
 		else if (obj == showClassChangeReq)
 		{
@@ -616,9 +619,12 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 			ContainerWidget c = new ClassChangeRequirementsWidget(playerCharacter);
 			Maze.getInstance().getUi().showDialog(new ContainerDialog(
 				"Class Change Requirements", c, rectangle));
+
+			return true;
 		}
 
 		this.next.setEnabled(this.canProceed());
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

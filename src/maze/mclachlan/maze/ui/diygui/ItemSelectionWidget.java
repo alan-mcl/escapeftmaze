@@ -308,7 +308,7 @@ public class ItemSelectionWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private class ItemSelectionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() instanceof ItemWidget
 				&& event.getEvent() instanceof MouseEvent)
@@ -331,7 +331,11 @@ public class ItemSelectionWidget extends DIYPane
 					// left click
 					setSelected(itemWidget);
 				}
+
+				return true;
 			}
+
+			return false;
 		}
 	}
 }

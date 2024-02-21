@@ -121,16 +121,19 @@ public class ConfirmationDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == ok)
 		{
 			callback.confirm();
 			exitDialog();
+			return true;
 		}
 		else if (event.getSource() == cancel)
 		{
 			exitDialog();
+			return true;
 		}
+		return false;
 	}
 }

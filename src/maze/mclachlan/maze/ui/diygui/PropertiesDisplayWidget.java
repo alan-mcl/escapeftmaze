@@ -287,12 +287,15 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getPayload() instanceof Condition)
 		{
 			popupConditionDetailsDialog((Condition)event.getPayload());
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

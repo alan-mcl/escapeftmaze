@@ -128,15 +128,19 @@ public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			itemSelected();
+			return true;
 		}
 		else if (event.getSource() == cancel)
 		{
 			canceled();
+			return true;
 		}
+
+		return false;
 	}
 }

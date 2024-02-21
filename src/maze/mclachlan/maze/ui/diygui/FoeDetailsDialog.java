@@ -95,11 +95,14 @@ public class FoeDetailsDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == ok)
 		{
 			exitDialog();
+			return true;
 		}
+
+		return false;
 	}
 }

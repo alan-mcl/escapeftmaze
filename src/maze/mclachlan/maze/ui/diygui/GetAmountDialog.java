@@ -121,16 +121,20 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			amountEntered();
+			return true;
 		}
 		else if (event.getSource() == cancel) 
 		{
 			exit();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

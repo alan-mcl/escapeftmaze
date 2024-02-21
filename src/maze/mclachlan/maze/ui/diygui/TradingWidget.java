@@ -360,7 +360,7 @@ public class TradingWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private class TradingListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() instanceof ItemWidget
 				&& event.getEvent() instanceof MouseEvent)
@@ -375,13 +375,17 @@ public class TradingWidget extends DIYPane
 
 					popupItemDetailsDialog(itemWidget);
 					setSelected(itemWidget);
+					return true;
 				}
 				else if (e.getButton() == MouseEvent.BUTTON1)
 				{
 					// left click
 					setSelected(itemWidget);
+					return true;
 				}
 			}
+
+			return false;
 		}
 	}
 

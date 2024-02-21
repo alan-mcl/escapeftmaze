@@ -37,9 +37,9 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
 
-	private PortraitSelectionWidget portraitWidget;
-	private DIYButton okButton, cancel;
-	private PortraitCallback callback;
+	private final PortraitSelectionWidget portraitWidget;
+	private final DIYButton okButton, cancel;
+	private final PortraitCallback callback;
 	
 	/*-------------------------------------------------------------------------*/
 	public PortraitSelectionDialog(
@@ -89,28 +89,27 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-				setPortrait();
-				break;
-			default:
-				portraitWidget.processKeyPressed(e);
+			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> setPortrait();
+			default -> portraitWidget.processKeyPressed(e);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			setPortrait();
+			return true;
 		}
 		else if (event.getSource() == cancel)
 		{
 			exit();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -147,25 +147,31 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
 		if (obj == moveUp)
 		{
 			moveUp();
+			return true;
 		}
 		else if (obj == moveDown)
 		{
 			moveDown();
+			return true;
 		}
 		else if (obj == ok)
 		{
 			finished();
+			return true;
 		}
 		else if (obj == cancel)
 		{
 			canceled();
+			return true;
 		}
+
+		return false;
 	}
 }

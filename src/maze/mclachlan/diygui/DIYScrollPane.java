@@ -170,7 +170,7 @@ public class DIYScrollPane extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	private class ScrollPaneActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() == upButton)
 			{
@@ -183,6 +183,8 @@ public class DIYScrollPane extends ContainerWidget
 				relativePosition = position * (maxPosition / positionIncrement);
 
 				sliderBounds.setLocation(sliderBounds.x, sliderStart+position);
+
+				return true;
 			}
 			else if (event.getSource() == downButton)
 			{
@@ -198,7 +200,11 @@ public class DIYScrollPane extends ContainerWidget
 
 					sliderBounds.setLocation(sliderBounds.x, sliderStart+position);
 				}
+
+				return true;
 			}
+
+			return false;
 		}
 	}
 }

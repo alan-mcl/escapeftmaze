@@ -68,9 +68,10 @@ public class BlockingScreen extends DIYPanel implements ActionListener
 	}
 
 	@Override
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
 		clear();
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -92,13 +93,14 @@ public class BlockingScreen extends DIYPanel implements ActionListener
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getEvent() instanceof MouseEvent)
 		{
 			if (event.getEvent().getID() == MouseEvent.MOUSE_CLICKED)
 			{
 				this.processMouseClicked((MouseEvent)event.getEvent());
+				return true;
 			}
 		}
 		else if (event.getEvent() instanceof KeyEvent)
@@ -106,8 +108,11 @@ public class BlockingScreen extends DIYPanel implements ActionListener
 			if (event.getEvent().getID() == KeyEvent.KEY_TYPED)
 			{
 				this.processKeyTyped((KeyEvent)event.getEvent());
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

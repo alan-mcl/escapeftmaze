@@ -33,10 +33,11 @@ import mclachlan.maze.stat.*;
 public class LevelAbilityActionListener implements ActionListener
 {
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		popupLevelAbilityDetailsDialog(
 			(LevelAbility)event.getPayload());
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/

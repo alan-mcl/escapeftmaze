@@ -32,7 +32,11 @@ import mclachlan.maze.game.Maze;
  */
 class ContentPaneActionListener implements ActionListener
 {
-	private DiyGuiUserInterface ui;
+	private final DiyGuiUserInterface ui;
+
+	// todo: refactor these together
+	private final MazeActionListener mal = new MazeActionListener();
+
 
 	/*-------------------------------------------------------------------------*/
 	public ContentPaneActionListener(DiyGuiUserInterface ui)
@@ -41,25 +45,34 @@ class ContentPaneActionListener implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (Maze.getInstance().getUi() == null)
 		{
-			return;
+			return false;
 		}
-		
+
+		boolean consumed = false;
+
 		if (event.getEvent() instanceof KeyEvent)
 		{
-			this.processKeyEvent((KeyEvent)event.getEvent());
+			consumed |= this.processKeyEvent((KeyEvent)event.getEvent());
 		}
 		else if (event.getEvent() instanceof MouseEvent)
 		{
-			this.processMouseEvent((MouseEvent)event.getEvent());
+			consumed |= this.processMouseEvent((MouseEvent)event.getEvent());
 		}
+
+		if (!consumed)
+		{
+			consumed |= mal.actionPerformed(event);
+		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void processMouseEvent(MouseEvent event)
+	private boolean processMouseEvent(MouseEvent event)
 	{
 		boolean consumed = DiyGuiUserInterface.instance.mouseEventToAnimations(event);
 
@@ -108,14 +121,16 @@ class ContentPaneActionListener implements ActionListener
 				}
 			}
 		}
+
+		return consumed;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void processKeyEvent(KeyEvent event)
+	private boolean processKeyEvent(KeyEvent event)
 	{
 		if (event.getID() != KeyEvent.KEY_PRESSED)
 		{
-			return;
+			return false;
 		}
 
 		boolean eventConsumed = DiyGuiUserInterface.instance.keyEventToAnimations(event);
@@ -459,5 +474,7 @@ class ContentPaneActionListener implements ActionListener
 				}
 			}
 		}
+
+		return eventConsumed;
 	}
 }

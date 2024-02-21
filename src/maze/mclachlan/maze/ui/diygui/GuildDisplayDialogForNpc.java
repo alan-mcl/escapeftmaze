@@ -158,24 +158,30 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == exit)
 		{
 			exit();
+			return true;
 		}
 		else if (event.getSource() == addToParty)
 		{
 			addToParty();
+			return true;
 		}
 		else if (event.getSource() == removeFromParty)
 		{
 			removeFromParty();
+			return true;
 		}
 		else if (event.getSource() == createCharacter)
 		{
 			createCharacter();
+			return true;
 		}
+
+		return false;
 	}
 
 	private void createCharacter()

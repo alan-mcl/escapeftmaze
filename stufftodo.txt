@@ -4,11 +4,11 @@ STUFFTODO
 
 GATEHOUSE DEMO
 --------------
+Disable NPC input during dialog
 'Search' button should turn up Bonebrood bones cache
 'Search' button progress bar / animation
 Movement mode log text doesn't scroll to latest
 ambush combat round: disable UI elements for the ambush rounds
-enter keypress on flavour text dialog clears subsequent speech bubble
 popup to make ambushes obvious
 
 BACKLOG

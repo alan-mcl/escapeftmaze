@@ -88,20 +88,25 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			exit();
+			return true;
 		}
 		else if (event.getSource() == zoomIn)
 		{
 			zoomIn();
+			return true;
 		}
 		else if (event.getSource() == zoomOut)
 		{
 			zoomOut();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

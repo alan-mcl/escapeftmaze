@@ -87,9 +87,9 @@ public class PartyCloudSpellWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
-		parent.processMouseClicked(e);
+		return parent.processMouseClicked(e);
 	}
 
 	/*-------------------------------------------------------------------------*/

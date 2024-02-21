@@ -165,12 +165,12 @@ public class PartyDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	private class PartyDisplayActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (Maze.getInstance().isInCombat())
 			{
 				// during an Equip in combat, only the current character can be edited
-				return;
+				return false;
 			}
 
 			for (int i = 0; i < Maze.getInstance().getParty().getActors().size(); i++)
@@ -180,8 +180,11 @@ public class PartyDisplayWidget extends ContainerWidget
 				{
 					Maze.getInstance().getUi().characterSelected(
 						(PlayerCharacter)party.getActors().get(i));
+					return true;
 				}
 			}
+
+			return false;
 		}
 	}
 }

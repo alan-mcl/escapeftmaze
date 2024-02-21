@@ -74,32 +74,39 @@ public class ButtonToolbar extends ContainerWidget implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == modifiers)
 		{
 			modifiers();
+			return true;
 		}
 		else if (event.getSource() == stats)
 		{
 			stats();
+			return true;
 		}
 		else if (event.getSource() == properties)
 		{
 			properties();
+			return true;
 		}
 		else if (event.getSource() == inventory)
 		{
 			inventory();
+			return true;
 		}
 		else if (event.getSource() == magic)
 		{
 			magic();
+			return true;
 		}
 		else if (event.getSource() == exit)
 		{
 			exit();
+			return true;
 		}
+		return false;
 	}
 
 	public void exit()

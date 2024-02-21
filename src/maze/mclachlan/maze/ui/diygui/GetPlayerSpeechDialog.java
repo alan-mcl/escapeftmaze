@@ -105,16 +105,20 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton || event.getSource() == inputField)
 		{
 			finished();
+			return true;
 		}
 		else if (event.getSource() == cancel) 
 		{
 			exit();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

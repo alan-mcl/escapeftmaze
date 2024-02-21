@@ -293,7 +293,7 @@ public class DIYListBox extends ContainerWidget
 		}
 		
 		/*----------------------------------------------------------------------*/
-		public void processMouseClicked(MouseEvent e)
+		public boolean processMouseClicked(MouseEvent e)
 		{
 			DIYListBox.this.lastClicked = this.item;
 			if (isEnabled())
@@ -302,7 +302,7 @@ public class DIYListBox extends ContainerWidget
 			}
 
 			// dodgy hack to ensure that the parent ActionListeners see this
-			DIYListBox.this.processMouseClicked(e);
+			return DIYListBox.this.processMouseClicked(e);
 		}
 		
 		/*----------------------------------------------------------------------*/

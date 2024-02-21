@@ -164,7 +164,7 @@ public class LootWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private class LootActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() instanceof ItemWidget
 				&& event.getEvent() instanceof MouseEvent)
@@ -179,6 +179,7 @@ public class LootWidget extends DIYPane
 						GameSys.getInstance().attemptManualIdentify(itemWidget.getItem(), Maze.getInstance().getParty());
 						itemWidget.refresh();
 						popupItemDetailsDialog(itemWidget);
+						return true;
 					}
 				}
 				else if (e.getButton() == MouseEvent.BUTTON1)
@@ -197,8 +198,12 @@ public class LootWidget extends DIYPane
 						grabItem(itemWidget);
 						Maze.getInstance().refreshCharacterData();
 					}
+
+					return true;
 				}
 			}
+
+			return false;
 		}
 	}
 }

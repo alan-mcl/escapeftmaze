@@ -142,21 +142,26 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 		if (obj == steal)
 		{
 			steal();
+			return true;
 		}
 		else if (obj == grabAndAttack)
 		{
 			grabAndAttack();
+			return true;
 		}
 		else if (obj == exit)
 		{
 			exit();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

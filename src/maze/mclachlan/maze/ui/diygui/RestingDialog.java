@@ -165,16 +165,20 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == cancel)
 		{
 			cancel();
+			return true;
 		}
 		else if (event.getSource() == rest)
 		{
 			rest();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

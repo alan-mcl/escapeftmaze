@@ -168,7 +168,7 @@ public class SpellLearningWidget extends DIYPane implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() instanceof DIYCheckbox)
 		{
@@ -184,12 +184,14 @@ public class SpellLearningWidget extends DIYPane implements ActionListener
 					// box has just been selected
 					usedPicks++;
 					updateSpellPicks();
+					return true;
 				}
 				else
 				{
 					// box has just been deselected
 					usedPicks--;
 					updateSpellPicks();
+					return true;
 				}
 			}
 			else if (me.getButton() == MouseEvent.BUTTON3)
@@ -198,8 +200,11 @@ public class SpellLearningWidget extends DIYPane implements ActionListener
 				popupSpellDetailsDialog(spell);
 				// hack: undo the right click selection
 				cb.setSelected(!cb.isSelected());
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

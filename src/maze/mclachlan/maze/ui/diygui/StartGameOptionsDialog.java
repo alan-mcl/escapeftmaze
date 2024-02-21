@@ -123,16 +123,20 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			startGame();
+			return true;
 		}
 		else if (event.getSource() == cancel)
 		{
 			exit();
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

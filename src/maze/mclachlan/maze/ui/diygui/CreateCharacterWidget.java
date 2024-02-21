@@ -1032,7 +1032,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 		String message = event.getMessage();
@@ -1042,6 +1042,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		if (SET_GENDER.equals(message))
 		{
 			setGender(((DIYRadioButton)obj).getCaption());
+			return true;
 		}
 
 		//--- keyed on object
@@ -1062,6 +1063,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			}
 
 			updateState();
+			return true;
 		}
 		else if (obj == previous)
 		{
@@ -1073,17 +1075,20 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			}
 
 			updateState();
+			return true;
 		}
 		else if (obj == races)
 		{
 			String raceName = (String)races.getSelected();
 			setRace(raceName);
 			portraitWidget.setToRaceAndGender(raceName, gender.getName(), portraitWidget.portraits);
+			return true;
 		}
 		else if (obj == characterClasses)
 		{
 			String className = ((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName();
 			setCharacterClass(className);
+			return true;
 		}
 		else if (obj == personalities)
 		{
@@ -1095,10 +1100,12 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				playerCharacter,
 				personality,
 				this.portraitWidget.imagePanel.getBounds());
+			return true;
 		}
 		else if (obj == suggestName)
 		{
 			suggestName(race, gender);
+			return true;
 		}
 		else if (obj == random)
 		{
@@ -1164,6 +1171,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 					break;
 			}
+			return true;
 		}
 		else if (obj == showLevelAbilityProgression)
 		{
@@ -1176,10 +1184,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			Maze.getInstance().getUi().showDialog(new ContainerDialog(
 				StringUtil.getUiLabel("lapw.title",
 					characterClass.getName()), c, rectangle));
+
+			return true;
 		}
 
 		this.next.setEnabled(this.canProceed());
 		this.random.setEnabled(isRandomSupported());
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1490,7 +1502,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private class KitActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			DIYListBox listBox = (DIYListBox)event.getSource();
 
@@ -1498,14 +1510,17 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			if (si != null)
 			{
 				setStartingKit(si);
+				return true;
 			}
+
+			return false;
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private class ItemWidgetActionListener implements ActionListener
 	{
-		public void actionPerformed(ActionEvent event)
+		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() instanceof ItemWidget &&
 				event.getEvent() instanceof MouseEvent &&
@@ -1515,8 +1530,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				if (item != null)
 				{
 					popupItemDetailsDialog(item);
+					return true;
 				}
 			}
+
+			return false;
 		}
 	}
 

@@ -35,7 +35,7 @@ import mclachlan.maze.stat.Stats;
 public class ModifiersDisplayActionListener implements ActionListener
 {
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		String modifier = event.getMessage();
 
@@ -44,7 +44,10 @@ public class ModifiersDisplayActionListener implements ActionListener
 			popupModifierDetailsDialog(
 				Stats.Modifier.valueOf(modifier),
 				(PlayerCharacter)event.getPayload());
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

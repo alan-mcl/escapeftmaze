@@ -57,12 +57,13 @@ public class FlavourTextWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
 		// todo: display more text if required
 		synchronized(Maze.getInstance().getEventMutex())
 		{
 			Maze.getInstance().getEventMutex().notifyAll();
+			return true;
 		}
 	}
 }

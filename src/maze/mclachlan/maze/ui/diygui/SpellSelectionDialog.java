@@ -136,16 +136,20 @@ public class SpellSelectionDialog extends GeneralDialog implements ActionListene
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == okButton)
 		{
 			spellSelected();
+			return true;
 		}
 		else if (event.getSource() == cancelButton)
 		{
 			canceled();
+			return true;
 		}
+
+		return false;
 	}
 
 	private void canceled()

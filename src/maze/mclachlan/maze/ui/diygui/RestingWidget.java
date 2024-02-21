@@ -85,12 +85,14 @@ public class RestingWidget extends DIYPane implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == done)
 		{
 			done();
+			return true;
 		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

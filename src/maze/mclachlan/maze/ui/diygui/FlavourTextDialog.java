@@ -125,15 +125,18 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
 		exitDialog();
+
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		exitDialog();
+		return true;
 	}
 }

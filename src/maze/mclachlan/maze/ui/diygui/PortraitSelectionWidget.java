@@ -168,7 +168,7 @@ public class PortraitSelectionWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		Object obj = event.getSource();
 
@@ -176,13 +176,17 @@ public class PortraitSelectionWidget extends ContainerWidget
 		{
 			currentImage = getNextImageNr(currentImage);
 			setImage(currentImage);
+			return true;
 		}
 		else if (obj == previous)
 		{
 
 			currentImage = getPrevImageNr(currentImage);
 			setImage(currentImage);
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

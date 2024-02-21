@@ -131,42 +131,51 @@ public class MainMenu extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actionPerformed(ActionEvent event)
+	public boolean actionPerformed(ActionEvent event)
 	{
 		if (event.getSource() == startGame)
 		{
 			startGame();
+			return true;
 		}
 		else if (event.getSource() == quickStart)
 		{
 			quickStart();
+			return true;
 		}
 		else if (event.getSource() == createCharacter)
 		{
 			createCharacter();
+			return true;
 		}
 		else if (event.getSource() == exit)
 		{
 			quit();
+			return true;
 		}
 		else if (event.getSource() == addCharacter)
 		{
 			addCharacter();
+			return true;
 		}
 		else if (event.getSource() == loadGame)
 		{
 			saveOrLoad();
+			return true;
 		}
 		else if (event.getSource() == removeCharacter)
 		{
 			removeCharacter();
+			return true;
 		}
 		else if (event.getSource() == options)
 		{
 			showSettingsDialog();
+			return true;
 		}
 		
 		updateState();
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

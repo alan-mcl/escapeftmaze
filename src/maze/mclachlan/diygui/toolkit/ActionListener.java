@@ -24,5 +24,9 @@ package mclachlan.diygui.toolkit;
  */
 public interface ActionListener
 {
-	public void actionPerformed(ActionEvent event);
+	/**
+	 * @return
+	 * 	true if this listener processed the event, false otherwise
+	 */
+	boolean actionPerformed(ActionEvent event);
 }

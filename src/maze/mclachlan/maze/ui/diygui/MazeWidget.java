@@ -267,12 +267,11 @@ public class MazeWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void processMouseClicked(MouseEvent e)
+	public boolean processMouseClicked(MouseEvent e)
 	{
 		if (e.getID() != MouseEvent.MOUSE_CLICKED)
 		{
-			System.out.println(1);
-			return;
+			return false;
 		}
 		
 		int x = e.getX()-super.x;
@@ -290,7 +289,7 @@ public class MazeWidget extends ContainerWidget
 					case MOVEMENT:
 						// always execute in movement
 						script.execute(Maze.getInstance().getCurrentZone().getMap());
-						break;
+						return true;
 
 					case COMBAT:
 					case ENCOUNTER_ACTORS:
@@ -298,6 +297,7 @@ public class MazeWidget extends ContainerWidget
 						if (script instanceof FoeInfoMouseClickScript)
 						{
 							script.execute(Maze.getInstance().getCurrentZone().getMap());
+							return true;
 						}
 						break;
 				}
@@ -311,9 +311,11 @@ public class MazeWidget extends ContainerWidget
 				&& foeGroupWidgets[i].getFoeGroup() != null)
 			{
 				setSelectedFoeGroup(i);
-				break;
+				return true;
 			}
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/
