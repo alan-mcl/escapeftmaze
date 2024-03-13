@@ -605,7 +605,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void startCombatRound()
+	public void disableInput()
 	{
 		// transparent modal dialog to block all user input while combat runs
 		showDialog(new DIYPane(DiyGuiUserInterface.SCREEN_BOUNDS));
@@ -617,11 +617,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.charTopLeft.setEnabled(false);
 		this.charTopRight.setEnabled(false);
 
-		partyOptionsAndTextWidget.startCombatRound();
+		partyOptionsAndTextWidget.disableInput();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void endCombatRound()
+	public void enableInput()
 	{
 		clearDialog();
 
@@ -634,7 +634,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		refreshCharacterData();
 
-		partyOptionsAndTextWidget.endCombatRound();
+		partyOptionsAndTextWidget.enableInput();
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -537,8 +537,6 @@ public class SpeechBubbleAnimation extends Animation
 		{
 			if (event.getID() == KeyEvent.KEY_PRESSED && (keyCode == KeyEvent.VK_ESCAPE || keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_SPACE))
 			{
-				Thread.dumpStack();
-
 				duration = 0;
 
 				synchronized (Maze.getInstance().getEventMutex())

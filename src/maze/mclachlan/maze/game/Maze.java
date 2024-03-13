@@ -1131,7 +1131,7 @@ public class Maze implements Runnable
 		this.setState(State.MOVEMENT);
 
 		// nuke current combat
-		this.ui.endCombatRound();
+		this.ui.enableInput();
 		this.currentCombat = null;
 
 		// back up the party along their previous path of travel
@@ -1824,6 +1824,8 @@ public class Maze implements Runnable
 				// Change game state
 				Maze.this.setState(State.ENCOUNTER_ACTORS);
 
+				Maze.this.getUi().disableInput();
+
 				// show the foe sprites on the screen
 				getUi().setFoes(actors, true);
 
@@ -1916,6 +1918,16 @@ public class Maze implements Runnable
 							Maze.this,
 							getUi().getMessageDestination()));
 				}
+
+				result.add(new MazeEvent()
+				{
+					@Override
+					public List<MazeEvent> resolve()
+					{
+						Maze.this.getUi().enableInput();
+						return null;
+					}
+				});
 
 				return result;
 			}

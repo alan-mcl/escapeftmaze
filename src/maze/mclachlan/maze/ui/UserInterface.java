@@ -90,10 +90,10 @@ public interface UserInterface
 	void refreshCharacterData();
 
 	/*-------------------------------------------------------------------------*/
-	void startCombatRound();
+	void disableInput();
 
 	/*-------------------------------------------------------------------------*/
-	void endCombatRound();
+	void enableInput();
 
 	/*-------------------------------------------------------------------------*/
 	void addObject(EngineObject obj);

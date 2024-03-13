@@ -127,7 +127,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	{
 		if (startRound.isVisible())
 		{
-			maze.getUi().startCombatRound();
+			maze.getUi().disableInput();
 			maze.executeCombatRound(maze.getCurrentCombat());
 		}
 	}

@@ -110,7 +110,7 @@ public class EndCombatRoundEvent extends MazeEvent
 			@Override
 			public List<MazeEvent> resolve()
 			{
-				maze.getUi().endCombatRound();
+				maze.getUi().enableInput();
 				return null;
 			}
 		});

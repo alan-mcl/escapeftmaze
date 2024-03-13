@@ -384,4 +384,16 @@ public class EncounterActorsStateHandler implements ActionListener
 			return new DefaultFoeAiScript(actorEncounter);
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setEnabled(boolean b)
+	{
+		leave.setEnabled(b);
+		attack.setEnabled(b);
+		flee.setEnabled(b);
+		wait.setEnabled(b);
+		surprise.setEnabled(b);
+		evade.setEnabled(b);
+		guild.setEnabled(b);
+	}
 }

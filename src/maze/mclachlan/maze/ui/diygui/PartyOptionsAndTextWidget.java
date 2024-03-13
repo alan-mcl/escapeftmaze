@@ -201,16 +201,18 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void startCombatRound()
+	public void disableInput()
 	{
 		combatStateHandler.setEnabled(false);
+		encounterActorsStateHandler.setEnabled(false);
 		viewLog.setEnabled(false);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void endCombatRound()
+	public void enableInput()
 	{
 		combatStateHandler.setEnabled(true);
+		encounterActorsStateHandler.setEnabled(true);
 		viewLog.setEnabled(true);
 	}
 

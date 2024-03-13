@@ -127,13 +127,13 @@ public class HeadlessUi implements UserInterface
 	}
 
 	@Override
-	public void startCombatRound()
+	public void disableInput()
 	{
 		throw new RuntimeException("Unimplemented auto generated method!");
 	}
 
 	@Override
-	public void endCombatRound()
+	public void enableInput()
 	{
 		throw new RuntimeException("Unimplemented auto generated method!");
 	}
