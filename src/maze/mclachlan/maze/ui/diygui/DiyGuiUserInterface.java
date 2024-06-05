@@ -140,7 +140,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	ZoneDisplayWidget zoneDisplay;
 	PartyCloudSpellWidget partyCloudSpellWidget;
 
-	private MazeActionListener mazeActionListener;
 	private List<FoeGroup> foeGroups;
 
 	/*-------------------------------------------------------------------------*/
@@ -1286,7 +1285,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void backPartyUp(int maxKeys)
 	{
-		// clone the last few keypresses
+		// todo
+/*		// clone the last few keypresses
 		List<Integer> keys = new ArrayList<Integer>(mazeActionListener.keyCodeHistory);
 
 		if (keys.size() == 0)
@@ -1332,7 +1332,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 		}
 
-		showMovementScreen();
+		showMovementScreen();*/
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1873,6 +1873,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * This is the thread responsible for processing all UI events.
+	 *
+	 * It exists to disentangle the rendering and game logic from the AWT theads
+	 * that are delivering system mouse and key events.
+	 */
 	static class EventProcessor extends Thread
 	{
 		private final BlockingQueue<InputEvent> queue;

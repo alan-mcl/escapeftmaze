@@ -219,14 +219,14 @@ public abstract class Widget
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		if (!this.enabled)
 		{
-			return false;
+			return;
 		}
 		
-		return this.notifyListeners(e);
+		this.notifyListeners(e);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -279,19 +279,13 @@ public abstract class Widget
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public boolean notifyListeners(InputEvent e)
+	public void notifyListeners(InputEvent e)
 	{
 		ActionEvent event = new ActionEvent(this, this.actionPayload, this.actionMessage, e);
-		boolean consumed = DIYToolkit.getInstance().notifyGlobalListeners(event);
 
-		if (!consumed)
+		for (ActionListener l : this.listeners)
 		{
-			for (ActionListener l : this.listeners)
-			{
-				consumed |= l.actionPerformed(event);
-			}
+			l.actionPerformed(event);
 		}
-
-		return consumed;
 	}
 }

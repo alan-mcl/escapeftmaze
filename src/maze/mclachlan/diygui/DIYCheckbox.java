@@ -82,14 +82,14 @@ public class DIYCheckbox extends Widget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		if (!isEnabled())
 		{
-			return false;
+			return;
 		}
 		this.selected = !this.selected;
 
-		return super.processMouseClicked(e);
+		super.processMouseClicked(e);
 	}
 }

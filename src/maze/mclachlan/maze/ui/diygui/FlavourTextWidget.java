@@ -31,7 +31,7 @@ import mclachlan.diygui.toolkit.Widget;
  */
 public class FlavourTextWidget extends DIYPane
 {
-	private DIYTextArea textArea;
+	private final DIYTextArea textArea;
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextWidget(Rectangle bounds)
@@ -57,13 +57,12 @@ public class FlavourTextWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		// todo: display more text if required
 		synchronized(Maze.getInstance().getEventMutex())
 		{
 			Maze.getInstance().getEventMutex().notifyAll();
-			return true;
 		}
 	}
 }

@@ -68,10 +68,9 @@ public class BlockingScreen extends DIYPanel implements ActionListener
 	}
 
 	@Override
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		clear();
-		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/

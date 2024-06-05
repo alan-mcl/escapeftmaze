@@ -24,5 +24,5 @@ package mclachlan.maze.ui.diygui;
  */
 public interface ConfirmCallback
 {
-	public void confirm();
+	void confirm();
 }

@@ -25,10 +25,9 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
-import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
-import mclachlan.maze.ui.diygui.animation.AnimationContext;
-import mclachlan.maze.ui.diygui.animation.SpeechBubbleAnimation;
+import mclachlan.maze.ui.diygui.animation.SpeechBubble;
+import mclachlan.maze.ui.diygui.animation.SpeechBubbleDialog;
 import mclachlan.maze.util.MazeException;
 
 
@@ -59,32 +58,23 @@ public class NpcSpeechEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		String s = text;
-
 		Rectangle origination = Maze.getInstance().getUi().getObjectBounds(npc.getSprite());
 
-		SpeechBubbleAnimation.Orientation orientation;
-		switch (npc.getSprite().getVerticalAlignment())
-		{
-			case TOP:
-				orientation = SpeechBubbleAnimation.Orientation.BELOW;
-				break;
-			case CENTER:
-			case BOTTOM:
-				orientation = SpeechBubbleAnimation.Orientation.ABOVE;
-				break;
-			default:
-				throw new MazeException("Invalid vertical alignment: "+npc.getSprite().getVerticalAlignment());
-		}
+		SpeechBubble.Orientation orientation = switch (npc.getSprite().getVerticalAlignment())
+			{
+				case TOP -> SpeechBubble.Orientation.BELOW;
+				case CENTER, BOTTOM -> SpeechBubble.Orientation.ABOVE;
+				default ->
+					throw new MazeException("Invalid vertical alignment: " + npc.getSprite().getVerticalAlignment());
+			};
 
-		Animation a = new SpeechBubbleAnimation(
+		SpeechBubbleDialog dialog = new SpeechBubbleDialog(
 			Constants.Colour.STEALTH_GREEN, //todo: NPC speech colour
-			s,
+			text,
 			origination,
-			orientation,
-			SpeechBubbleAnimation.WAIT_FOR_CLICK);
+			orientation);
 
-		Maze.getInstance().startAnimation(a, this, new AnimationContext(null));
+		Maze.getInstance().getUi().showDialog(dialog);
 
 		Maze.getInstance().journalInContext(
 			StringUtil.getUiLabel("j.npc.speech",

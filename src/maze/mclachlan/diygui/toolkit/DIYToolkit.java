@@ -72,8 +72,9 @@ public class DIYToolkit
 	/** The AWT frame */
 	private final Component comp;
 	
-	/** the main content pane */
-	private ContainerWidget contentPane;
+	/** The main content pane. Everything else is added to this. */
+	private final ContainerWidget contentPane;
+
 	/** and overlay pane, typically used for modal dialogs */
 	private ContainerWidget overlayPane;
 	/** The widget currently under the mouse */
@@ -88,9 +89,6 @@ public class DIYToolkit
 	private final Stack<ContainerWidget> dialogs = new Stack<>();
 	/** mutex protecting the modal dialog stack */
 	private final Object dialogMutex = new Object();
-
-	/** any global event listeners */
-	private final java.util.List<ActionListener> globalListeners = new ArrayList<>();
 
 	/**
 	 * True if this DIYToolkit must use an internal queue for event processing.
@@ -142,7 +140,7 @@ public class DIYToolkit
 		Queue<InputEvent> queue, 
 		String rendererFactoryImpl)
 	{
-		this.instance = this;
+		instance = this;
 
 		this.comp = comp;
 
@@ -183,7 +181,7 @@ public class DIYToolkit
 		{
 			try
 			{
-				Class clazz = Class.forName(impl);
+				Class<?> clazz = Class.forName(impl);
 				this.rendererFactory = (RendererFactory)clazz.newInstance();
 			}
 			catch (Exception e)
@@ -211,12 +209,6 @@ public class DIYToolkit
 	public int getQueueLength()
 	{
 		return this.queue.size();
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public void setContentPane(ContainerWidget cw)
-	{
-		this.contentPane = cw;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -354,6 +346,12 @@ public class DIYToolkit
 	public Component getComponent()
 	{
 		return comp;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Graphics2D getGraphics()
+	{
+		return (Graphics2D)comp.getGraphics();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -566,29 +564,6 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	/**
-	 * Add a global action listener: one that will be notified for all events
-	 * in the gui.
-	 */ 
-	public void addGlobalListener(ActionListener l)
-	{
-		this.globalListeners.add(l);
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	boolean notifyGlobalListeners(ActionEvent e)
-	{
-		boolean consumed = false;
-
-		for (ActionListener l : this.globalListeners)
-		{
-			consumed |= l.actionPerformed(e);
-		}
-
-		return consumed;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void processEvent(Object e)
 	{
 		if (e instanceof KeyEvent)
@@ -691,8 +666,6 @@ public class DIYToolkit
 	{
 		if (e.getButton() != MouseEvent.NOBUTTON)
 		{
-			boolean consumed = false;
-
 			hoverWidget = getHoverComponent(e.getPoint());
 			if (hoverWidget != null)
 			{
@@ -704,7 +677,7 @@ public class DIYToolkit
 					focusWidget.setFocus(true);
 				}
 
-				consumed |= hoverWidget.processMouseClicked(e);
+				hoverWidget.processMouseClicked(e);
 			}
 			else if (getDialog() != null)
 			{
@@ -713,7 +686,7 @@ public class DIYToolkit
 				// anyway.
 				Widget child = contentPane.getChild(e.getX(), e.getY());
 				e.setSource(child);
-				consumed |= getDialog().processMouseClicked(e);
+				getDialog().processMouseClicked(e);
 			}
 			else
 			{
@@ -727,10 +700,10 @@ public class DIYToolkit
 			
 			// if not consumed, notify the content pane.  this is a hack to allows
 			// applications to write a global mouse click handler
-			if (!consumed)
-			{
-				this.contentPane.processMouseClicked(e);
-			}
+//			if (!consumed)
+//			{
+//				this.contentPane.processMouseClicked(e);
+//			}
 		}
 	}
 
@@ -775,6 +748,7 @@ public class DIYToolkit
 	/*----------------------------------------------------------------------*/
 	public void mouseDragged(MouseEvent e)
 	{
+		// not yet supported
 	}
 
 	/*----------------------------------------------------------------------*/

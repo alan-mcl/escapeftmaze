@@ -20,81 +20,32 @@
 package mclachlan.maze.ui.diygui.animation;
 
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.MouseEvent;
-import java.awt.geom.RoundRectangle2D;
-import java.util.List;
-import java.util.*;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
 
 /**
- *
+ * Animation of a speech bubble - it is non modal and vanishes after a time.
  */
 public class SpeechBubbleAnimation extends Animation
 {
-	private static final List<SpeechBubbleAnimation> bubbles = new ArrayList<>();
+	private final SpeechBubble speechBubble;
 
-	private final String text;
-	private Rectangle origination;
-
-	private final Color colour;
 	// instance parameters
+	private final int duration;
 	private final long startTime = System.currentTimeMillis();
-	private PlayerCharacter pc;
-	private Orientation orientation;
-	private int duration;
-	private int bHeight, bWidth;
-	private int bX, bY;
-	private Color col1;
-	private Color col2;
-	private static final int INSET = 40;
-	private static final int PADDING = 5;
-	private static final int POLY_INTRUSION = 30;
-	private static final int POLY_FATNESS = 5;
-	private RoundRectangle2D rect;
-	private Polygon poly;
-	private int textHeight, textWidth;
-
-	private Rectangle bounds;
-	private int index;
-	private ArrayList<String> strings;
-
-	public static final int WAIT_FOR_CLICK = -1;
-
-	private final boolean debug = false;
-
-	/*-------------------------------------------------------------------------*/
-
-	/**
-	 * Orientation of the speech bubble relative to it's origination bounds
-	 */
-	public enum Orientation
-	{
-		LEFT, RIGHT, ABOVE, BELOW, ABOVE_LEFT, ABOVE_RIGHT, BELOW_LEFT, BELOW_RIGHT, CENTERED
-	}
 
 	/*-------------------------------------------------------------------------*/
 	public SpeechBubbleAnimation(
 		Color colour,
 		String text,
 		Rectangle origination,
-		Orientation orientation,
+		SpeechBubble.Orientation orientation,
 		int duration)
 	{
-		this.colour = colour;
-		this.text = text;
-		this.origination = origination;
+		this.speechBubble = new SpeechBubble(colour, text, origination, orientation);
 		this.duration = duration;
-		this.orientation = orientation;
-
-		synchronized (bubbles)
-		{
-			bubbles.add(this);
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -103,334 +54,32 @@ public class SpeechBubbleAnimation extends Animation
 	{
 		long diff = System.currentTimeMillis() - startTime;
 
-		if (duration != WAIT_FOR_CLICK && diff > duration)
+		if (diff > duration)
 		{
-			synchronized (bubbles)
-			{
-				bubbles.remove(this);
-			}
+			SpeechBubble.remove(this.speechBubble);
 			return;
 		}
 
-		g.setPaint(new GradientPaint(bX, bY, col1, bX, bY + bHeight, col2, true));
-		if (poly != null)
-		{
-			g.fill(poly);
-		}
-		g.fill(rect);
-
-		if (duration == WAIT_FOR_CLICK)
-		{
-			g.setPaint(colour);
-//			if (poly != null)
-//			{
-//				g.draw(poly);
-//			}
-			g.draw(rect);
-		}
-
-		// debug
-		if (debug)
-		{
-			g.drawRect(origination.x, origination.y, origination.width, origination.height);
-		}
-
-		g.setColor(Color.DARK_GRAY);
-		int line = 1;
-		for (String s : strings)
-		{
-			g.drawString(s, bX + PADDING, bY + PADDING + line * textHeight);
-			line++;
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void computeBounds(Graphics2D g)
-	{
-		FontMetrics fm = g.getFontMetrics();
-
-		int maxWidth;
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
-		{
-			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH / 3;
-		}
-		else
-		{
-			maxWidth = DiyGuiUserInterface.SCREEN_WIDTH / 4;
-		}
-		textWidth = Math.min(fm.stringWidth(text), maxWidth);
-
-		strings = new ArrayList<>();
-		String[] paragraphs = text.split("\\n");
-
-		for (int i = 0; i < paragraphs.length; i++)
-		{
-			String paragraph = paragraphs[i];
-			strings.addAll(DIYToolkit.wrapText(
-				paragraph, Maze.getInstance().getComponent().getGraphics(), maxWidth));
-		}
-
-		textHeight = fm.getAscent();
-
-		bHeight = textHeight * strings.size() + PADDING * 2;
-		bWidth = textWidth + PADDING * 3;
-		switch (orientation)
-		{
-			case RIGHT:
-				bX = origination.x + origination.width + INSET;
-				bY = origination.y + origination.height / 2 - bHeight / 2;
-				break;
-			case LEFT:
-				bX = origination.x - INSET - bWidth;
-				bY = origination.y + origination.height / 2 - bHeight / 2;
-				break;
-			case ABOVE:
-				bX = origination.x + origination.width / 2 - bWidth / 2;
-				bY = origination.y - INSET - bHeight;
-				break;
-			case BELOW:
-				bX = origination.x + origination.width / 2 - bWidth / 2;
-				bY = origination.y + origination.height + INSET;
-				break;
-			case ABOVE_LEFT:
-				bX = origination.x - INSET/2 - bWidth;
-				bY = origination.y - INSET/2 - bHeight;
-				break;
-			case ABOVE_RIGHT:
-				bX = origination.x + origination.width + INSET/2;
-				bY = origination.y - INSET/2 - bHeight;
-				break;
-			case BELOW_LEFT:
-				bX = origination.x - INSET/2 - bWidth;
-				bY = origination.y + origination.height + INSET/2;
-				break;
-			case BELOW_RIGHT:
-				bX = origination.x + origination.width + INSET/2;
-				bY = origination.y + origination.height + INSET/2;
-				break;
-			case CENTERED:
-				bX = origination.x + origination.width / 2 - bWidth / 2;
-				bY = origination.y + origination.height / 2 - bHeight / 2;
-				break;
-		}
-
-
-		bounds = new Rectangle(bX, bY, bWidth, bHeight);
-
-		//
-		// check and see if these bounds overlap an existing speech bubble
-		//
-		synchronized (bubbles)
-		{
-			int moves = 0;
-
-			ListIterator<SpeechBubbleAnimation> li = bubbles.listIterator();
-			while (li.hasNext())
-			{
-				if (moves > 2)
-				{
-					// prevent infinite looping
-					break;
-				}
-
-				SpeechBubbleAnimation a = li.next();
-
-				if (a == this)
-				{
-					continue;
-				}
-
-				if (a.pc == this.pc)
-				{
-					// same origin. kill the other one.
-					a.duration = 0;
-					li.remove();
-					break;
-				}
-
-				if (a != this && this.pc != a.pc && this.index != a.index &&
-					a.bounds != null &&
-					this.bounds.intersects(a.bounds))
-				{
-					if (this.index < a.index)
-					{
-						// place this bubble above the other one
-						this.bY = a.bY - this.bHeight - PADDING;
-					}
-					else
-					{
-						// place this bubble below the other one
-						this.bY = a.bY + a.bHeight + PADDING;
-					}
-
-					// reset to the start again
-					li = bubbles.listIterator();
-					moves++;
-				}
-			}
-		}
-
-		col1 = colour.brighter();
-		col2 = colour.darker();
-
-		rect = new RoundRectangle2D.Double(bX, bY, bWidth, bHeight, 10, 10);
-
-		switch (orientation)
-		{
-			case LEFT:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x + POLY_INTRUSION,
-							bX + bWidth,
-							bX + bWidth,
-						},
-					new int[]
-						{
-							origination.y + origination.height / 2,
-							bY + bHeight / 2 - POLY_FATNESS,
-							bY + bHeight / 2 + POLY_FATNESS,
-						},
-					3);
-				break;
-			case RIGHT:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x + origination.width - POLY_INTRUSION,
-							bX,
-							bX,
-						},
-					new int[]
-						{
-							origination.y + origination.height / 2,
-							bY + bHeight / 2 - POLY_FATNESS,
-							bY + bHeight / 2 + POLY_FATNESS,
-						},
-					3);
-				break;
-			case ABOVE:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x + origination.width / 2,
-							bX + bWidth/2 - POLY_FATNESS,
-							bX + bWidth/2 + POLY_FATNESS,
-						},
-					new int[]
-						{
-							origination.y + POLY_INTRUSION,
-							bY + bHeight,
-							bY + bHeight,
-						},
-					3);
-				break;
-			case BELOW:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x + origination.width / 2,
-							bX + bWidth/2 - POLY_FATNESS,
-							bX + bWidth/2 + POLY_FATNESS,
-						},
-					new int[]
-						{
-							origination.y + origination.height - POLY_INTRUSION,
-							bY,
-							bY,
-						},
-					3);
-				break;
-			case ABOVE_LEFT:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x + POLY_INTRUSION,
-							bX + bWidth,
-							bX + bWidth - POLY_FATNESS,
-						},
-					new int[]
-						{
-							origination.y + POLY_INTRUSION,
-							bY + bHeight - POLY_FATNESS /2,
-							bY + bHeight,
-						},
-					3);
-				break;
-			case ABOVE_RIGHT:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x +origination.width - POLY_INTRUSION,
-							bX,
-							bX + POLY_FATNESS,
-						},
-					new int[]
-						{
-							origination.y + POLY_INTRUSION,
-							bY + bHeight - POLY_FATNESS /2,
-							bY + bHeight,
-						},
-					3);
-				break;
-			case BELOW_LEFT:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x + POLY_INTRUSION,
-							bX + bWidth - POLY_FATNESS,
-							bX + bWidth,
-						},
-					new int[]
-						{
-							origination.y + origination.height - POLY_INTRUSION,
-							bY,
-							bY + POLY_FATNESS,
-						},
-					3);
-				break;
-			case BELOW_RIGHT:
-				poly = new Polygon(
-					new int[]
-						{
-							origination.x +origination.width - POLY_INTRUSION,
-							bX + POLY_FATNESS,
-							bX,
-						},
-					new int[]
-						{
-							origination.y + origination.height - POLY_INTRUSION,
-							bY,
-							bY + POLY_FATNESS,
-						},
-					3);
-				break;
-
-
-			case CENTERED:
-			default:
-				// no prong
-				break;
-		}
+		this.speechBubble.draw(g, false);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public Animation spawn(AnimationContext context)
 	{
-		SpeechBubbleAnimation result = new SpeechBubbleAnimation(
-			colour, text, origination, orientation, duration);
+		Rectangle origination = this.speechBubble.getOrigination();
+		SpeechBubble.Orientation orientation = this.speechBubble.getOrientation();
 
-		if (this.origination == null)
+		if (this.speechBubble.getOrigination() == null)
 		{
 			// originate from the whole screen
-			result.origination = new Rectangle(
+			origination = new Rectangle(
 				DiyGuiUserInterface.SCREEN_WIDTH / 2 - 50,
 				DiyGuiUserInterface.SCREEN_HEIGHT / 2 - 50,
 				100, 100);
 		}
 
-		if (this.orientation == null)
+		if (this.speechBubble.getOrientation() == null)
 		{
 			// guess the orientation
 			int leftLimit = DiyGuiUserInterface.SCREEN_WIDTH / 3 * 2;
@@ -442,56 +91,64 @@ public class SpeechBubbleAnimation extends Animation
 			{
 				if (origination.y > aboveLimit)
 				{
-					result.orientation = Orientation.ABOVE_LEFT;
+					orientation = SpeechBubble.Orientation.ABOVE_LEFT;
 				}
 				else if (origination.y < belowLimit)
 				{
-					result.orientation = Orientation.BELOW_LEFT;
+					orientation = SpeechBubble.Orientation.BELOW_LEFT;
 				}
 				else
 				{
-					result.orientation = Orientation.LEFT;
+					orientation = SpeechBubble.Orientation.LEFT;
 				}
 			}
 			else if (origination.x < rightLimit)
 			{
 				if (origination.y > aboveLimit)
 				{
-					result.orientation = Orientation.ABOVE_RIGHT;
+					orientation = SpeechBubble.Orientation.ABOVE_RIGHT;
 				}
 				else if (origination.y < belowLimit)
 				{
-					result.orientation = Orientation.BELOW_RIGHT;
+					orientation = SpeechBubble.Orientation.BELOW_RIGHT;
 				}
 				else
 				{
-					result.orientation = Orientation.RIGHT;
+					orientation = SpeechBubble.Orientation.RIGHT;
 				}
 			}
 			else
 			{
 				if (origination.y > aboveLimit)
 				{
-					result.orientation = Orientation.ABOVE;
+					orientation = SpeechBubble.Orientation.ABOVE;
 				}
 				else if (origination.y < belowLimit)
 				{
-					result.orientation = Orientation.BELOW;
+					orientation = SpeechBubble.Orientation.BELOW;
 				}
 				else
 				{
-					result.orientation = Orientation.CENTERED;
+					orientation = SpeechBubble.Orientation.CENTERED;
 				}
 			}
 		}
 
-		result.pc = (PlayerCharacter)context.getCaster();
+		SpeechBubbleAnimation result = new SpeechBubbleAnimation(
+			this.speechBubble.getColour(),
+			this.speechBubble.getText(),
+			origination,
+			orientation,
+			duration);
+
+		PlayerCharacter pc = (PlayerCharacter)context.getCaster();
+		int index = -1;
 		if (Maze.getInstance().getParty() != null)
 		{
-			result.index = Maze.getInstance().getParty().getPlayerCharacterIndex(result.pc);
+			index = Maze.getInstance().getParty().getPlayerCharacterIndex(pc);
 		}
 
-		result.computeBounds((Graphics2D)getUi().getGraphics());
+		result.speechBubble.computeBounds((Graphics2D)getUi().getGraphics(), pc, index);
 
 		return result;
 	}
@@ -502,53 +159,13 @@ public class SpeechBubbleAnimation extends Animation
 	{
 		long diff = System.currentTimeMillis() - startTime;
 
-		return duration != WAIT_FOR_CLICK && diff > duration;
+		return diff > duration;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public Color getColour()
 	{
-		return colour;
+		return this.speechBubble.getColour();
 	}
 
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public boolean processMouseEvent(MouseEvent event)
-	{
-		if (duration == WAIT_FOR_CLICK)
-		{
-			if (event.getID() == MouseEvent.MOUSE_CLICKED)
-			{
-				duration = 0;
-			}
-
-			// we want the modal speech bubble to consume any other mouse events
-			return true;
-		}
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public boolean processKeyEvent(KeyEvent event)
-	{
-		int keyCode = event.getKeyCode();
-		if (duration == WAIT_FOR_CLICK)
-		{
-			if (event.getID() == KeyEvent.KEY_PRESSED && (keyCode == KeyEvent.VK_ESCAPE || keyCode == KeyEvent.VK_ENTER || keyCode == KeyEvent.VK_SPACE))
-			{
-				duration = 0;
-
-				synchronized (Maze.getInstance().getEventMutex())
-				{
-					Maze.getInstance().getEventMutex().notifyAll();
-				}
-			}
-
-			// we want the modal speech bubble to prevent any other actions even if
-			// the key pressed doesn't clear it
-			return true;
-		}
-		return false;
-	}
 }

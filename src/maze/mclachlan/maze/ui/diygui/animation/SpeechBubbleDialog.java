@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2011 Alan McLachlan
+ * Copyright (c) 2012 Alan McLachlan
  *
  * This file is part of Escape From The Maze.
  *
@@ -17,51 +17,64 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.ui.diygui;
+package mclachlan.maze.ui.diygui.animation;
 
+import java.awt.Color;
+import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.game.Maze;
 
 /**
- * A status bar of a group of foes.
+ * Modal speech bubbles implemented as a DIY UI Dialog
  */
-public class FoeGroupWidget extends ContainerWidget
+public class SpeechBubbleDialog extends DIYPane
 {
-	private FoeGroup group;
-	private Rectangle bounds;
+	private final SpeechBubble speechBubble;
 
 	/*-------------------------------------------------------------------------*/
-	public FoeGroupWidget(FoeGroup group, Rectangle bounds)
+	public SpeechBubbleDialog(
+		Color colour,
+		String text,
+		Rectangle origination,
+		SpeechBubble.Orientation orientation)
 	{
-		super(bounds);
-		this.group = group;
-		this.bounds = bounds;
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	public void setFoeGroup(FoeGroup group)
-	{
-		this.group = group;
+		speechBubble = new SpeechBubble(colour, text, origination, orientation);
+
+		speechBubble.computeBounds(DIYToolkit.getInstance().getGraphics(), null, -1);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public FoeGroup getFoeGroup()
+	@Override
+	public void draw(Graphics2D g)
 	{
-		return group;
+		this.speechBubble.draw(g, true);
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void clear()
+	{
+		synchronized (Maze.getInstance().getEventMutex())
+		{
+			Maze.getInstance().getEventMutex().notifyAll();
+		}
+		Maze.getInstance().getUi().clearDialog();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
 	public void processMouseClicked(MouseEvent e)
 	{
-		parent.processMouseClicked(e);
+		clear();
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public String getWidgetName()
+	@Override
+	public void processKeyTyped(KeyEvent e)
 	{
-		return MazeRendererFactory.FOE_GROUP_WIDGET;
+		clear();
 	}
 }

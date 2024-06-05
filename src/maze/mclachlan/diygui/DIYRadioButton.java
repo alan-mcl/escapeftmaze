@@ -100,11 +100,11 @@ public class DIYRadioButton extends Widget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		if (!this.isEnabled())
 		{
-			return false;
+			return;
 		}
 		
 		if (!this.selected)
@@ -117,6 +117,6 @@ public class DIYRadioButton extends Widget
 			}
 		}
 
-		return super.processMouseClicked(e);
+		super.processMouseClicked(e);
 	}
 }

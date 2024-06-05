@@ -446,7 +446,7 @@ public class DIYComboBox<T> extends ContainerWidget
 		}
 
 		/*----------------------------------------------------------------------*/
-		public boolean processMouseClicked(MouseEvent e)
+		public void processMouseClicked(MouseEvent e)
 		{
 			if (isEnabled())
 			{
@@ -462,7 +462,7 @@ public class DIYComboBox<T> extends ContainerWidget
 			}
 
 			// dodgy hack to ensure that the parent ActionListeners see this
-			return DIYComboBox.this.processMouseClicked(e);
+			DIYComboBox.this.processMouseClicked(e);
 		}
 
 		/*-------------------------------------------------------------------------*/

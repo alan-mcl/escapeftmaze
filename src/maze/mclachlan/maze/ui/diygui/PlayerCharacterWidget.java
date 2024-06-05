@@ -202,20 +202,17 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		// this shit only works in movement mode
 		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 		{
 			handleMovementOptions(e);
-			return true;
 		}
 		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
 		{
-
+			// nope
 		}
-
-		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

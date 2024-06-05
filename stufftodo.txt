@@ -4,6 +4,7 @@ STUFFTODO
 
 GATEHOUSE DEMO
 --------------
+mclachlan.maze.ui.diygui.DiyGuiUserInterface.backPartyUp
 Disable NPC input during dialog
 'Search' button should turn up Bonebrood bones cache
 'Search' button progress bar / animation

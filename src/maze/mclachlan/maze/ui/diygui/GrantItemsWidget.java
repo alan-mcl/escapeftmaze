@@ -149,7 +149,7 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		if (e.getSource() instanceof PlayerCharacterWidget &&
 			DIYToolkit.getInstance().getCursorContents() != null)
@@ -162,11 +162,8 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 			if (pc.addInventoryItem(item))
 			{
 				DIYToolkit.getInstance().clearCursor();
-				return true;
 			}
 		}
-
-		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

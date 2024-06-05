@@ -27,7 +27,6 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.SpeechUtil;
-import mclachlan.maze.ui.diygui.animation.SpeechBubbleAnimation;
 
 /**
  *
@@ -153,7 +152,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 		int duration;
 		if (modal)
 		{
-			duration = SpeechBubbleAnimation.WAIT_FOR_CLICK;
+			duration = Delay.WAIT_ON_CLICK;
 		}
 		else
 		{

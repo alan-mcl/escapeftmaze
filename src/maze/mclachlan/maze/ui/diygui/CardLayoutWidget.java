@@ -140,9 +140,9 @@ public class CardLayoutWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
-		return this.currentWidget.processMouseClicked(e);
+		this.currentWidget.processMouseClicked(e);
 	}
 
 	public void processMouseEntered(MouseEvent e)

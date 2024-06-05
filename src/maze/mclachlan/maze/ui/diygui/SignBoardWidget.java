@@ -92,10 +92,9 @@ public class SignBoardWidget extends DIYPanel
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public boolean processMouseClicked(MouseEvent e)
+	public void processMouseClicked(MouseEvent e)
 	{
 		clearSignboard();
-		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/

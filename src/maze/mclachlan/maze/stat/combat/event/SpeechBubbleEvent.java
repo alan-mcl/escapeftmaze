@@ -25,9 +25,12 @@ import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.PlayerParty;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.ui.diygui.animation.SpeechBubble;
 import mclachlan.maze.ui.diygui.animation.SpeechBubbleAnimation;
+import mclachlan.maze.ui.diygui.animation.SpeechBubbleDialog;
 
 /**
  *
@@ -79,23 +82,43 @@ public class SpeechBubbleEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		SpeechBubbleAnimation.Orientation orientation = switch (Maze.getInstance().getParty().getPlayerCharacterIndex(playerCharacter))
-			{
-				case 0,2 -> SpeechBubbleAnimation.Orientation.RIGHT;
-				case 1,3 -> SpeechBubbleAnimation.Orientation.LEFT;
-				case 4 -> SpeechBubbleAnimation.Orientation.ABOVE_RIGHT;
-				case 5 -> SpeechBubbleAnimation.Orientation.ABOVE_LEFT;
-				default -> null;
-			};
-
-		Animation a = new SpeechBubbleAnimation(colour, speech, origination, orientation, duration);
-		Object eventMutex = null;
-		if (duration == Delay.WAIT_ON_CLICK)
+		PlayerParty party = Maze.getInstance().getParty();
+		SpeechBubble.Orientation orientation;
+		if (party != null)
 		{
-			eventMutex = Maze.getInstance().getEventMutex();
+			orientation = switch (party.getPlayerCharacterIndex(playerCharacter))
+				{
+					case 0,2 -> SpeechBubble.Orientation.RIGHT;
+					case 1,3 -> SpeechBubble.Orientation.LEFT;
+					case 4 -> SpeechBubble.Orientation.ABOVE_RIGHT;
+					case 5 -> SpeechBubble.Orientation.ABOVE_LEFT;
+					default -> null;
+				};
+		}
+		else
+		{
+			orientation = null;
 		}
 
-		Maze.getInstance().startAnimation(a, eventMutex, new AnimationContext(playerCharacter));
+
+		if (duration == Delay.WAIT_ON_CLICK)
+		{
+			SpeechBubbleDialog dialog = new SpeechBubbleDialog(
+				colour,
+				speech,
+				origination,
+				orientation);
+
+			Maze.getInstance().getUi().showDialog(dialog);
+		}
+		else
+		{
+			Animation a = new SpeechBubbleAnimation(colour, speech, origination, orientation, duration);
+
+			Maze.getInstance().startAnimation(a, null, new AnimationContext(playerCharacter));
+		}
+
+
 
 		return null;
 	}
