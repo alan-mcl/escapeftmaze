@@ -74,20 +74,7 @@ class MazeActionListener implements ActionListener
 
 		if (!eventConsumed)
 		{
-			if (message.equals(Constants.Messages.BACK_TO_GAME))
-			{
-				Maze.getInstance().setState(Maze.State.MOVEMENT);
-				return true;
-			}
-			else if (message.equals(Constants.Messages.DISPOSE_DIALOG))
-			{
-				DiyGuiUserInterface.gui.clearDialog();
-				return true;
-			}
-			else
-			{
-				Maze.logDebug("UI MSG: "+message);
-			}
+			Maze.logDebug("UI MSG: "+message);
 		}
 
 		return eventConsumed;

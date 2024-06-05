@@ -38,7 +38,7 @@ import mclachlan.maze.stat.magic.SpellEffect;
 public class SpellDetailsDialog extends GeneralDialog
 {
 	private int wrapWidth;
-	
+
 	/*-------------------------------------------------------------------------*/
 	public SpellDetailsDialog(Rectangle bounds, Spell spell, PlayerCharacter pc)
 	{
@@ -48,18 +48,21 @@ public class SpellDetailsDialog extends GeneralDialog
 		int okButtonWidth = bounds.width / 4;
 		int inset = 2;
 		int border = 15;
-		
+
 		DIYButton ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		ok.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 - okButtonWidth /2,
-			bounds.y+ bounds.height - okButtonHeight - inset - border,
+			bounds.x + bounds.width / 2 - okButtonWidth / 2,
+			bounds.y + bounds.height - okButtonHeight - inset - border,
 			okButtonWidth, okButtonHeight));
-		
-		ok.setActionMessage(Constants.Messages.DISPOSE_DIALOG);
-		
+
+		ok.addActionListener(event -> {
+			DIYToolkit.getInstance().clearDialog();
+			return true;
+		});
+
 		ManaDisplayWidget manaRequired = new ManaDisplayWidget();
 		manaRequired.refresh(spell.getRequirementsToCast());
-		
+
 		ManaDisplayWidget manaAvailable = new ManaDisplayWidget();
 		if (pc != null)
 		{
@@ -85,12 +88,12 @@ public class SpellDetailsDialog extends GeneralDialog
 		// rows of item details
 		List<Widget> rows = new ArrayList<Widget>();
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(spell.getDisplayName(), Color.WHITE));
 		newRow(rows);
-		
+
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.spell.level", spell.getLevel())));
 		newRow(rows);
 
@@ -128,19 +131,19 @@ public class SpellDetailsDialog extends GeneralDialog
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.usability.type",
 			StringUtil.descSpellUsabilityType(spell.getUsabilityType()))));
 		newRow(rows);
-		
+
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.book", spell.getBook().getName())));
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.school", spell.getSchool())));
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.primary.modifier",
 			StringUtil.getModifierName(spell.getPrimaryModifier()))));
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.secondary.modifier",
 			StringUtil.getModifierName(spell.getSecondaryModifier()))));
 		newRow(rows);
@@ -154,15 +157,15 @@ public class SpellDetailsDialog extends GeneralDialog
 		}
 
 		newRow(rows);
-		
+
 		addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.mana.required")));
 		addToRow(rows, manaRequired);
 		newRow(rows);
-		
+
 		if (pc != null)
 		{
 			newRow(rows);
-			
+
 			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.mana.available")));
 			addToRow(rows, manaAvailable);
 			newRow(rows);
@@ -172,10 +175,10 @@ public class SpellDetailsDialog extends GeneralDialog
 		// Layout the rows on the pane
 		//
 
-		DIYPane pane = new DIYPane(xx, yy, width1, rows.size()*rowHeight);
+		DIYPane pane = new DIYPane(xx, yy, width1, rows.size() * rowHeight);
 		pane.setLayoutManager(new DIYGridLayout(1, rows.size(), 0, 0));
 
-		for (int i=0; i<rows.size(); i++)
+		for (int i = 0; i < rows.size(); i++)
 		{
 			pane.add(rows.get(i));
 		}
@@ -185,13 +188,13 @@ public class SpellDetailsDialog extends GeneralDialog
 		pane.doLayout();
 
 		DIYTextArea desc = new DIYTextArea(spell.getDescription());
-		desc.setBounds(xx, yy+(rows.size()*rowHeight), width1, height1/5);
+		desc.setBounds(xx, yy + (rows.size() * rowHeight), width1, height1 / 5);
 		desc.setTransparent(true);
-		
+
 		this.add(pane);
 		this.add(desc);
-		this.add(ok);	
-		
+		this.add(ok);
+
 		setBackground();
 	}
 
@@ -242,7 +245,7 @@ public class SpellDetailsDialog extends GeneralDialog
 	{
 		return new DIYLabel(s, DIYToolkit.Align.LEFT);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private DIYLabel getLabel(String s, Color c)
 	{
@@ -256,7 +259,7 @@ public class SpellDetailsDialog extends GeneralDialog
 	{
 		return DIYToolkit.PANEL;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
@@ -282,7 +285,7 @@ public class SpellDetailsDialog extends GeneralDialog
 		{
 			if (se.getDisplayName() != null && se.getDisplayName().length() > 0)
 			{
-				result.add(item.getEffects().getPercentage(se)+"% "+se.getDisplayName());
+				result.add(item.getEffects().getPercentage(se) + "% " + se.getDisplayName());
 			}
 		}
 

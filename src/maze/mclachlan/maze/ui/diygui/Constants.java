@@ -52,7 +52,6 @@ public class Constants
 	public static class Messages
 	{
 		public static final String BACK_TO_GAME = "BackToGame";
-		public static final String DISPOSE_DIALOG = "DisposeDialog";
 	}
 
 	/*-------------------------------------------------------------------------*/

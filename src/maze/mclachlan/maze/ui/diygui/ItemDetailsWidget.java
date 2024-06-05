@@ -72,7 +72,10 @@ public class ItemDetailsWidget extends DIYPanel
 			bounds.y+ bounds.height - okButtonHeight - inset - border,
 			okButtonWidth, okButtonHeight));
 
-		ok.setActionMessage(Constants.Messages.DISPOSE_DIALOG);
+		ok.addActionListener(event -> {
+			DIYToolkit.getInstance().clearDialog();
+			return true;
+		});
 
 		// Item name
 		DIYLabel nameLabel = new DIYLabel(item.getDisplayName());

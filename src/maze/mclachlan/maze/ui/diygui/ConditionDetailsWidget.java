@@ -72,17 +72,20 @@ public class ConditionDetailsWidget extends DIYPanel
 
 		DIYButton ok = new DIYButton(getUiLabel("common.ok"));
 		ok.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 - okButtonWidth /2,
-			bounds.y+ bounds.height - okButtonHeight - inset - border,
+			bounds.x + bounds.width / 2 - okButtonWidth / 2,
+			bounds.y + bounds.height - okButtonHeight - inset - border,
 			okButtonWidth, okButtonHeight));
 
-		ok.setActionMessage(Constants.Messages.DISPOSE_DIALOG);
+		ok.addActionListener(event -> {
+			DIYToolkit.getInstance().clearDialog();
+			return true;
+		});
 
 		// Condition name
 		String displayName = condition.getDisplayName();
 		DIYLabel nameLabel = new DIYLabel(displayName);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+2);
+		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 2);
 		nameLabel.setFont(f);
 		addRelative(nameLabel, 46, 8, 540, 36);
 
@@ -103,7 +106,7 @@ public class ConditionDetailsWidget extends DIYPanel
 		addRow(rows, getLabel(
 			getUiLabel(
 				"cdw.strength",
-				condition.isStrengthIdentified()? condition.getStrength() : getUiLabel("cdw.unknown.strength"))));
+				condition.isStrengthIdentified() ? condition.getStrength() : getUiLabel("cdw.unknown.strength"))));
 
 		addRow(rows, getLabel(
 			getUiLabel(
@@ -119,10 +122,10 @@ public class ConditionDetailsWidget extends DIYPanel
 
 		newRow(rows);
 
-		DIYPane pane = new DIYPane(xx, yy, width1, rows.size()*rowHeight);
+		DIYPane pane = new DIYPane(xx, yy, width1, rows.size() * rowHeight);
 		pane.setLayoutManager(new DIYGridLayout(1, rows.size(), 0, 0));
 
-		for (int i=0; i<rows.size(); i++)
+		for (int i = 0; i < rows.size(); i++)
 		{
 			pane.add(rows.get(i));
 		}
@@ -206,7 +209,8 @@ public class ConditionDetailsWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean addModifiers(Map<Stats.Modifier, Integer> modifiers, List<Widget> rows,
+	private boolean addModifiers(Map<Stats.Modifier, Integer> modifiers,
+		List<Widget> rows,
 		String title)
 	{
 		if (modifiers.size() == 0)
@@ -218,7 +222,7 @@ public class ConditionDetailsWidget extends DIYPanel
 		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.keySet());
 		Collections.sort(sortedModifiers);
 
-		StringBuilder sb = new StringBuilder(title+" ");
+		StringBuilder sb = new StringBuilder(title + " ");
 		List<String> modDesc = new ArrayList<String>();
 
 		for (Stats.Modifier modifier : sortedModifiers)
@@ -276,10 +280,10 @@ public class ConditionDetailsWidget extends DIYPanel
 				}
 				else
 				{
-					return getUiLabel("iw.cancel")+" "+modifierName;
+					return getUiLabel("iw.cancel") + " " + modifierName;
 				}
 			case PERCENTAGE:
-				return modifierName + " " + descPlainModifier(value)+"%";
+				return modifierName + " " + descPlainModifier(value) + "%";
 			default:
 				throw new MazeException(metric.name());
 		}
@@ -290,11 +294,11 @@ public class ConditionDetailsWidget extends DIYPanel
 	{
 		if (value >= 0)
 		{
-			return "+"+value;
+			return "+" + value;
 		}
 		else
 		{
-			return ""+value;
+			return "" + value;
 		}
 	}
 

@@ -92,7 +92,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		titlePane.setBounds(x, y, width, 30);
 		title.setForegroundColour(Constants.Colour.GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+5);
+		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 5);
 		title.setFont(f);
 		titlePane.add(title);
 		this.add(titlePane);
@@ -105,7 +105,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		showClassChangeReq = new DIYButton("Show Class Change Requirements");
 		showClassChangeReq.addActionListener(this);
 
-		buttonPane = new DIYPane(new DIYFlowLayout(15,10,DIYToolkit.Align.RIGHT));
+		buttonPane = new DIYPane(new DIYFlowLayout(15, 10, DIYToolkit.Align.RIGHT));
 		buttonPane.setInsets(new Insets(0, 0, 0, 20));
 		buttonPane.setBounds(0, height - buttonPaneHeight, width, buttonPaneHeight);
 
@@ -132,7 +132,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	{
 		this.playerCharacter = pc;
 
-		title.setText("Level Up "+pc.getName());
+		title.setText("Level Up " + pc.getName());
 
 		levelUpState = new Leveler.LevelUpState(pc, 0);
 
@@ -346,7 +346,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	private DIYPane getSpellsPane()
 	{
 		int inset = 5;
-		int columnWidth = width/3 - 2*inset;
+		int columnWidth = width / 3 - 2 * inset;
 		int column1 = 5;
 
 		DIYPane spellsPane = new DIYPane();
@@ -355,7 +355,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		spellsTitle.setBounds(column1, 50, columnWidth, 20);
 
 		spellLearner = new SpellLearningWidget(null,
-					new Rectangle(column1, 75, columnWidth*3, height-buttonPaneHeight-75));
+			new Rectangle(column1, 75, columnWidth * 3, height - buttonPaneHeight - 75));
 
 		spellsPane.add(spellsTitle);
 		spellsPane.add(spellLearner);
@@ -368,13 +368,13 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	private DIYPane getModifiersPane()
 	{
 		int inset = 5;
-		int columnWidth = width/3 - 2*inset;
+		int columnWidth = width / 3 - 2 * inset;
 		int column1 = 5;
 
 		DIYPane modifiersPane = new DIYPane();
 
 		editModifiers = new ModifiersEditWidget(
-			column1, 75, columnWidth*3, height-buttonPaneHeight-75, this, false, leveler);
+			column1, 75, columnWidth * 3, height - buttonPaneHeight - 75, this, false, leveler);
 		modifiersPane.add(editModifiers);
 		modifiersPane.add(buttonPane);
 
@@ -385,18 +385,18 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	private DIYPane getBonusesPane()
 	{
 		int inset = 10;
-		int columnWidth = width/3 - 2*inset;
-		int column1 = width/6 - inset/2;
+		int columnWidth = width / 3 - 2 * inset;
+		int column1 = width / 6 - inset / 2;
 		int column2 = column1 + columnWidth + inset;
 
 		DIYPane bonusesPane = new DIYPane();
-		Rectangle bonusDetailsBounds = new Rectangle(column2, 75, columnWidth, height-buttonPaneHeight-75);
+		Rectangle bonusDetailsBounds = new Rectangle(column2, 75, columnWidth, height - buttonPaneHeight - 75);
 
 		DIYLabel bonusesTitle = getSubTitle("Choose a Bonus");
 		bonusesTitle.setBounds(column1, 50, columnWidth, 20);
 
 		bonuses = new DIYListBox(new ArrayList());
-		bonuses.setBounds(column1, 75, columnWidth, height-buttonPaneHeight-75);
+		bonuses.setBounds(column1, 75, columnWidth, height - buttonPaneHeight - 75);
 		bonuses.addActionListener(this);
 		bonusDetailsMap = new HashMap<String, ContainerWidget>();
 
@@ -454,7 +454,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		DIYLabel title = new DIYLabel(titleText);
 		title.setForegroundColour(GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize() + 3);
 		title.setFont(f);
 		return title;
 	}
@@ -484,7 +484,10 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		else if (state == CHOOSE_BONUS)
 		{
 			this.previous.setText("   Cancel   ");
-			previous.setActionMessage(Constants.Messages.BACK_TO_GAME);
+			previous.addActionListener(event -> {
+				Maze.getInstance().setState(Maze.State.MOVEMENT);
+				return true;
+			});
 		}
 		else
 		{
@@ -541,14 +544,18 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 					applySpells();
 				}
 				break;
-			default: throw new MazeException("Illegal state: "+state);
+			default:
+				throw new MazeException("Illegal state: " + state);
 		}
 
 		if (state == EDIT_MODIFIERS && !mustChooseSpells() ||
 			state == CHOOSE_SPELLS)
 		{
 			next.setText("Finish");
-			next.setActionMessage(Constants.Messages.BACK_TO_GAME);
+			next.addActionListener(event -> {
+				Maze.getInstance().setState(Maze.State.MOVEMENT);
+				return true;
+			});
 		}
 		else
 		{
@@ -584,7 +591,8 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 			}
 			case FINISHED:
 				return true;
-			default: throw new MazeException("Illegal state: "+state);
+			default:
+				throw new MazeException("Illegal state: " + state);
 		}
 	}
 
@@ -614,7 +622,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 			int x = 10;
 			int y = 10;
 			Rectangle rectangle = new Rectangle(x, y,
-				DiyGuiUserInterface.SCREEN_WIDTH-20, DiyGuiUserInterface.SCREEN_HEIGHT-20);
+				DiyGuiUserInterface.SCREEN_WIDTH - 20, DiyGuiUserInterface.SCREEN_HEIGHT - 20);
 
 			ContainerWidget c = new ClassChangeRequirementsWidget(playerCharacter);
 			Maze.getInstance().getUi().showDialog(new ContainerDialog(
