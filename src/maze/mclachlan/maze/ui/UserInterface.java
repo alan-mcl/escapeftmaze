@@ -178,7 +178,7 @@ public interface UserInterface
 	void foeLeaves(UnifiedActor foe);
 
 	/*-------------------------------------------------------------------------*/
-	void backPartyUp(int maxKeys);
+	void backPartyUp(int maxTiles);
 
 	/*-------------------------------------------------------------------------*/
 	void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations);

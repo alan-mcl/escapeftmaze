@@ -300,7 +300,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void backPartyUp(int maxKeys)
+	public void backPartyUp(int maxTiles)
 	{
 		
 	}

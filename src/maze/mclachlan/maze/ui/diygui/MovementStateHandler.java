@@ -251,8 +251,7 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 
 	public void showMap()
 	{
-		maze.getUi().showDialog(
-			new MapDisplayDialog());
+		maze.getUi().showDialog(new MapDisplayDialog());
 	}
 
 	/*-------------------------------------------------------------------------*/

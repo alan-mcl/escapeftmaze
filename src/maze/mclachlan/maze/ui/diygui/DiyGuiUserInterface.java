@@ -39,10 +39,7 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.ActorEncounter;
-import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.game.*;
 import mclachlan.maze.game.event.StopMusicEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
@@ -567,21 +564,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void showDialog(ContainerWidget dialog)
 	{
-//		stopAllAnimations();
 		DIYToolkit.getInstance().setDialog(dialog);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void clearDialog()
 	{
-//		stopAllAnimations();
 		DIYToolkit.getInstance().clearDialog();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void clearAllDialogs()
 	{
-//		stopAllAnimations();
 		DIYToolkit.getInstance().clearAllDialogs();
 	}
 
@@ -1273,8 +1267,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		if (foe instanceof Foe)
 		{
-//			this.raycaster.removeObject(((Foe)coward).getSprite());
-
 			EngineObject sprite = ((Foe)foe).getSprite();
 
 			sprite.removeAllScripts();
@@ -1283,56 +1275,30 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void backPartyUp(int maxKeys)
+	public void backPartyUp(int maxTiles)
 	{
-		// todo
-/*		// clone the last few keypresses
-		List<Integer> keys = new ArrayList<Integer>(mazeActionListener.keyCodeHistory);
+		List<Point> tilesVisited = Maze.getInstance().getPlayerTilesVisited().getTilesVisited(Maze.getInstance().getCurrentZone().getName());
 
-		if (keys.size() == 0)
+		for (int i=0; i<maxTiles; i++)
 		{
-			// simulate one step
-			keys.add(CrusaderEngine.KeyStroke.FORWARD);
-		}
+			int index = tilesVisited.size() -1 -i;
 
-		// simulate a 180
-		keys.add(0, CrusaderEngine.KeyStroke.TURN_LEFT);
-		keys.add(0, CrusaderEngine.KeyStroke.TURN_LEFT);
-
-		int count = 0;
-
-		// reverse the players recent movements
-		for (Integer key1 : keys)
-		{
-			Maze.getInstance().appendEvents(new MazeEvent()
+			if (index >= 0)
 			{
-				@Override
-				public List<MazeEvent> resolve()
+				Point tile = tilesVisited.get(index);
+				Maze.getInstance().setPlayerPos(tile, Maze.getInstance().getFacing());
+
+				try
 				{
-					// todo:
-					// this will simply prevent random encounters while the player
-					// is running away.  It would be more amusing to allow them and
-					// stop the flight when one happens.
-					mazeActionListener.handleKeyCode(getFleeKey(key1), false);
-					try
-					{
-						Thread.sleep(100);
-					}
-					catch (InterruptedException e)
-					{
-						throw new MazeException(e);
-					}
-					return null;
+					Thread.sleep(300);
 				}
-			});
+				catch (InterruptedException e)
+				{
+					throw new MazeException(e);
+				}
 
-			if (maxKeys > 0 && count++ >= maxKeys)
-			{
-				break;
 			}
 		}
-
-		showMovementScreen();*/
 	}
 
 	/*-------------------------------------------------------------------------*/

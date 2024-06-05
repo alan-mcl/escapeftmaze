@@ -28,7 +28,7 @@ import java.util.*;
 public class PlayerTilesVisited
 {
 	/**
-	 * Mao of tiles visited.<p>
+	 * Map of tiles visited.<p>
 	 * KEY: Zone name <br>
 	 * VALUE: List of Points representing tiles visited in that zone.
 	 */
@@ -37,7 +37,7 @@ public class PlayerTilesVisited
 	/*-------------------------------------------------------------------------*/
 	public PlayerTilesVisited()
 	{
-		tilesVisited = new HashMap<String, List<Point>>();
+		tilesVisited = new HashMap<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -53,7 +53,7 @@ public class PlayerTilesVisited
 
 		if (visited == null)
 		{
-			visited = new ArrayList<Point>();
+			visited = new ArrayList<>();
 			tilesVisited.put(zoneName, visited);
 		}
 
@@ -68,11 +68,11 @@ public class PlayerTilesVisited
 	{
 		if (tilesVisited.containsKey(zoneName))
 		{
-			return new ArrayList<Point>(tilesVisited.get(zoneName));
+			return new ArrayList<>(tilesVisited.get(zoneName));
 		}
 		else
 		{
-			return new ArrayList<Point>();
+			return new ArrayList<>();
 		}
 	}
 
@@ -88,7 +88,7 @@ public class PlayerTilesVisited
 	/*-------------------------------------------------------------------------*/
 	public List<String> getZoneNames()
 	{
-		return new ArrayList<String>(tilesVisited.keySet());
+		return new ArrayList<>(tilesVisited.keySet());
 	}
 
 	/*-------------------------------------------------------------------------*/
