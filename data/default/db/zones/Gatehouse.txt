@@ -200,7 +200,7 @@ playerOrigin: 14:30
 181: 0:3f800000000000000000,02020102020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 182: 0:3f800000000000000000,02010102010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 183: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-184: 1:10,,,false,1,gatehouse.bones.3,Gatehouse bones2 hidden stuff,,1:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+184: 1:4,gatehouse.execute.once.22,,false,-1,You find a pile of very ancient very dry bones.%nMaybe you should search them more carefully...:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 185: 1:4,gatehouse.execute.once.14,0001,true,-1,From behind the door you hear faint scraping and rustling noises.:3f800000000000000000,01020101010101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 186: 1:3,,,false,-1,gatehouse.feral.familiar.1,gatehouse.encounter.20,,NONE,,Gatehouse feral familiar encounter:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 187: 1:2,,,false,-1,5///false/-1/gatehouse.key.loot,0`0 - Fire Trap~33`0 - Magic Sparks~33`0 - Poison Darts~34,gatehouse.chest.4,CHEST_1_SIDE,CHEST_1_SIDE,CHEST_1_FRONT,CHEST_1_BACK,:3f800000000000000000,01010101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -379,7 +379,7 @@ playerOrigin: 14:30
 360: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 361: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 362: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-363: 1:10,,,true,1,gatehouse.hidden.stuff.pool,Gatehouse hidden pool contents,,1:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+363: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 364: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 365: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 366: 0:3f800000000000000000,02010101010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -886,7 +886,7 @@ playerOrigin: 14:30
 867: 0:3f800000000000000000,01010102020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 868: 0:3f800000000000000000,01010102020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 869: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-870: 1:10,,,false,-1,gatehouse.hiddenstuff.1,Gatehouse hidden stuff 1 contents,Gatehouse hidden stuff 1 pre,0:3f800000000000000000,02020201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+870: 1:7,,,false,-1,Gatehouse hidden stuff 1 pre:3f800000000000000000,02020201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 871: 0:3f800000000000000000,02020102010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 872: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 873: 0:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -910,7 +910,7 @@ playerOrigin: 14:30
 891: 0:3f800000000000000000,02020101010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 892: 0:3f800000000000000000,02020201010101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 893: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-894: 1:10,,,false,1,gatehouse.bones.2,Gatehouse bones2 hidden stuff,,0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+894: 1:4,gatehouse.execute.once.21,,false,-1,These bones feel brittle and dry to the touch. Maybe you should search them more carefully...:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 895: 0:3f800000000000000000,02010102020201:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 896: 0:3f800000000000000000,01010101010102:DUNGEON:Deserted:5:gatehouse.level.1:MEDIUM:AVERAGE
 897: 0:3f800000000000000000,02020102020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -2723,7 +2723,7 @@ playerOrigin: 14:30
 1: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:719:false::00001::BOTTOM
 2: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:813:false::00001::BOTTOM
 3: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:815:false::00001::BOTTOM
-4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:870:false::000001::BOTTOM
+4: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:870:false:7,gatehouse.execute.once.23,,false,0,Gatehouse hidden stuff 1 contents:000001::BOTTOM
 5: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:820:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:1::BOTTOM
 6: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:854:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:000000001::BOTTOM
 7: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:948:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
@@ -2744,7 +2744,7 @@ playerOrigin: 14:30
 22: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:286:false::0000011::BOTTOM
 23: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:116:false::100110011::BOTTOM
 24: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:36:true::1::BOTTOM
-25: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:4,,,false,-1,These bones feel brittle and dry to the touch. Maybe you should search them more carefully...:00001::BOTTOM
+25: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:894:false:7,gatehouse.execute.once.24,,false,0,Gatehouse bones2 hidden stuff:00001::BOTTOM
 26: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:844:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:001::BOTTOM
 27: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:846:true::::TOP
 28: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:811:false:4,,,false,-1,The fungus looks toxic. You decide to leave it alone.:101::BOTTOM
@@ -2794,7 +2794,7 @@ playerOrigin: 14:30
 72: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:247:false:4,,,false,-1,The barrel is empty.:1001001::BOTTOM
 73: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:279:false:4,,,false,-1,The barrel is empty.:10010001::BOTTOM
 74: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:280:false:4,,,false,-1,The barrel is empty.:000010101::BOTTOM
-75: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:184:false:4,,,false,-1,You find a pile of very ancient very dry bones.%nMaybe you should search them more carefully...:00001::BOTTOM
+75: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:184:false:7,gatehouse.execute.once.20,,false,0,Gatehouse bones2 hidden stuff:00001::BOTTOM
 76: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:145:true::::TOP
 77: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:300:false::::TOP
 78: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:292:false::::BOTTOM

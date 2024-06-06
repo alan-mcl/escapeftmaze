@@ -4,14 +4,15 @@ STUFFTODO
 
 GATEHOUSE DEMO
 --------------
-Disable NPC input during dialog
-'Search' button should turn up Bonebrood bones cache
-'Search' button progress bar / animation
 Movement mode log text doesn't scroll to latest
 ambush combat round: disable UI elements for the ambush rounds
 popup to make ambushes obvious
 Aello altar
 bloodsplats
+foe popup dialogs
+party death screen
+default to backstab
+portcullis state load game bug?
 
 BACKLOG
 ----------
@@ -60,7 +61,6 @@ code: guilds bury dead characters in graveyards
 code: character creation: restrict character portraits to race
 code: party camps, leave some characters behind
 code: designate party spokesman, assayer and scout
-code: scouting to locate secret doors/wall buttons
 code: Matyr ability should drop character items on the ground
 code: berserk should replace combat actions (for same round things in flight) as well as intentions
 

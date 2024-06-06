@@ -1,4 +1,4 @@
-#Wed Jan 24 11:41:26 SAST 2024
+#Thu Jun 06 13:23:58 SAST 2024
 emmons=9|Emmons, called by some The Hand. On account of my skill with dice, yes indeed.
 garret=9|Emmons watched his own back, thank ye kindly.
 leonal,leonals,white\ order=9|They like fighting. And praying. Emmons tries to have business elsewhere from those two activities.

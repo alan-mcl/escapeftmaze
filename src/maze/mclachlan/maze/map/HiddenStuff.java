@@ -21,17 +21,12 @@ package mclachlan.maze.map;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.game.MazeVariables;
-import mclachlan.maze.game.event.UiMessageEvent;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.PlayerCharacter;
 
 /**
- *
+ * no longer used
  */
 public class HiddenStuff extends TileScript
 {
@@ -71,7 +66,7 @@ public class HiddenStuff extends TileScript
 	{
 		List<MazeEvent> result = new ArrayList<>();
 
-		if (playerAction == PlayerAction.SEARCH)
+/*		if (playerAction == PlayerAction.SEARCH)
 		{
 			PlayerCharacter pc = GameSys.getInstance().scoutingFindsStash(maze, findDifficulty);
 			if (pc != null)
@@ -89,7 +84,7 @@ public class HiddenStuff extends TileScript
 					result.addAll(content.getEvents());
 				}
 			}
-		}
+		}*/
 
 		return result;
 	}

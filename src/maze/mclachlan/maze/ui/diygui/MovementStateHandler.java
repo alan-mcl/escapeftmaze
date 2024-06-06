@@ -42,9 +42,7 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 	private final int buttonRows;
 	private final int inset;
 
-	private DIYButton mainMenu,
-		search, locks, rest, formation, hide, saveload,
-		settings, map, journal;
+	private DIYButton mainMenu, locks, rest, formation, hide, saveload, settings, map, journal;
 
 	private UserInterface ui;
 
@@ -74,11 +72,7 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 		locks = new DIYButton(StringUtil.getUiLabel("poatw.open"));
 		locks.addActionListener(this);
 
-		search = new DIYButton(StringUtil.getUiLabel("poatw.search"));
-		search.addActionListener(this);
-
 		result.add(rest);
-		result.add(search);
 		result.add(locks);
 		result.add(hide);
 		result.add(formation);
@@ -140,11 +134,6 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 		else if (obj == mainMenu)
 		{
 			mainMenu();
-			return true;
-		}
-		else if (obj == search)
-		{
-			search();
 			return true;
 		}
 		else if (obj == locks)
@@ -224,13 +213,6 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 			DiyGuiUserInterface.instance.raycaster.getPlayerFacing());
 	}
 
-	public void search()
-	{
-		maze.processPlayerAction(
-			TileScript.PlayerAction.SEARCH,
-			DiyGuiUserInterface.instance.raycaster.getPlayerFacing());
-	}
-
 	public void mainMenu()
 	{
 		maze.getUi().showDialog(
@@ -281,7 +263,6 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 			case KeyEvent.VK_5: ui.characterSelected(4); Maze.getInstance().setState(Maze.State.INVENTORY); break;
 			case KeyEvent.VK_6: ui.characterSelected(5); Maze.getInstance().setState(Maze.State.INVENTORY); break;
 			case KeyEvent.VK_Q: mainMenu(); break;
-			case KeyEvent.VK_S: search(); break;
 			case KeyEvent.VK_O: open(); break;
 			case KeyEvent.VK_R: rest(); break;
 			case KeyEvent.VK_F: formation(); break;

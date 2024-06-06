@@ -1,4 +1,4 @@
-#Wed Jan 24 11:41:26 SAST 2024
+#Thu Jun 06 13:23:58 SAST 2024
 garret=9|My sort of godling, Garret. Sometimes I would offer him a prayer..but, well, you know...I'm too busy counting loot. <grins broadly>
 leonal,leonals,white\ order=9|The tall lion folk. They're all about soldiering and law and order... I personally think that they're compensating for something... And that goddess of theirs... pretty boring folks to talk to. Boring to rob, unless you're after armour polish and scriptures of The Lady. Still, I hear there's a pile of loot in that castle of theirs...  Hmmm... now that I think about it...
 maze=9|What's there to say? We all get by as best we can, according to our abilities. Some of us, just a little better than others\!

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.CrusaderEngine;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
@@ -1033,7 +1034,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	{
 		Set<String> existingEncMazeVars = new HashSet<String>();
 
-		// collect all existing encounter maze vars
+		// collect all existing execute once maze vars
 		Tile[][] tiles = zone.getTiles();
 		for (Tile[] tt : tiles)
 		{
@@ -1046,6 +1047,37 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					if (script.getExecuteOnceMazeVariable() != null)
 					{
 						existingEncMazeVars.add(script.getExecuteOnceMazeVariable());
+					}
+				}
+
+				Point point = zone.getPoint(t);
+				for (Wall w : zone.getMap().getWalls(point))
+				{
+					MouseClickScriptAdapter mouseClickScript = (MouseClickScriptAdapter)w.getMouseClickScript();
+					MouseClickScriptAdapter maskTextureMouseClickScript = (MouseClickScriptAdapter)w.getMaskTextureMouseClickScript();
+					MouseClickScriptAdapter internalScript = (MouseClickScriptAdapter)w.getInternalScript();
+
+					if (mouseClickScript != null && mouseClickScript.getScript().getExecuteOnceMazeVariable() != null)
+					{
+						existingEncMazeVars.add(mouseClickScript.getScript().getExecuteOnceMazeVariable());
+					}
+					if (maskTextureMouseClickScript != null && maskTextureMouseClickScript.getScript().getExecuteOnceMazeVariable() != null)
+					{
+						existingEncMazeVars.add(maskTextureMouseClickScript.getScript().getExecuteOnceMazeVariable());
+					}
+					if (internalScript != null && internalScript.getScript().getExecuteOnceMazeVariable() != null)
+					{
+						existingEncMazeVars.add(internalScript.getScript().getExecuteOnceMazeVariable());
+					}
+				}
+
+				EngineObject object = zone.getMap().getObject(zone.getTileIndex(point));
+				if (object != null)
+				{
+					MouseClickScriptAdapter objectClickScript = (MouseClickScriptAdapter)object.getMouseClickScript();
+					if (objectClickScript != null && objectClickScript.getScript().getExecuteOnceMazeVariable() != null)
+					{
+						existingEncMazeVars.add(objectClickScript.getScript().getExecuteOnceMazeVariable());
 					}
 				}
 			}

@@ -296,7 +296,7 @@ playerOrigin: 19:12
 277: 0:3f800000000000000000,01020202010201:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 278: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 279: 0:3f800000000000000000,01020102010301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
-280: 1:10,,,false,-1,ichiba.crossroad.hidden.stuff.1,Ichiba Crossroad bones hidden stuff,,0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
+280: 0:3f800000000000000000,02020202020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 281: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 282: 0:3f800000000000000000,01020102020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
 283: 0:3f800000000000000000,01010201020301:WILDERNESS:Forest:5:ichiba.crossroad.random.enc:MEDIUM:AVERAGE
@@ -3211,7 +3211,7 @@ playerOrigin: 19:12
 162: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:754:false::000100011::BOTTOM
 163: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:859:false::100101::BOTTOM
 164: objects.plant.5:objects.plant.5:objects.plant.5:objects.plant.5:885:false::010000011::BOTTOM
-165: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:280:false::00001::BOTTOM
+165: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:280:false:7,ichiba.crossroad.execute.once.0,,false,1,Ichiba Crossroad bones hidden stuff:00001::BOTTOM
 166: objects.woodsign.side:objects.woodsign.side:objects.woodsign.front:objects.woodsign.front:433:false::01000001::BOTTOM
 167: objects.fungus.2:objects.fungus.2:objects.fungus.2:objects.fungus.2:401:false::00001::BOTTOM
 

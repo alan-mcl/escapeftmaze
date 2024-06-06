@@ -112,7 +112,6 @@ public abstract class TileScript
 
 		if (!reexecuteOnSameTile && tile.equals(previousTile)
 			&& playerAction != PlayerAction.MOUSE_CLICK
-			&& playerAction != PlayerAction.SEARCH
 			&& playerAction != PlayerAction.LOCKS)
 		{
 			// player has simply rotated
@@ -336,7 +335,6 @@ public abstract class TileScript
 	/*-------------------------------------------------------------------------*/
 	public static class PlayerAction
 	{
-		public static final int SEARCH = 1;
 		public static final int LOCKS = 2;
 		public static final int REST = 3;
 		public static final int MOUSE_CLICK = 4;
