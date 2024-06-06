@@ -50,7 +50,8 @@ public class PartyOptionsAndTextWidget extends DIYPane
 {
 	private static final int BUTTON_HEIGHT = 20;
 	private static final int INSET = 4;
-	private static final int BUFFER_SIZE = 200;
+	private static final int TOTAL_LOG_MESSAGES = 200;
+	private static final int MAIN_SCREEN_MESSAGES = 9;
 	private final Maze maze;
 
 	// card layouts for the left and right
@@ -114,7 +115,6 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		textArea = new DIYTextArea("");
 		textArea.setTransparent(true);
 		textArea.setAlignment(DIYToolkit.Align.CENTER);
-		DIYScrollPane scrollPane = new DIYScrollPane(textArea);
 
 		viewLog = new DIYButton(StringUtil.getUiLabel("poatw.view.log"));
 		viewLog.addActionListener(this);
@@ -125,7 +125,7 @@ public class PartyOptionsAndTextWidget extends DIYPane
 		this.add(header, DIYBorderLayout.Constraint.NORTH);
 		this.add(leftCards, DIYBorderLayout.Constraint.WEST);
 		this.add(rightCards, DIYBorderLayout.Constraint.EAST);
-		this.add(scrollPane, DIYBorderLayout.Constraint.CENTER);
+		this.add(textArea, DIYBorderLayout.Constraint.CENTER);
 		this.add(buttons, DIYBorderLayout.Constraint.SOUTH);
 
 		this.doLayout();
@@ -164,12 +164,12 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	public void addMessage(String message)
 	{
 		messages.add(0, message);
-		if (messages.size() > BUFFER_SIZE)
+		if (messages.size() > TOTAL_LOG_MESSAGES)
 		{
 			messages.remove(messages.size()-1);
 		}
 
-		textArea.setText(textArea.getText()+'\n'+message);
+		textArea.setText(String.join("\n", messages.subList(0, Math.min(messages.size(), MAIN_SCREEN_MESSAGES))));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -180,10 +180,10 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Override
 	/**
 	 * Clears both the message history and the displayed text
 	 */
+	@Override
 	public void clearMessages()
 	{
 		messages.clear();
@@ -337,12 +337,9 @@ public class PartyOptionsAndTextWidget extends DIYPane
 	{
 		if (event.getSource() == viewLog)
 		{
-			StringBuilder sb = new StringBuilder();
-			for (String s : messages)
-			{
-				sb.insert(0, s+'\n');
-			}
-			String text = sb.toString();
+			ArrayList<String> msgs = new ArrayList<>(messages);
+			Collections.reverse(msgs);
+			String text = String.join("\n", msgs);
 
 			int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
 			int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_WIDTH/2;

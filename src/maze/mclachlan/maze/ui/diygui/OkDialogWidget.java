@@ -88,7 +88,7 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 			this.add(titlePane);
 		}
 
-		if (text.length() > 500)
+		if (text.lines().count() > 15)
 		{
 			// heuristic to add a scroll bar
 			this.add(new DIYScrollPane(textBounds, this.text));

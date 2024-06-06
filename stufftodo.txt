@@ -4,7 +4,6 @@ STUFFTODO
 
 GATEHOUSE DEMO
 --------------
-Movement mode log text doesn't scroll to latest
 ambush combat round: disable UI elements for the ambush rounds
 popup to make ambushes obvious
 Aello altar
