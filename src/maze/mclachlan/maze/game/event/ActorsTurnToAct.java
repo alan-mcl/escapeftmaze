@@ -46,8 +46,6 @@ public class ActorsTurnToAct extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		actorEncounter.actorsTurnToAct(maze, msg);
-
-		return null;
+		return actorEncounter.actorsTurnToAct(maze, msg);
 	}
 }

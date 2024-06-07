@@ -150,6 +150,7 @@ public class StartCombatEvent extends MazeEvent
 				if (partyIsSurprised && !hasQuickWits)
 				{
 					// party has no actions in the surprise round
+					maze.getUi().disableInput();
 					maze.executeCombatRound(combat);
 				}
 

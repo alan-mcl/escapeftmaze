@@ -27,6 +27,7 @@ import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.ActorsLeaveEvent;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.ui.diygui.MessageDestination;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -113,101 +114,105 @@ public class ActorEncounter
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actorsTurnToAct(Maze maze, MessageDestination msg)
+	public List<MazeEvent> actorsTurnToAct(Maze maze, MessageDestination msg)
 	{
 		switch (encounterAttitude)
 		{
 			case ATTACKING:
-				attacks(maze, msg);
-				break;
+				return attacks(maze, msg);
 			case AGGRESSIVE:
 				if (Dice.d100.roll("actor encounter: aggro") <= 80)
 				{
-					attacks(maze, msg);
+					return attacks(maze, msg);
 				}
 				else
 				{
-					waits(msg);
+					return waits(msg);
 				}
-				break;
 			case WARY:
 				int roll = Dice.d100.roll("actor encounter: wary");
 				if (roll <= 20)
 				{
-					attacks(maze, msg);
+					return attacks(maze, msg);
 				}
 				else if (roll <= 80)
 				{
-					waits(msg);
+					return waits(msg);
 				}
 				else
 				{
-					flees(maze, msg);
+					return flees(maze, msg);
 				}
-				break;
 			case SCARED:
 				if (Dice.d100.roll("actor encounter: scared") <= 80)
 				{
-					flees(maze, msg);
+					return flees(maze, msg);
 				}
 				else
 				{
-					waits(msg);
+					return waits(msg);
 				}
-				break;
 			case NEUTRAL:
-				waits(msg);
-				break;
+				return waits(msg);
 			case FRIENDLY:
-				waits(msg);
-				break;
+				return waits(msg);
 			case ALLIED:
-				waits(msg);
-				break;
-		}
-
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void flees(Maze maze, MessageDestination msg)
-	{
-		if (isLeaderGroupPlural())
-		{
-			msg.addMessage(StringUtil.getEventText("msg.actors.flee", describeLeader()));
-		}
-		else
-		{
-			msg.addMessage(StringUtil.getEventText("msg.actor.flees", describeLeader()));
-		}
-		maze.appendEvents(new ActorsLeaveEvent());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void waits(MessageDestination msg)
-	{
-		if (isLeaderGroupPlural())
-		{
-			msg.addMessage(StringUtil.getEventText("msg.actors.wait", describeLeader()));
-		}
-		else
-		{
-			msg.addMessage(StringUtil.getEventText("msg.actor.waits", describeLeader()));
+				return waits(msg);
+			default:
+				throw new MazeException("Invalid: "+encounterAttitude);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void attacks(Maze maze, MessageDestination msg)
+	private List<MazeEvent> flees(Maze maze, MessageDestination msg)
 	{
+		List<MazeEvent> result = new ArrayList<>();
+
 		if (isLeaderGroupPlural())
 		{
-			msg.addMessage(StringUtil.getEventText("msg.actors.attack", describeLeader()));
+			result.add(new MsgDestinationEvent(msg, StringUtil.getEventText("msg.actors.flee", describeLeader())));
 		}
 		else
 		{
-			msg.addMessage(StringUtil.getEventText("msg.actor.attacks", describeLeader()));
+			result.add(new MsgDestinationEvent(msg, StringUtil.getEventText("msg.actor.flees", describeLeader())));
 		}
-		maze.appendEvents(new StartCombatEvent(
-			maze, maze.getParty(), this));
+		result.add(new ActorsLeaveEvent());
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<MazeEvent> waits(MessageDestination msg)
+	{
+		List<MazeEvent> result = new ArrayList<>();
+
+		if (isLeaderGroupPlural())
+		{
+			result.add(new MsgDestinationEvent(msg, StringUtil.getEventText("msg.actors.wait", describeLeader())));
+		}
+		else
+		{
+			result.add(new MsgDestinationEvent(msg, StringUtil.getEventText("msg.actor.waits", describeLeader())));
+		}
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<MazeEvent> attacks(Maze maze, MessageDestination msg)
+	{
+		List<MazeEvent> result = new ArrayList<>();
+
+		if (isLeaderGroupPlural())
+		{
+			result.add(new MsgDestinationEvent(msg, StringUtil.getEventText("msg.actors.attack", describeLeader())));
+		}
+		else
+		{
+			result.add(new MsgDestinationEvent(msg, StringUtil.getEventText("msg.actor.attacks", describeLeader())));
+		}
+		result.add(new StartCombatEvent(maze, maze.getParty(), this));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -277,5 +282,25 @@ public class ActorEncounter
 	public List<MazeEvent> getPostAppearanceScript()
 	{
 		return postAppearanceScript;
+	}
+
+	private static class MsgDestinationEvent extends MazeEvent
+	{
+		private final MessageDestination msg;
+		private final String eventText;
+
+		public MsgDestinationEvent(MessageDestination msg, String eventText)
+		{
+			this.msg = msg;
+			this.eventText = eventText;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+
+			msg.addMessage(eventText);
+			return null;
+		}
 	}
 }

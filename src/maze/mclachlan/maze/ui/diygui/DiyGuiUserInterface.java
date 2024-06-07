@@ -600,6 +600,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void disableInput()
 	{
+		Thread.dumpStack();
+
 		// transparent modal dialog to block all user input while combat runs
 		showDialog(new DIYPane(DiyGuiUserInterface.SCREEN_BOUNDS));
 
@@ -616,6 +618,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void enableInput()
 	{
+		Thread.dumpStack();
+
 		clearDialog();
 
 		this.charLowLeft.setEnabled(true);

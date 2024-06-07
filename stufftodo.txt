@@ -4,7 +4,6 @@ STUFFTODO
 
 GATEHOUSE DEMO
 --------------
-ambush combat round: disable UI elements for the ambush rounds
 popup to make ambushes obvious
 Aello altar
 bloodsplats
