@@ -28,6 +28,7 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.*;
 import javax.swing.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Personality;
 
 /**
@@ -36,10 +37,15 @@ import mclachlan.maze.stat.Personality;
 public class PersonalitySpeechPanel extends JPanel implements ActionListener, MouseListener
 {
 	private List<String> speechKeys, speechValues;
-	private JList speechRows;
-	private SpeechListModel dataModel;
-	private JButton add, remove, edit, quickFill, clear;
-	private int dirtyFlag;
+	private final JList speechRows;
+	private final SpeechListModel dataModel;
+	private JButton add;
+	private JButton remove;
+	private final JButton edit;
+	private JButton quickFill;
+	private JButton clear;
+	private JButton addToAll;
+	private final int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
 	public PersonalitySpeechPanel(int dirtyFlag)
@@ -58,6 +64,9 @@ public class PersonalitySpeechPanel extends JPanel implements ActionListener, Mo
 		add = new JButton("Add");
 		add.addActionListener(this);
 
+		addToAll = new JButton("Add To All");
+		addToAll.addActionListener(this);
+
 		remove = new JButton("Remove");
 		remove.addActionListener(this);
 
@@ -72,6 +81,7 @@ public class PersonalitySpeechPanel extends JPanel implements ActionListener, Mo
 
 		JPanel buttons = new JPanel();
 		buttons.add(add);
+		buttons.add(addToAll);
 		buttons.add(remove);
 		buttons.add(edit);
 		buttons.add(quickFill);
@@ -89,8 +99,8 @@ public class PersonalitySpeechPanel extends JPanel implements ActionListener, Mo
 	/*-------------------------------------------------------------------------*/
 	public void refresh(Personality p)
 	{
-		speechKeys = new ArrayList<String>();
-		speechValues = new ArrayList<String>();
+		speechKeys = new ArrayList<>();
+		speechValues = new ArrayList<>();
 
 		if (p != null)
 		{
@@ -116,6 +126,10 @@ public class PersonalitySpeechPanel extends JPanel implements ActionListener, Mo
 		if (e.getSource() == add)
 		{
 			addListItem();
+		}
+		if (e.getSource() == addToAll)
+		{
+			addListItemToAll();
 		}
 		else if (e.getSource() == edit)
 		{
@@ -162,11 +176,41 @@ public class PersonalitySpeechPanel extends JPanel implements ActionListener, Mo
 		PersonalitySpeechRowEditor dialog = new PersonalitySpeechRowEditor(
 			SwingEditor.instance,
 			"",
-			"");
+			"",
+			true);
 		if (dialog.getKeyResult() != null)
 		{
 			SwingEditor.instance.setDirty(dirtyFlag);
 			speechKeys.add(dialog.getKeyResult());
+			speechValues.add(dialog.getSpeechResult());
+			dataModel.refresh();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void addListItemToAll()
+	{
+		PersonalitySpeechRowEditor dialog = new PersonalitySpeechRowEditor(
+			SwingEditor.instance,
+			"",
+			"",
+			false);
+
+		String speechKey = dialog.getKeyResult();
+
+		if (speechKey != null)
+		{
+			SwingEditor.instance.setDirty(dirtyFlag);
+
+			for (Personality p : Database.getInstance().getPersonalities().values())
+			{
+				if (!p.getSpeech().containsKey(speechKey))
+				{
+					p.getSpeech().put(speechKey, "");
+				}
+			}
+
+			speechKeys.add(speechKey);
 			speechValues.add(dialog.getSpeechResult());
 			dataModel.refresh();
 		}
@@ -181,7 +225,8 @@ public class PersonalitySpeechPanel extends JPanel implements ActionListener, Mo
 			PersonalitySpeechRowEditor dialog = new PersonalitySpeechRowEditor(
 				SwingEditor.instance,
 				speechKeys.get(index),
-				speechValues.get(index));
+				speechValues.get(index),
+				true);
 			if (dialog.getKeyResult() != null)
 			{
 				SwingEditor.instance.setDirty(dirtyFlag);

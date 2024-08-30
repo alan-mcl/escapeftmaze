@@ -34,7 +34,7 @@ class PersonalitySpeechRowEditor extends JDialog implements ActionListener
 	private String keyResult, speechResult;
 
 	/*-------------------------------------------------------------------------*/
-	public PersonalitySpeechRowEditor(SwingEditor owner, String keyS, String valueS)
+	public PersonalitySpeechRowEditor(SwingEditor owner, String keyS, String valueS, boolean editSpeech)
 	{
 		super(owner, "Edit Speech", true);
 
@@ -64,6 +64,12 @@ class PersonalitySpeechRowEditor extends JDialog implements ActionListener
 
 		key.setText(keyS);
 		speech.setText(valueS);
+
+		if (!editSpeech)
+		{
+			speech.setEnabled(false);
+			speech.setEditable(false);
+		}
 
 		this.pack();
 		setLocationRelativeTo(owner);

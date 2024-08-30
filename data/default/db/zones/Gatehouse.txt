@@ -823,7 +823,7 @@ playerOrigin: 14:30
 804: 0:3f800000000000000000,01020102010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 805: 0:3f800000000000000000,01010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 806: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.4,,,,:3f800000000000000000,01010201020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-807: 0:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+807: 2:4,gatehouse.execute.once.25,,false,-1,Here you find a small stone shrine.%n%nShrines of the type are usually dedicated to Garret, The Grey Wayfarer, the ambivalent patron of heroes, adventurers and wayfarers; the cloaked one who stands guard before those who watch their own backs.%n%n:14,gatehouse.execute.once.26,,false,-1,default.gatehouse.shrine.garret,false:3f800000000000000000,01010202020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 808: 0:3f800000000000000000,01020202010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 809: 0:3f800000000000000000,02020201010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 810: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -2872,6 +2872,7 @@ playerOrigin: 14:30
 150: objects.fungus.3:objects.fungus.3:objects.fungus.3:objects.fungus.3:37:true::011101::BOTTOM
 151: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:46:true::::TOP
 152: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:42:true::::TOP
+153: objects.shrine.1.front:objects.shrine.1.front:objects.shrine.1.front:objects.shrine.1.front:807:false:4,,,true,-1,The shrine is dusty and does not appear to have been visited for a long time. You find nothing.:00001::BOTTOM
 
 -scripts-
 0: 2,8,32,40,757/660/300

@@ -5,12 +5,12 @@ STUFFTODO
 GATEHOUSE DEMO
 --------------
 popup to make ambushes obvious
-Aello altar
 bloodsplats
 foe popup dialogs
 party death screen
 default to backstab
 portcullis state load game bug?
+take all / leave on loot dialog
 
 BACKLOG
 ----------
