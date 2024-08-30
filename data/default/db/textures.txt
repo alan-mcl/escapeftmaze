@@ -334,6 +334,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=BLOOD_SPLAT_1
+imageResources=animation/blood_splat_1
+animationDelay=-1
+imageWidth=0
+imageHeight=0
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=foe.moth.1
 imageResources=crusader/foe/moth_1,crusader/foe/moth_2,crusader/foe/moth_3,crusader/foe/moth_4
 animationDelay=100

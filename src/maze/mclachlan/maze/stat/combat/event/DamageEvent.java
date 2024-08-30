@@ -155,7 +155,7 @@ public class DamageEvent extends MazeEvent
 			origination = maze.getUi().getObjectBounds(((Foe)defender).getSprite());
 		}
 		Animation a = new BloodSplatAnimation(Color.RED,
-			"-"+finalDamage,
+			/*"-"+*/String.valueOf(finalDamage),
 			origination,
 			1000);
 		Maze.getInstance().startAnimation(a, null, new AnimationContext(defender));

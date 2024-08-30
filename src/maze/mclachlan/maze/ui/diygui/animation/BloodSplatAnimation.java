@@ -19,8 +19,14 @@
 
 package mclachlan.maze.ui.diygui.animation;
 
-import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
+import java.awt.Color;
+import java.awt.FontMetrics;
+import java.awt.Graphics2D;
+import java.awt.Rectangle;
+import java.awt.geom.Rectangle2D;
+import java.awt.image.BufferedImage;
+import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
@@ -40,21 +46,11 @@ public class BloodSplatAnimation extends Animation
 	private final int duration;
 	private int splatX, splatY;
 	private int splatHeight, splatWidth;
-	private Color col1;
-	private Color col2;
-	private RoundRectangle2D rect;
 
 	private final boolean debug = false;
-
-	/*-------------------------------------------------------------------------*/
-
-	/**
-	 * Orientation of the speech bubble relative to it's origination bounds
-	 */
-	public enum Orientation
-	{
-		LEFT, RIGHT, ABOVE, BELOW, ABOVE_LEFT, ABOVE_RIGHT, BELOW_LEFT, BELOW_RIGHT, CENTERED
-	}
+	private BufferedImage img;
+	private int textX;
+	private int textY;
 
 	/*-------------------------------------------------------------------------*/
 	public BloodSplatAnimation(
@@ -80,6 +76,7 @@ public class BloodSplatAnimation extends Animation
 			return;
 		}
 
+/*
 		g.setPaint(new GradientPaint(splatX, splatY, col1, splatX + splatWidth, splatY + splatHeight, col2, true));
 		g.fill(rect);
 
@@ -88,31 +85,33 @@ public class BloodSplatAnimation extends Animation
 		{
 			g.drawRect(origination.x, origination.y, origination.width, origination.height);
 		}
+*/
 
-		g.setColor(Color.DARK_GRAY);
-		g.drawString(text, splatX + splatWidth/2, splatY + splatHeight/2);
+		g.drawImage(img, splatX, splatY, splatWidth, splatHeight, Maze.getInstance().getComponent());
+
+		g.setColor(Color.WHITE);
+		g.drawString(text, textX, textY);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void computeBounds(Graphics2D g)
 	{
-		FontMetrics fm = g.getFontMetrics();
+		img = Database.getInstance().getMazeTexture("BLOOD_SPLAT_1").getTexture().getImages()[0];
 
-		int maxWidth = 100;
-		int textWidth = Math.min(fm.stringWidth(text), maxWidth);
-
-		int textHeight = fm.getAscent();
-
-		splatHeight = textHeight *2;
-		splatWidth = textWidth * 3;
+		splatHeight = img.getHeight(Maze.getInstance().getComponent());
+		splatWidth = img.getWidth(Maze.getInstance().getComponent());
 
 		splatX = origination.x + origination.width / 2 - splatWidth / 2;
 		splatY = origination.y + origination.height / 2 - splatHeight / 2;
 
-		col1 = colour.brighter();
-		col2 = colour.darker();
+		FontMetrics fm = g.getFontMetrics();
+		Rectangle2D stringBounds = fm.getStringBounds(text, g);
 
-		rect = new RoundRectangle2D.Double(splatX, splatY, splatWidth, splatHeight, 10, 10);
+		int textWidth = (int)stringBounds.getWidth();
+		int textHeight = (int)stringBounds.getHeight();
+
+		textX = splatX +splatWidth/2 -textWidth/2;
+		textY = splatY +splatHeight/2 +textHeight/2 -((fm.getAscent() + fm.getDescent()))/2;
 	}
 
 	/*-------------------------------------------------------------------------*/
