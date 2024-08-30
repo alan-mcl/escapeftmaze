@@ -63,7 +63,7 @@ public class FoeInfoMouseClickScript implements MouseClickScript, ConfirmCallbac
 	@Override
 	public int getMaxDist()
 	{
-		return 1;
+		return 99;
 	}
 
 	/*-------------------------------------------------------------------------*/

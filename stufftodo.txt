@@ -5,8 +5,6 @@ STUFFTODO
 GATEHOUSE DEMO
 --------------
 popup to make ambushes obvious
-bloodsplats
-foe popup dialogs
 party death screen
 default to backstab
 portcullis state load game bug?
