@@ -1,4 +1,4 @@
-#Thu Jun 06 13:23:58 SAST 2024
+#Mon Sep 02 14:10:10 SAST 2024
 garret=9|An ambivalent god. But then, aren't they all? Heh. *yghh*
 leonal,leonals,white\ order=9|The leonals and their Order continue to harass us. *ykgh*. There is enmity and mistrust... but few open hostilties yet.
 maze=9|Heh. What can one say of the Maze? He he he. After all, it is listening...

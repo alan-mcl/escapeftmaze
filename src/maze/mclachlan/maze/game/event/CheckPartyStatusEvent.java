@@ -43,7 +43,10 @@ public class CheckPartyStatusEvent extends MazeEvent
 		//
 		// See if the whole party is dead = GAME OVER
 		//
-		Maze.getInstance().checkPartyStatus();
+		if (!Maze.getInstance().checkPartyStatus())
+		{
+			return result;
+		}
 
 		//
 		// Reorder to place any dead PCs ar the back

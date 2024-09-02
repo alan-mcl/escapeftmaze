@@ -67,7 +67,7 @@ public class EndCombatEvent extends MazeEvent
 		//
 		// Party status check
 		//
-		maze.checkPartyStatus();
+		boolean alive = maze.checkPartyStatus();
 		maze.reorderPartyToCompensateForDeadCharacters();
 
 		//
@@ -77,6 +77,11 @@ public class EndCombatEvent extends MazeEvent
 		maze.setCurrentCombat(null);
 		maze.setCurrentActorEncounter(null);
 		maze.setState(Maze.State.MOVEMENT);
+
+		if (!alive)
+		{
+			return null;
+		}
 
 		//
 		// process party victory

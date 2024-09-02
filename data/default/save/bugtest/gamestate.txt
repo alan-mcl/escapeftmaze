@@ -6,5 +6,5 @@ partyGold=1000237
 partySupplies=9
 partyNames=Dwaf,IG-87,Ug,Gibby,Brunswick,Silvia
 formation=4
-turnNr=3259
+turnNr=3261
 @

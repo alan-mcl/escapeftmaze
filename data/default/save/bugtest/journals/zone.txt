@@ -5,4 +5,5 @@ Gatehouse
 -section-
 arena
 3250~Save Game 'bugtest' Loaded
+3260~Save Game 'bugtest' Loaded
 -end-section-

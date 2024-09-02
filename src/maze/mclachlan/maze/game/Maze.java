@@ -389,7 +389,7 @@ public class Maze implements Runnable
 		{
 			pcs = new ArrayList<>();
 
-			for (int i=0; i<6; i++)
+			for (int i=getParty().size(); i<6; i++)
 			{
 				PlayerCharacter pc = leveler.createRandomPlayerCharacter();
 				pcs.add(pc);
@@ -676,7 +676,11 @@ public class Maze implements Runnable
 
 		GameTime.incTurn();
 
-		checkPartyStatus();
+		if (!checkPartyStatus())
+		{
+			return;
+		}
+
 		reorderPartyToCompensateForDeadCharacters();
 
 		if (checkRandomEncounters)
@@ -959,16 +963,37 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Checks to determine if the party is still alive, or if it's GAME OVER.
+	 * @return
+	 * 	True if the game carries on, false if it's game over
 	 */
-	public void checkPartyStatus()
+	public boolean checkPartyStatus()
 	{
 		if (party != null && party.numAlive() == 0)
 		{
-			// party is all dead;
+			// party is all dead
+
+			// clear all other pending events
+			processor.queue.clear();
+
+			// clear any animations
+			getUi().stopAllAnimations();
+
+			// grab the party death script
 			MazeScript script = Database.getInstance().getMazeScript("_PARTY_DEAD_");
-			script.getEvents().get(0).resolve();
+
+			// don't go via the regular resolveEvents methods because they
+			// will then recursively call into here.
+			for (MazeEvent e: script.getEvents())
+			{
+				e.resolve();
+			}
+
 			backToMain();
+
+			return false;
 		}
+
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1284,11 +1309,14 @@ public class Maze implements Runnable
 			}
 		}
 
-		checkPartyStatus();
-
-		if (subEvents != null && !subEvents.isEmpty())
+		if (checkPartyStatus())
 		{
-			resolveEvents(subEvents, displayEventText);
+			// only execute these if the party is still going
+
+			if (subEvents != null && !subEvents.isEmpty())
+			{
+				resolveEvents(subEvents, displayEventText);
+			}
 		}
 
 		Maze.getPerfLog().exit(perfTag);

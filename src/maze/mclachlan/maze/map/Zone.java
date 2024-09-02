@@ -220,7 +220,10 @@ public class Zone extends DataObject
 						script.execute(maze, tile, previousTile, facing));
 				}
 			}
-			maze.checkPartyStatus();
+			if (!maze.checkPartyStatus())
+			{
+				return;
+			}
 		}
 	}
 

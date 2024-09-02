@@ -437,6 +437,7 @@ name=Isle Of The Gate ladder flava
 @
 name=_PARTY_DEAD_
 0=138,30305__ERH__call
+1=19,screen/party_death_1,,CENTER
 @
 name=Ichiba Domain South to Aenen
 0=4,1500,true, You step through the door...

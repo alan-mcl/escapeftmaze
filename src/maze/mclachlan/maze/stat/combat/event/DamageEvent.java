@@ -150,15 +150,23 @@ public class DamageEvent extends MazeEvent
 		{
 			origination = maze.getUi().getPlayerCharacterPortraitBounds((PlayerCharacter)defender);
 		}
+		else if (((Foe)defender).getSprite() == null)
+		{
+			origination = null;
+		}
 		else
 		{
 			origination = maze.getUi().getObjectBounds(((Foe)defender).getSprite());
 		}
-		Animation a = new BloodSplatAnimation(Color.RED,
-			/*"-"+*/String.valueOf(finalDamage),
-			origination,
-			1000);
-		Maze.getInstance().startAnimation(a, null, new AnimationContext(defender));
+
+		if (origination != null)
+		{
+			Animation a = new BloodSplatAnimation(Color.RED,
+				/*"-"+*/String.valueOf(finalDamage),
+				origination,
+				1000);
+			Maze.getInstance().startAnimation(a, null, new AnimationContext(defender));
+		}
 
 		CurMaxSub hitPoints = defender.getHitPoints();
 		boolean criticalHit = false;

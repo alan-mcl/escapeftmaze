@@ -43,12 +43,12 @@ public class StoryboardEvent extends MazeEvent
 	/**
 	 * The image to display.
 	 */
-	private String imageResource;
+	private final String imageResource;
 
 	/**
 	 * The key of the text to display
 	 */
-	private String textResource;
+	private final String textResource;
 
 	/**
 	 * Placement of the text
@@ -56,7 +56,7 @@ public class StoryboardEvent extends MazeEvent
 	private final TextPlacement textPlacement;
 
 
-	public static enum TextPlacement
+	public enum TextPlacement
 	{
 		CENTER, TOP_LEFT, TOP, TOP_RIGHT, RIGHT, BOTTOM_RIGHT, BOTTOM, BOTTOM_LEFT, LEFT
 	}
@@ -77,67 +77,79 @@ public class StoryboardEvent extends MazeEvent
 		Image back = Database.getInstance().getImage(imageResource);
 		dialog.setBackgroundImage(back);
 
-		String text = StringUtil.getCampaignText(textResource);
-
-		DIYTextArea textArea = new DIYTextArea(text);
-		textArea.setTransparent(false);
-		textArea.setBackgroundColour(Color.BLACK);
-		textArea.setForegroundColour(Constants.Colour.GOLD);
-		Font defaultFont = Maze.getInstance().getUi().getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 2f);
-		textArea.setFont(f);
-
-		int textX, textY;
-		int textWidth = DiyGuiUserInterface.SCREEN_WIDTH /4;
-		List<String> strings = DIYToolkit.wrapText(
-			text, DIYToolkit.getInstance().getComponent().getGraphics(), textWidth);
-		int textHeight = 25 + 25 * strings.size();
-		int inset = 30;
-
-		switch (textPlacement)
+		if (textResource != null && textResource.length() > 0)
 		{
-			case CENTER:
-				textX = DiyGuiUserInterface.SCREEN_WIDTH/2 - textWidth/2;
-				textY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - textHeight/2;
-				break;
-			case TOP_LEFT:
-				textX = inset;
-				textY = inset;
-				break;
-			case TOP:
-				textX = DiyGuiUserInterface.SCREEN_WIDTH/2 - textWidth/2;
-				textY = inset;
-				break;
-			case TOP_RIGHT:
-				textX = DiyGuiUserInterface.SCREEN_WIDTH -textWidth -inset;
-				textY = inset;
-				break;
-			case RIGHT:
-				textX = DiyGuiUserInterface.SCREEN_WIDTH -textWidth -inset;
-				textY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - textHeight/2;
-				break;
-			case BOTTOM_RIGHT:
-				textX = DiyGuiUserInterface.SCREEN_WIDTH -textWidth -inset;
-				textY = DiyGuiUserInterface.SCREEN_HEIGHT -textHeight -inset;
-				break;
-			case BOTTOM:
-				textX = DiyGuiUserInterface.SCREEN_WIDTH/2 - textWidth/2;
-				textY = DiyGuiUserInterface.SCREEN_HEIGHT -textHeight -inset;
-				break;
-			case BOTTOM_LEFT:
-				textX = inset;
-				textY = DiyGuiUserInterface.SCREEN_HEIGHT -textHeight -inset;
-				break;
-			case LEFT:
-				textX = inset;
-				textY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - textHeight/2;
-				break;
-			default:
-				throw new MazeException(textPlacement.toString());
-		}
 
-		textArea.setBounds(textX, textY, textWidth, textHeight);
-		dialog.add(textArea);
+			String text = StringUtil.getCampaignText(textResource);
+
+			DIYTextArea textArea = new DIYTextArea(text);
+			textArea.setTransparent(false);
+			textArea.setBackgroundColour(Color.BLACK);
+			textArea.setForegroundColour(Constants.Colour.GOLD);
+			Font defaultFont = Maze.getInstance().getUi().getDefaultFont();
+			Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 2f);
+			textArea.setFont(f);
+
+			int textX, textY;
+			int textWidth = DiyGuiUserInterface.SCREEN_WIDTH / 4;
+			List<String> strings = DIYToolkit.wrapText(
+				text, DIYToolkit.getInstance().getComponent().getGraphics(), textWidth);
+			int textHeight = 25 + 25 * strings.size();
+			int inset = 30;
+
+			switch (textPlacement)
+			{
+				case CENTER ->
+				{
+					textX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - textWidth / 2;
+					textY = DiyGuiUserInterface.SCREEN_HEIGHT / 2 - textHeight / 2;
+				}
+				case TOP_LEFT ->
+				{
+					textX = inset;
+					textY = inset;
+				}
+				case TOP ->
+				{
+					textX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - textWidth / 2;
+					textY = inset;
+				}
+				case TOP_RIGHT ->
+				{
+					textX = DiyGuiUserInterface.SCREEN_WIDTH - textWidth - inset;
+					textY = inset;
+				}
+				case RIGHT ->
+				{
+					textX = DiyGuiUserInterface.SCREEN_WIDTH - textWidth - inset;
+					textY = DiyGuiUserInterface.SCREEN_HEIGHT / 2 - textHeight / 2;
+				}
+				case BOTTOM_RIGHT ->
+				{
+					textX = DiyGuiUserInterface.SCREEN_WIDTH - textWidth - inset;
+					textY = DiyGuiUserInterface.SCREEN_HEIGHT - textHeight - inset;
+				}
+				case BOTTOM ->
+				{
+					textX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - textWidth / 2;
+					textY = DiyGuiUserInterface.SCREEN_HEIGHT - textHeight - inset;
+				}
+				case BOTTOM_LEFT ->
+				{
+					textX = inset;
+					textY = DiyGuiUserInterface.SCREEN_HEIGHT - textHeight - inset;
+				}
+				case LEFT ->
+				{
+					textX = inset;
+					textY = DiyGuiUserInterface.SCREEN_HEIGHT / 2 - textHeight / 2;
+				}
+				default -> throw new MazeException(textPlacement.toString());
+			}
+
+			textArea.setBounds(textX, textY, textWidth, textHeight);
+			dialog.add(textArea);
+		}
 
 		Maze.getInstance().getUi().showBlockingScreen(
 			dialog, BlockingScreen.Mode.INTERRUPTABLE, Maze.getInstance().getEventMutex());

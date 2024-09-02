@@ -184,7 +184,13 @@ public class BasicFoeAi extends FoeCombatAi
 
 				count++;
 			}
-			while (spell == null || count < 20);
+			while (spell == null && count < 20);
+
+			if (spell == null)
+			{
+				// no spells that can be cast
+				return null;
+			}
 
 			// work out the max casting level
 			int hpCastingLevel = getMaxCastingLevel(foe, foe.getHitPoints(), spell.getHitPointCost());
