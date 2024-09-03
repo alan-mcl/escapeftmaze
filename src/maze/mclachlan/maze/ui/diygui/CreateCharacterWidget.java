@@ -160,6 +160,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		this.setRace((String)races.getSelected());
 		portraitWidget.setToRaceAndGender(race.getName(), gender.getName(), portraitWidget.portraits);
 
+		selectDefaultCharacterClass();
+
+		setDefaultPersonality();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void selectDefaultCharacterClass()
+	{
 		// set to the first enabled selections
 		for (Object obj : characterClasses.getItems())
 		{
@@ -170,10 +178,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			}
 		}
 
-		this.setCharacterClass(
-			((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName());
-
-		setDefaultPersonality();
+		this.setCharacterClass(((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1042,6 +1047,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		if (SET_GENDER.equals(message))
 		{
 			setGender(((DIYRadioButton)obj).getCaption());
+			selectDefaultCharacterClass();
 			return true;
 		}
 
@@ -1081,6 +1087,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		{
 			String raceName = (String)races.getSelected();
 			setRace(raceName);
+			selectDefaultCharacterClass();
 			portraitWidget.setToRaceAndGender(raceName, gender.getName(), portraitWidget.portraits);
 			return true;
 		}
@@ -1088,6 +1095,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		{
 			String className = ((CharacterClassWrapper)characterClasses.getSelected()).characterClass.getName();
 			setCharacterClass(className);
+			this.next.setEnabled(this.canProceed());
 			return true;
 		}
 		else if (obj == personalities)
@@ -1115,9 +1123,12 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 					String raceName = Leveler.getRandomRace();
 					races.setSelected(raceName);
 					setRace(raceName);
+					selectDefaultCharacterClass();
 
 					Gender genderInst = Leveler.getRandomGender(raceName);
 					setGender(genderInst.getName());
+					selectDefaultCharacterClass();
+
 					break;
 
 				case CHOOSE_CLASS:
