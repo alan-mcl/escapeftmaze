@@ -184,9 +184,9 @@ public class ActorIntentionResolver
 		ActorGroup targetGroup = atkInt.getActorGroup();
 		AttackWith attackWith = atkInt.getAttackWith();
 
-		if (attackWith == null || attackWith instanceof Item)
+		if (attackWith == null || attackWith instanceof Item || attackWith instanceof BackstabSnipeAttack)
 		{
-			resolveWeaponAttack(actor, result, targetGroup);
+			resolveWeaponAttack(actor, result, targetGroup, attackWith);
 		}
 		else if (attackWith instanceof NaturalWeapon)
 		{
@@ -257,8 +257,11 @@ public class ActorIntentionResolver
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void resolveWeaponAttack(UnifiedActor actor,
-		List<CombatAction> result, ActorGroup targetGroup)
+	public static void resolveWeaponAttack(
+		UnifiedActor actor,
+		List<CombatAction> result,
+		ActorGroup targetGroup,
+		AttackWith attackWith)
 	{
 		Maze.log(Log.DEBUG, "resolve weapon attack ["+actor.getName()+"]");
 
@@ -268,14 +271,11 @@ public class ActorIntentionResolver
 		boolean canAttackWithSecondary = canAttackWithSecondary(actor);
 		Maze.log(Log.DEBUG, "canAttackWithSecondary ["+canAttackWithSecondary+"]");
 
-		Item weapon;
-		if (actor.getPrimaryWeapon() != null)
+		AttackWith primaryAttackWith = attackWith;
+		if (actor.getPrimaryWeapon() == null)
 		{
-			weapon = actor.getPrimaryWeapon();
-		}
-		else
-		{
-			weapon = GameSys.getInstance().getUnarmedWeapon(actor, true);
+			// actor has been disarmed at some time before event resolution
+			primaryAttackWith = GameSys.getInstance().getUnarmedWeapon(actor, true);
 		}
 
 		// primary weapon
@@ -284,41 +284,41 @@ public class ActorIntentionResolver
 			// basic attack with primary weapon, no modifiers
 			int nrAttacks = GameSys.getInstance().getNrAttacks(actor, true);
 
-			if (weapon.getAmmoRequired() == null
-				|| weapon.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF)
+			if (primaryAttackWith.getAmmoRequired() == null
+				|| primaryAttackWith.getAmmoRequired().contains(ItemTemplate.AmmoType.SELF)
 				|| actor.getSecondaryWeapon() != null &&
-				weapon.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
+				primaryAttackWith.getAmmoRequired().contains(actor.getSecondaryWeapon().isAmmoType()))
 			{
 				MazeScript missileScript;
-				if (weapon.isRanged() && actor.getSecondaryWeapon() != null)
+				if (primaryAttackWith.isRanged() && actor.getSecondaryWeapon() != null)
 				{
 					missileScript = actor.getSecondaryWeapon().getAttackScript();
 				}
 				else
 				{
-					missileScript = weapon.getAttackScript();
+					missileScript = primaryAttackWith.getAttackScript();
 				}
 
 				for (int i = 0; i < nrAttacks; i++)
 				{
 					// ammo requirements ok.  Attack
-					MagicSys.SpellEffectType defaultDamageType = weapon.getDefaultDamageType();
-					if (weapon.getAmmoRequired() != null &&
+					MagicSys.SpellEffectType defaultDamageType = primaryAttackWith.getDefaultDamageType();
+					if (primaryAttackWith.getAmmoRequired() != null &&
 						actor.getSecondaryWeapon() != null &&
-						weapon.getAmmoRequired().contains((actor.getSecondaryWeapon()).isAmmoType()))
+						primaryAttackWith.getAmmoRequired().contains((actor.getSecondaryWeapon()).isAmmoType()))
 					{
 						defaultDamageType = actor.getSecondaryWeapon().getDefaultDamageType();
 					}
 
 					AttackAction action = new AttackAction(
 						targetGroup,
-						weapon,
+						primaryAttackWith,
 						-1,
 						missileScript,
 						true,
-						GameSys.getInstance().getAttackType(weapon),
+						GameSys.getInstance().getAttackType(primaryAttackWith),
 						defaultDamageType);
-					action.setModifier(Stats.Modifier.INITIATIVE, -5 * i + weapon.getToInitiative());
+					action.setModifier(Stats.Modifier.INITIATIVE, -5 * i + primaryAttackWith.getToInitiative());
 					if (canAttackWithSecondary && actor.getSecondaryWeapon() != null)
 					{
 						GameSys.getInstance().setDualWeaponPenalties(action, actor, true);
@@ -336,14 +336,14 @@ public class ActorIntentionResolver
 
 		if (canAttackWithSecondary)
 		{
-			Item attackWith;
+			Item secondaryAttackWith;
 			if (actor.getSecondaryWeapon() != null)
 			{
-				attackWith = actor.getSecondaryWeapon();
+				secondaryAttackWith = actor.getSecondaryWeapon();
 			}
 			else
 			{
-				attackWith = GameSys.getInstance().getUnarmedWeapon(actor, true);
+				secondaryAttackWith = GameSys.getInstance().getUnarmedWeapon(actor, true);
 			}
 
 			int nrAttacks = GameSys.getInstance().getNrAttacks(actor, false);
@@ -352,13 +352,13 @@ public class ActorIntentionResolver
 			{
 				AttackAction secAction = new AttackAction(
 					targetGroup,
-					attackWith,
+					secondaryAttackWith,
 					-1,
-					attackWith.getAttackScript(),
+					secondaryAttackWith.getAttackScript(),
 					true,
-					GameSys.getInstance().getAttackType(weapon),
-					attackWith.getDefaultDamageType());
-				secAction.setModifier(Stats.Modifier.INITIATIVE, -5 * (i + 1) + weapon.getToInitiative());
+					GameSys.getInstance().getAttackType(primaryAttackWith),
+					secondaryAttackWith.getDefaultDamageType());
+				secAction.setModifier(Stats.Modifier.INITIATIVE, -5 * (i + 1) + primaryAttackWith.getToInitiative());
 				if (actor.getSecondaryWeapon() != null)
 				{
 					// dual weapon penalties do not apply to unarmed combat

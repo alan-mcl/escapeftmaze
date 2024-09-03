@@ -95,4 +95,7 @@ public interface AttackWith
 
 	/** @return a constant from {@link mclachlan.maze.stat.ItemTemplate.WeaponSubType} */
 	int getWeaponType();
+
+	/** @return any action point cost for this (-1 sets the attacker action points to zero) */
+	int getActionPointCost(UnifiedActor defender);
 }

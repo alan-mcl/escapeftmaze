@@ -201,6 +201,12 @@ public class NaturalWeapon extends DataObject implements AttackWith
 		return ItemTemplate.WeaponSubType.NONE;
 	}
 
+	@Override
+	public int getActionPointCost(UnifiedActor defender)
+	{
+		return 0;
+	}
+
 	public int[] getAttacks()
 	{
 		return attacks;

@@ -1434,7 +1434,7 @@ public class ActorActionResolver
 			defender,
 			attackAction.getAttackWith(),
 			attackAction.getAttackType(),
-			0,
+			attackAction.getAttackWith().getActionPointCost(defender),
 			attackAction.getNrStrikes(),
 			attackAction.getAttackScript(),
 			attackAction.getDamageType(),

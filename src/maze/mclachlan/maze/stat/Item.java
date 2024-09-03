@@ -174,6 +174,12 @@ public class Item implements AttackWith, SpellTarget
 		return template.subtype;
 	}
 
+	@Override
+	public int getActionPointCost(UnifiedActor defender)
+	{
+		return 0;
+	}
+
 	public Dice getDamage()
 	{
 		return template.damage;

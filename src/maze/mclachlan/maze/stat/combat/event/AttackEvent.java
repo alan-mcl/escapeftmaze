@@ -126,6 +126,7 @@ public class AttackEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		boolean fumble = false;
 		List<MazeEvent> result = new ArrayList<MazeEvent>();
 
 		if (Maze.getInstance() != null)
@@ -143,7 +144,7 @@ public class AttackEvent extends MazeEvent
 			if (attacker.getActionPoints().getCurrent() < actionCost)
 			{
 				// action points have changed since the attack was intended
-				// todo: fumble condition of some kind?
+				fumble = true;;
 				attacker.getActionPoints().setCurrent(0);
 			}
 			else
@@ -165,24 +166,31 @@ public class AttackEvent extends MazeEvent
 			}
 		}
 
-		for (int i=0; i<nrStrikes; i++)
+		if (fumble)
 		{
-			if (shouldAppendDelayEvent(attackScript.getEvents()))
+			result.add(new FumblesEvent(attacker));
+		}
+		else
+		{
+			for (int i = 0; i < nrStrikes; i++)
 			{
-				result.add(new DelayEvent(Maze.getInstance().getUserConfig().getCombatDelay()));
-			}
+				if (shouldAppendDelayEvent(attackScript.getEvents()))
+				{
+					result.add(new DelayEvent(Maze.getInstance().getUserConfig().getCombatDelay()));
+				}
 
-			result.add(
-				new StrikeEvent(
-					combat,
-					attacker,
-					defender,
-					attackWith,
-					attackType,
-					damageType,
-					animationContext,
-					modifiers,
-					tags));
+				result.add(
+					new StrikeEvent(
+						combat,
+						attacker,
+						defender,
+						attackWith,
+						attackType,
+						damageType,
+						animationContext,
+						modifiers,
+						tags));
+			}
 		}
 
 		return result;

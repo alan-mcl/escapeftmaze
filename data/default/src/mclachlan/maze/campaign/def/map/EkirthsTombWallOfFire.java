@@ -175,5 +175,12 @@ public class EkirthsTombWallOfFire extends TileScript
 		{
 			return ItemTemplate.WeaponSubType.NONE;
 		}
+
+		@Override
+		public int getActionPointCost(UnifiedActor defender)
+		{
+			return 0;
+		}
+
 	}
 }

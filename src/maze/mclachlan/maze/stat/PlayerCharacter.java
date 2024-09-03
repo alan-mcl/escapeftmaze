@@ -852,11 +852,24 @@ public class PlayerCharacter extends UnifiedActor
 			result.addAll(getNaturalWeapons());
 		}
 
-		if (getPrimaryWeapon() != null)
+		Item pw = getPrimaryWeapon();
+		if (pw != null)
 		{
-			result.add(getPrimaryWeapon());
+			// can backstab/snipe?
+			if (pw.isBackstabCapable() || pw.isSnipeCapable())
+			{
+				// todo: should take a defender into account?
+				int cost = GameSys.getInstance().getBackstabSnipeCost(this, new NullActor());
+
+				if (cost <= this.getActionPoints().getCurrent())
+				{
+					result.add(new BackstabSnipeAttack(pw, this));
+				}
+			}
+
+			result.add(pw);
 		}
-		else
+		else if (getNaturalWeapons() == null)
 		{
 			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
 		}

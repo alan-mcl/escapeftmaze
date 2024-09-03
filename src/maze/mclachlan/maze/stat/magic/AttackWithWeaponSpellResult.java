@@ -519,5 +519,12 @@ public class AttackWithWeaponSpellResult extends SpellResult
 		{
 			return weapon.getWeaponType();
 		}
+
+		@Override
+		public int getActionPointCost(UnifiedActor defender)
+		{
+			return 0;
+		}
+
 	}
 }

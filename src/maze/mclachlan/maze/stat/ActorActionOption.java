@@ -100,12 +100,7 @@ public abstract class ActorActionOption
 
 		ActorActionOption that = (ActorActionOption)o;
 
-		if (!name.equals(that.name))
-		{
-			return false;
-		}
-
-		return true;
+		return name.equals(that.name);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -152,7 +147,7 @@ public abstract class ActorActionOption
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static interface ActionOptionCallback
+	public interface ActionOptionCallback
 	{
 		void selected(ActorActionIntention intention);
 	}

@@ -29,8 +29,10 @@ import mclachlan.maze.data.v1.V1Dice;
  */
 public class Dice
 {
-	private int numberOfDice, diceMax, modifier;
-	private static Random r = new Random();
+	private final int numberOfDice;
+	private final int diceMax;
+	private final int modifier;
+	private static final Random r = new Random();
 	
 	public static final Dice d1 = new Dice(1,1,0);
 	public static final Dice d2 = new Dice(1,2,0);
@@ -100,7 +102,22 @@ public class Dice
 	{
 		return r.nextInt(this.diceMax)+1;
 	}
-	
+
+	public int getNumberOfDice()
+	{
+		return numberOfDice;
+	}
+
+	public int getDiceMax()
+	{
+		return diceMax;
+	}
+
+	public int getModifier()
+	{
+		return modifier;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public String toString()
 	{

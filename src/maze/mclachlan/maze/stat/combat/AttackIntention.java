@@ -29,9 +29,9 @@ import mclachlan.maze.stat.AttackWith;
  */
 public class AttackIntention extends ActorActionIntention
 {
-	private ActorGroup actorGroup;
-	private Combat combat;
-	private AttackWith attackWith;
+	private final ActorGroup actorGroup;
+	private final Combat combat;
+	private final AttackWith attackWith;
 
 	/*-------------------------------------------------------------------------*/
 	public AttackIntention(ActorGroup actorGroup, Combat combat,

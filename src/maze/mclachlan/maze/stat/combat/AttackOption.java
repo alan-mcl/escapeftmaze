@@ -38,6 +38,21 @@ public class AttackOption extends ActorActionOption
 		super(
 			"Attack ("+attackWith.getDisplayName()+")",
 			"aao.attack");
+
+		if (attackWith instanceof BackstabSnipeAttack)
+		{
+			if (((BackstabSnipeAttack)attackWith).isBackstab())
+			{
+				this.setName("Backstab ("+attackWith.getDisplayName()+")");
+				this.setDisplayName("aao.backstab");
+			}
+			else
+			{
+				this.setName("Snipe ("+attackWith.getDisplayName()+")");
+				this.setDisplayName("aao.snipe");
+			}
+		}
+
 		this.attackWith = attackWith;
 	}
 

@@ -2231,7 +2231,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 
 
 	/*-------------------------------------------------------------------------*/
-	public static enum Stance
+	public enum Stance
 	{
 		DEAD("aao.dead", 0),
 		UNAWARE("aao.unaware", 1),

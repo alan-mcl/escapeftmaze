@@ -581,5 +581,12 @@ public class Spell extends DataObject
 		{
 			return ItemTemplate.WeaponSubType.NONE;
 		}
+
+		@Override
+		public int getActionPointCost(UnifiedActor defender)
+		{
+			return 0;
+		}
+
 	}
 }
