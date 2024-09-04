@@ -36,4 +36,6 @@ gatehouse.execute.once.10=1
 gatehouse.intro=1
 gatehouse.execute.once.11=1
 belisarius.quest.manager.state=primed
+gatehouse.toggle.wall.portcullis.0=STATE_2
+gatehouse.toggle.wall.portcullis.1=STATE_2
 @
