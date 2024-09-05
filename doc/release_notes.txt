@@ -1,7 +1,8 @@
 ---------------------------------------
-v0.918 (????)
+v0.918 (6 September 2024)
 ---------------------------------------
 Features
+ - Art refresh, focussed on Gatehouse for now
  - Added character race art for character creation: Mirka, Naga, Triton, Elf,
    Neotroll, Dwarf
  - Paladin class abilities: Protect, Combat Command, Shield Block, Consecration
@@ -42,6 +43,7 @@ Other
  - Added performance logging, off by default
  - Crusader engine: removing the legacy transparency colour support
  - Bugfix to background music playback
+ - Many other bugfixes
 
 ---------------------------------------
 v0.917 (24 April 2018)

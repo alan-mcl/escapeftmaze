@@ -1,0 +1,63 @@
+<!--
+  Bold elements are required.
+  Underlined values are the default when the element is not specified.
+  %VAR% expands environment/special variables and registry keys.
+-->
+<launch4jConfig>
+    <headerType>gui</headerType>
+    <outfile>../../build/bin/maze.exe</outfile>
+    <jar>lib/maze.jar</jar>
+    <dontWrapJar>true</dontWrapJar>
+    <errTitle>Escape From The Maze</errTitle>
+    <chdir>.</chdir>
+    <icon>../../maze.ico</icon>
+
+    <classPath>
+        <mainClass>mclachlan.maze.game.Launcher</mainClass>
+        <cp>data\default\lib\default.jar</cp>
+        <cp>lib\jorbis0.0.17.jar</cp>
+    </classPath>
+
+    <jre>
+        <path>.\jre</path>
+        <requiresJdk>false</requiresJdk>
+        <requires64Bit>true</requires64Bit>
+        <minVersion>21</minVersion>
+        <!-- Heap sizes in MB and % of available memory. -->
+<!--
+        <initialHeapSize>MB</initialHeapSize>
+        <initialHeapPercent>%</initialHeapPercent>
+        <maxHeapSize>MB</maxHeapSize>
+        <maxHeapPercent>%</maxHeapPercent>
+        <opt>text (%VAR%)</opt>
+-->
+    </jre>
+
+
+    <!--
+      <splash>
+        <file>../../data/img/brewday_splash.bmp</file>
+      </splash>
+    -->
+
+
+    <versionInfo>
+        <fileVersion>0.0.0.1</fileVersion>
+        <txtFileVersion>0.0.0.1</txtFileVersion>
+        <fileDescription>Escape From The Maze</fileDescription>
+        <copyright>Alan McLachlan</copyright>
+        <productVersion>0.0.0.1</productVersion>
+        <txtProductVersion>0.0.0.1</txtProductVersion>
+        <productName>Escape From The Maze</productName>
+        <internalName>escapeftmaze</internalName>
+        <originalFilename>maze.exe</originalFilename>
+        <trademarks>Alan McLachlan</trademarks>
+    </versionInfo>
+    <messages>
+        <startupErr>Startup error. Try running with --l4j-debug then examining ./launch4j.log</startupErr>
+        <jreNotFoundErr>Bundled JRE error. JRE 21 should be at ./jre</jreNotFoundErr>
+        <jreVersionErr>JRE version error. Java 21 required.</jreVersionErr>
+        <launcherErr>Launcher error. Try running with --l4j-debug then examining ./launch4j.log</launcherErr>
+        <instanceAlreadyExistsMsg>Another instance of Escape From The Maze is running.</instanceAlreadyExistsMsg>
+    </messages>
+</launch4jConfig>

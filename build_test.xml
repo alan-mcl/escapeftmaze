@@ -1,0 +1,80 @@
+<!--
+  ~ Copyright (c) 2011 Alan McLachlan
+  ~
+  ~ This file is part of Escape From The Maze.
+  ~
+  ~ Escape From The Maze is free software: you can redistribute it and/or modify
+  ~ it under the terms of the GNU General Public License as published by
+  ~ the Free Software Foundation, either version 3 of the License, or
+  ~ (at your option) any later version.
+  ~
+  ~ This program is distributed in the hope that it will be useful,
+  ~ but WITHOUT ANY WARRANTY; without even the implied warranty of
+  ~ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+  ~ GNU General Public License for more details.
+  ~
+  ~ You should have received a copy of the GNU General Public License
+  ~ along with this program.  If not, see <http://www.gnu.org/licenses/>.
+  -->
+
+<project name="Escape From The Maze" default="dist" basedir=".">
+
+    <description>Escape From The Maze</description>
+
+    <!-- load these properties, to get at the version -->
+    <property file="dist.maze.cfg"/>
+
+    <!-- build machine specific properties -->
+    <property name="launch4j.dir" location="E:\utils\launch4j-3.50-win32"/>
+    <property name="jre_dir" location="e:/utils/jdk-21.0.4_7-jre"/>
+    <property name="jdk_dir" location="e:/utils/jdk-21.0.4_7"/>
+
+    <!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="build_base" location="./build"/>
+    <property name="build" location="${build_base}/classes"/>
+    <property name="default_campaign_build"
+              location="${build_base}/default/classes"/>
+    <property name="default_campaign_src" location="./data/default/src"/>
+    <property name="dist" location="${build_base}/dist"/>
+    <property name="zipdist"
+              location="${dist}/maze_${mclachlan.maze.version}/maze_${mclachlan.maze.version}"/>
+    <property name="zipdist_win"
+              location="${dist}/maze_${mclachlan.maze.version}_win/maze_${mclachlan.maze.version}_win"/>
+    <property name="srcdist"
+              location="${dist}/maze_${mclachlan.maze.version}_src/maze_${mclachlan.maze.version}_src"/>
+
+    <!-- custom jsmooth task -->
+    <!--<taskdef name="jsmoothgen" classname="net.charabia.jsmoothgen.ant.JSmoothGen" classpath="./oem/jsmooth-0.9.9-7/lib/jsmoothgen-ant.jar"/>-->
+    <!-- launch4j -->
+    <taskdef name="launch4j"
+             classname="net.sf.launch4j.ant.Launch4jTask"
+             classpath="${launch4j.dir}/launch4j.jar
+      :${launch4j.dir}/lib/xstream.jar"/>
+
+    <!--======================================================================-->
+
+
+    <!--======================================================================-->
+    <!-- Creates both ZIP'd up distros: platform-neutral and windows -->
+    <target name="dist">
+
+
+        <!-- create windows executables -->
+        <!--
+                <copy file="./msvcr71.dll" todir="${zipdist_win}"/> &lt;!&ndash; required by JSmooth executables &ndash;&gt;
+                <copy file="./launch/maze_exe.jsmooth.xml" todir="${zipdist_win}"/>
+                <copy file="./launch/editor_exe.jsmooth" todir="${zipdist_win}"/>
+                <jsmoothgen project="${zipdist_win}/maze_exe.jsmooth.xml" skeletonroot="./oem/jsmooth-0.9.9-7/skeletons"/>
+                <jsmoothgen project="${zipdist_win}/editor_exe.jsmooth" skeletonroot="./oem/jsmooth-0.9.9-7/skeletons"/>
+                <delete file="${zipdist_win}/maze_exe.jsmooth.xml"/>
+                <delete file="${zipdist_win}/editor_exe.jsmooth"/>
+        -->
+        <launch4j configFile="src/dist/maze.launch4j.config.xml"/>
+        <copy file="build/bin/maze.exe" tofile="${zipdist_win}/maze.exe"/>
+
+
+    </target>
+
+
+</project>

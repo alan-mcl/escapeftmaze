@@ -389,7 +389,8 @@ public class Maze implements Runnable
 		{
 			pcs = new ArrayList<>();
 
-			for (int i=getParty().size(); i<6; i++)
+			int startIndex = getParty() == null ? 0 : getParty().size();
+			for (int i= startIndex; i<6; i++)
 			{
 				PlayerCharacter pc = leveler.createRandomPlayerCharacter();
 				pcs.add(pc);

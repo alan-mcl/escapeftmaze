@@ -2,7 +2,7 @@
 STUFFTODO
 --------------------------------------------
 
-GATEHOUSE DEMO
+UI REFRESH
 --------------
 popup to make ambushes obvious
 take all / leave on loot dialog

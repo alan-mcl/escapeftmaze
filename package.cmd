@@ -1,3 +1,3 @@
-set java_home=c:\Program Files\Java\jdk1.8.0_45
+set java_home=e:\utils\jdk-21.0.4_7
 
-c:\apache-ant-1.8.2\bin\ant
+e:\utils\apache-ant-1.10.6\bin\ant
