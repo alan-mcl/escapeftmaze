@@ -30,7 +30,7 @@ import mclachlan.maze.stat.ItemCacheManager;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *

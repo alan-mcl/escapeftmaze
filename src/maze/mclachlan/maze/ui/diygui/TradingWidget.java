@@ -34,7 +34,7 @@ import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *

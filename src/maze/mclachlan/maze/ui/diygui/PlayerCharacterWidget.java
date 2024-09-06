@@ -36,7 +36,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.EquipIntention;
 import mclachlan.maze.stat.condition.Condition;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  * Widget to display an actor's details.

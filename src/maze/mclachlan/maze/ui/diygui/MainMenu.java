@@ -75,8 +75,8 @@ public class MainMenu extends DIYPanel
 		
 		DIYPane menu = new DIYPane(new DIYGridLayout(1,10,5,5));
 		menu.setInsets(new Insets(10,10,10,10));
-		int width = 200;
-		int height = 300;
+		int width = 300;
+		int height = 500;
 		menu.setBounds(
 			DiyGuiUserInterface.SCREEN_WIDTH/2-width/2, 
 			DiyGuiUserInterface.SCREEN_HEIGHT/2-height/2, 

@@ -37,7 +37,7 @@ import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.npc.Npc;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;

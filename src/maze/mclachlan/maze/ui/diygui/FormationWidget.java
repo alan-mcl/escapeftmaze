@@ -28,7 +28,7 @@ import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYGridLayout;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *

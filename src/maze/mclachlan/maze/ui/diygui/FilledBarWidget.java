@@ -22,7 +22,7 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Dimension;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.stat.CurMax;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *

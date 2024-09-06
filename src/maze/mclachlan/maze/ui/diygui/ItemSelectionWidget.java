@@ -30,7 +30,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *

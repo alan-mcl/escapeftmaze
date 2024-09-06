@@ -23,7 +23,7 @@ import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.maze.stat.FoeGroup;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  * A status bar of a group of foes.

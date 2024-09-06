@@ -23,7 +23,7 @@ import java.awt.Image;
 import java.awt.image.BufferedImage;
 import mclachlan.diygui.DIYPane;
 import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 public class MugshotWidget extends DIYPane
 {

@@ -31,7 +31,7 @@ import java.util.concurrent.*;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.render.dflt.DefaultRendererFactory;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.ui.diygui.render.MazeRendererFactory;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -60,34 +60,58 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	/** the singleton instance */
+	/**
+	 * the singleton instance
+	 */
 	private static DIYToolkit instance;
 
-	/** render factory for the widgets */
+	/**
+	 * render factory for the widgets
+	 */
 	private RendererFactory rendererFactory;
 
-	/** for debugging components */
+	/**
+	 * for debugging components
+	 */
 	public static boolean debug = false;
 
-	/** The AWT frame */
+	/**
+	 * The AWT frame
+	 */
 	private final Component comp;
-	
-	/** The main content pane. Everything else is added to this. */
+
+	/**
+	 * The main content pane. Everything else is added to this.
+	 */
 	private final ContainerWidget contentPane;
 
-	/** and overlay pane, typically used for modal dialogs */
+	/**
+	 * and overlay pane, typically used for modal dialogs
+	 */
 	private ContainerWidget overlayPane;
-	/** The widget currently under the mouse */
+	/**
+	 * The widget currently under the mouse
+	 */
 	private Widget hoverWidget;
-	/** The widget that currently has focus */
+	/**
+	 * The widget that currently has focus
+	 */
 	private Widget focusWidget;
-	/** The current cursor, null if the default */
+	/**
+	 * The current cursor, null if the default
+	 */
 	private Cursor cursor;
-	/** The contents of the drag and drop cursor */
+	/**
+	 * The contents of the drag and drop cursor
+	 */
 	private Object cursorContents;
-	/** The modal dialog stack */
+	/**
+	 * The modal dialog stack
+	 */
 	private final Stack<ContainerWidget> dialogs = new Stack<>();
-	/** mutex protecting the modal dialog stack */
+	/**
+	 * mutex protecting the modal dialog stack
+	 */
 	private final Object dialogMutex = new Object();
 
 	/**
@@ -96,10 +120,13 @@ public class DIYToolkit
 	 * its own threads.
 	 */
 	private boolean internalQueue;
-	/** The queue used to process input events. */
+	/**
+	 * The queue used to process input events.
+	 */
 	private final Queue<InputEvent> queue;
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Creates a GUI that manages its own internal event queue.  Events are
 	 * processed during calls to the draw method.
@@ -114,6 +141,7 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Creates a GUI that manages its own internal event queue.  Events are
 	 * processed during calls to the draw method.
@@ -129,15 +157,16 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Creates a GUI that places events on the specified queue.  Event processing
 	 * is the responsibility of the caller
 	 */
 	public DIYToolkit(
-		int width, 
-		int height, 
-		Component comp, 
-		Queue<InputEvent> queue, 
+		int width,
+		int height,
+		Component comp,
+		Queue<InputEvent> queue,
 		String rendererFactoryImpl)
 	{
 		instance = this;
@@ -169,10 +198,10 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 	private void initRendererFactory(String rendererFactoryImpl)
 	{
-		String impl = rendererFactoryImpl==null?
-			System.getProperty("mclachlan.diygui.renderer_factory"):
+		String impl = rendererFactoryImpl == null ?
+			System.getProperty("mclachlan.diygui.renderer_factory") :
 			rendererFactoryImpl;
-		
+
 		if (impl == null)
 		{
 			this.rendererFactory = new DefaultRendererFactory();
@@ -197,7 +226,7 @@ public class DIYToolkit
 		this.contentPane.add(w);
 		this.contentPane.doLayout();
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void remove(Widget w)
 	{
@@ -210,7 +239,7 @@ public class DIYToolkit
 	{
 		return this.queue.size();
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public ContainerWidget getContentPane()
 	{
@@ -230,6 +259,7 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Draw the GUI
 	 */
@@ -250,7 +280,7 @@ public class DIYToolkit
 		// instead of syncing over the whole draw process create a copy
 		java.util.List<ContainerWidget> dd;
 
-		synchronized(dialogMutex)
+		synchronized (dialogMutex)
 		{
 			dd = new ArrayList<>(dialogs);
 		}
@@ -282,7 +312,7 @@ public class DIYToolkit
 	{
 		return getDimension(s, null);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 
 	/**
@@ -304,10 +334,10 @@ public class DIYToolkit
 		}
 
 		FontMetrics fm = g.getFontMetrics(f);
-	
+
 		int textHeight = fm.getHeight();
 		int textWidth = fm.stringWidth(s);
-		
+
 		return new Dimension(textWidth, textHeight);
 	}
 
@@ -337,7 +367,7 @@ public class DIYToolkit
 		FontMetrics fm = g.getFontMetrics();
 
 		int textHeight = fm.getAscent();
-		int textWidth = fm.charWidth(' ') *stringLength;
+		int textWidth = fm.charWidth(' ') * stringLength;
 
 		return new Dimension(textWidth, textHeight);
 	}
@@ -355,13 +385,14 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
-    * Method to overlay Images
-    *
-    * @param bgImage --> The background Image
-    * @param fgImage --> The foreground Image
-    * @return --> overlayed image (fgImage over bgImage)
-    */
+	 * Method to overlay Images
+	 *
+	 * @param bgImage --> The background Image
+	 * @param fgImage --> The foreground Image
+	 * @return --> overlayed image (fgImage over bgImage)
+	 */
 	public static BufferedImage overlayImages(
 		BufferedImage bgImage,
 		BufferedImage fgImage)
@@ -418,14 +449,15 @@ public class DIYToolkit
 		this.cursorContents = cursorContents;
 		comp.setCursor(this.cursor);
 	}
-	
-	/*-------------------------------------------------------------------------*/	
+
+	/*-------------------------------------------------------------------------*/
 	public Object getCursorContents()
 	{
 		return cursorContents;
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Clears the cursor of any contents and sets the cursor icon back to the
 	 * default.
@@ -438,9 +470,10 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Sets the modal dialog.
-	 */ 
+	 */
 	public void setDialog(ContainerWidget d)
 	{
 		synchronized (dialogMutex)
@@ -448,11 +481,12 @@ public class DIYToolkit
 			this.dialogs.push(d);
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Clears the topmost modal dialog.
-	 */ 
+	 */
 	public void clearDialog()
 	{
 		synchronized (dialogMutex)
@@ -466,6 +500,7 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Clears the topmost modal dialog.
 	 */
@@ -473,7 +508,7 @@ public class DIYToolkit
 	{
 		synchronized (dialogMutex)
 		{
-			while(!this.dialogs.isEmpty())
+			while (!this.dialogs.isEmpty())
 			{
 				this.dialogs.pop();
 			}
@@ -519,12 +554,13 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Clears the given dialog from the stack, whether or not it's on top
 	 */
 	public void clearDialog(ContainerWidget dialog)
 	{
-		synchronized(dialogMutex)
+		synchronized (dialogMutex)
 		{
 			this.dialogs.remove(dialog);
 			resetFocusAndHoverWidgets();
@@ -599,7 +635,7 @@ public class DIYToolkit
 		}
 		else
 		{
-			throw new DIYException("Unrecognised event: "+e);
+			throw new DIYException("Unrecognised event: " + e);
 		}
 	}
 
@@ -697,7 +733,7 @@ public class DIYToolkit
 					focusWidget = null;
 				}
 			}
-			
+
 			// if not consumed, notify the content pane.  this is a hack to allows
 			// applications to write a global mouse click handler
 //			if (!consumed)
@@ -757,7 +793,7 @@ public class DIYToolkit
 		Widget newHoverWidget = getHoverComponent(e.getPoint());
 		if (newHoverWidget != null && newHoverWidget != hoverWidget)
 		{
-			if (hoverWidget != null  && hoverWidget.isEnabled())
+			if (hoverWidget != null && hoverWidget.isEnabled())
 			{
 				hoverWidget.processMouseExited(e);
 			}
@@ -785,7 +821,7 @@ public class DIYToolkit
 
 			Rectangle2D bounds = fm.getStringBounds(temp + cur, g);
 
-			if (bounds.getWidth() > width- inset)
+			if (bounds.getWidth() > width - inset)
 			{
 				result.add(temp.toString().trim());
 				temp = new StringBuilder(cur);
@@ -810,13 +846,13 @@ public class DIYToolkit
 		Dimension imgD = getDimension(img);
 
 		// center on the Y axis
-		int imgOffsetY = (bounds.height - imgD.height)/2;
+		int imgOffsetY = (bounds.height - imgD.height) / 2;
 
 		// cater for various X axis alignment
 		int imgOffsetX;
 		if (alignment == Align.CENTER)
 		{
-			imgOffsetX = (bounds.width - imgD.width)/2;
+			imgOffsetX = (bounds.width - imgD.width) / 2;
 		}
 		else if (alignment == Align.LEFT)
 		{
@@ -855,13 +891,13 @@ public class DIYToolkit
 		int textWidth = fm.stringWidth(s);
 
 		// center the text on the Y axis
-		int textY = bounds.y + bounds.height/2 + textHeight/2;
+		int textY = bounds.y + bounds.height / 2 + textHeight / 2;
 
 		int textX = bounds.x;
 		if (alignment == Align.CENTER)
 		{
 			// center the text on the X axis
-			textX = bounds.x + bounds.width/2 - textWidth/2;
+			textX = bounds.x + bounds.width / 2 - textWidth / 2;
 		}
 		else if (alignment == Align.RIGHT)
 		{
@@ -882,6 +918,31 @@ public class DIYToolkit
 
 		g.setColor(foreground);
 		g.drawString(s, textX, textY);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void drawImageTiled(
+		Graphics2D g,
+		BufferedImage image, int bx, int by, int width, int height)
+	{
+		int imgWidth = image.getWidth();
+		int imgHeight = image.getHeight();
+
+		for (int y = by; y < by + height; y += imgHeight)
+		{
+			for (int x = bx; x < bx + width; x += imgWidth)
+			{
+				// Determine the width and height to draw (handling partial tiles)
+				int widthToDraw = Math.min(imgWidth, bx + width - x);
+				int heightToDraw = Math.min(imgHeight, by + height - y);
+
+				// Crop the image if necessary for partial tiles
+				BufferedImage croppedImage = image.getSubimage(0, 0, widthToDraw, heightToDraw);
+
+				// Draw the image (or cropped portion)
+				g.drawImage(croppedImage, x, y, null);
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
