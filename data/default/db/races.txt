@@ -1,5 +1,5 @@
 name=Human
-description=Humans are the most numerous race of the First Realm.  They are an industrious, charismatic people who tend to accumulate in cities that are centers of trade and learning.%n%nThe short lived humans have only vague legends of an apocalyptic war between demons and angels to explain how they were imprisoned in the Maze.  The vast majority are now content to remain in the prosperous lands of the First Realm.%n%nSpecial: Humans get additional Magic, Stealth and Hit points.
+description=Humans are the most numerous race in the First Realm.  They are an industrious, charismatic people who tend to accumulate in cities that are centers of trade and learning.%n%nThe short lived humans have only vague legends of an apocalyptic war between demons and angels to explain how they were imprisoned in the Maze.  The vast majority are now content to remain in the prosperous lands of the First Realm.%n%nSpecial: Humans get additional Magic, Stealth and Hit points.
 startingHitPointPercentage=80
 startingActionPointPercentage=50
 startingMagicPointPercentage=70

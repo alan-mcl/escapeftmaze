@@ -36,7 +36,7 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class GeneralDialog extends DIYPanel
 {
-	protected static int buttonPaneHeight = 60;
+	protected static int buttonPaneHeight = 120;
 	protected static int titlePaneHeight = 20;
 	protected static int border = 10;
 	protected static int inset = 20;

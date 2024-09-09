@@ -76,7 +76,7 @@ public class DIYButton extends Widget
 			dimension = new Dimension(this.text.length()*5, 15);
 		}
 		
-		dimension.setSize(dimension.getWidth()+10, dimension.getHeight()+5);
+		dimension.setSize(dimension.getWidth()+50, dimension.getHeight()+20);
 		return dimension;
 	}
 	

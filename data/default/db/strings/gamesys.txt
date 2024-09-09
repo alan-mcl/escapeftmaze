@@ -1131,7 +1131,7 @@ lap_desc_toe_to_toe = Every blow in melee combat that doesn't kill an opponent r
 lap_name_greater_cleave = Greater Cleave
 lap_desc_greater_cleave = Cleaves on killing blows are no longer limited to just one.
 lap_name_last_stand = Last Stand
-lap_desc_last_stand = If the Hero is the last party member still alive in battle, he or she get a boost to carry on the fight.
+lap_desc_last_stand = If the Hero is the last party member still alive in battle, he or she gets a boost to carry on the fight.
 
 # Monk
 lap_name_mindshield = Mindshield

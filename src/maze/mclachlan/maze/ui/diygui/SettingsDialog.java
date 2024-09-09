@@ -59,7 +59,7 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		this.setBounds(dialogBounds);
 
-		int buttonPaneHeight = 20;
+		int buttonPaneHeight = 120;
 		int border = 10;
 		int inset = 20;
 

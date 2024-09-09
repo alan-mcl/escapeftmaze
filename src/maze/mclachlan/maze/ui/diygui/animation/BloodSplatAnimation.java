@@ -104,6 +104,7 @@ public class BloodSplatAnimation extends Animation
 		splatX = origination.x + origination.width / 2 - splatWidth / 2;
 		splatY = origination.y + origination.height / 2 - splatHeight / 2;
 
+		// center the text in the splat
 		FontMetrics fm = g.getFontMetrics();
 		Rectangle2D stringBounds = fm.getStringBounds(text, g);
 

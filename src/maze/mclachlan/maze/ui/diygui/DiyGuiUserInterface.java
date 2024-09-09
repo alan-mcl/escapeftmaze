@@ -203,6 +203,24 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			Font quicktypemono = Database.getInstance().getFont("QuickTypeMono/QuickType Mono.ttf");
 			fonts.put("quicktypemono", quicktypemono);
 
+			Font amaranth = Database.getInstance().getFont("amaranth/Amaranth-Regular.otf");
+			fonts.put("amaranth", amaranth);
+
+			Font asul = Database.getInstance().getFont("asul/Asul-Regular.ttf");
+			fonts.put("asul", asul);
+
+			Font eczar = Database.getInstance().getFont("eczar/eczar.regular.ttf");
+			fonts.put("eczar", eczar);
+
+			Font exo2 = Database.getInstance().getFont("exo2/Exo2-Regular.ttf");
+			fonts.put("exo2", exo2);
+
+			Font josefin = Database.getInstance().getFont("josefin/JosefinSans-Regular.ttf");
+			fonts.put("josefin", josefin);
+
+			Font nunito = Database.getInstance().getFont("nunito/Nunito-Regular.ttf");
+			fonts.put("nunito", nunito);
+
 			Font f = fonts.get(defaultFont);
 			DiyGuiUserInterface.font = f.deriveFont(Font.PLAIN, fontSize);
 		}
