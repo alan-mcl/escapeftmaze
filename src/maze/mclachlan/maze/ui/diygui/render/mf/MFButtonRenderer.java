@@ -39,17 +39,139 @@ import mclachlan.maze.util.MazeException;
  */
 public class MFButtonRenderer extends Renderer
 {
-	public MFButtonRenderer()
-	{
-
-	}
-
+	/*-------------------------------------------------------------------------*/
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
 		DIYButton button = (DIYButton)widget;
 		String text = button.getText();
 		Component comp = Maze.getInstance().getComponent();
 
+		if (button.getImage() != null)
+		{
+			renderCustomImage(g, x, y, button, comp);
+		}
+		else
+		{
+			renderMfTextures(g, x, y, width, height, button, comp);
+		}
+
+		if (text != null)
+		{
+			renderText(g, x, y, width, height, button, text);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void renderCustomImage(Graphics2D g, int x, int y, DIYButton button,
+		Component comp)
+	{
+		BufferedImage center;
+
+		if (button.isEnabled())
+		{
+			switch (button.getState())
+			{
+				case DEFAULT ->
+				{
+					center = Database.getInstance().getImage(button.getImage());
+				}
+				case HOVER ->
+				{
+					center = Database.getInstance().getImage(button.getImage()+"_hover");
+				}
+				case DEPRESSED ->
+				{
+					center = Database.getInstance().getImage(button.getImage()+"_depressed");
+
+				}
+				default ->
+					throw new MazeException("invalid state " + button.getState());
+			}
+		}
+		else
+		{
+			// disabled
+			center = Database.getInstance().getImage(button.getImage()+"_disabled");
+		}
+
+		// corners
+		g.drawImage(center, x, y, comp);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void renderText(Graphics2D g, int x, int y, int width, int height,
+		DIYButton button, String text)
+	{
+		Color textColFore;
+		Color textColBack;
+
+		if (button.isEnabled())
+		{
+			switch (button.getState())
+			{
+				case DEFAULT ->
+				{
+					textColFore = Color.DARK_GRAY;
+					textColBack = Constants.Colour.GOLD;
+				}
+				case HOVER ->
+				{
+					textColFore = Color.DARK_GRAY;
+					textColBack = Constants.Colour.GOLD.brighter();
+				}
+				case DEPRESSED ->
+				{
+					textColFore = Color.DARK_GRAY;
+					textColBack = Constants.Colour.GOLD.darker();
+
+				}
+				default ->
+					throw new MazeException("invalid state " + button.getState());
+			}
+		}
+		else
+		{
+			textColFore = Color.DARK_GRAY;
+			textColBack = Color.LIGHT_GRAY;
+		}
+
+		FontMetrics fm = g.getFontMetrics();
+		Rectangle2D stringBounds = fm.getStringBounds(text, g);
+
+		int textWidth = (int)stringBounds.getWidth();
+		int textHeight = (int)stringBounds.getHeight();
+
+		// center the text on the Y axis
+		int textY = y + height /2 +textHeight/2 -fm.getDescent();
+
+		int textX = x;
+		if (button.getAlignment() == DIYToolkit.Align.CENTER)
+		{
+			// center the text on the X axis
+			textX = x + width /2 -textWidth/2;
+		}
+		else if (button.getAlignment() == DIYToolkit.Align.RIGHT)
+		{
+			// align right
+			textX = x + width - textWidth;
+		}
+
+		g.setColor(textColBack);
+		g.drawString(text, textX+1, textY+1);
+		g.setColor(textColFore);
+		g.drawString(text, textX, textY);
+
+		if (DIYToolkit.debug)
+		{
+			g.setColor(Color.BLUE);
+			g.drawRect(x, y, width, height);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void renderMfTextures(Graphics2D g, int x, int y, int width, int height,
+		DIYButton button, Component comp)
+	{
 		BufferedImage borderTop;
 		BufferedImage borderBottom;
 		BufferedImage borderLeft;
@@ -59,9 +181,6 @@ public class MFButtonRenderer extends Renderer
 		BufferedImage cornerBottomLeft;
 		BufferedImage cornerBottomRight;
 		BufferedImage center;
-
-		Color textColFore;
-		Color textColBack;
 
 		if (button.isEnabled())
 		{
@@ -78,9 +197,6 @@ public class MFButtonRenderer extends Renderer
 					cornerBottomLeft = Database.getInstance().getImage("ui/mf/button/corner_bottom_left");
 					cornerBottomRight = Database.getInstance().getImage("ui/mf/button/corner_bottom_right");
 					center = Database.getInstance().getImage("ui/mf/button/center");
-
-					textColFore = Color.DARK_GRAY;
-					textColBack = Constants.Colour.GOLD;
 				}
 				case HOVER ->
 				{
@@ -93,9 +209,6 @@ public class MFButtonRenderer extends Renderer
 					cornerBottomLeft = Database.getInstance().getImage("ui/mf/button/corner_bottom_left_hover");
 					cornerBottomRight = Database.getInstance().getImage("ui/mf/button/corner_bottom_right_hover");
 					center = Database.getInstance().getImage("ui/mf/button/center_hover");
-
-					textColFore = Color.DARK_GRAY;
-					textColBack = Constants.Colour.GOLD.brighter();
 				}
 				case DEPRESSED ->
 				{
@@ -108,9 +221,6 @@ public class MFButtonRenderer extends Renderer
 					cornerBottomLeft = Database.getInstance().getImage("ui/mf/button/corner_bottom_left_depressed");
 					cornerBottomRight = Database.getInstance().getImage("ui/mf/button/corner_bottom_right_depressed");
 					center = Database.getInstance().getImage("ui/mf/button/center_depressed");
-
-					textColFore = Color.DARK_GRAY;
-					textColBack = Constants.Colour.GOLD.darker();
 
 				}
 				default ->
@@ -129,32 +239,28 @@ public class MFButtonRenderer extends Renderer
 			cornerBottomLeft = Database.getInstance().getImage("ui/mf/button/corner_bottom_left_disabled");
 			cornerBottomRight = Database.getInstance().getImage("ui/mf/button/corner_bottom_right_disabled");
 			center = Database.getInstance().getImage("ui/mf/button/center_disabled");
-
-			textColFore = Color.DARK_GRAY;
-			textColBack = Color.LIGHT_GRAY;
 		}
-
 
 		// corners
 		g.drawImage(cornerTopLeft, x, y, comp);
-		g.drawImage(cornerTopRight, x +width -cornerTopRight.getWidth(), y, comp);
-		g.drawImage(cornerBottomLeft, x, y +height -cornerBottomLeft.getHeight(), comp);
-		g.drawImage(cornerBottomRight, x +width -cornerBottomRight.getWidth(), y +height -cornerBottomRight.getHeight(), comp);
+		g.drawImage(cornerTopRight, x + width -cornerTopRight.getWidth(), y, comp);
+		g.drawImage(cornerBottomLeft, x, y + height -cornerBottomLeft.getHeight(), comp);
+		g.drawImage(cornerBottomRight, x + width -cornerBottomRight.getWidth(), y + height -cornerBottomRight.getHeight(), comp);
 
 		// horiz borders
 		DIYToolkit.drawImageTiled(g, borderTop,
 			x +cornerTopLeft.getWidth(), y,
 			width -cornerTopLeft.getWidth() -cornerTopRight.getWidth(), borderTop.getHeight());
 		DIYToolkit.drawImageTiled(g, borderBottom,
-			x +cornerBottomLeft.getWidth(), y +height -borderBottom.getHeight(),
+			x +cornerBottomLeft.getWidth(), y + height -borderBottom.getHeight(),
 			width -cornerBottomLeft.getWidth() -cornerBottomRight.getWidth(), borderBottom.getHeight());
 
 		// vert borders
 		DIYToolkit.drawImageTiled(g, borderLeft,
-			x, y+cornerTopLeft.getHeight(),
+			x, y +cornerTopLeft.getHeight(),
 			borderLeft.getWidth(), height -cornerTopLeft.getHeight() -cornerBottomLeft.getHeight());
 		DIYToolkit.drawImageTiled(g, borderRight,
-			x +width -cornerTopRight.getWidth(), y+cornerTopRight.getHeight(),
+			x + width -borderRight.getWidth(), y +cornerTopRight.getHeight(),
 			borderRight.getWidth(), height -cornerTopRight.getHeight() -cornerBottomRight.getHeight());
 
 		// center
@@ -162,37 +268,5 @@ public class MFButtonRenderer extends Renderer
 			x +borderLeft.getWidth(), y +borderTop.getHeight(),
 			width -borderLeft.getWidth() -borderRight.getWidth(),
 			height -borderTop.getHeight() -borderBottom.getHeight());
-
-		FontMetrics fm = g.getFontMetrics();
-		Rectangle2D stringBounds = fm.getStringBounds(text, g);
-
-		int textWidth = (int)stringBounds.getWidth();
-		int textHeight = (int)stringBounds.getHeight();
-
-		// center the text on the Y axis
-		int textY = y +height/2 +textHeight/2 -fm.getDescent();
-
-		int textX = x;
-		if (button.getAlignment() == DIYToolkit.Align.CENTER)
-		{
-			// center the text on the X axis
-			textX = x +width/2 -textWidth/2;
-		}
-		else if (button.getAlignment() == DIYToolkit.Align.RIGHT)
-		{
-			// align right
-			textX = x + width - textWidth;
-		}
-
-		g.setColor(textColBack);
-		g.drawString(text, textX+1, textY+1);
-		g.setColor(textColFore);
-		g.drawString(text, textX, textY);
-
-		if (DIYToolkit.debug)
-		{
-			g.setColor(Color.BLUE);
-			g.drawRect(x, y, width, height);
-		}
 	}
 }

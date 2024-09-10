@@ -65,8 +65,6 @@ public class MazeLabelRenderer extends Renderer
 		}
 		else if (icon != null && text != null)
 		{
-			FontMetrics fm = g.getFontMetrics();
-
 			// both to draw
 			int iconWidth = (int)DIYToolkit.getDimension(icon).getWidth();
 			int textWidth = g.getFontMetrics().stringWidth(text);

@@ -39,52 +39,54 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
 
-	private GuildDisplayWidget gdWidget;
-	private DIYButton okButton, cancel, delete;
-	private GuildCallback guildCallback;
-	private Map<String, PlayerCharacter> guild;
+	private final GuildDisplayWidget gdWidget;
+	private final DIYButton okButton, cancel, delete;
+	private final GuildCallback guildCallback;
+	private final Map<String, PlayerCharacter> guild;
 
 	/*-------------------------------------------------------------------------*/
 	public GuildDisplayDialog(
 		Map<String, PlayerCharacter> guild,
 		GuildCallback guildCallback)
 	{
+		this.setStyle(Style.DIALOG);
+
 		this.guild = guild;
 		this.guildCallback = guildCallback;
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 20;
-		int border = 10;
-		int inset = 20;
-		Rectangle listBounds = new Rectangle(startX+ border + inset, startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
+		Rectangle listBounds = new Rectangle(
+			startX +border +inset,
+			startY +border +titlePaneHeight +inset,
+			DIALOG_WIDTH -border*2 -inset*2,
+			DIALOG_HEIGHT -border*2 -inset*3 -buttonPaneHeight);
 
 		this.setBounds(dialogBounds);
-		List<PlayerCharacter> niceList = new ArrayList<PlayerCharacter>(guild.values());
+		List<PlayerCharacter> niceList = new ArrayList<>(guild.values());
+
 		//remove any already in the party
 		if (Maze.getInstance().getParty() != null)
 		{
 			for (PlayerCharacter pc : Maze.getInstance().getParty().getPlayerCharacters())
 			{
-				for (ListIterator<PlayerCharacter> li = niceList.listIterator(); li.hasNext();)
-				{
-					PlayerCharacter guildPc = li.next();
-					if (guildPc.getName().equals(pc.getName()))
-					{
-						li.remove();
-					}
-				}
+				niceList.removeIf(guildPc -> guildPc.getName().equals(pc.getName()));
 			}
 		}
+
 		// todo: sorting the list
 		gdWidget = new GuildDisplayWidget(listBounds, niceList);
 
 		DIYPane titlePane = getTitle("Guild");
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
+		buttonPane.setBounds(
+			startX +border +inset,
+			startY +DIALOG_HEIGHT -border -buttonPaneHeight,
+			DIALOG_WIDTH -border*2 -inset*2,
+			buttonPaneHeight);
+
 		okButton = new DIYButton("OK");
 		okButton.addActionListener(this);
 		delete = new DIYButton("Delete");
@@ -95,8 +97,6 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 		buttonPane.add(okButton);
 		buttonPane.add(delete);
 		buttonPane.add(cancel);
-
-		setBackground();
 
 		this.add(titlePane);
 		this.add(gdWidget);
@@ -109,14 +109,9 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-				addCharacter();
-				break;
-			default:
-				gdWidget.processKeyPressed(e);
+			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> addCharacter();
+			default -> gdWidget.processKeyPressed(e);
 		}
 	}
 

@@ -32,13 +32,15 @@ import mclachlan.maze.game.Maze;
 
 public class FlavourTextDialog extends GeneralDialog implements ActionListener
 {
-	private DIYTextArea text;
+	private final DIYTextArea text;
 
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextDialog(String title, String text)
 	{
+		super.setStyle(Style.FIXED_PANEL);
+
 		// try to guess dialog height
 		List<String> lines = DIYToolkit.wrapText(
 			text,
@@ -79,8 +81,6 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 		this.text.setTransparent(true);
 		this.text.setBounds(textBounds);
 		this.text.addActionListener(this);
-
-		setBackground();
 
 		if (titlePane != null)
 		{

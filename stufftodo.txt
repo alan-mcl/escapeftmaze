@@ -4,10 +4,13 @@ STUFFTODO
 
 UI REFRESH
 --------------
-Buttons reskin
 popup to make ambushes obvious
 take all / leave on loot dialog
-Shaman create character: spellbooks missing
+bug: button click/drag
+bug: main menu -> add character -> load game -> NPX
+make main menu title nice
+guild panel scroll pane
+
 
 BACKLOG
 ----------

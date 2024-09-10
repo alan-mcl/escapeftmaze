@@ -59,7 +59,7 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
 		renderers.put(DIYToolkit.LABEL, new MazeLabelRenderer());
 		renderers.put(DIYToolkit.PANE, new NullRenderer());
-		renderers.put(DIYToolkit.PANEL, new MazePanelRenderer());
+		renderers.put(DIYToolkit.PANEL, new MFPanelRenderer());
 		renderers.put(DIYToolkit.BUTTON, new MFButtonRenderer());
 		renderers.put(DIYToolkit.SCROLL_PANE, new MazeScrollPaneRenderer());
 		renderers.put(DIYToolkit.TEXT_AREA, new MazeTextAreaRenderer());

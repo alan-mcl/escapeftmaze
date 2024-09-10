@@ -231,7 +231,7 @@ public interface UserInterface
 	void errorDialog(String s);
 
 	/*-------------------------------------------------------------------------*/
-	public TextDialogWidget waitingDialog(String s);
+	TextDialogWidget waitingDialog(String s);
 
 	/*-------------------------------------------------------------------------*/
 	Music getMusic();

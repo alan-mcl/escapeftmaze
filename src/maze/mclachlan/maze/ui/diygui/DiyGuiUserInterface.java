@@ -1110,9 +1110,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		int tipWidth = SCREEN_WIDTH / 2;
 		Rectangle tipBounds = new Rectangle(
 			SCREEN_WIDTH / 2 - tipWidth / 2,
-			SCREEN_HEIGHT / 4 * 3,
+			SCREEN_HEIGHT / 6 * 5,
 			tipWidth,
-			SCREEN_HEIGHT / 5);
+			SCREEN_HEIGHT / 7);
 		tipOfTheDayWidget = new TipOfTheDayWidget(tipBounds);
 		screen.add(tipOfTheDayWidget);
 

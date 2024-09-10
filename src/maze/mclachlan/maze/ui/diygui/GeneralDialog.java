@@ -25,7 +25,6 @@ import java.awt.Rectangle;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
 
@@ -36,20 +35,22 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class GeneralDialog extends DIYPanel
 {
-	protected static int buttonPaneHeight = 120;
-	protected static int titlePaneHeight = 20;
-	protected static int border = 10;
+	protected static int buttonPaneHeight = 50;
+	protected static int titlePaneHeight = 50;
+	protected static int border = 30;
 	protected static int inset = 20;
 
 	/*-------------------------------------------------------------------------*/
 	public GeneralDialog()
 	{
+		this.setStyle(Style.DIALOG);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public GeneralDialog(Rectangle bounds)
 	{
 		super(bounds);
+		this.setStyle(Style.DIALOG);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -62,14 +63,25 @@ public class GeneralDialog extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	protected DIYPane getTitle(String titleText)
 	{
-		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
-		DIYLabel title = new DIYLabel(titleText);
-		titlePane.setBounds(x, y+ border, width, titlePaneHeight);
+		DIYPane titlePane = new DIYPane();
+		titlePane.setBounds(
+			x +border, y +border,
+			width -border*2, titlePaneHeight);
+
+		DIYLabel title = new DIYLabel(titleText, DIYToolkit.Align.CENTER);
 		title.setForegroundColour(GOLD);
+		title.setBounds(
+			x +border, y +border,
+						width -border*2, titlePaneHeight
+		);
+
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+5);
+
 		title.setFont(f);
+
 		titlePane.add(title);
+
 		return titlePane;
 	}
 }

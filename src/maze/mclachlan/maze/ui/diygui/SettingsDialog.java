@@ -40,13 +40,13 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3*2;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
 
-	private DIYButton okButton, cancel;
-	private UserConfig userConfig;
+	private final DIYButton close;
+	private final UserConfig userConfig;
 
-	private DIYRadioButton musicOff, musicLow, musicMed, musicHigh;
-	private DIYRadioButton chatOff, chatLow, chatMed, chatHigh;
-	private DIYRadioButton eventDelayNone, eventDelaySmall, eventDelayLarge, eventDelayMedium;
-	private DIYRadioButton autoAddConsumablesNever, autoAddConsumablesAlways;
+	private final DIYRadioButton musicOff, musicLow, musicMed, musicHigh;
+	private final DIYRadioButton chatOff, chatLow, chatMed, chatHigh;
+	private final DIYRadioButton eventDelayNone, eventDelaySmall, eventDelayLarge, eventDelayMedium;
+	private final DIYRadioButton autoAddConsumablesNever, autoAddConsumablesAlways;
 
 	/*-------------------------------------------------------------------------*/
 	public SettingsDialog()
@@ -59,28 +59,19 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		this.setBounds(dialogBounds);
 
-		int buttonPaneHeight = 120;
-		int border = 10;
-		int inset = 20;
-
-		Rectangle innerBounds = new Rectangle(
-			startX +border +inset,
-			startY +inset +buttonPaneHeight,
-			DIALOG_WIDTH -inset*2,
-			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
-
 		DIYPane leftPane = new DIYPane(
 			startX +border +inset,
-			startY +inset +buttonPaneHeight,
+			startY +border +titlePaneHeight +inset,
 			(DIALOG_WIDTH -inset*2) /3,
-			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
-		leftPane.setLayoutManager(new DIYGridLayout(1, 10, 5, 5));
+			DIALOG_HEIGHT -inset*2 -titlePaneHeight);
+		leftPane.setLayoutManager(new DIYGridLayout(1, 13, 5, 5));
 
-		DIYPane rightPane = new DIYPane(startX +border +inset + (DIALOG_WIDTH -inset*2) /3,
-			startY +inset +buttonPaneHeight,
+		DIYPane rightPane = new DIYPane(
+			startX +border +inset + (DIALOG_WIDTH -inset*2) /3,
+			startY +border +titlePaneHeight +inset,
 			(DIALOG_WIDTH -inset*2) /3 *2,
-			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
-		rightPane.setLayoutManager(new DIYGridLayout(1, 10, 5, 5));
+			DIALOG_HEIGHT -inset*2 -titlePaneHeight);
+		rightPane.setLayoutManager(new DIYGridLayout(1, 13, 5, 5));
 
 		//---
 
@@ -187,22 +178,15 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		DIYPane titlePane = getTitle(StringUtil.getUiLabel("sd.title"));
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y + height - buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
-		okButton.addActionListener(this);
-		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
-		cancel.addActionListener(this);
+		close = new DIYButton(null);
+		close.setImage("ui/mf/button/close_button");
+		close.setBounds(x +width -45, y, 45, 45);
+		close.addActionListener(this);
 		
-		buttonPane.add(okButton);
-		buttonPane.add(cancel);
-
-		setBackground();
-
+		this.add(close);
 		this.add(titlePane);
 		this.add(leftPane);
 		this.add(rightPane);
-		this.add(buttonPane);
 		this.doLayout();
 	}
 
@@ -211,29 +195,30 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 	{
 		switch (userConfig.getMusicVolume())
 		{
-			case 0: musicOff.setSelected(true); break;
-			case 33: musicLow.setSelected(true); break;
-			case 66: musicMed.setSelected(true); break;
-			case 100: musicHigh.setSelected(true); break;
-			default: musicMed.setSelected(true); break;
+			case 0 -> musicOff.setSelected(true);
+			case 33 -> musicLow.setSelected(true);
+			case 66 -> musicMed.setSelected(true);
+			case 100 -> musicHigh.setSelected(true);
+			default -> musicMed.setSelected(true);
 		}
 
 		switch (userConfig.getPersonalityChattiness())
 		{
-			case SpeechUtil.OFF: chatOff.setSelected(true); break;
-			case SpeechUtil.LOW: chatLow.setSelected(true); break;
-			case SpeechUtil.MEDIUM: chatMed.setSelected(true); break;
-			case SpeechUtil.HIGH: chatHigh.setSelected(true); break;
-			default: throw new MazeException("Invalid value: "+userConfig.getPersonalityChattiness());
+			case SpeechUtil.OFF -> chatOff.setSelected(true);
+			case SpeechUtil.LOW -> chatLow.setSelected(true);
+			case SpeechUtil.MEDIUM -> chatMed.setSelected(true);
+			case SpeechUtil.HIGH -> chatHigh.setSelected(true);
+			default ->
+				throw new MazeException("Invalid value: " + userConfig.getPersonalityChattiness());
 		}
 
 		switch (userConfig.getCombatDelay())
 		{
-			case 0: eventDelayNone.setSelected(true); break;
-			case 150: eventDelaySmall.setSelected(true); break;
-			case 400: eventDelayMedium.setSelected(true); break;
-			case 1000: eventDelayLarge.setSelected(true); break;
-			default: eventDelayMedium.setSelected(true); break;
+			case 0 -> eventDelayNone.setSelected(true);
+			case 150 -> eventDelaySmall.setSelected(true);
+			case 400 -> eventDelayMedium.setSelected(true);
+			case 1000 -> eventDelayLarge.setSelected(true);
+			default -> eventDelayMedium.setSelected(true);
 		}
 
 		if (userConfig.isAutoAddConsumables())
@@ -249,27 +234,20 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch (e.getKeyCode())
+		save();
+
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-				save();
-				break;
-			default:
+			exit();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == okButton)
-		{
-			save();
-			return true;
-		}
-		else if (event.getSource() == cancel)
+		save();
+
+		if (event.getSource() == close)
 		{
 			exit();
 			return true;
@@ -358,7 +336,6 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 		{
 			throw new MazeException(e);
 		}
-		exit();
 	}
 
 	/*-------------------------------------------------------------------------*/

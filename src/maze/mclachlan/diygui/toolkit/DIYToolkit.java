@@ -886,12 +886,16 @@ public class DIYToolkit
 		Color background)
 	{
 		FontMetrics fm = g.getFontMetrics();
+		Rectangle2D stringBounds = fm.getStringBounds(s, g);
 
-		int textHeight = fm.getAscent();
-		int textWidth = fm.stringWidth(s);
+		int textWidth = (int)stringBounds.getWidth();
+		int textHeight = (int)stringBounds.getHeight();
 
 		// center the text on the Y axis
-		int textY = bounds.y + bounds.height / 2 + textHeight / 2;
+		int textY = bounds.y + bounds.height/2 + textHeight/2 - fm.getDescent();
+
+		// center the text on the Y axis
+//		int textY = bounds.y + bounds.height / 2 + textHeight / 2;
 
 		int textX = bounds.x;
 		if (alignment == Align.CENTER)

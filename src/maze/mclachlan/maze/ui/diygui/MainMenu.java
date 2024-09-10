@@ -25,7 +25,6 @@ import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
@@ -49,14 +48,14 @@ public class MainMenu extends DIYPanel
 	implements ActionListener, ChooseCharacterCallback,
 	GuildCallback, StartGameCallback
 {
-	private DIYButton quickStart;
-	private DIYButton createCharacter;
-	private DIYButton exit;
-	private DIYButton addCharacter;
-	private DIYButton startGame;
-	private DIYButton loadGame;
-	private DIYButton removeCharacter;
-	private DIYButton options;
+	private final DIYButton quickStart;
+	private final DIYButton createCharacter;
+	private final DIYButton exit;
+	private final DIYButton addCharacter;
+	private final DIYButton startGame;
+	private final DIYButton loadGame;
+	private final DIYButton removeCharacter;
+	private final DIYButton options;
 
 	/*-------------------------------------------------------------------------*/
 	public MainMenu(Rectangle bounds)
@@ -73,8 +72,10 @@ public class MainMenu extends DIYPanel
 		topLabel.setFont(f);
 		this.add(topLabel);
 		
-		DIYPane menu = new DIYPane(new DIYGridLayout(1,10,5,5));
-		menu.setInsets(new Insets(10,10,10,10));
+		DIYPanel menu = new DIYPanel(new DIYGridLayout(1,9,5,5));
+		menu.setStyle(Style.FIXED_PANEL);
+		menu.setInsets(new Insets(25,25,25,25));
+
 		int width = 300;
 		int height = 500;
 		menu.setBounds(
@@ -252,7 +253,7 @@ public class MainMenu extends DIYPanel
 	public void updateState()
 	{
 		PlayerParty party = Maze.getInstance().getParty();
-		List<PlayerCharacter> guild = new ArrayList<PlayerCharacter>(
+		List<PlayerCharacter> guild = new ArrayList<>(
 			Database.getInstance().getCharacterGuild().values());
 		boolean partyFull = false;
 		

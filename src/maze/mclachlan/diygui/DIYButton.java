@@ -33,6 +33,10 @@ public class DIYButton extends Widget
 	private State state = State.DEFAULT;
 	private DIYToolkit.Align align = DIYToolkit.Align.CENTER;
 
+	/** optional image used to render this button. This is the regular
+	 * texture, the renderer will expect _disabled, _hover and _depressed textures too. */
+	private String image;
+
 	public enum State
 	{
 		DEFAULT, HOVER, DEPRESSED 
@@ -51,6 +55,26 @@ public class DIYButton extends Widget
 		super(0, 0, 1, 1);
 		this.align = align;
 		this.text = text;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public DIYButton(int x, int y, int width, int height, String text,
+		DIYToolkit.Align align, String image)
+	{
+		super(x, y, width, height);
+		this.text = text;
+		this.align = align;
+		this.image = image;
+	}
+
+	public String getImage()
+	{
+		return image;
+	}
+
+	public void setImage(String image)
+	{
+		this.image = image;
 	}
 
 	/*-------------------------------------------------------------------------*/

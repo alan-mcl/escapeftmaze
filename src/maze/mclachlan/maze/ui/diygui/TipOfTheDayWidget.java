@@ -29,7 +29,7 @@ import mclachlan.maze.game.Maze;
 
 public class TipOfTheDayWidget extends DIYPane
 {
-	private DIYTextArea tip;
+	private final DIYTextArea tip;
 
 	/*-------------------------------------------------------------------------*/
 	public TipOfTheDayWidget(Rectangle bounds)

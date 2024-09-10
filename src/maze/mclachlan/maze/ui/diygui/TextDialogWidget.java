@@ -33,14 +33,16 @@ import mclachlan.maze.game.Maze;
  */
 public class TextDialogWidget extends GeneralDialog implements ActionListener
 {
-	private DIYTextArea text;
-	private boolean modal;
+	private final DIYTextArea text;
+	private final boolean modal;
 
 	/*-------------------------------------------------------------------------*/
 	public TextDialogWidget(Rectangle bounds, String title, String text, boolean modal)
 	{
 		super(bounds);
+
 		this.modal = modal;
+		super.setStyle(Style.FIXED_PANEL);
 
 		DIYPane titlePane = null;
 
@@ -69,8 +71,6 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 		this.text.setTransparent(true);
 		this.text.setBounds(textBounds);
 
-		setBackground();
-
 		if (titlePane != null)
 		{
 			this.add(titlePane);
@@ -79,12 +79,6 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 		this.doLayout();
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public TextDialogWidget(Rectangle bounds)
-	{
-		this(bounds, "", "", false);
-	}
-	
 	/*-------------------------------------------------------------------------*/
 	public void setText(String text)
 	{

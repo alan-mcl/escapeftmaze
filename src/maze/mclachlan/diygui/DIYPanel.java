@@ -29,6 +29,18 @@ import java.awt.*;
  */
 public class DIYPanel extends ContainerWidget
 {
+	/**
+	 * Hints for the renderer.
+	 */
+	public enum Style
+	{
+		TRANSPARENT,
+		FIXED_PANEL,
+		IMAGE_BACK,
+		DIALOG
+	}
+
+	private Style style = Style.TRANSPARENT;
 	private Image background;
 	
 	/*-------------------------------------------------------------------------*/
@@ -82,12 +94,22 @@ public class DIYPanel extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void setBackgroundImage(Image background)
 	{
+		this.style = Style.IMAGE_BACK;
 		this.background = background;
 	}
-	
-	/*-------------------------------------------------------------------------*/
+
 	public Image getBackgroundImage()
 	{
 		return background;
+	}
+
+	public Style getStyle()
+	{
+		return style;
+	}
+
+	public void setStyle(Style style)
+	{
+		this.style = style;
 	}
 }
