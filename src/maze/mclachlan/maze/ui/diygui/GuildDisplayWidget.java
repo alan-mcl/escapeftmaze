@@ -23,6 +23,7 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import java.util.List;
+import mclachlan.diygui.DIYScrollPane;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.diygui.DIYListBox;
 import mclachlan.diygui.toolkit.ContainerWidget;
@@ -33,26 +34,28 @@ import mclachlan.diygui.toolkit.DIYToolkit;
  */
 public class GuildDisplayWidget extends ContainerWidget
 {
-	private DIYListBox list;
-	private List<PlayerCharacter> characters;
+	private final DIYListBox list;
+	private final List<PlayerCharacter> characters;
 
 	/*-------------------------------------------------------------------------*/
 	public GuildDisplayWidget(Rectangle bounds, List<PlayerCharacter> characters)
 	{
 		super(bounds);
-		this.characters = new ArrayList<PlayerCharacter>(characters);
+		this.characters = new ArrayList<>(characters);
 
 		List<GuildCharacter> guildCharacters = getGuildCharactersList(characters);
 		Collections.sort(guildCharacters);
 		list = new DIYListBox(guildCharacters, new Rectangle(x, y, width, height));
+
+		DIYScrollPane scroller = new DIYScrollPane(x, y, width, height, list);
 		
-		add(list);
+		add(scroller);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private List<GuildCharacter> getGuildCharactersList(List<PlayerCharacter> characters)
 	{
-		List<GuildCharacter> guildCharacters = new ArrayList<GuildCharacter>();
+		List<GuildCharacter> guildCharacters = new ArrayList<>();
 		for (PlayerCharacter character : characters)
 		{
 			guildCharacters.add(new GuildCharacter(character));
@@ -97,13 +100,12 @@ public class GuildDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_UP:
-			case KeyEvent.VK_DOWN:
-				list.processKeyPressed(e);
-				break;
-			default: // no op
+			case KeyEvent.VK_UP, KeyEvent.VK_DOWN -> list.processKeyPressed(e);
+			default ->
+			{
+			} // no op
 		}
 	}
 

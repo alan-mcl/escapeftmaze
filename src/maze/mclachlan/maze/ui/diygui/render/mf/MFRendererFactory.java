@@ -55,13 +55,15 @@ public class MFRendererFactory extends RendererFactory
 	/*-------------------------------------------------------------------------*/
 	public MFRendererFactory()
 	{
-		// standard renderers
+		// MF renderers
+		renderers.put(DIYToolkit.PANEL, new MFPanelRenderer());
+		renderers.put(DIYToolkit.BUTTON, new MFButtonRenderer());
+		renderers.put(DIYToolkit.SCROLL_PANE, new MFScrollPaneRenderer());
+
+		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
 		renderers.put(DIYToolkit.LABEL, new MazeLabelRenderer());
 		renderers.put(DIYToolkit.PANE, new NullRenderer());
-		renderers.put(DIYToolkit.PANEL, new MFPanelRenderer());
-		renderers.put(DIYToolkit.BUTTON, new MFButtonRenderer());
-		renderers.put(DIYToolkit.SCROLL_PANE, new MazeScrollPaneRenderer());
 		renderers.put(DIYToolkit.TEXT_AREA, new MazeTextAreaRenderer());
 		renderers.put(DIYToolkit.TEXT_FIELD, new MazeTextFieldRenderer());
 		renderers.put(DIYToolkit.CHECKBOX, new MazeCheckboxRenderer());
@@ -70,7 +72,7 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.COMBO_BOX, new MazeComboBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_ITEM, new MazeComboItemRenderer());
 
-		// custom maze renderers
+		// Fallback to custom maze renderers
 		renderers.put(ITEM_WIDGET, new ItemWidgetRenderer());
 		renderers.put(DROPPED_ITEM_WIDGET, new DroppedItemWidgetRenderer());
 		renderers.put(ITEM_SELECTION_WIDGET, new ItemSelectionWidgetRenderer());

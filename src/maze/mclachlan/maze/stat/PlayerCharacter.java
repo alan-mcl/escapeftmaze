@@ -847,10 +847,6 @@ public class PlayerCharacter extends UnifiedActor
 	public List<AttackWith> getAttackWithOptions()
 	{
 		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
-		if (getNaturalWeapons() != null)
-		{
-			result.addAll(getNaturalWeapons());
-		}
 
 		Item pw = getPrimaryWeapon();
 		if (pw != null)
@@ -873,6 +869,12 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
 		}
+
+		if (getNaturalWeapons() != null)
+		{
+			result.addAll(getNaturalWeapons());
+		}
+
 
 		return result;
 	}

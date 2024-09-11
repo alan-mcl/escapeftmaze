@@ -384,6 +384,7 @@ gdd.title = Guild of %s
 gdd.add.to.party = (A)dd To Party
 gdd.remove.from.party = (R)emove From Party
 gdd.create.character = (C)reate Character
+gdd.delete.character = (D)elete Character
 gdd.cost = cost: %sgp
 gdd.party.gold = Party Gold: %sgp
 

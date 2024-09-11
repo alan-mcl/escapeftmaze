@@ -79,7 +79,6 @@ public class StoryboardEvent extends MazeEvent
 
 		if (textResource != null && textResource.length() > 0)
 		{
-
 			String text = StringUtil.getCampaignText(textResource);
 
 			DIYTextArea textArea = new DIYTextArea(text);
@@ -95,7 +94,7 @@ public class StoryboardEvent extends MazeEvent
 			List<String> strings = DIYToolkit.wrapText(
 				text, DIYToolkit.getInstance().getComponent().getGraphics(), textWidth);
 			int textHeight = 25 + 25 * strings.size();
-			int inset = 30;
+			int inset = 40;
 
 			switch (textPlacement)
 			{
@@ -147,8 +146,15 @@ public class StoryboardEvent extends MazeEvent
 				default -> throw new MazeException(textPlacement.toString());
 			}
 
+
+			DIYPanel textPanel = new DIYPanel(textX-25, textY-20, textWidth+50, textHeight+40);
+			textPanel.setStyle(DIYPanel.Style.FIXED_PANEL);
+
+			textPanel.add(textArea);
+
 			textArea.setBounds(textX, textY, textWidth, textHeight);
-			dialog.add(textArea);
+
+			dialog.add(textPanel);
 		}
 
 		Maze.getInstance().getUi().showBlockingScreen(

@@ -28,6 +28,7 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
 
@@ -40,7 +41,7 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
 
 	private final GuildDisplayWidget gdWidget;
-	private final DIYButton okButton, cancel, delete;
+	private final DIYButton addCharacter, deleteCharacter, close;
 	private final GuildCallback guildCallback;
 	private final Map<String, PlayerCharacter> guild;
 
@@ -61,7 +62,7 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 			startX +border +inset,
 			startY +border +titlePaneHeight +inset,
 			DIALOG_WIDTH -border*2 -inset*2,
-			DIALOG_HEIGHT -border*2 -inset*3 -buttonPaneHeight);
+			DIALOG_HEIGHT -border*2 -inset*4 -buttonPaneHeight);
 
 		this.setBounds(dialogBounds);
 		List<PlayerCharacter> niceList = new ArrayList<>(guild.values());
@@ -87,17 +88,19 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 			DIALOG_WIDTH -border*2 -inset*2,
 			buttonPaneHeight);
 
-		okButton = new DIYButton("OK");
-		okButton.addActionListener(this);
-		delete = new DIYButton("Delete");
-		delete.addActionListener(this);
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
-		
-		buttonPane.add(okButton);
-		buttonPane.add(delete);
-		buttonPane.add(cancel);
+		addCharacter = new DIYButton(StringUtil.getUiLabel("gdd.add.to.party"));
+		addCharacter.addActionListener(this);
 
+		deleteCharacter = new DIYButton(StringUtil.getUiLabel("gdd.delete.character"));
+		deleteCharacter.addActionListener(this);
+
+		buttonPane.add(addCharacter);
+		buttonPane.add(deleteCharacter);
+
+		close = getCloseButton();
+		close.addActionListener(this);
+
+		this.add(close);
 		this.add(titlePane);
 		this.add(gdWidget);
 		this.add(buttonPane);
@@ -109,6 +112,8 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
+			case KeyEvent.VK_A -> addCharacter();
+			case KeyEvent.VK_D -> deleteCharacter();
 			case KeyEvent.VK_ESCAPE -> exit();
 			case KeyEvent.VK_ENTER -> addCharacter();
 			default -> gdWidget.processKeyPressed(e);
@@ -118,17 +123,17 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == okButton)
+		if (event.getSource() == addCharacter)
 		{
 			addCharacter();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;
 		}
-		else if (event.getSource() == delete)
+		else if (event.getSource() == deleteCharacter)
 		{
 			deleteCharacter();
 			return true;

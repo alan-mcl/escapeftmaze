@@ -22,6 +22,7 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
+import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
@@ -84,4 +85,16 @@ public class GeneralDialog extends DIYPanel
 
 		return titlePane;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	protected DIYButton getCloseButton()
+	{
+		final DIYButton close;
+		close = new DIYButton(null);
+		close.setImage("ui/mf/button/close_button");
+		close.setBounds(x +width -45, y, 45, 45);
+		return close;
+	}
+
 }

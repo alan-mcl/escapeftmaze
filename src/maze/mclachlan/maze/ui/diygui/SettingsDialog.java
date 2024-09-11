@@ -178,11 +178,9 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		DIYPane titlePane = getTitle(StringUtil.getUiLabel("sd.title"));
 
-		close = new DIYButton(null);
-		close.setImage("ui/mf/button/close_button");
-		close.setBounds(x +width -45, y, 45, 45);
+		close = getCloseButton();
 		close.addActionListener(this);
-		
+
 		this.add(close);
 		this.add(titlePane);
 		this.add(leftPane);
