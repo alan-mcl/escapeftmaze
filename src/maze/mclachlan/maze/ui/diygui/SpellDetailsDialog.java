@@ -194,8 +194,6 @@ public class SpellDetailsDialog extends GeneralDialog
 		this.add(pane);
 		this.add(desc);
 		this.add(ok);
-
-		setBackground();
 	}
 
 	/*-------------------------------------------------------------------------*/

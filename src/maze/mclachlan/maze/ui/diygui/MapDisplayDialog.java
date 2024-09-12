@@ -79,8 +79,6 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 
 		DIYPane title = getTitle(zone.getName());
 
-		setBackground();
-
 		this.add(title);
 		this.add(mapWidget);
 		this.add(buttonPane);

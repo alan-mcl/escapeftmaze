@@ -35,7 +35,7 @@ cc.character.name = Character Name
 cc.suggest.name = (suggest)
 cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me your name. You do not look like a creature of the Maze."\n~Keteswayo, Captain of the Iyala
 cc.ability.progression = Special Abilities
-cc.show.lap = Show Full Ability Progression
+cc.show.lap = ...
 cc.locked = ** LOCKED **
 cc.spell.books = Spell Books
 
@@ -234,7 +234,7 @@ ccrw.ineligible = Ineligible Classes
 
 # level ability progression widget
 lapw.title = %s Level Ability Progression
-lapw.level = Level %s:
+lapw.level = Lvl %s:
 
 # level ability action listener
 laal.modifiers = Modifiers:

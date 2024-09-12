@@ -80,8 +80,6 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 		buttonGrid.add(moveDown);
 		buttonGrid.add(buttonPane);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(formationWidget);
 		this.add(buttonGrid);

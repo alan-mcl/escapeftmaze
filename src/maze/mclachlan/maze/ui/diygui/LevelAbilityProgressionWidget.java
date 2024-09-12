@@ -38,15 +38,16 @@ import mclachlan.maze.stat.LevelAbilityProgression;
  */
 public class LevelAbilityProgressionWidget extends DIYPane
 {
-	private int levels;
-	private LevelAbilityActionListener listener = new LevelAbilityActionListener();
+	private final boolean clip;
+	private final int levels;
+	private final LevelAbilityActionListener listener = new LevelAbilityActionListener();
 
 	private ArrayList<DIYPane> rows;
 
 	/*-------------------------------------------------------------------------*/
 	public LevelAbilityProgressionWidget(CharacterClass cc)
 	{
-		this(cc, LevelAbilityProgression.MAX_LEVELS, null);
+		this(cc, LevelAbilityProgression.MAX_LEVELS, null, false);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -55,8 +56,9 @@ public class LevelAbilityProgressionWidget extends DIYPane
 	 * @param levels
 	 * 	The number of levels to display, starting at 1
 	 */
-	public LevelAbilityProgressionWidget(CharacterClass cc, int levels, Rectangle bounds)
+	public LevelAbilityProgressionWidget(CharacterClass cc, int levels, Rectangle bounds, boolean clip)
 	{
+		this.clip = clip;
 		if (bounds != null)
 		{
 			setBounds(bounds);
@@ -85,18 +87,18 @@ public class LevelAbilityProgressionWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private void buildGUI(int levels)
 	{
-		int inset = 3;
+		int gap = 2;
 
-		this.setLayoutManager(new DIYBorderLayout(inset, inset));
+		this.setLayoutManager(new DIYBorderLayout(0, 0));
 
-		DIYPane left = new DIYPane(new DIYGridLayout(1, levels, inset, inset));
-		DIYPane right = new DIYPane(new DIYGridLayout(1, levels, inset, inset));
+		DIYPane left = new DIYPane(new DIYGridLayout(1, levels, gap, gap));
+		DIYPane right = new DIYPane(new DIYGridLayout(1, levels, gap, gap));
 
 		this.add(left, DIYBorderLayout.Constraint.WEST);
 		this.add(right, DIYBorderLayout.Constraint.CENTER);
 		this.doLayout();
 
-		rows = new ArrayList<DIYPane>();
+		rows = new ArrayList<>();
 
 		for (int i=1; i<=levels; i++)
 		{
@@ -125,6 +127,8 @@ public class LevelAbilityProgressionWidget extends DIYPane
 	{
 		row.removeAllChildren();
 
+		int textSum = 0, textMax = 40;
+
 		for (int i = 0; i < abilities.size(); i++)
 		{
 			LevelAbility la = abilities.get(i);
@@ -137,13 +141,22 @@ public class LevelAbilityProgressionWidget extends DIYPane
 				text += ",";
 			}
 
-
 			DIYLabel diyLabel = new DIYLabel(text);
 
 			diyLabel.addActionListener(listener);
 			diyLabel.setActionPayload(la);
 
 			row.add(diyLabel);
+
+			textSum += text.length();
+
+			if (clip && textSum > textMax)
+			{
+				diyLabel.setText(text.substring(0,5)+"...");
+
+				// stop adding labels
+				break;
+			}
 		}
 		doLayout();
 	}

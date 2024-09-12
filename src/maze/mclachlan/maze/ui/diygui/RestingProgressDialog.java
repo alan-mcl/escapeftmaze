@@ -86,8 +86,6 @@ public class RestingProgressDialog extends GeneralDialog
 		ok.setEnabled(false);
 		buttonPane.add(ok);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(infoPane);
 		this.add(buttonPane);

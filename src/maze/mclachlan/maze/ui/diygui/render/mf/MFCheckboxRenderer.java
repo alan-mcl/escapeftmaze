@@ -87,47 +87,6 @@ public class MFCheckboxRenderer extends Renderer
 
 		g.drawImage(image, boxX, boxY, comp);
 
-
-/*		// draw the filler
-		if (checkbox.isSelected())
-		{
-			if (checkbox.isEnabled())
-			{
-				col1 = Color.WHITE;
-				col2 = Constants.Colour.GOLD;
-			}
-			else
-			{
-				col1 = Color.LIGHT_GRAY;
-				col2 = Color.LIGHT_GRAY.darker();
-			}
-
-			int inset = 0;
-			Rectangle2D filler = new Rectangle2D.Double(boxX+inset, boxY+inset, boxSize-inset*2, boxSize-inset*2);
-			g.setPaint(new RadialGradientPaint(
-				new Rectangle2D.Double(boxX, boxY, boxSize-2, boxSize-2),
-				new float[]{0.1f, 1.0f},
-				new Color[]{col1, col2},
-				MultipleGradientPaint.CycleMethod.NO_CYCLE));
-			g.fill(filler);
-		}
-
-		// draw the border
-		if (checkbox.isEnabled())
-		{
-			col1 = Color.WHITE;
-			col2 = Color.LIGHT_GRAY.darker();
-		}
-		else
-		{
-			col1 = Color.LIGHT_GRAY.darker();
-			col2 = Color.LIGHT_GRAY.darker().darker();
-		}
-
-		Rectangle2D e2d = new Rectangle2D.Double(boxX, boxY, boxSize, boxSize);
-		g.setPaint(new GradientPaint(boxX, boxY, col1, boxX+height/2, boxY+height/2, col2, true));
-		g.draw(e2d);*/
-
 		// draw the text
 		FontMetrics fm = g.getFontMetrics();
 	

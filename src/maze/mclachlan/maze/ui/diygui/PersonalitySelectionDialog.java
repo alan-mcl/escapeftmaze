@@ -88,8 +88,6 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 		buttonPane.add(okButton);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(personalities);
 		this.add(buttonPane);

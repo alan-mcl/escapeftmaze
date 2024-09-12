@@ -65,8 +65,6 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void buildGui()
 	{
-		setBackground();
-
 		DIYPane gridCol1 = new DIYPane(new DIYGridLayout(1, 5, 4, 4));
 		int buttonPaneHeight = 40;
 		gridCol1.setBounds(x, y, width/3, height- buttonPaneHeight);

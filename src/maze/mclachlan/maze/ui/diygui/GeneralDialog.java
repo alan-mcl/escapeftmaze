@@ -27,7 +27,6 @@ import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.maze.data.Database;
 
 import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
@@ -55,9 +54,9 @@ public class GeneralDialog extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected void setBackground()
+	protected void setBackground(Image back)
 	{
-		Image back = Database.getInstance().getImage("screen/general_dialog_back");
+//		Image back = Database.getInstance().getImage("screen/general_dialog_back");
 		this.setBackgroundImage(back);
 	}
 

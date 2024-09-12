@@ -123,8 +123,6 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 
 		refresh(JournalManager.JournalType.LOGBOOK);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(leftPane);
 		this.add(rightPane);

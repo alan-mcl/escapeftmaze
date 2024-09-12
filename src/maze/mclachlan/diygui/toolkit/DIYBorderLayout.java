@@ -26,12 +26,11 @@ import java.awt.*;
  */
 public class DIYBorderLayout extends LayoutManager
 {
-	private int vgap;
-	private int hgap;
+	private final int vgap, hgap;
 	
 	Widget north, south, east, west, center;
 
-	public static enum Constraint
+	public enum Constraint
 	{
 		NORTH, SOUTH, EAST, WEST, CENTER
 	}

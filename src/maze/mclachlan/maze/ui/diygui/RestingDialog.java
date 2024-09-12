@@ -142,8 +142,6 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		cancel.addActionListener(this);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(infoPane);
 		this.add(buttonPane);

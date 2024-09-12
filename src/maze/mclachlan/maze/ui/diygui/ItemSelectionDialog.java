@@ -74,8 +74,6 @@ public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 		buttonPane.add(okButton);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(isWidget);
 		this.add(buttonPane);

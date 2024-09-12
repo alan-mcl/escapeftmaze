@@ -23,7 +23,6 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.ContainerWidget;
@@ -35,50 +34,31 @@ import mclachlan.maze.game.Maze;
  */
 public class ContainerDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton ok;
-	private DIYTextArea text;
+	private final DIYButton close;
 
 	/*-------------------------------------------------------------------------*/
 	public ContainerDialog(String title, ContainerWidget contents, Rectangle bounds)
 	{
-		this.ok = new DIYButton("OK");
-
 		this.setBounds(bounds);
 
-		int inset = 2, border = 15;
-		int buttonHeight = 17;
-		int buttonWidth = bounds.width/4;
-
-		ok.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 -buttonWidth/2 -inset,
-			bounds.y+ bounds.height - buttonHeight - inset - border,
-			buttonWidth, buttonHeight));
-
-		ok.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		Rectangle r = new Rectangle(
 			bounds.x +inset +border,
 			bounds.y +inset +border +titlePaneHeight,
 			bounds.width -inset*2 -border*2,
-			bounds.height -buttonHeight -inset*3 -border*2 -titlePaneHeight);
+			bounds.height -inset*2 -border*2 -titlePaneHeight);
 
 		contents.setBounds(r);
 		contents.doLayout();
 
 		DIYPane titlePane = getTitle(title);
 		titlePane.doLayout();
-		
+
 		this.add(titlePane);
+		this.add(close);
 		this.add(contents);
-		this.add(ok);
-
-		setBackground();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setText(String text)
-	{
-		this.text.setText(text);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -105,7 +85,7 @@ public class ContainerDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == ok)
+		if (event.getSource() == close)
 		{
 			exitDialog();
 			return true;

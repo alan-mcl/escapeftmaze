@@ -80,8 +80,6 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 		}
 		buttonPane.add(okButton);
 
-		setBackground();
-
 		this.add(buttonPane);
 		this.doLayout();
 	}

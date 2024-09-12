@@ -76,8 +76,6 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 		buttonPane.add(okButton);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(portraitWidget);
 		this.add(buttonPane);

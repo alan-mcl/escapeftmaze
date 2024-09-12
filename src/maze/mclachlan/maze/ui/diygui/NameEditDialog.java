@@ -74,8 +74,6 @@ public class NameEditDialog extends GeneralDialog implements ActionListener
 		buttonPane.add(okButton);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(text);
 		this.add(buttonPane);

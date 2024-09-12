@@ -80,8 +80,6 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 		buttonPane.add(okButton);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(labelPane);
 		this.add(inputField);
 		this.add(buttonPane);

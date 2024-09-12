@@ -98,8 +98,6 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 		buttonPane.add(okButton);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(optionsWidget);
 		this.add(buttonPane);

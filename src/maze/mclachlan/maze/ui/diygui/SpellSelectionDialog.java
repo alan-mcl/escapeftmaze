@@ -70,8 +70,6 @@ public class SpellSelectionDialog extends GeneralDialog implements ActionListene
 		buttonPane.add(okButton);
 		buttonPane.add(cancelButton);
 
-		setBackground();
-
 		this.add(buttonPane);
 		this.doLayout();
 	}

@@ -66,7 +66,6 @@ public class FoeDetailsDialog extends GeneralDialog implements ActionListener
 		this.add(ok);
 		this.add(fdw);
 
-		setBackground();
 	}
 
 	/*-------------------------------------------------------------------------*/

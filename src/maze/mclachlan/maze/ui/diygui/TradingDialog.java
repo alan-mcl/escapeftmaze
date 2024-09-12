@@ -122,8 +122,6 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 			x+ inset *2+tradingPaneWidth, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
 			npcWidget);
 
-		setBackground();
-
 		// initial state: selling
 		npcWidget.setSelected(null);
 		buy.setEnabled(false);

@@ -84,8 +84,6 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		cancel.addActionListener(this);
 		buttonPane.add(cancel);
 
-		setBackground();
-
 		this.add(labelPane);
 		this.add(optionsPane);
 		this.add(buttonPane);

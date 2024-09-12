@@ -85,7 +85,6 @@ public class ConfirmationDialog extends GeneralDialog implements ActionListener
 		this.add(cancel);
 		this.add(text);
 
-		setBackground();
 	}
 
 	/*-------------------------------------------------------------------------*/

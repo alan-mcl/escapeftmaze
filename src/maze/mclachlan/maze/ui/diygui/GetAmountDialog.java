@@ -96,8 +96,6 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 
 		okButton.setEnabled(false);
 
-		setBackground();
-
 		this.add(labelPane);
 		this.add(amountField);
 		this.add(buttonPane);

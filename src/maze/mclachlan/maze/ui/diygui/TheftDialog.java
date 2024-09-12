@@ -108,8 +108,6 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 			x+ inset, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
 			itemWidget);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(npcPane);
 		this.add(buttonPane);

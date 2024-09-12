@@ -110,8 +110,6 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 		buttonPane.add(exit);
 		buttonPane.add(new DIYLabel(""));
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(gdWidget);
 		this.add(buttonPane);

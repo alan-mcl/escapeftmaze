@@ -104,8 +104,6 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 			x+ inset *2+tradingPaneWidth, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
 			item2Widget);
 
-		setBackground();
-
 		this.add(titlePane);
 		this.add(pcPane);
 		this.add(npcPane);

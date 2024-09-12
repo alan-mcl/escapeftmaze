@@ -35,23 +35,16 @@ import mclachlan.maze.game.Maze;
  */
 public class OkDialogWidget extends GeneralDialog implements ActionListener
 {
-	private DIYButton ok;
-	private DIYTextArea text;
+	private final DIYButton close;
+	private final DIYTextArea text;
 
 	/*-------------------------------------------------------------------------*/
 	public OkDialogWidget(Rectangle bounds, String title, String text)
 	{
 		super(bounds);
 
-		int okButtonWidth, okButtonHeight = 17;
-		okButtonWidth = width/4;
-		this.ok = new DIYButton("OK");
-		ok.setBounds(new Rectangle(
-			x+ width/2 - okButtonWidth/2,
-			y+ height - okButtonHeight - inset - border,
-			okButtonWidth, okButtonHeight));
-		
-		ok.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		DIYPane titlePane = null;
 
@@ -65,7 +58,7 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 				x +inset +border,
 				y +inset +border +titlePaneHeight,
 				width -inset*2 -border*2,
-				height -okButtonHeight -inset*3 -border*2 -titlePaneHeight);
+				height -inset*2 -border*2 -titlePaneHeight);
 		}
 		else
 		{
@@ -73,15 +66,12 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 				x +inset +border,
 				y +inset +border,
 				width -inset*2 -border*2,
-				height -okButtonHeight -inset*3 -border*2);
+				height -inset*2 -border*2);
 		}
 
 		this.text = new DIYTextArea(text);
 		this.text.setTransparent(true);
 		this.text.setBounds(textBounds);
-
-
-		setBackground();
 
 		if (titlePane != null)
 		{
@@ -98,16 +88,10 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 			this.add(this.text);
 		}
 
-		this.add(ok);
+		this.add(close);
 		this.doLayout();
 	}
-	
-	/*-------------------------------------------------------------------------*/
-	public OkDialogWidget(Rectangle bounds)
-	{
-		this(bounds, "", "");
-	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void setText(String text)
 	{
@@ -139,7 +123,7 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == ok)
+		if (event.getSource() == close)
 		{
 			exitDialog();
 			return true;

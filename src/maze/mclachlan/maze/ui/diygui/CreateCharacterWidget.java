@@ -87,7 +87,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private StatModifierDisplayWidget raceModifiersWidget1;
 	private StatModifierDisplayWidget raceModifiersWidget2;
 	private StatModifierDisplayWidget raceModifiersWidget3;
-	private ResourcesDisplayWidget classResourcesWidget;
+	private ResourcesDisplayWidget2 classResourcesWidget;
 	private StatModifierDisplayWidget classModifiersWidget1;
 	private StatModifierDisplayWidget classModifiersWidget2;
 	private StatModifierDisplayWidget classModifiersWidget3;
@@ -457,104 +457,173 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getClassesPane()
 	{
-		int inset = 10;
-		int columnWidth = width/4 - 2*inset;
-		int column1 = inset;
-		int column2 = width/4 + inset;
-		int column3 = (width/4)*2 + inset;
-		int column4 = (width/4)*3 + inset;
+		int inset, column1x;
 
-		DIYPane classesPane = new DIYPane();
+		inset = column1x = 10;
+		int columnWidth = (width-5*inset)/4;
+
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
+		int column4x = column3x + columnWidth + inset;
 
 		int headerOffset = 50;
-		DIYTextArea stepFlavour = getStepFlavourArea(inset, column1, headerOffset, "cc.choose.class.flava");
+		int contentTop = headerOffset + 50;
+		int contentHeight = height -contentTop -buttonPaneHeight;
+		int panelBorderInset = 25;
+		int titleHeight = 20;
+
+		DIYPane pane = new DIYPane();
+
+		DIYTextArea stepFlavour = getStepFlavourArea(inset, column1x, headerOffset, "cc.choose.class.flava");
+
+		// column 1: class selection
 
 		DIYLabel classTitle = getSubTitle(getLabel("cc.class.title"));
-		classTitle.setBounds(column1, headerOffset+50, columnWidth, 20);
+		classTitle.setBounds(column1x, contentTop+panelBorderInset, columnWidth, titleHeight);
 		classTitle.setForegroundColour(Constants.Colour.GOLD);
 
 		characterClasses = new DIYListBox(characterClassList);
-		int classesHeight = characterClasses.getPreferredSize().height;
-		characterClasses.setBounds(column1, headerOffset+50+25, columnWidth, classesHeight);
+
+		// todo: how to accommodate more classes? scrolling?
+
+		characterClasses.setBounds(
+			column1x+panelBorderInset,
+			contentTop+panelBorderInset+classTitle.height+inset/2,
+			columnWidth -panelBorderInset*2,
+			contentHeight -panelBorderInset*2);
 		characterClasses.setSelected(characterClassList.get(0));
 		characterClasses.addActionListener(this);
 
-		this.classDesc = new DIYTextArea("");
-		this.classDesc.setBounds(column2, headerOffset+50+25, columnWidth*2, height/3);
+		DIYPanel classListPanel = getFixedPanel(column1x, contentTop, columnWidth, contentHeight);
+		classListPanel.setLayoutManager(null);
+		classListPanel.add(classTitle);
+		classListPanel.add(characterClasses);
+
+		// column 2: desc, spell books, progression
+
+		// class desc
+
+		DIYPanel classDescPanel = getFixedPanel(
+			column2x,
+			headerOffset + 50 + panelBorderInset,
+			columnWidth*2 +inset,
+			(contentHeight-panelBorderInset-inset*2) / 2);
+
+		this.classDesc = new DIYTextArea(characterClassList.get(0).characterClass.getDescription());
 		this.classDesc.setTransparent(true);
+		classDescPanel.add(classDesc);
 
-		int yyy = this.classDesc.y+ this.classDesc.height;
+		// spell books
 
-		DIYLabel spellBooks = getSubTitle(StringUtil.getUiLabel("cc.spell.books"));
-		Dimension d = spellBooks.getPreferredSize();
-		spellBooks.setBounds(column2, yyy, d.width, d.height);
+		DIYPanel classSpellBooksPanel = getFixedPanel(
+			column2x,
+			classDescPanel.y + classDescPanel.height +inset,
+			columnWidth*2 +inset,
+			(contentHeight-panelBorderInset-inset*2) / 4);
+		classSpellBooksPanel.setLayoutManager(null);
 
-		yyy = spellBooks.y + spellBooks.height + inset;
+		DIYLabel spellBooksTitle = getSubTitle(StringUtil.getUiLabel("cc.spell.books"));
+		spellBooksTitle.setBounds(
+			column2x, classSpellBooksPanel.y +panelBorderInset,
+			columnWidth*2+inset, titleHeight);
 
 		this.spellBooksDesc = new DIYTextArea("");
 		this.spellBooksDesc.setTransparent(true);
 		this.spellBooksDesc.setBounds(
-			column2, yyy,
-			columnWidth*2, spellBooks.height*5); // 5 lines of text enough?
+			column2x +panelBorderInset, spellBooksTitle.y+titleHeight,
+			columnWidth*2+inset-panelBorderInset*2, classSpellBooksPanel.height-spellBooksTitle.height-panelBorderInset*2);
 
-		yyy = spellBooksDesc.y + spellBooksDesc.height + inset;
+		classSpellBooksPanel.add(spellBooksTitle);
+		classSpellBooksPanel.add(spellBooksDesc);
 
-		DIYLabel abilityProgression = getSubTitle(StringUtil.getUiLabel("cc.ability.progression"));
-		d = abilityProgression.getPreferredSize();
-		abilityProgression.setBounds(
-			column2, yyy, d.width, d.height);
+		// ability progression
 
-		yyy = abilityProgression.y + abilityProgression.height + inset;
+		DIYPanel classLapPanel = getFixedPanel(
+			column2x,
+			classSpellBooksPanel.y + classSpellBooksPanel.height +inset,
+			columnWidth*2 +inset,
+			(contentHeight-panelBorderInset-inset*2) / 4);
+		classLapPanel.setLayoutManager(null);
 
-		int levelsToPreview = 3;
-		Rectangle r = new Rectangle(column2,
-			yyy,
-			columnWidth * 2, abilityProgression.height * levelsToPreview);
-		firstLevel = new LevelAbilityProgressionWidget(null, levelsToPreview, r);
-		firstLevel.doLayout();
-
-		yyy = firstLevel.y+firstLevel.height+inset;
+		DIYLabel abilityProgressionTitle = getSubTitle(StringUtil.getUiLabel("cc.ability.progression"));
+		abilityProgressionTitle.setBounds(
+			column2x, classLapPanel.y+panelBorderInset, columnWidth*2+inset, titleHeight);
 
 		showLevelAbilityProgression = new DIYButton(StringUtil.getUiLabel("cc.show.lap"));
 		showLevelAbilityProgression.addActionListener(this);
-		d = showLevelAbilityProgression.getPreferredSize();
+		Dimension d = showLevelAbilityProgression.getPreferredSize();
 		showLevelAbilityProgression.setBounds(
-			column2, yyy, d.width, d.height);
+			column2x +columnWidth*2 +inset -panelBorderInset -d.width,
+			classLapPanel.y+classLapPanel.height-panelBorderInset-d.height,
+			d.width, d.height);
 
-		classResourcesWidget = new ResourcesDisplayWidget(
+		int levelsToPreview = 3;
+		Rectangle r = new Rectangle(
+			column2x +panelBorderInset,
+			classLapPanel.y +panelBorderInset +titleHeight +inset/2,
+			columnWidth*2 +inset -panelBorderInset*2 -showLevelAbilityProgression.width,
+			classLapPanel.height -panelBorderInset*2 -titleHeight -inset);
+		firstLevel = new LevelAbilityProgressionWidget(null, levelsToPreview, r, true);
+		firstLevel.doLayout();
+
+		classLapPanel.add(abilityProgressionTitle);
+		classLapPanel.add(firstLevel);
+		classLapPanel.add(showLevelAbilityProgression);
+
+		// column 3: resources and stats
+
+		classResourcesWidget = new ResourcesDisplayWidget2(
 			getLabel("cc.resources"), 0, 0, 0, false, false);
 		classModifiersWidget1 = new StatModifierDisplayWidget(
 			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		classModifiersWidget2 = new StatModifierDisplayWidget(
 			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
+
+		List<Stats.Modifier> otherModifiers = new ArrayList<>(Stats.allModifiers);
+		otherModifiers.removeAll(Stats.resourceModifiers);
+		otherModifiers.removeAll(Stats.attributeModifiers);
+		otherModifiers.removeAll(Stats.resistances);
+
 		classModifiersWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
+			getLabel("cc.other.modifiers"), null, 10, otherModifiers, false, false);
 
-		classResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
-		classModifiersWidget1.setBounds(column4, headerOffset + 50 + 3 * 15, columnWidth, 6 * 15);
-		classModifiersWidget2.setBounds(column4, headerOffset+50 +3*15+ 6*15, columnWidth, 9*15);
-		classModifiersWidget3.setBounds(column4, headerOffset+50 +3*15 +6*15 +9*15, columnWidth, 10*15);
+		int rowHeight = 18;
+		classResourcesWidget.setBounds(column4x, contentTop, columnWidth, 27+ 3* rowHeight);
+		classModifiersWidget1.setBounds(column4x, contentTop +29 +3* rowHeight, columnWidth, 6* rowHeight);
+		classModifiersWidget2.setBounds(column4x, contentTop +31 +3* rowHeight +6* rowHeight, columnWidth, 9* rowHeight);
+		classModifiersWidget3.setBounds(column4x, contentTop +33 +
+			3* rowHeight +6* rowHeight +9* rowHeight, columnWidth, 10* rowHeight);
 
-		classesPane.add(titlePane);
+		classResourcesWidget.setInsets(new Insets(25, 25, 0, 25));
+		classModifiersWidget1.setInsets(new Insets(0, 25, 0, 25));
+		classModifiersWidget2.setInsets(new Insets(0, 25, 0, 25));
+		classModifiersWidget3.setInsets(new Insets(0, 25, 0, 25));
 
-		classesPane.add(classTitle);
-		classesPane.add(stepFlavour);
+		DIYPanel classModifiersPanel = getFixedPanel(
+			column4x, contentTop, columnWidth, contentHeight);
+		classModifiersPanel.setLayoutManager(null);
+		classModifiersPanel.add(classResourcesWidget);
+		classModifiersPanel.add(classModifiersWidget1);
+		classModifiersPanel.add(classModifiersWidget2);
+		classModifiersPanel.add(classModifiersWidget3);
 
-		classesPane.add(characterClasses);
+		pane.add(titlePane);
+		pane.add(stepFlavour);
 
-		classesPane.add(classDesc);
-		classesPane.add(spellBooks);
-		classesPane.add(spellBooksDesc);
-		classesPane.add(abilityProgression);
-		classesPane.add(firstLevel);
-		classesPane.add(showLevelAbilityProgression);
-		classesPane.add(classResourcesWidget);
-		classesPane.add(classModifiersWidget1);
-		classesPane.add(classModifiersWidget2);
-		classesPane.add(classModifiersWidget3);
-		classesPane.add(buttonPane);
+		pane.add(classListPanel);
 
-		return classesPane;
+		pane.add(classDescPanel);
+		pane.add(classSpellBooksPanel);
+//		pane.add(abilityProgressionTitle);
+//		pane.add(firstLevel);
+//		pane.add(showLevelAbilityProgression);
+		pane.add(classLapPanel);
+
+		pane.add(classModifiersPanel);
+
+		pane.add(buttonPane);
+
+		return pane;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -679,25 +748,24 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		int column3x = column2x + columnWidth + inset;
 		int column4x = column3x + columnWidth + inset;
 
-		DIYPane pane = new DIYPane();
-
 		int headerOffset = 50;
 		int contentTop = headerOffset + 50;
 		int contentHeight = height -contentTop -buttonPaneHeight;
+		int panelBorderInset = 25;
+
+		DIYPane pane = new DIYPane();
 
 		DIYTextArea stepFlavour = getStepFlavourArea(
 			inset, column1x, headerOffset, "cc.choose.race.and.gender.flava");
 
 		// column 1: race and gender
 
-		int panelBorderInset = 25;
-
 		List<String> raceList = getRaceList();
 		DIYLabel raceTitle = getSubTitle(getLabel("cc.race.title"));
 		raceTitle.setForegroundColour(Constants.Colour.GOLD);
 		raceTitle.setBounds(column1x, contentTop +panelBorderInset, columnWidth, 20);
 		races = new DIYListBox(raceList);
-		races.setBounds(column1x+25, contentTop+panelBorderInset+20+5, columnWidth-panelBorderInset*2, races.getPreferredSize().height);
+		races.setBounds(column1x+25, contentTop+panelBorderInset+raceTitle.height+inset/2, columnWidth-panelBorderInset*2, races.getPreferredSize().height);
 		setDefaultSelectedRace(raceList);
 		races.addActionListener(this);
 
@@ -750,8 +818,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		// column 2: desc and image
 
 		DIYPanel raceDescPanel = getFixedPanel(
-			column2x, headerOffset + 50 + 25,
-			columnWidth*2 +inset, (height-contentTop-buttonPaneHeight-25-inset) / 2);
+			column2x, headerOffset + 50 + panelBorderInset,
+			columnWidth*2 +inset, (contentHeight-panelBorderInset-inset) / 2);
 
 		raceDesc = new DIYTextArea("");
 		raceDesc.setTransparent(true);
@@ -1303,14 +1371,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			for (StartingSpellBook ssb : magicAbility)
 			{
 				sb.append(ssb.getSpellBook().getName())
-					.append(" (max lvl ").append(ssb.getMaxLevel()).append(")\n")
+					.append(" (max lvl ").append(ssb.getMaxLevel()).append("): ")
 					.append(ssb.getDescription());
 			}
 			this.spellBooksDesc.setText(sb.toString());
 		}
 
 		// todo: should we pick up the and lvl1 LAP values in the resources display?
-		this.classResourcesWidget.display(
+		this.classResourcesWidget.setResources(
 			characterClass.getStartingHitPoints(),
 			characterClass.getStartingActionPoints(),
 			characterClass.getStartingMagicPoints(),
