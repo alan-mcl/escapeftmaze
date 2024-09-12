@@ -55,14 +55,14 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.SCROLL_PANE, new MFScrollPaneRenderer());
 		renderers.put(DIYToolkit.RADIO_BUTTON, new MFRadioButtonRenderer());
 		renderers.put(DIYToolkit.CHECKBOX, new MFCheckboxRenderer());
+		renderers.put(DIYToolkit.TEXT_AREA, new MFTextAreaRenderer());
+		renderers.put(DIYToolkit.LIST_BOX_ITEM, new MFListBoxRenderer());
 
 		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
 		renderers.put(DIYToolkit.LABEL, new MazeLabelRenderer());
 		renderers.put(DIYToolkit.PANE, new NullRenderer());
-		renderers.put(DIYToolkit.TEXT_AREA, new MazeTextAreaRenderer());
 		renderers.put(DIYToolkit.TEXT_FIELD, new MazeTextFieldRenderer());
-		renderers.put(DIYToolkit.LIST_BOX_ITEM, new MazeListBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_BOX, new MazeComboBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_ITEM, new MazeComboItemRenderer());
 

@@ -19,6 +19,7 @@
 
 package mclachlan.diygui;
 
+import java.awt.image.BufferedImage;
 import java.util.*;
 import java.util.List;
 import java.awt.*;
@@ -81,7 +82,14 @@ public class DIYListBox extends ContainerWidget
 
 		for (Object item : items)
 		{
-			this.add(new ListItem(item));
+			if (item instanceof ListItemWithIcon)
+			{
+				this.add(new ListItem(((ListItemWithIcon)item).getItem(), ((ListItemWithIcon)item).getIcon()));
+			}
+			else
+			{
+				this.add(new ListItem(item));
+			}
 		}
 
 		doLayout();
@@ -251,30 +259,48 @@ public class DIYListBox extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_UP:
+			case KeyEvent.VK_UP ->
+			{
 				moveSelectionUp();
 				this.notifyListeners(e);
-				break;
-			case KeyEvent.VK_DOWN:
+			}
+			case KeyEvent.VK_DOWN ->
+			{
 				moveSelectionDown();
 				this.notifyListeners(e);
-				break;
-			default: super.processKeyPressed(e);
+			}
+			default -> super.processKeyPressed(e);
 		}
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	public interface ListItemWithIcon
+	{
+		Object getItem();
+		BufferedImage getIcon();
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public class ListItem extends Widget
 	{
-		private Object item;
+		private final Image icon;
+		private final Object item;
 
 		/*----------------------------------------------------------------------*/
+
 		public ListItem(Object item)
+		{
+			this(item, null);
+		}
+
+		/*----------------------------------------------------------------------*/
+		public ListItem(Object item, Image icon)
 		{
 			super(0,0,1,1);
 			this.item = item;
+			this.icon = icon;
 		}
 
 		/*----------------------------------------------------------------------*/
@@ -316,8 +342,15 @@ public class DIYListBox extends ContainerWidget
 		{
 			return item;
 		}
-		
+
 		/*-------------------------------------------------------------------------*/
+
+		public Image getIcon()
+		{
+			return icon;
+		}
+
+		/*----------------------------------------------------------------------*/
 		public String toString()
 		{
 			return item.toString();

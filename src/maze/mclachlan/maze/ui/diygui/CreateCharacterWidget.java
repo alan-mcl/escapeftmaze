@@ -25,6 +25,7 @@ import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.image.BufferedImage;
 import java.util.*;
 import mclachlan.diygui.*;
 import mclachlan.diygui.toolkit.*;
@@ -1663,32 +1664,32 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static class CharacterClassWrapper implements Comparable<CharacterClassWrapper>
+	private static class CharacterClassWrapper implements Comparable<CharacterClassWrapper>,
+		DIYListBox.ListItemWithIcon
 	{
-		CharacterClass characterClass;
-		String desc;
+		private CharacterClass characterClass;
 
 		private CharacterClassWrapper(CharacterClass cc)
 		{
 			this.characterClass = cc;
-
-			StringBuilder sb = new StringBuilder();
-			sb.append(cc.getName());
-
-			for (int i=0; i<15-cc.getName().length(); i++)
-			{
-				sb.append(' ');
-			}
-			sb.append("(");
-			sb.append(cc.getFocus().toString().toLowerCase());
-			sb.append(")");
-
-			this.desc = sb.toString();
+//
+//			StringBuilder sb = new StringBuilder();
+//			sb.append(cc.getName());
+//
+//			for (int i=0; i<15-cc.getName().length(); i++)
+//			{
+//				sb.append(' ');
+//			}
+//			sb.append("(");
+//			sb.append(cc.getFocus().toString().toLowerCase());
+//			sb.append(")");
+//
+//			this.desc = sb.toString();
 		}
 
 		public String toString()
 		{
-			return this.desc;
+			return this.characterClass.getName();
 		}
 
 		public int compareTo(CharacterClassWrapper other)
@@ -1701,6 +1702,24 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			{
 				return this.characterClass.getFocus().compareTo(other.characterClass.getFocus());
 			}
+		}
+
+		@Override
+		public Object getItem()
+		{
+			return this;
+		}
+
+		@Override
+		public BufferedImage getIcon()
+		{
+			return switch (this.characterClass.getFocus())
+				{
+					case COMBAT -> Database.getInstance().getImage("item/combat");
+					case STEALTH -> Database.getInstance().getImage("item/stealth");
+					case MAGIC -> Database.getInstance().getImage("item/magic");
+					default -> throw new MazeException("invalid: "+this.characterClass.getFocus());
+				};
 		}
 	}
 }

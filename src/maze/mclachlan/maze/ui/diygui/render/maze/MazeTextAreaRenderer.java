@@ -34,6 +34,8 @@ import mclachlan.diygui.toolkit.Widget;
  */
 public class MazeTextAreaRenderer extends Renderer
 {
+	protected Color defaultTextColour = Color.WHITE;
+
 	public void render(Graphics2D g, int x, int y, int width, int height,
 		Widget widget)
 	{
@@ -64,7 +66,7 @@ public class MazeTextAreaRenderer extends Renderer
 		}
 		else
 		{
-			g.setColor(Color.WHITE);
+			g.setColor(defaultTextColour);
 		}
 
 		Font gFont = g.getFont();

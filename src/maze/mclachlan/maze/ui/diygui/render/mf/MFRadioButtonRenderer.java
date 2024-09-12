@@ -89,11 +89,14 @@ public class MFRadioButtonRenderer extends Renderer
 
 		// draw the text
 		FontMetrics fm = g.getFontMetrics();
-	
-		int textHeight = fm.getHeight();
+//		int textHeight = fm.getHeight();
 
 		// center the text on the Y axis
+		// center the text on the Y axis
+		int textHeight = fm.getHeight();
 		int textY = y + height/2 + textHeight/2 - fm.getDescent();
+//		int textY = y + height/2 + textHeight/2;
+//		int textY = y + height/2 + textHeight/2 - fm.getDescent();
 
 		int textX = boxX + boxSize + 4;
 

@@ -17,7 +17,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.ui.diygui.render.maze;
+package mclachlan.maze.ui.diygui.render.mf;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
@@ -25,12 +25,13 @@ import mclachlan.diygui.DIYListBox;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.ui.diygui.Constants;
 
 /**
  * This actually ends up rendering the list box item
  */
-public class MazeListBoxRenderer extends Renderer
+public class MFListBoxRenderer extends Renderer
 {
 	/*-------------------------------------------------------------------------*/
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
@@ -44,6 +45,7 @@ public class MazeListBoxRenderer extends Renderer
 		}
 
 		Object item = listBoxItem.getItem();
+		Color textCol;
 		if (listBoxItem.getParent().getSelected() == item)
 		{
 			Color col1, col2;
@@ -52,32 +54,51 @@ public class MazeListBoxRenderer extends Renderer
 			{
 				col1 = Color.WHITE;
 				col2 = Constants.Colour.GOLD;
+				textCol = Color.DARK_GRAY;
 			}
 			else
 			{
 				col1 = Color.LIGHT_GRAY.brighter();
 				col2 = Color.LIGHT_GRAY.darker();
+				textCol = Color.GRAY;
 			}
 
 			RoundRectangle2D r = new RoundRectangle2D.Double(x, y, width, height, 4, 4);
 			g.setPaint(new GradientPaint(x, y, col1, x, y+height, col2, true));
 			g.fill(r);
-			
-			g.setColor(Color.DARK_GRAY);
-			drawString(g, item, x+1, y, width, height);
 		}
 		else
 		{
 			if (listBoxItem.isEnabled())
 			{
-				g.setColor(Color.WHITE);
+				textCol = Color.WHITE;
 			}
 			else
 			{
-				g.setColor(Color.LIGHT_GRAY);
+				textCol = Color.GRAY;
 			}
-			drawString(g, item, x+4, y, width, height);
 		}
+
+		drawItem(g, x, y, width, height, listBoxItem, textCol);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawItem(Graphics2D g, int x, int y, int width, int height,
+		DIYListBox.ListItem item, Color textCol)
+	{
+		Component comp = Maze.getInstance().getComponent();
+		int textX = x;
+
+		Image icon = item.getIcon();
+		if (icon != null)
+		{
+			// draw the icon, then the text
+			g.drawImage(icon, x, y+height/2-icon.getHeight(comp)/2, comp);
+			textX += icon.getWidth(comp);
+		}
+
+		g.setColor(textCol);
+		drawString(g, item, textX+4, y, width, height);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -86,11 +107,10 @@ public class MazeListBoxRenderer extends Renderer
 		FontMetrics fm = g.getFontMetrics();
 		
 		String text = item.toString();
-
+		int textHeight = fm.getAscent();
+		
 		// center the text on the Y axis
-		int textHeight = fm.getHeight();
-		int textY = y + height/2 + textHeight/2 - fm.getDescent();
-//		int textY = y + height/2 + textHeight/2;
+		int textY = y + height/2 + textHeight/2;
 
 		g.drawString(text, x, textY);
 	}
