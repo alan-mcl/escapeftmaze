@@ -35,8 +35,7 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class ResourcesDisplayWidget extends DIYPane
 {
-	private DIYLabel[] labels;
-	private DIYLabel[] values;
+	private final DIYLabel[] labels, values;
 	private final boolean percent;
 
 	/*-------------------------------------------------------------------------*/
@@ -50,11 +49,11 @@ public class ResourcesDisplayWidget extends DIYPane
 	{
 		this.percent = percent;
 
-		int inset = 2;
+		int gap = 2;
 		int rows = 3;
 		int columns = 3;
 
-		this.setLayoutManager(new DIYGridLayout(columns, rows+1, inset, inset));
+		this.setLayoutManager(new DIYGridLayout(columns, rows+1, gap, gap));
 		this.labels = new DIYLabel[rows];
 		this.values = new DIYLabel[rows];
 

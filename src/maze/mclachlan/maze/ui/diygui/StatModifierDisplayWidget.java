@@ -56,11 +56,11 @@ public class StatModifierDisplayWidget extends DIYPane
 	{
 		this.toInclude = toInclude;
 		this.displayZeroes = displayZeroes;
-		int inset = 2;
+		int gap = 2;
 		this.rows = nrRows;
 		int columns = 3;
 
-		this.setLayoutManager(new DIYGridLayout(columns, this.rows+1, inset, inset));
+		this.setLayoutManager(new DIYGridLayout(columns, this.rows+1, gap, gap));
 		this.labels = new DIYLabel[nrRows];
 		this.values = new DIYLabel[nrRows];
 
@@ -136,7 +136,7 @@ public class StatModifierDisplayWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descModifier(Stats.Modifier modifier, int value)
+	protected String descModifier(Stats.Modifier modifier, int value)
 	{
 		Stats.ModifierMetric metric = modifier.getMetric();
 		switch (metric)

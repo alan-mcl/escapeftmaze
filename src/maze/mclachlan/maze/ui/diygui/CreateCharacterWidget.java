@@ -76,14 +76,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private DIYPane kitItems;
 	private CardLayoutWidget classAndRaceKitCards;
 	private CardLayoutWidget raceGenderChoices;
-	private Map<String, ContainerWidget> raceGenderWidgets = new HashMap<String, ContainerWidget>();
+	private final Map<String, ContainerWidget> raceGenderWidgets = new HashMap<String, ContainerWidget>();
 	private DIYTextField nameField;
 	private DIYButton random, suggestName, showLevelAbilityProgression;
 	private LevelAbilityProgressionWidget firstLevel;
-	private Map<MagicSys.SpellBook, List<Widget>> spellBookWidgets = new HashMap<MagicSys.SpellBook, List<Widget>>();
-	private Map<String, ContainerWidget> classAndRaceKitWidgets = new HashMap<String, ContainerWidget>();
+	private final Map<MagicSys.SpellBook, List<Widget>> spellBookWidgets = new HashMap<MagicSys.SpellBook, List<Widget>>();
+	private final Map<String, ContainerWidget> classAndRaceKitWidgets = new HashMap<String, ContainerWidget>();
 	private PortraitSelectionWidget portraitWidget;
-	private ResourcesDisplayWidget raceResourcesWidget;
+	private ResourcesDisplayWidget2 raceResourcesWidget;
 	private StatModifierDisplayWidget raceModifiersWidget1;
 	private StatModifierDisplayWidget raceModifiersWidget2;
 	private StatModifierDisplayWidget raceModifiersWidget3;
@@ -91,7 +91,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private StatModifierDisplayWidget classModifiersWidget1;
 	private StatModifierDisplayWidget classModifiersWidget2;
 	private StatModifierDisplayWidget classModifiersWidget3;
-	private ResourcesDisplayWidget kitResourcesWidget;
 	private StatModifierDisplayWidget kitModifiersWidget1;
 	private StatModifierDisplayWidget kitModifiersWidget2;
 	private StatModifierDisplayWidget kitModifiersWidget3;
@@ -100,8 +99,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private StatModifierDisplayWidget modifierSummaryWidget2;
 	private StatModifierDisplayWidget modifierSummaryWidget3;
 
-	private ActionListener kitListener = new KitActionListener();
-	private ActionListener itemWidgetListener = new ItemWidgetActionListener();
+	private final ActionListener kitListener = new KitActionListener();
+	private final ActionListener itemWidgetListener = new ItemWidgetActionListener();
 
 	private DIYLabel characterTitle;
 
@@ -115,8 +114,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private StartingKit startingKit;
 
 	private DIYPane buttonPane, titlePane;
-	private int buttonPaneHeight = 50;
-	private List<CharacterClassWrapper> characterClassList = getCharacterClassList();
+	private final int buttonPaneHeight = GeneralDialog.buttonPaneHeight;
+	private final List<CharacterClassWrapper> characterClassList = getCharacterClassList();
 	private SpellLearningWidget spellLearner;
 
 	/** This is non-null if we're creating a character in a NPC guild. */
@@ -309,7 +308,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			kitItems.add(iw);
 		}
 
-		kitResourcesWidget = new ResourcesDisplayWidget(
+		ResourcesDisplayWidget kitResourcesWidget = new ResourcesDisplayWidget(
 			getLabel("cc.resources"), 100, 100, 100, true, false);
 		kitModifiersWidget1 = new StatModifierDisplayWidget(
 			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
@@ -671,48 +670,50 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getRaceAndGenderPane()
 	{
-		int inset = 10;
-		int columnWidth = width/4 - 2*inset;
-		int column1 = inset;
-		int column2 = width/4 + inset;
-		int column3 = (width/4)*2 + inset;
-		int column4 = (width/4)*3 + inset;
+		int inset, column1x;
+
+		inset = column1x = 10;
+		int columnWidth = (width-5*inset)/4;
+
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
+		int column4x = column3x + columnWidth + inset;
 
 		DIYPane pane = new DIYPane();
 
 		int headerOffset = 50;
+		int contentTop = headerOffset + 50;
+		int contentHeight = height -contentTop -buttonPaneHeight;
 
 		DIYTextArea stepFlavour = getStepFlavourArea(
-			inset, column1, headerOffset, "cc.choose.race.and.gender.flava");
+			inset, column1x, headerOffset, "cc.choose.race.and.gender.flava");
+
+		// column 1: race and gender
+
+		int panelBorderInset = 25;
 
 		List<String> raceList = getRaceList();
 		DIYLabel raceTitle = getSubTitle(getLabel("cc.race.title"));
 		raceTitle.setForegroundColour(Constants.Colour.GOLD);
-		raceTitle.setBounds(inset, headerOffset+50, columnWidth, 20);
+		raceTitle.setBounds(column1x, contentTop +panelBorderInset, columnWidth, 20);
 		races = new DIYListBox(raceList);
-		races.setBounds(column1, headerOffset+50+25, columnWidth, races.getPreferredSize().height);
+		races.setBounds(column1x+25, contentTop+panelBorderInset+20+5, columnWidth-panelBorderInset*2, races.getPreferredSize().height);
 		setDefaultSelectedRace(raceList);
 		races.addActionListener(this);
 
 		int nrGenders = ((List<String>)new ArrayList<>(Database.getInstance().getGenders().keySet())).size();
-		ArrayList<ContainerWidget> genders = new ArrayList<ContainerWidget>();
-
-		raceDesc = new DIYTextArea("");
-		raceDesc.setBounds(column2, headerOffset + 50 + 25, columnWidth * 2, height/3);
-		raceDesc.setTransparent(true);
+		ArrayList<ContainerWidget> genders = new ArrayList<>();
 
 		int genderY = headerOffset+height - 330;
+
+		DIYLabel genderTitle = getSubTitle(getLabel("cc.gender.title"));
+		genderTitle.setBounds(column1x, genderY, columnWidth, 20);
+
 		for (String raceName : raceList)
 		{
 			Race race = Database.getInstance().getRace(raceName);
 			List<Gender> raceGenders = race.getAllowedGenders();
-			Collections.sort(raceGenders, new Comparator<Gender>()
-			{
-				public int compare(Gender o1, Gender o2)
-				{
-					return o1.getName().compareTo(o2.getName());
-				}
-			});
+			raceGenders.sort(Comparator.comparing(Gender::getName));
 
 			DIYPane temp = new DIYPane();
 			DIYButtonGroup genderBG = new DIYButtonGroup();
@@ -723,7 +724,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				temp.add(radioButton);
 				radioButton.addActionListener(this);
 				radioButton.setActionMessage(SET_GENDER);
-				radioButton.setBounds(column1, genderY+20*(count+1), columnWidth, 20);
+				radioButton.setBounds(column1x+panelBorderInset, genderY+20*(count+1), columnWidth-panelBorderInset*2, 20);
 				genderBG.addButton(radioButton);
 				count++;
 			}
@@ -732,25 +733,47 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			genders.add(temp);
 		}
 
-		raceImage = new DIYLabel();
-		raceImage.setBounds(column2, raceDesc.y+raceDesc.height+inset,
-			columnWidth*2, raceDesc.height);
-
-		DIYLabel genderLabel = getSubTitle(getLabel("cc.gender.title"));
-		genderLabel.setBounds(column1, genderY, genderLabel.getPreferredSize().width, 20);
 		raceGenderChoices = new CardLayoutWidget(
-			new Rectangle(column1, genderY, columnWidth, 20*nrGenders),
+			new Rectangle(column1x, genderY, columnWidth, 20*nrGenders),
 			genders);
 		raceGenderChoices.doLayout();
 
-		raceResourcesWidget = new ResourcesDisplayWidget(
+		DIYPanel raceAndGenderPanel = getFixedPanel(column1x, contentTop, columnWidth, contentHeight);
+		raceAndGenderPanel.setLayoutManager(null);
+
+		raceAndGenderPanel.add(raceTitle);
+		raceAndGenderPanel.add(races);
+		raceAndGenderPanel.add(genderTitle);
+		raceAndGenderPanel.add(raceGenderChoices);
+
+		// column 2: desc and image
+
+		DIYPanel raceDescPanel = getFixedPanel(
+			column2x, headerOffset + 50 + 25,
+			columnWidth*2 +inset, (height-contentTop-buttonPaneHeight-25-inset) / 2);
+
+		raceDesc = new DIYTextArea("");
+		raceDesc.setTransparent(true);
+		raceDescPanel.add(raceDesc);
+
+		DIYPanel raceImagePanel = getFixedPanel(
+			column2x, raceDescPanel.y+ raceDescPanel.height +inset,
+			columnWidth*2 +inset, raceDescPanel.height);
+
+		raceImage = new DIYLabel();
+		raceImage.setBounds(column2x, raceDescPanel.y+ raceDescPanel.height +inset,
+			columnWidth*2 +inset, raceDescPanel.height);
+
+		// column 3: resources and stats
+
+		raceResourcesWidget = new ResourcesDisplayWidget2(
 			getLabel("cc.resources"), 0, 0, 0, true, false);
 		raceModifiersWidget1 = new StatModifierDisplayWidget(
 			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		raceModifiersWidget2 = new StatModifierDisplayWidget(
 			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
 
-		List<Stats.Modifier> otherModifiers = new ArrayList<Stats.Modifier>(Stats.allModifiers);
+		List<Stats.Modifier> otherModifiers = new ArrayList<>(Stats.allModifiers);
 		otherModifiers.removeAll(Stats.resourceModifiers);
 		otherModifiers.removeAll(Stats.attributeModifiers);
 		otherModifiers.removeAll(Stats.resistances);
@@ -758,29 +781,50 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		raceModifiersWidget3 = new StatModifierDisplayWidget(
 			getLabel("cc.other.modifiers"), null, 10, otherModifiers, false, false);
 
-		raceResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
-		raceModifiersWidget1.setBounds(column4, headerOffset+50 +3*15, columnWidth, 6*15);
-		raceModifiersWidget2.setBounds(column4, headerOffset+50 +3*15 +6*15, columnWidth, 9*15);
-		raceModifiersWidget3.setBounds(column4, headerOffset+50 +3*15 +6*15 +9*15, columnWidth, 10*15);
+		int rowHeight = 18;
+		raceResourcesWidget.setBounds(column4x, contentTop, columnWidth, 27+ 3* rowHeight);
+		raceModifiersWidget1.setBounds(column4x, contentTop +29 +3* rowHeight, columnWidth, 6* rowHeight);
+		raceModifiersWidget2.setBounds(column4x, contentTop +31 +3* rowHeight +6* rowHeight, columnWidth, 9* rowHeight);
+		raceModifiersWidget3.setBounds(column4x, contentTop +33 +
+			3* rowHeight +6* rowHeight +9* rowHeight, columnWidth, 10* rowHeight);
+
+		raceResourcesWidget.setInsets(new Insets(25, 25, 0, 25));
+		raceModifiersWidget1.setInsets(new Insets(0, 25, 0, 25));
+		raceModifiersWidget2.setInsets(new Insets(0, 25, 0, 25));
+		raceModifiersWidget3.setInsets(new Insets(0, 25, 0, 25));
+
+		DIYPanel raceModifiersPanel = getFixedPanel(
+			column4x, contentTop, columnWidth, contentHeight);
+		raceModifiersPanel.setLayoutManager(null);
+		raceModifiersPanel.add(raceResourcesWidget);
+		raceModifiersPanel.add(raceModifiersWidget1);
+		raceModifiersPanel.add(raceModifiersWidget2);
+		raceModifiersPanel.add(raceModifiersWidget3);
 
 		pane.add(titlePane);
 		pane.add(stepFlavour);
 
-		pane.add(genderLabel);
-		pane.add(raceGenderChoices);
+		pane.add(raceAndGenderPanel);
 
-		pane.add(raceTitle);
-		pane.add(races);
+		pane.add(raceDescPanel);
+		pane.add(raceImagePanel);
 		pane.add(raceImage);
-		pane.add(raceResourcesWidget);
-		pane.add(raceModifiersWidget1);
-		pane.add(raceModifiersWidget2);
-		pane.add(raceModifiersWidget3);
-		pane.add(raceDesc);
+
+		pane.add(raceModifiersPanel);
 
 		pane.add(buttonPane);
 
 		return pane;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private DIYPanel getFixedPanel(int panelX, int panelY, int panelWidth, int panelHeight)
+	{
+		DIYPanel result = new DIYPanel(panelX, panelY, panelWidth, panelHeight);
+		result.setLayoutManager(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
+		result.setStyle(DIYPanel.Style.FIXED_PANEL);
+		result.setInsets(new Insets(25, 25, 25, 25));
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1306,7 +1350,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		StatModifier mods = new StatModifier(race.getStartingModifiers());
 		mods.addModifiers(race.getConstantModifiers());
 		mods.addModifiers(race.getBannerModifiers());
-		this.raceResourcesWidget.display(
+		this.raceResourcesWidget.setResources(
 			race.getStartingHitPointPercent(),
 			race.getStartingActionPointPercent(),
 			race.getStartingMagicPointPercent(),

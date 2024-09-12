@@ -27,9 +27,8 @@ import java.awt.Insets;
  */
 public class DIYFlowLayout extends LayoutManager
 {
-	private int hgap;
-	private int vgap;
-	private DIYToolkit.Align alignment;
+	private final int hgap, vgap;
+	private final DIYToolkit.Align alignment;
 
 	/*-------------------------------------------------------------------------*/
 	public DIYFlowLayout()
@@ -61,28 +60,22 @@ public class DIYFlowLayout extends LayoutManager
 		{
 			Widget w = parent.children.get(i);
 			Dimension d = w.getPreferredSize();
-			w.width = Math.min(d.width, parent.width);
-			w.height = Math.min(d.height, parent.height);
+			w.width = Math.min(d.width, parent.width -insets.left -insets.right);
+			w.height = Math.min(d.height, parent.height -insets.top -insets.bottom);
 			sumWidth += w.width;
 		}
 
 		sumWidth += hgap*(max-1);
+
 		int startY = parent.y + insets.top + vgap;
-		int startX;
-		switch (alignment)
-		{
-			case LEFT:
-				startX = parent.x + insets.left;
-				break;
-			case CENTER:
-				startX = parent.x + parent.width/2 - sumWidth/2;
-				break;
-			case RIGHT:
-				startX = parent.x + parent.width - insets.right - sumWidth;
-				break;
-			default:
-				throw new RuntimeException("Invalid Alignment: "+alignment);
-		}
+		int startX = switch (alignment)
+			{
+				case LEFT -> parent.x + insets.left;
+				case CENTER -> parent.x + parent.width / 2 - sumWidth / 2;
+				case RIGHT -> parent.x + parent.width - insets.right - sumWidth;
+				default ->
+					throw new RuntimeException("Invalid Alignment: " + alignment);
+			};
 
 		for (int i=0; i<max; i++)
 		{
