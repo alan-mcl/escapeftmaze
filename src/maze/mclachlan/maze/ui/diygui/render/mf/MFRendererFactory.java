@@ -19,13 +19,11 @@
 
 package mclachlan.maze.ui.diygui.render.mf;
 
-import java.awt.Color;
 import java.util.*;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.NullRenderer;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.RendererFactory;
-import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.ui.diygui.render.maze.*;
 import mclachlan.maze.util.MazeException;
 
@@ -35,10 +33,6 @@ import mclachlan.maze.util.MazeException;
  */
 public class MFRendererFactory extends RendererFactory
 {
-	public static final Color PANEL_BACKGROUND = Color.LIGHT_GRAY;
-	public static final Color LABEL_FOREGROUND = Constants.Colour.LIGHT_GREY;
-	public static final Color DISABLED_LABEL_FOREGROUND = Constants.Colour.MED_GREY;
-
 	public static final String ITEM_WIDGET = "ItemWidget";
 	public static final String DROPPED_ITEM_WIDGET = "DroppedItemWidget";
 	public static final String ITEM_SELECTION_WIDGET = "ItemSelectionWidget";
@@ -59,6 +53,8 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.PANEL, new MFPanelRenderer());
 		renderers.put(DIYToolkit.BUTTON, new MFButtonRenderer());
 		renderers.put(DIYToolkit.SCROLL_PANE, new MFScrollPaneRenderer());
+		renderers.put(DIYToolkit.RADIO_BUTTON, new MFRadioButtonRenderer());
+		renderers.put(DIYToolkit.CHECKBOX, new MFCheckboxRenderer());
 
 		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
@@ -66,8 +62,6 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.PANE, new NullRenderer());
 		renderers.put(DIYToolkit.TEXT_AREA, new MazeTextAreaRenderer());
 		renderers.put(DIYToolkit.TEXT_FIELD, new MazeTextFieldRenderer());
-		renderers.put(DIYToolkit.CHECKBOX, new MazeCheckboxRenderer());
-		renderers.put(DIYToolkit.RADIO_BUTTON, new MazeRadioButtonRenderer());
 		renderers.put(DIYToolkit.LIST_BOX_ITEM, new MazeListBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_BOX, new MazeComboBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_ITEM, new MazeComboItemRenderer());

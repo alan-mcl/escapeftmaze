@@ -24,7 +24,7 @@ import java.awt.Component;
 import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
-import mclachlan.diygui.DIYRadioButton;
+import mclachlan.diygui.DIYCheckbox;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
@@ -34,70 +34,111 @@ import mclachlan.maze.game.Maze;
 /**
  *
  */
-public class MFRadioButtonRenderer extends Renderer
+public class MFCheckboxRenderer extends Renderer
 {
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
-		DIYRadioButton radioButton = (DIYRadioButton)widget;
-		String caption = radioButton.getCaption();
+		DIYCheckbox checkbox = (DIYCheckbox)widget;
+		String caption = checkbox.getCaption();
 		Component comp = Maze.getInstance().getComponent();
-
+		
 		BufferedImage image;
 
-		if (radioButton.isSelected())
+		if (checkbox.isSelected())
 		{
-			if (radioButton.isEnabled())
+			if (checkbox.isEnabled())
 			{
-				if (radioButton.isHover())
+				if (checkbox.isHover())
 				{
-					image = Database.getInstance().getImage("ui/mf/radio_button/radio_button_selected_hover");
+					image = Database.getInstance().getImage("ui/mf/checkbox/checkbox_selected_hover");
 				}
 				else
 				{
-					image = Database.getInstance().getImage("ui/mf/radio_button/radio_button_selected");
+					image = Database.getInstance().getImage("ui/mf/checkbox/checkbox_selected");
 				}
 			}
 			else
 			{
-				image = Database.getInstance().getImage("ui/mf/radio_button/radio_button_selected_disabled");
+				image = Database.getInstance().getImage("ui/mf/checkbox/checkbox_selected_disabled");
 			}
 		}
 		else
 		{
-			if (radioButton.isEnabled())
+			if (checkbox.isEnabled())
 			{
-				if (radioButton.isHover())
+				if (checkbox.isHover())
 				{
-					image = Database.getInstance().getImage("ui/mf/radio_button/radio_button_hover");
+					image = Database.getInstance().getImage("ui/mf/checkbox/checkbox_hover");
 				}
 				else
 				{
-					image = Database.getInstance().getImage("ui/mf/radio_button/radio_button");
+					image = Database.getInstance().getImage("ui/mf/checkbox/checkbox");
 				}
 			}
 			else
 			{
-				image = Database.getInstance().getImage("ui/mf/radio_button/radio_button_disabled");
+				image = Database.getInstance().getImage("ui/mf/checkbox/checkbox_disabled");
 			}
 		}
 
-		int boxSize = 22;
+		int boxSize = 24;
 		int boxX = x+2;
 		int boxY = y + height/2 - boxSize/2;
 
 		g.drawImage(image, boxX, boxY, comp);
 
+
+/*		// draw the filler
+		if (checkbox.isSelected())
+		{
+			if (checkbox.isEnabled())
+			{
+				col1 = Color.WHITE;
+				col2 = Constants.Colour.GOLD;
+			}
+			else
+			{
+				col1 = Color.LIGHT_GRAY;
+				col2 = Color.LIGHT_GRAY.darker();
+			}
+
+			int inset = 0;
+			Rectangle2D filler = new Rectangle2D.Double(boxX+inset, boxY+inset, boxSize-inset*2, boxSize-inset*2);
+			g.setPaint(new RadialGradientPaint(
+				new Rectangle2D.Double(boxX, boxY, boxSize-2, boxSize-2),
+				new float[]{0.1f, 1.0f},
+				new Color[]{col1, col2},
+				MultipleGradientPaint.CycleMethod.NO_CYCLE));
+			g.fill(filler);
+		}
+
+		// draw the border
+		if (checkbox.isEnabled())
+		{
+			col1 = Color.WHITE;
+			col2 = Color.LIGHT_GRAY.darker();
+		}
+		else
+		{
+			col1 = Color.LIGHT_GRAY.darker();
+			col2 = Color.LIGHT_GRAY.darker().darker();
+		}
+
+		Rectangle2D e2d = new Rectangle2D.Double(boxX, boxY, boxSize, boxSize);
+		g.setPaint(new GradientPaint(boxX, boxY, col1, boxX+height/2, boxY+height/2, col2, true));
+		g.draw(e2d);*/
+
 		// draw the text
 		FontMetrics fm = g.getFontMetrics();
 	
-		int textHeight = fm.getHeight();
+		int textHeight = fm.getAscent();
 
 		// center the text on the Y axis
 		int textY = y + height/2 + textHeight/2 - fm.getDescent();
-
+		
 		int textX = boxX + boxSize + 4;
 
-		if (radioButton.isEnabled())
+		if (checkbox.isEnabled())
 		{
 			g.setColor(Color.WHITE);
 		}

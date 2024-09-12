@@ -29,7 +29,7 @@ import java.awt.event.MouseEvent;
  */
 public class DIYCheckbox extends Widget
 {
-	boolean selected = false;
+	boolean selected = false, hover = false;
 	private String caption;
 
 	/*-------------------------------------------------------------------------*/
@@ -81,6 +81,11 @@ public class DIYCheckbox extends Widget
 		this.selected = selected;
 	}
 
+	public boolean isHover()
+	{
+		return hover;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
@@ -91,5 +96,25 @@ public class DIYCheckbox extends Widget
 		this.selected = !this.selected;
 
 		super.processMouseClicked(e);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseEntered(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseExited(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = false;
 	}
 }

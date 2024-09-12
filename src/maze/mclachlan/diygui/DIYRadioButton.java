@@ -30,7 +30,7 @@ import mclachlan.diygui.toolkit.Widget;
  */
 public class DIYRadioButton extends Widget
 {
-	private boolean selected = false;
+	private boolean selected = false, hover = false;
 	private String caption;
 	private DIYButtonGroup buttonGroup;
 
@@ -99,6 +99,11 @@ public class DIYRadioButton extends Widget
 		}
 	}
 
+	public boolean isHover()
+	{
+		return hover;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
@@ -119,4 +124,25 @@ public class DIYRadioButton extends Widget
 
 		super.processMouseClicked(e);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseEntered(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseExited(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = false;
+	}
+
 }

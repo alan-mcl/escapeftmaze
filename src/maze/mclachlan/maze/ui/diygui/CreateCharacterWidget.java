@@ -204,8 +204,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		this.add(characterTitle);
 
-		buttonPane = new DIYPane(new DIYFlowLayout(15,10,DIYToolkit.Align.RIGHT));
-		buttonPane.setInsets(new Insets(0,0,0,20));
+		buttonPane = new DIYPane(new DIYFlowLayout(15,0,DIYToolkit.Align.RIGHT));
+		buttonPane.setInsets(new Insets(5,0,5,20));
 		buttonPane.setBounds(0, height-buttonPaneHeight, width, buttonPaneHeight);
 
 		buttonPane.add(previous);
@@ -709,6 +709,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		DIYLabel genderTitle = getSubTitle(getLabel("cc.gender.title"));
 		genderTitle.setBounds(column1x, genderY, columnWidth, 20);
 
+		int genderRowHeight = 25;
 		for (String raceName : raceList)
 		{
 			Race race = Database.getInstance().getRace(raceName);
@@ -724,7 +725,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				temp.add(radioButton);
 				radioButton.addActionListener(this);
 				radioButton.setActionMessage(SET_GENDER);
-				radioButton.setBounds(column1x+panelBorderInset, genderY+20*(count+1), columnWidth-panelBorderInset*2, 20);
+				radioButton.setBounds(column1x+panelBorderInset, genderY+genderRowHeight*(count+1), columnWidth-panelBorderInset*2, genderRowHeight);
 				genderBG.addButton(radioButton);
 				count++;
 			}
@@ -734,7 +735,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		}
 
 		raceGenderChoices = new CardLayoutWidget(
-			new Rectangle(column1x, genderY, columnWidth, 20*nrGenders),
+			new Rectangle(column1x, genderY+20, columnWidth, genderRowHeight*nrGenders),
 			genders);
 		raceGenderChoices.doLayout();
 
