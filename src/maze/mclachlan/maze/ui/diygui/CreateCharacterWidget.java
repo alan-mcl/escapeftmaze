@@ -92,6 +92,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private StatModifierDisplayWidget classModifiersWidget1;
 	private StatModifierDisplayWidget classModifiersWidget2;
 	private StatModifierDisplayWidget classModifiersWidget3;
+	private ResourcesDisplayWidget2 kitResourcesWidget;
 	private StatModifierDisplayWidget kitModifiersWidget1;
 	private StatModifierDisplayWidget kitModifiersWidget2;
 	private StatModifierDisplayWidget kitModifiersWidget3;
@@ -259,49 +260,89 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getKitsPane()
 	{
-		int inset = 10;
-		int columnWidth = width/4 - 2*inset;
-		int column1 = inset;
-		int column2 = width/4 + inset;
-		int column3 = (width/4)*2 + inset;
-		int column4 = (width/4)*3 + inset;
+		int inset, column1x;
+
+		inset = column1x = 10;
+		int columnWidth = (width-5*inset)/4;
+
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
+		int column4x = column3x + columnWidth + inset;
+
+		int headerOffset = 50;
+		int contentTop = headerOffset + 50;
+		int contentHeight = height -contentTop -buttonPaneHeight;
+		int panelBorderInset = 25;
+		int titleHeight = 20;
 
 		DIYPane pane = new DIYPane();
 
-		int headerOffset = 50;
-		DIYTextArea stepFlavour = getStepFlavourArea(inset, column1, headerOffset, "cc.choose.kit.flava");
+		DIYTextArea stepFlavour = getStepFlavourArea(inset, column1x, headerOffset, "cc.choose.kit.flava");
+
+		// column 1: kit list
 
 		DIYLabel kitTitle = getSubTitle(getLabel("cc.kit.title"));
 		kitTitle.setForegroundColour(Constants.Colour.GOLD);
-		kitTitle.setBounds(inset, headerOffset+50, columnWidth, 20);
+		kitTitle.setBounds(
+			column1x +panelBorderInset,
+			contentTop +panelBorderInset,
+			columnWidth -panelBorderInset*2,
+			titleHeight);
 
-		Rectangle bounds = new Rectangle(
-			column1, headerOffset+50, columnWidth, (height - buttonPaneHeight - headerOffset));
-		ArrayList<ContainerWidget> list = new ArrayList<ContainerWidget>();
+		Rectangle listBounds = new Rectangle(
+			column1x +panelBorderInset,
+			contentTop +panelBorderInset +kitTitle.height +inset/2,
+			columnWidth -panelBorderInset*2,
+			contentHeight -panelBorderInset*2);
+
+		ArrayList<ContainerWidget> list = new ArrayList<>();
 		list.addAll(getClassKitWidgets(characterClassList));
 		list.addAll(getRaceKitWidgets(getRaceList()));
 		for (ContainerWidget cw : list)
 		{
-			cw.setBounds(column1, headerOffset+50+25, columnWidth, cw.getChildren().size()*15);
+			cw.setBounds(listBounds.x, listBounds.y, listBounds.width, cw.getChildren().size()*20);
 		}
 
 		classAndRaceKitCards = new CardLayoutWidget(
-			bounds,
+			listBounds,
 			list);
 		classAndRaceKitCards.show(list.get(0));
 
-		kitDesc = new DIYTextArea("");
-		kitDesc.setBounds(column2, headerOffset + 50 + 25, columnWidth * 2, 170);
-		kitDesc.setTransparent(true);
+		DIYPanel classListPanel = getFixedPanel(column1x, contentTop, columnWidth, contentHeight);
+		classListPanel.setLayoutManager(null);
+		classListPanel.add(kitTitle);
+		classListPanel.add(classAndRaceKitCards);
 
-		int kitItemsY = headerOffset+ height - 300;
-		DIYLabel kitItemsLabel = getSubTitle(getLabel("cc.kit.items.title"));
-		kitItemsLabel.setBounds(column2, kitItemsY, kitItemsLabel.getPreferredSize().width, 20);
+		// column 2: kit desc, kit inventory
+		
+		DIYPanel kitDescPanel = getFixedPanel(
+			column2x, headerOffset + 50 + panelBorderInset,
+			columnWidth*2 +inset, (contentHeight-panelBorderInset-inset) / 2);
+
+		kitDesc = new DIYTextArea("                                            " +
+			"                                                                   ");
+		kitDesc.setTransparent(true);
+		kitDescPanel.add(kitDesc);
+
+		DIYPanel kitItemsPanel = getFixedPanel(
+			column2x, kitDescPanel.y+ kitDescPanel.height +inset,
+			columnWidth*2 +inset, kitDescPanel.height);
+		kitItemsPanel.setLayoutManager(null);
+
+		DIYLabel kitItemsTitle = getSubTitle(getLabel("cc.kit.items.title"));
+		kitItemsTitle.setBounds(
+			column2x +panelBorderInset,
+			kitDescPanel.y + kitDescPanel.height + inset +panelBorderInset,
+			columnWidth*2 +inset -panelBorderInset*2,
+			titleHeight);
+
 		int itemCols = 2;
 		int itemRows = 6;
 		kitItems = new DIYPane(new DIYGridLayout(itemCols, itemRows,5,5));
-		kitItems.setBounds(column2, kitItemsY+kitItemsLabel.getHeight()+5,
-			columnWidth*2, 30*itemRows);
+		kitItems.setBounds(
+			column2x +panelBorderInset +inset/2,
+			kitItemsTitle.y +titleHeight +inset/2,
+			columnWidth*2 +inset -panelBorderInset*2, 30*itemRows);
 		for (int i=0; i<itemCols*itemRows; i++)
 		{
 			ItemWidget iw = new ItemWidget();
@@ -309,32 +350,55 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			kitItems.add(iw);
 		}
 
-		ResourcesDisplayWidget kitResourcesWidget = new ResourcesDisplayWidget(
-			getLabel("cc.resources"), 100, 100, 100, true, false);
+		kitItemsPanel.add(kitItemsTitle);
+		kitItemsPanel.add(kitItems);
+
+		// column 3: resources and stats
+
+		kitResourcesWidget = new ResourcesDisplayWidget2(
+			getLabel("cc.resources"), 0, 0, 0, false, false);
 		kitModifiersWidget1 = new StatModifierDisplayWidget(
 			getLabel("cc.attributes"), null, 6, Stats.attributeModifiers, true, false);
 		kitModifiersWidget2 = new StatModifierDisplayWidget(
 			getLabel("cc.resistances"), null, 9, Stats.resistances, true, false);
+
+		List<Stats.Modifier> otherModifiers = new ArrayList<>(Stats.allModifiers);
+		otherModifiers.removeAll(Stats.resourceModifiers);
+		otherModifiers.removeAll(Stats.attributeModifiers);
+		otherModifiers.removeAll(Stats.resistances);
+
 		kitModifiersWidget3 = new StatModifierDisplayWidget(
-			getLabel("cc.other.modifiers"), null, 10, Stats.middleModifiers, false, false);
+			getLabel("cc.other.modifiers"), null, 10, otherModifiers, false, false);
 
-		kitResourcesWidget.setBounds(column4, headerOffset+50, columnWidth, 3*15);
-		kitModifiersWidget1.setBounds(column4, headerOffset+50 +3*15, columnWidth, 6*15);
-		kitModifiersWidget2.setBounds(column4, headerOffset+50 +3*15 +6*15, columnWidth, 9*15);
-		kitModifiersWidget3.setBounds(column4, headerOffset+50 +3*15 +6*15 +9*15, columnWidth, 10 * 15);
+		int rowHeight = 18;
+		kitResourcesWidget.setBounds(column4x, contentTop, columnWidth, 27+ 3* rowHeight);
+		kitModifiersWidget1.setBounds(column4x, contentTop +29 +3* rowHeight, columnWidth, 6* rowHeight);
+		kitModifiersWidget2.setBounds(column4x, contentTop +31 +3* rowHeight +6* rowHeight, columnWidth, 9* rowHeight);
+		kitModifiersWidget3.setBounds(column4x, contentTop +33 +
+			3* rowHeight +6* rowHeight +9* rowHeight, columnWidth, 10* rowHeight);
 
+		kitResourcesWidget.setInsets(new Insets(25, 25, 0, 25));
+		kitModifiersWidget1.setInsets(new Insets(0, 25, 0, 25));
+		kitModifiersWidget2.setInsets(new Insets(0, 25, 0, 25));
+		kitModifiersWidget3.setInsets(new Insets(0, 25, 0, 25));
+
+		DIYPanel kitModifiersPanel = getFixedPanel(
+			column4x, contentTop, columnWidth, contentHeight);
+		kitModifiersPanel.setLayoutManager(null);
+		kitModifiersPanel.add(kitResourcesWidget);
+		kitModifiersPanel.add(kitModifiersWidget1);
+		kitModifiersPanel.add(kitModifiersWidget2);
+		kitModifiersPanel.add(kitModifiersWidget3);
+		
 		pane.add(titlePane);
 		pane.add(stepFlavour);
-		pane.add(kitTitle);
-		pane.add(classAndRaceKitCards);
-		pane.add(kitDesc);
-		pane.add(kitItemsLabel);
-		pane.add(kitItems);
-		pane.add(kitDesc);
-		pane.add(kitResourcesWidget);
-		pane.add(kitModifiersWidget1);
-		pane.add(kitModifiersWidget2);
-		pane.add(kitModifiersWidget3);
+
+		pane.add(classListPanel);
+
+		pane.add(kitDescPanel);
+		pane.add(kitItemsPanel);
+
+		pane.add(kitModifiersPanel);
 		pane.add(buttonPane);
 
 		return pane;
@@ -362,7 +426,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	{
 		Map<String, CharacterClass> map = Database.getInstance().getCharacterClasses();
 
-		List<CharacterClassWrapper> result = new ArrayList<CharacterClassWrapper>();
+		List<CharacterClassWrapper> result = new ArrayList<>();
 
 		for (CharacterClass c : map.values())
 		{
@@ -385,7 +449,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private List<String> getPersonalityList()
 	{
-		List<String> list = new ArrayList<String>(Database.getInstance().getPersonalities().keySet());
+		List<String> list = new ArrayList<>(Database.getInstance().getPersonalities().keySet());
 		Collections.sort(list);
 		return list;
 	}
@@ -393,7 +457,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private ArrayList<ContainerWidget> getClassKitWidgets(List<CharacterClassWrapper> classes)
 	{
-		ArrayList<ContainerWidget> result = new ArrayList<ContainerWidget>();
+		ArrayList<ContainerWidget> result = new ArrayList<>();
 
 		for (CharacterClassWrapper wrapper : classes)
 		{
@@ -423,7 +487,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private ArrayList<ContainerWidget> getRaceKitWidgets(List<String> races)
 	{
-		ArrayList<ContainerWidget> result = new ArrayList<ContainerWidget>();
+		ArrayList<ContainerWidget> result = new ArrayList<>();
 
 		for (String raceName : races)
 		{
@@ -435,14 +499,9 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				continue;
 			}
 
-			List<StartingKit> items = new ArrayList<StartingKit>();
+			List<StartingKit> items = new ArrayList<>(startingItems);
 
-			for (int i=0; i<startingItems.size(); i++)
-			{
-				items.add(startingItems.get(i));
-			}
-
-			Collections.sort(items, new StartingItemsComparator());
+			items.sort(new StartingItemsComparator());
 
 			DIYListBox listBox = new DIYListBox(items);
 			listBox.addActionListener(kitListener);
@@ -615,9 +674,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		pane.add(classDescPanel);
 		pane.add(classSpellBooksPanel);
-//		pane.add(abilityProgressionTitle);
-//		pane.add(firstLevel);
-//		pane.add(showLevelAbilityProgression);
 		pane.add(classLapPanel);
 
 		pane.add(classModifiersPanel);
@@ -1672,19 +1728,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		private CharacterClassWrapper(CharacterClass cc)
 		{
 			this.characterClass = cc;
-//
-//			StringBuilder sb = new StringBuilder();
-//			sb.append(cc.getName());
-//
-//			for (int i=0; i<15-cc.getName().length(); i++)
-//			{
-//				sb.append(' ');
-//			}
-//			sb.append("(");
-//			sb.append(cc.getFocus().toString().toLowerCase());
-//			sb.append(")");
-//
-//			this.desc = sb.toString();
 		}
 
 		public String toString()
