@@ -32,7 +32,7 @@ public abstract class ContainerWidget extends Widget
 	/**
 	 * Children of this widget, sorted in ascending z-order
 	 */
-	List<Widget> children = new ArrayList<Widget>();
+	List<Widget> children = new ArrayList<>();
 	LayoutManager layoutManager;
 	Insets insets = new Insets(0,0,0,0);
 	
@@ -177,7 +177,10 @@ public abstract class ContainerWidget extends Widget
 	/*-------------------------------------------------------------------------*/
 	public Widget getChild(int x, int y)
 	{
-		for (Widget w : children)
+		List<Widget> kids = new ArrayList<>(children);
+		Collections.reverse(kids);
+
+		for (Widget w : kids)
 		{
 			Rectangle bounds = new Rectangle(w.x,  w.y,  w.width, w.height);
 			if (bounds.contains(x, y))

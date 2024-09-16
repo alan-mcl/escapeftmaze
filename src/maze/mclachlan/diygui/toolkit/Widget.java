@@ -38,7 +38,7 @@ public abstract class Widget
 	protected Renderer renderer;
 	private Color background, foreground;
 	
-	private java.util.List<ActionListener> listeners = new ArrayList<ActionListener>();
+	private final java.util.List<ActionListener> listeners = new ArrayList<>();
 	
 	private String actionMessage;
 	private Object actionPayload;
@@ -125,7 +125,12 @@ public abstract class Widget
 	{
 		this.listeners.add(l);
 	}
-	
+
+	public List<ActionListener> getListeners()
+	{
+		return listeners;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void setActionMessage(String actionMessage)
 	{

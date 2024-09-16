@@ -236,22 +236,37 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getSpellsPane()
 	{
-		int inset = 10;
-		int columnWidth = width/3 - 2*inset;
-		int column1 = 10;
+		int inset, column1x;
+
+		inset = column1x = 10;
+		int columnWidth = (width-5*inset)/4;
+
+		int column2x = column1x + columnWidth + inset;
+
+		int headerOffset = 50;
+		int contentTop = headerOffset + 50;
+		int contentHeight = height -contentTop -buttonPaneHeight;
+		int panelBorderInset = 25;
 
 		DIYPane pane = new DIYPane();
 
-		int headerOffset = 50;
-		DIYTextArea stepFlavour = getStepFlavourArea(inset, column1, headerOffset, "cc.choose.spells.flava");
+		DIYTextArea stepFlavour = getStepFlavourArea(inset, column1x, headerOffset, "cc.choose.spells.flava");
+
+		DIYPanel spellPanel = getFixedPanel(column2x, contentTop, columnWidth*2 +inset, contentHeight);
+		spellPanel.setLayoutManager(null);
 
 		spellLearner = new SpellLearningWidget(null,
-			new Rectangle(column1, headerOffset+75,
-				columnWidth*3, height-buttonPaneHeight-headerOffset-75));
+			new Rectangle(
+				column2x +panelBorderInset,
+				contentTop +panelBorderInset,
+				columnWidth*2 +inset -panelBorderInset*2,
+				contentHeight -panelBorderInset*2));
+
+		spellPanel.add(spellLearner);
 
 		pane.add(titlePane);
 		pane.add(stepFlavour);
-		pane.add(spellLearner);
+		pane.add(spellPanel);
 		pane.add(buttonPane);
 
 		return pane;
@@ -317,7 +332,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		
 		DIYPanel kitDescPanel = getFixedPanel(
 			column2x, headerOffset + 50 + panelBorderInset,
-			columnWidth*2 +inset, (contentHeight-panelBorderInset-inset) / 2);
+			columnWidth*2 +inset,
+			(contentHeight-panelBorderInset-inset) / 20 *13);
 
 		kitDesc = new DIYTextArea("                                            " +
 			"                                                                   ");
@@ -326,7 +342,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		DIYPanel kitItemsPanel = getFixedPanel(
 			column2x, kitDescPanel.y+ kitDescPanel.height +inset,
-			columnWidth*2 +inset, kitDescPanel.height);
+			columnWidth*2 +inset,
+			(contentHeight-panelBorderInset-inset) / 20 *7);
 		kitItemsPanel.setLayoutManager(null);
 
 		DIYLabel kitItemsTitle = getSubTitle(getLabel("cc.kit.items.title"));
@@ -337,7 +354,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			titleHeight);
 
 		int itemCols = 2;
-		int itemRows = 6;
+		int itemRows = 4;
 		kitItems = new DIYPane(new DIYGridLayout(itemCols, itemRows,5,5));
 		kitItems.setBounds(
 			column2x +panelBorderInset +inset/2,

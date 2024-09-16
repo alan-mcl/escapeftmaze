@@ -19,6 +19,7 @@
 
 package mclachlan.diygui;
 
+import java.awt.event.MouseEvent;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import java.awt.*;
@@ -31,7 +32,11 @@ public class DIYLabel extends Widget
 	private String text;
 	private Font font;
 	private Image icon;
+
 	private DIYToolkit.Align align = DIYToolkit.Align.CENTER;
+	private DIYToolkit.Align iconAlign = DIYToolkit.Align.LEFT;
+
+	private boolean hover;
 
 	/*-------------------------------------------------------------------------*/
 	public DIYLabel(String text)
@@ -65,6 +70,16 @@ public class DIYLabel extends Widget
 	public void setAlignment(DIYToolkit.Align align)
 	{
 		this.align = align;
+	}
+
+	public void setIconAlign(DIYToolkit.Align iconAlign)
+	{
+		this.iconAlign = iconAlign;
+	}
+
+	public DIYToolkit.Align getIconAlign()
+	{
+		return iconAlign;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -127,4 +142,31 @@ public class DIYLabel extends Widget
 	{
 		this.icon = icon;
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean isHover()
+	{
+		return hover;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseEntered(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseExited(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = false;
+	}
+
 }

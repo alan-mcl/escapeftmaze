@@ -412,8 +412,8 @@ sdd.school =                School:             %s
 sdd.primary.modifier =      Primary Modifier:   %s
 sdd.secondary.modifier =    Secondary Modifier: %s
 sdd.effects =               Effects:
-sdd.mana.required =         Required:             .
-sdd.mana.available =        Available:            .
+sdd.mana.required =         Required:
+sdd.mana.available =        Available:
 sdd.projectile =            (projectile spell)
 
 # foe details widget

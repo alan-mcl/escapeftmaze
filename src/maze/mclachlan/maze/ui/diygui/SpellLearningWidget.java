@@ -19,12 +19,9 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Comparator;
-import java.util.List;
+import java.util.*;
 import mclachlan.diygui.DIYCheckbox;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
@@ -40,9 +37,11 @@ import mclachlan.maze.stat.magic.Spell;
  */
 public class SpellLearningWidget extends DIYPane implements ActionListener
 {
-	private static int inset = 3, titlePaneHeight = 20;
-	private static int MIN_ROWS = 20;
-	private static SpellComparator comparator = new SpellComparator();
+	private static final int inset = 5;
+	private static final int titlePaneHeight = 25;
+	public static final int rowHeight = 27;
+	private static final int MIN_ROWS = 20;
+	private static final SpellComparator comparator = new SpellComparator();
 
 	private PlayerCharacter pc;
 	private DIYCheckbox[] boxes;
@@ -85,23 +84,23 @@ public class SpellLearningWidget extends DIYPane implements ActionListener
 
 		availableSpells = pc.getSpellsThatCanBeLearned();
 
-		Collections.sort(availableSpells, comparator);
+		availableSpells.sort(comparator);
 
 		Rectangle bounds = new Rectangle(
 			x+inset,
-			y+inset*2+titlePaneHeight,
+			y+inset*3+titlePaneHeight,
 			width-inset*2,
 			height-titlePaneHeight-inset*3);
 
-		int cols = 3;
+		int cols = 2;
 		int rows = Math.max(MIN_ROWS, availableSpells.size());
 
 		DIYPane boxPane = new DIYPane(
-			bounds.x,
-			bounds.y,
+			bounds.x+inset,
+			bounds.y+inset+titlePaneHeight,
 			bounds.width,
-			titlePaneHeight*rows);
-		boxPane.setLayoutManager(new DIYGridLayout(cols, rows, 0, 0));
+			rows* rowHeight);
+		boxPane.setLayoutManager(new DIYGridLayout(cols, rows, inset, inset));
 
 		boxes = new DIYCheckbox[availableSpells.size()];
 
@@ -132,7 +131,7 @@ public class SpellLearningWidget extends DIYPane implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	java.util.List<Spell> getSelectedSpells()
 	{
-		ArrayList<Spell> result = new ArrayList<Spell>();
+		ArrayList<Spell> result = new ArrayList<>();
 
 		if (boxes != null)
 		{

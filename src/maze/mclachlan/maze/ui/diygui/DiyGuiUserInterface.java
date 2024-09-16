@@ -1045,9 +1045,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		modifiersDisplay = new ModifiersDisplayWidget(
 			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
 
-		screen.add(buttonToolbar);
-		screen.add(partyDisplay);
 		screen.add(modifiersDisplay);
+		screen.add(partyDisplay);
+		screen.add(buttonToolbar);
 
 		BufferedImage back = Database.getInstance().getImage("screen/modifiers_back");
 		screen.setBackgroundImage(back);
@@ -1063,9 +1063,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		propertiesDisplay = new PropertiesDisplayWidget(
 			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
 
-		screen.add(buttonToolbar);
-		screen.add(partyDisplay);
 		screen.add(propertiesDisplay);
+		screen.add(partyDisplay);
+		screen.add(buttonToolbar);
 
 		BufferedImage back = Database.getInstance().getImage("screen/properties_back");
 		screen.setBackgroundImage(back);
@@ -1085,9 +1085,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH,
 				DiyGuiUserInterface.SCREEN_HEIGHT));
 
-		screen.add(buttonToolbar);
-		screen.add(partyDisplay);
 		screen.add(inventoryDisplay);
+		screen.add(partyDisplay);
+		screen.add(buttonToolbar);
 
 		BufferedImage invBack = Database.getInstance().getImage("screen/inventory_back");
 		screen.setBackgroundImage(invBack);

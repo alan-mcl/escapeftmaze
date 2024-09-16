@@ -20,12 +20,16 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.ManaRequirement;
 import mclachlan.maze.util.MazeException;
@@ -33,14 +37,17 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class ManaDisplayWidget extends DIYPane
+public class ManaDisplayWidget extends DIYPane implements ActionListener
 {
-	private DIYLabel red, black, purple, gold, white, green, blue;
-	
+	public static final int ICON_SIZE = 32;
+	public static final int HGAP = 8;
+	private final DIYLabel red, black, purple, gold, white, green, blue;
+	private final ArrayList<DIYLabel> iconLabels;
+
 	/*-------------------------------------------------------------------------*/
 	public ManaDisplayWidget()
 	{
-		super(new DIYFlowLayout(10,1, DIYToolkit.Align.CENTER));
+		iconLabels = new ArrayList<>(7);
 
 		red = createLabel("screen/mana_icon_red", Color.BLACK);
 		black = createLabel("screen/mana_icon_black", Color.WHITE);
@@ -50,59 +57,147 @@ public class ManaDisplayWidget extends DIYPane
 		green = createLabel("screen/mana_icon_green", Color.BLACK);
 		blue = createLabel("screen/mana_icon_blue", Color.WHITE);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private DIYLabel createLabel(String imageName, Color fore)
 	{
-		DIYLabel label = new DIYLabel("  ", DIYToolkit.Align.CENTER);
-		label.setForegroundColour(fore);
-		label.setIcon(Database.getInstance().getImage(imageName));
+		DIYLabel iconLabel = new DIYLabel();
+		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
+		iconLabel.setIcon(Database.getInstance().getImage(imageName));
 
-		this.add(label);
+		iconLabels.add(iconLabel);
 
-		return label;
+		DIYLabel textLabel = new DIYLabel();
+		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
+		textLabel.setForegroundColour(fore);
+
+		textLabel.addActionListener(this);
+
+		this.add(iconLabel);
+		this.add(textLabel);
+
+		return textLabel;
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public Dimension getPreferredSize()
+	{
+		return new Dimension(ICON_SIZE * 7 + HGAP * 7, ICON_SIZE);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public void setBounds(int x, int y, int width, int height)
+	{
+		super.setBounds(x, y, width, height);
+
+		if (red != null)
+		{
+			DIYLabel[] icons = {red, black, purple, gold, white, green, blue};
+			for (int i = 0; i < icons.length; i++)
+			{
+				Rectangle r = new Rectangle(x + (i * (ICON_SIZE + HGAP)), y, ICON_SIZE, ICON_SIZE);
+				icons[i].setBounds(r);
+
+				iconLabels.get(i).setBounds(r);
+			}
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void refresh(
-		int red, 
-		int black, 
-		int purple, 
-		int gold, 
-		int white, 
-		int green, 
+		int red,
+		int black,
+		int purple,
+		int gold,
+		int white,
+		int green,
 		int blue)
 	{
-		this.red.setText(""+red);
-		this.black.setText(""+black);
-		this.purple.setText(""+purple);
-		this.gold.setText(""+gold);
-		this.white.setText(""+white);
-		this.green.setText(""+green);
-		this.blue.setText(""+blue);
+		this.red.setText("" + red);
+		this.black.setText("" + black);
+		this.purple.setText("" + purple);
+		this.gold.setText("" + gold);
+		this.white.setText("" + white);
+		this.green.setText("" + green);
+		this.blue.setText("" + blue);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void refresh(List<ManaRequirement> requirementsToCast)
 	{
 		this.refresh(0, 0, 0, 0, 0, 0, 0);
-		
+
 		if (requirementsToCast != null)
 		{
 			for (ManaRequirement m : requirementsToCast)
 			{
 				switch (m.getColour())
 				{
-					case MagicSys.ManaType.RED: red.setText(""+m.getAmount()); break;
-					case MagicSys.ManaType.BLACK: black.setText(""+m.getAmount()); break;
-					case MagicSys.ManaType.PURPLE: purple.setText(""+m.getAmount()); break;
-					case MagicSys.ManaType.GOLD: gold.setText(""+m.getAmount()); break;
-					case MagicSys.ManaType.WHITE: white.setText(""+m.getAmount()); break;
-					case MagicSys.ManaType.GREEN: green.setText(""+m.getAmount()); break;
-					case MagicSys.ManaType.BLUE: blue.setText(""+m.getAmount()); break;
-					default: throw new MazeException("invalid ["+m.getColour()+"]");
+					case MagicSys.ManaType.RED -> red.setText("" + m.getAmount());
+					case MagicSys.ManaType.BLACK ->
+						black.setText("" + m.getAmount());
+					case MagicSys.ManaType.PURPLE ->
+						purple.setText("" + m.getAmount());
+					case MagicSys.ManaType.GOLD -> gold.setText("" + m.getAmount());
+					case MagicSys.ManaType.WHITE ->
+						white.setText("" + m.getAmount());
+					case MagicSys.ManaType.GREEN ->
+						green.setText("" + m.getAmount());
+					case MagicSys.ManaType.BLUE -> blue.setText("" + m.getAmount());
+					default ->
+						throw new MazeException("invalid [" + m.getColour() + "]");
 				}
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void popupSpellBookDesc(MagicSys.SpellBook spellBook)
+	{
+		TextDialogWidget dialog = new TextDialogWidget(
+			spellBook.getName(),
+			Database.getInstance().getPlayerSpellBook(spellBook.getName()).getDescription(),
+			false);
+
+		Maze.getInstance().getUi().showDialog(dialog);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean actionPerformed(ActionEvent event)
+	{
+		if (event.getSource() == red)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.RED_MAGIC);
+		}
+		else if (event.getSource() == black)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.BLACK_MAGIC);
+		}
+		else if (event.getSource() == purple)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.PURPLE_MAGIC);
+		}
+		else if (event.getSource() == gold)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.GOLD_MAGIC);
+		}
+		else if (event.getSource() == white)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.WHITE_MAGIC);
+		}
+		else if (event.getSource() == green)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.GREEN_MAGIC);
+		}
+		else if (event.getSource() == blue)
+		{
+			popupSpellBookDesc(MagicSys.SpellBook.BLUE_MAGIC);
+		}
+
+		return true;
 	}
 }

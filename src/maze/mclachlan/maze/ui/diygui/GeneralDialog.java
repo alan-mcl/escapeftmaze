@@ -19,6 +19,7 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
 import java.awt.Rectangle;
@@ -63,20 +64,25 @@ public class GeneralDialog extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	protected DIYPane getTitle(String titleText)
 	{
+		return getTitle(titleText, GOLD);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected DIYPane getTitle(String titleText, Color titleCol)
+	{
 		DIYPane titlePane = new DIYPane();
 		titlePane.setBounds(
-			x +border, y +border,
-			width -border*2, titlePaneHeight);
+			x + border, y + border,
+			width - border * 2, titlePaneHeight);
 
 		DIYLabel title = new DIYLabel(titleText, DIYToolkit.Align.CENTER);
-		title.setForegroundColour(GOLD);
+		title.setForegroundColour(titleCol);
 		title.setBounds(
-			x +border, y +border,
-						width -border*2, titlePaneHeight
-		);
+			x + border, y + border,
+			width - border * 2, titlePaneHeight);
 
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+5);
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize() + 5);
 
 		title.setFont(f);
 
@@ -92,7 +98,7 @@ public class GeneralDialog extends DIYPanel
 		final DIYButton close;
 		close = new DIYButton(null);
 		close.setImage("ui/mf/button/close_button");
-		close.setBounds(x +width -45, y, 45, 45);
+		close.setBounds(x + width - 45, y, 45, 45);
 		return close;
 	}
 

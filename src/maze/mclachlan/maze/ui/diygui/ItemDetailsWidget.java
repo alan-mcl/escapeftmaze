@@ -38,7 +38,7 @@ import static mclachlan.maze.stat.ItemTemplate.*;
 /**
  * To be used as the popup dialog to display item details.
  */
-public class ItemDetailsWidget extends DIYPanel
+public class ItemDetailsWidget extends GeneralDialog
 {
 	private int wrapWidth;
 
@@ -52,50 +52,36 @@ public class ItemDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private void buildGui(Rectangle bounds, Item item)
 	{
-		int okButtonHeight = 17;
-		int okButtonWidth = bounds.width / 4;
-		int inset = 2;
-		int border = 15;
-		int titleWidth = 30;
+		setStyle(Style.DIALOG);
 
-		int rowHeight = 12;
+		int rowHeight = 15;
 		int xx = bounds.x + inset + border;
-		int yy = bounds.y + inset + border + titleWidth;
+		int yy = bounds.y + inset + border + titlePaneHeight;
 		int width1 = bounds.width - inset * 2 - border * 2;
-		int height1 = bounds.height - okButtonHeight - inset * 3 - border * 2;
+		int height1 = bounds.height - inset * 3 - border * 2;
 
 		wrapWidth = width1;
 
-		DIYButton ok = new DIYButton(getUiLabel("common.ok"));
-		ok.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 - okButtonWidth /2,
-			bounds.y+ bounds.height - okButtonHeight - inset - border,
-			okButtonWidth, okButtonHeight));
+		DIYButton close = getCloseButton();
 
-		ok.addActionListener(event -> {
+		close.addActionListener(event -> {
 			DIYToolkit.getInstance().clearDialog();
 			return true;
 		});
 
 		// Item name
-		DIYLabel nameLabel = new DIYLabel(item.getDisplayName());
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+2);
-		nameLabel.setFont(f);
-		if (item.isCursed() &&
-			item.getCursedState() == Item.CursedState.DISCOVERED)
+		Color titleCol = null;
+		if (item.isCursed() && item.getCursedState() == Item.CursedState.DISCOVERED)
 		{
-			nameLabel.setForegroundColour(Color.RED);
+			titleCol = Color.RED;
 		}
-		else
-		{
-			nameLabel.setForegroundColour(Constants.Colour.GOLD);
-		}
-		addRelative(nameLabel, 46, 8, 540, 36);
+		DIYPane title = getTitle(item.getDisplayName(), titleCol);
 
 		// Item image
+		DIYLabel itemSlot = new DIYLabel(Database.getInstance().getImage("screen/itemslot"));
 		DIYLabel itemIcon = new DIYLabel(Database.getInstance().getImage(item.getImage()));
-		addRelative(itemIcon, 11, 11, 35, 35);
+		addRelative(itemSlot, border, border, 35, 35);
+		addRelative(itemIcon, border, border, 35, 35);
 
 		// Item weight
 		DIYLabel weightLabel = new DIYLabel(
@@ -117,7 +103,7 @@ public class ItemDetailsWidget extends DIYPanel
 		}
 
 		// rows of item details
-		List<Widget> rows = new ArrayList<Widget>();
+		List<Widget> rows = new ArrayList<>();
 		newRow(rows);
 
 		boolean b = false;
@@ -184,10 +170,8 @@ public class ItemDetailsWidget extends DIYPanel
 			}
 		}
 
-		this.add(ok);
-
-		Image back = Database.getInstance().getImage("screen/item_dialog_back");
-		this.setBackgroundImage(back);
+		this.add(title);
+		this.add(close);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -290,7 +274,7 @@ public class ItemDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private List<String> getSpellEffectsDisplay(Item item)
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 
 		if (item.getSpellEffects() == null || item.getSpellEffects().getPercentages().size() == 0)
 		{
@@ -322,11 +306,11 @@ public class ItemDetailsWidget extends DIYPanel
 			float max = all.size();
 			float actual = itemList.size();
 
-			List<String> users = new ArrayList<String>(itemList);
+			List<String> users = new ArrayList<>(itemList);
 
 			if (actual/max >= 0.66f)
 			{
-				List<String> exceptions = new ArrayList<String>(all);
+				List<String> exceptions = new ArrayList<>(all);
 				exceptions.removeAll(users);
 				Collections.sort(exceptions);
 				sb.append(getUiLabel("iw.all.except"));
@@ -427,7 +411,7 @@ public class ItemDetailsWidget extends DIYPanel
 			return false;
 		}
 
-		List<ItemTemplate.AmmoType> temp = new ArrayList<ItemTemplate.AmmoType>(ammoRequired);
+		List<ItemTemplate.AmmoType> temp = new ArrayList<>(ammoRequired);
 		Collections.sort(temp);
 
 		addToRow(rows, getDescriptiveLabel(getUiLabel("iw.ammo.required")));
@@ -450,7 +434,7 @@ public class ItemDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private String describeSlots(BitSet slots)
 	{
-		java.util.List<String> temp = new ArrayList<String>();
+		java.util.List<String> temp = new ArrayList<>();
 
 		for (int i=0; i<PlayerCharacter.EquipableSlots.NUMBER_OF_SLOTS; i++)
 		{
@@ -460,17 +444,17 @@ public class ItemDetailsWidget extends DIYPanel
 			}
 		}
 
-		String result = "";
+		StringBuilder result = new StringBuilder();
 		for (int i = 0; i < temp.size(); i++)
 		{
-			result += temp.get(i);
+			result.append(temp.get(i));
 			if (i != temp.size()-1)
 			{
-				result += ", ";
+				result.append(", ");
 			}
 		}
 
-		return result;
+		return result.toString();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -695,26 +679,26 @@ public class ItemDetailsWidget extends DIYPanel
 		}
 		else
 		{
-			String typeDesc = null;
-			switch (item.getType())
-			{
-				case Type.BANNER_EQUIPMENT: typeDesc = getUiLabel("iw.banner.item"); break;
-				case Type.BOMB: typeDesc = getUiLabel("iw.bomb"); break;
-				case Type.DRINK: typeDesc = getUiLabel("iw.drink"); break;
-				case Type.FOOD: typeDesc = getUiLabel("iw.food"); break;
-				case Type.KEY: typeDesc = getUiLabel("iw.key"); break;
-				case Type.MISC_EQUIPMENT: typeDesc = getUiLabel("iw.misc.item"); break;
-				case Type.MISC_MAGIC: typeDesc = getUiLabel("iw.misc.magic"); break;
-				case Type.OTHER: typeDesc = getUiLabel("iw.misc"); break;
-				case Type.POTION: typeDesc = getUiLabel("iw.potion"); break;
-				case Type.POWDER: typeDesc = getUiLabel("iw.powder"); break;
-				case Type.SCROLL: typeDesc = getUiLabel("iw.scroll"); break;
-				case Type.SPELLBOOK: typeDesc = getUiLabel("iw.spellbook"); break;
-				case Type.WRITING: typeDesc = getUiLabel("iw.writing"); break;
-				case Type.SUPPLIES: typeDesc = getUiLabel("iw.supplies"); break;
-				case Type.GADGET: typeDesc = getUiLabel("iw.gadget"); break;
-				case Type.MUSICAL_INSTRUMENT: typeDesc = getUiLabel("iw.music"); break;
-			}
+			String typeDesc = switch (item.getType())
+				{
+					case Type.BANNER_EQUIPMENT -> getUiLabel("iw.banner.item");
+					case Type.BOMB -> getUiLabel("iw.bomb");
+					case Type.DRINK -> getUiLabel("iw.drink");
+					case Type.FOOD -> getUiLabel("iw.food");
+					case Type.KEY -> getUiLabel("iw.key");
+					case Type.MISC_EQUIPMENT -> getUiLabel("iw.misc.item");
+					case Type.MISC_MAGIC -> getUiLabel("iw.misc.magic");
+					case Type.OTHER -> getUiLabel("iw.misc");
+					case Type.POTION -> getUiLabel("iw.potion");
+					case Type.POWDER -> getUiLabel("iw.powder");
+					case Type.SCROLL -> getUiLabel("iw.scroll");
+					case Type.SPELLBOOK -> getUiLabel("iw.spellbook");
+					case Type.WRITING -> getUiLabel("iw.writing");
+					case Type.SUPPLIES -> getUiLabel("iw.supplies");
+					case Type.GADGET -> getUiLabel("iw.gadget");
+					case Type.MUSICAL_INSTRUMENT -> getUiLabel("iw.music");
+					default -> null;
+				};
 
 			if (typeDesc != null)
 			{
@@ -773,7 +757,7 @@ public class ItemDetailsWidget extends DIYPanel
 			return false;
 		}
 
-		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.keySet());
+		List<Stats.Modifier> sortedModifiers = new ArrayList<>(modifiers.keySet());
 		Collections.sort(sortedModifiers);
 
 		if (suppressCursedItemStuff && item.getCursedState() == Item.CursedState.UNDISCOVERED)
@@ -802,7 +786,7 @@ public class ItemDetailsWidget extends DIYPanel
 		}
 
 		StringBuilder sb = new StringBuilder(title+" ");
-		List<String> modDesc = new ArrayList<String>();
+		List<String> modDesc = new ArrayList<>();
 
 		for (Stats.Modifier modifier : sortedModifiers)
 		{

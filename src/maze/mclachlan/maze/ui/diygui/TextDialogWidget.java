@@ -21,6 +21,7 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
+import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.ActionEvent;
@@ -37,12 +38,27 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 	private final boolean modal;
 
 	/*-------------------------------------------------------------------------*/
-	public TextDialogWidget(Rectangle bounds, String title, String text, boolean modal)
+	public TextDialogWidget(String title, String text, boolean modal)
+	{
+		this(
+			new Rectangle(
+				DiyGuiUserInterface.SCREEN_WIDTH / 4,
+				DiyGuiUserInterface.SCREEN_HEIGHT / 4,
+				DiyGuiUserInterface.SCREEN_WIDTH / 2,
+				DiyGuiUserInterface.SCREEN_HEIGHT / 2),
+			title,
+			text,
+			modal);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public TextDialogWidget(Rectangle bounds, String title, String text,
+		boolean modal)
 	{
 		super(bounds);
 
 		this.modal = modal;
-		super.setStyle(Style.FIXED_PANEL);
+		super.setStyle(Style.DIALOG);
 
 		DIYPane titlePane = null;
 
@@ -53,23 +69,30 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 			titlePane = getTitle(title);
 
 			textBounds = new Rectangle(
-				x +inset +border,
-				y +inset +border +titlePaneHeight,
-				width -inset*2 -border*2,
-				height -inset*3 -border*2 -titlePaneHeight);
+				x + inset + border,
+				y + inset + border + titlePaneHeight,
+				width - inset * 2 - border * 2,
+				height - inset * 3 - border * 2 - titlePaneHeight);
 		}
 		else
 		{
 			textBounds = new Rectangle(
-				x +inset +border,
-				y +inset +border,
-				width -inset*2 -border*2,
-				height -inset*3 -border*2);
+				x + inset + border,
+				y + inset + border,
+				width - inset * 2 - border * 2,
+				height - inset * 3 - border * 2);
 		}
 
 		this.text = new DIYTextArea(text);
 		this.text.setTransparent(true);
 		this.text.setBounds(textBounds);
+
+		if (!modal)
+		{
+			DIYButton close = getCloseButton();
+			close.addActionListener(this);
+			this.add(close);
+		}
 
 		if (titlePane != null)
 		{
@@ -96,7 +119,7 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 	{
 		return DIYToolkit.PANEL;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
@@ -119,6 +142,7 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
+		exitDialog();
 		return false;
 	}
 }

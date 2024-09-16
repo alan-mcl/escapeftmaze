@@ -144,5 +144,4 @@ public class DIYRadioButton extends Widget
 		}
 		hover = false;
 	}
-
 }

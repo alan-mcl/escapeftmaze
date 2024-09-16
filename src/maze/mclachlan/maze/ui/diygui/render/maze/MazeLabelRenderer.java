@@ -31,6 +31,10 @@ import mclachlan.maze.util.MazeException;
  */
 public class MazeLabelRenderer extends Renderer
 {
+	protected Color labelForegroundEnabled = MazeRendererFactory.LABEL_FOREGROUND;
+	protected Color labelForegroundEnabledHover = MazeRendererFactory.LABEL_FOREGROUND.brighter();
+	protected Color labelForegroundDisabled = MazeRendererFactory.DISABLED_LABEL_FOREGROUND;
+
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
 		DIYLabel label = (DIYLabel)widget;
@@ -70,17 +74,25 @@ public class MazeLabelRenderer extends Renderer
 			int textWidth = g.getFontMetrics().stringWidth(text);
 			int combinedWidth = iconWidth + textWidth;
 
-			int startX;
-			switch (label.getAlignment())
-			{
-				case LEFT: startX = x; break;
-				case CENTER: startX = x+width/2-combinedWidth/2; break;
-				case RIGHT: startX = x+width-combinedWidth; break;
-				default: throw new MazeException(label.getAlignment().toString());
-			}
+			int startX = switch (label.getAlignment())
+				{
+					case LEFT -> x;
+					case CENTER -> x + width / 2 - combinedWidth / 2;
+					case RIGHT -> x + width - combinedWidth;
+					default ->
+						throw new MazeException(label.getAlignment().toString());
+				};
 
 			iconBounds = new Rectangle(startX, y, iconWidth, height);
-			textBounds = new Rectangle(startX+iconWidth, y, textWidth, height);
+			int textX = switch (label.getIconAlign())
+				{
+					case LEFT -> startX + iconWidth;
+					case CENTER -> startX;
+					case RIGHT -> startX;
+					default ->
+						throw new MazeException(label.getAlignment().toString());
+				};
+			textBounds = new Rectangle(textX, y, textWidth, height);
 		}
 
 		// draw the icon
@@ -95,11 +107,20 @@ public class MazeLabelRenderer extends Renderer
 			Color foreground = label.getForegroundColour();
 			if (foreground == null)
 			{
-				foreground = MazeRendererFactory.LABEL_FOREGROUND;
-
-				if (!label.isEnabled())
+				if (label.isEnabled())
 				{
-					foreground = MazeRendererFactory.DISABLED_LABEL_FOREGROUND;
+					if (label.isHover() && label.getListeners().size()>0)
+					{
+						foreground = labelForegroundEnabledHover;
+					}
+					else
+					{
+						foreground = labelForegroundEnabled;
+					}
+				}
+				else
+				{
+					foreground = labelForegroundDisabled;
 				}
 			}
 

@@ -38,11 +38,11 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class StatModifierDisplayWidget extends DIYPane
 {
-	private int rows;
-	private DIYLabel[] labels;
-	private DIYLabel[] values;
-	private List<Stats.Modifier> toInclude;
-	private boolean displayZeroes;
+	private final int rows;
+	private final DIYLabel[] labels;
+	private final DIYLabel[] values;
+	private final List<Stats.Modifier> toInclude;
+	private final boolean displayZeroes;
 	private StatModifier modifier;
 
 	/*-------------------------------------------------------------------------*/

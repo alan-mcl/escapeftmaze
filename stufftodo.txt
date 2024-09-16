@@ -11,6 +11,7 @@ bug: main menu -> add character -> load game -> NPX
 make main menu title nice
 guild panel scroll pane
 scroll pane improvements: click+drag, scroll wheel, rightsized content
+spell desc dialog improvements: cast cost, effects
 
 
 BACKLOG

@@ -54,13 +54,13 @@ public class MFListBoxRenderer extends Renderer
 			{
 				col1 = Color.WHITE;
 				col2 = Constants.Colour.GOLD;
-				textCol = Color.DARK_GRAY;
+				textCol = Colours.LIST_BOX_TEXT_SELECTED;
 			}
 			else
 			{
 				col1 = Color.LIGHT_GRAY.brighter();
 				col2 = Color.LIGHT_GRAY.darker();
-				textCol = Color.GRAY;
+				textCol = Colours.LIST_BOX_TEXT_DISABLED;
 			}
 
 			RoundRectangle2D r = new RoundRectangle2D.Double(x, y, width, height, 4, 4);
@@ -71,11 +71,11 @@ public class MFListBoxRenderer extends Renderer
 		{
 			if (listBoxItem.isEnabled())
 			{
-				textCol = Color.WHITE;
+				textCol = Colours.LIST_BOX_TEXT;
 			}
 			else
 			{
-				textCol = Color.GRAY;
+				textCol = Colours.LIST_BOX_TEXT_DISABLED;
 			}
 		}
 
