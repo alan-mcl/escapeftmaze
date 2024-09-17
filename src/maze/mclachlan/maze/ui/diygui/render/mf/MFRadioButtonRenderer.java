@@ -102,11 +102,18 @@ public class MFRadioButtonRenderer extends Renderer
 
 		if (radioButton.isEnabled())
 		{
-			g.setColor(Color.WHITE);
+			if (radioButton.isHover())
+			{
+				g.setColor(Colours.LABEL_TEXT_HIGHLIGHTED);
+			}
+			else
+			{
+				g.setColor(Colours.LABEL_TEXT);
+			}
 		}
 		else
 		{
-			g.setColor(Color.LIGHT_GRAY);
+			g.setColor(Colours.LABEL_TEXT_DISABLED);
 		}
 		g.drawString(caption, textX, textY);
 		

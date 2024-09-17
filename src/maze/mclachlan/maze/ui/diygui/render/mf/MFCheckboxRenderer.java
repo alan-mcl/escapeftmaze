@@ -99,11 +99,18 @@ public class MFCheckboxRenderer extends Renderer
 
 		if (checkbox.isEnabled())
 		{
-			g.setColor(Color.WHITE);
+			if (checkbox.isHover())
+			{
+				g.setColor(Colours.LABEL_TEXT_HIGHLIGHTED);
+			}
+			else
+			{
+				g.setColor(Colours.LABEL_TEXT);
+			}
 		}
 		else
 		{
-			g.setColor(Color.LIGHT_GRAY);
+			g.setColor(Colours.LABEL_TEXT_DISABLED);
 		}
 		g.drawString(caption, textX, textY);
 		

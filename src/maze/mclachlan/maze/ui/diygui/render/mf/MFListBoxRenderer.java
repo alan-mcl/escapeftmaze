@@ -71,7 +71,14 @@ public class MFListBoxRenderer extends Renderer
 		{
 			if (listBoxItem.isEnabled())
 			{
-				textCol = Colours.LIST_BOX_TEXT;
+				if (listBoxItem.isHover())
+				{
+					textCol = Colours.LIST_BOX_TEXT_HIGHLIGHTED;
+				}
+				else
+				{
+					textCol = Colours.LIST_BOX_TEXT;
+				}
 			}
 			else
 			{

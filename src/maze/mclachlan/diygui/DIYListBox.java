@@ -285,6 +285,7 @@ public class DIYListBox extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public class ListItem extends Widget
 	{
+		private boolean hover;
 		private final Image icon;
 		private final Object item;
 
@@ -343,7 +344,7 @@ public class DIYListBox extends ContainerWidget
 			return item;
 		}
 
-		/*-------------------------------------------------------------------------*/
+		/*----------------------------------------------------------------------*/
 
 		public Image getIcon()
 		{
@@ -351,9 +352,30 @@ public class DIYListBox extends ContainerWidget
 		}
 
 		/*----------------------------------------------------------------------*/
+
+		public boolean isHover()
+		{
+			return hover;
+		}
+
+		/*----------------------------------------------------------------------*/
 		public String toString()
 		{
 			return item.toString();
+		}
+
+		/*----------------------------------------------------------------------*/
+
+		@Override
+		public void processMouseEntered(MouseEvent e)
+		{
+			this.hover = true;
+		}
+
+		@Override
+		public void processMouseExited(MouseEvent e)
+		{
+			this.hover = false;
 		}
 	}
 }
