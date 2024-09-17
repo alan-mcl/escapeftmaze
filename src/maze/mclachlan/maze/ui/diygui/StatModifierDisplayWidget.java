@@ -178,7 +178,7 @@ public class StatModifierDisplayWidget extends DIYPane
 		DIYLabel title = new DIYLabel(titleText, DIYToolkit.Align.CENTER);
 		title.setForegroundColour(GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize());
 		title.setFont(f);
 		return title;
 	}

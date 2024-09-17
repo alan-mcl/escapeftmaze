@@ -54,6 +54,7 @@ import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.ui.diygui.animation.SpeechBubble;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.util.PerfLog;
 
@@ -1527,17 +1528,23 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	public void speechBubble(String speechKey, PlayerCharacter pc)
 	{
-		this.speechBubble(speechKey, pc, pc.getPersonality(), getUi().getPlayerCharacterWidgetBounds(pc));
+		this.speechBubble(speechKey, pc, pc.getPersonality(), getUi().getPlayerCharacterWidgetBounds(pc), null);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void speechBubble(String speechKey, PlayerCharacter pc, Personality p, Rectangle bounds)
+	public void speechBubble(
+		String speechKey,
+		PlayerCharacter pc,
+		Personality p,
+		Rectangle origin,
+		SpeechBubble.Orientation orientation)
 	{
 		PersonalitySpeechBubbleEvent e = new PersonalitySpeechBubbleEvent(
 			pc,
 			p,
 			speechKey,
-			bounds,
+			origin,
+			orientation,
 			false);
 
 //		getUi().stopAllAnimations();

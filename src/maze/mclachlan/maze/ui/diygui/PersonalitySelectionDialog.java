@@ -33,6 +33,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.ui.diygui.animation.SpeechBubble;
 
 /**
  *
@@ -129,7 +130,8 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 				Personality.BasicSpeech.PERSONALITY_SELECTED.getKey(),
 				pc,
 				Database.getInstance().getPersonalities().get((String)personalities.getSelected()),
-				DiyGuiUserInterface.instance.partyDisplay.getSelectedCharacterBounds());
+				DiyGuiUserInterface.instance.partyDisplay.getSelectedCharacterBounds(),
+				SpeechBubble.Orientation.BELOW);
 
 			return true;
 		}

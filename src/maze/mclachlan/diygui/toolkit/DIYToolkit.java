@@ -479,6 +479,7 @@ public class DIYToolkit
 		synchronized (dialogMutex)
 		{
 			this.dialogs.push(d);
+			resetFocusAndHoverWidgets();
 		}
 	}
 
@@ -519,6 +520,10 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 	private void resetFocusAndHoverWidgets()
 	{
+		if (hoverWidget != null)
+		{
+			hoverWidget.processMouseExited(new MouseEvent(comp, 0, System.nanoTime(), 0, hoverWidget.x, hoverWidget.y, 0, false));
+		}
 		Point p = comp.getMousePosition();
 		hoverWidget = getHoverComponent(p);
 		setFocus(hoverWidget);

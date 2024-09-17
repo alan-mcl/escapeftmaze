@@ -19,23 +19,14 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Font;
-import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYGridLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.stat.StatModifier;
 import mclachlan.maze.stat.Stats;
-
-import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
 /**
  *
  */
-public class ResourcesDisplayWidget extends DIYPane
+public class ResourcesDisplayWidget extends StatModifierDisplayWidget
 {
-	private final DIYLabel[] labels, values;
 	private final boolean percent;
 
 	/*-------------------------------------------------------------------------*/
@@ -47,90 +38,29 @@ public class ResourcesDisplayWidget extends DIYPane
 		boolean percent,
 		boolean unknown)
 	{
+		super(title, null, 3, Stats.resourceModifiers, true, unknown);
+
 		this.percent = percent;
-
-		int gap = 2;
-		int rows = 3;
-		int columns = 3;
-
-		this.setLayoutManager(new DIYGridLayout(columns, rows+1, gap, gap));
-		this.labels = new DIYLabel[rows];
-		this.values = new DIYLabel[rows];
-
-		ActionListener listener = new ModifiersDisplayActionListener();
-
-		DIYLabel top = getTitle(title);
-		top.setForegroundColour(Constants.Colour.GOLD);
-		add(new DIYLabel(""));
-		add(top);
-		add(new DIYLabel(""));
-
-		for (int i=0; i<rows; i++)
-		{
-			labels[i] = new DIYLabel("", DIYToolkit.Align.LEFT);
-			labels[i].addActionListener(listener);
-			values[i] = new DIYLabel();
-			values[i].addActionListener(listener);
-
-			this.add(labels[i]);
-			this.add(new DIYLabel());
-			this.add(values[i]);
-		}
-
-		this.display(hitPoints, actionPoints, magicPoints, unknown);
+		setResources(hitPoints, actionPoints, magicPoints, unknown);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void display(int hitPoints, int actionPoints, int magicPoints,
+	public void setResources(
+		int hitPoints,
+		int actionPoints,
+		int magicPoints,
 		boolean unknown)
 	{
-		for (int i = 0; i < labels.length; i++)
-		{
-			labels[i].setText("");
-			labels[i].setActionMessage(null);
-			values[i].setText("");
-			values[i].setActionMessage(null);
-		}
+		StatModifier current = new StatModifier();
+		current.setModifier(Stats.Modifier.HIT_POINTS, hitPoints);
+		current.setModifier(Stats.Modifier.ACTION_POINTS, actionPoints);
+		current.setModifier(Stats.Modifier.MAGIC_POINTS, magicPoints);
 
-		labels[0].setText(StringUtil.getModifierName(Stats.Modifier.HIT_POINTS));
-		labels[0].setActionMessage(Stats.Modifier.HIT_POINTS.toString());
-		if (unknown)
-		{
-			values[0].setText("?");
-		}
-		else
-		{
-			values[0].setText(descValue(hitPoints));
-		}
-		values[0].setActionMessage(Stats.Modifier.HIT_POINTS.toString());
-
-		labels[1].setText(StringUtil.getModifierName(Stats.Modifier.ACTION_POINTS));
-		labels[1].setActionMessage(Stats.Modifier.ACTION_POINTS.toString());
-		if (unknown)
-		{
-			values[1].setText("?");
-		}
-		else
-		{
-			values[1].setText(descValue(actionPoints));
-		}
-		values[1].setActionMessage(Stats.Modifier.ACTION_POINTS.toString());
-
-		labels[2].setText(StringUtil.getModifierName(Stats.Modifier.MAGIC_POINTS));
-		labels[2].setActionMessage(Stats.Modifier.MAGIC_POINTS.toString());
-		if (unknown)
-		{
-			values[2].setText("?");
-		}
-		else
-		{
-			values[2].setText(descValue(magicPoints));
-		}
-		values[2].setActionMessage(Stats.Modifier.MAGIC_POINTS.toString());
+		this.setStatModifier(current, unknown);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private String descValue(int value)
+	protected String descModifier(Stats.Modifier modifier, int value)
 	{
 		if (percent)
 		{
@@ -140,16 +70,5 @@ public class ResourcesDisplayWidget extends DIYPane
 		{
 			return ""+value;
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private DIYLabel getTitle(String titleText)
-	{
-		DIYLabel title = new DIYLabel(titleText, DIYToolkit.Align.CENTER);
-		title.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
-		title.setFont(f);
-		return title;
 	}
 }

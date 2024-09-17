@@ -298,7 +298,8 @@ public class MainMenu extends DIYPanel
 			Personality.BasicSpeech.CHARACTER_RECRUITED.getKey(),
 			playerCharacter,
 			playerCharacter.getPersonality(),
-			Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(playerCharacter));
+			Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(playerCharacter),
+			null);
 
 		updateState();
 	}

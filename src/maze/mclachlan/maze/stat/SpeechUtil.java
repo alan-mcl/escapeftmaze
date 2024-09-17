@@ -28,6 +28,7 @@ import mclachlan.maze.game.event.UiMessageEvent;
 import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionEffect;
+import mclachlan.maze.ui.diygui.animation.SpeechBubble;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -35,7 +36,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class SpeechUtil
 {
-	private static SpeechUtil instance = new SpeechUtil();
+	private static final SpeechUtil instance = new SpeechUtil();
 
 	public static final int OFF = 0;
 	public static final int LOW = 1;
@@ -49,17 +50,33 @@ public class SpeechUtil
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @param speechKey
+	 * 	Lookup key for the speech
+	 * @param pc
+	 * 	The PC to originate from, null if none
+	 * @param p
+	 * 	The personality speaking
+	 * @param origin
+	 * 	Bounds to originate from
+	 * @param orientation
+	 * 	Where to locate the speech bubble relative to the origin. Null if
+	 * 	the animation is to just guess.
+	 */
 	public void genericSpeech(
 		String speechKey,
 		PlayerCharacter pc,
 		Personality p,
-		Rectangle origin)
+		Rectangle origin,
+		SpeechBubble.Orientation orientation)
 	{
 		Maze.getInstance().speechBubble(
 			speechKey,
 			pc,
 			p,
-			origin);
+			origin,
+			orientation);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -68,14 +85,13 @@ public class SpeechUtil
 		// chance of character having something to say
 		if (backgroundCharacterSpeechOccurs())
 		{
-			String speechKey;
-			switch (Dice.d3.roll("SpeechUtil.attackEventSpeech"))
-			{
-				case 1: speechKey = Personality.BasicSpeech.MELEE_ATTACK_1.getKey(); break;
-				case 2: speechKey = Personality.BasicSpeech.MELEE_ATTACK_2.getKey(); break;
-				case 3: speechKey = Personality.BasicSpeech.MELEE_ATTACK_3.getKey(); break;
-				default: throw new MazeException("wtf?");
-			}
+			String speechKey = switch (Dice.d3.roll("SpeechUtil.attackEventSpeech"))
+				{
+					case 1 -> Personality.BasicSpeech.MELEE_ATTACK_1.getKey();
+					case 2 -> Personality.BasicSpeech.MELEE_ATTACK_2.getKey();
+					case 3 -> Personality.BasicSpeech.MELEE_ATTACK_3.getKey();
+					default -> throw new MazeException("wtf?");
+				};
 
 			return getSpeechBubbleEvent(pc, speechKey);
 		}
@@ -92,26 +108,28 @@ public class SpeechUtil
 		String words = pc.getPersonality().getWords(speechKey);
 		if (words != null && words.length() > 0)
 		{
-			return Arrays.asList((MazeEvent)new PersonalitySpeechBubbleEvent(pc, speechKey));
+			return List.of((MazeEvent)new PersonalitySpeechBubbleEvent(pc, speechKey));
 		}
 		else
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private boolean backgroundCharacterSpeechOccurs()
 	{
-		switch (Maze.getInstance().getUserConfig().getPersonalityChattiness())
-		{
-			case OFF: return false;
-			case LOW: return Dice.d10.roll("SpeechUtil.backgroundCharacterSpeechOccurs.1") == 1;
-			case MEDIUM: return Dice.d2.roll("SpeechUtil.backgroundCharacterSpeechOccurs.2") == 1;
-			case HIGH: return true;
-			default: throw new MazeException(
-				"Invalid mclachlan.maze.ui.personality_chattiness: "+ Maze.getInstance().getUserConfig().getPersonalityChattiness());
-		}
+		return switch (Maze.getInstance().getUserConfig().getPersonalityChattiness())
+			{
+				case OFF -> false;
+				case LOW ->
+					Dice.d10.roll("SpeechUtil.backgroundCharacterSpeechOccurs.1") == 1;
+				case MEDIUM ->
+					Dice.d2.roll("SpeechUtil.backgroundCharacterSpeechOccurs.2") == 1;
+				case HIGH -> true;
+				default -> throw new MazeException(
+					"Invalid mclachlan.maze.ui.personality_chattiness: " + Maze.getInstance().getUserConfig().getPersonalityChattiness());
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -183,7 +201,7 @@ public class SpeechUtil
 	{
 		if (!backgroundCharacterSpeechOccurs())
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 
 		PlayerParty party = Maze.getInstance().getParty();
@@ -211,12 +229,12 @@ public class SpeechUtil
 		}
 		else
 		{
-			switch (Dice.d2.roll("SpeechUtil.allyDiesSpeech"))
-			{
-				case 1: speechKey = Personality.BasicSpeech.ALLY_DIES_MALE.getKey(); break;
-				case 2: speechKey = Personality.BasicSpeech.ALLY_DIES_FEMALE.getKey(); break;
-				default: throw new MazeException("wtf");
-			}
+			speechKey = switch (Dice.d2.roll("SpeechUtil.allyDiesSpeech"))
+				{
+					case 1 -> Personality.BasicSpeech.ALLY_DIES_MALE.getKey();
+					case 2 -> Personality.BasicSpeech.ALLY_DIES_FEMALE.getKey();
+					default -> throw new MazeException("wtf");
+				};
 		}
 
 		PlayerCharacter speaker = null;
@@ -236,7 +254,7 @@ public class SpeechUtil
 		}
 		else
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 	}
 
@@ -249,7 +267,7 @@ public class SpeechUtil
 		}
 		else
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 	}
 
@@ -262,7 +280,7 @@ public class SpeechUtil
 		}
 		else
 		{
-			return new ArrayList<MazeEvent>();
+			return new ArrayList<>();
 		}
 	}
 
@@ -298,13 +316,13 @@ public class SpeechUtil
 			}
 		}
 
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> spotStashSpeech(PlayerCharacter pc)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		result.add(new UiMessageEvent(
 			StringUtil.getGamesysString("scouting.spot.stash", false, pc.getDisplayName())));
@@ -336,7 +354,8 @@ public class SpeechUtil
 				Personality.BasicSpeech.INVENTORY_HEAVY_LOAD.getKey(),
 				pc,
 				pc.getPersonality(),
-				Maze.getInstance().getUi().getPortraitWidgetBounds(pc));
+				Maze.getInstance().getUi().getPortraitWidgetBounds(pc),
+				null);
 		}
 		else if (item.getBaseCost() >= 10000)
 		{
@@ -344,7 +363,8 @@ public class SpeechUtil
 				Personality.BasicSpeech.INVENTORY_PREMIUM_ITEM.getKey(),
 				pc,
 				pc.getPersonality(),
-				Maze.getInstance().getUi().getPortraitWidgetBounds(pc));
+				Maze.getInstance().getUi().getPortraitWidgetBounds(pc),
+				null);
 		}
 	}
 

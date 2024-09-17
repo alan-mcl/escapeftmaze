@@ -32,10 +32,10 @@ import mclachlan.maze.stat.combat.event.SpeechBubbleEvent;
  */
 public class PlayerSpeechEvent extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private Foe npc;
+	private final PlayerCharacter pc;
+	private final Foe npc;
 
-	private String speech;
+	private final String speech;
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerSpeechEvent(
@@ -66,12 +66,13 @@ public class PlayerSpeechEvent extends MazeEvent
 		}
 		else
 		{
-			List<MazeEvent> result = new ArrayList<MazeEvent>();
+			List<MazeEvent> result = new ArrayList<>();
 
 			result.add(new SpeechBubbleEvent(
 				pc,
 				speech,
 				Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(pc),
+				null,
 				2000,
 				pc.getPersonality().getColour()));
 

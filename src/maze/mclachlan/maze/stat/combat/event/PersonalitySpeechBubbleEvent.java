@@ -27,6 +27,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.SpeechUtil;
+import mclachlan.maze.ui.diygui.animation.SpeechBubble;
 
 /**
  *
@@ -38,6 +39,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 	private Personality personality;
 	private String speechKey;
 	private boolean modal;
+	private SpeechBubble.Orientation orientation;
 
 	/*-------------------------------------------------------------------------*/
 	public PersonalitySpeechBubbleEvent(String speechKey, boolean modal)
@@ -55,6 +57,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 			playerCharacter.getPersonality(),
 			speechKey,
 			Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(playerCharacter),
+			null,
 			false);
 	}
 
@@ -64,6 +67,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 		Personality personality,
 		String speechKey,
 		Rectangle origination,
+		SpeechBubble.Orientation orientation,
 		boolean modal)
 	{
 		this.playerCharacter = pc;
@@ -71,6 +75,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 		this.speechKey = speechKey;
 		this.origination = origination;
 		this.modal = modal;
+		this.orientation = orientation;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -159,9 +164,9 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 			duration = SpeechUtil.getInstance().getSpeechBubbleDuration(text);
 		}
 
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
-		result.add(new SpeechBubbleEvent(playerCharacter, text, origination, duration, colour));
+		result.add(new SpeechBubbleEvent(playerCharacter, text, origination, orientation, duration, colour));
 
 		boolean suppressExtraChattiness = false;
 		if (this.isModal() && !suppressExtraChattiness &&
@@ -183,7 +188,7 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 			if (pc2 != null && pc2 != playerCharacter)
 			{
 				PersonalitySpeechBubbleEvent e2 = new PersonalitySpeechBubbleEvent(
-					pc2, null, speechKey, null, this.isModal());
+					pc2, null, speechKey, null, null, this.isModal());
 				suppressExtraChattiness = true;
 				result.add(e2);
 			}
@@ -229,5 +234,16 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 	public void setModal(boolean modal)
 	{
 		this.modal = modal;
+	}
+
+	public SpeechBubble.Orientation getOrientation()
+	{
+		return orientation;
+	}
+
+	public void setOrientation(
+		SpeechBubble.Orientation orientation)
+	{
+		this.orientation = orientation;
 	}
 }

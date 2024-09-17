@@ -38,22 +38,25 @@ import mclachlan.maze.ui.diygui.animation.SpeechBubbleDialog;
 public class SpeechBubbleEvent extends MazeEvent
 {
 	private PlayerCharacter playerCharacter;
-	private Rectangle origination;
+	private final Rectangle origination;
+	private SpeechBubble.Orientation orientation;
 	private String speech;
-	private int duration;
-	private Color colour;
+	private final int duration;
+	private final Color colour;
 
 	/*-------------------------------------------------------------------------*/
 	public SpeechBubbleEvent(
 		PlayerCharacter pc,
 		String speech,
 		Rectangle origination,
+		SpeechBubble.Orientation orientation,
 		int duration,
 		Color colour)
 	{
 		this.playerCharacter = pc;
 		this.speech = speech;
 		this.origination = origination;
+		this.orientation = orientation;
 		this.duration = duration;
 		this.colour = colour;
 	}
@@ -83,21 +86,23 @@ public class SpeechBubbleEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		PlayerParty party = Maze.getInstance().getParty();
-		SpeechBubble.Orientation orientation;
-		if (party != null)
+		if (orientation == null)
 		{
-			orientation = switch (party.getPlayerCharacterIndex(playerCharacter))
-				{
-					case 0,2 -> SpeechBubble.Orientation.RIGHT;
-					case 1,3 -> SpeechBubble.Orientation.LEFT;
-					case 4 -> SpeechBubble.Orientation.ABOVE_RIGHT;
-					case 5 -> SpeechBubble.Orientation.ABOVE_LEFT;
-					default -> null;
-				};
-		}
-		else
-		{
-			orientation = null;
+			if (party != null)
+			{
+				orientation = switch (party.getPlayerCharacterIndex(playerCharacter))
+					{
+						case 0, 2 -> SpeechBubble.Orientation.RIGHT;
+						case 1, 3 -> SpeechBubble.Orientation.LEFT;
+						case 4 -> SpeechBubble.Orientation.ABOVE_RIGHT;
+						case 5 -> SpeechBubble.Orientation.ABOVE_LEFT;
+						default -> null;
+					};
+			}
+			else
+			{
+				orientation = null;
+			}
 		}
 
 

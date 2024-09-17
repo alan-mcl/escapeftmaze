@@ -19,6 +19,7 @@
 
 package mclachlan.diygui;
 
+import java.awt.event.MouseEvent;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import java.awt.*;
@@ -29,6 +30,7 @@ import java.awt.event.KeyEvent;
  */
 public class DIYTextField extends Widget
 {
+	private boolean hover;
 	private String text;
 	private int maxLength=-1;
 
@@ -56,7 +58,7 @@ public class DIYTextField extends Widget
 	public Dimension getPreferredSize()
 	{
 		Dimension textDim = DIYToolkit.getDimension(maxLength);
-		return new Dimension(textDim.width+4, textDim.height+4);
+		return new Dimension(textDim.width+4, 35);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -100,5 +102,26 @@ public class DIYTextField extends Widget
 					this.text += e.getKeyChar();
 				}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public boolean isHover()
+	{
+		return hover;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public void processMouseEntered(MouseEvent e)
+	{
+		this.hover = true;
+	}
+
+	@Override
+	public void processMouseExited(MouseEvent e)
+	{
+		this.hover = false;
 	}
 }

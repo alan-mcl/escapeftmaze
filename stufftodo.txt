@@ -13,7 +13,6 @@ guild panel scroll pane
 scroll pane improvements: click+drag, scroll wheel, rightsized content
 spell desc dialog improvements: cast cost, effects
 
-
 BACKLOG
 ----------
 bug: zone change flickering bug
