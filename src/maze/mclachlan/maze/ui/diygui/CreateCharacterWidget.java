@@ -1194,22 +1194,16 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				gender.getName()+" "+race.getName()+" "+characterClass.getName());
 		}
 
-		switch(state)
+		switch (state)
 		{
-			case CHOOSE_RACE_AND_GENDER:
-				this.cardLayout.show(raceAndGenderPane);
-				break;
-			case CHOOSE_CLASS:
-				this.cardLayout.show(classesPane);
-				break;
-			case CHOOSE_KIT:
-				this.cardLayout.show(kitsPane);
-				break;
-			case CHOOSE_SPELLS:
+			case CHOOSE_RACE_AND_GENDER -> this.cardLayout.show(raceAndGenderPane);
+			case CHOOSE_CLASS -> this.cardLayout.show(classesPane);
+			case CHOOSE_KIT -> this.cardLayout.show(kitsPane);
+			case CHOOSE_SPELLS ->
+			{
 
 				// need a temp pc
 				PlayerCharacter pc = getTempPlayerCharacterObject();
-
 				SpellBook sb = new SpellBook();
 /*
 				for (StartingSpellBook ssb : startingSpellBooks)
@@ -1221,35 +1215,32 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				pc.setSpellBook(sb);
 				this.spellLearner.refresh(pc);
 				this.cardLayout.show(spellsPane);
-				break;
-			case EDIT_PERSONALS:
-
+			}
+			case EDIT_PERSONALS ->
+			{
 				int hp = Leveler.calcStartingHitPoints(characterClass, race);
 				int ap = Leveler.calcStartingActionPoints(characterClass, race);
 				int mp = Leveler.calcStartingMagicPoints(characterClass, race);
 				resourcesSummaryWidget.setResources(hp, ap, mp, false);
-
 				StatModifier summary1 = new StatModifier();
 				summary1.addModifiers(raceModifiersWidget1.getStatModifier());
 				summary1.addModifiers(classModifiersWidget1.getStatModifier());
 				summary1.addModifiers(kitModifiersWidget1.getStatModifier());
 				modifiersSummaryWidget1.setStatModifier(summary1, false);
-
 				StatModifier summary2 = new StatModifier();
 				summary2.addModifiers(raceModifiersWidget2.getStatModifier());
 				summary2.addModifiers(classModifiersWidget2.getStatModifier());
 				summary2.addModifiers(kitModifiersWidget2.getStatModifier());
 				modifiersSummaryWidget2.setStatModifier(summary2, false);
-
 				StatModifier summary3 = new StatModifier();
 				summary3.addModifiers(raceModifiersWidget3.getStatModifier());
 				summary3.addModifiers(classModifiersWidget3.getStatModifier());
 				summary3.addModifiers(kitModifiersWidget3.getStatModifier());
 				modifiersSummaryWidget3.setStatModifier(summary3, false);
-				
 				this.cardLayout.show(personalsPane);
-				break;
-			case FINISHED:
+			}
+			case FINISHED ->
+			{
 
 				// finally, create the character!
 
@@ -1268,7 +1259,6 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 				// apply the player selected kit
 				playerCharacter.applyStartingKit(this.startingKit);
-
 				playerCharacter.setPersonality(this.personality);
 
 				// add to the guild
@@ -1280,11 +1270,9 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				{
 					Maze.getInstance().addPlayerCharacterToGuild(playerCharacter, npc);
 				}
-
 				finished();
-
-				break;
-			default: throw new MazeException("Illegal state: "+state);
+			}
+			default -> throw new MazeException("Illegal state: " + state);
 		}
 
 		this.next.setEnabled(this.canProceed());
@@ -1330,7 +1318,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean mustChooseSpells()
+	private boolean characterMustChooseSpells()
 	{
 		if (characterClass == null)
 		{
@@ -1377,7 +1365,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 				this.state++;
 			}
 
-			if (state == CHOOSE_SPELLS && !mustChooseSpells())
+			if (state == CHOOSE_SPELLS && !characterMustChooseSpells())
 			{
 				this.state++;
 			}
@@ -1389,7 +1377,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		{
 			this.state--;
 
-			if (state == CHOOSE_SPELLS && !mustChooseSpells())
+			if (state == CHOOSE_SPELLS && !characterMustChooseSpells())
 			{
 				this.state--;
 			}
@@ -1712,20 +1700,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		kitDesc.setText(startingKit.getDescription()==null?"(null)":startingKit.getDescription());
 
-		StatModifier mod;
-		switch (characterClass.getFocus())
-		{
-			case COMBAT:
-				mod = this.startingKit.getCombatModifiers();
-				break;
-			case STEALTH:
-				mod = this.startingKit.getStealthModifiers();
-				break;
-			case MAGIC:
-				mod = this.startingKit.getMagicModifiers();
-				break;
-			default: throw new MazeException("Invalid focus "+characterClass.getFocus());
-		}
+		StatModifier mod = switch (characterClass.getFocus())
+			{
+				case COMBAT -> this.startingKit.getCombatModifiers();
+				case STEALTH -> this.startingKit.getStealthModifiers();
+				case MAGIC -> this.startingKit.getMagicModifiers();
+				default ->
+					throw new MazeException("Invalid focus " + characterClass.getFocus());
+			};
 
 		this.kitModifiersWidget1.setStatModifier(mod, false);
 		this.kitModifiersWidget2.setStatModifier(mod, false);
@@ -1861,7 +1843,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private static class CharacterClassWrapper implements Comparable<CharacterClassWrapper>,
 		DIYListBox.ListItemWithIcon
 	{
-		private CharacterClass characterClass;
+		private final CharacterClass characterClass;
 
 		private CharacterClassWrapper(CharacterClass cc)
 		{

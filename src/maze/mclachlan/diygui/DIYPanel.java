@@ -36,6 +36,7 @@ public class DIYPanel extends ContainerWidget
 	{
 		TRANSPARENT,
 		FIXED_PANEL,
+		FRAME,
 		IMAGE_BACK,
 		DIALOG
 	}

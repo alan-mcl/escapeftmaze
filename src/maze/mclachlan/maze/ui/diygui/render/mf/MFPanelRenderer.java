@@ -46,50 +46,56 @@ public class MFPanelRenderer extends Renderer
 		switch (panel.getStyle())
 		{
 			case DIALOG ->
-			{
 				drawWithTextures(g, x, y, width, height, comp,
-					Database.getInstance().getImage("ui/mf/dialog/border_top"),
-					Database.getInstance().getImage("ui/mf/dialog/border_bottom"),
-					Database.getInstance().getImage("ui/mf/dialog/border_left"),
-					Database.getInstance().getImage("ui/mf/dialog/border_right"),
-					Database.getInstance().getImage("ui/mf/dialog/corner_top_left"),
-					Database.getInstance().getImage("ui/mf/dialog/corner_top_right"),
-					Database.getInstance().getImage("ui/mf/dialog/corner_bottom_left"),
-					Database.getInstance().getImage("ui/mf/dialog/corner_bottom_right"),
-					Database.getInstance().getImage("ui/mf/dialog/center"),
-					Database.getInstance().getImage("ui/mf/dialog/title_bar"));
-			}
+				Database.getInstance().getImage("ui/mf/dialog/border_top"),
+				Database.getInstance().getImage("ui/mf/dialog/border_bottom"),
+				Database.getInstance().getImage("ui/mf/dialog/border_left"),
+				Database.getInstance().getImage("ui/mf/dialog/border_right"),
+				Database.getInstance().getImage("ui/mf/dialog/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/dialog/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/dialog/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/dialog/corner_bottom_right"),
+				Database.getInstance().getImage("ui/mf/dialog/center"),
+				Database.getInstance().getImage("ui/mf/dialog/title_bar"));
 			case FIXED_PANEL ->
-			{
 				drawWithTextures(g, x, y, width, height, comp,
-					Database.getInstance().getImage("ui/mf/panel/border_top"),
-					Database.getInstance().getImage("ui/mf/panel/border_bottom"),
-					Database.getInstance().getImage("ui/mf/panel/border_left"),
-					Database.getInstance().getImage("ui/mf/panel/border_right"),
-					Database.getInstance().getImage("ui/mf/panel/corner_top_left"),
-					Database.getInstance().getImage("ui/mf/panel/corner_top_right"),
-					Database.getInstance().getImage("ui/mf/panel/corner_bottom_left"),
-					Database.getInstance().getImage("ui/mf/panel/corner_bottom_right"),
-					Database.getInstance().getImage("ui/mf/panel/center"),
-					null);
-			}
+				Database.getInstance().getImage("ui/mf/panel/border_top"),
+				Database.getInstance().getImage("ui/mf/panel/border_bottom"),
+				Database.getInstance().getImage("ui/mf/panel/border_left"),
+				Database.getInstance().getImage("ui/mf/panel/border_right"),
+				Database.getInstance().getImage("ui/mf/panel/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/panel/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/panel/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/panel/corner_bottom_right"),
+				Database.getInstance().getImage("ui/mf/panel/center"),
+				null);
+			case FRAME ->
+				drawWithTextures(g, x, y, width, height, comp,
+				Database.getInstance().getImage("ui/mf/frame/border_top"),
+				Database.getInstance().getImage("ui/mf/frame/border_bottom"),
+				Database.getInstance().getImage("ui/mf/frame/border_left"),
+				Database.getInstance().getImage("ui/mf/frame/border_right"),
+				Database.getInstance().getImage("ui/mf/frame/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/frame/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/frame/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/frame/corner_bottom_right"),
+				Database.getInstance().getImage("ui/mf/frame/center"),
+				null);
+
 			case IMAGE_BACK ->
-			{
 				g.drawImage(image, x, y, width, height, DIYToolkit.getInstance().getComponent());
-			}
 			case TRANSPARENT ->
 			{
 			}
 			default ->
-			{
-				throw new MazeException("invalid: "+panel.getStyle());
-			}
+				throw new MazeException("invalid: " + panel.getStyle());
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 
-	private void drawWithTextures(Graphics2D g, int x, int y, int width, int height,
+	private void drawWithTextures(Graphics2D g, int x, int y, int width,
+		int height,
 		Component comp, BufferedImage borderTop, BufferedImage borderBottom,
 		BufferedImage borderLeft, BufferedImage borderRight,
 		BufferedImage cornerTopLeft, BufferedImage cornerTopRight,

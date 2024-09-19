@@ -49,7 +49,7 @@ public class MFRendererFactory extends RendererFactory
 	/*-------------------------------------------------------------------------*/
 	public MFRendererFactory()
 	{
-		// MF renderers
+		// standard MF renderers
 		renderers.put(DIYToolkit.PANEL, new MFPanelRenderer());
 		renderers.put(DIYToolkit.BUTTON, new MFButtonRenderer());
 		renderers.put(DIYToolkit.SCROLL_PANE, new MFScrollPaneRenderer());
@@ -59,6 +59,10 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.LIST_BOX_ITEM, new MFListBoxRenderer());
 		renderers.put(DIYToolkit.LABEL, new MFLabelRenderer());
 		renderers.put(DIYToolkit.TEXT_FIELD, new MFTextFieldRenderer());
+
+		// custom MF renderers
+		renderers.put(MUGSHOT_WIDGET, new MFMugshotWidgetRenderer());
+		renderers.put(PLAYER_CHARACTER_WIDGET, new MFPlayerCharacterWidgetRenderer());
 
 		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
@@ -73,8 +77,6 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(FORMATION_WIDGET, new FormationWidgetRenderer());
 		renderers.put(FOE_GROUP_WIDGET, new FoeGroupWidgetRenderer());
 		renderers.put(TRADING_WIDGET, new TradingWidgetRenderer());
-		renderers.put(PLAYER_CHARACTER_WIDGET, new PlayerCharacterWidgetRenderer());
-		renderers.put(MUGSHOT_WIDGET, new MugshotWidgetRenderer());
 		renderers.put(FILLED_BAR_WIDGET, new FilledBarWidgetRenderer());
 	}
 

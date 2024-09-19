@@ -164,7 +164,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		MAZE_WIDTH = SCREEN_WIDTH / 2;
 		MAZE_HEIGHT = SCREEN_HEIGHT * 7 / 12;
 
-		SCREEN_EDGE_INSET = SCREEN_WIDTH / 40;
+//		SCREEN_EDGE_INSET = SCREEN_WIDTH / 40;
+		SCREEN_EDGE_INSET = 10;
 
 		PC_LEFT_X = SCREEN_EDGE_INSET;
 		PC_WIDTH = (SCREEN_WIDTH - MAZE_WIDTH - SCREEN_EDGE_INSET * 2) / 2;
@@ -943,7 +944,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		// char picker
 		partyDisplay = new PartyDisplayWidget(
-			new Rectangle(0, 0, DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT), null);
+			new Rectangle(
+				DiyGuiUserInterface.SCREEN_EDGE_INSET,
+				DiyGuiUserInterface.SCREEN_EDGE_INSET,
+				DiyGuiUserInterface.SCREEN_WIDTH/6,
+				DiyGuiUserInterface.SCREEN_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET*2)
+			, null);
 
 		// button toolbar
 		buttonToolbar = new ButtonToolbar(
@@ -978,9 +984,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		BufferedImage back = Database.getInstance().getImage("screen/stats_back");
 		screen.setBackgroundImage(back);
 
-		screen.add(buttonToolbar);
-		screen.add(partyDisplay);
 		screen.add(statsDisplay);
+		screen.add(partyDisplay);
+		screen.add(buttonToolbar);
 
 		return screen;
 	}
@@ -1005,9 +1011,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				DiyGuiUserInterface.SCREEN_HEIGHT));
 
 		screen.add(topLabel);
-		screen.add(buttonToolbar);
-		screen.add(partyDisplay);
 		screen.add(magicDisplay);
+		screen.add(partyDisplay);
+		screen.add(buttonToolbar);
 
 		BufferedImage back = Database.getInstance().getImage("screen/magic_back");
 		screen.setBackgroundImage(back);
@@ -1080,9 +1086,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		inventoryDisplay = new InventoryDisplayWidget(
 			new Rectangle(
-				DiyGuiUserInterface.PC_WIDTH,
+				partyDisplay.x +partyDisplay.width,
 				0,
-				DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH,
+				DiyGuiUserInterface.SCREEN_WIDTH - partyDisplay.width,
 				DiyGuiUserInterface.SCREEN_HEIGHT));
 
 		screen.add(inventoryDisplay);

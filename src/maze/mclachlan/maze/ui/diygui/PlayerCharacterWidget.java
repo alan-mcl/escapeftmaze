@@ -64,7 +64,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 
 		levelUp = new DIYButton(StringUtil.getUiLabel("pcw.levelup"));
 
-		MutableTree<ActorActionOption> options = new HashMapMutableTree<ActorActionOption>();
+		MutableTree<ActorActionOption> options = new HashMapMutableTree<>();
 		action = new DIYComboBox<>(options, new Rectangle(0, 0, 1, 1));
 		action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", ""));
 		if (index % 2 == 0)
@@ -78,7 +78,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 			action.setPopupExpansionDirection(DIYComboBox.PopupExpansionDirection.LEFT);
 		}
 
-		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<PlayerCharacter.Stance>();
+		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<>();
 		stance = new DIYComboBox<>(stances, new Rectangle(0, 0, 1, 1));
 
 		levelUp.addActionListener(this);

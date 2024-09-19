@@ -37,7 +37,7 @@ public class PartyDisplayWidget extends ContainerWidget
 {
 	private PlayerCharacter selectedCharacter;
 	private ActorGroup party;
-	private MugshotWidget[] portraits = new MugshotWidget[6];
+	private final MugshotWidget[] portraits = new MugshotWidget[6];
 
 	/*-------------------------------------------------------------------------*/
 	public PartyDisplayWidget(Rectangle bounds, ActorGroup party)
