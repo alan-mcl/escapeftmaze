@@ -189,7 +189,7 @@ public abstract class ContainerWidget extends Widget
 				{
 					return ((ContainerWidget)w).getChild(x, y);
 				}
-				else
+				else if (w.isVisible())
 				{
 					return w;
 				}

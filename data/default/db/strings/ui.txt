@@ -181,7 +181,7 @@ poatw.actor.encounter = Encounter: %s (%s)
 poatw.exploring = Exploring: %s
 poatw.chest.encounter = Encounter chest
 poatw.portal.encounter = Encounter door
-poatw.view.log = View Log
+poatw.view.log = (V)iew Log
 
 # player character widget
 pcw.levelup = Level Up!
@@ -246,14 +246,21 @@ laal.banner.modifiers = Banner Modifiers:
 laal.spellpicks = Spellpicks:
 
 # main menu
-mm.start.game = (S)tart Game
-mm.create.character = (C)reate Character
-mm.add.character = (A)dd Character To Party
-mm.remove.character = (R)emove Character
-mm.load.game = Loa(d) Game
-mm.settings = Settin(g)s
-mm.quit = (Q)UIT
 mm.quick.start = Q(u)ick Start
+mm.quick.start.tooltip = Generate a random party and get started without delay!
+mm.start.game = (S)tart Game
+mm.start.game.tooltip = Start a new game with the current party.
+mm.create.character = (C)reate Character
+mm.create.character.tooltip = Create a new character.
+mm.add.character = (A)dd Character To Party
+mm.add.character.tooltip = Add a previously created character to the party.
+mm.remove.character = (R)emove Character
+mm.remove.character.tooltip = Remove a character from the party.
+mm.load.game = Loa(d) Game
+mm.load.game.tooltip = Load a saved game.
+mm.settings = Settin(g)s
+mm.settings.tooltip = Change game settings.
+mm.quit = (Q)UIT
 mm.rolling.characters = Rolling characters...
 
 # resting dialog

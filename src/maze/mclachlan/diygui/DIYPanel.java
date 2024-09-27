@@ -35,8 +35,9 @@ public class DIYPanel extends ContainerWidget
 	public enum Style
 	{
 		TRANSPARENT,
-		FIXED_PANEL,
-		FRAME,
+		PANEL_HEAVY,
+		PANEL_MED,
+		PANEL_LIGHT,
 		IMAGE_BACK,
 		DIALOG
 	}

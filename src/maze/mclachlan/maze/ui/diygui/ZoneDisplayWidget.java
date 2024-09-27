@@ -19,63 +19,91 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.*;
-import java.util.List;
+import java.awt.Dimension;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.util.*;
+import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYPanel;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemCacheManager;
-import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *
  */
-public class ZoneDisplayWidget extends DIYPane implements ActionListener
+public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 {
-	DIYLabel zoneName, terrainType;
-	ManaDisplayWidget mana;
-	DIYLabel stealth;
-	DroppedItemWidget cacheItem;
-
-	private static final Color DEFAULT_COLOUR = Constants.Colour.COMBAT_RED;
-	private static final String DEFAULT_MESSAGE = "...";
+	private final DIYLabel zoneName, terrainType;
+	private final ManaDisplayWidget mana;
+	//	private final DIYLabel stealth;
+	private final DroppedItemWidget cacheItem;
 
 	/*-------------------------------------------------------------------------*/
 	public ZoneDisplayWidget(Rectangle bounds)
 	{
 		super(bounds);
+		this.setStyle(Style.PANEL_HEAVY);
+		this.setLayoutManager(null);
 
-		this.setLayoutManager(new DIYGridLayout(1,2,0,0));
-
-		DIYPane titlePane = new DIYPane(new DIYGridLayout(3,1,0,0));
-		DIYPane midPane = new DIYPane(new DIYGridLayout(3,1,0,0));
-		mana = new ManaDisplayWidget();
+		int panelBorder = 33;
+		int internalInset = 5;
+		int rowHeight = (bounds.height - panelBorder * 2 - internalInset * 2);
+		int labelWidth = bounds.width / 3;
 
 		zoneName = new DIYLabel("", DIYToolkit.Align.LEFT);
-		terrainType = new DIYLabel("", DIYToolkit.Align.RIGHT);
+		zoneName.setBounds(
+			bounds.x + panelBorder + internalInset,
+			bounds.y + panelBorder + internalInset,
+			labelWidth,
+			rowHeight);
 
-		stealth = new DIYLabel("", DIYToolkit.Align.LEFT);
+		terrainType = new DIYLabel("", DIYToolkit.Align.RIGHT);
+		terrainType.setBounds(
+			bounds.x + bounds.width - panelBorder - internalInset - labelWidth,
+			bounds.y + panelBorder + internalInset,
+			labelWidth,
+			rowHeight);
+
+//		stealth = new DIYLabel("", DIYToolkit.Align.LEFT);
+//		stealth.setBounds(
+//			bounds.x +panelBorder +internalInset,
+//			bounds.y +panelBorder +rowHeight +internalInset*2,
+//			labelWidth,
+//			rowHeight);
 
 		cacheItem = new DroppedItemWidget();
 		cacheItem.addActionListener(this);
-		
+
 		Compass compass = new Compass();
+		compass.setBounds(
+			bounds.x + bounds.width / 2 - labelWidth / 2,
+			bounds.y + bounds.height / 2 - rowHeight / 2,
+			labelWidth,
+			rowHeight);
 
-		titlePane.add(zoneName);
-		titlePane.add(compass);
-		titlePane.add(terrainType);
+		mana = new ManaDisplayWidget();
+		Dimension md = mana.getPreferredSize();
+		mana.setBounds(
+			bounds.x + bounds.width / 2 - md.width / 2,
+			bounds.y + bounds.height - md.height,
+			md.width,
+			md.height);
 
-		midPane.add(stealth);
-		midPane.add(mana);
-		midPane.add(cacheItem);
+		this.add(zoneName);
+		this.add(compass);
+		this.add(terrainType);
 
-		this.add(titlePane);
-		this.add(midPane);
+//		this.add(stealth);
+		this.add(mana);
+		this.add(cacheItem);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -87,10 +115,10 @@ public class ZoneDisplayWidget extends DIYPane implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void setTile(Zone zone, Tile t, Point tile)
 	{
-		this.terrainType.setText(t.getTerrainType()+"("+t.getTerrainSubType()+")");
+		this.terrainType.setText(t.getTerrainType() + " (" + t.getTerrainSubType() + ")");
 
-		int partyStealth = GameSys.getInstance().getStealthValue(t, Maze.getInstance().getParty());
-		stealth.setText("Stealth: "+partyStealth);
+//		int partyStealth = GameSys.getInstance().getStealthValue(t, Maze.getInstance().getParty());
+//		stealth.setText("Stealth: "+partyStealth);
 
 		mana.refresh(
 			t.getAmountRedMagic(),

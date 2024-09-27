@@ -45,41 +45,62 @@ public class MFPanelRenderer extends Renderer
 
 		switch (panel.getStyle())
 		{
-			case DIALOG ->
-				drawWithTextures(g, x, y, width, height, comp,
+			case DIALOG -> drawWithTextures(g, x, y, width, height, comp,
 				Database.getInstance().getImage("ui/mf/dialog/border_top"),
 				Database.getInstance().getImage("ui/mf/dialog/border_bottom"),
 				Database.getInstance().getImage("ui/mf/dialog/border_left"),
 				Database.getInstance().getImage("ui/mf/dialog/border_right"),
+				null, null,
 				Database.getInstance().getImage("ui/mf/dialog/corner_top_left"),
 				Database.getInstance().getImage("ui/mf/dialog/corner_top_right"),
 				Database.getInstance().getImage("ui/mf/dialog/corner_bottom_left"),
 				Database.getInstance().getImage("ui/mf/dialog/corner_bottom_right"),
+				null, null, null, null,
 				Database.getInstance().getImage("ui/mf/dialog/center"),
 				Database.getInstance().getImage("ui/mf/dialog/title_bar"));
-			case FIXED_PANEL ->
-				drawWithTextures(g, x, y, width, height, comp,
-				Database.getInstance().getImage("ui/mf/panel/border_top"),
-				Database.getInstance().getImage("ui/mf/panel/border_bottom"),
-				Database.getInstance().getImage("ui/mf/panel/border_left"),
-				Database.getInstance().getImage("ui/mf/panel/border_right"),
-				Database.getInstance().getImage("ui/mf/panel/corner_top_left"),
-				Database.getInstance().getImage("ui/mf/panel/corner_top_right"),
-				Database.getInstance().getImage("ui/mf/panel/corner_bottom_left"),
-				Database.getInstance().getImage("ui/mf/panel/corner_bottom_right"),
-				Database.getInstance().getImage("ui/mf/panel/center"),
+			case PANEL_HEAVY -> drawWithTextures(g, x, y, width, height, comp,
+				Database.getInstance().getImage("ui/mf/panel_heavy/border_top"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/border_bottom"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/border_left"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/border_right"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/border_left_thin"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/border_right_thin"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_bottom_right"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_top_left_thin"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_top_right_thin"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_bottom_left_thin"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/corner_bottom_right_thin"),
+				Database.getInstance().getImage("ui/mf/panel_heavy/center"),
 				null);
-			case FRAME ->
-				drawWithTextures(g, x, y, width, height, comp,
-				Database.getInstance().getImage("ui/mf/frame/border_top"),
-				Database.getInstance().getImage("ui/mf/frame/border_bottom"),
-				Database.getInstance().getImage("ui/mf/frame/border_left"),
-				Database.getInstance().getImage("ui/mf/frame/border_right"),
-				Database.getInstance().getImage("ui/mf/frame/corner_top_left"),
-				Database.getInstance().getImage("ui/mf/frame/corner_top_right"),
-				Database.getInstance().getImage("ui/mf/frame/corner_bottom_left"),
-				Database.getInstance().getImage("ui/mf/frame/corner_bottom_right"),
-				Database.getInstance().getImage("ui/mf/frame/center"),
+			case PANEL_MED -> drawWithTextures(g, x, y, width, height, comp,
+				Database.getInstance().getImage("ui/mf/panel_med/border_top"),
+				Database.getInstance().getImage("ui/mf/panel_med/border_bottom"),
+				Database.getInstance().getImage("ui/mf/panel_med/border_left"),
+				Database.getInstance().getImage("ui/mf/panel_med/border_right"),
+				null, null,
+				Database.getInstance().getImage("ui/mf/panel_med/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/panel_med/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/panel_med/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/panel_med/corner_bottom_right"),
+				null, null, null, null,
+				Database.getInstance().getImage("ui/mf/panel_med/center"),
+
+				null);
+			case PANEL_LIGHT -> drawWithTextures(g, x, y, width, height, comp,
+				Database.getInstance().getImage("ui/mf/panel_light/border_top"),
+				Database.getInstance().getImage("ui/mf/panel_light/border_bottom"),
+				Database.getInstance().getImage("ui/mf/panel_light/border_left"),
+				Database.getInstance().getImage("ui/mf/panel_light/border_right"),
+				null, null,
+				Database.getInstance().getImage("ui/mf/panel_light/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_bottom_right"),
+				null, null, null, null,
+				Database.getInstance().getImage("ui/mf/panel_light/center"),
 				null);
 
 			case IMAGE_BACK ->
@@ -87,8 +108,7 @@ public class MFPanelRenderer extends Renderer
 			case TRANSPARENT ->
 			{
 			}
-			default ->
-				throw new MazeException("invalid: " + panel.getStyle());
+			default -> throw new MazeException("invalid: " + panel.getStyle());
 		}
 	}
 
@@ -96,46 +116,84 @@ public class MFPanelRenderer extends Renderer
 
 	private void drawWithTextures(Graphics2D g, int x, int y, int width,
 		int height,
-		Component comp, BufferedImage borderTop, BufferedImage borderBottom,
-		BufferedImage borderLeft, BufferedImage borderRight,
-		BufferedImage cornerTopLeft, BufferedImage cornerTopRight,
-		BufferedImage cornerBottomLeft, BufferedImage cornerBottomRight,
-		BufferedImage center, BufferedImage titleBar)
+		Component comp,
+		BufferedImage borderTop,
+		BufferedImage borderBottom,
+		BufferedImage borderLeft,
+		BufferedImage borderRight,
+		BufferedImage borderLeftThin,
+		BufferedImage borderRightThin,
+		BufferedImage cornerTopLeft,
+		BufferedImage cornerTopRight,
+		BufferedImage cornerBottomLeft,
+		BufferedImage cornerBottomRight,
+		BufferedImage cornerTopLeftThin,
+		BufferedImage cornerTopRightThin,
+		BufferedImage cornerBottomLeftThin,
+		BufferedImage cornerBottomRightThin,
+		BufferedImage center,
+		BufferedImage titleBar)
 	{
+		BufferedImage imgTopLeft;
+		BufferedImage imgTopRight;
+		BufferedImage imgBottomLeft;
+		BufferedImage imgBottomRight;
+		BufferedImage imgLeft;
+		BufferedImage imgRight;
+
+		if (height <= 100 && cornerTopLeftThin != null)
+		{
+			imgTopLeft = cornerTopLeftThin;
+			imgTopRight = cornerTopRightThin;
+			imgBottomLeft = cornerBottomLeftThin;
+			imgBottomRight = cornerBottomRightThin;
+			imgLeft = borderLeftThin;
+			imgRight = borderRightThin;
+		}
+		else
+		{
+			imgTopLeft = cornerTopLeft;
+			imgTopRight = cornerTopRight;
+			imgBottomLeft = cornerBottomLeft;
+			imgBottomRight = cornerBottomRight;
+			imgLeft = borderLeft;
+			imgRight = borderRight;
+		}
+
 		// corners
-		g.drawImage(cornerTopLeft, x, y, comp);
-		g.drawImage(cornerTopRight, x + width - cornerTopRight.getWidth(), y, comp);
-		g.drawImage(cornerBottomLeft, x, y + height - cornerBottomLeft.getHeight(), comp);
-		g.drawImage(cornerBottomRight, x + width - cornerBottomRight.getWidth(), y + height - cornerBottomRight.getHeight(), comp);
+		g.drawImage(imgTopLeft, x, y, comp);
+		g.drawImage(imgTopRight, x + width - imgTopRight.getWidth(), y, comp);
+		g.drawImage(imgBottomLeft, x, y + height - imgBottomLeft.getHeight(), comp);
+		g.drawImage(imgBottomRight, x + width - imgBottomRight.getWidth(), y + height - imgBottomRight.getHeight(), comp);
 
 		// horiz borders
 		DIYToolkit.drawImageTiled(g, borderTop,
-			x + cornerTopLeft.getWidth(), y,
-			width - cornerTopLeft.getWidth() - cornerTopRight.getWidth(), borderTop.getHeight());
+			x + imgTopLeft.getWidth(), y,
+			width - imgTopLeft.getWidth() - imgTopRight.getWidth(), borderTop.getHeight());
 		DIYToolkit.drawImageTiled(g, borderBottom,
-			x + cornerBottomLeft.getWidth(), y + height - borderBottom.getHeight(),
-			width - cornerBottomLeft.getWidth() - cornerBottomRight.getWidth(), borderBottom.getHeight());
+			x + imgBottomLeft.getWidth(), y + height - borderBottom.getHeight(),
+			width - imgBottomLeft.getWidth() - imgBottomRight.getWidth(), borderBottom.getHeight());
 
 		// vert borders
-		DIYToolkit.drawImageTiled(g, borderLeft,
-			x, y + cornerTopLeft.getHeight(),
-			borderLeft.getWidth(), height - cornerTopLeft.getHeight() - cornerBottomLeft.getHeight());
-		DIYToolkit.drawImageTiled(g, borderRight,
-			x + width - borderRight.getWidth(), y + cornerTopRight.getHeight(),
-			borderRight.getWidth(), height - cornerTopRight.getHeight() - cornerBottomRight.getHeight());
+		DIYToolkit.drawImageTiled(g, imgLeft,
+			x, y + imgTopLeft.getHeight(),
+			imgLeft.getWidth(), height - imgTopLeft.getHeight() - imgBottomLeft.getHeight());
+		DIYToolkit.drawImageTiled(g, imgRight,
+			x + width - imgRight.getWidth(), y + imgTopRight.getHeight(),
+			imgRight.getWidth(), height - imgTopRight.getHeight() - imgBottomRight.getHeight());
 
 		// center
 		DIYToolkit.drawImageTiled(g, center,
-			x + borderLeft.getWidth(), y + borderTop.getHeight(),
-			width - borderLeft.getWidth() - borderRight.getWidth(),
+			x + imgLeft.getWidth(), y + borderTop.getHeight(),
+			width - imgLeft.getWidth() - imgRight.getWidth(),
 			height - borderTop.getHeight() - borderBottom.getHeight());
 
 		// title bar
 		if (titleBar != null)
 		{
 			DIYToolkit.drawImageTiled(g, titleBar,
-				x + borderLeft.getWidth(), y + borderTop.getHeight(),
-				width - borderLeft.getWidth() - borderRight.getWidth(),
+				x + imgLeft.getWidth(), y + borderTop.getHeight(),
+				width - imgLeft.getWidth() - imgRight.getWidth(),
 				titleBar.getHeight());
 		}
 	}

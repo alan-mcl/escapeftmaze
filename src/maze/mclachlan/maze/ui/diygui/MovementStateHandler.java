@@ -36,15 +36,15 @@ import mclachlan.maze.ui.UserInterface;
 /**
  *
  */
-public class MovementStateHandler implements ActionListener, ConfirmCallback, FormationCallback
+public class MovementStateHandler implements ActionListener, FormationCallback
 {
-	private Maze maze;
+	private final Maze maze;
+	private final UserInterface ui;
+
 	private final int buttonRows;
 	private final int inset;
 
-	private DIYButton mainMenu, locks, rest, formation, hide, saveload, settings, map, journal;
-
-	private UserInterface ui;
+	private DIYButton rest, formation;
 
 	/*-------------------------------------------------------------------------*/
 	public MovementStateHandler(Maze maze, int buttonRows, int inset)
@@ -66,15 +66,15 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 		formation = new DIYButton(StringUtil.getUiLabel("poatw.formation"));
 		formation.addActionListener(this);
 
-		hide = new DIYButton(StringUtil.getUiLabel("poatw.hide"));
-		hide.addActionListener(this);
+//		hide = new DIYButton(StringUtil.getUiLabel("poatw.hide"));
+//		hide.addActionListener(this);
 
-		locks = new DIYButton(StringUtil.getUiLabel("poatw.open"));
-		locks.addActionListener(this);
-
+//		locks = new DIYButton(StringUtil.getUiLabel("poatw.open"));
+//		locks.addActionListener(this);
+//
 		result.add(rest);
-		result.add(locks);
-		result.add(hide);
+//		result.add(locks);
+//		result.add(hide);
 		result.add(formation);
 
 		return result;
@@ -85,26 +85,6 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 	{
 		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
 
-		map = new DIYButton(StringUtil.getUiLabel("poatw.map"));
-		map.addActionListener(this);
-
-		journal = new DIYButton(StringUtil.getUiLabel("poatw.journal"));
-		journal.addActionListener(this);
-
-		saveload = new DIYButton(StringUtil.getUiLabel("poatw.save.load"));
-		saveload.addActionListener(this);
-
-		mainMenu = new DIYButton(StringUtil.getUiLabel("poatw.quit"));
-		mainMenu.addActionListener(this);
-
-		settings = new DIYButton(StringUtil.getUiLabel("poatw.settings"));
-		settings.addActionListener(this);
-
-		result.add(map);
-		result.add(journal);
-		result.add(saveload);
-		result.add(settings);
-		result.add(mainMenu);
 
 		return result;
 	}
@@ -121,46 +101,26 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 			formation();
 			return true;
 		}
-		else if (obj == hide)
-		{
-			hide();
-			return true;
-		}
-		else if (obj == saveload)
-		{
-			saveOrLoad();
-			return true;
-		}
-		else if (obj == mainMenu)
-		{
-			mainMenu();
-			return true;
-		}
-		else if (obj == locks)
-		{
-			open();
-			return true;
-		}
+//		else if (obj == hide)
+//		{
+//			hide();
+//			return true;
+//		}
+//		else if (obj == locks)
+//		{
+//			open();
+//			return true;
+//		}
 		else if (obj == rest)
 		{
 			rest();
 			return true;
 		}
-		else if (obj == settings)
-		{
-			showSettingsDialog();
-			return true;
-		}
-		else if (obj == map)
-		{
-			showMap();
-			return true;
-		}
-		else if (obj == journal)
-		{
-			showJournal();
-			return true;
-		}
+//		else if (obj == map)
+//		{
+//			showMap();
+//			return true;
+//		}
 
 		return false;
 	}
@@ -172,22 +132,6 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 		{
 			FormationDialog formationDialog = new FormationDialog(this);
 			maze.getUi().showDialog(formationDialog);
-		}
-	}
-
-	public void showJournal()
-	{
-		if (journal.isVisible())
-		{
-			maze.getUi().showDialog(new JournalDialog());
-		}
-	}
-
-	public void showSettingsDialog()
-	{
-		if (settings.isVisible())
-		{
-			maze.getUi().showDialog(new SettingsDialog());
 		}
 	}
 
@@ -213,35 +157,10 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 			DiyGuiUserInterface.instance.raycaster.getPlayerFacing());
 	}
 
-	public void mainMenu()
-	{
-		maze.getUi().showDialog(
-			new ConfirmationDialog(
-				StringUtil.getUiLabel("poatw.confirm.exit"),
-				this));
-	}
-
-	public void saveOrLoad()
-	{
-		maze.setState(Maze.State.SAVE_LOAD);
-	}
 
 	public void hide()
 	{
 		maze.partyHides();
-	}
-
-	public void showMap()
-	{
-		maze.getUi().showDialog(new MapDisplayDialog());
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
-	public void confirm()
-	{
-		// confirming the exit to main
-		maze.backToMain();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -256,22 +175,40 @@ public class MovementStateHandler implements ActionListener, ConfirmCallback, Fo
 	{
 		switch (keyCode)
 		{
-			case KeyEvent.VK_1: ui.characterSelected(0); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-			case KeyEvent.VK_2: ui.characterSelected(1); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-			case KeyEvent.VK_3: ui.characterSelected(2); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-			case KeyEvent.VK_4: ui.characterSelected(3); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-			case KeyEvent.VK_5: ui.characterSelected(4); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-			case KeyEvent.VK_6: ui.characterSelected(5); Maze.getInstance().setState(Maze.State.INVENTORY); break;
-			case KeyEvent.VK_Q: mainMenu(); break;
-			case KeyEvent.VK_O: open(); break;
-			case KeyEvent.VK_R: rest(); break;
-			case KeyEvent.VK_F: formation(); break;
-			case KeyEvent.VK_H: hide(); break;
-			case KeyEvent.VK_D: saveOrLoad(); break;
-			case KeyEvent.VK_G: showSettingsDialog(); break;
-			case KeyEvent.VK_J: showJournal(); break;
-			case KeyEvent.VK_M:
-			case KeyEvent.VK_TAB: showMap(); break;
+			case KeyEvent.VK_1 ->
+			{
+				ui.characterSelected(0);
+				Maze.getInstance().setState(Maze.State.INVENTORY);
+			}
+			case KeyEvent.VK_2 ->
+			{
+				ui.characterSelected(1);
+				Maze.getInstance().setState(Maze.State.INVENTORY);
+			}
+			case KeyEvent.VK_3 ->
+			{
+				ui.characterSelected(2);
+				Maze.getInstance().setState(Maze.State.INVENTORY);
+			}
+			case KeyEvent.VK_4 ->
+			{
+				ui.characterSelected(3);
+				Maze.getInstance().setState(Maze.State.INVENTORY);
+			}
+			case KeyEvent.VK_5 ->
+			{
+				ui.characterSelected(4);
+				Maze.getInstance().setState(Maze.State.INVENTORY);
+			}
+			case KeyEvent.VK_6 ->
+			{
+				ui.characterSelected(5);
+				Maze.getInstance().setState(Maze.State.INVENTORY);
+			}
+			case KeyEvent.VK_R -> rest();
+			case KeyEvent.VK_F -> formation();
+//			case KeyEvent.VK_O -> open();
+//			case KeyEvent.VK_H -> hide();
 		}
 
 	}

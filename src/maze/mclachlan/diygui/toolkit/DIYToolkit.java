@@ -25,10 +25,11 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
-import java.util.*;
 import java.util.Queue;
+import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYTooltip;
 import mclachlan.diygui.render.dflt.DefaultRendererFactory;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
@@ -52,6 +53,7 @@ public class DIYToolkit
 	public static final String LIST_BOX_ITEM = "ListBoxItem";
 	public static final String COMBO_BOX = "ComboBox";
 	public static final String COMBO_ITEM = "ComboItem";
+	public static final String TOOLTIP = "Tooltip";
 
 	/*-------------------------------------------------------------------------*/
 	public enum Align
@@ -125,6 +127,12 @@ public class DIYToolkit
 	 */
 	private final Queue<InputEvent> queue;
 
+	/**
+	 * Background thread to run the tool tip timers.
+	 */
+	private final Timer tooltipTimer;
+	private DIYTooltip tooltip;
+
 	/*-------------------------------------------------------------------------*/
 
 	/**
@@ -187,6 +195,18 @@ public class DIYToolkit
 
 		this.queue = queue;
 		this.internalQueue = false;
+
+		this.tooltipTimer = new Timer("DIYToolkit Tooltip Timer", true);
+
+		// add an indefinitely repeating task to keep the Timer alive
+		tooltipTimer.schedule(new TimerTask()
+		{
+			@Override
+			public void run()
+			{
+				// no op
+			}
+		}, 60000, 60000);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -265,31 +285,41 @@ public class DIYToolkit
 	 */
 	public void draw(Graphics2D g)
 	{
+		// draw the content pane
 		this.contentPane.draw(g);
+
+		// draw any overlay pane
 		if (this.overlayPane != null)
 		{
 			this.overlayPane.draw(g);
 		}
 
+		// debug mode
 		if (hoverWidget != null && debug)
 		{
 			g.setColor(Color.WHITE);
 			g.drawRect(hoverWidget.x, hoverWidget.y, hoverWidget.width, hoverWidget.height);
 		}
 
-		// instead of syncing over the whole draw process create a copy
+		// draw any dialogs
+		// instead of syncing over the whole draw process create a copy of the dialog stack
 		java.util.List<ContainerWidget> dd;
-
 		synchronized (dialogMutex)
 		{
 			dd = new ArrayList<>(dialogs);
 		}
-
 		for (ContainerWidget d : dd)
 		{
 			d.draw(g);
 		}
 
+		// draw any tooltip
+		if (tooltip != null)
+		{
+			tooltip.draw(g);
+		}
+
+		// if we're using an internal queue, we drive it with the draw thread
 		if (internalQueue)
 		{
 			// not sure if we should be throttling here?
@@ -523,6 +553,7 @@ public class DIYToolkit
 		if (hoverWidget != null)
 		{
 			hoverWidget.processMouseExited(new MouseEvent(comp, 0, System.nanoTime(), 0, hoverWidget.x, hoverWidget.y, 0, false));
+			cancelTooltip();
 		}
 		Point p = comp.getMousePosition();
 		hoverWidget = getHoverComponent(p);
@@ -795,15 +826,50 @@ public class DIYToolkit
 	/*----------------------------------------------------------------------*/
 	public void mouseMoved(MouseEvent e)
 	{
-		Widget newHoverWidget = getHoverComponent(e.getPoint());
-		if (newHoverWidget != null && newHoverWidget != hoverWidget)
+		Widget currentHoverWidget = getHoverComponent(e.getPoint());
+		if (currentHoverWidget != null)
 		{
-			if (hoverWidget != null && hoverWidget.isEnabled())
+			if (currentHoverWidget != hoverWidget)
 			{
-				hoverWidget.processMouseExited(e);
+				if (hoverWidget != null && hoverWidget.isEnabled())
+				{
+					hoverWidget.processMouseExited(e);
+					cancelTooltip();
+				}
+
+				hoverWidget = currentHoverWidget;
+
+				if (hoverWidget != null && hoverWidget.isEnabled())
+				{
+					hoverWidget.processMouseEntered(e);
+
+					if (hoverWidget.getTooltip() != null)
+					{
+						TimerTask task = new TimerTask()
+						{
+							@Override
+							public void run()
+							{
+								Point p = MouseInfo.getPointerInfo().getLocation();
+								tooltip = new DIYTooltip(hoverWidget.getTooltip(), p.x, p.y);
+							}
+						};
+						hoverWidget.setTooltipTimerTask(task);
+						tooltipTimer.schedule(task, 1000);
+					}
+				}
 			}
-			newHoverWidget.processMouseEntered(e);
-			hoverWidget = newHoverWidget;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void cancelTooltip()
+	{
+		if (hoverWidget.getTooltipTimerTask() != null)
+		{
+			hoverWidget.getTooltipTimerTask().cancel();
+			hoverWidget.setTooltipTimerTask(null);
+			tooltip = null;
 		}
 	}
 

@@ -57,7 +57,7 @@ public class PlayerCharacterWidget extends ContainerWidget implements ActionList
 	private Map<Rectangle, Condition> conditionBounds;
 
 	/*-------------------------------------------------------------------------*/
-	public PlayerCharacterWidget(Rectangle bounds, int index)
+	public PlayerCharacterWidget(int index, Rectangle bounds)
 	{
 		super(bounds);
 		this.index = index;

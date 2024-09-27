@@ -54,15 +54,15 @@ public class MFMugshotWidgetRenderer extends Renderer
 		int barWidth = 12;
 
 		drawBorderWithTextures(g, x+inset, y+inset, width-inset*2, height-inset*2, comp,
-			Database.getInstance().getImage("ui/mf/frame/border_top"),
-			Database.getInstance().getImage("ui/mf/frame/border_bottom"),
-			Database.getInstance().getImage("ui/mf/frame/border_left"),
-			Database.getInstance().getImage("ui/mf/frame/border_right"),
-			Database.getInstance().getImage("ui/mf/frame/corner_top_left"),
-			Database.getInstance().getImage("ui/mf/frame/corner_top_right"),
-			Database.getInstance().getImage("ui/mf/frame/corner_bottom_left"),
-			Database.getInstance().getImage("ui/mf/frame/corner_bottom_right"),
-			Database.getInstance().getImage("ui/mf/frame/center"),
+			Database.getInstance().getImage("ui/mf/panel_light/border_top"),
+			Database.getInstance().getImage("ui/mf/panel_light/border_bottom"),
+			Database.getInstance().getImage("ui/mf/panel_light/border_left"),
+			Database.getInstance().getImage("ui/mf/panel_light/border_right"),
+			Database.getInstance().getImage("ui/mf/panel_light/corner_top_left"),
+			Database.getInstance().getImage("ui/mf/panel_light/corner_top_right"),
+			Database.getInstance().getImage("ui/mf/panel_light/corner_bottom_left"),
+			Database.getInstance().getImage("ui/mf/panel_light/corner_bottom_right"),
+			Database.getInstance().getImage("ui/mf/panel_light/center"),
 			null);
 
 		int portraitWidth = portrait.getWidth(DIYToolkit.getInstance().getComponent());

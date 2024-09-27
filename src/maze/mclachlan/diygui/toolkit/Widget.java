@@ -46,6 +46,9 @@ public abstract class Widget
 	boolean enabled = true;
 	boolean visible = true;
 
+	private String tooltip;
+	private TimerTask tooltipTimerTask;
+
 	/*-------------------------------------------------------------------------*/
 	protected Widget(int x, int y, int width, int height)
 	{
@@ -214,6 +217,28 @@ public abstract class Widget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	public TimerTask getTooltipTimerTask()
+	{
+		return tooltipTimerTask;
+	}
+
+	public void setTooltipTimerTask(TimerTask tooltipTimerTask)
+	{
+		this.tooltipTimerTask = tooltipTimerTask;
+	}
+
+	public String getTooltip()
+	{
+		return tooltip;
+	}
+
+	public void setTooltip(String tooltip)
+	{
+		this.tooltip = tooltip;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void processMousePressed(MouseEvent e)
 	{
 	}
@@ -226,7 +251,7 @@ public abstract class Widget
 	/*-------------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
-		if (!this.enabled)
+		if (!this.enabled || !this.visible)
 		{
 			return;
 		}

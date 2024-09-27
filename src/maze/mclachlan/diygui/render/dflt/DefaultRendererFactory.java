@@ -32,7 +32,7 @@ public class DefaultRendererFactory extends RendererFactory
 	static final Color PANEL_BACKGROUND = Color.LIGHT_GRAY;
 	static final Color LABEL_FOREGROUND = Color.GRAY.brighter();
 	
-	Map<String, Renderer> renderers = new HashMap<String, Renderer>();
+	Map<String, Renderer> renderers = new HashMap<>();
 	
 	/*-------------------------------------------------------------------------*/
 	public DefaultRendererFactory()
@@ -50,6 +50,7 @@ public class DefaultRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.LIST_BOX_ITEM, new DefaultListBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_BOX, new DefaultComboBoxRenderer());
 		renderers.put(DIYToolkit.COMBO_ITEM, new DefaultComboItemRenderer());
+		renderers.put(DIYToolkit.TOOLTIP, new DefaultTooltipRenderer());
 	}
 
 	/*-------------------------------------------------------------------------*/

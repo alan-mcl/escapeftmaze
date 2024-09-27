@@ -33,7 +33,7 @@ import mclachlan.crusader.CrusaderEngine;
  */
 public class Compass extends ContainerWidget
 {
-	private DIYLabel direction;
+	private final DIYLabel direction;
 	
 	/*-------------------------------------------------------------------------*/
 	public Compass()
@@ -65,15 +65,15 @@ public class Compass extends ContainerWidget
 		{
 			switch (facing)
 			{
-				case CrusaderEngine.Facing.NORTH: direction.setText("< N >"); break;
-				case CrusaderEngine.Facing.SOUTH: direction.setText("< S >"); break;
-				case CrusaderEngine.Facing.EAST: direction.setText("< E >"); break;
-				case CrusaderEngine.Facing.WEST: direction.setText("< W >"); break;
-				case CrusaderEngine.Facing.NORTH_EAST: direction.setText("< NE >"); break;
-				case CrusaderEngine.Facing.NORTH_WEST: direction.setText("< NW >"); break;
-				case CrusaderEngine.Facing.SOUTH_EAST: direction.setText("< SE >"); break;
-				case CrusaderEngine.Facing.SOUTH_WEST: direction.setText("< SW >"); break;
-				default: throw new MazeException("Invalid facing :"+facing);
+				case CrusaderEngine.Facing.NORTH -> direction.setText("< N >");
+				case CrusaderEngine.Facing.SOUTH -> direction.setText("< S >");
+				case CrusaderEngine.Facing.EAST -> direction.setText("< E >");
+				case CrusaderEngine.Facing.WEST -> direction.setText("< W >");
+				case CrusaderEngine.Facing.NORTH_EAST -> direction.setText("< NE >");
+				case CrusaderEngine.Facing.NORTH_WEST -> direction.setText("< NW >");
+				case CrusaderEngine.Facing.SOUTH_EAST -> direction.setText("< SE >");
+				case CrusaderEngine.Facing.SOUTH_WEST -> direction.setText("< SW >");
+				default -> throw new MazeException("Invalid facing :" + facing);
 			}
 		}
 		

@@ -33,6 +33,7 @@ public class DIYButton extends Widget
 	private State state = State.DEFAULT;
 	private DIYToolkit.Align align = DIYToolkit.Align.CENTER;
 
+
 	/** optional image used to render this button. This is the regular
 	 * texture, the renderer will expect _disabled, _hover and _depressed textures too. */
 	private String image;
@@ -121,7 +122,7 @@ public class DIYButton extends Widget
 	{
 		return state;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public DIYToolkit.Align getAlignment()
 	{
@@ -151,6 +152,7 @@ public class DIYButton extends Widget
 	/*-------------------------------------------------------------------------*/
 	public void processMouseEntered(MouseEvent e)
 	{
+
 		if (!isEnabled())
 		{
 			return;

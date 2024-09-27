@@ -59,6 +59,7 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.LIST_BOX_ITEM, new MFListBoxRenderer());
 		renderers.put(DIYToolkit.LABEL, new MFLabelRenderer());
 		renderers.put(DIYToolkit.TEXT_FIELD, new MFTextFieldRenderer());
+		renderers.put(DIYToolkit.TOOLTIP, new MFTooltipRenderer());
 
 		// custom MF renderers
 		renderers.put(MUGSHOT_WIDGET, new MFMugshotWidgetRenderer());

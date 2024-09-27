@@ -39,7 +39,7 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextDialog(String title, String text)
 	{
-		super.setStyle(Style.FIXED_PANEL);
+		super.setStyle(Style.PANEL_MED);
 
 		// try to guess dialog height
 		List<String> lines = DIYToolkit.wrapText(

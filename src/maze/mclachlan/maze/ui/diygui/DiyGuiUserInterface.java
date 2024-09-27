@@ -59,29 +59,30 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class DiyGuiUserInterface extends Frame implements UserInterface
 {
-	public static boolean FULL_SCREEN;
+
 	public static int SCREEN_WIDTH;
 	public static int SCREEN_HEIGHT;
 	public static int SCREEN_EDGE_INSET;
 	public static int MAZE_WIDTH;
 	public static int MAZE_HEIGHT;
-	public static int PC_LEFT_X;
-	public static int PC_WIDTH;
-	public static int PC_RIGHT_X;
-	public static Rectangle SCREEN_BOUNDS;
 	public static Rectangle LOW_BOUNDS;
-	private static int ZONE_DISPLAY_HEIGHT;
+
+	private static int PC_WIDTH;
 
 	private static Font font = null;
 
-	private static Map<String, Font> fonts = new HashMap<String, Font>();
+	private static final Map<String, Font> fonts = new HashMap<>();
 
-	public static HashMap<Integer, Integer> crusaderKeys = new HashMap<Integer, Integer>();
+	public static HashMap<Integer, Integer> crusaderKeys = new HashMap<>();
 
 	public static DIYToolkit gui;
 	static DiyGuiUserInterface instance;
 
-	private final List<Animation> animations = new ArrayList<Animation>();
+	private final List<Animation> animations = new ArrayList<>();
+
+	// config
+	private boolean fullScreen;
+	private final Rectangle screenBounds;
 
 	// draw method variables
 	private int frameCount;
@@ -90,7 +91,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	private long sumRenderTime;
 	private long avgRenderTime;
 	private long curTime;
-	private BufferStrategy strategy;
+	private final BufferStrategy strategy;
 
 	// the ray caster
 	CrusaderEngine raycaster;
@@ -153,30 +154,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void initConfig()
+	private void initConfig()
 	{
 		java.util.Map<String, String> p = Maze.getInstance().getAppConfig();
 
 		SCREEN_WIDTH = Integer.parseInt(p.get(Maze.AppConfig.SCREEN_WIDTH));
 		SCREEN_HEIGHT = Integer.parseInt(p.get(Maze.AppConfig.SCREEN_HEIGHT));
-		FULL_SCREEN = Boolean.valueOf(p.get(Maze.AppConfig.FULL_SCREEN));
-		ZONE_DISPLAY_HEIGHT = SCREEN_HEIGHT / 9;
-		MAZE_WIDTH = SCREEN_WIDTH / 2;
-		MAZE_HEIGHT = SCREEN_HEIGHT * 7 / 12;
-
-//		SCREEN_EDGE_INSET = SCREEN_WIDTH / 40;
-		SCREEN_EDGE_INSET = 10;
-
-		PC_LEFT_X = SCREEN_EDGE_INSET;
-		PC_WIDTH = (SCREEN_WIDTH - MAZE_WIDTH - SCREEN_EDGE_INSET * 2) / 2;
-		PC_RIGHT_X = SCREEN_WIDTH - PC_LEFT_X - PC_WIDTH;
-
-		SCREEN_BOUNDS = new Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-		LOW_BOUNDS = new Rectangle(
-			SCREEN_WIDTH / 2 - MAZE_WIDTH / 2,
-			SCREEN_EDGE_INSET + ZONE_DISPLAY_HEIGHT + MAZE_HEIGHT +10,
-			MAZE_WIDTH,
-			SCREEN_HEIGHT - (SCREEN_EDGE_INSET*2 + ZONE_DISPLAY_HEIGHT + MAZE_HEIGHT +10));
+		fullScreen = Boolean.valueOf(p.get(Maze.AppConfig.FULL_SCREEN));
 
 		try
 		{
@@ -235,6 +219,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public DiyGuiUserInterface()
 	{
 		initConfig();
+		screenBounds = new Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
 
 		instance = this;
 		this.setTitle("Maze");
@@ -254,7 +239,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		new EventProcessor(queue).start();
 
-		if (FULL_SCREEN)
+		if (fullScreen)
 		{
 			GraphicsDevice device =
 				GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
@@ -620,7 +605,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void disableInput()
 	{
 		// transparent modal dialog to block all user input while combat runs
-		showDialog(new DIYPane(DiyGuiUserInterface.SCREEN_BOUNDS));
+		showDialog(new DIYPane(screenBounds));
 
 		this.charLowLeft.setEnabled(false);
 		this.charLowRight.setEnabled(false);
@@ -787,7 +772,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		cards.add(levelUpScreen);
 
 		// a layout to display the various screens.
-		CardLayoutWidget mainLayout = new CardLayoutWidget(DiyGuiUserInterface.SCREEN_BOUNDS, cards);
+		CardLayoutWidget mainLayout = new CardLayoutWidget(screenBounds, cards);
 
 		DiyGuiUserInterface.gui.add(mainLayout);
 
@@ -928,55 +913,97 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private void initCommonWidgets()
 	{
-		// characters
-		int y = DiyGuiUserInterface.SCREEN_EDGE_INSET;
-		int w = DiyGuiUserInterface.PC_WIDTH;
-		charTopLeft = new PlayerCharacterWidget(new Rectangle(DiyGuiUserInterface.PC_LEFT_X, y, w, w), 0);
-		charTopRight = new PlayerCharacterWidget(new Rectangle(DiyGuiUserInterface.PC_RIGHT_X, y, w, w), 1);
+		int zoneDisplayHeight = SCREEN_HEIGHT / 9;
+		MAZE_WIDTH = SCREEN_WIDTH / 2;
+		MAZE_HEIGHT = SCREEN_HEIGHT * 7 / 12;
 
-		y += DiyGuiUserInterface.PC_WIDTH;
-		charMidLeft = new PlayerCharacterWidget(new Rectangle(DiyGuiUserInterface.PC_LEFT_X, y, w, w), 2);
-		charMidRight = new PlayerCharacterWidget(new Rectangle(DiyGuiUserInterface.PC_RIGHT_X, y, w, w), 3);
+		int internalInset = 10;
+		SCREEN_EDGE_INSET = 10;
 
-		y += DiyGuiUserInterface.PC_WIDTH;
-		charLowLeft = new PlayerCharacterWidget(new Rectangle(DiyGuiUserInterface.PC_LEFT_X, y, w, w), 4);
-		charLowRight = new PlayerCharacterWidget(new Rectangle(DiyGuiUserInterface.PC_RIGHT_X, y, w, w), 5);
+		PC_WIDTH = (SCREEN_WIDTH - MAZE_WIDTH - SCREEN_EDGE_INSET*2 - internalInset *2) /2;
 
-		// char picker
-		partyDisplay = new PartyDisplayWidget(
-			new Rectangle(
-				DiyGuiUserInterface.SCREEN_EDGE_INSET,
-				DiyGuiUserInterface.SCREEN_EDGE_INSET,
-				DiyGuiUserInterface.SCREEN_WIDTH/6,
-				DiyGuiUserInterface.SCREEN_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET*2)
-			, null);
+		int column1x = SCREEN_EDGE_INSET;
+		int column1Width = (SCREEN_WIDTH -MAZE_WIDTH -SCREEN_EDGE_INSET*2 -internalInset*2)/2;
 
-		// button toolbar
-		buttonToolbar = new ButtonToolbar(
-			new Rectangle(DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT - DiyGuiUserInterface.SCREEN_HEIGHT / 12,
-				DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT / 12));
+		int column2x = column1x +column1Width +internalInset;
+		int column2Width = MAZE_WIDTH;
 
-		// the maze
-		mazeWidget = new MazeWidget(
-			new Rectangle(
-				DiyGuiUserInterface.SCREEN_WIDTH / 2 - DiyGuiUserInterface.MAZE_WIDTH / 2,
-				SCREEN_EDGE_INSET + ZONE_DISPLAY_HEIGHT,
-				DiyGuiUserInterface.MAZE_WIDTH,
-				DiyGuiUserInterface.MAZE_HEIGHT),
-			raycaster);
+		int column3x = column2x +column2Width +internalInset;
+		// col 3 width same as col 1
 
+		int pcwHeight = (SCREEN_HEIGHT -SCREEN_EDGE_INSET*2 -internalInset*2) /3;
+
+		int internalOverlap = 8;
+
+		// player character widgets
+
+		charTopLeft = new PlayerCharacterWidget(0,
+			new Rectangle(column1x, SCREEN_EDGE_INSET,
+				column1Width, pcwHeight));
+
+		charTopRight = new PlayerCharacterWidget(1,
+					new Rectangle(column3x, SCREEN_EDGE_INSET,
+						column1Width, pcwHeight));
+
+		charMidLeft = new PlayerCharacterWidget(2,
+					new Rectangle(column1x, charTopLeft.y +charTopLeft.height +internalInset,
+						column1Width, pcwHeight));
+
+		charMidRight = new PlayerCharacterWidget(3,
+					new Rectangle(column3x, charTopRight.y +charTopRight.height +internalInset,
+						column1Width, pcwHeight));
+
+		charLowLeft = new PlayerCharacterWidget(4,
+					new Rectangle(column1x, charMidLeft.y +charMidLeft.height +internalInset,
+						column1Width, pcwHeight));
+
+		charLowRight = new PlayerCharacterWidget(5,
+					new Rectangle(column3x, charMidRight.y +charMidRight.height +internalInset,
+						column1Width, pcwHeight));
+
+		// zone info display header
 		zoneDisplay = new ZoneDisplayWidget(
 			new Rectangle(
-				SCREEN_WIDTH / 2 - MAZE_WIDTH / 2,
+				column2x -internalInset/2,
 				SCREEN_EDGE_INSET,
+				column2Width +internalOverlap,
+				zoneDisplayHeight +internalOverlap));
+
+		// the maze view with embedded raycaster
+		mazeWidget = new MazeWidget(
+			new Rectangle(
+				column2x,
+				SCREEN_EDGE_INSET +zoneDisplayHeight, // intentionally no inset here
 				MAZE_WIDTH,
-				ZONE_DISPLAY_HEIGHT));
+				MAZE_HEIGHT),
+			raycaster);
+
+		// intentionally sized over the insets here, to emphasise the widget
+		LOW_BOUNDS = new Rectangle(
+			column2x -internalInset/2,
+			mazeWidget.y +mazeWidget.height -internalOverlap,
+			column2Width +internalInset,
+			SCREEN_HEIGHT -zoneDisplayHeight -mazeWidget.height -SCREEN_EDGE_INSET*2 +internalOverlap);
+
+		// char picker for the details screens
+		partyDisplay = new PartyDisplayWidget(
+			new Rectangle(
+				SCREEN_EDGE_INSET,
+				SCREEN_EDGE_INSET,
+				SCREEN_WIDTH/6,
+				SCREEN_HEIGHT -SCREEN_EDGE_INSET*2)
+			, null);
+
+		// button toolbar for the details screens
+		buttonToolbar = new ButtonToolbar(
+			new Rectangle(PC_WIDTH, SCREEN_HEIGHT - SCREEN_HEIGHT / 12,
+				SCREEN_WIDTH - PC_WIDTH, SCREEN_HEIGHT / 12));
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getStatsDisplayScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
 
 		statsDisplay = new StatsDisplayWidget(
 			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
@@ -994,7 +1021,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getMagicScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
 
 		DIYLabel topLabel = new DIYLabel("Magic", DIYToolkit.Align.CENTER);
 		topLabel.setBounds(162, 0, DiyGuiUserInterface.SCREEN_WIDTH - 162, 30);
@@ -1024,8 +1051,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getLevelUpScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
-		levelUp = new LevelUpWidget(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
+		levelUp = new LevelUpWidget(screenBounds);
 		screen.add(levelUp);
 		BufferedImage back = Database.getInstance().getImage("screen/create_char_back");
 		screen.setBackgroundImage(back);
@@ -1035,8 +1062,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getCreateCharacterScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
-		createCharacter = new CreateCharacterWidget(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
+		createCharacter = new CreateCharacterWidget(screenBounds);
 		screen.add(createCharacter);
 		BufferedImage back = Database.getInstance().getImage("screen/create_char_back");
 		screen.setBackgroundImage(back);
@@ -1046,7 +1073,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getModifiersDisplayScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
 
 		modifiersDisplay = new ModifiersDisplayWidget(
 			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
@@ -1064,7 +1091,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getPropertiesDisplayScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
 
 		propertiesDisplay = new PropertiesDisplayWidget(
 			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
@@ -1082,7 +1109,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getInventoryScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
 
 		inventoryDisplay = new InventoryDisplayWidget(
 			new Rectangle(
@@ -1104,7 +1131,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private MainMenu getMainMenu()
 	{
-		MainMenu screen = new MainMenu(DiyGuiUserInterface.SCREEN_BOUNDS);
+		MainMenu screen = new MainMenu(screenBounds);
 
 		screen.add(charTopLeft);
 		screen.add(charMidLeft);
@@ -1128,13 +1155,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private SaveLoadScreen getSaveLoad()
 	{
-		return new SaveLoadScreen(DiyGuiUserInterface.SCREEN_BOUNDS);
+		return new SaveLoadScreen(screenBounds);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private ContainerWidget getMovementScreen()
 	{
-		DIYPanel screen = new DIYPanel(DiyGuiUserInterface.SCREEN_BOUNDS);
+		DIYPanel screen = new DIYPanel(screenBounds);
 
 		screen.add(charTopLeft);
 		screen.add(charMidLeft);
@@ -1143,8 +1170,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		screen.add(charMidRight);
 		screen.add(charLowRight);
 
-		screen.add(zoneDisplay);
 		screen.add(mazeWidget);
+		screen.add(zoneDisplay);
 
 		Rectangle rect = (Rectangle)DiyGuiUserInterface.LOW_BOUNDS.clone();
 
@@ -1163,7 +1190,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		screen.add(partyCloudSpellWidget);
 
-		ArrayList<ContainerWidget> list = new ArrayList<ContainerWidget>();
+		ArrayList<ContainerWidget> list = new ArrayList<>();
 		list.add(partyOptionsAndTextWidget);
 		list.add(signBoardWidget);
 		list.add(restingWidget);

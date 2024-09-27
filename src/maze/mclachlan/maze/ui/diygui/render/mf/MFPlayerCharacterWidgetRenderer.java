@@ -45,10 +45,9 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 		PlayerCharacterWidget widget = (PlayerCharacterWidget)w;
 		Component comp = Maze.getInstance().getComponent();
 
-		int border = 20;
-		int inset = 2;
+		int frameBorder = 12;
+		int inset = 5;
 
-		// warning: this hand-bounds logic is duplicated in the PCWidget
 		int oneThirdWidth = width/3;
 		int oneThirdHeight = height/3;
 		int halfHeight = height/2;
@@ -56,72 +55,71 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 		int twoThirdsWidth = width*2/3;
 		int twoThirdsHeight = height*2/3;
 
-		int portraitWidth = twoThirdsWidth -border*2;
-		int portraitHeight = twoThirdsHeight -border*2;
+		int portraitWidth = twoThirdsWidth -frameBorder*2;
+		int portraitHeight = twoThirdsHeight -frameBorder*2;
 		int remainingWidth = oneThirdWidth;
 		int remainingHeight = oneThirdHeight;
 
 		// portrait bounds
 		Rectangle portraitBounds = new Rectangle(
-			x+border,
-			y+border,
+			x +frameBorder +inset,
+			y +frameBorder +inset,
 			portraitWidth,
 			portraitHeight);
 		widget.setPortraitBounds(portraitBounds);
 
 		// name label bounds
 		int barSep = inset;
-		int startX = x + border + portraitWidth + inset;
-		int barTop = y + border + inset;
+		int startX = x + frameBorder + portraitWidth + inset;
+		int barTop = y + frameBorder + inset;
 		int barWidth = remainingWidth/3 -inset;
 		int barHeight = portraitHeight;
 
 		int nameLabelHeight = remainingHeight/3;
 
 		Rectangle nameLabelBounds = new Rectangle(
-			x + border,
-			y + border + portraitHeight + inset,
+			x + frameBorder,
+			y + frameBorder + portraitHeight + inset,
 			portraitWidth,
 			nameLabelHeight);
 		Rectangle classLabelBounds = new Rectangle(
 			nameLabelBounds.x + nameLabelBounds.width,
-			y + border + portraitHeight + inset,
+			y + frameBorder + portraitHeight + inset,
 			remainingWidth,
 			nameLabelHeight);
 
 		// hand icon bounds
-		int handWidth = 24;
-		int handHeight = handWidth;
-		int rightHandY = y + border + portraitHeight + nameLabelHeight + inset;
-		int leftHandY = rightHandY + handHeight + inset;
-		int rightHandX = x + width -border -handWidth;
-		int leftHandX = rightHandX;
+		int handWidth = 40;
+		int rightHandX = x +frameBorder +inset;
+		int leftHandX = portraitBounds.x +portraitBounds.width -handWidth;
+		int rightHandY = portraitBounds.y +portraitBounds.height - handWidth;
+		int leftHandY = rightHandY;
 
 		Rectangle rightHandBounds = new Rectangle(
 			rightHandX,
 			rightHandY,
 			handWidth,
-			handHeight);
+			handWidth);
 		Rectangle leftHandBounds = new Rectangle(
 			leftHandX,
 			leftHandY,
 			handWidth,
-			handHeight);
+			handWidth);
 
 		// action button bounds
 		Rectangle actionBounds = new Rectangle(
-			x + border,
-			y + border + portraitHeight + nameLabelHeight + inset,
-			width -border*2 -handWidth -inset*2,
+			x + frameBorder,
+			y + frameBorder + portraitHeight + nameLabelHeight + inset,
+			width -frameBorder*2 -handWidth -inset*2,
 			remainingHeight/3 -inset);
 		widget.getAction().setBounds(actionBounds);
 		widget.getAction().setVisible(false);
 
 		// stance button bounds
 		Rectangle stanceBounds = new Rectangle(
-			x + border,
-			y + border + portraitHeight + nameLabelHeight*2 + inset*2,
-			width -border*2 -handWidth -inset*2,
+			x + frameBorder,
+			y + frameBorder + portraitHeight + nameLabelHeight*2 + inset*2,
+			width -frameBorder*2 -handWidth -inset*2,
 			remainingHeight/3 -inset);
 		widget.getStance().setBounds(stanceBounds);
 		widget.getStance().setVisible(false);
@@ -130,7 +128,7 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 		DIYButton levelUp = widget.getLevelUp();
 		Dimension ps = levelUp.getPreferredSize();
 		levelUp.setBounds(
-			x +portraitWidth/2 -ps.width/2 +border/2,
+			x +portraitWidth/2 -ps.width/2 +frameBorder/2,
 			y +portraitHeight -ps.height -inset*2,
 			ps.width,
 			ps.height);
@@ -140,23 +138,16 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 		{
 			// draw the bounds of the whole widget
 
-//			Stroke stroke = g.getStroke();
-//			g.setStroke(new BasicStroke(2f));
-//			g.setPaint(new GradientPaint(x, y, Color.LIGHT_GRAY.brighter(),
-//				x + width, y + height, Color.LIGHT_GRAY.darker()));
-//			g.drawRoundRect(x + inset, y + inset, width - inset * 2, height - inset * 2, border, border);
-//			g.setStroke(stroke);
-
-			drawBorderWithTextures(g, x+inset, y+inset, width-inset*2, height-inset*2, comp,
-				Database.getInstance().getImage("ui/mf/frame/border_top"),
-				Database.getInstance().getImage("ui/mf/frame/border_bottom"),
-				Database.getInstance().getImage("ui/mf/frame/border_left"),
-				Database.getInstance().getImage("ui/mf/frame/border_right"),
-				Database.getInstance().getImage("ui/mf/frame/corner_top_left"),
-				Database.getInstance().getImage("ui/mf/frame/corner_top_right"),
-				Database.getInstance().getImage("ui/mf/frame/corner_bottom_left"),
-				Database.getInstance().getImage("ui/mf/frame/corner_bottom_right"),
-				Database.getInstance().getImage("ui/mf/frame/center"),
+			drawBorderWithTextures(g, x, y, width, height, comp,
+				Database.getInstance().getImage("ui/mf/panel_light/border_top"),
+				Database.getInstance().getImage("ui/mf/panel_light/border_bottom"),
+				Database.getInstance().getImage("ui/mf/panel_light/border_left"),
+				Database.getInstance().getImage("ui/mf/panel_light/border_right"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_top_left"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_top_right"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_bottom_left"),
+				Database.getInstance().getImage("ui/mf/panel_light/corner_bottom_right"),
+				Database.getInstance().getImage("ui/mf/panel_light/center"),
 				null);
 
 			PlayerCharacter playerCharacter = widget.getPlayerCharacter();
@@ -184,6 +175,12 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 				DIYToolkit.drawStringCentered(g, "("+playerCharacter.getCharacterClass().getName()+")",
 					classLabelBounds, DIYToolkit.Align.RIGHT, Color.WHITE.darker(), null);
 
+				// Portrait
+				Image img;
+				img = Database.getInstance().getImage(
+					playerCharacter.getPortrait());
+				DIYToolkit.drawImageCentered(g, img, portraitBounds, DIYToolkit.Align.CENTER);
+
 				// hand item slots
 				Image slotImage = Database.getInstance().getImage("screen/itemslot");
 				DIYToolkit.drawImageCentered(g, slotImage, leftHandBounds, DIYToolkit.Align.CENTER);
@@ -192,7 +189,6 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 				widget.setRightHandBounds(rightHandBounds);
 
 				// left hand item
-				Image img;
 				img = playerCharacter.getSecondaryWeapon() != null ?
 					Database.getInstance().getImage(playerCharacter.getSecondaryWeapon().getImage()) :
 					Database.getInstance().getImage(playerCharacter.getLeftHandIcon());
@@ -204,23 +200,18 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 					Database.getInstance().getImage(playerCharacter.getRightHandIcon());
 				DIYToolkit.drawImageCentered(g, img, rightHandBounds, DIYToolkit.Align.CENTER);
 
-				// Portrait
-				img = Database.getInstance().getImage(
-					playerCharacter.getPortrait());
-				DIYToolkit.drawImageCentered(g, img, portraitBounds, DIYToolkit.Align.CENTER);
-
 				//
 				// Conditions
 				//
-				ArrayList<Condition> list = new ArrayList<Condition>(playerCharacter.getConditions());
+				ArrayList<Condition> list = new ArrayList<>(playerCharacter.getConditions());
 				if (!list.isEmpty())
 				{
-					int bestMax = (twoThirdsHeight-border) / (handWidth+inset);
+					int bestMax = (twoThirdsHeight -frameBorder) / (handWidth+inset);
 
 					Rectangle[] conditionBounds = new Rectangle[list.size()];
 
-					int sX = x + border;
-					int sY = y + border;
+					int sX = x + frameBorder;
+					int sY = y + frameBorder;
 
 					for (int i = 0; i < conditionBounds.length; i++)
 					{
@@ -231,14 +222,14 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 						}
 						else
 						{
-							int squashHeight = (twoThirdsHeight-border) / list.size();
+							int squashHeight = (twoThirdsHeight-frameBorder) / list.size();
 							yInc = i * squashHeight;
 						}
 						conditionBounds[i] = new Rectangle(
 							sX,
 							sY + yInc,
 							handWidth,
-							handHeight);
+							handWidth);
 					}
 
 					int i = 0;
@@ -287,9 +278,9 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 			// draw the hand bounds
 			g.setColor(Color.WHITE);
 			g.drawRect(leftHandX, leftHandY,
-				handWidth, handHeight);
+				handWidth, handWidth);
 			g.drawRect(rightHandX, rightHandY,
-				handWidth, handHeight);
+				handWidth, handWidth);
 
 //			g.setColor(Color.LIGHT_GRAY);
 //			for (Rectangle cb : conditionBounds)

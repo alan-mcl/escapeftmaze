@@ -36,12 +36,12 @@ import mclachlan.maze.map.script.Chest;
  */
 public class EncounterChestStateHandler implements ActionListener
 {
-	private Maze maze;
+	private final Maze maze;
 	private final int buttonRows;
 	private final int inset;
-	private MessageDestination msg;
+	private final MessageDestination msg;
 
-	private DIYButton leave;
+	private final DIYButton leave;
 	private DIYPane leftPane;
 	private Chest chest;
 
@@ -104,8 +104,7 @@ public class EncounterChestStateHandler implements ActionListener
 	{
 		switch (keyCode)
 		{
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_L: leave(); break;
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_L -> leave();
 		}
 	}
 

@@ -169,16 +169,13 @@ public class InventoryDisplayWidget extends ContainerWidget
 		// personal info
 
 		DIYPanel personalPanel = new DIYPanel();
-		personalPanel.setStyle(DIYPanel.Style.FRAME);
+		personalPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
 		personalPanel.setLayoutManager(null);
 		personalPanel.setBounds(
 			column1x,
 			contentTop,
 			columnWidth * 2 + inset,
 			panelBorderInset*2 + 30);
-
-//		personalPanel.setLayoutManager(new DIYGridLayout(1, 2, 0, 0));
-//		personalPanel.setInsets(new Insets(frameBorderInset, frameBorderInset+inset/2, frameBorderInset, frameBorderInset));
 
 		nameLabel.setBounds(
 			personalPanel.x +panelBorderInset,
@@ -207,7 +204,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		// party info
 
 		DIYPanel partyPanel = new DIYPanel();
-		partyPanel.setStyle(DIYPanel.Style.FRAME);
+		partyPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
 		partyPanel.setBounds(
 			column3x,
 			contentTop,
@@ -223,7 +220,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		// equipped items
 
 		DIYPanel equippedItemsPanel = new DIYPanel();
-		equippedItemsPanel.setStyle(DIYPanel.Style.FIXED_PANEL);
+		equippedItemsPanel.setStyle(DIYPanel.Style.PANEL_MED);
 		equippedItemsPanel.setLayoutManager(null);
 		equippedItemsPanel.setBounds(
 			column1x,
@@ -288,7 +285,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 
 		DIYPanel packItemsPanel = new DIYPanel();
 		int itemGridHeight = equippedItemsItemWidgetsPane.height * 10 / 12;
-		packItemsPanel.setStyle(DIYPanel.Style.FIXED_PANEL);
+		packItemsPanel.setStyle(DIYPanel.Style.PANEL_MED);
 		packItemsPanel.setLayoutManager(null);
 		packItemsPanel.setBounds(
 			column2x,
@@ -343,129 +340,6 @@ public class InventoryDisplayWidget extends ContainerWidget
 		this.add(equippedItemsPanel);
 		this.add(packItemsPanel);
 		this.add(buttonPane);
-
-
-//		buildGuiOld(bounds);
-	}
-
-	private void buildGuiOld(Rectangle bounds)
-	{
-		// build gui
-		int rows = 26; //bounds.height/(textHeight+inset) -2;
-		int inset = 4;
-		int labelWidth = bounds.width / 5 - inset;
-		int itemCellWidth = 2 * labelWidth;
-
-		DIYPane left = new DIYPane(bounds.x, bounds.y, labelWidth, bounds.height);
-		DIYPane right = new DIYPane(bounds.x + labelWidth, bounds.y, itemCellWidth * 2, bounds.height);
-
-		left.setLayoutManager(new DIYGridLayout(1, rows, inset, inset));
-		right.setLayoutManager(new DIYGridLayout(2, rows, inset, inset));
-
-		right.setInsets(new Insets(0, inset, 0, 0));
-
-		left.add(getBlank());
-//		left.add(nameLabel);
-		left.add(getBlank());
-
-		left.add(getBlank());
-//		left.add(getLabel(StringUtil.getUiLabel("idw.carrying"), Color.LIGHT_GRAY));
-		left.add(getBlank());
-		left.add(getBlank());
-
-//		left.add(getLabel(StringUtil.getUiLabel("idw.primary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.secondary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.alt.primary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.alt.secondary"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.helm"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.torso"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.legs"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.gloves"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.boots"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.banner"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.misc1"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-//		left.add(getLabel(StringUtil.getUiLabel("idw.misc2"), Color.LIGHT_GRAY, DIYToolkit.Align.RIGHT));
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-		left.add(getBlank());
-
-//		left.add(castSpell);
-//		left.add(useItem);
-//		left.add(craftItem);
-//		left.add(dropItem);
-//		left.add(splitStack);
-//		left.add(disassemble);
-
-		right.add(getBlank());
-		right.add(getBlank());
-		right.add(getBlank());
-//		right.add(suppliesLabel);
-		right.add(getBlank());
-		right.add(getBlank());
-
-//		right.add(goldLabel);
-		right.add(getBlank());
-
-		right.add(carrying);
-//		right.add(getLabel(StringUtil.getUiLabel("idw.pack.items"), Color.LIGHT_GRAY));
-		right.add(getBlank());
-
-//		right.add(getLabel(StringUtil.getUiLabel("idw.equipped.items"), Color.LIGHT_GRAY));
-		right.add(getBlank());
-
-//		right.add(packItems[0]);
-//		left.add(getBlank()); //right.add(primaryWeapon);
-//		right.add(packItems[1]);
-//		left.add(getBlank()); //right.add(secondaryWeapon);
-//		right.add(packItems[2]);
-//		left.add(getBlank()); //right.add(altPrimaryWeapon);
-//		right.add(packItems[3]);
-//		left.add(getBlank()); //right.add(altSecondaryWeapon);
-//		right.add(packItems[4]);
-//		left.add(getBlank()); //right.add(helm);
-//
-//		right.add(packItems[5]);
-//		left.add(getBlank()); //right.add(torsoArmour);
-//		right.add(packItems[6]);
-//		left.add(getBlank()); //right.add(legArmour);
-//		right.add(packItems[7]);
-//		left.add(getBlank()); //right.add(gloves);
-//		right.add(packItems[8]);
-//		left.add(getBlank()); //right.add(boots);
-//		right.add(packItems[9]);
-//		left.add(getBlank()); //right.add(bannerItem);
-//		right.add(packItems[10]);
-//		left.add(getBlank()); //right.add(miscItem1);
-//		right.add(packItems[11]);
-//		left.add(getBlank()); //right.add(miscItem2);
-//		right.add(packItems[12]);
-//		right.add(getBlank());
-//		right.add(packItems[13]);
-//		right.add(getBlank());
-//		right.add(packItems[14]);
-//		right.add(getBlank());
-//		right.add(packItems[15]);
-//		right.add(getBlank());
-//		right.add(packItems[16]);
-//		right.add(getBlank());
-//		right.add(packItems[17]);
-//		right.add(getBlank());
-//		right.add(packItems[18]);
-//		right.add(getBlank());
-//		right.add(packItems[19]);
-//		right.add(getBlank());
-//
-		this.add(left);
-		this.add(right);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -873,18 +747,12 @@ public class InventoryDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static DIYLabel getBlank()
-	{
-		return new DIYLabel();
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public boolean castSpell(Spell spell, PlayerCharacter caster,
 		int casterIndex, int castingLevel, int target)
 	{
 		if (spell.getTargetType() == MagicSys.SpellTargetType.ITEM)
 		{
-			setSpellStateHack(spell, caster, castingLevel);
+			setSpellStateHack(spell, castingLevel);
 			// proceed with item selection
 			new UseItem(StringUtil.getUiLabel("idw.cast.spell.on.item"), this, character);
 			return true;
@@ -894,8 +762,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void setSpellStateHack(Spell spell, PlayerCharacter caster,
-		int castingLevel)
+	private void setSpellStateHack(Spell spell, int castingLevel)
 	{
 		this.lastSpell = spell;
 		this.lastCastingLevel = castingLevel;
@@ -921,7 +788,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 			list.add(item);
 			Maze.getInstance().dropItemsOnCurrentTile(list);
 			refreshItemWidgets();
-			setSpellStateHack(null, null, -1);
+			setSpellStateHack(null, -1);
 			DIYToolkit.getInstance().clearCursor();
 			return true;
 		}
@@ -942,7 +809,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 				}
 			});
 
-			setSpellStateHack(null, null, -1);
+			setSpellStateHack(null, -1);
 			return true;
 		}
 		else if (lastItem != null)
@@ -951,11 +818,6 @@ public class InventoryDisplayWidget extends ContainerWidget
 
 			UseItemIntention useItemIntention = new UseItemIntention(lastItem, item);
 			GameSys.getInstance().resolveActorActionIntention(Maze.getInstance(), user, useItemIntention);
-
-//			GameSys.getInstance().useItemOnItem(
-//				lastItem,
-//				item,
-//				user);
 
 			Maze.getInstance().appendEvents(new MazeEvent()
 			{
@@ -1129,7 +991,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 
 		if (!user.addInventoryItem(newItem))
 		{
-			List<Item> list = new ArrayList<Item>();
+			List<Item> list = new ArrayList<>();
 			list.add(newItem);
 			Maze.getInstance().dropItemsOnCurrentTile(list);
 		}

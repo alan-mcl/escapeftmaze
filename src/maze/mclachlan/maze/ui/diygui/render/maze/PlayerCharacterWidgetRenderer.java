@@ -146,18 +146,6 @@ public class PlayerCharacterWidgetRenderer extends Renderer
 				x + width, y + height, Color.LIGHT_GRAY.darker()));
 			g.drawRoundRect(x + inset, y + inset, width - inset * 2, height - inset * 2, border, border);
 			g.setStroke(stroke);
-//
-//			drawBorderWithTextures(g, x+inset, y+inset, width-inset*2, height-inset*2, comp,
-//				Database.getInstance().getImage("ui/mf/frame/border_top"),
-//				Database.getInstance().getImage("ui/mf/frame/border_bottom"),
-//				Database.getInstance().getImage("ui/mf/frame/border_left"),
-//				Database.getInstance().getImage("ui/mf/frame/border_right"),
-//				Database.getInstance().getImage("ui/mf/frame/corner_top_left"),
-//				Database.getInstance().getImage("ui/mf/frame/corner_top_right"),
-//				Database.getInstance().getImage("ui/mf/frame/corner_bottom_left"),
-//				Database.getInstance().getImage("ui/mf/frame/corner_bottom_right"),
-//				Database.getInstance().getImage("ui/mf/frame/center"),
-//				null);
 
 			PlayerCharacter playerCharacter = widget.getPlayerCharacter();
 			if (playerCharacter != null)

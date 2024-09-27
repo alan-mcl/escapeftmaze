@@ -109,8 +109,15 @@ public class DIYLabel extends Widget
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
-		Dimension d = DIYToolkit.getDimension(this.text, this.font);
-		return new Dimension(d.width+8, d.height);
+		if (this.text != null)
+		{
+			Dimension d = DIYToolkit.getDimension(this.text, this.font);
+			return new Dimension(d.width + 8, d.height);
+		}
+		else
+		{
+			return new Dimension(0,0);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

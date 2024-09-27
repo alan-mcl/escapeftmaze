@@ -30,7 +30,7 @@ import mclachlan.maze.game.Maze;
 public class ButtonToolbar extends ContainerWidget implements ActionListener
 {
 	private static final int inset = 12;
-	private DIYButton modifiers, stats, properties, inventory, magic, exit;
+	private final DIYButton modifiers, stats, properties, inventory, magic, exit;
 
 	/*-------------------------------------------------------------------------*/
 	public ButtonToolbar(Rectangle bounds)

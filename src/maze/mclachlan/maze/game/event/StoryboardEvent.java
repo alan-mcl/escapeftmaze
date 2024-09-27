@@ -148,7 +148,7 @@ public class StoryboardEvent extends MazeEvent
 
 
 			DIYPanel textPanel = new DIYPanel(textX-25, textY-20, textWidth+50, textHeight+40);
-			textPanel.setStyle(DIYPanel.Style.FIXED_PANEL);
+			textPanel.setStyle(DIYPanel.Style.PANEL_MED);
 
 			textPanel.add(textArea);
 

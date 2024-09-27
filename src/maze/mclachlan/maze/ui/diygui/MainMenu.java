@@ -73,7 +73,7 @@ public class MainMenu extends DIYPanel
 		this.add(topLabel);
 		
 		DIYPanel menu = new DIYPanel(new DIYGridLayout(1,9,5,5));
-		menu.setStyle(Style.FIXED_PANEL);
+		menu.setStyle(Style.PANEL_MED);
 		menu.setInsets(new Insets(25,25,25,25));
 
 		int width = 300;
@@ -85,24 +85,31 @@ public class MainMenu extends DIYPanel
 			height);
 
 		quickStart = new DIYButton(StringUtil.getUiLabel("mm.quick.start"));
+		quickStart.setTooltip(StringUtil.getUiLabel("mm.quick.start.tooltip"));
 		quickStart.addActionListener(this);
 
 		startGame = new DIYButton(StringUtil.getUiLabel("mm.start.game"));
+		startGame.setTooltip(StringUtil.getUiLabel("mm.start.game.tooltip"));
 		startGame.addActionListener(this);
 		
 		createCharacter = new DIYButton(StringUtil.getUiLabel("mm.create.character"));
+		createCharacter.setTooltip(StringUtil.getUiLabel("mm.create.character.tooltip"));
 		createCharacter.addActionListener(this);
 		
 		addCharacter = new DIYButton(StringUtil.getUiLabel("mm.add.character"));
+		addCharacter.setTooltip(StringUtil.getUiLabel("mm.add.character.tooltip"));
 		addCharacter.addActionListener(this);
 		
 		removeCharacter = new DIYButton(StringUtil.getUiLabel("mm.remove.character"));
+		removeCharacter.setTooltip(StringUtil.getUiLabel("mm.remove.character.tooltip"));
 		removeCharacter.addActionListener(this);
 
 		loadGame = new DIYButton(StringUtil.getUiLabel("mm.load.game"));
+		loadGame.setTooltip(StringUtil.getUiLabel("mm.load.game.tooltip"));
 		loadGame.addActionListener(this);
 
 		options = new DIYButton(StringUtil.getUiLabel("mm.settings"));
+		options.setTooltip(StringUtil.getUiLabel("mm.settings.tooltip"));
 		options.addActionListener(this);
 
 		exit = new DIYButton(StringUtil.getUiLabel("mm.quit"));

@@ -1092,7 +1092,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	{
 		DIYPanel result = new DIYPanel(panelX, panelY, panelWidth, panelHeight);
 		result.setLayoutManager(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
-		result.setStyle(DIYPanel.Style.FIXED_PANEL);
+		result.setStyle(DIYPanel.Style.PANEL_MED);
 		result.setInsets(new Insets(25, 25, 25, 25));
 		return result;
 	}

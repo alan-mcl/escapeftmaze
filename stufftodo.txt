@@ -12,6 +12,10 @@ make main menu title nice
 guild panel scroll pane
 scroll pane improvements: click+drag, scroll wheel, rightsized content
 spell desc dialog improvements: cast cost, effects
+itemwidget text wrap
+display party stealth
+compass widget
+Open Chests & Open Doors / Hide functionality via click now that the menu option is gone
 
 BACKLOG
 ----------
