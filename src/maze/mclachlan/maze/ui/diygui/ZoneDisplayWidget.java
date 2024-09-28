@@ -22,19 +22,13 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Dimension;
 import java.awt.Point;
 import java.awt.Rectangle;
-import java.util.*;
 import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.ItemCacheManager;
-import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
  *
@@ -44,7 +38,6 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 	private final DIYLabel zoneName, terrainType;
 	private final ManaDisplayWidget mana;
 	//	private final DIYLabel stealth;
-	private final DroppedItemWidget cacheItem;
 
 	/*-------------------------------------------------------------------------*/
 	public ZoneDisplayWidget(Rectangle bounds)
@@ -79,9 +72,6 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 //			labelWidth,
 //			rowHeight);
 
-		cacheItem = new DroppedItemWidget();
-		cacheItem.addActionListener(this);
-
 		Compass compass = new Compass();
 		compass.setBounds(
 			bounds.x + bounds.width / 2 - labelWidth / 2,
@@ -103,7 +93,6 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 
 //		this.add(stealth);
 		this.add(mana);
-		this.add(cacheItem);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -128,59 +117,11 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 			t.getAmountWhiteMagic(),
 			t.getAmountGreenMagic(),
 			t.getAmountBlueMagic());
-
-		List<Item> itemsOnTile = ItemCacheManager.getInstance().getItemsOnTile(zone, tile);
-
-		if (itemsOnTile != null && itemsOnTile.size() > 0)
-		{
-			cacheItem.setItem(itemsOnTile.get(0));
-		}
-		else
-		{
-			cacheItem.setItem(null);
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == cacheItem)
-		{
-			if (cacheItem.item != null)
-			{
-				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(
-					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
-
-				ItemCacheManager.getInstance().clearItemsOnTile(
-					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
-
-				Maze.getInstance().grantItems(items);
-				return true;
-			}
-		}
-
 		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static class DroppedItemWidget extends DIYPane
-	{
-		Item item;
-
-		public void setItem(Item item)
-		{
-			this.item = item;
-		}
-
-		public Item getItem()
-		{
-			return item;
-		}
-
-		@Override
-		public String getWidgetName()
-		{
-			return MazeRendererFactory.DROPPED_ITEM_WIDGET;
-		}
 	}
 }

@@ -22,11 +22,9 @@ package mclachlan.maze.ui.diygui;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionEvent;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYGridLayout;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.TileScript;
@@ -56,14 +54,16 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getLeftPane()
+	public ContainerWidget getStateHandlerPane()
 	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
+		DIYPane result = new DIYPane(new DIYGridLayout(4, buttonRows, inset, inset));
 
 		rest = new DIYButton(StringUtil.getUiLabel("poatw.rest"));
+		rest.setTooltip(StringUtil.getUiLabel("poatw.rest.tooltip"));
 		rest.addActionListener(this);
 
 		formation = new DIYButton(StringUtil.getUiLabel("poatw.formation"));
+		formation.setTooltip(StringUtil.getUiLabel("poatw.formation.tooltip"));
 		formation.addActionListener(this);
 
 //		hide = new DIYButton(StringUtil.getUiLabel("poatw.hide"));
@@ -72,19 +72,15 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 //		locks = new DIYButton(StringUtil.getUiLabel("poatw.open"));
 //		locks.addActionListener(this);
 //
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+
 		result.add(rest);
-//		result.add(locks);
-//		result.add(hide);
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
 		result.add(formation);
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getRightPane()
-	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
-
 
 		return result;
 	}

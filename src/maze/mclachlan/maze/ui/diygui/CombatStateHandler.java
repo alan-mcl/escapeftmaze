@@ -30,7 +30,6 @@ import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.event.TerminateGameEvent;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.DefendOption;
@@ -45,7 +44,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	private final int inset;
 	private final MessageDestination messageDestination;
 
-	private DIYButton startRound, terminateGame, formation, defendAll;
+	private DIYButton startRound, formation, defendAll;
 
 	/*-------------------------------------------------------------------------*/
 	public CombatStateHandler(Maze maze, int buttonRows, int inset,
@@ -58,36 +57,31 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getLeftPane()
+	public ContainerWidget getStateHandlerPane()
 	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
+		DIYPane result = new DIYPane(new DIYGridLayout(4, buttonRows, inset, inset));
 
 		startRound = new DIYButton(StringUtil.getUiLabel("poatw.start.round"));
+		startRound.setTooltip(StringUtil.getUiLabel("poatw.start.round.tooltip"));
 		startRound.addActionListener(this);
 
 		formation = new DIYButton(StringUtil.getUiLabel("poatw.formation"));
+		formation.setTooltip(StringUtil.getUiLabel("poatw.formation.tooltip.combat"));
 		formation.addActionListener(this);
 
 		defendAll = new DIYButton(StringUtil.getUiLabel("poatw.defend.all"));
+		defendAll.setTooltip(StringUtil.getUiLabel("poatw.defend.all.tooltip"));
 		defendAll.addActionListener(this);
+
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
 
 		result.add(startRound);
 		result.add(new DIYLabel());
 		result.add(defendAll);
 		result.add(formation);
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getRightPane()
-	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
-
-		terminateGame = new DIYButton(StringUtil.getUiLabel("poatw.terminate.game"));
-		terminateGame.addActionListener(this);
-
-		result.add(terminateGame);
 
 		return result;
 	}
@@ -114,11 +108,6 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 			defendAll();
 			return true;
 		}
-		else if (obj == terminateGame)
-		{
-			terminateGame();
-			return true;
-		}
 		return false;
 	}
 
@@ -129,14 +118,6 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		{
 			maze.getUi().disableInput();
 			maze.executeCombatRound(maze.getCurrentCombat());
-		}
-	}
-
-	public void terminateGame()
-	{
-		if (terminateGame.isVisible())
-		{
-			maze.appendEvents(new TerminateGameEvent(maze));
 		}
 	}
 
@@ -164,7 +145,6 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	public void setCurrentCombat(Combat currentCombat)
 	{
 		startRound.setVisible(true);
-		terminateGame.setVisible(true);
 		formation.setVisible(true);
 	}
 
@@ -199,7 +179,6 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	public void setEnabled(boolean b)
 	{
 		startRound.setEnabled(b);
-		terminateGame.setEnabled(b);
 		formation.setEnabled(b);
 		defendAll.setEnabled(b);
 	}

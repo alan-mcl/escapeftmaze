@@ -19,18 +19,15 @@
 
 package mclachlan.maze.ui.diygui.render.maze;
 
-import java.awt.Color;
-import java.awt.GradientPaint;
 import java.awt.Graphics2D;
 import java.awt.Image;
-import java.awt.geom.RoundRectangle2D;
+import java.awt.Rectangle;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.ui.diygui.Constants;
-import mclachlan.maze.ui.diygui.ZoneDisplayWidget;
+import mclachlan.maze.ui.diygui.PartyOptionsAndTextWidget;
 
 public class DroppedItemWidgetRenderer extends Renderer
 {
@@ -38,23 +35,29 @@ public class DroppedItemWidgetRenderer extends Renderer
 	@Override
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget w)
 	{
-		ZoneDisplayWidget.DroppedItemWidget widget = (ZoneDisplayWidget.DroppedItemWidget)w;
+		PartyOptionsAndTextWidget.DroppedItemWidget widget = (PartyOptionsAndTextWidget.DroppedItemWidget)w;
 		Item item = widget.getItem();
 		if (item == null)
 		{
 			return;
 		}
 
-		Image image = Database.getInstance().getImage(item.getImage());
-		int imageWidth = image.getWidth(Maze.getInstance().getUi().getComponent());
+		Image itemImage = Database.getInstance().getImage(item.getImage());
+//		int imageWidth = itemImage.getWidth(Maze.getInstance().getUi().getComponent());
 
-		int imageX = x + width / 2 - imageWidth / 2;
-		RoundRectangle2D outer = new RoundRectangle2D.Double(
-			imageX, y, imageWidth, imageWidth, 5, 5);
-		g.setPaint(new GradientPaint(
-			imageX, y, Color.WHITE, x+width/2, y+width/2, Constants.Colour.GOLD));
-		g.draw(outer);
+		Rectangle bounds = new Rectangle(x, y, width, height);
 
-		g.drawImage(image, imageX, y, Maze.getInstance().getUi().getComponent());
+		Image slotImage = Database.getInstance().getImage("screen/itemslot");
+		DIYToolkit.drawImageCentered(g, slotImage, bounds, DIYToolkit.Align.CENTER);
+		DIYToolkit.drawImageCentered(g, itemImage, bounds, DIYToolkit.Align.CENTER);
+
+//		int imageX = x + width / 2 - imageWidth / 2;
+//		RoundRectangle2D outer = new RoundRectangle2D.Double(
+//			imageX, y, imageWidth, imageWidth, 5, 5);
+//		g.setPaint(new GradientPaint(
+//			imageX, y, Color.WHITE, x+width/2, y+width/2, Constants.Colour.GOLD));
+//		g.draw(outer);
+//
+//		g.drawImage(itemImage, imageX, y, Maze.getInstance().getUi().getComponent());
 	}
 }

@@ -40,6 +40,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class DIYToolkit
 {
+	// widget type constants
 	public static final String NONE = "NoRenderer";
 	public static final String LABEL = "Label";
 	public static final String PANE = "Pane";
@@ -54,6 +55,11 @@ public class DIYToolkit
 	public static final String COMBO_BOX = "ComboBox";
 	public static final String COMBO_ITEM = "ComboItem";
 	public static final String TOOLTIP = "Tooltip";
+
+	/**
+	 * Delay before popping up tool tips, in ms
+	 */
+	private static final int TOOLTIP_DELAY = 500;
 
 	/*-------------------------------------------------------------------------*/
 	public enum Align
@@ -855,7 +861,7 @@ public class DIYToolkit
 							}
 						};
 						hoverWidget.setTooltipTimerTask(task);
-						tooltipTimer.schedule(task, 1000);
+						tooltipTimer.schedule(task, TOOLTIP_DELAY);
 					}
 				}
 			}

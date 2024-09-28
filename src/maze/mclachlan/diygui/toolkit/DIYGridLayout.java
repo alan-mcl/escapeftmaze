@@ -26,10 +26,10 @@ import java.awt.*;
  */
 public class DIYGridLayout extends LayoutManager
 {
-	private int rows;
-	private int columns;
-	private int hgap;
-	private int vgap;
+	private final int rows;
+	private final int columns;
+	private final int hgap;
+	private final int vgap;
 
 	/*-------------------------------------------------------------------------*/
 	public DIYGridLayout(int cols, int rows, int hgap, int vgap)

@@ -33,10 +33,7 @@ import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.game.journal.JournalManager;
-import mclachlan.maze.map.FoeEntry;
-import mclachlan.maze.map.Portal;
-import mclachlan.maze.map.Tile;
-import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
@@ -1650,7 +1647,10 @@ public class Maze implements Runnable
 			{
 				MazeScript script = Database.getInstance().getMazeScript("_OUCH_");
 				resolveEvents(script.getEvents());
-				ui.addMessage("LOCKED!");
+				ui.addMessage(StringUtil.getEventText("event.locked"));
+				Maze.getInstance().processPlayerAction(
+					TileScript.PlayerAction.LOCKS,
+					Maze.getInstance().getFacing());
 				return null;
 			}
 			else if (state.equalsIgnoreCase(Portal.State.WALL_LIKE))

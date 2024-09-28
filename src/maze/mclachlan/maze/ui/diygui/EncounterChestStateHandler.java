@@ -21,6 +21,7 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
@@ -41,8 +42,8 @@ public class EncounterChestStateHandler implements ActionListener
 	private final int inset;
 	private final MessageDestination msg;
 
-	private final DIYButton leave;
-	private DIYPane leftPane;
+	private DIYButton leave;
+	private DIYPane result;
 	private Chest chest;
 
 	/*-------------------------------------------------------------------------*/
@@ -53,19 +54,28 @@ public class EncounterChestStateHandler implements ActionListener
 		this.buttonRows = buttonRows;
 		this.inset = inset;
 		this.msg = msg;
-
-		leave = new DIYButton(StringUtil.getUiLabel("poatw.leave"));
-		leave.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getLeftPane()
+	public ContainerWidget getStateHandlerPane()
 	{
-		leftPane = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
+		result = new DIYPane(new DIYGridLayout(4, buttonRows, inset, inset));
 
-		leftPane.add(leave);
+		leave = new DIYButton(StringUtil.getUiLabel("poatw.leave"));
+		leave.setTooltip(StringUtil.getUiLabel("poatw.leave.tooltip"));
+		leave.addActionListener(this);
 
-		return leftPane;
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(new DIYLabel());
+		result.add(leave);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -116,8 +126,8 @@ public class EncounterChestStateHandler implements ActionListener
 			StringUtil.getUiLabel(
 				"poatw.chest.encounter"));
 
-		if (leave.isVisible()) leftPane.add(leave);
+		if (leave.isVisible()) result.add(leave);
 
-		leftPane.doLayout();
+		result.doLayout();
 	}
 }

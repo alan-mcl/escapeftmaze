@@ -97,7 +97,7 @@ public class GeneralDialog extends DIYPanel
 	{
 		final DIYButton close;
 		close = new DIYButton(null);
-		close.setImage("ui/mf/button/close_button");
+		close.setImage("ui/mf/icons/close");
 		close.setBounds(x + width - 45, y, 45, 45);
 		return close;
 	}

@@ -1279,6 +1279,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void setTile(Zone zone, Tile t, Point tile)
 	{
 		this.zoneDisplay.setTile(zone, t, tile);
+		this.partyOptionsAndTextWidget.setTile(zone, t, tile);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -22,6 +22,8 @@ package mclachlan.maze.map.script;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.Map;
+import mclachlan.crusader.MouseClickScript;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -92,6 +94,30 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 			null,
 			null,
 			EngineObject.Alignment.BOTTOM);
+
+		this.engineObject.setMouseClickScript(
+			new MouseClickScript()
+			{
+				@Override
+				public void initialise(Map map)
+				{
+				}
+
+				@Override
+				public void execute(Map map)
+				{
+					Maze.getInstance().processPlayerAction(
+						TileScript.PlayerAction.LOCKS,
+						Maze.getInstance().getFacing());
+				}
+
+				@Override
+				public int getMaxDist()
+				{
+					return 1;
+				}
+			}
+		);
 	}
 	
 	/*-------------------------------------------------------------------------*/

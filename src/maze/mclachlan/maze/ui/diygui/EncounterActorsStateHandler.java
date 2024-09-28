@@ -20,12 +20,11 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.event.KeyEvent;
+import java.util.*;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionEvent;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYGridLayout;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
@@ -35,7 +34,9 @@ import mclachlan.maze.game.event.PartyEvadesFoesEvent;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.DefaultFoeAiScript;
-import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.combat.event.PartyFleeFailedEvent;
+import mclachlan.maze.stat.combat.event.PartyFleesEvent;
+import mclachlan.maze.stat.combat.event.SuccessEvent;
 import mclachlan.maze.stat.npc.InitiateGuildEvent;
 import mclachlan.maze.stat.npc.Npc;
 import mclachlan.maze.stat.npc.NpcScript;
@@ -51,10 +52,10 @@ public class EncounterActorsStateHandler implements ActionListener
 	private final int inset;
 	private final MessageDestination msg;
 
-	private final DIYButton leave, attack, flee, wait, surprise, evade, guild;
+	private final DIYButton leave, attack, flee, wait, ambush, evade, guild;
 	private ActorEncounter actorEncounter;
 	private NpcScript npcScript;
-	private DIYPane leftPane;
+	private DIYPane pane;
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsStateHandler(Maze maze, int buttonRows, int inset,
@@ -66,49 +67,48 @@ public class EncounterActorsStateHandler implements ActionListener
 		this.msg = msg;
 
 		attack = new DIYButton(StringUtil.getUiLabel("poatw.attack"));
+		attack.setTooltip(StringUtil.getUiLabel("poatw.attack.tooltip"));
 		attack.addActionListener(this);
 
 		wait = new DIYButton(StringUtil.getUiLabel("poatw.wait"));
+		wait.setTooltip(StringUtil.getUiLabel("poatw.wait.tooltip"));
 		wait.addActionListener(this);
 
-		surprise = new DIYButton(StringUtil.getUiLabel("poatw.surprise"));
-		surprise.addActionListener(this);
+		ambush = new DIYButton(StringUtil.getUiLabel("poatw.surprise"));
+		ambush.setTooltip(StringUtil.getUiLabel("poatw.surprise.tooltip"));
+		ambush.addActionListener(this);
 
 		evade = new DIYButton(StringUtil.getUiLabel("poatw.evade"));
+		evade.setTooltip(StringUtil.getUiLabel("poatw.evade.tooltip"));
 		evade.addActionListener(this);
 
 		guild = new DIYButton(StringUtil.getUiLabel("poatw.guild"));
+		guild.setTooltip(StringUtil.getUiLabel("poatw.guild.tooltip"));
 		guild.addActionListener(this);
 
 		leave = new DIYButton(StringUtil.getUiLabel("poatw.leave"));
+		leave.setTooltip(StringUtil.getUiLabel("poatw.leave.tooltip"));
 		leave.addActionListener(this);
 
 		flee = new DIYButton(StringUtil.getUiLabel("poatw.flee"));
+		flee.setTooltip(StringUtil.getUiLabel("poatw.flee.tooltip"));
 		flee.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getLeftPane()
+	public ContainerWidget getStateHandlerPane()
 	{
-		leftPane = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
+		pane = new DIYPane(new DIYGridLayout(4, buttonRows, inset, inset));
 
-		leftPane.add(attack);
-		leftPane.add(surprise);
-		leftPane.add(evade);
-		leftPane.add(flee);
-		leftPane.add(wait);
-		leftPane.add(guild);
-		leftPane.add(leave);
+		pane.add(attack);
+		pane.add(ambush);
+		pane.add(evade);
+		pane.add(flee);
+		pane.add(wait);
+		pane.add(guild);
+		pane.add(leave);
 
-		return leftPane;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public ContainerWidget getRightPane()
-	{
-		DIYPane result = new DIYPane(new DIYGridLayout(1, buttonRows, inset, inset));
-
-		return result;
+		return pane;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -143,7 +143,7 @@ public class EncounterActorsStateHandler implements ActionListener
 			evade();
 			return true;
 		}
-		else if (obj == surprise)
+		else if (obj == ambush)
 		{
 			ambush();
 			return true;
@@ -177,7 +177,7 @@ public class EncounterActorsStateHandler implements ActionListener
 
 	public void ambush()
 	{
-		if (surprise.isVisible())
+		if (ambush.isVisible())
 		{
 			msg.addMessage(StringUtil.getEventText("msg.party.ambushes"));
 			maze.appendEvents(new PartyAmbushesFoesEvent(maze, actorEncounter));
@@ -231,18 +231,12 @@ public class EncounterActorsStateHandler implements ActionListener
 		{
 			switch (actorEncounter.getEncounterAttitude())
 			{
-				case WARY:
-				case SCARED:
-				case NEUTRAL:
+				case WARY, SCARED, NEUTRAL ->
 					maze.appendEvents(npcScript.partyLeavesNeutral());
-					break;
-				case FRIENDLY:
-				case ALLIED:
+				case FRIENDLY, ALLIED ->
 					maze.appendEvents(npcScript.partyLeavesFriendly());
-					break;
-				default:
-					throw new MazeException("invalid leave option "+
-						actorEncounter.getEncounterAttitude());
+				default -> throw new MazeException("invalid leave option " +
+					actorEncounter.getEncounterAttitude());
 			}
 		}
 	}
@@ -252,14 +246,13 @@ public class EncounterActorsStateHandler implements ActionListener
 	{
 		switch (keyCode)
 		{
-			case KeyEvent.VK_A: attack(); break;
-			case KeyEvent.VK_W: partyWaits(); break;
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_L: leave(); break;
-			case KeyEvent.VK_F: flee(); break;
-			case KeyEvent.VK_E: evade(); break;
-			case KeyEvent.VK_S: ambush(); break;
-			case KeyEvent.VK_G: guild(); break;
+			case KeyEvent.VK_A -> attack();
+			case KeyEvent.VK_W -> partyWaits();
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_L -> leave();
+			case KeyEvent.VK_F -> flee();
+			case KeyEvent.VK_E -> evade();
+			case KeyEvent.VK_S -> ambush();
+			case KeyEvent.VK_G -> guild();
 		}
 	}
 
@@ -285,91 +278,129 @@ public class EncounterActorsStateHandler implements ActionListener
 		boolean isGuild =
 			actorEncounter.getLeader().isGuildMaster();
 
-		leftPane.remove(attack);
-		leftPane.remove(surprise);
-		leftPane.remove(evade);
-		leftPane.remove(wait);
-		leftPane.remove(flee);
-		leftPane.remove(leave);
-		leftPane.remove(guild);
+		pane.removeAllChildren();
+
+		Widget[][] buttonLayout;
+		DIYLabel blank = new DIYLabel();
 
 		// set button state based on encounter attitude
 		switch (actorEncounter.getEncounterAttitude())
 		{
-			case ATTACKING:
+			case ATTACKING ->
+			{
 				attack.setVisible(true);
-				surprise.setVisible(mayAmbush);
+				ambush.setVisible(mayAmbush);
 				evade.setVisible(mayEvade);
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(false);
 				guild.setVisible(false);
-				break;
-			case AGGRESSIVE:
+
+				buttonLayout = new Widget[][]
+				{
+					{blank, blank, blank, blank},
+					{mayAmbush?ambush:attack, mayAmbush?attack:blank, blank, mayEvade?evade:blank}
+				};
+			}
+			case AGGRESSIVE ->
+			{
 				attack.setVisible(true);
-				surprise.setVisible(mayAmbush);
+				ambush.setVisible(mayAmbush);
 				evade.setVisible(mayEvade);
 				wait.setVisible(true);
 				flee.setVisible(true);
 				leave.setVisible(false);
 				guild.setVisible(false);
-				break;
-			case WARY:
+
+				buttonLayout = new Widget[][]
+				{
+					{wait, blank, blank, blank},
+					{mayAmbush?ambush:attack, mayAmbush?attack:blank, mayEvade?evade:blank, flee}
+				};
+
+			}
+			case WARY, SCARED ->
+			{
 				attack.setVisible(true);
-				surprise.setVisible(mayAmbush);
+				ambush.setVisible(mayAmbush);
 				evade.setVisible(mayEvade);
 				wait.setVisible(true);
 				flee.setVisible(false);
 				leave.setVisible(true);
 				guild.setVisible(false);
-				break;
-			case SCARED:
+
+				buttonLayout = new Widget[][]
+				{
+					{wait, blank, blank, blank},
+					{mayAmbush?ambush:attack, mayAmbush?attack:blank, mayEvade?evade:blank, leave}
+				};
+
+			}
+			case NEUTRAL ->
+			{
 				attack.setVisible(true);
-				surprise.setVisible(mayAmbush);
-				evade.setVisible(mayEvade);
-				wait.setVisible(true);
-				flee.setVisible(false);
-				leave.setVisible(true);
-				guild.setVisible(false);
-				break;
-			case NEUTRAL:
-				attack.setVisible(true);
-				surprise.setVisible(mayAmbush);
+				ambush.setVisible(mayAmbush);
 				evade.setVisible(mayEvade);
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(true);
 				guild.setVisible(false);
-				break;
-			case FRIENDLY:
+
+				buttonLayout = new Widget[][]
+				{
+					{blank, blank, blank, blank},
+					{mayAmbush?ambush:attack, mayAmbush?attack:blank, mayEvade?evade:blank, leave}
+				};
+
+			}
+			case FRIENDLY, ALLIED ->
+			{
 				attack.setVisible(true);
-				surprise.setVisible(false);
+				ambush.setVisible(mayAmbush);
 				evade.setVisible(false);
 				wait.setVisible(false);
 				flee.setVisible(false);
 				leave.setVisible(true);
 				guild.setVisible(isGuild);
-				break;
-			case ALLIED:
-				attack.setVisible(true);
-				surprise.setVisible(false);
-				evade.setVisible(false);
-				wait.setVisible(false);
-				flee.setVisible(false);
-				leave.setVisible(true);
-				guild.setVisible(isGuild);
-				break;
+
+				buttonLayout = new Widget[][]
+				{
+					{blank, blank, blank, blank},
+					{mayAmbush?ambush:attack, mayAmbush?attack:blank, isGuild?guild:blank, leave}
+				};
+			}
+			default ->
+				throw new MazeException("Unexpected value: " + actorEncounter.getEncounterAttitude());
 		}
 
-		if (attack.isVisible()) leftPane.add(attack);
-		if (surprise.isVisible()) leftPane.add(surprise);
-		if (evade.isVisible()) leftPane.add(evade);
-		if (wait.isVisible()) leftPane.add(wait);
-		if (flee.isVisible()) leftPane.add(flee);
-		if (guild.isVisible()) leftPane.add(guild);
-		if (leave.isVisible()) leftPane.add(leave);
+		List<Widget> visibleButtons = new ArrayList<>();
 
-		leftPane.doLayout();
+		if (attack.isVisible()) visibleButtons.add(attack);
+		if (ambush.isVisible()) visibleButtons.add(ambush);
+		if (evade.isVisible()) visibleButtons.add(evade);
+		if (wait.isVisible()) visibleButtons.add(wait);
+		if (flee.isVisible()) visibleButtons.add(flee);
+		if (guild.isVisible()) visibleButtons.add(guild);
+		if (leave.isVisible()) visibleButtons.add(leave);
+
+		// add to the grid layout
+		for (int row=0; row<2; row++)
+		{
+			for (int col=0; col<4; col++)
+			{
+				Widget b = buttonLayout[row][col];
+				pane.add(b);
+				visibleButtons.remove(b);
+			}
+		}
+
+		// assertion here that we have laid everything out
+		if (!visibleButtons.isEmpty())
+		{
+			throw new MazeException("Invalid layout, unhandled buttons: "+visibleButtons);
+		}
+
+		pane.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -392,7 +423,7 @@ public class EncounterActorsStateHandler implements ActionListener
 		attack.setEnabled(b);
 		flee.setEnabled(b);
 		wait.setEnabled(b);
-		surprise.setEnabled(b);
+		ambush.setEnabled(b);
 		evade.setEnabled(b);
 		guild.setEnabled(b);
 	}

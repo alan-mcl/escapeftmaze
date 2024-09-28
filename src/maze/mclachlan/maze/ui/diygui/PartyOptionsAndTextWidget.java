@@ -21,6 +21,8 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.*;
@@ -30,8 +32,13 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Portal;
+import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.stat.Item;
+import mclachlan.maze.stat.ItemCacheManager;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 import static mclachlan.maze.game.Maze.State.*;
 
@@ -50,12 +57,11 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	implements MessageDestination, ActionListener, ConfirmCallback
 {
 	private static final int TOTAL_LOG_MESSAGES = 200;
-	private static final int MAIN_SCREEN_MESSAGES = 5;
+	private static final int MAIN_SCREEN_MESSAGES = 7;
 	private final Maze maze;
 
-	// card layouts for the left and right
-	private final CardLayoutWidget leftCards;
-	private final CardLayoutWidget rightCards;
+	// card layout for the game state handler widgets
+	private final CardLayoutWidget stateHandlerCards;
 
 	// central header text, common to all game states
 	private final DIYLabel header;
@@ -82,6 +88,9 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	// bottom button pane
 	private final DIYButton viewLog, quit, saveload, settings, journal, map;
 
+	// any items on the tile
+	private final DroppedItemWidget cacheItem;
+
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
 	{
@@ -93,9 +102,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		int panelBorder = 33;
 		int internalInset = 5;
 
-		int buttonHeight = 40;
-
-		DIYPane mainPane = new DIYPane(/*new DIYBorderLayout(internalInset, internalInset)*/);
+		DIYPane mainPane = new DIYPane();
 		mainPane.setBounds(
 			x + panelBorder,
 			y + panelBorder,
@@ -107,56 +114,58 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		int headerHeight = 15;
 		int columnWidth = (mainPane.width - internalInset * 5) / 4;
 		int contentTop = mainPane.y + headerHeight + internalInset;
+		int contentWidth = columnWidth * 4 + internalInset * 3;
 		int columnHeight = mainPane.height - panelBorder - internalInset * 2 - headerHeight;
 		int column1x = mainPane.x + internalInset;
 		int column2x = column1x + columnWidth + internalInset;
 		int column3x = column2x + columnWidth + internalInset;
-		int column4x = column3x + columnWidth + internalInset;
-
-		int buttonRows = columnHeight / buttonHeight;
+//		int column4x = column3x + columnWidth + internalInset;
 
 		// init the state handlers
+		int buttonRows = 2;
 		movementHandler = new MovementStateHandler(maze, buttonRows, internalInset);
 		encounterActorsStateHandler = new EncounterActorsStateHandler(maze, buttonRows, internalInset, this);
 		combatStateHandler = new CombatStateHandler(maze, buttonRows, internalInset, this);
 		encounterChestStateHandler = new EncounterChestStateHandler(maze, buttonRows, internalInset, this);
 		encounterPortalStateHandler = new EncounterPortalStateHandler(maze, buttonRows, internalInset, this);
 
-		// init the header
+		// the header
 		header = new DIYLabel("", DIYToolkit.Align.CENTER);
 		header.setForegroundColour(Color.WHITE);
 		header.setBounds(
 			column1x,
 			mainPane.y,
-			columnWidth * 4 + internalInset * 3,
+			contentWidth,
 			headerHeight);
 
-		// pack card layout widgets for the right and left panes
-		Map<Object, ContainerWidget> leftCardsWidgets = getLeftCardsWidgets();
-		leftCards = new CardLayoutWidget(new Rectangle(), leftCardsWidgets);
-		leftCards.setBounds(
-			column1x,
-			contentTop,
-			columnWidth,
-			columnHeight);
+		// cache item widget
+		cacheItem = new DroppedItemWidget();
+		cacheItem.addActionListener(this);
+		Dimension cacheItemPreferredSize = cacheItem.getPreferredSize();
+		cacheItem.setBounds(
+			x +width/2 - cacheItemPreferredSize.width/2,
+			y,
+			cacheItemPreferredSize.width,
+			cacheItemPreferredSize.height);
 
-		Map<Object, ContainerWidget> rightCardsWidgets = getRightCardsWidgets();
-		rightCards = new CardLayoutWidget(new Rectangle(), rightCardsWidgets);
-		rightCards.setBounds(
-			column4x,
-			contentTop,
-			columnWidth,
-			columnHeight);
-
-		// init text area
+		// the messages text area
 		textArea = new DIYTextArea("");
 		textArea.setTransparent(true);
 		textArea.setAlignment(DIYToolkit.Align.CENTER);
 		textArea.setBounds(
-			column2x,
+			column1x,
 			contentTop,
-			columnWidth * 2 + internalInset,
-			columnHeight - 20);
+			contentWidth,
+			columnHeight/3);
+
+		// pack card layout for the state handler widgets
+		Map<Object, ContainerWidget> stateHandlerCardsWidgets = getStateHandlerCardsWidgets();
+		stateHandlerCards = new CardLayoutWidget(new Rectangle(), stateHandlerCardsWidgets);
+		stateHandlerCards.setBounds(
+			column1x,
+			contentTop +textArea.height,
+			contentWidth,
+			columnHeight-textArea.height);
 
 		// admin buttons
 		int nrAdminButtons = 6;
@@ -210,9 +219,8 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 
 		// add widgets
 		mainPane.add(header);
-		mainPane.add(leftCards);
-		mainPane.add(rightCards);
 		mainPane.add(textArea);
+		mainPane.add(stateHandlerCards);
 
 		mainPane.add(journal);
 		mainPane.add(map);
@@ -221,33 +229,21 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		mainPane.add(settings);
 		mainPane.add(quit);
 
+		this.add(cacheItem);
+
 		this.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private Map<Object, ContainerWidget> getLeftCardsWidgets()
+	private Map<Object, ContainerWidget> getStateHandlerCardsWidgets()
 	{
 		Map<Object, ContainerWidget> result = new HashMap<>();
 
-		result.put(MOVEMENT, movementHandler.getLeftPane());
-		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getLeftPane());
-		result.put(COMBAT, combatStateHandler.getLeftPane());
-		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getLeftPane());
-		result.put(ENCOUNTER_PORTAL, encounterPortalStateHandler.getLeftPane());
-
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private Map<Object, ContainerWidget> getRightCardsWidgets()
-	{
-		Map<Object, ContainerWidget> result = new HashMap<>();
-
-		result.put(MOVEMENT, movementHandler.getRightPane());
-		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getRightPane());
-		result.put(COMBAT, combatStateHandler.getRightPane());
-		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getRightPane());
-		result.put(ENCOUNTER_PORTAL, encounterPortalStateHandler.getRightPane());
+		result.put(MOVEMENT, movementHandler.getStateHandlerPane());
+		result.put(ENCOUNTER_ACTORS, encounterActorsStateHandler.getStateHandlerPane());
+		result.put(COMBAT, combatStateHandler.getStateHandlerPane());
+		result.put(ENCOUNTER_CHEST, encounterChestStateHandler.getStateHandlerPane());
+		result.put(ENCOUNTER_PORTAL, encounterPortalStateHandler.getStateHandlerPane());
 
 		return result;
 	}
@@ -328,8 +324,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			{
 				String zoneName = maze.getCurrentZone().getName();
 				header.setText(StringUtil.getUiLabel("poatw.exploring", zoneName));
-				leftCards.show(MOVEMENT);
-				rightCards.show(MOVEMENT);
+				stateHandlerCards.show(MOVEMENT);
 
 				journal.setEnabled(true);
 				map.setEnabled(true);
@@ -340,8 +335,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			}
 			case ENCOUNTER_ACTORS ->
 			{
-				leftCards.show(ENCOUNTER_ACTORS);
-				rightCards.show(ENCOUNTER_ACTORS);
+				stateHandlerCards.show(ENCOUNTER_ACTORS);
 
 				journal.setEnabled(true);
 				map.setEnabled(true);
@@ -352,8 +346,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			}
 			case COMBAT ->
 			{
-				leftCards.show(COMBAT);
-				rightCards.show(COMBAT);
+				stateHandlerCards.show(COMBAT);
 
 				journal.setEnabled(true);
 				map.setEnabled(true);
@@ -364,8 +357,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			}
 			case ENCOUNTER_CHEST ->
 			{
-				leftCards.show(ENCOUNTER_CHEST);
-				rightCards.show(ENCOUNTER_CHEST);
+				stateHandlerCards.show(ENCOUNTER_CHEST);
 
 				journal.setEnabled(true);
 				map.setEnabled(true);
@@ -376,8 +368,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			}
 			case ENCOUNTER_PORTAL ->
 			{
-				leftCards.show(ENCOUNTER_PORTAL);
-				rightCards.show(ENCOUNTER_PORTAL);
+				stateHandlerCards.show(ENCOUNTER_PORTAL);
 
 				journal.setEnabled(true);
 				map.setEnabled(true);
@@ -493,6 +484,21 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void setTile(Zone zone, Tile t, Point tile)
+	{
+		List<Item> itemsOnTile = ItemCacheManager.getInstance().getItemsOnTile(zone, tile);
+
+		if (itemsOnTile != null && itemsOnTile.size() > 0)
+		{
+			cacheItem.setItem(itemsOnTile.get(0));
+		}
+		else
+		{
+			cacheItem.setItem(null);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void setChest(Chest chest)
 	{
 		encounterChestStateHandler.setChest(chest);
@@ -550,6 +556,20 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		{
 			showMap();
 			return true;
+		}
+		else if (event.getSource() == cacheItem)
+		{
+			if (cacheItem.item != null)
+			{
+				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(
+					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
+
+				ItemCacheManager.getInstance().clearItemsOnTile(
+					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
+
+				Maze.getInstance().grantItems(items);
+				return true;
+			}
 		}
 
 		return false;
@@ -611,5 +631,33 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	{
 		// confirming the exit to main
 		maze.backToMain();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class DroppedItemWidget extends DIYPane
+	{
+		Item item;
+
+		public void setItem(Item item)
+		{
+			this.item = item;
+		}
+
+		public Item getItem()
+		{
+			return item;
+		}
+
+		@Override
+		public Dimension getPreferredSize()
+		{
+			return new Dimension(45, 45);
+		}
+
+		@Override
+		public String getWidgetName()
+		{
+			return MazeRendererFactory.DROPPED_ITEM_WIDGET;
+		}
 	}
 }
