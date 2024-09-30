@@ -160,7 +160,10 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	@Override
 	public void formationChanged(List<PlayerCharacter> actors, int formation)
 	{
-		messageDestination.addMessage(StringUtil.getUiLabel("cow.formation.changed"));
+		if (maze.getPendingPartyOrder() == null)
+		{
+			messageDestination.addMessage(StringUtil.getUiLabel("cow.formation.changed"));
+		}
 		maze.setPendingFormationChanges(actors, formation);
 	}
 
@@ -171,7 +174,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		{
 			case KeyEvent.VK_ENTER, KeyEvent.VK_S -> startRound();
 			case KeyEvent.VK_F -> formation();
-			case KeyEvent.VK_D -> defendAll();
+//			case KeyEvent.VK_D -> defendAll(); D is taken by POATW.saveload
 		}
 	}
 

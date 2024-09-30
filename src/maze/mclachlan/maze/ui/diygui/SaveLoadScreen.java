@@ -23,13 +23,11 @@ import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.diygui.*;
-import mclachlan.diygui.toolkit.ActionEvent;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
 
 /**
  *
@@ -39,7 +37,7 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	DIYListBox list;
 	DIYTextField saveGameName;
 	DIYButton save, load, exit;
-	private List<String> saveGames;
+	private final List<String> saveGames;
 
 	/*-------------------------------------------------------------------------*/
 	public SaveLoadScreen(Rectangle bounds)
@@ -48,27 +46,45 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 
 		setBackgroundImage(Database.getInstance().getImage("screen/main_menu"));
 
-		Rectangle scrollerBounds = new Rectangle(width/4, 90, width/2, height-260);
-		Rectangle listBounds = new Rectangle(0, 0, width/2-40, height-200);
-		list = new DIYListBox(new ArrayList());
-		list.setBounds(listBounds);
-		saveGames = new ArrayList<String>(Database.getInstance().getLoader().getSaveGames());
-		list.setItems(saveGames);
-		DIYPane pane = new DIYPane(listBounds);
-		pane.add(list);
-		DIYScrollPane scroller = new DIYScrollPane(
-			scrollerBounds.x,
-			scrollerBounds.y,
-			scrollerBounds.width,
-			scrollerBounds.height,
-			pane);
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+		int border = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
 
+		DIYPanel panel = new DIYPanel();
+		panel.setStyle(Style.PANEL_MED);
+		panel.setBounds(
+			new Rectangle(
+				width / 4,
+				90,
+				width / 2,
+				height - 150));
+
+		saveGames = new ArrayList<>(Database.getInstance().getLoader().getSaveGames());
+		list = new DIYListBox(saveGames);
 		list.addActionListener(this);
 
-		Rectangle textFieldLabelBounds = new Rectangle(width/4, height-140, width/2/4, 20);
-		Rectangle textFieldBounds = new Rectangle(width/4+100, height-140, width/2/4*3, 20);
+		DIYScrollPane scroller = new DIYScrollPane(
+			panel.x +border +inset,
+			panel.y +border +inset,
+			panel.width -border*2 -inset*2,
+			panel.height -border*2 -inset*3 -80 -buttonPaneHeight,
+			list);
 
-		DIYLabel label = new DIYLabel("Save Game Name:", DIYToolkit.Align.LEFT);
+		panel.add(scroller);
+
+		Rectangle textFieldLabelBounds = new Rectangle(
+			panel.x +border +inset,
+			scroller.y +scroller.height +inset,
+			panel.width -border*2 -inset*2,
+			20);
+		Rectangle textFieldBounds = new Rectangle(
+			panel.x +border +inset,
+			textFieldLabelBounds.y +textFieldLabelBounds.height+inset/2,
+			panel.width -border*2 -inset*2,
+			40);
+
+		DIYLabel label = new DIYLabel(StringUtil.getUiLabel("sls.save.game.name"), DIYToolkit.Align.LEFT);
 		label.setBounds(textFieldLabelBounds);
 		saveGameName = new DIYTextField()
 		{
@@ -79,31 +95,38 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 			}
 		};
 		saveGameName.setBounds(textFieldBounds);
-		if (saveGames.size() > 0)
+		if (this.saveGames.size() > 0)
 		{
-			list.setSelected(saveGames.get(0));
-			saveGameName.setText(saveGames.get(0));
+			list.setSelected(this.saveGames.get(0));
+			saveGameName.setText(this.saveGames.get(0));
 		}
 
-		Rectangle buttonBounds = new Rectangle(0, bounds.height-100, width, 100);
-		DIYPane buttonPanel = new DIYPane(buttonBounds);
-		buttonPanel.setLayoutManager(new DIYFlowLayout(10, 10, DIYToolkit.Align.CENTER));
+		panel.add(label);
+		panel.add(saveGameName);
 
-		save = new DIYButton("(S)ave");
+		Rectangle buttonBounds = new Rectangle(
+			panel.x +border +inset,
+			saveGameName.y +saveGameName.height +inset,
+			panel.width -border*2 -inset*2,
+			buttonPaneHeight);
+		DIYPane buttonPanel = new DIYPane(buttonBounds);
+		buttonPanel.setLayoutManager(new DIYFlowLayout(inset, inset, DIYToolkit.Align.CENTER));
+
+		save = new DIYButton(StringUtil.getUiLabel("sls.save"));
 		save.addActionListener(this);
-		load = new DIYButton("Loa(d)");
+		load = new DIYButton(StringUtil.getUiLabel("sls.load"));
 		load.addActionListener(this);
-		exit = new DIYButton("Exit");
+		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
 		exit.addActionListener(this);
 
 		buttonPanel.add(save);
 		buttonPanel.add(load);
 		buttonPanel.add(exit);
 
-		this.add(scroller);
-		this.add(label);
-		this.add(saveGameName);
-		this.add(buttonPanel);
+		panel.add(buttonPanel);
+
+		this.add(panel);
+		doLayout();
 
 		updateButtonState();
 	}

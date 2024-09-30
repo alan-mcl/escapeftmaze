@@ -1514,6 +1514,12 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public List<PlayerCharacter> getPendingPartyOrder()
+	{
+		return pendingPartyOrder;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Displays the signboard to the player.
 	 */

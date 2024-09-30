@@ -63,7 +63,7 @@ public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 		this.setBounds(dialogBounds);
 		isWidget = new ItemSelectionWidget(isBounds, pc, showEquippedItems, showPackItems);
 
-		DIYPane titlePane = getTitle(title);
+		DIYPane titlePane = getTitlePane(title);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);

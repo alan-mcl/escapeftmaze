@@ -62,7 +62,7 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 
 		DIYPane labelPane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
 		int buttonPaneHeight = 20;
-		labelPane.setBounds(x, y + inset, width, buttonPaneHeight);
+		labelPane.setBounds(x, y + getInset(), width, buttonPaneHeight);
 		labelPane.add(new DIYLabel("How Much (max " + max + ")?"));
 
 		amountField = new DIYTextField()
@@ -81,7 +81,7 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 				}
 			}
 		};
-		amountField.setBounds(x+inset, y+inset+buttonPaneHeight, width-inset*2, buttonPaneHeight);
+		amountField.setBounds(x+ getInset(), y+ getInset() +buttonPaneHeight, width- getInset() *2, buttonPaneHeight);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		int inset = 10;

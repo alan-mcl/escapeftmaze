@@ -59,10 +59,10 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		Rectangle listBounds = new Rectangle(
-			startX +border +inset,
-			startY +border +titlePaneHeight +inset,
-			DIALOG_WIDTH -border*2 -inset*2,
-			DIALOG_HEIGHT -border*2 -inset*4 -buttonPaneHeight);
+			startX + getBorder() + getInset(),
+			startY + getBorder() + getTitlePaneHeight() + getInset(),
+			DIALOG_WIDTH - getBorder() *2 - getInset() *2,
+			DIALOG_HEIGHT - getBorder() *2 - getInset() *4 - getButtonPaneHeight());
 
 		this.setBounds(dialogBounds);
 		List<PlayerCharacter> niceList = new ArrayList<>(guild.values());
@@ -79,14 +79,14 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 		// todo: sorting the list
 		gdWidget = new GuildDisplayWidget(listBounds, niceList);
 
-		DIYPane titlePane = getTitle("Guild");
+		DIYPane titlePane = getTitlePane("Guild");
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(
-			startX +border +inset,
-			startY +DIALOG_HEIGHT -border -buttonPaneHeight,
-			DIALOG_WIDTH -border*2 -inset*2,
-			buttonPaneHeight);
+			startX + getBorder() + getInset(),
+			startY +DIALOG_HEIGHT - getBorder() - getButtonPaneHeight(),
+			DIALOG_WIDTH - getBorder() *2 - getInset() *2,
+			getButtonPaneHeight());
 
 		addCharacter = new DIYButton(StringUtil.getUiLabel("gdd.add.to.party"));
 		addCharacter.addActionListener(this);

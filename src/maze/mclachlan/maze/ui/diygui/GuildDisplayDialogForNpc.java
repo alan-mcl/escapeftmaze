@@ -79,7 +79,7 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 			
 		gdWidget = new GuildDisplayWidget(isBounds, list);
 
-		DIYPane titlePane = getTitle(StringUtil.getUiLabel("gdd.title", npc.getDisplayName()));
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("gdd.title", npc.getDisplayName()));
 
 		DIYPane buttonPane = new DIYPane(new DIYGridLayout(2, 5, 5, 5));
 		buttonPane.setInsets(new Insets(5,20,5,20));

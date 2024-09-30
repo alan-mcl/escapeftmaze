@@ -59,15 +59,15 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 		int buttonPaneHeight = 20;
 		
 		int dialogHeight = Math.min(
-			list.size()*20 + border*2 + buttonPaneHeight + titlePaneHeight +inset*2,
+			list.size()*20 + getBorder() *2 + buttonPaneHeight + getTitlePaneHeight() + getInset() *2,
 			MAX_DIALOG_HEIGHT);
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, dialogHeight);
-		Rectangle isBounds = new Rectangle(startX+ border, startY +border +titlePaneHeight +inset,
-			DIALOG_WIDTH -border*2, dialogHeight -buttonPaneHeight -titlePaneHeight -border*2 -inset*2);
+		Rectangle isBounds = new Rectangle(startX+ getBorder(), startY + getBorder() + getTitlePaneHeight() + getInset(),
+			DIALOG_WIDTH - getBorder() *2, dialogHeight -buttonPaneHeight - getTitlePaneHeight() - getBorder() *2 - getInset() *2);
 
 		this.setBounds(dialogBounds);
 
@@ -76,11 +76,11 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 		personalities.addActionListener(this);
 		personalities.setBounds(isBounds);
 
-		DIYPane titlePane = getTitle("Personality");
+		DIYPane titlePane = getTitlePane("Personality");
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(startX+border, startY+height-buttonPaneHeight-border,
-			width-border*2, buttonPaneHeight);
+		buttonPane.setBounds(startX+ getBorder(), startY+height-buttonPaneHeight- getBorder(),
+			width- getBorder() *2, buttonPaneHeight);
 		okButton = new DIYButton("OK");
 		okButton.addActionListener(this);
 		cancel = new DIYButton("Cancel");

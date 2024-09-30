@@ -22,10 +22,12 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -33,19 +35,18 @@ import mclachlan.maze.game.Maze;
  */
 public class ConfirmationDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton ok, cancel;
-	private DIYTextArea text;
+	private final DIYButton ok, cancel, close;
+	private final DIYTextArea text;
+
+	private final ConfirmCallback callback;
 
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/4;
-	private ConfirmCallback callback;
+	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3;
 
 	/*-------------------------------------------------------------------------*/
-	public ConfirmationDialog(String labels, ConfirmCallback callback)
+	public ConfirmationDialog(String title, String labels, ConfirmCallback callback)
 	{
 		this.callback = callback;
-		this.ok = new DIYButton("OK");
-		this.cancel = new DIYButton("Cancel");
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
@@ -54,37 +55,38 @@ public class ConfirmationDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(bounds);
 
-		int inset = 2, border = 15;
-		int buttonHeight = 17;
-		int buttonWidth = bounds.width/4;
+		DIYPane titlePane = getTitlePane(title);
 
-		ok.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 -buttonWidth -inset,
-			bounds.y+ bounds.height - buttonHeight - inset - border,
-			buttonWidth, buttonHeight));
+		DIYPane buttonPane = getButtonPane();
 
-		cancel.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 +inset,
-			bounds.y+ bounds.height - buttonHeight - inset - border,
-			buttonWidth, buttonHeight));
-
+		ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		ok.addActionListener(this);
+
+		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
 		cancel.addActionListener(this);
 
+		close = getCloseButton();
+		close.addActionListener(this);
+
+		buttonPane.add(ok);
+		buttonPane.add(cancel);
+		this.add(close);
+
 		Rectangle r = new Rectangle(
-			bounds.x +inset +border,
-			bounds.y +inset +border,
-			bounds.width -inset*2 -border*2,
-			bounds.height -buttonHeight -inset*3 -border*2);
+			bounds.x +getBorder() +getInset(),
+			bounds.y +getBorder() +getTitlePaneHeight() +getInset(),
+			bounds.width -getBorder()*2 -getInset()*2,
+			bounds.height -getButtonPaneHeight() -getInset()*3 -getBorder()*2);
 
 		text = new DIYTextArea(labels);
 		text.setTransparent(true);
 		text.setBounds(r);
 
-		this.add(ok);
-		this.add(cancel);
+		this.add(titlePane);
 		this.add(text);
+		this.add(buttonPane);
 
+		doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -128,7 +130,7 @@ public class ConfirmationDialog extends GeneralDialog implements ActionListener
 			exitDialog();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == cancel || event.getSource() == close)
 		{
 			exitDialog();
 			return true;

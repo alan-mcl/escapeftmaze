@@ -62,11 +62,11 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 
 		DIYPane labelPane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
 		int buttonPaneHeight = 20;
-		labelPane.setBounds(x, y + inset, width, buttonPaneHeight);
+		labelPane.setBounds(x, y + getInset(), width, buttonPaneHeight);
 		labelPane.add(new DIYLabel(pc.getDisplayName()+" : "));
 
 		inputField = new DIYTextField();
-		inputField.setBounds(x + inset, y + inset + buttonPaneHeight, width - inset * 2, buttonPaneHeight);
+		inputField.setBounds(x + getInset(), y + getInset() + buttonPaneHeight, width - getInset() * 2, buttonPaneHeight);
 		inputField.addActionListener(this);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));

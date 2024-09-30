@@ -34,29 +34,31 @@ import mclachlan.maze.map.Zone;
  */
 public class MapDisplayDialog extends GeneralDialog implements ActionListener
 {
-	private static int XX = 50;
-	private static int YY = 50;
-	private static Rectangle bounds = new Rectangle(XX, YY,
-		DiyGuiUserInterface.SCREEN_WIDTH-100, DiyGuiUserInterface.SCREEN_HEIGHT-100);
+	private static final int XX = 50, YY = 50;
 
-	private static int buttonPaneHeight = 20;
-	private static int inset = 10;
-
-	private static Rectangle mapBounds = new Rectangle(
-		XX+inset,
-		YY+inset +titlePaneHeight,
-		bounds.width -inset*2,
-		bounds.height -buttonPaneHeight*2 -inset*2 -titlePaneHeight);
-
-	private MapDisplayWidget mapWidget;
-	private DIYButton okButton, zoomIn, zoomOut;
+	private final MapDisplayWidget mapWidget;
+	private final DIYButton okButton, zoomIn, zoomOut;
 
 	/*-------------------------------------------------------------------------*/
 	public MapDisplayDialog()
 	{
-		super(bounds);
+		super(new Rectangle(
+			XX,
+			YY,
+			DiyGuiUserInterface.SCREEN_WIDTH-100,
+			DiyGuiUserInterface.SCREEN_HEIGHT-100));
 
 		Zone zone = Maze.getInstance().getCurrentZone();
+
+		int inset = getInset();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int titlePaneHeight = getTitlePaneHeight();
+
+		Rectangle mapBounds = new Rectangle(
+			XX+inset,
+			YY+inset + titlePaneHeight,
+			width -inset*2,
+			height -buttonPaneHeight*2 -inset*2 - titlePaneHeight);
 
 		mapWidget = new MapDisplayWidget();
 		mapWidget.setBounds(mapBounds);
@@ -77,7 +79,7 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 		buttonPane.add(zoomOut);
 		buttonPane.add(okButton);
 
-		DIYPane title = getTitle(zone.getName());
+		DIYPane title = getTitlePane(zone.getName());
 
 		this.add(title);
 		this.add(mapWidget);
@@ -133,21 +135,12 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 			return;
 		}
 
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
-				exit();
-				break;
-			case KeyEvent.VK_PAGE_DOWN:
-			case KeyEvent.VK_PLUS:
-			case KeyEvent.VK_EQUALS:
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			case KeyEvent.VK_PAGE_DOWN, KeyEvent.VK_PLUS, KeyEvent.VK_EQUALS ->
 				zoomIn();
-				break;
-			case KeyEvent.VK_PAGE_UP:
-			case KeyEvent.VK_MINUS:
-				zoomOut();
-				break;
+			case KeyEvent.VK_PAGE_UP, KeyEvent.VK_MINUS -> zoomOut();
 		}
 	}
 }

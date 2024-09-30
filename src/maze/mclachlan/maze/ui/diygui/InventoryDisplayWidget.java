@@ -152,13 +152,15 @@ public class InventoryDisplayWidget extends ContainerWidget
 		int column2x = column1x + columnWidth + inset;
 		int column3x = column2x + columnWidth + inset;
 
-		int titleHeight = 20;
-		int buttonPaneHeight = GeneralDialog.buttonPaneHeight;
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+
+		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
 		int headerOffset = titleHeight + DiyGuiUserInterface.SCREEN_EDGE_INSET;
 		int contentTop = headerOffset + inset;
 		int contentHeight = height - contentTop - buttonPaneHeight -inset;
-		int panelBorderInset = 25;
-		int frameBorderInset = panelBorderInset/2;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int frameBorderInset = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
 
 		// screen title
 		DIYLabel inventoryTitle = getSubTitle(StringUtil.getUiLabel("idw.title"));

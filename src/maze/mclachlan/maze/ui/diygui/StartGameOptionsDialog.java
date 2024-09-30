@@ -70,14 +70,14 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 
 		optionsWidget = new StartGameOptionsWidget(isBounds);
 
-		DIYPane titlePane = getTitle(StringUtil.getUiLabel("sgo.difficulty.level"));
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("sgo.difficulty.level"));
 
 		if (Maze.getInstance().getParty().size() < 6)
 		{
 			DIYPane warningPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
 			warningPane.setBounds(
 				x+ buttonPaneHeight,
-				y+ border + inset,
+				y+ getBorder() + inset,
 				width- buttonPaneHeight *2,
 				buttonPaneHeight *2);
 			DIYTextArea warningLabel = new DIYTextArea(StringUtil.getUiLabel("sgo.small.party.warning"));

@@ -151,6 +151,11 @@ cow.evade = (E)vade Foes
 cow.surprise = (S)urprise Foes
 cow.formation.changed = Formation will change at end of round
 
+# formation dialog
+fd.title = Party Formation
+fd.move.up = Move (U)p
+fd.move.down = Move (D)own
+
 # movement options widget
 poatw.quit = (Q)uit
 poatw.stats = Stats
@@ -185,9 +190,10 @@ poatw.guild = (G)uild
 poatw.guild.tooltip = You can recruit characters for the party here.
 poatw.start.round = (S)tart Round
 poatw.start.round.tooltip = Start the next combat round.
-poatw.defend.all = (D)efend All
+poatw.defend.all = Defend All
 poatw.defend.all.tooltip = Set all party members to defend.
 poatw.terminate.game = Terminate Game
+poatw.confirm.exit.title = Quit Game
 poatw.confirm.exit = Exit to the Main Menu? All unsaved progress will be lost...
 poatw.actor.encounter = Encounter: %s (%s)
 poatw.exploring = Exploring: %s
@@ -275,15 +281,20 @@ mm.settings.tooltip = Change game settings.
 mm.quit = (Q)UIT
 mm.rolling.characters = Rolling characters...
 
+# Save / Load screen
+sls.save.game.name = Save Game Name:
+sls.save = (S)ave
+sls.load = Loa(d)
+
 # resting dialog
 rd.title = Resting At This Location
-rd.rest = Begin Camping
+rd.rest = Begin (C)amping
 rd.resting.danger = Resting Danger:
 rd.resting.efficiency = Resting Efficiency:
 rd.supplies.available = Party Supplies:
 rd.supplies = Supplies
-rd.needed = Needed
-rd.available = Available
+rd.needed = Supplies Needed
+rd.available = Will Consume
 rd.supplies.units = %s units
 rd.resting.progress = Resting in %s
 rd.encounter = An Encounter!

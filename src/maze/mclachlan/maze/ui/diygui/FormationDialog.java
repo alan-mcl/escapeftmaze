@@ -24,6 +24,7 @@ import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -31,58 +32,62 @@ import mclachlan.maze.game.Maze;
  */
 public class FormationDialog extends GeneralDialog implements ActionListener
 {
-	static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
-	static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/2;
+	static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH / 3;
+	static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT / 2;
 
-	private FormationWidget formationWidget;
-	private DIYButton ok, cancel, moveUp, moveDown;
-	private FormationCallback formationCallback;
+	private final FormationWidget formationWidget;
+	private final DIYButton close, moveUp, moveDown;
+	private final FormationCallback formationCallback;
 
 	/*-------------------------------------------------------------------------*/
 	public FormationDialog(FormationCallback formationCallback)
 	{
 		this.formationCallback = formationCallback;
-		String titleText = "Formation";
-		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
-		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
+
+		int startX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - DIALOG_WIDTH / 2;
+		int startY = DiyGuiUserInterface.SCREEN_HEIGHT / 2 - DIALOG_HEIGHT / 2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		Rectangle isBounds = new Rectangle(startX+inset, startY+inset+titlePaneHeight,
-			DIALOG_WIDTH-inset*2, DIALOG_HEIGHT-titlePaneHeight-buttonPaneHeight-inset*3);
-
 		this.setBounds(dialogBounds);
+
+		int buttonPaneHeight = getButtonPaneHeight() * 2;
+
+		Rectangle isBounds = new Rectangle(
+			startX + getBorder() + getInset(),
+			startY + getBorder() + getInset() + getTitlePaneHeight(),
+			width - getInset() * 2 - getBorder() * 2,
+			height - getTitlePaneHeight() - getBorder() * 2 - buttonPaneHeight - getInset() * 3);
 
 		formationWidget = new FormationWidget(isBounds, Maze.getInstance().getParty());
 
-		DIYPane titlePane = getTitle(titleText);
+		String titleText = StringUtil.getUiLabel("fd.title");
+		DIYPane titlePane = getTitlePane(titleText);
 
 		DIYPane buttonGrid = new DIYPane();
-		buttonGrid.setBounds(x+inset, y+height-buttonPaneHeight-inset, width-inset*2, buttonPaneHeight);
-		buttonGrid.setLayoutManager(new DIYGridLayout(1, 3, 4, 4));
+		buttonGrid.setBounds(
+			x + getBorder() + getInset(),
+			y + height - buttonPaneHeight - getBorder() - getInset(),
+			width - getInset() * 2 - getBorder() * 2,
+			buttonPaneHeight);
+		buttonGrid.setLayoutManager(new DIYGridLayout(1, 2, getInset(), getInset()));
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		ok = new DIYButton("OK");
-		ok.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
-
-		buttonPane.add(ok);
-		buttonPane.add(cancel);
-
-		moveUp = new DIYButton("Move (U)p");
+		moveUp = new DIYButton(StringUtil.getUiLabel("fd.move.up"));
 		moveUp.addActionListener(this);
 
-		moveDown = new DIYButton("Move (D)own");
+		moveDown = new DIYButton(StringUtil.getUiLabel("fd.move.down"));
 		moveDown.addActionListener(this);
 
 		buttonGrid.add(moveUp);
 		buttonGrid.add(moveDown);
-		buttonGrid.add(buttonPane);
 
 		this.add(titlePane);
 		this.add(formationWidget);
 		this.add(buttonGrid);
+		this.add(close);
+
 		this.doLayout();
 	}
 
@@ -93,27 +98,15 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				canceled();
-				break;
-			case KeyEvent.VK_ENTER:
-				finished();
-				break;
-			case KeyEvent.VK_U:
-				moveUp();
-				break;
-			case KeyEvent.VK_D:
-				moveDown();
-				break;
-			case KeyEvent.VK_UP:
-				formationWidget.moveSelectionUp();
-				break;
-			case KeyEvent.VK_DOWN:
-				formationWidget.moveSelectionDown();
-				break;
+			case KeyEvent.VK_ESCAPE -> canceled();
+			case KeyEvent.VK_ENTER -> finished();
+			case KeyEvent.VK_U -> moveUp();
+			case KeyEvent.VK_D -> moveDown();
+			case KeyEvent.VK_UP -> formationWidget.moveSelectionUp();
+			case KeyEvent.VK_DOWN -> formationWidget.moveSelectionDown();
 		}
 	}
 
@@ -121,6 +114,11 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 	private void finished()
 	{
 		DIYToolkit.getInstance().clearDialog(this);
+		formationChanged();
+	}
+
+	private void formationChanged()
+	{
 		formationCallback.formationChanged(
 			formationWidget.getActors(),
 			formationWidget.getFormation());
@@ -136,12 +134,14 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 	private void moveDown()
 	{
 		formationWidget.moveDown();
+		formationChanged();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void moveUp()
 	{
 		formationWidget.moveUp();
+		formationChanged();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -159,14 +159,9 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 			moveDown();
 			return true;
 		}
-		else if (obj == ok)
+		else if (obj == close)
 		{
 			finished();
-			return true;
-		}
-		else if (obj == cancel)
-		{
-			canceled();
 			return true;
 		}
 

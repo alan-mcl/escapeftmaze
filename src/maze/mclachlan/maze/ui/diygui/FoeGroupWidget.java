@@ -31,14 +31,12 @@ import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 public class FoeGroupWidget extends ContainerWidget
 {
 	private FoeGroup group;
-	private Rectangle bounds;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeGroupWidget(FoeGroup group, Rectangle bounds)
 	{
 		super(bounds);
 		this.group = group;
-		this.bounds = bounds;
 	}
 	
 	/*-------------------------------------------------------------------------*/

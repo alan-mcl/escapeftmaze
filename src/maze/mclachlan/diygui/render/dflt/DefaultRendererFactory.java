@@ -31,9 +31,10 @@ public class DefaultRendererFactory extends RendererFactory
 {
 	static final Color PANEL_BACKGROUND = Color.LIGHT_GRAY;
 	static final Color LABEL_FOREGROUND = Color.GRAY.brighter();
-	
+	private final DefaultRendererProperties defaultRendererProperties = new DefaultRendererProperties();
+
 	Map<String, Renderer> renderers = new HashMap<>();
-	
+
 	/*-------------------------------------------------------------------------*/
 	public DefaultRendererFactory()
 	{
@@ -64,5 +65,33 @@ public class DefaultRendererFactory extends RendererFactory
 		}
 		
 		return renderer;
+	}
+
+	@Override
+	public RendererProperties getRendererProperties()
+	{
+		return defaultRendererProperties;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class DefaultRendererProperties implements RendererProperties
+	{
+		@Override
+		public int getProperty(Property p)
+		{
+			return switch (p)
+			{
+				case TRANSPARENT_PANEL_BORDER -> 10;
+				case PANEL_HEAVY_BORDER -> 20;
+				case PANEL_MED_BORDER -> 15;
+				case PANEL_LIGHT_BORDER -> 10;
+				case IMAGE_BACK_PANEL_BORDER -> 10;
+				case DIALOG_BORDER -> 20;
+
+				case INSET -> 5;
+				case TITLE_PANE_HEIGHT -> 20;
+				case BUTTON_PANE_HEIGHT -> 20;
+			};
+		}
 	}
 }

@@ -81,7 +81,7 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 			maxRows,
 			this);
 
-		DIYPane titlePane = getTitle(
+		DIYPane titlePane = getTitlePane(
 			StringUtil.getUiLabel(
 				"td.title",pc.getName(),npc.getDisplayName()));
 //		npc.sortInventory();

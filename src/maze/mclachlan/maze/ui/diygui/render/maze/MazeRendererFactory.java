@@ -21,10 +21,7 @@ package mclachlan.maze.ui.diygui.render.maze;
 
 import java.awt.Color;
 import java.util.*;
-import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.diygui.toolkit.NullRenderer;
-import mclachlan.diygui.toolkit.Renderer;
-import mclachlan.diygui.toolkit.RendererFactory;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
 
@@ -48,6 +45,7 @@ public class MazeRendererFactory extends RendererFactory
 	public static final String FILLED_BAR_WIDGET = "FilledBarWidget";
 
 	private final Map<String, Renderer> renderers = new HashMap<String, Renderer>();
+	private final MazeRendererProperties mazeRendererProperties = new MazeRendererProperties();
 
 
 	/*-------------------------------------------------------------------------*/
@@ -84,13 +82,41 @@ public class MazeRendererFactory extends RendererFactory
 	public Renderer getRenderer(String widgetName)
 	{
 		Renderer renderer = this.renderers.get(widgetName);
-		
+
 		if (renderer == null)
 		{
-			throw new MazeException("No renderer for ["+widgetName+"]");
+			throw new MazeException("No renderer for [" + widgetName + "]");
 		}
-		
+
 		return renderer;
+	}
+
+	@Override
+	public RendererProperties getRendererProperties()
+	{
+		return mazeRendererProperties;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class MazeRendererProperties implements RendererProperties
+	{
+		@Override
+		public int getProperty(Property p)
+		{
+			return switch (p)
+				{
+					case TRANSPARENT_PANEL_BORDER -> 10;
+					case PANEL_HEAVY_BORDER -> 20;
+					case PANEL_MED_BORDER -> 15;
+					case PANEL_LIGHT_BORDER -> 10;
+					case IMAGE_BACK_PANEL_BORDER -> 10;
+					case DIALOG_BORDER -> 20;
+
+					case INSET -> 5;
+					case TITLE_PANE_HEIGHT -> 20;
+					case BUTTON_PANE_HEIGHT -> 25;
+				};
+		}
 	}
 
 }

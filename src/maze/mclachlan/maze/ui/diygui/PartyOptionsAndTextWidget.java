@@ -143,7 +143,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		cacheItem.addActionListener(this);
 		Dimension cacheItemPreferredSize = cacheItem.getPreferredSize();
 		cacheItem.setBounds(
-			x +width/2 - cacheItemPreferredSize.width/2,
+			x + width / 2 - cacheItemPreferredSize.width / 2,
 			y,
 			cacheItemPreferredSize.width,
 			cacheItemPreferredSize.height);
@@ -156,16 +156,16 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			column1x,
 			contentTop,
 			contentWidth,
-			columnHeight/3);
+			columnHeight / 3);
 
 		// pack card layout for the state handler widgets
 		Map<Object, ContainerWidget> stateHandlerCardsWidgets = getStateHandlerCardsWidgets();
 		stateHandlerCards = new CardLayoutWidget(new Rectangle(), stateHandlerCardsWidgets);
 		stateHandlerCards.setBounds(
 			column1x,
-			contentTop +textArea.height,
+			contentTop + textArea.height,
 			contentWidth,
-			columnHeight-textArea.height);
+			columnHeight - textArea.height);
 
 		// admin buttons
 		int nrAdminButtons = 6;
@@ -395,36 +395,12 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	{
 		switch (keyCode)
 		{
-			case KeyEvent.VK_Q ->
-			{
-				quit();
-				return;
-			}
-			case KeyEvent.VK_D ->
-			{
-				saveOrLoad();
-				return;
-			}
-			case KeyEvent.VK_G ->
-			{
-				showSettingsDialog();
-				return;
-			}
-			case KeyEvent.VK_J ->
-			{
-				showJournal();
-				return;
-			}
-			case KeyEvent.VK_M, KeyEvent.VK_TAB ->
-			{
-				showMap();
-				return;
-			}
-			case KeyEvent.VK_V ->
-			{
-				viewLog();
-				return;
-			}
+			case KeyEvent.VK_Q -> quit();
+			case KeyEvent.VK_D -> saveOrLoad();
+			case KeyEvent.VK_G -> showSettingsDialog();
+			case KeyEvent.VK_J -> showJournal();
+			case KeyEvent.VK_M, KeyEvent.VK_TAB -> showMap();
+			case KeyEvent.VK_V -> viewLog();
 		}
 
 		switch (maze.getState())
@@ -612,6 +588,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	{
 		maze.getUi().showDialog(
 			new ConfirmationDialog(
+				StringUtil.getUiLabel("poatw.confirm.exit.title"),
 				StringUtil.getUiLabel("poatw.confirm.exit"),
 				this));
 	}

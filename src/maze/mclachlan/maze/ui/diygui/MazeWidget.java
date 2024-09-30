@@ -69,15 +69,14 @@ public class MazeWidget extends ContainerWidget
 		for (int i = 0; i < foeGroupWidgets.length; i++)
 		{
 			foeGroupWidgets[i] = new FoeGroupWidget(null,
-				new Rectangle(x, y+i*rowHeight, width, rowHeight));
+				new Rectangle(x, y +rowHeight +i*rowHeight, width, rowHeight));
 			add(foeGroupWidgets[i]);
 		}
 
-		int offset = 3;
 		for (int i=0; i<partyAllyWidgets.length; i++)
 		{
 			partyAllyWidgets[i] = new FoeGroupWidget(null,
-				new Rectangle(x, y+height-offset-((i+1)*rowHeight), width, rowHeight));
+				new Rectangle(x, y +height -rowHeight -((i+1)*rowHeight), width, rowHeight));
 			add(partyAllyWidgets[i]);
 		}
 	}

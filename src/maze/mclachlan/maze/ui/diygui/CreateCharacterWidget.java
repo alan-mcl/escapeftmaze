@@ -49,6 +49,7 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class CreateCharacterWidget extends ContainerWidget implements ActionListener
 {
+	private final RendererProperties rp;
 	private DIYButton next, previous;
 	private CardLayoutWidget cardLayout;
 	private int state = CHOOSE_RACE_AND_GENDER;
@@ -117,7 +118,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private StartingKit startingKit;
 
 	private DIYPane buttonPane, titlePane;
-	private final int buttonPaneHeight = GeneralDialog.buttonPaneHeight;
+	private final int buttonPaneHeight;
 	private final List<CharacterClassWrapper> characterClassList = getCharacterClassList();
 	private SpellLearningWidget spellLearner;
 
@@ -128,6 +129,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	public CreateCharacterWidget(Rectangle bounds)
 	{
 		super(bounds);
+
+		rp = DIYToolkit.getInstance().getRendererProperties();
+		buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT) +
+			rp.getProperty(RendererProperties.Property.INSET);
+
 		this.buildGUI(bounds);
 	}
 
@@ -193,9 +199,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		random = new DIYButton(StringUtil.getUiLabel("cc.random"));
 		random.addActionListener(this);
 
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
 		titlePane = new DIYPane(new DIYFlowLayout(7,7, DIYToolkit.Align.CENTER));
 		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("cc.title"), DIYToolkit.Align.CENTER);
-		titlePane.setBounds(x, y, width, 30);
+		titlePane.setBounds(
+			x + inset,
+			y + inset,
+			width,
+			30);
 		title.setForegroundColour(Constants.Colour.GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
 		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+5);
@@ -203,7 +214,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		titlePane.add(title);
 
 		characterTitle = getSubTitle("");
-		characterTitle.setBounds(x+100, y+35, width-200, 20);
+		characterTitle.setBounds(
+			x+100, titlePane.y +titlePane.height +inset, width-200, 20);
 
 		this.add(characterTitle);
 
@@ -245,9 +257,9 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		int column2x = column1x + columnWidth + inset;
 
 		int headerOffset = 50;
-		int contentTop = headerOffset + 50;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int contentTop = headerOffset + 45 +panelBorderInset;
 		int contentHeight = height -contentTop -buttonPaneHeight;
-		int panelBorderInset = 25;
 
 		DIYPane pane = new DIYPane();
 
@@ -288,7 +300,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		int headerOffset = 50;
 		int contentTop = headerOffset + 50;
 		int contentHeight = height -contentTop -buttonPaneHeight;
-		int panelBorderInset = 25;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int titleHeight = 20;
 
 		DIYPane pane = new DIYPane();
@@ -332,7 +344,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		// column 2: kit desc, kit inventory
 		
 		DIYPanel kitDescPanel = getFixedPanel(
-			column2x, headerOffset + 50 + panelBorderInset,
+			column2x, headerOffset + 45 + panelBorderInset,
 			columnWidth*2 +inset,
 			(contentHeight-panelBorderInset-inset) / 20 *13);
 
@@ -344,7 +356,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		DIYPanel kitItemsPanel = getFixedPanel(
 			column2x, kitDescPanel.y+ kitDescPanel.height +inset,
 			columnWidth*2 +inset,
-			(contentHeight-panelBorderInset-inset) / 20 *7);
+			height -kitDescPanel.y -kitDescPanel.height -inset -buttonPaneHeight);
 		kitItemsPanel.setLayoutManager(null);
 
 		DIYLabel kitItemsTitle = getSubTitle(getLabel("cc.kit.items.title"));
@@ -360,7 +372,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		kitItems.setBounds(
 			column2x +panelBorderInset +inset/2,
 			kitItemsTitle.y +titleHeight +inset/2,
-			columnWidth*2 +inset -panelBorderInset*2, 30*itemRows);
+			columnWidth*2 +inset -panelBorderInset*2,
+			kitItemsPanel.height -titleHeight -panelBorderInset*2 -inset);
 		for (int i=0; i<itemCols*itemRows; i++)
 		{
 			ItemWidget iw = new ItemWidget();
@@ -557,7 +570,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		int headerOffset = 50;
 		int contentTop = headerOffset + 50;
 		int contentHeight = height -contentTop -buttonPaneHeight;
-		int panelBorderInset = 25;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int titleHeight = 20;
 
 		DIYPane pane = new DIYPane();
@@ -574,18 +587,18 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		// todo: how to accommodate more classes? scrolling?
 
-		characterClasses.setBounds(
-			column1x+panelBorderInset,
-			contentTop+panelBorderInset+classTitle.height+inset/2,
-			columnWidth -panelBorderInset*2,
-			contentHeight -panelBorderInset*2);
-		characterClasses.setSelected(characterClassList.get(0));
-		characterClasses.addActionListener(this);
-
 		DIYPanel classListPanel = getFixedPanel(column1x, contentTop, columnWidth, contentHeight);
 		classListPanel.setLayoutManager(null);
 		classListPanel.add(classTitle);
 		classListPanel.add(characterClasses);
+
+		characterClasses.setBounds(
+			column1x +panelBorderInset,
+			contentTop +panelBorderInset +classTitle.height +inset/2,
+			columnWidth -panelBorderInset*2,
+			contentHeight -panelBorderInset*2 -classTitle.height);
+		characterClasses.setSelected(characterClassList.get(0));
+		characterClasses.addActionListener(this);
 
 		// column 2: desc, spell books, progression
 
@@ -593,7 +606,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		DIYPanel classDescPanel = getFixedPanel(
 			column2x,
-			headerOffset + 50 + panelBorderInset,
+			headerOffset + 45 + panelBorderInset,
 			columnWidth*2 +inset,
 			(contentHeight-panelBorderInset-inset*2) / 2);
 
@@ -630,7 +643,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			column2x,
 			classSpellBooksPanel.y + classSpellBooksPanel.height +inset,
 			columnWidth*2 +inset,
-			(contentHeight-panelBorderInset-inset*2) / 4);
+			height -classSpellBooksPanel.y -classSpellBooksPanel.height -inset -buttonPaneHeight);
 		classLapPanel.setLayoutManager(null);
 
 		DIYLabel abilityProgressionTitle = getSubTitle(StringUtil.getUiLabel("cc.ability.progression"));
@@ -736,7 +749,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		int headerOffset = 50;
 		int contentTop = headerOffset + 50;
 		int contentHeight = height -contentTop -buttonPaneHeight;
-		int panelBorderInset = 25;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int titleHeight = 20;
 
 		DIYPane pane = new DIYPane();
@@ -773,14 +786,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		DIYPanel namePanel = getFixedPanel(
 			column2x,
-			contentTop + titleHeight,
+			headerOffset + 45 + panelBorderInset,
 			columnWidth*2 +inset,
 			contentHeight/5);
 		namePanel.setLayoutManager(null);
 
 		DIYPanel portraitPanel = getFixedPanel(
 			column2x,
-			contentTop +titleHeight +namePanel.height +inset,
+			namePanel.y +namePanel.height +titleHeight +inset,
 			columnWidth*2 +inset,
 			contentHeight/3);
 		portraitPanel.setLayoutManager(null);
@@ -941,7 +954,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		int headerOffset = 50;
 		int contentTop = headerOffset + 50;
 		int contentHeight = height -contentTop -buttonPaneHeight;
-		int panelBorderInset = 25;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int titleHeight = 20;
 
 		DIYPane pane = new DIYPane();
@@ -1009,20 +1022,27 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		// column 2: desc and image
 
 		DIYPanel raceDescPanel = getFixedPanel(
-			column2x, headerOffset + 50 + panelBorderInset,
-			columnWidth*2 +inset, (contentHeight-panelBorderInset-inset) / 2);
+			column2x,
+			headerOffset + 45 + panelBorderInset,
+			columnWidth*2 +inset,
+			(contentHeight-panelBorderInset-inset) / 2);
 
 		raceDesc = new DIYTextArea("");
 		raceDesc.setTransparent(true);
 		raceDescPanel.add(raceDesc);
 
 		DIYPanel raceImagePanel = getFixedPanel(
-			column2x, raceDescPanel.y+ raceDescPanel.height +inset,
-			columnWidth*2 +inset, raceDescPanel.height);
+			column2x,
+			raceDescPanel.y+ raceDescPanel.height +inset,
+			columnWidth*2 +inset,
+			height -raceDescPanel.y -raceDescPanel.height -inset -buttonPaneHeight);
 
 		raceImage = new DIYLabel();
-		raceImage.setBounds(column2x, raceDescPanel.y+ raceDescPanel.height +inset,
-			columnWidth*2 +inset, raceDescPanel.height);
+		raceImage.setBounds(
+			raceImagePanel.x +panelBorderInset,
+			raceImagePanel.y +panelBorderInset,
+			columnWidth*2 +inset -panelBorderInset*2,
+			raceImagePanel.height -panelBorderInset*2);
 
 		// column 3: resources and stats
 

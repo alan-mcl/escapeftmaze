@@ -71,14 +71,14 @@ public class SpellDetailsDialog extends GeneralDialog
 				pc.getModifier(Stats.Modifier.BLUE_MAGIC_GEN));
 		}
 
-		int xx = bounds.x + inset + border;
-		int yy = bounds.y + inset + border + titlePaneHeight;
-		int width1 = bounds.width - inset * 2 - border * 2;
-		int height1 = bounds.height - inset * 3 - border * 2;
+		int xx = bounds.x + getInset() + getBorder();
+		int yy = bounds.y + getInset() + getBorder() + getTitlePaneHeight();
+		int width1 = bounds.width - getInset() * 2 - getBorder() * 2;
+		int height1 = bounds.height - getInset() * 3 - getBorder() * 2;
 
 		wrapWidth = width1;
 
-		DIYPane title = getTitle(spell.getDisplayName());
+		DIYPane title = getTitlePane(spell.getDisplayName());
 
 		int rowHeight = 15;
 
@@ -187,7 +187,7 @@ public class SpellDetailsDialog extends GeneralDialog
 
 		Dimension mrps = manaRequired.getPreferredSize();
 		manaRequired.setBounds(
-			requiredManaLabel.x + requiredManaLabel.width + inset,
+			requiredManaLabel.x + requiredManaLabel.width + getInset(),
 			requiredManaLabel.y +requiredManaLabel.height/2 - mrps.height/2,
 			mrps.width,
 			mrps.height);
@@ -197,7 +197,7 @@ public class SpellDetailsDialog extends GeneralDialog
 		{
 			Dimension maps = manaAvailable.getPreferredSize();
 			manaAvailable.setBounds(
-				availableManaLabel.x + availableManaLabel.width + inset,
+				availableManaLabel.x + availableManaLabel.width + getInset(),
 				availableManaLabel.y + availableManaLabel.height / 2 - maps.height / 2,
 				maps.width,
 				maps.height);

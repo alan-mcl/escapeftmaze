@@ -52,21 +52,21 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 
 		if (title != null)
 		{
-			titlePane = getTitle(title);
+			titlePane = getTitlePane(title);
 
 			textBounds = new Rectangle(
-				x +inset +border,
-				y +inset +border +titlePaneHeight,
-				width -inset*2 -border*2,
-				height -inset*2 -border*2 -titlePaneHeight);
+				x + getInset() + getBorder(),
+				y + getInset() + getBorder() + getTitlePaneHeight(),
+				width - getInset() *2 - getBorder() *2,
+				height - getInset() *2 - getBorder() *2 - getTitlePaneHeight());
 		}
 		else
 		{
 			textBounds = new Rectangle(
-				x +inset +border,
-				y +inset +border,
-				width -inset*2 -border*2,
-				height -inset*2 -border*2);
+				x + getInset() + getBorder(),
+				y + getInset() + getBorder(),
+				width - getInset() *2 - getBorder() *2,
+				height - getInset() *2 - getBorder() *2);
 		}
 
 		this.text = new DIYTextArea(text);

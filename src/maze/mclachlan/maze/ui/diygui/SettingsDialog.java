@@ -60,17 +60,17 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 		this.setBounds(dialogBounds);
 
 		DIYPane leftPane = new DIYPane(
-			startX +border +inset,
-			startY +border +titlePaneHeight +inset,
-			(DIALOG_WIDTH -inset*2) /3,
-			DIALOG_HEIGHT -inset*2 -titlePaneHeight);
+			startX + getBorder() + getInset(),
+			startY + getBorder() + getTitlePaneHeight() + getInset(),
+			(DIALOG_WIDTH - getInset() *2) /3,
+			DIALOG_HEIGHT - getInset() *2 - getTitlePaneHeight());
 		leftPane.setLayoutManager(new DIYGridLayout(1, 13, 5, 5));
 
 		DIYPane rightPane = new DIYPane(
-			startX +border +inset + (DIALOG_WIDTH -inset*2) /3,
-			startY +border +titlePaneHeight +inset,
-			(DIALOG_WIDTH -inset*2) /3 *2,
-			DIALOG_HEIGHT -inset*2 -titlePaneHeight);
+			startX + getBorder() + getInset() + (DIALOG_WIDTH - getInset() *2) /3,
+			startY + getBorder() + getTitlePaneHeight() + getInset(),
+			(DIALOG_WIDTH - getInset() *2) /3 *2,
+			DIALOG_HEIGHT - getInset() *2 - getTitlePaneHeight());
 		rightPane.setLayoutManager(new DIYGridLayout(1, 13, 5, 5));
 
 		//---
@@ -176,7 +176,7 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		refresh(userConfig);
 
-		DIYPane titlePane = getTitle(StringUtil.getUiLabel("sd.title"));
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("sd.title"));
 
 		close = getCloseButton();
 		close.addActionListener(this);

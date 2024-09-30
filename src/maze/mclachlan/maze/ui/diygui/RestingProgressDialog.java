@@ -22,11 +22,12 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
-import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextArea;
-import mclachlan.diygui.toolkit.*;
-import mclachlan.maze.data.StringUtil;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
+import mclachlan.diygui.toolkit.DIYBorderLayout;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -35,9 +36,9 @@ import mclachlan.maze.game.Maze;
 public class RestingProgressDialog extends GeneralDialog
 	implements ActionListener, ProgressListenerCallback
 {
-	private DIYButton ok;
-	private DIYTextArea text;
-	private FilledBarWidget progress;
+	private final DIYButton close;
+	private final DIYTextArea text;
+	private final FilledBarWidget progress;
 
 	/*-------------------------------------------------------------------------*/
 	public RestingProgressDialog(
@@ -45,31 +46,27 @@ public class RestingProgressDialog extends GeneralDialog
 	{
 		super();
 
-		int buttonHeight = 20;
-		int inset = 10;
-		int buttonPaneHeight = 18;
+		int startX = DiyGuiUserInterface.SCREEN_WIDTH / 2;
+		int startY = DiyGuiUserInterface.SCREEN_HEIGHT / 2;
+		int height = DiyGuiUserInterface.SCREEN_WIDTH / 4;
 
-		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2-inset;
-		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/5;
+		this.setBounds(
+			new Rectangle(
+				startX - (startX -getInset()) /2,
+				startY - height / 2,
+				startX -getInset(),
+				height));
 
-		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
-		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
-
-		Rectangle dialogBounds = new Rectangle(startX, startY, dialogWidth, dialogHeight);
-
-		this.setBounds(dialogBounds);
-
-		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
-
-		titlePane.setBounds(x, y + inset, width, buttonPaneHeight);
-		DIYLabel label = new DIYLabel(title);
-		label.setForegroundColour(Constants.Colour.GOLD);
-		titlePane.add(label);
+		DIYPane titlePane = getTitlePane(title);
 
 		DIYPane infoPane = new DIYPane(new DIYBorderLayout(5,5));
-		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width-inset*2, dialogHeight-buttonPaneHeight*3);
+		infoPane.setBounds(
+			x +getBorder() +getInset(),
+			y +getBorder() +getInset() +getTitlePaneHeight(),
+			this.width -getBorder()*2 -getInset()*2,
+			this.height -getTitlePaneHeight() -getInset()*2);
 
-		progress = new FilledBarWidget(infoPane.x, infoPane.y, dialogWidth/2, buttonHeight, 0, 100);
+		progress = new FilledBarWidget(infoPane.x, infoPane.y, infoPane.width, getButtonPaneHeight()/2, 0, 100);
 		progress.setCallback(this);
 		infoPane.add(progress, DIYBorderLayout.Constraint.NORTH);
 
@@ -78,36 +75,29 @@ public class RestingProgressDialog extends GeneralDialog
 		text.setAlignment(DIYToolkit.Align.CENTER);
 		infoPane.add(text, DIYBorderLayout.Constraint.CENTER);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-
-		ok = new DIYButton(StringUtil.getUiLabel("common.ok"));
-		ok.addActionListener(this);
-		ok.setEnabled(false);
-		buttonPane.add(ok);
+		close = getCloseButton();
+		close.addActionListener(this);
+		close.setEnabled(false);
 
 		this.add(titlePane);
 		this.add(infoPane);
-		this.add(buttonPane);
+		this.add(close);
 		this.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER:
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
+			case KeyEvent.VK_ENTER, KeyEvent.VK_ESCAPE -> exit();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == ok)
+		if (event.getSource() == close)
 		{
 			exit();
 			return true;
@@ -119,7 +109,7 @@ public class RestingProgressDialog extends GeneralDialog
 	/*-------------------------------------------------------------------------*/
 	private void exit()
 	{
-		if (ok.isEnabled())
+		if (close.isEnabled())
 		{
 			Maze.getInstance().setState(Maze.State.MOVEMENT);
 			Maze.getInstance().getUi().clearDialog();
@@ -138,7 +128,7 @@ public class RestingProgressDialog extends GeneralDialog
 	{
 		if (progress == 100)
 		{
-			ok.setEnabled(true);
+			close.setEnabled(true);
 		}
 	}
 

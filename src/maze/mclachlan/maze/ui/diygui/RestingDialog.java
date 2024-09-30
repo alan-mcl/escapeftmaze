@@ -41,22 +41,17 @@ import static mclachlan.maze.data.StringUtil.getUiLabel;
  */
 public class RestingDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton rest, cancel;
+	private final DIYButton rest, close;
 	private int suppliesToConsume;
 	private int actuallyConsumed = 0;
 
 	/*-------------------------------------------------------------------------*/
-	public RestingDialog(
-		String title)
+	public RestingDialog(String title)
 	{
 		super();
 
-		int buttonHeight = 20;
-		int inset = 10;
-		int buttonPaneHeight = 18;
-
-		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/3;
-		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/3;
+		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2;
+		int dialogHeight = DiyGuiUserInterface.SCREEN_WIDTH/2;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -77,11 +72,15 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		}
 
 		DIYPane infoPane = new DIYPane(new DIYGridLayout(3, rows,0,0));
-		infoPane.setBounds(x+inset, y+inset+buttonPaneHeight, width, dialogHeight-buttonPaneHeight*3);
+		infoPane.setBounds(
+			x + getBorder() + getInset(),
+			y + getBorder() + getInset() + getTitlePaneHeight(),
+			width - getBorder() *2 - getInset() *2,
+			height - getBorder() *2 - getInset() *2 - getTitlePaneHeight() - getButtonPaneHeight());
 
 		infoPane.add(new DIYLabel(getUiLabel("rd.resting.danger"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel(tile.getRestingDanger().toString(), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel());
 
 		if (guardDuty != null && guardDuty.getModifier(Stats.Modifier.GUARD_DUTY) > 0)
 		{
@@ -91,8 +90,8 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		}
 
 		infoPane.add(new DIYLabel(getUiLabel("rd.resting.efficiency"), DIYToolkit.Align.LEFT));
-		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel(tile.getRestingEfficiency().toString(), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel());
 
 		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.available"), DIYToolkit.Align.LEFT));
 		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units",
@@ -103,7 +102,8 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel());
 
-		infoPane.add(new DIYLabel(getUiLabel("rd.supplies"), DIYToolkit.Align.LEFT));
+//		infoPane.add(new DIYLabel(getUiLabel("rd.supplies"), DIYToolkit.Align.LEFT));
+		infoPane.add(new DIYLabel());
 		infoPane.add(new DIYLabel(getUiLabel("rd.needed")));
 		infoPane.add(new DIYLabel(getUiLabel("rd.available")));
 
@@ -126,46 +126,38 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units", suppliesToConsume)));
 		infoPane.add(new DIYLabel(getUiLabel("rd.supplies.units", actuallyConsumed)));
 
-		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
-
-		titlePane.setBounds(x, y + inset, width, buttonPaneHeight);
-		titlePane.add(new DIYLabel(title));
-
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
+		DIYPane buttonPane = getButtonPane();
 
 		rest = new DIYButton(getUiLabel("rd.rest"));
 		rest.addActionListener(this);
 		buttonPane.add(rest);
 
-		cancel = new DIYButton(getUiLabel("common.cancel"));
-		cancel.addActionListener(this);
-		buttonPane.add(cancel);
+		close = getCloseButton();
+		close.addActionListener(this);
+
+		DIYPane titlePane = getTitlePane(title);
 
 		this.add(titlePane);
 		this.add(infoPane);
 		this.add(buttonPane);
+		this.add(close);
 		this.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER:
-				rest();
-				break;
-			case KeyEvent.VK_ESCAPE:
-				cancel();
-				break;
+			case KeyEvent.VK_ENTER, KeyEvent.VK_C -> rest();
+			case KeyEvent.VK_ESCAPE -> cancel();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == cancel)
+		if (event.getSource() == close)
 		{
 			cancel();
 			return true;

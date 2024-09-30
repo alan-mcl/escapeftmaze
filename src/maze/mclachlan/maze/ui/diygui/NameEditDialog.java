@@ -60,7 +60,7 @@ public class NameEditDialog extends GeneralDialog implements ActionListener
 		text = new DIYTextField("", 20);
 		text.setBounds(textBounds);
 
-		DIYPane titlePane = getTitle(title);
+		DIYPane titlePane = getTitlePane(title);
 
 		int buttonPaneHeight = 20;
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));

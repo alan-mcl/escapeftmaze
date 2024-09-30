@@ -64,7 +64,7 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 			portraitWidget.setToPortrait(startingPortrait);
 		}
 
-		DIYPane titlePane = getTitle("Portrait");
+		DIYPane titlePane = getTitlePane("Portrait");
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);

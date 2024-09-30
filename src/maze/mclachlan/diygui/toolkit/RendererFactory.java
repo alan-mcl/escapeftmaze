@@ -25,4 +25,6 @@ package mclachlan.diygui.toolkit;
 public abstract class RendererFactory
 {
 	public abstract Renderer getRenderer(String widgetName);
+
+	public abstract RendererProperties getRendererProperties();
 }

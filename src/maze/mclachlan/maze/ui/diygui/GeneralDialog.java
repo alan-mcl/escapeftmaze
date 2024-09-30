@@ -21,13 +21,14 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.Image;
 import java.awt.Rectangle;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
+import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.toolkit.RendererProperties;
 
 import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
@@ -36,15 +37,14 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class GeneralDialog extends DIYPanel
 {
-	protected static int buttonPaneHeight = 50;
-	protected static int titlePaneHeight = 50;
-	protected static int border = 30;
-	protected static int inset = 20;
+
+	private final RendererProperties rendererProperties;
 
 	/*-------------------------------------------------------------------------*/
 	public GeneralDialog()
 	{
 		this.setStyle(Style.DIALOG);
+		rendererProperties = DIYToolkit.getInstance().getRendererProperties();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -52,34 +52,51 @@ public class GeneralDialog extends DIYPanel
 	{
 		super(bounds);
 		this.setStyle(Style.DIALOG);
+		rendererProperties = DIYToolkit.getInstance().getRendererProperties();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected void setBackground(Image back)
+	protected int getButtonPaneHeight()
 	{
-//		Image back = Database.getInstance().getImage("screen/general_dialog_back");
-		this.setBackgroundImage(back);
+		return rendererProperties.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
 	}
 
-	/*-------------------------------------------------------------------------*/
-	protected DIYPane getTitle(String titleText)
+	protected int getTitlePaneHeight()
 	{
-		return getTitle(titleText, GOLD);
+		return rendererProperties.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+	}
+
+	protected int getBorder()
+	{
+		return rendererProperties.getProperty(RendererProperties.Property.DIALOG_BORDER);
+	}
+
+	protected int getInset()
+	{
+		return rendererProperties.getProperty(RendererProperties.Property.INSET);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected DIYPane getTitle(String titleText, Color titleCol)
+	protected DIYPane getTitlePane(String titleText)
+	{
+		return getTitlePane(titleText, GOLD);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected DIYPane getTitlePane(String titleText, Color titleCol)
 	{
 		DIYPane titlePane = new DIYPane();
 		titlePane.setBounds(
-			x + border, y + border,
-			width - border * 2, titlePaneHeight);
+			x + getBorder(),
+			y + getBorder(),
+			width - getBorder() * 2,
+			getTitlePaneHeight());
 
 		DIYLabel title = new DIYLabel(titleText, DIYToolkit.Align.CENTER);
 		title.setForegroundColour(titleCol);
 		title.setBounds(
-			x + border, y + border,
-			width - border * 2, titlePaneHeight);
+			x + getBorder(), y + getBorder(),
+			width - getBorder() * 2, getTitlePaneHeight());
 
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
 		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize() + 5);
@@ -89,6 +106,21 @@ public class GeneralDialog extends DIYPanel
 		titlePane.add(title);
 
 		return titlePane;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected DIYPane getButtonPane()
+	{
+		DIYPane result = new DIYPane(new DIYFlowLayout(getInset(), 0, DIYToolkit.Align.CENTER));
+
+//		result.setInsets(new Insets(0, getInset(), getInset()/2, getInset()));
+		result.setBounds(
+			x +getBorder() +getInset(),
+			y +height -getBorder() -getInset() -getButtonPaneHeight(),
+			width -getBorder()*2 -getInset()*2,
+			getButtonPaneHeight());
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -45,15 +45,15 @@ public class ContainerDialog extends GeneralDialog implements ActionListener
 		close.addActionListener(this);
 
 		Rectangle r = new Rectangle(
-			bounds.x +inset +border,
-			bounds.y +inset +border +titlePaneHeight,
-			bounds.width -inset*2 -border*2,
-			bounds.height -inset*2 -border*2 -titlePaneHeight);
+			bounds.x + getInset() + getBorder(),
+			bounds.y + getInset() + getBorder() + getTitlePaneHeight(),
+			bounds.width - getInset() *2 - getBorder() *2,
+			bounds.height - getInset() *2 - getBorder() *2 - getTitlePaneHeight());
 
 		contents.setBounds(r);
 		contents.doLayout();
 
-		DIYPane titlePane = getTitle(title);
+		DIYPane titlePane = getTitlePane(title);
 		titlePane.doLayout();
 
 		this.add(titlePane);

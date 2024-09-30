@@ -55,10 +55,10 @@ public class ItemDetailsWidget extends GeneralDialog
 		setStyle(Style.DIALOG);
 
 		int rowHeight = 15;
-		int xx = bounds.x + inset + border;
-		int yy = bounds.y + inset + border + titlePaneHeight;
-		int width1 = bounds.width - inset * 2 - border * 2;
-		int height1 = bounds.height - inset * 3 - border * 2;
+		int xx = bounds.x + getInset() + getBorder();
+		int yy = bounds.y + getInset() + getBorder() + getTitlePaneHeight();
+		int width1 = bounds.width - getInset() * 2 - getBorder() * 2;
+		int height1 = bounds.height - getInset() * 3 - getBorder() * 2;
 
 		wrapWidth = width1;
 
@@ -75,13 +75,13 @@ public class ItemDetailsWidget extends GeneralDialog
 		{
 			titleCol = Color.RED;
 		}
-		DIYPane title = getTitle(item.getDisplayName(), titleCol);
+		DIYPane title = getTitlePane(item.getDisplayName(), titleCol);
 
 		// Item image
 		DIYLabel itemSlot = new DIYLabel(Database.getInstance().getImage("screen/itemslot"));
 		DIYLabel itemIcon = new DIYLabel(Database.getInstance().getImage(item.getImage()));
-		addRelative(itemSlot, border, border, 35, 35);
-		addRelative(itemIcon, border, border, 35, 35);
+		addRelative(itemSlot, getBorder(), getBorder(), 35, 35);
+		addRelative(itemIcon, getBorder(), getBorder(), 35, 35);
 
 		// Item weight
 		DIYLabel weightLabel = new DIYLabel(
@@ -98,7 +98,7 @@ public class ItemDetailsWidget extends GeneralDialog
 			DIYLabel stackLabel = new DIYLabel(
 				getUiLabel("iw.stack", stack.getCurrent(), stack.getMaximum()));
 			Dimension ds = weightLabel.getPreferredSize();
-			stackLabel.setBounds(xx +width1 -ds.width -inset -border, yy + rowHeight, ds.width, ds.height);
+			stackLabel.setBounds(xx +width1 -ds.width - getInset() - getBorder(), yy + rowHeight, ds.width, ds.height);
 			this.add(stackLabel);
 		}
 

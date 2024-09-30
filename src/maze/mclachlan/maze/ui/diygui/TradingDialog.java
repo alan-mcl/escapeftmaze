@@ -79,7 +79,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
 		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));
-		titlePane.setBounds(x, y + border, width, titlePaneHeight+20);
+		titlePane.setBounds(x, y + getBorder(), width, getTitlePaneHeight() +20);
 		title.setForegroundColour(GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
 		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);

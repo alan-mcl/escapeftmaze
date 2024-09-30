@@ -247,6 +247,12 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public RendererProperties getRendererProperties()
+	{
+		return rendererFactory.getRendererProperties();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void add(Widget w)
 	{
 		this.contentPane.add(w);

@@ -81,7 +81,7 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 			(DIALOG_WIDTH -inset*2) /3 *2,
 			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
 
-		DIYPane titlePane = getTitle(StringUtil.getUiLabel("jd.title.logbook"));
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("jd.title.logbook"));
 
 		journalKeys = new DIYListBox(new ArrayList());
 		journalKeys.addActionListener(this);
@@ -131,11 +131,11 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected DIYPane getTitle(String titleText)
+	protected DIYPane getTitlePane(String titleText)
 	{
 		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
 		title = new DIYLabel(titleText);
-		titlePane.setBounds(x, y+ border, width, titlePaneHeight);
+		titlePane.setBounds(x, y+ getBorder(), width, getTitlePaneHeight());
 		title.setForegroundColour(GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
 		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
