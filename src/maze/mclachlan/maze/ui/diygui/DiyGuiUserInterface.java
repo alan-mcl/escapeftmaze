@@ -677,7 +677,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		SignBoardWidget sbw = new SignBoardWidget(
 			bounds,
-			Database.getInstance().getImage("screen/signBoard"));
+			Database.getInstance().getImage("screen/sign_board"));
 
 		sbw.setText(message);
 
@@ -961,6 +961,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					new Rectangle(column3x, charMidRight.y +charMidRight.height +internalInset,
 						column1Width, pcwHeight));
 
+		charTopLeft.setPlayerCharacter(null);
+		charTopRight.setPlayerCharacter(null);
+		charMidLeft.setPlayerCharacter(null);
+		charMidRight.setPlayerCharacter(null);
+		charLowLeft.setPlayerCharacter(null);
+		charLowRight.setPlayerCharacter(null);
+
 		// zone info display header
 		zoneDisplay = new ZoneDisplayWidget(
 			new Rectangle(
@@ -1008,7 +1015,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		statsDisplay = new StatsDisplayWidget(
 			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
 
-		BufferedImage back = Database.getInstance().getImage("screen/stats_back");
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/stats_back");
 		screen.setBackgroundImage(back);
 
 		screen.add(statsDisplay);
@@ -1042,7 +1049,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		screen.add(partyDisplay);
 		screen.add(buttonToolbar);
 
-		BufferedImage back = Database.getInstance().getImage("screen/magic_back");
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/magic_back");
 		screen.setBackgroundImage(back);
 
 		return screen;
@@ -1054,7 +1061,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		DIYPanel screen = new DIYPanel(screenBounds);
 		levelUp = new LevelUpWidget(screenBounds);
 		screen.add(levelUp);
-		BufferedImage back = Database.getInstance().getImage("screen/create_char_back");
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/create_char_back");
 		screen.setBackgroundImage(back);
 		return screen;
 	}
@@ -1065,7 +1072,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		DIYPanel screen = new DIYPanel(screenBounds);
 		createCharacter = new CreateCharacterWidget(screenBounds);
 		screen.add(createCharacter);
-		BufferedImage back = Database.getInstance().getImage("screen/create_char_back");
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/create_char_back");
 		screen.setBackgroundImage(back);
 		return screen;
 	}
@@ -1082,7 +1089,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		screen.add(partyDisplay);
 		screen.add(buttonToolbar);
 
-		BufferedImage back = Database.getInstance().getImage("screen/modifiers_back");
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/modifiers_back");
 		screen.setBackgroundImage(back);
 
 		return screen;
@@ -1100,7 +1107,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		screen.add(partyDisplay);
 		screen.add(buttonToolbar);
 
-		BufferedImage back = Database.getInstance().getImage("screen/properties_back");
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/properties_back");
 		screen.setBackgroundImage(back);
 
 		return screen;
@@ -1122,8 +1129,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		screen.add(partyDisplay);
 		screen.add(buttonToolbar);
 
-		BufferedImage invBack = Database.getInstance().getImage("screen/inventory_back");
-		screen.setBackgroundImage(invBack);
+		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/inventory_back");
+		screen.setBackgroundImage(back);
 
 		return screen;
 	}
@@ -1177,7 +1184,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		partyOptionsAndTextWidget = new PartyOptionsAndTextWidget(rect);
 		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
-			Database.getInstance().getImage("screen/signBoard"));
+			Database.getInstance().getImage("screen/sign_board"));
 		restingWidget = new RestingWidget(rect);
 
 		partyCloudSpellWidget = new PartyCloudSpellWidget(
@@ -1200,9 +1207,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		screen.add(movementCardLayout);
 
-		Image movementBack = Database.getInstance().getImage("screen/slate_back");
+		Image back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/movement_back");
 
-		screen.setBackgroundImage(movementBack);
+		screen.setBackgroundImage(back);
 
 		return screen;
 	}
@@ -1607,26 +1614,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		switch (index)
 		{
-			case 1:
-				this.charTopLeft.setPlayerCharacter(pc);
-				break;
-			case 2:
-				this.charTopRight.setPlayerCharacter(pc);
-				break;
-			case 3:
-				this.charMidLeft.setPlayerCharacter(pc);
-				break;
-			case 4:
-				this.charMidRight.setPlayerCharacter(pc);
-				break;
-			case 5:
-				this.charLowLeft.setPlayerCharacter(pc);
-				break;
-			case 6:
-				this.charLowRight.setPlayerCharacter(pc);
-				break;
-			default:
-				throw new MazeException("Invalid index " + index);
+			case 1 -> this.charTopLeft.setPlayerCharacter(pc);
+			case 2 -> this.charTopRight.setPlayerCharacter(pc);
+			case 3 -> this.charMidLeft.setPlayerCharacter(pc);
+			case 4 -> this.charMidRight.setPlayerCharacter(pc);
+			case 5 -> this.charLowLeft.setPlayerCharacter(pc);
+			case 6 -> this.charLowRight.setPlayerCharacter(pc);
+			default -> throw new MazeException("Invalid index " + index);
 		}
 	}
 

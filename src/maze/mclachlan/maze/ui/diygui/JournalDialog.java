@@ -19,7 +19,6 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.*;
@@ -33,8 +32,6 @@ import mclachlan.maze.game.journal.JournalEntry;
 import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
-
 /**
  *
  */
@@ -43,10 +40,10 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH -100;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT -100;
 
-	private DIYButton quests, npcs, logbook, zones, exitButton;
+	private final DIYButton quests, npcs, logbook, zones, close;
 
-	private DIYListBox journalKeys;
-	private DIYTextArea textArea;
+	private final DIYListBox journalKeys;
+	private final DIYTextArea textArea;
 	private JournalManager.JournalType journalType;
 	private DIYLabel title;
 
@@ -59,31 +56,27 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		this.setBounds(dialogBounds);
 
-		int buttonPaneHeight = 20;
-		int border = 10;
-		int inset = 20;
-
-		Rectangle innerBounds = new Rectangle(
-			startX +border +inset,
-			startY +inset +buttonPaneHeight,
-			DIALOG_WIDTH -inset*2,
-			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
+		int titlePaneHeight = getTitlePaneHeight();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int border = getBorder();
+		int inset = getInset();
 
 		DIYPane leftPane = new DIYPane(
 			startX +border +inset,
-			startY +inset +buttonPaneHeight,
-			(DIALOG_WIDTH -inset*2) /3,
-			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
+			startY +border +inset +titlePaneHeight,
+			(DIALOG_WIDTH -border*2 -inset*2) /3,
+			DIALOG_HEIGHT -border*2 -inset*4 -buttonPaneHeight -titlePaneHeight);
 		leftPane.setLayoutManager(new DIYGridLayout(1, 10, 5, 5));
 
-		DIYPane rightPane = new DIYPane(startX +border +inset + (DIALOG_WIDTH -inset*2) /3,
-			startY +inset +buttonPaneHeight,
-			(DIALOG_WIDTH -inset*2) /3 *2,
-			DIALOG_HEIGHT -buttonPaneHeight*2 -inset*4);
+		DIYPane rightPane = new DIYPane(
+			leftPane.x +leftPane.width +inset,
+			leftPane.y,
+			DIALOG_WIDTH -leftPane.width -inset*3 -border*2,
+			leftPane.height);
 
 		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("jd.title.logbook"));
 
-		journalKeys = new DIYListBox(new ArrayList());
+		journalKeys = new DIYListBox(new ArrayList<String>());
 		journalKeys.addActionListener(this);
 
 		leftPane.add(journalKeys);
@@ -97,8 +90,12 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 
 		rightPane.add(scroller);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y + height - buttonPaneHeight - inset, width, buttonPaneHeight);
+		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(inset, 0, DIYToolkit.Align.CENTER));
+		buttonPane.setBounds(
+			x +border +inset,
+			y +height -border -buttonPaneHeight -inset,
+			width -border*2 -inset*2,
+			buttonPaneHeight);
 
 		logbook = new DIYButton(StringUtil.getUiLabel("jd.logbook"));
 		logbook.addActionListener(this);
@@ -112,36 +109,33 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 		npcs = new DIYButton(StringUtil.getUiLabel("jd.npcs"));
 		npcs.addActionListener(this);
 
-		exitButton = new DIYButton(StringUtil.getUiLabel("common.exit"));
-		exitButton.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		buttonPane.add(logbook);
 		buttonPane.add(zones);
 		buttonPane.add(quests);
 		buttonPane.add(npcs);
-		buttonPane.add(exitButton);
-
-		refresh(JournalManager.JournalType.LOGBOOK);
 
 		this.add(titlePane);
 		this.add(leftPane);
 		this.add(rightPane);
 		this.add(buttonPane);
+		this.add(close);
+
 		this.doLayout();
+
+		refresh(JournalManager.JournalType.LOGBOOK);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	protected DIYPane getTitlePane(String titleText)
 	{
-		DIYPane titlePane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
-		title = new DIYLabel(titleText);
-		titlePane.setBounds(x, y+ getBorder(), width, getTitlePaneHeight());
-		title.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
-		title.setFont(f);
-		titlePane.add(title);
-		return titlePane;
+		DIYPane pane = super.getTitlePane(titleText);
+
+		this.title = (DIYLabel)pane.getChildren().get(0);
+
+		return pane;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -151,25 +145,16 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 
 		switch (journalType)
 		{
-			case LOGBOOK:
-				title.setText(StringUtil.getUiLabel("jd.title.logbook"));
-				break;
-			case ZONE:
-				title.setText(StringUtil.getUiLabel("jd.title.zones"));
-				break;
-			case QUEST:
-				title.setText(StringUtil.getUiLabel("jd.title.quests"));
-				break;
-			case NPC:
-				title.setText(StringUtil.getUiLabel("jd.title.npcs"));
-				break;
-			default: throw new MazeException(journalType.toString());
+			case LOGBOOK -> title.setText(StringUtil.getUiLabel("jd.title.logbook"));
+			case ZONE -> title.setText(StringUtil.getUiLabel("jd.title.zones"));
+			case QUEST -> title.setText(StringUtil.getUiLabel("jd.title.quests"));
+			case NPC -> title.setText(StringUtil.getUiLabel("jd.title.npcs"));
+			default -> throw new MazeException(journalType.toString());
 		}
 
 		Journal journal = JournalManager.getInstance().getJournal(journalType);
 
-		List<String> keys = new ArrayList<String>();
-		keys.addAll(journal.getContents().keySet());
+		List<String> keys = new ArrayList<>(journal.getContents().keySet());
 		Collections.sort(keys);
 
 		journalKeys.setItems(keys);
@@ -206,30 +191,21 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_L:
-				refresh(JournalManager.JournalType.LOGBOOK);
-				break;
-			case KeyEvent.VK_Z:
-				refresh(JournalManager.JournalType.ZONE);
-				break;
-			case KeyEvent.VK_N:
-				refresh(JournalManager.JournalType.NPC);
-				break;
-			case KeyEvent.VK_Q:
-				refresh(JournalManager.JournalType.QUEST);
-				break;
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
-				exit();
-				break;
-			default:
+			case KeyEvent.VK_L -> refresh(JournalManager.JournalType.LOGBOOK);
+			case KeyEvent.VK_Z -> refresh(JournalManager.JournalType.ZONE);
+			case KeyEvent.VK_N -> refresh(JournalManager.JournalType.NPC);
+			case KeyEvent.VK_Q -> refresh(JournalManager.JournalType.QUEST);
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			default ->
+			{
+			}
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == exitButton)
+		if (event.getSource() == close)
 		{
 			exit();
 			return true;

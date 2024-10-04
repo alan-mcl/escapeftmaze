@@ -20,15 +20,14 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.util.List;
+import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPanel;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.maze.stat.Leveler;
 
 /**
@@ -41,6 +40,7 @@ public class PortraitSelectionWidget extends ContainerWidget
 	List<String> portraits;
 	int currentImage;
 	DIYPanel imagePanel, prevImage, nextImage;
+	private DIYLabel portraitFrame;
 
 	/*-------------------------------------------------------------------------*/
 	public PortraitSelectionWidget(Rectangle r)
@@ -70,21 +70,36 @@ public class PortraitSelectionWidget extends ContainerWidget
 		next = new DIYButton(">");
 		previous.addActionListener(this);
 		next.addActionListener(this);
+
 		imagePanel = new DIYPanel();
 		prevImage = new DIYPanel();
 		nextImage = new DIYPanel();
+
+		portraitFrame = new DIYLabel();
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+		BufferedImage portraitFrameImage = rp.getImageResource("pcw/portrait_frame");
+		this.portraitFrame.setIcon(portraitFrameImage);
+		int frameWidth = portraitFrameImage.getWidth();
+		int frameHeight = portraitFrameImage.getHeight();
+		this.portraitFrame.setBounds(
+			x +width/2 -frameWidth/2,
+			y +height/2 -frameHeight/2,
+			frameWidth,
+			frameHeight);
+
+
 		String defaultPortrait = Maze.getInstance().getCampaign().getDefaultPortrait();
 		currentImage = portraits.indexOf(defaultPortrait);
 		if (currentImage == -1)
 		{
 			currentImage = 0;
 		}
-
 		setImage(currentImage);
 
 		previous.setBounds(x+inset, buttonY, buttonWidth, buttonHeight);
 		next.setBounds(x+width-buttonWidth-inset*2, buttonY, buttonWidth, buttonHeight);
 
+		this.add(portraitFrame);
 //		this.add(prevImage);
 //		this.add(nextImage);
 		this.add(imagePanel);
@@ -123,13 +138,16 @@ public class PortraitSelectionWidget extends ContainerWidget
 		currentImage = imageNr;
 		Image image = Database.getInstance().getImage(portraits.get(imageNr));
 
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+
 		int imageHeight = image.getHeight(DiyGuiUserInterface.gui.getComponent());
 		int imageWidth = image.getWidth(DiyGuiUserInterface.gui.getComponent());
+		int frameBorder = rp.getProperty(RendererProperties.Property.PCW_PORTRAIT_FRAME_BORDER);
 
 		// center the image
 		imagePanel.setBounds(
-			x+width/2-imageWidth/2,
-			y+height/2-imageHeight/2,
+			portraitFrame.x +portraitFrame.width/2 -imageWidth/2,
+			portraitFrame.y +portraitFrame.height -frameBorder -imageHeight,
 			imageWidth,
 			imageHeight);
 		imagePanel.setBackgroundImage(image);

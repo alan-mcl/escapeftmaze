@@ -148,7 +148,8 @@ public class ConditionDetailsWidget extends DIYPanel
 
 		this.add(ok);
 
-		Image back = Database.getInstance().getImage("screen/item_dialog_back");
+		Image back = DIYToolkit.getInstance().getRendererProperties().getImageResource(
+			"screen/item_dialog_back");
 		this.setBackgroundImage(back);
 	}
 

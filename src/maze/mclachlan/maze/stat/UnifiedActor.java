@@ -2240,8 +2240,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		ACT_LATE("aso.act.late", 4),
 		PATIENCE("aso.patience", 2);
 
-		private String key;
-		private int priority; // higher is faster
+		private final String key;
+		private final int priority; // higher is faster
 
 		Stance(String key, int priority)
 		{

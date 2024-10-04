@@ -422,17 +422,17 @@ public class InventoryDisplayWidget extends ContainerWidget
 
 		if (cur <= max * .5)
 		{
-			carrying.setBackgroundColour(Color.BLUE);
+			carrying.setBarColour(Color.BLUE);
 			carrying.setForegroundColour(Color.LIGHT_GRAY);
 		}
 		else if (cur <= max * .75)
 		{
-			carrying.setBackgroundColour(Color.YELLOW);
+			carrying.setBarColour(Color.YELLOW);
 			carrying.setForegroundColour(Color.WHITE);
 		}
 		else
 		{
-			carrying.setBackgroundColour(Color.RED);
+			carrying.setBarColour(Color.RED);
 			carrying.setForegroundColour(Color.DARK_GRAY);
 		}
 	}

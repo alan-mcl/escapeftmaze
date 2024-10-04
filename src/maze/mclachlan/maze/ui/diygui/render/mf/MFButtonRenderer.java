@@ -73,16 +73,15 @@ public class MFButtonRenderer extends Renderer
 			{
 				case DEFAULT ->
 				{
-					center = Database.getInstance().getImage(button.getImage());
+					center = DIYToolkit.getInstance().getRendererProperties().getImageResource(button.getImage());
 				}
 				case HOVER ->
 				{
-					center = Database.getInstance().getImage(button.getImage()+"_hover");
+					center = DIYToolkit.getInstance().getRendererProperties().getImageResource(button.getImage()+"_hover");
 				}
 				case DEPRESSED ->
 				{
-					center = Database.getInstance().getImage(button.getImage()+"_depressed");
-
+					center = DIYToolkit.getInstance().getRendererProperties().getImageResource(button.getImage()+"_depressed");
 				}
 				default ->
 					throw new MazeException("invalid state " + button.getState());
@@ -91,7 +90,7 @@ public class MFButtonRenderer extends Renderer
 		else
 		{
 			// disabled
-			center = Database.getInstance().getImage(button.getImage()+"_disabled");
+			center = DIYToolkit.getInstance().getRendererProperties().getImageResource(button.getImage()+"_disabled");
 		}
 
 		// corners

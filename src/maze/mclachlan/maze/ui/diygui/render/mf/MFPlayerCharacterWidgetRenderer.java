@@ -23,7 +23,6 @@ import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.*;
-import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
@@ -45,7 +44,7 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 		PlayerCharacterWidget widget = (PlayerCharacterWidget)w;
 		Component comp = Maze.getInstance().getComponent();
 
-		int frameBorder = 12;
+/*		int frameBorder = 12;
 		int inset = 5;
 
 		int oneThirdWidth = width/3;
@@ -111,9 +110,9 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 			x + frameBorder,
 			y + frameBorder + portraitHeight + nameLabelHeight + inset,
 			width -frameBorder*2 -handWidth -inset*2,
-			remainingHeight/3 -inset);
+			remainingHeight*//*//*3 -inset*//*);
 		widget.getAction().setBounds(actionBounds);
-		widget.getAction().setVisible(false);
+
 
 		// stance button bounds
 		Rectangle stanceBounds = new Rectangle(
@@ -122,7 +121,7 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 			width -frameBorder*2 -handWidth -inset*2,
 			remainingHeight/3 -inset);
 		widget.getStance().setBounds(stanceBounds);
-		widget.getStance().setVisible(false);
+
 
 		// lvl up button
 		DIYButton levelUp = widget.getLevelUp();
@@ -131,8 +130,11 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 			x +portraitWidth/2 -ps.width/2 +frameBorder/2,
 			y +portraitHeight -ps.height -inset*2,
 			ps.width,
-			ps.height);
-		levelUp.setVisible(false);
+			ps.height);*/
+
+		widget.getAction().setVisible(false);
+		widget.getStance().setVisible(false);
+		widget.getLevelUp().setVisible(false);
 
 		synchronized(widget.getPcMutex())
 		{
@@ -155,13 +157,11 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 			{
 				// stats bars
 				drawBar(g, Constants.Colour.COMBAT_RED, Constants.Colour.FATIGUE_PINK, playerCharacter.getHitPoints(),
-					startX, barTop, barWidth, barHeight);
-				startX += (barWidth+barSep);
+					widget.getHpBarBounds().x, widget.getHpBarBounds().y, widget.getHpBarBounds().width, widget.getHpBarBounds().height);
 				drawBar(g, Constants.Colour.STEALTH_GREEN, null, playerCharacter.getActionPoints(),
-					startX, barTop, barWidth, barHeight);
-				startX += (barWidth+barSep);
+					widget.getApBarBounds().x, widget.getApBarBounds().y, widget.getApBarBounds().width, widget.getApBarBounds().height);
 				drawBar(g, Constants.Colour.MAGIC_BLUE, null, playerCharacter.getMagicPoints(),
-					startX, barTop, barWidth, barHeight);
+					widget.getMpBarBounds().x, widget.getMpBarBounds().y, widget.getMpBarBounds().width, widget.getMpBarBounds().height);
 
 				// other buttons (set up by the widget class)
 				for (Widget kid : widget.getChildren())
@@ -171,34 +171,34 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 
 				// name labels
 				DIYToolkit.drawStringCentered(g, playerCharacter.getName(),
-					nameLabelBounds, DIYToolkit.Align.CENTER, Color.WHITE, null);
+					widget.getNameLabelBounds(), DIYToolkit.Align.CENTER, Color.WHITE, null);
 				DIYToolkit.drawStringCentered(g, "("+playerCharacter.getCharacterClass().getName()+")",
-					classLabelBounds, DIYToolkit.Align.RIGHT, Color.WHITE.darker(), null);
+					widget.getClassLabelBounds(), DIYToolkit.Align.RIGHT, Color.WHITE.darker(), null);
 
 				// Portrait
 				Image img;
 				img = Database.getInstance().getImage(
 					playerCharacter.getPortrait());
-				DIYToolkit.drawImageCentered(g, img, portraitBounds, DIYToolkit.Align.CENTER);
+				DIYToolkit.drawImageCentered(g, img, widget.getPortraitBounds(), DIYToolkit.Align.CENTER);
 
 				// hand item slots
-				Image slotImage = Database.getInstance().getImage("screen/itemslot");
-				DIYToolkit.drawImageCentered(g, slotImage, leftHandBounds, DIYToolkit.Align.CENTER);
-				DIYToolkit.drawImageCentered(g, slotImage, rightHandBounds, DIYToolkit.Align.CENTER);
-				widget.setLeftHandBounds(leftHandBounds);
-				widget.setRightHandBounds(rightHandBounds);
+				Image slotImage = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot");
+				DIYToolkit.drawImageCentered(g, slotImage, widget.getLeftHandBounds(), DIYToolkit.Align.CENTER);
+				DIYToolkit.drawImageCentered(g, slotImage, widget.getRightHandBounds(), DIYToolkit.Align.CENTER);
+//				widget.setLeftHandBounds(leftHandBounds);
+//				widget.setRightHandBounds(rightHandBounds);
 
 				// left hand item
 				img = playerCharacter.getSecondaryWeapon() != null ?
 					Database.getInstance().getImage(playerCharacter.getSecondaryWeapon().getImage()) :
 					Database.getInstance().getImage(playerCharacter.getLeftHandIcon());
-				DIYToolkit.drawImageCentered(g, img, leftHandBounds, DIYToolkit.Align.CENTER);
+				DIYToolkit.drawImageCentered(g, img, widget.getLeftHandBounds(), DIYToolkit.Align.CENTER);
 
 				// right hand item
 				img = playerCharacter.getPrimaryWeapon() != null ?
 					Database.getInstance().getImage(playerCharacter.getPrimaryWeapon().getImage()) :
 					Database.getInstance().getImage(playerCharacter.getRightHandIcon());
-				DIYToolkit.drawImageCentered(g, img, rightHandBounds, DIYToolkit.Align.CENTER);
+				DIYToolkit.drawImageCentered(g, img, widget.getRightHandBounds(), DIYToolkit.Align.CENTER);
 
 				//
 				// Conditions
@@ -206,30 +206,32 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 				ArrayList<Condition> list = new ArrayList<>(playerCharacter.getConditions());
 				if (!list.isEmpty())
 				{
-					int bestMax = (twoThirdsHeight -frameBorder) / (handWidth+inset);
+//					int bestMax = (twoThirdsHeight -frameBorder) / (handWidth+inset);
+					int bestMax = 8;
 
 					Rectangle[] conditionBounds = new Rectangle[list.size()];
 
-					int sX = x + frameBorder;
-					int sY = y + frameBorder;
+					Rectangle ca = widget.getConditionsArea();
+					int sX = ca.x;
+					int sY = ca.y;
 
 					for (int i = 0; i < conditionBounds.length; i++)
 					{
 						int yInc;
 						if (list.size() <= bestMax)
 						{
-							yInc = i * (handWidth + inset);
+							yInc = i * (ca.width +3);
 						}
 						else
 						{
-							int squashHeight = (twoThirdsHeight-frameBorder) / list.size();
+							int squashHeight = (ca.height) / list.size();
 							yInc = i * squashHeight;
 						}
 						conditionBounds[i] = new Rectangle(
 							sX,
 							sY + yInc,
-							handWidth,
-							handWidth);
+							ca.width,
+							ca.width);
 					}
 
 					int i = 0;
@@ -251,13 +253,13 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 
 				if (playerCharacter.isLevelUpPending())
 				{
-					levelUp.setVisible(true);
-					levelUp.setEnabled(true);
+					widget.getLevelUp().setVisible(true);
+					widget.getLevelUp().setEnabled(true);
 				}
 				else
 				{
-					levelUp.setVisible(false);
-					levelUp.setEnabled(false);
+					widget.getLevelUp().setVisible(false);
+					widget.getLevelUp().setEnabled(false);
 				}
 
 				widget.getAction().setVisible(true);
@@ -273,14 +275,15 @@ public class MFPlayerCharacterWidgetRenderer extends Renderer
 
 			// draw the portrait bounds
 			g.setColor(Color.WHITE);
-			g.drawRect(portraitBounds.x, portraitBounds.y, portraitBounds.width, portraitBounds.height);
+			g.drawRect(widget.getPortraitBounds().x, widget.getPortraitBounds().y,
+				widget.getPortraitBounds().width, widget.getPortraitBounds().height);
 
 			// draw the hand bounds
-			g.setColor(Color.WHITE);
-			g.drawRect(leftHandX, leftHandY,
-				handWidth, handWidth);
-			g.drawRect(rightHandX, rightHandY,
-				handWidth, handWidth);
+//			g.setColor(Color.WHITE);
+//			g.drawRect(leftHandX, leftHandY,
+//				handWidth, handWidth);
+//			g.drawRect(rightHandX, rightHandY,
+//				handWidth, handWidth);
 
 //			g.setColor(Color.LIGHT_GRAY);
 //			for (Rectangle cb : conditionBounds)

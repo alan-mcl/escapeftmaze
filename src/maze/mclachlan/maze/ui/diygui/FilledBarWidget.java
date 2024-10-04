@@ -19,6 +19,7 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Color;
 import java.awt.Dimension;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.stat.CurMax;
@@ -31,15 +32,27 @@ public class FilledBarWidget extends Widget implements ProgressListener
 {
 	private int current;
 	private int max;
+	private int sub = -1;
+
+	private Orientation orientation = Orientation.HORIZONTAL;
+
+	private Color barColour = Color.GRAY, subBarColour = Color.LIGHT_GRAY;
+
 	private InnerText text = InnerText.NONE;
 	private String customText;
+
 	private ProgressListenerCallback callback;
 
 	/*-------------------------------------------------------------------------*/
 	public enum InnerText
 	{
 		NONE, CUR_MAX, PERCENT, CUSTOM;
-	};
+	}
+
+	public enum Orientation
+	{
+		HORIZONTAL, VERTICAL
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public FilledBarWidget(int current, int max)
@@ -92,6 +105,7 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	{
 		this.setMax(100);
 		this.setCurrent(percent);
+		this.setSub(-1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -99,6 +113,15 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	{
 		this.setCurrent(cur);
 		this.setMax(max);
+		this.setSub(-1);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void set(int cur, int max, int sub)
+	{
+		this.setCurrent(cur);
+		this.setMax(max);
+		this.setSub(sub);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -122,6 +145,16 @@ public class FilledBarWidget extends Widget implements ProgressListener
 		this.max = max;
 	}
 
+	public int getSub()
+	{
+		return sub;
+	}
+
+	public void setSub(int sub)
+	{
+		this.sub = sub;
+	}
+
 	public InnerText getText()
 	{
 		return text;
@@ -130,6 +163,42 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	public void setText(InnerText text)
 	{
 		this.text = text;
+	}
+
+	public Orientation getOrientation()
+	{
+		return orientation;
+	}
+
+	public void setOrientation(
+		Orientation orientation)
+	{
+		this.orientation = orientation;
+	}
+
+	public Color getBarColour()
+	{
+		return barColour;
+	}
+
+	public void setBarColour(Color barColour)
+	{
+		this.barColour = barColour;
+	}
+
+	public Color getSubBarColour()
+	{
+		return subBarColour;
+	}
+
+	public void setSubBarColour(Color subBarColour)
+	{
+		this.subBarColour = subBarColour;
+	}
+
+	public ProgressListenerCallback getCallback()
+	{
+		return callback;
 	}
 
 	public String getCustomText()

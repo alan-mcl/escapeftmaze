@@ -47,7 +47,7 @@ public class DroppedItemWidgetRenderer extends Renderer
 
 		Rectangle bounds = new Rectangle(x, y, width, height);
 
-		Image slotImage = Database.getInstance().getImage("screen/itemslot");
+		Image slotImage = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot");
 		DIYToolkit.drawImageCentered(g, slotImage, bounds, DIYToolkit.Align.CENTER);
 		DIYToolkit.drawImageCentered(g, itemImage, bounds, DIYToolkit.Align.CENTER);
 

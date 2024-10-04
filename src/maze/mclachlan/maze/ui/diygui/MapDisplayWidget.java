@@ -22,11 +22,14 @@ package mclachlan.maze.ui.diygui;
 import java.awt.*;
 import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
-import java.util.*;
 import java.util.List;
-import mclachlan.crusader.*;
+import java.util.*;
+import mclachlan.crusader.CrusaderEngine;
 import mclachlan.crusader.Map;
+import mclachlan.crusader.Tile;
+import mclachlan.crusader.Wall;
 import mclachlan.diygui.DIYPanel;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.PlayerTilesVisited;
 import mclachlan.maze.map.Zone;
@@ -41,9 +44,9 @@ public class MapDisplayWidget extends DIYPanel
 	private boolean filterByVisited = true;
 
 	//	a cache of scaled images
-	private java.util.Map<Image, Image> floorScaledImages = new HashMap<Image, Image>();
-	private java.util.Map<Image, Image> horizScaledImages = new HashMap<Image, Image>();
-	private java.util.Map<Image, Image> vertScaledImages = new HashMap<Image, Image>();
+	private final java.util.Map<Image, Image> floorScaledImages = new HashMap<>();
+	private final java.util.Map<Image, Image> horizScaledImages = new HashMap<>();
+	private final java.util.Map<Image, Image> vertScaledImages = new HashMap<>();
 	private static final int TILE_SIZE = 10;
 	private static final int WALL_SIZE = 1;
 
@@ -69,14 +72,14 @@ public class MapDisplayWidget extends DIYPanel
 	{
 		if (image == null)
 		{
-			image = createImage(g);
+			image = createImage();
 		}
 
 		g.drawImage(image, x, y, DiyGuiUserInterface.instance);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Image createImage(Graphics2D g2d)
+	public Image createImage()
 	{
 		BufferedImage result = new BufferedImage(width, height, BufferedImage.TYPE_4BYTE_ABGR);
 
@@ -87,8 +90,12 @@ public class MapDisplayWidget extends DIYPanel
 		int originX = 0;
 		int originY = 0;
 
-		g.setColor(Color.BLACK);
-		g.fillRect(originX, originY, width, height);
+//		g.setColor(Color.BLACK);
+//		g.fillRect(originX, originY, width, height);
+
+		DIYToolkit.drawImageTiled(g,
+			DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/map_back"),
+			originX, originY, width, height);
 
 		g.setColor(Color.DARK_GRAY);
 
@@ -104,7 +111,7 @@ public class MapDisplayWidget extends DIYPanel
 		Point playerPos = Maze.getInstance().getPlayerPos();
 		int facing = Maze.getInstance().getFacing();
 
-		List<Integer> tilesToDisplay = new ArrayList<Integer>();
+		List<Integer> tilesToDisplay = new ArrayList<>();
 
 		int tilesToDisplayHoriz = this.width / (tileSize/* + wallSize*/);
 		int tilesToDisplayVert = this.height / (tileSize/* + wallSize*/);
@@ -165,13 +172,13 @@ public class MapDisplayWidget extends DIYPanel
 //			}
 
 			// grid
-			g.setColor(Color.DARK_GRAY);
+			g.setColor(Color.BLACK);
 			g.setStroke(DASHED);
 			g.drawRect(x1, y1, tileSize, tileSize);
 			g.setStroke(new BasicStroke());
 
 			// horiz walls
-			Set<Integer> horizWallsDrawn = new HashSet<Integer>();
+			Set<Integer> horizWallsDrawn = new HashSet<>();
 			int northWall = map.getNorthWall(index);
 			Wall wall = horizontalWalls[northWall];
 			if (wall.isVisible() && !horizWallsDrawn.contains(northWall))
@@ -179,8 +186,9 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * column;
 				int yw = originY + tileSize * row - wallSize / 2;
 
+				Image img = getHorizScaledImage(wall.getTexture().getImages()[0]);
 				g.drawImage(
-					getHorizScaledImage(wall.getTexture().getImages()[0]),
+					img,
 					xw, yw, component);
 
 				if (wall.getMaskTexture() != null)
@@ -188,6 +196,13 @@ public class MapDisplayWidget extends DIYPanel
 					g.drawImage(
 						getHorizScaledImage(wall.getMaskTexture().getImages()[0]),
 						xw, yw, component);
+				}
+
+				if (img != null)
+				{
+					// rect around the wall
+					g.setColor(Color.BLACK);
+					g.drawRect(xw - 1, yw - 1, img.getWidth(component) + 1, img.getHeight(component) + 1);
 				}
 
 				horizWallsDrawn.add(northWall);
@@ -200,8 +215,9 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * column;
 				int yw = originY + tileSize * (row + 1) - wallSize / 2;
 
+				Image img = getHorizScaledImage(wall.getTexture().getImages()[0]);
 				g.drawImage(
-					getHorizScaledImage(wall.getTexture().getImages()[0]),
+					img,
 					xw, yw, component);
 
 				if (wall.getMaskTexture() != null)
@@ -211,11 +227,18 @@ public class MapDisplayWidget extends DIYPanel
 						xw, yw, component);
 				}
 
+				if (img != null)
+				{
+					// rect around the wall
+					g.setColor(Color.BLACK);
+					g.drawRect(xw - 1, yw - 1, img.getWidth(component) + 1, img.getHeight(component) + 1);
+				}
+
 				horizWallsDrawn.add(southWall);
 			}
 
 			// vert walls
-			Set<Integer> vertWallsDrawn = new HashSet<Integer>();
+			Set<Integer> vertWallsDrawn = new HashSet<>();
 			int westWall = map.getWestWall(index);
 			wall = verticalWalls[westWall];
 			if (wall.isVisible() && !vertWallsDrawn.contains(westWall))
@@ -223,8 +246,9 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * column - wallSize / 2;
 				int yw = originY + tileSize * row;
 
+				Image img = getVertScaledImage(wall.getTexture().getImages()[0]);
 				g.drawImage(
-					getVertScaledImage(wall.getTexture().getImages()[0]),
+					img,
 					xw, yw, component);
 
 				if (wall.getMaskTexture() != null)
@@ -232,6 +256,13 @@ public class MapDisplayWidget extends DIYPanel
 					g.drawImage(
 						getVertScaledImage(wall.getMaskTexture().getImages()[0]),
 						xw, yw, component);
+				}
+
+				if (img != null)
+				{
+					// rect around the wall
+					g.setColor(Color.BLACK);
+					g.drawRect(xw - 1, yw - 1, img.getWidth(component) + 1, img.getHeight(component) + 1);
 				}
 
 				vertWallsDrawn.add(westWall);
@@ -244,8 +275,9 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * (column + 1) - wallSize / 2;
 				int yw = originY + tileSize * row;
 
+				Image img = getVertScaledImage(wall.getTexture().getImages()[0]);
 				g.drawImage(
-					getVertScaledImage(wall.getTexture().getImages()[0]),
+					img,
 					xw, yw, component);
 
 				if (wall.getMaskTexture() != null)
@@ -253,6 +285,13 @@ public class MapDisplayWidget extends DIYPanel
 					g.drawImage(
 						getVertScaledImage(wall.getMaskTexture().getImages()[0]),
 						xw, yw, component);
+				}
+
+				if (img != null)
+				{
+					// rect around the wall
+					g.setColor(Color.BLACK);
+					g.drawRect(xw - 1, yw - 1, img.getWidth(component) + 1, img.getHeight(component) + 1);
 				}
 
 				vertWallsDrawn.add(eastWall);
@@ -283,40 +322,47 @@ public class MapDisplayWidget extends DIYPanel
 		int[] xs, ys;
 		switch (facing)
 		{
-			case CrusaderEngine.Facing.NORTH:
+			case CrusaderEngine.Facing.NORTH ->
+			{
 				xs = new int[]{x1, x1 + width1 / 2, x1 + width1};
 				ys = new int[]{y1 + height1, y1, y1 + height1};
-				break;
-			case CrusaderEngine.Facing.SOUTH:
+			}
+			case CrusaderEngine.Facing.SOUTH ->
+			{
 				xs = new int[]{x1, x1 + width1 / 2, x1 + width1};
 				ys = new int[]{y1, y1 + height1, y1};
-				break;
-			case CrusaderEngine.Facing.EAST:
+			}
+			case CrusaderEngine.Facing.EAST ->
+			{
 				xs = new int[]{x1, x1 + width1, x1};
 				ys = new int[]{y1, y1 + height1 / 2, y1 + height1};
-				break;
-			case CrusaderEngine.Facing.WEST:
+			}
+			case CrusaderEngine.Facing.WEST ->
+			{
 				xs = new int[]{x1 + width1, x1, x1 + width1};
 				ys = new int[]{y1, y1 + height1 / 2, y1 + height1};
-				break;
-			case CrusaderEngine.Facing.NORTH_EAST:
-				xs = new int[]{x1, x1+width1, x1+width1/2};
-				ys = new int[]{y1+height1/2,y1,y1+height1};
-				break;
-			case CrusaderEngine.Facing.NORTH_WEST:
-				xs = new int[]{x1, x1+width1/2, x1+width1};
-				ys = new int[]{y1, y1+height1, y1+height1/2};
-				break;
-			case CrusaderEngine.Facing.SOUTH_EAST:
-				xs = new int[]{x1, x1+width1, x1+width1/2};
-				ys = new int[]{y1+height1/2, y1+height1, y1};
-				break;
-			case CrusaderEngine.Facing.SOUTH_WEST:
-				xs = new int[]{x1+width1/2, x1, x1+width1};
-				ys = new int[]{y1, y1+height1, y1+height1/2};
-				break;
-			default:
-				throw new MazeException("invalid facing " + facing);
+			}
+			case CrusaderEngine.Facing.NORTH_EAST ->
+			{
+				xs = new int[]{x1, x1 + width1, x1 + width1 / 2};
+				ys = new int[]{y1 + height1 / 2, y1, y1 + height1};
+			}
+			case CrusaderEngine.Facing.NORTH_WEST ->
+			{
+				xs = new int[]{x1, x1 + width1 / 2, x1 + width1};
+				ys = new int[]{y1, y1 + height1, y1 + height1 / 2};
+			}
+			case CrusaderEngine.Facing.SOUTH_EAST ->
+			{
+				xs = new int[]{x1, x1 + width1, x1 + width1 / 2};
+				ys = new int[]{y1 + height1 / 2, y1 + height1, y1};
+			}
+			case CrusaderEngine.Facing.SOUTH_WEST ->
+			{
+				xs = new int[]{x1 + width1 / 2, x1, x1 + width1};
+				ys = new int[]{y1, y1 + height1, y1 + height1 / 2};
+			}
+			default -> throw new MazeException("invalid facing " + facing);
 		}
 
 		// golden triangle
@@ -393,7 +439,7 @@ public class MapDisplayWidget extends DIYPanel
 		Graphics2D tg = target.createGraphics();
 
 		AffineTransform at = new AffineTransform();
-		at.rotate(Math.PI/2, width1/2, height1/2);
+		at.rotate(Math.PI/2, width1/2D, height1/2D);
 
 		tg.drawImage(image, at, DiyGuiUserInterface.instance);
 
@@ -430,19 +476,8 @@ public class MapDisplayWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private void rescaleCache()
 	{
-		for (Image image : floorScaledImages.keySet())
-		{
-			floorScaledImages.put(image, scaleImageFloor(image));
-		}
-
-		for (Image image : vertScaledImages.keySet())
-		{
-			vertScaledImages.put(image, scaleImageVert(image));
-		}
-
-		for (Image image : horizScaledImages.keySet())
-		{
-			horizScaledImages.put(image, scaleImageHoriz(image));
-		}
+		floorScaledImages.replaceAll((i, v) -> scaleImageFloor(i));
+		vertScaledImages.replaceAll((i, v) -> scaleImageVert(i));
+		horizScaledImages.replaceAll((i, v) -> scaleImageHoriz(i));
 	}
 }

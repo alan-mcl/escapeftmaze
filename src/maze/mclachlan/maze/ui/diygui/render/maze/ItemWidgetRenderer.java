@@ -24,7 +24,6 @@ import java.awt.geom.RoundRectangle2D;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.ui.diygui.ItemWidget;
 
@@ -47,7 +46,7 @@ public class ItemWidgetRenderer extends Renderer
 				g.draw(curse);
 			}
 
-			Image slotImage = Database.getInstance().getImage("screen/itemslot");
+			Image slotImage = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot");
 			int iconSize = widget.height;
 			Rectangle iconBounds = new Rectangle(widget.x, widget.y,
 				iconSize, iconSize);

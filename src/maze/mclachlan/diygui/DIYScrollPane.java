@@ -29,9 +29,9 @@ import java.awt.*;
 public class DIYScrollPane extends ContainerWidget
 {
 	private final ContainerWidget contents;
-	
-	private final int inset = 2;
-	private final int scrollBarWidth = 40, sliderWidth=36, sliderHeight=99;
+
+	public static final int internalInset = 2;
+	private final int inset, scrollBarWidth, sliderWidth, sliderHeight;
 
 	public Rectangle scrollBarBounds, upButtonBounds, downButtonBounds, sliderBounds;
 	public DIYButton upButton, downButton;
@@ -49,6 +49,13 @@ public class DIYScrollPane extends ContainerWidget
 	public DIYScrollPane(Rectangle bounds, ContainerWidget contents)
 	{
 		super(bounds);
+
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+		inset = rp.getProperty(RendererProperties.Property.INSET);
+		scrollBarWidth = rp.getProperty(RendererProperties.Property.SCROLLBAR_WIDTH);
+		sliderWidth = rp.getProperty(RendererProperties.Property.SLIDER_WIDTH);
+		sliderHeight = rp.getProperty(RendererProperties.Property.SLIDER_HEIGHT);
+
 		initScrollBar();
 
 		this.add(upButton);
@@ -70,10 +77,10 @@ public class DIYScrollPane extends ContainerWidget
 	private void initContents()
 	{
 		// this widget effectively has it's own coordinate system
-		contents.x = 0;
-		contents.y = 0;
+		contents.x = inset;
+		contents.y = inset;
 		Dimension ps = contents.getPreferredSize();
-		contents.width = this.width-scrollBarWidth-inset*2;
+		contents.width = this.width-scrollBarWidth-inset*3;
 		contents.height = ps.height;
 
 		contents.doLayout();
@@ -88,23 +95,23 @@ public class DIYScrollPane extends ContainerWidget
 			scrollBarWidth,
 			height-inset*2);
 
-		int buttonDimension = scrollBarWidth -inset*2;
+		int buttonDimension = scrollBarWidth -internalInset*2;
 
 		upButtonBounds = new Rectangle(
-			scrollBarBounds.x +inset,
-			scrollBarBounds.y +inset,
+			scrollBarBounds.x +internalInset,
+			scrollBarBounds.y +internalInset,
 			buttonDimension,
 			buttonDimension);
 		
 		downButtonBounds = new Rectangle(
-			scrollBarBounds.x +inset,
-			scrollBarBounds.y + scrollBarBounds.height -buttonDimension -inset,
+			scrollBarBounds.x +internalInset,
+			scrollBarBounds.y + scrollBarBounds.height -buttonDimension -internalInset,
 			buttonDimension,
 			buttonDimension);
 		
-		sliderX = scrollBarBounds.x +inset;
-		sliderStart = scrollBarBounds.y +inset +buttonDimension +inset;
-		sliderEnd = scrollBarBounds.y +scrollBarBounds.height -inset -buttonDimension -inset -sliderHeight;
+		sliderX = scrollBarBounds.x +internalInset;
+		sliderStart = scrollBarBounds.y +internalInset +buttonDimension +internalInset;
+		sliderEnd = scrollBarBounds.y +scrollBarBounds.height -internalInset -buttonDimension -inset -sliderHeight;
 		maxPosition = sliderEnd-sliderStart;
 		
 		sliderBounds = new Rectangle(

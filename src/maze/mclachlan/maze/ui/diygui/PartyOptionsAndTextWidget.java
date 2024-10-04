@@ -177,42 +177,42 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 
 		journal = new DIYButton(null);
 		journal.setTooltip(StringUtil.getUiLabel("poatw.journal"));
-		journal.setImage("ui/mf/icons/journal");
+		journal.setImage("icon/journal");
 		journal.addActionListener(this);
 		journal.setBounds(buttonX,
 			buttonY, buttonSize, buttonSize);
 
 		map = new DIYButton(null);
 		map.setTooltip(StringUtil.getUiLabel("poatw.map"));
-		map.setImage("ui/mf/icons/map");
+		map.setImage("icon/map");
 		map.addActionListener(this);
 		map.setBounds(buttonX + columnInc,
 			buttonY, buttonSize, buttonSize);
 
 		viewLog = new DIYButton(null);
 		viewLog.setTooltip(StringUtil.getUiLabel("poatw.view.log"));
-		viewLog.setImage("ui/mf/icons/log");
+		viewLog.setImage("icon/log");
 		viewLog.addActionListener(this);
 		viewLog.setBounds(buttonX + columnInc * 2,
 			buttonY, buttonSize, buttonSize);
 
 		saveload = new DIYButton(null);
 		saveload.setTooltip(StringUtil.getUiLabel("poatw.save.load"));
-		saveload.setImage("ui/mf/icons/save");
+		saveload.setImage("icon/save");
 		saveload.addActionListener(this);
 		saveload.setBounds(buttonX + columnInc * 3,
 			buttonY, buttonSize, buttonSize);
 
 		settings = new DIYButton(null);
 		settings.setTooltip(StringUtil.getUiLabel("poatw.settings"));
-		settings.setImage("ui/mf/icons/settings");
+		settings.setImage("icon/settings");
 		settings.addActionListener(this);
 		settings.setBounds(buttonX + columnInc * 4,
 			buttonY, buttonSize, buttonSize);
 
 		quit = new DIYButton(null);
 		quit.setTooltip(StringUtil.getUiLabel("poatw.quit"));
-		quit.setImage("ui/mf/icons/close");
+		quit.setImage("icon/close");
 		quit.addActionListener(this);
 		quit.setBounds(buttonX + columnInc * 5,
 			buttonY, buttonSize, buttonSize);
@@ -557,13 +557,13 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		Collections.reverse(msgs);
 		String text = String.join("\n", msgs);
 
-		int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH / 2;
-		int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_WIDTH / 2;
-		int startX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - DIALOG_WIDTH / 2;
-		int startY = DiyGuiUserInterface.SCREEN_HEIGHT / 2 - DIALOG_HEIGHT / 2;
+		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH / 2;
+		int dialogHeight = DiyGuiUserInterface.SCREEN_HEIGHT -50;
+		int startX = DiyGuiUserInterface.SCREEN_WIDTH / 2 - dialogWidth / 2;
+		int startY = DiyGuiUserInterface.SCREEN_HEIGHT / 2 - dialogHeight / 2;
 
-		Rectangle bounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		OkDialogWidget dialog = new OkDialogWidget(bounds, null, text);
+		Rectangle bounds = new Rectangle(startX, startY, dialogWidth, dialogHeight);
+		OkDialogWidget dialog = new OkDialogWidget(bounds, StringUtil.getUiLabel("poatw.view.log.title"), text);
 
 		DiyGuiUserInterface.instance.showDialog(dialog);
 	}

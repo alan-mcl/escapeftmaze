@@ -15,6 +15,10 @@ spell desc dialog improvements: cast cost, effects
 itemwidget text wrap
 display party stealth
 compass widget
+edit some portraits to work nice with the portrait frame
+inventory screen alignment is out, again
+
+rename Automata race
 
 BACKLOG
 ----------
@@ -31,7 +35,7 @@ animation: throwing axe
 animation: throwing hammer
 
 scene art: city windows, dungeon window, door+window, portcullis
-scene art: table, chair, crate, barrel, 
+scene art: table, chair, crate
 
 sprite & sound: angel
 sprite & sound: clockwork beast
@@ -95,5 +99,5 @@ IN PROGRESS
 data: herbal modifier to be used for crafting with herbs/plants
 data: alchemic modifier to be used for crafting with reagents/potions
 data: CRAFT modifier to be replaced with SMITHCRAFT and used for crafting weapons/armour
-code: quest journal
+code: quest journal, general journal cleanup
 code: better Foe AI for harder difficulty levels

@@ -49,13 +49,13 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	{
 		iconLabels = new ArrayList<>(7);
 
-		red = createLabel("screen/mana_icon_red", Color.BLACK);
-		black = createLabel("screen/mana_icon_black", Color.WHITE);
-		purple = createLabel("screen/mana_icon_purple", Color.YELLOW);
-		gold = createLabel("screen/mana_icon_gold", Color.BLACK);
-		white = createLabel("screen/mana_icon_white", Color.BLACK);
-		green = createLabel("screen/mana_icon_green", Color.BLACK);
-		blue = createLabel("screen/mana_icon_blue", Color.WHITE);
+		red = createLabel("icon/mana_icon_red", Color.BLACK);
+		black = createLabel("icon/mana_icon_black", Color.WHITE);
+		purple = createLabel("icon/mana_icon_purple", Color.YELLOW);
+		gold = createLabel("icon/mana_icon_gold", Color.BLACK);
+		white = createLabel("icon/mana_icon_white", Color.BLACK);
+		green = createLabel("icon/mana_icon_green", Color.BLACK);
+		blue = createLabel("icon/mana_icon_blue", Color.WHITE);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -63,7 +63,7 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	{
 		DIYLabel iconLabel = new DIYLabel();
 		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
-		iconLabel.setIcon(Database.getInstance().getImage(imageName));
+		iconLabel.setIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName));
 
 		iconLabels.add(iconLabel);
 

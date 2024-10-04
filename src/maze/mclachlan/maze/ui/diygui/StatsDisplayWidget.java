@@ -114,10 +114,10 @@ public class StatsDisplayWidget extends ContainerWidget
 		topPane.add(topLeft);
 		topPane.add(topRight);
 
-		hitPoints.setBackgroundColour(COMBAT_RED);
-		actionPoints.setBackgroundColour(STEALTH_GREEN);
-		magicPoints.setBackgroundColour(MAGIC_BLUE);
-		experience.setBackgroundColour(LIGHT_BLUE);
+		hitPoints.setBarColour(COMBAT_RED);
+		actionPoints.setBarColour(STEALTH_GREEN);
+		magicPoints.setBarColour(MAGIC_BLUE);
+		experience.setBarColour(LIGHT_BLUE);
 
 		hitPoints.setForegroundColour(LIGHT_GREY);
 		actionPoints.setForegroundColour(LIGHT_GREY);
@@ -154,15 +154,15 @@ public class StatsDisplayWidget extends ContainerWidget
 		bottomPane.add(bottomRight);
 
 		Color col = LIGHT_BLUE;
-		resistBludgeoning.setBackgroundColour(col);
-		resistPiercing.setBackgroundColour(col);
-		resistSlashing.setBackgroundColour(col);
-		resistFire.setBackgroundColour(col);
-		resistWater.setBackgroundColour(col);
-		resistAir.setBackgroundColour(col);
-		resistEarth.setBackgroundColour(col);
-		resistMental.setBackgroundColour(col);
-		resistEnergy.setBackgroundColour(col);
+		resistBludgeoning.setBarColour(col);
+		resistPiercing.setBarColour(col);
+		resistSlashing.setBarColour(col);
+		resistFire.setBarColour(col);
+		resistWater.setBarColour(col);
+		resistAir.setBarColour(col);
+		resistEarth.setBarColour(col);
+		resistMental.setBarColour(col);
+		resistEnergy.setBarColour(col);
 
 		resistBludgeoning.setText(FilledBarWidget.InnerText.PERCENT);
 		resistPiercing.setText(FilledBarWidget.InnerText.PERCENT);

@@ -20,8 +20,10 @@
 package mclachlan.maze.ui.diygui.render.maze;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 import java.util.*;
 import mclachlan.diygui.toolkit.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
 
@@ -115,7 +117,22 @@ public class MazeRendererFactory extends RendererFactory
 					case INSET -> 5;
 					case TITLE_PANE_HEIGHT -> 20;
 					case BUTTON_PANE_HEIGHT -> 25;
+
+					case SCROLLBAR_WIDTH -> 20;
+					case SLIDER_WIDTH -> 16;
+					case SLIDER_HEIGHT -> 20;
+
+					case ITEM_WIDGET_SIZE -> 40;
+
+					case PCW_PORTRAIT_FRAME_BORDER -> 9;
+					case PCW_PORTRAIT_WIDTH, PCW_PORTRAIT_HEIGHT -> 102;
 				};
+		}
+
+		@Override
+		public BufferedImage getImageResource(String imageId)
+		{
+			return Database.getInstance().getImage("ui/maze/"+imageId);
 		}
 	}
 

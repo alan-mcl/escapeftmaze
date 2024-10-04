@@ -25,7 +25,6 @@ import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.map.Zone;
@@ -34,10 +33,10 @@ import mclachlan.maze.map.Zone;
  */
 public class MapDisplayDialog extends GeneralDialog implements ActionListener
 {
-	private static final int XX = 50, YY = 50;
+	private static final int XX = 25, YY = 25;
 
 	private final MapDisplayWidget mapWidget;
-	private final DIYButton okButton, zoomIn, zoomOut;
+	private final DIYButton close, zoomIn, zoomOut;
 
 	/*-------------------------------------------------------------------------*/
 	public MapDisplayDialog()
@@ -45,29 +44,27 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 		super(new Rectangle(
 			XX,
 			YY,
-			DiyGuiUserInterface.SCREEN_WIDTH-100,
-			DiyGuiUserInterface.SCREEN_HEIGHT-100));
+			DiyGuiUserInterface.SCREEN_WIDTH-XX*2,
+			DiyGuiUserInterface.SCREEN_HEIGHT-YY*2));
 
 		Zone zone = Maze.getInstance().getCurrentZone();
 
 		int inset = getInset();
+		int border = getBorder();
 		int buttonPaneHeight = getButtonPaneHeight();
 		int titlePaneHeight = getTitlePaneHeight();
 
 		Rectangle mapBounds = new Rectangle(
-			XX+inset,
-			YY+inset + titlePaneHeight,
-			width -inset*2,
-			height -buttonPaneHeight*2 -inset*2 - titlePaneHeight);
+			XX +border +inset,
+			YY +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*3 -titlePaneHeight -buttonPaneHeight);
 
 		mapWidget = new MapDisplayWidget();
 		mapWidget.setBounds(mapBounds);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height-buttonPaneHeight-inset, width, buttonPaneHeight);
+		DIYPane buttonPane = getButtonPane();
 
-		okButton = new DIYButton("Exit");
-		okButton.addActionListener(this);
 
 		zoomIn = new DIYButton("Zoom In (+)");
 		zoomIn.addActionListener(this);
@@ -77,20 +74,23 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 		
 		buttonPane.add(zoomIn);
 		buttonPane.add(zoomOut);
-		buttonPane.add(okButton);
 
 		DIYPane title = getTitlePane(zone.getName());
+
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		this.add(title);
 		this.add(mapWidget);
 		this.add(buttonPane);
+		this.add(close);
 		this.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == okButton)
+		if (event.getSource() == close)
 		{
 			exit();
 			return true;

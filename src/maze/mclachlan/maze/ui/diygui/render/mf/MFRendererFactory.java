@@ -19,8 +19,10 @@
 
 package mclachlan.maze.ui.diygui.render.mf;
 
+import java.awt.image.BufferedImage;
 import java.util.*;
 import mclachlan.diygui.toolkit.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.ui.diygui.render.maze.*;
 import mclachlan.maze.util.MazeException;
 
@@ -58,6 +60,8 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.LABEL, new MFLabelRenderer());
 		renderers.put(DIYToolkit.TEXT_FIELD, new MFTextFieldRenderer());
 		renderers.put(DIYToolkit.TOOLTIP, new MFTooltipRenderer());
+		renderers.put(DIYToolkit.COMBO_BOX, new MFComboBoxRenderer());
+		renderers.put(DIYToolkit.COMBO_ITEM, new MFComboItemRenderer());
 
 		// custom MF renderers
 		renderers.put(MUGSHOT_WIDGET, new MFMugshotWidgetRenderer());
@@ -66,8 +70,6 @@ public class MFRendererFactory extends RendererFactory
 		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
 		renderers.put(DIYToolkit.PANE, new NullRenderer());
-		renderers.put(DIYToolkit.COMBO_BOX, new MazeComboBoxRenderer());
-		renderers.put(DIYToolkit.COMBO_ITEM, new MazeComboItemRenderer());
 
 		// Fallback to custom maze renderers
 		renderers.put(ITEM_WIDGET, new ItemWidgetRenderer());
@@ -111,11 +113,26 @@ public class MFRendererFactory extends RendererFactory
 					case PANEL_MED_BORDER -> 25;
 					case PANEL_LIGHT_BORDER -> 12;
 					case IMAGE_BACK_PANEL_BORDER -> 10;
+
 					case DIALOG_BORDER -> 30;
 					case INSET -> 5;
 					case TITLE_PANE_HEIGHT -> 50;
 					case BUTTON_PANE_HEIGHT -> 40;
+					case SCROLLBAR_WIDTH -> 40;
+					case SLIDER_WIDTH -> 36;
+					case SLIDER_HEIGHT -> 99;
+
+					case ITEM_WIDGET_SIZE -> 40;
+
+					case PCW_PORTRAIT_FRAME_BORDER -> 9;
+					case PCW_PORTRAIT_WIDTH, PCW_PORTRAIT_HEIGHT -> 102;
 				};
+		}
+
+		@Override
+		public BufferedImage getImageResource(String imageId)
+		{
+			return Database.getInstance().getImage("ui/mf/"+imageId);
 		}
 	}
 }

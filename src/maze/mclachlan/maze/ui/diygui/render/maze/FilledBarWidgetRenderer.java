@@ -32,44 +32,55 @@ public class FilledBarWidgetRenderer extends Renderer
 	public void render(Graphics2D g, int x, int y, int width, int height,
 		Widget widget)
 	{
-		FilledBarWidget w = (FilledBarWidget)widget;
+		FilledBarWidget fbw = (FilledBarWidget)widget;
 
 		int inset = 3;
 
-		Color col = w.getBackgroundColour();
+		Color col = fbw.getBackgroundColour();
 		if (col == null)
 		{
 			col = Color.GRAY;
 		}
-		int fillWidth;
-		if (w.getMax() == 0)
+
+
+		int fillDistance, fillDistanceSub=0;
+		if (fbw.getOrientation() == FilledBarWidget.Orientation.HORIZONTAL)
 		{
-			fillWidth = 0;
+			fillDistance = getFillDistance(width, fbw.getCurrent(), fbw.getMax());
 		}
 		else
 		{
-			fillWidth = width*w.getCurrent()/w.getMax();
-		}
-		if (fillWidth > width)
-		{
-			fillWidth = width;
+			fillDistance = getFillDistance(height-inset*2, fbw.getCurrent(), fbw.getMax());
 		}
 
-		drawBar(g, col, fillWidth, x, y+inset, width, height-inset*2);
+		if (fbw.getSub() > 0)
+		{
+			if (fbw.getOrientation() == FilledBarWidget.Orientation.HORIZONTAL)
+			{
+				fillDistanceSub = getFillDistance(width, fbw.getSub(), fbw.getMax());
+			}
+			else
+			{
+				fillDistanceSub = getFillDistance(height-inset*2, fbw.getSub(), fbw.getMax());
+			}
+		}
+
+		drawBar(g, fbw, fillDistance, fillDistanceSub,
+			x, y+inset, width, height-inset*2);
 
 		String text = null;
-		switch (w.getText())
+		switch (fbw.getText())
 		{
 			case NONE:
 				break;
 			case CUR_MAX:
-				text = w.getCurrent()+" / "+w.getMax();
+				text = fbw.getCurrent()+" / "+fbw.getMax();
 				break;
 			case PERCENT:
-				text = w.getCurrent()+"%";
+				text = fbw.getCurrent()+"%";
 				break;
 			case CUSTOM:
-				text = w.getCustomText();
+				text = fbw.getCustomText();
 				break;
 		}
 
@@ -84,7 +95,7 @@ public class FilledBarWidgetRenderer extends Renderer
 			int textY = y + height/2 + textHeight/2;
 			int textX = x + width/2 - textWidth/2;
 
-			Color foreground = w.getForegroundColour();
+			Color foreground = fbw.getForegroundColour();
 			if (foreground == null)
 			{
 				foreground = MazeRendererFactory.LABEL_FOREGROUND;
@@ -95,22 +106,65 @@ public class FilledBarWidgetRenderer extends Renderer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void drawBar(Graphics2D g, Color colour, int fillWidth,
+	private int getFillDistance(int maxDistance, int val, int max)
+	{
+		int result;
+		if (max == 0)
+		{
+			result = 0;
+		}
+		else
+		{
+			result = maxDistance * val / max;
+		}
+		if (result > maxDistance)
+		{
+			result = maxDistance;
+		}
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void drawBar(Graphics2D g, FilledBarWidget fbw, int fillDistance, int fillDistanceSub,
 		int x, int y, int barWidth, int barHeight)
 	{
 		Color borderCol1 = Color.LIGHT_GRAY.brighter();
 		Color borderCol2 = Color.LIGHT_GRAY.darker();
 
-		Color col2 = colour.darker();
+		// filler bar
+		RoundRectangle2D filler;
+		if (fbw.getOrientation() == FilledBarWidget.Orientation.HORIZONTAL)
+		{
+			filler = new RoundRectangle2D.Double(x, y, fillDistance, barHeight, 5, 5);
+		}
+		else
+		{
+			filler = new RoundRectangle2D.Double(x, y +barHeight-fillDistance, barWidth, fillDistance, 5, 5);
+		}
 
-		RoundRectangle2D border = new RoundRectangle2D.Double(
-			x, y, barWidth, barHeight, 5, 5);
-		RoundRectangle2D filler = new RoundRectangle2D.Double(
-			x, y, fillWidth, barHeight, 5, 5);
-
-		g.setPaint(new GradientPaint(x, y, colour, x+barWidth, y+barHeight, col2));
+		g.setPaint(new GradientPaint(x, y, fbw.getBarColour(), x+barWidth, y+barHeight, fbw.getBarColour().darker()));
 		g.fill(filler);
 
+		// sub bar
+		if (fillDistanceSub > 0)
+		{
+			RoundRectangle2D sub;
+			if (fbw.getOrientation() == FilledBarWidget.Orientation.HORIZONTAL)
+			{
+				sub = new RoundRectangle2D.Double(x, y, fillDistanceSub, barHeight, 5, 5);
+			}
+			else
+			{
+				sub = new RoundRectangle2D.Double(x, y +barHeight -fillDistanceSub, barWidth, fillDistanceSub, 5, 5);
+			}
+
+			g.setColor(fbw.getSubBarColour());
+			g.fill(sub);
+		}
+
+		// border
+		RoundRectangle2D border = new RoundRectangle2D.Double(
+			x, y, barWidth, barHeight, 5, 5);
 		g.setPaint(new GradientPaint(x, y, borderCol1, x+barWidth, y+barHeight, borderCol2));
 		g.draw(border);
 	}

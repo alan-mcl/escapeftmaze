@@ -130,7 +130,7 @@ public class MainMenu extends DIYPanel
 		versionLabel.setForegroundColour(Constants.Colour.GOLD);
 		versionLabel.setText(Maze.getInstance().getAppConfig().get("mclachlan.maze.version"));
 		
-		setBackgroundImage(Database.getInstance().getImage("screen/main_menu"));
+		setBackgroundImage(DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/main_menu_back"));
 
 		add(menu);
 		add(versionLabel);

@@ -40,9 +40,9 @@ public class MFScrollPaneRenderer extends Renderer
 		Component comp = Maze.getInstance().getComponent();
 
 		pane.upButton.setText(null);
-		pane.upButton.setImage("ui/mf/scrollbar/button_up");
+		pane.upButton.setImage("scrollbar/button_up");
 		pane.downButton.setText(null);
-		pane.downButton.setImage("ui/mf/scrollbar/button_down");
+		pane.downButton.setImage("scrollbar/button_down");
 
 		Rectangle r = pane.scrollBarBounds;
 
@@ -64,6 +64,9 @@ public class MFScrollPaneRenderer extends Renderer
 
 		pane.upButton.draw(g);
 		pane.downButton.draw(g);
+
+		g.setColor(Colours.MF_BROWN);
+		g.drawRect(x, y, width, height);
 		
 		Widget w = pane.getContents();
 

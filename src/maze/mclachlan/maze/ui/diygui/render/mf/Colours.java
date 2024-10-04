@@ -19,4 +19,6 @@ public class Colours
 	public static final Color LIST_BOX_TEXT_SELECTED = Color.DARK_GRAY;
 	public static final Color LIST_BOX_TEXT_DISABLED = TEXT_AREA_TEXT.darker();
 	public static final Color LIST_BOX_TEXT_HIGHLIGHTED = Constants.Colour.GOLD;
+
+	public static final Color MF_BROWN = new Color(0x493026);
 }

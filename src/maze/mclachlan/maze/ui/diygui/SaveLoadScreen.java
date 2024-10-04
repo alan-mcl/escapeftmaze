@@ -34,9 +34,9 @@ import mclachlan.diygui.*;
  */
 public class SaveLoadScreen extends DIYPanel implements ActionListener
 {
-	DIYListBox list;
-	DIYTextField saveGameName;
-	DIYButton save, load, exit;
+	private final DIYListBox list;
+	private final DIYTextField saveGameName;
+	private final DIYButton save, load, exit;
 	private final List<String> saveGames;
 
 	/*-------------------------------------------------------------------------*/
@@ -44,9 +44,10 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	{
 		super(bounds);
 
-		setBackgroundImage(Database.getInstance().getImage("screen/main_menu"));
-
 		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+
+		setBackgroundImage(rp.getImageResource("screen/main_menu_back"));
+
 		int border = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int inset = rp.getProperty(RendererProperties.Property.INSET);
 		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
@@ -190,14 +191,12 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_UP:
-			case KeyEvent.VK_DOWN:
+			case KeyEvent.VK_UP, KeyEvent.VK_DOWN ->
+			{
 				this.list.processKeyPressed(e);
 				this.refresh();
-				break;
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
+			}
+			case KeyEvent.VK_ESCAPE -> exit();
 		}
 	}
 

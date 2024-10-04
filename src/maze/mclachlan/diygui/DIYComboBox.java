@@ -39,13 +39,13 @@ public class DIYComboBox<T> extends ContainerWidget
 {
 	/** If this is set the editor always display this text */
 	private String editorText;
-	private Stack<T> selected = new Stack<T>();
+	private final Stack<T> selected = new Stack<>();
 	private MutableTree<T> model;
 
 	private EditorState editorState = EditorState.DEFAULT;
 	private PopupState popupState = PopupState.HIDDEN;
-	private DIYToolkit.Align align = DIYToolkit.Align.CENTER;
-	private Stack<DIYPane> popupPanes = new Stack<DIYPane>();
+	private final DIYToolkit.Align align = DIYToolkit.Align.CENTER;
+	private final Stack<DIYPane> popupPanes = new Stack<>();
 
 	private PopupDirection popupDirection = PopupDirection.DOWN;
 	private PopupExpansionDirection popupExpansionDirection = PopupExpansionDirection.RIGHT;
@@ -98,7 +98,7 @@ public class DIYComboBox<T> extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void setModel(List<T> items)
 	{
-		HashMapMutableTree<T> model = new HashMapMutableTree<T>();
+		HashMapMutableTree<T> model = new HashMapMutableTree<>();
 
 		for (T t : items)
 		{
@@ -323,24 +323,27 @@ public class DIYComboBox<T> extends ContainerWidget
 			// root node means it's the first popup
 			switch (popupDirection)
 			{
-				case UP:
+				case UP ->
+				{
 					popupX = x;
 					popupY = y - popupHeight;
-					break;
-				case DOWN:
+				}
+				case DOWN ->
+				{
 					popupX = x;
 					popupY = y + height;
-					break;
-				case RIGHT:
+				}
+				case RIGHT ->
+				{
 					popupX = x + width;
-					popupY = y - popupHeight/2;
-					break;
-				case LEFT:
+					popupY = y - popupHeight / 2;
+				}
+				case LEFT ->
+				{
 					popupX = x - popupWidth;
-					popupY = y - popupHeight/2;
-					break;
-				default:
-					throw new MazeException(popupDirection.toString());
+					popupY = y - popupHeight / 2;
+				}
+				default -> throw new MazeException(popupDirection.toString());
 			}
 		}
 		else
@@ -351,15 +354,17 @@ public class DIYComboBox<T> extends ContainerWidget
 
 			switch (popupExpansionDirection)
 			{
-				case RIGHT:
+				case RIGHT ->
+				{
 					popupX = lastPane.x + popupWidth;
-					popupY = lastPane.y + lastPane.height/2 - popupHeight/2;
-					break;
-				case LEFT:
+					popupY = lastPane.y + lastPane.height / 2 - popupHeight / 2;
+				}
+				case LEFT ->
+				{
 					popupX = lastPane.x - popupWidth;
-					popupY = lastPane.y + lastPane.height/2 - popupHeight/2;
-					break;
-				default:
+					popupY = lastPane.y + lastPane.height / 2 - popupHeight / 2;
+				}
+				default ->
 					throw new MazeException(popupExpansionDirection.toString());
 			}
 		}
@@ -419,7 +424,7 @@ public class DIYComboBox<T> extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public class ComboItem extends Widget
 	{
-		private T item;
+		private final T item;
 		private ComboItemState state;
 
 		/*----------------------------------------------------------------------*/
@@ -481,7 +486,7 @@ public class DIYComboBox<T> extends ContainerWidget
 		}
 
 		/*----------------------------------------------------------------------*/
-		public DIYComboBox getParent()
+		public DIYComboBox<T> getParent()
 		{
 			return DIYComboBox.this;
 		}

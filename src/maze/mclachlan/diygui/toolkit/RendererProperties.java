@@ -1,5 +1,7 @@
 package mclachlan.diygui.toolkit;
 
+import java.awt.image.BufferedImage;
+
 /**
  *
  */
@@ -16,8 +18,20 @@ public interface RendererProperties
 
 		INSET,
 		TITLE_PANE_HEIGHT,
-		BUTTON_PANE_HEIGHT
+		BUTTON_PANE_HEIGHT,
+
+		SCROLLBAR_WIDTH,
+		SLIDER_WIDTH,
+		SLIDER_HEIGHT,
+
+		ITEM_WIDGET_SIZE,
+
+		PCW_PORTRAIT_FRAME_BORDER,
+		PCW_PORTRAIT_WIDTH,
+		PCW_PORTRAIT_HEIGHT,
 	}
 
 	int getProperty(Property p);
+
+	BufferedImage getImageResource(String imageId);
 }

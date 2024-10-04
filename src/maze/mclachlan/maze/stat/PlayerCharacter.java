@@ -1087,6 +1087,8 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			getSecondaryWeapon().setCursedState(Item.CursedState.DISCOVERED);
 		}
+
+
 	}
 
 	/*-------------------------------------------------------------------------*/

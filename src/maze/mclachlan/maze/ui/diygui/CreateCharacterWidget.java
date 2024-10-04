@@ -848,13 +848,13 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		DIYLabel portraitTitle = getSubTitle(getLabel("cc.character.portrait"));
 		portraitTitle.setForegroundColour(Constants.Colour.GOLD);
 		portraitTitle.setBounds(
-			column2x+panelBorderInset,
-			namePanel.y +namePanel.height +inset +panelBorderInset +inset,
+			column2x +panelBorderInset,
+			portraitPanel.y +panelBorderInset,
 			columnWidth*2 +inset -panelBorderInset*2,
 			titleHeight);
 		portraitWidget = new PortraitSelectionWidget(
 			column2x +panelBorderInset,
-			portraitTitle.y +portraitTitle.height +inset,
+			portraitTitle.y +portraitTitle.height +inset +inset/2,
 			columnWidth*2 +inset -panelBorderInset*2,
 			portraitPanel.height -panelBorderInset*2 -portraitTitle.height-inset*3);
 

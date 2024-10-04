@@ -33,7 +33,7 @@ import mclachlan.diygui.toolkit.RendererProperties;
 import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
 /**
- *
+ * Utility dialog super class, provides a title bar, button pane and close button
  */
 public class GeneralDialog extends DIYPanel
 {
@@ -113,7 +113,6 @@ public class GeneralDialog extends DIYPanel
 	{
 		DIYPane result = new DIYPane(new DIYFlowLayout(getInset(), 0, DIYToolkit.Align.CENTER));
 
-//		result.setInsets(new Insets(0, getInset(), getInset()/2, getInset()));
 		result.setBounds(
 			x +getBorder() +getInset(),
 			y +height -getBorder() -getInset() -getButtonPaneHeight(),
@@ -129,7 +128,7 @@ public class GeneralDialog extends DIYPanel
 	{
 		final DIYButton close;
 		close = new DIYButton(null);
-		close.setImage("ui/mf/icons/close");
+		close.setImage("icon/close");
 		close.setBounds(x + width - 45, y, 45, 45);
 		return close;
 	}

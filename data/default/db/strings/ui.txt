@@ -200,9 +200,10 @@ poatw.exploring = Exploring: %s
 poatw.chest.encounter = Encounter chest
 poatw.portal.encounter = Encounter door
 poatw.view.log = (V)iew Log
+poatw.view.log.title = Message Log
 
 # player character widget
-pcw.levelup = Level Up!
+pcw.levelup=+
 pcw.take.an.action = Take an action...
 
 # modifier display action listener
