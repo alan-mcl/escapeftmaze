@@ -38,15 +38,15 @@ public class FilledBarWidget extends Widget implements ProgressListener
 
 	private Color barColour = Color.GRAY, subBarColour = Color.LIGHT_GRAY;
 
-	private InnerText text = InnerText.NONE;
+	private InnerTextType textType = InnerTextType.NONE;
 	private String customText;
 
 	private ProgressListenerCallback callback;
 
 	/*-------------------------------------------------------------------------*/
-	public enum InnerText
+	public enum InnerTextType
 	{
-		NONE, CUR_MAX, PERCENT, CUSTOM;
+		NONE, CURRENT, CURRENT_AND_MAX, PERCENT, CUSTOM;
 	}
 
 	public enum Orientation
@@ -155,14 +155,14 @@ public class FilledBarWidget extends Widget implements ProgressListener
 		this.sub = sub;
 	}
 
-	public InnerText getText()
+	public InnerTextType getTextType()
 	{
-		return text;
+		return textType;
 	}
 
-	public void setText(InnerText text)
+	public void setTextType(InnerTextType textType)
 	{
-		this.text = text;
+		this.textType = textType;
 	}
 
 	public Orientation getOrientation()

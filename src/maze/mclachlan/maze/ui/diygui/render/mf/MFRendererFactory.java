@@ -66,6 +66,7 @@ public class MFRendererFactory extends RendererFactory
 		// custom MF renderers
 		renderers.put(MUGSHOT_WIDGET, new MFMugshotWidgetRenderer());
 		renderers.put(PLAYER_CHARACTER_WIDGET, new MFPlayerCharacterWidgetRenderer());
+		renderers.put(FILLED_BAR_WIDGET, new MFFilledBarWidgetRenderer());
 
 		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
@@ -78,7 +79,6 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(FORMATION_WIDGET, new FormationWidgetRenderer());
 		renderers.put(FOE_GROUP_WIDGET, new FoeGroupWidgetRenderer());
 		renderers.put(TRADING_WIDGET, new TradingWidgetRenderer());
-		renderers.put(FILLED_BAR_WIDGET, new FilledBarWidgetRenderer());
 	}
 
 	/*-------------------------------------------------------------------------*/

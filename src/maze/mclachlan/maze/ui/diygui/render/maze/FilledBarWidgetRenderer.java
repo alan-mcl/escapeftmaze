@@ -21,6 +21,7 @@ package mclachlan.maze.ui.diygui.render.maze;
 
 import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.ui.diygui.FilledBarWidget;
@@ -69,11 +70,14 @@ public class FilledBarWidgetRenderer extends Renderer
 			x, y+inset, width, height-inset*2);
 
 		String text = null;
-		switch (fbw.getText())
+		switch (fbw.getTextType())
 		{
 			case NONE:
 				break;
-			case CUR_MAX:
+			case CURRENT:
+				text = String.valueOf(fbw.getCurrent());
+				break;
+			case CURRENT_AND_MAX:
 				text = fbw.getCurrent()+" / "+fbw.getMax();
 				break;
 			case PERCENT:
@@ -91,17 +95,19 @@ public class FilledBarWidgetRenderer extends Renderer
 			int textHeight = fm.getAscent();
 			int textWidth = fm.stringWidth(text);
 
-			// center the text
-			int textY = y + height/2 + textHeight/2;
-			int textX = x + width/2 - textWidth/2;
-
-			Color foreground = fbw.getForegroundColour();
-			if (foreground == null)
+			if (fbw.getOrientation() == FilledBarWidget.Orientation.HORIZONTAL)
 			{
-				foreground = MazeRendererFactory.LABEL_FOREGROUND;
+				// center the text
+				int textY = y + height / 2 + textHeight / 2;
+				int textX = x + width / 2 - textWidth / 2;
+
+				g.drawString(text, textX, textY);
 			}
-			g.setColor(foreground);
-			g.drawString(text, textX, textY);
+			else
+			{
+				// draw text vertically
+				DIYToolkit.drawRotate(g, x +width/2 +textHeight/2, y +height -inset, -90, text);
+			}
 		}
 	}
 

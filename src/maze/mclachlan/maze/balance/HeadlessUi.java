@@ -19,13 +19,10 @@
 
 package mclachlan.maze.balance;
 
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
-import java.util.*;
+import java.util.List;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Texture;
 import mclachlan.diygui.toolkit.ContainerWidget;
@@ -171,6 +168,11 @@ public class HeadlessUi implements UserInterface
 	public void showBlockingScreen(String imageResource, int delay, Object mutex)
 	{
 		
+	}
+
+	public void showBlockingScreen(Image image, int delay, Object mutex)
+	{
+
 	}
 
 	public void showBlockingScreen(ContainerWidget dialog, int waitOnClick,

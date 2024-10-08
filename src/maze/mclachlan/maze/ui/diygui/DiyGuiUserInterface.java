@@ -59,7 +59,6 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class DiyGuiUserInterface extends Frame implements UserInterface
 {
-
 	public static int SCREEN_WIDTH;
 	public static int SCREEN_HEIGHT;
 	public static int SCREEN_EDGE_INSET;
@@ -703,6 +702,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void showBlockingScreen(String imageResource, int delay, Object mutex)
 	{
 		DIYPanel dialog = new BlockingScreen(imageResource, delay, mutex);
+		showDialog(dialog);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void showBlockingScreen(Image image, int delay, Object mutex)
+	{
+		DIYPanel dialog = new BlockingScreen(image, delay, mutex);
 		showDialog(dialog);
 	}
 

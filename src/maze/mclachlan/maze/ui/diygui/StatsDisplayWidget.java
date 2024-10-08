@@ -124,10 +124,10 @@ public class StatsDisplayWidget extends ContainerWidget
 		magicPoints.setForegroundColour(LIGHT_GREY);
 		experience.setForegroundColour(LIGHT_GREY);
 
-		hitPoints.setText(FilledBarWidget.InnerText.CUR_MAX);
-		actionPoints.setText(FilledBarWidget.InnerText.CUR_MAX);
-		magicPoints.setText(FilledBarWidget.InnerText.CUR_MAX);
-		experience.setText(FilledBarWidget.InnerText.CUSTOM);
+		hitPoints.setTextType(FilledBarWidget.InnerTextType.CURRENT_AND_MAX);
+		actionPoints.setTextType(FilledBarWidget.InnerTextType.CURRENT_AND_MAX);
+		magicPoints.setTextType(FilledBarWidget.InnerTextType.CURRENT_AND_MAX);
+		experience.setTextType(FilledBarWidget.InnerTextType.CUSTOM);
 
 		topLeft.add(getLabel("HIT POINTS:", COMBAT_RED));
 		topLeft.add(hitPoints);
@@ -164,15 +164,15 @@ public class StatsDisplayWidget extends ContainerWidget
 		resistMental.setBarColour(col);
 		resistEnergy.setBarColour(col);
 
-		resistBludgeoning.setText(FilledBarWidget.InnerText.PERCENT);
-		resistPiercing.setText(FilledBarWidget.InnerText.PERCENT);
-		resistSlashing.setText(FilledBarWidget.InnerText.PERCENT);
-		resistFire.setText(FilledBarWidget.InnerText.PERCENT);
-		resistWater.setText(FilledBarWidget.InnerText.PERCENT);
-		resistAir.setText(FilledBarWidget.InnerText.PERCENT);
-		resistEarth.setText(FilledBarWidget.InnerText.PERCENT);
-		resistMental.setText(FilledBarWidget.InnerText.PERCENT);
-		resistEnergy.setText(FilledBarWidget.InnerText.PERCENT);
+		resistBludgeoning.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistPiercing.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistSlashing.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistFire.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistWater.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistAir.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistEarth.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistMental.setTextType(FilledBarWidget.InnerTextType.PERCENT);
+		resistEnergy.setTextType(FilledBarWidget.InnerTextType.PERCENT);
 
 		resistBludgeoning.setForegroundColour(LIGHT_GREY);
 		resistPiercing.setForegroundColour(LIGHT_GREY);

@@ -17,6 +17,7 @@ display party stealth
 compass widget
 edit some portraits to work nice with the portrait frame
 inventory screen alignment is out, again
+dead character portrait
 
 rename Automata race
 

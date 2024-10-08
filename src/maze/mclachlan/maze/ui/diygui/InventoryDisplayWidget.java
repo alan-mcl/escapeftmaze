@@ -143,7 +143,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		splitStack.addActionListener(listener);
 		disassemble.addActionListener(listener);
 
-		carrying.setText(FilledBarWidget.InnerText.CUSTOM);
+		carrying.setTextType(FilledBarWidget.InnerTextType.CUSTOM);
 
 		int inset = 10;
 		int column1x = bounds.x + inset;

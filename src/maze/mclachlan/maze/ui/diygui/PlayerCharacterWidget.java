@@ -111,12 +111,15 @@ public class PlayerCharacterWidget extends DIYPanel
 		hpBar = new FilledBarWidget(0,0);
 		hpBar.setBarColour(Constants.Colour.COMBAT_RED);
 		hpBar.setOrientation(FilledBarWidget.Orientation.VERTICAL);
+//		hpBar.setTextType(FilledBarWidget.InnerTextType.CURRENT);
 		apBar = new FilledBarWidget(0,0);
 		apBar.setBarColour(Constants.Colour.STEALTH_GREEN);
 		apBar.setOrientation(FilledBarWidget.Orientation.VERTICAL);
+//		apBar.setTextType(FilledBarWidget.InnerTextType.CURRENT);
 		mpBar = new FilledBarWidget(0,0);
 		mpBar.setBarColour(Constants.Colour.MAGIC_BLUE);
 		mpBar.setOrientation(FilledBarWidget.Orientation.VERTICAL);
+//		mpBar.setTextType(FilledBarWidget.InnerTextType.CURRENT);
 
 		hpBar.addActionListener(this);
 		apBar.addActionListener(this);
@@ -125,6 +128,7 @@ public class PlayerCharacterWidget extends DIYPanel
 		// lvl up
 		levelUp = new DIYButton(StringUtil.getUiLabel("pcw.levelup"));
 		levelUp.addActionListener(this);
+		levelUp.setTooltip(StringUtil.getUiLabel("pcw.levelup.tooltip"));
 
 		// actions
 		MutableTree<ActorActionOption> options = new HashMapMutableTree<>();
@@ -219,9 +223,9 @@ public class PlayerCharacterWidget extends DIYPanel
 		rightHandItem.setBounds(rightHandSlot.getBounds());
 
 		// resource bars
-		int startX = portraitFrame.x +portraitFrame.width +inset;
+		int startX = rightHandBounds.x;
 		int barTop = portraitFrame.y;
-		int barWidth = 20;
+		int barWidth = (width -portraitFrame.width -inset/2 -inset*4 -border*2) /3;
 		int barHeight = portraitFrame.height -inset;
 
 		hpBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
@@ -431,26 +435,54 @@ public class PlayerCharacterWidget extends DIYPanel
 			}
 			classLabel.setText(raceClassText);
 
-			// todo: fatigue
+			// resource bars
 			hpBar.setVisible(true);
 			apBar.setVisible(true);
 			mpBar.setVisible(true);
+
 			CurMaxSub hp = playerCharacter.getHitPoints();
+			CurMax ap = playerCharacter.getActionPoints();
+			CurMax mp = playerCharacter.getMagicPoints();
+
 			hpBar.set(hp.getCurrent(), hp.getMaximum(), hp.getSub());
-			apBar.set(playerCharacter.getActionPoints().getCurrent(), playerCharacter.getActionPoints().getMaximum());
-			mpBar.set(playerCharacter.getMagicPoints().getCurrent(), playerCharacter.getMagicPoints().getMaximum());
+			apBar.set(ap.getCurrent(), ap.getMaximum());
+			mpBar.set(mp.getCurrent(), mp.getMaximum());
+
+			if (hp.getSub() > 0)
+			{
+				hpBar.setTooltip(StringUtil.getUiLabel("pcw.hp.fatigue.tooltip", hp.getCurrent(), hp.getMaximum(), hp.getSub()));
+			}
+			else
+			{
+				hpBar.setTooltip(StringUtil.getUiLabel("pcw.hp.tooltip", hp.getCurrent(), hp.getMaximum()));
+			}
+
+			apBar.setTooltip(StringUtil.getUiLabel("pcw.ap.tooltip", ap.getCurrent(), ap.getMaximum()));
+			mpBar.setTooltip(StringUtil.getUiLabel("pcw.mp.tooltip", mp.getCurrent(), mp.getMaximum()));
 
 			// left hand item
-			BufferedImage img = playerCharacter.getSecondaryWeapon() != null ?
-				Database.getInstance().getImage(playerCharacter.getSecondaryWeapon().getImage()) :
-				Database.getInstance().getImage(playerCharacter.getLeftHandIcon());
-			leftHandItem.setIcon(img);
+			if (playerCharacter.getSecondaryWeapon() != null)
+			{
+				leftHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getSecondaryWeapon().getImage()));
+				leftHandItem.setTooltip(playerCharacter.getSecondaryWeapon().getDisplayName());
+			}
+			else
+			{
+				leftHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getLeftHandIcon()));
+				leftHandItem.setTooltip(null);
+			}
 
 			// right hand item
-			img = playerCharacter.getPrimaryWeapon() != null ?
-				Database.getInstance().getImage(playerCharacter.getPrimaryWeapon().getImage()) :
-				Database.getInstance().getImage(playerCharacter.getRightHandIcon());
-			rightHandItem.setIcon(img);
+			if (playerCharacter.getPrimaryWeapon() != null)
+			{
+				rightHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getPrimaryWeapon().getImage()));
+				rightHandItem.setTooltip(playerCharacter.getPrimaryWeapon().getDisplayName());
+			}
+			else
+			{
+				rightHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getRightHandIcon()));
+				rightHandItem.setTooltip(null);
+			}
 
 			leftHandSlot.setVisible(true);
 			rightHandSlot.setVisible(true);

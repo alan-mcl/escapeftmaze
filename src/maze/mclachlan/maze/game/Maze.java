@@ -25,6 +25,7 @@ import java.awt.Rectangle;
 import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.audio.AudioThread;
 import mclachlan.maze.data.Database;
@@ -427,7 +428,7 @@ public class Maze implements Runnable
 
 			// loading screen
 			ui.showBlockingScreen(
-				"screen/loading_screen",
+				DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/loading_screen"),
 				BlockingScreen.Mode.UNINTERRUPTABLE,
 				null);
 
@@ -479,7 +480,6 @@ public class Maze implements Runnable
 			ui.stopAllAnimations();
 			ui.getMusic().stop();
 			ui.getMusic().setState(null);
-//			ui.changeState(State.MAINMENU);
 
 			final int MAX_PROGRESS = 11;
 
@@ -498,7 +498,7 @@ public class Maze implements Runnable
 			// construct player party
 			progress.message(StringUtil.getUiLabel("ls.party"));
 			playerCharacterCache = loader.loadPlayerCharacters(name);
-			List<UnifiedActor> list = new ArrayList<UnifiedActor>();
+			List<UnifiedActor> list = new ArrayList<>();
 			for (String s : gs.getPartyNames())
 			{
 				list.add(playerCharacterCache.get(s));

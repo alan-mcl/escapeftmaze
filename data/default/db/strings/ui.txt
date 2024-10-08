@@ -204,7 +204,12 @@ poatw.view.log.title = Message Log
 
 # player character widget
 pcw.levelup=+
+pcw.levelup.tooltip = Level up this character.
 pcw.take.an.action = Take an action...
+pcw.hp.fatigue.tooltip = Hit points %s/%s (%s fatigue)
+pcw.hp.tooltip = Hit points %s/%s
+pcw.ap.tooltip = Action points %s/%s
+pcw.mp.tooltip = Magic points %s/%s
 
 # modifier display action listener
 mdal.influences = INFLUENCES:

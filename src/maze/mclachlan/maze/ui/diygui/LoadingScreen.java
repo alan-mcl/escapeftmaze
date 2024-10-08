@@ -20,30 +20,59 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
+import java.awt.image.BufferedImage;
 import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.DIYPanel;
+import mclachlan.diygui.toolkit.DIYToolkit;
 
 /**
  *
  */
 public class LoadingScreen extends BlockingScreen implements ProgressListenerCallback
 {
-	private FilledBarWidget bar;
-	private DIYLabel message;
+	private final FilledBarWidget bar;
+	private final DIYLabel message;
 
 	/*-------------------------------------------------------------------------*/
 	public LoadingScreen(int maxProgress)
 	{
-		super("screen/loading_screen", BlockingScreen.Mode.UNINTERRUPTABLE, null);
+		super(
+			DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/loading_screen"),
+			BlockingScreen.Mode.UNINTERRUPTABLE,
+			null);
 
-		bar = new FilledBarWidget(width/2-100, height-100, 200, 20, 0, maxProgress);
+		DIYPanel panel = new DIYPanel();
+		BufferedImage panelBack = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/loading_screen_panel");
+		panel.setBackgroundImage(panelBack);
+
+		panel.setBounds(
+			width/2 -panelBack.getWidth()/2,
+			height/3*2,
+			panelBack.getWidth(),
+			panelBack.getHeight());
+
+
+		bar = new FilledBarWidget(
+			panel.x +65,
+			panel.y +70,
+			panel.width -130,
+			26,
+			0, maxProgress);
 		bar.setCallback(this);
+		bar.setBarColour(Constants.Colour.GOLD);
 
 		message = new DIYLabel();
 		message.setForegroundColour(Color.WHITE);
-		message.setBounds(width / 2 - 100, height -100 +20 +2, 200, 20);
+		message.setBounds(
+			panel.x +210,
+			panel.y +28,
+			panel.width -420,
+			22);
 
-		this.add(bar);
-		this.add(message);
+		panel.add(message);
+		panel.add(bar);
+
+		this.add(panel);
 	}
 
 	/*-------------------------------------------------------------------------*/

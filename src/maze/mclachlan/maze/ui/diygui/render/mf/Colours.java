@@ -21,4 +21,5 @@ public class Colours
 	public static final Color LIST_BOX_TEXT_HIGHLIGHTED = Constants.Colour.GOLD;
 
 	public static final Color MF_BROWN = new Color(0x493026);
+	public static final Color MF_DARK_BROWN = new Color(0x241c15);
 }

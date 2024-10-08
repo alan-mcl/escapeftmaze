@@ -40,11 +40,16 @@ public class BlockingScreen extends DIYPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public BlockingScreen(String imageResource, int delay, Object mutex)
 	{
+		this(Database.getInstance().getImage(imageResource), delay, mutex);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public BlockingScreen(Image image, int delay, Object mutex)
+	{
 		super(0, 0, DiyGuiUserInterface.SCREEN_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT);
 		this.delay = delay;
 		this.mutex = mutex;
-		Image back = Database.getInstance().getImage(imageResource);
-		setBackgroundImage(back);
+		setBackgroundImage(image);
 	}
 
 	/*-------------------------------------------------------------------------*/
