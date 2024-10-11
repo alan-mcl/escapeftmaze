@@ -64,7 +64,7 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 	public enum Align
 	{
-		LEFT, CENTER, RIGHT
+		LEFT, CENTER, RIGHT, BOTTOM, TOP
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -920,7 +920,7 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void drawImageCentered(
+	public static void drawImageAligned(
 		Graphics2D g,
 		Image img,
 		Rectangle bounds,
@@ -929,26 +929,22 @@ public class DIYToolkit
 		Dimension imgD = getDimension(img);
 
 		// center on the Y axis
-		int imgOffsetY = (bounds.height - imgD.height) / 2;
+		int imgOffsetY = switch (alignment)
+			{
+				case LEFT, CENTER, RIGHT -> (bounds.height - imgD.height) / 2;
+				case BOTTOM -> bounds.height - imgD.height;
+				case TOP -> 0;
+				default -> throw new MazeException(alignment.toString());
+			};
 
 		// cater for various X axis alignment
-		int imgOffsetX;
-		if (alignment == Align.CENTER)
-		{
-			imgOffsetX = (bounds.width - imgD.width) / 2;
-		}
-		else if (alignment == Align.LEFT)
-		{
-			imgOffsetX = 0;
-		}
-		else if (alignment == Align.RIGHT)
-		{
-			imgOffsetX = bounds.width - imgD.width;
-		}
-		else
-		{
-			throw new MazeException(alignment.toString());
-		}
+		int imgOffsetX = switch (alignment)
+			{
+				case CENTER, TOP, BOTTOM -> (bounds.width - imgD.width) / 2;
+				case LEFT -> 0;
+				case RIGHT -> bounds.width - imgD.width;
+				default -> throw new MazeException(alignment.toString());
+			};
 
 		int imgX = bounds.x + imgOffsetX;
 		int imgY = bounds.y + imgOffsetY;

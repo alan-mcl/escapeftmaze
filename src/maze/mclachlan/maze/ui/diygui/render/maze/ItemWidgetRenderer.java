@@ -51,10 +51,10 @@ public class ItemWidgetRenderer extends Renderer
 			Rectangle iconBounds = new Rectangle(widget.x, widget.y,
 				iconSize, iconSize);
 
-			DIYToolkit.drawImageCentered(g, slotImage, iconBounds, DIYToolkit.Align.CENTER);
+			DIYToolkit.drawImageAligned(g, slotImage, iconBounds, DIYToolkit.Align.CENTER);
 			if (widget.getItem() != null)
 			{
-				DIYToolkit.drawImageCentered(g, widget.getImage(), iconBounds, DIYToolkit.Align.CENTER);
+				DIYToolkit.drawImageAligned(g, widget.getImage(), iconBounds, DIYToolkit.Align.CENTER);
 			}
 			if (widget.getText() != null)
 			{

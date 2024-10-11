@@ -75,6 +75,7 @@ public class PlayerCharacterWidget extends DIYPanel
 
 		// portrait, name, class
 		portrait = new DIYLabel();
+		portrait.setIconAlign(DIYToolkit.Align.BOTTOM);
 		portraitFrame = new DIYLabel();
 
 		portrait.addActionListener(this);

@@ -124,7 +124,8 @@ public class MFRendererFactory extends RendererFactory
 					case CONDITION_ICON_SIZE -> 22;
 
 					case PCW_PORTRAIT_FRAME_BORDER -> 9;
-					case PCW_PORTRAIT_WIDTH, PCW_PORTRAIT_HEIGHT -> 102;
+					case PCW_PORTRAIT_HEIGHT -> 102;
+					case PCW_PORTRAIT_WIDTH -> 102;
 				};
 		}
 

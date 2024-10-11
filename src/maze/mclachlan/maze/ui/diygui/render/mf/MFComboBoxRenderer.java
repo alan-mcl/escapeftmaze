@@ -188,7 +188,7 @@ public class MFComboBoxRenderer extends Renderer
 			}
 			case RIGHT ->
 			{
-				DIYToolkit.drawImageCentered(g,
+				DIYToolkit.drawImageAligned(g,
 					arrowRight,
 					new Rectangle(
 						x +width -borderRight.getWidth(),
@@ -199,7 +199,7 @@ public class MFComboBoxRenderer extends Renderer
 			}
 			case LEFT ->
 			{
-				DIYToolkit.drawImageCentered(g,
+				DIYToolkit.drawImageAligned(g,
 					arrowLeft,
 					new Rectangle(
 						x +borderRight.getWidth() -arrowLeft.getWidth() -1,

@@ -72,10 +72,13 @@ public class MFMugshotWidgetRenderer extends Renderer
 		int scaledPortraitHeight = widget.height -panelBorderInset*2 -inset*2;
 		int scaledPortraitWidth = scaledPortraitHeight*portraitWidth/portraitHeight;
 
-		g.drawImage(portrait,
-			x+panelBorderInset+inset, y+panelBorderInset+inset,
-			scaledPortraitWidth, scaledPortraitHeight,
-			DIYToolkit.getInstance().getComponent());
+		DIYToolkit.drawImageAligned(g, portrait,
+			new Rectangle(x+panelBorderInset+inset, y+panelBorderInset+inset,
+			scaledPortraitWidth, scaledPortraitHeight), DIYToolkit.Align.BOTTOM);
+//		g.drawImage(portrait,
+//			x+panelBorderInset+inset, y+panelBorderInset+inset,
+//			scaledPortraitWidth, scaledPortraitHeight,
+//			DIYToolkit.getInstance().getComponent());
 
 		// draw bars
 		int startX = x +panelBorderInset +inset +scaledPortraitWidth +inset*2;

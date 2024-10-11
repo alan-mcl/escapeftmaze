@@ -77,7 +77,7 @@ public class MazeLabelRenderer extends Renderer
 			int startX = switch (label.getAlignment())
 				{
 					case LEFT -> x;
-					case CENTER -> x + width / 2 - combinedWidth / 2;
+					case CENTER, TOP, BOTTOM -> x + width / 2 - combinedWidth / 2;
 					case RIGHT -> x + width - combinedWidth;
 					default ->
 						throw new MazeException(label.getAlignment().toString());
@@ -87,7 +87,7 @@ public class MazeLabelRenderer extends Renderer
 			int textX = switch (label.getIconAlign())
 				{
 					case LEFT -> startX + iconWidth;
-					case CENTER -> startX;
+					case CENTER, TOP, BOTTOM -> startX;
 					case RIGHT -> startX;
 					default ->
 						throw new MazeException(label.getAlignment().toString());
@@ -98,7 +98,7 @@ public class MazeLabelRenderer extends Renderer
 		// draw the icon
 		if (icon != null)
 		{
-			DIYToolkit.drawImageCentered(g, icon, iconBounds, label.getAlignment());
+			DIYToolkit.drawImageAligned(g, icon, iconBounds, label.getIconAlign());
 		}
 
 		// draw the text
