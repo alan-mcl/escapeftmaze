@@ -19,12 +19,10 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Dimension;
-import java.awt.FontMetrics;
-import java.awt.Point;
-import java.awt.Rectangle;
+import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
+import java.util.List;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYComboBox;
@@ -56,8 +54,8 @@ public class PlayerCharacterWidget extends DIYPanel
 	private PlayerCharacter playerCharacter;
 	private final int index;
 
-	private Rectangle portraitBounds, leftHandBounds, rightHandBounds,
-		hpBarBounds, apBarBounds, mpBarBounds, conditionsArea;
+	private Rectangle portraitBounds;
+	private Rectangle rightHandBounds;
 
 	private final DIYButton levelUp;
 	private final DIYComboBox<ActorActionOption> action;
@@ -65,9 +63,7 @@ public class PlayerCharacterWidget extends DIYPanel
 
 	private final Object pcMutex = new Object();
 
-	private Map<Rectangle, Condition> conditionBounds;
-	private Rectangle nameLabelBounds;
-	private Rectangle classLabelBounds;
+	private List<DIYLabel> conditionLabels;
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerCharacterWidget(int index, Rectangle bounds)
@@ -87,9 +83,6 @@ public class PlayerCharacterWidget extends DIYPanel
 		nameLabel = new DIYLabel("", DIYToolkit.Align.CENTER);
 		nameLabel.setForegroundColour(Constants.Colour.GOLD);
 		classLabel = new DIYLabel("", DIYToolkit.Align.CENTER);
-//		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-//		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() -2);
-//		classLabel.setFont(f);
 		nameBoard = new DIYLabel();
 
 		nameLabel.addActionListener(this);
@@ -111,15 +104,14 @@ public class PlayerCharacterWidget extends DIYPanel
 		hpBar = new FilledBarWidget(0,0);
 		hpBar.setBarColour(Constants.Colour.COMBAT_RED);
 		hpBar.setOrientation(FilledBarWidget.Orientation.VERTICAL);
-//		hpBar.setTextType(FilledBarWidget.InnerTextType.CURRENT);
+
 		apBar = new FilledBarWidget(0,0);
 		apBar.setBarColour(Constants.Colour.STEALTH_GREEN);
 		apBar.setOrientation(FilledBarWidget.Orientation.VERTICAL);
-//		apBar.setTextType(FilledBarWidget.InnerTextType.CURRENT);
+
 		mpBar = new FilledBarWidget(0,0);
 		mpBar.setBarColour(Constants.Colour.MAGIC_BLUE);
 		mpBar.setOrientation(FilledBarWidget.Orientation.VERTICAL);
-//		mpBar.setTextType(FilledBarWidget.InnerTextType.CURRENT);
 
 		hpBar.addActionListener(this);
 		apBar.addActionListener(this);
@@ -146,6 +138,9 @@ public class PlayerCharacterWidget extends DIYPanel
 		}
 		action.addActionListener(this);
 
+		// conditions
+		// ... are initialised during layout
+
 		// stances
 		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<>();
 		stance = new DIYComboBox<>(stances, new Rectangle(0, 0, 1, 1));
@@ -153,7 +148,6 @@ public class PlayerCharacterWidget extends DIYPanel
 
 		add(portraitFrame);
 		add(portrait);
-//		add(nameBoard);
 		add(nameLabel);
 		add(classLabel);
 		add(leftHandSlot);
@@ -165,7 +159,7 @@ public class PlayerCharacterWidget extends DIYPanel
 		add(mpBar);
 
 		add(action);
-//		add(stance); todo: stance widget
+		add(stance);
 		add(levelUp);
 	}
 
@@ -178,8 +172,8 @@ public class PlayerCharacterWidget extends DIYPanel
 
 		int border = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
 		int inset = rp.getProperty(RendererProperties.Property.INSET);
-
-		int twoThirdsHeight = height*2/3;
+		int handSize = rp.getProperty(RendererProperties.Property.ITEM_WIDGET_SIZE);
+		int conditionSize = rp.getProperty(RendererProperties.Property.CONDITION_ICON_SIZE);
 
 		// portrait frame
 		BufferedImage pf = rp.getImageResource("pcw/portrait_frame");
@@ -204,14 +198,13 @@ public class PlayerCharacterWidget extends DIYPanel
 		this.portraitBounds = portraitBounds;
 
 		// hand icon bounds
-		int handSize = rp.getProperty(RendererProperties.Property.ITEM_WIDGET_SIZE);
 		rightHandBounds = new Rectangle(
 			portraitFrame.x +portraitFrame.width +inset/2,
 			portraitFrame.y +portraitFrame.height -inset/2,
 			handSize,
 			handSize);
-		leftHandBounds = new Rectangle(
-			rightHandBounds.x +rightHandBounds.width +inset/2,
+		Rectangle leftHandBounds = new Rectangle(
+			rightHandBounds.x + rightHandBounds.width + inset / 2,
 			rightHandBounds.y,
 			handSize,
 			handSize);
@@ -228,18 +221,17 @@ public class PlayerCharacterWidget extends DIYPanel
 		int barWidth = (width -portraitFrame.width -inset/2 -inset*4 -border*2) /3;
 		int barHeight = portraitFrame.height -inset;
 
-		hpBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
+		Rectangle hpBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
 		startX += (barWidth+ inset);
-		apBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
+		Rectangle apBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
 		startX += (barWidth+ inset);
-		mpBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
+		Rectangle mpBarBounds = new Rectangle(startX, barTop, barWidth, barHeight);
 
 		hpBar.setBounds(hpBarBounds);
 		apBar.setBounds(apBarBounds);
 		mpBar.setBounds(mpBarBounds);
 
 		// name and class labels
-
 		int nameLabelHeight = 15;
 		BufferedImage nb = rp.getImageResource("pcw/name_board");
 		nameBoard.setIcon(nb);
@@ -249,41 +241,56 @@ public class PlayerCharacterWidget extends DIYPanel
 			portraitFrame.width,
 			nameLabelHeight*2);
 
-		nameLabelBounds = new Rectangle(
+		Rectangle nameLabelBounds = new Rectangle(
 			nameBoard.x,
 			nameBoard.y,
 			nameBoard.width,
 			nameLabelHeight);
-		classLabelBounds = new Rectangle(
+		Rectangle classLabelBounds = new Rectangle(
 			nameBoard.x,
-			nameBoard.y +nameLabelHeight,
+			nameBoard.y + nameLabelHeight,
 			nameBoard.width,
 			nameLabelHeight);
 		nameLabel.setBounds(nameLabelBounds);
 		classLabel.setBounds(classLabelBounds);
 
-		// todo: conditions
-		conditionsArea = new Rectangle(
-			x + border,
-			y + border,
+		// condition icons
+		Rectangle conditionsArea = new Rectangle(
+			portraitFrame.x + portraitFrame.width - conditionSize,
+			portraitFrame.y,
 			handSize,
-			twoThirdsHeight-border);
+			portraitFrame.height);
+
+		int bestMaxConditions = conditionsArea.height / (conditionSize+inset/2);
+		conditionLabels = new ArrayList<>(bestMaxConditions);
+		for (int i=0; i<bestMaxConditions; i++)
+		{
+			DIYLabel cw = new DIYLabel();
+			conditionLabels.add(cw);
+			this.add(cw);
+
+			cw.setBounds(
+				conditionsArea.x,
+				conditionsArea.y +i*(conditionSize+inset/2),
+				conditionSize,
+				conditionSize);
+		}
 
 		// action button bounds
 		Rectangle actionBounds = new Rectangle(
 			x + border +inset,
-			classLabelBounds.y +classLabelBounds.height +inset,
+			classLabelBounds.y + classLabelBounds.height +inset,
 			width -border*2 -inset*2,
 			height -border*2 -portraitFrame.height -nameLabelHeight*2 -inset*4);
 		getAction().setBounds(actionBounds);
 		getAction().setVisible(false);
 
-		// todo: stance button bounds
+		// stance combo bounds
 		Rectangle stanceBounds = new Rectangle(
-			x + border,
-			y + border + portraitHeight + nameLabelHeight*2 + inset*2,
-			width -border*2 -handSize -inset*2,
-			25 -inset);
+			x +border +inset,
+			y +border +inset,
+			portraitFrame.width /2,
+			actionBounds.height);
 		getStance().setBounds(stanceBounds);
 		getStance().setVisible(false);
 
@@ -296,12 +303,6 @@ public class PlayerCharacterWidget extends DIYPanel
 			ps.height);
 		levelUp.setVisible(false);
 	}
-
-	/*-------------------------------------------------------------------------*/
-//	public String getWidgetName()
-//	{
-//		return MazeRendererFactory.PLAYER_CHARACTER_WIDGET;
-//	}
 
 	/*-------------------------------------------------------------------------*/
 	public void setPlayerCharacter(PlayerCharacter playerCharacter)
@@ -317,79 +318,7 @@ public class PlayerCharacterWidget extends DIYPanel
 	public void setEnabled(boolean enabled)
 	{
 		super.setEnabled(enabled);
-		refreshStates();
-	}
-
-	private void refreshStates()
-	{
-		boolean thisEnabled = this.isEnabled();
-		if (playerCharacter == null)
-		{
-			portrait.setIcon(null);
-			nameLabel.setVisible(false);
-			classLabel.setVisible(false);
-			leftHandSlot.setVisible(false);
-			rightHandSlot.setVisible(false);
-			leftHandItem.setVisible(false);
-			rightHandItem.setVisible(false);
-			hpBar.setVisible(false);
-			apBar.setVisible(false);
-			mpBar.setVisible(false);
-
-			levelUp.setVisible(false);
-			action.setVisible(false);
-			stance.setVisible(false);
-			return;
-		}
-		else
-		{
-			nameLabel.setVisible(true);
-			classLabel.setVisible(true);
-			leftHandSlot.setVisible(true);
-			rightHandSlot.setVisible(true);
-			leftHandItem.setVisible(true);
-			rightHandItem.setVisible(true);
-			hpBar.setVisible(true);
-			apBar.setVisible(true);
-			mpBar.setVisible(true);
-
-			Combat combat = Maze.getInstance().getCurrentCombat();
-			action.setVisible(true);
-			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
-
-			stance.setVisible(true);
-			stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size() == 1));
-
-			if (playerCharacter.isLevelUpPending())
-			{
-				levelUp.setVisible(true);
-				levelUp.setEnabled(true);
-			}
-			else
-			{
-				levelUp.setVisible(false);
-				levelUp.setEnabled(false);
-			}
-
-			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
-				Maze.getInstance().getState() == Maze.State.COMBAT)
-			{
-				if (combat == null)
-				{
-					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
-					action.setEnabled(!action.getModel().isEmpty());
-
-					stance.setEnabled(false);
-				}
-				else
-				{
-					action.setEditorText(null);
-					action.getSelected().select(playerCharacter, combat, this);
-
-					stance.setEnabled(thisEnabled);
-				}
-			}
-		}
+		refresh();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -397,8 +326,6 @@ public class PlayerCharacterWidget extends DIYPanel
 	{
 		boolean thisEnabled = this.isEnabled();
 
-		conditionBounds = new HashMap<>();
-
 		if (playerCharacter == null)
 		{
 			portrait.setIcon(null);
@@ -417,6 +344,16 @@ public class PlayerCharacterWidget extends DIYPanel
 			levelUp.setVisible(false);
 			action.setVisible(false);
 			stance.setVisible(false);
+
+			if (conditionLabels != null)
+			{
+				for (DIYLabel cw : conditionLabels)
+				{
+					cw.setIcon(null);
+					cw.getListeners().clear();
+					cw.addActionListener(this);
+				}
+			}
 			return;
 		}
 		else
@@ -489,25 +426,64 @@ public class PlayerCharacterWidget extends DIYPanel
 			leftHandItem.setVisible(true);
 			rightHandItem.setVisible(true);
 
-			Combat combat = Maze.getInstance().getCurrentCombat();
-			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
-			action.setVisible(true);
-			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
-
-			stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
-			stance.setVisible(true);
-			stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size() == 1));
-
-			if (playerCharacter.isLevelUpPending())
+			// conditions
+			ArrayList<Condition> pcConditions = new ArrayList<>(playerCharacter.getConditions());
+			for (int i=0; i<conditionLabels.size(); i++)
 			{
-				levelUp.setVisible(true);
-				levelUp.setEnabled(true);
+				DIYLabel cw = conditionLabels.get(i);
+				if (i < pcConditions.size())
+				{
+					Condition condition = pcConditions.get(i);
+					cw.setIcon(Database.getInstance().getImage(condition.getDisplayIcon()));
+					cw.setTooltip(condition.getDisplayName());
+					cw.getListeners().clear();
+					cw.addActionListener(event -> {
+						DiyGuiUserInterface.instance.popupConditionDetailsDialog(condition);
+						return true;
+					});
+				}
+				else
+				{
+					cw.setIcon(null);
+					cw.setTooltip(null);
+					cw.getListeners().clear();
+					cw.addActionListener(this);
+				}
 			}
-			else
+
+			// lvl up and stance is dependant on combat/movement
+			Combat combat = Maze.getInstance().getCurrentCombat();
+			if (combat != null)
 			{
+				stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
+				stance.setVisible(true);
+				stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size() == 1));
+
 				levelUp.setVisible(false);
 				levelUp.setEnabled(false);
 			}
+			else
+			{
+				stance.setEnabled(thisEnabled);
+				stance.setVisible(false);
+
+				if (playerCharacter.isLevelUpPending())
+				{
+					levelUp.setVisible(true);
+					levelUp.setEnabled(thisEnabled);
+				}
+				else
+				{
+					levelUp.setVisible(false);
+					levelUp.setEnabled(false);
+				}
+			}
+			this.getPlayerCharacter().setStance(stance.getSelected());
+
+			// action
+			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
+			action.setVisible(true);
+			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
 
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
 				Maze.getInstance().getState() == Maze.State.COMBAT)
@@ -516,54 +492,14 @@ public class PlayerCharacterWidget extends DIYPanel
 				{
 					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
 					action.setEnabled(!action.getModel().isEmpty());
-
-					stance.setEnabled(false);
 				}
 				else
 				{
 					action.setEditorText(null);
 					action.getSelected().select(playerCharacter, combat, this);
-
-					stance.setEnabled(thisEnabled);
 				}
 			}
-
-			this.getPlayerCharacter().setStance(stance.getSelected());
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void processMouseClicked(MouseEvent e)
-	{
-		// this shit only works in movement mode
-		if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
-		{
-			handleMovementModeMouseClick(e);
-		}
-		else if (Maze.getInstance().getState() == Maze.State.COMBAT)
-		{
-			// nope
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void handleMovementModeMouseClick(MouseEvent e)
-	{
-		inventory();
-//		super.processMouseClicked(e);
-
-/*
-		if (leftHandBounds.contains(e.getPoint())
-			|| rightHandBounds.contains(e.getPoint()))
-		{
-			handleHandWidgetClick(e);
-		}
-		else if (!popupConditionDialog(e.getPoint()))
-		{
-			inventory();
-			super.processMouseClicked(e);
-		}
-*/
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -596,21 +532,6 @@ public class PlayerCharacterWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean popupConditionDialog(Point p)
-	{
-		for (Map.Entry<Rectangle, Condition> e : conditionBounds.entrySet())
-		{
-			if (e.getKey().contains(p))
-			{
-				DiyGuiUserInterface.instance.popupConditionDetailsDialog(e.getValue());
-				return true;
-			}
-		}
-
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
 		Object source = event.getSource();
@@ -626,13 +547,13 @@ public class PlayerCharacterWidget extends DIYPanel
 			if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
 			{
 				selected.select(this.getPlayerCharacter(), null, this);
-				return true;
 			}
 			else
 			{
 				selected.select(this.getPlayerCharacter(), Maze.getInstance().getCurrentCombat(), this);
-				return true;
 			}
+
+			return true;
 		}
 		else if (source == stance)
 		{
@@ -652,12 +573,6 @@ public class PlayerCharacterWidget extends DIYPanel
 		}
 
 		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public Object getPcMutex()
-	{
-		return pcMutex;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -691,80 +606,9 @@ public class PlayerCharacterWidget extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setLeftHandBounds(Rectangle leftHandBounds)
-	{
-		this.leftHandBounds = leftHandBounds;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setRightHandBounds(Rectangle rightHandBounds)
-	{
-		this.rightHandBounds = rightHandBounds;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setPortraitBounds(Rectangle portraitBounds)
-	{
-		this.portrait.setBounds(portraitBounds);
-		this.portraitBounds = portraitBounds;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public Rectangle getPortraitBounds()
 	{
 		return portraitBounds;
-	}
-
-	public Rectangle getLeftHandBounds()
-	{
-		return leftHandBounds;
-	}
-
-	public Rectangle getRightHandBounds()
-	{
-		return rightHandBounds;
-	}
-
-	public Rectangle getNameLabelBounds()
-	{
-		return nameLabelBounds;
-	}
-
-	public Rectangle getClassLabelBounds()
-	{
-		return classLabelBounds;
-	}
-
-	public Rectangle getHpBarBounds()
-	{
-		return hpBarBounds;
-	}
-
-	public Rectangle getApBarBounds()
-	{
-		return apBarBounds;
-	}
-
-	public Rectangle getMpBarBounds()
-	{
-		return mpBarBounds;
-	}
-
-	public Rectangle getConditionsArea()
-	{
-		return conditionsArea;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void clearConditionBounds()
-	{
-		conditionBounds.clear();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void addConditionBounds(Rectangle r, Condition c)
-	{
-		conditionBounds.put(r, c);
 	}
 
 	/*-------------------------------------------------------------------------*/

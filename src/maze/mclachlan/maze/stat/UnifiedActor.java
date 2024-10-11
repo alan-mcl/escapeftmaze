@@ -1660,6 +1660,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 		if (Maze.getInstance() != null && this instanceof PlayerCharacter)
 		{
 			result.addAll(SpeechUtil.getInstance().conditionSpeech(c, (PlayerCharacter)this));
+
+			Maze.getInstance().getUi().refreshCharacterData();
 		}
 
 		return result;

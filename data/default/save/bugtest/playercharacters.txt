@@ -29,7 +29,7 @@ activeModifiers=441f785e7f8,010101010101010101010101010101010101010101010101
 removedLevelAbilities=
 @
 name=Ug
-levels=Druid:20
+levels=Sohei:20
 experience=5789000
 kills=31
 karma=0
@@ -89,7 +89,7 @@ activeModifiers=ffe0000027f8,0101010101010101010101010101010101010101
 removedLevelAbilities=
 @
 name=Dwaf
-levels=Hero:20
+levels=Paladin:20
 experience=601416
 kills=25
 karma=0

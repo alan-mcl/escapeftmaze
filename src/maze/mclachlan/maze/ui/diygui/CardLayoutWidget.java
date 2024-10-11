@@ -34,7 +34,7 @@ import mclachlan.maze.util.MazeException;
 public class CardLayoutWidget extends ContainerWidget
 {
 	private ContainerWidget currentWidget;
-	private Map<Object, ContainerWidget> widgets;
+	private final Map<Object, ContainerWidget> widgets;
 	
 	/*-------------------------------------------------------------------------*/
 
@@ -45,14 +45,14 @@ public class CardLayoutWidget extends ContainerWidget
 	public CardLayoutWidget(Rectangle bounds, ArrayList<ContainerWidget> widgets)
 	{
 		super(bounds.x, bounds.y, bounds.width, bounds.height);
+		this.currentWidget = widgets.get(0);
 
-		this.widgets = new HashMap<Object, ContainerWidget>();
+		this.widgets = new HashMap<>();
 		for (ContainerWidget w : widgets)
 		{
 			this.widgets.put(System.identityHashCode(w), w);
 		}
 
-		this.currentWidget = this.widgets.get(0);
 		for (Widget w : widgets)
 		{
 			add(w);
@@ -87,7 +87,7 @@ public class CardLayoutWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void show(ContainerWidget w)
 	{
-		if (!this.widgets.values().contains(w))
+		if (!this.widgets.containsValue(w))
 		{
 			throw new MazeException("Not a child widget: "+w);
 		}
@@ -98,7 +98,7 @@ public class CardLayoutWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public void show(Object key)
 	{
-		if (!this.widgets.keySet().contains(key))
+		if (!this.widgets.containsKey(key))
 		{
 			throw new MazeException("Not a child widget: "+key);
 		}
@@ -124,7 +124,14 @@ public class CardLayoutWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public Widget getHoverComponent(int x, int y)
 	{
-		return this.currentWidget.getHoverComponent(x, y);
+		if (this.currentWidget != null)
+		{
+			return this.currentWidget.getHoverComponent(x, y);
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

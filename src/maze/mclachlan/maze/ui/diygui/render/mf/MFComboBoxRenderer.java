@@ -58,34 +58,6 @@ public class MFComboBoxRenderer extends Renderer
 			Color.DARK_GRAY,
 			null);
 
-		// popup indicator
-		switch (combo.getPopupDirection())
-		{
-			case UP ->
-			{
-				// todo
-			}
-			case DOWN ->
-			{
-				// todo
-			}
-			case RIGHT ->
-			{
-				DIYToolkit.drawImageCentered(g,
-					Database.getInstance().getImage("ui/mf/combobox/button_right"),
-					new Rectangle(x +width -50, y +25, 36, 36), // todo bounds
-					DIYToolkit.Align.CENTER);
-			}
-			case LEFT ->
-			{
-				// todo
-				DIYToolkit.drawImageCentered(g,
-									Database.getInstance().getImage("ui/mf/combobox/button_right"),
-									new Rectangle(x +width -50, y +25, 36, 36), // todo bounds
-									DIYToolkit.Align.CENTER);
-			}
-		}
-
 		if (DIYToolkit.debug)
 		{
 			g.setColor(Color.BLUE);
@@ -106,6 +78,7 @@ public class MFComboBoxRenderer extends Renderer
 		BufferedImage cornerBottomLeft;
 		BufferedImage cornerBottomRight;
 		BufferedImage center;
+		BufferedImage arrowRight, arrowLeft;
 
 		if (field.isEnabled())
 		{
@@ -120,6 +93,10 @@ public class MFComboBoxRenderer extends Renderer
 				cornerBottomLeft = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_left_hover");
 				cornerBottomRight = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_right_hover");
 				center = Database.getInstance().getImage("ui/mf/combobox/center_hover");
+
+				arrowRight = Database.getInstance().getImage("ui/mf/combobox/arrow_right_hover");
+				arrowLeft = Database.getInstance().getImage("ui/mf/combobox/arrow_left_hover");
+
 			}
 			else if (field.getEditorState() == DIYComboBox.EditorState.DEPRESSED)
 			{
@@ -132,6 +109,9 @@ public class MFComboBoxRenderer extends Renderer
 				cornerBottomLeft = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_left_depressed");
 				cornerBottomRight = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_right_depressed");
 				center = Database.getInstance().getImage("ui/mf/combobox/center_depressed");
+
+				arrowRight = Database.getInstance().getImage("ui/mf/combobox/arrow_right_depressed");
+				arrowLeft = Database.getInstance().getImage("ui/mf/combobox/arrow_left_depressed");
 			}
 			else
 			{
@@ -144,6 +124,9 @@ public class MFComboBoxRenderer extends Renderer
 				cornerBottomLeft = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_left");
 				cornerBottomRight = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_right");
 				center = Database.getInstance().getImage("ui/mf/combobox/center");
+
+				arrowRight = Database.getInstance().getImage("ui/mf/combobox/arrow_right");
+				arrowLeft = Database.getInstance().getImage("ui/mf/combobox/arrow_left");
 			}
 		}
 		else
@@ -158,6 +141,9 @@ public class MFComboBoxRenderer extends Renderer
 			cornerBottomLeft = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_left_disabled");
 			cornerBottomRight = Database.getInstance().getImage("ui/mf/combobox/corner_bottom_right_disabled");
 			center = Database.getInstance().getImage("ui/mf/combobox/center_disabled");
+
+			arrowRight = Database.getInstance().getImage("ui/mf/combobox/arrow_right_disabled");
+			arrowLeft = Database.getInstance().getImage("ui/mf/combobox/arrow_left_disabled");
 		}
 
 		// corners
@@ -187,5 +173,42 @@ public class MFComboBoxRenderer extends Renderer
 			x +borderLeft.getWidth(), y +borderTop.getHeight(),
 			width -borderLeft.getWidth() -borderRight.getWidth(),
 			height -borderTop.getHeight() -borderBottom.getHeight());
+
+		// arrow
+		// popup indicator
+		switch (field.getPopupDirection())
+		{
+			case UP ->
+			{
+				// todo
+			}
+			case DOWN ->
+			{
+				// todo
+			}
+			case RIGHT ->
+			{
+				DIYToolkit.drawImageCentered(g,
+					arrowRight,
+					new Rectangle(
+						x +width -borderRight.getWidth(),
+						y +height/2 -arrowRight.getHeight()/2,
+						arrowRight.getWidth(),
+						arrowRight.getHeight()),
+					DIYToolkit.Align.CENTER);
+			}
+			case LEFT ->
+			{
+				DIYToolkit.drawImageCentered(g,
+					arrowLeft,
+					new Rectangle(
+						x +borderRight.getWidth() -arrowLeft.getWidth() -1,
+						y +height/2 -arrowLeft.getHeight()/2,
+						arrowLeft.getWidth(),
+						arrowLeft.getHeight()),
+					DIYToolkit.Align.CENTER);
+			}
+		}
+
 	}
 }

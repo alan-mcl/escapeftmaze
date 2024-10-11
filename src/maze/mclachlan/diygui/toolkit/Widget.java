@@ -313,9 +313,10 @@ public abstract class Widget
 	{
 		ActionEvent event = new ActionEvent(this, this.actionPayload, this.actionMessage, e);
 
-		for (ActionListener l : this.listeners)
+		List<ActionListener> temp = new ArrayList<>(this.listeners);
+		for (ActionListener listener : temp)
 		{
-			l.actionPerformed(event);
+			listener.actionPerformed(event);
 		}
 	}
 }

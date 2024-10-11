@@ -99,7 +99,8 @@ public class DefaultRendererFactory extends RendererFactory
 				case SLIDER_HEIGHT -> 20;
 
 				case ITEM_WIDGET_SIZE -> 40;
-				
+				case CONDITION_ICON_SIZE -> 22;
+
 				case PCW_PORTRAIT_FRAME_BORDER -> 9;
 				case PCW_PORTRAIT_WIDTH, PCW_PORTRAIT_HEIGHT -> 102;
 			};

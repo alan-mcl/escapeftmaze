@@ -38,7 +38,6 @@ public class MFRendererFactory extends RendererFactory
 	public static final String FORMATION_WIDGET = "FormationWidget";
 	public static final String FOE_GROUP_WIDGET = "FoeGroupWidget";
 	public static final String TRADING_WIDGET = "TradingWidget";
-	public static final String PLAYER_CHARACTER_WIDGET = "PlayerCharacterWidget";
 	public static final String MUGSHOT_WIDGET = "MugshotWidget";
 	public static final String FILLED_BAR_WIDGET = "FilledBarWidget";
 
@@ -65,7 +64,6 @@ public class MFRendererFactory extends RendererFactory
 
 		// custom MF renderers
 		renderers.put(MUGSHOT_WIDGET, new MFMugshotWidgetRenderer());
-		renderers.put(PLAYER_CHARACTER_WIDGET, new MFPlayerCharacterWidgetRenderer());
 		renderers.put(FILLED_BAR_WIDGET, new MFFilledBarWidgetRenderer());
 
 		// Fallback to Maze renderers
@@ -123,6 +121,7 @@ public class MFRendererFactory extends RendererFactory
 					case SLIDER_HEIGHT -> 99;
 
 					case ITEM_WIDGET_SIZE -> 40;
+					case CONDITION_ICON_SIZE -> 22;
 
 					case PCW_PORTRAIT_FRAME_BORDER -> 9;
 					case PCW_PORTRAIT_WIDTH, PCW_PORTRAIT_HEIGHT -> 102;
