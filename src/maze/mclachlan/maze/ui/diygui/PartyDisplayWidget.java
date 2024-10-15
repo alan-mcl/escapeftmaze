@@ -19,12 +19,11 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.ActorGroup;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -37,7 +36,7 @@ public class PartyDisplayWidget extends ContainerWidget
 {
 	private PlayerCharacter selectedCharacter;
 	private ActorGroup party;
-	private final MugshotWidget[] portraits = new MugshotWidget[6];
+	private final MugshotWidget[] mugShots = new MugshotWidget[6];
 
 	/*-------------------------------------------------------------------------*/
 	public PartyDisplayWidget(Rectangle bounds, ActorGroup party)
@@ -55,15 +54,12 @@ public class PartyDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	private void buildGui()
 	{
-		this.setLayoutManager(new mclachlan.diygui.toolkit.DIYGridLayout(1,6,0,0));
+		this.setLayoutManager(new mclachlan.diygui.toolkit.DIYGridLayout(1,6,0,4));
 
-		PartyDisplayActionListener listener = new PartyDisplayActionListener();
 		for (int i = 0; i < 6; i++)
 		{
-			portraits[i] = new MugshotWidget();
-			portraits[i].addActionListener(listener);
-
-			this.add(portraits[i]);
+			mugShots[i] = new MugshotWidget();
+			this.add(mugShots[i]);
 		}
 
 		this.doLayout();
@@ -92,13 +88,11 @@ public class PartyDisplayWidget extends ContainerWidget
 					continue;
 				}
 
-				this.portraits[i].setPortrait(Database.getInstance().getImage(pc.getPortrait()));
-				this.portraits[i].setCharacter(pc);
+				this.mugShots[i].setCharacter(pc);
 			}
 			else
 			{
-				this.portraits[i].setPortrait(null);
-				this.portraits[i].setCharacter(null);
+				this.mugShots[i].setCharacter(null);
 			}
 		}
 	}
@@ -115,11 +109,11 @@ public class PartyDisplayWidget extends ContainerWidget
 			throw new MazeException("Character not in party: "+selectedCharacter);
 		}
 
-		for (MugshotWidget portrait : portraits)
+		for (MugshotWidget portrait : mugShots)
 		{
 			portrait.setSelected(false);
 		}
-		portraits[selectedIndex].setSelected(true);
+		mugShots[selectedIndex].setSelected(true);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -131,11 +125,11 @@ public class PartyDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public Rectangle getSelectedCharacterBounds()
 	{
-		for (int i = 0; i < portraits.length; i++)
+		for (int i = 0; i < mugShots.length; i++)
 		{
-			if (portraits[i].isSelected())
+			if (mugShots[i].isSelected())
 			{
-				return portraits[i].getBounds();
+				return mugShots[i].getBounds();
 			}
 		}
 
@@ -151,15 +145,24 @@ public class PartyDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public Rectangle getCharacterBounds(PlayerCharacter pc)
 	{
-		for (int i = 0; i < portraits.length; i++)
+		for (int i = 0; i < mugShots.length; i++)
 		{
-			if (portraits[i].getCharacter() == pc)
+			if (mugShots[i].getCharacter() == pc)
 			{
-				return portraits[i].getBounds();
+				return mugShots[i].getBounds();
 			}
 		}
 
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void refresh()
+	{
+		for (int i = 0; i < mugShots.length; i++)
+		{
+			mugShots[i].refresh();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -175,8 +178,8 @@ public class PartyDisplayWidget extends ContainerWidget
 
 			for (int i = 0; i < Maze.getInstance().getParty().getActors().size(); i++)
 			{
-				if (event.getSource() == portraits[i] 
-					|| portraits[i].getChildren().contains(event.getSource()))
+				if (event.getSource() == mugShots[i]
+					|| mugShots[i].getChildren().contains(event.getSource()))
 				{
 					Maze.getInstance().getUi().characterSelected(
 						(PlayerCharacter)party.getActors().get(i));

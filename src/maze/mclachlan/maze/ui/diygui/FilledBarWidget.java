@@ -23,6 +23,7 @@ import java.awt.Color;
 import java.awt.Dimension;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.stat.CurMax;
+import mclachlan.maze.stat.CurMaxSub;
 import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 /**
@@ -98,6 +99,14 @@ public class FilledBarWidget extends Widget implements ProgressListener
 	{
 		this.setMax(cm.getMaximum());
 		this.setCurrent(cm.getCurrent());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setFromCurMaxSub(CurMaxSub cm)
+	{
+		this.setMax(cm.getMaximum());
+		this.setCurrent(cm.getCurrent());
+		this.setSub(cm.getSub());
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -38,7 +38,6 @@ public class MFRendererFactory extends RendererFactory
 	public static final String FORMATION_WIDGET = "FormationWidget";
 	public static final String FOE_GROUP_WIDGET = "FoeGroupWidget";
 	public static final String TRADING_WIDGET = "TradingWidget";
-	public static final String MUGSHOT_WIDGET = "MugshotWidget";
 	public static final String FILLED_BAR_WIDGET = "FilledBarWidget";
 
 	private final Map<String, Renderer> renderers = new HashMap<String, Renderer>();
@@ -63,7 +62,6 @@ public class MFRendererFactory extends RendererFactory
 		renderers.put(DIYToolkit.COMBO_ITEM, new MFComboItemRenderer());
 
 		// custom MF renderers
-		renderers.put(MUGSHOT_WIDGET, new MFMugshotWidgetRenderer());
 		renderers.put(FILLED_BAR_WIDGET, new MFFilledBarWidgetRenderer());
 
 		// Fallback to Maze renderers

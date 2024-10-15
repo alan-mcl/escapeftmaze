@@ -648,6 +648,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.charTopRight.refresh();
 
 		this.partyOptionsAndTextWidget.refresh();
+
+		this.partyDisplay.refresh();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1681,20 +1683,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		switch (Maze.getInstance().getState())
 		{
-			case MAINMENU:
-			case MODIFIERSDISPLAY:
-			case STATSDISPLAY:
-			case PROPERTIESDISPLAY:
-			case INVENTORY:
-			case MAGIC:
+			case MAINMENU, MODIFIERSDISPLAY, STATSDISPLAY, PROPERTIESDISPLAY, INVENTORY, MAGIC ->
+			{
 				this.modifiersDisplay.setCharacter(pc);
 				this.statsDisplay.setCharacter(pc);
 				this.inventoryDisplay.setCharacter(pc);
 				this.magicDisplay.setCharacter(pc);
 				this.propertiesDisplay.setCharacter(pc);
-				break;
-			default:
-				// ignore
+			}
+			default ->
+			{
+			}
+			// ignore
 		}
 	}
 

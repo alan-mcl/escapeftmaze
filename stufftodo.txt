@@ -15,7 +15,6 @@ spell desc dialog improvements: cast cost, effects
 itemwidget text wrap
 display party stealth
 compass widget
-edit some portraits to work nice with the portrait frame
 inventory screen alignment is out, again
 dead character portrait
 party cloud spell widget

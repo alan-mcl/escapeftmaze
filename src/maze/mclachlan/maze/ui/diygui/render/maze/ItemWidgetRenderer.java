@@ -36,16 +36,6 @@ public class ItemWidgetRenderer extends Renderer
 		ItemWidget widget = (ItemWidget)w;
 		synchronized (widget.getItemMutex())
 		{
-			if (widget.getItem() != null && widget.getItem().isCursed() &&
-				widget.getItem().getCursedState() == Item.CursedState.DISCOVERED)
-			{
-				RoundRectangle2D curse = new RoundRectangle2D.Double(
-					x+1, y+1, width-2, height-2, 5, 5);
-				g.setPaint(new GradientPaint(
-					x, y, Color.RED, x+width/2, y+width/2, Color.RED.darker()));
-				g.draw(curse);
-			}
-
 			Image slotImage = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot");
 			int iconSize = widget.height;
 			Rectangle iconBounds = new Rectangle(widget.x, widget.y,
@@ -67,6 +57,18 @@ public class ItemWidgetRenderer extends Renderer
 					DIYToolkit.Align.LEFT,
 					widget.getForegroundColour(),
 					widget.getBackgroundColour());
+			}
+
+			// cursed state
+
+			if (widget.getItem() != null && widget.getItem().isCursed() &&
+				widget.getItem().getCursedState() == Item.CursedState.DISCOVERED)
+			{
+				RoundRectangle2D curse = new RoundRectangle2D.Double(
+					x+1, y+1, width-2, height-2, 5, 5);
+				g.setPaint(new GradientPaint(
+					x, y, Color.RED, x+width/2, y+width/2, Color.RED.darker()));
+				g.draw(curse);
 			}
 		}
 	}

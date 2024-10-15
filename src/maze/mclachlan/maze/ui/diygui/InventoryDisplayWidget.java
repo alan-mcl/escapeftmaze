@@ -145,22 +145,23 @@ public class InventoryDisplayWidget extends ContainerWidget
 
 		carrying.setTextType(FilledBarWidget.InnerTextType.CUSTOM);
 
-		int inset = 10;
-		int column1x = bounds.x + inset;
-		int columnWidth = (width -5*inset) / 3;
-
-		int column2x = column1x + columnWidth + inset;
-		int column3x = column2x + columnWidth + inset;
-
 		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
 
-		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+//		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int titleHeight = 20;
 		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
 		int headerOffset = titleHeight + DiyGuiUserInterface.SCREEN_EDGE_INSET;
 		int contentTop = headerOffset + inset;
 		int contentHeight = height - contentTop - buttonPaneHeight -inset;
 		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int frameBorderInset = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
+
+		int column1x = bounds.x + inset;
+		int columnWidth = (width -5*inset) / 3;
+
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
 
 		// screen title
 		DIYLabel inventoryTitle = getSubTitle(StringUtil.getUiLabel("idw.title"));
@@ -202,7 +203,6 @@ public class InventoryDisplayWidget extends ContainerWidget
 		personalPanel.add(carryingLabel);
 		personalPanel.add(carrying);
 
-
 		// party info
 
 		DIYPanel partyPanel = new DIYPanel();
@@ -228,7 +228,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 			column1x,
 			partyPanel.y + partyPanel.height + inset,
 			columnWidth,
-			contentHeight - partyPanel.height - inset);
+			contentHeight - partyPanel.height - inset*3);
 
 		DIYLabel equippedItemsTitle = getSubTitle(StringUtil.getUiLabel("idw.equipped.items"));
 		equippedItemsTitle.setBounds(
@@ -327,7 +327,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 			column2x,
 			packItemsPanel.y +packItemsPanel.height +inset,
 			columnWidth*2 +inset,
-			(int)(buttonPaneHeight*1.5));
+			contentHeight -personalPanel.height - packItemsPanel.height -inset*4);
 
 		buttonPane.add(castSpell);
 		buttonPane.add(useItem);

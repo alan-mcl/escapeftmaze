@@ -20,6 +20,7 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.awt.image.BufferedImage;
 import java.util.List;
 import mclachlan.diygui.DIYLabel;
@@ -192,19 +193,39 @@ public class PortraitSelectionWidget extends ContainerWidget
 
 		if (obj == next)
 		{
-			currentImage = getNextImageNr(currentImage);
-			setImage(currentImage);
-			return true;
+			return next();
 		}
 		else if (obj == previous)
 		{
-
-			currentImage = getPrevImageNr(currentImage);
-			setImage(currentImage);
-			return true;
+			return previous();
 		}
 
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	boolean previous()
+	{
+		currentImage = getPrevImageNr(currentImage);
+		setImage(currentImage);
+		return true;
+	}
+
+	boolean next()
+	{
+		currentImage = getNextImageNr(currentImage);
+		setImage(currentImage);
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processKeyPressed(KeyEvent e)
+	{
+		switch (e.getKeyCode())
+		{
+			case KeyEvent.VK_LEFT -> previous();
+			case KeyEvent.VK_RIGHT -> next();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -42,7 +42,6 @@ public class MazeRendererFactory extends RendererFactory
 	public static final String FORMATION_WIDGET = "FormationWidget";
 	public static final String FOE_GROUP_WIDGET = "FoeGroupWidget";
 	public static final String TRADING_WIDGET = "TradingWidget";
-	public static final String MUGSHOT_WIDGET = "MugshotWidget";
 	public static final String FILLED_BAR_WIDGET = "FilledBarWidget";
 
 	private final Map<String, Renderer> renderers = new HashMap<String, Renderer>();
@@ -74,7 +73,6 @@ public class MazeRendererFactory extends RendererFactory
 		renderers.put(FORMATION_WIDGET, new FormationWidgetRenderer());
 		renderers.put(FOE_GROUP_WIDGET, new FoeGroupWidgetRenderer());
 		renderers.put(TRADING_WIDGET, new TradingWidgetRenderer());
-		renderers.put(MUGSHOT_WIDGET, new MugshotWidgetRenderer());
 		renderers.put(FILLED_BAR_WIDGET, new FilledBarWidgetRenderer());
 	}
 
