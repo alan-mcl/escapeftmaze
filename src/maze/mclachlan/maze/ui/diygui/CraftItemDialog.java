@@ -20,20 +20,20 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYScrollPane;
-import mclachlan.diygui.toolkit.*;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
+import mclachlan.diygui.toolkit.DIYFlowLayout;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
-
-import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
 /**
  *
@@ -41,12 +41,12 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 public class CraftItemDialog extends GeneralDialog implements ActionListener
 {
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/4*3;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/8*7;
+	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET*2;
 
-	private TradingWidget item1Widget, item2Widget;
-	private DIYButton craft, exit;
-	private PlayerCharacter pc;
-	private InventoryDisplayWidget inventoryDisplayWidget;
+	private final TradingWidget item1Widget, item2Widget;
+	private final DIYButton craft, close;
+	private final PlayerCharacter pc;
+	private final InventoryDisplayWidget inventoryDisplayWidget;
 
 	/*-------------------------------------------------------------------------*/
 	public CraftItemDialog(
@@ -61,52 +61,72 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 20;
-		int inset = 10;
-		Rectangle isBounds = new Rectangle(startX+ inset, startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
-
 		this.setBounds(dialogBounds);
-		item1Widget = new TradingWidget(
-			pc, isBounds, pc.getInventory(), 0, 0, pc.getInventory().size(), this);
-		item2Widget = new TradingWidget(
-			pc, isBounds, pc.getInventory(), 0, 0, pc.getInventory().size(), this);
 
-		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
-		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("cid.title"));
-		titlePane.setBounds(x, y + getBorder(), width, getTitlePaneHeight() +20);
-		title.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
-		title.setFont(f);
-		titlePane.add(title);
+		int titlePaneHeight = getTitlePaneHeight();
+		int border = getBorder();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int inset = getInset();
+
+		Rectangle isBounds = new Rectangle(
+			x +border +inset,
+			y +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*2 -titlePaneHeight -buttonPaneHeight);
+
+		item1Widget = new TradingWidget(
+			pc, pc.getInventory(), 0, 0, pc.getInventory().size(), this, false);
+		item2Widget = new TradingWidget(
+			pc, pc.getInventory(), 0, 0, pc.getInventory().size(), this, false);
+
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("cid.title"));
+
 		DIYLabel skillLabel = new DIYLabel(StringUtil.getUiLabel(
 			"cid.crafting.skill",pc.getName(), getCraftSkill()));
 		skillLabel.setForegroundColour(Color.WHITE);
-		titlePane.add(skillLabel);
+		skillLabel.setBounds(
+			titlePane.x,
+			titlePane.y + titlePane.height,
+			titlePane.width,
+			20);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
+		buttonPane.setBounds(
+			x +border,
+			y +height -buttonPaneHeight -border -inset,
+			width -border*2,
+			buttonPaneHeight);
+
 		craft = new DIYButton(StringUtil.getUiLabel("cid.craft"));
 		craft.addActionListener(this);
 		buttonPane.add(craft);
-		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
-		exit.addActionListener(this);
-		buttonPane.add(exit);
 
-		int tradingPaneY = y+ buttonPaneHeight *2+ inset;
-		int tradingPaneWidth = (DIALOG_WIDTH- inset *3)/2;
-		int tradingPaneHeight = DIALOG_HEIGHT- buttonPaneHeight *5- inset *2;
-		DIYScrollPane pcPane = new DIYScrollPane(
-			x+ inset, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
+		close = getCloseButton();
+		close.addActionListener(this);
+		this.add(close);
+
+		int tradingPaneY = skillLabel.y +skillLabel.height +inset;
+		int tradingPaneWidth = (DIALOG_WIDTH -border*2 -inset*4)/2;
+		int tradingPaneHeight = DIALOG_HEIGHT -buttonPaneHeight -titlePaneHeight -skillLabel.height -inset*4 -border*2;
+
+		DIYScrollPane leftPane = new DIYScrollPane(
+			x +border +inset,
+			tradingPaneY,
+			tradingPaneWidth,
+			tradingPaneHeight,
 			item1Widget);
-		DIYScrollPane npcPane = new DIYScrollPane(
-			x+ inset *2+tradingPaneWidth, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
+
+		DIYScrollPane rightPane = new DIYScrollPane(
+			x +border +inset*2 +tradingPaneWidth,
+			tradingPaneY,
+			tradingPaneWidth,
+			tradingPaneHeight,
 			item2Widget);
 
 		this.add(titlePane);
-		this.add(pcPane);
-		this.add(npcPane);
+		this.add(skillLabel);
+		this.add(leftPane);
+		this.add(rightPane);
 		this.add(buttonPane);
 		this.doLayout();
 	}
@@ -119,15 +139,10 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 			return;
 		}
 
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_C:
-				craft();
-				break;
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
-				exit();
-				break;
+			case KeyEvent.VK_C -> craft();
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
 		}
 	}
 
@@ -244,8 +259,8 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 			}
 			else
 			{
-				StringBuilder sb = new StringBuilder(pc.getName()+" ");
-				sb.append(StringUtil.getUiLabel("cid.cannot.merge"));
+				StringBuilder sb = new StringBuilder();
+				sb.append(StringUtil.getUiLabel("cid.cannot.merge", pc.getName()));
 
 				boolean first = true;
 				for (Stats.Modifier s : recipeRequirements.getModifiers().keySet())
@@ -290,7 +305,7 @@ public class CraftItemDialog extends GeneralDialog implements ActionListener
 			craft();
 			return true;
 		}
-		else if (obj == exit)
+		else if (obj == close)
 		{
 			exit();
 			return true;

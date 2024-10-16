@@ -66,20 +66,18 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		int buttonPaneHeight = 20;
 		int inset = 10;
-		Rectangle isBounds = new Rectangle(startX+ inset, startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
 
 		this.setBounds(dialogBounds);
 		List<Item> stealableItems = npc.getStealableItems();
 		int maxRows = stealableItems == null ? 1 : stealableItems.size() + 1;
 		itemWidget = new TradingWidget(
 			pc,
-			isBounds,
 			new Inventory(stealableItems),
 			npc.getSellsAt(),
 			npc.getMaxPurchasePrice(),
 			maxRows,
-			this);
+			this,
+			true);
 
 		DIYPane titlePane = getTitlePane(
 			StringUtil.getUiLabel(

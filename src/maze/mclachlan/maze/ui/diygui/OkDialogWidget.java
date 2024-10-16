@@ -27,7 +27,6 @@ import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -52,6 +51,8 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 
 		if (title != null)
 		{
+			setStyle(Style.DIALOG);
+
 			titlePane = getTitlePane(title);
 
 			textBounds = new Rectangle(
@@ -62,6 +63,8 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 		}
 		else
 		{
+			setStyle(Style.PANEL_HEAVY);
+
 			textBounds = new Rectangle(
 				x + getInset() + getBorder(),
 				y + getInset() + getBorder(),
@@ -98,12 +101,6 @@ public class OkDialogWidget extends GeneralDialog implements ActionListener
 		this.text.setText(text);
 	}
 
-	/*-------------------------------------------------------------------------*/
-	public String getWidgetName()
-	{
-		return DIYToolkit.PANEL;
-	}
-	
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{

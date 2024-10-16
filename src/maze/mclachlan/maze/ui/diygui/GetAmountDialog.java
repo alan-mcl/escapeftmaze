@@ -22,13 +22,11 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
-import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextField;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
 
@@ -37,12 +35,12 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class GetAmountDialog extends GeneralDialog implements ActionListener
 {
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/4;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/4;
+	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
+	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3;
 
-	private DIYButton okButton, cancel;
-	private DIYTextField amountField;
-	private TextDialogCallback textDialogCallback;
+	private final DIYButton okButton, close;
+	private final DIYTextField amountField;
+	private final TextDialogCallback textDialogCallback;
 
 	/*-------------------------------------------------------------------------*/
 	public GetAmountDialog(
@@ -60,10 +58,12 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(dialogBounds);
 
-		DIYPane labelPane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
-		int buttonPaneHeight = 20;
-		labelPane.setBounds(x, y + getInset(), width, buttonPaneHeight);
-		labelPane.add(new DIYLabel("How Much (max " + max + ")?"));
+		int border = getBorder();
+		int inset = getInset();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int titlePaneHeight = getTitlePaneHeight();
+
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("gad.how.much", max));
 
 		amountField = new DIYTextField()
 		{
@@ -81,22 +81,25 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 				}
 			}
 		};
-		amountField.setBounds(x+ getInset(), y+ getInset() +buttonPaneHeight, width- getInset() *2, buttonPaneHeight);
+		amountField.setBounds(
+			x +border +inset,
+			y +border +inset +titlePaneHeight,
+			width -inset*2 -border*2,
+			35);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		int inset = 10;
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		DIYPane buttonPane = getButtonPane();
+		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		okButton.addActionListener(this);
 		
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
+
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
+		this.add(close);
 
 		okButton.setEnabled(false);
 
-		this.add(labelPane);
+		this.add(titlePane);
 		this.add(amountField);
 		this.add(buttonPane);
 		this.doLayout();
@@ -105,16 +108,11 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER:
-				amountEntered();
-				break;
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			default:
-				amountField.processKeyPressed(e);
+			case KeyEvent.VK_ENTER -> amountEntered();
+			case KeyEvent.VK_ESCAPE -> exit();
+			default -> amountField.processKeyPressed(e);
 		}
 	}
 
@@ -126,7 +124,7 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 			amountEntered();
 			return true;
 		}
-		else if (event.getSource() == cancel) 
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;

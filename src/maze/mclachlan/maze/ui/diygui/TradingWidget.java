@@ -22,16 +22,12 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics2D;
-import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionEvent;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYGridLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
@@ -42,19 +38,18 @@ import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 public class TradingWidget extends DIYPane
 {
 	private List<TradingItemWidget> itemWidgets;
-	private ActionListener listener = new TradingListener();
+	private final ActionListener listener = new TradingListener();
 	private TradingItemWidget selected;
 	private List<Item> items;
-	private int priceMultiplier;
-	private int goldAmount;
-	private ActionListener exteriorListener;
-	private PlayerCharacter pc;
+	private final int priceMultiplier;
+	private final int goldAmount;
+	private final ActionListener exteriorListener;
+	private final PlayerCharacter pc;
 	private int maxRows;
+	private boolean showPrices;
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * @param bounds
-	 * 	the bounds of the widget
 	 * @param inventory
 	 * 	the list of inventory to display
 	 * @param priceMultiplier
@@ -63,25 +58,27 @@ public class TradingWidget extends DIYPane
 	 * 	the amount of gold to display (<=0 for none)
 	 * @param exteriorListener
 	 * 	any exterior action listener to attach to the widgets buttons
+	 * @param showPrices
+	 * 	true if prices should be displayed
 	 */
 	public TradingWidget(
 		PlayerCharacter pc,
-		Rectangle bounds,
 		Inventory inventory,
 		int priceMultiplier,
 		int goldAmount,
 		int maxRows,
-		ActionListener exteriorListener)
+		ActionListener exteriorListener,
+		boolean showPrices)
 	{
-		super(bounds);
 		this.pc = pc;
 		this.maxRows = maxRows;
+		this.showPrices = showPrices;
 
 		if (maxRows == -1)
 		{
 			if (inventory != null)
 			{
-				this.maxRows = inventory.size()+15;
+				this.maxRows = inventory.size()+5;
 			}
 			else
 			{
@@ -98,7 +95,7 @@ public class TradingWidget extends DIYPane
 		this.priceMultiplier = priceMultiplier;
 		this.goldAmount = goldAmount;
 		this.exteriorListener = exteriorListener;
-		this.items = new ArrayList<Item>(inventory.getItems());
+		this.items = new ArrayList<>(inventory.getItems());
 
 		if (this.goldAmount > 0)
 		{
@@ -111,7 +108,7 @@ public class TradingWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private void buildGui()
 	{
-		itemWidgets = new ArrayList<TradingItemWidget>(maxRows);
+		itemWidgets = new ArrayList<>(maxRows);
 		int inset = 3;
 		this.setLayoutManager(new DIYGridLayout(1, maxRows, inset, inset));
 
@@ -142,7 +139,7 @@ public class TradingWidget extends DIYPane
 			itemWidget.setItem(null);
 		}
 
-		this.items = new ArrayList<Item>(newItems);
+		this.items = new ArrayList<>(newItems);
 
 		if (goldAmount>0 && !(items.get(0) instanceof GoldPieces))
 		{
@@ -283,15 +280,11 @@ public class TradingWidget extends DIYPane
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_UP:
-				moveSelectionUp();
-				break;
-			case KeyEvent.VK_DOWN:
-				moveSelectionDown();
-				break;
+			case KeyEvent.VK_UP -> moveSelectionUp();
+			case KeyEvent.VK_DOWN -> moveSelectionDown();
 		}
 	}
 	
@@ -348,7 +341,12 @@ public class TradingWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
-		return new Dimension(width, height);
+		int itemWidgetSize =
+			DIYToolkit.getInstance().getRendererProperties().getProperty(RendererProperties.Property.ITEM_WIDGET_SIZE);
+
+		return new Dimension(
+			150,
+			maxRows * (itemWidgetSize+2));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -441,7 +439,11 @@ public class TradingWidget extends DIYPane
 			synchronized(getItemMutex())
 			{
 				super.setText(item);
-				this.price.setText(""+GameSys.getInstance().getItemCost(item, priceMultiplier, pc));
+
+				if (showPrices)
+				{
+					this.price.setText("" + GameSys.getInstance().getItemCost(item, priceMultiplier, pc));
+				}
 			}
 		}
 	}

@@ -65,17 +65,12 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		int buttonPaneHeight = 20;
 		int inset = 10;
-		Rectangle isBounds = new Rectangle(
-			startX+ inset,
-			startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH/2- inset*2,
-			DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
 
 		this.setBounds(dialogBounds);
 		pcWidget = new TradingWidget(
-			pc, isBounds, pc.getInventory(), getNpcBuysAt(npc, pc), 0, pc.getInventory().size(), this);
+			pc, pc.getInventory(), getNpcBuysAt(npc, pc), 0, pc.getInventory().size(), this, true);
 		npcWidget = new TradingWidget(
-			pc, isBounds, new Inventory(npc.getTradingInventory()), getNpcSellsAt(npc, pc), 0, -1, this);
+			pc, new Inventory(npc.getTradingInventory()), getNpcSellsAt(npc, pc), 0, -1, this, true);
 
 		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
 		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));

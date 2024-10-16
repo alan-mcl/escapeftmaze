@@ -27,9 +27,9 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class GetAmount implements TextDialogCallback
 {
-	GetAmountCallback callback;
-	private PlayerCharacter user;
-	private int userIndex;
+	private final GetAmountCallback callback;
+	private final PlayerCharacter user;
+	private final int userIndex;
 
 	/*-------------------------------------------------------------------------*/
 	public GetAmount(GetAmountCallback callback, PlayerCharacter pc, int max)

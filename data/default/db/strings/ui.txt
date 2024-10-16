@@ -124,10 +124,10 @@ iw.conversion.rate.supplies  = (will be converted to %s supply units)
 cid.title = Choose two items to combine
 cid.crafting.skill = Crafting skill of %s is %s
 cid.craft = (C)raft
-cid.select.two.different = Please select two different items.
-cid.created = %s created %s!
-cid.cannot.merge = cannot merge those items.\n\nRequires:
-cid.cannot.be.merged = Those items cannot be merged.
+cid.select.two.different = Not a valid item selection.\nPlease select two different items.
+cid.created = Crafting successful!\n\n%s created %s.
+cid.cannot.merge = %s cannot merge those two items.\n\nCrafting this requires:
+cid.cannot.be.merged = Can't craft with these two items.
 
 # combat options widget
 cow.attack = (A)ttack
@@ -490,3 +490,6 @@ ssd.cast = Cast Spell
 ssd.filters = Filters:
 ssd.casting.level = Casting Level:
 ssd.cost = Cost: %s
+
+# get amount dialog
+gad.how.much = How Much (max %s)?
