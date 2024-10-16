@@ -20,12 +20,10 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
-import java.awt.Rectangle;
+import java.awt.Dimension;
 import java.awt.event.MouseEvent;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionEvent;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYGridLayout;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Item;
@@ -43,17 +41,17 @@ public class ItemSelectionWidget extends DIYPane
 	private boolean showEquippedItems;
 	private boolean showPackItems;
 	private ItemWidget[] itemWidgets;
-	private static final int COLS = 2;
-	private static final int ROWS = 15;
+
+	private static final int COLS = 3;
+	private static final int ROWS = 10;
+	private static final int GAP = 3;
 
 	/*-------------------------------------------------------------------------*/
 	public ItemSelectionWidget(
-		Rectangle bounds,
 		PlayerCharacter pc,
 		boolean showEquippedItems,
 		boolean showPackItems)
 	{
-		super(bounds);
 		this.showEquippedItems = showEquippedItems;
 		this.showPackItems = showPackItems;
 		this.buildGui(pc);
@@ -72,8 +70,7 @@ public class ItemSelectionWidget extends DIYPane
 		}
 
 		itemWidgets = new ItemWidget[maxItems];
-		int inset = 3;
-		this.setLayoutManager(new DIYGridLayout(COLS, ROWS, inset, inset));
+		this.setLayoutManager(new DIYGridLayout(COLS, ROWS, GAP, GAP));
 
 		for (int i = 0; i < itemWidgets.length; i++)
 		{
@@ -303,6 +300,17 @@ public class ItemSelectionWidget extends DIYPane
 				return;
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public Dimension getPreferredSize()
+	{
+		int itemSize = DIYToolkit.getInstance().getRendererProperties().getProperty(RendererProperties.Property.ITEM_WIDGET_SIZE);
+		return new Dimension(
+			DiyGuiUserInterface.SCREEN_WIDTH/5*4,
+			itemSize*ROWS + GAP*(ROWS-1));
 	}
 
 	/*-------------------------------------------------------------------------*/

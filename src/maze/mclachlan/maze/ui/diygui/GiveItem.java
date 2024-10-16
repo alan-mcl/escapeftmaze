@@ -19,6 +19,7 @@
 
 package mclachlan.maze.ui.diygui;
 
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -29,9 +30,9 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class GiveItem implements ItemSelectionCallback
 {
-	GiveItemCallback callback;
-	private PlayerCharacter user;
-	private int userIndex;
+	private final GiveItemCallback callback;
+	private final PlayerCharacter user;
+	private final int userIndex;
 
 	/*-------------------------------------------------------------------------*/
 	public GiveItem(GiveItemCallback callback, PlayerCharacter pc)
@@ -41,7 +42,7 @@ public class GiveItem implements ItemSelectionCallback
 		this.userIndex = Maze.getInstance().getParty().getActors().indexOf(user);
 
 		ItemSelectionDialog itemDialog = new ItemSelectionDialog(
-			pc.getName(), pc, this, false, true);
+			pc.getName(), StringUtil.getUiLabel("isd.give"), pc, this, false, true);
 		Maze.getInstance().getUi().showDialog(itemDialog);
 	}
 

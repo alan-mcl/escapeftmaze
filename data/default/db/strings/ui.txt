@@ -477,3 +477,16 @@ dtw.armed = armed
 dtw.disarmed = disarmed
 dtw.unknown = ?
 dtw.not.present = -
+
+# item select dialog
+isd.use = Use
+isd.give = Give
+isd.drop = Drop
+isd.select = Select
+
+# spell selection
+ssd.title = Cast Spell: %s
+ssd.cast = Cast Spell
+ssd.filters = Filters:
+ssd.casting.level = Casting Level:
+ssd.cost = Cost: %s

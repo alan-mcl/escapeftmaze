@@ -31,20 +31,20 @@ import mclachlan.maze.util.MazeException;
 public class UseItem implements ChooseCharacterCallback,
 	ItemSelectionCallback
 {
-	private UseItemCallback callback;
+	private final UseItemCallback callback;
 	private Item item;
-	private PlayerCharacter user;
-	private int userIndex;
+	private final PlayerCharacter user;
+	private final int userIndex;
 
 	/*-------------------------------------------------------------------------*/
-	public UseItem(String title, UseItemCallback callback, PlayerCharacter pc)
+	public UseItem(String title, String action, UseItemCallback callback, PlayerCharacter pc)
 	{
 		this.callback = callback;
 		this.user = pc;
 		this.userIndex = Maze.getInstance().getParty().getActors().indexOf(user);
 
 		ItemSelectionDialog itemDialog = new ItemSelectionDialog(
-			title, pc, this, true, true);
+			title, action, pc, this, true, true);
 		Maze.getInstance().getUi().showDialog(itemDialog);
 	}
 
@@ -64,37 +64,38 @@ public class UseItem implements ChooseCharacterCallback,
 			{
 				return;
 			}
-			
+
 			switch (item.getInvokedSpell().getTargetType())
 			{
 				// do not require target selection
-				case MagicSys.SpellTargetType.CASTER:
-				case MagicSys.SpellTargetType.PARTY:
-				case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
-				case MagicSys.SpellTargetType.TILE:
-				case MagicSys.SpellTargetType.ITEM:
+				case MagicSys.SpellTargetType.CASTER,
+					MagicSys.SpellTargetType.PARTY,
+					MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER,
+					MagicSys.SpellTargetType.TILE,
+					MagicSys.SpellTargetType.ITEM ->
 					GameSys.getInstance().useItemOutsideCombat(item, user, null);
-					break;
+
 
 				// requires the selection of a player character
-				case MagicSys.SpellTargetType.ALLY:
+				case MagicSys.SpellTargetType.ALLY ->
+				{
 					GameSys.getInstance().useItemOutsideCombat(
 						item, user, target);
 					return;
+				}
 
 				// makes no sense
-				case MagicSys.SpellTargetType.ALL_FOES:
-				case MagicSys.SpellTargetType.FOE:
-				case MagicSys.SpellTargetType.FOE_GROUP:
-				case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				case MagicSys.SpellTargetType.NPC:
-				case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-				case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+				case MagicSys.SpellTargetType.ALL_FOES,
+					MagicSys.SpellTargetType.FOE,
+					MagicSys.SpellTargetType.FOE_GROUP,
+					MagicSys.SpellTargetType.LOCK_OR_TRAP,
+					MagicSys.SpellTargetType.NPC,
+					MagicSys.SpellTargetType.CLOUD_ONE_GROUP,
+					MagicSys.SpellTargetType.CLOUD_ALL_GROUPS ->
 					// cast it anyway
 					GameSys.getInstance().useItemOutsideCombat(item, user, null);
-					break;
 
-				default:
+				default ->
 					throw new MazeException("Unrecognized spell effect target type: "
 						+ item.getInvokedSpell().getTargetType());
 			}

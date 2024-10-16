@@ -39,7 +39,7 @@ public class ItemWidgetRenderer extends Renderer
 			Image slotImage = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot");
 			int iconSize = widget.height;
 			Rectangle iconBounds = new Rectangle(widget.x, widget.y,
-				iconSize, iconSize);
+				iconSize, height);
 
 			DIYToolkit.drawImageAligned(g, slotImage, iconBounds, DIYToolkit.Align.CENTER);
 			if (widget.getItem() != null)

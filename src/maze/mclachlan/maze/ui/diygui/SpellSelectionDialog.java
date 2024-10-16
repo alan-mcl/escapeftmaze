@@ -27,6 +27,7 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.PlayerCharacter;
 
 /**
@@ -34,42 +35,58 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class SpellSelectionDialog extends GeneralDialog implements ActionListener
 {
-	private static int XX = DiyGuiUserInterface.SCREEN_WIDTH/5;
-	private static int YY = DiyGuiUserInterface.SCREEN_HEIGHT/5;
-	private static Rectangle bounds = new Rectangle(XX, YY,
-		DiyGuiUserInterface.SCREEN_WIDTH/5*3, DiyGuiUserInterface.SCREEN_HEIGHT/5*3);
+	private static final int XX = 75;
+	private static final int YY = 75;
 
-	private static int buttonPaneHeight = 20;
-	private static int inset = 10;
+	private static final Rectangle bounds = new Rectangle(XX, YY,
+		DiyGuiUserInterface.SCREEN_WIDTH -XX*2,
+		DiyGuiUserInterface.SCREEN_HEIGHT -YY*2);
 
-	private static Rectangle sdwBounds = new Rectangle(XX+inset, YY+inset,
-		DiyGuiUserInterface.SCREEN_WIDTH/5*3-inset*2,
-		DiyGuiUserInterface.SCREEN_HEIGHT/5*3-buttonPaneHeight*2-inset*2);
-
-	private SpellDisplayWidget sdw;
-	private DIYButton okButton, cancelButton;
-	private SpellSelectionCallback spellSelectionCallback;
+	private final SpellDisplayWidget sdw;
+	private final DIYButton okButton, close;
+	private final SpellSelectionCallback spellSelectionCallback;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellSelectionDialog(
-		PlayerCharacter c,
+		PlayerCharacter pc,
 		SpellSelectionCallback spellSelectionCallback)
 	{
 		super(bounds);
+
+		int titlePaneHeight = getTitlePaneHeight();
+		int border = getBorder();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int inset = getInset();
+
 		this.spellSelectionCallback = spellSelectionCallback;
-		sdw = new SpellDisplayWidget(c, sdwBounds);
+
+		Rectangle sdwBounds = new Rectangle(
+			XX +border +inset,
+			YY +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*2 -titlePaneHeight -buttonPaneHeight);
+
+		DIYPane title = getTitlePane(StringUtil.getUiLabel("ssd.title", pc.getDisplayName()));
+
+		sdw = new SpellDisplayWidget(pc, sdwBounds);
 		this.add(sdw);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height-buttonPaneHeight-inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		buttonPane.setBounds(
+			x +border,
+			y +height -buttonPaneHeight -inset -border,
+			width -border*2,
+			buttonPaneHeight);
+		okButton = new DIYButton(StringUtil.getUiLabel("ssd.cast"));
 		okButton.addActionListener(this);
 		
-		cancelButton = new DIYButton("Cancel");
-		cancelButton.addActionListener(this);
-		buttonPane.add(okButton);
-		buttonPane.add(cancelButton);
+		close = getCloseButton();
+		close.addActionListener(this);
 
+		buttonPane.add(okButton);
+
+		this.add(title);
+		this.add(close);
 		this.add(buttonPane);
 		this.doLayout();
 	}
@@ -81,51 +98,26 @@ public class SpellSelectionDialog extends GeneralDialog implements ActionListene
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				canceled();
-				break;
-			case KeyEvent.VK_ENTER:
-				spellSelected();
-				break;
-			case KeyEvent.VK_1:
-				sdw.setSpellLevel(1);
-				break;
-			case KeyEvent.VK_2:
-				sdw.setSpellLevel(2);
-				break;
-			case KeyEvent.VK_3:
-				sdw.setSpellLevel(3);
-				break;
-			case KeyEvent.VK_4:
-				sdw.setSpellLevel(4);
-				break;
-			case KeyEvent.VK_5:
-				sdw.setSpellLevel(5);
-				break;
-			case KeyEvent.VK_6:
-				sdw.setSpellLevel(6);
-				break;
-			case KeyEvent.VK_7:
-				sdw.setSpellLevel(7);
-				break;
-			case KeyEvent.VK_EQUALS:
-			case KeyEvent.VK_ADD:
-			case KeyEvent.VK_PLUS:
+			case KeyEvent.VK_ESCAPE -> canceled();
+			case KeyEvent.VK_ENTER -> spellSelected();
+			case KeyEvent.VK_1 -> sdw.setSpellLevel(1);
+			case KeyEvent.VK_2 -> sdw.setSpellLevel(2);
+			case KeyEvent.VK_3 -> sdw.setSpellLevel(3);
+			case KeyEvent.VK_4 -> sdw.setSpellLevel(4);
+			case KeyEvent.VK_5 -> sdw.setSpellLevel(5);
+			case KeyEvent.VK_6 -> sdw.setSpellLevel(6);
+			case KeyEvent.VK_7 -> sdw.setSpellLevel(7);
+			case KeyEvent.VK_EQUALS, KeyEvent.VK_ADD, KeyEvent.VK_PLUS ->
 				// The '+' key
 				sdw.incrementPowerLevel();
-				break;
-			case KeyEvent.VK_MINUS:
-			case KeyEvent.VK_SUBTRACT:
+			case KeyEvent.VK_MINUS, KeyEvent.VK_SUBTRACT ->
 				sdw.decrementPowerLevel();
-				break;
-			case KeyEvent.VK_UP:
-			case KeyEvent.VK_DOWN:
+			case KeyEvent.VK_UP, KeyEvent.VK_DOWN ->
 				sdw.getSpellList().processKeyPressed(e);
-				break;
-			default:
+			default ->
 			{
 				sdw.getQuickName().processKeyPressed(e);
 				sdw.filterSpells();
@@ -141,7 +133,7 @@ public class SpellSelectionDialog extends GeneralDialog implements ActionListene
 			spellSelected();
 			return true;
 		}
-		else if (event.getSource() == cancelButton)
+		else if (event.getSource() == close)
 		{
 			canceled();
 			return true;

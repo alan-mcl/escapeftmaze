@@ -24,6 +24,7 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import java.util.List;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
@@ -35,38 +36,55 @@ import mclachlan.diygui.toolkit.*;
  */
 public class SpellDisplayWidget extends DIYPane
 {
-	private DIYButton levelPlus, levelMinus;
-	private Map<Widget, String> schoolButtons = new HashMap<Widget, String>();
-	private Map<String, Widget> schoolButtonsBySchool = new HashMap<String, Widget>();
+	private final DIYButton levelPlus, levelMinus;
+	private final Map<Widget, String> schoolButtons = new HashMap<Widget, String>();
+	private final Map<String, Widget> schoolButtonsBySchool = new HashMap<String, Widget>();
 	private PlayerCharacter playerCharacter;
-	private DIYListBox spellList;
-	private DIYTextField quickName;
-	private DIYLabel magicPointCostLabel, spellLevel;
+	private final DIYListBox spellList;
+	private final DIYTextField quickName;
+	private final DIYLabel magicPointCostLabel, spellLevel;
 
 	private int castingLevel = -1;
 	private int magicPointCost = -1;
 
-	private static Comparator<Spell> spellComparator = new SpellLearningWidget.SpellComparator();
+	private static final Comparator<Spell> spellComparator = new SpellLearningWidget.SpellComparator();
 
 	/*-------------------------------------------------------------------------*/
 	public SpellDisplayWidget(PlayerCharacter pc, Rectangle bounds)
 	{
 		super(bounds);
 
-		List<String> spellSchools = MagicSys.getInstance().getSpellSchools();
-		DIYPane schoolPane = new DIYPane(
-			new DIYGridLayout(1, height/20, 0, 0));
-		schoolPane.setBounds(x,y,width/3, height);
-		int inset = 10;
-		schoolPane.setInsets(new Insets(inset, inset, inset, inset));
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
 
-		schoolPane.add(new DIYLabel("Select School:"));
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+		int iconButtonSize = 45;
+//		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int titleHeight = 20;
+
+		int column1x = bounds.x + inset;
+		int columnWidth = (width -5*inset) / 3;
+
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
+
+		// column 1: filters
+		List<String> spellSchools = MagicSys.getInstance().getSpellSchools();
+
+		DIYPane leftPane = new DIYPane(
+			new DIYGridLayout(1, height/30, 0, 0));
+		leftPane.setBounds(
+			x,
+			y,
+			columnWidth,
+			height);
+
+		leftPane.add(new DIYLabel(StringUtil.getUiLabel("ssd.filters")));
 
 		SpellSelectionActionListener internalListener = new SpellSelectionActionListener();
 		for (String school : spellSchools)
 		{
 			DIYCheckbox b = new DIYCheckbox(school);
-			schoolPane.add(b);
+			leftPane.add(b);
 			schoolButtons.put(b, school);
 			schoolButtonsBySchool.put(school, b);
 			b.addActionListener(internalListener);
@@ -75,38 +93,72 @@ public class SpellDisplayWidget extends DIYPane
 		}
 
 		quickName = new DIYTextField("", 15);
-		schoolPane.add(new DIYLabel());
-		schoolPane.add(quickName);
+		leftPane.add(new DIYLabel());
+		leftPane.add(quickName);
 
-		DIYLabel levelLabel = new DIYLabel("Level:");
-		levelLabel.setBounds(x+width/3, y+ inset, 40, 20);
+		// column 2: spell list
 
-		levelMinus = new DIYButton("-");
+		List<String> spells = new ArrayList<>();
+		spellList = new DIYListBox(spells);
+		spellList.setBounds(
+			column2x,
+			y,
+			columnWidth,
+			height);
+		spellList.addActionListener(internalListener);
+
+		// column 3: casting level
+
+		DIYLabel levelLabel = new DIYLabel(StringUtil.getUiLabel("ssd.casting.level"));
+		levelLabel.setBounds(
+			column3x,
+			y,
+			columnWidth,
+			20);
+
+		levelMinus = new DIYButton(null);
+		levelMinus.setImage("icon/minus");
 		levelMinus.addActionListener(internalListener);
-		levelPlus = new DIYButton("+");
+
+		levelPlus = new DIYButton(null);
+		levelPlus.setImage("icon/plus");
 		levelPlus.addActionListener(internalListener);
+
 		spellLevel = new DIYLabel("");
 
-		levelMinus.setBounds(x+width/3+40+3, y+ inset +3, 14, 14);
-		spellLevel.setBounds(x+width/3+60, y+ inset, 20, 20);
-		levelPlus.setBounds(x+width/3+80+3, y+ inset +3, 14, 14);
+		levelMinus.setBounds(
+			column3x,
+			levelLabel.y +levelLabel.height +inset,
+			iconButtonSize,
+			iconButtonSize);
 
-		magicPointCostLabel = new DIYLabel("Cost: ");
-		magicPointCostLabel.setBounds(x+width/3+100, y+ inset, 75, 20);
+		spellLevel.setBounds(
+			column3x +columnWidth/2 -30,
+			levelLabel.y +levelLabel.height +inset,
+			60,
+			20);
 
-		List<String> spells = new ArrayList<String>();
-		spellList = new DIYListBox(spells);
-		spellList.setBounds(x+width/3, y+ inset +25, width/3*2, height- inset *2-25);
-		spellList.addActionListener(internalListener);
+		levelPlus.setBounds(
+			column3x +columnWidth -iconButtonSize,
+			levelLabel.y +levelLabel.height +inset,
+			iconButtonSize,
+			iconButtonSize);
+
+		magicPointCostLabel = new DIYLabel(StringUtil.getUiLabel("ssd.cost", "0"));
+		magicPointCostLabel.setBounds(
+			column3x +columnWidth/2 -40,
+			spellLevel.y +spellLevel.height +inset,
+			80, 20);
 
 		this.add(levelLabel);
 		this.add(levelMinus);
 		this.add(spellLevel);
 		this.add(levelPlus);
+
 		this.add(quickName);
 		this.add(magicPointCostLabel);
 		this.add(spellList);
-		this.add(schoolPane);
+		this.add(leftPane);
 		this.doLayout();
 
 		setPlayerCharacter(pc);
@@ -144,7 +196,7 @@ public class SpellDisplayWidget extends DIYPane
 			this.castingLevel = -1;
 			this.magicPointCost = -1;
 			this.magicPointCostLabel.setText("-");
-			this.spellList.setItems(new ArrayList());
+			this.spellList.setItems(new ArrayList<>());
 			setSpell(null);
 		}
 	}
@@ -160,7 +212,7 @@ public class SpellDisplayWidget extends DIYPane
 				getSpellSelected().getMagicPointCost(),
 				castingLevel,
 				playerCharacter);
-			this.magicPointCostLabel.setText("Cost: "+magicPointCost);
+			this.magicPointCostLabel.setText(StringUtil.getUiLabel("ssd.cost", magicPointCost));
 			
 			int nextLevelMagicPointCost = MagicSys.getInstance().getPointCost(
 				getSpellSelected().getMagicPointCost(),
@@ -208,7 +260,7 @@ public class SpellDisplayWidget extends DIYPane
 			}
 		}
 		
-		Collections.sort(spells, spellComparator);
+		spells.sort(spellComparator);
 		spellList.setItems(spells);
 		Spell firstSpell = null;
 
@@ -259,43 +311,22 @@ public class SpellDisplayWidget extends DIYPane
 			return;
 		}
 
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_1:
-				setSpellLevel(1);
-				break;
-			case KeyEvent.VK_2:
-				setSpellLevel(2);
-				break;
-			case KeyEvent.VK_3:
-				setSpellLevel(3);
-				break;
-			case KeyEvent.VK_4:
-				setSpellLevel(4);
-				break;
-			case KeyEvent.VK_5:
-				setSpellLevel(5);
-				break;
-			case KeyEvent.VK_6:
-				setSpellLevel(6);
-				break;
-			case KeyEvent.VK_7:
-				setSpellLevel(7);
-				break;
-			case KeyEvent.VK_EQUALS:
-			case KeyEvent.VK_ADD:
-			case KeyEvent.VK_PLUS:
+			case KeyEvent.VK_1 -> setSpellLevel(1);
+			case KeyEvent.VK_2 -> setSpellLevel(2);
+			case KeyEvent.VK_3 -> setSpellLevel(3);
+			case KeyEvent.VK_4 -> setSpellLevel(4);
+			case KeyEvent.VK_5 -> setSpellLevel(5);
+			case KeyEvent.VK_6 -> setSpellLevel(6);
+			case KeyEvent.VK_7 -> setSpellLevel(7);
+			case KeyEvent.VK_EQUALS, KeyEvent.VK_ADD, KeyEvent.VK_PLUS ->
 				// The '+' key
 				incrementPowerLevel();
-				break;
-			case KeyEvent.VK_MINUS:
-			case KeyEvent.VK_SUBTRACT:
-			case KeyEvent.VK_UNDERSCORE:
+			case KeyEvent.VK_MINUS, KeyEvent.VK_SUBTRACT, KeyEvent.VK_UNDERSCORE ->
 				// The '-' key
 				decrementPowerLevel();
-				break;
-			default:
-				this.quickName.processKeyPressed(e);
+			default -> this.quickName.processKeyPressed(e);
 		}
 	}
 

@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.combat;
 
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
@@ -58,7 +59,10 @@ public class UseItemOption extends ActorActionOption implements UseItemCallback
 	{
 		this.combat = combat;
 		this.callback = callback;
-		new UseItem(getActor().getName(), this, (PlayerCharacter)getActor());
+		new UseItem(
+			getActor().getName(),
+			StringUtil.getUiLabel("isd.use"),
+			this, (PlayerCharacter)getActor());
 	}
 
 	/*-------------------------------------------------------------------------*/

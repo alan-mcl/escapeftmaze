@@ -37,7 +37,6 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class GeneralDialog extends DIYPanel
 {
-
 	private final RendererProperties rendererProperties;
 
 	/*-------------------------------------------------------------------------*/

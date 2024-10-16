@@ -756,7 +756,10 @@ public class InventoryDisplayWidget extends ContainerWidget
 		{
 			setSpellStateHack(spell, castingLevel);
 			// proceed with item selection
-			new UseItem(StringUtil.getUiLabel("idw.cast.spell.on.item"), this, character);
+			new UseItem(
+				StringUtil.getUiLabel("idw.cast.spell.on.item"),
+				StringUtil.getUiLabel("isd.select"),
+				this, character);
 			return true;
 		}
 
@@ -842,7 +845,10 @@ public class InventoryDisplayWidget extends ContainerWidget
 			// this is an item with an ITEM targeting effect
 			// (but not a spellbook! In that case the PC must learn the spell)
 			setItemStateHack(item);
-			new UseItem(StringUtil.getUiLabel("idw.invoke.spell.on.item"), this, user);
+			new UseItem(
+				StringUtil.getUiLabel("idw.invoke.spell.on.item"),
+				StringUtil.getUiLabel("isd.select"),
+				this, user);
 			return true;
 		}
 
@@ -950,7 +956,10 @@ public class InventoryDisplayWidget extends ContainerWidget
 	public void use()
 	{
 		lastObj = useItem;
-		new UseItem(StringUtil.getUiLabel("idw.use.item.title"), InventoryDisplayWidget.this, character);
+		new UseItem(
+			StringUtil.getUiLabel("idw.use.item.title"),
+			StringUtil.getUiLabel("isd.use"),
+			InventoryDisplayWidget.this, character);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -969,7 +978,10 @@ public class InventoryDisplayWidget extends ContainerWidget
 		}
 		else
 		{
-			new UseItem(StringUtil.getUiLabel("idw.drop.item.title"), InventoryDisplayWidget.this, character);
+			new UseItem(
+				StringUtil.getUiLabel("idw.drop.item.title"),
+				StringUtil.getUiLabel("isd.drop"),
+				InventoryDisplayWidget.this, character);
 		}
 	}
 

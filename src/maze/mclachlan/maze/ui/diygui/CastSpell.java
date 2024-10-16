@@ -31,11 +31,11 @@ import mclachlan.maze.util.MazeException;
  */
 public class CastSpell implements SpellSelectionCallback, ChooseCharacterCallback
 {
-	private CastSpellCallback callback;
-	private SpellSelectionDialog spellDialog;
+	private final CastSpellCallback callback;
+	private final SpellSelectionDialog spellDialog;
 	private Spell spell;
-	private PlayerCharacter caster;
-	private int casterIndex;
+	private final PlayerCharacter caster;
+	private final int casterIndex;
 
 	/*-------------------------------------------------------------------------*/
 	public CastSpell(CastSpellCallback callback, PlayerCharacter caster)
@@ -86,35 +86,33 @@ public class CastSpell implements SpellSelectionCallback, ChooseCharacterCallbac
 			switch (spell.getTargetType())
 			{
 				// do not require target selection
-				case MagicSys.SpellTargetType.CASTER:
-				case MagicSys.SpellTargetType.PARTY:
-				case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
-				case MagicSys.SpellTargetType.TILE:
-				case MagicSys.SpellTargetType.ITEM:
+				case MagicSys.SpellTargetType.CASTER,
+					MagicSys.SpellTargetType.PARTY,
+					MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER,
+					MagicSys.SpellTargetType.TILE,
+					MagicSys.SpellTargetType.ITEM ->
 					GameSys.getInstance().castPartySpellOutsideCombat(
 						spell, caster, castingLevel, null);
-					break;
 
-					// requires the selection of a player character
-				case MagicSys.SpellTargetType.ALLY:
+
+				// requires the selection of a player character
+				case MagicSys.SpellTargetType.ALLY ->
 					GameSys.getInstance().castPartySpellOutsideCombat(
 						spell, caster, castingLevel, Maze.getInstance().getPlayerCharacter(target));
-					break;
 
-					// makes no sense
-				case MagicSys.SpellTargetType.ALL_FOES:
-				case MagicSys.SpellTargetType.FOE:
-				case MagicSys.SpellTargetType.FOE_GROUP:
-				case MagicSys.SpellTargetType.LOCK_OR_TRAP:
-				case MagicSys.SpellTargetType.NPC:
-				case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-				case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
+
+				// makes no sense
+				case MagicSys.SpellTargetType.ALL_FOES,
+					MagicSys.SpellTargetType.FOE,
+					MagicSys.SpellTargetType.FOE_GROUP,
+					MagicSys.SpellTargetType.LOCK_OR_TRAP,
+					MagicSys.SpellTargetType.NPC,
+					MagicSys.SpellTargetType.CLOUD_ONE_GROUP,
+					MagicSys.SpellTargetType.CLOUD_ALL_GROUPS ->
 					// cast it anyway
 					GameSys.getInstance().castPartySpellOutsideCombat(
 						spell, caster, castingLevel, null);
-					break;
-
-				default:
+				default ->
 					throw new MazeException("Unrecognized spell target type: "
 						+ spell.getTargetType());
 			}

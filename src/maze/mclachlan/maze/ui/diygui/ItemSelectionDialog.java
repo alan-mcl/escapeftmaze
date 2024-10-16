@@ -19,6 +19,7 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
@@ -35,48 +36,69 @@ import mclachlan.maze.stat.PlayerCharacter;
  */
 public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 {
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
+	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/5*4;
 
-	private ItemSelectionWidget isWidget;
-	private DIYButton okButton, cancel;
-	private ItemSelectionCallback itemSelectionCallback;
+	private final ItemSelectionWidget itemSelectionWidget;
+	private final DIYButton okButton, close;
+	private final ItemSelectionCallback itemSelectionCallback;
 
 	/*-------------------------------------------------------------------------*/
 	public ItemSelectionDialog(
 		String title,
+		String okButtonText,
 		PlayerCharacter pc,
 		ItemSelectionCallback itemSelectionCallback,
 		boolean showEquippedItems,
 		boolean showPackItems)
 	{
+		int border = getBorder();
+		int titlePaneHeight = getTitlePaneHeight();
+		int inset = getInset();
+		int buttonPaneHeight = getButtonPaneHeight();
+
+		itemSelectionWidget = new ItemSelectionWidget(pc, showEquippedItems, showPackItems);
+
+		Dimension isDim = itemSelectionWidget.getPreferredSize();
+
+		int DIALOG_HEIGHT = border*2 +titlePaneHeight +buttonPaneHeight
+			+inset*3 +isDim.height;
+
 		this.itemSelectionCallback = itemSelectionCallback;
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
-		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
+		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT /2;
+
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 20;
-		int inset = 10;
-		Rectangle isBounds = new Rectangle(startX+ inset, startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
+
+		itemSelectionWidget.setBounds(
+			startX +border +inset,
+			startY +border +inset +titlePaneHeight,
+			DIALOG_WIDTH -inset*2 -border*2,
+			isDim.height);
 
 		this.setBounds(dialogBounds);
-		isWidget = new ItemSelectionWidget(isBounds, pc, showEquippedItems, showPackItems);
 
 		DIYPane titlePane = getTitlePane(title);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		buttonPane.setBounds(
+			x,
+			y +height -buttonPaneHeight -border,
+			width,
+			buttonPaneHeight);
+
+		okButton = new DIYButton(okButtonText);
 		okButton.addActionListener(this);
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
+
+		close = getCloseButton();
+		close.addActionListener(this);
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
+		this.add(close);
 
 		this.add(titlePane);
-		this.add(isWidget);
+		this.add(itemSelectionWidget);
 		this.add(buttonPane);
+
 		this.doLayout();
 	}
 
@@ -87,34 +109,22 @@ public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				canceled();
-				break;
-			case KeyEvent.VK_ENTER:
-				itemSelected();
-				break;
-			case KeyEvent.VK_UP:
-				isWidget.moveSelectionUp();
-				break;
-			case KeyEvent.VK_DOWN:
-				isWidget.moveSelectionDown();
-				break;
-			case KeyEvent.VK_RIGHT:
-				isWidget.moveSelectionRight();
-				break;
-			case KeyEvent.VK_LEFT:
-				isWidget.moveSelectionLeft();
-				break;
+			case KeyEvent.VK_ESCAPE -> canceled();
+			case KeyEvent.VK_ENTER -> itemSelected();
+			case KeyEvent.VK_UP -> itemSelectionWidget.moveSelectionUp();
+			case KeyEvent.VK_DOWN -> itemSelectionWidget.moveSelectionDown();
+			case KeyEvent.VK_RIGHT -> itemSelectionWidget.moveSelectionRight();
+			case KeyEvent.VK_LEFT -> itemSelectionWidget.moveSelectionLeft();
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void itemSelected()
 	{
-		Item item = isWidget.getSelectedItem();
+		Item item = itemSelectionWidget.getSelectedItem();
 		DIYToolkit.getInstance().clearDialog(this);
 		itemSelectionCallback.itemSelected(item);
 	}
@@ -133,7 +143,7 @@ public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 			itemSelected();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == close)
 		{
 			canceled();
 			return true;
