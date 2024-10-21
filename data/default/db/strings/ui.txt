@@ -43,6 +43,14 @@ cc.show.lap = ...
 cc.locked = ** LOCKED **
 cc.spell.books = Spell Books
 
+# modifiers display widget
+mdw.title = Modifiers
+mdw.attributes = Attribute Modifiers
+mdw.combat = Combat Modifiers
+mdw.stealth = Stealth Modifiers
+mdw.magic = Magic Modifiers
+
+
 # modifier display widget
 mdw.influence.base = Base
 mdw.influence.gender = Gender (%s)
@@ -335,7 +343,7 @@ idw.equipped.items = Equipped Items
 idw.character.details = %s, level %s %s %s %s
 idw.party.gold = Party gold: %sgp
 idw.party.supplies = Party supplies: %s units
-idw.carrying.label = %s / %s
+idw.carrying.label = Carrying (kg): %s / %s
 idw.cast.spell.on.item = Cast Spell On Item
 idw.invoke.spell.on.item = Invoke Spell On Item
 idw.pick.up.to.disassemble = Please pick up the item to disassemble

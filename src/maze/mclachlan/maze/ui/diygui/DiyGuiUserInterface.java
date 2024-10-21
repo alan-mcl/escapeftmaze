@@ -1091,7 +1091,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		DIYPanel screen = new DIYPanel(screenBounds);
 
 		modifiersDisplay = new ModifiersDisplayWidget(
-			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
+			new Rectangle(
+				partyDisplay.x +partyDisplay.width,
+				0,
+				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_HEIGHT));
 
 		screen.add(modifiersDisplay);
 		screen.add(partyDisplay);
@@ -1130,8 +1134,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			new Rectangle(
 				partyDisplay.x +partyDisplay.width,
 				0,
-				DiyGuiUserInterface.SCREEN_WIDTH - partyDisplay.width,
-				DiyGuiUserInterface.SCREEN_HEIGHT));
+				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_HEIGHT));
 
 		screen.add(inventoryDisplay);
 		screen.add(partyDisplay);

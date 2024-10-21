@@ -164,13 +164,12 @@ public class InventoryDisplayWidget extends ContainerWidget
 		int column3x = column2x + columnWidth + inset;
 
 		// screen title
-		DIYLabel inventoryTitle = getSubTitle(StringUtil.getUiLabel("idw.title"));
-		inventoryTitle.setBounds(
+		DIYLabel title = getSubTitle(StringUtil.getUiLabel("idw.title"));
+		title.setBounds(
 			200, DiyGuiUserInterface.SCREEN_EDGE_INSET,
 			DiyGuiUserInterface.SCREEN_WIDTH - 400, titleHeight);
 
 		// personal info
-
 		DIYPanel personalPanel = new DIYPanel();
 		personalPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
 		personalPanel.setLayoutManager(null);
@@ -181,26 +180,26 @@ public class InventoryDisplayWidget extends ContainerWidget
 			panelBorderInset*2 + 30);
 
 		nameLabel.setBounds(
-			personalPanel.x +panelBorderInset,
-			personalPanel.y +panelBorderInset,
-			personalPanel.width -panelBorderInset*2,
-			(personalPanel.height -panelBorderInset*2)/2);
+			personalPanel.x +frameBorderInset +inset/2,
+			personalPanel.y +frameBorderInset,
+			personalPanel.width/2,
+			20);
 
-		DIYLabel carryingLabel = getLabel(StringUtil.getUiLabel("idw.carrying"), Color.LIGHT_GRAY);
-		carryingLabel.setBounds(
-			personalPanel.x +panelBorderInset,
-			nameLabel.y + nameLabel.height +inset/2,
-			nameLabel.width/4,
-			nameLabel.height);
+//		DIYLabel carryingLabel = getLabel(StringUtil.getUiLabel("idw.carrying"), Color.LIGHT_GRAY);
+//		carryingLabel.setBounds(
+//			personalPanel.x +panelBorderInset,
+//			nameLabel.y + nameLabel.height +inset/2,
+//			nameLabel.width/4,
+//			nameLabel.height);
 
 		carrying.setBounds(
-			carryingLabel.x + carryingLabel.width +inset,
-			personalPanel.y + personalPanel.height/2,
-			nameLabel.width/4*3,
+			personalPanel.x +frameBorderInset +inset*2,
+			personalPanel.y + personalPanel.height/2 -inset,
+			personalPanel.width -frameBorderInset*2 -inset*4,
 			personalPanel.height/3);
 
 		personalPanel.add(nameLabel);
-		personalPanel.add(carryingLabel);
+//		personalPanel.add(carryingLabel);
 		personalPanel.add(carrying);
 
 		// party info
@@ -336,7 +335,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		buttonPane.add(splitStack);
 		buttonPane.add(disassemble);
 
-		this.add(inventoryTitle);
+		this.add(title);
 		this.add(personalPanel);
 		this.add(partyPanel);
 		this.add(equippedItemsPanel);
@@ -416,7 +415,9 @@ public class InventoryDisplayWidget extends ContainerWidget
 
 		carrying.setCustomText(
 			StringUtil.getUiLabel(
-				"idw.carrying.label", Constants.Format.formatWeight(cur), Constants.Format.formatWeight(max)));
+				"idw.carrying.label",
+				Constants.Format.formatWeight(cur),
+				Constants.Format.formatWeight(max)));
 
 		carrying.set(cur, max);
 

@@ -21,19 +21,18 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYGridLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.DIYPanel;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.CurMax;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.util.MazeException;
+
+import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
 /**
  *
@@ -42,105 +41,152 @@ public class ModifiersDisplayWidget extends ContainerWidget
 {
 	private PlayerCharacter character;
 
-	private Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
-	private Map<Stats.Modifier, DIYLabel> valueLabelMap = new HashMap<Stats.Modifier, DIYLabel>();
-	private DIYLabel header = getLabel("");
-	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
-	private DIYLabel attributeHeader = getLabel("Attribute Modifiers", Constants.Colour.ATTRIBUTES_CYAN);
-	private DIYLabel combatHeader = getLabel("Combat Modifiers", Constants.Colour.COMBAT_RED);
-	private DIYLabel stealthHeader = getLabel("Stealth Modifiers", Constants.Colour.STEALTH_GREEN);
-	private DIYLabel hitPointsValue = new DIYLabel("", DIYToolkit.Align.CENTER);
-	private DIYLabel magicHeader = getLabel("Magic Skill Modifiers", Constants.Colour.MAGIC_BLUE);
-	private DIYLabel actionPointsValue = new DIYLabel("", DIYToolkit.Align.CENTER);
-	private DIYLabel magicPointsValue = new DIYLabel("", DIYToolkit.Align.CENTER);
-	private ActionListener listener;
-
-	Object[][] layout = new Object[][]
-	{
-		{ header,								null,										null},
-		{ nameLabel,							null,										null},
-		{ null,									attributeHeader,						null},
-		{ Stats.Modifier.BRAWN,			Stats.Modifier.THIEVING,			Stats.Modifier.BRAINS},
-		{ Stats.Modifier.SKILL,			Stats.Modifier.SNEAKING,			Stats.Modifier.POWER},
-		{ null,									null,										null},
-		{ combatHeader,						stealthHeader,							magicHeader},
-		{ Stats.Modifier.SWING,			Stats.Modifier.STREETWISE,		Stats.Modifier.CHANT},
-		{ Stats.Modifier.THRUST,			Stats.Modifier.DUNGEONEER,		Stats.Modifier.RHYME},
-		{ Stats.Modifier.BASH,				Stats.Modifier.WILDERNESS_LORE,	Stats.Modifier.GESTURE},
-		{ Stats.Modifier.CUT,				Stats.Modifier.SURVIVAL,			Stats.Modifier.POSTURE},
-		{ Stats.Modifier.LUNGE,			Stats.Modifier.BACKSTAB,			Stats.Modifier.THOUGHT},
-		{ Stats.Modifier.PUNCH,			Stats.Modifier.SNIPE,				Stats.Modifier.HERBAL},
-		{ Stats.Modifier.KICK,				Stats.Modifier.LOCK_AND_TRAP,	Stats.Modifier.ALCHEMIC},
-		{ Stats.Modifier.SHOOT,			Stats.Modifier.STEAL,				null},
-		{ Stats.Modifier.THROW,			null,										Stats.Modifier.ARTIFACTS},
-		{ null,									Stats.Modifier.SCOUTING,			Stats.Modifier.MYTHOLOGY},
-		{ Stats.Modifier.FIRE,				Stats.Modifier.MARTIAL_ARTS,		Stats.Modifier.CRAFT},
-		{ Stats.Modifier.DUAL_WEAPONS,	Stats.Modifier.MELEE_CRITICALS,	Stats.Modifier.POWER_CAST},
-		{ Stats.Modifier.CHIVALRY,		Stats.Modifier.THROWN_CRITICALS, Stats.Modifier.ENGINEERING},
-		{ Stats.Modifier.KENDO,			Stats.Modifier.RANGED_CRITICALS, Stats.Modifier.MUSIC},
-	};
+	private final Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<>();
+	private final Map<Stats.Modifier, DIYLabel> valueLabelMap = new HashMap<>();
+	private final DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
+	private final DIYLabel hitPointsValue = new DIYLabel("", DIYToolkit.Align.CENTER);
+	private final DIYLabel actionPointsValue = new DIYLabel("", DIYToolkit.Align.CENTER);
+	private final DIYLabel magicPointsValue = new DIYLabel("", DIYToolkit.Align.CENTER);
+	private final ActionListener listener;
 
 	/*-------------------------------------------------------------------------*/
 	public ModifiersDisplayWidget(Rectangle bounds)
 	{
 		super(bounds);
 		this.listener = new ModifiersDisplayActionListener();
-		this.buildGUI();
+		this.buildGUI(bounds);
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	private void buildGUI()
+	private void buildGUI(Rectangle bounds)
 	{
-		DIYLabel top = new DIYLabel("Modifiers", DIYToolkit.Align.CENTER);
-		top.setBounds(162, 0, DiyGuiUserInterface.SCREEN_WIDTH-162, 30);
-		top.setForegroundColour(Constants.Colour.GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+5);
-		top.setFont(f);
-		this.add(top);
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
 
-		int inset = 3;
-		int rows = 25;//bounds.height/(textHeight+inset) -2;
-		int columns = 6;
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+//		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int titleHeight = 20;
+		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
+		int headerOffset = titleHeight + DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int contentTop = headerOffset + inset;
+		int contentHeight = height - contentTop - buttonPaneHeight -inset -DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int frameBorderInset = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
 
-		DIYPane pane = new DIYPane(this.x, this.y, this.width, this.height);
+		int column1x = bounds.x + inset;
+		int columnWidth = (width -5*inset) / 3;
 
-		pane.setLayoutManager(new DIYGridLayout(columns, rows, inset, inset));
-		this.add(pane);
+		// screen title
+		DIYLabel title = getSubTitle(StringUtil.getUiLabel("mdw.title"));
+		title.setBounds(
+			200, DiyGuiUserInterface.SCREEN_EDGE_INSET,
+			DiyGuiUserInterface.SCREEN_WIDTH - 400, titleHeight);
 
-		for (Object[] row : layout)
-		{
-			for (Object cell : row)
+
+		// attributes
+		DIYLabel attributeHeader = getLabel(StringUtil.getUiLabel("mdw.attributes"), Constants.Colour.ATTRIBUTES_CYAN);
+
+		DIYPanel attributesPanel = new DIYPanel();
+		attributesPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
+		attributesPanel.setLayoutManager(new DIYGridLayout(6, 3, inset/2, inset/2));
+		attributesPanel.setInsets(new Insets(panelBorderInset+inset, panelBorderInset+inset, frameBorderInset, panelBorderInset+inset));
+		attributesPanel.setBounds(
+			column1x,
+			contentTop,
+			columnWidth*3 + inset*2,
+			frameBorderInset*2 + 80);
+
+		nameLabel.setBounds(
+			attributesPanel.x +frameBorderInset +inset/2,
+			attributesPanel.y +frameBorderInset,
+			attributesPanel.width/2,
+			20);
+
+		attributesPanel.add(getBlank());
+		attributesPanel.add(getBlank());
+		addDescLabel(attributesPanel, null, attributeHeader);
+		attributesPanel.add(getBlank());
+		attributesPanel.add(getBlank());
+		attributesPanel.add(getBlank());
+
+		Stats.Modifier[][] layout = new Stats.Modifier[][]
 			{
-				if (cell == null)
+				{Stats.Modifier.BRAWN, Stats.Modifier.THIEVING, Stats.Modifier.BRAINS},
+				{Stats.Modifier.SKILL, Stats.Modifier.SNEAKING, Stats.Modifier.POWER},
+			};
+
+		for (Stats.Modifier[] row : layout)
+		{
+			for (Stats.Modifier mod : row)
+			{
+				String modName = StringUtil.getModifierName(mod);
+				addDescLabel(attributesPanel, mod, getLabel(modName));
+				addStatLabel(attributesPanel, mod, getModifierLabel());
+			}
+		}
+
+		// modifiers
+		DIYLabel combatHeader = getLabel(StringUtil.getUiLabel("mdw.combat"), Constants.Colour.COMBAT_RED);
+		DIYLabel stealthHeader = getLabel(StringUtil.getUiLabel("mdw.stealth"), Constants.Colour.STEALTH_GREEN);
+		DIYLabel magicHeader = getLabel(StringUtil.getUiLabel("mdw.magic"), Constants.Colour.MAGIC_BLUE);
+
+		DIYPanel modifiersPanel = new DIYPanel();
+		modifiersPanel.setStyle(DIYPanel.Style.PANEL_MED);
+		modifiersPanel.setLayoutManager(new DIYGridLayout(6, 15, inset/2, inset/2));
+		modifiersPanel.setInsets(new Insets(panelBorderInset+inset, panelBorderInset+inset, panelBorderInset+inset, panelBorderInset+inset));
+		modifiersPanel.setBounds(
+			column1x,
+			attributesPanel.y +attributesPanel.height +inset,
+			columnWidth*3 + inset*2,
+			contentHeight -attributesPanel.height -inset);
+
+		addDescLabel(modifiersPanel, null, combatHeader);
+		modifiersPanel.add(getBlank());
+		addDescLabel(modifiersPanel, null, stealthHeader);
+		modifiersPanel.add(getBlank());
+		addDescLabel(modifiersPanel, null, magicHeader);
+		modifiersPanel.add(getBlank());
+
+
+		layout = new Stats.Modifier[][]
+		{
+			{ Stats.Modifier.SWING,			Stats.Modifier.STREETWISE,		Stats.Modifier.CHANT},
+			{ Stats.Modifier.THRUST,			Stats.Modifier.DUNGEONEER,		Stats.Modifier.RHYME},
+			{ Stats.Modifier.BASH,				Stats.Modifier.WILDERNESS_LORE,	Stats.Modifier.GESTURE},
+			{ Stats.Modifier.CUT,				Stats.Modifier.SURVIVAL,			Stats.Modifier.POSTURE},
+			{ Stats.Modifier.LUNGE,			Stats.Modifier.BACKSTAB,			Stats.Modifier.THOUGHT},
+			{ Stats.Modifier.PUNCH,			Stats.Modifier.SNIPE,				Stats.Modifier.HERBAL},
+			{ Stats.Modifier.KICK,				Stats.Modifier.LOCK_AND_TRAP,	Stats.Modifier.ALCHEMIC},
+			{ Stats.Modifier.SHOOT,			Stats.Modifier.STEAL,				null},
+			{ Stats.Modifier.THROW,			null,										Stats.Modifier.ARTIFACTS},
+			{ null,									Stats.Modifier.SCOUTING,			Stats.Modifier.MYTHOLOGY},
+			{ Stats.Modifier.FIRE,				Stats.Modifier.MARTIAL_ARTS,		Stats.Modifier.CRAFT},
+			{ Stats.Modifier.DUAL_WEAPONS,	Stats.Modifier.MELEE_CRITICALS,	Stats.Modifier.POWER_CAST},
+			{ Stats.Modifier.CHIVALRY,		Stats.Modifier.THROWN_CRITICALS, Stats.Modifier.ENGINEERING},
+			{ Stats.Modifier.KENDO,			Stats.Modifier.RANGED_CRITICALS, Stats.Modifier.MUSIC},
+		};
+
+		for (Stats.Modifier[] row : layout)
+		{
+			for (Stats.Modifier mod : row)
+			{
+				if (mod == null)
 				{
-					pane.add(getBlank());
-					pane.add(getBlank());
-				}
-				else if (cell instanceof DIYLabel[])
-				{
-					DIYLabel[] r = (DIYLabel[])cell;
-					pane.add(r[0]);
-					pane.add(r[1]);
-				}
-				else if (cell instanceof DIYLabel)
-				{
-					this.addDescLabel(pane, null, (DIYLabel)cell);
-					pane.add(getBlank());
-				}
-				else if (cell instanceof Stats.Modifier)
-				{
-					Stats.Modifier modifier = (Stats.Modifier)cell;
-					String modName = StringUtil.getModifierName(modifier);
-					this.addDescLabel(pane, modifier, getLabel(modName));
-					this.addStatLabel(pane, modifier, getModifierLabel());
+					modifiersPanel.add(getBlank());
+					modifiersPanel.add(getBlank());
 				}
 				else
 				{
-					throw new MazeException("Invalid cell: " + cell);
+					String modName = StringUtil.getModifierName(mod);
+					addDescLabel(modifiersPanel, mod, getLabel(modName));
+					addStatLabel(modifiersPanel, mod, getModifierLabel());
 				}
 			}
 		}
+
+		this.add(title);
+		this.add(attributesPanel);
+		this.add(modifiersPanel);
+		this.add(nameLabel);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -215,11 +261,13 @@ public class ModifiersDisplayWidget extends ContainerWidget
 		}
 		
 		nameLabel.setForegroundColour(Color.WHITE);
-		nameLabel.setText(this.character.getName()+", "+
-			"level " + this.character.getLevel() + " " +
-			character.getGender().getName() + " " +
-			character.getRace().getName() + " " +
-			character.getCharacterClass().getName());
+		nameLabel.setText(StringUtil.getUiLabel(
+			"idw.character.details",
+			this.character.getName(),
+			String.valueOf(this.character.getLevel()),
+			character.getGender().getName(),
+			character.getRace().getName(),
+			character.getCharacterClass().getName()));
 
 		hitPointsValue.setText(toString(character.getHitPoints()));
 		actionPointsValue.setText(toString(character.getActionPoints()));
@@ -293,4 +341,16 @@ public class ModifiersDisplayWidget extends ContainerWidget
 	{
 		return new DIYLabel();
 	}
+
+	/*-------------------------------------------------------------------------*/
+	private DIYLabel getSubTitle(String titleText)
+	{
+		DIYLabel title = new DIYLabel(titleText);
+		title.setForegroundColour(GOLD);
+		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize() + 3);
+		title.setFont(f);
+		return title;
+	}
+
 }

@@ -83,7 +83,6 @@ public class MFFilledBarWidgetRenderer extends Renderer
 
 			int textInset = 10;
 			int textHeight = fm.getHeight();
-			int textWidth = fm.stringWidth(text);
 
 			if (fbw.getOrientation() == FilledBarWidget.Orientation.HORIZONTAL)
 			{
