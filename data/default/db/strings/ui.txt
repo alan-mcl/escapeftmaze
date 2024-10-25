@@ -43,13 +43,27 @@ cc.show.lap = ...
 cc.locked = ** LOCKED **
 cc.spell.books = Spell Books
 
+# stats display widget
+sdw.title = Statistics
+sdw.kills = Kills: %s
+sdw.experience = Experience: %s / %s
+sdw.resistances = Resistances
+sdw.resources = Resources
+sdw.enter.new.name = Enter New Name
+sdw.portrait = Portrait
+sdw.personality = Personality
+
+# properties display widget
+pdw.title = Properties and Conditions
+pdw.properties = Properties
+pdw.conditions = Conditions
+
 # modifiers display widget
 mdw.title = Modifiers
 mdw.attributes = Attribute Modifiers
 mdw.combat = Combat Modifiers
 mdw.stealth = Stealth Modifiers
 mdw.magic = Magic Modifiers
-
 
 # modifier display widget
 mdw.influence.base = Base

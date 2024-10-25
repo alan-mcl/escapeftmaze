@@ -30,6 +30,7 @@ import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Personality;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -43,55 +44,63 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
 	private static final int MAX_DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/5*4;
 
-	private DIYListBox personalities;
-	private DIYButton okButton, cancel;
-	private PlayerCharacter pc;
+	private final DIYListBox personalities;
+	private final DIYButton okButton, close;
+	private final PlayerCharacter pc;
 
 	/*-------------------------------------------------------------------------*/
 	public PersonalitySelectionDialog(
 		String startingPersonality,
 		PlayerCharacter pc)
 	{
-		this.pc = pc;
-		List<String> list = new ArrayList<String>(Database.getInstance().getPersonalities().keySet());
+		int buttonPaneHeight = getButtonPaneHeight();
+
+		List<String> list = new ArrayList<>(Database.getInstance().getPersonalities().keySet());
 		Collections.sort(list);
 
-		int buttonPaneHeight = 20;
-		
+		int border = getBorder();
+		int inset = getInset();
+		int titlePaneHeight = getTitlePaneHeight();
+
 		int dialogHeight = Math.min(
-			list.size()*20 + getBorder() *2 + buttonPaneHeight + getTitlePaneHeight() + getInset() *2,
+			list.size()*20 + border *2 + buttonPaneHeight + titlePaneHeight + inset *2,
 			MAX_DIALOG_HEIGHT);
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
-
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, dialogHeight);
-		Rectangle isBounds = new Rectangle(startX+ getBorder(), startY + getBorder() + getTitlePaneHeight() + getInset(),
-			DIALOG_WIDTH - getBorder() *2, dialogHeight -buttonPaneHeight - getTitlePaneHeight() - getBorder() *2 - getInset() *2);
-
 		this.setBounds(dialogBounds);
+
+		this.pc = pc;
+
+		Rectangle isBounds = new Rectangle(
+			startX +border +inset*2,
+			startY +border +inset*2 +titlePaneHeight,
+			width -border*2 -inset*4,
+			height -buttonPaneHeight -titlePaneHeight -border*2 -inset*4);
 
 		personalities = new DIYListBox(list);
 		personalities.setSelected(startingPersonality);
 		personalities.addActionListener(this);
 		personalities.setBounds(isBounds);
 
-		DIYPane titlePane = getTitlePane("Personality");
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("sdw.personality"));
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(startX+ getBorder(), startY+height-buttonPaneHeight- getBorder(),
-			width- getBorder() *2, buttonPaneHeight);
+		buttonPane.setBounds(startX+ border, startY+height-buttonPaneHeight- border,
+			width- border *2, buttonPaneHeight);
 		okButton = new DIYButton("OK");
 		okButton.addActionListener(this);
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 		
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
 
 		this.add(titlePane);
 		this.add(personalities);
 		this.add(buttonPane);
+		this.add(close);
+
 		this.doLayout();
 	}
 
@@ -100,14 +109,9 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-				setPersonality();
-				break;
-			default:
-				personalities.processKeyPressed(e);
+			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> setPersonality();
+			default -> personalities.processKeyPressed(e);
 		}
 	}
 
@@ -119,7 +123,7 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 			setPersonality();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;
@@ -131,7 +135,7 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 				pc,
 				Database.getInstance().getPersonalities().get((String)personalities.getSelected()),
 				DiyGuiUserInterface.instance.partyDisplay.getSelectedCharacterBounds(),
-				SpeechBubble.Orientation.BELOW);
+				SpeechBubble.Orientation.RIGHT);
 
 			return true;
 		}

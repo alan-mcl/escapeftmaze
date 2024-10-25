@@ -26,8 +26,7 @@ import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextField;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -36,11 +35,11 @@ import mclachlan.maze.game.Maze;
 public class NameEditDialog extends GeneralDialog implements ActionListener
 {
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/6;
+	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3;
 
-	private DIYTextField text;
-	private DIYButton okButton, cancel;
-	private NameCallback callback;
+	private final DIYTextField text;
+	private final DIYButton okButton, close;
+	private final NameCallback callback;
 
 	/*-------------------------------------------------------------------------*/
 	public NameEditDialog(
@@ -52,31 +51,37 @@ public class NameEditDialog extends GeneralDialog implements ActionListener
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		Rectangle textBounds = new Rectangle(startX + 20, startY+DIALOG_HEIGHT/2-8,
-			DIALOG_WIDTH-40, 16);
-
 		this.setBounds(dialogBounds);
+
+		int border = getBorder();
+		int inset = getInset();
+
+		int textFieldHeight = 40;
+		Rectangle textBounds = new Rectangle(
+			startX +border +inset,
+			startY +height/2 -textFieldHeight/2,
+			width -border*2 -inset*2,
+			textFieldHeight);
 
 		text = new DIYTextField("", 20);
 		text.setBounds(textBounds);
 
 		DIYPane titlePane = getTitlePane(title);
+		DIYPane buttonPane = getButtonPane();
 
-		int buttonPaneHeight = 20;
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		int inset = 10;
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		okButton.addActionListener(this);
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
+
+		close = getCloseButton();
+		close.addActionListener(this);
 		
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
 
 		this.add(titlePane);
 		this.add(text);
 		this.add(buttonPane);
+		this.add(close);
+
 		this.doLayout();
 	}
 
@@ -85,14 +90,9 @@ public class NameEditDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-				setName();
-				break;
-			default:
-				text.processKeyPressed(e);
+			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> setName();
+			default -> text.processKeyPressed(e);
 		}
 	}
 
@@ -104,7 +104,7 @@ public class NameEditDialog extends GeneralDialog implements ActionListener
 			setName();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;

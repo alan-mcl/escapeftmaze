@@ -81,7 +81,9 @@ public class ItemDetailsWidget extends GeneralDialog
 		DIYLabel itemSlot = new DIYLabel(DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot"));
 		DIYLabel itemIcon = new DIYLabel(Database.getInstance().getImage(item.getImage()));
 		addRelative(itemSlot, getBorder(), getBorder(), 35, 35);
-		addRelative(itemIcon, getBorder(), getBorder(), 35, 35);
+		itemIcon.setBounds(itemSlot.getBounds());
+		itemIcon.setIconAlign(DIYToolkit.Align.CENTER);
+		this.add(itemIcon);
 
 		// Item weight
 		DIYLabel weightLabel = new DIYLabel(

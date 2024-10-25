@@ -169,7 +169,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 			200, DiyGuiUserInterface.SCREEN_EDGE_INSET,
 			DiyGuiUserInterface.SCREEN_WIDTH - 400, titleHeight);
 
-		// personal info
+		// personal info & carrying capacity
 		DIYPanel personalPanel = new DIYPanel();
 		personalPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
 		personalPanel.setLayoutManager(null);
@@ -185,13 +185,6 @@ public class InventoryDisplayWidget extends ContainerWidget
 			personalPanel.width/2,
 			20);
 
-//		DIYLabel carryingLabel = getLabel(StringUtil.getUiLabel("idw.carrying"), Color.LIGHT_GRAY);
-//		carryingLabel.setBounds(
-//			personalPanel.x +panelBorderInset,
-//			nameLabel.y + nameLabel.height +inset/2,
-//			nameLabel.width/4,
-//			nameLabel.height);
-
 		carrying.setBounds(
 			personalPanel.x +frameBorderInset +inset*2,
 			personalPanel.y + personalPanel.height/2 -inset,
@@ -199,11 +192,9 @@ public class InventoryDisplayWidget extends ContainerWidget
 			personalPanel.height/3);
 
 		personalPanel.add(nameLabel);
-//		personalPanel.add(carryingLabel);
 		personalPanel.add(carrying);
 
 		// party info
-
 		DIYPanel partyPanel = new DIYPanel();
 		partyPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
 		partyPanel.setBounds(
@@ -429,7 +420,7 @@ public class InventoryDisplayWidget extends ContainerWidget
 		else if (cur <= max * .75)
 		{
 			carrying.setBarColour(Color.YELLOW);
-			carrying.setForegroundColour(Color.WHITE);
+			carrying.setForegroundColour(Color.DARK_GRAY);
 		}
 		else
 		{

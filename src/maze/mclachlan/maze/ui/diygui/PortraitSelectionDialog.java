@@ -25,8 +25,7 @@ import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -34,11 +33,11 @@ import mclachlan.maze.game.Maze;
  */
 public class PortraitSelectionDialog extends GeneralDialog implements ActionListener
 {
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
+	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
+	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/2;
 
 	private final PortraitSelectionWidget portraitWidget;
-	private final DIYButton okButton, cancel;
+	private final DIYButton okButton, close;
 	private final PortraitCallback callback;
 	
 	/*-------------------------------------------------------------------------*/
@@ -46,39 +45,45 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 		PortraitCallback callback, 
 		String startingPortrait)
 	{
-		this.callback = callback;
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
-
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 20;
-		int inset = 10;
-		Rectangle isBounds = new Rectangle(startX+ inset, startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
-
 		this.setBounds(dialogBounds);
-		
+
+		this.callback = callback;
+
+		int border = getBorder();
+		int inset = getInset();
+		int titlePaneHeight = getTitlePaneHeight();
+		int buttonPaneHeight = getButtonPaneHeight();
+
+		Rectangle isBounds = new Rectangle(
+			startX +border +inset,
+			startY +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*2 -buttonPaneHeight -titlePaneHeight);
+
 		portraitWidget = new PortraitSelectionWidget(isBounds);
 		if (startingPortrait != null)
 		{
 			portraitWidget.setToPortrait(startingPortrait);
 		}
 
-		DIYPane titlePane = getTitlePane("Portrait");
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("sdw.portrait"));
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		DIYPane buttonPane = getButtonPane();
+		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		okButton.addActionListener(this);
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 		
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
 
 		this.add(titlePane);
 		this.add(portraitWidget);
 		this.add(buttonPane);
+		this.add(close);
+
 		this.doLayout();
 	}
 
@@ -102,7 +107,7 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 			setPortrait();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;

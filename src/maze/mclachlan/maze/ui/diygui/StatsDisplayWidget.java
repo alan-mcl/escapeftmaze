@@ -28,6 +28,7 @@ import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
@@ -46,29 +47,29 @@ public class StatsDisplayWidget extends ContainerWidget
 {
 	private PlayerCharacter character;
 
-	Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
-	Map<Stats.Modifier, DIYLabel> nameLabelMap = new HashMap<Stats.Modifier, DIYLabel>();
-	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
-	private DIYButton portraitButton = new DIYButton("Change Portrait");
-	private DIYButton nameButton = new DIYButton("Change Name");
-	private DIYButton personalityButton = new DIYButton("Change Personality");
-	private DIYLabel kills = new DIYLabel("", DIYToolkit.Align.LEFT);
-	private ActionListener modifiersDisplayActionListener;
+	private final Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<>();
+	private final Map<Stats.Modifier, DIYLabel> nameLabelMap = new HashMap<>();
+	private DIYLabel nameLabel;
+	private final DIYButton portraitButton;
+	private final DIYButton nameButton;
+	private final DIYButton personalityButton;
+	private DIYLabel kills;
+	private final ActionListener modifiersDisplayActionListener;
 
-	private FilledBarWidget hitPoints = new FilledBarWidget(0,0);
-	private FilledBarWidget actionPoints = new FilledBarWidget(0,0);
-	private FilledBarWidget magicPoints = new FilledBarWidget(0,0);
-	private FilledBarWidget experience = new FilledBarWidget(0,0);
-	private ManaDisplayWidget mana = new ManaDisplayWidget();
-	private FilledBarWidget resistBludgeoning = new FilledBarWidget(0,0);
-	private FilledBarWidget resistPiercing = new FilledBarWidget(0,0);
-	private FilledBarWidget resistSlashing = new FilledBarWidget(0,0);
-	private FilledBarWidget resistFire = new FilledBarWidget(0,0);
-	private FilledBarWidget resistWater = new FilledBarWidget(0,0);
-	private FilledBarWidget resistAir = new FilledBarWidget(0,0);
-	private FilledBarWidget resistEarth = new FilledBarWidget(0,0);
-	private FilledBarWidget resistMental = new FilledBarWidget(0,0);
-	private FilledBarWidget resistEnergy = new FilledBarWidget(0,0);
+	private FilledBarWidget hitPoints;
+	private FilledBarWidget actionPoints;
+	private FilledBarWidget magicPoints;
+	private FilledBarWidget experience;
+	//	private ManaDisplayWidget mana = new ManaDisplayWidget();
+	private FilledBarWidget resistBludgeoning;
+	private FilledBarWidget resistPiercing;
+	private FilledBarWidget resistSlashing;
+	private FilledBarWidget resistFire;
+	private FilledBarWidget resistWater;
+	private FilledBarWidget resistAir;
+	private FilledBarWidget resistEarth;
+	private FilledBarWidget resistMental;
+	private FilledBarWidget resistEnergy;
 
 	/*-------------------------------------------------------------------------*/
 	public StatsDisplayWidget(Rectangle bounds)
@@ -76,84 +77,82 @@ public class StatsDisplayWidget extends ContainerWidget
 		super(bounds);
 
 		this.modifiersDisplayActionListener = new ModifiersDisplayActionListener();
-		this.nameLabel.addActionListener(this);
-		this.portraitButton.addActionListener(this);
-		this.nameButton.addActionListener(this);
-		this.personalityButton.addActionListener(this);
 
-		this.buildGUI();
+		portraitButton = new DIYButton("Change Portrait");
+		portraitButton.addActionListener(this);
+		nameButton = new DIYButton("Change Name");
+		nameButton.addActionListener(this);
+		personalityButton = new DIYButton("Change Personality");
+		personalityButton.addActionListener(this);
+
+		this.buildGUI(bounds);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
-	private void buildGUI()
+	private void buildGUI(Rectangle bounds)
 	{
-		DIYLabel topLabel = new DIYLabel("Statistics", DIYToolkit.Align.CENTER);
-		topLabel.setBounds(162, 0, DiyGuiUserInterface.SCREEN_WIDTH - 162, 30);
-		topLabel.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+5);
-		topLabel.setFont(f);
-		this.add(topLabel);
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
 
-		int inset = 2;
-		int rows = 25;
-		int rowHeight = height / rows;
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+//		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int titleHeight = 20;
+		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
+		int headerOffset = titleHeight + DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int contentTop = headerOffset + inset;
+		int contentHeight = height - contentTop - buttonPaneHeight - inset - DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int frameBorderInset = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
 
-		nameLabel.setForegroundColour(WHITE);
-		nameLabel.setBounds(x, y+rowHeight-inset, width, rowHeight);
-		this.add(nameLabel);
+		int column1x = bounds.x + inset;
+		int columnWidth = (width - 5 * inset) / 3;
 
-		DIYPane topPane = new DIYPane(new DIYGridLayout(2,1,inset,inset));
-		topPane.setBounds(x, y+rowHeight*2, width-10, rowHeight*3);
-		topPane.setInsets(getInsets(inset));
-		
-		DIYPane topLeft = new DIYPane(new DIYGridLayout(2,3,inset,inset));
-		DIYPane topRight = new DIYPane(new DIYGridLayout(2,3,inset,inset));
-		topLeft.setInsets(getInsets(inset));
-		topRight.setInsets(getInsets(inset));
-		topPane.add(topLeft);
-		topPane.add(topRight);
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
+
+		// screen title
+		DIYLabel title = getSubTitle(StringUtil.getUiLabel("sdw.title"));
+		title.setBounds(
+			200, DiyGuiUserInterface.SCREEN_EDGE_INSET,
+			DiyGuiUserInterface.SCREEN_WIDTH - 400, titleHeight);
+
+		nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
+		nameLabel.addActionListener(this);
+
+		experience = new FilledBarWidget(0, 0);
+
+		experience.setBarColour(GOLD);
+		experience.setForegroundColour(GRAY);
+		experience.setTextType(FilledBarWidget.InnerTextType.CUSTOM);
+
+		kills = new DIYLabel("", DIYToolkit.Align.LEFT);
+
+		hitPoints = new FilledBarWidget(0, 0);
+		actionPoints = new FilledBarWidget(0, 0);
+		magicPoints = new FilledBarWidget(0, 0);
 
 		hitPoints.setBarColour(COMBAT_RED);
 		actionPoints.setBarColour(STEALTH_GREEN);
 		magicPoints.setBarColour(MAGIC_BLUE);
-		experience.setBarColour(LIGHT_BLUE);
 
-		hitPoints.setForegroundColour(LIGHT_GREY);
-		actionPoints.setForegroundColour(LIGHT_GREY);
-		magicPoints.setForegroundColour(LIGHT_GREY);
-		experience.setForegroundColour(LIGHT_GREY);
+		hitPoints.setForegroundColour(WHITE);
+		actionPoints.setForegroundColour(WHITE);
+		magicPoints.setForegroundColour(WHITE);
 
 		hitPoints.setTextType(FilledBarWidget.InnerTextType.CURRENT_AND_MAX);
 		actionPoints.setTextType(FilledBarWidget.InnerTextType.CURRENT_AND_MAX);
 		magicPoints.setTextType(FilledBarWidget.InnerTextType.CURRENT_AND_MAX);
-		experience.setTextType(FilledBarWidget.InnerTextType.CUSTOM);
 
-		topLeft.add(getLabel("HIT POINTS:", COMBAT_RED));
-		topLeft.add(hitPoints);
-		topLeft.add(getLabel("ACTION POINTS:", STEALTH_GREEN));
-		topLeft.add(actionPoints);
-		topLeft.add(getLabel("MAGIC POINTS:", MAGIC_BLUE));
-		topLeft.add(magicPoints);
+		resistBludgeoning = new FilledBarWidget(0, 0);
+		resistPiercing = new FilledBarWidget(0, 0);
+		resistSlashing = new FilledBarWidget(0, 0);
+		resistFire = new FilledBarWidget(0, 0);
+		resistWater = new FilledBarWidget(0, 0);
+		resistAir = new FilledBarWidget(0, 0);
+		resistEarth = new FilledBarWidget(0, 0);
+		resistMental = new FilledBarWidget(0, 0);
+		resistEnergy = new FilledBarWidget(0, 0);
 
-		topRight.add(getLabel("Experience:"));
-		topRight.add(experience);
-		topRight.add(getLabel("Kills:"));
-		topRight.add(kills);
-
-		DIYPane bottomPane = new DIYPane(new DIYGridLayout(2,1,inset,inset));
-		bottomPane.setBounds(x, y+rowHeight*5, width-10, height-rowHeight*5);
-		bottomPane.setInsets(getInsets(inset));
-
-		DIYPane bottomLeft = new DIYPane(new DIYGridLayout(1, 20, inset, inset));
-		DIYPane bottomRight = new DIYPane(new DIYGridLayout(1, 20, inset, inset));
-		bottomLeft.setInsets(getInsets(inset));
-		bottomRight.setInsets(getInsets(inset));
-
-		bottomPane.add(bottomLeft);
-		bottomPane.add(bottomRight);
-
-		Color col = LIGHT_BLUE;
+		Color col = GOLD;
 		resistBludgeoning.setBarColour(col);
 		resistPiercing.setBarColour(col);
 		resistSlashing.setBarColour(col);
@@ -174,46 +173,122 @@ public class StatsDisplayWidget extends ContainerWidget
 		resistMental.setTextType(FilledBarWidget.InnerTextType.PERCENT);
 		resistEnergy.setTextType(FilledBarWidget.InnerTextType.PERCENT);
 
-		resistBludgeoning.setForegroundColour(LIGHT_GREY);
-		resistPiercing.setForegroundColour(LIGHT_GREY);
-		resistSlashing.setForegroundColour(LIGHT_GREY);
-		resistFire.setForegroundColour(LIGHT_GREY);
-		resistWater.setForegroundColour(LIGHT_GREY);
-		resistAir.setForegroundColour(LIGHT_GREY);
-		resistEarth.setForegroundColour(LIGHT_GREY);
-		resistMental.setForegroundColour(LIGHT_GREY);
-		resistEnergy.setForegroundColour(LIGHT_GREY);
+		resistBludgeoning.setForegroundColour(GRAY);
+		resistPiercing.setForegroundColour(GRAY);
+		resistSlashing.setForegroundColour(GRAY);
+		resistFire.setForegroundColour(GRAY);
+		resistWater.setForegroundColour(GRAY);
+		resistAir.setForegroundColour(GRAY);
+		resistEarth.setForegroundColour(GRAY);
+		resistMental.setForegroundColour(GRAY);
+		resistEnergy.setForegroundColour(GRAY);
 
-		DIYLabel w = new DIYLabel("Mana Available", DIYToolkit.Align.CENTER);
-		w.setForegroundColour(CYAN);
-		bottomLeft.add(w);
-		bottomLeft.add(mana);
-		DIYLabel w1 = new DIYLabel("Resistances", DIYToolkit.Align.CENTER);
-		w1.setForegroundColour(CYAN);
-		bottomLeft.add(w1);
-		addResistance(bottomLeft, RESIST_BLUDGEONING, resistBludgeoning);
-		addResistance(bottomLeft, RESIST_PIERCING, resistPiercing);
-		addResistance(bottomLeft, RESIST_SLASHING, resistSlashing);
-		addResistance(bottomLeft, RESIST_FIRE, resistFire);
-		addResistance(bottomLeft, RESIST_WATER, resistWater);
-		addResistance(bottomLeft, RESIST_AIR, resistAir);
-		addResistance(bottomLeft, RESIST_EARTH, resistEarth);
-		addResistance(bottomLeft, RESIST_MENTAL, resistMental);
-		addResistance(bottomLeft, RESIST_ENERGY, resistEnergy);
-		bottomLeft.add(new DIYLabel());
 
-		DIYPane buttons1 = new DIYPane(new DIYGridLayout(2,1,inset,inset));
-		buttons1.add(nameButton);
-		buttons1.add(new DIYLabel());
-		bottomLeft.add(buttons1);
-		DIYPane buttons2 = new DIYPane(new DIYGridLayout(2,1,inset,inset));
-		buttons2.add(portraitButton);
-		buttons2.add(new DIYLabel());
-		bottomLeft.add(buttons2);
-		DIYPane buttons3 = new DIYPane(new DIYGridLayout(2,1,inset,inset));
-		buttons3.add(personalityButton);
-		buttons3.add(new DIYLabel());
-		bottomLeft.add(buttons3);
+		// personal info & experience
+		DIYPanel personalPanel = new DIYPanel();
+		personalPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
+		personalPanel.setLayoutManager(null);
+		personalPanel.setBounds(
+			column1x,
+			contentTop,
+			columnWidth * 2 + inset,
+			panelBorderInset * 2 + 30);
+
+		nameLabel.setBounds(
+			personalPanel.x + frameBorderInset + inset / 2,
+			personalPanel.y + frameBorderInset,
+			personalPanel.width / 2,
+			20);
+
+		experience.setBounds(
+			personalPanel.x + frameBorderInset + inset * 2,
+			personalPanel.y + personalPanel.height / 2 - inset,
+			personalPanel.width - frameBorderInset * 2 - inset * 4,
+			personalPanel.height / 3);
+
+		personalPanel.add(nameLabel);
+		personalPanel.add(experience);
+
+		// kills & deaths (todo)
+		DIYPanel kdPanel = new DIYPanel();
+		kdPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
+		kdPanel.setBounds(
+			column3x,
+			contentTop,
+			columnWidth,
+			personalPanel.height);
+
+		kdPanel.setLayoutManager(new DIYGridLayout(1, 2, 0, 0));
+		kdPanel.setInsets(new Insets(frameBorderInset, frameBorderInset + inset / 2, frameBorderInset, frameBorderInset));
+
+		kills.setForegroundColour(WHITE);
+
+		kdPanel.add(kills);
+		kdPanel.add(new DIYLabel("Deaths: TODO"));
+
+		// resources and resistances
+		int rows = 15;
+		DIYPanel resourcesPanel = new DIYPanel();
+		resourcesPanel.setStyle(DIYPanel.Style.PANEL_MED);
+		resourcesPanel.setLayoutManager(new DIYGridLayout(1, rows, inset, inset));
+		resourcesPanel.setInsets(new Insets(panelBorderInset, panelBorderInset +inset/2, panelBorderInset, panelBorderInset +inset/2));
+		resourcesPanel.setBounds(
+			column1x,
+			personalPanel.y + personalPanel.height + inset,
+			columnWidth*2 +inset,
+			contentHeight - personalPanel.height - inset*4 -buttonPaneHeight);
+
+		DIYLabel resourcesTitle = new DIYLabel(StringUtil.getUiLabel("sdw.resources"), DIYToolkit.Align.CENTER);
+		resourcesTitle.setForegroundColour(CYAN);
+		resourcesPanel.add(resourcesTitle);
+
+		addResistance(resourcesPanel, HIT_POINTS, hitPoints);
+		addResistance(resourcesPanel, ACTION_POINTS, actionPoints);
+		addResistance(resourcesPanel, MAGIC_POINTS, magicPoints);
+
+		resourcesPanel.add(new DIYLabel());
+
+		DIYLabel resistancesTitle = new DIYLabel(StringUtil.getUiLabel("sdw.resistances"), DIYToolkit.Align.CENTER);
+		resistancesTitle.setForegroundColour(CYAN);
+		resourcesPanel.add(resistancesTitle);
+
+		addResistance(resourcesPanel, RESIST_BLUDGEONING, resistBludgeoning);
+		addResistance(resourcesPanel, RESIST_PIERCING, resistPiercing);
+		addResistance(resourcesPanel, RESIST_SLASHING, resistSlashing);
+		addResistance(resourcesPanel, RESIST_FIRE, resistFire);
+		addResistance(resourcesPanel, RESIST_WATER, resistWater);
+		addResistance(resourcesPanel, RESIST_AIR, resistAir);
+		addResistance(resourcesPanel, RESIST_EARTH, resistEarth);
+		addResistance(resourcesPanel, RESIST_MENTAL, resistMental);
+		addResistance(resourcesPanel, RESIST_ENERGY, resistEnergy);
+
+		DIYPanel modPanel = new DIYPanel();
+		modPanel.setStyle(DIYPanel.Style.PANEL_MED);
+		modPanel.setLayoutManager(new DIYGridLayout(1, rows, inset, inset));
+		modPanel.setInsets(new Insets(panelBorderInset, panelBorderInset +inset/2, panelBorderInset, panelBorderInset +inset/2));
+		modPanel.setBounds(
+			column3x,
+			resourcesPanel.y,
+			columnWidth,
+			resourcesPanel.height);
+
+		DIYPane buttonPane = new DIYPane(new DIYGridLayout(3, 1, inset*2, inset));
+		buttonPane.setInsets(new Insets(0, inset, 0, inset));
+		buttonPane.setBounds(
+			column1x,
+			resourcesPanel.y +resourcesPanel.height +inset,
+			columnWidth*2 +inset,
+			buttonPaneHeight);
+
+//		DIYLabel w = new DIYLabel("Mana Available", DIYToolkit.Align.CENTER);
+//		w.setForegroundColour(CYAN);
+//		bottomLeft.add(w);
+//		bottomLeft.add(mana);
+//		bottomLeft.add(new DIYLabel());
+
+		buttonPane.add(nameButton);
+		buttonPane.add(portraitButton);
+		buttonPane.add(personalityButton);
 
 		Stats.Modifier[] modifiers =
 			{
@@ -236,19 +311,24 @@ public class StatsDisplayWidget extends ContainerWidget
 
 		for (Stats.Modifier s : modifiers)
 		{
-			this.addModifierToScreen(bottomRight, s);
+			this.addModifierToScreen(modPanel, s);
 		}
 
-		this.add(topPane);
-		this.add(bottomPane);
+		this.add(title);
+		this.add(personalPanel);
+		this.add(kdPanel);
+		this.add(resourcesPanel);
+		this.add(modPanel);
+		this.add(buttonPane);
 
 		this.doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void addResistance(DIYPane parent, Stats.Modifier modifier, FilledBarWidget bar)
+	private void addResistance(ContainerWidget parent, Stats.Modifier modifier,
+		FilledBarWidget bar)
 	{
-		DIYPane temp = new DIYPane(new DIYGridLayout(2,1,0,0));
+		DIYPane temp = new DIYPane(new DIYGridLayout(2, 1, 0, 0));
 		DIYLabel label = getLabel(StringUtil.getModifierName(modifier));
 
 		label.setActionMessage(modifier.toString());
@@ -267,26 +347,23 @@ public class StatsDisplayWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private Insets getInsets(int inset)
-	{
-		return new Insets(inset, inset, inset, inset);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void addModifierToScreen(ContainerWidget pane, Stats.Modifier modifier)
+	public void addModifierToScreen(ContainerWidget pane,
+		Stats.Modifier modifier)
 	{
 		String modName = StringUtil.getModifierName(modifier);
-		DIYPane temp = new DIYPane(new DIYGridLayout(2,1,0,0));
+		DIYPane temp = new DIYPane(new DIYGridLayout(2, 1, 0, 0));
 		this.addDescLabel(temp, modifier, getLabel(modName));
 		this.addStatLabel(temp, modifier, getModifierLabel());
 		pane.add(temp);
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Adds a static text desc label.
-	 */ 
-	private void addDescLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
+	 */
+	private void addDescLabel(ContainerWidget parent, Stats.Modifier name,
+		DIYLabel label)
 	{
 		parent.add(label);
 		label.setActionMessage(name.toString());
@@ -294,12 +371,14 @@ public class StatsDisplayWidget extends ContainerWidget
 		label.setActionPayload(this.character);
 		this.nameLabelMap.put(name, label);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Adds a volatile stats label.
-	 */ 
-	private void addStatLabel(ContainerWidget parent, Stats.Modifier name, DIYLabel label)
+	 */
+	private void addStatLabel(ContainerWidget parent, Stats.Modifier name,
+		DIYLabel label)
 	{
 		parent.add(label);
 		label.setActionMessage(name.toString());
@@ -307,7 +386,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		label.setActionPayload(this.character);
 		this.labelMap.put(name, label);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void setCharacter(PlayerCharacter character)
 	{
@@ -356,7 +435,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		resistEnergy.setActionPayload(character);
 
 		nameLabel.setForegroundColour(WHITE);
-		nameLabel.setText(this.character.getName()+", "+
+		nameLabel.setText(this.character.getName() + ", " +
 			"level " + this.character.getLevel() + " " +
 			character.getGender().getName() + " " +
 			character.getRace().getName() + " " +
@@ -369,16 +448,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		int lvlXp = character.getNextLevel() - character.getLastLevel();
 		int lvlProgress = character.getExperience() - character.getLastLevel();
 		experience.setPercent(lvlProgress * 100 / lvlXp);
-		experience.setCustomText(character.getExperience()+" / "+character.getNextLevel());
-
-		mana.refresh(
-			character.getAmountRedMagic(),
-			character.getAmountBlackMagic(),
-			character.getAmountPurpleMagic(),
-			character.getAmountGoldMagic(),
-			character.getAmountWhiteMagic(),
-			character.getAmountGreenMagic(),
-			character.getAmountBlueMagic());
+		experience.setCustomText(StringUtil.getUiLabel("sdw.experience", character.getExperience(), character.getNextLevel()));
 
 		resistBludgeoning.set(character.getModifier(RESIST_BLUDGEONING), 100);
 		resistPiercing.set(character.getModifier(RESIST_PIERCING), 100);
@@ -390,7 +460,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		resistMental.set(character.getModifier(RESIST_MENTAL), 100);
 		resistEnergy.set(character.getModifier(RESIST_ENERGY), 100);
 
-		kills.setText(String.valueOf(character.getKills()));
+		kills.setText(StringUtil.getUiLabel("sdw.kills", character.getKills()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -398,7 +468,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	{
 		int modifier = character.getModifier(mod);
 		int intrinsicModifier = character.getIntrinsicModifier(mod);
-		
+
 		Color colour = null;
 		if (modifier < intrinsicModifier)
 		{
@@ -412,15 +482,15 @@ public class StatsDisplayWidget extends ContainerWidget
 		{
 			colour = STEALTH_GREEN;
 		}
-		
+
 		label.setForegroundColour(colour);
 
-		return 
-			((modifier>=0) ? "+"+modifier : ""+modifier);
+		return
+			((modifier >= 0) ? "+" + modifier : "" + modifier);
 //				+ "/" +
 //			((baseModifier>=0) ? "+"+baseModifier : ""+baseModifier);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private DIYLabel getModifierLabel()
 	{
@@ -430,27 +500,13 @@ public class StatsDisplayWidget extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	private DIYLabel getLabel(String text)
 	{
-		return new DIYLabel(text,DIYToolkit.Align.LEFT);
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	private DIYLabel getLabel(String text, Color colour)
-	{
-		DIYLabel result = new DIYLabel(text, DIYToolkit.Align.LEFT);
-		result.setForegroundColour(colour);
-		return result;
+		return new DIYLabel(text, DIYToolkit.Align.LEFT);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public String getWidgetName()
 	{
 		return DIYToolkit.PANE;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static DIYLabel getBlank()
-	{
-		return new DIYLabel();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -475,7 +531,7 @@ public class StatsDisplayWidget extends ContainerWidget
 			Maze.getInstance().getUi().showDialog(
 				new NameEditDialog(
 					this,
-					"Enter New Name"));
+					StringUtil.getUiLabel("sdw.enter.new.name")));
 			return true;
 		}
 		else if (event.getSource() == personalityButton)
@@ -510,4 +566,16 @@ public class StatsDisplayWidget extends ContainerWidget
 		DiyGuiUserInterface.instance.refreshCharacterData();
 		refreshData();
 	}
+
+	/*-------------------------------------------------------------------------*/
+	private DIYLabel getSubTitle(String titleText)
+	{
+		DIYLabel title = new DIYLabel(titleText);
+		title.setForegroundColour(GOLD);
+		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize() + 3);
+		title.setFont(f);
+		return title;
+	}
+
 }

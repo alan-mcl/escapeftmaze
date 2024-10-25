@@ -271,7 +271,7 @@ public class DIYListBox extends ContainerWidget
 				moveSelectionDown();
 				this.notifyListeners(e);
 			}
-			default -> super.processKeyPressed(e);
+//			default -> super.processKeyPressed(e);
 		}
 	}
 

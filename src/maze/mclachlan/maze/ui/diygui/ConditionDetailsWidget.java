@@ -19,16 +19,12 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
@@ -42,7 +38,7 @@ import static mclachlan.maze.data.StringUtil.getUiLabel;
 /**
  * To be used as the popup dialog to display condition details.
  */
-public class ConditionDetailsWidget extends DIYPanel
+public class ConditionDetailsWidget extends GeneralDialog
 {
 	private int wrapWidth;
 
@@ -56,45 +52,35 @@ public class ConditionDetailsWidget extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	private void buildGui(Rectangle bounds, Condition condition)
 	{
-		int okButtonHeight = 17;
-		int okButtonWidth = bounds.width / 4;
-		int inset = 2;
-		int border = 15;
-		int titleWidth = 30;
+		setStyle(Style.DIALOG);
 
-		int rowHeight = 12;
-		int xx = bounds.x + inset + border;
-		int yy = bounds.y + inset + border + titleWidth;
-		int width1 = bounds.width - inset * 2 - border * 2;
-		int height1 = bounds.height - okButtonHeight - inset * 3 - border * 2;
+		int rowHeight = 15;
+		int xx = bounds.x + getInset() + getBorder();
+		int yy = bounds.y + getInset() + getBorder() + getTitlePaneHeight();
+		int width1 = bounds.width - getInset() * 2 - getBorder() * 2;
 
 		wrapWidth = width1;
 
-		DIYButton ok = new DIYButton(getUiLabel("common.ok"));
-		ok.setBounds(new Rectangle(
-			bounds.x + bounds.width / 2 - okButtonWidth / 2,
-			bounds.y + bounds.height - okButtonHeight - inset - border,
-			okButtonWidth, okButtonHeight));
+		DIYButton close = getCloseButton();
 
-		ok.addActionListener(event -> {
+		close.addActionListener(event -> {
 			DIYToolkit.getInstance().clearDialog();
 			return true;
 		});
 
 		// Condition name
-		String displayName = condition.getDisplayName();
-		DIYLabel nameLabel = new DIYLabel(displayName);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 2);
-		nameLabel.setFont(f);
-		addRelative(nameLabel, 46, 8, 540, 36);
+		DIYPane title = getTitlePane(condition.getDisplayName());
 
 		// Condition image
-		DIYLabel itemIcon = new DIYLabel(Database.getInstance().getImage(condition.getDisplayIcon()));
-		addRelative(itemIcon, 11, 11, 35, 35);
+		DIYLabel itemSlot = new DIYLabel(DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot"));
+		DIYLabel icon = new DIYLabel(Database.getInstance().getImage(condition.getDisplayIcon()));
+		addRelative(itemSlot, getBorder(), getBorder(), 35, 35);
+		icon.setBounds(itemSlot.getBounds());
+		icon.setIconAlign(DIYToolkit.Align.CENTER);
+		this.add(icon);
 
 		// rows of condition details
-		List<Widget> rows = new ArrayList<Widget>();
+		List<Widget> rows = new ArrayList<>();
 		newRow(rows);
 
 		addRow(rows, getLabel(
@@ -131,7 +117,6 @@ public class ConditionDetailsWidget extends DIYPanel
 		}
 		pane.doLayout();
 
-		this.add(pane);
 
 		if (condition.isIdentified())
 		{
@@ -139,18 +124,16 @@ public class ConditionDetailsWidget extends DIYPanel
 
 //			if (text != null)
 //			{
-//				DIYTextArea desc = new DIYTextArea(item.getDescription());
+//				DIYTextArea desc = new DIYTextArea(condition.getDescription());
 //				desc.setBounds(xx, yy+(rows.size()*rowHeight), width1, height1/5);
 //				desc.setTransparent(true);
 //				this.add(desc);
 //			}
 		}
 
-		this.add(ok);
-
-		Image back = DIYToolkit.getInstance().getRendererProperties().getImageResource(
-			"screen/item_dialog_back");
-		this.setBackgroundImage(back);
+		this.add(title);
+		this.add(pane);
+		this.add(close);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -220,11 +203,11 @@ public class ConditionDetailsWidget extends DIYPanel
 			return false;
 		}
 
-		List<Stats.Modifier> sortedModifiers = new ArrayList<Stats.Modifier>(modifiers.keySet());
+		List<Stats.Modifier> sortedModifiers = new ArrayList<>(modifiers.keySet());
 		Collections.sort(sortedModifiers);
 
 		StringBuilder sb = new StringBuilder(title + " ");
-		List<String> modDesc = new ArrayList<String>();
+		List<String> modDesc = new ArrayList<>();
 
 		for (Stats.Modifier modifier : sortedModifiers)
 		{
@@ -242,26 +225,6 @@ public class ConditionDetailsWidget extends DIYPanel
 	private DIYLabel getLabel(String s)
 	{
 		return new DIYLabel(s, DIYToolkit.Align.LEFT);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private DIYLabel getLabel(String s, Color c)
-	{
-		DIYLabel result = new DIYLabel(s, DIYToolkit.Align.LEFT);
-		result.setForegroundColour(c);
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private DIYLabel getDescriptiveLabel(String s)
-	{
-		return getLabel(s, Constants.Colour.SILVER);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private DIYLabel getTypeLabel(String s)
-	{
-		return getLabel(s, Color.WHITE);
 	}
 
 	/*-------------------------------------------------------------------------*/

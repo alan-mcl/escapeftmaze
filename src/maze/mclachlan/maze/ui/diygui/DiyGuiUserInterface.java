@@ -1021,7 +1021,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		DIYPanel screen = new DIYPanel(screenBounds);
 
 		statsDisplay = new StatsDisplayWidget(
-			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
+			new Rectangle(
+				partyDisplay.x +partyDisplay.width,
+				0,
+				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_HEIGHT));
 
 		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/stats_back");
 		screen.setBackgroundImage(back);
@@ -1047,10 +1051,10 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		magicDisplay = new MagicDisplayWidget(
 			new Rectangle(
-				DiyGuiUserInterface.PC_WIDTH,
-				35,
-				DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH,
-				DiyGuiUserInterface.SCREEN_HEIGHT));
+				partyDisplay.x +partyDisplay.width,
+				0,
+				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_HEIGHT));
 
 		screen.add(topLabel);
 		screen.add(magicDisplay);
@@ -1113,7 +1117,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		DIYPanel screen = new DIYPanel(screenBounds);
 
 		propertiesDisplay = new PropertiesDisplayWidget(
-			new Rectangle(DiyGuiUserInterface.PC_WIDTH, 0, DiyGuiUserInterface.SCREEN_WIDTH - DiyGuiUserInterface.PC_WIDTH, DiyGuiUserInterface.SCREEN_HEIGHT));
+			new Rectangle(
+				partyDisplay.x +partyDisplay.width,
+				0,
+				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_HEIGHT));
 
 		screen.add(propertiesDisplay);
 		screen.add(partyDisplay);

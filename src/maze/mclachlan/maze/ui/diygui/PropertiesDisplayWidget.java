@@ -21,9 +21,10 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.Rectangle;
 import mclachlan.diygui.DIYLabel;
-import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
@@ -42,44 +43,13 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 {
 	private PlayerCharacter character;
 
-	private static final int ROWS = 25;
-	private static final int STARTING_ROW = 4;
+	private static final int ROWS = 20;
+	private static final int COLS = 2;
 
-	DIYLabel[] propertiesLabels = new DIYLabel[ROWS];
-	DIYLabel[] conditionLabels = new DIYLabel[ROWS];
-	private DIYLabel nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
-	private DIYLabel propertiesHeader = getLabel("Properties", Constants.Colour.ATTRIBUTES_CYAN);
-	private DIYLabel conditionsHeader = getLabel("Conditions", Constants.Colour.ATTRIBUTES_CYAN);
-	private ActionListener modifiersListener;
-
-	Object[][] layout = new Object[][]
-	{
-		{ null, null, null},
-		{ null, null, null},
-		{ null, null, null},
-		{ propertiesHeader, conditionsHeader, null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-		{ null,	null,	null},
-	};
+	private final DIYLabel[] propertiesLabels = new DIYLabel[(ROWS-1)*COLS];
+	private final DIYLabel[] conditionLabels = new DIYLabel[(ROWS-1)*COLS];
+	private DIYLabel nameLabel;
+	private final ActionListener modifiersListener;
 
 	/*-------------------------------------------------------------------------*/
 	public PropertiesDisplayWidget(Rectangle bounds)
@@ -88,73 +58,118 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 
 		this.modifiersListener = new ModifiersDisplayActionListener();
 
-		this.buildGUI();
+		this.buildGUI(bounds);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void buildGUI()
+	private void buildGUI(Rectangle bounds)
 	{
-		DIYLabel topLabel = new DIYLabel("Properties", DIYToolkit.Align.CENTER);
-		topLabel.setBounds(162, 0, DiyGuiUserInterface.SCREEN_WIDTH - 162, 30);
-		topLabel.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+5);
-		topLabel.setFont(f);
-		this.add(topLabel);
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
 
-		int columns = 3;
-		int inset = 2;
-		int rows = ROWS;
-		int rowHeight = height / rows;
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+//		int titleHeight = rp.getProperty(RendererProperties.Property.TITLE_PANE_HEIGHT);
+		int titleHeight = 20;
+		int buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT);
+		int headerOffset = titleHeight + DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int contentTop = headerOffset + inset;
+		int contentHeight = height - contentTop - buttonPaneHeight - inset - DiyGuiUserInterface.SCREEN_EDGE_INSET;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int frameBorderInset = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
 
-		nameLabel.setForegroundColour(WHITE);
-		nameLabel.setBounds(x, y+rowHeight-inset, width, rowHeight);
-		this.add(nameLabel);
+		int column1x = bounds.x + inset;
+		int columnWidth = (width - 3 * inset) / 2;
 
-		DIYPane pane = new DIYPane(x,y,width,height);
-		pane.setLayoutManager(new DIYGridLayout(columns, rows, inset, inset));
-		this.add(pane);
+		int column2x = column1x + columnWidth + inset;
 
-		for (int i = 0; i < layout.length; i++)
+		// screen title
+		DIYLabel title = getSubTitle(StringUtil.getUiLabel("pdw.title"));
+		title.setBounds(
+			200, DiyGuiUserInterface.SCREEN_EDGE_INSET,
+			DiyGuiUserInterface.SCREEN_WIDTH - 400, titleHeight);
+
+		nameLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
+		nameLabel.addActionListener(this);
+
+		// personal info
+		DIYPanel personalPanel = new DIYPanel();
+		personalPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
+		personalPanel.setLayoutManager(null);
+		personalPanel.setBounds(
+			column1x,
+			contentTop,
+			(width - 5 * inset) / 3 * 2,
+			frameBorderInset * 2 + 30);
+
+		nameLabel.setBounds(
+			personalPanel.x + frameBorderInset + inset / 2,
+			personalPanel.y + frameBorderInset,
+			personalPanel.width / 2,
+			20);
+
+		personalPanel.add(nameLabel);
+
+		// properties
+		DIYPanel propertiesPanel = new DIYPanel();
+		propertiesPanel.setStyle(DIYPanel.Style.PANEL_MED);
+		propertiesPanel.setLayoutManager(new DIYGridLayout(COLS, ROWS, inset/2, inset/2));
+		propertiesPanel.setInsets(new Insets(panelBorderInset, panelBorderInset +inset/2, panelBorderInset, panelBorderInset +inset/2));
+		propertiesPanel.setBounds(
+			column1x,
+			personalPanel.y + personalPanel.height + inset,
+			columnWidth,
+			contentHeight - personalPanel.height - inset*4 -buttonPaneHeight);
+
+		DIYLabel propertiesHeader = getLabel(StringUtil.getUiLabel("pdw.properties"), Constants.Colour.ATTRIBUTES_CYAN);
+
+		propertiesPanel.add(propertiesHeader);
+		propertiesPanel.add(new DIYLabel());
+		for (int i=0; i<propertiesLabels.length; i++)
 		{
-			Object[] row = layout[i];
-			for (int j = 0; j < row.length; j++)
-			{
-				if (row[j] == null)
-				{
-					this.addLabel(pane, getBlank(), j, i);
-				}
-				else if (row[j] instanceof DIYLabel)
-				{
-					this.addLabel(pane, (DIYLabel)row[j], j, i);
-				}
-				else
-				{
-					throw new MazeException("Invalid cell: "+row[j]);
-				}
-			}
+			propertiesLabels[i] = new DIYLabel("", DIYToolkit.Align.LEFT);
+			propertiesLabels[i].addActionListener(modifiersListener);
+			propertiesLabels[i].setActionPayload(this.character);
 		}
-	}
 
-	/*-------------------------------------------------------------------------*/
-	private void addLabel(DIYPane pane, DIYLabel label, int col, int row)
-	{
-		pane.add(label);
-		switch (col)
+		for (int i=0; i<propertiesLabels.length/2; i++)
 		{
-			case 0:
-				this.propertiesLabels[row] = label;
-				label.addActionListener(this.modifiersListener);
-				label.setActionPayload(this.character);
-				break;
-			case 1:
-				this.conditionLabels[row] = label;
-				label.addActionListener(this);
-				break;
-			case 2:
-			default:
-				// no op
+			propertiesPanel.add(propertiesLabels[i]);
+			propertiesPanel.add(propertiesLabels[i+(ROWS-1)]);
 		}
+
+		// conditions
+		DIYPanel conditionsPanel = new DIYPanel();
+		conditionsPanel.setStyle(DIYPanel.Style.PANEL_MED);
+		conditionsPanel.setLayoutManager(new DIYGridLayout(COLS, ROWS, inset/2, inset/2));
+		conditionsPanel.setInsets(new Insets(panelBorderInset, panelBorderInset +inset/2, panelBorderInset, panelBorderInset +inset/2));
+		conditionsPanel.setBounds(
+			column2x,
+			personalPanel.y + personalPanel.height + inset,
+			columnWidth,
+			contentHeight - personalPanel.height - inset*4 -buttonPaneHeight);
+
+		DIYLabel conditionsHeader = getLabel(StringUtil.getUiLabel("pdw.conditions"), Constants.Colour.ATTRIBUTES_CYAN);
+
+		conditionsPanel.add(conditionsHeader);
+		conditionsPanel.add(new DIYLabel());
+		for (int i=0; i<((ROWS-1)*COLS); i++)
+		{
+			conditionLabels[i] = new DIYLabel("", DIYToolkit.Align.LEFT);
+			conditionLabels[i].addActionListener(this);
+			conditionLabels[i].setActionPayload(this.character);
+		}
+
+		for (int i=0; i<propertiesLabels.length/2; i++)
+		{
+			conditionsPanel.add(conditionLabels[i]);
+			conditionsPanel.add(conditionLabels[i+(ROWS-1)]);
+		}
+
+		this.add(title);
+		this.add(personalPanel);
+		this.add(propertiesPanel);
+		this.add(conditionsPanel);
+
+		doLayout();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -183,18 +198,22 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 			character.getRace().getName() + " " +
 			character.getCharacterClass().getName());
 
-		for (int i=STARTING_ROW; i<ROWS; i++)
+		for (int i=0; i<propertiesLabels.length; i++)
 		{
 			propertiesLabels[i].setText("");
+		}
+
+		for (int i=0; i<conditionLabels.length; i++)
+		{
 			conditionLabels[i].setText("");
 			conditionLabels[i].setIcon(null);
 		}
 
-		int rowCount = STARTING_ROW;
+		int rowCount = 0;
 		for (Stats.Modifier modifier : Stats.propertiesModifiers)
 		{
 			// todo: display excess properties somehow
-			if (rowCount >= ROWS)
+			if (rowCount >= propertiesLabels.length)
 			{
 				break;
 			}
@@ -210,9 +229,15 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 			}
 		}
 
-		rowCount = STARTING_ROW;
+		rowCount = 0;
 		for (Condition c : character.getConditions())
 		{
+			// todo: display excess conditions somehow
+			if (rowCount >= conditionLabels.length)
+			{
+				break;
+			}
+
 			conditionLabels[rowCount].setText(c.getDisplayName() + " (level " + c.getCastingLevel() +")");
 			conditionLabels[rowCount].setIcon(Database.getInstance().getImage(c.getDisplayIcon()));
 			conditionLabels[rowCount].setActionPayload(c);
@@ -232,12 +257,6 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 	public String getWidgetName()
 	{
 		return DIYToolkit.PANE;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static DIYLabel getBlank()
-	{
-		return new DIYLabel("", DIYToolkit.Align.LEFT);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -299,5 +318,14 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private DIYLabel getSubTitle(String titleText)
+	{
+		DIYLabel title = new DIYLabel(titleText);
+		title.setForegroundColour(GOLD);
+		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
+		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize() + 3);
+		title.setFont(f);
+		return title;
+	}
 
 }

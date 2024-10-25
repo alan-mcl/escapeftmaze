@@ -30,6 +30,9 @@ public class MagicDisplayWidget extends DIYPane
 {
 	SpellDisplayWidget sdw;
 
+	// todo
+	private ManaDisplayWidget mana = new ManaDisplayWidget();
+
 	/*-------------------------------------------------------------------------*/
 	public MagicDisplayWidget(Rectangle bounds)
 	{
@@ -38,6 +41,18 @@ public class MagicDisplayWidget extends DIYPane
 		sdw.setBounds(bounds);
 		this.add(sdw);
 	}
+
+/*
+	mana.refresh(
+		character.getAmountRedMagic(),
+		character.getAmountBlackMagic(),
+		character.getAmountPurpleMagic(),
+		character.getAmountGoldMagic(),
+		character.getAmountWhiteMagic(),
+		character.getAmountGreenMagic(),
+		character.getAmountBlueMagic());
+*/
+
 	
 	/*-------------------------------------------------------------------------*/
 	public void setCharacter(PlayerCharacter pc)

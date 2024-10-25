@@ -89,7 +89,7 @@ public class GameSys
 
 		// init modifier modifications
 
-		modifierMods = new HashMap<Stats.Modifier, ModifierModification>();
+		modifierMods = new HashMap<>();
 
 		modifierMods.put(Stats.Modifier.HIT_POINT_REGEN, new HitPointRegenMod());
 		modifierMods.put(Stats.Modifier.ACTION_POINT_REGEN, new ActionPointRegenMod());
