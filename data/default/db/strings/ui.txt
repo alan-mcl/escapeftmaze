@@ -65,6 +65,9 @@ mdw.combat = Combat Modifiers
 mdw.stealth = Stealth Modifiers
 mdw.magic = Magic Modifiers
 
+# magic display widget
+madw.title = Magic
+
 # modifier display widget
 mdw.influence.base = Base
 mdw.influence.gender = Gender (%s)

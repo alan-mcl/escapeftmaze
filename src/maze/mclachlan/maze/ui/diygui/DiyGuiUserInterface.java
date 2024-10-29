@@ -30,8 +30,10 @@ import java.util.Map;
 import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.*;
-import mclachlan.crusader.script.*;
-import mclachlan.diygui.DIYLabel;
+import mclachlan.crusader.script.AppearanceFromSide;
+import mclachlan.crusader.script.AppearanceFromTop;
+import mclachlan.crusader.script.DisappearanceToSide;
+import mclachlan.crusader.script.TempChangeTexture;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.ContainerWidget;
@@ -39,7 +41,10 @@ import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.Music;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.*;
+import mclachlan.maze.game.ActorEncounter;
+import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.StopMusicEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Tile;
@@ -51,8 +56,6 @@ import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.util.MazeException;
-
-import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
 
 /**
  *
@@ -639,6 +642,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.statsDisplay.refreshData();
 		this.modifiersDisplay.refreshData();
 		this.propertiesDisplay.refreshData();
+		this.magicDisplay.refreshData();
 
 		this.charLowLeft.refresh();
 		this.charLowRight.refresh();
@@ -1042,13 +1046,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		DIYPanel screen = new DIYPanel(screenBounds);
 
-		DIYLabel topLabel = new DIYLabel("Magic", DIYToolkit.Align.CENTER);
-		topLabel.setBounds(162, 0, DiyGuiUserInterface.SCREEN_WIDTH - 162, 30);
-		topLabel.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 5);
-		topLabel.setFont(f);
-
 		magicDisplay = new MagicDisplayWidget(
 			new Rectangle(
 				partyDisplay.x +partyDisplay.width,
@@ -1056,7 +1053,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
 				SCREEN_HEIGHT));
 
-		screen.add(topLabel);
 		screen.add(magicDisplay);
 		screen.add(partyDisplay);
 		screen.add(buttonToolbar);

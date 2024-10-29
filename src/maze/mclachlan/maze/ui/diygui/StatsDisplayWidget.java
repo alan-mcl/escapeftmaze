@@ -280,12 +280,6 @@ public class StatsDisplayWidget extends ContainerWidget
 			columnWidth*2 +inset,
 			buttonPaneHeight);
 
-//		DIYLabel w = new DIYLabel("Mana Available", DIYToolkit.Align.CENTER);
-//		w.setForegroundColour(CYAN);
-//		bottomLeft.add(w);
-//		bottomLeft.add(mana);
-//		bottomLeft.add(new DIYLabel());
-
 		buttonPane.add(nameButton);
 		buttonPane.add(portraitButton);
 		buttonPane.add(personalityButton);
@@ -435,11 +429,13 @@ public class StatsDisplayWidget extends ContainerWidget
 		resistEnergy.setActionPayload(character);
 
 		nameLabel.setForegroundColour(WHITE);
-		nameLabel.setText(this.character.getName() + ", " +
-			"level " + this.character.getLevel() + " " +
-			character.getGender().getName() + " " +
-			character.getRace().getName() + " " +
-			character.getCharacterClass().getName());
+		nameLabel.setText(StringUtil.getUiLabel(
+			"idw.character.details",
+			this.character.getName(),
+			String.valueOf(this.character.getLevel()),
+			character.getGender().getName(),
+			character.getRace().getName(),
+			character.getCharacterClass().getName()));
 
 		hitPoints.setFromCurMax(character.getHitPoints());
 		actionPoints.setFromCurMax(character.getActionPoints());

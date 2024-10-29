@@ -77,7 +77,7 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 		int frameBorderInset = rp.getProperty(RendererProperties.Property.PANEL_LIGHT_BORDER);
 
 		int column1x = bounds.x + inset;
-		int columnWidth = (width - 3 * inset) / 2;
+		int columnWidth = (width - 4 * inset) / 2;
 
 		int column2x = column1x + columnWidth + inset;
 
@@ -117,7 +117,7 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 			column1x,
 			personalPanel.y + personalPanel.height + inset,
 			columnWidth,
-			contentHeight - personalPanel.height - inset*4 -buttonPaneHeight);
+			contentHeight -personalPanel.height -inset);
 
 		DIYLabel propertiesHeader = getLabel(StringUtil.getUiLabel("pdw.properties"), Constants.Colour.ATTRIBUTES_CYAN);
 
@@ -145,7 +145,7 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 			column2x,
 			personalPanel.y + personalPanel.height + inset,
 			columnWidth,
-			contentHeight - personalPanel.height - inset*4 -buttonPaneHeight);
+			propertiesPanel.height);
 
 		DIYLabel conditionsHeader = getLabel(StringUtil.getUiLabel("pdw.conditions"), Constants.Colour.ATTRIBUTES_CYAN);
 
@@ -192,11 +192,13 @@ public class PropertiesDisplayWidget extends ContainerWidget implements ActionLi
 		}
 
 		nameLabel.setForegroundColour(WHITE);
-		nameLabel.setText(this.character.getName()+", "+
-			"level " + this.character.getLevel() + " " +
-			character.getGender().getName() + " " +
-			character.getRace().getName() + " " +
-			character.getCharacterClass().getName());
+		nameLabel.setText(StringUtil.getUiLabel(
+			"idw.character.details",
+			this.character.getName(),
+			String.valueOf(this.character.getLevel()),
+			character.getGender().getName(),
+			character.getRace().getName(),
+			character.getCharacterClass().getName()));
 
 		for (int i=0; i<propertiesLabels.length; i++)
 		{
