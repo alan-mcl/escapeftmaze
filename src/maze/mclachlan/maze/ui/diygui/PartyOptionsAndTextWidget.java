@@ -27,7 +27,10 @@ import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.*;
-import mclachlan.diygui.toolkit.*;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
+import mclachlan.diygui.toolkit.ContainerWidget;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
@@ -38,7 +41,6 @@ import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemCacheManager;
 import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.ui.diygui.render.maze.MazeRendererFactory;
 
 import static mclachlan.maze.game.Maze.State.*;
 
@@ -89,7 +91,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	private final DIYButton viewLog, quit, saveload, settings, journal, map;
 
 	// any items on the tile
-	private final DroppedItemWidget cacheItem;
+	private final ItemWidget cacheItem;
 
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
@@ -139,7 +141,8 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			headerHeight);
 
 		// cache item widget
-		cacheItem = new DroppedItemWidget();
+		cacheItem = new ItemWidget();
+		cacheItem.setStyle(ItemWidget.Style.ICON_ONLY);
 		cacheItem.addActionListener(this);
 		Dimension cacheItemPreferredSize = cacheItem.getPreferredSize();
 		cacheItem.setBounds(
@@ -457,20 +460,33 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			default:
 				// do nothing
 		}
+
+		if (maze.getCurrentTile() != null)
+		{
+			refreshCachedItems(maze.getCurrentZone(), Maze.getInstance().getCurrentTile().getCoords());
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void setTile(Zone zone, Tile t, Point tile)
+	{
+		refreshCachedItems(zone, tile);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refreshCachedItems(Zone zone, Point tile)
 	{
 		List<Item> itemsOnTile = ItemCacheManager.getInstance().getItemsOnTile(zone, tile);
 
 		if (itemsOnTile != null && itemsOnTile.size() > 0)
 		{
 			cacheItem.setItem(itemsOnTile.get(0));
+			cacheItem.setVisible(true);
 		}
 		else
 		{
 			cacheItem.setItem(null);
+			cacheItem.setVisible(false);
 		}
 	}
 
@@ -535,7 +551,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		}
 		else if (event.getSource() == cacheItem)
 		{
-			if (cacheItem.item != null)
+			if (cacheItem.getItem() != null)
 			{
 				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(
 					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
@@ -608,33 +624,5 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	{
 		// confirming the exit to main
 		maze.backToMain();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static class DroppedItemWidget extends DIYPane
-	{
-		Item item;
-
-		public void setItem(Item item)
-		{
-			this.item = item;
-		}
-
-		public Item getItem()
-		{
-			return item;
-		}
-
-		@Override
-		public Dimension getPreferredSize()
-		{
-			return new Dimension(45, 45);
-		}
-
-		@Override
-		public String getWidgetName()
-		{
-			return MazeRendererFactory.DROPPED_ITEM_WIDGET;
-		}
 	}
 }

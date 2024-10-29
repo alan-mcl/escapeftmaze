@@ -37,7 +37,6 @@ public class MazeRendererFactory extends RendererFactory
 	public static final Color DISABLED_LABEL_FOREGROUND = Constants.Colour.MED_GREY;
 
 	public static final String ITEM_WIDGET = "ItemWidget";
-	public static final String DROPPED_ITEM_WIDGET = "DroppedItemWidget";
 	public static final String ITEM_SELECTION_WIDGET = "ItemSelectionWidget";
 	public static final String FORMATION_WIDGET = "FormationWidget";
 	public static final String FOE_GROUP_WIDGET = "FoeGroupWidget";
@@ -68,7 +67,6 @@ public class MazeRendererFactory extends RendererFactory
 
 		// custom maze renderers
 		renderers.put(ITEM_WIDGET, new ItemWidgetRenderer());
-		renderers.put(DROPPED_ITEM_WIDGET, new DroppedItemWidgetRenderer());
 		renderers.put(ITEM_SELECTION_WIDGET, new ItemSelectionWidgetRenderer());
 		renderers.put(FORMATION_WIDGET, new FormationWidgetRenderer());
 		renderers.put(FOE_GROUP_WIDGET, new FoeGroupWidgetRenderer());

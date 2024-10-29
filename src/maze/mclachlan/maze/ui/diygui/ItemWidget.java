@@ -22,6 +22,7 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
@@ -41,6 +42,15 @@ public class ItemWidget extends ContainerWidget
 	private final Object itemMutex = new Object();
 	private int imageWidth;
 
+	private boolean hover;
+	private Style style = Style.ICON_AND_TEXT;
+
+	public enum Style
+	{
+		ICON_AND_TEXT,
+		ICON_ONLY
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ItemWidget()
 	{
@@ -52,6 +62,17 @@ public class ItemWidget extends ContainerWidget
 	{
 		super(bounds);
 		setItem(item);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Style getStyle()
+	{
+		return style;
+	}
+
+	public void setStyle(Style style)
+	{
+		this.style = style;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -173,4 +194,29 @@ public class ItemWidget extends ContainerWidget
 	{
 		this.text = text;
 	}
+
+	public boolean isHover()
+	{
+		return hover;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseEntered(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = true;
+	}
+
+	public void processMouseExited(MouseEvent e)
+	{
+		if (!isEnabled())
+		{
+			return;
+		}
+		hover = false;
+	}
+
 }

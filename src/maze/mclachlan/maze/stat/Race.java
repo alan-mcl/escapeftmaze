@@ -475,6 +475,30 @@ public class Race extends DataObject implements TypeDescriptor
 
 	/*-------------------------------------------------------------------------*/
 
+	public Item getLeftHandItem()
+	{
+		return new Item(new ItemTemplate())
+		{
+			public String getImage()
+			{
+				return getLeftHandIcon();
+			}
+		};
+	}
+
+	public Item getRightHandItem()
+	{
+		return new Item(new ItemTemplate())
+		{
+			public String getImage()
+			{
+				return getLeftHandIcon();
+			}
+		};
+	}
+
+	/*-------------------------------------------------------------------------*/
+
 	@Override
 	public boolean equals(Object o)
 	{

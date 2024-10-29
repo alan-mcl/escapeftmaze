@@ -336,17 +336,23 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			list);
 		classAndRaceKitCards.show(list.get(0));
 
-		DIYPanel classListPanel = getFixedPanel(column1x, contentTop, columnWidth, contentHeight);
+		DIYPanel classListPanel = getFixedPanel(
+			column1x,
+			contentTop,
+			columnWidth,
+			contentHeight /3 *2);
 		classListPanel.setLayoutManager(null);
 		classListPanel.add(kitTitle);
 		classListPanel.add(classAndRaceKitCards);
 
 		// column 2: kit desc, kit inventory
-		
+
+		int yy = headerOffset + 45 + panelBorderInset;
 		DIYPanel kitDescPanel = getFixedPanel(
-			column2x, headerOffset + 45 + panelBorderInset,
+			column2x,
+			yy,
 			columnWidth*2 +inset,
-			(contentHeight-panelBorderInset-inset) / 20 *13);
+			classListPanel.y +classListPanel.height -yy);
 
 		kitDesc = new DIYTextArea("                                            " +
 			"                                                                   ");
@@ -354,25 +360,26 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		kitDescPanel.add(kitDesc);
 
 		DIYPanel kitItemsPanel = getFixedPanel(
-			column2x, kitDescPanel.y+ kitDescPanel.height +inset,
-			columnWidth*2 +inset,
+			column1x,
+			kitDescPanel.y+ kitDescPanel.height +inset,
+			columnWidth*3 +inset*2,
 			height -kitDescPanel.y -kitDescPanel.height -inset -buttonPaneHeight);
 		kitItemsPanel.setLayoutManager(null);
 
 		DIYLabel kitItemsTitle = getSubTitle(getLabel("cc.kit.items.title"));
 		kitItemsTitle.setBounds(
-			column2x +panelBorderInset,
+			kitItemsPanel.x +panelBorderInset,
 			kitDescPanel.y + kitDescPanel.height + inset +panelBorderInset,
-			columnWidth*2 +inset -panelBorderInset*2,
+			columnWidth*3 +inset*2 -panelBorderInset*2,
 			titleHeight);
 
-		int itemCols = 2;
-		int itemRows = 4;
+		int itemCols = 4;
+		int itemRows = 3;
 		kitItems = new DIYPane(new DIYGridLayout(itemCols, itemRows,5,5));
 		kitItems.setBounds(
-			column2x +panelBorderInset +inset/2,
+			kitItemsPanel.x +panelBorderInset +inset/2,
 			kitItemsTitle.y +titleHeight +inset/2,
-			columnWidth*2 +inset -panelBorderInset*2,
+			columnWidth*3 +inset*2 -panelBorderInset*2,
 			kitItemsPanel.height -titleHeight -panelBorderInset*2 -inset);
 		for (int i=0; i<itemCols*itemRows; i++)
 		{
@@ -1844,8 +1851,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		public boolean actionPerformed(ActionEvent event)
 		{
 			if (event.getSource() instanceof ItemWidget &&
-				event.getEvent() instanceof MouseEvent &&
-				((MouseEvent)event.getEvent()).getButton() == MouseEvent.BUTTON3)
+				event.getEvent() instanceof MouseEvent)
 			{
 				Item item = ((ItemWidget)event.getSource()).getItem();
 				if (item != null)

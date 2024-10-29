@@ -17,10 +17,12 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.ui.diygui.render.maze;
+package mclachlan.maze.ui.diygui.render.mf;
 
-import java.awt.*;
-import java.awt.geom.RoundRectangle2D;
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.Rectangle;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
@@ -28,7 +30,7 @@ import mclachlan.maze.stat.Item;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.ui.diygui.ItemWidget;
 
-public class ItemWidgetRenderer extends Renderer
+public class MFItemWidgetRenderer extends Renderer
 {
 	/*-------------------------------------------------------------------------*/
 	@Override
@@ -48,20 +50,19 @@ public class ItemWidgetRenderer extends Renderer
 				DIYToolkit.drawImageAligned(g, widget.getImage(), iconBounds, DIYToolkit.Align.CENTER);
 			}
 
+			// cursed state
+			if (widget.getItem() != null && widget.getItem().isCursed() &&
+				widget.getItem().getCursedState() == Item.CursedState.DISCOVERED)
+			{
+				Image cursed = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot_cursed");
+				DIYToolkit.drawImageAligned(g, cursed, iconBounds, DIYToolkit.Align.CENTER);
+			}
+
 			// hover on the icon
 			if (widget.isHover())
 			{
-				Color col1 = Color.WHITE;
-				Color col2 = Constants.Colour.GOLD;
-
-				g.setPaint(new GradientPaint(iconBounds.x, iconBounds.y, col1,
-					iconBounds.x+iconBounds.width, iconBounds.y+iconBounds.width, col2));
-				Rectangle hover = new Rectangle(
-					iconBounds.x+3,
-					iconBounds.y+3,
-					iconBounds.width-6,
-					iconBounds.height-6);
-				g.draw(hover);
+				Image hover = DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot_hover");
+				DIYToolkit.drawImageAligned(g, hover, iconBounds, DIYToolkit.Align.CENTER);
 			}
 
 			if (widget.getStyle() == ItemWidget.Style.ICON_AND_TEXT)
@@ -84,17 +85,6 @@ public class ItemWidgetRenderer extends Renderer
 						col,
 						widget.getBackgroundColour());
 				}
-			}
-
-			// cursed state
-			if (widget.getItem() != null && widget.getItem().isCursed() &&
-				widget.getItem().getCursedState() == Item.CursedState.DISCOVERED)
-			{
-				RoundRectangle2D curse = new RoundRectangle2D.Double(
-					x + 1, y + 1, width - 2, height - 2, 5, 5);
-				g.setPaint(new GradientPaint(
-					x, y, Color.RED, x + width / 2, y + width / 2, Color.RED.darker()));
-				g.draw(curse);
 			}
 		}
 	}

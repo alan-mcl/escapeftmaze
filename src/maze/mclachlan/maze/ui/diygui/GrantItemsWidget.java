@@ -24,25 +24,26 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
-import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
+
+import static mclachlan.diygui.toolkit.RendererProperties.Property.ITEM_WIDGET_SIZE;
 
 /**
  *
  */
 public class GrantItemsWidget extends GeneralDialog implements ActionListener
 {
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
-	private static final int MAX_DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/5*4;
+	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
+	private static final int MAX_DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET*2;
 
-	private LootWidget lootWidget;
-	private DIYButton okButton;
+	private final LootWidget lootWidget;
+	private final DIYButton close;
 
 	/*-------------------------------------------------------------------------*/
 	public GrantItemsWidget(
@@ -52,35 +53,45 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 		super();
 
 		// todo: scroll pane?
-		int itemWidgetHeight = 30;
-		int buttonPaneHeight = 20;
-		int inset = 10;
-		
+
+		int itemWidgetHeight = DIYToolkit.getInstance().getRendererProperties().getProperty(ITEM_WIDGET_SIZE);
+		int buttonPaneHeight = getButtonPaneHeight();
+		int inset = getInset();
+		int border = getBorder();
+		int titlePaneHeight = getTitlePaneHeight();
+
 		int dialogHeight = Math.min(
-			items.size()* itemWidgetHeight + inset *3 + buttonPaneHeight,
+			titlePaneHeight +items.size()*(itemWidgetHeight+inset/2) + inset*3 +border*2,
 			MAX_DIALOG_HEIGHT);
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
 
-		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, dialogHeight);
-		Rectangle lwBounds = new Rectangle(startX+ inset, startY+ inset,
-			DIALOG_WIDTH- inset *2, dialogHeight- buttonPaneHeight - inset *3);
+		Rectangle dialogBounds = new Rectangle(
+			startX,
+			startY,
+			DIALOG_WIDTH,
+			dialogHeight);
+
+		Rectangle lwBounds = new Rectangle(
+			startX +border +inset,
+			startY +border +inset +titlePaneHeight,
+			DIALOG_WIDTH -border*2 -inset*2,
+			dialogHeight -border*2 -inset*3 -titlePaneHeight);
 
 		this.setBounds(dialogBounds);
 		lootWidget = new LootWidget(lwBounds, items);
 		this.add(lootWidget);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
-		okButton.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 		if (exteriorListener != null)
 		{
-			okButton.addActionListener(exteriorListener);
+			close.addActionListener(exteriorListener);
 		}
-		buttonPane.add(okButton);
 
-		this.add(buttonPane);
+		this.add(getTitlePane(StringUtil.getUiLabel("giw.title")));
+		this.add(close);
+
 		this.doLayout();
 	}
 
@@ -91,13 +102,10 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
-				exit();
-				break;
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
 		}
 		
 		Item item = (Item)DIYToolkit.getInstance().getCursorContents();
@@ -108,34 +116,22 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 		}
 
 		// on a press on 1-6, add the item to that character
-		PlayerCharacter playerCharacter = null;
-		switch (e.getKeyCode())
-		{
-			case KeyEvent.VK_1:
-			case KeyEvent.VK_NUMPAD1:
-				playerCharacter = Maze.getInstance().getPlayerCharacter(0);
-				break;
-			case KeyEvent.VK_2:
-			case KeyEvent.VK_NUMPAD2:
-				playerCharacter = Maze.getInstance().getPlayerCharacter(1);
-				break;
-			case KeyEvent.VK_3:
-			case KeyEvent.VK_NUMPAD3:
-				playerCharacter = Maze.getInstance().getPlayerCharacter(2);
-				break;
-			case KeyEvent.VK_4:
-			case KeyEvent.VK_NUMPAD4:
-				playerCharacter = Maze.getInstance().getPlayerCharacter(3);
-				break;
-			case KeyEvent.VK_5:
-			case KeyEvent.VK_NUMPAD5:
-				playerCharacter = Maze.getInstance().getPlayerCharacter(4);
-				break;
-			case KeyEvent.VK_6:
-			case KeyEvent.VK_NUMPAD6:
-				playerCharacter = Maze.getInstance().getPlayerCharacter(5);
-				break;
-		}
+		PlayerCharacter playerCharacter = switch (e.getKeyCode())
+			{
+				case KeyEvent.VK_1, KeyEvent.VK_NUMPAD1 ->
+					Maze.getInstance().getPlayerCharacter(0);
+				case KeyEvent.VK_2, KeyEvent.VK_NUMPAD2 ->
+					Maze.getInstance().getPlayerCharacter(1);
+				case KeyEvent.VK_3, KeyEvent.VK_NUMPAD3 ->
+					Maze.getInstance().getPlayerCharacter(2);
+				case KeyEvent.VK_4, KeyEvent.VK_NUMPAD4 ->
+					Maze.getInstance().getPlayerCharacter(3);
+				case KeyEvent.VK_5, KeyEvent.VK_NUMPAD5 ->
+					Maze.getInstance().getPlayerCharacter(4);
+				case KeyEvent.VK_6, KeyEvent.VK_NUMPAD6 ->
+					Maze.getInstance().getPlayerCharacter(5);
+				default -> null;
+			};
 
 		if (playerCharacter != null)
 		{
@@ -149,25 +145,32 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
-		if (e.getSource() instanceof PlayerCharacterWidget &&
-			DIYToolkit.getInstance().getCursorContents() != null)
+		if (DIYToolkit.getInstance().getCursorContents() != null)
 		{
 			// drop an item onto a player
 
-			Item item = (Item)DIYToolkit.getInstance().getCursorContents();
-			PlayerCharacter pc = ((PlayerCharacterWidget)e.getSource()).getPlayerCharacter();
-
-			if (pc.addInventoryItem(item))
+			for (PlayerCharacter pc : Maze.getInstance().getParty().getPlayerCharacters())
 			{
-				DIYToolkit.getInstance().clearCursor();
+				if (Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(pc).contains(e.getPoint()))
+				{
+					Item item = (Item)DIYToolkit.getInstance().getCursorContents();
+
+					if (pc.addInventoryItem(item))
+					{
+						DIYToolkit.getInstance().clearCursor();
+					}
+
+					break;
+				}
 			}
+
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == okButton)
+		if (event.getSource() == close)
 		{
 			exit();
 			return true;
@@ -185,6 +188,7 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 			// drop these items on the ground
 			Maze.getInstance().dropItemsOnCurrentTile(remainingItems);
 		}
+		Maze.getInstance().getUi().refreshCharacterData();
 		Maze.getInstance().getUi().clearDialog();
 	}
 }

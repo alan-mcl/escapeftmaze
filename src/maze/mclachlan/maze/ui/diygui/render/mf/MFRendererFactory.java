@@ -63,14 +63,13 @@ public class MFRendererFactory extends RendererFactory
 
 		// custom MF renderers
 		renderers.put(FILLED_BAR_WIDGET, new MFFilledBarWidgetRenderer());
+		renderers.put(ITEM_WIDGET, new MFItemWidgetRenderer());
 
 		// Fallback to Maze renderers
 		renderers.put(DIYToolkit.NONE, new NullRenderer());
 		renderers.put(DIYToolkit.PANE, new NullRenderer());
 
 		// Fallback to custom maze renderers
-		renderers.put(ITEM_WIDGET, new ItemWidgetRenderer());
-		renderers.put(DROPPED_ITEM_WIDGET, new DroppedItemWidgetRenderer());
 		renderers.put(ITEM_SELECTION_WIDGET, new ItemSelectionWidgetRenderer());
 		renderers.put(FORMATION_WIDGET, new FormationWidgetRenderer());
 		renderers.put(FOE_GROUP_WIDGET, new FoeGroupWidgetRenderer());

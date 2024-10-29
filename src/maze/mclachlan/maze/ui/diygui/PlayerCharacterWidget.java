@@ -49,13 +49,12 @@ public class PlayerCharacterWidget extends DIYPanel
 	implements ActionListener, ActorActionOption.ActionOptionCallback
 {
 	private final DIYLabel portrait, portraitFrame, nameLabel, classLabel, nameBoard;
-	private final DIYLabel leftHandSlot, rightHandSlot, leftHandItem, rightHandItem;
+	private final ItemWidget leftHand, rightHand;
 	private final FilledBarWidget hpBar, apBar, mpBar;
 	private PlayerCharacter playerCharacter;
 	private final int index;
 
 	private Rectangle portraitBounds;
-	private Rectangle rightHandBounds;
 
 	private final DIYButton levelUp;
 	private final DIYComboBox<ActorActionOption> action;
@@ -91,15 +90,13 @@ public class PlayerCharacterWidget extends DIYPanel
 		nameBoard.addActionListener(this);
 
 		// hand contents
-		leftHandSlot = new DIYLabel(rp.getImageResource("icon/itemslot"));
-		rightHandSlot = new DIYLabel(rp.getImageResource("icon/itemslot"));
-		leftHandItem = new DIYLabel();
-		rightHandItem = new DIYLabel();
+		leftHand = new ItemWidget();
+		leftHand.setStyle(ItemWidget.Style.ICON_ONLY);
+		leftHand.addActionListener(this);
 
-		leftHandSlot.addActionListener(this);
-		leftHandItem.addActionListener(this);
-		rightHandSlot.addActionListener(this);
-		rightHandItem.addActionListener(this);
+		rightHand = new ItemWidget();
+		rightHand.setStyle(ItemWidget.Style.ICON_ONLY);
+		rightHand.addActionListener(this);
 
 		// resources
 		hpBar = new FilledBarWidget(0,0);
@@ -151,10 +148,8 @@ public class PlayerCharacterWidget extends DIYPanel
 		add(portrait);
 		add(nameLabel);
 		add(classLabel);
-		add(leftHandSlot);
-		add(rightHandSlot);
-		add(leftHandItem);
-		add(rightHandItem);
+		add(rightHand);
+		add(leftHand);
 		add(hpBar);
 		add(apBar);
 		add(mpBar);
@@ -199,9 +194,9 @@ public class PlayerCharacterWidget extends DIYPanel
 		this.portraitBounds = portraitBounds;
 
 		// hand icon bounds
-		rightHandBounds = new Rectangle(
-			portraitFrame.x +portraitFrame.width +inset/2,
-			portraitFrame.y +portraitFrame.height -inset/2,
+		Rectangle rightHandBounds = new Rectangle(
+			portraitFrame.x + portraitFrame.width + inset / 2,
+			portraitFrame.y + portraitFrame.height - inset / 2,
 			handSize,
 			handSize);
 		Rectangle leftHandBounds = new Rectangle(
@@ -210,11 +205,8 @@ public class PlayerCharacterWidget extends DIYPanel
 			handSize,
 			handSize);
 
-		leftHandSlot.setBounds(leftHandBounds);
-		rightHandSlot.setBounds(rightHandBounds);
-
-		leftHandItem.setBounds(leftHandSlot.getBounds());
-		rightHandItem.setBounds(rightHandSlot.getBounds());
+		leftHand.setBounds(leftHandBounds);
+		rightHand.setBounds(rightHandBounds);
 
 		// resource bars
 		int startX = rightHandBounds.x;
@@ -333,10 +325,8 @@ public class PlayerCharacterWidget extends DIYPanel
 			nameLabel.setVisible(false);
 			classLabel.setVisible(false);
 
-			leftHandSlot.setVisible(false);
-			rightHandSlot.setVisible(false);
-			leftHandItem.setVisible(false);
-			rightHandItem.setVisible(false);
+			leftHand.setVisible(false);
+			rightHand.setVisible(false);
 
 			hpBar.setVisible(false);
 			apBar.setVisible(false);
@@ -401,31 +391,29 @@ public class PlayerCharacterWidget extends DIYPanel
 			// left hand item
 			if (playerCharacter.getSecondaryWeapon() != null)
 			{
-				leftHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getSecondaryWeapon().getImage()));
-				leftHandItem.setTooltip(playerCharacter.getSecondaryWeapon().getDisplayName());
+				leftHand.setItem(playerCharacter.getSecondaryWeapon());
+				leftHand.setTooltip(playerCharacter.getSecondaryWeapon().getDisplayName());
 			}
 			else
 			{
-				leftHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getLeftHandIcon()));
-				leftHandItem.setTooltip(null);
+				leftHand.setItem(playerCharacter.getRace().getLeftHandItem());
+				leftHand.setTooltip(null);
 			}
 
 			// right hand item
 			if (playerCharacter.getPrimaryWeapon() != null)
 			{
-				rightHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getPrimaryWeapon().getImage()));
-				rightHandItem.setTooltip(playerCharacter.getPrimaryWeapon().getDisplayName());
+				rightHand.setItem(playerCharacter.getPrimaryWeapon());
+				rightHand.setTooltip(playerCharacter.getPrimaryWeapon().getDisplayName());
 			}
 			else
 			{
-				rightHandItem.setIcon(Database.getInstance().getImage(playerCharacter.getRightHandIcon()));
-				rightHandItem.setTooltip(null);
+				rightHand.setItem(playerCharacter.getRace().getRightHandItem());
+				rightHand.setTooltip(null);
 			}
 
-			leftHandSlot.setVisible(true);
-			rightHandSlot.setVisible(true);
-			leftHandItem.setVisible(true);
-			rightHandItem.setVisible(true);
+			leftHand.setVisible(true);
+			rightHand.setVisible(true);
 
 			// conditions
 			ArrayList<Condition> pcConditions = new ArrayList<>(playerCharacter.getConditions());
@@ -510,7 +498,7 @@ public class PlayerCharacterWidget extends DIYPanel
 		{
 			Item item;
 			// right click to bring up item details
-			if (rightHandBounds.contains(e.getPoint()))
+			if (e.getSource() == rightHand)
 			{
 				item = playerCharacter.getPrimaryWeapon();
 			}
@@ -561,9 +549,7 @@ public class PlayerCharacterWidget extends DIYPanel
 			this.getPlayerCharacter().setStance(stance.getSelected());
 			return true;
 		}
-		else if (event.getEvent() instanceof MouseEvent &&
-			(source == leftHandItem || source == leftHandSlot ||
-			source == rightHandItem || source == rightHandSlot))
+		else if (source == leftHand || source == rightHand)
 		{
 			handleHandWidgetClick((MouseEvent)event.getEvent());
 		}

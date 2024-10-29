@@ -78,12 +78,10 @@ public class ItemDetailsWidget extends GeneralDialog
 		DIYPane title = getTitlePane(item.getDisplayName(), titleCol);
 
 		// Item image
-		DIYLabel itemSlot = new DIYLabel(DIYToolkit.getInstance().getRendererProperties().getImageResource("icon/itemslot"));
-		DIYLabel itemIcon = new DIYLabel(Database.getInstance().getImage(item.getImage()));
-		addRelative(itemSlot, getBorder(), getBorder(), 35, 35);
-		itemIcon.setBounds(itemSlot.getBounds());
-		itemIcon.setIconAlign(DIYToolkit.Align.CENTER);
-		this.add(itemIcon);
+		ItemWidget itemWidget = new ItemWidget();
+		itemWidget.setStyle(ItemWidget.Style.ICON_ONLY);
+		addRelative(itemWidget, getBorder(), getBorder(), 35, 35);
+		itemWidget.setItem(item);
 
 		// Item weight
 		DIYLabel weightLabel = new DIYLabel(

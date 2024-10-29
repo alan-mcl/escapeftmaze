@@ -68,6 +68,9 @@ mdw.magic = Magic Modifiers
 # magic display widget
 madw.title = Magic
 
+# grant items widget
+giw.title = Take Items
+
 # modifier display widget
 mdw.influence.base = Base
 mdw.influence.gender = Gender (%s)
