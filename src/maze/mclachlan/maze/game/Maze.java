@@ -118,9 +118,9 @@ public class Maze implements Runnable
 	private List<PlayerCharacter> pendingPartyOrder;
 	private int pendingFormation;
 
-	private Object eventMutex = new Object();
+	private final Object eventMutex = new Object();
 	private Map<String, PlayerCharacter> playerCharacterCache = 
-		new HashMap<String, PlayerCharacter>();
+		new HashMap<>();
 
 	private EventProcessor processor;
 

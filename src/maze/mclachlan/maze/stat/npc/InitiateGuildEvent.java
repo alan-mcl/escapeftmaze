@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.npc;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
@@ -52,7 +53,19 @@ public class InitiateGuildEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		GuildDisplayDialogForNpc dialog = new GuildDisplayDialogForNpc(npc,
+		List<String> guild = npc.getGuild();
+
+		List<PlayerCharacter> guildPcs = new ArrayList<>();
+		for (String name : guild)
+		{
+			guildPcs.add(Maze.getInstance().getPlayerCharacters().get(name));
+		}
+
+		GuildDisplayDialogForNpc dialog = new GuildDisplayDialogForNpc(
+			GuildDisplayDialogForNpc.Mode.NPC,
+			StringUtil.getUiLabel("gdd.title", npc.getDisplayName()),
+			guildPcs,
+			npc.getSellsAt(),
 			new GuildCallback()
 			{
 				@Override

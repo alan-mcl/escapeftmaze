@@ -163,7 +163,6 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 					break;
 				}
 			}
-
 		}
 	}
 

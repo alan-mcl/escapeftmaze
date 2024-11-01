@@ -1716,25 +1716,27 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	/*-------------------------------------------------------------------------*/
 	private void setStartingKit(StartingKit si)
 	{
-		if (race.getStartingItems() != null && !race.getStartingItems().isEmpty())
-		{
-			this.startingKit = si;
-		}
-		else
-		{
-			this.startingKit = si;
-		}
+		this.startingKit = si;
 
 		kitDesc.setText(startingKit.getDescription()==null?"(null)":startingKit.getDescription());
 
-		StatModifier mod = switch (characterClass.getFocus())
-			{
-				case COMBAT -> this.startingKit.getCombatModifiers();
-				case STEALTH -> this.startingKit.getStealthModifiers();
-				case MAGIC -> this.startingKit.getMagicModifiers();
-				default ->
-					throw new MazeException("Invalid focus " + characterClass.getFocus());
-			};
+		StatModifier mod;
+		if (this.characterClass != null)
+		{
+			mod = switch (characterClass.getFocus())
+				{
+					case COMBAT -> this.startingKit.getCombatModifiers();
+					case STEALTH -> this.startingKit.getStealthModifiers();
+					case MAGIC -> this.startingKit.getMagicModifiers();
+					default ->
+						throw new MazeException("Invalid focus " + characterClass.getFocus());
+				};
+		}
+		else
+		{
+			// default to something
+			mod = startingKit.getCombatModifiers();
+		}
 
 		this.kitModifiersWidget1.setStatModifier(mod, false);
 		this.kitModifiersWidget2.setStatModifier(mod, false);

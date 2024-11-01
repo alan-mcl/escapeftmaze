@@ -553,11 +553,12 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		{
 			if (cacheItem.getItem() != null)
 			{
-				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(
-					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
+				Point tile = maze.getTile();
+				Zone zone = maze.getCurrentZone();
 
-				ItemCacheManager.getInstance().clearItemsOnTile(
-					Maze.getInstance().getCurrentZone(), Maze.getInstance().getTile());
+				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(zone, tile);
+				ItemCacheManager.getInstance().clearItemsOnTile(zone, tile);
+				refreshCachedItems(zone, tile);
 
 				Maze.getInstance().grantItems(items);
 				return true;

@@ -5,6 +5,7 @@ common.exit = Exit
 common.cancel = Cancel
 common.gametime = Day %s, turn %s
 common.gp = %sgp
+common.failed = Failed!
 
 # the create character wizard
 cc.title = Create Character
@@ -449,7 +450,8 @@ trd.buy = (B)uy
 trd.party.gold = Party Gold: %sgp
 
 # guild display dialog
-gdd.title = Guild of %s
+gdd.title = Guild
+gdd.title.npc = Guild of %s
 gdd.add.to.party = (A)dd To Party
 gdd.remove.from.party = (R)emove From Party
 gdd.create.character = (C)reate Character

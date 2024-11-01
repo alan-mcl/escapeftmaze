@@ -34,8 +34,9 @@ import mclachlan.diygui.toolkit.DIYToolkit;
  */
 public class GuildDisplayWidget extends ContainerWidget
 {
-	private final DIYListBox list;
 	private final List<PlayerCharacter> characters;
+	private final DIYListBox list;
+	private final DIYScrollPane scroller;
 
 	/*-------------------------------------------------------------------------*/
 	public GuildDisplayWidget(Rectangle bounds, List<PlayerCharacter> characters)
@@ -47,7 +48,7 @@ public class GuildDisplayWidget extends ContainerWidget
 		Collections.sort(guildCharacters);
 		list = new DIYListBox(guildCharacters, new Rectangle(x, y, width, height));
 
-		DIYScrollPane scroller = new DIYScrollPane(x, y, width, height, list);
+		scroller = new DIYScrollPane(x, y, width, height, list);
 		
 		add(scroller);
 	}
@@ -115,6 +116,22 @@ public class GuildDisplayWidget extends ContainerWidget
 		if (list.getItems().size() > 0)
 		{
 			list.setSelected(list.getItems().get(0));
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public void setBounds(int x, int y, int width, int height)
+	{
+		super.setBounds(x,y,width,height);
+
+		if (list != null && scroller != null)
+		{
+			scroller.remove(list);
+			list.setBounds(x, y, width, height);
+			scroller.setBounds(x, y, width, height);
+			scroller.add(list);
 		}
 	}
 

@@ -205,9 +205,25 @@ public class MainMenu extends DIYPanel
 
 	public void addCharacter()
 	{
+		Map<String, PlayerCharacter> guild = Database.getInstance().getCharacterGuild();
+
+		List<PlayerCharacter> niceList = new ArrayList<>(guild.values());
+
+		//remove any already in the party
+		if (Maze.getInstance().getParty() != null)
+		{
+			for (PlayerCharacter pc : Maze.getInstance().getParty().getPlayerCharacters())
+			{
+				niceList.removeIf(guildPc -> guildPc.getName().equals(pc.getName()));
+			}
+		}
+
 		Maze.getInstance().getUi().showDialog(
-			new GuildDisplayDialog(
-				Database.getInstance().getCharacterGuild(),
+			new GuildDisplayDialogForNpc(
+				GuildDisplayDialogForNpc.Mode.MAIN_MENU,
+				StringUtil.getUiLabel("gdd.title"),
+				niceList,
+				0,
 				this));
 	}
 
@@ -248,11 +264,17 @@ public class MainMenu extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	public boolean characterChosen(PlayerCharacter pc, int pcIndex)
 	{
+		return removeCharacterFromParty(pc);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean removeCharacterFromParty(PlayerCharacter pc)
+	{
 		Maze.getInstance().removePlayerCharacterFromParty(pc);
 		updateState();
 		return true;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Enable and disable various buttons based on guild and party state.
@@ -314,7 +336,7 @@ public class MainMenu extends DIYPanel
 	/*-------------------------------------------------------------------------*/
 	public void removeFromParty(PlayerCharacter pc, int recruitPrice)
 	{
-		// not applicable to guild dialog
+		removeCharacterFromParty(pc);
 	}
 
 	/*-------------------------------------------------------------------------*/

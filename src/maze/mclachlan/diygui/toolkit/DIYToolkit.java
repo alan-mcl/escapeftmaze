@@ -701,14 +701,20 @@ public class DIYToolkit
 				getDialog().processKeyPressed(e);
 			}
 		}
-		else if (focusWidget != null && focusWidget.isEnabled())
+		else if (isWidgetInteractable(focusWidget))
 		{
 			focusWidget.processKeyPressed(e);
 		}
-		else if (hoverWidget != null && hoverWidget.isEnabled())
+		else if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processKeyPressed(e);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private boolean isWidgetInteractable(Widget widget)
+	{
+		return widget != null && widget.isEnabled() && widget.isVisible();
 	}
 
 	/*----------------------------------------------------------------------*/
@@ -718,11 +724,11 @@ public class DIYToolkit
 		{
 			getDialog().processKeyReleased(e);
 		}
-		else if (focusWidget != null && focusWidget.isEnabled())
+		else if (isWidgetInteractable(focusWidget))
 		{
 			focusWidget.processKeyReleased(e);
 		}
-		else if (hoverWidget != null && hoverWidget.isEnabled())
+		else if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processKeyReleased(e);
 		}
@@ -735,11 +741,11 @@ public class DIYToolkit
 		{
 			getDialog().processKeyTyped(e);
 		}
-		else if (focusWidget != null && focusWidget.isEnabled())
+		else if (isWidgetInteractable(focusWidget))
 		{
 			focusWidget.processKeyTyped(e);
 		}
-		else if (hoverWidget != null && hoverWidget.isEnabled())
+		else if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processKeyTyped(e);
 		}
@@ -795,7 +801,7 @@ public class DIYToolkit
 	public void mouseEntered(MouseEvent e)
 	{
 		hoverWidget = getHoverComponent(e.getPoint());
-		if (hoverWidget != null && hoverWidget.isEnabled())
+		if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processMouseEntered(e);
 		}
@@ -805,7 +811,7 @@ public class DIYToolkit
 	public void mouseExited(MouseEvent e)
 	{
 		hoverWidget = getHoverComponent(e.getPoint());
-		if (hoverWidget != null && hoverWidget.isEnabled())
+		if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processMouseExited(e);
 		}
@@ -814,7 +820,7 @@ public class DIYToolkit
 	/*----------------------------------------------------------------------*/
 	public void mousePressed(MouseEvent e)
 	{
-		if (hoverWidget != null && hoverWidget.isEnabled())
+		if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processMousePressed(e);
 		}
@@ -823,7 +829,7 @@ public class DIYToolkit
 	/*----------------------------------------------------------------------*/
 	public void mouseReleased(MouseEvent e)
 	{
-		if (hoverWidget != null && hoverWidget.isEnabled())
+		if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processMouseReleased(e);
 		}
@@ -843,7 +849,7 @@ public class DIYToolkit
 		{
 			if (currentHoverWidget != hoverWidget)
 			{
-				if (hoverWidget != null && hoverWidget.isEnabled())
+				if (isWidgetInteractable(hoverWidget))
 				{
 					hoverWidget.processMouseExited(e);
 					cancelTooltip();
@@ -851,11 +857,13 @@ public class DIYToolkit
 
 				hoverWidget = currentHoverWidget;
 
-				if (hoverWidget != null && hoverWidget.isEnabled())
+				if (isWidgetInteractable(hoverWidget))
 				{
 					hoverWidget.processMouseEntered(e);
 
-					if (hoverWidget.getTooltip() != null)
+					String tt = hoverWidget != null? hoverWidget.getTooltip() : null;
+
+					if (tt != null)
 					{
 						TimerTask task = new TimerTask()
 						{
@@ -863,7 +871,7 @@ public class DIYToolkit
 							public void run()
 							{
 								Point p = MouseInfo.getPointerInfo().getLocation();
-								tooltip = new DIYTooltip(hoverWidget.getTooltip(), p.x, p.y);
+								tooltip = new DIYTooltip(tt, p.x, p.y);
 							}
 						};
 						hoverWidget.setTooltipTimerTask(task);

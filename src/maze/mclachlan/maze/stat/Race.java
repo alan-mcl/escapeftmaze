@@ -492,7 +492,7 @@ public class Race extends DataObject implements TypeDescriptor
 		{
 			public String getImage()
 			{
-				return getLeftHandIcon();
+				return getRightHandIcon();
 			}
 		};
 	}

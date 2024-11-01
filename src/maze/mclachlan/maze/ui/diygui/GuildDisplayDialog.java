@@ -26,8 +26,6 @@ import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -80,13 +78,7 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 		gdWidget = new GuildDisplayWidget(listBounds, niceList);
 
 		DIYPane titlePane = getTitlePane("Guild");
-
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(
-			startX + getBorder() + getInset(),
-			startY +DIALOG_HEIGHT - getBorder() - getButtonPaneHeight(),
-			DIALOG_WIDTH - getBorder() *2 - getInset() *2,
-			getButtonPaneHeight());
+		DIYPane buttonPane = getButtonPane();
 
 		addCharacter = new DIYButton(StringUtil.getUiLabel("gdd.add.to.party"));
 		addCharacter.addActionListener(this);
@@ -112,10 +104,9 @@ public class GuildDisplayDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_A -> addCharacter();
+			case KeyEvent.VK_A, KeyEvent.VK_ENTER -> addCharacter();
 			case KeyEvent.VK_D -> deleteCharacter();
 			case KeyEvent.VK_ESCAPE -> exit();
-			case KeyEvent.VK_ENTER -> addCharacter();
 			default -> gdWidget.processKeyPressed(e);
 		}
 	}

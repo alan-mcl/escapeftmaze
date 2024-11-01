@@ -60,7 +60,7 @@ public class DIYListBox extends ContainerWidget
 	{
 		this.items = items;
 		
-		List<Widget> children = new ArrayList<Widget>(this.getChildren());
+		List<Widget> children = new ArrayList<>(this.getChildren());
 		for (Widget w : children)
 		{
 			this.remove(w);
@@ -117,25 +117,31 @@ public class DIYListBox extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
-		int maxWidth = 0;
-		int maxHeight = 0;
+		int estWidth = 0;
+		int estHeight = 0;
 
 		for (Object item : items)
 		{
 			String s = item.toString();
 			Dimension d = DIYToolkit.getDimension(s);
 
-			if (maxWidth < d.width)
+			if (estWidth < d.width)
 			{
-				maxWidth = d.width;
+				estWidth = d.width;
 			}
-			if (maxHeight < d.height)
+			if (estHeight < d.height)
 			{
-				maxHeight = d.height;
+				estHeight = d.height;
 			}
 		}
 
-		return new Dimension(maxWidth, (maxHeight+2)*items.size());		
+		// to accomodate list boxes that start empty and get things added.
+		int minWidth = (this.width == 0) ? 50 : this.width;
+		int minHeight = (this.height == 0) ? 200 : this.height;
+
+		return new Dimension(
+			Math.max(minWidth, estWidth),
+			Math.max(minHeight, (estHeight+2)*items.size()));
 	}
 	
 	/*-------------------------------------------------------------------------*/

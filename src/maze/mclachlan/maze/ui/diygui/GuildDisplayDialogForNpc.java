@@ -19,7 +19,6 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.*;
@@ -32,7 +31,6 @@ import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.PlayerParty;
@@ -43,76 +41,111 @@ import mclachlan.maze.stat.PlayerParty;
 public class GuildDisplayDialogForNpc extends GeneralDialog
 	implements ActionListener, ChooseCharacterCallback
 {
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
+	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3*2;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
 
-	private GuildDisplayWidget gdWidget;
-	private DIYButton addToParty, removeFromParty, createCharacter, exit;
-	private GuildCallback guildCallback;
-	private int recruitPrice;
-	private int createPrice;
-	private DIYLabel partyGoldLabel = new DIYLabel();
+	private final GuildDisplayWidget gdWidget;
+	private final DIYButton addToParty, removeFromParty, createCharacter, close;
+	private final GuildCallback guildCallback;
+	private final int recruitPrice;
+	private final int createPrice;
+	private final DIYLabel partyGoldLabel;
+
+	private final Mode mode;
+
+	public enum Mode
+	{
+		MAIN_MENU,
+		NPC
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public GuildDisplayDialogForNpc(
-		Foe npc,
+		Mode mode,
+		String title,
+		List<PlayerCharacter> guild,
+		int costMult,
 		GuildCallback guildCallback)
 	{
+		this.mode = mode;
+
 		this.guildCallback = guildCallback;
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
 
+		int buttonPaneHeight = getButtonPaneHeight();
+		int inset = getInset();
+		int titlePaneHeight = getTitlePaneHeight();
+		int border = getBorder();
+
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 125;
-		int inset = 10;
-		int titlePaneHeight = 20;
-		Rectangle isBounds = new Rectangle(startX+ inset, startY+ inset + titlePaneHeight,
-			DIALOG_WIDTH- inset *2, DIALOG_HEIGHT- buttonPaneHeight - titlePaneHeight - inset *4);
+		Rectangle isBounds = new Rectangle(
+			startX +border +inset,
+			startY +border +inset +titlePaneHeight,
+			DIALOG_WIDTH -inset*2 -border*2,
+			DIALOG_HEIGHT -buttonPaneHeight -titlePaneHeight -inset*4 -border*2);
 		
 		this.setBounds(dialogBounds);
 
-		List<PlayerCharacter> list = new ArrayList<PlayerCharacter>();
-		for (String name : npc.getGuild())
-		{
-			list.add(Maze.getInstance().getPlayerCharacters().get(name));
-		}
-			
-		gdWidget = new GuildDisplayWidget(isBounds, list);
+		gdWidget = new GuildDisplayWidget(isBounds, guild);
 
-		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("gdd.title", npc.getDisplayName()));
+		DIYPane titlePane = getTitlePane(title);
 
-		DIYPane buttonPane = new DIYPane(new DIYGridLayout(2, 5, 5, 5));
-		buttonPane.setInsets(new Insets(5,20,5,20));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
-		exit.addActionListener(this);
-		
+		DIYPane buttonPane = getButtonPane();
+
+		close = getCloseButton();
+		close.addActionListener(this);
+
 		addToParty = new DIYButton(StringUtil.getUiLabel("gdd.add.to.party"));
 		addToParty.addActionListener(this);
-		
+
 		removeFromParty = new DIYButton(StringUtil.getUiLabel("gdd.remove.from.party"));
 		removeFromParty.addActionListener(this);
-		
+
 		createCharacter = new DIYButton(StringUtil.getUiLabel("gdd.create.character"));
 		createCharacter.addActionListener(this);
 
-		recruitPrice = GameSys.getInstance().getRecruitCharacterCost()*npc.getSellsAt()/100;
-		createPrice = GameSys.getInstance().getCreateCharacterCost()*npc.getSellsAt()/100;
+		recruitPrice = GameSys.getInstance().getRecruitCharacterCost()*costMult/100;
+		createPrice = GameSys.getInstance().getCreateCharacterCost()*costMult/100;
+
+		partyGoldLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
+		partyGoldLabel.setBounds(
+			x +border +inset,
+			y +border +inset,
+			100,
+			25);
+
+		if (mode == Mode.NPC)
+		{
+			buttonPane.setLayoutManager(new DIYGridLayout(3, 2, 5, 5));
+			buttonPane.setBounds(
+				buttonPane.x,
+				buttonPane.y -buttonPaneHeight,
+				buttonPane.width,
+				buttonPaneHeight*2);
+
+			isBounds.height -= buttonPaneHeight;
+
+			gdWidget.setBounds(isBounds);
+		}
 
 		buttonPane.add(addToParty);
-		buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", recruitPrice), DIYToolkit.Align.LEFT));
 		buttonPane.add(removeFromParty);
-		buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", recruitPrice), DIYToolkit.Align.LEFT));
-		buttonPane.add(createCharacter);
-		buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", createPrice), DIYToolkit.Align.LEFT));
-		buttonPane.add(partyGoldLabel);
-		buttonPane.add(new DIYLabel());
-		buttonPane.add(exit);
-		buttonPane.add(new DIYLabel(""));
+
+		if (mode == Mode.NPC)
+		{
+			buttonPane.add(createCharacter);
+			buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", recruitPrice), DIYToolkit.Align.CENTER));
+			buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", recruitPrice), DIYToolkit.Align.CENTER));
+			buttonPane.add(new DIYLabel(StringUtil.getUiLabel("gdd.cost", createPrice), DIYToolkit.Align.CENTER));
+			this.add(partyGoldLabel);
+		}
 
 		this.add(titlePane);
 		this.add(gdWidget);
 		this.add(buttonPane);
+		this.add(close);
+
 		this.doLayout();
 		
 		refresh();
@@ -121,15 +154,22 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	/*-------------------------------------------------------------------------*/
 	void refresh()
 	{
-		PlayerParty party = Maze.getInstance().getParty();
-		int partyGold = party.getGold();
+		if (mode == Mode.NPC)
+		{
+			PlayerParty party = Maze.getInstance().getParty();
+			int partyGold = party.getGold();
 
-		partyGoldLabel.setText(StringUtil.getUiLabel("gdd.party.gold", partyGold));
-		
-		addToParty.setEnabled(party.size() < 6 && partyGold >= recruitPrice);
-		removeFromParty.setEnabled(party.size() > 1 && partyGold >= recruitPrice);
-		createCharacter.setEnabled(partyGold >= createPrice);
-		gdWidget.refresh();
+			partyGoldLabel.setText(StringUtil.getUiLabel("gdd.party.gold", partyGold));
+
+			addToParty.setEnabled(party.size() < 6 && partyGold >= recruitPrice);
+			removeFromParty.setEnabled(party.size() > 1 && partyGold >= recruitPrice);
+			createCharacter.setEnabled(partyGold >= createPrice);
+			gdWidget.refresh();
+		}
+		else
+		{
+			// no op
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -137,28 +177,21 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
-				exit();
-				break;
-			case KeyEvent.VK_A:
-				addToParty();
-				break;
-			case KeyEvent.VK_R:
-				removeFromParty();
-				break;
-			case KeyEvent.VK_C:
-				createCharacter();
-				break;
-			default:
-				gdWidget.processKeyPressed(e);
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			case KeyEvent.VK_A -> addToParty();
+			case KeyEvent.VK_R -> removeFromParty();
+			case KeyEvent.VK_C ->
+			{
+				if (mode == Mode.MAIN_MENU) { createCharacter(); }
+			}
+			default -> gdWidget.processKeyPressed(e);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == exit)
+		if (event.getSource() == close)
 		{
 			exit();
 			return true;
@@ -214,7 +247,10 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	{
 		// assume it is the "remove character from party" callback
 		PlayerParty party = Maze.getInstance().getParty();
-		if (party != null && party.size() > 1)
+
+		int minInParty = mode == Mode.MAIN_MENU ? 0 : 1;
+
+		if (party != null && party.size() > minInParty)
 		{
 			guildCallback.removeFromParty(pc, recruitPrice);
 			gdWidget.add(pc);

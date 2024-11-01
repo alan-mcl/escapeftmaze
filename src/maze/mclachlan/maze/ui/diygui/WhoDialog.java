@@ -19,19 +19,21 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Cursor;
+import java.awt.Point;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.event.MouseEvent;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.DIYToolkit;
-import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.KeyEvent;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.PlayerCharacter;
 
 /* Not one of my greatest moments. */
 class WhoDialog extends DIYPane
 {
-	private ChooseCharacterCallback callback;
+	private final ChooseCharacterCallback callback;
 
 	/*----------------------------------------------------------------------*/
 	public WhoDialog(ChooseCharacterCallback callback)
@@ -58,15 +60,19 @@ class WhoDialog extends DIYPane
 	/*----------------------------------------------------------------------*/
 	public void processMouseClicked(MouseEvent e)
 	{
-		if (e.getSource() instanceof PlayerCharacterWidget)
+		// because of the invisible pane behind the dialog we need to base this
+		// on the point of the click
+		for (PlayerCharacter pc : Maze.getInstance().getParty().getPlayerCharacters())
 		{
-			chooseCharacter(((PlayerCharacterWidget)e.getSource()).getPlayerCharacter());
+			if (Maze.getInstance().getUi().getPlayerCharacterWidgetBounds(pc).contains(e.getPoint()))
+			{
+				chooseCharacter(pc);
+				break;
+			}
 		}
-		else
-		{
-			// a mouse click elsewhere deselects "WHO?" mode.
-			destroy();
-		}
+
+		// a mouse click elsewhere deselects "WHO?" mode.
+		destroy();
 	}
 
 	/*----------------------------------------------------------------------*/
@@ -76,33 +82,19 @@ class WhoDialog extends DIYPane
 		PlayerCharacter playerCharacter = null;
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_1:
-			case KeyEvent.VK_NUMPAD1:
+			case KeyEvent.VK_1, KeyEvent.VK_NUMPAD1 ->
 				playerCharacter = Maze.getInstance().getPlayerCharacter(0);
-				break;
-			case KeyEvent.VK_2:
-			case KeyEvent.VK_NUMPAD2:
+			case KeyEvent.VK_2, KeyEvent.VK_NUMPAD2 ->
 				playerCharacter = Maze.getInstance().getPlayerCharacter(1);
-				break;
-			case KeyEvent.VK_3:
-			case KeyEvent.VK_NUMPAD3:
+			case KeyEvent.VK_3, KeyEvent.VK_NUMPAD3 ->
 				playerCharacter = Maze.getInstance().getPlayerCharacter(2);
-				break;
-			case KeyEvent.VK_4:
-			case KeyEvent.VK_NUMPAD4:
+			case KeyEvent.VK_4, KeyEvent.VK_NUMPAD4 ->
 				playerCharacter = Maze.getInstance().getPlayerCharacter(3);
-				break;
-			case KeyEvent.VK_5:
-			case KeyEvent.VK_NUMPAD5:
+			case KeyEvent.VK_5, KeyEvent.VK_NUMPAD5 ->
 				playerCharacter = Maze.getInstance().getPlayerCharacter(4);
-				break;
-			case KeyEvent.VK_6:
-			case KeyEvent.VK_NUMPAD6:
+			case KeyEvent.VK_6, KeyEvent.VK_NUMPAD6 ->
 				playerCharacter = Maze.getInstance().getPlayerCharacter(5);
-				break;
-			case KeyEvent.VK_ESCAPE:
-				destroy();
-				break;
+			case KeyEvent.VK_ESCAPE -> destroy();
 		}
 
 		if (playerCharacter != null)
