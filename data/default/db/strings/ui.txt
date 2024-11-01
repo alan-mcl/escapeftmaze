@@ -5,7 +5,6 @@ common.exit = Exit
 common.cancel = Cancel
 common.gametime = Day %s, turn %s
 common.gp = %sgp
-common.failed = Failed!
 
 # the create character wizard
 cc.title = Create Character

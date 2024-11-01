@@ -31,8 +31,8 @@ import mclachlan.maze.ui.diygui.TradingDialog;
  */
 public class InitiateTradeEvent extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private Foe npc;
+	private final PlayerCharacter pc;
+	private final Foe npc;
 
 	/*-------------------------------------------------------------------------*/
 	public InitiateTradeEvent(

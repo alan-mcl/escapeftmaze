@@ -19,8 +19,6 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
@@ -33,8 +31,6 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
-
 /**
  *
  */
@@ -43,11 +39,11 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/8*7;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/8*7;
 
-	private TradingWidget pcWidget, npcWidget;
-	private DIYButton buy, sell, exit;
-	private Foe npc;
-	private PlayerCharacter pc;
-	private DIYLabel goldLabel;
+	private final TradingWidget pcWidget, npcWidget;
+	private final DIYButton buy, sell, close;
+	private final Foe npc;
+	private final PlayerCharacter pc;
+	private final DIYLabel partyGoldLabel;
 
 	/*-------------------------------------------------------------------------*/
 	public TradingDialog(
@@ -63,40 +59,65 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 20;
-		int inset = 10;
-
 		this.setBounds(dialogBounds);
+
+		int buttonPaneHeight = getButtonPaneHeight();
+		int inset = getInset();
+		int border = getBorder();
+		int titlePaneHeight = getTitlePaneHeight();
+
+		int column1x = x +border +inset;
+		int columnWidth = (width -border*2 -inset*3) /2;
+		int column2x = column1x +columnWidth +inset;
+
 		pcWidget = new TradingWidget(
 			pc, pc.getInventory(), getNpcBuysAt(npc, pc), 0, pc.getInventory().size(), this, true);
 		npcWidget = new TradingWidget(
 			pc, new Inventory(npc.getTradingInventory()), getNpcSellsAt(npc, pc), 0, -1, this, true);
 
-		DIYPane titlePane = new DIYPane(new DIYGridLayout(1, 2, 0, 0));
-		DIYLabel title = new DIYLabel(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));
-		titlePane.setBounds(x, y + getBorder(), width, getTitlePaneHeight() +20);
-		title.setForegroundColour(GOLD);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
-		title.setFont(f);
-		titlePane.add(title);
-		goldLabel = new DIYLabel();
-		goldLabel.setForegroundColour(Color.WHITE);
-		titlePane.add(goldLabel);
+		DIYPane titlePane = getTitlePane(StringUtil.getUiLabel("trd.title",pc.getName(), npc.getDisplayName()));
+		partyGoldLabel = new DIYLabel("", DIYToolkit.Align.LEFT);
+		partyGoldLabel.setBounds(
+			column1x,
+			y +border +inset,
+			100,
+			25);
+		titlePane.add(partyGoldLabel);
 
 		refresh(pc, npc);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
-		exit.addActionListener(this);
-		buttonPane.add(exit);
+		int tradingPaneY = y +border +titlePaneHeight +inset;
+		int tradingPaneHeight = DIALOG_HEIGHT - titlePaneHeight -buttonPaneHeight -border*2 -inset*3;
+		DIYScrollPane pcPane = new DIYScrollPane(
+			column1x,
+			tradingPaneY,
+			columnWidth,
+			tradingPaneHeight,
+			pcWidget);
+		DIYScrollPane npcPane = new DIYScrollPane(
+			column2x,
+			tradingPaneY,
+			columnWidth,
+			tradingPaneHeight,
+			npcWidget);
+
+		close = getCloseButton();
+		close.addActionListener(this);
+		this.add(close);
 
 		DIYPane pcButtonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		pcButtonPane.setBounds(x, y+height- buttonPaneHeight *2- inset *2, width/2, buttonPaneHeight);
+		pcButtonPane.setBounds(
+			column1x,
+			pcPane.y +pcPane.height +inset,
+			columnWidth,
+			buttonPaneHeight);
 
 		DIYPane npcButtonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		npcButtonPane.setBounds(x+width/2, y+height- buttonPaneHeight *2- inset *2, width/2, buttonPaneHeight);
+		npcButtonPane.setBounds(
+			column2x,
+			pcPane.y +pcPane.height +inset,
+			columnWidth,
+			buttonPaneHeight);
 
 		sell = new DIYButton(StringUtil.getUiLabel("trd.sell"));
 		sell.addActionListener(this);
@@ -107,15 +128,6 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		pcButtonPane.add(sell);
 		npcButtonPane.add(buy);
 
-		int tradingPaneY = y+ buttonPaneHeight *2+ inset;
-		int tradingPaneWidth = (DIALOG_WIDTH- inset *3)/2;
-		int tradingPaneHeight = DIALOG_HEIGHT- buttonPaneHeight *5- inset *2;
-		DIYScrollPane pcPane = new DIYScrollPane(
-			x+ inset, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
-			pcWidget);
-		DIYScrollPane npcPane = new DIYScrollPane(
-			x+ inset *2+tradingPaneWidth, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
-			npcWidget);
 
 		// initial state: selling
 		npcWidget.setSelected(null);
@@ -126,7 +138,6 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 		this.add(pcButtonPane);
 		this.add(npcPane);
 		this.add(npcButtonPane);
-		this.add(buttonPane);
 		this.doLayout();
 	}
 
@@ -161,7 +172,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void refresh(PlayerCharacter pc, Foe npc)
 	{
-		goldLabel.setText(StringUtil.getUiLabel(
+		partyGoldLabel.setText(StringUtil.getUiLabel(
 			"trd.party.gold",Maze.getInstance().getParty().getGold()));
 		npc.sortInventory();
 	}
@@ -174,25 +185,14 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 			return;
 		}
 
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_B:
-				buy();
-				break;
-			case KeyEvent.VK_S:
-				sell();
-				break;
-			case KeyEvent.VK_ESCAPE:
-			case KeyEvent.VK_ENTER:
-				exit();
-				break;
-			case KeyEvent.VK_LEFT:
-				switchToSell();
-				break;
-			case KeyEvent.VK_RIGHT:
-				switchToBuy();
-				break;
-			default:
+			case KeyEvent.VK_B -> buy();
+			case KeyEvent.VK_S -> sell();
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			case KeyEvent.VK_LEFT -> switchToSell();
+			case KeyEvent.VK_RIGHT -> switchToBuy();
+			default ->
 			{
 				if (pcWidget.getSelected() != null)
 				{
@@ -258,7 +258,7 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 			return true;
 		}
-		else if (obj == exit)
+		else if (obj == close)
 		{
 			exit();
 

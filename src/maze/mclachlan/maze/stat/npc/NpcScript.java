@@ -45,7 +45,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> endOfTurn(long turnNr)
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -75,7 +75,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> subsequentGreeting()
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -107,9 +107,7 @@ public abstract class NpcScript
 	/*-------------------------------------------------------------------------*/
 	protected List<MazeEvent> getList(MazeEvent... events)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
-		result.addAll(Arrays.asList(events));
-		return result;
+		return new ArrayList<>(Arrays.asList(events));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -159,7 +157,7 @@ public abstract class NpcScript
 	 */
 	public List<MazeEvent> mindReadFails(int strength)
 	{
-		return getList(new FlavourTextEvent(StringUtil.getEventText("common.failed")));
+		return getList(new FlavourTextEvent(StringUtil.getEventText("event.failed")));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -190,7 +188,7 @@ public abstract class NpcScript
 		total = Math.max(-25, total);
 
 		return getList(
-			new FlavourTextEvent(StringUtil.getEventText("common.failed")),
+			new FlavourTextEvent(StringUtil.getEventText("event.failed")),
 			new ChangeNpcAttitudeEvent(npc, NpcFaction.AttitudeChange.WORSE));
 	}
 
