@@ -25,15 +25,14 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.ui.diygui.GetAmount;
-import mclachlan.maze.ui.diygui.GetAmountCallback;
 
 /**
  *
  */
 public class ChooseBriberyAmount extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private Foe npc;
+	private final PlayerCharacter pc;
+	private final Foe npc;
 
 	/*-------------------------------------------------------------------------*/
 	public ChooseBriberyAmount(
@@ -57,16 +56,10 @@ public class ChooseBriberyAmount extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		new GetAmount(
-			new GetAmountCallback()
-			{
-				@Override
-				public boolean amountChosen(int amount, PlayerCharacter user,
-					int userIndex)
-				{
-					Maze.getInstance().appendEvents(
-						new BriberyEvent(npc, user, amount));
-					return true;
-				}
+			(amount, user, userIndex) -> {
+				Maze.getInstance().appendEvents(
+					new BriberyEvent(npc, user, amount));
+				return true;
 			},
 			pc,
 			Maze.getInstance().getParty().getGold());

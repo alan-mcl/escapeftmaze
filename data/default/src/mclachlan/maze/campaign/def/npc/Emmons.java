@@ -42,7 +42,7 @@ public class Emmons extends NpcScript
 			new NpcSpeechEvent("Could it be ... ye're newcomers to this here Second Realm?", npc),
 			new NpcSpeechEvent("Ha! Newly arrived through the Great Gate eh! Been a while, quite a while, since Emmons has seen the likes of ye!", npc),
 			new NpcSpeechEvent("Where are me manners?\n\nGreetings travellers, from Emmons, called by some The Hand. On account of me skill at juggling.", npc),
-			new NpcSpeechEvent("Now mind you I have have little time for prattle. Got business to take care of.\n\nNo doubt ye'll be wanting to move on quickly to Ichiba...", npc));
+			new NpcSpeechEvent("Now mind you I have little time for prattle. Got business to take care of.\n\nNo doubt ye'll be wanting to move on quickly to Ichiba ...", npc));
 	}
 
 	public List<MazeEvent> subsequentGreeting()

@@ -22,13 +22,10 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
-import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYTextField;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.UnifiedActor;
@@ -39,9 +36,8 @@ import mclachlan.maze.stat.UnifiedActor;
 public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListener
 {
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/6;
 
-	private final DIYButton okButton, cancel;
+	private final DIYButton okButton, close;
 	private final DIYTextField inputField;
 	private final TextDialogCallback textDialogCallback;
 
@@ -53,34 +49,40 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 		super();
 		this.textDialogCallback = textDialogCallback;
 
+		int border = getBorder();
+		int inset = getInset();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int titlePaneHeight = getTitlePaneHeight();
+
+		int DIALOG_HEIGHT = border*2 +inset*3 +titlePaneHeight +buttonPaneHeight +50;
+
 		int startX = DiyGuiUserInterface.LOW_BOUNDS.x + DiyGuiUserInterface.LOW_BOUNDS.width/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.LOW_BOUNDS.y + DiyGuiUserInterface.LOW_BOUNDS.height/2 - DIALOG_HEIGHT/2;
 
 		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-
 		this.setBounds(dialogBounds);
 
-		DIYPane labelPane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
-		int buttonPaneHeight = 20;
-		labelPane.setBounds(x, y + getInset(), width, buttonPaneHeight);
-		labelPane.add(new DIYLabel(pc.getDisplayName()+" : "));
+
+		DIYPane title = getTitlePane(StringUtil.getUiLabel("gps.title", pc.getDisplayName()));
 
 		inputField = new DIYTextField();
-		inputField.setBounds(x + getInset(), y + getInset() + buttonPaneHeight, width - getInset() * 2, buttonPaneHeight);
+		inputField.setBounds(
+			x +border +inset,
+			y +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			buttonPaneHeight);
 		inputField.addActionListener(this);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		int inset = 10;
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
+		DIYPane buttonPane = getButtonPane();
 		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		okButton.addActionListener(this);
 		
-		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
-		cancel.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
+		this.add(close);
 
-		this.add(labelPane);
+		this.add(title);
 		this.add(inputField);
 		this.add(buttonPane);
 		this.doLayout();
@@ -89,28 +91,23 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER:
-				finished();
-				break;
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			default:
-				inputField.processKeyPressed(e);
+			case KeyEvent.VK_ENTER -> finished();
+			case KeyEvent.VK_ESCAPE -> exit();
+			default -> inputField.processKeyPressed(e);
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == okButton || event.getSource() == inputField)
+		if (event.getSource() == okButton/* || event.getSource() == inputField*/)
 		{
 			finished();
 			return true;
 		}
-		else if (event.getSource() == cancel) 
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;

@@ -522,3 +522,6 @@ ssd.cost = Cost: %s
 
 # get amount dialog
 gad.how.much = How Much (max %s)?
+
+# get player speech dialog
+gps.title = %s says:
