@@ -40,9 +40,9 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/3*2;
 
-	private StartGameOptionsWidget optionsWidget;
-	private DIYButton okButton, cancel;
-	private StartGameCallback callback;
+	private final StartGameOptionsWidget optionsWidget;
+	private final DIYButton okButton, close;
+	private final StartGameCallback callback;
 
 	/*-------------------------------------------------------------------------*/
 	public StartGameOptionsDialog(
@@ -57,16 +57,18 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 			startY,
 			DIALOG_WIDTH,
 			DIALOG_HEIGHT);
-
-		int buttonPaneHeight = 20;
-		int inset = 20;
-		Rectangle isBounds = new Rectangle(
-			startX+ inset,
-			startY+ inset + buttonPaneHeight,
-			DIALOG_WIDTH- inset *2,
-			DIALOG_HEIGHT- buttonPaneHeight *2- inset *4);
-
 		this.setBounds(dialogBounds);
+
+		int inset = getInset();
+		int border = getBorder();
+		int titlePaneHeight = getTitlePaneHeight();
+		int buttonPaneHeight = getButtonPaneHeight();
+
+		Rectangle isBounds = new Rectangle(
+			x +inset +border,
+			y +inset +border +buttonPaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*3 - titlePaneHeight -buttonPaneHeight);
 
 		optionsWidget = new StartGameOptionsWidget(isBounds);
 
@@ -76,10 +78,10 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 		{
 			DIYPane warningPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
 			warningPane.setBounds(
-				x+ buttonPaneHeight,
-				y+ getBorder() + inset,
-				width- buttonPaneHeight *2,
-				buttonPaneHeight *2);
+				x +border +inset,
+				y +border +inset +titlePaneHeight,
+				width -border*2 -inset*2,
+				titlePaneHeight);
 			DIYTextArea warningLabel = new DIYTextArea(StringUtil.getUiLabel("sgo.small.party.warning"));
 			warningLabel.setForegroundColour(Color.WHITE);
 			warningLabel.setTransparent(true);
@@ -88,19 +90,20 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 			this.add(warningPane);
 		}
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		okButton = new DIYButton("OK");
+		DIYPane buttonPane = getButtonPane();
+
+		okButton = new DIYButton(StringUtil.getUiLabel("common.ok"));
 		okButton.addActionListener(this);
-		cancel = new DIYButton("Cancel");
-		cancel.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		buttonPane.add(okButton);
-		buttonPane.add(cancel);
 
 		this.add(titlePane);
 		this.add(optionsWidget);
 		this.add(buttonPane);
+		this.add(close);
+
 		this.doLayout();
 	}
 
@@ -109,14 +112,11 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-				startGame();
-				break;
-			default:
-
+			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> startGame();
+			default ->
+			{
+			}
 		}
 	}
 
@@ -128,7 +128,7 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 			startGame();
 			return true;
 		}
-		else if (event.getSource() == cancel)
+		else if (event.getSource() == close)
 		{
 			exit();
 			return true;

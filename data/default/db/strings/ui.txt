@@ -459,6 +459,7 @@ gdd.cost = cost: %sgp
 gdd.party.gold = Party Gold: %sgp
 
 # pick lock widget
+plw.title = %s: Pick Lock
 plw.picked = picked
 plw.required = required
 plw.chisel = (C)hisel
@@ -500,6 +501,7 @@ fdw.spells = Spells:
 fdw.equipped.items = Equipped Items:
 
 # disarm trap widget
+dtw.title = %s: Disarm Trap
 dtw.name.trap.sense = %s (Trap Sense)
 dtw.inspect = Inspect
 dtw.armed = armed

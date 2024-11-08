@@ -20,7 +20,6 @@
 package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
-import java.awt.Font;
 import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.diygui.DIYLabel;
@@ -53,30 +52,12 @@ public class FoeDetailsWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	private void buildGui(Rectangle bounds, Foe foe, int information)
 	{
-		int inset = 2;
-		int border = 15;
-		int titleWidth = 30;
-
-		int rowHeight = 12;
-		int xx = bounds.x + inset + border;
-		int yy = bounds.y + inset + border + titleWidth;
-		int width1 = bounds.width - inset * 2 - border * 2;
-		int height1 = bounds.height - inset * 2 - border * 2;
-
-		wrapWidth = width1;
-
-		// foe name
-		String displayName;
-		displayName = getDisplayName(foe, information);
-		DIYLabel nameLabel = new DIYLabel(displayName);
-		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+2);
-		nameLabel.setFont(f);
-		nameLabel.setForegroundColour(Constants.Colour.GOLD);
-		addRelative(nameLabel, 46, 8, 540, 36);
+		this.setBounds(bounds);
+		int rowHeight = 18;
+		wrapWidth = width;
 
 		// rows of item details
-		List<Widget> rows = new ArrayList<Widget>();
+		List<Widget> rows = new ArrayList<>();
 		newRow(rows);
 
 		boolean b = false;
@@ -90,7 +71,7 @@ public class FoeDetailsWidget extends DIYPane
 		}
 		b = false;
 
-		DIYPane pane = new DIYPane(xx, yy, width1, rows.size()*rowHeight);
+		DIYPane pane = new DIYPane(x, y, width, rows.size()*rowHeight);
 		pane.setLayoutManager(new DIYGridLayout(1, rows.size(), 0, 0));
 
 		for (int i=0; i<rows.size(); i++)
@@ -100,21 +81,6 @@ public class FoeDetailsWidget extends DIYPane
 		pane.doLayout();
 
 		this.add(pane);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private String getDisplayName(Foe foe, int information)
-	{
-		String displayName;
-		if (information >= 0)
-		{
-			displayName = foe.getName();
-		}
-		else
-		{
-			displayName = foe.getUnidentifiedName();
-		}
-		return displayName;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -131,11 +97,11 @@ public class FoeDetailsWidget extends DIYPane
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void addRelative(Widget w, int x, int y, int width, int height)
-	{
-		w.setBounds(this.x + x, this.y + y, width, height);
-		this.add(w);
-	}
+//	private void addRelative(Widget w, int x, int y, int width, int height)
+//	{
+//		w.setBounds(this.x + x, this.y + y, width, height);
+//		this.add(w);
+//	}
 
 	/*-------------------------------------------------------------------------*/
 	private void wrapString(List<Widget> rows, StringBuilder sb)

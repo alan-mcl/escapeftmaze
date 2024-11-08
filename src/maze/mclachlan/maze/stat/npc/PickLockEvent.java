@@ -30,8 +30,8 @@ import mclachlan.maze.ui.diygui.PickLockWidget;
 
 public class PickLockEvent extends MazeEvent
 {
-	private PlayerCharacter pc;
-	private LockOrTrap lockOrTrap;
+	private final PlayerCharacter pc;
+	private final LockOrTrap lockOrTrap;
 
 	/*-------------------------------------------------------------------------*/
 	public PickLockEvent(
@@ -54,11 +54,13 @@ public class PickLockEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		int x = DiyGuiUserInterface.SCREEN_WIDTH/4;
-		int y = DiyGuiUserInterface.SCREEN_HEIGHT/5*3;
-		Rectangle rectangle = new Rectangle(x, y,
-			DiyGuiUserInterface.SCREEN_WIDTH/2,
-			DiyGuiUserInterface.SCREEN_HEIGHT/3);
+		int width = DiyGuiUserInterface.SCREEN_WIDTH / 2;
+		int height = DiyGuiUserInterface.SCREEN_HEIGHT / 2;
+
+		int x = DiyGuiUserInterface.SCREEN_WIDTH/2 -width/2;
+		int y = DiyGuiUserInterface.SCREEN_HEIGHT/2 -height/2;
+
+		Rectangle rectangle = new Rectangle(x, y, width, height);
 
 		PickLockWidget dialog = new PickLockWidget(lockOrTrap, rectangle, pc);
 		Maze.getInstance().getUi().showDialog(dialog);

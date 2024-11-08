@@ -219,8 +219,8 @@ public class MainMenu extends DIYPanel
 		}
 
 		Maze.getInstance().getUi().showDialog(
-			new GuildDisplayDialogForNpc(
-				GuildDisplayDialogForNpc.Mode.MAIN_MENU,
+			new GuildDisplayDialog(
+				GuildDisplayDialog.Mode.MAIN_MENU,
 				StringUtil.getUiLabel("gdd.title"),
 				niceList,
 				0,

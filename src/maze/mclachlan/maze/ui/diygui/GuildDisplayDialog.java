@@ -38,7 +38,7 @@ import mclachlan.maze.stat.PlayerParty;
 /**
  *
  */
-public class GuildDisplayDialogForNpc extends GeneralDialog
+public class GuildDisplayDialog extends GeneralDialog
 	implements ActionListener, ChooseCharacterCallback
 {
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3*2;
@@ -60,7 +60,7 @@ public class GuildDisplayDialogForNpc extends GeneralDialog
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public GuildDisplayDialogForNpc(
+	public GuildDisplayDialog(
 		Mode mode,
 		String title,
 		List<PlayerCharacter> guild,

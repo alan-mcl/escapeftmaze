@@ -26,7 +26,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.ui.diygui.GuildCallback;
-import mclachlan.maze.ui.diygui.GuildDisplayDialogForNpc;
+import mclachlan.maze.ui.diygui.GuildDisplayDialog;
 
 /**
  *
@@ -61,8 +61,8 @@ public class InitiateGuildEvent extends MazeEvent
 			guildPcs.add(Maze.getInstance().getPlayerCharacters().get(name));
 		}
 
-		GuildDisplayDialogForNpc dialog = new GuildDisplayDialogForNpc(
-			GuildDisplayDialogForNpc.Mode.NPC,
+		GuildDisplayDialog dialog = new GuildDisplayDialog(
+			GuildDisplayDialog.Mode.NPC,
 			StringUtil.getUiLabel("gdd.title", npc.getDisplayName()),
 			guildPcs,
 			npc.getSellsAt(),

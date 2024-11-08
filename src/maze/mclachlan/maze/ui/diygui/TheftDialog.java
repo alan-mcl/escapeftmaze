@@ -27,8 +27,6 @@ import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
-import mclachlan.diygui.toolkit.DIYFlowLayout;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Foe;
@@ -44,10 +42,10 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
 	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/4*3;
 
-	private TradingWidget itemWidget;
-	private DIYButton steal, grabAndAttack, exit;
-	private PlayerCharacter pc;
-	private TheftCallback theftCallback;
+	private final TradingWidget itemWidget;
+	private final DIYButton steal, grabAndAttack, close;
+	private final PlayerCharacter pc;
+	private final TheftCallback theftCallback;
 
 	/*-------------------------------------------------------------------------*/
 	public TheftDialog(
@@ -63,11 +61,14 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - DIALOG_HEIGHT/2;
 
-		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
-		int buttonPaneHeight = 20;
-		int inset = 10;
+		int border = getBorder();
+		int buttonPaneHeight = getButtonPaneHeight();
+		int inset = getInset();
+		int titlePaneHeight = getTitlePaneHeight();
 
+		Rectangle dialogBounds = new Rectangle(startX, startY, DIALOG_WIDTH, DIALOG_HEIGHT);
 		this.setBounds(dialogBounds);
+
 		List<Item> stealableItems = npc.getStealableItems();
 		int maxRows = stealableItems == null ? 1 : stealableItems.size() + 1;
 		itemWidget = new TradingWidget(
@@ -82,12 +83,10 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 		DIYPane titlePane = getTitlePane(
 			StringUtil.getUiLabel(
 				"td.title",pc.getName(),npc.getDisplayName()));
-//		npc.sortInventory();
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-		exit = new DIYButton(StringUtil.getUiLabel("common.exit"));
-		exit.addActionListener(this);
+		DIYPane buttonPane = getButtonPane();
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		steal = new DIYButton(StringUtil.getUiLabel("td.steal"));
 		steal.addActionListener(this);
@@ -97,18 +96,21 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 
 		buttonPane.add(steal);
 		buttonPane.add(grabAndAttack);
-		buttonPane.add(exit);
 
-		int tradingPaneY = y+ buttonPaneHeight *2+ inset;
-		int tradingPaneWidth = DIALOG_WIDTH- inset *2;
-		int tradingPaneHeight = DIALOG_HEIGHT- buttonPaneHeight *5- inset *2;
+//		int tradingPaneY = y+ buttonPaneHeight *2+ inset;
+//		int tradingPaneWidth = DIALOG_WIDTH- inset *2;
+//		int tradingPaneHeight = DIALOG_HEIGHT- buttonPaneHeight *5- inset *2;
 		DIYScrollPane npcPane = new DIYScrollPane(
-			x+ inset, tradingPaneY, tradingPaneWidth, tradingPaneHeight,
+			x +border +inset,
+			y +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*2 -buttonPaneHeight -titlePaneHeight,
 			itemWidget);
 
 		this.add(titlePane);
 		this.add(npcPane);
 		this.add(buttonPane);
+		this.add(close);
 		this.doLayout();
 	}
 
@@ -119,21 +121,13 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				exit();
-				break;
-			case KeyEvent.VK_ENTER:
-			case KeyEvent.VK_S:
-				steal();
-				break;
-			case KeyEvent.VK_G:
-				grabAndAttack();
-				break;
-			default:
-				itemWidget.processKeyPressed(e);
+			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER, KeyEvent.VK_S -> steal();
+			case KeyEvent.VK_G -> grabAndAttack();
+			default -> itemWidget.processKeyPressed(e);
 		}
 	}
 
@@ -151,7 +145,7 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 			grabAndAttack();
 			return true;
 		}
-		else if (obj == exit)
+		else if (obj == close)
 		{
 			exit();
 			return true;

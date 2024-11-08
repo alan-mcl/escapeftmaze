@@ -22,6 +22,7 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
@@ -33,16 +34,11 @@ import mclachlan.maze.stat.Foe;
  */
 public class FoeDetailsDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton ok;
-
-	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
-	private static final int DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT/4;
+	private final DIYButton close;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeDetailsDialog(Foe foe, int information)
 	{
-		this.ok = new DIYButton("OK");
-
 		int x = DiyGuiUserInterface.SCREEN_WIDTH / 6;
 		int y = DiyGuiUserInterface.SCREEN_HEIGHT / 6;
 		Rectangle bounds = new Rectangle(x, y,
@@ -50,22 +46,40 @@ public class FoeDetailsDialog extends GeneralDialog implements ActionListener
 
 		this.setBounds(bounds);
 
-		int inset = 2, border = 15;
-		int buttonHeight = 17;
-		int buttonWidth = bounds.width/4;
+		int inset = getBorder();
+		int border = 15;
+		int titlePaneHeight = getTitlePaneHeight();
 
-		ok.setBounds(new Rectangle(
-			bounds.x+ bounds.width/2 -buttonWidth/2 -inset,
-			bounds.y+ bounds.height - buttonHeight - inset - border,
-			buttonWidth, buttonHeight));
+		this.close = getCloseButton();
+		close.addActionListener(this);
 
-		ok.addActionListener(this);
+		DIYPane titlePane = getTitlePane(getDisplayName(foe, information));
 
-		FoeDetailsWidget fdw = new FoeDetailsWidget(bounds, foe, information);
+		Rectangle fdBounds = new Rectangle(
+			x +border +inset,
+			y +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*2 -titlePaneHeight);
+		FoeDetailsWidget fdw = new FoeDetailsWidget(fdBounds, foe, information);
 
-		this.add(ok);
+		this.add(titlePane);
 		this.add(fdw);
+		this.add(close);
+	}
 
+	/*-------------------------------------------------------------------------*/
+	private String getDisplayName(Foe foe, int information)
+	{
+		String displayName;
+		if (information >= 0)
+		{
+			displayName = foe.getName();
+		}
+		else
+		{
+			displayName = foe.getUnidentifiedName();
+		}
+		return displayName;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -96,7 +110,7 @@ public class FoeDetailsDialog extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == ok)
+		if (event.getSource() == close)
 		{
 			exitDialog();
 			return true;

@@ -93,11 +93,9 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		switch(e.getKeyCode())
+		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
-			case KeyEvent.VK_ESCAPE:
-				cancel();
-				break;
+			cancel();
 		}
 	}
 

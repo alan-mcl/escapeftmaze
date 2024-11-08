@@ -19,14 +19,15 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Insets;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
-import mclachlan.diygui.toolkit.*;
+import mclachlan.diygui.toolkit.ActionEvent;
+import mclachlan.diygui.toolkit.ActionListener;
+import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
@@ -42,15 +43,15 @@ import mclachlan.maze.util.MazeException;
  */
 public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 {
-	private Trap trap;
-	private ChestOptionsCallback callback;
-	private PlayerCharacter pc;
-	private DIYButton inspect, cancel;
+	private final Trap trap;
+	private final ChestOptionsCallback callback;
+	private final PlayerCharacter pc;
+	private DIYButton inspect, close;
 	private DIYButton[] buttons;
 	private List<DIYButton> buttonList;
-	private DIYLabel[] statusIndicators = new DIYLabel[8];
-	private int[] toolStatus = new int[8];
-	private BitSet disarmed = new BitSet(8);
+	private final DIYLabel[] statusIndicators = new DIYLabel[8];
+	private final int[] toolStatus = new int[8];
+	private final BitSet disarmed = new BitSet(8);
 
 	/*-------------------------------------------------------------------------*/
 	public DisarmTrapWidget(
@@ -58,11 +59,13 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 		ChestOptionsCallback callback,
 		PlayerCharacter pc)
 	{
-		int x = DiyGuiUserInterface.SCREEN_WIDTH/4;
-		int y = DiyGuiUserInterface.SCREEN_HEIGHT/5*3;
-		Rectangle bounds = new Rectangle(x, y,
-			DiyGuiUserInterface.SCREEN_WIDTH/2,
-			DiyGuiUserInterface.SCREEN_HEIGHT/3);
+		int width = DiyGuiUserInterface.SCREEN_WIDTH / 2;
+		int height = DiyGuiUserInterface.SCREEN_HEIGHT / 2;
+
+		int x = DiyGuiUserInterface.SCREEN_WIDTH/2 -width/2;
+		int y = DiyGuiUserInterface.SCREEN_HEIGHT/2 -height/2;
+
+		Rectangle bounds = new Rectangle(x, y, width, height);
 
 		this.setBounds(bounds);
 		this.trap = trap;
@@ -88,22 +91,61 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private void buildGui()
 	{
-		DIYPane gridCol1 = new DIYPane(new DIYGridLayout(1, 5, 4, 4));
-		int buttonPaneHeight = 40;
-		gridCol1.setBounds(x, y, width/3, height- buttonPaneHeight);
-		gridCol1.setInsets(new Insets(10, 10, 0, 0));
+		int buttonPaneHeight = getButtonPaneHeight();
+		int titlePaneHeight = getTitlePaneHeight();
+		int border = getBorder();
+		int inset = getInset();
 
-		DIYPane gridCol2 = new DIYPane(new DIYGridLayout(1, 5, 4, 4));
-		gridCol2.setBounds(x+width/3, y, width/6, height- buttonPaneHeight);
-		gridCol2.setInsets(new Insets(10, 0, 0, 0));
+		int contentTop = y +border +inset +titlePaneHeight;
+		int contentHeight = height -border*2 -inset*2 -titlePaneHeight -buttonPaneHeight;
 
-		DIYPane gridCol3 = new DIYPane(new DIYGridLayout(1, 5, 4, 4));
-		gridCol3.setBounds(x+width/3+width/6, y, width/6, height- buttonPaneHeight);
-		gridCol3.setInsets(new Insets(10, 0, 0, 0));
+		int column1x = x +border +inset;
+		int column1Width = (width -border*2 -inset*5) /3;
 
-		DIYPane gridCol4 = new DIYPane(new DIYGridLayout(1, 5, 4, 4));
-		gridCol4.setBounds(x+width/3*2, y, width/3, height- buttonPaneHeight);
-		gridCol4.setInsets(new Insets(10, 0, 0, 10));
+		int column2x = column1x +column1Width +inset;
+		int column2width = column1Width /2;
+
+		int column3x = column2x +column2width +inset;
+		int column4x = column3x +column2width +inset;
+
+		String title;
+		if (pc.getModifier(Stats.Modifier.TRAP_SENSE) > 0)
+		{
+			title = StringUtil.getUiLabel("dtw.name.trap.sense", pc.getName());
+		}
+		else
+		{
+			title = StringUtil.getUiLabel("dtw.title", pc.getName());
+		}
+
+		DIYPane titlePane = getTitlePane(title);
+
+		DIYPane gridCol1 = new DIYPane(new DIYGridLayout(1, 4, 4, 4));
+		gridCol1.setBounds(
+			column1x,
+			contentTop,
+			column1Width,
+			contentHeight);
+
+		DIYPane gridCol2 = new DIYPane(new DIYGridLayout(1, 4, 4, 4));
+		gridCol2.setBounds(
+			column2x,
+			contentTop, column2width,
+			contentHeight);
+
+		DIYPane gridCol3 = new DIYPane(new DIYGridLayout(1, 4, 4, 4));
+		gridCol3.setBounds(
+			column3x,
+			contentTop,
+			column2width,
+			contentHeight);
+
+		DIYPane gridCol4 = new DIYPane(new DIYGridLayout(1, 4, 4, 4));
+		gridCol4.setBounds(
+			column4x,
+			contentTop,
+			column1Width,
+			contentHeight);
 
 		DIYButton chisel = new DIYButton(StringUtil.getUiLabel("plw.chisel"));
 		chisel.addActionListener(this);
@@ -138,58 +180,43 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 			{chisel, crowbar, drill, hammer, jackknife, lockpick, skeletonKey, tensionWrench};
 		buttonList = Arrays.asList(buttons);
 
-		DIYLabel nameLabel;
-		if (pc.getModifier(Stats.Modifier.TRAP_SENSE) > 0)
-		{
-			nameLabel = new DIYLabel(
-				(StringUtil.getUiLabel("dtw.name.trap.sense", pc.getName())),
-				DIYToolkit.Align.LEFT);
-		}
-		else
-		{
-			nameLabel = new DIYLabel(pc.getName(), DIYToolkit.Align.LEFT);
-		}
-		gridCol1.add(nameLabel);
 		gridCol1.add(chisel);
 		gridCol1.add(crowbar);
 		gridCol1.add(drill);
 		gridCol1.add(hammer);
 
-		gridCol2.add(new DIYLabel());
 		gridCol2.add(statusIndicators[0]);
 		gridCol2.add(statusIndicators[1]);
 		gridCol2.add(statusIndicators[2]);
 		gridCol2.add(statusIndicators[3]);
 
-		gridCol3.add(new DIYLabel());
 		gridCol3.add(statusIndicators[4]);
 		gridCol3.add(statusIndicators[5]);
 		gridCol3.add(statusIndicators[6]);
 		gridCol3.add(statusIndicators[7]);
 
-		gridCol4.add(new DIYLabel());
 		gridCol4.add(jackknife);
 		gridCol4.add(lockpick);
 		gridCol4.add(skeletonKey);
 		gridCol4.add(tensionWrench);
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 5, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight, width, buttonPaneHeight);
+		DIYPane buttonPane = getButtonPane();
 
 		inspect = new DIYButton(StringUtil.getUiLabel("dtw.inspect"));
 		inspect.addActionListener(this);
 
-		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
-		cancel.addActionListener(this);
+		close = getCloseButton();
+		close.addActionListener(this);
 
 		buttonPane.add(inspect);
-		buttonPane.add(cancel);
 
+		this.add(titlePane);
 		this.add(gridCol1);
 		this.add(gridCol2);
 		this.add(gridCol3);
 		this.add(gridCol4);
 		this.add(buttonPane);
+		this.add(close);
 
 		updateToolStatus(null);
 
@@ -247,7 +274,7 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 			inspect();
 			return true;
 		}
-		else if (obj == cancel)
+		else if (obj == close)
 		{
 			cancelled();
 			return true;
@@ -325,39 +352,19 @@ public class DisarmTrapWidget extends GeneralDialog implements ActionListener
 		{
 			return;
 		}
-		
-		switch(e.getKeyCode())
+
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE:
-				cancelled();
-				break;
-			case KeyEvent.VK_I:
-				inspect();
-				break;
-			case KeyEvent.VK_C:
-				manipulateTool(0);
-				break;
-			case KeyEvent.VK_R:
-				manipulateTool(1);
-				break;
-			case KeyEvent.VK_D:
-				manipulateTool(2);
-				break;
-			case KeyEvent.VK_H:
-				manipulateTool(3);
-				break;
-			case KeyEvent.VK_J:
-				manipulateTool(4);
-				break;
-			case KeyEvent.VK_L:
-				manipulateTool(5);
-				break;
-			case KeyEvent.VK_S:
-				manipulateTool(6);
-				break;
-			case KeyEvent.VK_T:
-				manipulateTool(7);
-				break;
+			case KeyEvent.VK_ESCAPE -> cancelled();
+			case KeyEvent.VK_I -> inspect();
+			case KeyEvent.VK_C -> manipulateTool(0);
+			case KeyEvent.VK_R -> manipulateTool(1);
+			case KeyEvent.VK_D -> manipulateTool(2);
+			case KeyEvent.VK_H -> manipulateTool(3);
+			case KeyEvent.VK_J -> manipulateTool(4);
+			case KeyEvent.VK_L -> manipulateTool(5);
+			case KeyEvent.VK_S -> manipulateTool(6);
+			case KeyEvent.VK_T -> manipulateTool(7);
 		}
 	}
 
