@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2013 Alan McLachlan
+ * Copyright (c) 2011 Alan McLachlan
  *
  * This file is part of Escape From The Maze.
  *
@@ -17,66 +17,70 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 
-package mclachlan.maze.game.event;
+package mclachlan.maze.map.script;
 
+import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
-import mclachlan.maze.ui.diygui.GeneralOptionsDialog;
-import mclachlan.maze.util.MazeException;
+import mclachlan.maze.game.event.DisplayOptionsEvent;
+import mclachlan.maze.map.TileScript;
+import mclachlan.maze.ui.diygui.MazeScriptOptions;
 
 /**
  *
  */
-public class DisplayOptionsEvent extends MazeEvent implements GeneralOptionsCallback
+public class DisplayOptions extends TileScript
 {
 	private final boolean forceSelection;
-	private final GeneralOptionsCallback callback;
-	private final String[] options;
 	private final String title;
-
-	private transient String optionChosen;
+	private final List<String> options, scripts;
 
 	/*-------------------------------------------------------------------------*/
-	public DisplayOptionsEvent(GeneralOptionsCallback callback, boolean forceSelection, String title, String... options)
+	public DisplayOptions(boolean forceSelection, String title, List<String> options, List<String> scripts)
 	{
-		this.callback = callback;
 		this.forceSelection = forceSelection;
-		this.options = options;
 		this.title = title;
+		this.options = options;
+		this.scripts = scripts;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> resolve()
+	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		GeneralOptionsDialog dialog = new GeneralOptionsDialog(this, forceSelection, title, options);
-		Maze.getInstance().getUi().showDialog(dialog);
+		List<MazeEvent> result = new ArrayList<>();
 
-		synchronized(Maze.getInstance().getEventMutex())
+		HashMap<String, String> optionsMap = new HashMap<>();
+		for (int i = 0; i < options.size(); i++)
 		{
-			try
-			{
-				Maze.getInstance().getEventMutex().wait();
-			}
-			catch (InterruptedException e)
-			{
-				throw new MazeException(e);
-			}
+			optionsMap.put(options.get(i), scripts.get(i));
 		}
 
-		return callback.optionChosen(optionChosen);
+		result.add(new DisplayOptionsEvent(
+			new MazeScriptOptions(optionsMap, forceSelection), forceSelection, title, options.toArray(new String[0])));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> optionChosen(String option)
-	{
-		optionChosen = option;
-		synchronized(Maze.getInstance().getEventMutex())
-		{
-			Maze.getInstance().getEventMutex().notifyAll();
-		}
 
-		return null;
+	public String getTitle()
+	{
+		return title;
+	}
+
+	public List<String> getOptions()
+	{
+		return options;
+	}
+
+	public List<String> getScripts()
+	{
+		return scripts;
+	}
+
+	public boolean isForceSelection()
+	{
+		return forceSelection;
 	}
 }

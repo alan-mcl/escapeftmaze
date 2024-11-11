@@ -55,8 +55,9 @@ public class V1TileScript
 	private static final int LEVER = 12;
 	private static final int TOGGLE_WALL = 13;
 	private static final int PERSONALITY_SPEECH = 14;
+	private static final int DISPLAY_OPTIONS = 15;
 
-	static V1PercentageTable<Trap> traps = new V1PercentageTable<Trap>()
+	static V1PercentageTable<Trap> traps = new V1PercentageTable<>()
 	{
 		public Trap typeFromString(String s)
 		{
@@ -69,6 +70,21 @@ public class V1TileScript
 		}
 	};
 
+	static V1List<String> optionsList = new V1List<>("#")
+	{
+		@Override
+		public String typeToString(String s)
+		{
+			return s;
+		}
+
+		@Override
+		public String typeFromString(String s)
+		{
+			return s;
+		}
+	};
+
 	static
 	{
 		types = new HashMap<>();
@@ -78,6 +94,7 @@ public class V1TileScript
 		types.put(Encounter.class, ENCOUNTER);
 		types.put(FlavourText.class, FLAVOUR_TEXT);
 		types.put(PersonalitySpeech.class, PERSONALITY_SPEECH);
+		types.put(DisplayOptions.class, DISPLAY_OPTIONS);
 		types.put(Loot.class, LOOT);
 		types.put(RemoveWall.class, REMOVE_WALL);
 		types.put(ExecuteMazeScript.class, EXECUTE_MAZE_SCRIPT);
@@ -198,6 +215,16 @@ public class V1TileScript
 				s.append(ps.getSpeechKey());
 				s.append(sep);
 				s.append(ps.isModal());
+				break;
+			case DISPLAY_OPTIONS:
+				DisplayOptions dop = (DisplayOptions)t;
+				s.append(dop.isForceSelection());
+				s.append(sep);
+				s.append(dop.getTitle());
+				s.append(sep);
+				s.append(optionsList.toString(dop.getOptions()));
+				s.append(sep);
+				s.append(optionsList.toString(dop.getScripts()));
 				break;
 			case LOOT:
 				Loot l = (Loot)t;
@@ -402,6 +429,13 @@ public class V1TileScript
 				break;
 			case PERSONALITY_SPEECH:
 				result = new PersonalitySpeech(strs[i++], Boolean.valueOf(strs[i++]));
+				break;
+			case DISPLAY_OPTIONS:
+				boolean forceSelection = Boolean.valueOf(strs[i++]);
+				String title = strs[i++];
+				List<String> options = optionsList.fromString(strs[i++]);
+				List<String> scripts = optionsList.fromString(strs[i++]);
+				result = new DisplayOptions(forceSelection, title, options, scripts);
 				break;
 			case LOOT:
 				result = new Loot(strs[i++]);

@@ -65,8 +65,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private static final int LEVER = 12;
 	private static final int TOGGLE_WALL = 13;
 	private static final int PERSONALITY_SPEECH = 14;
+	private static final int DISPLAY_OPTIONS = 15;
 
-	private static final int MAX = 15;
+	private static final int MAX = 16;
 
 	static Map<Class<?>, Integer> types;
 
@@ -80,6 +81,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		types.put(Encounter.class, ENCOUNTER);
 		types.put(FlavourText.class, FLAVOUR_TEXT);
 		types.put(PersonalitySpeech.class, PERSONALITY_SPEECH);
+		types.put(DisplayOptions.class, DISPLAY_OPTIONS);
 		types.put(Loot.class, LOOT);
 		types.put(RemoveWall.class, REMOVE_WALL);
 		types.put(ToggleWall.class, TOGGLE_WALL);
@@ -161,6 +163,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JTextField psSpeechKey;
 	private JCheckBox psModal;
+
+	private int maxOptions = 5;
+	private JCheckBox displayOptionsForceSelection;
+	private JTextField displayOptionsTitle;
+	private List<JTextField> displayOptionsOptions;
+	private List<JComboBox> displayOptionsScripts;
 
 	/*-------------------------------------------------------------------------*/
 	public TileScriptEditor(Frame owner, TileScript tileScript, int dirtyFlag,
@@ -389,6 +397,26 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				psSpeechKey.setText(ps.getSpeechKey());
 				psModal.setSelected(ps.isModal());
 				break;
+			case DISPLAY_OPTIONS:
+				DisplayOptions dop = (DisplayOptions)ts;
+
+				displayOptionsForceSelection.setSelected(dop.isForceSelection());
+
+				displayOptionsTitle.setText(dop.getTitle());
+
+				for (int i=0; i<maxOptions; i++)
+				{
+					displayOptionsOptions.get(i).setText("");
+					displayOptionsScripts.get(i).setSelectedIndex(0);
+				}
+
+				for (int i = 0; i < dop.getOptions().size(); i++)
+				{
+					 displayOptionsOptions.get(i).setText(dop.getOptions().get(i));
+					 displayOptionsScripts.get(i).setSelectedItem(dop.getScripts().get(i));
+				}
+
+				break;
 			case LOOT:
 				Loot l = (Loot)ts;
 				lootTable.setSelectedItem(l.getLootTable());
@@ -454,46 +482,62 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	JPanel getControls(int type)
 	{
-		switch (type)
+		return switch (type)
+			{
+				case CUSTOM -> getCustomPanel();
+				case CAST_SPELL -> getCastSpellPanel();
+				case CHEST -> getChestPanel();
+				case LEVER -> getLeverPanel();
+				case ENCOUNTER -> getEncounterPanel();
+				case FLAVOUR_TEXT -> getFlavourTextPanel();
+				case PERSONALITY_SPEECH -> getPersonalitySpeechPanel();
+				case DISPLAY_OPTIONS -> getDisplayOptionsPanel();
+				case LOOT -> getLootPanel();
+				case REMOVE_WALL -> getRemoveWallPanel();
+				case TOGGLE_WALL -> getToggleWallPanel();
+				case EXECUTE_MAZE_EVENTS -> getExecuteMazeEventsPanel();
+				case SIGNBOARD -> getSignBoardPanel();
+				case SET_MAZE_VARIABLE -> getSetMazeVariablePanel();
+				case HIDDEN_STUFF -> getHiddenStuffPanel();
+				case WATER -> new JPanel();
+				default -> throw new MazeException("Invalid type " + type);
+			};
+	}
+
+	private JPanel getDisplayOptionsPanel()
+	{
+		Vector<String> scripts = new Vector<>(Database.getInstance().getMazeScripts().keySet());
+		Collections.sort(scripts);
+		scripts.add(0, EditorPanel.NONE);
+
+		displayOptionsForceSelection = new JCheckBox("Force selection?");
+
+		displayOptionsTitle = new JTextField(20);
+
+		displayOptionsOptions = new ArrayList<>(maxOptions);
+		displayOptionsScripts = new ArrayList<>(maxOptions);
+		for (int i=0; i<maxOptions; i++)
 		{
-			case CUSTOM:
-				return getCustomPanel();
-			case CAST_SPELL:
-				return getCastSpellPanel();
-			case CHEST:
-				return getChestPanel();
-			case LEVER:
-				return getLeverPanel();
-			case ENCOUNTER:
-				return getEncounterPanel();
-			case FLAVOUR_TEXT:
-				return getFlavourTextPanel();
-			case PERSONALITY_SPEECH:
-				return getPersonalitySpeechPanel();
-			case LOOT:
-				return getLootPanel();
-			case REMOVE_WALL:
-				return getRemoveWallPanel();
-			case TOGGLE_WALL:
-				return getToggleWallPanel();
-			case EXECUTE_MAZE_EVENTS:
-				return getExecuteMazeEventsPanel();
-			case SIGNBOARD:
-				return getSignBoardPanel();
-			case SET_MAZE_VARIABLE:
-				return getSetMazeVariablePanel();
-			case HIDDEN_STUFF:
-				return getHiddenStuffPanel();
-			case WATER:
-				return new JPanel();
-			default:
-				throw new MazeException("Invalid type " + type);
+			displayOptionsOptions.add(new JTextField(20));
+			displayOptionsScripts.add(new JComboBox(scripts));
 		}
+
+		JButton edit = getMazeScriptEditButton();
+
+		return dirtyGridBagCrap(
+			displayOptionsForceSelection, new JLabel(),
+			new JLabel("Title:"), displayOptionsTitle,
+			displayOptionsOptions.get(0), displayOptionsScripts.get(0),
+			displayOptionsOptions.get(1), displayOptionsScripts.get(1),
+			displayOptionsOptions.get(2), displayOptionsScripts.get(2),
+			displayOptionsOptions.get(3), displayOptionsScripts.get(3),
+			displayOptionsOptions.get(4), displayOptionsScripts.get(4),
+			new JLabel(), edit);
 	}
 
 	private JPanel getHiddenStuffPanel()
 	{
-		Vector<String> scripts = new Vector<String>(Database.getInstance().getMazeScripts().keySet());
+		Vector<String> scripts = new Vector<>(Database.getInstance().getMazeScripts().keySet());
 		Collections.sort(scripts);
 		scripts.add(0, EditorPanel.NONE);
 
@@ -918,41 +962,26 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	static String describeType(int type)
 	{
-		switch (type)
-		{
-			case CUSTOM:
-				return "Custom";
-			case CAST_SPELL:
-				return "Cast Spell At Party";
-			case CHEST:
-				return "Chest";
-			case LEVER:
-				return "Lever";
-			case ENCOUNTER:
-				return "Encounter";
-			case FLAVOUR_TEXT:
-				return "Flavour Text";
-			case PERSONALITY_SPEECH:
-				return "Personality Speech";
-			case LOOT:
-				return "Loot";
-			case REMOVE_WALL:
-				return "Remove Wall";
-			case TOGGLE_WALL:
-				return "Toggle Wall";
-			case EXECUTE_MAZE_EVENTS:
-				return "Execute Maze Script";
-			case SIGNBOARD:
-				return "Sign Board";
-			case SET_MAZE_VARIABLE:
-				return "Set Maze Variable";
-			case HIDDEN_STUFF:
-				return "Hidden Stuff";
-			case WATER:
-				return "Water";
-			default:
-				throw new MazeException("Invalid type " + type);
-		}
+		return switch (type)
+			{
+				case CUSTOM -> "Custom";
+				case CAST_SPELL -> "Cast Spell At Party";
+				case CHEST -> "Chest";
+				case LEVER -> "Lever";
+				case ENCOUNTER -> "Encounter";
+				case FLAVOUR_TEXT -> "Flavour Text";
+				case PERSONALITY_SPEECH -> "Personality Speech";
+				case DISPLAY_OPTIONS -> "Display Options";
+				case LOOT -> "Loot";
+				case REMOVE_WALL -> "Remove Wall";
+				case TOGGLE_WALL -> "Toggle Wall";
+				case EXECUTE_MAZE_EVENTS -> "Execute Maze Script";
+				case SIGNBOARD -> "Sign Board";
+				case SET_MAZE_VARIABLE -> "Set Maze Variable";
+				case HIDDEN_STUFF -> "Hidden Stuff";
+				case WATER -> "Water";
+				default -> throw new MazeException("Invalid type " + type);
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1370,6 +1399,26 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case PERSONALITY_SPEECH:
 				result = new PersonalitySpeech(psSpeechKey.getText(), psModal.isSelected());
+				break;
+			case DISPLAY_OPTIONS:
+				ArrayList<String> options = new ArrayList<>();
+				ArrayList<String> scripts = new ArrayList<>();
+
+				for (int i=0; i<maxOptions; i++)
+				{
+					String option = displayOptionsOptions.get(i).getText();
+
+					if (option != null && option.length() > 0)
+					{
+						options.add(option);
+						scripts.add((String)displayOptionsScripts.get(i).getSelectedItem());
+					}
+				}
+				result = new DisplayOptions(
+					displayOptionsForceSelection.isSelected(),
+					displayOptionsTitle.getText(),
+					options,
+					scripts);
 				break;
 			case LOOT:
 				result = new Loot((String)lootTable.getSelectedItem());

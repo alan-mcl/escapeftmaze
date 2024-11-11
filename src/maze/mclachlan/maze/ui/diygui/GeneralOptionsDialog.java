@@ -22,10 +22,8 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 import mclachlan.diygui.DIYButton;
-import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
-import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 
 /**
@@ -33,25 +31,29 @@ import mclachlan.maze.game.Maze;
  */
 public class GeneralOptionsDialog extends GeneralDialog implements ActionListener
 {
-	private DIYButton cancel;
-	private DIYButton[] optionButtons;
-	private GeneralOptionsCallback callback;
+	private final DIYButton close;
+	private final DIYButton[] optionButtons;
+	private final GeneralOptionsCallback callback;
+	private final boolean forceSelection;
 
 	/*-------------------------------------------------------------------------*/
 	public GeneralOptionsDialog(
 		GeneralOptionsCallback callback,
+		boolean forceSelection,
 		String title,
 		String... options)
 	{
 		super();
 		this.callback = callback;
+		this.forceSelection = forceSelection;
 
-		int buttonHeight = 20;
-		int inset = 10;
-		int buttonPaneHeight = 18;
+		int buttonHeight = getButtonPaneHeight();
+		int inset = getInset();
+		int border = getBorder();
+		int titlePaneHeight = getTitlePaneHeight();
 
-		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/4;
-		int dialogHeight = buttonHeight*options.length +buttonPaneHeight*2 +inset*4;
+		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2;
+		int dialogHeight = buttonHeight*options.length +titlePaneHeight +inset*4 +border*2;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - dialogWidth/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -60,14 +62,14 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 
 		this.setBounds(dialogBounds);
 
-		DIYPane labelPane = new DIYPane(new DIYFlowLayout(0,0,DIYToolkit.Align.CENTER));
-
-		labelPane.setBounds(x, y + inset, width, buttonPaneHeight);
-		labelPane.add(new DIYLabel(title));
+		DIYPane titlePane = getTitlePane(title);
 
 		DIYPane optionsPane = new DIYPane(new DIYGridLayout(1,options.length,5,5));
-		optionsPane.setBounds(x+inset, y+buttonPaneHeight+inset,
-			width-inset*2, options.length*buttonHeight);
+		optionsPane.setBounds(
+			x +border +inset,
+			y +border +inset +titlePaneHeight,
+			width -border*2 -inset*2,
+			height -border*2 -inset*2 -titlePaneHeight);
 
 		optionButtons = new DIYButton[options.length];
 		for (int i=0; i<options.length; i++)
@@ -77,16 +79,17 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 			optionsPane.add(optionButtons[i]);
 		}
 
-		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(10, 0, DIYToolkit.Align.CENTER));
-		buttonPane.setBounds(x, y+height- buttonPaneHeight - inset, width, buttonPaneHeight);
-
-		cancel = new DIYButton(StringUtil.getUiLabel("common.cancel"));
-		cancel.addActionListener(this);
-		buttonPane.add(cancel);
-
-		this.add(labelPane);
+		this.add(titlePane);
 		this.add(optionsPane);
-		this.add(buttonPane);
+
+		close = getCloseButton();
+		close.addActionListener(this);
+
+		if (!this.forceSelection)
+		{
+			this.add(close);
+		}
+
 		this.doLayout();
 	}
 
@@ -95,14 +98,17 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 	{
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
-			cancel();
+			if (!forceSelection)
+			{
+				cancel();
+			}
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
 	{
-		if (event.getSource() == cancel)
+		if (event.getSource() == close)
 		{
 			cancel();
 			return true;

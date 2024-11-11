@@ -19,6 +19,9 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.util.*;
+import mclachlan.maze.game.MazeEvent;
+
 /**
  *
  */
@@ -28,5 +31,5 @@ public interface GeneralOptionsCallback
 	 * @param option
 	 * 	The option chosen, or null if the player cancels
 	 */
-	public void optionChosen(String option);
+	List<MazeEvent> optionChosen(String option);
 }

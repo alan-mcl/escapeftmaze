@@ -711,6 +711,10 @@ name=Hianbian to Caves Of Ilast
 2=138,24003__Erdie__mega_thunder
 3=1,Caves Of Ilast,30,3,2
 @
+name=Gatehouse hidden pool pass
+0=4,-1,false,You decide to leave well enough alone.
+1=17,gatehouse.pool.cache.found,0
+@
 name=Ichiba City COC tear off paper slip
 0=4,-1,true, You tear off one of the small paper slips...
 1=9,ichiba.city.coc.paper.slip
@@ -786,8 +790,10 @@ name=Plain Of Pillars to Ruins Of Hail
 2=1,Ruins Of Hail,21,21,3
 @
 name=Gatehouse hidden pool contents
-0=4,-1,true,Searching a crack in the paving, you come across a small cache under the shallow water.
-1=9,gatehouse.potion.chest
+0=4,-1,true,You reach your arm deep into the cold, dark water...
+1=4,-1,true,Feeling along the bottom, your questing fingers brush a small cloth sack. Retrieving it you find some interesting contents.
+2=9,gatehouse.potion.chest
+3=17,gatehouse.pool.cache.found,1
 @
 name=spine from player
 0=138,50773__smcameron__arrow_whoosh

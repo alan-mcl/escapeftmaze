@@ -165,7 +165,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private int maxHitDepth = 5;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
-	private MouseClickScript[] mouseClickScriptRecords;
+	private MouseClickScriptRecord[] mouseClickScriptRecords;
 	
 	/** Incremented each frame, used for animation */
 	private long frameCount;
@@ -188,6 +188,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 	// admin
 	private static Random r = new Random();
 	private long timeNow;
+
+	/*-------------------------------------------------------------------------*/
+	private static class MouseClickScriptRecord
+	{
+		MouseClickScript script;
+		double distance;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -338,7 +345,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		this.renderBuffer = new int[screenWidth * screenHeight];
 		this.postProcessingBuffer = new int[screenWidth * screenHeight];
-		this.mouseClickScriptRecords = new MouseClickScript[screenWidth * screenHeight];
+		this.mouseClickScriptRecords = new MouseClickScriptRecord[screenWidth * screenHeight];
+		for (int i = 0; i < mouseClickScriptRecords.length; i++)
+		{
+			mouseClickScriptRecords[i] = new MouseClickScriptRecord();
+		}
+
 		this.blockHitRecord = new BlockHitRecord[screenWidth][this.maxHitDepth];
 		for (int i = 0; i < blockHitRecord.length; i++)
 		{
@@ -902,11 +914,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 	public void handleMouseClick(int x, int y)
 	{
 		int bufferIndex = x + y * projectionPlaneWidth;
-		
-		if (mouseClickScriptRecords[bufferIndex] != null)
+		MouseClickScriptRecord mcsr = mouseClickScriptRecords[bufferIndex];
+
+		if (mcsr.script != null)
 		{
-			// todo: figure out if it's a wall, wall mask or object
-			mouseClickScriptRecords[bufferIndex].execute(map);
+			int distanceInTiles = (int)Math.ceil(mcsr.distance/tileSize);
+
+			if (distanceInTiles <= mcsr.script.getMaxDist())
+			{
+				mcsr.script.execute(map);
+			}
 		}
 	}
 
@@ -915,19 +932,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		int bufferIndex = x + y * projectionPlaneWidth;
 
-		MouseClickScript script = mouseClickScriptRecords[bufferIndex];
-		if (script != null)
+		MouseClickScriptRecord mcsr = mouseClickScriptRecords[bufferIndex];
+		if (mcsr.script != null)
 		{
-			// todo: figure out if it's a wall, wall mask or object
+			int distanceInTiles = (int)Math.ceil(mcsr.distance/tileSize);
 
-			float d = blockHitRecord[x][0].distance;
-			int distanceInTiles = (int)Math.ceil(d/tileSize);
-
-			if (distanceInTiles <= script.getMaxDist())
+			if (distanceInTiles <= mcsr.script.getMaxDist())
 			{
-				return script;
+				return mcsr.script;
 			}
-
 		}
 		return null;
 	}
@@ -2332,14 +2345,17 @@ public class CrusaderEngine32 implements CrusaderEngine
 						getAlpha(maskPixel) != 0)
 					{
 						// use the mask texture mouse click script instead
-						this.mouseClickScriptRecords[bufferIndex] =
+						this.mouseClickScriptRecords[bufferIndex].script =
 							blockHitRecord[screenX][depth].wall.maskTextureMouseClickScript;
+						this.mouseClickScriptRecords[bufferIndex].distance =
+							blockHitRecord[screenX][depth].distance;
 					}
 				}
 				else
 				{
 					colour = texture.getCurrentImageData(textureX, textureY, timeNow);
-					this.mouseClickScriptRecords[bufferIndex] = blockHitRecord[screenX][depth].wall.mouseClickScript;
+					this.mouseClickScriptRecords[bufferIndex].script = blockHitRecord[screenX][depth].wall.mouseClickScript;
+					this.mouseClickScriptRecords[bufferIndex].distance = blockHitRecord[screenX][depth].distance;
 				}
 
 				int pixel = colourPixel(colour, lightLevel, shadeMult);
@@ -2494,7 +2510,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 
 					// mouse click scripts associated with floors and ceilings not yet supported
-					this.mouseClickScriptRecords[bufferIndex] = null;
+					this.mouseClickScriptRecords[bufferIndex].script = null;
+					this.mouseClickScriptRecords[bufferIndex].distance = -1;
 				}
 
 				screenY++;
@@ -2669,7 +2686,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 
 					// mouse click scripts associated with floors and ceilings not yet supported
-					this.mouseClickScriptRecords[bufferIndex] = null;
+					this.mouseClickScriptRecords[bufferIndex].script = null;
+					this.mouseClickScriptRecords[bufferIndex].distance = -1;
 				}
 
 				screenY++;
@@ -2957,7 +2975,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 					pixel = alphaBlend(pixel, outputBuffer[bufferIndex]);
 
 					outputBuffer[bufferIndex] = pixel;
-					this.mouseClickScriptRecords[bufferIndex] = obj.mouseClickScript;
+					this.mouseClickScriptRecords[bufferIndex].script = obj.mouseClickScript;
+					this.mouseClickScriptRecords[bufferIndex].distance = obj.apparentDistance;
 				}
 				currentScreenY++;
 			}

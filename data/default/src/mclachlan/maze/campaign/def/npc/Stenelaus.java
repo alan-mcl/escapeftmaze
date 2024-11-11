@@ -154,7 +154,7 @@ public class Stenelaus extends NpcScript
 					"the chance or the main come up.", npc));
 				result.add(new NpcSpeechEvent("Got it? Good! As I said, you're " +
 					"the caster, stake is a hundred gold. Call and roll!", npc));
-				result.add(new DisplayOptionsEvent(this.npc, "Call the main:",
+				result.add(new DisplayOptionsEvent(this, false, "Call the main:",
 					"Five", "Six", "Seven", "Eight", "Nine"));
 			}
 
@@ -285,7 +285,7 @@ public class Stenelaus extends NpcScript
 		result.add(new NpcSpeechEvent("That's 100 gold...", npc));
 		result.add(new FlavourTextEvent("You hand over the losing stake " +
 			"to Stenelaus", MazeEvent.Delay.WAIT_ON_CLICK, true));
-		getParty().incGold(-500);
+		getParty().incGold(-100);
 	}
 
 	/*-------------------------------------------------------------------------*/

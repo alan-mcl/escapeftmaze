@@ -44,7 +44,7 @@ public class PersonalitySpeech extends TileScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 		result.add(new PersonalitySpeechBubbleEvent(speechKey, modal));
 		return result;
 	}

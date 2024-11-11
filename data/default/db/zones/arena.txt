@@ -780,7 +780,7 @@ playerOrigin: 0:0
 1: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:230:false::01::BOTTOM
 2: objects.plant.1:objects.plant.1:objects.plant.1:objects.plant.1:235:false::000001::BOTTOM
 3: objects.plant.2:objects.plant.2:objects.plant.2:objects.plant.2:198:false::0000001::BOTTOM
-4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:202:false::00001::BOTTOM
+4: objects.pillar.1:objects.pillar.1:objects.pillar.1:objects.pillar.1:202:false:15,,,false,-1,true,Yo Pick one pls,Option 1#Another Option#Yeah Yeah#What,Aenen Outskirts clearing intro#Gatehouse hidden pool contents#Ichiba City villa cck#Aenen Outskirts solar array flava:00001::BOTTOM
 
 -scripts-
 

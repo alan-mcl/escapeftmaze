@@ -29,7 +29,7 @@ Notes
 * A corner room contains roaches that attack the party. A secret passage leads to stairs down to a basement level filled with roaches and roach eggs. A chest in the basement is trapped, a pile of bones yields nothing when searched.
 * Past the third portcullis the party meets Emmons. He stays to talk to the party, then leaves giving some information about the Gates out.
 * If the party can find the secret passage the Emmons left by, it leads down to an otherwise inaccessible part of the first level. A portcullis can't be opened, Emmons must have gone that way. A secret passage leads to a room with a trapped chest. One room contains a shrine to Garret.
-* Beyond Emmons, the left path leads to a gloomy partly flooded series of passages. _One pool contains hidden items_. Beyond this is the chamber of the insect swarms.
+* Beyond Emmons, the left path leads to a gloomy partly flooded series of passages. One pool contains hidden items. Beyond this is the chamber of the insect swarms.
 * The center path leads to a straight corridor flanked by distracting chambers that contain nothing useful. Beyond this is the chamber of the block golem.
 * The right path leads to a confusing maze of connected rooms, some very dark, others brightly lit. Beyond this lies the chamber of the spell casting spiders.
 

@@ -379,7 +379,7 @@ playerOrigin: 14:30
 360: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 361: 0:3f800000000000000000,01010102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 362: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-363: 0:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+363: 2:4,,,false,-1,Beneath the water of the shallow pool you spot a wide crack between the paving stones.%n%nThe crack is too dark and crooked to see anything. You could put an arm deep inside and explore, if you wanted to...:15,gatehouse.pool.cache.found,,false,-1,true,Explore the hole with your arm?,Yes#No thanks,Gatehouse hidden pool contents#Gatehouse hidden pool pass:3f800000000000000000,02020201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 364: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 365: 0:3f800000000000000000,02020102010202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 366: 0:3f800000000000000000,02010101010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE

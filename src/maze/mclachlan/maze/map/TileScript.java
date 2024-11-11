@@ -131,8 +131,11 @@ public abstract class TileScript
 	private boolean isFinishedExecuting()
 	{
 		// script has already executed once
-		return executeOnceMazeVariable != null &&
-			MazeVariables.get(executeOnceMazeVariable) != null;
+		if (executeOnceMazeVariable != null)
+		{
+			return "1".equals(MazeVariables.get(executeOnceMazeVariable));
+		}
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

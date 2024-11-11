@@ -30,11 +30,12 @@ import mclachlan.maze.game.event.StartCombatEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
 
 /**
  * 
  */
-public abstract class NpcScript
+public abstract class NpcScript implements GeneralOptionsCallback
 {
 	protected Foe npc;
 
@@ -512,7 +513,7 @@ public abstract class NpcScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> optionChosen(String optionChosen)
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	/*-------------------------------------------------------------------------*/

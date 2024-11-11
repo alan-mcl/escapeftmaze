@@ -18,6 +18,8 @@ compass widget
 inventory screen alignment is out, again
 dead character portrait
 party cloud spell widget
+mana widget hover textures
+stance widget during combat
 
 rename Automata race
 
