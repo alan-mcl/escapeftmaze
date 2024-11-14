@@ -56,6 +56,8 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 		white = createLabel("icon/mana_icon_white", Color.BLACK);
 		green = createLabel("icon/mana_icon_green", Color.BLACK);
 		blue = createLabel("icon/mana_icon_blue", Color.WHITE);
+
+
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -63,11 +65,20 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	{
 		DIYLabel iconLabel = new DIYLabel();
 		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
+		iconLabel.setIconAlign(DIYToolkit.Align.CENTER);
 		iconLabel.setIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName));
+		iconLabel.setHoverIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName+"_hover"));
 
 		iconLabels.add(iconLabel);
 
-		DIYLabel textLabel = new DIYLabel();
+		DIYLabel textLabel = new DIYLabel()
+		{
+			@Override
+			public void setHover(boolean hover)
+			{
+				iconLabel.setHover(hover);
+			}
+		};
 		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
 		textLabel.setForegroundColour(fore);
 

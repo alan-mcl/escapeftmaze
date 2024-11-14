@@ -18,8 +18,9 @@ compass widget
 inventory screen alignment is out, again
 dead character portrait
 party cloud spell widget
-mana widget hover textures
 stance widget during combat
+run-into-combat tile skip bug
+combat text scrolling improvement
 
 rename Automata race
 

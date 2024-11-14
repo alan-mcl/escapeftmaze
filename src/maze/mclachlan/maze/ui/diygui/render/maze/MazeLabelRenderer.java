@@ -98,7 +98,21 @@ public class MazeLabelRenderer extends Renderer
 		// draw the icon
 		if (icon != null)
 		{
-			DIYToolkit.drawImageAligned(g, icon, iconBounds, label.getIconAlign());
+			if (label.isHover())
+			{
+				if (label.getHoverIcon() != null)
+				{
+					DIYToolkit.drawImageAligned(g, label.getHoverIcon(), iconBounds, label.getIconAlign());
+				}
+				else
+				{
+					DIYToolkit.drawImageAligned(g, icon, iconBounds, label.getIconAlign());
+				}
+			}
+			else
+			{
+				DIYToolkit.drawImageAligned(g, icon, iconBounds, label.getIconAlign());
+			}
 		}
 
 		// draw the text
