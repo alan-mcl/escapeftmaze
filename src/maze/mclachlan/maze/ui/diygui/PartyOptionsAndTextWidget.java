@@ -40,6 +40,7 @@ import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemCacheManager;
+import mclachlan.maze.stat.PlayerParty;
 import mclachlan.maze.stat.combat.Combat;
 
 import static mclachlan.maze.game.Maze.State.*;
@@ -92,6 +93,9 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 
 	// any items on the tile
 	private final ItemWidget cacheItem;
+
+	// party stealth and cloud spells
+	PartyCloudSpellWidget partyCloudSpellWidget;
 
 	/*-------------------------------------------------------------------------*/
 	public PartyOptionsAndTextWidget(Rectangle bounds)
@@ -150,6 +154,14 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			y,
 			cacheItemPreferredSize.width,
 			cacheItemPreferredSize.height);
+
+		// stealth and clouds
+		Rectangle pcswBounds = new Rectangle(
+			x +panelBorder*2,
+			y +internalInset,
+			width -panelBorder*4,
+			panelBorder -internalInset*2);
+		partyCloudSpellWidget = new PartyCloudSpellWidget(null, pcswBounds);
 
 		// the messages text area
 		textArea = new DIYTextArea("");
@@ -232,6 +244,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		mainPane.add(settings);
 		mainPane.add(quit);
 
+		this.add(partyCloudSpellWidget);
 		this.add(cacheItem);
 
 		this.doLayout();
@@ -463,18 +476,24 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 
 		if (maze.getCurrentTile() != null)
 		{
-			refreshCachedItems(maze.getCurrentZone(), Maze.getInstance().getCurrentTile().getCoords());
+			refreshTile(maze.getCurrentZone(), Maze.getInstance().getCurrentTile().getCoords());
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void setTile(Zone zone, Tile t, Point tile)
 	{
-		refreshCachedItems(zone, tile);
+		refreshTile(zone, tile);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void refreshCachedItems(Zone zone, Point tile)
+	public void setParty(PlayerParty p)
+	{
+		partyCloudSpellWidget.setParty(p);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refreshTile(Zone zone, Point tile)
 	{
 		List<Item> itemsOnTile = ItemCacheManager.getInstance().getItemsOnTile(zone, tile);
 
@@ -488,6 +507,8 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 			cacheItem.setItem(null);
 			cacheItem.setVisible(false);
 		}
+
+		partyCloudSpellWidget.setTile(tile);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -558,7 +579,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 
 				List<Item> items = ItemCacheManager.getInstance().getItemsOnTile(zone, tile);
 				ItemCacheManager.getInstance().clearItemsOnTile(zone, tile);
-				refreshCachedItems(zone, tile);
+				refreshTile(zone, tile);
 
 				Maze.getInstance().grantItems(items);
 				return true;

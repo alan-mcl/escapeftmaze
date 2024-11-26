@@ -778,7 +778,7 @@ public class Maze implements Runnable
 		// remove all RESTING_SLEEP conditions from actors
 		for (UnifiedActor pc : party.getActors())
 		{
-			ArrayList<Condition> list = new ArrayList<Condition>(pc.getConditions());
+			ArrayList<Condition> list = new ArrayList<>(pc.getConditions());
 			for (Condition c : list)
 			{
 				if (c instanceof RestingSleep)
@@ -1805,7 +1805,7 @@ public class Maze implements Runnable
 		{
 			for (UnifiedActor pc : party.getActors())
 			{
-				ArrayList<Condition> list = new ArrayList<Condition>(pc.getConditions());
+				ArrayList<Condition> list = new ArrayList<>(pc.getConditions());
 				for (Condition c : list)
 				{
 					if (c instanceof RestingSleep)

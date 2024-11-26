@@ -229,6 +229,7 @@ poatw.chest.encounter = Encounter chest
 poatw.portal.encounter = Encounter door
 poatw.view.log = (V)iew Log
 poatw.view.log.title = Message Log
+poatw.stealth = Party Stealth: %s
 
 # player character widget
 pcw.levelup=+

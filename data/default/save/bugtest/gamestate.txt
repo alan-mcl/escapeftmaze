@@ -1,4 +1,4 @@
-zone=Ichiba Crossroad
+zone=arena
 difficultyLevel=Normal
 playerPos=8:8
 facing=4

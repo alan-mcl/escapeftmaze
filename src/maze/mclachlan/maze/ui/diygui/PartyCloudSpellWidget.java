@@ -21,23 +21,30 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
-import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.Tile;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerParty;
 import mclachlan.maze.stat.condition.CloudSpell;
 
 /**
  * Displays icons for cloud spells affecting the party
  */
-public class PartyCloudSpellWidget extends ContainerWidget
+public class PartyCloudSpellWidget extends ContainerWidget implements ActionListener
 {
 	private PlayerParty group;
-	private Rectangle bounds;
+	private final Rectangle bounds;
+	private final DIYLabel[] labels;
+	private int partyStealth;
+	private String stealthTooltip;
 
 	/*-------------------------------------------------------------------------*/
 	public PartyCloudSpellWidget(PlayerParty group, Rectangle bounds)
@@ -45,6 +52,22 @@ public class PartyCloudSpellWidget extends ContainerWidget
 		super(bounds);
 		this.group = group;
 		this.bounds = bounds;
+
+		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
+		int iconSize = rp.getProperty(RendererProperties.Property.CONDITION_ICON_SIZE);
+		int hgap = 3;
+
+		int nrLabels = bounds.width / (iconSize + hgap);
+		labels = new DIYLabel[nrLabels];
+
+		this.setLayoutManager(new DIYGridLayout(nrLabels, 1, hgap, 0));
+		for (int i = 0; i < labels.length; i++)
+		{
+			labels[i] = new DIYLabel();
+			labels[i].setIconAlign(DIYToolkit.Align.CENTER);
+			labels[i].addActionListener(this);
+			this.add(labels[i]);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -55,17 +78,30 @@ public class PartyCloudSpellWidget extends ContainerWidget
 			return;
 		}
 
-		for (int i = 0; i < group.getCloudSpells().size(); i++)
+		for (int i = 0; i < labels.length; i++)
 		{
-			CloudSpell spell = group.getCloudSpells().get(i);
-			BufferedImage icon = Database.getInstance().getImage(spell.getIcon());
+			if (group.getCloudSpells().size() > i)
+			{
+				CloudSpell spell = group.getCloudSpells().get(i);
+				BufferedImage icon = Database.getInstance().getImage(spell.getIcon());
 
-			g.drawImage(
-				icon,
-				bounds.x+2+(24*i),
-				bounds.y,
-				Maze.getInstance().getComponent());
+				labels[i].setIcon(icon);
+				labels[i].setTooltip(spell.getSpell().getDescription());
+			}
+			else
+			{
+				labels[i].setIcon(null);
+				labels[i].setTooltip(null);
+			}
 		}
+
+		if (partyStealth > 0)
+		{
+			labels[labels.length - 1].setIcon(Database.getInstance().getImage("condition/stealth"));
+			labels[labels.length - 1].setTooltip(stealthTooltip);
+		}
+
+		super.draw(g);
 
 		if (DIYToolkit.debug)
 		{
@@ -81,9 +117,11 @@ public class PartyCloudSpellWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public PlayerParty getFoeGroup()
+	public void setTile(Point p)
 	{
-		return group;
+		Tile tile = Maze.getInstance().getCurrentZone().getTile(p);
+		partyStealth = GameSys.getInstance().getStealthValue(tile, Maze.getInstance().getParty());
+		stealthTooltip = StringUtil.getUiLabel("poatw.stealth", partyStealth);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -96,5 +134,13 @@ public class PartyCloudSpellWidget extends ContainerWidget
 	public String getWidgetName()
 	{
 		return DIYToolkit.PANE;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean actionPerformed(ActionEvent event)
+	{
+		// todo
+		return true;
 	}
 }

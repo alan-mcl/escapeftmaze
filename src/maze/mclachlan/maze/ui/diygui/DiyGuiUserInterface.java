@@ -138,7 +138,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
 	SignBoardWidget signBoardWidget;
 	ZoneDisplayWidget zoneDisplay;
-	PartyCloudSpellWidget partyCloudSpellWidget;
 
 	private List<FoeGroup> foeGroups;
 
@@ -1203,16 +1202,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			Database.getInstance().getImage("screen/sign_board"));
 		restingWidget = new RestingWidget(rect);
 
-		partyCloudSpellWidget = new PartyCloudSpellWidget(
-			null,
-			new Rectangle(
-				SCREEN_WIDTH / 2 - MAZE_WIDTH / 2,
-				SCREEN_HEIGHT / 12 - 23,
-				MAZE_WIDTH,
-				22));
-
-		screen.add(partyCloudSpellWidget);
-
 		ArrayList<ContainerWidget> list = new ArrayList<>();
 		list.add(partyOptionsAndTextWidget);
 		list.add(signBoardWidget);
@@ -1253,7 +1242,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			this.charTopLeft.refresh();
 			this.charTopRight.refresh();
 
-			partyCloudSpellWidget.setParty(null);
+			partyOptionsAndTextWidget.setParty(null);
 
 			return;
 		}
@@ -1277,7 +1266,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.charTopLeft.refresh();
 		this.charTopRight.refresh();
 
-		partyCloudSpellWidget.setParty(party);
+		partyOptionsAndTextWidget.setParty(party);
 	}
 
 	/*-------------------------------------------------------------------------*/

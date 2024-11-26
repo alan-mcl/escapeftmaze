@@ -1,30 +1,42 @@
 = Other Wayfarers
 
-_Six other adventurers roam the Second Realm, also seeking escape._
+_Six other adventurers roam the Second Realm, also seeking escape.
+Once they were a party also seeking to escape the Maze but in the Second Realm
+the fell out and went their separate ways_
 
 == Rainmaker
-Human Male, Gadgeteer/Sorcerer
+Male Human Gadgeteer/Sorcerer
 
 _The winding paths of the Second Realm are trod by the tall, gaunt figure of Rainmaker. Older then he looks, passers by first note his close cropped white hair and unshaven chin, framing his faintly mocking sneer. They then take in the slim fitting patchwork coat, somewhat ragged, that swirls around his booted calves, and seeking out his eyes are defeated by the tint of a pair of scorched and dented goggles. Seeking weapons they see little save for an unwieldy looking arbalest strapped to his broad shoulders, a matching quiver of iron bolts taps against his thigh. Perhaps by now they have thought to utter a greeting, but it falls on empty space as Rainmaker's long strides carry him past the stricken onlooker and onwards down the path. Potent in magic and in mechanics, Rainmaker seldom stops to talk to the natives._
 
 == Eva Wingfield
-Triton Female, Amazon
+Female Triton Amazon
+
+_The Thorn Of The Rose. Eva roams the wilds of the Realm seeking resolution in
+solitude. Eva and Rainmaker were once lovers but fell out bitterly._
 
 == Gurney
-Dwarf Male, Skald
+Male Dwarf Skald
+
+_Gurney spends his days drinking away his sorrows in Scrymgeours pub in Ichiba City._
+
 
 == Red Greave
-Elf Male, Hero
+Male Elf Hero
 
-A popular hero, the subject of many pulp fiction novels in Ichiba
+_Ieffably handsome and heroic, Red Greave has embraced fame and become the subject of many pulp fiction novels in Ichiba._
 
 == Lorelei
-Human Female, Druid
+Female Human Druid
+
+Lorelei keeps a secret sanctuary outside the walls of Danaos Castle, tending to
+her plants and shutting out the rest of the Realm.
+
 ----
 "You are surrounded by a sense of peace as you enter the sanctuary. Pleasant greenery of all sorts fills the room, and the air smells sweet and fresh. All slender robed woman appears from amongst the foliage and gracefully approaches you. This is a druidic sanctuary if ever you've seen one, albeit a small and secretive one. Your inclination is to treat the guardian who approaches with respect and honesty."
 ----
 
-Lorelei keeps a secret sanctuary outside the walls of Danaos Castle.
+== Jasker the Shade
+Male Goblin Warlock
 
-XXXX
-???
+_Once the group's strategist, Jasker the Shade walks a fine line between pragmatism and duplicity. His sharp mind and knack for navigating the shadows made him indispensable during their adventures. However, his secretive nature and penchant for manipulating outcomes sowed seeds of mistrust within the group. When the party fractured, Jasker vanished into the underbelly of Ichiba City, working as an information broker and assassin-for-hire. He is haunted by the choices he made and the betrayal he perceives from his former companions, but he also believes his methods were the only way to keep them alive._
