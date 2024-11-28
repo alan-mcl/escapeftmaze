@@ -37,7 +37,7 @@ public class Leveler
 	public static final String BONUS_ATTRIBUTE = "+1 to an attribute";
 	public static final String BONUS_MODIFIERS = "+2 assignable modifiers";
 	public static final String BONUS_SPELL_PICK = "+1 spell pick";
-	public static final String UNLOCK_MODIFIER = "unlock a modifier";
+	public static final String UNLOCK_MODIFIER = "Unlock a modifier";
 	public static final String UNLOCK_SPELL_LEVEL = "+1 maximum spell level";
 	public static final String REVITALISE = "Revitalise";
 	public static final String CHANGE_CLASS = "Change class";
@@ -453,7 +453,7 @@ public class Leveler
 		{
 			pc.getHitPoints().setCurrent(state.hpCur);
 			pc.getHitPoints().setSub(state.fatigueCur);
-			pc.getActionPoints().setCurrent(state.spCur);
+			pc.getActionPoints().setCurrent(state.apCur);
 			pc.getMagicPoints().setCurrent(state.mpCur);
 			for (Condition c : state.conditions)
 			{
@@ -498,7 +498,7 @@ public class Leveler
 		pc.incLevel(1);
 		pc.incSpellPicks(state.spellPicksInc);
 		incCurMax(pc.getHitPoints(), state.hpInc);
-		incCurMax(pc.getActionPoints(), state.spInc);
+		incCurMax(pc.getActionPoints(), state.apInc);
 		incCurMax(pc.getMagicPoints(), state.mpInc);
 		pc.applyPermanentStatModifier(pc.getCharacterClass().getLevelUpModifiers());
 	}
@@ -509,7 +509,7 @@ public class Leveler
 		pc.incLevel(-1);
 		pc.incSpellPicks(-state.spellPicksInc);
 		incCurMax(pc.getHitPoints(), -state.hpInc);
-		incCurMax(pc.getActionPoints(), -state.spInc);
+		incCurMax(pc.getActionPoints(), -state.apInc);
 		incCurMax(pc.getMagicPoints(), -state.mpInc);
 		pc.rollbackPermanentStatModifier(pc.getCharacterClass().getLevelUpModifiers());
 	}
@@ -708,31 +708,31 @@ public class Leveler
 		// player current state
 		private int hpCur;
 		private int fatigueCur;
-		private int spCur;
+		private int apCur;
 		private int mpCur;
 		private List<Condition> conditions;
 		private StatModifier activeModifiers;
 		private CharacterClass curClass;
 
 		private int extraAssignableModifiers;
-		private int hpInc;
-		private int spInc;
-		private int mpInc;
-		private int spellPicksInc;
+		private final int hpInc;
+		private final int apInc;
+		private final int mpInc;
+		private final int spellPicksInc;
 
 		/*-------------------------------------------------------------------------*/
 		public LevelUpState(PlayerCharacter pc, int extraAssignableModifiers)
 		{
 			hpCur = pc.getHitPoints().getCurrent();
 			fatigueCur = pc.getHitPoints().getSub();
-			spCur = pc.getActionPoints().getCurrent();
+			apCur = pc.getActionPoints().getCurrent();
 			mpCur = pc.getMagicPoints().getCurrent();
-			conditions = new ArrayList<Condition>(pc.getConditions());
+			conditions = new ArrayList<>(pc.getConditions());
 			activeModifiers = pc.getActiveModifiers();
 			curClass = pc.getCharacterClass();
 
 			hpInc = pc.getCharacterClass().getLevelUpHitPoints().roll("leveler: hp");
-			spInc = pc.getCharacterClass().getLevelUpActionPoints().roll("leveler: ap");
+			apInc = pc.getCharacterClass().getLevelUpActionPoints().roll("leveler: ap");
 			mpInc = pc.getCharacterClass().getLevelUpMagicPoints().roll("leveler: mp") +
 				pc.getModifier(Stats.Modifier.BRAINS);
 
@@ -769,6 +769,26 @@ public class Leveler
 		public void setConditions(List<Condition> conditions)
 		{
 			this.conditions = conditions;
+		}
+
+		public int getHpInc()
+		{
+			return hpInc;
+		}
+
+		public int getApInc()
+		{
+			return apInc;
+		}
+
+		public int getMpInc()
+		{
+			return mpInc;
+		}
+
+		public int getSpellPicksInc()
+		{
+			return spellPicksInc;
 		}
 
 		public CharacterClass getCurClass()
@@ -811,14 +831,14 @@ public class Leveler
 			this.mpCur = mpCur;
 		}
 
-		public int getSpCur()
+		public int getApCur()
 		{
-			return spCur;
+			return apCur;
 		}
 
-		public void setSpCur(int spCur)
+		public void setApCur(int apCur)
 		{
-			this.spCur = spCur;
+			this.apCur = apCur;
 		}
 	}
 }

@@ -9,7 +9,6 @@ take all / leave on loot dialog
 bug: button click/drag
 bug: main menu -> add character -> load game -> NPX
 bug: drop item on inventory screen doesn't refresh carrying capacity
-make main menu title nice
 guild panel scroll pane
 scroll pane improvements: click+drag, scroll wheel, rightsized content
 spell desc dialog improvements: cast cost, effects
@@ -20,7 +19,6 @@ dead character portrait
 stance widget during combat
 run-into-combat tile skip bug
 combat text scrolling improvement
-level up widgets
 
 rename Automata race?
 

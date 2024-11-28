@@ -23,7 +23,11 @@ import java.awt.image.BufferedImage;
 import java.util.*;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
-import mclachlan.maze.ui.diygui.render.maze.*;
+import mclachlan.maze.stat.Dice;
+import mclachlan.maze.ui.diygui.render.maze.FoeGroupWidgetRenderer;
+import mclachlan.maze.ui.diygui.render.maze.FormationWidgetRenderer;
+import mclachlan.maze.ui.diygui.render.maze.ItemSelectionWidgetRenderer;
+import mclachlan.maze.ui.diygui.render.maze.TradingWidgetRenderer;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -129,6 +133,12 @@ public class MFRendererFactory extends RendererFactory
 		@Override
 		public BufferedImage getImageResource(String imageId)
 		{
+			if ("screen/loading_screen".equals(imageId))
+			{
+				int index = Dice.d4.roll("MF loading screen");
+				imageId = imageId +"_"+index;
+			}
+
 			return Database.getInstance().getImage("ui/mf/"+imageId);
 		}
 	}

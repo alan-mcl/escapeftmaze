@@ -41,6 +41,8 @@ import mclachlan.maze.ui.diygui.TextDialogWidget;
 
 public interface UserInterface
 {
+	void initConfig();
+
 	/*-------------------------------------------------------------------------*/
 	void addAnimation(Animation a);
 

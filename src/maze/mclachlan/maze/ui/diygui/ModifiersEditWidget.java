@@ -21,10 +21,12 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.Insets;
 import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
+import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.stat.*;
@@ -41,22 +43,22 @@ public class ModifiersEditWidget extends ContainerWidget
 	private CurMax bonuses = new CurMax();
 	private int maxAssignable;
 
-	private DIYLabel bonusesLeft = new DIYLabel();
-	private Map<Stats.Modifier, EditWidget> editLabelMap = new HashMap<Stats.Modifier, EditWidget>();
-	private Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<Stats.Modifier, DIYLabel>();
+	private final DIYLabel bonusesLeft = new DIYLabel();
+	private final Map<Stats.Modifier, EditWidget> editLabelMap = new HashMap<>();
+	private final Map<Stats.Modifier, DIYLabel> labelMap = new HashMap<>();
 
 	/** this is the ultimate player choices */
 	private StatModifier statModifier;
 
-	private ActionListener listener = new ModifiersDisplayActionListener();
+	private final ActionListener listener = new ModifiersDisplayActionListener();
 
 	private Stats.Modifier modifierPointer;
 	private int pointerRow;
 	private int pointerColumn;
 
-	private Object[][] layout;
-	private ActionListener parentListener;
-	private Leveler leveler;
+	private final Object[][] layout;
+	private final ActionListener parentListener;
+	private final Leveler leveler;
 
 	/*-------------------------------------------------------------------------*/
 	public ModifiersEditWidget(
@@ -72,19 +74,24 @@ public class ModifiersEditWidget extends ContainerWidget
 		this.parentListener = parentListener;
 		this.leveler = leveler;
 
-		DIYLabel header = getSubTitle(" Assign Modifiers");
+		DIYLabel header = getSubTitle(StringUtil.getUiLabel("mew.title"));
 		header.setForegroundColour(Constants.Colour.GOLD);
+		header.setAlignment(DIYToolkit.Align.CENTER);
+		header.setBounds(x, y, width, 18);
 
-		DIYLabel combatHeader = getLabel("Combat Modifiers", Constants.Colour.COMBAT_RED);
-		DIYLabel stealthHeader = getLabel("Stealth Modifiers", Constants.Colour.STEALTH_GREEN);
-		DIYLabel magicHeader = getLabel("Magic Modifiers", Constants.Colour.MAGIC_BLUE);
-		DIYLabel attributeHeader = getLabel("Attribute Modifiers", Constants.Colour.ATTRIBUTES_CYAN);
-		
+		bonusesLeft.setAlignment(DIYToolkit.Align.RIGHT);
+		bonusesLeft.setBounds(x, y, width-10, 18);
+
+		DIYLabel combatHeader = getLabel(StringUtil.getUiLabel("mdw.combat"), Constants.Colour.COMBAT_RED);
+		DIYLabel stealthHeader = getLabel(StringUtil.getUiLabel("mdw.stealth"), Constants.Colour.STEALTH_GREEN);
+		DIYLabel magicHeader = getLabel(StringUtil.getUiLabel("mdw.magic"), Constants.Colour.MAGIC_BLUE);
+		DIYLabel attributeHeader = getLabel(StringUtil.getUiLabel("mdw.attributes"), Constants.Colour.ATTRIBUTES_CYAN);
+
+
 		if (!allowEditingBaseModifiers)
 		{
 			layout = new Object[][]
 			{
-				{ header, 								bonusesLeft,							null},
 				{combatHeader,							stealthHeader,							magicHeader},
 				{ Stats.Modifier.SWING,			Stats.Modifier.STREETWISE,	Stats.Modifier.CHANT},
 				{ Stats.Modifier.THRUST,			Stats.Modifier.DUNGEONEER,	Stats.Modifier.RHYME},
@@ -105,7 +112,6 @@ public class ModifiersEditWidget extends ContainerWidget
 		{
 			layout = new Object[][]
 			{
-				{ header, 								bonusesLeft,							null},
 				{ null, 									attributeHeader,						null},
 				{ Stats.Modifier.BRAWN,			Stats.Modifier.THIEVING,			Stats.Modifier.BRAINS},
 				{ Stats.Modifier.SKILL,			Stats.Modifier.SNEAKING,			Stats.Modifier.POWER},
@@ -128,16 +134,14 @@ public class ModifiersEditWidget extends ContainerWidget
 			};
 		}
 
-		buildGui();
-	}
+		DIYPane modifiersPane = new DIYPane();
 
-	/*-------------------------------------------------------------------------*/
-	private void buildGui()
-	{
 		int columns = 6;
 		int rows = layout.length;
 
-		this.setLayoutManager(new DIYGridLayout(columns, rows, 2, 2));
+		modifiersPane.setLayoutManager(new DIYGridLayout(columns, rows, 5, 2));
+		modifiersPane.setInsets(new Insets(5,5,5,5));
+		modifiersPane.setBounds(x, y +header.height, width, height -header.height);
 
 		bonusesLeft.setText(toString(this.bonuses));
 
@@ -147,20 +151,20 @@ public class ModifiersEditWidget extends ContainerWidget
 			{
 				if (aRow == null)
 				{
-					this.add(getBlank());
-					this.add(getBlank());
+					modifiersPane.add(getBlank());
+					modifiersPane.add(getBlank());
 				}
 				else if (aRow instanceof DIYLabel)
 				{
-					this.addDescLabel(null, (DIYLabel)aRow);
-					this.add(getBlank());
+					this.addDescLabel(modifiersPane, null, (DIYLabel)aRow);
+					modifiersPane.add(getBlank());
 				}
 				else if (aRow instanceof Stats.Modifier)
 				{
 					Stats.Modifier modifier = (Stats.Modifier)aRow;
 					String modName = StringUtil.getModifierName(modifier);
-					this.addDescLabel(modifier, getLabel(modName));
-					this.addStatLabel(modifier, getModifierLabel());
+					this.addDescLabel(modifiersPane, modifier, getLabel(modName));
+					this.addStatLabel(modifiersPane, modifier, getModifierLabel());
 				}
 				else
 				{
@@ -169,16 +173,22 @@ public class ModifiersEditWidget extends ContainerWidget
 			}
 		}
 
-		setModifierPointer(2, 0);
+		setModifierPointer(1, 0);
+
+		modifiersPane.doLayout();
+
+		this.add(header);
+		this.add(bonusesLeft);
+		this.add(modifiersPane);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Adds a static text desc label.
 	 */
-	private void addDescLabel(Stats.Modifier modifier, DIYLabel label)
+	private void addDescLabel(ContainerWidget pane, Stats.Modifier modifier, DIYLabel label)
 	{
-		this.add(label);
+		pane.add(label);
 		label.setActionMessage(modifier==null?null:modifier.toString());
 		label.addActionListener(listener);
 		this.labelMap.put(modifier, label);
@@ -188,9 +198,9 @@ public class ModifiersEditWidget extends ContainerWidget
 	/**
 	 * Adds a volatile stats label.
 	 */
-	private void addStatLabel(Stats.Modifier name, EditWidget label)
+	private void addStatLabel(ContainerWidget pane, Stats.Modifier name, EditWidget label)
 	{
-		this.add(label);
+		pane.add(label);
 		label.modifier = name;
 		this.editLabelMap.put(name, label);
 	}
@@ -224,6 +234,7 @@ public class ModifiersEditWidget extends ContainerWidget
 	{
 		DIYLabel title = new DIYLabel(titleText);
 		title.setForegroundColour(GOLD);
+		title.setAlignment(DIYToolkit.Align.CENTER);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
 		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
 		title.setFont(f);
@@ -235,6 +246,7 @@ public class ModifiersEditWidget extends ContainerWidget
 	{
 		DIYLabel result = new DIYLabel(text, DIYToolkit.Align.LEFT);
 		result.setForegroundColour(colour);
+		result.setAlignment(DIYToolkit.Align.CENTER);
 		return result;
 	}
 
@@ -260,7 +272,7 @@ public class ModifiersEditWidget extends ContainerWidget
 		this.statModifier = new StatModifier();
 		updateBonusesLeft();
 
-		setModifierPointer(2, 0);
+		setModifierPointer(1, 0);
 
 		for (Stats.Modifier modifier : this.editLabelMap.keySet())
 		{
@@ -361,7 +373,7 @@ public class ModifiersEditWidget extends ContainerWidget
 		switch(e.getKeyCode())
 		{
 			case KeyEvent.VK_UP:
-				if (pr > 2)
+				if (pr > 1)
 					pr--;
 				break;
 			case KeyEvent.VK_DOWN:
@@ -391,7 +403,7 @@ public class ModifiersEditWidget extends ContainerWidget
 				break;
 		}
 
-		if (layout[pr][pc] instanceof String)
+		if (layout[pr][pc] instanceof Stats.Modifier)
 		{
 			setModifierPointer(pr, pc);
 		}
@@ -426,8 +438,15 @@ public class ModifiersEditWidget extends ContainerWidget
 		public EditWidget()
 		{
 			super(0,0,1,1);
-			plus = new DIYButton("+");
-			minus = new DIYButton("-");
+
+			plus = new DIYButton("");
+			plus.setImage("icon/plus_small");
+			plus.setAlignment(DIYToolkit.Align.CENTER);
+
+			minus = new DIYButton("");
+			minus.setImage("icon/minus_small");
+			minus.setAlignment(DIYToolkit.Align.CENTER);
+
 			valueLabel = new DIYLabel();
 			pointerLabel = new DIYLabel();
 			pointerLabel.setForegroundColour(Color.WHITE);
@@ -479,14 +498,14 @@ public class ModifiersEditWidget extends ContainerWidget
 		/*----------------------------------------------------------------------*/
 		public void doLayout()
 		{
-			int inset = 1;
+			int inset = 2;
 			int buttonSize = height-inset*2;
 			int sx = x + width/2 - buttonSize*2;
 
 			this.minus.setBounds(sx, y+inset, buttonSize, buttonSize);
 			this.valueLabel.setBounds(sx+buttonSize+inset, y+inset, buttonSize*2, buttonSize);
 			this.plus.setBounds(sx+buttonSize*3+inset*2, y+inset, buttonSize, buttonSize);
-			this.pointerLabel.setBounds(sx+buttonSize*4+inset*3, y+inset, buttonSize, buttonSize);
+			this.pointerLabel.setBounds(plus.x -buttonSize -inset, y+inset, buttonSize, buttonSize);
 		}
 
 		/*----------------------------------------------------------------------*/

@@ -116,7 +116,8 @@ public class PlayerCharacterWidget extends DIYPanel
 		mpBar.addActionListener(this);
 
 		// lvl up
-		levelUp = new DIYButton(StringUtil.getUiLabel("pcw.levelup"));
+		levelUp = new DIYButton(""/*StringUtil.getUiLabel("pcw.levelup")*/);
+		levelUp.setImage("icon/plus");
 		levelUp.addActionListener(this);
 		levelUp.setTooltip(StringUtil.getUiLabel("pcw.levelup.tooltip"));
 

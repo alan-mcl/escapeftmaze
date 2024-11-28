@@ -43,6 +43,26 @@ cc.show.lap = ...
 cc.locked = ** LOCKED **
 cc.spell.books = Spell Books
 
+# level up widget
+lu.title = Level Up %s
+lu.next = Next >
+lu.previous = < Previous
+lu.class.change.req = Show Class Change Requirements
+lu.level.up.inc = Level %s
+lu.bonus.title = Choose a Bonus
+lu.bonus.hp = Grants this character bonus hit points, over and above the regular hit point increase for this level.
+lu.bonus.ap = Grants this character bonus action points, over and above the regular action point increase for this level.
+lu.bonus.mp = Grants this character bonus magic points, over and above the regular magic point increase for this level.
+lu.bonus.mod = Grants this character bonus modifiers that can be assigned later in this level up.
+lu.bonus.spell = Grants this character a bonus spell choice.
+lu.bonus.revitalise = Restores this characters hit, stealth amd magic points to their maximum and removes most baneful conditions.
+lu.state.desc = Hit Points +%s\nAction Points +%s\nMagic Points +%s\nAssignable Modifiers %s
+lu.state.desc.spellpicks = Spell Picks +%s
+lu.select.spells = Learn New Spells
+
+# modifiers edit widget
+mew.title = Assign Modifiers
+
 # stats display widget
 sdw.title = Statistics
 sdw.kills = Kills: %s

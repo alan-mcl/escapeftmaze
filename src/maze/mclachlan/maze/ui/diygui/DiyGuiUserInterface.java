@@ -155,7 +155,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void initConfig()
+	public void initConfig()
 	{
 		java.util.Map<String, String> p = Maze.getInstance().getAppConfig();
 

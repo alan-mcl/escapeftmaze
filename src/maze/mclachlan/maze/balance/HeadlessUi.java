@@ -45,6 +45,12 @@ import mclachlan.maze.ui.diygui.TextDialogWidget;
  */
 public class HeadlessUi implements UserInterface
 {
+	@Override
+	public void initConfig()
+	{
+
+	}
+
 	public void addAnimation(Animation a)
 	{
 		

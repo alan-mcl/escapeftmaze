@@ -87,7 +87,6 @@ public class MFPanelRenderer extends Renderer
 				Database.getInstance().getImage("ui/mf/panel_med/corner_bottom_right"),
 				null, null, null, null,
 				Database.getInstance().getImage("ui/mf/panel_med/center"),
-
 				null);
 			case PANEL_LIGHT -> drawWithTextures(g, x, y, width, height, comp,
 				Database.getInstance().getImage("ui/mf/panel_light/border_top"),

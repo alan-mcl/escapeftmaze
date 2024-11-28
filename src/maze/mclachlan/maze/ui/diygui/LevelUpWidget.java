@@ -41,10 +41,12 @@ import static mclachlan.maze.ui.diygui.Constants.Colour.GOLD;
  */
 public class LevelUpWidget extends ContainerWidget implements ActionListener
 {
+	private final RendererProperties rp;
+	private final int buttonPaneHeight;
+
 	private DIYButton next, previous, showClassChangeReq;
 	private DIYPane buttonPane;
 	private CardLayoutWidget cardLayout;
-	private static int buttonPaneHeight = 50;
 
 	private DIYPane bonusesPane;
 	private DIYPane modifiersPane;
@@ -52,7 +54,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 
 	private PlayerCharacter playerCharacter;
 
-	private Leveler leveler = new Leveler();
+	private final Leveler leveler = new Leveler();
 	private Leveler.LevelUpState levelUpState;
 
 	// states
@@ -63,6 +65,8 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	private static final int FINISHED = 4;
 
 	// bonuses pane stuff
+	private DIYLabel levelUpStateTitle;
+	private DIYTextArea levelUpStateText;
 	private DIYListBox bonuses;
 	private Map<String, ContainerWidget> bonusDetailsMap;
 	private CardLayoutWidget bonusDetails;
@@ -81,33 +85,42 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	public LevelUpWidget(Rectangle bounds)
 	{
 		super(bounds);
+
+		rp = DIYToolkit.getInstance().getRendererProperties();
+		buttonPaneHeight = rp.getProperty(RendererProperties.Property.BUTTON_PANE_HEIGHT) +
+			rp.getProperty(RendererProperties.Property.INSET);
+
 		buildGui(bounds);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void buildGui(Rectangle bounds)
 	{
-		DIYPane titlePane = new DIYPane(new DIYFlowLayout(7, 7, DIYToolkit.Align.CENTER));
-		title = new DIYLabel("", DIYToolkit.Align.CENTER);
-		titlePane.setBounds(x, y, width, 30);
+		next = new DIYButton(StringUtil.getUiLabel("lu.next"));
+		previous = new DIYButton(StringUtil.getUiLabel("lu.previous"));
+		next.addActionListener(this);
+		previous.addActionListener(this);
+		showClassChangeReq = new DIYButton(StringUtil.getUiLabel("lu.class.change.req"));
+		showClassChangeReq.addActionListener(this);
+
+		int inset = rp.getProperty(RendererProperties.Property.INSET);
+		DIYPane titlePane = new DIYPane(new DIYFlowLayout(7,7, DIYToolkit.Align.CENTER));
+		title = new DIYLabel(StringUtil.getUiLabel("lu.title", ""), DIYToolkit.Align.CENTER);
+		titlePane.setBounds(
+			x + inset,
+			y + inset,
+			width,
+			30);
 		title.setForegroundColour(Constants.Colour.GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
-		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 5);
+		Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize()+5);
 		title.setFont(f);
 		titlePane.add(title);
 		this.add(titlePane);
 
-		next = new DIYButton("Next >");
-		previous = new DIYButton("< Previous");
-		next.addActionListener(this);
-		previous.addActionListener(this);
-
-		showClassChangeReq = new DIYButton("Show Class Change Requirements");
-		showClassChangeReq.addActionListener(this);
-
-		buttonPane = new DIYPane(new DIYFlowLayout(15, 10, DIYToolkit.Align.RIGHT));
-		buttonPane.setInsets(new Insets(0, 0, 0, 20));
-		buttonPane.setBounds(0, height - buttonPaneHeight, width, buttonPaneHeight);
+		buttonPane = new DIYPane(new DIYFlowLayout(15,0,DIYToolkit.Align.RIGHT));
+		buttonPane.setInsets(new Insets(5,0,5,20));
+		buttonPane.setBounds(0, height -buttonPaneHeight -inset*2, width, buttonPaneHeight+inset);
 
 		buttonPane.add(showClassChangeReq);
 		buttonPane.add(previous);
@@ -117,7 +130,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		modifiersPane = getModifiersPane();
 		spellsPane = getSpellsPane();
 
-		ArrayList<ContainerWidget> cards = new ArrayList<ContainerWidget>();
+		ArrayList<ContainerWidget> cards = new ArrayList<>();
 
 		cards.add(bonusesPane);
 		cards.add(modifiersPane);
@@ -132,9 +145,12 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	{
 		this.playerCharacter = pc;
 
-		title.setText("Level Up " + pc.getName());
+		title.setText(StringUtil.getUiLabel("lu.title", pc.getName()));
+		levelUpStateTitle.setText(StringUtil.getUiLabel("lu.level.up.inc", this.playerCharacter.getLevel() + 1));
 
 		levelUpState = new Leveler.LevelUpState(pc, 0);
+
+		setLevelUpStateText();
 
 		appliedBonus = false;
 		appliedModifiers = false;
@@ -142,14 +158,14 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		levelUpState.setExtraAssignableModifiers(0);
 
 		// reset bonus state
-		ArrayList<String> availableBonuses = new ArrayList<String>();
+		ArrayList<String> availableBonuses = new ArrayList<>();
 		availableBonuses.add(Leveler.BONUS_HIT_POINTS);
 		availableBonuses.add(Leveler.BONUS_ACTION_POINTS);
 		availableBonuses.add(Leveler.BONUS_MAGIC_POINTS);
 		List<Stats.Modifier> raisableAttributes = pc.getRaisableAttributes();
 		if (raisableAttributes.size() > 0)
 		{
-			List<ModifierListItem> items = new ArrayList<ModifierListItem>();
+			List<ModifierListItem> items = new ArrayList<>();
 			for (Stats.Modifier s : raisableAttributes)
 			{
 				items.add(new ModifierListItem(s));
@@ -164,7 +180,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		List<Stats.Modifier> unlockableModifiers = pc.getUnlockableModifiers();
 		if (unlockableModifiers.size() > 0)
 		{
-			List<ModifierListItem> items = new ArrayList<ModifierListItem>();
+			List<ModifierListItem> items = new ArrayList<>();
 			for (Stats.Modifier s : unlockableModifiers)
 			{
 				items.add(new ModifierListItem(s));
@@ -177,7 +193,7 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		List<MagicSys.SpellBook> unlockableSpellLevels = pc.getUnlockableSpellLevels();
 		if (unlockableSpellLevels.size() > 0)
 		{
-			List<SpellLevelListItem> items = new ArrayList<SpellLevelListItem>();
+			List<SpellLevelListItem> items = new ArrayList<>();
 			for (MagicSys.SpellBook sb : unlockableSpellLevels)
 			{
 				items.add(new SpellLevelListItem(sb, pc));
@@ -221,6 +237,27 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		this.cardLayout.show(bonusesPane);
 		bonuses.setSelected(Leveler.BONUS_HIT_POINTS);
 		bonusDetails.show(bonusDetailsMap.get(Leveler.BONUS_HIT_POINTS));
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	private void setLevelUpStateText()
+	{
+		StringBuilder sb = new StringBuilder();
+
+		sb.append(StringUtil.getUiLabel("lu.state.desc",
+			levelUpState.getHpInc(), levelUpState.getApInc(),
+			levelUpState.getMpInc(), levelUpState.getExtraAssignableModifiers()));
+
+		if (levelUpState.getSpellPicksInc() > 0)
+		{
+			sb.append("\n")
+				.append(StringUtil.getUiLabel("lu.state.desc.spellpicks", levelUpState.getSpellPicksInc()));
+		}
+
+		// todo character class bonuses
+
+		levelUpStateText.setText(sb.toString());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -345,20 +382,40 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getSpellsPane()
 	{
-		int inset = 5;
-		int columnWidth = width / 3 - 2 * inset;
-		int column1 = 5;
+		int inset, column1x;
+
+		inset = column1x = 10;
+		int columnWidth = (width-2*inset)/3;
+
+		int contentTop = 75;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int contentHeight = height - buttonPaneHeight - 100;
 
 		DIYPane spellsPane = new DIYPane();
 
-		DIYLabel spellsTitle = getSubTitle("Select Spells");
-		spellsTitle.setBounds(column1, 50, columnWidth, 20);
+		DIYPanel spellsPanel = getFixedPanel(column1x, contentTop, columnWidth * 3, contentHeight);
+		spellsPanel.setLayoutManager(null);
+
+		DIYLabel spellsTitle = getSubTitle(StringUtil.getUiLabel("lu.select.spells"));
+		spellsTitle.setAlignment(DIYToolkit.Align.LEFT);
+		spellsTitle.setBounds(
+			spellsPanel.x +panelBorderInset,
+			spellsPanel.y +panelBorderInset,
+			columnWidth, 20);
 
 		spellLearner = new SpellLearningWidget(null,
-			new Rectangle(column1, 75, columnWidth * 3, height - buttonPaneHeight - 75));
+			new Rectangle(
+				spellsPanel.x +panelBorderInset,
+				spellsPanel.y +panelBorderInset,
+				spellsPanel.width -panelBorderInset*2,
+				spellsPanel.height -panelBorderInset*2));
 
-		spellsPane.add(spellsTitle);
-		spellsPane.add(spellLearner);
+		spellsPanel.add(spellsTitle);
+		spellsPanel.add(spellLearner);
+
+//		spellsPane.add(spellsTitle);
+//		spellsPane.add(spellLearner);
+		spellsPane.add(spellsPanel);
 		spellsPane.add(buttonPane);
 
 		return spellsPane;
@@ -367,15 +424,30 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getModifiersPane()
 	{
-		int inset = 5;
-		int columnWidth = width / 3 - 2 * inset;
-		int column1 = 5;
+		int inset, column1x;
+
+		inset = column1x = 10;
+		int columnWidth = (width-2*inset)/3;
+
+		int contentTop = 75;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int contentHeight = height - buttonPaneHeight - 100;
 
 		DIYPane modifiersPane = new DIYPane();
 
+		DIYPanel modifiersEditPanel = getFixedPanel(column1x, contentTop, columnWidth * 3, contentHeight);
+		modifiersEditPanel.setLayoutManager(null);
+
 		editModifiers = new ModifiersEditWidget(
-			column1, 75, columnWidth * 3, height - buttonPaneHeight - 75, this, false, leveler);
-		modifiersPane.add(editModifiers);
+			modifiersEditPanel.x +panelBorderInset,
+			modifiersEditPanel.y +panelBorderInset +inset,
+			modifiersEditPanel.width -panelBorderInset*2,
+			modifiersEditPanel.height -panelBorderInset*2 -inset ,
+			this, false, leveler);
+
+		modifiersEditPanel.add(editModifiers);
+
+		modifiersPane.add(modifiersEditPanel);
 		modifiersPane.add(buttonPane);
 
 		return modifiersPane;
@@ -384,53 +456,87 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private DIYPane getBonusesPane()
 	{
-		int inset = 10;
-		int columnWidth = width / 3 - 2 * inset;
-		int column1 = width / 6 - inset / 2;
-		int column2 = column1 + columnWidth + inset;
+		int inset, column1x;
+
+		inset = column1x = 10;
+		int columnWidth = (width-5*inset)/3;
+
+		int column2x = column1x + columnWidth + inset;
+		int column3x = column2x + columnWidth + inset;
+
+		int contentTop = 75;
+		int panelBorderInset = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+		int titleHeight = 20;
+		int contentHeight = height - buttonPaneHeight - 200;
 
 		DIYPane bonusesPane = new DIYPane();
-		Rectangle bonusDetailsBounds = new Rectangle(column2, 75, columnWidth, height - buttonPaneHeight - 75);
 
-		DIYLabel bonusesTitle = getSubTitle("Choose a Bonus");
-		bonusesTitle.setBounds(column1, 50, columnWidth, 20);
+		DIYPanel levelUpStatePanel = getFixedPanel(column1x, contentTop, columnWidth, contentHeight);
+		levelUpStatePanel.setLayoutManager(null);
 
-		bonuses = new DIYListBox(new ArrayList());
-		bonuses.setBounds(column1, 75, columnWidth, height - buttonPaneHeight - 75);
+		levelUpStateTitle = getSubTitle(StringUtil.getUiLabel("lu.level.up.inc", ""));
+		levelUpStateTitle.setBounds(levelUpStatePanel.x, levelUpStatePanel.y +panelBorderInset, columnWidth, titleHeight);
+
+		levelUpStateText = new DIYTextArea("");
+		levelUpStateText.setTransparent(true);
+		levelUpStateText.setBounds(
+			levelUpStatePanel.x +panelBorderInset,
+			levelUpStateTitle.y +levelUpStateTitle.height +inset,
+			levelUpStatePanel.width -panelBorderInset*2,
+			levelUpStatePanel.height -panelBorderInset*2 -levelUpStateTitle.height -inset);
+
+		levelUpStatePanel.add(levelUpStateTitle);
+		levelUpStatePanel.add(levelUpStateText);
+
+		DIYPanel bonusListPanel = getFixedPanel(column2x, contentTop, columnWidth, contentHeight);
+		bonusListPanel.setLayoutManager(null);
+
+		DIYLabel bonusesTitle = getSubTitle(StringUtil.getUiLabel("lu.bonus.title"));
+		bonusesTitle.setBounds(bonusListPanel.x, bonusListPanel.y +panelBorderInset, columnWidth, titleHeight);
+
+		bonuses = new DIYListBox(new ArrayList<String>());
+		bonuses.setBounds(
+			bonusListPanel.x +panelBorderInset,
+			contentTop +panelBorderInset +bonusesTitle.height +inset/2,
+			columnWidth -panelBorderInset*2,
+			contentHeight -panelBorderInset*2 -bonusesTitle.height);
 		bonuses.addActionListener(this);
-		bonusDetailsMap = new HashMap<String, ContainerWidget>();
 
-		bonusDetailsMap.put(Leveler.BONUS_HIT_POINTS, getLabelPane("Grants this character " +
-			"bonus hit points, over and above the regular hit point increase for " +
-			"this level.", bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.BONUS_ACTION_POINTS, getLabelPane("Grants this character " +
-			"bonus action points, over and above the regular action point increase for " +
-			"this level.", bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.BONUS_MAGIC_POINTS, getLabelPane("Grants this character " +
-			"bonus magic points, over and above the regular magic point increase for " +
-			"this level.", bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.BONUS_ATTRIBUTE, new DIYListBox(new ArrayList(), bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.BONUS_MODIFIERS, getLabelPane("Grants this character " +
-			"bonus modifiers that can be assigned later in this level up.", bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.BONUS_SPELL_PICK, getLabelPane("Grants this character " +
-			"a bonus spell choice.", bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.REVITALISE, getLabelPane("Restores this characters " +
-			"hit, stealth amd magic points to their maximum and removes most " +
-			"baneful conditions.", bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.CHANGE_CLASS, new DIYListBox(new ArrayList(), bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.UNLOCK_MODIFIER, new DIYListBox(new ArrayList(), bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.UNLOCK_SPELL_LEVEL, new DIYListBox(new ArrayList(), bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.UPGRADE_SIGNATURE_WEAPON, new DIYListBox(new ArrayList(), bonusDetailsBounds));
-		bonusDetailsMap.put(Leveler.MODIFIER_UPGRADE, new DIYListBox(new ArrayList(), bonusDetailsBounds));
+		bonusListPanel.add(bonusesTitle);
+		bonusListPanel.add(bonuses);
 
-		ArrayList<ContainerWidget> widgets = new ArrayList<ContainerWidget>();
-		widgets.addAll(bonusDetailsMap.values());
+		DIYPanel bonusDetailsPanel = getFixedPanel(column3x, contentTop, columnWidth, contentHeight);
+		bonusDetailsPanel.setLayoutManager(null);
+
+		Rectangle bonusDetailsBounds = new Rectangle(
+			bonusDetailsPanel.x +panelBorderInset,
+			contentTop +panelBorderInset,
+			columnWidth -panelBorderInset*2,
+			contentHeight -panelBorderInset*2);
+		bonusDetailsMap = new HashMap<>();
+
+		bonusDetailsMap.put(Leveler.BONUS_HIT_POINTS, getLabelPane(StringUtil.getUiLabel("lu.bonus.hp"), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.BONUS_ACTION_POINTS, getLabelPane(StringUtil.getUiLabel("lu.bonus.ap"), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.BONUS_MAGIC_POINTS, getLabelPane(StringUtil.getUiLabel("lu.bonus.mp"), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.BONUS_ATTRIBUTE, new DIYListBox(new ArrayList<String>(), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.BONUS_MODIFIERS, getLabelPane(StringUtil.getUiLabel("lu.bonus.mod"), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.BONUS_SPELL_PICK, getLabelPane(StringUtil.getUiLabel("lu.bonus.spell"), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.REVITALISE, getLabelPane(StringUtil.getUiLabel("lu.bonus.revitalise"), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.CHANGE_CLASS, new DIYListBox(new ArrayList<String>(), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.UNLOCK_MODIFIER, new DIYListBox(new ArrayList<String>(), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.UNLOCK_SPELL_LEVEL, new DIYListBox(new ArrayList<String>(), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.UPGRADE_SIGNATURE_WEAPON, new DIYListBox(new ArrayList<String>(), bonusDetailsBounds));
+		bonusDetailsMap.put(Leveler.MODIFIER_UPGRADE, new DIYListBox(new ArrayList<String>(), bonusDetailsBounds));
+
+		ArrayList<ContainerWidget> widgets = new ArrayList<>(bonusDetailsMap.values());
 
 		bonusDetails = new CardLayoutWidget(bonusDetailsBounds, widgets);
 
-		bonusesPane.add(bonusesTitle);
-		bonusesPane.add(bonuses);
-		bonusesPane.add(bonusDetails);
+		bonusDetailsPanel.add(bonusDetails);
+
+		bonusesPane.add(levelUpStatePanel);
+		bonusesPane.add(bonusListPanel);
+		bonusesPane.add(bonusDetailsPanel);
 		bonusesPane.add(buttonPane);
 
 		return bonusesPane;
@@ -445,6 +551,16 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		text.setTransparent(true);
 		text.setBounds(bounds);
 		result.add(text);
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private DIYPanel getFixedPanel(int panelX, int panelY, int panelWidth, int panelHeight)
+	{
+		DIYPanel result = new DIYPanel(panelX, panelY, panelWidth, panelHeight);
+		result.setLayoutManager(new DIYFlowLayout(0,0, DIYToolkit.Align.LEFT));
+		result.setStyle(DIYPanel.Style.PANEL_MED);
+		result.setInsets(new Insets(25, 25, 25, 25));
 		return result;
 	}
 
@@ -479,25 +595,22 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 
 		if (state <= 0)
 		{
+			finished();
 			return;
 		}
 		else if (state == CHOOSE_BONUS)
 		{
-			this.previous.setText("   Cancel   ");
-			previous.addActionListener(event -> {
-				Maze.getInstance().setState(Maze.State.MOVEMENT);
-				return true;
-			});
+			this.previous.setText("Cancel");
 		}
 		else
 		{
 			this.previous.setText("< Previous");
-			previous.setActionMessage(null);
 		}
 
 		switch (state)
 		{
-			case CHOOSE_BONUS:
+			case CHOOSE_BONUS ->
+			{
 				if (appliedBonus)
 				{
 					rollbackBonus(playerCharacter, (String)bonuses.getSelected());
@@ -508,8 +621,9 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 					rollbackModifiers();
 				}
 				this.cardLayout.show(bonusesPane);
-				break;
-			case EDIT_MODIFIERS:
+			}
+			case EDIT_MODIFIERS ->
+			{
 				if (!appliedBonus)
 				{
 					applyBonus(playerCharacter, (String)bonuses.getSelected());
@@ -529,33 +643,31 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 					assignable,
 					GameSys.getInstance().getMaxAssignableToAModifierOnLevelUp());
 				this.cardLayout.show(modifiersPane);
-				break;
-			case CHOOSE_SPELLS:
+			}
+			case CHOOSE_SPELLS ->
+			{
 				if (!appliedModifiers)
 				{
 					applyModifiers();
 				}
 				this.spellLearner.refresh(playerCharacter);
 				this.cardLayout.show(spellsPane);
-				break;
-			case FINISHED:
+			}
+			case FINISHED ->
+			{
 				if (!appliedSpells)
 				{
 					applySpells();
 				}
-				break;
-			default:
-				throw new MazeException("Illegal state: " + state);
+				finished();
+			}
+			default -> throw new MazeException("Illegal state: " + state);
 		}
 
 		if (state == EDIT_MODIFIERS && !mustChooseSpells() ||
 			state == CHOOSE_SPELLS)
 		{
 			next.setText("Finish");
-			next.addActionListener(event -> {
-				Maze.getInstance().setState(Maze.State.MOVEMENT);
-				return true;
-			});
 		}
 		else
 		{
@@ -564,6 +676,12 @@ public class LevelUpWidget extends ContainerWidget implements ActionListener
 		}
 
 		this.next.setEnabled(this.canProceed());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void finished()
+	{
+		Maze.getInstance().setState(Maze.State.MOVEMENT);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -46,7 +46,7 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 
 		RendererProperties rp = DIYToolkit.getInstance().getRendererProperties();
 
-		setBackgroundImage(rp.getImageResource("screen/main_menu_back"));
+		setBackgroundImage(rp.getImageResource("screen/load_game_back"));
 
 		int border = rp.getProperty(RendererProperties.Property.PANEL_MED_BORDER);
 		int inset = rp.getProperty(RendererProperties.Property.INSET);

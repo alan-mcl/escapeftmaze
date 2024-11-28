@@ -19,13 +19,12 @@
 
 package mclachlan.maze.game;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.Toolkit;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.List;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.audio.WavAudioPlayer;
@@ -51,7 +50,6 @@ public class Launcher implements ActionListener
 	{
 		frame = new JFrame("Escape From The Maze");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
 
 		ok = new JButton("OK");
 		ok.addActionListener(this);

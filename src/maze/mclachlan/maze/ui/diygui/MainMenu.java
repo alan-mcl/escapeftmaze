@@ -64,24 +64,23 @@ public class MainMenu extends DIYPanel
 
 		Campaign campaign = Maze.getInstance().getCampaign();
 
+		DIYPanel menu = new DIYPanel(new DIYGridLayout(1,10,0,2));
+		menu.setStyle(Style.PANEL_MED);
+		menu.setInsets(new Insets(25,25,25,25));
+
 		DIYLabel topLabel = new DIYLabel(campaign.getDisplayName(), DIYToolkit.Align.CENTER);
-		topLabel.setBounds(0, 60, DiyGuiUserInterface.SCREEN_WIDTH, 30);
+//		topLabel.setBounds(0, 60, DiyGuiUserInterface.SCREEN_WIDTH, 30);
 		topLabel.setForegroundColour(GOLD);
 		Font defaultFont = DiyGuiUserInterface.instance.getDefaultFont();
 		Font f = defaultFont.deriveFont(Font.PLAIN, defaultFont.getSize()+3);
 		topLabel.setFont(f);
-		this.add(topLabel);
-		
-		DIYPanel menu = new DIYPanel(new DIYGridLayout(1,9,5,5));
-		menu.setStyle(Style.PANEL_MED);
-		menu.setInsets(new Insets(25,25,25,25));
 
 		int width = 300;
 		int height = 500;
 		menu.setBounds(
-			DiyGuiUserInterface.SCREEN_WIDTH/2-width/2, 
-			DiyGuiUserInterface.SCREEN_HEIGHT/2-height/2, 
-			width, 
+			DiyGuiUserInterface.SCREEN_WIDTH/2-width/2,
+			DiyGuiUserInterface.SCREEN_HEIGHT/2-height/2,
+			width,
 			height);
 
 		quickStart = new DIYButton(StringUtil.getUiLabel("mm.quick.start"));
@@ -114,7 +113,12 @@ public class MainMenu extends DIYPanel
 
 		exit = new DIYButton(StringUtil.getUiLabel("mm.quit"));
 		exit.addActionListener(this);
-		
+
+		DIYLabel dividerLabel = new DIYLabel();
+//		dividerLabel.setIcon(Database.getInstance().getImage("screen/logo_divider"));
+//		dividerLabel.setIconAlign(DIYToolkit.Align.CENTER);
+
+		menu.add(topLabel);
 		menu.add(quickStart);
 		menu.add(startGame);
 		menu.add(createCharacter);
@@ -122,11 +126,11 @@ public class MainMenu extends DIYPanel
 		menu.add(removeCharacter);
 		menu.add(loadGame);
 		menu.add(options);
-		menu.add(new DIYLabel());
+		menu.add(dividerLabel);
 		menu.add(exit);
 		
 		DIYLabel versionLabel = new DIYLabel();
-		versionLabel.setBounds(DiyGuiUserInterface.SCREEN_WIDTH-100, DiyGuiUserInterface.SCREEN_HEIGHT-25, 60, 15);
+		versionLabel.setBounds(DiyGuiUserInterface.SCREEN_WIDTH-300, DiyGuiUserInterface.SCREEN_HEIGHT-25, 60, 15);
 		versionLabel.setForegroundColour(Constants.Colour.GOLD);
 		versionLabel.setText(Maze.getInstance().getAppConfig().get("mclachlan.maze.version"));
 		

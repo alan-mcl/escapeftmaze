@@ -1162,7 +1162,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void updateState()
+	private void
+	updateState()
 	{
 		this.playerCharacter = null;
 
