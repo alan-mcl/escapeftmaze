@@ -2182,7 +2182,7 @@ public class Maze implements Runnable
 
 	public boolean isInGame()
 	{
-		return getParty() != null;
+		return getParty() != null && zone != null;
 	}
 
 	public void setCurrentCombat(Combat currentCombat)

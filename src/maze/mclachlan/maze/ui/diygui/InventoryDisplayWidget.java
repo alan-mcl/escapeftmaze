@@ -781,10 +781,11 @@ public class InventoryDisplayWidget extends ContainerWidget
 		{
 			// drop the item on the ground
 			user.removeItem(item, true);
-			List<Item> list = new ArrayList<Item>();
+			List<Item> list = new ArrayList<>();
 			list.add(item);
 			Maze.getInstance().dropItemsOnCurrentTile(list);
 			refreshItemWidgets();
+			refreshCarryingCapacity();
 			setSpellStateHack(null, -1);
 			DIYToolkit.getInstance().clearCursor();
 			return true;
