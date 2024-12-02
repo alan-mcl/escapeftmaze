@@ -350,7 +350,14 @@ public class PlayerCharacterWidget extends DIYPanel
 		}
 		else
 		{
-			portrait.setIcon(Database.getInstance().getImage(playerCharacter.getPortrait()));
+			if (playerCharacter.isAlive())
+			{
+				portrait.setIcon(Database.getInstance().getImage(playerCharacter.getPortrait()));
+			}
+			else
+			{
+				portrait.setIcon(Database.getInstance().getImage("screen/skull_portrait"));
+			}
 
 			nameLabel.setVisible(true);
 			classLabel.setVisible(true);
