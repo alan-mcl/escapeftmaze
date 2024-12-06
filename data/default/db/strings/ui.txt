@@ -548,3 +548,28 @@ gad.how.much = How Much (max %s)?
 
 # get player speech dialog
 gps.title = %s says:
+
+# mana display widget
+madw.red.tooltip.base = Red Magic base
+madw.black.tooltip.base = Black Magic base
+madw.purple.tooltip.base = Purple Magic base
+madw.gold.tooltip.base = Gold Magic base
+madw.white.tooltip.base = White Magic base
+madw.green.tooltip.base = Green Magic base
+madw.blue.tooltip.base = Blue Magic base
+
+madw.red.tooltip.present = Red Magic present here
+madw.black.tooltip.present = Black Magic present here
+madw.purple.tooltip.present = Purple Magic present here
+madw.gold.tooltip.present = Gold Magic present here
+madw.white.tooltip.present = White Magic present here
+madw.green.tooltip.present = Green Magic present here
+madw.blue.tooltip.present = Blue Magic present here
+
+madw.red.tooltip.required = Red Magic required
+madw.black.tooltip.required = Black Magic required
+madw.purple.tooltip.required = Purple Magic required
+madw.gold.tooltip.required = Gold Magic required
+madw.white.tooltip.required = White Magic required
+madw.green.tooltip.required = Green Magic required
+madw.blue.tooltip.required = Blue Magic required

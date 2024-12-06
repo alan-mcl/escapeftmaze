@@ -55,10 +55,10 @@ public class SpellDetailsDialog extends GeneralDialog
 			return true;
 		});
 
-		manaRequired = new ManaDisplayWidget();
+		manaRequired = new ManaDisplayWidget("required");
 		manaRequired.refresh(spell.getRequirementsToCast());
 
-		manaAvailable = new ManaDisplayWidget();
+		manaAvailable = new ManaDisplayWidget("present");
 		if (pc != null)
 		{
 			manaAvailable.refresh(

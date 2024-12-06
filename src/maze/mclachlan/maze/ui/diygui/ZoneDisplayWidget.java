@@ -37,7 +37,6 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 {
 	private final DIYLabel zoneName, terrainType;
 	private final ManaDisplayWidget mana;
-	//	private final DIYLabel stealth;
 
 	/*-------------------------------------------------------------------------*/
 	public ZoneDisplayWidget(Rectangle bounds)
@@ -65,21 +64,14 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 			labelWidth,
 			rowHeight);
 
-//		stealth = new DIYLabel("", DIYToolkit.Align.LEFT);
-//		stealth.setBounds(
-//			bounds.x +panelBorder +internalInset,
-//			bounds.y +panelBorder +rowHeight +internalInset*2,
-//			labelWidth,
-//			rowHeight);
-
-		Compass compass = new Compass();
+		CompassWidget compass = new CompassWidget();
 		compass.setBounds(
 			bounds.x + bounds.width / 2 - labelWidth / 2,
-			bounds.y + bounds.height / 2 - rowHeight / 2,
+			bounds.y/* + bounds.height / 2 - rowHeight / 2*/,
 			labelWidth,
-			rowHeight);
+			bounds.height /*rowHeight*/);
 
-		mana = new ManaDisplayWidget();
+		mana = new ManaDisplayWidget("present");
 		Dimension md = mana.getPreferredSize();
 		mana.setBounds(
 			bounds.x + bounds.width / 2 - md.width / 2,
@@ -91,7 +83,6 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 		this.add(compass);
 		this.add(terrainType);
 
-//		this.add(stealth);
 		this.add(mana);
 	}
 
@@ -105,9 +96,6 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 	public void setTile(Zone zone, Tile t, Point tile)
 	{
 		this.terrainType.setText(t.getTerrainType() + " (" + t.getTerrainSubType() + ")");
-
-//		int partyStealth = GameSys.getInstance().getStealthValue(t, Maze.getInstance().getParty());
-//		stealth.setText("Stealth: "+partyStealth);
 
 		mana.refresh(
 			t.getAmountRedMagic(),

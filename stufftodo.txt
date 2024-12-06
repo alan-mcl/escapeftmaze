@@ -11,7 +11,6 @@ guild panel scroll pane
 scroll pane improvements: click+drag, scroll wheel, rightsized content
 spell desc dialog improvements: cast cost, effects
 itemwidget text wrap
-compass widget
 stance widget during combat
 run-into-combat tile skip bug
 combat text scrolling improvement

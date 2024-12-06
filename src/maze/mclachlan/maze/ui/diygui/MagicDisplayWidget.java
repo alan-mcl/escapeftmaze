@@ -88,7 +88,7 @@ public class MagicDisplayWidget extends DIYPane implements ActionListener
 			personalPanel.width / 2,
 			20);
 
-		mana = new ManaDisplayWidget();
+		mana = new ManaDisplayWidget("present");
 
 		mana.setBounds(
 			personalPanel.x +panelBorderInset,

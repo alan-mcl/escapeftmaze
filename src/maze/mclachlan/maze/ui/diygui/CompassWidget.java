@@ -19,35 +19,40 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Graphics2D;
+import mclachlan.crusader.CrusaderEngine;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.toolkit.ContainerWidget;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.DIYFlowLayout;
-import java.awt.*;
+import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.util.MazeException;
-import mclachlan.crusader.CrusaderEngine;
 
 /**
  *
  */
-public class Compass extends ContainerWidget
+public class CompassWidget extends ContainerWidget
 {
-	private final DIYLabel direction;
+	private final DIYLabel compass;
 	
 	/*-------------------------------------------------------------------------*/
-	public Compass()
+	public CompassWidget()
 	{
 		this(0, 0, 1, 1);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected Compass(int x, int y, int width, int height)
+	protected CompassWidget(int x, int y, int width, int height)
 	{
 		super(x, y, width, height);
 		setLayoutManager(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
-		direction = new DIYLabel("", DIYToolkit.Align.CENTER);
-		add(direction);
+
+		compass = new DIYLabel("", DIYToolkit.Align.CENTER);
+		compass.setIcon(Database.getInstance().getImage("screen/compass_frame"));
+		compass.setIconAlign(DIYToolkit.Align.TOP);
+
+		add(compass);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -65,14 +70,10 @@ public class Compass extends ContainerWidget
 		{
 			switch (facing)
 			{
-				case CrusaderEngine.Facing.NORTH -> direction.setText("< N >");
-				case CrusaderEngine.Facing.SOUTH -> direction.setText("< S >");
-				case CrusaderEngine.Facing.EAST -> direction.setText("< E >");
-				case CrusaderEngine.Facing.WEST -> direction.setText("< W >");
-				case CrusaderEngine.Facing.NORTH_EAST -> direction.setText("< NE >");
-				case CrusaderEngine.Facing.NORTH_WEST -> direction.setText("< NW >");
-				case CrusaderEngine.Facing.SOUTH_EAST -> direction.setText("< SE >");
-				case CrusaderEngine.Facing.SOUTH_WEST -> direction.setText("< SW >");
+				case CrusaderEngine.Facing.NORTH -> compass.setIcon(Database.getInstance().getImage("screen/compass_north"));
+				case CrusaderEngine.Facing.SOUTH -> compass.setIcon(Database.getInstance().getImage("screen/compass_south"));
+				case CrusaderEngine.Facing.EAST -> compass.setIcon(Database.getInstance().getImage("screen/compass_east"));
+				case CrusaderEngine.Facing.WEST -> compass.setIcon(Database.getInstance().getImage("screen/compass_west"));
 				default -> throw new MazeException("Invalid facing :" + facing);
 			}
 		}

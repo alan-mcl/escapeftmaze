@@ -29,6 +29,7 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.ManaRequirement;
@@ -45,29 +46,28 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	private final ArrayList<DIYLabel> iconLabels;
 
 	/*-------------------------------------------------------------------------*/
-	public ManaDisplayWidget()
+	public ManaDisplayWidget(String tooltipSuffix)
 	{
 		iconLabels = new ArrayList<>(7);
 
-		red = createLabel("icon/mana_icon_red", Color.BLACK);
-		black = createLabel("icon/mana_icon_black", Color.WHITE);
-		purple = createLabel("icon/mana_icon_purple", Color.YELLOW);
-		gold = createLabel("icon/mana_icon_gold", Color.BLACK);
-		white = createLabel("icon/mana_icon_white", Color.BLACK);
-		green = createLabel("icon/mana_icon_green", Color.BLACK);
-		blue = createLabel("icon/mana_icon_blue", Color.WHITE);
-
-
+		red = createLabel("icon/mana_icon_red", Color.BLACK, "madw.red.tooltip."+tooltipSuffix);
+		black = createLabel("icon/mana_icon_black", Color.WHITE, "madw.black.tooltip."+tooltipSuffix);
+		purple = createLabel("icon/mana_icon_purple", Color.YELLOW, "madw.purple.tooltip."+tooltipSuffix);
+		gold = createLabel("icon/mana_icon_gold", Color.BLACK, "madw.gold.tooltip."+tooltipSuffix);
+		white = createLabel("icon/mana_icon_white", Color.BLACK, "madw.white.tooltip."+tooltipSuffix);
+		green = createLabel("icon/mana_icon_green", Color.BLACK, "madw.green.tooltip."+tooltipSuffix);
+		blue = createLabel("icon/mana_icon_blue", Color.WHITE, "madw.blue.tooltip."+tooltipSuffix);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private DIYLabel createLabel(String imageName, Color fore)
+	private DIYLabel createLabel(String imageName, Color fore, String tooltip)
 	{
 		DIYLabel iconLabel = new DIYLabel();
 		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
 		iconLabel.setIconAlign(DIYToolkit.Align.CENTER);
 		iconLabel.setIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName));
 		iconLabel.setHoverIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName+"_hover"));
+		iconLabel.setTooltip(StringUtil.getUiLabel(tooltip));
 
 		iconLabels.add(iconLabel);
 
@@ -79,10 +79,9 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 				iconLabel.setHover(hover);
 			}
 		};
-		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
 		textLabel.setForegroundColour(fore);
-
 		textLabel.addActionListener(this);
+		textLabel.setTooltip(StringUtil.getUiLabel(tooltip));
 
 		this.add(iconLabel);
 		this.add(textLabel);
@@ -94,7 +93,7 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	@Override
 	public Dimension getPreferredSize()
 	{
-		return new Dimension(ICON_SIZE * 7 + HGAP * 7, ICON_SIZE);
+		return new Dimension(ICON_SIZE*7 + HGAP*6, ICON_SIZE);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -109,7 +108,11 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 			DIYLabel[] icons = {red, black, purple, gold, white, green, blue};
 			for (int i = 0; i < icons.length; i++)
 			{
-				Rectangle r = new Rectangle(x + (i * (ICON_SIZE + HGAP)), y, ICON_SIZE, ICON_SIZE);
+				Rectangle r = new Rectangle(
+					x + (i * (ICON_SIZE + HGAP)),
+					y,
+					ICON_SIZE,
+					ICON_SIZE);
 				icons[i].setBounds(r);
 
 				iconLabels.get(i).setBounds(r);
@@ -148,15 +151,11 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 				switch (m.getColour())
 				{
 					case MagicSys.ManaType.RED -> red.setText("" + m.getAmount());
-					case MagicSys.ManaType.BLACK ->
-						black.setText("" + m.getAmount());
-					case MagicSys.ManaType.PURPLE ->
-						purple.setText("" + m.getAmount());
+					case MagicSys.ManaType.BLACK -> black.setText("" + m.getAmount());
+					case MagicSys.ManaType.PURPLE -> purple.setText("" + m.getAmount());
 					case MagicSys.ManaType.GOLD -> gold.setText("" + m.getAmount());
-					case MagicSys.ManaType.WHITE ->
-						white.setText("" + m.getAmount());
-					case MagicSys.ManaType.GREEN ->
-						green.setText("" + m.getAmount());
+					case MagicSys.ManaType.WHITE -> white.setText("" + m.getAmount());
+					case MagicSys.ManaType.GREEN -> green.setText("" + m.getAmount());
 					case MagicSys.ManaType.BLUE -> blue.setText("" + m.getAmount());
 					default ->
 						throw new MazeException("invalid [" + m.getColour() + "]");
