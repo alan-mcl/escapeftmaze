@@ -622,7 +622,15 @@ public class Combat
 	public UnifiedActor getRandomFoeOf(UnifiedActor actor)
 	{
 		List<UnifiedActor> allFoesOf = getAllFoesOf(actor);
-		return allFoesOf.get(Dice.nextInt(allFoesOf.size()));
+
+		if (allFoesOf.size() > 0)
+		{
+			return allFoesOf.get(Dice.nextInt(allFoesOf.size()));
+		}
+		else
+		{
+			return null;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

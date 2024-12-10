@@ -248,25 +248,28 @@ public class DamageEvent extends MazeEvent
 					{
 						UnifiedActor defender = combat.getRandomFoeWithinRangeOf(attacker);
 
-						result.add(
-							new UiMessageEvent(
-								StringUtil.getEventText(
-									"msg.melee.cleave",
-									attacker.getDisplayName())));
-						result.add(
-							new AttackEvent(
-								combat,
-								attacker,
-								defender,
-								attackWith,
-								GameSys.getInstance().getAttackType(attackWith),
-								0,
-								1,
-								attackWith.getAttackScript(),
-								attackWith.getDefaultDamageType(),
-								animationContext,
-								null,
-								Stats.Modifier.MELEE_CLEAVE.toString()));
+						if (defender != null)
+						{
+							result.add(
+								new UiMessageEvent(
+									StringUtil.getEventText(
+										"msg.melee.cleave",
+										attacker.getDisplayName())));
+							result.add(
+								new AttackEvent(
+									combat,
+									attacker,
+									defender,
+									attackWith,
+									GameSys.getInstance().getAttackType(attackWith),
+									0,
+									1,
+									attackWith.getAttackScript(),
+									attackWith.getDefaultDamageType(),
+									animationContext,
+									null,
+									Stats.Modifier.MELEE_CLEAVE.toString()));
+						}
 					}
 				}
 			}

@@ -30,6 +30,7 @@ import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -41,28 +42,95 @@ public class MFComboBoxRenderer extends Renderer
 		DIYComboBox<?> combo = (DIYComboBox<?>)widget;
 		Object selected = combo.getSelected();
 		Component comp = Maze.getInstance().getComponent();
-		String text = selected==null ? "" : selected.toString();
-
-		if (combo.getEditorText() != null)
-		{
-			text = combo.getEditorText();
-		}
+		String text = null;
 
 		// combo
-		renderMfTextures(g, x, y, width, height, combo, comp);
+		if (combo.getButtonImage() != null)
+		{
+			renderCustomImage(g, x, y, combo, comp);
+		}
+		else
+		{
+			renderMfTextures(g, x, y, width, height, combo, comp);
+
+			if (combo.getEditorText() != null)
+			{
+				text = combo.getEditorText();
+			}
+			else if (selected == null)
+			{
+				text = "";
+			}
+			else
+			{
+				text = selected.toString();
+			}
+		}
 
 		// text
-		DIYToolkit.drawStringCentered(g, text,
-			new Rectangle(x, y, width, height),
-			combo.getAlignment(),
-			Color.DARK_GRAY,
-			null);
+		Color textCol = combo.getForegroundColour();
+		if (textCol == null)
+		{
+			if (combo.isEnabled())
+			{
+				textCol = Color.DARK_GRAY;
+			}
+			else
+			{
+				textCol = Color.LIGHT_GRAY;
+			}
+		}
+
+		if (text != null)
+		{
+			DIYToolkit.drawStringCentered(g, text,
+				new Rectangle(x, y, width, height),
+				combo.getAlignment(),
+				textCol,
+				null);
+		}
 
 		if (DIYToolkit.debug)
 		{
 			g.setColor(Color.BLUE);
 			g.drawRect(x, y, width, height);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void renderCustomImage(Graphics2D g, int x, int y, DIYComboBox<?> combo,
+		Component comp)
+	{
+		BufferedImage center;
+
+		if (combo.isEnabled())
+		{
+			switch (combo.getEditorState())
+			{
+				case DEFAULT ->
+				{
+					center = DIYToolkit.getInstance().getRendererProperties().getImageResource(combo.getButtonImage());
+				}
+				case HOVER ->
+				{
+					center = DIYToolkit.getInstance().getRendererProperties().getImageResource(combo.getButtonImage()+"_hover");
+				}
+				case DEPRESSED ->
+				{
+					center = DIYToolkit.getInstance().getRendererProperties().getImageResource(combo.getButtonImage()+"_depressed");
+				}
+				default ->
+					throw new MazeException("invalid state " + combo.getEditorState());
+			}
+		}
+		else
+		{
+			// disabled
+			center = DIYToolkit.getInstance().getRendererProperties().getImageResource(combo.getButtonImage()+"_disabled");
+		}
+
+		// corners
+		g.drawImage(center, x, y, comp);
 	}
 
 	/*-------------------------------------------------------------------------*/

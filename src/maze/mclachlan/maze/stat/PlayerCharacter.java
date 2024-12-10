@@ -379,6 +379,7 @@ public class PlayerCharacter extends UnifiedActor
 		{
 			result.add(Stance.UNAWARE);
 		}
+/*
 		else if (maze.getState() == Maze.State.MOVEMENT)
 		{
 			if (maze.getParty().getPlayerCharacterIndex(this) < maze.getParty().getFormation())
@@ -389,8 +390,8 @@ public class PlayerCharacter extends UnifiedActor
 			{
 //				result.add(StringUtil.getUiLabel("aao.back.row"));
 			}
-
 		}
+*/
 		else if (maze.getState() == Maze.State.COMBAT)
 		{
 			if (this.getModifier(Stats.Modifier.SNAKESPEED) > 0)

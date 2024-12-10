@@ -42,6 +42,10 @@ public class DIYComboBox<T> extends ContainerWidget
 	private final Stack<T> selected = new Stack<>();
 	private MutableTree<T> model;
 
+	/** optional image used to render the button for this combo. This is the regular
+	 * texture, the renderer will expect _disabled, _hover and _depressed textures too. */
+	private String buttonImage;
+
 	private EditorState editorState = EditorState.DEFAULT;
 	private PopupState popupState = PopupState.HIDDEN;
 	private final DIYToolkit.Align align = DIYToolkit.Align.CENTER;
@@ -136,6 +140,18 @@ public class DIYComboBox<T> extends ContainerWidget
 		{
 			return selected.peek();
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public String getButtonImage()
+	{
+		return buttonImage;
+	}
+
+	public void setButtonImage(String buttonImage)
+	{
+		this.buttonImage = buttonImage;
 	}
 
 	/*-------------------------------------------------------------------------*/

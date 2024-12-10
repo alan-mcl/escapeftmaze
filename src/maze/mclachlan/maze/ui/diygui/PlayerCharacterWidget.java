@@ -41,6 +41,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.EquipIntention;
 import mclachlan.maze.stat.condition.Condition;
+import mclachlan.maze.util.MazeException;
 
 /**
  * Widget to display an actor's details.
@@ -144,6 +145,7 @@ public class PlayerCharacterWidget extends DIYPanel
 		ArrayList<PlayerCharacter.Stance> stances = new ArrayList<>();
 		stance = new DIYComboBox<>(stances, new Rectangle(0, 0, 1, 1));
 		stance.addActionListener(this);
+		stance.setButtonImage("icon/stance_act_early");
 
 		add(portraitFrame);
 		add(portrait);
@@ -450,7 +452,8 @@ public class PlayerCharacterWidget extends DIYPanel
 
 			// lvl up and stance is dependant on combat/movement
 			Combat combat = Maze.getInstance().getCurrentCombat();
-			if (combat != null)
+			Maze.State state = Maze.getInstance().getState();
+			if (state == Maze.State.COMBAT)
 			{
 				stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
 				stance.setVisible(true);
@@ -459,7 +462,7 @@ public class PlayerCharacterWidget extends DIYPanel
 				levelUp.setVisible(false);
 				levelUp.setEnabled(false);
 			}
-			else
+			else if (state == Maze.State.MOVEMENT)
 			{
 				stance.setEnabled(thisEnabled);
 				stance.setVisible(false);
@@ -475,15 +478,23 @@ public class PlayerCharacterWidget extends DIYPanel
 					levelUp.setEnabled(false);
 				}
 			}
-			this.getPlayerCharacter().setStance(stance.getSelected());
+			else
+			{
+				// neither visible
+				stance.setEnabled(thisEnabled);
+				stance.setVisible(false);
+				levelUp.setVisible(false);
+				levelUp.setEnabled(false);
+			}
+			refreshStance(stance.getSelected());
 
 			// action
 			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
 			action.setVisible(true);
 			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
 
-			if (Maze.getInstance().getState() == Maze.State.MOVEMENT ||
-				Maze.getInstance().getState() == Maze.State.COMBAT)
+			if (state == Maze.State.MOVEMENT ||
+				state == Maze.State.COMBAT)
 			{
 				if (combat == null)
 				{
@@ -495,6 +506,50 @@ public class PlayerCharacterWidget extends DIYPanel
 					action.setEditorText(null);
 					action.getSelected().select(playerCharacter, combat, this);
 				}
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void refreshStance(PlayerCharacter.Stance stance)
+	{
+		this.getPlayerCharacter().setStance(stance);
+
+		if (stance != null)
+		{
+			switch (stance)
+			{
+				case DEAD ->
+				{
+					this.stance.setButtonImage("icon/stance_dead");
+					this.stance.setTooltip(StringUtil.getUiLabel("aao.dead"));
+				}
+				case UNAWARE ->
+				{
+					this.stance.setButtonImage("icon/stance_unaware");
+					this.stance.setTooltip(StringUtil.getUiLabel("aao.unaware"));
+				}
+				case SNAKESPEED ->
+				{
+					this.stance.setButtonImage("icon/stance_snakespeed");
+					this.stance.setTooltip(StringUtil.getUiLabel("aso.snakespeed"));
+				}
+				case ACT_EARLY ->
+				{
+					this.stance.setButtonImage("icon/stance_act_early");
+					this.stance.setTooltip(StringUtil.getUiLabel("aso.act.early"));
+				}
+				case ACT_LATE ->
+				{
+					this.stance.setButtonImage("icon/stance_act_late");
+					this.stance.setTooltip(StringUtil.getUiLabel("aso.act.late"));
+				}
+				case PATIENCE ->
+				{
+					this.stance.setButtonImage("icon/stance_patience");
+					this.stance.setTooltip(StringUtil.getUiLabel("aso.patience"));
+				}
+				default -> throw new MazeException("Invalid stance " + stance);
 			}
 		}
 	}
@@ -554,7 +609,7 @@ public class PlayerCharacterWidget extends DIYPanel
 		}
 		else if (source == stance)
 		{
-			this.getPlayerCharacter().setStance(stance.getSelected());
+			refreshStance(stance.getSelected());
 			return true;
 		}
 		else if (source == leftHand || source == rightHand)
