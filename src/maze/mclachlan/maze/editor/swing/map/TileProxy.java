@@ -37,11 +37,15 @@ public abstract class TileProxy
 	public abstract Texture getCeilingTexture();
 	public abstract Texture getCeilingMaskTexture();
 	public abstract int getLightLevel();
+
+	public abstract int getCeilingHeight();
 	public abstract void setCeilingTexture(Texture ceilingTexture);
 	public abstract void setCeilingMaskTexture(Texture ceilingTexture);
 	public abstract void setFloorTexture(Texture floorTexture);
 	public abstract void setFloorMaskTexture(Texture floorTexture);
 	public abstract void setLightLevel(int lightLevel);
+
+	public abstract void setCeilingHeight(int height);
 
 	// Maze tile properties
 	public abstract StatModifier getStatModifier();

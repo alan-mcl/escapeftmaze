@@ -25,6 +25,8 @@ import java.awt.event.ActionListener;
 import java.util.Collections;
 import java.util.Vector;
 import javax.swing.*;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.EditorPanel;
 import mclachlan.maze.editor.swing.SingleTileScriptComponent;
@@ -35,14 +37,15 @@ import mclachlan.maze.map.Zone;
 /**
  *
  */
-public class WallDetailsPanel extends JPanel 
-	implements ActionListener, TileScriptComponentCallback
+public class WallDetailsPanel extends JPanel
+	implements ActionListener, TileScriptComponentCallback, ChangeListener
 {
 	// crusader wall properties
 	private final JLabel index;
 	private final JCheckBox isVisible, isSolid;
 	private final JComboBox<String> texture, maskTexture;
 	private final SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript, internalScript;
+	private final JSpinner height;
 	
 	// the wall being edited
 	private WallProxy wall;
@@ -67,6 +70,10 @@ public class WallDetailsPanel extends JPanel
 		isSolid = new JCheckBox("Solid?");
 		isSolid.addActionListener(this);
 		dodgyGridBagShite(this, isSolid, new JLabel(), gbc);
+
+		height = new JSpinner(new SpinnerNumberModel(1, 1, 32, 1));
+		height.addChangeListener(this);
+		dodgyGridBagShite(this, new JLabel("Height:"), height, gbc);
 
 		texture = new JComboBox<>();
 		texture.addActionListener(this);
@@ -119,6 +126,7 @@ public class WallDetailsPanel extends JPanel
 		
 		isVisible.removeActionListener(this);
 		isSolid.removeActionListener(this);
+		height.removeChangeListener(this);
 		texture.removeActionListener(this);
 		maskTexture.removeActionListener(this);
 		
@@ -128,6 +136,7 @@ public class WallDetailsPanel extends JPanel
 		}
 		isVisible.setSelected(wall.isVisible());
 		isSolid.setSelected(wall.isSolid());
+		height.setValue(wall.getHeight());
 		
 		if (wall.isVisible())
 		{
@@ -159,6 +168,7 @@ public class WallDetailsPanel extends JPanel
 		
 		isVisible.addActionListener(this);
 		isSolid.addActionListener(this);
+		height.addChangeListener(this);
 		texture.addActionListener(this);
 		maskTexture.addActionListener(this);
 	}
@@ -261,6 +271,18 @@ public class WallDetailsPanel extends JPanel
 		else if (component == internalScript)
 		{
 			wall.setInternalScript(new MouseClickScriptAdapter(internalScript.getScript()));
+		}
+	}
+
+	@Override
+	public void stateChanged(ChangeEvent e)
+	{
+		if (e.getSource() == height)
+		{
+			if (wall != null)
+			{
+				wall.setHeight((Integer)height.getValue());
+			}
 		}
 	}
 }

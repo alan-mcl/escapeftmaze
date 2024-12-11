@@ -65,10 +65,10 @@ public class MapLayer extends Layer
 				int x1 = (wallSize*(column+1))+(column*tileSize);
 				int y1 = (wallSize*(row+1))+(row*tileSize);
 			
-				g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorTexture().getImages()[0]), x1, y1, display);
+				g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorTexture().getImages()[0], true), x1, y1, display);
 				if (tiles[i].getFloorMaskTexture() != null)
 				{
-					g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorMaskTexture().getImages()[0]), x1, y1, display);
+					g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorMaskTexture().getImages()[0], false), x1, y1, display);
 				}
 			}
 		}

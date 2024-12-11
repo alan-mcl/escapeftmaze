@@ -32,6 +32,11 @@ public abstract class WallProxy
 	public abstract MouseClickScript getMouseClickScript();
 
 	public abstract MouseClickScript getInternalScript();
+
+	public abstract int getHeight();
+
+	public abstract void setHeight(int height);
+
 	public abstract void setMaskTexture(Texture maskTexture);
 	public abstract void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript);
 	public abstract void setMouseClickScript(MouseClickScript mouseClickScript);

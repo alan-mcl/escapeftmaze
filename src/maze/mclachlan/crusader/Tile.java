@@ -58,6 +58,7 @@ public class Tile
 		this.eastWallTexture = eastWallTexture;
 		this.westWallTexture = westWallTexture;
 		this.lightLevel = this.currentLightLevel = lightLevel;
+		this.ceilingHeight = ceilingHeight;
 	}
 	
 	/*-------------------------------------------------------------------------*/

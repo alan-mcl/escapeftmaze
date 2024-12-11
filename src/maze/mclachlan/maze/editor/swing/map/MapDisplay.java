@@ -55,7 +55,6 @@ public class MapDisplay extends JPanel implements Scrollable
 	private final java.util.Map<Image, Image> vertScaledImages = new HashMap<>();
 	
 	private static final int MAX_ZOOM_LEVEL = 4;
-	private ScriptLayer scriptLayer;
 
 	/*-------------------------------------------------------------------------*/
 	public MapDisplay(Zone zone)
@@ -69,7 +68,7 @@ public class MapDisplay extends JPanel implements Scrollable
 		selectionFeatures.set(0, 128);
 		
 		selectionLayer = new SelectionLayer(this, zone.getMap());
-		scriptLayer = new ScriptLayer(this, zone);
+		ScriptLayer scriptLayer = new ScriptLayer(this, zone);
 
 		layers.add(new MapLayer(zone, this));
 		layers.add(scriptLayer);
@@ -114,13 +113,29 @@ public class MapDisplay extends JPanel implements Scrollable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	Image getFloorScaledImage(BufferedImage image)
+	Image getFloorScaledImage(BufferedImage image, boolean sample)
 	{
 		Image result = floorScaledImages.get(image);
 		
 		if (result == null)
 		{
-			Image temp = image.getSubimage(0,0,16,16);
+			Image temp;
+
+			if (sample)
+			{
+				int w = 16;
+				// take a sample
+				temp = image.getSubimage(
+					image.getWidth() / 2 - w / 2,
+					image.getHeight() / 2 - w / 2,
+					w,
+					w);
+			}
+			else
+			{
+				temp = image;
+			}
+
 			Image scaledInstance = temp.getScaledInstance(tileSize * zoomLevel, tileSize * zoomLevel, Image.SCALE_FAST);
 
 			floorScaledImages.put(image, scaledInstance);

@@ -453,7 +453,7 @@ public class PlayerCharacterWidget extends DIYPanel
 			// lvl up and stance is dependant on combat/movement
 			Combat combat = Maze.getInstance().getCurrentCombat();
 			Maze.State state = Maze.getInstance().getState();
-			if (state == Maze.State.COMBAT)
+			if (state == Maze.State.COMBAT && playerCharacter.isAlive())
 			{
 				stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
 				stance.setVisible(true);
@@ -462,7 +462,7 @@ public class PlayerCharacterWidget extends DIYPanel
 				levelUp.setVisible(false);
 				levelUp.setEnabled(false);
 			}
-			else if (state == Maze.State.MOVEMENT)
+			else if (state == Maze.State.MOVEMENT && playerCharacter.isAlive())
 			{
 				stance.setEnabled(thisEnabled);
 				stance.setVisible(false);

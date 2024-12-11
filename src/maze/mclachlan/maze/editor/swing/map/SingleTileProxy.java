@@ -72,6 +72,12 @@ public class SingleTileProxy extends TileProxy
 	}
 
 	@Override
+	public int getCeilingHeight()
+	{
+		return crusaderTile.getCeilingHeight();
+	}
+
+	@Override
 	public void setCeilingTexture(Texture ceilingTexture)
 	{
 		crusaderTile.setCeilingTexture(ceilingTexture);
@@ -99,6 +105,12 @@ public class SingleTileProxy extends TileProxy
 	public void setLightLevel(int lightLevel)
 	{
 		crusaderTile.setLightLevel(lightLevel);
+	}
+
+	@Override
+	public void setCeilingHeight(int height)
+	{
+		crusaderTile.setCeilingHeight(height);
 	}
 
 	@Override

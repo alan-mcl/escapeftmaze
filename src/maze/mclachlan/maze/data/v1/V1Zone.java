@@ -170,6 +170,8 @@ public class V1Zone
 					String ceilingTextureName = strs[2];
 					String ceilingMaskTextureName = strs[3];
 					int lightLevel =  Integer.parseInt(strs[4]);
+					int ceilingHeight = Integer.parseInt(strs[5]);
+
 					Texture ceilingTexture = Database.getInstance().getMazeTexture(ceilingTextureName).getTexture();
 					Texture ceilingMaskTexture = null;
 					if (ceilingMaskTextureName != null && ceilingMaskTextureName.length() > 0)
@@ -192,7 +194,7 @@ public class V1Zone
 						Map.NO_WALL,
 						Map.NO_WALL,
 						lightLevel,
-						1);
+						ceilingHeight);
 
 					addTexture(ceilingTexture, textures);
 					addTexture(ceilingMaskTexture, textures);
@@ -472,7 +474,9 @@ public class V1Zone
 				writer.write(tiles[i].getCeilingMaskTexture().getName());
 			}
 			writer.write(SEP);
-			writer.writeln(String.valueOf(tiles[i].getLightLevel()));
+			writer.write(String.valueOf(tiles[i].getLightLevel()));
+			writer.write(SEP);
+			writer.writeln(String.valueOf(tiles[i].getCeilingHeight()));
 		}
 		writer.writeln();
 

@@ -30,7 +30,7 @@ animation: javelin
 animation: throwing axe
 animation: throwing hammer
 
-scene art: city windows, dungeon window, door+window, portcullis
+scene art: city windows, door+window
 scene art: table, chair, crate
 
 sprite & sound: angel

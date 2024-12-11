@@ -156,6 +156,32 @@ public class MultipleWallProxy extends WallProxy
 		return x;
 	}
 
+	@Override
+	public int getHeight()
+	{
+		int ll = walls.get(0).getHeight();
+
+		for (Wall w : walls)
+		{
+			if (ll != w.getHeight())
+			{
+				// differing heights amongst the group
+				return -1;
+			}
+		}
+
+		return ll;
+	}
+
+	@Override
+	public void setHeight(int height)
+	{
+		for (Wall w : walls)
+		{
+			w.setHeight(height);
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void setMaskTexture(Texture maskTexture)

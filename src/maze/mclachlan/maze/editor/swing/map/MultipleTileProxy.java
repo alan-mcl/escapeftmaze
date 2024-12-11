@@ -123,11 +123,28 @@ public class MultipleTileProxy extends TileProxy
 		{
 			if (ll != t.getLightLevel())
 			{
-				// differing textures amongst the group
+				// differing light levels amongst the group
 				return -1;
 			}
 		}
 		
+		return ll;
+	}
+
+	@Override
+	public int getCeilingHeight()
+	{
+		int ll = crusaderTiles.get(0).getCeilingHeight();
+
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			if (ll != t.getCeilingHeight())
+			{
+				// differing heights amongst the group
+				return -1;
+			}
+		}
+
 		return ll;
 	}
 
@@ -178,6 +195,15 @@ public class MultipleTileProxy extends TileProxy
 		for (mclachlan.crusader.Tile t : crusaderTiles)
 		{
 			t.setLightLevel(lightLevel);
+		}
+	}
+
+	@Override
+	public void setCeilingHeight(int height)
+	{
+		for (mclachlan.crusader.Tile t : crusaderTiles)
+		{
+			t.setCeilingHeight(height);
 		}
 	}
 

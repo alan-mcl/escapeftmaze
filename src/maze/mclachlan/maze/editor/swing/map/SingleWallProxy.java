@@ -78,6 +78,18 @@ public class SingleWallProxy extends WallProxy
 	}
 
 	@Override
+	public int getHeight()
+	{
+		return wall.getHeight();
+	}
+
+	@Override
+	public void setHeight(int height)
+	{
+		wall.setHeight(height);
+	}
+
+	@Override
 	public void setMaskTexture(Texture maskTexture)
 	{
 		wall.setMaskTexture(maskTexture);

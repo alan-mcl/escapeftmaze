@@ -330,7 +330,7 @@ public class DIYComboBox<T> extends ContainerWidget
 	private Rectangle getPopupBounds(T node, List<T> options)
 	{
 		// calculate the next popup bounds
-		int popupWidth = width; // todo: longer for subitems?
+		int popupWidth = Math.max(width, 100); // todo: longer for subitems?
 		int popupHeight = 20*options.size(); // todo: dynamic row height?
 		int popupX, popupY;
 

@@ -44,35 +44,35 @@ public class TileDetailsPanel extends JPanel
 	implements KeyListener, ChangeListener, ActionListener, 
 		StatModifierComponentCallback, TileScriptComponentCallback
 {
-	private JLabel indexLabel;
-	private Zone zone;
+	private final JLabel indexLabel;
+	private final Zone zone;
 	private int index;
 	private TileProxy tile;
 	
 	// maze tile properties
-	private JComboBox terrainType;
-	private JTextField terrainSubType;
-	private StatModifierComponent statModifier;
-	private JSpinner randomEncounterChance;
-	private JComboBox randomEncounterTable;
-	private JComboBox restingDanger;
-	private JComboBox restingEfficiency;
-	private MultipleTileScriptComponent tileScript;
+	private final JComboBox terrainType;
+	private final JTextField terrainSubType;
+	private final StatModifierComponent statModifier;
+	private final JSpinner randomEncounterChance;
+	private final JComboBox randomEncounterTable;
+	private final JComboBox restingDanger;
+	private final JComboBox restingEfficiency;
+	private final MultipleTileScriptComponent tileScript;
 	
 	// crusader tile properties
-	private JComboBox ceilingTexture, floorTexture;
-	private JComboBox ceilingMaskTexture, floorMaskTexture;
-	private JSpinner lightLevel;
+	private final JComboBox ceilingTexture, floorTexture;                                                                
+	private final JComboBox ceilingMaskTexture, floorMaskTexture;
+	private final JSpinner lightLevel, ceilingHeight;
 	
 	// object properties
-	private JCheckBox hasObject;
-	private JTextField objectName;
-	private JComboBox northTexture, southTexture, eastTexture, westTexture;
-	private JCheckBox isLightSource;
-	private SingleTileScriptComponent mouseClickScript;
-	private List<JCheckBox> placementMask;
-	private JButton quickObjectTexture;
-	private JComboBox<EngineObject.Alignment> verticalAlignment;
+	private final JCheckBox hasObject;
+	private final JTextField objectName;
+	private final JComboBox northTexture, southTexture, eastTexture, westTexture;
+	private final JCheckBox isLightSource;
+	private final SingleTileScriptComponent mouseClickScript;
+	private final List<JCheckBox> placementMask;
+	private final JButton quickObjectTexture;
+	private final JComboBox<EngineObject.Alignment> verticalAlignment;
 
 	/*-------------------------------------------------------------------------*/
 	public TileDetailsPanel(Zone zone, boolean multiSelect)
@@ -163,11 +163,14 @@ public class TileDetailsPanel extends JPanel
 		ceilingMaskTexture.addActionListener(this);
 		dodgyGridBagShite(content, new JLabel("Ceiling Mask Texture:"), ceilingMaskTexture, gbc);
 
-		
 		lightLevel = new JSpinner(new SpinnerNumberModel(0, 0, 64, 1));
 		lightLevel.addChangeListener(this);
 		dodgyGridBagShite(content, new JLabel("Light Level:"), lightLevel, gbc);
-		
+
+		ceilingHeight = new JSpinner(new SpinnerNumberModel(1, 1, 32, 1));
+		ceilingHeight.addChangeListener(this);
+		dodgyGridBagShite(content, new JLabel("Ceiling Height:"), ceilingHeight, gbc);
+
 		hasObject = new JCheckBox("?");
 		hasObject.addActionListener(this);
 		dodgyGridBagShite(content, new JLabel("Object"), hasObject, gbc);
@@ -259,6 +262,7 @@ public class TileDetailsPanel extends JPanel
 		ceilingTexture.removeActionListener(this);
 		ceilingMaskTexture.removeActionListener(this);
 		lightLevel.removeChangeListener(this);
+		ceilingHeight.removeChangeListener(this);
 		hasObject.removeActionListener(this);
 		objectName.addActionListener(this);
 		northTexture.removeActionListener(this);
@@ -286,6 +290,7 @@ public class TileDetailsPanel extends JPanel
 		ceilingTexture.setSelectedItem(tile.getCeilingTexture()==null?EditorPanel.NONE:tile.getCeilingTexture().getName());
 		ceilingMaskTexture.setSelectedItem(tile.getCeilingMaskTexture()==null?EditorPanel.NONE:tile.getCeilingMaskTexture().getName());
 		lightLevel.setValue(tile.getLightLevel());
+		ceilingHeight.setValue(tile.getCeilingHeight());
 
 		if (index >= 0)
 		{
@@ -361,6 +366,7 @@ public class TileDetailsPanel extends JPanel
 		ceilingTexture.addActionListener(this);
 		ceilingMaskTexture.addActionListener(this);
 		lightLevel.addChangeListener(this);
+		ceilingHeight.addChangeListener(this);
 		hasObject.addActionListener(this);
 		objectName.addActionListener(this);
 		northTexture.addActionListener(this);
@@ -478,6 +484,13 @@ public class TileDetailsPanel extends JPanel
 			if (tile != null)
 			{
 				tile.setLightLevel((Integer)lightLevel.getValue());
+			}
+		}
+		else if (e.getSource() == ceilingHeight)
+		{
+			if (tile != null)
+			{
+				tile.setCeilingHeight((Integer)ceilingHeight.getValue());
 			}
 		}
 	}
