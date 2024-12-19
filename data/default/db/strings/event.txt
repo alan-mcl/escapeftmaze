@@ -30,6 +30,7 @@ msg.encounter.actors = Encountered %s
 msg.party.may.ambush = Party is stealthy and may ambush foes!
 msg.party.may.ambush.or.evade = Party is stealthy and may ambush or evade foes!
 msg.foes.surprise.party = Foes surprise you!
+msg.party.quick.wits = Quick witted characters may act in the surprise round!
 msg.party.attacks = Party attacks!
 msg.combat.starts = COMBAT!
 msg.victory = Victory!

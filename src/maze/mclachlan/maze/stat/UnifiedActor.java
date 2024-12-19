@@ -2176,7 +2176,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	 */
 	public ActorActionIntention getPreCombatIntentions(Combat combat)
 	{
-		List<ActorActionIntention> possibilities = new ArrayList<ActorActionIntention>();
+		List<ActorActionIntention> possibilities = new ArrayList<>();
 
 		if (getModifier(Stats.Modifier.IAJUTSU) > 0)
 		{

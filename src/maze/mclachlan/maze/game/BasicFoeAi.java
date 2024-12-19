@@ -105,23 +105,25 @@ public class BasicFoeAi extends FoeCombatAi
 
 		switch (foe.getFocus())
 		{
-			case COMBAT:
+			case COMBAT ->
+			{
 				attackWeight = 70;
 				stealthWeight = 15;
 				magicWeight = 15;
-				break;
-			case STEALTH:
+			}
+			case STEALTH ->
+			{
 				attackWeight = 45;
 				stealthWeight = 40;
 				magicWeight = 15;
-				break;
-			case MAGIC:
+			}
+			case MAGIC ->
+			{
 				attackWeight = 5;
 				stealthWeight = 15;
 				magicWeight = 80;
-				break;
-			default:
-				throw new MazeException(""+foe.getFocus());
+			}
+			default -> throw new MazeException("" + foe.getFocus());
 		}
 
 		ActorActionIntention result = null;

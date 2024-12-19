@@ -36,6 +36,7 @@ import mclachlan.maze.game.event.*;
 import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.Chest;
+import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
@@ -57,6 +58,7 @@ import mclachlan.maze.util.MazeException;
 import mclachlan.maze.util.PerfLog;
 
 import static mclachlan.crusader.CrusaderEngine.Facing.*;
+import static mclachlan.maze.stat.combat.Combat.AmbushStatus.NONE;
 
 /**
  *
@@ -1898,24 +1900,37 @@ public class Maze implements Runnable
 				//
 				String encounterMsg = StringUtil.getEventText("msg.encounter.actors",
 					currentActorEncounter.describe());
-				getUi().addMessage(encounterMsg);
+
+				StringBuilder sb = new StringBuilder(encounterMsg);
 
 				switch (fAmbushStatus)
 				{
 					case NONE:
 						break;
 					case PARTY_MAY_AMBUSH_FOES:
-						getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush"));
+						sb.append("\n\n").append(StringUtil.getEventText("msg.party.may.ambush"));
 						break;
 					case FOES_MAY_AMBUSH_PARTY:
-						getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
+					case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
+						// by this point the foes have chosen to ambush not evade
+						sb.append("\n\n").append(StringUtil.getEventText("msg.foes.surprise.party"));
 						break;
 					case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
-						getUi().addMessage(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
+						sb.append("\n\n").append(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
 						break;
-					case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
-						getUi().addMessage(StringUtil.getEventText("msg.foes.surprise.party"));
-						break;
+				}
+
+				if (fAmbushStatus != NONE)
+				{
+					if (party.hasModifier(Stats.Modifier.QUICK_WITS))
+					{
+						sb.append("\n\n").append(StringUtil.getEventText("msg.party.quick.wits"));
+					}
+					result.add((new FlavourTextEvent(sb.toString())));
+				}
+				else
+				{
+					getUi().addMessage(sb.toString());
 				}
 
 				// any post-appearance events from the encounter
