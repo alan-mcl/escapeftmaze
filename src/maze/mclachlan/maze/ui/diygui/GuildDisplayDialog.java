@@ -259,4 +259,10 @@ public class GuildDisplayDialog extends GeneralDialog
 
 		return true;
 	}
+
+	@Override
+	public void afterCharacterChosen()
+	{
+
+	}
 }

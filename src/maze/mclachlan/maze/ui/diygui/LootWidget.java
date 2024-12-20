@@ -37,7 +37,7 @@ import mclachlan.maze.stat.Item;
 public class LootWidget extends DIYPane
 {
 	private ItemWidget[] itemWidgets;
-	private ActionListener listener = new LootActionListener();
+	private final ActionListener listener = new LootActionListener();
 
 	/*-------------------------------------------------------------------------*/
 	public LootWidget(Rectangle bounds, List<Item> items)
@@ -94,8 +94,7 @@ public class LootWidget extends DIYPane
 	{
 		Object cursorContents = DIYToolkit.getInstance().getCursorContents();
 
-		if (cursorContents != null
-			&& cursorContents instanceof Item)
+		if (cursorContents instanceof Item)
 		{
 			Item item = (Item)cursorContents;
 			DIYToolkit.getInstance().clearCursor();
@@ -116,7 +115,6 @@ public class LootWidget extends DIYPane
 					itemWidget.getItem().getStack().incCurrent(other);
 					itemWidget.setItem(itemWidget.getItem()); //refresh the text
 					item = null;
-					return false;
 				}
 				else
 				{
@@ -125,8 +123,8 @@ public class LootWidget extends DIYPane
 					itemWidget.setItem(itemWidget.getItem()); //refresh the text
 					item.getStack().setCurrent(other+current - item.getStack().getMaximum());
 					setCursorToItem(item);
-					return false;
 				}
+				return false;
 			}
 			else
 			{
@@ -142,7 +140,7 @@ public class LootWidget extends DIYPane
 	/*-------------------------------------------------------------------------*/
 	List<Item> getRemainingItems()
 	{
-		List<Item> result = new ArrayList<Item>();
+		List<Item> result = new ArrayList<>();
 
 		for (ItemWidget itemWidget : itemWidgets)
 		{
@@ -153,6 +151,22 @@ public class LootWidget extends DIYPane
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	void setItems(List<Item> items)
+	{
+		for (int i = 0; i < itemWidgets.length; i++)
+		{
+			if (i < items.size())
+			{
+				itemWidgets[i].setItem(items.get(i));
+			}
+			else
+			{
+				itemWidgets[i].setItem(null);
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

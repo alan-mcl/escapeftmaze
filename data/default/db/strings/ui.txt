@@ -90,6 +90,8 @@ madw.title = Magic
 
 # grant items widget
 giw.title = Take Items
+giw.take.all = Take (A)ll
+giw.take.all.tooltip = Choose a character to take all items
 
 # modifier display widget
 mdw.influence.base = Base

@@ -55,6 +55,8 @@ class WhoDialog extends DIYPane
 		{
 			destroy();
 		}
+
+		callback.afterCharacterChosen();
 	}
 
 	/*----------------------------------------------------------------------*/

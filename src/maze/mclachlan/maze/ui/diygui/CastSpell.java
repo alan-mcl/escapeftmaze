@@ -77,6 +77,12 @@ public class CastSpell implements SpellSelectionCallback, ChooseCharacterCallbac
 		return true;
 	}
 
+	@Override
+	public void afterCharacterChosen()
+	{
+
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private void castSpell(int target)
 	{

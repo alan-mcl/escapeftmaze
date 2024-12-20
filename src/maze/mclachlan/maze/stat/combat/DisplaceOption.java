@@ -116,6 +116,12 @@ public class DisplaceOption extends ActorActionOption
 		return true;
 	}
 
+	@Override
+	public void afterCharacterChosen()
+	{
+
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	@Override

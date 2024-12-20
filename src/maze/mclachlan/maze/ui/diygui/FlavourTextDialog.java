@@ -42,12 +42,13 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 		super.setStyle(Style.PANEL_MED);
 
 		// try to guess dialog height
+		int textBoundsWidth = DIALOG_WIDTH - getBorder() * 2;
 		List<String> lines = DIYToolkit.wrapText(
 			text,
 			DiyGuiUserInterface.gui.getComponent().getGraphics(),
-			DIALOG_WIDTH- getBorder() *2);
+			textBoundsWidth -2);
 
-		int dialogHeight = (int)((lines.size()+1) * (DIYToolkit.getDimension("|").getHeight())) + getBorder() *2;
+		int dialogHeight = (int)(lines.size() * (DIYToolkit.getDimension("|").getHeight())) + getBorder() *2;
 
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -65,7 +66,7 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 			textBounds = new Rectangle(
 				x + getBorder(),
 				y + getBorder() + getTitlePaneHeight(),
-				width - getBorder() *2,
+				textBoundsWidth,
 				height - getBorder() *2 - getTitlePaneHeight());
 		}
 		else
@@ -73,7 +74,7 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 			textBounds = new Rectangle(
 				x + getBorder(),
 				y + getBorder(),
-				width - getBorder() *2,
+				textBoundsWidth,
 				height - getBorder() *2);
 		}
 

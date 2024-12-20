@@ -35,4 +35,9 @@ public interface ChooseCharacterCallback
 	 * 	true if this character is acceptable, false otherwise.
 	 */
 	boolean characterChosen(PlayerCharacter pc, int pcIndex);
+
+	/**
+	 * Called after the WhoDialog has exited, allows the caller any cleanup.
+	 */
+	void afterCharacterChosen();
 }

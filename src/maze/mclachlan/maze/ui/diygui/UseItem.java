@@ -55,6 +55,12 @@ public class UseItem implements ChooseCharacterCallback,
 		return true;
 	}
 
+	@Override
+	public void afterCharacterChosen()
+	{
+
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private void useItem(SpellTarget target)
 	{

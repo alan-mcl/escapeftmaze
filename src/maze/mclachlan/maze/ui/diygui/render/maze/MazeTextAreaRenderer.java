@@ -76,35 +76,28 @@ public class MazeTextAreaRenderer extends Renderer
 			g.setFont(area.getFont());
 		}
 
-		Scanner scanner = new Scanner(area.getText());
-		scanner.useDelimiter("\n");
-
 		FontMetrics fm = g.getFontMetrics();
-		int lineHeight = fm.getHeight() -2;
+		int lineHeight = fm.getHeight() - 2;
 
 		int inset = 2;
 		int pos = y + lineHeight;
-		while (scanner.hasNext())
+		List<String> lines = DIYToolkit.wrapText(area.getText(), g, width - inset * 2);
+		for (String line : lines)
 		{
-			String s = scanner.next();
-			List<String> lines = DIYToolkit.wrapText(s, g, width-inset*2);
-			for (String line : lines)
+			int textWidth = fm.stringWidth(line);
+			int textX = x + inset;
+			if (area.getAlignment() == DIYToolkit.Align.CENTER)
 			{
-				int textWidth = fm.stringWidth(line);
-				int textX = x + inset;
-				if (area.getAlignment() == DIYToolkit.Align.CENTER)
-				{
-					// center the text on the X axis
-					textX = x + inset + width/2 - textWidth/2;
-				}
-				else if (area.getAlignment() == DIYToolkit.Align.RIGHT)
-				{
-					// align right
-					textX = x + width - textWidth - inset;
-				}
-				g.drawString(line, textX, pos);
-				pos += lineHeight;
+				// center the text on the X axis
+				textX = x + inset + width / 2 - textWidth / 2;
 			}
+			else if (area.getAlignment() == DIYToolkit.Align.RIGHT)
+			{
+				// align right
+				textX = x + width - textWidth - inset;
+			}
+			g.drawString(line, textX, pos);
+			pos += lineHeight;
 		}
 
 		if (area.getFont() != null)

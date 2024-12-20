@@ -266,9 +266,17 @@ public class MainMenu extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public boolean characterChosen(PlayerCharacter pc, int pcIndex)
 	{
 		return removeCharacterFromParty(pc);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void afterCharacterChosen()
+	{
+
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -24,6 +24,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
+import mclachlan.diygui.DIYPane;
+import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
@@ -37,13 +39,13 @@ import static mclachlan.diygui.toolkit.RendererProperties.Property.ITEM_WIDGET_S
 /**
  *
  */
-public class GrantItemsWidget extends GeneralDialog implements ActionListener
+public class GrantItemsWidget extends GeneralDialog implements ActionListener, ChooseCharacterCallback
 {
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/2;
 	private static final int MAX_DIALOG_HEIGHT = DiyGuiUserInterface.SCREEN_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET*2;
 
 	private final LootWidget lootWidget;
-	private final DIYButton close;
+	private final DIYButton close, takeAll;
 
 	/*-------------------------------------------------------------------------*/
 	public GrantItemsWidget(
@@ -52,8 +54,6 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 	{
 		super();
 
-		// todo: scroll pane?
-
 		int itemWidgetHeight = DIYToolkit.getInstance().getRendererProperties().getProperty(ITEM_WIDGET_SIZE);
 		int buttonPaneHeight = getButtonPaneHeight();
 		int inset = getInset();
@@ -61,7 +61,7 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 		int titlePaneHeight = getTitlePaneHeight();
 
 		int dialogHeight = Math.min(
-			titlePaneHeight +items.size()*(itemWidgetHeight+inset/2) + inset*3 +border*2,
+			titlePaneHeight +items.size()*(itemWidgetHeight+inset/2) + inset*3 +border*2 +buttonPaneHeight,
 			MAX_DIALOG_HEIGHT);
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
 		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
@@ -76,11 +76,20 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 			startX +border +inset,
 			startY +border +inset +titlePaneHeight,
 			DIALOG_WIDTH -border*2 -inset*2,
-			dialogHeight -border*2 -inset*3 -titlePaneHeight);
+			dialogHeight -border*2 -inset*3 -titlePaneHeight -buttonPaneHeight);
 
 		this.setBounds(dialogBounds);
+
 		lootWidget = new LootWidget(lwBounds, items);
-		this.add(lootWidget);
+		if (items.size() > 8)
+		{
+			DIYScrollPane scrollPane = new DIYScrollPane(lwBounds, lootWidget);
+			this.add(scrollPane);
+		}
+		else
+		{
+			this.add(lootWidget);
+		}
 
 		close = getCloseButton();
 		close.addActionListener(this);
@@ -89,7 +98,14 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 			close.addActionListener(exteriorListener);
 		}
 
+		takeAll = new DIYButton(StringUtil.getUiLabel("giw.take.all"));
+		takeAll.setTooltip(StringUtil.getUiLabel("giw.take.all.tooltip"));
+		takeAll.addActionListener(this);
+		DIYPane buttonPane = getButtonPane();
+		buttonPane.add(takeAll);
+
 		this.add(getTitlePane(StringUtil.getUiLabel("giw.title")));
+		this.add(buttonPane);
 		this.add(close);
 
 		this.doLayout();
@@ -105,6 +121,7 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
+			case KeyEvent.VK_A -> takeAll();
 			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
 		}
 		
@@ -174,6 +191,11 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 			exit();
 			return true;
 		}
+		else if (event.getSource() == takeAll)
+		{
+			takeAll();
+			return true;
+		}
 
 		return false;
 	}
@@ -189,5 +211,33 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener
 		}
 		Maze.getInstance().getUi().refreshCharacterData();
 		Maze.getInstance().getUi().clearDialog();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void takeAll()
+	{
+		if (lootWidget.getRemainingItems().size() > 0)
+		{
+			Maze.getInstance().getUi().chooseACharacter(this);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean characterChosen(PlayerCharacter pc, int pcIndex)
+	{
+		List<Item> untakenItems = pc.getInventory().addAll(lootWidget.getRemainingItems());
+		this.lootWidget.setItems(untakenItems);
+		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public void afterCharacterChosen()
+	{
+		if (lootWidget.getRemainingItems().isEmpty())
+		{
+			exit();
+		}
 	}
 }

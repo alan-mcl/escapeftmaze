@@ -25,6 +25,7 @@ import java.awt.geom.Rectangle2D;
 import java.awt.image.BufferedImage;
 import java.awt.image.ColorModel;
 import java.awt.image.WritableRaster;
+import java.util.List;
 import java.util.Queue;
 import java.util.*;
 import java.util.concurrent.*;
@@ -408,8 +409,10 @@ public class DIYToolkit
 
 		FontMetrics fm = g.getFontMetrics();
 
-		int textHeight = fm.getAscent();
-		int textWidth = fm.charWidth(' ') * stringLength;
+		int textHeight = fm.getHeight();
+
+		// pick a wide character to accomodate the worst case
+		int textWidth = fm.charWidth('W') * stringLength;
 
 		return new Dimension(textWidth, textHeight);
 	}
@@ -454,6 +457,7 @@ public class DIYToolkit
 
 		//Create a Graphics  from the background image
 		Graphics2D g = bgImage.createGraphics();
+
 		//Set Antialias Rendering
 		g.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
 			RenderingHints.VALUE_ANTIALIAS_ON);
@@ -861,7 +865,7 @@ public class DIYToolkit
 				{
 					hoverWidget.processMouseEntered(e);
 
-					String tt = hoverWidget != null? hoverWidget.getTooltip() : null;
+					String tt = hoverWidget != null ? hoverWidget.getTooltip() : null;
 
 					if (tt != null)
 					{
@@ -894,37 +898,64 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static ArrayList<String> wrapText(String s, Graphics g, int width)
+
+	/**
+	 * Given a single line of text, wrap it to fit within the given width.
+	 *
+	 * @param text  the text to wrap
+	 * @param g     the graphics context
+	 * @param width the width to wrap to
+	 * @return a list of strings, each of which is a line of text
+	 */
+	public static List<String> wrapText(String text, Graphics g, int width)
 	{
-		FontMetrics fm = g.getFontMetrics();
-
-		Scanner scanner = new Scanner(s);
-
-		ArrayList<String> result = new ArrayList<>();
-		StringBuilder temp = new StringBuilder();
-
-		// dunno why this is necessary, probably hides a bug
-		int inset = 10;
-
-		while (scanner.hasNext())
+		List<String> wrappedLines = new ArrayList<>();
+		if (text == null || text.isEmpty())
 		{
-			String cur = scanner.next();
+			return wrappedLines;
+		}
 
-			Rectangle2D bounds = fm.getStringBounds(temp + cur, g);
+		FontMetrics fm = g.getFontMetrics();
+		String[] lines = text.split("\n"); // Split the text by newlines
 
-			if (bounds.getWidth() > width - inset)
+		for (String rawLine : lines)
+		{
+			if (rawLine.isEmpty())
 			{
-				result.add(temp.toString().trim());
-				temp = new StringBuilder(cur);
+				// Preserve empty lines (e.g., repeated newlines)
+				wrappedLines.add("");
+				continue;
 			}
-			else
+
+			String[] words = rawLine.split("\\s+");
+			StringBuilder line = new StringBuilder();
+
+			for (String word : words)
 			{
-				temp.append(" ").append(cur);
+				if (fm.stringWidth(line + (line.length() > 0 ? " " : "") + word) > width)
+				{
+					// Add the current line to wrappedLines and start a new one
+					wrappedLines.add(line.toString());
+					line = new StringBuilder(word);
+				}
+				else
+				{
+					if (line.length() > 0)
+					{
+						line.append(" ");
+					}
+					line.append(word);
+				}
+			}
+
+			// Add the last line of this segment if it has content
+			if (line.length() > 0)
+			{
+				wrappedLines.add(line.toString());
 			}
 		}
-		result.add(temp.toString().trim());
 
-		return result;
+		return wrappedLines;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -979,10 +1010,7 @@ public class DIYToolkit
 		int textHeight = (int)stringBounds.getHeight();
 
 		// center the text on the Y axis
-		int textY = bounds.y + bounds.height/2 + textHeight/2 - fm.getDescent();
-
-		// center the text on the Y axis
-//		int textY = bounds.y + bounds.height / 2 + textHeight / 2;
+		int textY = bounds.y + bounds.height / 2 + textHeight / 2 - fm.getDescent();
 
 		int textX = bounds.x;
 		if (alignment == Align.CENTER)
@@ -1012,13 +1040,14 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void drawRotate(Graphics2D g2d, double x, double y, int angle, String text)
+	public static void drawRotate(Graphics2D g2d, double x, double y, int angle,
+		String text)
 	{
-		g2d.translate((float)x,(float)y);
+		g2d.translate((float)x, (float)y);
 		g2d.rotate(Math.toRadians(angle));
-		g2d.drawString(text,0,0);
+		g2d.drawString(text, 0, 0);
 		g2d.rotate(-Math.toRadians(angle));
-		g2d.translate(-(float)x,-(float)y);
+		g2d.translate(-(float)x, -(float)y);
 	}
 
 	/*-------------------------------------------------------------------------*/

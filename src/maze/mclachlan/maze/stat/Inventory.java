@@ -30,13 +30,13 @@ public class Inventory implements Iterable<Item>
 	/**
 	 * Max number of slots in this inventory.
 	 */
-	private int nrSlots;
+	private final int nrSlots;
 
 	/**
 	 * Items in this inventory. This list has a fixed size of {@link #nrSlots},
 	 * and item slots that are empty in this inventory contain a <code>null</code>.
 	 */
-	private List<Item> items;
+	private final List<Item> items;
 
 	/*-------------------------------------------------------------------------*/
 
@@ -46,7 +46,7 @@ public class Inventory implements Iterable<Item>
 	public Inventory(int nrSlots)
 	{
 		this.nrSlots = nrSlots;
-		items = new ArrayList<Item>(nrSlots);
+		items = new ArrayList<>(nrSlots);
 		for (int i=0; i<nrSlots; i++)
 		{
 			items.add(null);
@@ -61,7 +61,7 @@ public class Inventory implements Iterable<Item>
 	public Inventory(Inventory other)
 	{
 		this.nrSlots = other.nrSlots;
-		this.items = new ArrayList<Item>(other.items);
+		this.items = new ArrayList<>(other.items);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,7 +74,7 @@ public class Inventory implements Iterable<Item>
 	public Inventory(List<Item> items)
 	{
 		this.nrSlots = items.size();
-		this.items = new ArrayList<Item>(items);
+		this.items = new ArrayList<>(items);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -225,7 +225,7 @@ public class Inventory implements Iterable<Item>
 	 */
 	public List<Item> getItems()
 	{
-		List<Item> result = new ArrayList<Item>();
+		List<Item> result = new ArrayList<>();
 
 		for (Item item : items)
 		{
@@ -269,12 +269,26 @@ public class Inventory implements Iterable<Item>
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addAll(List<Item> items)
+
+	/**
+	 * Adds as many items as possible to the inventory, returning the others
+	 *
+	 * @param items Items to add.
+	 * @return List of any items not added.
+	 */
+	public List<Item> addAll(List<Item> items)
 	{
+		List<Item> result = new ArrayList<>();
+
 		for (Item i : items)
 		{
-			add(i);
+			if (!add(i))
+			{
+				result.add(i);
+			}
 		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -287,15 +301,12 @@ public class Inventory implements Iterable<Item>
 	/*-------------------------------------------------------------------------*/
 	public void clear()
 	{
-		for (int i=0; i<items.size(); i++)
-		{
-			items.set(i, null);
-		}
+		Collections.fill(items, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void sort(Comparator<Item> cmp)
 	{
-		Collections.sort(this.items, cmp);
+		this.items.sort(cmp);
 	}
 }

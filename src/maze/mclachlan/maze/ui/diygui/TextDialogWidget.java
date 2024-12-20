@@ -58,7 +58,14 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 		super(bounds);
 
 		this.modal = modal;
-		super.setStyle(Style.DIALOG);
+		if (modal)
+		{
+			super.setStyle(Style.PANEL_HEAVY);
+		}
+		else
+		{
+			super.setStyle(Style.DIALOG);
+		}
 
 		DIYPane titlePane = null;
 
