@@ -4,12 +4,9 @@ STUFFTODO
 
 UI REFRESH
 --------------
-take all / leave on loot dialog
 bug: button click/drag
-guild panel scroll pane
 scroll pane improvements: click+drag, scroll wheel, rightsized content
 spell desc dialog improvements: cast cost, effects
-itemwidget text wrap
 run-into-combat tile skip bug
 combat text scrolling improvement
 raycaster bug with wall height >1

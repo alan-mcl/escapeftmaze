@@ -98,9 +98,13 @@ public class MazeLabelRenderer extends Renderer
 		// draw the icon
 		if (icon != null)
 		{
-			if (label.isHover())
+			if (!label.isEnabled() && label.getDisabledIcon() != null)
 			{
-				if (label.getHoverIcon() != null)
+				DIYToolkit.drawImageAligned(g, label.getDisabledIcon(), iconBounds, label.getIconAlign());
+			}
+			else
+			{
+				if (label.isHover() && label.getHoverIcon() != null)
 				{
 					DIYToolkit.drawImageAligned(g, label.getHoverIcon(), iconBounds, label.getIconAlign());
 				}
@@ -109,33 +113,26 @@ public class MazeLabelRenderer extends Renderer
 					DIYToolkit.drawImageAligned(g, icon, iconBounds, label.getIconAlign());
 				}
 			}
-			else
-			{
-				DIYToolkit.drawImageAligned(g, icon, iconBounds, label.getIconAlign());
-			}
 		}
 
 		// draw the text
 		if (text != null)
 		{
 			Color foreground = label.getForegroundColour();
-			if (foreground == null)
+			if (foreground == null && label.isEnabled())
 			{
-				if (label.isEnabled())
+				if (label.isHover() && label.getListeners().size()>0)
 				{
-					if (label.isHover() && label.getListeners().size()>0)
-					{
-						foreground = labelForegroundEnabledHover;
-					}
-					else
-					{
-						foreground = labelForegroundEnabled;
-					}
+					foreground = labelForegroundEnabledHover;
 				}
 				else
 				{
-					foreground = labelForegroundDisabled;
+					foreground = labelForegroundEnabled;
 				}
+			}
+			else if (!label.isEnabled())
+			{
+				foreground = labelForegroundDisabled;
 			}
 
 			DIYToolkit.drawStringCentered(

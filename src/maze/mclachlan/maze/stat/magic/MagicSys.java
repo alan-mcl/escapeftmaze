@@ -34,7 +34,7 @@ import mclachlan.maze.util.MazeException;
 public class MagicSys
 {
 	public static final int MAX_CASTING_LEVEL = 7;
-	public static final int MAX_SPELL_LEVEL = 10;
+//	public static final int MAX_SPELL_LEVEL = 10;
 
 	public static MagicSys getInstance()
 	{
@@ -48,7 +48,7 @@ public class MagicSys
 	 */
 	public List<MagicSys.SpellBook> getSpellBooks()
 	{
-		return new ArrayList<SpellBook>(SpellBook.spellBooks.values());
+		return new ArrayList<>(SpellBook.spellBooks.values());
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -77,14 +77,14 @@ public class MagicSys
 	/*-------------------------------------------------------------------------*/
 	public static class SpellBook
 	{
-		private String name;
-		private String displayNameKey;
-		private Stats.Modifier castingAbilityModifier;
-		private Set<String> genders;
-		private Set<String> races;
+		private final String name;
+		private final String displayNameKey;
+		private final Stats.Modifier castingAbilityModifier;
+		private final Set<String> genders;
+		private final Set<String> races;
 
-		private static final HashSet<String> MALE = new HashSet<String>();
-		private static final HashSet<String> FEMALE = new HashSet<String>();
+		private static final HashSet<String> MALE = new HashSet<>();
+		private static final HashSet<String> FEMALE = new HashSet<>();
 
 		public static final SpellBook RED_MAGIC =
 			new SpellBook("Red Magic", "red_magic", Stats.Modifier.RED_MAGIC_SPELLS, MALE, null);
@@ -101,7 +101,7 @@ public class MagicSys
 		public static final SpellBook BLUE_MAGIC =
 			new SpellBook("Blue Magic", "blue_magic", Stats.Modifier.BLUE_MAGIC_SPELLS, null, null);
 
-		private static Map<String, SpellBook> spellBooks = new HashMap<String, SpellBook>();
+		private static final Map<String, SpellBook> spellBooks = new HashMap<>();
 
 		static
 		{
@@ -164,7 +164,7 @@ public class MagicSys
 		/*----------------------------------------------------------------------*/
 		public static List<SpellBook> getAllBooks()
 		{
-			return new ArrayList<SpellBook>(spellBooks.values());
+			return new ArrayList<>(spellBooks.values());
 		}
 
 		/*-------------------------------------------------------------------------*/
@@ -185,7 +185,7 @@ public class MagicSys
 		public static final String TRANSMUTATION = "Transmutation";
 		public static final String BEGUILMENT = "Beguilement";
 
-		static List<String> spellSchools = new ArrayList<String>();
+		static List<String> spellSchools = new ArrayList<>();
 
 		static
 		{
@@ -221,49 +221,51 @@ public class MagicSys
 		/*----------------------------------------------------------------------*/
 		public static String describe(int targetType)
 		{
-			switch (targetType)
-			{
-				case CASTER: return "caster";
-				case ALLY: return "ally";
-				case PARTY: return "party";
-				case FOE: return "one foe";
-				case FOE_GROUP: return "one group of foes";
-				case ALL_FOES: return "all foes";
-				case TILE: return "current tile";
-				case LOCK_OR_TRAP: return "lock or trap";
-				case NPC: return "NPC";
-				case ITEM: return "item";
-				case CLOUD_ONE_GROUP: return "cloud: one group";
-				case CLOUD_ALL_GROUPS: return "cloud: all groups";
-				case PARTY_BUT_NOT_CASTER: return "party (but not caster)";
-				default: throw new MazeException("Invalid target type: "+targetType);
-			}
+			return switch (targetType)
+				{
+					case CASTER -> "caster";
+					case ALLY -> "ally";
+					case PARTY -> "party";
+					case FOE -> "one foe";
+					case FOE_GROUP -> "one group of foes";
+					case ALL_FOES -> "all foes";
+					case TILE -> "current tile";
+					case LOCK_OR_TRAP -> "lock or trap";
+					case NPC -> "NPC";
+					case ITEM -> "item";
+					case CLOUD_ONE_GROUP -> "cloud: one group";
+					case CLOUD_ALL_GROUPS -> "cloud: all groups";
+					case PARTY_BUT_NOT_CASTER -> "party (but not caster)";
+					default ->
+						throw new MazeException("Invalid target type: " + targetType);
+				};
 		}
 
 		/*----------------------------------------------------------------------*/
 		public int valueOf(String s)
 		{
-			if (s.equals("caster")) { return CASTER; }
-			else if (s.equals("ally")) { return ALLY; }
-			else if (s.equals("party")) { return PARTY; }
-			else if (s.equals("one foe")) { return FOE; }
-			else if (s.equals("foe group")) { return FOE_GROUP; }
-			else if (s.equals("all foes")) { return ALL_FOES; }
-			else if (s.equals("current tile")) { return TILE; }
-			else if (s.equals("NPC")) { return NPC; }
-			else if (s.equals("item")) { return ITEM; }
-			else if (s.equals("cloud: one group")) { return CLOUD_ONE_GROUP; }
-			else if (s.equals("cloud: all groups")) { return CLOUD_ALL_GROUPS; }
-			else if (s.equals("party (but not caster)")) { return PARTY_BUT_NOT_CASTER; }
-			else
-			{
-				throw new MazeException("Invalid spell target type ["+s+"]");
-			}
+			return switch (s)
+				{
+					case "caster" -> CASTER;
+					case "ally" -> ALLY;
+					case "party" -> PARTY;
+					case "one foe" -> FOE;
+					case "foe group" -> FOE_GROUP;
+					case "all foes" -> ALL_FOES;
+					case "current tile" -> TILE;
+					case "NPC" -> NPC;
+					case "item" -> ITEM;
+					case "cloud: one group" -> CLOUD_ONE_GROUP;
+					case "cloud: all groups" -> CLOUD_ALL_GROUPS;
+					case "party (but not caster)" -> PARTY_BUT_NOT_CASTER;
+					default ->
+						throw new MazeException("Invalid spell target type [" + s + "]");
+				};
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum SpellEffectType
+	public enum SpellEffectType
 	{
 		NONE("set.none", null),
 		FIRE("set.fire", Stats.Modifier.RESIST_FIRE),
@@ -276,8 +278,8 @@ public class MagicSys
 		PIERCING("set.pierce", Stats.Modifier.RESIST_PIERCING),
 		SLASHING("set.slash", Stats.Modifier.RESIST_SLASHING);
 
-		private String descKey;
-		private Stats.Modifier resistanceModifier;
+		private final String descKey;
+		private final Stats.Modifier resistanceModifier;
 
 		/*----------------------------------------------------------------------*/
 
@@ -312,7 +314,7 @@ public class MagicSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum SpellEffectSubType
+	public enum SpellEffectSubType
 	{
 		NONE("sest.none"),
 		NORMAL_DAMAGE("sest.normal_damage"),
@@ -325,7 +327,7 @@ public class MagicSys
 		LIGHTNING("sest.lightning"),
 		PSYCHIC("sest.psychic");
 
-		private String descKey;
+		private final String descKey;
 
 		/*----------------------------------------------------------------------*/
 		SpellEffectSubType(String descKey)
@@ -336,20 +338,20 @@ public class MagicSys
 		/*----------------------------------------------------------------------*/
 		public static Stats.Modifier getImmunityModifier(SpellEffectSubType subType)
 		{
-			switch (subType)
-			{
-				case NONE: return null;
-				case NORMAL_DAMAGE: return Stats.Modifier.IMMUNE_TO_DAMAGE;
-				case HEAT: return Stats.Modifier.IMMUNE_TO_HEAT;
-				case COLD: return Stats.Modifier.IMMUNE_TO_COLD;
-				case POISON: return Stats.Modifier.IMMUNE_TO_POISON;
-				case DISEASE: return Stats.Modifier.IMMUNE_TO_DISEASE;
-				case CURSE: return Stats.Modifier.IMMUNE_TO_HEX;
-				case ACID: return Stats.Modifier.IMMUNE_TO_ACID;
-				case LIGHTNING: return Stats.Modifier.IMMUNE_TO_LIGHTNING;
-				case PSYCHIC: return Stats.Modifier.IMMUNE_TO_PSYCHIC;
-				default: throw new MazeException(subType.toString());
-			}
+			return switch (subType)
+				{
+					case NONE -> null;
+					case NORMAL_DAMAGE -> Stats.Modifier.IMMUNE_TO_DAMAGE;
+					case HEAT -> Stats.Modifier.IMMUNE_TO_HEAT;
+					case COLD -> Stats.Modifier.IMMUNE_TO_COLD;
+					case POISON -> Stats.Modifier.IMMUNE_TO_POISON;
+					case DISEASE -> Stats.Modifier.IMMUNE_TO_DISEASE;
+					case CURSE -> Stats.Modifier.IMMUNE_TO_HEX;
+					case ACID -> Stats.Modifier.IMMUNE_TO_ACID;
+					case LIGHTNING -> Stats.Modifier.IMMUNE_TO_LIGHTNING;
+					case PSYCHIC -> Stats.Modifier.IMMUNE_TO_PSYCHIC;
+					default -> throw new MazeException(subType.toString());
+				};
 		}
 
 		/*----------------------------------------------------------------------*/
@@ -370,7 +372,7 @@ public class MagicSys
 		public static final int GREEN = 5;
 		public static final int BLUE = 6;
 
-		private static Map<String, Integer> map = new HashMap<String, Integer>();
+		private static final Map<String, Integer> map = new HashMap<>();
 
 		/*----------------------------------------------------------------------*/
 		static
@@ -384,33 +386,35 @@ public class MagicSys
 		/*----------------------------------------------------------------------*/
 		public static String describe(int manaType)
 		{
-			switch (manaType)
-			{
-				case MagicSys.ManaType.RED:  return "Red mana present";
-				case MagicSys.ManaType.BLACK: return "Black mana present";
-				case MagicSys.ManaType.PURPLE: return "Purple mana present";
-				case MagicSys.ManaType.GOLD: return "Gold mana present";
-				case MagicSys.ManaType.WHITE: return "White mana present";
-				case MagicSys.ManaType.GREEN: return "Green mana present";
-				case MagicSys.ManaType.BLUE: return "Blue mana present";
-				default: throw new MazeException("Invalid mana colour "+manaType);
-			}
+			return switch (manaType)
+				{
+					case ManaType.RED -> "Red mana present";
+					case ManaType.BLACK -> "Black mana present";
+					case ManaType.PURPLE -> "Purple mana present";
+					case ManaType.GOLD -> "Gold mana present";
+					case ManaType.WHITE -> "White mana present";
+					case ManaType.GREEN -> "Green mana present";
+					case ManaType.BLUE -> "Blue mana present";
+					default ->
+						throw new MazeException("Invalid mana colour " + manaType);
+				};
 		}
 
 		/*----------------------------------------------------------------------*/
 		public static Stats.Modifier getModifier(int manaType)
 		{
-			switch (manaType)
-			{
-				case MagicSys.ManaType.RED:  return Stats.Modifier.RED_MAGIC_GEN;
-				case MagicSys.ManaType.BLACK: return Stats.Modifier.BLACK_MAGIC_GEN;
-				case MagicSys.ManaType.PURPLE: return Stats.Modifier.PURPLE_MAGIC_GEN;
-				case MagicSys.ManaType.GOLD: return Stats.Modifier.GOLD_MAGIC_GEN;
-				case MagicSys.ManaType.WHITE: return Stats.Modifier.WHITE_MAGIC_GEN;
-				case MagicSys.ManaType.GREEN: return Stats.Modifier.GREEN_MAGIC_GEN;
-				case MagicSys.ManaType.BLUE: return Stats.Modifier.BLUE_MAGIC_GEN;
-				default: throw new MazeException("Invalid mana colour "+manaType);
-			}
+			return switch (manaType)
+				{
+					case ManaType.RED -> Stats.Modifier.RED_MAGIC_GEN;
+					case ManaType.BLACK -> Stats.Modifier.BLACK_MAGIC_GEN;
+					case ManaType.PURPLE -> Stats.Modifier.PURPLE_MAGIC_GEN;
+					case ManaType.GOLD -> Stats.Modifier.GOLD_MAGIC_GEN;
+					case ManaType.WHITE -> Stats.Modifier.WHITE_MAGIC_GEN;
+					case ManaType.GREEN -> Stats.Modifier.GREEN_MAGIC_GEN;
+					case ManaType.BLUE -> Stats.Modifier.BLUE_MAGIC_GEN;
+					default ->
+						throw new MazeException("Invalid mana colour " + manaType);
+				};
 		}
 
 		/*----------------------------------------------------------------------*/
@@ -432,7 +436,7 @@ public class MagicSys
 
 		public static final int MAX = 6;
 
-		private static Map<String, Integer> map = new HashMap<String, Integer>();
+		private static final Map<String, Integer> map = new HashMap<>();
 
 		/*----------------------------------------------------------------------*/
 		static
@@ -446,16 +450,16 @@ public class MagicSys
 		/*----------------------------------------------------------------------*/
 		public static String describe(int type)
 		{
-			switch (type)
-			{
-				case ANY_TIME:  return "Any time";
-				case COMBAT_ONLY: return "Combat only";
-				case NON_COMBAT_ONLY: return "Non-combat only";
-				case NPC_ONLY: return "NPC only";
-				case LOCKS_TRAPS_ONLY: return "Locks/Traps only";
-				case INVENTORY_SCREEN_ONLY: return "Inventory screen only";
-				default: throw new MazeException("Invalid type "+type);
-			}
+			return switch (type)
+				{
+					case ANY_TIME -> "Any time";
+					case COMBAT_ONLY -> "Combat only";
+					case NON_COMBAT_ONLY -> "Non-combat only";
+					case NPC_ONLY -> "NPC only";
+					case LOCKS_TRAPS_ONLY -> "Locks/Traps only";
+					case INVENTORY_SCREEN_ONLY -> "Inventory screen only";
+					default -> throw new MazeException("Invalid type " + type);
+				};
 		}
 
 		/*----------------------------------------------------------------------*/

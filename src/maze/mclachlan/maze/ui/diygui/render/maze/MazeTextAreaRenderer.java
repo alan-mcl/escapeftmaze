@@ -21,9 +21,7 @@ package mclachlan.maze.ui.diygui.render.maze;
 
 import java.awt.Color;
 import java.awt.Font;
-import java.awt.FontMetrics;
 import java.awt.Graphics2D;
-import java.util.*;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
@@ -60,50 +58,16 @@ public class MazeTextAreaRenderer extends Renderer
 			g.drawRect(x, y, width, height);
 		}
 
-		if (area.getForegroundColour() != null)
-		{
-			g.setColor(area.getForegroundColour());
-		}
-		else
-		{
-			g.setColor(defaultTextColour);
-		}
+		Font textFont = area.getFont();
+		Color textColour = area.getForegroundColour() == null ? defaultTextColour : area.getForegroundColour();
 
-		Font gFont = g.getFont();
-
-		if (area.getFont() != null)
-		{
-			g.setFont(area.getFont());
-		}
-
-		FontMetrics fm = g.getFontMetrics();
-		int lineHeight = fm.getHeight() - 2;
-
-		int inset = 2;
-		int pos = y + lineHeight;
-		List<String> lines = DIYToolkit.wrapText(area.getText(), g, width - inset * 2);
-		for (String line : lines)
-		{
-			int textWidth = fm.stringWidth(line);
-			int textX = x + inset;
-			if (area.getAlignment() == DIYToolkit.Align.CENTER)
-			{
-				// center the text on the X axis
-				textX = x + inset + width / 2 - textWidth / 2;
-			}
-			else if (area.getAlignment() == DIYToolkit.Align.RIGHT)
-			{
-				// align right
-				textX = x + width - textWidth - inset;
-			}
-			g.drawString(line, textX, pos);
-			pos += lineHeight;
-		}
-
-		if (area.getFont() != null)
-		{
-			// restore the original
-			g.setFont(gFont);
-		}
+		DIYToolkit.drawTextWrapped(
+			g,
+			area.getText(),
+			area.getBounds(),
+			area.getAlignment(),
+			DIYToolkit.Align.TOP,
+			textFont,
+			textColour);
 	}
 }

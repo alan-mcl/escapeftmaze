@@ -43,20 +43,22 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	public static final int ICON_SIZE = 32;
 	public static final int HGAP = 8;
 	private final DIYLabel red, black, purple, gold, white, green, blue;
-	private final ArrayList<DIYLabel> iconLabels;
+	private final Map<DIYLabel, DIYLabel> iconLabels;
+
+	boolean disableZeros;
 
 	/*-------------------------------------------------------------------------*/
 	public ManaDisplayWidget(String tooltipSuffix)
 	{
-		iconLabels = new ArrayList<>(7);
+		iconLabels = new HashMap<>(7);
 
-		red = createLabel("icon/mana_icon_red", Color.BLACK, "madw.red.tooltip."+tooltipSuffix);
-		black = createLabel("icon/mana_icon_black", Color.WHITE, "madw.black.tooltip."+tooltipSuffix);
-		purple = createLabel("icon/mana_icon_purple", Color.YELLOW, "madw.purple.tooltip."+tooltipSuffix);
-		gold = createLabel("icon/mana_icon_gold", Color.BLACK, "madw.gold.tooltip."+tooltipSuffix);
-		white = createLabel("icon/mana_icon_white", Color.BLACK, "madw.white.tooltip."+tooltipSuffix);
-		green = createLabel("icon/mana_icon_green", Color.BLACK, "madw.green.tooltip."+tooltipSuffix);
-		blue = createLabel("icon/mana_icon_blue", Color.WHITE, "madw.blue.tooltip."+tooltipSuffix);
+		red = createLabel("icon/mana_icon_red", Color.BLACK, "madw.red.tooltip." + tooltipSuffix);
+		black = createLabel("icon/mana_icon_black", Color.WHITE, "madw.black.tooltip." + tooltipSuffix);
+		purple = createLabel("icon/mana_icon_purple", Color.YELLOW, "madw.purple.tooltip." + tooltipSuffix);
+		gold = createLabel("icon/mana_icon_gold", Color.BLACK, "madw.gold.tooltip." + tooltipSuffix);
+		white = createLabel("icon/mana_icon_white", Color.BLACK, "madw.white.tooltip." + tooltipSuffix);
+		green = createLabel("icon/mana_icon_green", Color.BLACK, "madw.green.tooltip." + tooltipSuffix);
+		blue = createLabel("icon/mana_icon_blue", Color.WHITE, "madw.blue.tooltip." + tooltipSuffix);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -66,10 +68,10 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 		iconLabel.setAlignment(DIYToolkit.Align.CENTER);
 		iconLabel.setIconAlign(DIYToolkit.Align.CENTER);
 		iconLabel.setIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName));
-		iconLabel.setHoverIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName+"_hover"));
+		iconLabel.setHoverIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName + "_hover"));
+		iconLabel.setDisabledIcon(DIYToolkit.getInstance().getRendererProperties().getImageResource(imageName + "_disabled"));
 		iconLabel.setTooltip(StringUtil.getUiLabel(tooltip));
 
-		iconLabels.add(iconLabel);
 
 		DIYLabel textLabel = new DIYLabel()
 		{
@@ -83,6 +85,8 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 		textLabel.addActionListener(this);
 		textLabel.setTooltip(StringUtil.getUiLabel(tooltip));
 
+		iconLabels.put(textLabel, iconLabel);
+
 		this.add(iconLabel);
 		this.add(textLabel);
 
@@ -93,7 +97,7 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	@Override
 	public Dimension getPreferredSize()
 	{
-		return new Dimension(ICON_SIZE*7 + HGAP*6, ICON_SIZE);
+		return new Dimension(ICON_SIZE * 7 + HGAP * 6, ICON_SIZE);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -115,7 +119,7 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 					ICON_SIZE);
 				icons[i].setBounds(r);
 
-				iconLabels.get(i).setBounds(r);
+				iconLabels.get(icons[i]).setBounds(r);
 			}
 		}
 	}
@@ -137,31 +141,65 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 		this.white.setText("" + white);
 		this.green.setText("" + green);
 		this.blue.setText("" + blue);
+
+		if (disableZeros)
+		{
+			this.red.setEnabled(red > 0);
+			iconLabels.get(this.red).setEnabled(red > 0);
+
+			this.black.setEnabled(black > 0);
+			iconLabels.get(this.black).setEnabled(black > 0);
+
+			this.purple.setEnabled(purple > 0);
+			iconLabels.get(this.purple).setEnabled(purple > 0);
+
+			this.gold.setEnabled(gold > 0);
+			iconLabels.get(this.gold).setEnabled(gold > 0);
+
+			this.white.setEnabled(white > 0);
+			iconLabels.get(this.white).setEnabled(white > 0);
+
+			this.green.setEnabled(green > 0);
+			iconLabels.get(this.green).setEnabled(green > 0);
+
+			this.blue.setEnabled(blue > 0);
+			iconLabels.get(this.blue).setEnabled(blue > 0);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(List<ManaRequirement> requirementsToCast)
+	public void refresh(List<ManaRequirement> manaReq)
 	{
-		this.refresh(0, 0, 0, 0, 0, 0, 0);
+		int red;
+		int black;
+		int purple;
+		int gold;
+		int white;
+		int green;
+		int blue;
 
-		if (requirementsToCast != null)
+		red = black = purple = gold = white = green = blue = 0;
+
+		if (manaReq != null)
 		{
-			for (ManaRequirement m : requirementsToCast)
+			for (ManaRequirement m : manaReq)
 			{
 				switch (m.getColour())
 				{
-					case MagicSys.ManaType.RED -> red.setText("" + m.getAmount());
-					case MagicSys.ManaType.BLACK -> black.setText("" + m.getAmount());
-					case MagicSys.ManaType.PURPLE -> purple.setText("" + m.getAmount());
-					case MagicSys.ManaType.GOLD -> gold.setText("" + m.getAmount());
-					case MagicSys.ManaType.WHITE -> white.setText("" + m.getAmount());
-					case MagicSys.ManaType.GREEN -> green.setText("" + m.getAmount());
-					case MagicSys.ManaType.BLUE -> blue.setText("" + m.getAmount());
+					case MagicSys.ManaType.RED -> red = m.getAmount();
+					case MagicSys.ManaType.BLACK -> black = m.getAmount();
+					case MagicSys.ManaType.PURPLE -> purple = m.getAmount();
+					case MagicSys.ManaType.GOLD -> gold = m.getAmount();
+					case MagicSys.ManaType.WHITE -> white = m.getAmount();
+					case MagicSys.ManaType.GREEN -> green = m.getAmount();
+					case MagicSys.ManaType.BLUE -> blue = m.getAmount();
 					default ->
 						throw new MazeException("invalid [" + m.getColour() + "]");
 				}
 			}
 		}
+
+		this.refresh(red, black, purple, gold, white, green, blue);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -173,6 +211,12 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 			false);
 
 		Maze.getInstance().getUi().showDialog(dialog);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void setDisableZeros(boolean disableZeros)
+	{
+		this.disableZeros = disableZeros;
 	}
 
 	/*-------------------------------------------------------------------------*/

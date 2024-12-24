@@ -19,10 +19,8 @@
 
 package mclachlan.maze.ui.diygui.render.mf;
 
-import java.awt.Color;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Rectangle;
+import java.awt.*;
+import java.awt.geom.Rectangle2D;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
@@ -77,13 +75,31 @@ public class MFItemWidgetRenderer extends Renderer
 					{
 						col = Constants.Colour.GOLD;
 					}
-					DIYToolkit.drawStringCentered(
-						g,
-						widget.getText(),
-						textBounds,
-						DIYToolkit.Align.LEFT,
-						col,
-						widget.getBackgroundColour());
+
+					FontMetrics fm = g.getFontMetrics();
+					Rectangle2D stringBounds = fm.getStringBounds(widget.getText(), g);
+
+					if (stringBounds.getWidth() < textBounds.getWidth())
+					{
+						DIYToolkit.drawStringCentered(
+							g,
+							widget.getText(),
+							textBounds,
+							DIYToolkit.Align.LEFT,
+							col,
+							widget.getBackgroundColour());
+					}
+					else
+					{
+						DIYToolkit.drawTextWrapped(
+							g,
+							widget.getText(),
+							textBounds,
+							DIYToolkit.Align.LEFT,
+							DIYToolkit.Align.CENTER,
+							null,
+							col);
+					}
 				}
 			}
 		}

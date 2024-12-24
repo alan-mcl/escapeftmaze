@@ -31,7 +31,7 @@ public class DIYLabel extends Widget
 {
 	private String text;
 	private Font font;
-	private Image icon, hoverIcon;
+	private Image icon, hoverIcon, disabledIcon;
 
 	private DIYToolkit.Align align = DIYToolkit.Align.CENTER;
 	private DIYToolkit.Align iconAlign = DIYToolkit.Align.LEFT;
@@ -158,6 +158,16 @@ public class DIYLabel extends Widget
 	public void setHoverIcon(Image hoverIcon)
 	{
 		this.hoverIcon = hoverIcon;
+	}
+
+	public Image getDisabledIcon()
+	{
+		return disabledIcon;
+	}
+
+	public void setDisabledIcon(Image disabledIcon)
+	{
+		this.disabledIcon = disabledIcon;
 	}
 
 	/*-------------------------------------------------------------------------*/

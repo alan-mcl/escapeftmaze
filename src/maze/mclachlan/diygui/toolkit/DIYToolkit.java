@@ -411,7 +411,7 @@ public class DIYToolkit
 
 		int textHeight = fm.getHeight();
 
-		// pick a wide character to accomodate the worst case
+		// pick a wide character to accommodate the worst case
 		int textWidth = fm.charWidth('W') * stringLength;
 
 		return new Dimension(textWidth, textHeight);
@@ -436,7 +436,7 @@ public class DIYToolkit
 	 *
 	 * @param bgImage --> The background Image
 	 * @param fgImage --> The foreground Image
-	 * @return --> overlayed image (fgImage over bgImage)
+	 * @return --> overlay image (fgImage over bgImage)
 	 */
 	public static BufferedImage overlayImages(
 		BufferedImage bgImage,
@@ -1037,6 +1037,98 @@ public class DIYToolkit
 
 		g.setColor(foreground);
 		g.drawString(s, textX, textY);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void drawTextWrapped(
+		Graphics2D g,
+		String text,
+		Rectangle bounds,
+		Align horizAlignment,
+		Align vertAlignment,
+		Font textFont,
+		Color textColour)
+	{
+		g.setColor(textColour);
+
+		Font gFont = g.getFont();
+		if (textFont != null)
+		{
+			g.setFont(textFont);
+		}
+
+		if (horizAlignment == null)
+		{
+			horizAlignment = Align.LEFT;
+		}
+
+		if (vertAlignment == null)
+		{
+			vertAlignment = Align.TOP;
+		}
+
+		int inset = 2;
+		List<String> lines = wrapText(text, g, bounds.width - inset * 2);
+
+		drawTextWrapped(g, lines, bounds, horizAlignment, vertAlignment);
+
+		if (textFont != null)
+		{
+			// restore the original
+			g.setFont(gFont);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static void drawTextWrapped(
+		Graphics g,
+		List<String> lines,
+		Rectangle bounds,
+		Align horizontalAlignment,
+		Align verticalAlignment)
+	{
+		if (lines == null || lines.isEmpty())
+		{
+			return;
+		}
+
+		// Save the original font and color
+		FontMetrics metrics = g.getFontMetrics();
+		int lineHeight = metrics.getHeight();
+
+		// Calculate total height of all lines
+		int totalTextHeight = lineHeight * lines.size();
+
+		// Determine starting Y coordinate based on vertical alignment
+		int startY = switch (verticalAlignment)
+			{
+				case TOP -> bounds.y;
+				case CENTER -> bounds.y + (bounds.height - totalTextHeight) / 2;
+				case BOTTOM -> bounds.y + bounds.height - totalTextHeight;
+				default ->
+					throw new IllegalArgumentException("Invalid vertical alignment "+verticalAlignment);
+			};
+
+		// Render each line of text
+		for (int i = 0; i < lines.size(); i++)
+		{
+			String line = lines.get(i);
+			int textWidth = metrics.stringWidth(line);
+
+			// Determine X coordinate based on horizontal alignment
+			int startX = switch (horizontalAlignment)
+				{
+					case LEFT -> bounds.x;
+					case CENTER -> bounds.x + (bounds.width - textWidth) / 2;
+					case RIGHT -> bounds.x + bounds.width - textWidth;
+					default ->
+						throw new IllegalArgumentException("Invalid horizontal alignment "+horizontalAlignment);
+				};
+
+			// Draw the string
+			int currentY = startY + i * lineHeight + metrics.getAscent();
+			g.drawString(line, startX, currentY);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -40,8 +40,9 @@ cc.suggest.name = (suggest)
 cc.choose.personals.flava = "Let me look into your eyes, stranger, and tell me your name. You do not look like a creature of the Maze."\n~Keteswayo, Captain of the Iyala
 cc.ability.progression = Special Abilities
 cc.show.lap = ...
+cc.show.lap.tooltip = Show the full level ability progression for this class.
 cc.locked = ** LOCKED **
-cc.spell.books = Spell Books
+cc.spell.books = Magic Use:
 
 # level up widget
 lu.title = Level Up %s
@@ -575,3 +576,11 @@ madw.gold.tooltip.required = Gold Magic required
 madw.white.tooltip.required = White Magic required
 madw.green.tooltip.required = Green Magic required
 madw.blue.tooltip.required = Blue Magic required
+
+madw.red.tooltip.magic.use = Red Magic use maximum level
+madw.black.tooltip.magic.use = Black Magic use maximum level
+madw.purple.tooltip.magic.use = Purple Magic use maximum level
+madw.gold.tooltip.magic.use = Gold Magic use maximum level
+madw.white.tooltip.magic.use = White Magic use maximum level
+madw.green.tooltip.magic.use = Green Magic use maximum level
+madw.blue.tooltip.magic.use = Blue Magic use maximum level

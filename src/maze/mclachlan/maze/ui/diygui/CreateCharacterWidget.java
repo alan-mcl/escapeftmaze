@@ -35,6 +35,7 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
+import mclachlan.maze.stat.magic.ManaRequirement;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.npc.Npc;
@@ -74,7 +75,8 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private DIYTextArea raceDesc;
 	private DIYLabel raceImage;
 	private DIYListBox characterClasses;
-	private DIYTextArea classDesc, spellBooksDesc;
+	private DIYTextArea classDesc;
+	private ManaDisplayWidget classMagicUse;
 	private DIYTextArea kitDesc;
 	private DIYPane kitItems;
 	private CardLayoutWidget classAndRaceKitCards;
@@ -627,22 +629,26 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			column2x,
 			classDescPanel.y + classDescPanel.height +inset,
 			columnWidth*2 +inset,
-			(contentHeight-panelBorderInset-inset*2) / 4);
+			panelBorderInset*2 + titleHeight +inset*2);
 		classSpellBooksPanel.setLayoutManager(null);
 
 		DIYLabel spellBooksTitle = getSubTitle(StringUtil.getUiLabel("cc.spell.books"));
 		spellBooksTitle.setBounds(
-			column2x, classSpellBooksPanel.y +panelBorderInset,
-			columnWidth*2+inset, titleHeight);
+			column2x +panelBorderInset,
+			classSpellBooksPanel.y +classSpellBooksPanel.height/2 -titleHeight/2,
+			DIYToolkit.getDimension(StringUtil.getUiLabel("cc.spell.books")).width +inset,
+			titleHeight);
 
-		this.spellBooksDesc = new DIYTextArea("");
-		this.spellBooksDesc.setTransparent(true);
-		this.spellBooksDesc.setBounds(
-			column2x +panelBorderInset, spellBooksTitle.y+titleHeight,
-			columnWidth*2+inset-panelBorderInset*2, classSpellBooksPanel.height-spellBooksTitle.height-panelBorderInset*2);
+		this.classMagicUse = new ManaDisplayWidget("magic.use");
+		this.classMagicUse.setDisableZeros(true);
+		this.classMagicUse.setBounds(
+			spellBooksTitle.x +spellBooksTitle.width +inset,
+			(int)(classSpellBooksPanel.y +classSpellBooksPanel.height/2 -classMagicUse.getPreferredSize().getHeight()/2),
+			columnWidth*2+inset -panelBorderInset*2 -spellBooksTitle.width,
+			titleHeight);
 
 		classSpellBooksPanel.add(spellBooksTitle);
-		classSpellBooksPanel.add(spellBooksDesc);
+		classSpellBooksPanel.add(classMagicUse);
 
 		// ability progression
 
@@ -659,13 +665,14 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		showLevelAbilityProgression = new DIYButton(StringUtil.getUiLabel("cc.show.lap"));
 		showLevelAbilityProgression.addActionListener(this);
+		showLevelAbilityProgression.setTooltip(StringUtil.getUiLabel("cc.show.lap.tooltip"));
 		Dimension d = showLevelAbilityProgression.getPreferredSize();
 		showLevelAbilityProgression.setBounds(
 			column2x +columnWidth*2 +inset -panelBorderInset -d.width,
 			classLapPanel.y+classLapPanel.height-panelBorderInset-d.height,
 			d.width, d.height);
 
-		int levelsToPreview = 3;
+		int levelsToPreview = 5;
 		Rectangle r = new Rectangle(
 			column2x +panelBorderInset,
 			classLapPanel.y +panelBorderInset +titleHeight +inset/2,
@@ -1574,18 +1581,28 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		if (magicAbility.isEmpty())
 		{
-			this.spellBooksDesc.setText("None");
+			this.classMagicUse.refresh(0,0,0,0,0,0,0);
 		}
 		else
 		{
-			StringBuilder sb = new StringBuilder();
 			for (StartingSpellBook ssb : magicAbility)
 			{
-				sb.append(ssb.getSpellBook().getName())
-					.append(" (max lvl ").append(ssb.getMaxLevel()).append("): ")
-					.append(ssb.getDescription());
+				ArrayList<ManaRequirement> books = new ArrayList<>();
+
+				switch (ssb.getSpellBook().getCastingAbilityModifier())
+				{
+					case RED_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.RED, ssb.getMaxLevel()));
+					case BLACK_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.BLACK, ssb.getMaxLevel()));
+					case PURPLE_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.PURPLE, ssb.getMaxLevel()));
+					case GOLD_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.GOLD, ssb.getMaxLevel()));
+					case WHITE_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.WHITE, ssb.getMaxLevel()));
+					case GREEN_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.GREEN, ssb.getMaxLevel()));
+					case BLUE_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.BLUE, ssb.getMaxLevel()));
+					default -> throw new MazeException("invalid: "+ssb.getSpellBook().getCastingAbilityModifier());
+				}
+
+				this.classMagicUse.refresh(books);
 			}
-			this.spellBooksDesc.setText(sb.toString());
 		}
 
 		// todo: should we pick up the and lvl1 LAP values in the resources display?
