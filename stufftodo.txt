@@ -4,7 +4,6 @@ STUFFTODO
 
 UI REFRESH
 --------------
-bug: button click/drag
 scroll pane improvements: click+drag, scroll wheel, rightsized content
 spell desc dialog improvements: cast cost, effects
 run-into-combat tile skip bug

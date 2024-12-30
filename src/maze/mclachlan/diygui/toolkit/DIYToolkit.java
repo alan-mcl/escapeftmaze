@@ -107,6 +107,11 @@ public class DIYToolkit
 	 */
 	private Widget focusWidget;
 	/**
+	 * Stores the widget that a mouse button was pressed in; used so that we can
+	 * manually trigger a mouse click event on release inside the same component.
+	 */
+	private Widget mousePressWidget;
+	/**
 	 * The current cursor, null if the default
 	 */
 	private Cursor cursor;
@@ -671,7 +676,7 @@ public class DIYToolkit
 			MouseEvent event = (MouseEvent)e;
 			switch (event.getID())
 			{
-				case MouseEvent.MOUSE_CLICKED -> this.mouseClicked(event);
+				case MouseEvent.MOUSE_CLICKED -> {}//this.mouseClicked(event);
 				case MouseEvent.MOUSE_DRAGGED -> this.mouseDragged(event);
 				case MouseEvent.MOUSE_ENTERED -> this.mouseEntered(event);
 				case MouseEvent.MOUSE_EXITED -> this.mouseExited(event);
@@ -755,6 +760,67 @@ public class DIYToolkit
 		}
 	}
 
+
+	/*----------------------------------------------------------------------*/
+	public void mouseEntered(MouseEvent e)
+	{
+		hoverWidget = getHoverComponent(e.getPoint());
+		if (isWidgetInteractable(hoverWidget))
+		{
+			hoverWidget.processMouseEntered(e);
+		}
+	}
+
+	/*----------------------------------------------------------------------*/
+	public void mouseExited(MouseEvent e)
+	{
+		hoverWidget = getHoverComponent(e.getPoint());
+		if (isWidgetInteractable(hoverWidget))
+		{
+			hoverWidget.processMouseExited(e);
+		}
+	}
+
+	/*----------------------------------------------------------------------*/
+	public void mousePressed(MouseEvent e)
+	{
+		if (isWidgetInteractable(hoverWidget))
+		{
+			mousePressWidget = hoverWidget;
+			hoverWidget.processMousePressed(e);
+		}
+	}
+
+	/*----------------------------------------------------------------------*/
+	public void mouseReleased(MouseEvent e)
+	{
+		if (isWidgetInteractable(hoverWidget))
+		{
+			hoverWidget.processMouseReleased(e);
+
+			// dragging the mouse while the button is held in doesn't trigger
+			// entered/exited events, so here we see where the user actually
+			// releases the mouse
+			Widget releasedOver = getHoverComponent(e.getPoint());
+			if (releasedOver == mousePressWidget)
+			{
+				// press and release inside the same widget => trigger a mouse click
+				mouseClicked(new MouseEvent(
+					e.getComponent(),
+					MouseEvent.MOUSE_CLICKED,
+					e.getWhen(),
+					e.getModifiersEx(),
+					e.getX(),
+					e.getY(),
+					1,
+					e.isPopupTrigger(),
+					e.getButton()));
+			}
+		}
+
+		mousePressWidget = null;
+	}
+
 	/*----------------------------------------------------------------------*/
 	public void mouseClicked(MouseEvent e)
 	{
@@ -798,44 +864,6 @@ public class DIYToolkit
 //			{
 //				this.contentPane.processMouseClicked(e);
 //			}
-		}
-	}
-
-	/*----------------------------------------------------------------------*/
-	public void mouseEntered(MouseEvent e)
-	{
-		hoverWidget = getHoverComponent(e.getPoint());
-		if (isWidgetInteractable(hoverWidget))
-		{
-			hoverWidget.processMouseEntered(e);
-		}
-	}
-
-	/*----------------------------------------------------------------------*/
-	public void mouseExited(MouseEvent e)
-	{
-		hoverWidget = getHoverComponent(e.getPoint());
-		if (isWidgetInteractable(hoverWidget))
-		{
-			hoverWidget.processMouseExited(e);
-		}
-	}
-
-	/*----------------------------------------------------------------------*/
-	public void mousePressed(MouseEvent e)
-	{
-		if (isWidgetInteractable(hoverWidget))
-		{
-			hoverWidget.processMousePressed(e);
-		}
-	}
-
-	/*----------------------------------------------------------------------*/
-	public void mouseReleased(MouseEvent e)
-	{
-		if (isWidgetInteractable(hoverWidget))
-		{
-			hoverWidget.processMouseReleased(e);
 		}
 	}
 
