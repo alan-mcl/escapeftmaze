@@ -26,7 +26,7 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class ManaPresentValue extends Value
 {
-	private int colour;
+	private final int colour;
 
 	/*-------------------------------------------------------------------------*/
 	/**

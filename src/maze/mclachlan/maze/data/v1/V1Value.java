@@ -42,7 +42,7 @@ public class V1Value
 
 	static
 	{
-		types = new HashMap<Class, Integer>();
+		types = new HashMap<>();
 
 		types.put(Value.class, VALUE);
 		types.put(DiceValue.class, DICE_VALUE);

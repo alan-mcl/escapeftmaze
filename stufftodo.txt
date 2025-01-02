@@ -4,12 +4,12 @@ STUFFTODO
 
 UI REFRESH
 --------------
-spell desc dialog improvements: cast cost, effects
 run-into-combat tile skip bug
 combat text scrolling improvement
 raycaster bug with wall height >1
 
 rename Automata race?
+rename mana to magic colour
 
 BACKLOG
 ----------

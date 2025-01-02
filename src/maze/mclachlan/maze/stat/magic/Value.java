@@ -55,14 +55,9 @@ public class Value
 	private boolean negate;
 
 	/**
-	 * Always evaluates to zero.
-	 */
-	public static final Value NULL_VALUE = new Value(0, SCALE.NONE);
-
-	/**
 	 * Different ways of scaling this value.
 	 */
-	public static enum SCALE
+	public enum SCALE
 	{
 		/** no scaling */
 		NONE,
@@ -98,17 +93,6 @@ public class Value
 		this.scaling = other.getScaling();
 		this.negate = other.shouldNegate();
 		this.reference = other.getReference();
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	/**
-	 * @return true if this ValueList represents nothing other than a composition
-	 * 	of other Values
-	 */
-	public boolean isNullValue()
-	{
-		return getClass() == Value.class && value == 0;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -256,7 +240,7 @@ public class Value
 	public String toString()
 	{
 		final StringBuilder sb = new StringBuilder("Value{");
-		sb.append("").append(value);
+		sb.append(value);
 		sb.append(",").append(scaling);
 		sb.append(",").append(reference);
 		sb.append(",").append(negate);

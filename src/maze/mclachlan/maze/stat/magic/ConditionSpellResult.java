@@ -35,7 +35,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
  */
 public class ConditionSpellResult extends SpellResult
 {
-	private ConditionTemplate conditionTemplate;
+	private final ConditionTemplate conditionTemplate;
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionSpellResult(ConditionTemplate conditionTemplate)

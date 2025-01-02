@@ -496,15 +496,15 @@ plw.skeleton.key = (S)keleton Key
 plw.tension.wrench = (T)ension Wrench
 
 # spell details dialog
-sdd.spell.level =           Spell Level:        %s
-sdd.hit.point.cost =        Hit Point Cost:     %s
-sdd.action.point.cost =     Action Point Cost:  %s
-sdd.magic.point.cost =      Magic Point Cost:   %s
-sdd.target.type =           Target Type:        %s
-sdd.usability.type =        Usability:          %s
-sdd.book =                  Book:               %s
-sdd.school =                School:             %s
-sdd.primary.modifier =      Primary Modifier:   %s
+sdd.spell.level =           Spell Level: %s
+sdd.hit.point.cost =        Hit Point Cost: %s
+sdd.action.point.cost =     Action Point Cost: %s
+sdd.magic.point.cost =      Magic Point Cost: %s
+sdd.target.type =           Target Type: %s
+sdd.usability.type =        Usability: %s
+sdd.book =                  Book: %s
+sdd.school =                School: %s
+sdd.primary.modifier =      Primary Modifier: %s
 sdd.secondary.modifier =    Secondary Modifier: %s
 sdd.effects =               Effects:
 sdd.mana.required =         Required:
@@ -584,3 +584,19 @@ madw.gold.tooltip.magic.use = Gold Magic use maximum level
 madw.white.tooltip.magic.use = White Magic use maximum level
 madw.green.tooltip.magic.use = Green Magic use maximum level
 madw.blue.tooltip.magic.use = Blue Magic use maximum level
+
+# value descriptions
+vd.mana.present = %s magic present
+vd.scale.casting.level = %s per casting level
+vd.scale.character.level = %s per character level
+vd.scale.class.level = %s per %s level
+vd.scale.modifier = %s per %s
+vd.scale.party = %s per party member
+
+# spell result descriptions
+srd.damage = %s: %s %s (%s)
+srd.hp = HP
+srd.ap = AP
+srd.mp = MP
+srd.fatigue = Fatigue
+srd.condition = %s, rounds duration: %s

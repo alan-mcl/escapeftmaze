@@ -20,10 +20,9 @@
 package mclachlan.maze.data;
 
 import java.util.*;
-import mclachlan.maze.data.v1.V1Value;
+import mclachlan.maze.data.v1.V1Dice;
+import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -145,8 +144,87 @@ public class StringUtil
 	/*-------------------------------------------------------------------------*/
 	public static String descValue(ValueList v)
 	{
-		// todo: prettier printing
-		return V1Value.toString(v);
+		StringBuilder result = new StringBuilder();
+
+		for (Value value : v.getValues())
+		{
+			String vd = descValue(value);
+
+			if (value.shouldNegate())
+			{
+				result.append(" - ").append(vd);
+			}
+			else if (result.length() > 0)
+			{
+				result.append(" + ").append(vd);
+			}
+			else
+			{
+				result.append(vd);
+			}
+
+		}
+
+		return result.toString();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static String descValue(Value v)
+	{
+		String result;
+
+		if (v instanceof ManaPresentValue)
+		{
+			String mc = MagicSys.ManaType.describe(((ManaPresentValue)v).getColour());
+			result = StringUtil.getUiLabel("vd.mana.present", mc);
+		}
+		else if (v instanceof ModifierValue)
+		{
+			result = StringUtil.getModifierName(((ModifierValue)v).getModifier());
+		}
+		else if (v instanceof DiceValue)
+		{
+			result = V1Dice.toString(((DiceValue)v).getDice());
+		}
+		else if (v.getClass() == Value.class)
+		{
+			result = String.valueOf(v.getValue());
+		}
+		else
+		{
+			// custom value class
+			result = v.toString();
+		}
+
+		switch (v.getScaling())
+		{
+			case NONE ->
+			{
+			}
+			case SCALE_WITH_CASTING_LEVEL ->
+			{
+				result = StringUtil.getUiLabel("vd.scale.casting.level", result);
+			}
+			case SCALE_WITH_CHARACTER_LEVEL ->
+			{
+				result = StringUtil.getUiLabel("vd.scale.character.level", result);
+			}
+			case SCALE_WITH_CLASS_LEVEL ->
+			{
+				result = StringUtil.getUiLabel("vd.scale.class.level", result, v.getReference());
+			}
+			case SCALE_WITH_MODIFIER ->
+			{
+				result = StringUtil.getUiLabel("vd.scale.modifier", result, v.getReference());
+			}
+			case SCALE_WITH_PARTY_SIZE ->
+			{
+				result = StringUtil.getUiLabel("vd.scale.party", result);
+			}
+		}
+
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -384,19 +384,19 @@ public class MagicSys
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static String describe(int manaType)
+		public static String describe(int magicColour)
 		{
-			return switch (manaType)
+			return switch (magicColour)
 				{
-					case ManaType.RED -> "Red mana present";
-					case ManaType.BLACK -> "Black mana present";
-					case ManaType.PURPLE -> "Purple mana present";
-					case ManaType.GOLD -> "Gold mana present";
-					case ManaType.WHITE -> "White mana present";
-					case ManaType.GREEN -> "Green mana present";
-					case ManaType.BLUE -> "Blue mana present";
+					case ManaType.RED -> "Red";
+					case ManaType.BLACK -> "Black";
+					case ManaType.PURPLE -> "Purple";
+					case ManaType.GOLD -> "Gold";
+					case ManaType.WHITE -> "White";
+					case ManaType.GREEN -> "Green";
+					case ManaType.BLUE -> "Blue";
 					default ->
-						throw new MazeException("Invalid mana colour " + manaType);
+						throw new MazeException("Invalid magic colour " + magicColour);
 				};
 		}
 

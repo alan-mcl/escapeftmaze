@@ -33,15 +33,11 @@ import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.Stats;
-import mclachlan.maze.stat.magic.Spell;
-import mclachlan.maze.stat.magic.SpellEffect;
+import mclachlan.maze.stat.magic.*;
 
 public class SpellDetailsDialog extends GeneralDialog
 {
 	private final int wrapWidth;
-	private DIYLabel requiredManaLabel = null;
-	private DIYLabel availableManaLabel = null;
-	private ManaDisplayWidget manaRequired, manaAvailable;
 
 	/*-------------------------------------------------------------------------*/
 	public SpellDetailsDialog(Rectangle bounds, Spell spell, PlayerCharacter pc)
@@ -55,10 +51,10 @@ public class SpellDetailsDialog extends GeneralDialog
 			return true;
 		});
 
-		manaRequired = new ManaDisplayWidget("required");
+		ManaDisplayWidget manaRequired = new ManaDisplayWidget("required");
 		manaRequired.refresh(spell.getRequirementsToCast());
 
-		manaAvailable = new ManaDisplayWidget("present");
+		ManaDisplayWidget manaAvailable = new ManaDisplayWidget("present");
 		if (pc != null)
 		{
 			manaAvailable.refresh(
@@ -144,18 +140,22 @@ public class SpellDetailsDialog extends GeneralDialog
 		List<String> effects = getSpellEffectsDisplay(spell);
 		if (!effects.isEmpty())
 		{
-			StringBuilder sb = new StringBuilder(StringUtil.getUiLabel("sdd.effects"));
-			getCommaString(sb, effects);
-			wrapString(rows, sb);
+			addToRow(rows, getLabel(StringUtil.getUiLabel("sdd.effects")));
+			newRow(rows);
+			for (String s : effects)
+			{
+				wrapString(rows, " - "+s);
+			}
 		}
 
 		newRow(rows);
 
-		requiredManaLabel = getLabel(StringUtil.getUiLabel("sdd.mana.required"));
+		DIYLabel requiredManaLabel = getLabel(StringUtil.getUiLabel("sdd.mana.required"));
 		addToRow(rows, requiredManaLabel);
 //		addToRow(rows, manaRequired);
 		newRow(rows);
 
+		DIYLabel availableManaLabel = null;
 		if (pc != null)
 		{
 			newRow(rows);
@@ -188,7 +188,7 @@ public class SpellDetailsDialog extends GeneralDialog
 		Dimension mrps = manaRequired.getPreferredSize();
 		manaRequired.setBounds(
 			requiredManaLabel.x + requiredManaLabel.width + getInset(),
-			requiredManaLabel.y +requiredManaLabel.height/2 - mrps.height/2,
+			requiredManaLabel.y + requiredManaLabel.height/2 - mrps.height/2,
 			mrps.width,
 			mrps.height);
 		manaRequired.doLayout();
@@ -216,14 +216,14 @@ public class SpellDetailsDialog extends GeneralDialog
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void wrapString(List<Widget> rows, StringBuilder sb)
+	private void wrapString(List<Widget> rows, String s)
 	{
 		List<String> strings = DIYToolkit.wrapText(
-			sb.toString(), Maze.getInstance().getComponent().getGraphics(), wrapWidth);
+			s, Maze.getInstance().getComponent().getGraphics(), wrapWidth);
 
-		for (String s : strings)
+		for (String str : strings)
 		{
-			addToRow(rows, getLabel(s));
+			addToRow(rows, getLabel(str));
 			newRow(rows);
 		}
 	}
@@ -288,24 +288,83 @@ public class SpellDetailsDialog extends GeneralDialog
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private java.util.List<String> getSpellEffectsDisplay(Spell item)
+	private java.util.List<String> getSpellEffectsDisplay(Spell spell)
 	{
 		java.util.List<String> result = new ArrayList<>();
 
-		if (item.getEffects() == null || item.getEffects().getPercentages().size() == 0)
+		if (spell.getEffects() == null || spell.getEffects().getPercentages().size() == 0)
 		{
 			return result;
 		}
 
-		// we're only going to display spell effects that have display names
-		for (SpellEffect se : item.getEffects().getPossibilities())
+		for (SpellEffect se : spell.getEffects().getPossibilities())
 		{
-			if (se.getDisplayName() != null && se.getDisplayName().length() > 0)
+			List<String> desc = descSpellEffect(spell, se);
+			if (desc != null)
 			{
-				result.add(item.getEffects().getPercentage(se) + "% " + se.getDisplayName());
+				result.addAll(desc);
 			}
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<String> descSpellEffect(Spell spell, SpellEffect se)
+	{
+		// we're only going to display spell effects that have display names
+		if (se.getDisplayName() != null && se.getDisplayName().length() > 0)
+		{
+			return new ArrayList<>(descSpellResult(spell, se.getUnsavedResult(), se));
+		}
+		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private List<String> descSpellResult(Spell spell, SpellResult sr, SpellEffect se)
+	{
+		String prefix = spellEffectPrefix(spell, se);
+
+		if (sr instanceof DamageSpellResult)
+		{
+			ValueList hpDam = ((DamageSpellResult)sr).getHitPointDamage();
+			ValueList apDam = ((DamageSpellResult)sr).getActionPointDamage();
+			ValueList mpDam = ((DamageSpellResult)sr).getHitPointDamage();
+			ValueList fatDam = ((DamageSpellResult)sr).getFatigueDamage();
+
+			List<String> result = new ArrayList<>();
+
+			if (hpDam != null)
+			{
+				result.add(StringUtil.getUiLabel("srd.damage", prefix, StringUtil.descValue(hpDam), StringUtil.getUiLabel("srd.hp"), se.getType().describe()));
+			}
+			if (apDam != null)
+			{
+				result.add(StringUtil.getUiLabel("srd.damage", prefix, StringUtil.descValue(apDam), StringUtil.getUiLabel("srd.ap"), se.getType().describe()));
+			}
+			if (mpDam != null)
+			{
+				result.add(StringUtil.getUiLabel("srd.damage", prefix, StringUtil.descValue(mpDam), StringUtil.getUiLabel("srd.mp"), se.getType().describe()));
+			}
+			if (fatDam != null)
+			{
+				result.add(StringUtil.getUiLabel("srd.damage", prefix, StringUtil.descValue(fatDam), StringUtil.getUiLabel("srd.fatigue"), se.getType().describe()));
+			}
+
+			return result;
+		}
+		else if (sr instanceof ConditionSpellResult)
+		{
+			return List.of(StringUtil.getUiLabel("srd.condition", prefix, StringUtil.descValue(((ConditionSpellResult)sr).getConditionTemplate().getDuration())));
+		}
+		else
+		{
+			return List.of(prefix);
+		}
+	}
+
+	private String spellEffectPrefix(Spell spell, SpellEffect se)
+	{
+		return spell.getEffects().getPercentage(se) + "%: " + se.getDisplayName();
 	}
 }

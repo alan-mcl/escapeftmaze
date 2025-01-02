@@ -35,7 +35,7 @@ import mclachlan.maze.stat.magic.ManaRequirement;
  */
 public class ManaRequirementPanel extends JPanel implements ActionListener, ChangeListener
 {
-	List<ManaRequirement> list = new ArrayList<ManaRequirement>();
+	List<ManaRequirement> list = new ArrayList<>();
 
 	String[] manaTypes = new String[]
 	{
@@ -121,7 +121,7 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 
 		if (list == null)
 		{
-			this.list = new ArrayList<ManaRequirement>();
+			this.list = new ArrayList<>();
 		}
 		else
 		{
@@ -145,7 +145,7 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 	/*-------------------------------------------------------------------------*/
 	public List<ManaRequirement> getManaRequirements()
 	{
-		return new ArrayList<ManaRequirement>(this.list);
+		return new ArrayList<>(this.list);
 	}
 
 	/*-------------------------------------------------------------------------*/
