@@ -26,6 +26,7 @@ import java.awt.Rectangle;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.util.*;
 
 /**
@@ -268,7 +269,19 @@ public abstract class Widget
 	public void processMouseExited(MouseEvent e)
 	{
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	public void processMouseDragged(MouseEvent e)
+	{
+
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public boolean processMouseWheelMoved(MouseWheelEvent e)
+	{
+		return false;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{

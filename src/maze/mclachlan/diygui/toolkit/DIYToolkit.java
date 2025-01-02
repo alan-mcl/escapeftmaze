@@ -143,6 +143,10 @@ public class DIYToolkit
 	 * Background thread to run the tool tip timers.
 	 */
 	private final Timer tooltipTimer;
+
+	/**
+	 * The current tooltip, null if none.
+	 */
 	private DIYTooltip tooltip;
 
 	/*-------------------------------------------------------------------------*/
@@ -199,6 +203,7 @@ public class DIYToolkit
 		comp.addKeyListener(tap);
 		comp.addMouseListener(tap);
 		comp.addMouseMotionListener(tap);
+		comp.addMouseWheelListener(tap);
 
 		this.initRendererFactory(rendererFactoryImpl);
 
@@ -390,6 +395,23 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static Dimension getDimension(String s, int wrapWidth)
+	{
+		Graphics g = instance.comp.getGraphics();
+
+		if (g == null)
+		{
+			return null;
+		}
+
+		List<String> lines = wrapText(s, g, wrapWidth);
+
+		int oneLineHeight = getDimension("|").height;
+
+		return new Dimension(wrapWidth, (lines.size()+1) * oneLineHeight);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static Dimension getDimension(Image image)
 	{
 		return new Dimension(
@@ -569,7 +591,7 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void resetFocusAndHoverWidgets()
+	public void resetFocusAndHoverWidgets()
 	{
 		if (hoverWidget != null)
 		{
@@ -601,6 +623,40 @@ public class DIYToolkit
 			else if (contentPane != null)
 			{
 				return contentPane.getHoverComponent(x, y);
+			}
+			else
+			{
+				// hiding possible race conditions here, but wth
+				return null;
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
+	 * 	All components under the given point, topmost first
+	 */
+	private List<Widget> getHoverComponents(Point p)
+	{
+		if (p == null)
+		{
+			return null;
+		}
+
+		synchronized (dialogMutex)
+		{
+			int x = p.x;
+			int y = p.y;
+
+			if (overlayPane != null)
+			{
+				return overlayPane.getHoverComponents(x, y);
+			}
+			else if (contentPane != null)
+			{
+				return contentPane.getHoverComponents(x, y);
 			}
 			else
 			{
@@ -671,12 +727,16 @@ public class DIYToolkit
 					throw new DIYException("Unrecognised KeyEvent ID: " + event.getID());
 			}
 		}
+		else if (e instanceof MouseWheelEvent)
+		{
+			this.mouseWheelMoved((MouseWheelEvent)e);
+		}
 		else if (e instanceof MouseEvent)
 		{
 			MouseEvent event = (MouseEvent)e;
 			switch (event.getID())
 			{
-				case MouseEvent.MOUSE_CLICKED -> {}//this.mouseClicked(event);
+				case MouseEvent.MOUSE_CLICKED -> {}// this.mouseClicked(event); we rely on press/release
 				case MouseEvent.MOUSE_DRAGGED -> this.mouseDragged(event);
 				case MouseEvent.MOUSE_ENTERED -> this.mouseEntered(event);
 				case MouseEvent.MOUSE_EXITED -> this.mouseExited(event);
@@ -693,6 +753,25 @@ public class DIYToolkit
 		else
 		{
 			throw new DIYException("Unrecognised event: " + e);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void mouseWheelMoved(MouseWheelEvent e)
+	{
+		List<Widget> hoverComponents = getHoverComponents(e.getPoint());
+
+		if (hoverComponents != null)
+		{
+			// deliver the wheel movement to all components down the stack, first
+			// one gets an option to handle it.
+			for (Widget w : hoverComponents)
+			{
+				if (w.processMouseWheelMoved(e))
+				{
+					return;
+				}
+			}
 		}
 	}
 
@@ -789,6 +868,11 @@ public class DIYToolkit
 			mousePressWidget = hoverWidget;
 			hoverWidget.processMousePressed(e);
 		}
+		else if (getDialog() != null)
+		{
+			// needed to trigger mouse clicks outside dialogs
+			mousePressWidget = getDialog();
+		}
 	}
 
 	/*----------------------------------------------------------------------*/
@@ -816,6 +900,19 @@ public class DIYToolkit
 					e.isPopupTrigger(),
 					e.getButton()));
 			}
+		}
+		else if (getDialog() != null && mousePressWidget == getDialog())
+		{
+			mouseClicked(new MouseEvent(
+				e.getComponent(),
+				MouseEvent.MOUSE_CLICKED,
+				e.getWhen(),
+				e.getModifiersEx(),
+				e.getX(),
+				e.getY(),
+				1,
+				e.isPopupTrigger(),
+				e.getButton()));
 		}
 
 		mousePressWidget = null;
@@ -870,45 +967,45 @@ public class DIYToolkit
 	/*----------------------------------------------------------------------*/
 	public void mouseDragged(MouseEvent e)
 	{
-		// not yet supported
+		if (mousePressWidget != null)
+		{
+			mousePressWidget.processMouseDragged(e);
+		}
 	}
 
 	/*----------------------------------------------------------------------*/
 	public void mouseMoved(MouseEvent e)
 	{
 		Widget currentHoverWidget = getHoverComponent(e.getPoint());
-		if (currentHoverWidget != null)
+		if (currentHoverWidget != hoverWidget)
 		{
-			if (currentHoverWidget != hoverWidget)
+			if (isWidgetInteractable(hoverWidget))
 			{
-				if (isWidgetInteractable(hoverWidget))
+				hoverWidget.processMouseExited(e);
+				cancelTooltip();
+			}
+
+			hoverWidget = currentHoverWidget;
+
+			if (isWidgetInteractable(hoverWidget))
+			{
+				hoverWidget.processMouseEntered(e);
+
+				String tt = hoverWidget != null ? hoverWidget.getTooltip() : null;
+
+				if (tt != null)
 				{
-					hoverWidget.processMouseExited(e);
-					cancelTooltip();
-				}
-
-				hoverWidget = currentHoverWidget;
-
-				if (isWidgetInteractable(hoverWidget))
-				{
-					hoverWidget.processMouseEntered(e);
-
-					String tt = hoverWidget != null ? hoverWidget.getTooltip() : null;
-
-					if (tt != null)
+					TimerTask task = new TimerTask()
 					{
-						TimerTask task = new TimerTask()
+						@Override
+						public void run()
 						{
-							@Override
-							public void run()
-							{
-								Point p = MouseInfo.getPointerInfo().getLocation();
-								tooltip = new DIYTooltip(tt, p.x, p.y);
-							}
-						};
-						hoverWidget.setTooltipTimerTask(task);
-						tooltipTimer.schedule(task, TOOLTIP_DELAY);
-					}
+							Point p = MouseInfo.getPointerInfo().getLocation();
+							tooltip = new DIYTooltip(tt, p.x, p.y);
+						}
+					};
+					hoverWidget.setTooltipTimerTask(task);
+					tooltipTimer.schedule(task, TOOLTIP_DELAY);
 				}
 			}
 		}
@@ -1196,64 +1293,70 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
-	class Listener implements KeyListener, MouseListener, MouseMotionListener
+	class Listener implements KeyListener, MouseListener, MouseMotionListener, MouseWheelListener
 	{
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void keyPressed(KeyEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void keyReleased(KeyEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void keyTyped(KeyEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mouseClicked(MouseEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mouseEntered(MouseEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mouseExited(MouseEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mousePressed(MouseEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mouseReleased(MouseEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mouseDragged(MouseEvent e)
 		{
 			queue.offer(e);
 		}
 
-		/*----------------------------------------------------------------------*/
+		@Override
 		public void mouseMoved(MouseEvent e)
+		{
+			queue.offer(e);
+		}
+
+		@Override
+		public void mouseWheelMoved(MouseWheelEvent e)
 		{
 			queue.offer(e);
 		}

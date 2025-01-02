@@ -93,6 +93,7 @@ public class CardLayoutWidget extends ContainerWidget
 		}
 
 		this.currentWidget = w;
+		DIYToolkit.getInstance().resetFocusAndHoverWidgets();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -104,6 +105,7 @@ public class CardLayoutWidget extends ContainerWidget
 		}
 
 		this.currentWidget = this.widgets.get(key);
+		DIYToolkit.getInstance().resetFocusAndHoverWidgets();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -135,9 +137,17 @@ public class CardLayoutWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public Widget getChild(int x, int y)
 	{
 		return this.currentWidget.getChild(x, y);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<Widget> getChildren(int x, int y)
+	{
+		return this.currentWidget.getChildren(x, y);
 	}
 
 	/*-------------------------------------------------------------------------*/

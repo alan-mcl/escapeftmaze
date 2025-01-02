@@ -31,9 +31,6 @@ public class DefaultScrollPaneRenderer extends Renderer
 {
 	public void render(Graphics2D g, int x, int y, int width, int height, Widget widget)
 	{
-//		g.setColor(Color.DARK_GRAY);
-//		g.fillRect(x, y, width, height);
-
 		DIYScrollPane pane = (DIYScrollPane)widget;
 		
 		g.setColor(Color.LIGHT_GRAY);
@@ -49,7 +46,7 @@ public class DefaultScrollPaneRenderer extends Renderer
 		try
 		{
 			cg.clipRect(x, y, width, height);
-			cg.translate(x, y-pane.relativePosition);
+			cg.translate(x, y-pane.getRelativePosition());
 			w.draw(cg);
 		}
 		finally

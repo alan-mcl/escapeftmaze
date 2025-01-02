@@ -73,7 +73,7 @@ public class DIYTextArea extends ContainerWidget
 	/*-------------------------------------------------------------------------*/
 	public Dimension getPreferredSize()
 	{
-		return DIYToolkit.getDimension(text);
+		return DIYToolkit.getDimension(text, this.width);
 	}
 
 	/*-------------------------------------------------------------------------*/

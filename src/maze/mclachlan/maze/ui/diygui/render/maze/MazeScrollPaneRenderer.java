@@ -19,12 +19,11 @@
 
 package mclachlan.maze.ui.diygui.render.maze;
 
-import java.awt.geom.Rectangle2D;
+import java.awt.*;
 import java.awt.geom.RoundRectangle2D;
+import mclachlan.diygui.DIYScrollPane;
 import mclachlan.diygui.toolkit.Renderer;
 import mclachlan.diygui.toolkit.Widget;
-import mclachlan.diygui.DIYScrollPane;
-import java.awt.*;
 
 /**
  *
@@ -55,7 +54,7 @@ public class MazeScrollPaneRenderer extends Renderer
 		try
 		{
 			cg.clipRect(x, y, width, height);
-			cg.translate(x, y-pane.relativePosition);
+			cg.translate(x, y-pane.getRelativePosition());
 			w.draw(cg);
 		}
 		finally

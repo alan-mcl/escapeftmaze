@@ -34,26 +34,26 @@ public abstract class ContainerWidget extends Widget
 	 */
 	List<Widget> children = new ArrayList<>();
 	LayoutManager layoutManager;
-	Insets insets = new Insets(0,0,0,0);
-	
+	Insets insets = new Insets(0, 0, 0, 0);
+
 	/*-------------------------------------------------------------------------*/
 	public ContainerWidget(Rectangle bounds)
 	{
 		super(bounds.x, bounds.y, bounds.width, bounds.height);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public ContainerWidget(int x, int y, int width, int height)
 	{
 		super(x, y, width, height);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void setLayoutManager(LayoutManager layoutManager)
 	{
 		this.layoutManager = layoutManager;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void setInsets(Insets insets)
 	{
@@ -86,14 +86,15 @@ public abstract class ContainerWidget extends Widget
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Adds the given widget to this container.
-	 */ 
+	 */
 	public void add(Widget w)
 	{
 		this.add(w, null);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void add(Widget w, Object constraints)
 	{
@@ -107,7 +108,7 @@ public abstract class ContainerWidget extends Widget
 			this.layoutManager.addWidgetToLayout(w, constraints);
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void remove(Widget w)
 	{
@@ -120,7 +121,7 @@ public abstract class ContainerWidget extends Widget
 			this.layoutManager.removeWidgetFromLayout(w);
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void draw(Graphics2D g)
 	{
@@ -128,14 +129,14 @@ public abstract class ContainerWidget extends Widget
 		synchronized (childMutex)
 		{
 			int max = children.size();
-			for (int i=0; i<max; i++)
+			for (int i = 0; i < max; i++)
 			{
 				Widget w = children.get(i);
 				w.draw(g);
 			}
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void doLayout()
 	{
@@ -143,7 +144,7 @@ public abstract class ContainerWidget extends Widget
 		{
 			this.layoutManager.layoutContainer(this);
 		}
-		
+
 		for (Widget w : children)
 		{
 			if (w instanceof ContainerWidget)
@@ -175,6 +176,27 @@ public abstract class ContainerWidget extends Widget
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public List<Widget> getHoverComponents(int x, int y)
+	{
+		ContainerWidget d = DIYToolkit.getInstance().getDialog();
+		if (d != null && d != this && !this.isChildOfDialog(d))
+		{
+			// there is a modal dialog visible
+			Rectangle bounds = new Rectangle(d.x, d.y, d.width, d.height);
+			if (bounds.contains(x, y))
+			{
+				return d.getHoverComponents(x, y);
+			}
+			else
+			{
+				return null;
+			}
+		}
+
+		return getChildren(x, y);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Widget getChild(int x, int y)
 	{
 		List<Widget> kids = new ArrayList<>(children);
@@ -182,7 +204,7 @@ public abstract class ContainerWidget extends Widget
 
 		for (Widget w : kids)
 		{
-			Rectangle bounds = new Rectangle(w.x,  w.y,  w.width, w.height);
+			Rectangle bounds = new Rectangle(w.x, w.y, w.width, w.height);
 			if (bounds.contains(x, y))
 			{
 				if (w instanceof ContainerWidget)
@@ -197,6 +219,35 @@ public abstract class ContainerWidget extends Widget
 		}
 
 		return this;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<Widget> getChildren(int x, int y)
+	{
+		List<Widget> result = new ArrayList<>();
+		List<Widget> kids = new ArrayList<>(children);
+		Collections.reverse(kids);
+
+		for (Widget w : kids)
+		{
+			Rectangle bounds = new Rectangle(w.x, w.y, w.width, w.height);
+			if (bounds.contains(x, y))
+			{
+				if (w instanceof ContainerWidget)
+				{
+					result.addAll(((ContainerWidget)w).getChildren(x, y));
+					result.add(w);
+				}
+				else if (w.isVisible())
+				{
+					result.add(w);
+				}
+			}
+		}
+
+		result.add(this);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

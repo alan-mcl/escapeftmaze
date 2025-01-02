@@ -44,6 +44,7 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 
 	private final DIYListBox journalKeys;
 	private final DIYTextArea textArea;
+	private final DIYScrollPane textAreaScroller;
 	private JournalManager.JournalType journalType;
 	private DIYLabel title;
 
@@ -85,10 +86,10 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 		textArea.setTransparent(true);
 		textArea.setBounds(rightPane.getBounds());
 
-		DIYScrollPane scroller = new DIYScrollPane(textArea);
-		scroller.setBounds(rightPane.getBounds());
+		textAreaScroller = new DIYScrollPane(textArea);
+		textAreaScroller.setBounds(rightPane.getBounds());
 
-		rightPane.add(scroller);
+		rightPane.add(textAreaScroller);
 
 		DIYPane buttonPane = new DIYPane(new DIYFlowLayout(inset, 0, DIYToolkit.Align.CENTER));
 		buttonPane.setBounds(
@@ -184,6 +185,7 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 		}
 
 		textArea.setText(sb.toString());
+		textAreaScroller.refresh();
 	}
 
 	/*-------------------------------------------------------------------------*/

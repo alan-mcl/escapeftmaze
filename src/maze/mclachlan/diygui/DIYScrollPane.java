@@ -19,8 +19,14 @@
 
 package mclachlan.diygui;
 
+import java.awt.Dimension;
+import java.awt.Graphics2D;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
+import java.util.*;
 import mclachlan.diygui.toolkit.*;
-import java.awt.*;
 
 
 /**
@@ -30,14 +36,17 @@ public class DIYScrollPane extends ContainerWidget
 {
 	private final ContainerWidget contents;
 
-	public static final int internalInset = 2;
+	private static final int internalInset = 2;
 	private final int inset, scrollBarWidth, sliderWidth, sliderHeight;
 
 	public Rectangle scrollBarBounds, upButtonBounds, downButtonBounds, sliderBounds;
-	public DIYButton upButton, downButton;
+	public DIYButton upButton, downButton, slider;
 
-	public int position = 0, sliderStart, sliderEnd, sliderX, maxPosition, 
-		positionIncrement, relativePosition;
+	private int position;
+	private int sliderStart;
+	private int maxPosition;
+	private int positionIncrement;
+	private int relativePosition;
 
 	/*-------------------------------------------------------------------------*/
 	public DIYScrollPane(ContainerWidget contents)
@@ -60,6 +69,7 @@ public class DIYScrollPane extends ContainerWidget
 
 		this.add(upButton);
 		this.add(downButton);
+		this.add(slider);
 
 		this.contents = contents;
 		initContents();
@@ -74,9 +84,15 @@ public class DIYScrollPane extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void refresh()
+	{
+		this.initContents();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private void initContents()
 	{
-		// this widget effectively has it's own coordinate system
+		// this widget effectively has its own coordinate system
 		contents.x = inset;
 		contents.y = inset;
 		Dimension ps = contents.getPreferredSize();
@@ -108,11 +124,11 @@ public class DIYScrollPane extends ContainerWidget
 			scrollBarBounds.y + scrollBarBounds.height -buttonDimension -internalInset,
 			buttonDimension,
 			buttonDimension);
-		
-		sliderX = scrollBarBounds.x +internalInset;
+
+		int sliderX = scrollBarBounds.x + internalInset;
 		sliderStart = scrollBarBounds.y +internalInset +buttonDimension +internalInset;
-		sliderEnd = scrollBarBounds.y +scrollBarBounds.height -internalInset -buttonDimension -inset -sliderHeight;
-		maxPosition = sliderEnd-sliderStart;
+		int sliderEnd = scrollBarBounds.y + scrollBarBounds.height - internalInset - buttonDimension - inset - sliderHeight;
+		maxPosition = sliderEnd -sliderStart;
 		
 		sliderBounds = new Rectangle(
 			sliderX,
@@ -125,9 +141,50 @@ public class DIYScrollPane extends ContainerWidget
 		upButton = new DIYButton("^");
 		upButton.setBounds(upButtonBounds);
 		upButton.addActionListener(actionListener);
+
 		downButton = new DIYButton("v");
 		downButton.setBounds(downButtonBounds);
 		downButton.addActionListener(actionListener);
+
+		slider = new DIYButton("|")
+		{
+			private Point dragRef;
+
+			@Override
+			public void processMousePressed(MouseEvent e)
+			{
+				this.dragRef = e.getPoint();
+				super.processMousePressed(e);
+			}
+
+			@Override
+			public void processMouseReleased(MouseEvent e)
+			{
+				this.dragRef = null;
+				super.processMouseReleased(e);
+			}
+
+			@Override
+			public void processMouseDragged(MouseEvent e)
+			{
+				if (this.dragRef != null)
+				{
+					if (e.getY() > dragRef.getY())
+					{
+						// dragged down
+						slide((int)(e.getY() - dragRef.getY()));
+						dragRef = e.getPoint();
+					}
+					else if (e.getY() < dragRef.getY())
+					{
+						// dragged up, we want a negative param to slide()
+						slide((int)(e.getY() - dragRef.getY()));
+						dragRef = e.getPoint();
+					}
+				}
+			}
+		};
+		slider.setBounds(sliderBounds);
 
 		int lineHeight = DIYToolkit.getDimension(1).height;
 		positionIncrement = height/lineHeight;
@@ -175,13 +232,95 @@ public class DIYScrollPane extends ContainerWidget
 		{
 			return this.downButton;
 		}
+		else if (this.sliderBounds.contains(x, y))
+		{
+			return this.slider;
+		}
+		else if (this.scrollBarBounds.contains(x, y))
+		{
+			return this;
+		}
 		else 
 		{
 			return this.contents.getChild(
 				x-this.x, y-this.y+this.relativePosition);
 		}
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public List<Widget> getChildren(int x, int y)
+	{
+		if (this.upButtonBounds.contains(x, y))
+		{
+			return List.of(this.upButton);
+		}
+		else if (this.downButtonBounds.contains(x, y))
+		{
+			return List.of(this.downButton);
+		}
+		else if (this.sliderBounds.contains(x, y))
+		{
+			return List.of(this.slider);
+		}
+		else if (this.scrollBarBounds.contains(x, y))
+		{
+			return List.of(this);
+		}
+		else
+		{
+			return this.contents.getChildren(
+				x-this.x, y-this.y+this.relativePosition);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean processMouseWheelMoved(MouseWheelEvent e)
+	{
+		double clicks = e.getPreciseWheelRotation();
+
+		if (clicks != 0)
+		{
+			// clicks is already negative for upward wheel movements
+			slide((int)(clicks * positionIncrement));
+			return true;
+		}
+
+		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @param inc
+	 * 	negative for up, positive for down, in pixels of the slider
+	 */
+	private void slide(int inc)
+	{
+		position += inc;
+		if (position < 0)
+		{
+			position = 0;
+		}
+		else if (position > maxPosition)
+		{
+			position = maxPosition;
+		}
+
+		int maxRel = Math.max(contents.height-this.height, 0);
+		relativePosition = (int)(maxRel * position * 1D / maxPosition);
+
+		sliderBounds.setLocation(sliderBounds.x, sliderStart+position);
+		slider.setBounds(sliderBounds);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public int getRelativePosition()
+	{
+		return relativePosition;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private class ScrollPaneActionListener implements ActionListener
 	{
@@ -189,33 +328,12 @@ public class DIYScrollPane extends ContainerWidget
 		{
 			if (event.getSource() == upButton)
 			{
-				position -= positionIncrement;
-				if (position < 0)
-				{
-					position = 0;
-				}
-
-				relativePosition = position * (maxPosition / positionIncrement);
-
-				sliderBounds.setLocation(sliderBounds.x, sliderStart+position);
-
+				slide(-positionIncrement);
 				return true;
 			}
 			else if (event.getSource() == downButton)
 			{
-				if (position < maxPosition && positionIncrement > 0)
-				{
-					position += positionIncrement;
-					if (position > maxPosition)
-					{
-						position = maxPosition;
-					}
-
-					relativePosition = position * (maxPosition / positionIncrement);
-
-					sliderBounds.setLocation(sliderBounds.x, sliderStart+position);
-				}
-
+				slide(positionIncrement);
 				return true;
 			}
 

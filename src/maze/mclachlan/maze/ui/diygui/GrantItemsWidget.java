@@ -72,7 +72,7 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener, C
 			DIALOG_WIDTH,
 			dialogHeight);
 
-		Rectangle lwBounds = new Rectangle(
+		Rectangle contentBounds = new Rectangle(
 			startX +border +inset,
 			startY +border +inset +titlePaneHeight,
 			DIALOG_WIDTH -border*2 -inset*2,
@@ -80,10 +80,12 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener, C
 
 		this.setBounds(dialogBounds);
 
-		lootWidget = new LootWidget(lwBounds, items);
+		lootWidget = new LootWidget(contentBounds, items);
 		if (items.size() > 8)
 		{
-			DIYScrollPane scrollPane = new DIYScrollPane(lwBounds, lootWidget);
+			lootWidget.setBounds(lootWidget.x, lootWidget.y, lootWidget.width,
+				lootWidget.getPreferredSize().height);
+			DIYScrollPane scrollPane = new DIYScrollPane(contentBounds, lootWidget);
 			this.add(scrollPane);
 		}
 		else

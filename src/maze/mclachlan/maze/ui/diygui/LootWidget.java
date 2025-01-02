@@ -19,6 +19,7 @@
 
 package mclachlan.maze.ui.diygui;
 
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.event.MouseEvent;
 import java.util.*;
@@ -174,7 +175,16 @@ public class LootWidget extends DIYPane
 	{
 		DiyGuiUserInterface.instance.popupItemDetailsWidget(itemWidget.getItem());
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public Dimension getPreferredSize()
+	{
+		int iwh = new ItemWidget().getPreferredSize().height;
+		return new Dimension(width, (itemWidgets.length + 2) * iwh);
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private class LootActionListener implements ActionListener
 	{

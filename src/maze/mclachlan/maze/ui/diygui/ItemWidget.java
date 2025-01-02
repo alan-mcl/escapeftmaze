@@ -143,7 +143,7 @@ public class ItemWidget extends ContainerWidget
 	public Dimension getPreferredSize()
 	{
 		// todo: hard coded. would be nice to figure this out from the actual image
-		int itemSlotSize = 25;
+		int itemSlotSize = 40;
 		String s = this.getText()==null?"|":this.getText();
 		Dimension textWidth = DIYToolkit.getDimension(s);
 		return new Dimension(textWidth.width + itemSlotSize, itemSlotSize);
