@@ -1,4 +1,4 @@
-zone=arena
+zone=test_forest
 difficultyLevel=Normal
 playerPos=8:8
 facing=4

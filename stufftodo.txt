@@ -6,7 +6,6 @@ UI REFRESH
 --------------
 run-into-combat tile skip bug
 combat text scrolling improvement
-raycaster bug with wall height >1
 
 rename Automata race?
 rename mana to magic colour

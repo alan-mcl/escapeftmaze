@@ -1,4 +1,4 @@
-#Thu Dec 19 13:27:59 SAST 2024
+#Thu Jan 02 16:16:55 SAST 2025
 aello=9|Hehe, a flighty godling at best.
 aenen=9|He hehe, yes, you have reached Aenen. The outskirts thereof, I dare say, hee hee. The city is below though, not up here.
 agenor=9|I don't know him.
