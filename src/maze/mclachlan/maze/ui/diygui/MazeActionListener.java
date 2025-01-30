@@ -19,19 +19,14 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.Point;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
 import java.util.*;
-import mclachlan.crusader.CrusaderEngine;
 import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
-import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.map.Portal;
-import mclachlan.maze.map.Zone;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -39,8 +34,7 @@ import mclachlan.maze.util.MazeException;
  */
 class MazeActionListener implements ActionListener
 {
-	private static final int KEY_HISTORY = 10;
-	List<Integer> keyCodeHistory = new LinkedList<Integer>();
+	boolean acceptInput = true;
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
@@ -55,7 +49,7 @@ class MazeActionListener implements ActionListener
 		}
 		else
 		{
-			throw new MazeException("Unrecognised InputEvent: "+event);
+			throw new MazeException("Unrecognised InputEvent: " + event);
 		}
 	}
 
@@ -74,7 +68,7 @@ class MazeActionListener implements ActionListener
 
 		if (!eventConsumed)
 		{
-			Maze.logDebug("UI MSG: "+message);
+			Maze.logDebug("UI MSG: " + message);
 		}
 
 		return eventConsumed;
@@ -88,7 +82,7 @@ class MazeActionListener implements ActionListener
 
 		if (!eventConsumed)
 		{
-			if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
+			if (Maze.getInstance().getState() == Maze.State.MOVEMENT && acceptInput)
 			{
 				KeyEvent e = (KeyEvent)event.getEvent();
 				if (e.getID() != KeyEvent.KEY_PRESSED)
@@ -103,7 +97,7 @@ class MazeActionListener implements ActionListener
 					DIYToolkit.getInstance().getDialog() == null)
 				{
 					int crusaderKey = DiyGuiUserInterface.crusaderKeys.get(code);
-					return handleKeyCode(crusaderKey, true);
+					return handleKeyCode(crusaderKey);
 				}
 			}
 		}
@@ -112,95 +106,20 @@ class MazeActionListener implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	boolean handleKeyCode(int crusaderKey, boolean checkRandomEncounters)
+	boolean handleKeyCode(int crusaderKey)
 	{
-		keyCodeHistory.add(0, crusaderKey);
-		if (keyCodeHistory.size() > KEY_HISTORY)
-		{
-			keyCodeHistory.remove(keyCodeHistory.size()-1);
-		}
-
-		Point oldTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
-		int oldFacing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-
-		CrusaderEngine.PlayerStatus playerStatus =
-			DiyGuiUserInterface.instance.raycaster.predictKey(crusaderKey);
-
-		if (playerStatus.willPassThroughWall)
-		{
-			Zone.Vector portalDest = Maze.getInstance().playerAttemptsMoveThroughWall(oldTile, oldFacing);
-			if (portalDest != null)
+		acceptInput = false;
+		Maze.getInstance().appendEvents(
+		new HandleKeyEvent(crusaderKey),
+			new MazeEvent()
 			{
-				playerActivatesPortal(
-					oldTile, 
-					portalDest.location, 
-					portalDest.facing,
-					portalDest.portal);
-			}
-			else
-			{
-				Maze.getInstance().incTurn(true);
-			}
-			return true;
-		}
-		else
-		{
-			if (Maze.getInstance().getCurrentCombat() == null)
-			{
-				movePlayer(playerStatus, oldTile);
-				return true;
-			}
-		}
-
-		return false;
-	}
-	
-	/*-------------------------------------------------------------------------*/
-	private void playerActivatesPortal(Point oldTile, Point newTile, int facing, Portal portal)
-	{
-		Maze maze = Maze.getInstance();
-		Zone oldZone = maze.getCurrentZone();
-
-		if (portal.getMazeScript() != null)
-		{
-			MazeScript script = Database.getInstance().getMazeScript(portal.getMazeScript());
-			maze.appendEvents(script.getEvents());
-		}
-	
-		if (maze.getParty() == null)
-		{
-			// something in the script has ended the party
-			return;
-		}
-
-		if (oldZone != maze.getCurrentZone())
-		{
-			// something in the script has changed the zone
-			maze.getUi().showMovementScreen();
-			maze.incTurn(true);
-			newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
-			facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-			maze.encounterTile(newTile, oldTile, facing);
-			return;
-		}
-
-		CrusaderEngine rc = DiyGuiUserInterface.instance.raycaster;
-		rc.setPlayerPos(newTile.x, newTile.y, facing);
-		maze.incTurn(true);
-		maze.encounterTile(newTile, oldTile, facing);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void movePlayer(CrusaderEngine.PlayerStatus playerStatus, Point oldTile)
-	{
-		Maze.getPerfLog().enter("MazeActionListener::movePlayer");
-
-		DiyGuiUserInterface.instance.raycaster.handleKey(playerStatus);
-		Maze.getInstance().incTurn(true);
-		Point newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
-		int facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-		Maze.getInstance().encounterTile(newTile, oldTile, facing);
-
-		Maze.getPerfLog().exit("MazeActionListener::movePlayer");
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					acceptInput = true;
+					return null;
+				}
+			});
+		return true;
 	}
 }

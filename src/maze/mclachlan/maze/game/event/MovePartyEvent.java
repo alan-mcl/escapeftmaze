@@ -43,13 +43,12 @@ public class MovePartyEvent extends MazeEvent
 	{
 		if (pos.x > -1 && pos.y > -1)
 		{
-			Maze.getInstance().setPlayerPos(pos, facing);
+			return Maze.getInstance().setPlayerPos(pos, facing);
 		}
 		else
 		{
-			Maze.getInstance().setPlayerPos(Maze.getInstance().getPlayerPos(), facing);
+			return Maze.getInstance().setPlayerPos(Maze.getInstance().getPlayerPos(), facing);
 		}
-		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

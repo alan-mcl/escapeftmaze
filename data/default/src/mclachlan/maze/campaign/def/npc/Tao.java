@@ -17,11 +17,6 @@ public class Tao extends NpcScript
 {
 	private static final String TAO_LOCATION_VAR = "dalen.npc.tao.location";
 
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
 	public List<MazeEvent> preAppearance()
 	{
 		String var = MazeVariables.get(TAO_LOCATION_VAR);

@@ -62,20 +62,6 @@ public class StickManVendor extends NpcScript
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-//		String zone = Maze.getInstance().getZone().getName();
-//		Point tile = Maze.getInstance().getTile();
-//
-//		return getList(
-//		{
-//			new ChangeNpcLocationEvent(npc, tile, zone),
-//		};
-
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

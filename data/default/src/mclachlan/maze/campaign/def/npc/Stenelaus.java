@@ -24,12 +24,6 @@ public class Stenelaus extends NpcScript
 	public static final String INVITATION_FROM_LEONALS = "leonal.invitation.to.party";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

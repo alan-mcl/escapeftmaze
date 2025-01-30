@@ -39,10 +39,10 @@ import mclachlan.maze.stat.combat.Combat;
  */
 public class EndCombatEvent extends MazeEvent
 {
-	private Maze maze;
-	private Combat combat;
-	private ActorEncounter encounter;
-	private boolean partyWins;
+	private final Maze maze;
+	private final Combat combat;
+	private final ActorEncounter encounter;
+	private final boolean partyWins;
 
 	/*-------------------------------------------------------------------------*/
 	public EndCombatEvent(Maze maze, Combat combat, ActorEncounter encounter,
@@ -113,7 +113,7 @@ public class EndCombatEvent extends MazeEvent
 			}
 			totalGold += (totalGold*extraPercent/100);
 
-			List<MazeEvent> result = new ArrayList<MazeEvent>();
+			List<MazeEvent> result = new ArrayList<>();
 			result.add(new UiMessageEvent(StringUtil.getEventText("msg.victory")));
 			result.add(new GrantExperienceEvent(xp, null));
 			if (totalGold > 0)

@@ -28,6 +28,7 @@ import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.condition.ConditionManager;
 import mclachlan.maze.stat.npc.NpcManager;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -42,58 +43,116 @@ public class GameTime
 	/**
 	 * To be called at the end of every turn.  All end-of-turn actions here.
 	 */
-	public static void incTurn()
+	public static List<MazeEvent> incTurn()
 	{
 		//
 		// End of turn actions:
 		//
 
+		List<MazeEvent> result = new ArrayList<>();
+
 		// Update Conditions
-		Maze.getPerfLog().enter("ConditionManager.endOfTurn");
-		ConditionManager.getInstance().endOfTurn(getTurnNr());
-		Maze.getPerfLog().exit("ConditionManager.endOfTurn");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "ConditionManager.endOfTurn"));
+		result.addAll(ConditionManager.getInstance().endOfTurn(getTurnNr()));
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "ConditionManager.endOfTurn"));
 
 		// Flush turn cache
-		Maze.getPerfLog().enter("TurnCache.endOfTurn");
-		TurnCache.getInstance().endOfTurn(getTurnNr());
-		Maze.getPerfLog().exit("TurnCache.endOfTurn");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "TurnCache.endOfTurn"));
+		result.addAll(TurnCache.getInstance().endOfTurn(getTurnNr()));
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT,"TurnCache.endOfTurn"));
 
 		// Regenerate Resources
-		Maze.getPerfLog().enter("GameTime::regenerateResources");
-		regenerateResources();
-		Maze.getPerfLog().exit("GameTime::regenerateResources");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "GameTime::regenerateResources"));
+		result.addAll(regenerateResources());
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "GameTime::regenerateResources"));
 
 		// Update all NPCs
-		Maze.getPerfLog().enter("NpcManager.endOfTurn");
-		NpcManager.getInstance().endOfTurn(getTurnNr());
-		Maze.getPerfLog().exit("NpcManager.endOfTurn");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "NpcManager.endOfTurn"));
+		result.addAll(NpcManager.getInstance().endOfTurn(getTurnNr()));
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT,"NpcManager.endOfTurn"));
 
 		// Update item caches
-		Maze.getPerfLog().enter("ItemCacheManager.endOfTurn");
-		ItemCacheManager.getInstance().endOfTurn(getTurnNr());
-		Maze.getPerfLog().exit("ItemCacheManager.endOfTurn");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "ItemCacheManager.endOfTurn"));
+		result.addAll(ItemCacheManager.getInstance().endOfTurn(getTurnNr()));
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "ItemCacheManager.endOfTurn"));
 		
 		// Update the current zone
-		Maze.getPerfLog().enter("Zone.endOfTurn");
-		Maze.getInstance().getCurrentZone().endOfTurn(getTurnNr());
-		Maze.getPerfLog().exit("Zone.endOfTurn");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "Zone.endOfTurn"));
+		result.addAll(Maze.getInstance().getCurrentZone().endOfTurn(getTurnNr()));
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "Zone.endOfTurn"));
 
 		// Refresh character options
-		Maze.getPerfLog().enter("GameTime::refreshCharacterData");
-		Maze.getInstance().refreshCharacterData();
-		Maze.getPerfLog().exit("GameTime::refreshCharacterData");
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.ENTER, "GameTime::refreshCharacterData"));
+		result.addAll(Maze.getInstance().refreshCharacterData());
+		result.add(new PerfLogEvent(PerfLogEvent.PerfEvent.EXIT, "GameTime::refreshCharacterData"));
 
-		//
-		// Start next turn
-		//
-		setTurnNr(getTurnNr() + 1);
-		Maze.log(Log.MEDIUM, "------[ turn "+ getTurnNr() +" ]------");
+		result.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				//
+				// Start next turn
+				//
+				setTurnNr(getTurnNr() + 1);
+				return null;
+			}
+		});
+		result.add(new LogEvent(Log.MEDIUM, "------[ turn "+ getTurnNr() +" ]------"));
+		return result;
+	}
+
+	private static class PerfLogEvent extends MazeEvent
+	{
+		String tag;
+		PerfEvent event;
+
+		enum PerfEvent {ENTER, EXIT};
+
+		public PerfLogEvent(PerfEvent event, String tag)
+		{
+			this.tag = tag;
+			this.event = event;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			switch (event)
+			{
+				case ENTER -> Maze.getPerfLog().enter(tag);
+				case EXIT -> Maze.getPerfLog().exit(tag);
+				default -> throw new MazeException("invalid "+event);
+			}
+			return null;
+		}
+	}
+
+	private static class LogEvent extends MazeEvent
+	{
+		String msg;
+		int level;
+
+		public LogEvent(int level, String msg)
+		{
+			this.msg = msg;
+			this.level = level;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			Maze.log(level, msg);
+			return null;
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void regenerateResources()
+	private static List<MazeEvent> regenerateResources()
 	{
 		Maze.log("regenerating actor resources...");
+
+		List<MazeEvent> result = new ArrayList<>();
 
 		Combat currentCombat = Maze.getInstance().getCurrentCombat();
 		boolean combat = currentCombat != null && Maze.getInstance().getState() == Maze.State.COMBAT;
@@ -105,9 +164,7 @@ public class GameTime
 		for (int i = 0; i < max; i++)
 		{
 			UnifiedActor pc = party.get(i);
-//			Maze.getPerfLog().enter("GameTime::pc::regenerateResources");
-			pc.regenerateResources(getTurnNr(), resting, combat, Maze.getInstance().getCurrentTile());
-//			Maze.getPerfLog().exit("GameTime::pc::regenerateResources");
+			result.add(new EndOfTurnRegen(pc, resting, combat));
 		}
 
 		// regen foes in combat
@@ -119,7 +176,7 @@ public class GameTime
 			{
 				for (UnifiedActor f : fg.getActors())
 				{
-					f.regenerateResources(getTurnNr(), resting, combat, Maze.getInstance().getCurrentTile());
+					result.add(new EndOfTurnRegen(f, resting, combat));
 				}
 			}
 		}
@@ -127,6 +184,8 @@ public class GameTime
 		// todo: regen NPC resources?
 
 		Maze.log("finished regenerating actor resources");
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -165,7 +224,7 @@ public class GameTime
 	/*-------------------------------------------------------------------------*/
 	public static class GameDate
 	{
-		private long dayNr, turnNr;
+		private final long dayNr, turnNr;
 
 		public GameDate(long dayNr, long turnNr)
 		{
@@ -176,6 +235,29 @@ public class GameTime
 		public String toFormattedString()
 		{
 			return StringUtil.getUiLabel("common.gametime", dayNr, turnNr);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class EndOfTurnRegen extends MazeEvent
+	{
+		private final UnifiedActor actor;
+		private final boolean resting, combat;
+
+		public EndOfTurnRegen(UnifiedActor actor, boolean resting, boolean combat)
+		{
+			this.actor = actor;
+			this.resting = resting;
+			this.combat = combat;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+//			Maze.getPerfLog().enter("GameTime::pc::regenerateResources");
+			actor.regenerateResources(getTurnNr(), resting, combat, Maze.getInstance().getCurrentTile());
+//			Maze.getPerfLog().exit("GameTime::pc::regenerateResources");
+			return null;
 		}
 	}
 }

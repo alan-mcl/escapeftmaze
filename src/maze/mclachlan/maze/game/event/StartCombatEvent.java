@@ -56,6 +56,8 @@ public class StartCombatEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		List<MazeEvent> result = new ArrayList<>();
+
 		Maze.getInstance().getUi().clearDialog();
 
 		final List<FoeGroup> actors = actorEncounter.getActors();
@@ -84,8 +86,8 @@ public class StartCombatEvent extends MazeEvent
 				new FlavourTextEvent(StringUtil.getEventText("msg.call.for.help", leader.getDisplayName())),
 				new SummoningSucceedsEvent(foeGroups, leader));
 
-			maze.appendEvents(evts);
-			maze.appendEvents(new MazeEvent()
+			result.addAll(evts);
+			result.add(new MazeEvent()
 			{
 				@Override
 				public List<MazeEvent> resolve()
@@ -96,7 +98,7 @@ public class StartCombatEvent extends MazeEvent
 			});
 		}
 
-		maze.appendEvents(new MazeEvent()
+		result.add(new MazeEvent()
 		{
 			@Override
 			public List<MazeEvent> resolve()
@@ -108,7 +110,7 @@ public class StartCombatEvent extends MazeEvent
 
 		// play the encounter fanfare
 		MazeScript script = Database.getInstance().getMazeScript("_ENCOUNTER_");
-		maze.appendEvents(script.getEvents());
+		result.addAll(script.getEvents());
 
 		// begin encounter speech
 		int avgFoeLevel = 0;
@@ -124,13 +126,13 @@ public class StartCombatEvent extends MazeEvent
 		// execute any appearance scripts, picking from the leader
 		if (leader.getAppearanceScript() != null)
 		{
-			maze.appendEvents(leader.getAppearanceScript().getEvents());
+			result.addAll(leader.getAppearanceScript().getEvents());
 		}
 
 		//
 		// Combat is go!
 		//
-		maze.appendEvents(new MazeEvent()
+		result.add(new MazeEvent()
 		{
 			@Override
 			public List<MazeEvent> resolve()
@@ -158,6 +160,6 @@ public class StartCombatEvent extends MazeEvent
 			}
 		});
 
-		return null;
+		return result;
 	}
 }

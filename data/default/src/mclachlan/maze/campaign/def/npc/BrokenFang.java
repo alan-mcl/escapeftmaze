@@ -16,12 +16,6 @@ import mclachlan.maze.stat.npc.*;
 public class BrokenFang extends NpcScript
 {
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

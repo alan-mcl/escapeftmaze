@@ -37,8 +37,7 @@ public class PartyFleesEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().partyFlees();
-		return null;
+		return Maze.getInstance().partyFlees();
 	}
 
 	/*-------------------------------------------------------------------------*/

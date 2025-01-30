@@ -56,7 +56,7 @@ public class RestingTurnEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().incTurn(checkRandomEncounters);
+		List<MazeEvent> result = Maze.getInstance().incTurn(checkRandomEncounters);
 
 		// regen resources from resting
 		for (UnifiedActor a : group.getActors())
@@ -65,7 +65,7 @@ public class RestingTurnEvent extends MazeEvent
 		}
 
 		progress.incProgress(1);
-		return null;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

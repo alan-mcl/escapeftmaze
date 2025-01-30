@@ -24,6 +24,7 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
 
 /**
  * A class for managing caches that are cleared after each turn.
@@ -31,11 +32,11 @@ import mclachlan.maze.game.Maze;
 public class TurnCache implements GameCache
 {
 	// singleton members
-	private static TurnCache instance = new TurnCache();
+	private static final TurnCache instance = new TurnCache();
 	private final Object mutex = new Object();
 
 	// a cache of modifiers that each character practised each round
-	private Map<UnifiedActor, StatModifier> practise = new HashMap<UnifiedActor, StatModifier>();
+	private Map<UnifiedActor, StatModifier> practise = new HashMap<>();
 
 	/*-------------------------------------------------------------------------*/
 	public static TurnCache getInstance()
@@ -51,7 +52,7 @@ public class TurnCache implements GameCache
 		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		// practise state is not saved
-		this.practise = new HashMap<UnifiedActor, StatModifier>();
+		this.practise = new HashMap<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -61,30 +62,36 @@ public class TurnCache implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void endOfTurn(long turnNr)
+	public List<MazeEvent> endOfTurn(long turnNr)
 	{
-		Maze.log("processing turn cache...");
 		synchronized (mutex)
 		{
+			Maze.log("processing turn cache...");
+
 			// assess turn practise
 			Maze.log(Log.DEBUG, "Assessing turn practise");
-			for (UnifiedActor a : practise.keySet())
-			{
-				StatModifier sm = practise.get(a);
 
-				for (Stats.Modifier modifier : sm.getModifiers().keySet())
-				{
-					if (sm.getModifier(modifier) > 0)
-					{
-						GameSys.getInstance().practiseAtEndOfTurn(a, modifier, 1);
-					}
-				}
+			List<MazeEvent> result = new ArrayList<>();
+
+			for (UnifiedActor actor : practise.keySet())
+			{
+				result.add(new EndOfTurnPractise(actor, new HashMap<>(practise)));
 			}
 
-			// flush the cache
-			practise.clear();
+			result.add(new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					// flush the cache
+					practise.clear();
+					return null;
+				}
+			});
+
+			Maze.log("finished processing turn cache");
+			return result;
 		}
-		Maze.log("finished processing turn cache");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -115,6 +122,35 @@ public class TurnCache implements GameCache
 			}
 
 			sm.incModifier(modifier, amount);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class EndOfTurnPractise extends MazeEvent
+	{
+		private final UnifiedActor actor;
+		private final Map<UnifiedActor, StatModifier> practiseInternal;
+
+		public EndOfTurnPractise(UnifiedActor actor, Map<UnifiedActor, StatModifier> practiseInternal)
+		{
+			this.actor = actor;
+			this.practiseInternal = practiseInternal;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			StatModifier sm = practiseInternal.get(actor);
+
+			for (Stats.Modifier modifier : sm.getModifiers().keySet())
+			{
+				if (sm.getModifier(modifier) > 0)
+				{
+					GameSys.getInstance().practiseAtEndOfTurn(actor, modifier, 1);
+				}
+			}
+
+			return null;
 		}
 	}
 }

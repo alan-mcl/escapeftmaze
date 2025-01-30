@@ -53,8 +53,6 @@ public class StartGameEvent extends MazeEvent
 		maze.getUi().clearBlockingScreen();
 
 		// encounter tile
-		maze.encounterTile(maze.getPlayerPos(), null, maze.getFacing());
-
-		return null;
+		return maze.encounterTile(maze.getPlayerPos(), null, maze.getFacing());
 	}
 }

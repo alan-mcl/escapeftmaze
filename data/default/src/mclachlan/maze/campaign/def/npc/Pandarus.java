@@ -34,12 +34,6 @@ import mclachlan.maze.stat.npc.NpcSpeechEvent;
 public class Pandarus extends NpcScript
 {
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

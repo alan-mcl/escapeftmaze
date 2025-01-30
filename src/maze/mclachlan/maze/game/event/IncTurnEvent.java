@@ -28,8 +28,8 @@ import mclachlan.maze.game.MazeEvent;
  */
 public class IncTurnEvent extends MazeEvent
 {
-	private Maze maze;
-	private boolean checkRandomEncounters;
+	private final Maze maze;
+	private final boolean checkRandomEncounters;
 
 	/*-------------------------------------------------------------------------*/
 	public IncTurnEvent(Maze maze, boolean checkRandomEncounters)
@@ -41,7 +41,6 @@ public class IncTurnEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		maze.incTurn(checkRandomEncounters);
-		return null;
+		return maze.incTurn(checkRandomEncounters);
 	}
 }

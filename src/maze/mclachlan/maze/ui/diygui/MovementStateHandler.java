@@ -153,12 +153,6 @@ public class MovementStateHandler implements ActionListener, FormationCallback
 			DiyGuiUserInterface.instance.raycaster.getPlayerFacing());
 	}
 
-
-	public void hide()
-	{
-		maze.partyHides();
-	}
-
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void formationChanged(List<PlayerCharacter> actors, int formation)

@@ -30,8 +30,8 @@ import mclachlan.maze.stat.combat.Combat;
  */
 public class CheckCombatStatusEvent extends MazeEvent
 {
-	private Maze maze;
-	private Combat combat;
+	private final Maze maze;
+	private final Combat combat;
 
 	/*-------------------------------------------------------------------------*/
 	public CheckCombatStatusEvent(Maze maze, Combat combat)
@@ -43,7 +43,7 @@ public class CheckCombatStatusEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (Maze.getInstance().getCurrentCombat() == null)
 		{
@@ -53,6 +53,7 @@ public class CheckCombatStatusEvent extends MazeEvent
 		{
 			if (!maze.alreadyQueued(EndCombatEvent.class))
 			{
+				// todo: something wonky here, shouldn't we be returning these instead of appending directly to the queue
 				maze.appendEvents(
 					new MazeEvent()
 					{

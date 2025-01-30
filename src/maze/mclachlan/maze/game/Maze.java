@@ -67,9 +67,9 @@ public class Maze implements Runnable
 {
 	private static Maze instance;
 	private Object statePopMutex;
-	private Map<String, String> appConfig;
+	private final Map<String, String> appConfig;
 	private UserConfig userConfig;
-	private Campaign campaign;
+	private final Campaign campaign;
 	private PlayerTilesVisited playerTilesVisited;
 
 	/** the current game state */
@@ -80,7 +80,7 @@ public class Maze implements Runnable
 
 	/** the current audio player implementation */
 	private AudioPlayer audioPlayer;
-	private AudioThread audioThread = new AudioThread();
+	private final AudioThread audioThread = new AudioThread();
 
 	/** the current zone of play */
 	private Zone zone;
@@ -99,9 +99,6 @@ public class Maze implements Runnable
 
 	/** the current magic system implementation */
 	private MagicSys magicSys;
-
-	/** the current persistence implementation */
-	private Database db;
 
 	/** the current logging implementation */
 	private static Log log;
@@ -187,7 +184,7 @@ public class Maze implements Runnable
 	public void initDb() throws Exception
 	{
 		log("init db");
-		this.db = new Database();
+		Database db = new Database();
 		this.userConfig = db.getUserConfig();
 	}
 
@@ -561,7 +558,8 @@ public class Maze implements Runnable
 			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name));
 
 			// encounter tile
-			encounterTile(playerPos, null, getFacing());
+			// at this point we transition control to the event processing thread
+			appendEvents(encounterTile(playerPos, null, getFacing()));
 		}
 		catch (Exception x)
 		{
@@ -671,15 +669,16 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void incTurn(boolean checkRandomEncounters)
+	public List<MazeEvent> incTurn(boolean checkRandomEncounters)
 	{
 		Maze.getPerfLog().enter("Maze::incTurn");
+		List<MazeEvent> result = new ArrayList<>();
 
-		GameTime.incTurn();
+		addAll(result, GameTime.incTurn());
 
 		if (!checkPartyStatus())
 		{
-			return;
+			return result;
 		}
 
 		reorderPartyToCompensateForDeadCharacters();
@@ -706,7 +705,7 @@ public class Maze implements Runnable
 							// a random encounter occurs
 							FoeEntry foeEntry = t.getRandomEncounters().getEncounterTable().getRandomItem();
 							List<FoeGroup> foes = foeEntry.generate();
-							this.encounterActors(new ActorEncounter(foes, null, null, null, null, null));
+							addAll(result, this.encounterActors(new ActorEncounter(foes, null, null, null, null, null)));
 						}
 					}
 				}
@@ -714,6 +713,7 @@ public class Maze implements Runnable
 		}
 
 		Maze.getPerfLog().exit("Maze::incTurn");
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -752,11 +752,20 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refreshCharacterData()
+	public List<MazeEvent> refreshCharacterData()
 	{
-		Maze.log("refreshing character data...");
-		this.ui.refreshCharacterData();
-		Maze.log("finished refreshing character data");
+//		Maze.log("refreshing character data...");
+		return Collections.singletonList(
+			new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					ui.refreshCharacterData();
+					return null;
+				}
+			});
+//		Maze.log("finished refreshing character data");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1119,7 +1128,7 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void actorFlees(UnifiedActor coward)
+	public List<MazeEvent> actorFlees(UnifiedActor coward)
 	{
 		if (coward instanceof Foe && this.currentCombat != null)
 		{
@@ -1127,10 +1136,11 @@ public class Maze implements Runnable
 			Foe foe = (Foe)coward;
 			currentCombat.removeFoe(foe);
 			this.ui.foeLeaves(coward);
+			return null;
 		}
 		else if (coward instanceof PlayerCharacter)
 		{
-			partyFlees();
+			return partyFlees();
 		}
 		else
 		{
@@ -1139,7 +1149,7 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void partyFlees()
+	public List<MazeEvent> partyFlees()
 	{
 		if (currentCombat != null)
 		{
@@ -1161,7 +1171,7 @@ public class Maze implements Runnable
 		this.currentCombat = null;
 
 		// back up the party along their previous path of travel
-		this.ui.backPartyUp(3+Dice.d4.roll("Party flees"));
+		return this.ui.backPartyUp(3+Dice.d4.roll("Party flees"));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1170,9 +1180,9 @@ public class Maze implements Runnable
 	 * 	The maximum number of player keystrokes to reverse; may turn out to
 	 * 	be less if there is less key history available.
 	 */
-	public void backPartyUp(int maxKeys)
+	public List<MazeEvent> backPartyUp(int maxKeys)
 	{
-		this.ui.backPartyUp(maxKeys);
+		return this.ui.backPartyUp(maxKeys);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1202,14 +1212,12 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	public void appendEvents(MazeEvent... events)
 	{
 		if (events != null)
 		{
-			for (MazeEvent e : events)
-			{
-				processor.queue.offer(e);
-			}
+			appendEvents(Arrays.asList(events));
 		}
 	}
 
@@ -1218,10 +1226,7 @@ public class Maze implements Runnable
 	{
 		if (events != null)
 		{
-			for (MazeEvent e : events)
-			{
-				processor.queue.offer(e);
-			}
+			processor.queue.addAll(events);
 		}
 	}
 	
@@ -1249,7 +1254,7 @@ public class Maze implements Runnable
 	private void resolveEvent(MazeEvent event, boolean displayEventText)
 	{
 		// todo: remove debugging~~~~
-		System.out.println("<"+Thread.currentThread().getName()+"> event = [" + event + "]");
+//		System.out.println("<"+Thread.currentThread().getName()+"> event = [" + event + "]");
 		//~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		String perfTag = "Maze::resolveEvent [" + event.getClass().getName() + "]";
@@ -1502,13 +1507,6 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void partyHides()
-	{
-		GameSys.getInstance().partyHidesOutOfCombat(party, getCurrentTile());
-		incTurn(true);
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void setPendingFormationChanges(List<PlayerCharacter> actors, int formation)
 	{
 		this.pendingPartyOrder = actors;
@@ -1602,21 +1600,26 @@ public class Maze implements Runnable
 	 * @param facing
 	 * 	The current facing of the player, a constant from CrusaderEngine.Facing.
 	 */
-	public void encounterTile(Point tile, Point previousTile, int facing)
+	public List<MazeEvent> encounterTile(Point tile, Point previousTile, int facing)
 	{
+		List<MazeEvent> result = new ArrayList<>();
+
 		if (zone == null)
 		{
 			// something is borked
-			return;
+			return result;
 		}
 		Tile t = zone.getTile(tile);
 
 		playerTilesVisited.visitTile(zone.getName(), tile);
 
 		this.playerPos = tile;
-		Maze.getInstance().incTurn(true);
+		addAll(result, Maze.getInstance().incTurn(true));
 		this.ui.setTile(zone, t, tile);
-		this.zone.encounterTile(instance, tile, previousTile, facing);
+
+		addAll(result, this.zone.encounterTile(instance, tile, previousTile, facing));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1724,9 +1727,11 @@ public class Maze implements Runnable
 	 * @return
 	 * 	true if the encounter actually happens, false otherwise
 	 */
-	public boolean encounterActors(
+	public List<MazeEvent> encounterActors(
 		ActorEncounter actorEncounter)
 	{
+		List<MazeEvent> result = new ArrayList<>();
+
 		final List<FoeGroup> actors = actorEncounter.getActors();
 		final NpcFaction.Attitude encounterAttitude = actorEncounter.getEncounterAttitude();
 		final String mazeVar = actorEncounter.getMazeVar();
@@ -1746,7 +1751,7 @@ public class Maze implements Runnable
 
 		if (!isFoes)
 		{
-			return false;
+			return result;
 		}
 
 		//
@@ -1841,7 +1846,7 @@ public class Maze implements Runnable
 			{
 				// cancel the encounter, the party never knows about it
 				this.setState(State.MOVEMENT);
-				return false;
+				return result;
 			}
 		}
 
@@ -1849,148 +1854,12 @@ public class Maze implements Runnable
 			new ActorEncounter(actors, mazeVar, attitude, ambushStatus, actorEncounter.getPreScript(), actorEncounter.getPostAppearanceScript());
 
 		// first, any pre-encounter events need to be executed
-		if (currentActorEncounter.getPreScript() != null)
-		{
-			appendEvents(currentActorEncounter.getPreScript());
-		}
+		addAll(result, currentActorEncounter.getPreScript());
 
-		final NpcFaction.Attitude fAttitude = attitude;
-		final Combat.AmbushStatus fAmbushStatus = ambushStatus;
+		result.add(new InitEncounterEvent(actors, leader));
+		result.add(new CueActorsEvent(ambushStatus, leader, attitude));
 
-		appendEvents(new MazeEvent()
-		{
-			@Override
-			public List<MazeEvent> resolve()
-			{
-				// Clear any dialogs (e.g. spells, resting, etc)
-				getUi().clearDialog();
-
-				// Change game state
-				Maze.this.setState(State.ENCOUNTER_ACTORS);
-
-				Maze.this.getUi().disableInput();
-
-				// show the foe sprites on the screen
-				getUi().setFoes(actors, true);
-
-				// attempt identification of these actors
-				GameSys.getInstance().attemptManualIdentification(actors, getParty(), 0);
-
-				// Appearance scripts of the leader
-				if (leader.getAppearanceScript() != null)
-				{
-					return leader.getAppearanceScript().getEvents();
-				}
-				else
-				{
-					return null;
-				}
-			}
-		});
-
-		appendEvents(new MazeEvent()
-		{
-			@Override
-			public List<MazeEvent> resolve()
-			{
-				List<MazeEvent> result = new ArrayList<MazeEvent>();
-
-				//
-				// Display and journal any needed messages
-				//
-				String encounterMsg = StringUtil.getEventText("msg.encounter.actors",
-					currentActorEncounter.describe());
-
-				StringBuilder sb = new StringBuilder(encounterMsg);
-
-				switch (fAmbushStatus)
-				{
-					case NONE:
-						break;
-					case PARTY_MAY_AMBUSH_FOES:
-						sb.append("\n\n").append(StringUtil.getEventText("msg.party.may.ambush"));
-						break;
-					case FOES_MAY_AMBUSH_PARTY:
-					case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
-						// by this point the foes have chosen to ambush not evade
-						sb.append("\n\n").append(StringUtil.getEventText("msg.foes.surprise.party"));
-						break;
-					case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
-						sb.append("\n\n").append(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
-						break;
-				}
-
-				if (fAmbushStatus != NONE)
-				{
-					if (party.hasModifier(Stats.Modifier.QUICK_WITS))
-					{
-						sb.append("\n\n").append(StringUtil.getEventText("msg.party.quick.wits"));
-					}
-					result.add((new FlavourTextEvent(sb.toString())));
-				}
-				else
-				{
-					getUi().addMessage(sb.toString());
-				}
-
-				// any post-appearance events from the encounter
-				if (currentActorEncounter.getPostAppearanceScript() != null)
-				{
-					result.addAll(currentActorEncounter.getPostAppearanceScript());
-				}
-
-				if (!leader.isFound())
-				{
-					result.addAll(leader.getActionScript().firstGreeting());
-					leader.setFound(true);
-				}
-				else
-				{
-					if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
-						fAttitude == NpcFaction.Attitude.ALLIED)
-					{
-						result.addAll(leader.getActionScript().subsequentGreeting());
-					}
-					else
-					{
-						result.addAll(leader.getActionScript().neutralGreeting());
-					}
-				}
-
-				//
-				// Is this a direct transition into COMBAT?
-				//
-				if (fAttitude == NpcFaction.Attitude.ATTACKING &&
-					fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES &&
-					fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES)
-				{
-					result.addAll(leader.getActionScript().attacksParty(fAmbushStatus));
-				}
-				else if (fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
-					fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY)
-				{
-					result.add(
-						new ActorsTurnToAct(
-							currentActorEncounter,
-							Maze.this,
-							getUi().getMessageDestination()));
-				}
-
-				result.add(new MazeEvent()
-				{
-					@Override
-					public List<MazeEvent> resolve()
-					{
-						Maze.this.getUi().enableInput();
-						return null;
-					}
-				});
-
-				return result;
-			}
-		});
-
-		return true;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2029,7 +1898,11 @@ public class Maze implements Runnable
 		}
 
 		this.zone = Database.getInstance().getZone(zoneName);
-		List<MazeEvent> mazeEvents = this.zone.initZoneScript(getTurnNr());
+
+		List<MazeEvent> result = new ArrayList<>();
+
+		addAll(result, this.zone.initZoneScript(getTurnNr()));
+
 		this.ui.setZone(zone, pos, newFacing);
 		this.zone.initialise(getTurnNr());
 
@@ -2037,15 +1910,25 @@ public class Maze implements Runnable
 
 		if (pos.x >= 0 || pos.y >= 0)
 		{
-			setPlayerPos(pos, newFacing);
+			addAll(result, setPlayerPos(pos, newFacing));
 		}
 
-		return mazeEvents;
+		return result;
 	}
-	
-	/*-------------------------------------------------------------------------*/
-	public void setPlayerPos(Point pos, int facing)
+
+	private void addAll(List<MazeEvent> result, List<MazeEvent> events)
 	{
+		if (events != null)
+		{
+			result.addAll(events);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<MazeEvent> setPlayerPos(Point pos, int facing)
+	{
+		List<MazeEvent> result = new ArrayList<>();
+
 		int newFacing;
 		if (facing == ZoneChangeEvent.Facing.UNCHANGED)
 		{
@@ -2056,7 +1939,9 @@ public class Maze implements Runnable
 			newFacing = facing;
 		}
 		this.playerPos = pos;
-		this.ui.setPlayerPos(pos, newFacing);
+		addAll(result, this.ui.setPlayerPos(pos, newFacing));
+
+		return result;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -2391,4 +2276,154 @@ public class Maze implements Runnable
 		}
 	}
 
+	private class InitEncounterEvent extends MazeEvent
+	{
+		private final List<FoeGroup> actors;
+		private final Foe leader;
+
+		public InitEncounterEvent(List<FoeGroup> actors, Foe leader)
+		{
+			this.actors = actors;
+			this.leader = leader;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			// Clear any dialogs (e.g. spells, resting, etc)
+			getUi().clearDialog();
+
+			// Change game state
+			Maze.this.setState(State.ENCOUNTER_ACTORS);
+
+			Maze.this.getUi().disableInput();
+
+			// show the foe sprites on the screen
+			getUi().setFoes(actors, true);
+
+			// attempt identification of these actors
+			GameSys.getInstance().attemptManualIdentification(actors, getParty(), 0);
+
+			// Appearance scripts of the leader
+			if (leader.getAppearanceScript() != null)
+			{
+				return leader.getAppearanceScript().getEvents();
+			}
+			else
+			{
+				return null;
+			}
+		}
+	}
+
+	private class CueActorsEvent extends MazeEvent
+	{
+		private final Combat.AmbushStatus fAmbushStatus;
+		private final Foe leader;
+		private final NpcFaction.Attitude fAttitude;
+
+		public CueActorsEvent(Combat.AmbushStatus fAmbushStatus, Foe leader,
+			NpcFaction.Attitude fAttitude)
+		{
+			this.fAmbushStatus = fAmbushStatus;
+			this.leader = leader;
+			this.fAttitude = fAttitude;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			List<MazeEvent> result = new ArrayList<MazeEvent>();
+
+			//
+			// Display and journal any needed messages
+			//
+			String encounterMsg = StringUtil.getEventText("msg.encounter.actors",
+				currentActorEncounter.describe());
+
+			StringBuilder sb = new StringBuilder(encounterMsg);
+
+			switch (fAmbushStatus)
+			{
+				case NONE:
+					break;
+				case PARTY_MAY_AMBUSH_FOES:
+					sb.append("\n\n").append(StringUtil.getEventText("msg.party.may.ambush"));
+					break;
+				case FOES_MAY_AMBUSH_PARTY:
+				case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
+					// by this point the foes have chosen to ambush not evade
+					sb.append("\n\n").append(StringUtil.getEventText("msg.foes.surprise.party"));
+					break;
+				case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
+					sb.append("\n\n").append(StringUtil.getEventText("msg.party.may.ambush.or.evade"));
+					break;
+			}
+
+			if (fAmbushStatus != NONE)
+			{
+				if (party.hasModifier(Stats.Modifier.QUICK_WITS))
+				{
+					sb.append("\n\n").append(StringUtil.getEventText("msg.party.quick.wits"));
+				}
+				result.add((new FlavourTextEvent(sb.toString())));
+			}
+			else
+			{
+				getUi().addMessage(sb.toString());
+			}
+
+			// any post-appearance events from the encounter
+			addAll(result, currentActorEncounter.getPostAppearanceScript());
+
+			if (!leader.isFound())
+			{
+				addAll(result, leader.getActionScript().firstGreeting());
+				leader.setFound(true);
+			}
+			else
+			{
+				if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
+					fAttitude == NpcFaction.Attitude.ALLIED)
+				{
+					addAll(result, leader.getActionScript().subsequentGreeting());
+				}
+				else
+				{
+					addAll(result, leader.getActionScript().neutralGreeting());
+				}
+			}
+
+			//
+			// Is this a direct transition into COMBAT?
+			//
+			if (fAttitude == NpcFaction.Attitude.ATTACKING &&
+				fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES &&
+				fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES)
+			{
+				addAll(result, leader.getActionScript().attacksParty(fAmbushStatus));
+			}
+			else if (fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
+				fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY)
+			{
+				result.add(
+					new ActorsTurnToAct(
+						currentActorEncounter,
+						Maze.this,
+						getUi().getMessageDestination()));
+			}
+
+			result.add(new MazeEvent()
+			{
+				@Override
+				public List<MazeEvent> resolve()
+				{
+					Maze.this.getUi().enableInput();
+					return null;
+				}
+			});
+
+			return result;
+		}
+	}
 }

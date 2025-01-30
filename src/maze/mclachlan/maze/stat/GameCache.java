@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
+import mclachlan.maze.game.MazeEvent;
 
 public interface GameCache
 {
@@ -35,5 +36,5 @@ public interface GameCache
 	void saveGame(String saveGameName, Saver saver) throws Exception;
 
 	/*-------------------------------------------------------------------------*/
-	void endOfTurn(long turnNr);
+	List<MazeEvent> endOfTurn(long turnNr);
 }

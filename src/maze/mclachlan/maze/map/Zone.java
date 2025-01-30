@@ -115,8 +115,10 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void encounterTile(Maze maze, Point tile, Point previousTile, int facing)
+	public List<MazeEvent> encounterTile(Maze maze, Point tile, Point previousTile, int facing)
 	{
+		List<MazeEvent> result = new ArrayList<>();
+
 		// NPCs get preference to TileScripts
 		Npc[] npcs = NpcManager.getInstance().getNpcsOnTile(name, tile);
 		
@@ -133,7 +135,7 @@ public class Zone extends DataObject
 
 				ActorEncounter actorEncounter = new ActorEncounter(
 					actors, null, null, Combat.AmbushStatus.NONE, npc.getScript().preAppearance(), null);
-				Maze.getInstance().encounterActors(actorEncounter);
+				result.addAll(Maze.getInstance().encounterActors(actorEncounter));
 			}
 		}
 
@@ -206,7 +208,7 @@ public class Zone extends DataObject
 		// if anyone spotted a secret, add the speech event
 		if (secretSpottedPc != null)
 		{
-			Maze.getInstance().appendEvents(SpeechUtil.getInstance().spotStashSpeech(secretSpottedPc));
+			result.addAll(SpeechUtil.getInstance().spotStashSpeech(secretSpottedPc));
 		}
 
 		// then execute any tile scripts that should trigger
@@ -216,15 +218,20 @@ public class Zone extends DataObject
 			{
 				if (script.shouldExecute(maze, tile, previousTile, facing, -1))
 				{
-					Maze.getInstance().appendEvents(
-						script.execute(maze, tile, previousTile, facing));
+					List<MazeEvent> events = script.execute(maze, tile, previousTile, facing);
+					if (events != null)
+					{
+						result.addAll(events);
+					}
 				}
 			}
 			if (!maze.checkPartyStatus())
 			{
-				return;
+				break;
 			}
 		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -547,11 +554,12 @@ public class Zone extends DataObject
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void endOfTurn(long turnNr)
+	public List<MazeEvent> endOfTurn(long turnNr)
 	{
-		Maze.log("processing zone end of turn...");
-		Maze.getInstance().appendEvents(this.script.endOfTurn(this, turnNr));
-		Maze.log("finished zone end of turn");
+//		Maze.log("processing zone end of turn...");
+		List<MazeEvent> mazeEvents = this.script.endOfTurn(this, turnNr);
+		return mazeEvents==null ? new ArrayList<>() : mazeEvents;
+//		Maze.log("finished zone end of turn");
 	}
 
 	/*-------------------------------------------------------------------------*/

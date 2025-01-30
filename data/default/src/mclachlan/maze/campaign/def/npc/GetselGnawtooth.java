@@ -13,11 +13,6 @@ import java.util.*;
  */
 public class GetselGnawtooth extends NpcScript
 {
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

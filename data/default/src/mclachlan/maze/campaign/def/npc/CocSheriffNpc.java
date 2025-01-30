@@ -26,12 +26,6 @@ public class CocSheriffNpc extends NpcScript
 	public static final String COC_QUEST_1_PRIMER = "coc.quest.1.primer";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

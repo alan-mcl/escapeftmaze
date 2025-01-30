@@ -564,7 +564,7 @@ public class SirKay extends NpcScript
 		}
 		else
 		{
-			return null;
+			return new ArrayList<>();
 		}
 	}
 

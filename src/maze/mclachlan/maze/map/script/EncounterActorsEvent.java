@@ -130,10 +130,8 @@ public class EncounterActorsEvent extends MazeEvent
 		}
 
 
-		Maze.getInstance().encounterActors(
+		return Maze.getInstance().encounterActors(
 			new ActorEncounter(allFoes, mazeVariable, attitude, ambushStatus, preScriptEvents, postAppearanceScriptEvents));
-
-		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

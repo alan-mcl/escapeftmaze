@@ -103,7 +103,7 @@ public class DisplaceOption extends ActorActionOption
 		}
 		Maze.getInstance().appendEvents(script.getEvents());
 
-		List<PlayerCharacter> actors = new ArrayList<PlayerCharacter>(
+		List<PlayerCharacter> actors = new ArrayList<>(
 			Maze.getInstance().getParty().getPlayerCharacters());
 
 		int displacerIndex = Maze.getInstance().getParty().getPlayerCharacterIndex((PlayerCharacter)displacer);

@@ -39,7 +39,6 @@ public class BackPartyUpEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().backPartyUp(maxKeys);
-		return null;
+		return Maze.getInstance().backPartyUp(maxKeys);
 	}
 }

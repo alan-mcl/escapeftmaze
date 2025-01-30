@@ -20,12 +20,6 @@ public class ThreeEyes extends NpcScript
 	public static final String DREAMER_SKULL_MISSING = "three.eyes.dreamer.skull.missing";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		FlavourTextEvent skullPresent = new FlavourTextEvent("\nOn the far wall, " +

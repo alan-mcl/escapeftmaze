@@ -23,12 +23,6 @@ public class RedEar extends NpcScript
 	public static final String WAITING_FOR_Q1_REPLY2 = "red.ear.waiting.for.quest.1.reply2";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

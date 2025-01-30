@@ -20,12 +20,6 @@ public class ClockworkSentinel extends NpcScript
 	public static final String GNOMES_GRANTED_GATE_ACCESS = "gnomes.granted.gate.access";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

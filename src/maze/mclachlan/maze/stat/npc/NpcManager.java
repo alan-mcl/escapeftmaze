@@ -26,10 +26,8 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.GameCache;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.stat.*;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -141,9 +139,9 @@ public class NpcManager implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void endOfTurn(long turnNr)
+	public List<MazeEvent> endOfTurn(long turnNr)
 	{
-		updateNpcs(turnNr);
+		return updateNpcs(turnNr);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -168,25 +166,19 @@ public class NpcManager implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void updateNpcs(long turnNr)
+	private List<MazeEvent> updateNpcs(long turnNr)
 	{
+		List<MazeEvent> result = new ArrayList<>();
 		Maze.log("updating NPCs...");
 		for (Npc npc : this.npcs.values())
 		{
 			Maze.log(Log.DEBUG, "["+npc.getName()+"]");
 
-			Maze.getInstance().appendEvents(npc.getScript().endOfTurn(turnNr));
-			if (npc.getTradingInventory()!= null &&
-				npc.getInventoryTemplate() != null &&
-				(turnNr % 200 == 0))
-			{
-				Maze.log(Log.DEBUG, "updating inventory (previous size "+npc.getTradingInventory().size()+")");
-				npc.getInventoryTemplate().update(npc.getTradingInventory());
-				Maze.log(Log.DEBUG, "done (new size "+npc.getTradingInventory().size()+")");
-
-			}
+			result.addAll(npc.getScript().endOfTurn(turnNr));
+			result.add(new EndOfTurnNpc(npc, turnNr));
 		}
 		Maze.log("finished updating NPCs");
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -257,5 +249,33 @@ public class NpcManager implements GameCache
 	public Map<String, NpcFaction> getMap()
 	{
 		return factions;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class EndOfTurnNpc extends MazeEvent
+	{
+		Npc npc;
+		long turnNr;
+
+		public EndOfTurnNpc(Npc npc, long turnNr)
+		{
+			this.npc = npc;
+			this.turnNr = turnNr;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			if (npc.getTradingInventory()!= null &&
+				npc.getInventoryTemplate() != null &&
+				(turnNr % 200 == 0))
+			{
+				Maze.log(Log.DEBUG, "updating inventory (previous size "+npc.getTradingInventory().size()+")");
+				npc.getInventoryTemplate().update(npc.getTradingInventory());
+				Maze.log(Log.DEBUG, "done (new size "+npc.getTradingInventory().size()+")");
+			}
+
+			return null;
+		}
 	}
 }

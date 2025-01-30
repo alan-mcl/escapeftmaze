@@ -165,7 +165,7 @@ public interface UserInterface
 	void setZone(Zone zone, Point pos, int facing);
 
 	/*-------------------------------------------------------------------------*/
-	void setPlayerPos(Point pos, int facing);
+	List<MazeEvent> setPlayerPos(Point pos, int facing);
 
 	/*-------------------------------------------------------------------------*/
 	void setTile(Zone zone, Tile t, Point tile);
@@ -180,7 +180,7 @@ public interface UserInterface
 	void foeLeaves(UnifiedActor foe);
 
 	/*-------------------------------------------------------------------------*/
-	void backPartyUp(int maxTiles);
+	List<MazeEvent> backPartyUp(int maxTiles);
 
 	/*-------------------------------------------------------------------------*/
 	void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations);

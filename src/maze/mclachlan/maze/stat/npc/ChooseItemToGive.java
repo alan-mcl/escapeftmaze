@@ -23,10 +23,8 @@ import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.Foe;
-import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.ui.diygui.GiveItem;
-import mclachlan.maze.ui.diygui.GiveItemCallback;
 
 /**
  *
@@ -57,14 +55,9 @@ public class ChooseItemToGive extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		new GiveItem(new GiveItemCallback()
-		{
-			@Override
-			public boolean giveItem(Item item, PlayerCharacter user, int userIndex)
-			{
-				Maze.getInstance().appendEvents(new GiveItemEvent(npc, pc, item));
-				return true;
-			}
+		new GiveItem((item, user, userIndex) -> {
+			Maze.getInstance().appendEvents(new GiveItemEvent(npc, pc, item));
+			return true;
 		}, pc);
 
 		return null;

@@ -40,10 +40,10 @@ public class ConditionManager implements GameCache
 	/**
 	 * Map of conditions by condition bearer
 	 */
-	private Map<ConditionBearer, List<Condition>> conditions = new HashMap<ConditionBearer, List<Condition>>();
-	private static ConditionManager instance = new ConditionManager();
+	private Map<ConditionBearer, List<Condition>> conditions = new HashMap<>();
+	private static final ConditionManager instance = new ConditionManager();
 	private final Object mutex = new Object();
-	private static List<Condition> emptyList = Collections.unmodifiableList(new ArrayList<Condition>());
+	private static final List<Condition> emptyList = Collections.unmodifiableList(new ArrayList<>());
 
 	/*-------------------------------------------------------------------------*/
 	public static ConditionManager getInstance()
@@ -65,73 +65,29 @@ public class ConditionManager implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void endOfTurn(long turnNr)
+	public List<MazeEvent> endOfTurn(long turnNr)
 	{
-		updateConditions(turnNr);
+		return updateConditions(turnNr);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void updateConditions(long turnNr)
+	private List<MazeEvent> updateConditions(long turnNr)
 	{
-		Maze.log("Updating conditions...");
 		synchronized (mutex)
 		{
-			ArrayList<MazeEvent> conditionEvents = new ArrayList<MazeEvent>();
+			Maze.log("Updating conditions...");
+
+			ArrayList<MazeEvent> result = new ArrayList<>();
 			for (ConditionBearer bearer : conditions.keySet())
 			{
-				ListIterator<Condition> li = conditions.get(bearer).listIterator();
-				while (li.hasNext())
-				{
-					Condition c = li.next();
-					Maze.log("condition "+c.getName()+" on "+c.getTarget().getName());
-
-					// Any end of turn condition effects:
-					List<MazeEvent> list = c.endOfTurn(turnNr);
-					if (list != null)
-					{
-						conditionEvents.addAll(list);
-					}
-
-					// check for SHED_BLIGHTS
-					int shedBlights = bearer.getModifier(Stats.Modifier.SHED_BLIGHTS);
-					Maze.log("shedBlights = [" + shedBlights + "]");
-					if (shedBlights > 0)
-					{
-						if (c.isAffliction() && Dice.d100.roll("shed blights") <= shedBlights)
-						{
-							c.setDuration(-1);
-							c.setStrength(-1);
-						}
-					}
-
-					// Expire conditions
-					if (c.getDuration() < 0)
-					{
-						li.remove();
-						c.expire();
-						ConditionTemplate template = c.getTemplate();
-						if (template != null)
-						{
-							String exitSpellEffect = template.getExitSpellEffect();
-							if (exitSpellEffect != null)
-							{
-								SpellEffect spellEffect = Database.getInstance().getSpellEffect(exitSpellEffect);
-								conditionEvents.addAll(
-									spellEffect.getUnsavedResult().apply(
-										c.getSource(),
-										c.getTarget(),
-										c.getCastingLevel(),
-										spellEffect,
-										null));
-							}
-						}
-					}
-				}
+				result.add(new EndOfTurnConditions(bearer, turnNr));
 			}
-			Maze.getInstance().appendEvents(conditionEvents);
+
+			Maze.log("Finished updating conditions");
+
+			return result;
 		}
 
-		Maze.log("Finished updating conditions");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -140,12 +96,7 @@ public class ConditionManager implements GameCache
 		c.setTarget(bearer);
 		synchronized (mutex)
 		{
-			List<Condition> list = conditions.get(bearer);
-			if (list == null)
-			{
-				list = new ArrayList<Condition>();
-				conditions.put(bearer, list);
-			}
+			List<Condition> list = conditions.computeIfAbsent(bearer, k -> new ArrayList<>());
 			list.add(c);
 		}
 	}
@@ -170,14 +121,7 @@ public class ConditionManager implements GameCache
 	{
 		synchronized(mutex)
 		{
-			if (conditions.containsKey(bearer))
-			{
-				return conditions.get(bearer);
-			}
-			else
-			{
-				return emptyList;
-			}
+			return conditions.getOrDefault(bearer, emptyList);
 		}
 	}
 
@@ -203,6 +147,76 @@ public class ConditionManager implements GameCache
 		synchronized (mutex)
 		{
 			this.conditions.put(bearer, conditions);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private class EndOfTurnConditions extends MazeEvent
+	{
+		private final ConditionBearer bearer;
+		private final long turnNr;
+
+		public EndOfTurnConditions(ConditionBearer bearer, long turnNr)
+		{
+			this.bearer = bearer;
+			this.turnNr = turnNr;
+		}
+
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			ArrayList<MazeEvent> result = new ArrayList<>();
+
+			ListIterator<Condition> li = conditions.get(bearer).listIterator();
+			while (li.hasNext())
+			{
+				Condition c = li.next();
+				Maze.log("condition "+c.getName()+" on "+c.getTarget().getName());
+
+				// Any end of turn condition effects:
+				List<MazeEvent> list = c.endOfTurn(turnNr);
+				if (list != null)
+				{
+					result.addAll(list);
+				}
+
+				// check for SHED_BLIGHTS
+				int shedBlights = bearer.getModifier(Stats.Modifier.SHED_BLIGHTS);
+				Maze.log("shedBlights = [" + shedBlights + "]");
+				if (shedBlights > 0)
+				{
+					if (c.isAffliction() && Dice.d100.roll("shed blights") <= shedBlights)
+					{
+						c.setDuration(-1);
+						c.setStrength(-1);
+					}
+				}
+
+				// Expire conditions
+				if (c.getDuration() < 0)
+				{
+					li.remove();
+					c.expire();
+					ConditionTemplate template = c.getTemplate();
+					if (template != null)
+					{
+						String exitSpellEffect = template.getExitSpellEffect();
+						if (exitSpellEffect != null)
+						{
+							SpellEffect spellEffect = Database.getInstance().getSpellEffect(exitSpellEffect);
+							result.addAll(
+								spellEffect.getUnsavedResult().apply(
+									c.getSource(),
+									c.getTarget(),
+									c.getCastingLevel(),
+									spellEffect,
+									null));
+						}
+					}
+				}
+			}
+
+			return result;
 		}
 	}
 }

@@ -21,12 +21,6 @@ public class Scrymgeour extends NpcScript
 	private static final String BEER = "Scrymgeour's Bitter";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(

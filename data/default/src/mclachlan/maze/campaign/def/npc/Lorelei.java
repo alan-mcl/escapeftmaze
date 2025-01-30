@@ -14,11 +14,6 @@ import java.util.*;
  */
 public class Lorelei extends NpcScript
 {
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
 	public List<MazeEvent> preAppearance()
 	{
 		ArrayList<String> ranger = new ArrayList<String>();

@@ -75,7 +75,7 @@ public class ActorDiesEvent extends MazeEvent
 		if (maze != null)
 		{
 			MazeScript script = Database.getInstance().getMazeScript("_DIE_");
-			maze.appendEvents(script.getEvents());
+			result.addAll(script.getEvents());
 
 			result.add(new MazeEvent()
 			{

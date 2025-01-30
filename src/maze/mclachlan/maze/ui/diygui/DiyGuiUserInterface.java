@@ -1279,12 +1279,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setPlayerPos(Point pos, int facing)
+	public List<MazeEvent> setPlayerPos(Point pos, int facing)
 	{
 		Point oldTile = Maze.getInstance().getPlayerPos();
 		CrusaderEngine rc = DiyGuiUserInterface.instance.raycaster;
 		rc.setPlayerPos(pos.x, pos.y, facing);
-		Maze.getInstance().encounterTile(pos, oldTile, facing);
+		return Maze.getInstance().encounterTile(pos, oldTile, facing);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1339,7 +1339,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void backPartyUp(int maxTiles)
+	public List<MazeEvent> backPartyUp(int maxTiles)
 	{
 		List<Point> tilesVisited = Maze.getInstance().getPlayerTilesVisited().getTilesVisited(Maze.getInstance().getCurrentZone().getName());
 
@@ -1350,7 +1350,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			if (index >= 0)
 			{
 				Point tile = tilesVisited.get(index);
-				Maze.getInstance().setPlayerPos(tile, Maze.getInstance().getFacing());
 
 				try
 				{
@@ -1361,8 +1360,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					throw new MazeException(e);
 				}
 
+				return Maze.getInstance().setPlayerPos(tile, Maze.getInstance().getFacing());
 			}
 		}
+
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

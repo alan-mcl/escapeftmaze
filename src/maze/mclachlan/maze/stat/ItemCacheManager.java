@@ -24,6 +24,7 @@ import java.util.*;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Zone;
 
 /**
@@ -64,9 +65,9 @@ public class ItemCacheManager implements GameCache
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void endOfTurn(long turnNr)
+	public List<MazeEvent> endOfTurn(long turnNr)
 	{
-		updateItemCaches(turnNr);
+		return updateItemCaches(turnNr);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -112,36 +113,47 @@ public class ItemCacheManager implements GameCache
 	 * Called each turn, to expire items that are conceptually 'stolen' out of
 	 * the caches.
 	 */
-	private void updateItemCaches(long turnNr)
+	private List<MazeEvent> updateItemCaches(long turnNr)
 	{
-		Maze.log("updating item caches...");
-
-		synchronized(mutex)
-		{
-			for (Map<Point, List<Item>> zoneMap : caches.values())
+		return Collections.singletonList(
+			new MazeEvent()
 			{
-				for (List<Item> itemList : zoneMap.values())
+				@Override
+				public List<MazeEvent> resolve()
 				{
-					ListIterator<Item> li = itemList.listIterator();
-					while (li.hasNext())
+					Maze.log("updating item caches...");
+
+					synchronized (mutex)
 					{
-						Item item = li.next();
-						// give each non-critical items a 5% chance per turn to vanish
-						// critical items never vanish
-						if (!item.isQuestItem())
+						for (Map<Point, List<Item>> zoneMap : caches.values())
 						{
-							if (Dice.d100.roll("item cache: theft") <= 5)
+							for (List<Item> itemList : zoneMap.values())
 							{
-								Maze.log(item.getName()+" is stolen");
-								li.remove();
+								ListIterator<Item> li = itemList.listIterator();
+								while (li.hasNext())
+								{
+									Item item = li.next();
+									// give each non-critical items a 5% chance per turn to vanish
+									// critical items never vanish
+									if (!item.isQuestItem())
+									{
+										if (Dice.d100.roll("item cache: theft") <= 5)
+										{
+											Maze.log(item.getName() + " is stolen");
+											li.remove();
+										}
+									}
+								}
 							}
 						}
 					}
-				}
-			}
-		}
 
-		Maze.log("finished updating item caches");
+					Maze.log("finished updating item caches");
+
+					return null;
+				}
+			});
+
 	}
 
 	/*-------------------------------------------------------------------------*/

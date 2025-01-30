@@ -1895,28 +1895,15 @@ public class GameSys
 			caster = new DummyCaster(spell, casterLevel, castingLevel);
 		}
 
-		SpellTarget target = null;
-		switch (spell.getTargetType())
-		{
-			case MagicSys.SpellTargetType.PARTY:
-			case MagicSys.SpellTargetType.FOE_GROUP:
-			case MagicSys.SpellTargetType.ALL_FOES:
-			case MagicSys.SpellTargetType.CLOUD_ONE_GROUP:
-			case MagicSys.SpellTargetType.CLOUD_ALL_GROUPS:
-			case MagicSys.SpellTargetType.PARTY_BUT_NOT_CASTER:
-				target = maze.getParty();
-				break;
-			case MagicSys.SpellTargetType.FOE:
-			case MagicSys.SpellTargetType.CASTER:
-			case MagicSys.SpellTargetType.ALLY:
-				target = maze.getParty().getRandomPlayerCharacter();
-				break;
-			case MagicSys.SpellTargetType.TILE:
-				target = caster;
-				break;
-			default:
-				target = maze.getParty(); // what the hell, let's try it anyway
-		}
+		SpellTarget target = switch (spell.getTargetType())
+			{
+				case MagicSys.SpellTargetType.FOE, MagicSys.SpellTargetType.CASTER, MagicSys.SpellTargetType.ALLY
+					-> maze.getParty().getRandomPlayerCharacter();
+				case MagicSys.SpellTargetType.TILE
+					-> caster;
+				default
+					-> maze.getParty(); // for everything else it's the party
+			};
 
 		SpellIntention intention = new SpellIntention(target, spell, castingLevel);
 

@@ -18,12 +18,6 @@ public class Emmons extends NpcScript
 	public static final String EMMONS_FIRST_ENCOUNTER_COMPLETE = "emmons.first.encounter.complete";
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> endOfTurn(long turnNr)
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> preAppearance()
 	{
 		return getList(
