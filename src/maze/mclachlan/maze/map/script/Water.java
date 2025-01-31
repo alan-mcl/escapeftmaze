@@ -45,7 +45,7 @@ public class Water extends TileScript
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile,
 		int facing)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 		maze.getUi().addMessage("... WATER ...");
 
 		for (UnifiedActor a : maze.getParty().getActors())

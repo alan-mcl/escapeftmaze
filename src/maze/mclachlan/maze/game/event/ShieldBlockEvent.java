@@ -21,7 +21,6 @@ package mclachlan.maze.game.event;
 
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
 /**
@@ -37,9 +36,6 @@ public class ShieldBlockEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().getUi().addMessage(
-			StringUtil.getEventText("msg.shield.block"));
-		
-		return null;
+		return getList(new UiMessageEvent(StringUtil.getEventText("msg.shield.block")));
 	}
 }

@@ -19,7 +19,6 @@
 
 package mclachlan.maze.game.event;
 
-import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
@@ -40,13 +39,6 @@ public class UiMessageEvent extends MazeEvent
 	{
 		this.msg = msg;
 		this.shouldClearText = shouldClearText;
-	}
-
-	@Override
-	public List<MazeEvent> resolve()
-	{
-//		Maze.getInstance().getUi().addMessage(msg);
-		return null;
 	}
 
 	@Override
