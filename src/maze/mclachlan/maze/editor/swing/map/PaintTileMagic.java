@@ -36,7 +36,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class PaintTileMana extends Tool implements ActionListener
+public class PaintTileMagic extends Tool implements ActionListener
 {
 	private JButton ok, cancel;
 	private JDialog dialog;
@@ -46,7 +46,7 @@ public class PaintTileMana extends Tool implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public String getName()
 	{
-		return "Paint Tile Mana";
+		return "Paint Tile Magic";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -87,7 +87,7 @@ public class PaintTileMana extends Tool implements ActionListener
 		buttons.add(ok);
 		buttons.add(cancel);
 
-		dialog = new JDialog(SwingEditor.instance, "Paint Tile Mana", true);
+		dialog = new JDialog(SwingEditor.instance, "Paint Tile Magic", true);
 		dialog.setLayout(new BorderLayout());
 		optionsPanel = new OptionsPanel();
 		dialog.add(optionsPanel, BorderLayout.CENTER);
@@ -149,7 +149,7 @@ public class PaintTileMana extends Tool implements ActionListener
 				Tile t = (Tile)obj;
 				mclachlan.maze.map.Tile tile = editor.getMazeTile(t);
 				
-				tile.getStatModifier().setModifier(modifier, d.roll("paint tile mana"));
+				tile.getStatModifier().setModifier(modifier, d.roll("paint tile magic"));
 			}
 		}
 	}

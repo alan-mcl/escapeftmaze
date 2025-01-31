@@ -4,8 +4,7 @@ STUFFTODO
 
 UI REFRESH
 --------------
-rename Automata race?
-rename mana to magic colour
+rename Automata race to Remnants or Mata?
 different texture and mask texture for different wall heights
 
 BACKLOG

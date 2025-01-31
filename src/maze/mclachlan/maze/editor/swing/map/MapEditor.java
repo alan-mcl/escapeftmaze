@@ -521,7 +521,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	{
 		List<Tool> result = new ArrayList<Tool>();
 		
-		result.add(new PaintTileMana());
+		result.add(new PaintTileMagic());
 		result.add(new ScatterObject());
 		result.add(new DeleteObjects());
 		result.add(new PaintEncounters());

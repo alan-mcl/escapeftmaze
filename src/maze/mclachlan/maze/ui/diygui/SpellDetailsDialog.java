@@ -51,13 +51,13 @@ public class SpellDetailsDialog extends GeneralDialog
 			return true;
 		});
 
-		ManaDisplayWidget manaRequired = new ManaDisplayWidget("required");
-		manaRequired.refresh(spell.getRequirementsToCast());
+		ColourMagicDisplayWidget magicRequired = new ColourMagicDisplayWidget("required");
+		magicRequired.refresh(spell.getRequirementsToCast());
 
-		ManaDisplayWidget manaAvailable = new ManaDisplayWidget("present");
+		ColourMagicDisplayWidget magicAvailable = new ColourMagicDisplayWidget("present");
 		if (pc != null)
 		{
-			manaAvailable.refresh(
+			magicAvailable.refresh(
 				pc.getModifier(Stats.Modifier.RED_MAGIC_GEN),
 				pc.getModifier(Stats.Modifier.BLACK_MAGIC_GEN),
 				pc.getModifier(Stats.Modifier.PURPLE_MAGIC_GEN),
@@ -150,19 +150,19 @@ public class SpellDetailsDialog extends GeneralDialog
 
 		newRow(rows);
 
-		DIYLabel requiredManaLabel = getLabel(StringUtil.getUiLabel("sdd.mana.required"));
-		addToRow(rows, requiredManaLabel);
-//		addToRow(rows, manaRequired);
+		DIYLabel requiredMagicLabel = getLabel(StringUtil.getUiLabel("sdd.magic.required"));
+		addToRow(rows, requiredMagicLabel);
+//		addToRow(rows, magicRequired);
 		newRow(rows);
 
-		DIYLabel availableManaLabel = null;
+		DIYLabel availableMagicLabel = null;
 		if (pc != null)
 		{
 			newRow(rows);
 
-			availableManaLabel = getLabel(StringUtil.getUiLabel("sdd.mana.available"));
-			addToRow(rows, availableManaLabel);
-//			addToRow(rows, manaAvailable);
+			availableMagicLabel = getLabel(StringUtil.getUiLabel("sdd.magic.available"));
+			addToRow(rows, availableMagicLabel);
+//			addToRow(rows, magicAvailable);
 			newRow(rows);
 		}
 
@@ -185,31 +185,31 @@ public class SpellDetailsDialog extends GeneralDialog
 		desc.setBounds(xx, yy + (rows.size() * rowHeight), width1, height1 / 5);
 		desc.setTransparent(true);
 
-		Dimension mrps = manaRequired.getPreferredSize();
-		manaRequired.setBounds(
-			requiredManaLabel.x + requiredManaLabel.width + getInset(),
-			requiredManaLabel.y + requiredManaLabel.height/2 - mrps.height/2,
+		Dimension mrps = magicRequired.getPreferredSize();
+		magicRequired.setBounds(
+			requiredMagicLabel.x + requiredMagicLabel.width + getInset(),
+			requiredMagicLabel.y + requiredMagicLabel.height/2 - mrps.height/2,
 			mrps.width,
 			mrps.height);
-		manaRequired.doLayout();
+		magicRequired.doLayout();
 
 		if (pc != null)
 		{
-			Dimension maps = manaAvailable.getPreferredSize();
-			manaAvailable.setBounds(
-				availableManaLabel.x + availableManaLabel.width + getInset(),
-				availableManaLabel.y + availableManaLabel.height / 2 - maps.height / 2,
+			Dimension maps = magicAvailable.getPreferredSize();
+			magicAvailable.setBounds(
+				availableMagicLabel.x + availableMagicLabel.width + getInset(),
+				availableMagicLabel.y + availableMagicLabel.height / 2 - maps.height / 2,
 				maps.width,
 				maps.height);
-			manaAvailable.doLayout();
+			magicAvailable.doLayout();
 		}
 
 		this.add(title);
 		this.add(pane);
-		this.add(manaRequired);
+		this.add(magicRequired);
 		if (pc != null)
 		{
-			this.add(manaAvailable);
+			this.add(magicAvailable);
 		}
 		this.add(desc);
 		this.add(close);

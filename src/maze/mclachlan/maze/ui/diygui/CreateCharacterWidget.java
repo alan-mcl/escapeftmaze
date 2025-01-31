@@ -35,7 +35,7 @@ import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.ManaRequirement;
+import mclachlan.maze.stat.magic.ColourMagicRequirement;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.npc.Npc;
@@ -76,7 +76,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 	private DIYLabel raceImage;
 	private DIYListBox characterClasses;
 	private DIYTextArea classDesc;
-	private ManaDisplayWidget classMagicUse;
+	private ColourMagicDisplayWidget classMagicUse;
 	private DIYTextArea kitDesc;
 	private DIYPane kitItems;
 	private CardLayoutWidget classAndRaceKitCards;
@@ -639,7 +639,7 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 			DIYToolkit.getDimension(StringUtil.getUiLabel("cc.spell.books")).width +inset,
 			titleHeight);
 
-		this.classMagicUse = new ManaDisplayWidget("magic.use");
+		this.classMagicUse = new ColourMagicDisplayWidget("magic.use");
 		this.classMagicUse.setDisableZeros(true);
 		this.classMagicUse.setBounds(
 			spellBooksTitle.x +spellBooksTitle.width +inset,
@@ -1587,17 +1587,17 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		{
 			for (StartingSpellBook ssb : magicAbility)
 			{
-				ArrayList<ManaRequirement> books = new ArrayList<>();
+				ArrayList<ColourMagicRequirement> books = new ArrayList<>();
 
 				switch (ssb.getSpellBook().getCastingAbilityModifier())
 				{
-					case RED_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.RED, ssb.getMaxLevel()));
-					case BLACK_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.BLACK, ssb.getMaxLevel()));
-					case PURPLE_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.PURPLE, ssb.getMaxLevel()));
-					case GOLD_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.GOLD, ssb.getMaxLevel()));
-					case WHITE_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.WHITE, ssb.getMaxLevel()));
-					case GREEN_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.GREEN, ssb.getMaxLevel()));
-					case BLUE_MAGIC_SPELLS -> books.add(new ManaRequirement(MagicSys.ManaType.BLUE, ssb.getMaxLevel()));
+					case RED_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.RED, ssb.getMaxLevel()));
+					case BLACK_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.BLACK, ssb.getMaxLevel()));
+					case PURPLE_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.PURPLE, ssb.getMaxLevel()));
+					case GOLD_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.GOLD, ssb.getMaxLevel()));
+					case WHITE_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.WHITE, ssb.getMaxLevel()));
+					case GREEN_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.GREEN, ssb.getMaxLevel()));
+					case BLUE_MAGIC_SPELLS -> books.add(new ColourMagicRequirement(MagicSys.MagicColour.BLUE, ssb.getMaxLevel()));
 					default -> throw new MazeException("invalid: "+ssb.getSpellBook().getCastingAbilityModifier());
 				}
 

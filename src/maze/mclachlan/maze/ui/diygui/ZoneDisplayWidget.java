@@ -36,7 +36,7 @@ import mclachlan.maze.map.Zone;
 public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 {
 	private final DIYLabel zoneName, terrainType;
-	private final ManaDisplayWidget mana;
+	private final ColourMagicDisplayWidget colourMagicDisplay;
 
 	/*-------------------------------------------------------------------------*/
 	public ZoneDisplayWidget(Rectangle bounds)
@@ -71,9 +71,9 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 			labelWidth,
 			bounds.height /*rowHeight*/);
 
-		mana = new ManaDisplayWidget("present");
-		Dimension md = mana.getPreferredSize();
-		mana.setBounds(
+		colourMagicDisplay = new ColourMagicDisplayWidget("present");
+		Dimension md = colourMagicDisplay.getPreferredSize();
+		colourMagicDisplay.setBounds(
 			bounds.x + bounds.width / 2 - md.width / 2,
 			bounds.y + bounds.height - md.height,
 			md.width,
@@ -83,7 +83,7 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 		this.add(compass);
 		this.add(terrainType);
 
-		this.add(mana);
+		this.add(colourMagicDisplay);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -97,7 +97,7 @@ public class ZoneDisplayWidget extends DIYPanel implements ActionListener
 	{
 		this.terrainType.setText(t.getTerrainType() + " (" + t.getTerrainSubType() + ")");
 
-		mana.refresh(
+		colourMagicDisplay.refresh(
 			t.getAmountRedMagic(),
 			t.getAmountBlackMagic(),
 			t.getAmountPurpleMagic(),

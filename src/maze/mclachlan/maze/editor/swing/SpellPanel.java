@@ -47,7 +47,7 @@ public class SpellPanel extends EditorPanel
 	private JSpinner level;
 	private ValueComponent hitPointCost, actionPointCost, magicPointCost;
 	private StatModifierComponent requirementsToLearn;
-	private ManaRequirementPanel manaRequirements;
+	private MagicRequirementPanel magicRequirements;
 	private JComboBox castByPlayerScript, castByFoeScript;
 	private JCheckBox wildMagic;
 	private ValueComponent wildMagicValue;
@@ -265,8 +265,8 @@ public class SpellPanel extends EditorPanel
 		gbc.gridy++;
 		gbc.weightx = 1.0;
 		gbc.gridwidth = 2;
-		manaRequirements = new ManaRequirementPanel(dirtyFlag);
-		result.add(manaRequirements, gbc);
+		magicRequirements = new MagicRequirementPanel(dirtyFlag);
+		result.add(magicRequirements, gbc);
 
 		return result;
 	}
@@ -335,7 +335,7 @@ public class SpellPanel extends EditorPanel
 		description.setText(s.getDescription());
 		description.setCaretPosition(0);
 		effects.refresh(s.getEffects());
-		manaRequirements.refresh(s.getRequirementsToCast());
+		magicRequirements.refresh(s.getRequirementsToCast());
 
 		if (s.getWildMagicValue() != null)
 		{
@@ -387,7 +387,7 @@ public class SpellPanel extends EditorPanel
 			MagicSys.SpellSchool.BEGUILMENT,
 			MagicSys.SpellBook.RED_MAGIC,
 			new GroupOfPossibilities<SpellEffect>(),
-			new ArrayList<ManaRequirement>(),
+			new ArrayList<ColourMagicRequirement>(),
 			new StatModifier(),
 			null,
 			null,
@@ -426,7 +426,7 @@ public class SpellPanel extends EditorPanel
 			current.getSchool(),
 			current.getBook(),
 			new GroupOfPossibilities<SpellEffect>(current.getEffects()),
-			new ArrayList<ManaRequirement>(current.getRequirementsToCast()),
+			new ArrayList<ColourMagicRequirement>(current.getRequirementsToCast()),
 			new StatModifier(current.getRequirementsToLearn()),
 			current.getCastByPlayerScript(),
 			current.getCastByFoeScript(),
@@ -469,7 +469,7 @@ public class SpellPanel extends EditorPanel
 		s.setCastByFoeScript(cbfs.equals(NONE)?null:Database.getInstance().getMazeScript(cbfs));
 		s.setDescription(description.getText());
 		s.setEffects(effects.getGroupOfPossibilties());
-		s.setRequirementsToCast(manaRequirements.getManaRequirements());
+		s.setRequirementsToCast(magicRequirements.getColourMagicRequirements());
 		s.setProjectile(projectile.isSelected());
 
 		if (wildMagic.isSelected())

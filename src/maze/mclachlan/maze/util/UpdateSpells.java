@@ -48,9 +48,9 @@ public class UpdateSpells
 			Spell spell = spells.get(s);
 
 //			if (spell.getDisplayName().length() == 0 || Character.isLowerCase(spell.getDisplayName().charAt(0)))
-			{
-				spell.setDisplayName(spell.getName());
-			}
+//			{
+//				spell.setDisplayName(spell.getName());
+//			}
 
 			count++;
 		}

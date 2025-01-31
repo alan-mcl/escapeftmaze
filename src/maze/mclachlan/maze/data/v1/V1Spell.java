@@ -38,7 +38,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class V1Spell
 {
-	static V1GroupOfPossibilties<SpellEffect> spellEffects = new V1GroupOfPossibilties<SpellEffect>()
+	static V1GroupOfPossibilties<SpellEffect> spellEffects = new V1GroupOfPossibilties<>()
 	{
 		public String typeToString(SpellEffect spellEffect)
 		{
@@ -51,19 +51,19 @@ public class V1Spell
 		}
 	};
 
-	static V1List<ManaRequirement> manaRequirements = new V1List<ManaRequirement>()
+	static V1List<ColourMagicRequirement> colourMagicRequirements = new V1List<>()
 	{
-		public String typeToString(ManaRequirement manaRequirement)
+		public String typeToString(ColourMagicRequirement colourMagicRequirement)
 		{
-			return manaRequirement.getColour()+":"+manaRequirement.getAmount();
+			return colourMagicRequirement.getColour()+":"+ colourMagicRequirement.getAmount();
 		}
 
-		public ManaRequirement typeFromString(String s)
+		public ColourMagicRequirement typeFromString(String s)
 		{
 			String[] strs = s.split(":");
 			int colour = Integer.parseInt(strs[0]);
 			int amount = Integer.parseInt(strs[1]);
-			return new ManaRequirement(colour, amount);
+			return new ColourMagicRequirement(colour, amount);
 		}
 	};
 
@@ -166,8 +166,8 @@ public class V1Spell
 			b.append(V1StatModifier.toString(obj.getRequirementsToLearn()));
 			b.append(V1Utils.NEWLINE);
 
-			b.append("manaRequirements=");
-			b.append(manaRequirements.toString(obj.getRequirementsToCast()));
+			b.append("colourMagicRequirements=");
+			b.append(colourMagicRequirements.toString(obj.getRequirementsToCast()));
 			b.append(V1Utils.NEWLINE);
 
 			b.append("castByPlayerScript=");
@@ -228,7 +228,7 @@ public class V1Spell
 			String description = p.getProperty("description");
 			int level = Integer.parseInt(p.getProperty("level"));
 			StatModifier requirementsToLearn = V1StatModifier.fromString(p.getProperty("requirementsToLearn"));
-			List<ManaRequirement> requirementsToCast = manaRequirements.fromString(p.getProperty("manaRequirements"));
+			List<ColourMagicRequirement> requirementsToCast = colourMagicRequirements.fromString(p.getProperty("colourMagicRequirements"));
 			String s = p.getProperty("castByPlayerScript");
 			MazeScript castByPlayerScript = s.equals("")?null:Database.getInstance().getMazeScript(s);
 			s = p.getProperty("castByFoeScript");

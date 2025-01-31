@@ -39,7 +39,7 @@ public class MagicDisplayWidget extends DIYPane implements ActionListener
 
 	private final SpellDisplayWidget sdw;
 	private final DIYLabel nameLabel;
-	private final ManaDisplayWidget mana;
+	private final ColourMagicDisplayWidget colourMagicDisplay;
 
 	/*-------------------------------------------------------------------------*/
 	public MagicDisplayWidget(Rectangle bounds)
@@ -88,16 +88,16 @@ public class MagicDisplayWidget extends DIYPane implements ActionListener
 			personalPanel.width / 2,
 			20);
 
-		mana = new ManaDisplayWidget("present");
+		colourMagicDisplay = new ColourMagicDisplayWidget("present");
 
-		mana.setBounds(
+		colourMagicDisplay.setBounds(
 			personalPanel.x +panelBorderInset,
 			nameLabel.y +nameLabel.height +inset,
-			mana.getPreferredSize().width,
-			mana.getPreferredSize().height);
+			colourMagicDisplay.getPreferredSize().width,
+			colourMagicDisplay.getPreferredSize().height);
 
 		personalPanel.add(nameLabel);
-		personalPanel.add(mana);
+		personalPanel.add(colourMagicDisplay);
 
 		// spells
 		DIYPanel spellsPanel = new DIYPanel();
@@ -177,7 +177,7 @@ public class MagicDisplayWidget extends DIYPane implements ActionListener
 			character.getRace().getName(),
 			character.getCharacterClass().getName()));
 
-		mana.refresh(
+		colourMagicDisplay.refresh(
 			character.getAmountRedMagic(),
 			character.getAmountBlackMagic(),
 			character.getAmountPurpleMagic(),

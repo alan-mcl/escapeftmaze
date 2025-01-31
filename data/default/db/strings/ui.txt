@@ -507,8 +507,8 @@ sdd.school =                School: %s
 sdd.primary.modifier =      Primary Modifier: %s
 sdd.secondary.modifier =    Secondary Modifier: %s
 sdd.effects =               Effects:
-sdd.mana.required =         Required:
-sdd.mana.available =        Available:
+sdd.magic.required =         Required:
+sdd.magic.available =        Available:
 sdd.projectile =            (projectile spell)
 
 # foe details widget
@@ -552,7 +552,7 @@ gad.how.much = How Much (max %s)?
 # get player speech dialog
 gps.title = %s says:
 
-# mana display widget
+# magic display widget
 madw.red.tooltip.base = Red Magic base
 madw.black.tooltip.base = Black Magic base
 madw.purple.tooltip.base = Purple Magic base
@@ -586,7 +586,7 @@ madw.green.tooltip.magic.use = Green Magic use maximum level
 madw.blue.tooltip.magic.use = Blue Magic use maximum level
 
 # value descriptions
-vd.mana.present = %s magic present
+vd.magic.present = %s magic present
 vd.scale.casting.level = %s per casting level
 vd.scale.character.level = %s per character level
 vd.scale.class.level = %s per %s level

@@ -32,13 +32,13 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.ManaRequirement;
+import mclachlan.maze.stat.magic.ColourMagicRequirement;
 import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public class ManaDisplayWidget extends DIYPane implements ActionListener
+public class ColourMagicDisplayWidget extends DIYPane implements ActionListener
 {
 	public static final int ICON_SIZE = 32;
 	public static final int HGAP = 8;
@@ -48,17 +48,17 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	boolean disableZeros;
 
 	/*-------------------------------------------------------------------------*/
-	public ManaDisplayWidget(String tooltipSuffix)
+	public ColourMagicDisplayWidget(String tooltipSuffix)
 	{
 		iconLabels = new HashMap<>(7);
 
-		red = createLabel("icon/mana_icon_red", Color.BLACK, "madw.red.tooltip." + tooltipSuffix);
-		black = createLabel("icon/mana_icon_black", Color.WHITE, "madw.black.tooltip." + tooltipSuffix);
-		purple = createLabel("icon/mana_icon_purple", Color.YELLOW, "madw.purple.tooltip." + tooltipSuffix);
-		gold = createLabel("icon/mana_icon_gold", Color.BLACK, "madw.gold.tooltip." + tooltipSuffix);
-		white = createLabel("icon/mana_icon_white", Color.BLACK, "madw.white.tooltip." + tooltipSuffix);
-		green = createLabel("icon/mana_icon_green", Color.BLACK, "madw.green.tooltip." + tooltipSuffix);
-		blue = createLabel("icon/mana_icon_blue", Color.WHITE, "madw.blue.tooltip." + tooltipSuffix);
+		red = createLabel("icon/magic_icon_red", Color.BLACK, "madw.red.tooltip." + tooltipSuffix);
+		black = createLabel("icon/magic_icon_black", Color.WHITE, "madw.black.tooltip." + tooltipSuffix);
+		purple = createLabel("icon/magic_icon_purple", Color.YELLOW, "madw.purple.tooltip." + tooltipSuffix);
+		gold = createLabel("icon/magic_icon_gold", Color.BLACK, "madw.gold.tooltip." + tooltipSuffix);
+		white = createLabel("icon/magic_icon_white", Color.BLACK, "madw.white.tooltip." + tooltipSuffix);
+		green = createLabel("icon/magic_icon_green", Color.BLACK, "madw.green.tooltip." + tooltipSuffix);
+		blue = createLabel("icon/magic_icon_blue", Color.WHITE, "madw.blue.tooltip." + tooltipSuffix);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -168,7 +168,7 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(List<ManaRequirement> manaReq)
+	public void refresh(List<ColourMagicRequirement> magicReq)
 	{
 		int red;
 		int black;
@@ -180,19 +180,19 @@ public class ManaDisplayWidget extends DIYPane implements ActionListener
 
 		red = black = purple = gold = white = green = blue = 0;
 
-		if (manaReq != null)
+		if (magicReq != null)
 		{
-			for (ManaRequirement m : manaReq)
+			for (ColourMagicRequirement m : magicReq)
 			{
 				switch (m.getColour())
 				{
-					case MagicSys.ManaType.RED -> red = m.getAmount();
-					case MagicSys.ManaType.BLACK -> black = m.getAmount();
-					case MagicSys.ManaType.PURPLE -> purple = m.getAmount();
-					case MagicSys.ManaType.GOLD -> gold = m.getAmount();
-					case MagicSys.ManaType.WHITE -> white = m.getAmount();
-					case MagicSys.ManaType.GREEN -> green = m.getAmount();
-					case MagicSys.ManaType.BLUE -> blue = m.getAmount();
+					case MagicSys.MagicColour.RED -> red = m.getAmount();
+					case MagicSys.MagicColour.BLACK -> black = m.getAmount();
+					case MagicSys.MagicColour.PURPLE -> purple = m.getAmount();
+					case MagicSys.MagicColour.GOLD -> gold = m.getAmount();
+					case MagicSys.MagicColour.WHITE -> white = m.getAmount();
+					case MagicSys.MagicColour.GREEN -> green = m.getAmount();
+					case MagicSys.MagicColour.BLUE -> blue = m.getAmount();
 					default ->
 						throw new MazeException("invalid [" + m.getColour() + "]");
 				}

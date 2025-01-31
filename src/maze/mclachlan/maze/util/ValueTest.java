@@ -41,11 +41,11 @@ public class ValueTest
 		values.add((getModifierValue(Stats.Modifier.BRAWN,1, SCALE_WITH_CHARACTER_LEVEL, null, false)));
 		values.add((getModifierValue(Stats.Modifier.BRAWN,1, SCALE_WITH_MODIFIER, StringUtil.getModifierName(Stats.Modifier.BRAWN), false)));
 		values.add((getModifierValue(Stats.Modifier.BRAWN,1, SCALE_WITH_PARTY_SIZE, null, false)));
-		values.add((getManaPresentValue(MagicSys.ManaType.BLUE,1, NONE, null, false)));
-		values.add((getManaPresentValue(MagicSys.ManaType.BLUE,1, SCALE_WITH_CLASS_LEVEL, "Shaman", false)));
-		values.add((getManaPresentValue(MagicSys.ManaType.BLUE,1, SCALE_WITH_CHARACTER_LEVEL, null, false)));
-		values.add((getManaPresentValue(MagicSys.ManaType.BLUE,1, SCALE_WITH_MODIFIER, StringUtil.getModifierName(Stats.Modifier.BRAWN), false)));
-		values.add((getManaPresentValue(MagicSys.ManaType.BLUE,1, SCALE_WITH_PARTY_SIZE, null, false)));
+		values.add((getMagicPresentValue(MagicSys.MagicColour.BLUE,1, NONE, null, false)));
+		values.add((getMagicPresentValue(MagicSys.MagicColour.BLUE,1, SCALE_WITH_CLASS_LEVEL, "Shaman", false)));
+		values.add((getMagicPresentValue(MagicSys.MagicColour.BLUE,1, SCALE_WITH_CHARACTER_LEVEL, null, false)));
+		values.add((getMagicPresentValue(MagicSys.MagicColour.BLUE,1, SCALE_WITH_MODIFIER, StringUtil.getModifierName(Stats.Modifier.BRAWN), false)));
+		values.add((getMagicPresentValue(MagicSys.MagicColour.BLUE,1, SCALE_WITH_PARTY_SIZE, null, false)));
 
 		for (Value v : values)
 		{
@@ -97,9 +97,9 @@ public class ValueTest
 		return result;
 	}
 
-	private static Value getManaPresentValue(int col, int i, SCALE scale, String ref, boolean negate)
+	private static Value getMagicPresentValue(int col, int i, SCALE scale, String ref, boolean negate)
 	{
-		Value result = new ManaPresentValue(col);
+		Value result = new MagicPresentValue(col);
 		result.setValue(i);
 		result.setScaling(scale);
 		result.setNegate(negate);

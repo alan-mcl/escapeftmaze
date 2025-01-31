@@ -251,9 +251,9 @@ public class ValueListDialog extends JDialog
 			ModifierValue mv = (ModifierValue)v;
 			result = mv.getModifier()+" modifier";
 		}
-		else if (v instanceof ManaPresentValue)
+		else if (v instanceof MagicPresentValue)
 		{
-			result = MagicSys.ManaType.describe(((ManaPresentValue)v).getColour());
+			result = MagicSys.MagicColour.describe(((MagicPresentValue)v).getColour());
 		}
 		else
 		{

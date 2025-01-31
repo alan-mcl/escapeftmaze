@@ -38,7 +38,7 @@ public class V1Value
 	private static final int VALUE = 1;
 	private static final int DICE_VALUE = 2;
 	private static final int MODIFIER_VALUE = 3;
-	private static final int MANA_PRESENT_VALUE = 4;
+	private static final int MAGIC_PRESENT_VALUE = 4;
 
 	static
 	{
@@ -47,7 +47,7 @@ public class V1Value
 		types.put(Value.class, VALUE);
 		types.put(DiceValue.class, DICE_VALUE);
 		types.put(ModifierValue.class, MODIFIER_VALUE);
-		types.put(ManaPresentValue.class, MANA_PRESENT_VALUE);
+		types.put(MagicPresentValue.class, MAGIC_PRESENT_VALUE);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -104,10 +104,10 @@ public class V1Value
 				s.append(colSep);
 				s.append(((ModifierValue)v).getModifier());
 			}
-			else if (type == MANA_PRESENT_VALUE)
+			else if (type == MAGIC_PRESENT_VALUE)
 			{
 				s.append(colSep);
-				s.append(((ManaPresentValue)v).getColour());
+				s.append(((MagicPresentValue)v).getColour());
 			}
 
 			s.append(rowSep);
@@ -194,9 +194,9 @@ public class V1Value
 				String modifier = cols[col++];
 				result = new ModifierValue(Stats.Modifier.valueOf(modifier));
 				break;
-			case MANA_PRESENT_VALUE:
+			case MAGIC_PRESENT_VALUE:
 				int colour = Integer.parseInt(cols[col++]);
-				result = new ManaPresentValue(colour);
+				result = new MagicPresentValue(colour);
 				break;
 			default: throw new MazeException("Invalid type: "+type);
 		}

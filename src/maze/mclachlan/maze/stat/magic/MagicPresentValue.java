@@ -19,53 +19,56 @@
 
 package mclachlan.maze.stat.magic;
 
+import mclachlan.maze.stat.UnifiedActor;
+
 /**
- *
+ * A value based on the amount of a certain colour of magic present.
  */
-public class ManaRequirement
+public class MagicPresentValue extends Value
 {
-	int colour;
-	int amount;
+	private final int colour;
 
 	/*-------------------------------------------------------------------------*/
-	public ManaRequirement(int colour, int amount)
+	/**
+	 * @param colour
+	 * 	A contant from {@link MagicSys.MagicColour}
+	 */
+	public MagicPresentValue(int colour)
 	{
-		this.amount = amount;
 		this.colour = colour;
 	}
-
+	
 	/*-------------------------------------------------------------------------*/
-	public int getAmount()
+	public int compute(UnifiedActor source, int castingLevel)
 	{
-		return amount;
+		// the actor accumulates magic from the tile
+		int result = source.getModifier(MagicSys.MagicColour.getModifier(colour));
+
+		result *= computeScale(source, castingLevel);
+
+		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public Value getSnapShotValue(UnifiedActor source, int castingLevel)
+	{
+		// We actually want this ValueList to change as the magic present changes.
+		MagicPresentValue result = new MagicPresentValue(colour);
+		result.setValue(this.getValue());
+		result.setNegate(this.shouldNegate());
+		result.setScaling(this.getScaling());
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public String toString()
+	{
+		return MagicSys.MagicColour.describe(colour);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public int getColour()
 	{
 		return colour;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setAmount(int amount)
-	{
-		this.amount = amount;
-	}
-
-	public void setColour(int colour)
-	{
-		this.colour = colour;
-	}
-
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public String toString()
-	{
-		final StringBuilder sb = new StringBuilder();
-		sb.append("ManaRequirement");
-		sb.append("{colour=").append(MagicSys.ManaType.describe(colour));
-		sb.append(", amount=").append(amount);
-		sb.append('}');
-		return sb.toString();
 	}
 }

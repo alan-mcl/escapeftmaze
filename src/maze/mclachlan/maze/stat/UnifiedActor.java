@@ -1704,8 +1704,8 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return True if this character can cast the given spell, based on stuff like
-	 *         the spells mana requirements and this characters current
-	 *         conditions.
+	 *   the spells colour magic requirements and this character's current
+	 *   conditions.
 	 */
 	public boolean canCast(Spell s)
 	{
@@ -1873,22 +1873,22 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	{
 		switch (type)
 		{
-			case MagicSys.ManaType.RED:
+			case MagicSys.MagicColour.RED:
 				return getAmountRedMagic();
-			case MagicSys.ManaType.BLACK:
+			case MagicSys.MagicColour.BLACK:
 				return getAmountBlackMagic();
-			case MagicSys.ManaType.PURPLE:
+			case MagicSys.MagicColour.PURPLE:
 				return getAmountPurpleMagic();
-			case MagicSys.ManaType.GOLD:
+			case MagicSys.MagicColour.GOLD:
 				return getAmountGoldMagic();
-			case MagicSys.ManaType.WHITE:
+			case MagicSys.MagicColour.WHITE:
 				return getAmountWhiteMagic();
-			case MagicSys.ManaType.GREEN:
+			case MagicSys.MagicColour.GREEN:
 				return getAmountGreenMagic();
-			case MagicSys.ManaType.BLUE:
+			case MagicSys.MagicColour.BLUE:
 				return getAmountBlueMagic();
 			default:
-				throw new MazeException("Invalid mana colour " + type);
+				throw new MazeException("Invalid magic colour " + type);
 		}
 	}
 

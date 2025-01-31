@@ -28,38 +28,38 @@ import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.stat.magic.ManaRequirement;
+import mclachlan.maze.stat.magic.ColourMagicRequirement;
 
 /**
  *
  */
-public class ManaRequirementPanel extends JPanel implements ActionListener, ChangeListener
+public class MagicRequirementPanel extends JPanel implements ActionListener, ChangeListener
 {
-	List<ManaRequirement> list = new ArrayList<>();
+	List<ColourMagicRequirement> list = new ArrayList<>();
 
-	String[] manaTypes = new String[]
+	String[] magicColours = new String[]
 	{
-		MagicSys.ManaType.describe(MagicSys.ManaType.RED),
-		MagicSys.ManaType.describe(MagicSys.ManaType.BLACK),
-		MagicSys.ManaType.describe(MagicSys.ManaType.PURPLE),
-		MagicSys.ManaType.describe(MagicSys.ManaType.GOLD),
-		MagicSys.ManaType.describe(MagicSys.ManaType.WHITE),
-		MagicSys.ManaType.describe(MagicSys.ManaType.GREEN),
-		MagicSys.ManaType.describe(MagicSys.ManaType.BLUE),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.RED),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.BLACK),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.PURPLE),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.GOLD),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.WHITE),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.GREEN),
+		MagicSys.MagicColour.describe(MagicSys.MagicColour.BLUE),
 	};
 
 	JCheckBox[] checkboxes = new JCheckBox[7];
 	JSpinner[] amounts = new JSpinner[7];
-	private int dirtyFlag;
+	private final int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
-	public ManaRequirementPanel(int dirtyFlag)
+	public MagicRequirementPanel(int dirtyFlag)
 	{
 		this.dirtyFlag = dirtyFlag;
 
 		for (int i = 0; i < checkboxes.length; i++)
 		{
-			checkboxes[i] = new JCheckBox(manaTypes[i]);
+			checkboxes[i] = new JCheckBox(magicColours[i]);
 			checkboxes[i].addActionListener(this);
 		}
 
@@ -79,7 +79,7 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 		gbc.weighty = 0.0;
 		gbc.anchor = GridBagConstraints.WEST;
 
-		this.add(new JLabel("Mana Type"), gbc);
+		this.add(new JLabel("Magic Colour"), gbc);
 		for (int i = 0; i < checkboxes.length; i++)
 		{
 			gbc.gridy++;
@@ -99,11 +99,11 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 			this.add(amounts[i], gbc);
 		}
 
-		this.setBorder(BorderFactory.createTitledBorder("Mana Requirements"));
+		this.setBorder(BorderFactory.createTitledBorder("Magic Colour Requirements"));
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void refresh(java.util.List<ManaRequirement> list)
+	public void refresh(java.util.List<ColourMagicRequirement> list)
 	{
 		this.list = null;
 
@@ -128,7 +128,7 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 			this.list = list;
 		}
 
-		for (ManaRequirement mr : this.list)
+		for (ColourMagicRequirement mr : this.list)
 		{
 			int i = mr.getColour();
 			checkboxes[i].setSelected(true);
@@ -143,7 +143,7 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<ManaRequirement> getManaRequirements()
+	public List<ColourMagicRequirement> getColourMagicRequirements()
 	{
 		return new ArrayList<>(this.list);
 	}
@@ -170,21 +170,21 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 		if (obj instanceof JCheckBox)
 		{
 			JCheckBox cb = (JCheckBox)obj;
-			int i = MagicSys.ManaType.valueOf(cb.getText());
+			int i = MagicSys.MagicColour.valueOf(cb.getText());
 
 			if (cb.isSelected())
 			{
 				// spell book is just selected now
-				this.list.add(new ManaRequirement(i, 0));
+				this.list.add(new ColourMagicRequirement(i, 0));
 				amounts[i].setValue(0);
 				amounts[i].setEnabled(true);
 			}
 			else
 			{
 				// spell book is removed
-				for (ManaRequirement mr : list)
+				for (ColourMagicRequirement mr : list)
 				{
-					if (mr.getColour() == MagicSys.ManaType.valueOf(cb.getText()))
+					if (mr.getColour() == MagicSys.MagicColour.valueOf(cb.getText()))
 					{
 						list.remove(mr);
 						break;
@@ -213,7 +213,7 @@ public class ManaRequirementPanel extends JPanel implements ActionListener, Chan
 			JSpinner spinner = (JSpinner)obj;
 			int i = indexOfAmount(spinner);
 
-			for (ManaRequirement mr : list)
+			for (ColourMagicRequirement mr : list)
 			{
 				if (mr.getColour() == i)
 				{

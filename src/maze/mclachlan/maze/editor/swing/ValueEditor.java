@@ -38,14 +38,14 @@ import mclachlan.maze.util.MazeException;
  */
 public class ValueEditor extends JDialog implements ActionListener
 {
-	private JSpinner base;
-	private JCheckBox negate;
-	private JComboBox scaling;
-	private JComboBox reference;
-	private JRadioButton custom, constant, dice, modifier, mana;
-	private JTextField impl, diceValue;
-	private JComboBox modifierValue, manaValue;
-	private JButton ok, cancel;
+	private final JSpinner base;
+	private final JCheckBox negate;
+	private final JComboBox scaling;
+	private final JComboBox reference;
+	private final JRadioButton custom, constant, dice, modifier, colourMagic;
+	private final JTextField impl, diceValue;
+	private final JComboBox modifierValue, colourMagicValue;
+	private final JButton ok, cancel;
 
 	private Value value;
 
@@ -70,30 +70,30 @@ public class ValueEditor extends JDialog implements ActionListener
 		dice.addActionListener(this);
 		modifier = new JRadioButton("Modifier");
 		modifier.addActionListener(this);
-		mana = new JRadioButton("Mana");
-		mana.addActionListener(this);
+		colourMagic = new JRadioButton("Colour Magic");
+		colourMagic.addActionListener(this);
 
 		impl = new JTextField();
 		diceValue = new JTextField();
 		Vector<Stats.Modifier> vec = new Vector<Stats.Modifier>(Stats.allModifiers);
 		Collections.sort(vec);
 		modifierValue = new JComboBox(vec);
-		Vector<String> manaTypes = new Vector<String>();
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.BLACK));
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.BLUE));
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.GOLD));
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.GREEN));
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.PURPLE));
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.RED));
-		manaTypes.add(MagicSys.ManaType.describe(MagicSys.ManaType.WHITE));
-		manaValue = new JComboBox(manaTypes);
+		Vector<String> magicColours = new Vector<String>();
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.BLACK));
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.BLUE));
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.GOLD));
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.GREEN));
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.PURPLE));
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.RED));
+		magicColours.add(MagicSys.MagicColour.describe(MagicSys.MagicColour.WHITE));
+		colourMagicValue = new JComboBox(magicColours);
 
 		ButtonGroup bg = new ButtonGroup();
 		bg.add(custom);
 		bg.add(constant);
 		bg.add(dice);
 		bg.add(modifier);
-		bg.add(mana);
+		bg.add(colourMagic);
 
 		initState(v);
 		resetReferenceOptions(
@@ -115,8 +115,8 @@ public class ValueEditor extends JDialog implements ActionListener
 		controls.add(diceValue);
 		controls.add(modifier);
 		controls.add(modifierValue);
-		controls.add(mana);
-		controls.add(manaValue);
+		controls.add(colourMagic);
+		controls.add(colourMagicValue);
 
 		ok = new JButton("OK");
 		ok.addActionListener(this);
@@ -147,7 +147,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(false);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 		}
 		else if (v instanceof DiceValue)
 		{
@@ -156,7 +156,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(false);
 			diceValue.setEnabled(true);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 
 			diceValue.setText(V1Dice.toString(((DiceValue)v).getDice()));
 		}
@@ -167,20 +167,20 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(false);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(true);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 
 			modifierValue.setSelectedItem(((ModifierValue)v).getModifier());
 		}
-		else if (v instanceof ManaPresentValue)
+		else if (v instanceof MagicPresentValue)
 		{
-			mana.setSelected(true);
+			colourMagic.setSelected(true);
 			base.setEnabled(false);
 			impl.setEnabled(false);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(true);
+			colourMagicValue.setEnabled(true);
 
-			manaValue.setSelectedItem(MagicSys.ManaType.describe(((ManaPresentValue)v).getColour()));
+			colourMagicValue.setSelectedItem(MagicSys.MagicColour.describe(((MagicPresentValue)v).getColour()));
 		}
 		else
 		{
@@ -190,7 +190,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(true);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 		}
 	}
 
@@ -228,10 +228,10 @@ public class ValueEditor extends JDialog implements ActionListener
 			{
 				this.value = new ModifierValue((Stats.Modifier)modifierValue.getSelectedItem());
 			}
-			else if (mana.isSelected())
+			else if (colourMagic.isSelected())
 			{
-				int manaType = MagicSys.ManaType.valueOf((String)manaValue.getSelectedItem());
-				this.value = new ManaPresentValue(manaType);
+				int magicColour = MagicSys.MagicColour.valueOf((String)colourMagicValue.getSelectedItem());
+				this.value = new MagicPresentValue(magicColour);
 			}
 			
 			this.value.setScaling(scale);
@@ -261,13 +261,13 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(false);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 
 			base.setValue(0);
 			impl.setText("");
 			diceValue.setText("");
 			modifierValue.setSelectedIndex(0);
-			manaValue.setSelectedIndex(0);
+			colourMagicValue.setSelectedIndex(0);
 		}
 		else if (e.getSource() == custom)
 		{
@@ -275,13 +275,13 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(true);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 
 			base.setValue(0);
 			impl.setText("");
 			diceValue.setText("");
 			modifierValue.setSelectedIndex(0);
-			manaValue.setSelectedIndex(0);
+			colourMagicValue.setSelectedIndex(0);
 		}
 		else if (e.getSource() == dice)
 		{
@@ -289,13 +289,13 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(false);
 			diceValue.setEnabled(true);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 
 			base.setValue(0);
 			impl.setText("");
 			diceValue.setText("");
 			modifierValue.setSelectedIndex(0);
-			manaValue.setSelectedIndex(0);
+			colourMagicValue.setSelectedIndex(0);
 		}
 		else if (e.getSource() == modifier)
 		{
@@ -303,27 +303,27 @@ public class ValueEditor extends JDialog implements ActionListener
 			impl.setEnabled(false);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(true);
-			manaValue.setEnabled(false);
+			colourMagicValue.setEnabled(false);
 
 			base.setValue(0);
 			impl.setText("");
 			diceValue.setText("");
 			modifierValue.setSelectedIndex(0);
-			manaValue.setSelectedIndex(0);
+			colourMagicValue.setSelectedIndex(0);
 		}
-		else if (e.getSource() == mana)
+		else if (e.getSource() == colourMagic)
 		{
 			base.setValue(0);
 			base.setEnabled(false);
 			impl.setEnabled(false);
 			diceValue.setEnabled(false);
 			modifierValue.setEnabled(false);
-			manaValue.setEnabled(true);
+			colourMagicValue.setEnabled(true);
 
 			impl.setText("");
 			diceValue.setText("");
 			modifierValue.setSelectedIndex(0);
-			manaValue.setSelectedIndex(0);
+			colourMagicValue.setSelectedIndex(0);
 		}
 	}
 

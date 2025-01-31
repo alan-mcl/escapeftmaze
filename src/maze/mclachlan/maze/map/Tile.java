@@ -19,17 +19,15 @@
 
 package mclachlan.maze.map;
 
+import java.awt.Point;
 import java.util.*;
-import java.util.List;
-import java.awt.*;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.StatModifier;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionBearer;
 import mclachlan.maze.stat.condition.ConditionManager;
-import mclachlan.maze.stat.magic.MagicSys;
-import mclachlan.maze.util.MazeException;
-import mclachlan.maze.game.Maze;
 
 /**
  * Represents one tile on the map.
@@ -61,13 +59,13 @@ public class Tile implements ConditionBearer
 	private RestingDanger restingDanger;
 	private RestingEfficiency restingEfficiency;
 
-	private static Set<Stats.Modifier> magicModifiers;
+	private static final Set<Stats.Modifier> magicModifiers;
 	public static final int MAX_TILE_MAGIC = 13;
 
 	/*-------------------------------------------------------------------------*/
 	static
 	{
-		magicModifiers = new HashSet<Stats.Modifier>();
+		magicModifiers = new HashSet<>();
 		magicModifiers.add(Stats.Modifier.BLACK_MAGIC_GEN);
 		magicModifiers.add(Stats.Modifier.BLUE_MAGIC_GEN);
 		magicModifiers.add(Stats.Modifier.RED_MAGIC_GEN);
@@ -78,7 +76,7 @@ public class Tile implements ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum TerrainType
+	public enum TerrainType
 	{
 		FAKE(null),
 		URBAN(Stats.Modifier.STREETWISE),
@@ -86,27 +84,22 @@ public class Tile implements ConditionBearer
 		WILDERNESS(Stats.Modifier.WILDERNESS_LORE),
 		WASTELAND(Stats.Modifier.SURVIVAL);
 
-		private Stats.Modifier stealthModifier;
+		private final Stats.Modifier stealthModifier;
 
 		TerrainType(Stats.Modifier stealthModifier)
 		{
 			this.stealthModifier = stealthModifier;
 		}
-
-		public Stats.Modifier getStealthModifier()
-		{
-			return stealthModifier;
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum RestingDanger
+	public enum RestingDanger
 	{
 		NONE, LOW, MEDIUM, HIGH, EXTREME
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum RestingEfficiency
+	public enum RestingEfficiency
 	{
 		POOR, AVERAGE, GOOD, EXCELLENT
 	}
@@ -183,21 +176,6 @@ public class Tile implements ConditionBearer
 	public int getAmountWhiteMagic()
 	{
 		return getModifier(Stats.Modifier.WHITE_MAGIC_GEN);
-	}
-
-	public int getAmountMagicPresent(int type)
-	{
-		switch (type)
-		{
-			case MagicSys.ManaType.RED:  return getAmountRedMagic();
-			case MagicSys.ManaType.BLACK: return getAmountBlackMagic();
-			case MagicSys.ManaType.PURPLE: return getAmountPurpleMagic();
-			case MagicSys.ManaType.GOLD: return getAmountGoldMagic();
-			case MagicSys.ManaType.WHITE: return getAmountWhiteMagic();
-			case MagicSys.ManaType.GREEN: return getAmountGreenMagic();
-			case MagicSys.ManaType.BLUE: return getAmountBlueMagic();
-			default: throw new MazeException("Invalid mana colour "+type);
-		}
 	}
 
 	public StatModifier getStatModifier()
@@ -325,7 +303,7 @@ public class Tile implements ConditionBearer
 	{
 		ConditionManager.getInstance().addCondition(this, c);
 		Maze.getInstance().getUi().setTile(Maze.getInstance().getCurrentZone(), this, Maze.getInstance().getTile());
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 
 	public void removeCondition(Condition c)

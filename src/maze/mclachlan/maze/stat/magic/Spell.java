@@ -65,7 +65,7 @@ public class Spell extends DataObject
 	private StatModifier requirementsToLearn;
 
 	/** spell requirements to cast */
-	private List<ManaRequirement> requirementsToCast;
+	private List<ColourMagicRequirement> requirementsToCast;
 
 	/** the script that happens when the player casts this spell, typically animations */
 	private MazeScript castByPlayerScript;
@@ -105,7 +105,7 @@ public class Spell extends DataObject
 		String school,
 		MagicSys.SpellBook book,
 		GroupOfPossibilities<SpellEffect> effects,
-		List<ManaRequirement> requirementsToCast,
+		List<ColourMagicRequirement> requirementsToCast,
 		StatModifier requirementsToLearn,
 		MazeScript castingScript,
 		MazeScript castByFoeScript,
@@ -210,7 +210,7 @@ public class Spell extends DataObject
 		return description;
 	}
 
-	public List<ManaRequirement> getRequirementsToCast()
+	public List<ColourMagicRequirement> getRequirementsToCast()
 	{
 		return requirementsToCast;
 	}
@@ -299,7 +299,7 @@ public class Spell extends DataObject
 		this.primaryModifier = primaryModifier;
 	}
 
-	public void setRequirementsToCast(List<ManaRequirement> requirementsToCast)
+	public void setRequirementsToCast(List<ColourMagicRequirement> requirementsToCast)
 	{
 		this.requirementsToCast = requirementsToCast;
 	}
@@ -363,14 +363,14 @@ public class Spell extends DataObject
 	/*-------------------------------------------------------------------------*/
 	public boolean meetsRequirements(UnifiedActor actor)
 	{
-		// must meet all mana requirements
+		// must meet all colour magic requirements
 		if (requirementsToCast != null)
 		{
-			for (ManaRequirement m : requirementsToCast)
+			for (ColourMagicRequirement m : requirementsToCast)
 			{
 				if (!meetsRequirement(m, actor))
 				{
-					Maze.log(Log.DEBUG, this.getName() + ": failed mana present requirement: " + m);
+					Maze.log(Log.DEBUG, this.getName() + ": failed colour magic present requirement: " + m);
 					return false;
 				}
 			}
@@ -393,7 +393,7 @@ public class Spell extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private boolean meetsRequirement(ManaRequirement m, UnifiedActor actor)
+	private boolean meetsRequirement(ColourMagicRequirement m, UnifiedActor actor)
 	{
 		if (actor == null)
 		{
@@ -407,9 +407,9 @@ public class Spell extends DataObject
 	/*-------------------------------------------------------------------------*/
 	public static class SpellAttackWith implements AttackWith
 	{
-		private Spell spell;
-		private UnifiedActor caster;
-		private int castingLevel;
+		private final Spell spell;
+		private final UnifiedActor caster;
+		private final int castingLevel;
 
 		public SpellAttackWith(Spell spell, UnifiedActor caster, int castingLevel)
 		{

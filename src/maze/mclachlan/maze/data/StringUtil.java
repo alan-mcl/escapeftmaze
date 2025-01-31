@@ -173,10 +173,10 @@ public class StringUtil
 	{
 		String result;
 
-		if (v instanceof ManaPresentValue)
+		if (v instanceof MagicPresentValue)
 		{
-			String mc = MagicSys.ManaType.describe(((ManaPresentValue)v).getColour());
-			result = StringUtil.getUiLabel("vd.mana.present", mc);
+			String mc = MagicSys.MagicColour.describe(((MagicPresentValue)v).getColour());
+			result = StringUtil.getUiLabel("vd.magic.present", mc);
 		}
 		else if (v instanceof ModifierValue)
 		{

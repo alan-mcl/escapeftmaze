@@ -305,12 +305,6 @@ public class MagicSys
 		{
 			return resistanceModifier;
 		}
-
-		/*----------------------------------------------------------------------*/
-		public static Stats.Modifier getResistanceModifier(SpellEffectType effectType)
-		{
-			return effectType.getResistanceModifier();
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -362,7 +356,7 @@ public class MagicSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class ManaType
+	public static class MagicColour
 	{
 		public static final int RED = 0;
 		public static final int BLACK = 1;
@@ -388,32 +382,32 @@ public class MagicSys
 		{
 			return switch (magicColour)
 				{
-					case ManaType.RED -> "Red";
-					case ManaType.BLACK -> "Black";
-					case ManaType.PURPLE -> "Purple";
-					case ManaType.GOLD -> "Gold";
-					case ManaType.WHITE -> "White";
-					case ManaType.GREEN -> "Green";
-					case ManaType.BLUE -> "Blue";
+					case MagicColour.RED -> "Red";
+					case MagicColour.BLACK -> "Black";
+					case MagicColour.PURPLE -> "Purple";
+					case MagicColour.GOLD -> "Gold";
+					case MagicColour.WHITE -> "White";
+					case MagicColour.GREEN -> "Green";
+					case MagicColour.BLUE -> "Blue";
 					default ->
 						throw new MazeException("Invalid magic colour " + magicColour);
 				};
 		}
 
 		/*----------------------------------------------------------------------*/
-		public static Stats.Modifier getModifier(int manaType)
+		public static Stats.Modifier getModifier(int magicColour)
 		{
-			return switch (manaType)
+			return switch (magicColour)
 				{
-					case ManaType.RED -> Stats.Modifier.RED_MAGIC_GEN;
-					case ManaType.BLACK -> Stats.Modifier.BLACK_MAGIC_GEN;
-					case ManaType.PURPLE -> Stats.Modifier.PURPLE_MAGIC_GEN;
-					case ManaType.GOLD -> Stats.Modifier.GOLD_MAGIC_GEN;
-					case ManaType.WHITE -> Stats.Modifier.WHITE_MAGIC_GEN;
-					case ManaType.GREEN -> Stats.Modifier.GREEN_MAGIC_GEN;
-					case ManaType.BLUE -> Stats.Modifier.BLUE_MAGIC_GEN;
+					case MagicColour.RED -> Stats.Modifier.RED_MAGIC_GEN;
+					case MagicColour.BLACK -> Stats.Modifier.BLACK_MAGIC_GEN;
+					case MagicColour.PURPLE -> Stats.Modifier.PURPLE_MAGIC_GEN;
+					case MagicColour.GOLD -> Stats.Modifier.GOLD_MAGIC_GEN;
+					case MagicColour.WHITE -> Stats.Modifier.WHITE_MAGIC_GEN;
+					case MagicColour.GREEN -> Stats.Modifier.GREEN_MAGIC_GEN;
+					case MagicColour.BLUE -> Stats.Modifier.BLUE_MAGIC_GEN;
 					default ->
-						throw new MazeException("Invalid mana colour " + manaType);
+						throw new MazeException("Invalid magic colour " + magicColour);
 				};
 		}
 

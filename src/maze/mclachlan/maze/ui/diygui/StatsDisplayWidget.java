@@ -60,7 +60,6 @@ public class StatsDisplayWidget extends ContainerWidget
 	private FilledBarWidget actionPoints;
 	private FilledBarWidget magicPoints;
 	private FilledBarWidget experience;
-	//	private ManaDisplayWidget mana = new ManaDisplayWidget();
 	private FilledBarWidget resistBludgeoning;
 	private FilledBarWidget resistPiercing;
 	private FilledBarWidget resistSlashing;
