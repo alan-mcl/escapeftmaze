@@ -29,7 +29,7 @@ import java.util.*;
  */
 public class GrantItemsEvent extends MazeEvent
 {
-	List<Item> items;
+	private final List<Item> items;
 
 	/*-------------------------------------------------------------------------*/
 	public GrantItemsEvent(Item... items)

@@ -841,7 +841,7 @@ public class Maze implements Runnable
 			combat.combatRound(partyIntentions, foeIntentionList);
 		while (combatActions.hasNext())
 		{
-			appendEvents(new ResolveCombatActionEvent(this, combat, combatActions.next()));
+			appendEvents(new ResolveCombatActionEvent(combat, combatActions.next()));
 			appendEvents(new CheckPartyStatusEvent());
 			appendEvents(new CheckCombatStatusEvent(this, combat));
 		}
@@ -959,7 +959,7 @@ public class Maze implements Runnable
 			combat.combatRound(partyIntentions, foeIntentionList);
 		while (combatActions.hasNext())
 		{
-			appendEvents(new ResolveCombatActionEvent(this, combat, combatActions.next()));
+			appendEvents(new ResolveCombatActionEvent(combat, combatActions.next()));
 			appendEvents(new CheckPartyStatusEvent());
 			appendEvents(new CheckCombatStatusEvent(this, combat));
 		}
@@ -967,7 +967,7 @@ public class Maze implements Runnable
 		//
 		// append end of round events
 		//
-		appendEvents(new EndCombatRoundEvent(this, combat));
+		appendEvents(new EndCombatRoundEvent(this, combat, combat.getRoundNr()));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1213,6 +1213,10 @@ public class Maze implements Runnable
 
 	/*-------------------------------------------------------------------------*/
 
+	/**
+	 * Should be used to pass events from the UI thread to the game thread
+	 * for processing.
+	 */
 	public void appendEvents(MazeEvent... events)
 	{
 		if (events != null)
@@ -1222,6 +1226,11 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Should be used to pass events from the UI thread to the game thread
+	 * for processing.
+	 */
 	public void appendEvents(List<MazeEvent> events)
 	{
 		if (events != null)
@@ -1693,18 +1702,18 @@ public class Maze implements Runnable
 	/*-------------------------------------------------------------------------*/
 	private int reverseFacing(int facing)
 	{
-		switch (facing)
-		{
-			case NORTH: return SOUTH;
-			case SOUTH: return NORTH;
-			case EAST: return WEST;
-			case WEST: return EAST;
-			case NORTH_EAST: return SOUTH_EAST;
-			case NORTH_WEST: return SOUTH_WEST;
-			case SOUTH_EAST: return NORTH_WEST;
-			case SOUTH_WEST: return NORTH_EAST;
-			default: throw new MazeException("invalid facing "+facing);
-		}
+		return switch (facing)
+			{
+				case NORTH -> SOUTH;
+				case SOUTH -> NORTH;
+				case EAST -> WEST;
+				case WEST -> EAST;
+				case NORTH_EAST -> SOUTH_EAST;
+				case NORTH_WEST -> SOUTH_WEST;
+				case SOUTH_EAST -> NORTH_WEST;
+				case SOUTH_WEST -> NORTH_EAST;
+				default -> throw new MazeException("invalid facing " + facing);
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2190,6 +2199,12 @@ public class Maze implements Runnable
 		}
 
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void deleteQueuedEvents(Class eventClass)
+	{
+		processor.queue.removeIf(eventClass::isInstance);
 	}
 
 	/*-------------------------------------------------------------------------*/

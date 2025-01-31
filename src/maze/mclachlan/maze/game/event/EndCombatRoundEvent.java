@@ -34,12 +34,14 @@ public class EndCombatRoundEvent extends MazeEvent
 {
 	private final Maze maze;
 	private final Combat combat;
+	private final int roundNr;
 
 	/*-------------------------------------------------------------------------*/
-	public EndCombatRoundEvent(Maze maze, Combat combat)
+	public EndCombatRoundEvent(Maze maze, Combat combat, int roundNr)
 	{
 		this.maze = maze;
 		this.combat = combat;
+		this.roundNr = roundNr;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -100,10 +102,9 @@ public class EndCombatRoundEvent extends MazeEvent
 
 		result.addAll(Maze.getInstance().incTurn(false));
 
-		Maze.getInstance().getUi().addMessage(
-			StringUtil.getEventText("msg.combat.round.ends", combat.getRoundNr()));
-
 		result.addAll(combat.endRound());
+
+		result.add(new UiMessageEvent(StringUtil.getEventText("msg.combat.round.ends", roundNr)));
 
 		result.add(new MazeEvent()
 		{

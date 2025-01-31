@@ -53,9 +53,14 @@ public class CheckCombatStatusEvent extends MazeEvent
 		{
 			if (!maze.alreadyQueued(EndCombatEvent.class))
 			{
-				// todo: something wonky here, shouldn't we be returning these instead of appending directly to the queue
-				maze.appendEvents(
-					new MazeEvent()
+				// remove all other combat actions and status checks
+				maze.deleteQueuedEvents(ResolveCombatActionEvent.class);
+				maze.deleteQueuedEvents(CheckPartyStatusEvent.class);
+				maze.deleteQueuedEvents(CheckCombatStatusEvent.class);
+				maze.deleteQueuedEvents(EndCombatRoundEvent.class);
+
+				result.add(new EndCombatRoundEvent(maze, combat, combat.getRoundNr()));
+				result.add(new MazeEvent()
 					{
 						@Override
 						public List<MazeEvent> resolve()
@@ -65,8 +70,9 @@ public class CheckCombatStatusEvent extends MazeEvent
 								combat.getAverageFoeLevel(), maze.getParty().getPartyLevel());
 							return null;
 						}
-					},
-					new EndCombatEvent(maze, combat, maze.getCurrentActorEncounter(), true));
+					});
+				result.add(new EndCombatEvent(maze, combat, maze.getCurrentActorEncounter(), true));
+				result.add(new CheckPartyStatusEvent());
 			}
 		}
 

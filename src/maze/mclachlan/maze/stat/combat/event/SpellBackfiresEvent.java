@@ -55,12 +55,6 @@ public class SpellBackfiresEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		return Maze.getInstance().getUserConfig().getCombatDelay();

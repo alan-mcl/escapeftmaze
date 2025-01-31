@@ -38,7 +38,7 @@ public class CheckPartyStatusEvent extends MazeEvent
 {
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		//
 		// See if the whole party is dead = GAME OVER

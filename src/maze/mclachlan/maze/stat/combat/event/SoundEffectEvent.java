@@ -60,12 +60,6 @@ public class SoundEffectEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		return Delay.NONE;

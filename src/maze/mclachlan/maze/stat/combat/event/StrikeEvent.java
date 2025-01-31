@@ -351,12 +351,6 @@ public class StrikeEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public BodyPart getBodyPart()
 	{
 		return bodyPart;

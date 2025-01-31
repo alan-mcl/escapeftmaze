@@ -79,12 +79,6 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		if (modal && playerCharacter != null)

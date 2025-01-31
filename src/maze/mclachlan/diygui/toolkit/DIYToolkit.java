@@ -576,7 +576,7 @@ public class DIYToolkit
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * Clears the topmost modal dialog.
+	 * Clears all modal dialogs.
 	 */
 	public void clearAllDialogs()
 	{

@@ -40,12 +40,6 @@ public class CloudSpellEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		return Delay.NONE;
@@ -79,12 +73,6 @@ public class CloudSpellEvent extends MazeEvent
 			attackedGroup.addCloudSpell(cloudSpell);
 		}
 
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
 		return null;
 	}
 }

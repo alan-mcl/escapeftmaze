@@ -45,10 +45,4 @@ public class PartyFleesEvent extends MazeEvent
 	{
 		return Maze.getInstance().getUserConfig().getCombatDelay();
 	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
 }

@@ -47,10 +47,4 @@ public class DelayEvent extends MazeEvent
 	{
 		return delay;
 	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
 }

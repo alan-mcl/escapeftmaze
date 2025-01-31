@@ -60,7 +60,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	implements MessageDestination, ActionListener, ConfirmCallback
 {
 	private static final int TOTAL_LOG_MESSAGES = 200;
-	private static final int MAIN_SCREEN_MESSAGES = 7;
+	private static final int MAIN_SCREEN_MESSAGES = 4;
 	private final Maze maze;
 
 	// card layout for the game state handler widgets
@@ -71,7 +71,8 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 
 	// the central text area, common to all game states
 	private final DIYTextArea textArea;
-	private final List<String> messages = new ArrayList<>();
+	private final List<String> displayedMessages = new ArrayList<>();
+	private final List<String> allMessages = new ArrayList<>();
 
 	// movement options
 	private final MovementStateHandler movementHandler;
@@ -268,13 +269,21 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	@Override
 	public void addMessage(String message)
 	{
-		messages.add(0, message);
-		if (messages.size() > TOTAL_LOG_MESSAGES)
+		displayedMessages.add(message);
+		if (displayedMessages.size() > MAIN_SCREEN_MESSAGES)
 		{
-			messages.remove(messages.size() - 1);
+			displayedMessages.remove(0);
 		}
 
-		textArea.setText(String.join("\n", messages.subList(0, Math.min(messages.size(), MAIN_SCREEN_MESSAGES))));
+		allMessages.add(message);
+		if (allMessages.size() > TOTAL_LOG_MESSAGES)
+		{
+			allMessages.remove(0);
+		}
+
+		int nrMsgs = Math.min(displayedMessages.size(), MAIN_SCREEN_MESSAGES);
+
+		textArea.setText(String.join("\n", displayedMessages.subList(displayedMessages.size()-nrMsgs, displayedMessages.size())));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -292,7 +301,8 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	@Override
 	public void clearMessages()
 	{
-		messages.clear();
+		allMessages.clear();
+		displayedMessages.clear();
 		header.setText("");
 	}
 
@@ -303,8 +313,9 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	 */
 	public void clearDisplayedMessages()
 	{
+		displayedMessages.clear();
 		textArea.setText("");
-		addMessage(""); // add a blank line to the log
+		allMessages.add(""); // add a blank line to the log
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -589,10 +600,10 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		return false;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private void viewLog()
 	{
-		ArrayList<String> msgs = new ArrayList<>(messages);
-		Collections.reverse(msgs);
+		ArrayList<String> msgs = new ArrayList<>(allMessages);
 		String text = String.join("\n", msgs);
 
 		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH / 2;
@@ -606,6 +617,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		DiyGuiUserInterface.instance.showDialog(dialog);
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void showJournal()
 	{
 		if (journal.isVisible())
@@ -614,6 +626,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void showSettingsDialog()
 	{
 		if (settings.isVisible())
@@ -622,6 +635,7 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void quit()
 	{
 		maze.getUi().showDialog(
@@ -631,16 +645,19 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 				this));
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void saveOrLoad()
 	{
 		maze.setState(Maze.State.SAVE_LOAD);
 	}
 
+	/*-------------------------------------------------------------------------*/
 	public void showMap()
 	{
 		maze.getUi().showDialog(new MapDisplayDialog());
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void confirm()
 	{

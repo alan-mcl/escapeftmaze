@@ -4,8 +4,6 @@ STUFFTODO
 
 UI REFRESH
 --------------
-combat text scrolling improvement
-
 rename Automata race?
 rename mana to magic colour
 different texture and mask texture for different wall heights

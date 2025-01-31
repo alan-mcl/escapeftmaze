@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.event.CheckPartyStatusEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.event.ActorDiesEvent;
 import mclachlan.maze.stat.combat.event.BerserkEvent;
@@ -452,7 +453,7 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	private List<MazeEvent> processCloudSpells(ActorGroup actorGroup)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		List<CloudSpell> list = actorGroup.getCloudSpells();
 		ListIterator<CloudSpell> li = list.listIterator();
@@ -472,14 +473,15 @@ public class Combat
 			// todo: animation context goes nowhere?
 			AnimationContext animationContext = new AnimationContext(cloudSpell.getSource());
 
-			result = ActorActionResolver.resolveSpell(
+			result.addAll(ActorActionResolver.resolveSpell(
 				this,
 				cloudSpell.getSource(),
 				spellAction,
 				true,
 				false,
-				animationContext);
+				animationContext));
 
+			result.add(new CheckPartyStatusEvent());
 			result.add(new CloudSpellEndOfTurn(cloudSpell, actorGroup));
 		}
 

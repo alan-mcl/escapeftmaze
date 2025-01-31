@@ -38,12 +38,6 @@ public class MagicAbsorptionEvent extends MazeEvent
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
-	
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
 		int amount = victim.getModifier(Stats.Modifier.MAGIC_ABSORPTION);

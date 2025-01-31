@@ -64,12 +64,6 @@ public class FatigueEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	/**
 	 * Applies the damage to the defender. 
 	 */ 

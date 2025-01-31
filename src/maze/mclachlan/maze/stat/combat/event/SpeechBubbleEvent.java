@@ -62,12 +62,6 @@ public class SpeechBubbleEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		if (duration == Delay.WAIT_ON_CLICK)

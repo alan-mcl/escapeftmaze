@@ -53,12 +53,6 @@ public class ActorLearnsSpellEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
 		pc.getSpellBook().addSpell(spell);

@@ -114,7 +114,8 @@ public class EndCombatEvent extends MazeEvent
 			totalGold += (totalGold*extraPercent/100);
 
 			List<MazeEvent> result = new ArrayList<>();
-			result.add(new UiMessageEvent(StringUtil.getEventText("msg.victory")));
+			result.add(new CheckPartyStatusEvent());
+			result.add(new UiMessageEvent(StringUtil.getEventText("msg.victory"), true));
 			result.add(new GrantExperienceEvent(xp, null));
 			if (totalGold > 0)
 			{
@@ -132,5 +133,13 @@ public class EndCombatEvent extends MazeEvent
 		{
 			return null;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean shouldClearText()
+	{
+		return true;
 	}
 }

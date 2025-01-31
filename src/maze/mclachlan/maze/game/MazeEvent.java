@@ -45,14 +45,23 @@ public abstract class MazeEvent
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Indicate whether or not text should be cleared just prior
-	 * to this event being displayed.  This default implementation returns false.
+	 * @return Indicate whether text should be cleared just prior
+	 * to this event being displayed.
+	 * This default implementation returns false.
 	 */
 	public boolean shouldClearText()
 	{
-		// todo:
-		// debatable whether this should be a property of the event or of the UI?
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @return any text to display in the event messages UI for the player, or
+	 * null if none.
+	 */
+	public String getText()
+	{
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -62,17 +71,9 @@ public abstract class MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public String getText()
+	protected static List<MazeEvent> getList(MazeEvent... events)
 	{
-		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	protected List<MazeEvent> getList(MazeEvent... events)
-	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
-		result.addAll(Arrays.asList(events));
-		return result;
+		return new ArrayList<>(Arrays.asList(events));
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -40,12 +40,6 @@ public class AnimationEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldClearText()
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public int getDelay()
 	{
 		return Delay.WAIT_ON_CLICK;

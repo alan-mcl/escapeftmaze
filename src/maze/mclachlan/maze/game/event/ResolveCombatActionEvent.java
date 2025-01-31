@@ -20,7 +20,6 @@
 package mclachlan.maze.game.event;
 
 import java.util.*;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
@@ -30,14 +29,12 @@ import mclachlan.maze.stat.combat.CombatAction;
  */
 public class ResolveCombatActionEvent extends MazeEvent
 {
-	private Maze maze;
-	private Combat combat;
-	private CombatAction action;
+	private final Combat combat;
+	private final CombatAction action;
 
 	/*-------------------------------------------------------------------------*/
-	public ResolveCombatActionEvent(Maze maze, Combat combat, CombatAction action)
+	public ResolveCombatActionEvent(Combat combat, CombatAction action)
 	{
-		this.maze = maze;
 		this.combat = combat;
 		this.action = action;
 	}

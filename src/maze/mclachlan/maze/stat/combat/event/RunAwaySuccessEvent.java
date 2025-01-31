@@ -66,10 +66,4 @@ public class RunAwaySuccessEvent extends MazeEvent
 	{
 		return Maze.getInstance().getUserConfig().getCombatDelay();
 	}
-
-	/*-------------------------------------------------------------------------*/
-	public String getText()
-	{
-		return null;
-	}
 }

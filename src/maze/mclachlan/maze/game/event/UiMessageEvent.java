@@ -28,17 +28,24 @@ import mclachlan.maze.game.MazeEvent;
  */
 public class UiMessageEvent extends MazeEvent
 {
-	private String msg;
+	private final String msg;
+	private final boolean shouldClearText;
 
 	public UiMessageEvent(String msg)
 	{
+		this(msg, false);
+	}
+
+	public UiMessageEvent(String msg, boolean shouldClearText)
+	{
 		this.msg = msg;
+		this.shouldClearText = shouldClearText;
 	}
 
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().getUi().addMessage(msg);
+//		Maze.getInstance().getUi().addMessage(msg);
 		return null;
 	}
 
@@ -46,5 +53,17 @@ public class UiMessageEvent extends MazeEvent
 	public int getDelay()
 	{
 		return Maze.getInstance().getUserConfig().getCombatDelay();
+	}
+
+	@Override
+	public String getText()
+	{
+		return msg;
+	}
+
+	@Override
+	public boolean shouldClearText()
+	{
+		return shouldClearText;
 	}
 }
