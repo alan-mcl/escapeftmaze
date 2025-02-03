@@ -24,7 +24,7 @@ import mclachlan.maze.stat.Dice;
 /**
  *
  */
-public class AutomataNameGenerator
+public class MataNameGenerator
 {
 	static String[] pre =
 		{
@@ -51,8 +51,8 @@ public class AutomataNameGenerator
 
 		for (int i=0; i<nr; i++)
 		{
-			String preS = pre[preD.roll("automata name gen 1")];
-			String postS = post[postD.roll("automata name gen 2")];
+			String preS = pre[preD.roll("mata name gen 1")];
+			String postS = post[postD.roll("mata name gen 2")];
 
 			System.out.println(Capitaliser.capitaliseWord(preS+postS));
 		}

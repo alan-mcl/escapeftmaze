@@ -359,6 +359,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 		kitDesc = new DIYTextArea("                                            " +
 			"                                                                   ");
 		kitDesc.setTransparent(true);
+		kitDesc.setBounds(
+			kitDescPanel.x +panelBorderInset,
+			kitDescPanel.y +panelBorderInset,
+			kitDescPanel.width -panelBorderInset*2,
+			kitDescPanel.height -panelBorderInset*2);
 		kitDescPanel.add(kitDesc);
 
 		DIYPanel kitItemsPanel = getFixedPanel(
@@ -621,6 +626,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		this.classDesc = new DIYTextArea(characterClassList.get(0).characterClass.getDescription());
 		this.classDesc.setTransparent(true);
+		classDesc.setBounds(
+			classDescPanel.x +panelBorderInset,
+			classDescPanel.y +panelBorderInset,
+			classDescPanel.width -panelBorderInset*2,
+			classDescPanel.height -panelBorderInset*2);
 		classDescPanel.add(classDesc);
 
 		// spell books
@@ -1043,6 +1053,11 @@ public class CreateCharacterWidget extends ContainerWidget implements ActionList
 
 		raceDesc = new DIYTextArea("");
 		raceDesc.setTransparent(true);
+		raceDesc.setBounds(
+			raceDescPanel.x +panelBorderInset,
+			raceDescPanel.y +panelBorderInset,
+			raceDescPanel.width -panelBorderInset*2,
+			raceDescPanel.height -panelBorderInset*2);
 		raceDescPanel.add(raceDesc);
 
 		DIYPanel raceImagePanel = getFixedPanel(

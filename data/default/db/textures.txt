@@ -1006,8 +1006,8 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
-name=foe.automaton.1
-imageResources=crusader/foe/automaton_1
+name=foe.mata.1
+imageResources=crusader/foe/mata_1
 animationDelay=-1
 imageWidth=512
 imageHeight=512
@@ -1038,8 +1038,8 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
-name=foe.automaton.2
-imageResources=crusader/foe/automaton_2
+name=foe.mata.2
+imageResources=crusader/foe/mata_2
 animationDelay=-1
 imageWidth=512
 imageHeight=512
