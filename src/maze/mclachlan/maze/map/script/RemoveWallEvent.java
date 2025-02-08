@@ -19,6 +19,7 @@
 
 package mclachlan.maze.map.script;
 
+import mclachlan.crusader.Texture;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.Maze;
@@ -57,7 +58,7 @@ public class RemoveWallEvent extends MazeEvent
 	{
 		map.setWall(index, horizontal,
 			new Wall(
-				Map.NO_WALL,
+				new Texture[]{Map.NO_WALL},
 				null,
 				false,
 				false,

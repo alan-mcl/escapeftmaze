@@ -3,6 +3,7 @@ package mclachlan.dungeongen.lbaw;
 
 import java.util.*;
 import mclachlan.crusader.Map;
+import mclachlan.crusader.Texture;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.DungeonGen;
@@ -71,7 +72,7 @@ public class LbawDungeonGen implements DungeonGen
 		for (int i = 0; i < vertWalls.length; i++)
 		{
 			vertWalls[i] = new Wall(
-				Map.NO_WALL,
+				new Texture[]{Map.NO_WALL},
 				null,
 				false,
 				false,
@@ -84,7 +85,7 @@ public class LbawDungeonGen implements DungeonGen
 		for (int i = 0; i < horizWalls.length; i++)
 		{
 			horizWalls[i] = new Wall(
-				Map.NO_WALL,
+				new Texture[]{Map.NO_WALL},
 				null,
 				false,
 				false,
@@ -150,7 +151,7 @@ public class LbawDungeonGen implements DungeonGen
 	private Wall getWall(MazeTexture wallTexture)
 	{
 		return new Wall(
-			wallTexture.getTexture(),
+			new Texture[]{wallTexture.getTexture()},
 			null,
 			true,
 			true,

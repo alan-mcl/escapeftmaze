@@ -551,7 +551,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		new Database(loader, saver, Maze.getStubCampaign());
 
 		JFrame frame = new JFrame("Map Editor");
-		frame.add(new MapEditor(Database.getInstance().getZone("The Arena"), null, null));
+		frame.add(new MapEditor(Database.getInstance().getZone("arena"), null, null));
 		Dimension d = Toolkit.getDefaultToolkit().getScreenSize();
 		int centerX = (int)(d.getWidth()/2);
 		int centerY = (int)(d.getHeight()/2);

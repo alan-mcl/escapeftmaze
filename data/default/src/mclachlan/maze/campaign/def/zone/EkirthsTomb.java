@@ -1,6 +1,7 @@
 package mclachlan.maze.campaign.def.zone;
 
 import java.util.*;
+import mclachlan.crusader.Texture;
 import mclachlan.maze.campaign.def.map.EkirthsTombGetselsBoneComb;
 import mclachlan.maze.campaign.def.map.EkirthsTombMedallionOfBel;
 import mclachlan.maze.campaign.def.map.EkirthsTombWallButton1;
@@ -42,7 +43,7 @@ public class EkirthsTomb extends ZoneScript
 		{
 			zone.getMap().getVerticalWalls()[522] =
 				new Wall(
-					mclachlan.crusader.Map.NO_WALL,
+					new Texture[]{mclachlan.crusader.Map.NO_WALL},
 					null,
 					false,
 					false,

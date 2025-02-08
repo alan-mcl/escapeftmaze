@@ -186,15 +186,15 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * column;
 				int yw = originY + tileSize * row - wallSize / 2;
 
-				Image img = getHorizScaledImage(wall.getTexture().getImages()[0]);
+				Image img = getHorizScaledImage(wall.getTexture(0).getImages()[0]);
 				g.drawImage(
 					img,
 					xw, yw, component);
 
-				if (wall.getMaskTexture() != null)
+				if (wall.getMaskTexture(0) != null)
 				{
 					g.drawImage(
-						getHorizScaledImage(wall.getMaskTexture().getImages()[0]),
+						getHorizScaledImage(wall.getMaskTexture(0).getImages()[0]),
 						xw, yw, component);
 				}
 
@@ -215,15 +215,15 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * column;
 				int yw = originY + tileSize * (row + 1) - wallSize / 2;
 
-				Image img = getHorizScaledImage(wall.getTexture().getImages()[0]);
+				Image img = getHorizScaledImage(wall.getTexture(0).getImages()[0]);
 				g.drawImage(
 					img,
 					xw, yw, component);
 
-				if (wall.getMaskTexture() != null)
+				if (wall.getMaskTexture(0) != null)
 				{
 					g.drawImage(
-						getHorizScaledImage(wall.getMaskTexture().getImages()[0]),
+						getHorizScaledImage(wall.getMaskTexture(0).getImages()[0]),
 						xw, yw, component);
 				}
 
@@ -246,15 +246,15 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * column - wallSize / 2;
 				int yw = originY + tileSize * row;
 
-				Image img = getVertScaledImage(wall.getTexture().getImages()[0]);
+				Image img = getVertScaledImage(wall.getTexture(0).getImages()[0]);
 				g.drawImage(
 					img,
 					xw, yw, component);
 
-				if (wall.getMaskTexture() != null)
+				if (wall.getMaskTexture(0) != null)
 				{
 					g.drawImage(
-						getVertScaledImage(wall.getMaskTexture().getImages()[0]),
+						getVertScaledImage(wall.getMaskTexture(0).getImages()[0]),
 						xw, yw, component);
 				}
 
@@ -275,15 +275,15 @@ public class MapDisplayWidget extends DIYPanel
 				int xw = originX + tileSize * (column + 1) - wallSize / 2;
 				int yw = originY + tileSize * row;
 
-				Image img = getVertScaledImage(wall.getTexture().getImages()[0]);
+				Image img = getVertScaledImage(wall.getTexture(0).getImages()[0]);
 				g.drawImage(
 					img,
 					xw, yw, component);
 
-				if (wall.getMaskTexture() != null)
+				if (wall.getMaskTexture(0) != null)
 				{
 					g.drawImage(
-						getVertScaledImage(wall.getMaskTexture().getImages()[0]),
+						getVertScaledImage(wall.getMaskTexture(0).getImages()[0]),
 						xw, yw, component);
 				}
 

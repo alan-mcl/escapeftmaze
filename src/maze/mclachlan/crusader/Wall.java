@@ -19,6 +19,8 @@
 
 package mclachlan.crusader;
 
+import java.util.*;
+
 /**
  *
  */
@@ -30,10 +32,10 @@ public class Wall
 	boolean solid;
 	/** height of this wall, in blocks */
 	int height;
-	/** The texture to map onto this wall*/
-	Texture texture;
-	/** Any texture to mask over this wall*/
-	Texture maskTexture;
+	/** The textures to map onto this wall, indexed by height from ground up*/
+	Texture[] textures;
+	/** Any textures to mask over this wall, indexed by height from ground up*/
+	Texture[] maskTextures;
 	/** Any script to run when the user clicks on this wall*/
 	MouseClickScript mouseClickScript;
 	/** Any script to run when the user clicks on the mask texture on this wall*/
@@ -43,10 +45,10 @@ public class Wall
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * @param texture
-	 * 	The texture to map onto this wall
-	 * @param maskTexture
-	 * 	Any texture to mask over this wall
+	 * @param textures
+	 * 	The textures to map onto this wall, indexed by height from ground up
+	 * @param maskTextures
+	 * 	Any textures to mask over this wall, indexed by height from ground up
 	 * @param visible
 	 * 	True if this wall is visible
 	 * @param solid
@@ -61,8 +63,8 @@ public class Wall
 	 * 	Any internal script run by other means
 	 */
 	public Wall(
-		Texture texture, 
-		Texture maskTexture, 
+		Texture[] textures,
+		Texture[] maskTextures,
 		boolean visible,
 		boolean solid,
 		int height,
@@ -73,8 +75,8 @@ public class Wall
 		this.height = height;
 		this.maskTextureMouseClickScript = maskTextureMouseClickScript;
 		this.mouseClickScript = mouseClickScript;
-		this.texture = texture;
-		this.maskTexture = maskTexture;
+		this.textures = textures;
+		this.maskTextures = maskTextures;
 		this.visible = visible;
 		this.solid = solid;
 		this.internalScript = internalScript;
@@ -86,15 +88,35 @@ public class Wall
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Texture getMaskTexture()
+	public Texture getMaskTexture(int height)
 	{
-		return maskTexture;
+		return maskTextures == null ? null : maskTextures[height];
+	}
+
+	public Texture[] getMaskTextures()
+	{
+		return maskTextures;
+	}
+
+	public void setMaskTextures(Texture[] maskTextures)
+	{
+		this.maskTextures = maskTextures;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Texture getTexture()
+	public Texture getTexture(int height)
 	{
-		return texture;
+		return textures[height];
+	}
+
+	public Texture[] getTextures()
+	{
+		return textures;
+	}
+
+	public void setTextures(Texture[] textures)
+	{
+		this.textures = textures;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -122,9 +144,9 @@ public class Wall
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setMaskTexture(Texture maskTexture)
+	public void setMaskTexture(int height, Texture maskTexture)
 	{
-		this.maskTexture = maskTexture;
+		this.maskTextures[height] = maskTexture;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -152,9 +174,9 @@ public class Wall
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setTexture(Texture texture)
+	public void setTexture(int height, Texture texture)
 	{
-		this.texture = texture;
+		this.textures[height] = texture;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -184,7 +206,13 @@ public class Wall
 	{
 		return "Wall{" +
 			"visible=" + visible +
-			", texture=" + texture +
+			", solid=" + solid +
+			", height=" + height +
+			", texture=" + Arrays.toString(textures) +
+			", maskTexture=" + Arrays.toString(maskTextures) +
+			", mouseClickScript=" + mouseClickScript +
+			", maskTextureMouseClickScript=" + maskTextureMouseClickScript +
+			", internalScript=" + internalScript +
 			'}';
 	}
 }

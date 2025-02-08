@@ -3,6 +3,7 @@ package mclachlan.maze.campaign.def.zone;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.crusader.Texture;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
@@ -97,7 +98,7 @@ public class WrithingMire extends ZoneScript
 		if (present)
 		{
 			wall_array[index] = new Wall(
-				Database.getInstance().getMazeTexture("TREE_WALL_1").getTexture(),
+				new Texture[]{Database.getInstance().getMazeTexture("TREE_WALL_1").getTexture()},
 				null,
 				true,
 				true,
@@ -109,7 +110,7 @@ public class WrithingMire extends ZoneScript
 		else
 		{
 			wall_array[index] =
-				new Wall(mclachlan.crusader.Map.NO_WALL,
+				new Wall(new Texture[]{mclachlan.crusader.Map.NO_WALL},
 					null,
 					false,
 					false,

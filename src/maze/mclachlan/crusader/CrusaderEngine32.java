@@ -1737,7 +1737,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 			blockHitRecord[castColumn][j].textureYRecord = -1;
 			blockHitRecord[castColumn][j].blockHit = -1;
 			blockHitRecord[castColumn][j].hitType = -1;
-			blockHitRecord[castColumn][j].texture = null;
+			blockHitRecord[castColumn][j].textures = null;
 			blockHitRecord[castColumn][j].wall = null;
 			blockHitRecord[castColumn][j].projectedWallHeight = -1;
 		}
@@ -1861,7 +1861,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		result.textureYRecord = -1;
 		result.blockHit = -1;
 		result.hitType = -1;
-		result.texture = null;
+		result.textures = null;
 		result.wall = null;
 		result.projectedWallHeight = -1;
 
@@ -1962,7 +1962,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					result.textureXRecord = horizontalTextureXRecord;
 					result.blockHit = horizontalBlockHitRecord;
 					result.hitType = HIT_HORIZONTAL;
-					result.texture = horizontalWallHit.texture;
+					result.textures = horizontalWallHit.textures;
 					result.wall = horizontalWallHit;
 
 					// extend to the next block in case the caller chooses to continue
@@ -2004,7 +2004,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		result.textureYRecord = -1;
 		result.blockHit = -1;
 		result.hitType = -1;
-		result.texture = null;
+		result.textures = null;
 		result.wall = null;
 		result.projectedWallHeight = -1;
 
@@ -2103,7 +2103,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					result.textureXRecord = verticalTextureXRecord;
 					result.blockHit = verticalBlockHitRecord;
 					result.hitType = HIT_VERTICAL;
-					result.texture = verticalWallHit.texture;
+					result.textures = verticalWallHit.textures;
 					result.wall = verticalWallHit;
 
 					// extend to the next block in case the caller chooses to continue
@@ -2301,20 +2301,20 @@ public class CrusaderEngine32 implements CrusaderEngine
 		boolean hasAlpha = false;
 
 		BlockHitRecord hitRecord = blockHitRecord[screenX][depth];
-		float height = hitRecord.projectedWallHeight;
+		float projectedWallHeight = hitRecord.projectedWallHeight;
 		int blockHit = hitRecord.blockHit;
 
 		Wall wall = hitRecord.wall;
-		Texture texture = hitRecord.texture;
+		Texture[] textures = hitRecord.textures;
 
-		if (blockHit == -1 || wall == null || texture == null)
+		if (blockHit == -1 || wall == null || textures == null)
 		{
 			// no block hit at this depth, prob out of bounds
 			return false;
 		}
 
-		int wallHeight = wall.height;
-		Texture maskTexture = wall.maskTexture;
+		int wallStackHeight = wall.height;
+		Texture[] maskTextures = wall.maskTextures;
 
 		int lightLevel;
 		if (this.doLighting)
@@ -2333,9 +2333,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 			shadeMult = calcShadeMult(hitRecord.distance, shadingDistance, shadingThickness);
 		}
 
-		int top = Math.round(Math.max(playerHeight -(height/2) -(height*(wallHeight-1)) +projPlaneOffset, 0));
-		int bottom = Math.round(Math.min(playerHeight +(height/2) +projPlaneOffset, projectionPlaneHeight));
-		int ceilingTop = Math.round(Math.max(playerHeight -(height/2) +projPlaneOffset, 0));
+		float wallTop = playerHeight - (projectedWallHeight / 2) - (projectedWallHeight * (wallStackHeight - 1)) + projPlaneOffset;
+		float wallBottom = playerHeight + (projectedWallHeight / 2) + projPlaneOffset;
+
+		int top = Math.round(Math.max(wallTop, 0));
+		int bottom = Math.round(Math.min(wallBottom, projectionPlaneHeight));
+		int ceilingTop = Math.round(Math.max(playerHeight -(projectedWallHeight/2) +projPlaneOffset, 0)); // todo ceiling height
 
 		int textureX = hitRecord.textureXRecord;
 
@@ -2349,12 +2352,15 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int screenY = top;
 
 		// todo: can probably be optomised
-		float diff = -(playerHeight -(height/2) -(height*(wallHeight-1))) -projPlaneOffset;
+		float diff = -(playerHeight -(projectedWallHeight/2) -(projectedWallHeight*(wallStackHeight-1))) -projPlaneOffset;
 
 		if (ceilingTop > 0)
 		{
-			hasAlpha |= drawCeiling(castArc, screenX, height, depth, ceilingTop, outputBuffer);
+			hasAlpha |= drawCeiling(castArc, screenX, projectedWallHeight, depth, ceilingTop, outputBuffer);
 		}
+
+		int roundedProjWallHeight = Math.round(projectedWallHeight);
+		int roundedWallTop = Math.round(wallTop);
 
 		while (screenY <= bottom)
 		{
@@ -2363,23 +2369,36 @@ public class CrusaderEngine32 implements CrusaderEngine
 			if (bufferIndex < outputBuffer.length && // todo prob hides a bug
 				hasAlpha(outputBuffer[bufferIndex]))
 			{
+				int textureIndex = 0;
+				int maskTextureIndex = 0;
+				if (hitRecord.wall.height > 1)
+				{
+					int index = wallStackHeight - ((screenY- roundedWallTop)/ roundedProjWallHeight);
+
+					textureIndex = Math.abs(((index-1) % textures.length));
+					if (maskTextures != null)
+					{
+						maskTextureIndex = Math.abs((index-1) % maskTextures.length);
+					}
+				}
+
 				if (diff <= 0)
 				{
-					textureY = Math.round(((screenY-top) * tileSize) / height);
+					textureY = Math.round(((screenY-top) * tileSize) / projectedWallHeight);
 				}
 				else
 				{
-					textureY = Math.round(((screenY+diff) * tileSize) / height);
+					textureY = Math.round(((screenY+diff) * tileSize) / projectedWallHeight);
 				}
 
 				int colour;
-				if (maskTexture != null)
+				if (maskTextures != null)
 				{
 					// use the mask texture instead of the wall texture
-					int maskPixel = maskTexture.getCurrentImageData(textureX, textureY, timeNow);
+					int maskPixel = maskTextures[maskTextureIndex].getCurrentImageData(textureX, textureY, timeNow);
 
 					colour = alphaBlend(
-						texture.getCurrentImageData(textureX, textureY, timeNow),
+						textures[textureIndex].getCurrentImageData(textureX, textureY, timeNow),
 						maskPixel);
 
 					// if this click is on a visible piece of the mask texture, use that script
@@ -2395,7 +2414,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				}
 				else
 				{
-					colour = texture.getCurrentImageData(textureX, textureY, timeNow);
+					colour = textures[textureIndex].getCurrentImageData(textureX, textureY, timeNow);
 					this.mouseClickScriptRecords[bufferIndex].script = wall.mouseClickScript;
 					this.mouseClickScriptRecords[bufferIndex].distance = hitRecord.distance;
 				}
@@ -2415,7 +2434,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		if (bottom+1 < projectionPlaneHeight)
 		{
-			hasAlpha |= drawFloor(castArc, screenX, height, depth, bottom+1, outputBuffer);
+			hasAlpha |= drawFloor(castArc, screenX, projectedWallHeight, depth, bottom+1, outputBuffer);
 		}
 
 		return hasAlpha;
@@ -3380,7 +3399,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private static class BlockHitRecord
 	{
 		int blockHit;
-		Texture texture;
+		Texture[] textures;
 		int textureXRecord;
 		int textureYRecord;
 		float distance;
@@ -3398,7 +3417,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		public BlockHitRecord(BlockHitRecord other)
 		{
 			this.blockHit = other.blockHit;
-			this.texture = other.texture;
+			this.textures = other.textures;
 			this.textureXRecord = other.textureXRecord;
 			this.textureYRecord = other.textureYRecord;
 			this.distance = other.distance;
@@ -3414,7 +3433,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			return "blockHit=["+blockHit+"], " +
 				"wall=["+wall+"]" +
-				"texture=["+texture+"], " +
+				"texture=["+ textures +"], " +
 				"distance=["+distance+"], " +
 				"projectedWallHeight=["+projectedWallHeight+"], " +
 				"hitType=["+hitType+"]"; 
@@ -3423,7 +3442,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		public void populateFrom(BlockHitRecord other)
 		{
 			this.blockHit = other.blockHit;
-			this.texture = other.texture;
+			this.textures = other.textures;
 			this.textureXRecord = other.textureXRecord;
 			this.textureYRecord = other.textureYRecord;
 			this.distance = other.distance;

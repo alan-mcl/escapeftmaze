@@ -22,17 +22,18 @@ package mclachlan.maze.editor.swing.map;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.Collections;
-import java.util.Vector;
+import java.util.List;
+import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import mclachlan.crusader.Texture;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.EditorPanel;
 import mclachlan.maze.editor.swing.SingleTileScriptComponent;
 import mclachlan.maze.editor.swing.TileScriptComponentCallback;
-import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 
 /**
  *
@@ -43,10 +44,10 @@ public class WallDetailsPanel extends JPanel
 	// crusader wall properties
 	private final JLabel index;
 	private final JCheckBox isVisible, isSolid;
-	private final JComboBox<String> texture, maskTexture;
+	private final TexturesPanel texturesPanel;
 	private final SingleTileScriptComponent mouseClickScript, maskTextureMouseClickScript, internalScript;
 	private final JSpinner height;
-	
+
 	// the wall being edited
 	private WallProxy wall;
 	private final Zone zone;
@@ -55,14 +56,14 @@ public class WallDetailsPanel extends JPanel
 	public WallDetailsPanel(boolean multiSelect, Zone zone)
 	{
 		setLayout(new GridBagLayout());
-		
+
 		this.zone = zone;
 
 		GridBagConstraints gbc = createGridBagConstraints();
-		
+
 		index = new JLabel();
 		dodgyGridBagShite(this, new JLabel("Index:"), index, gbc);
-		
+
 		isVisible = new JCheckBox("Visible?");
 		isVisible.addActionListener(this);
 		dodgyGridBagShite(this, isVisible, new JLabel(), gbc);
@@ -75,120 +76,97 @@ public class WallDetailsPanel extends JPanel
 		height.addChangeListener(this);
 		dodgyGridBagShite(this, new JLabel("Height:"), height, gbc);
 
-		texture = new JComboBox<>();
-		texture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Texture:"), texture, gbc);
-		
-		maskTexture = new JComboBox<>();
-		maskTexture.addActionListener(this);
-		dodgyGridBagShite(this, new JLabel("Mask Texture:"), maskTexture, gbc);
-		
 		internalScript = new SingleTileScriptComponent(null, -1, this, zone);
 		dodgyGridBagShite(this, new JLabel("Internal Script:"), internalScript, gbc);
 
 		mouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
 		dodgyGridBagShite(this, new JLabel("Click Script:"), mouseClickScript, gbc);
-		
+
 		maskTextureMouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
-		gbc.weightx = 0.0;
-		gbc.weighty = 1.0;
-		gbc.gridx=0;
-		gbc.gridy++;
-		add(new JLabel("Mask Script:"), gbc);
+		dodgyGridBagShite(this, new JLabel("Mask Script:"), maskTextureMouseClickScript, gbc);
+
+		texturesPanel = new TexturesPanel();
+
 		gbc.weightx = 1.0;
-		gbc.gridx++;
-		add(maskTextureMouseClickScript, gbc);
+		gbc.weighty = 1.0;
+		gbc.gridx = 0;
+		gbc.gridwidth = 3;
+		gbc.gridy++;
+		add(texturesPanel, gbc);
 
 		initForeignKeys(multiSelect);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void initForeignKeys(boolean multiSelect)
 	{
-		Vector<String> vec = new Vector<>(Database.getInstance().getMazeTextures().keySet());
-		Collections.sort(vec);
-		if (multiSelect)
-		{
-			vec.insertElementAt(EditorPanel.NONE, 0);
-		}
-		texture.setModel(new DefaultComboBoxModel<>(vec));
-		
-		Vector<String> vec2 = new Vector<>(Database.getInstance().getMazeTextures().keySet());
-		vec2.insertElementAt(EditorPanel.NONE, 0);
-		Collections.sort(vec2);
-		maskTexture.setModel(new DefaultComboBoxModel<>(vec2));
+		texturesPanel.initForeignKeys(multiSelect);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void refresh(WallProxy wall, int index, boolean horiz)
 	{
 		this.wall = wall;
-		
+
 		isVisible.removeActionListener(this);
 		isSolid.removeActionListener(this);
 		height.removeChangeListener(this);
-		texture.removeActionListener(this);
-		maskTexture.removeActionListener(this);
-		
+
 		if (index >= 0)
 		{
-			this.index.setText((horiz?"Horiz ":"Vert ")+index);
+			this.index.setText((horiz ? "Horiz " : "Vert ") + index);
 		}
 		isVisible.setSelected(wall.isVisible());
 		isSolid.setSelected(wall.isSolid());
 		height.setValue(wall.getHeight());
-		
+
 		if (wall.isVisible())
 		{
 			setVisibleState(true);
 
-			texture.setSelectedItem(wall.getTexture()==null?EditorPanel.NONE:wall.getTexture().getName());
-			maskTexture.setSelectedItem(wall.getMaskTexture()==null?EditorPanel.NONE:wall.getMaskTexture().getName());
+			texturesPanel.refresh(wall);
 
 			MouseClickScriptAdapter m1 = ((MouseClickScriptAdapter)wall.getMouseClickScript());
-			mouseClickScript.refresh(m1==null?null:m1.getScript(), zone);
+			mouseClickScript.refresh(m1 == null ? null : m1.getScript(), zone);
 
 			MouseClickScriptAdapter m2 = ((MouseClickScriptAdapter)wall.getMaskTextureMouseClickScript());
-			maskTextureMouseClickScript.refresh(m2==null?null:m2.getScript(), zone);
+			maskTextureMouseClickScript.refresh(m2 == null ? null : m2.getScript(), zone);
 
 			MouseClickScriptAdapter m3 = ((MouseClickScriptAdapter)wall.getInternalScript());
-			internalScript.refresh(m3==null?null:m3.getScript(), zone);
+			internalScript.refresh(m3 == null ? null : m3.getScript(), zone);
 
 		}
 		else
 		{
 			setVisibleState(false);
-			
-			texture.setSelectedIndex(0);
-			maskTexture.setSelectedIndex(0);
+
 			internalScript.refresh(null, zone);
 			mouseClickScript.refresh(null, zone);
 			maskTextureMouseClickScript.refresh(null, zone);
 		}
-		
+
 		isVisible.addActionListener(this);
 		isSolid.addActionListener(this);
 		height.addChangeListener(this);
-		texture.addActionListener(this);
-		maskTexture.addActionListener(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void setVisibleState(boolean b)
 	{
-		texture.setEnabled(b);
-		maskTexture.setEnabled(b);
 		internalScript.setEnabled(b);
 		mouseClickScript.setEnabled(b);
 		maskTextureMouseClickScript.setEnabled(b);
+
+		texturesPanel.setVisibleState(b);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected void dodgyGridBagShite(JPanel panel, Component a, Component b, GridBagConstraints gbc)
+	protected void dodgyGridBagShite(JPanel panel, Component a, Component b,
+		GridBagConstraints gbc)
 	{
 		gbc.weightx = 0.0;
 		gbc.weighty = 0.0;
-		gbc.gridx=0;
+		gbc.gridx = 0;
 		gbc.gridy++;
 		panel.add(a, gbc);
 		gbc.weightx = 1.0;
@@ -200,7 +178,7 @@ public class WallDetailsPanel extends JPanel
 	protected GridBagConstraints createGridBagConstraints()
 	{
 		GridBagConstraints gbc = new GridBagConstraints();
-		gbc.insets = new Insets(2,2,2,2);
+		gbc.insets = new Insets(2, 2, 2, 2);
 		gbc.gridx = 0;
 		gbc.gridy = 0;
 		gbc.gridwidth = 1;
@@ -219,7 +197,7 @@ public class WallDetailsPanel extends JPanel
 			if (wall != null)
 			{
 				wall.setVisible(isVisible.isSelected());
-			}	
+			}
 			setVisibleState(isVisible.isSelected());
 		}
 		else if (e.getSource() == isSolid)
@@ -227,30 +205,6 @@ public class WallDetailsPanel extends JPanel
 			if (wall != null)
 			{
 				wall.setSolid(isSolid.isSelected());
-			}
-		}
-		else if (e.getSource() == texture)
-		{
-			if (wall != null)
-			{
-				String s = (String)texture.getSelectedItem();
-				wall.setTexture(Database.getInstance().getMazeTexture(s).getTexture());
-			}
-		}
-		else if (e.getSource() == maskTexture)
-		{
-			String s = (String)maskTexture.getSelectedItem();
-			
-			if (wall != null)
-			{
-				if (EditorPanel.NONE.equals(s))
-				{
-					wall.setMaskTexture(null);
-				}
-				else
-				{
-					wall.setMaskTexture(Database.getInstance().getMazeTexture(s).getTexture());
-				}
 			}
 		}
 	}
@@ -274,6 +228,7 @@ public class WallDetailsPanel extends JPanel
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
@@ -282,6 +237,155 @@ public class WallDetailsPanel extends JPanel
 			if (wall != null)
 			{
 				wall.setHeight((Integer)height.getValue());
+			}
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class TexturesPanel extends JPanel implements ActionListener
+	{
+		private static final int MAX = 9;
+		private final java.util.List<JComboBox<String>> textures, maskTextures;
+		private WallProxy wall;
+
+		/*-------------------------------------------------------------------------*/
+		public TexturesPanel()
+		{
+			super(new GridLayout(1, 2, 5, 5));
+			textures = new ArrayList<>();
+			maskTextures = new ArrayList<>();
+
+			JPanel left = new JPanel(new GridLayout(MAX + 1, 1, 5, 5));
+			left.add(new JLabel("Textures"));
+			for (int i = 0; i < MAX; i++)
+			{
+				JComboBox<String> cb = new JComboBox<>();
+				cb.addActionListener(this);
+				textures.add(cb);
+				left.add(cb);
+			}
+
+			JPanel right = new JPanel(new GridLayout(MAX + 1, 1, 5, 5));
+			right.add(new JLabel("Mask Textures"));
+			for (int i = 0; i < MAX; i++)
+			{
+				JComboBox<String> cb = new JComboBox<>();
+				cb.addActionListener(this);
+				maskTextures.add(cb);
+				right.add(cb);
+			}
+
+			this.add(left);
+			this.add(right);
+		}
+
+		/*-------------------------------------------------------------------------*/
+		public void initForeignKeys(boolean multiSelect)
+		{
+			Vector<String> vec = new Vector<>(Database.getInstance().getMazeTextures().keySet());
+			Collections.sort(vec);
+			vec.insertElementAt(EditorPanel.NONE, 0);
+
+			for (JComboBox<String> cb : textures)
+			{
+				cb.setModel(new DefaultComboBoxModel<>(vec));
+			}
+			for (JComboBox<String> cb : maskTextures)
+			{
+				cb.setModel(new DefaultComboBoxModel<>(vec));
+			}
+		}
+
+		/*-------------------------------------------------------------------------*/
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			this.commit();
+		}
+
+		/*-------------------------------------------------------------------------*/
+		public void commit()
+		{
+			if (this.wall != null)
+			{
+				List<Texture> texturesResult, maskTexturesResult;
+
+				texturesResult = new ArrayList<>();
+				maskTexturesResult = new ArrayList<>();
+
+				for (JComboBox<String> cb : textures)
+				{
+					if (cb.getSelectedItem() != EditorPanel.NONE)
+					{
+						texturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
+					}
+				}
+
+				for (JComboBox<String> cb : maskTextures)
+				{
+					if (cb.getSelectedItem() != EditorPanel.NONE)
+					{
+						maskTexturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
+					}
+				}
+
+				this.wall.setTextures(texturesResult.toArray(new Texture[0]));
+				if (maskTexturesResult.size() > 0)
+				{
+					this.wall.setMaskTextures(maskTexturesResult.toArray(new Texture[0]));
+				}
+				else
+				{
+					this.wall.setMaskTextures(null);
+				}
+			}
+		}
+
+		/*-------------------------------------------------------------------------*/
+		public void refresh(WallProxy wall)
+		{
+			this.wall = wall;
+
+			if (wall != null)
+			{
+				for (int i = 0; i < MAX; i++)
+				{
+					textures.get(i).removeActionListener(this);
+					maskTextures.get(i).removeActionListener(this);
+
+					if (wall.getTextures().length > i)
+					{
+						textures.get(i).setSelectedItem(wall.getTexture(i).getName());
+					}
+					else
+					{
+						textures.get(i).setSelectedItem(EditorPanel.NONE);
+					}
+
+					if (wall.getMaskTextures() != null && wall.getMaskTextures().length > i)
+					{
+						maskTextures.get(i).setSelectedItem(wall.getMaskTexture(i).getName());
+					}
+					else
+					{
+						maskTextures.get(i).setSelectedItem(EditorPanel.NONE);
+					}
+
+					textures.get(i).addActionListener(this);
+					maskTextures.get(i).addActionListener(this);
+				}
+			}
+		}
+
+		public void setVisibleState(boolean b)
+		{
+			for (JComboBox<String> cb : textures)
+			{
+				cb.setEnabled(b);
+			}
+			for (JComboBox<String> cb : maskTextures)
+			{
+				cb.setEnabled(b);
 			}
 		}
 	}

@@ -24,8 +24,12 @@ import mclachlan.crusader.MouseClickScript;
 
 public abstract class WallProxy
 {
-	public abstract Texture getMaskTexture();
-	public abstract Texture getTexture();
+	public abstract Texture[] getTextures();
+
+	public abstract Texture[] getMaskTextures();
+
+	public abstract Texture getTexture(int index);
+	public abstract Texture getMaskTexture(int index);
 	public abstract boolean isVisible();
 	public abstract boolean isSolid();
 	public abstract MouseClickScript getMaskTextureMouseClickScript();
@@ -37,6 +41,8 @@ public abstract class WallProxy
 
 	public abstract void setHeight(int height);
 
+	public abstract void setTextures(Texture[] textures);
+	public abstract void setMaskTextures(Texture[] maskTextures);
 	public abstract void setMaskTexture(Texture maskTexture);
 	public abstract void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript);
 	public abstract void setMouseClickScript(MouseClickScript mouseClickScript);

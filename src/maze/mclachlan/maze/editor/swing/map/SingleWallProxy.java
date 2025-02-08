@@ -36,15 +36,27 @@ public class SingleWallProxy extends WallProxy
 	}
 
 	@Override
-	public Texture getMaskTexture()
+	public Texture getMaskTexture(int index)
 	{
-		return wall.getMaskTexture();
+		return wall.getMaskTexture(index);
 	}
 
 	@Override
-	public Texture getTexture()
+	public Texture[] getTextures()
 	{
-		return wall.getTexture();
+		return wall.getTextures();
+	}
+
+	@Override
+	public Texture[] getMaskTextures()
+	{
+		return wall.getMaskTextures();
+	}
+
+	@Override
+	public Texture getTexture(int index)
+	{
+		return wall.getTexture(index); // todo wall height
 	}
 
 	@Override
@@ -90,9 +102,21 @@ public class SingleWallProxy extends WallProxy
 	}
 
 	@Override
+	public void setTextures(Texture[] textures)
+	{
+		wall.setTextures(textures);
+	}
+
+	@Override
+	public void setMaskTextures(Texture[] maskTextures)
+	{
+		wall.setMaskTextures(maskTextures);
+	}
+
+	@Override
 	public void setMaskTexture(Texture maskTexture)
 	{
-		wall.setMaskTexture(maskTexture);
+		wall.setMaskTexture(0, maskTexture);
 	}
 
 	@Override
@@ -116,7 +140,7 @@ public class SingleWallProxy extends WallProxy
 	@Override
 	public void setTexture(Texture texture)
 	{
-		wall.setTexture(texture);
+		wall.setTexture(0, texture); // todo: height
 	}
 
 	@Override

@@ -26,6 +26,8 @@ public class ToggleWall extends TileScript
 	/** Variable to store the state of this lever. */
 	private final String mazeVariable;
 
+	// todo: multiple textures for wall heights
+
 	// state 1 wall attributes
 	private final Texture state1Texture;
 	private final Texture state1MaskTexture;
@@ -187,22 +189,24 @@ public class ToggleWall extends TileScript
 
 		switch (State.valueOf(MazeVariables.get(mazeVariable)))
 		{
-			case STATE_1:
-				newWall.setTexture(state1Texture==null?Map.NO_WALL:state1Texture);
-				newWall.setMaskTexture(state1MaskTexture);
+			case STATE_1 ->
+			{
+				newWall.setTexture(0, state1Texture == null ? Map.NO_WALL : state1Texture);
+				newWall.setMaskTexture(0, state1MaskTexture);
 				newWall.setSolid(state1Solid);
 				newWall.setVisible(state1Visible);
 				newWall.setHeight(state1Height);
-				break;
-			case STATE_2:
-				newWall.setTexture(state2Texture==null?Map.NO_WALL:state2Texture);
-				newWall.setMaskTexture(state2MaskTexture);
+			}
+			case STATE_2 ->
+			{
+				newWall.setTexture(0, state2Texture == null ? Map.NO_WALL : state2Texture);
+				newWall.setMaskTexture(0, state2MaskTexture);
 				newWall.setSolid(state2Solid);
 				newWall.setVisible(state2Visible);
 				newWall.setHeight(state2Height);
-				break;
-			default:
-				throw new MazeException("invalid state "+MazeVariables.get(mazeVariable));
+			}
+			default ->
+				throw new MazeException("invalid state " + MazeVariables.get(mazeVariable));
 		}
 
 		// copy any mouse click scripts
@@ -304,15 +308,13 @@ public class ToggleWall extends TileScript
 	{
 		if (MazeVariables.get(mazeVariable) != null)
 		{
-			switch (State.valueOf(MazeVariables.get(mazeVariable)))
-			{
-				case STATE_1:
-					return state1Secret && super.isHiddenSecret();
-				case STATE_2:
-					return state2Secret && super.isHiddenSecret();
-				default:
-					throw new MazeException("invalid state " + MazeVariables.get(mazeVariable));
-			}
+			return switch (State.valueOf(MazeVariables.get(mazeVariable)))
+				{
+					case STATE_1 -> state1Secret && super.isHiddenSecret();
+					case STATE_2 -> state2Secret && super.isHiddenSecret();
+					default ->
+						throw new MazeException("invalid state " + MazeVariables.get(mazeVariable));
+				};
 		}
 		else
 		{

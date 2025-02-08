@@ -87,7 +87,7 @@ public class MapLayer extends Layer
 	
 					if (horizontalWalls[i].isVisible())
 					{
-						g2d.drawImage(display.getHorizScaledImage(horizontalWalls[i].getTexture().getImages()[0]), x1, y1, display);
+						g2d.drawImage(display.getHorizScaledImage(horizontalWalls[i].getTexture(0).getImages()[0]), x1, y1, display);
 						if (display.displayFeatures.get(MapDisplay.Display.GRID))
 						{
 							g2d.drawRect(x1,y1,tileSize,wallSize);
@@ -111,7 +111,7 @@ public class MapLayer extends Layer
 				
 					if (verticalWalls[i].isVisible())
 					{
-						g2d.drawImage(display.getVertScaledImage(verticalWalls[i].getTexture().getImages()[0]), x1, y1, display);
+						g2d.drawImage(display.getVertScaledImage(verticalWalls[i].getTexture(0).getImages()[0]), x1, y1, display);
 						if (display.displayFeatures.get(MapDisplay.Display.GRID))
 						{
 							g2d.drawRect(x1,y1,wallSize,tileSize);

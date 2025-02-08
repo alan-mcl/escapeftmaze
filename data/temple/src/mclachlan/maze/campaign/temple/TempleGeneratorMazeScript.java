@@ -2,6 +2,7 @@ package mclachlan.maze.campaign.temple;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.crusader.Texture;
 import mclachlan.crusader.Wall;
 import mclachlan.dungeongen.noise4j.map.Grid;
 import mclachlan.maze.data.Database;
@@ -44,7 +45,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		public Wall getRoomWall(Grid grid, int x, int y)
 		{
 			return new Wall(
-				Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture(),
+				new Texture[]{Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture()},
 				null,
 				true,
 				true,
@@ -58,7 +59,7 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 		public Wall getCorridorWall(Grid grid, int x, int y)
 		{
 			return new Wall(
-				Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture(),
+				new Texture[]{Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture()},
 				null,
 				true,
 				true,
@@ -76,8 +77,8 @@ public class TempleGeneratorMazeScript extends MapGenZoneScript
 					int toFacing)
 		{
 			Wall wall = new Wall(
-				Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture(),
-				Database.getInstance().getMazeTexture("CITY_DOOR_1").getTexture(),
+				new Texture[]{Database.getInstance().getMazeTexture("DUNGEON_WALL_1").getTexture()},
+				new Texture[]{Database.getInstance().getMazeTexture("CITY_DOOR_1").getTexture()},
 				true,
 				true,
 				1,

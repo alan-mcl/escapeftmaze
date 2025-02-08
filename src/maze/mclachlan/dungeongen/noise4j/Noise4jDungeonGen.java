@@ -87,13 +87,13 @@ public class Noise4jDungeonGen implements DungeonGen
 		}
 		for (int i = 0; i < horizWalls.length; i++)
 		{
-			addTexture(textures, horizWalls[i].getTexture());
-			addTexture(textures, horizWalls[i].getMaskTexture());
+			addTexture(textures, horizWalls[i].getTexture(0));
+			addTexture(textures, horizWalls[i].getMaskTexture(0));
 		}
 		for (int i = 0; i < vertWalls.length; i++)
 		{
-			addTexture(textures, vertWalls[i].getTexture());
-			addTexture(textures, vertWalls[i].getMaskTexture());
+			addTexture(textures, vertWalls[i].getTexture(0));
+			addTexture(textures, vertWalls[i].getMaskTexture(0));
 		}
 
 		// create the Crusader engine map
@@ -271,7 +271,7 @@ public class Noise4jDungeonGen implements DungeonGen
 		for (int i = 0; i < vertWalls.length; i++)
 		{
 			vertWalls[i] = new Wall(
-				Map.NO_WALL,
+				new Texture[]{Map.NO_WALL},
 				null,
 				false,
 				false,
@@ -284,7 +284,7 @@ public class Noise4jDungeonGen implements DungeonGen
 		for (int i = 0; i < horizWalls.length; i++)
 		{
 			horizWalls[i] = new Wall(
-				Map.NO_WALL,
+				new Texture[]{Map.NO_WALL},
 				null,
 				false,
 				false,

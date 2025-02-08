@@ -58,6 +58,21 @@ public class V1Zone
 	private static final String SEP = ",";
 	private static final String WALL_SEP = ":";
 
+	static V1List<Texture> textureList = new V1List<>()
+	{
+		@Override
+		public String typeToString(Texture texture)
+		{
+			return texture.getName();
+		}
+
+		@Override
+		public Texture typeFromString(String s)
+		{
+			return Database.getInstance().getMazeTexture(s).getTexture();
+		}
+	};
+
 	/*-------------------------------------------------------------------------*/
 	public static Zone load(BufferedReader reader) throws Exception
 	{
@@ -210,7 +225,7 @@ public class V1Zone
 				horizontalWalls = new Wall[max];
 				for (int i = 0; i < horizontalWalls.length; i++)
 				{
-					horizontalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null, null);
+					horizontalWalls[i] = new Wall(new Texture[]{Map.NO_WALL}, null, false, false, 1, null, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -226,14 +241,25 @@ public class V1Zone
 						boolean solid = Boolean.valueOf(strs[5]);
 						int height = Integer.parseInt(strs[6]);
 
-						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
-						Texture mask = maskTexture.equals("") ? null 
-							:Database.getInstance().getMazeTexture(maskTexture).getTexture();
+						List<Texture> texturesList = textureList.fromString(wallTexture);
+						List<Texture> maskTexturesList = textureList.fromString(maskTexture);
 
-						horizontalWalls[i] = new Wall(texture, mask, true, solid, height, mcs, mtmcs, is);
+						horizontalWalls[i] = new Wall(
+							texturesList.toArray(new Texture[0]),
+							maskTexturesList == null ? null : maskTexturesList.toArray(new Texture[0]),
+							true, solid, height, mcs, mtmcs, is);
 
-						addTexture(texture, textures);
-						addTexture(mask, textures);
+						for (Texture t : texturesList)
+						{
+							addTexture(t, textures);
+						}
+						if (maskTexturesList != null)
+						{
+							for (Texture t : maskTexturesList)
+							{
+								addTexture(t, textures);
+							}
+						}
 					}
 				}
 			}
@@ -245,7 +271,7 @@ public class V1Zone
 				verticalWalls = new Wall[max];
 				for (int i = 0; i < verticalWalls.length; i++)
 				{
-					verticalWalls[i] = new Wall(Map.NO_WALL, null, false, false, 1, null, null, null);
+					verticalWalls[i] = new Wall(new Texture[]{Map.NO_WALL}, null, false, false, 1, null, null, null);
 				}
 				for (int i=0; i<max; i++)
 				{
@@ -261,14 +287,25 @@ public class V1Zone
 						boolean solid = Boolean.valueOf(strs[5]);
 						int height = Integer.parseInt(strs[6]);
 
-						Texture texture = Database.getInstance().getMazeTexture(wallTexture).getTexture();
-						Texture mask = maskTexture.equals("") ? null 
-							: Database.getInstance().getMazeTexture(maskTexture).getTexture();
+						List<Texture> texturesList = textureList.fromString(wallTexture);
+						List<Texture> maskTexturesList = textureList.fromString(maskTexture);
 
-						verticalWalls[i] = new Wall(texture, mask, true, solid, height, mcs, mtmcs, is);
+						verticalWalls[i] = new Wall(
+							texturesList.toArray(new Texture[0]),
+							maskTexturesList == null ? null : maskTexturesList.toArray(new Texture[0]),
+							true, solid, height, mcs, mtmcs, is);
 
-						addTexture(texture, textures);
-						addTexture(mask, textures);
+						for (Texture t : texturesList)
+						{
+							addTexture(t, textures);
+						}
+						if (maskTexturesList != null)
+						{
+							for (Texture t : maskTexturesList)
+							{
+								addTexture(t, textures);
+							}
+						}
 					}
 				}
 			}
@@ -276,7 +313,7 @@ public class V1Zone
 			{
 				p = getProperties(reader);
 
-				List<EngineObject> list = new ArrayList<EngineObject>();
+				List<EngineObject> list = new ArrayList<>();
 				int count = 0;
 				while(true)
 				{
@@ -324,7 +361,7 @@ public class V1Zone
 			{
 				p = getProperties(reader);
 				
-				List<MapScript> list = new ArrayList<MapScript>();
+				List<MapScript> list = new ArrayList<>();
 				int count = 0;
 				while(true)
 				{
@@ -484,15 +521,18 @@ public class V1Zone
 		writer.writeln(CRUSADER_H_WALL_HEADER);
 		for (int i = 0; i < horizWalls.length; i++)
 		{
-			Texture texture = horizWalls[i].getTexture();
+			Texture[] textures = horizWalls[i].getTextures();
 			if (horizWalls[i].isVisible() || horizWalls[i].isSolid())
 			{
+				String texturesStr = textureList.toString(Arrays.asList(textures));
+
 				writer.write(i+": ");
-				writer.write(texture.getName());
+				writer.write(texturesStr);
 				writer.write(WALL_SEP);
-				if (horizWalls[i].getMaskTexture() != null)
+				if (horizWalls[i].getMaskTextures() != null)
 				{
-					writer.write(horizWalls[i].getMaskTexture().getName());
+					String maskTexturesStr = textureList.toString(Arrays.asList(horizWalls[i].getMaskTextures()));
+					writer.write(maskTexturesStr);
 				}
 				writer.write(WALL_SEP);
 				if (horizWalls[i].getMouseClickScript() != null)
@@ -523,15 +563,18 @@ public class V1Zone
 		writer.writeln(CRUSADER_V_WALL_HEADER);
 		for (int i = 0; i < vertWalls.length; i++)
 		{
-			Texture texture = vertWalls[i].getTexture();
+			Texture[] textures = vertWalls[i].getTextures();
 			if (vertWalls[i].isVisible() || vertWalls[i].isSolid())
 			{
+				String texturesStr = textureList.toString(Arrays.asList(textures));
+
 				writer.write(i+": ");
-				writer.write(texture.getName());
+				writer.write(texturesStr);
 				writer.write(WALL_SEP);
-				if (vertWalls[i].getMaskTexture() != null)
+				if (vertWalls[i].getMaskTextures() != null)
 				{
-					writer.write(vertWalls[i].getMaskTexture().getName());
+					String maskTexturesStr = textureList.toString(Arrays.asList(vertWalls[i].getMaskTextures()));
+					writer.write(maskTexturesStr);
 				}
 				writer.write(WALL_SEP);
 				if (vertWalls[i].getMouseClickScript() != null)

@@ -19,10 +19,10 @@
 
 package mclachlan.maze.editor.swing.map;
 
+import java.util.*;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.MouseClickScript;
 import mclachlan.crusader.Wall;
-import java.util.List;
 
 /**
  *
@@ -39,35 +39,92 @@ public class MultipleWallProxy extends WallProxy
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public Texture getMaskTexture()
+	public Texture getMaskTexture(int index)
 	{
-		Texture x = walls.get(0).getMaskTexture();
-		
+		Texture x = walls.get(0).getMaskTexture(index);
+
 		for (Wall w : walls)
 		{
-			if (w.getMaskTexture() != x)
+			if (w.getMaskTexture(index) != x)
 			{
 				return null;
 			}
 		}
-		
+
 		return x;
+	}
+
+	@Override
+	public Texture[] getTextures()
+	{
+		List<Texture> result = new ArrayList<>();
+
+		for (int i = 0; i < walls.get(0).getTextures().length; i++)
+		{
+			Texture refTex = walls.get(0).getTexture(i);
+			boolean allSame = true;
+			for (Wall w : walls)
+			{
+				if (!(w.getTextures().length > i && refTex == w.getTexture(i)))
+				{
+					allSame = false;
+					break;
+				}
+			}
+			if (allSame)
+			{
+				result.add(refTex);
+			}
+		}
+
+		return result.toArray(new Texture[0]);
+	}
+
+	@Override
+	public Texture[] getMaskTextures()
+	{
+		List<Texture> result = new ArrayList<>();
+
+		if (walls.get(0).getMaskTextures() == null)
+		{
+			return null;
+		}
+
+		for (int i = 0; i < walls.get(0).getMaskTextures().length; i++)
+		{
+			Texture refTex = walls.get(0).getMaskTexture(i);
+			boolean allSame = true;
+			for (Wall w : walls)
+			{
+				if (!(w.getMaskTextures() != null && w.getMaskTextures().length > i && refTex == w.getMaskTexture(i)))
+				{
+					allSame = false;
+					break;
+				}
+			}
+			if (allSame)
+			{
+				result.add(refTex);
+			}
+		}
+
+		return result.toArray(new Texture[0]);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public Texture getTexture()
+	public Texture getTexture(int index)
 	{
-		Texture x = walls.get(0).getTexture();
-		
+		Texture x = walls.get(0).getTexture(index);
+
 		for (Wall w : walls)
 		{
-			if (w.getTexture() != x)
+			if (w.getTexture(index) != x)
 			{
 				return null;
 			}
 		}
-		
+
 		return x;
 	}
 
@@ -76,7 +133,7 @@ public class MultipleWallProxy extends WallProxy
 	public boolean isVisible()
 	{
 		boolean x = walls.get(0).isVisible();
-		
+
 		for (Wall w : walls)
 		{
 			if (w.isVisible() != x)
@@ -84,7 +141,7 @@ public class MultipleWallProxy extends WallProxy
 				return false;
 			}
 		}
-		
+
 		return x;
 	}
 
@@ -110,7 +167,7 @@ public class MultipleWallProxy extends WallProxy
 	public MouseClickScript getMaskTextureMouseClickScript()
 	{
 		MouseClickScript x = walls.get(0).getMaskTextureMouseClickScript();
-		
+
 		for (Wall w : walls)
 		{
 			if (w.getMaskTextureMouseClickScript() != x)
@@ -118,7 +175,7 @@ public class MultipleWallProxy extends WallProxy
 				return null;
 			}
 		}
-		
+
 		return x;
 	}
 
@@ -127,7 +184,7 @@ public class MultipleWallProxy extends WallProxy
 	public MouseClickScript getMouseClickScript()
 	{
 		MouseClickScript x = walls.get(0).getMouseClickScript();
-		
+
 		for (Wall w : walls)
 		{
 			if (w.getMouseClickScript() != x)
@@ -135,7 +192,7 @@ public class MultipleWallProxy extends WallProxy
 				return null;
 			}
 		}
-		
+
 		return x;
 	}
 
@@ -182,19 +239,38 @@ public class MultipleWallProxy extends WallProxy
 		}
 	}
 
+	@Override
+	public void setTextures(Texture[] textures)
+	{
+		for (Wall w : walls)
+		{
+			w.setTextures(textures);
+		}
+	}
+
+	@Override
+	public void setMaskTextures(Texture[] maskTextures)
+	{
+		for (Wall w : walls)
+		{
+			w.setMaskTextures(maskTextures);
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public void setMaskTexture(Texture maskTexture)
 	{
 		for (Wall w : walls)
 		{
-			w.setMaskTexture(maskTexture);
+			w.setMaskTexture(0, maskTexture); // todo wall height
 		}
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript)
+	public void setMaskTextureMouseClickScript(
+		MouseClickScript maskTextureMouseClickScript)
 	{
 		for (Wall w : walls)
 		{
@@ -228,7 +304,7 @@ public class MultipleWallProxy extends WallProxy
 	{
 		for (Wall w : walls)
 		{
-			w.setTexture(texture);
+			w.setTexture(0, texture); // todo: height
 		}
 	}
 

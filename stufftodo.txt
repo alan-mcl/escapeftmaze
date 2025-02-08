@@ -5,6 +5,8 @@ STUFFTODO
 UI REFRESH
 --------------
 different texture and mask texture for different wall heights
+Gatehouse foe balancing / flavour
+flat sky support in editor & maze
 
 BACKLOG
 ----------
