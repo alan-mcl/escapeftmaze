@@ -127,7 +127,12 @@ public class Foe extends UnifiedActor
 	{
 		Maze.log(Log.DEBUG, "generating inventory for "+getName());
 
-		GroupOfPossibilities<ILootEntry> lootEntries = getLootTable().getLootEntries();
+		LootTable lootTable = getLootTable();
+		if (lootTable == null)
+		{
+			return;
+		}
+		GroupOfPossibilities<ILootEntry> lootEntries = lootTable.getLootEntries();
 		if (lootEntries != null)
 		{
 			List<ILootEntry> entries = lootEntries.getRandom();

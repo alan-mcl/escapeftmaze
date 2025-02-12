@@ -505,6 +505,10 @@ name=Ruins Of Hail damla's bones hidden stuff
 name=sound - gnome
 0=138,79774__engreitz__ManClearingThroat_1
 @
+name=Gatehouse supplies 1 iron rations
+0=4,-1,false,Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped "HAIL SUPPLY CO".%n%nThe biscuits are very stale but still edible.
+1=9,gatehouse.supplies.1.iron.rations
+@
 name=gold enchantment from player
 0=138,22267__zeuss__The_Chime
 1=104,1:30:animation/goldEnchantmentFromPlayer1;animation/goldEnchantmentFromPlayer2;animation/goldEnchantmentFromPlayer3;animation/goldEnchantmentFromPlayer4
@@ -575,6 +579,11 @@ name=sound - hiss
 name=Aenen Outskirts charred stump
 0=4,-1,true,In this part of the clearing you find a twisted, burnt stump of an old tree, long hacked down. The ground around is charred and blackened. Despite the jungle warmth you feel a strange chill on your skin...
 1=18,default.aenen.outskirts.charred.stump,true
+@
+name=Gatehouse supplies 1 ambercaps
+0=4,-1,false,You harvest the mushrooms. The smell pretty tasty.
+1=22,gatehouse.supplies.1.ambercaps
+2=9,gatehouse.supplies.1.ambercaps
 @
 name=blinding flash spell from player
 0=13,generic spell woosh

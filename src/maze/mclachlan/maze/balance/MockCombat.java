@@ -23,12 +23,14 @@ import java.awt.Point;
 import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.*;
+import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.*;
@@ -40,6 +42,7 @@ import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
+import mclachlan.maze.util.PerfLog;
 
 /**
  *
@@ -52,15 +55,21 @@ public class MockCombat
 		Saver saver = new V1Saver();
 		Database db = new Database(loader, saver, Maze.getStubCampaign());
 
-		Maze maze = getMockMaze(loader);
+		Maze maze = getMockMaze(db);
 
 		MockCombat mc = new MockCombat();
 
-//		mc.singleTest(db, maze, "Hero", "Human", "Male", 5);
+		CharacterBuilder cb = new CharacterBuilder(db);
+		CombatStatistics s = mc.singleTest(db, maze,
+			getRefCombatPC(cb, 1),
+			getReferenceFoeCombat(1));
+
+		reportCombatStats(s);
+
 
 /*
 		mc.referenceTestCombat(db, maze, "Hero", "Human", "Male", 10, 30);
-		mc.referenceTestCombat(db, maze, "Warrior", "Human", "Male", 10, 30);
+		mc.referenceTestCombat(db, maze, "Berserker", "Human", "Male", 10, 30);
 		mc.referenceTestCombat(db, maze, "Samurai", "Human", "Male", 10, 30);
 		mc.referenceTestCombat(db, maze, "Paladin", "Human", "Male", 10, 30);
 		mc.referenceTestCombat(db, maze, "Skald", "Human", "Male", 10, 30);
@@ -69,31 +78,38 @@ public class MockCombat
 		mc.referenceTestCombat(db, maze, "Blackguard", "Human", "Male", 10, 30);
 		mc.referenceTestCombat(db, maze, "Monk", "Human", "Male", 10, 30);
 */
-		refTestCombatClasses(db, maze);
+//		refTestCombatClasses(db, maze);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static Maze getMockMaze(Loader loader) throws Exception
+	public static Maze getMockMaze(Database db) throws Exception
 	{
 		Campaign campaign = Maze.getStubCampaign();
-		loader.init(campaign);
+		db.getLoader().init(campaign);
 
 		Maze maze = new Maze(Launcher.getConfig(), campaign);
 
 		maze.initAudio(new MockAudioPlayer());
 		maze.initLog(new SoutLog());
+		maze.initPerfLog(new PerfLog());
 		maze.initState();
-//		maze.initDb();
+		maze.initDb();
 		maze.initSystems();
 		maze.initUi(new HeadlessUi());
 //		maze.startThreads();
+
+		JournalManager.getInstance().startGame();
+		new DIYToolkit();
+//		maze.startGame("Normal");
+
 		return maze;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static void refTestCombatClasses(final Database db, final Maze maze) throws Exception
+	private static void refTestCombatClasses(final Database db,
+		final Maze maze) throws Exception
 	{
-		List<String> classes = new ArrayList<String>();
+		List<String> classes = new ArrayList<>();
 
 		for (CharacterClass cc : db.getCharacterClasses().values())
 		{
@@ -108,15 +124,11 @@ public class MockCombat
 		ArrayList<Callable<List<CombatStatistics>>> tasks = new ArrayList<Callable<List<CombatStatistics>>>();
 		for (final String className : classes)
 		{
-			tasks.add(new Callable<List<CombatStatistics>>()
-			{
-				public List<CombatStatistics> call() throws Exception
-				{
-					MockCombat mc = new MockCombat();
-					List<CombatStatistics> result = mc.referenceTestCombat(db, maze, className, "Human", "Male", 100, 30);
-					System.out.print(".");
-					return result;
-				}
+			tasks.add(() -> {
+				MockCombat mc = new MockCombat();
+				List<CombatStatistics> result = mc.referenceTestCombat(db, maze, className, "Human", "Male", 100, 30);
+				System.out.print(".");
+				return result;
 			});
 		}
 
@@ -150,87 +162,91 @@ public class MockCombat
 		executorService.shutdown();
 	}
 
+
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * 1v1 combat for the given PC vs given Foe
+	 */
 	public CombatStatistics singleTest(
 		Database db,
 		Maze maze,
-		String characterClass,
-		String characterRace,
-		String characterGender,
-		int level)
+		UnifiedActor pc,
+		Foe foe)
 	{
-		CharacterBuilder cb = new CharacterBuilder(db);
+		return groupTest(db, maze, List.of(pc), List.of(foe));
+	}
 
-		UnifiedActor pc = cb.buildCharacter("Tester", characterClass, characterRace, characterGender, level,
-			new PriorityModifierApproach(
-				Stats.Modifier.BRAWN,
-				Stats.Modifier.SKILL,
-				Stats.Modifier.CUT,
-				Stats.Modifier.THRUST,
-				Stats.Modifier.SHOOT));
-
-		PlayerParty party = new PlayerParty(Arrays.asList(pc));
-
+	/**
+	 * NvN combat for the given party vs given FoeGroup
+	 */
+	public CombatStatistics groupTest(
+		Database db,
+		Maze maze,
+		List<UnifiedActor> pcs,
+		List<Foe> foes)
+	{
+		PlayerParty party = new PlayerParty(pcs);
 		maze.setParty(party);
 
-		GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
-			0, Arrays.asList("Tester"), 1, 0);
-		maze.setGameState(gs);
-
-		Foe foe = getReferenceFoeCombat(level);
-
 		FoeGroup foeGroup = new FoeGroup();
-		foeGroup.add(foe);
+		foeGroup.addAll(foes);
 
-		ArrayList<FoeGroup> foeGroups = new ArrayList<FoeGroup>(Arrays.asList(foeGroup));
+		ArrayList<FoeGroup> foeGroups = new ArrayList<>(List.of(foeGroup));
+
+		GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
+			0, List.of("Tester"), 1, 0);
+		maze.setGameState(gs);
 
 		Combat combat = runMockCombat(db, maze, party, foeGroups);
 
-		for (UnifiedActor a : party.getActors())
-		{
-			System.out.println(a + ": " + a.getHitPoints() + "hp");
-		}
-		for (FoeGroup fg : foeGroups)
-		{
-			for (UnifiedActor a : fg.getActors())
-			{
-				System.out.println(a + ": " + a.getHitPoints() + "hp");
-			}
-		}
+		return combat.getCombatStatistics();
+	}
 
-		System.out.println("Combat Stats");
+	private static void reportCombatStats(CombatStatistics s)
+	{
+		System.out.println(formatCombatStats(s));
+	}
 
-		CombatStatistics s = combat.getCombatStatistics();
-		System.out.println(s.getNrPlayerCharacters() + " player characters");
-		System.out.println(" ave lvl " + s.getAveragePlayerCharacterLevel());
-		System.out.println(s.getNrFoes() + " foes in " + s.getNrFoeGroups() + " groups");
-		System.out.println(" ave lvl " + s.getAverageFoeLevel());
-		System.out.println(" ave hp " + s.getAverageFoeHp());
-		System.out.println(" ave sp " + s.getAverageFoeSp());
-		System.out.println(" ave mp " + s.getAverageFoeMp());
-		System.out.println("Ambush status: " + s.getAmbushStatus());
-		System.out.println("Combat rounds: " + s.getCombatRounds());
-		System.out.println("PC attacks: " + s.getNrPcAttacks());
-		System.out.println(" " + s.getNrPcAttackHits() + " hit, " + s.getNrPcAttackMiss() + " miss");
-		System.out.println("Foe attacks: " + s.getNrFoeAttacks());
-		System.out.println(" " + s.getNrFoeAttackHits() + " hit, " + s.getNrFoeAttackMiss() + " miss");
+	public static String formatCombatStats(CombatStatistics s)
+	{
+		StringBuilder sb = new StringBuilder();
 
-		return s;
+		sb.append("Combat Stats").append("\n");
+		sb.append(s.getNrPlayerCharacters()).append(" player characters").append("\n");
+		sb.append(" ave lvl ").append(s.getAveragePlayerCharacterLevel()).append("\n");
+		sb.append(" ave hp ").append(s.getAveragePcHp()).append("\n");
+		sb.append(" ave ap ").append(s.getAveragePcAp()).append("\n");
+		sb.append(" ave mp ").append(s.getAveragePcMp()).append("\n");
+		sb.append(s.getNrFoes()).append(" foes in ").append(s.getNrFoeGroups()).append(" groups").append("\n");
+		sb.append(" ave lvl ").append(s.getAverageFoeLevel()).append("\n");
+		sb.append(" ave hp ").append(s.getAverageFoeHp()).append("\n");
+		sb.append(" ave ap ").append(s.getAverageFoeAp()).append("\n");
+		sb.append(" ave mp ").append(s.getAverageFoeMp()).append("\n");
+		sb.append("Ambush status: ").append(s.getAmbushStatus()).append("\n");
+		sb.append("Combat rounds: ").append(s.getCombatRounds()).append("\n");
+		sb.append("PC attacks: ").append(s.getNrPcAttacks()).append("\n");
+		sb.append(" ").append(s.getNrPcAttackHits()).append(" hit, ").append(s.getNrPcAttackMiss()).append(" miss").append("\n");
+		sb.append(" ").append("avg dam ").append(s.getAveragePcAttackDamage()).append("\n");
+		sb.append(" ").append("avg initiative ").append(s.getAveragePlayerCharacterInitiative()).append("\n");
+		sb.append("Foe attacks: ").append(s.getNrFoeAttacks()).append("\n");
+		sb.append(" ").append(s.getNrFoeAttackHits()).append(" hit, ").append(s.getNrFoeAttackMiss()).append(" miss").append("\n");
+		sb.append(" ").append("avg dam ").append(s.getAverageFoeAttackDamage()).append(", tot dam ").append(s.getTotalFoeAttackDamage()).append("\n");
+		sb.append(" ").append("avg initiative ").append(s.getAverageFoeInitiative()).append("\n");
+
+		return sb.toString();
 	}
 
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * For each character level, runs a number of 1v1 combats against the matching
-	 * reference foe and reports the results
+	 * For each character level, runs a number of 1v1 combats against the
+	 * matching reference foe and reports the results
 	 *
-	 * @param nrTests
-	 * 	The number of combats to run per level
-	 * @param maxLevel
-	 * 	the max level to test up to (starts at 1)
-	 * @return
-	 * 	a list of combat statistics (aggregated over combats in that level)
-	 * 	indexed by level
+	 * @param nrTests  The number of combats to run per level
+	 * @param maxLevel the max level to test up to (starts at 1)
+	 * @return a list of combat statistics (aggregated over combats in that
+	 * level) indexed by level
 	 */
 	public List<CombatStatistics> referenceTestCombat(
 		Database db,
@@ -243,12 +259,12 @@ public class MockCombat
 	{
 		CharacterBuilder cb = new CharacterBuilder(db);
 
-		List<CombatStatistics> result = new ArrayList<CombatStatistics>();
+		List<CombatStatistics> result = new ArrayList<>();
 
 		for (int level = 1; level <= maxLevel; level++)
 		{
 			CombatStatistics agg = new CombatStatistics(
-				"Ref Test Combat: "+characterGender+" "+characterRace+" "+characterClass);
+				"Ref Test Combat: " + characterGender + " " + characterRace + " " + characterClass);
 
 			for (int i = 0; i < nrTests; i++)
 			{
@@ -271,12 +287,12 @@ public class MockCombat
 				pc.setGloves(getReferenceArmourCombat(level));
 				pc.setBoots(getReferenceArmourCombat(level));
 
-				PlayerParty party = new PlayerParty(Arrays.asList((UnifiedActor)pc));
+				PlayerParty party = new PlayerParty(List.of((UnifiedActor)pc));
 
 				maze.setParty(party);
 
 				GameState gs = new GameState(db.getZone("arena"), new DifficultyLevel(), new Point(), 0, 0,
-					0, Arrays.asList("Tester"), 1, 0);
+					0, List.of("Tester"), 1, 0);
 				maze.setGameState(gs);
 
 				Foe foe = getReferenceFoeCombat(level);
@@ -284,7 +300,7 @@ public class MockCombat
 				FoeGroup foeGroup = new FoeGroup();
 				foeGroup.add(foe);
 
-				ArrayList<FoeGroup> foeGroups = new ArrayList<FoeGroup>(Arrays.asList(foeGroup));
+				ArrayList<FoeGroup> foeGroups = new ArrayList<>(List.of(foeGroup));
 
 				Combat combat = runMockCombat(db, maze, party, foeGroups);
 				CombatStatistics s = combat.getCombatStatistics();
@@ -316,7 +332,7 @@ public class MockCombat
 	/*-------------------------------------------------------------------------*/
 	private static void reportCsv(List<CombatStatistics> cs)
 	{
-		System.out.print(cs.get(0).getName()+",");
+		System.out.print(cs.get(0).getName() + ",");
 		for (CombatStatistics s : cs)
 		{
 			System.out.print(1.0F * s.getNrPcVictories() / s.getNrCombats() + ",");
@@ -325,7 +341,8 @@ public class MockCombat
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static Item getReferenceWeapon(int level, Stats.Modifier mod1, Stats.Modifier mod2)
+	private static Item getReferenceWeapon(int level, Stats.Modifier mod1,
+		Stats.Modifier mod2)
 	{
 		Dice damage = null;
 		int toHit = 0;
@@ -339,13 +356,13 @@ public class MockCombat
 
 		int spellEffectLevel = 0;
 
-		damage = new Dice(1, Math.max(level, 3), level/3);
+		damage = new Dice(1, Math.max(level, 3), level / 3);
 		toPenetrate = 0;
 		toInitiative = 0;
-		attackTypes = new String[]{mod1.toString(), mod2.toString()};
+		attackTypes = new String[]{mod1.toString().toLowerCase(), mod2.toString().toLowerCase()};
 		toCritical = 0;
 
-		spellEffects = new GroupOfPossibilities<SpellEffect>();
+		spellEffects = new GroupOfPossibilities<>();
 
 		ItemTemplate result = new ItemTemplate(
 			"Reference Weapon",
@@ -433,7 +450,7 @@ public class MockCombat
 
 		int spellEffectLevel = 0;
 
-		damage = new Dice(1, Math.max(level, 3), level/3);
+		damage = new Dice(1, Math.max(level, 3), level / 3);
 		toPenetrate = 0;
 		toInitiative = 0;
 		toCritical = 0;
@@ -488,7 +505,7 @@ public class MockCombat
 			null,
 			null,
 			null,
-			Math.max(2, level/2),
+			Math.max(2, level / 2),
 			100,
 			0,
 			ItemTemplate.EnchantmentCalculation.STRAIGHT,
@@ -547,13 +564,12 @@ public class MockCombat
 
 		switch (currentCombat.getAmbushStatus())
 		{
-			case PARTY_MAY_AMBUSH_OR_EVADE_FOES:
+			case PARTY_MAY_AMBUSH_OR_EVADE_FOES ->
 				evts.add(new FlavourTextEvent("Party may evade foes!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				break;
-			case PARTY_MAY_AMBUSH_FOES:
+			case PARTY_MAY_AMBUSH_FOES ->
 				evts.add(new FlavourTextEvent("Party surprises foes!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				break;
-			case FOES_MAY_AMBUSH_OR_EVADE_PARTY:
+			case FOES_MAY_AMBUSH_OR_EVADE_PARTY ->
+			{
 				Foe leader = GameSys.getInstance().getLeader(foeGroups);
 				if (leader.shouldEvade(foeGroups, party))
 				{
@@ -564,10 +580,9 @@ public class MockCombat
 				{
 					evts.add(new FlavourTextEvent("Foes surprise party!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
 				}
-				break;
-			case FOES_MAY_AMBUSH_PARTY:
+			}
+			case FOES_MAY_AMBUSH_PARTY ->
 				evts.add(new FlavourTextEvent("Foes surprise party!", Maze.getInstance().getUserConfig().getCombatDelay(), true));
-				break;
 		}
 
 		resolveEvents(evts);
@@ -592,10 +607,7 @@ public class MockCombat
 				currentCombat.getAmbushStatus() == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY)
 			{
 				// party is surprised, cannot take action
-				for (int i = 0; i < partyIntentions.length; i++)
-				{
-					partyIntentions[i] = ActorActionIntention.INTEND_NOTHING;
-				}
+				Arrays.fill(partyIntentions, ActorActionIntention.INTEND_NOTHING);
 			}
 			else
 			{
@@ -703,7 +715,7 @@ public class MockCombat
 		}
 		party.reorderPartyToCompensateForDeadCharacters();
 		currentCombat.endCombat();
-		
+
 		return true;
 	}
 
@@ -728,7 +740,8 @@ public class MockCombat
 		List<FoeGroup> foeGroups, Combat currentCombat)
 	{
 		// todo:
-		return new AttackIntention(foeGroups.get(0), currentCombat, pc.getAttackWithOptions().get(0));
+		List<AttackWith> attackWithOptions = pc.getAttackWithOptions();
+		return new AttackIntention(foeGroups.get(0), currentCombat, attackWithOptions.get(0));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -791,12 +804,12 @@ public class MockCombat
 	/*-------------------------------------------------------------------------*/
 	private static Foe getReferenceFoeCombat(int level)
 	{
-		PercentageTable<BodyPart> bodyParts = new PercentageTable<BodyPart>();
+		PercentageTable<BodyPart> bodyParts = new PercentageTable<>();
 		bodyParts.add(new BodyPart("bp", "bp", new StatModifier(), 0, 0, 0, EquipableSlot.Type.MISC_ITEM), 100);
 
 		/*GameSys.getInstance().getNrAttacks(level/4+10,0,0),*/
 
-		PercentageTable<String> playerBodyParts = new PercentageTable<String>();
+		PercentageTable<String> playerBodyParts = new PercentageTable<>();
 		playerBodyParts.add("head", 18);
 		playerBodyParts.add("torso", 33);
 		playerBodyParts.add("leg", 31);
@@ -808,12 +821,12 @@ public class MockCombat
 		stats.setModifier(Stats.Modifier.BRAWN, level);
 		stats.setModifier(Stats.Modifier.SKILL, level);
 
-		stats.setModifier(Stats.Modifier.RESIST_AIR, level*2);
-		stats.setModifier(Stats.Modifier.RESIST_EARTH, level*2);
-		stats.setModifier(Stats.Modifier.RESIST_ENERGY, level*2);
-		stats.setModifier(Stats.Modifier.RESIST_FIRE, level*2);
-		stats.setModifier(Stats.Modifier.RESIST_MENTAL, level*2);
-		stats.setModifier(Stats.Modifier.RESIST_WATER, level*2);
+		stats.setModifier(Stats.Modifier.RESIST_AIR, level * 2);
+		stats.setModifier(Stats.Modifier.RESIST_EARTH, level * 2);
+		stats.setModifier(Stats.Modifier.RESIST_ENERGY, level * 2);
+		stats.setModifier(Stats.Modifier.RESIST_FIRE, level * 2);
+		stats.setModifier(Stats.Modifier.RESIST_MENTAL, level * 2);
+		stats.setModifier(Stats.Modifier.RESIST_WATER, level * 2);
 		stats.setModifier(Stats.Modifier.RESIST_BLUDGEONING, level);
 		stats.setModifier(Stats.Modifier.RESIST_SLASHING, level);
 		stats.setModifier(Stats.Modifier.RESIST_PIERCING, level);
@@ -865,4 +878,15 @@ public class MockCombat
 		return new Foe(ft);
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public static PlayerCharacter getRefCombatPC(CharacterBuilder cb, int level) throws Exception
+	{
+		return cb.buildCharacter("Tester", "Hero", "Human", "Male", level,
+			new PriorityModifierApproach(
+				Stats.Modifier.BRAWN,
+				Stats.Modifier.SKILL,
+				Stats.Modifier.CUT,
+				Stats.Modifier.THRUST,
+				Stats.Modifier.SHOOT));
+	}
 }

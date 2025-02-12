@@ -29,8 +29,8 @@ import mclachlan.maze.stat.PlayerParty;
  */
 public class StartGameEvent extends MazeEvent
 {
-	private Maze maze;
-	private PlayerParty party;
+	private final Maze maze;
+	private final PlayerParty party;
 
 	/*-------------------------------------------------------------------------*/
 	public StartGameEvent(Maze maze, PlayerParty party)

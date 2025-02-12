@@ -185,14 +185,22 @@ public class ToggleWall extends TileScript
 		int state2Height)
 	{
 		Wall origWall = maze.getCurrentZone().getMap().getWall(wallIndex, horizontalWall);
-		Wall newWall = new Wall();
+		Wall newWall = new Wall(
+			origWall.getTextures(),
+			origWall.getMaskTextures(),
+			origWall.isVisible(),
+			origWall.isSolid(),
+			origWall.getHeight(),
+			origWall.getMouseClickScript(),
+			origWall.getMaskTextureMouseClickScript(),
+			origWall.getInternalScript());
 
 		switch (State.valueOf(MazeVariables.get(mazeVariable)))
 		{
 			case STATE_1 ->
 			{
 				newWall.setTexture(0, state1Texture == null ? Map.NO_WALL : state1Texture);
-				newWall.setMaskTexture(0, state1MaskTexture);
+				newWall.setMaskTextures(state1MaskTexture==null ? null : new Texture[]{state1MaskTexture});
 				newWall.setSolid(state1Solid);
 				newWall.setVisible(state1Visible);
 				newWall.setHeight(state1Height);
@@ -200,7 +208,7 @@ public class ToggleWall extends TileScript
 			case STATE_2 ->
 			{
 				newWall.setTexture(0, state2Texture == null ? Map.NO_WALL : state2Texture);
-				newWall.setMaskTexture(0, state2MaskTexture);
+				newWall.setMaskTextures(state2MaskTexture==null ? null : new Texture[]{state2MaskTexture});
 				newWall.setSolid(state2Solid);
 				newWall.setVisible(state2Visible);
 				newWall.setHeight(state2Height);

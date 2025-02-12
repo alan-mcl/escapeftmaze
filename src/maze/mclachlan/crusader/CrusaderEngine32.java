@@ -2395,6 +2395,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 				if (maskTextures != null)
 				{
 					// use the mask texture instead of the wall texture
+					if (maskTextures[maskTextureIndex] == null)
+					{
+
+					}
 					int maskPixel = maskTextures[maskTextureIndex].getCurrentImageData(textureX, textureY, timeNow);
 
 					colour = alphaBlend(

@@ -1,4 +1,4 @@
-#Thu Jan 02 16:16:55 SAST 2025
+#Tue Feb 11 14:14:58 SAST 2025
 aello=9|Red Ear does not know.
 aenen=9|Farrr south, Red Ear has not visited the town of the Gnome-folk.
 agenor=9|Red Ear does not know him.

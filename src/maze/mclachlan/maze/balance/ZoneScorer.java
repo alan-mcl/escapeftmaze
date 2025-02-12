@@ -42,7 +42,7 @@ public class ZoneScorer
 	private Database db;
 
 	/*-------------------------------------------------------------------------*/
-	public ZoneScore scoreZone(Zone zone, Database db)
+	public ZoneScore scoreZone(Zone zone, Database db) throws Exception
 	{
 		this.db = db;
 		ZoneScore result = new ZoneScore();
@@ -60,7 +60,7 @@ public class ZoneScorer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private double scoreTile(Tile t)
+	private double scoreTile(Tile t) throws Exception
 	{
 		double encPerc = t.getRandomEncounterChance()/1000D;
 		double encScore = scoreEncounters(t.getRandomEncounters());
@@ -71,10 +71,10 @@ public class ZoneScorer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private double scoreEncounters(EncounterTable et)
+	private double scoreEncounters(EncounterTable et) throws Exception
 	{
 		double result = 0D;
-		FoeScorer foeScorer = new FoeScorer();
+		FoeScorer foeScorer = new FoeScorer(db);
 
 		PercentageTable<FoeEntry> table = et.getEncounterTable();
 

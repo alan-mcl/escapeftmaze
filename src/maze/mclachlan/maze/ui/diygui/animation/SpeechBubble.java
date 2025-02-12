@@ -133,7 +133,7 @@ public class SpeechBubble
 		{
 			String paragraph = paragraphs[i];
 			strings.addAll(DIYToolkit.wrapText(
-				paragraph, Maze.getInstance().getComponent().getGraphics(), maxWidth));
+				paragraph, maxWidth, g));
 		}
 
 		textHeight = fm.getAscent();

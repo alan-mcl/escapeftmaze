@@ -25,10 +25,14 @@ import java.util.List;
 import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.maze.balance.CharacterBuilder;
+import mclachlan.maze.balance.MockCombat;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.stat.combat.CombatStatistics;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.FoeXpCalculator;
 
@@ -74,6 +78,7 @@ public class FoeTemplatePanel extends EditorPanel
 			Foe.StealthBehaviour.toString(Foe.StealthBehaviour.OPPORTUNISTIC),
 			Foe.StealthBehaviour.toString(Foe.StealthBehaviour.STEALTH_RELIANT),
 		};
+	private JTextArea analysisOutput;
 
 	/*-------------------------------------------------------------------------*/
 	public FoeTemplatePanel()
@@ -90,8 +95,67 @@ public class FoeTemplatePanel extends EditorPanel
 		tabs.add("AI Params", getAiPanel());
 		tabs.add("Attacks", getAttacksPanel());
 		tabs.add("Art & Scripts", getArtAndScriptsPanel());
+		tabs.add("Analysis", getAnalysisPanel());
 
 		return tabs;
+	}
+
+	private Component getAnalysisPanel()
+	{
+		JPanel result = new JPanel(new BorderLayout());
+
+		analysisOutput = new JTextArea();
+		analysisOutput.setLineWrap(true);
+		analysisOutput.setWrapStyleWord(true);
+		analysisOutput.setEditable(false);
+
+		JPanel buttons = new JPanel();
+
+		JButton mockCombat1v1 = new JButton("Mock Combat 1v1");
+		mockCombat1v1.addActionListener(e -> mockCombat(1));
+		buttons.add(mockCombat1v1);
+
+		JButton mockCombat6v6 = new JButton("Mock Combat 6v6");
+		mockCombat6v6.addActionListener(e -> mockCombat(6));
+		buttons.add(mockCombat6v6);
+
+		result.add(buttons, BorderLayout.NORTH);
+		result.add(analysisOutput, BorderLayout.CENTER);
+
+		return result;
+	}
+
+	private void mockCombat(int size)
+	{
+		analysisOutput.setText("");
+
+		try
+		{
+			MockCombat mc = new MockCombat();
+			Database db = Database.getInstance();
+			Maze maze = MockCombat.getMockMaze(db);
+			CharacterBuilder cb = new CharacterBuilder(db);
+
+			FoeTemplate ft = (FoeTemplate)commit(getCurrentName());
+
+			List<UnifiedActor> pcs = new ArrayList<>();
+			List<Foe> foes = new ArrayList<>();
+
+			for (int i=0; i<size; i++)
+			{
+				Foe foe = new Foe(ft);
+				foes.add(foe);
+				pcs.add(MockCombat.getRefCombatPC(cb, foe.getLevel()));
+			}
+
+			CombatStatistics s = mc.groupTest(db, maze, pcs, foes);
+
+			analysisOutput.setText(MockCombat.formatCombatStats(s));
+		}
+		catch (Exception ex)
+		{
+			throw new RuntimeException(ex);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -541,6 +605,8 @@ public class FoeTemplatePanel extends EditorPanel
 		focus.setSelectedItem(ft.getFocus());
 		attitude.setSelectedItem(ft.getDefaultAttitude());
 		alliesOnCall.setSelectedItem(ft.getAlliesOnCall()==null?NONE:ft.getAlliesOnCall());
+
+		analysisOutput.setText("");
 
 		experience.addChangeListener(this);
 		baseTexture.addActionListener(this);

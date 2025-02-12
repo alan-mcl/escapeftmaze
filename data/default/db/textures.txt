@@ -886,6 +886,14 @@ imageHeight=512
 scrollBehaviour=
 scrollSpeed=-1
 @
+name=objects.fungus.ambercap
+imageResources=crusader/scene/fungus_ambercap
+animationDelay=-1
+imageWidth=512
+imageHeight=512
+scrollBehaviour=
+scrollSpeed=-1
+@
 name=foe.ninja
 imageResources=crusader/foe/ninja
 animationDelay=-1

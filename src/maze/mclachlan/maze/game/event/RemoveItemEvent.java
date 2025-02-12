@@ -30,7 +30,7 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class RemoveItemEvent extends MazeEvent
 {
-	private String item;
+	private final String item;
 	private UnifiedActor actor = null;
 
 	/*-------------------------------------------------------------------------*/

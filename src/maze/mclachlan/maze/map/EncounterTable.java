@@ -27,8 +27,8 @@ import mclachlan.maze.stat.PercentageTable;
  */
 public class EncounterTable extends DataObject
 {
-	String name;
-	PercentageTable<FoeEntry> encounterTable;
+	private String name;
+	private PercentageTable<FoeEntry> encounterTable;
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterTable(String name, PercentageTable<FoeEntry> encounterTable)

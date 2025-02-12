@@ -46,8 +46,14 @@ contains=0,Cracker Stix/3d5:25,Fire Stix/3d5:25,Rocket Stix/3d5:25,Bottlerocket/
 name=batch.2.magic.trinkets
 contains=0,Amulet Of Health/1d1:2,Elven Cape/1d1:2,Sapphire Ring/1d1:2,Eagle Feather/1d1:2,Birch Amulet/1d1:2,Electrum Ring/1d1:2,Granite Talisman/1d1:2,Blood Diamond/1d1:2,Mantis Feathers/1d1:2,Rhinohide Cloak/1d1:2,Amulet Of Warning/1d1:2,Deadeye Talisman/1d1:2,Carnelian Necklace/1d1:2,Ring Of Ambition/1d1:2,Ring Of Legends/1d1:2,Ring Of Jade/1d1:2,Amulet Of Night/1d1:2,Ring Of Minds/1d1:2,Bone Necklace/1d1:2,Amulet Of Ice/1d1:2,Ankh Of Phyre/1d1:2,Jade Figurine/1d1:2,Lion's Claws/1d1:2,Ju-Ju Stones/1d1:2,Dragon's Teeth/1d1:2,Ring Pro Frost/1d1:2,Bat Necklace/1d1:2,Amulet Of Spiders/1d1:2,Ankh Of Might/1d1:2,Ring Of Truth/1d1:2,Mystic's Ring/1d1:2,Ring Pro Magic/1d1:2,Amulet Of Stillness/1d1:2,Amulet Of Airs/1d1:2,Amulet Of Illusions/1d1:2,Ankh Of Youth/1d1:2,Ankh Of Speed/1d1:2,Ankh Of Dexterity/1d1:2,Ankh Of Sanctity/1d1:2,Stone Pro Airs/1d1:2,Mana Stone/1d1:2,Amulet Of Life/1d1:2,Aeromancer's Ring/1d1:2,Geomancer's Ring/1d1:2,Hydromancer's Ring/1d1:2,Pyromancer's Ring/1d1:2,Forest Cape/1d1:1,Fey Ring/1d1:1,Dragonhide Cloak/1d1:1,Ring Of Beasts/1d1:1,Midnight Cloak/1d1:1,Daba Brooch/1d1:1,Recharging Gem/1d1:1,Miranda's Tiara/1d1:1
 @
+name=supplies.1.iron.rations
+contains=0,Iron Ration/3d6+6:100
+@
 name=batch.3.musical.instruments
 contains=0,Hades Harp/1d1:13,Cornu Of The Demonspawn/1d1:13,Fey Pipes/1d1:13,Midnight Choir/1d1:13,Mandolin Of The Magus/1d1:12,Lyre Of Cakes/1d1:12,Bone Flute/1d1:12,Chromatic Lyre/1d1:12
+@
+name=supplies.1.ambercaps
+contains=0,Ambercap/4d4+6:100
 @
 name=batch.3.potions.healing
 contains=0,Potion Of Cure Stone/1d2+1:25,Potion Of Cure Disease/1d2+1:25,Potion Of Renewal/1d2+1:25,Potion Of Restoration/1d2+1:25
@@ -96,6 +102,9 @@ contains=0,Gold Piece/1d30+100:100
 @
 name=batch.3.mundane.weapons
 contains=0,Naginata/1d1:8,Fauchard/1d1:8,No-dachi/1d1:7,Zweihander/1d1:7,Zizka Star/1d1:7,Heavy Crossbow/1d1:7,Sai/1d1:7,Nunchaku/1d1:7,Bec De Corbin/1d1:7,Ninjato/1d1:7,Flambard/1d1:7,Bipennis/1d1:7,Lance/1d1:7,Sarissa/1d1:7
+@
+name=supplies.1.cave.eels
+contains=0,Cave Eel/4d4:100
 @
 name=batch.1.steampunk.items
 contains=0,Faraday Helm/1d1:17,Miners Helmet/1d1:17,Ballistic Vest/1d1:17,Gyroscopic Boots/1d1:17,Pneumatic Gloves/1d1:16,Welding Goggles/1d1:16

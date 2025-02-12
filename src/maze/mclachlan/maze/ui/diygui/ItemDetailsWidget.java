@@ -332,7 +332,7 @@ public class ItemDetailsWidget extends GeneralDialog
 	private void wrapString(List<Widget> rows, StringBuilder sb)
 	{
 		List<String> strings = DIYToolkit.wrapText(
-			sb.toString(), Maze.getInstance().getComponent().getGraphics(), wrapWidth);
+			sb.toString(), wrapWidth, null);
 
 		for (String s : strings)
 		{

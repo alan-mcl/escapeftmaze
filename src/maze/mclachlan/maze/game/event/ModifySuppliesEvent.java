@@ -30,9 +30,9 @@ import mclachlan.maze.ui.diygui.MessageConsumer;
  */
 public class ModifySuppliesEvent extends MazeEvent
 {
-	private int amount;
-	private MessageConsumer messageConsumer;
-	private String msg;
+	private final int amount;
+	private final MessageConsumer messageConsumer;
+	private final String msg;
 
 	/*-------------------------------------------------------------------------*/
 	public ModifySuppliesEvent(int amount)

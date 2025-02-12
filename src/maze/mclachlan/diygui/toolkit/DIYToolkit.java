@@ -227,6 +227,22 @@ public class DIYToolkit
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Stub constructor for testing
+	 */
+	public DIYToolkit()
+	{
+		instance = this;
+		comp = null;
+		contentPane = null;
+		queue = null;
+		tooltipTimer = null;
+
+		rendererFactory = new DefaultRendererFactory();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static DIYToolkit getInstance()
 	{
 		return instance;
@@ -374,6 +390,11 @@ public class DIYToolkit
 	 */
 	public static Dimension getDimension(String s, Font f)
 	{
+		if (getInstance().getComponent() == null)
+		{
+			return new Dimension();
+		}
+
 		Graphics g = instance.comp.getGraphics();
 
 		if (g == null)
@@ -404,7 +425,7 @@ public class DIYToolkit
 			return null;
 		}
 
-		List<String> lines = wrapText(s, g, wrapWidth);
+		List<String> lines = wrapText(s, wrapWidth, null);
 
 		int oneLineHeight = getDimension("|").height;
 
@@ -1028,16 +1049,20 @@ public class DIYToolkit
 	 * Given a single line of text, wrap it to fit within the given width.
 	 *
 	 * @param text  the text to wrap
-	 * @param g     the graphics context
 	 * @param width the width to wrap to
 	 * @return a list of strings, each of which is a line of text
 	 */
-	public static List<String> wrapText(String text, Graphics g, int width)
+	public static List<String> wrapText(String text, int width, Graphics g)
 	{
 		List<String> wrappedLines = new ArrayList<>();
-		if (text == null || text.isEmpty())
+		if (text == null || text.isEmpty() || DIYToolkit.getInstance().getComponent() == null)
 		{
 			return wrappedLines;
+		}
+
+		if (g == null)
+		{
+			g = DIYToolkit.getInstance().getComponent().getGraphics();
 		}
 
 		FontMetrics fm = g.getFontMetrics();
@@ -1193,7 +1218,7 @@ public class DIYToolkit
 		}
 
 		int inset = 2;
-		List<String> lines = wrapText(text, g, bounds.width - inset * 2);
+		List<String> lines = wrapText(text, bounds.width - inset * 2, g);
 
 		drawTextWrapped(g, lines, bounds, horizAlignment, vertAlignment);
 

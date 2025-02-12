@@ -19,9 +19,13 @@
 
 package mclachlan.maze.stat.combat;
 
+import java.util.*;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.game.event.ModifySuppliesEvent;
+import mclachlan.maze.map.TileScript;
+import mclachlan.maze.map.script.GrantGoldEvent;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.ui.diygui.UseItem;
@@ -69,12 +73,34 @@ public class UseItemOption extends ActorActionOption implements UseItemCallback
 	public boolean useItem(
 		Item item, PlayerCharacter user, int userIndex, SpellTarget target)
 	{
-
 		ActorGroup selectedFoeGroup = null;
 		if (combat != null)
 		{
 			selectedFoeGroup = Maze.getInstance().getUi().getSelectedFoeGroup();
 		}
+
+		if (item.getType() == ItemTemplate.Type.SUPPLIES && item.isIdentified())
+		{
+			int supplies = TileScript.extractSupplies(new ArrayList<>(List.of(item)));
+			Maze.getInstance().appendEvents(
+				new ModifySuppliesEvent(supplies));
+			user.removeItem(item, true);
+
+			return true;
+		}
+		else if (item.getType() == ItemTemplate.Type.MONEY && item.isIdentified())
+		{
+			int gold = TileScript.extractGold(new ArrayList<>(List.of(item)));
+			Maze.getInstance().appendEvents(new GrantGoldEvent(gold));
+			user.removeItem(item, true);
+
+			return true;
+		}
+		else if (item.getInvokedSpell() == null)
+		{
+			return true;
+		}
+
 
 		SpellTarget spellTarget = target;
 

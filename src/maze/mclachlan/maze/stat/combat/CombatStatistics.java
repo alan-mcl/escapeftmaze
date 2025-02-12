@@ -11,7 +11,7 @@ import mclachlan.maze.stat.combat.event.StrikeEvent;
 public class CombatStatistics
 {
 	// just a name
-	private String name;
+	private final String name;
 
 	// actor details
 	private int nrPlayerCharacters;
@@ -20,18 +20,20 @@ public class CombatStatistics
 	private int nrPcVictories;
 	private int nrCombats;
 
-	private List<Integer> pcLevels = new ArrayList<Integer>();
-	private List<Integer> pcAttackRate = new ArrayList<Integer>();
-	private List<Integer> pcHp = new ArrayList<Integer>();
-	private List<Integer> foeLevels = new ArrayList<Integer>();
-	private List<Integer> foeHp = new ArrayList<Integer>();
-	private List<Integer> foeSp = new ArrayList<Integer>();
-	private List<Integer> foeMp = new ArrayList<Integer>();
-	private List<Integer> foeAttackDamage = new ArrayList<Integer>();
-	private List<Integer> pcInitiative = new ArrayList<Integer>();
-	private List<Integer> pcAttackDamage = new ArrayList<Integer>();
+	private final List<Integer> pcLevels = new ArrayList<>();
+	private final List<Integer> pcAttackRate = new ArrayList<>();
+	private final List<Integer> pcHp = new ArrayList<>();
+	private final List<Integer> pcAp = new ArrayList<>();
+	private final List<Integer> pcMp = new ArrayList<>();
+	private final List<Integer> foeLevels = new ArrayList<>();
+	private final List<Integer> foeHp = new ArrayList<>();
+	private final List<Integer> foeAp = new ArrayList<>();
+	private final List<Integer> foeMp = new ArrayList<>();
+	private final List<Integer> foeAttackDamage = new ArrayList<>();
+	private final List<Integer> pcInitiative = new ArrayList<>();
+	private final List<Integer> pcAttackDamage = new ArrayList<>();
 
-	private List<Integer> foeInitiative = new ArrayList<Integer>();
+	private final List<Integer> foeInitiative = new ArrayList<>();
 	private int nrPcAttacks, nrFoeAttacks;
 	private int nrPcAttackHits, nrFoeAttackHits;
 
@@ -40,8 +42,6 @@ public class CombatStatistics
 	private Combat.AmbushStatus ambushStatus;
 
 	private int combatRounds;
-	// lists of values
-	private List<Integer> playerInitiatives = new ArrayList<Integer>();
 
 	/*-------------------------------------------------------------------------*/
 	public CombatStatistics(String name)
@@ -62,6 +62,8 @@ public class CombatStatistics
 		{
 			pcLevels.add(actor.getLevel());
 			pcHp.add(actor.getHitPoints().getMaximum());
+			pcAp.add(actor.getActionPoints().getMaximum());
+			pcMp.add(actor.getMagicPoints().getMaximum());
 			pcAttackRate.add(GameSys.getInstance().getNrAttacks(
 				(PlayerCharacter)actor, true));
 		}
@@ -72,7 +74,7 @@ public class CombatStatistics
 			{
 				foeLevels.add(f.getLevel());
 				foeHp.add(f.getHitPoints().getMaximum());
-				foeSp.add(f.getActionPoints().getMaximum());
+				foeAp.add(f.getActionPoints().getMaximum());
 				foeMp.add(f.getMagicPoints().getMaximum());
 			}
 		}
@@ -219,9 +221,9 @@ public class CombatStatistics
 		return getAverage(foeHp);
 	}
 
-	public double getAverageFoeSp()
+	public double getAverageFoeAp()
 	{
-		return getAverage(foeSp);
+		return getAverage(foeAp);
 	}
 
 	public double getAverageFoeMp()
@@ -244,6 +246,16 @@ public class CombatStatistics
 		return getAverage(pcHp);
 	}
 
+	public double getAveragePcAp()
+	{
+		return getAverage(pcAp);
+	}
+
+	public double getAveragePcMp()
+	{
+		return getAverage(pcMp);
+	}
+
 	public double getAveragePcAttackRate()
 	{
 		return getAverage(pcAttackRate);
@@ -259,8 +271,19 @@ public class CombatStatistics
 		return getAverage(foeAttackDamage);
 	}
 
+	public double getTotalFoeAttackDamage()
+	{
+		return getSum(foeAttackDamage);
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private double getAverage(List<Integer> list)
+	{
+		return getSum(list) / list.size();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private double getSum(List<Integer> list)
 	{
 		double sum = 0D;
 
@@ -269,7 +292,7 @@ public class CombatStatistics
 			sum += i;
 		}
 
-		return sum / list.size();
+		return sum;
 	}
 
 	/*-------------------------------------------------------------------------*/

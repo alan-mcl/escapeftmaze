@@ -937,7 +937,7 @@ playerOrigin: 14:30
 918: 0:3f800000000000000000,01020202010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 919: 0:3f800000000000000000,02020101010201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 920: 0:3f800000000000000000,02020101010102:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
-921: 0:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
+921: 1:4,gatehouse.execute.once.27,,false,-1,This mushrooms growing in this corner look a bit different...:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 922: 0:3f800000000000000000,01010101020201:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 923: 0:3f800000000000000000,01010102020202:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
 924: 0:3f800000000000000000,02020202020101:DUNGEON:Deserted:0:gatehouse.level.1:NONE:AVERAGE
@@ -2382,12 +2382,14 @@ playerOrigin: 14:30
 914: DUNGEON_WALL_1:::::true:1
 915: WEBS_2:::::false:1
 916: DUNGEON_WALL_1:::::true:1
+921: DUNGEON_WALL_1:::::true:1
 932: DUNGEON_WALL_1:::::true:1
 933: DUNGEON_WALL_1:::::true:1
 934: DUNGEON_WALL_1:::::true:1
 935: DUNGEON_WALL_1:::::true:1
 946: DUNGEON_WALL_1:WEBS_2::::true:1
 949: DUNGEON_WALL_1:WEBS_1::::true:1
+953: DUNGEON_WALL_1:::::true:1
 954: DUNGEON_WALL_1:::::true:1
 964: DUNGEON_WALL_1:::::true:1
 966: DUNGEON_WALL_1:::::true:1
@@ -2687,7 +2689,7 @@ playerOrigin: 14:30
 942: WEBS_1:::::false:1
 945: WEBS_2:::::false:1
 946: DUNGEON_WALL_1:::::true:1
-950: DUNGEON_WALL_1:::::true:1
+949: DUNGEON_WALL_1:::::true:1
 952: DUNGEON_WALL_1:::::true:1
 953: DUNGEON_WALL_1:::::true:1
 955: DUNGEON_WALL_1:::::true:1
@@ -2793,7 +2795,7 @@ playerOrigin: 14:30
 71: objects.fungus.1:objects.fungus.1:objects.fungus.1:objects.fungus.1:285:false::110011::BOTTOM
 72: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:247:false:4,,,false,-1,The barrel is empty.:1001001::BOTTOM
 73: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:279:false:4,,,false,-1,The barrel is empty.:10010001::BOTTOM
-74: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:280:false:4,,,false,-1,The barrel is empty.:000010101::BOTTOM
+74: objects.barrel.1:objects.barrel.1:objects.barrel.1:objects.barrel.1:280:false:7,,,false,-1,Gatehouse supplies 1 iron rations:000010101::BOTTOM
 75: objects.bones.2:objects.bones.2:objects.bones.2:objects.bones.2:184:false:7,gatehouse.execute.once.20,,false,0,Gatehouse bones2 hidden stuff:00001::BOTTOM
 76: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:145:true::::TOP
 77: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:300:false::::TOP
@@ -2873,6 +2875,7 @@ playerOrigin: 14:30
 151: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:46:true::::TOP
 152: CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:CEILING_LIGHT_2:42:true::::TOP
 153: objects.shrine.1.front:objects.shrine.1.front:objects.shrine.1.front:objects.shrine.1.front:807:false:4,,,true,-1,The shrine is dusty and does not appear to have been visited for a long time. You find nothing.:00001::BOTTOM
+154: objects.fungus.ambercap:objects.fungus.ambercap:objects.fungus.ambercap:objects.fungus.ambercap:921:false:15,gatehouse.execute.once.28,,false,-1,true,,Take the mushrooms#Leave them alone,Gatehouse supplies 1 ambercaps# - :0001:gatehouse.supplies.1.ambercaps:BOTTOM
 
 -scripts-
 0: 2,8,32,40,757/660/300

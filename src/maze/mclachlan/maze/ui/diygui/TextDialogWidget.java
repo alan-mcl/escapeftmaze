@@ -122,6 +122,12 @@ public class TextDialogWidget extends GeneralDialog implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public String getText()
+	{
+		return this.text.getText();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public String getWidgetName()
 	{
 		return DIYToolkit.PANEL;

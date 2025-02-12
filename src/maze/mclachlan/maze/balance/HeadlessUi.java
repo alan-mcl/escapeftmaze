@@ -425,7 +425,56 @@ public class HeadlessUi implements UserInterface
 
 	public Music getMusic()
 	{
-		return null;
+		return new Music(null, false)
+		{
+			@Override
+			public void stop()
+			{
+
+			}
+
+			@Override
+			public void close()
+			{
+
+			}
+
+			@Override
+			public String getState()
+			{
+				return null;
+			}
+
+			@Override
+			public void setState(String state)
+			{
+
+			}
+
+			@Override
+			public void playLooped(int volume, String... fileNames)
+			{
+
+			}
+
+			@Override
+			public void setVolume(int volume)
+			{
+
+			}
+
+			@Override
+			public boolean isRunning()
+			{
+				return false;
+			}
+
+			@Override
+			public void setEnabled(boolean enabled)
+			{
+
+			}
+		};
 	}
 
 	public void setSelectedFoeGroup(int i)

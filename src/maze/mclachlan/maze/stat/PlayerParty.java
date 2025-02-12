@@ -29,7 +29,7 @@ import mclachlan.maze.util.MazeException;
 public class PlayerParty implements ActorGroup
 {
 	/** player characters in this party */
-	private List<UnifiedActor> actors = new ArrayList<UnifiedActor>();
+	private List<UnifiedActor> actors = new ArrayList<>();
 
 	/**
 	 * The index of the first character in the back row.
@@ -49,7 +49,7 @@ public class PlayerParty implements ActorGroup
 	/**
 	 * Cloud spells afflicting the party
 	 */
-	private List<CloudSpell> cloudSpells = new ArrayList<CloudSpell>();
+	private final List<CloudSpell> cloudSpells = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerParty(List<UnifiedActor> actors)
@@ -99,7 +99,7 @@ public class PlayerParty implements ActorGroup
 	/*-------------------------------------------------------------------------*/
 	public List<String> getPartyNames()
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 		for (UnifiedActor a : actors)
 		{
 			result.add(a.getName());
@@ -116,7 +116,7 @@ public class PlayerParty implements ActorGroup
 	/*-------------------------------------------------------------------------*/
 	public List<PlayerCharacter> getPlayerCharacters()
 	{
-		ArrayList<PlayerCharacter> result = new ArrayList<PlayerCharacter>();
+		ArrayList<PlayerCharacter> result = new ArrayList<>();
 
 		for (UnifiedActor a : actors)
 		{
@@ -129,7 +129,7 @@ public class PlayerParty implements ActorGroup
 	/*-------------------------------------------------------------------------*/
 	public List<PlayerCharacter> getLivePlayerCharacters()
 	{
-		ArrayList<PlayerCharacter> result = new ArrayList<PlayerCharacter>();
+		ArrayList<PlayerCharacter> result = new ArrayList<>();
 
 		for (UnifiedActor a : actors)
 		{
@@ -164,10 +164,8 @@ public class PlayerParty implements ActorGroup
 		// LONG engage:		front=back=LONG
 		//
 
-		List<UnifiedActor> result = new ArrayList<UnifiedActor>();
-
-		List<UnifiedActor> frontRow = new ArrayList<UnifiedActor>();
-		List<UnifiedActor> backRow = new ArrayList<UnifiedActor>();
+		List<UnifiedActor> frontRow = new ArrayList<>();
+		List<UnifiedActor> backRow = new ArrayList<>();
 		int max = actors.size();
 		for (int i=0; i<max; i++)
 		{
@@ -193,33 +191,28 @@ public class PlayerParty implements ActorGroup
 			return null;
 		}
 
-		result.addAll(frontRow);
+		List<UnifiedActor> result = new ArrayList<>(frontRow);
 
 		switch (engagementRange)
 		{
-			case ItemTemplate.WeaponRange.MELEE:
+			case ItemTemplate.WeaponRange.MELEE ->
 			{
 				if (maxRange >= ItemTemplate.WeaponRange.EXTENDED)
 				{
 					result.addAll(backRow);
 				}
-				break;
 			}
-			case ItemTemplate.WeaponRange.EXTENDED:
+			case ItemTemplate.WeaponRange.EXTENDED ->
 			{
 				if (maxRange >= ItemTemplate.WeaponRange.THROWN)
 				{
 					result.addAll(backRow);
 				}
-				break;
 			}
-			case ItemTemplate.WeaponRange.THROWN:
-			case ItemTemplate.WeaponRange.LONG:
-			{
+			case ItemTemplate.WeaponRange.THROWN, ItemTemplate.WeaponRange.LONG ->
 				result.addAll(backRow);
-				break;
-			}
-			default: throw new MazeException("Invalid range: "+engagementRange);
+			default ->
+				throw new MazeException("Invalid range: " + engagementRange);
 		}
 
 		return result;
@@ -289,7 +282,7 @@ public class PlayerParty implements ActorGroup
 		UnifiedActor result = null;
 		int cur = Integer.MIN_VALUE;
 
-		List<UnifiedActor> actors = new ArrayList<UnifiedActor>(getActors());
+		List<UnifiedActor> actors = new ArrayList<>(getActors());
 		// shuffle to randomise ties
 		Collections.shuffle(actors);
 
@@ -309,8 +302,8 @@ public class PlayerParty implements ActorGroup
 	@Override
 	public List<UnifiedActor> getActorsWithModifier(Stats.Modifier modifier)
 	{
-		List<UnifiedActor> result = new ArrayList<UnifiedActor>();
-		List<UnifiedActor> actors = new ArrayList<UnifiedActor>(getActors());
+		List<UnifiedActor> result = new ArrayList<>();
+		List<UnifiedActor> actors = new ArrayList<>(getActors());
 
 		for (UnifiedActor a : actors)
 		{

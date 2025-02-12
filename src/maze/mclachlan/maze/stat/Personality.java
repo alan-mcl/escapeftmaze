@@ -142,7 +142,6 @@ public class Personality extends DataObject
 	{
 		GATEHOUSE_1("default.gatehouse.1"),
 		GATEHOUSE_DEACTIVATED_PORTAL("default.gatehouse.deactivated.portal"),
-		GATEHOUSE_WELCOME_SIGN("default.gatehouse.welcome.sign"),
 		GATEHOUSE_BLOCK_GOLEM("default.gatehouse.block.golem"),
 		GATEHOUSE_HIDDEN_STUFF_1("default.gatehouse.hidden.stuff.1"),
 		GATEHOUSE_MALIGNANT_WIDOWS("default.gatehouse.malignant.widows"),

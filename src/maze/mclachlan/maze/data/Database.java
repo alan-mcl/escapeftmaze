@@ -187,7 +187,7 @@ public class Database
 		Campaign campaign,
 		Map<String, String> config) throws Exception
 	{
-		System.out.println("Database.initCampaignCache: "+campaign);
+//		System.out.println("Database.initCampaignCache: "+campaign);
 
 		if (loader == null)
 		{

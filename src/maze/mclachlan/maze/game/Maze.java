@@ -382,6 +382,7 @@ public class Maze implements Runnable
 		// generate a random party of six
 		Leveler leveler = new Leveler();
 
+		int maxTextLen = 1000;
 		List<PlayerCharacter> pcs;
 		do
 		{
@@ -392,7 +393,16 @@ public class Maze implements Runnable
 			{
 				PlayerCharacter pc = leveler.createRandomPlayerCharacter();
 				pcs.add(pc);
-				dialog.addText(pc.getName()+"... ");
+
+				String text = dialog.getText();
+				text += pc.getName()+"... ";
+
+				if (text.length() > maxTextLen)
+				{
+					text = text.substring(text.length()-maxTextLen);
+				}
+
+				dialog.setText(text);
 			}
 		}
 		while (!leveler.validateParty(pcs));
@@ -458,6 +468,7 @@ public class Maze implements Runnable
 			JournalManager.getInstance().startGame();
 
 			// start campaign
+			party.setSupplies(party.size()*4);
 			MazeScript startingScript = Database.getInstance().getMazeScript(campaign.getStartingScript());
 			appendEvents(startingScript.getEvents());
 			appendEvents(new StartGameEvent(this, party));
@@ -1405,10 +1416,10 @@ public class Maze implements Runnable
 		if (party == null || party.getActors().isEmpty())
 		{
 			// adding the first character
-			ArrayList<UnifiedActor> chars = new ArrayList<UnifiedActor>();
+			ArrayList<UnifiedActor> chars = new ArrayList<>();
 			chars.add(pc);
 	
-			party = new PlayerParty(chars, 0, 100, 1); // todo: reduce supplies when there is more balance in data
+			party = new PlayerParty(chars, 0, 0, 1);
 			this.ui.setParty(party);
 			this.ui.characterSelected(pc);
 		}
@@ -1623,7 +1634,6 @@ public class Maze implements Runnable
 		playerTilesVisited.visitTile(zone.getName(), tile);
 
 		this.playerPos = tile;
-		addAll(result, Maze.getInstance().incTurn(true));
 		this.ui.setTile(zone, t, tile);
 
 		addAll(result, this.zone.encounterTile(instance, tile, previousTile, facing));

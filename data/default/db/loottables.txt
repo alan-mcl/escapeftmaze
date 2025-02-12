@@ -34,6 +34,9 @@ lootEntries=batch.3.magic.weapons:100,batch.3.magic.armour:100,batch.3.magic.tri
 name=Orngog.loot
 lootEntries=low.level.gold:100,I~Club:100
 @
+name=gatehouse.supplies.1.ambercaps
+lootEntries=supplies.1.ambercaps:100
+@
 name=dalen.chest.1
 lootEntries=batch.4.spell.books:90,batch.4.magic.weapons:80,batch.3.scrolls:90,batch.3.powders:90,batch.4.ammo:90,batch.3.mundane.weapons:90,batch.3.magic.armour:90,batch.3.banner.items:90,gold.1000:100,batch.4.throwing.weapons:90
 @
@@ -214,6 +217,9 @@ lootEntries=I~Plate Mail (U):100,I~Plate Mail (L):100,I~Steel Guantlets:100,I~So
 name=Onburi.loot
 lootEntries=I~Kwai:100,I~Mystic Arrow:100,I~Long Bow:100,I~Thieves Buckler:50,I~Thieves Ring:10,I~Thieves Tools:50,I~Skull Dagger:100,I~Suede Doublet:100,I~Suede Pants:100,I~Chamois Gloves:100,I~Buskins:100,I~Silver Coin:50
 @
+name=gatehouse.supplies.1.cave.eels
+lootEntries=supplies.1.cave.eels:100
+@
 name=Ren.San.loot
 lootEntries=I~Bushido Blade:100,batch.2.magic.trinkets:100,I~Robes (L):100,I~Robes (U):100,I~Sandals:100,batch.2.potions.healing:100,batch.2.potions.other:100
 @
@@ -300,6 +306,9 @@ lootEntries=I~Gold Piece:55,I~Fauchard:100,I~Leather Hauberk:100,I~Leather Glove
 @
 name=Gnome.Robber.loot
 lootEntries=I~Willow Arrow:100,I~Long Bow:100,I~Gold Piece:55,I~Bearded War Axe:100,I~Suede Pants:100,I~Suede Doublet:100,I~Buskins:100
+@
+name=gatehouse.supplies.1.iron.rations
+lootEntries=supplies.1.iron.rations:100
 @
 name=gatehouse.minor.loot.2
 lootEntries=low.level.gold:100,low.level.gold:50,exotic.starting.items:75,batch.1.magic.armour:50,batch.1.mundane.armour:100,batch.1.mundane.weapons:100,batch.1.gadgets:50,batch.1.throwing.weapons:50,batch.1.musical.intruments:50

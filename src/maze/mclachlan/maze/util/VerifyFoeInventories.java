@@ -20,7 +20,6 @@
 package mclachlan.maze.util;
 
 import java.util.*;
-import mclachlan.maze.balance.MockCombat;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
@@ -46,8 +45,6 @@ public class VerifyFoeInventories
 		V1Loader loader = new V1Loader();
 		saver = new V1Saver();
 		Database db = new Database(loader, saver, Maze.getStubCampaign());
-
-		Maze mockMaze = MockCombat.getMockMaze(loader);
 
 		Map<String,FoeTemplate> foeTemplates = db.getFoeTemplates();
 

@@ -30,9 +30,9 @@ import mclachlan.maze.util.MazeException;
  */
 public class PercentageTable<T>
 {
-	private List<T> items;
-	private boolean shouldSumTo100;
-	private List<Integer> cumulative;
+	private final List<T> items;
+	private final boolean shouldSumTo100;
+	private final List<Integer> cumulative;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -40,7 +40,7 @@ public class PercentageTable<T>
 	 */
 	public PercentageTable()
 	{
-		this(new ArrayList<T>(), new ArrayList<Integer>(), true);
+		this(new ArrayList<>(), new ArrayList<>(), true);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -53,7 +53,7 @@ public class PercentageTable<T>
 	 */
 	public PercentageTable(boolean shouldSumTo100)
 	{
-		this(new ArrayList<T>(), new ArrayList<Integer>(), shouldSumTo100);
+		this(new ArrayList<>(), new ArrayList<>(), shouldSumTo100);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -74,8 +74,8 @@ public class PercentageTable<T>
 	/*-------------------------------------------------------------------------*/
 	public PercentageTable(PercentageTable<T> other)
 	{
-		this.items = new ArrayList<T>(other.items);
-		this.cumulative = new ArrayList<Integer>(other.cumulative);
+		this.items = new ArrayList<>(other.items);
+		this.cumulative = new ArrayList<>(other.cumulative);
 		this.shouldSumTo100 = other.shouldSumTo100;
 	}
 
@@ -96,7 +96,7 @@ public class PercentageTable<T>
 	{
 		this.items = items;
 		this.shouldSumTo100 = shouldSumTo100;
-		this.cumulative = new ArrayList<Integer>();
+		this.cumulative = new ArrayList<>();
 
 		int sum = 0;
 		for (int i = 0; i < items.size(); i++)
@@ -132,7 +132,7 @@ public class PercentageTable<T>
 	{
 		this.items = items;
 		this.shouldSumTo100 = true;
-		this.cumulative = new ArrayList<Integer>();
+		this.cumulative = new ArrayList<>();
 
 		double total = 0;
 		for (Double weight : weights)
@@ -185,7 +185,7 @@ public class PercentageTable<T>
 	 */
 	public List<Integer> getPercentages()
 	{
-		List<Integer> result = new ArrayList<Integer>(items.size());
+		List<Integer> result = new ArrayList<>(items.size());
 
 		int sum = 0;
 		for (Integer i : cumulative)

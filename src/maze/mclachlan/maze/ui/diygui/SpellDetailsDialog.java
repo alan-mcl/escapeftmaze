@@ -219,7 +219,7 @@ public class SpellDetailsDialog extends GeneralDialog
 	private void wrapString(List<Widget> rows, String s)
 	{
 		List<String> strings = DIYToolkit.wrapText(
-			s, Maze.getInstance().getComponent().getGraphics(), wrapWidth);
+			s, wrapWidth, null);
 
 		for (String str : strings)
 		{

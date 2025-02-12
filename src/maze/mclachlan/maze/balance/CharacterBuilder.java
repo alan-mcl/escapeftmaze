@@ -72,7 +72,7 @@ public class CharacterBuilder
 		leveler.applyModifiers(pc, sm);
 
 		// level up the requisite nr of times
-		for (int i=1; i<level; i++)
+		for (int i = 1; i < level; i++)
 		{
 			levelUp(pc, modifierApproach, leveler);
 		}
@@ -106,13 +106,7 @@ public class CharacterBuilder
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static abstract class ModifierApproach
-	{
-		public abstract void incModifiers(PlayerCharacter pc, StatModifier sm, int nrModifiers);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public static void main(String[] args) throws Exception
+	private static CharacterBuilder getCharacterBuilder() throws Exception
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
@@ -128,19 +122,27 @@ public class CharacterBuilder
 //		maze.startThreads();
 
 		CharacterBuilder cb = new CharacterBuilder(db);
+		return cb;
+	}
 
-		PlayerCharacter pc = cb.buildCharacter("Tester", "Warrior", "Human", "Male", 15,
-			new PriorityModifierApproach(
-				Stats.Modifier.BRAWN,
-				Stats.Modifier.SKILL,
-				Stats.Modifier.CUT,
-				Stats.Modifier.THRUST,
-				Stats.Modifier.SHOOT));
+	/*-------------------------------------------------------------------------*/
+	public static abstract class ModifierApproach
+	{
+		public abstract void incModifiers(PlayerCharacter pc, StatModifier sm,
+			int nrModifiers);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void main(String[] args) throws Exception
+	{
+		int level = 15;
+		PlayerCharacter pc = MockCombat.getRefCombatPC(getCharacterBuilder(), 5);
 
 		System.out.println("pc = [" + pc + "]");
-		System.out.println("HP: "+pc.getHitPoints()+", " +
-			"SP: "+pc.getActionPoints()+", " +
-			"MP: "+pc.getMagicPoints());
+		System.out.println("HP: " + pc.getHitPoints() + ", " +
+			"SP: " + pc.getActionPoints() + ", " +
+			"MP: " + pc.getMagicPoints());
 		System.out.println(pc.getStats().getModifiers());
 	}
 }
+

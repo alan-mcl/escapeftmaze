@@ -16,10 +16,6 @@ The Gatehouse dungeon complex is where the party arrives, having stepped through
 
 It is a gloomy training dungeon with a bunch of low level monsters in it. There are three possible exits, one guarded by a golem (easiest to beat for a stealth focussed party), one guarded by spell casting spiders (easiest to beat for a combat focussed party) and one guarded by insect swarms (easiest to beat for a magic focussed party). They deposit the party in different places along the north-south road in Ichiba Domain.
 
-Foes: bats, spiders, roaches, oozes
-
-Notes
-
 * To progress past the first portcullis the part must pull a lever guarded by bats.
 * The key to the second portcullis is hidden in a pile of bones in a gloomy webbed area guarded by spiders.
 * The 'Gatehouse' room contains deactivated Gates. _Later in the game the party can activate them for fast travel purposes._
@@ -32,6 +28,19 @@ Notes
 * Beyond Emmons, the left path leads to a gloomy partly flooded series of passages. One pool contains hidden items. Beyond this is the chamber of the insect swarms.
 * The center path leads to a straight corridor flanked by distracting chambers that contain nothing useful. Beyond this is the chamber of the block golem.
 * The right path leads to a confusing maze of connected rooms, some very dark, others brightly lit. Beyond this lies the chamber of the spell casting spiders.
+
+Foes:
+
+* Fruit Bats: first encounter, low threat, fragile, slightly quick and hard to hit
+* Mud Spiders: low threat, less fragile than Fruit Bats
+* Bonebrood: boss, guards a key with Mud Spiders, casts debuff spells
+* Spotted Crud: low threat, robust and resistant to crush/water/earth, slow
+* Feral Familiar: boss, guards a key with a varied pack, casts low level witch spells
+* Jumping Roach: low threat but scales up in big groups, fragile but quick
+* Malignant Widow: bosses, guard an exit portal, fragile spell casters, resist magic
+* Block Golem: boss, guards an exit portal, robust, resistant and hard hitting but slow
+* Angry Swarm: bosses, guard an exit portal, fragile but immune to physical damage
+
 
 === Ichiba
 ----

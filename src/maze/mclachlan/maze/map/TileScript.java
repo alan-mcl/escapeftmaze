@@ -27,6 +27,7 @@ import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.event.ModifySuppliesEvent;
 import mclachlan.maze.map.script.GrantGoldEvent;
 import mclachlan.maze.map.script.GrantItemsEvent;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 import mclachlan.maze.stat.PlayerCharacter;
@@ -265,7 +266,7 @@ public abstract class TileScript
 			totalSupplies = extractSupplies(items);
 		}
 
-		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
+		ArrayList<MazeEvent> result = new ArrayList<>();
 
 		if (totalGold > 0)
 		{
@@ -298,8 +299,13 @@ public abstract class TileScript
 			Item item = lit.next();
 			if (item.getType() == ItemTemplate.Type.MONEY)
 			{
-				lit.remove();
-				result += item.applyConversionRate();
+				GameSys.getInstance().attemptManualIdentify(item, Maze.getInstance().getParty());
+
+				if (item.isIdentified())
+				{
+					lit.remove();
+					result += item.applyConversionRate();
+				}
 			}
 		}
 		return result;
@@ -320,8 +326,13 @@ public abstract class TileScript
 			Item item = lit.next();
 			if (item.getType() == ItemTemplate.Type.SUPPLIES)
 			{
-				lit.remove();
-				result += item.applyConversionRate();
+				GameSys.getInstance().attemptManualIdentify(item, Maze.getInstance().getParty());
+
+				if (item.isIdentified())
+				{
+					lit.remove();
+					result += item.applyConversionRate();
+				}
 			}
 		}
 		return result;
@@ -330,9 +341,7 @@ public abstract class TileScript
 	/*-------------------------------------------------------------------------*/
 	protected List<MazeEvent> getList(MazeEvent... events)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
-		result.addAll(Arrays.asList(events));
-		return result;
+		return new ArrayList<>(Arrays.asList(events));
 	}
 
 	/*-------------------------------------------------------------------------*/

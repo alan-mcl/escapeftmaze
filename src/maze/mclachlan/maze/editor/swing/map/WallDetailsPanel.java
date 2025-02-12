@@ -120,11 +120,12 @@ public class WallDetailsPanel extends JPanel
 		isSolid.setSelected(wall.isSolid());
 		height.setValue(wall.getHeight());
 
+		texturesPanel.refresh(wall);
+
 		if (wall.isVisible())
 		{
 			setVisibleState(true);
 
-			texturesPanel.refresh(wall);
 
 			MouseClickScriptAdapter m1 = ((MouseClickScriptAdapter)wall.getMouseClickScript());
 			mouseClickScript.refresh(m1 == null ? null : m1.getScript(), zone);
@@ -313,6 +314,7 @@ public class WallDetailsPanel extends JPanel
 				texturesResult = new ArrayList<>();
 				maskTexturesResult = new ArrayList<>();
 
+				// wall textures
 				for (JComboBox<String> cb : textures)
 				{
 					if (cb.getSelectedItem() != EditorPanel.NONE)
@@ -320,7 +322,9 @@ public class WallDetailsPanel extends JPanel
 						texturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
 					}
 				}
+				this.wall.setTextures(texturesResult.toArray(new Texture[0]));
 
+				// mask textures
 				for (JComboBox<String> cb : maskTextures)
 				{
 					if (cb.getSelectedItem() != EditorPanel.NONE)
@@ -328,8 +332,6 @@ public class WallDetailsPanel extends JPanel
 						maskTexturesResult.add(Database.getInstance().getMazeTexture((String)cb.getSelectedItem()).getTexture());
 					}
 				}
-
-				this.wall.setTextures(texturesResult.toArray(new Texture[0]));
 				if (maskTexturesResult.size() > 0)
 				{
 					this.wall.setMaskTextures(maskTexturesResult.toArray(new Texture[0]));

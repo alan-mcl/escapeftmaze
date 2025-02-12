@@ -45,8 +45,8 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 		int textBoundsWidth = DIALOG_WIDTH - getBorder() * 2;
 		List<String> lines = DIYToolkit.wrapText(
 			text,
-			DiyGuiUserInterface.gui.getComponent().getGraphics(),
-			textBoundsWidth -2);
+			textBoundsWidth -2,
+			null);
 
 		int dialogHeight = (int)(lines.size() * (DIYToolkit.getDimension("|").getHeight())) + getBorder() *2;
 

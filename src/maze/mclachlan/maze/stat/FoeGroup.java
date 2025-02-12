@@ -276,4 +276,9 @@ public class FoeGroup implements ActorGroup
 	{
 		return 0;
 	}
+
+	public void addAll(List<Foe> foes)
+	{
+		foes.forEach(this::add);
+	}
 }

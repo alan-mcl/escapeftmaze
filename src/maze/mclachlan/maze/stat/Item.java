@@ -420,6 +420,11 @@ public class Item implements AttackWith, SpellTarget
 		this.identificationState = state;
 	}
 
+	public boolean isIdentified()
+	{
+		return this.identificationState == IdentificationState.IDENTIFIED;
+	}
+
 	public StatModifier getModifiers()
 	{
 		StatModifier unifiedModifiers = new StatModifier(template.modifiers);

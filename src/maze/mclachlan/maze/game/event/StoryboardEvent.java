@@ -19,13 +19,12 @@
 
 package mclachlan.maze.game.event;
 
-import java.awt.Color;
-import java.awt.Font;
-import java.awt.Image;
-import java.util.*;
+import java.awt.*;
+import java.util.List;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.DIYTextArea;
 import mclachlan.diygui.toolkit.DIYToolkit;
+import mclachlan.diygui.toolkit.RendererProperties;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
@@ -89,12 +88,21 @@ public class StoryboardEvent extends MazeEvent
 			Font f = defaultFont.deriveFont(Font.BOLD, defaultFont.getSize() + 2f);
 			textArea.setFont(f);
 
+			Graphics g = DIYToolkit.getInstance().getComponent().getGraphics();
+			Font oldFont = g.getFont();
+			g.setFont(f);
+
 			int textX, textY;
 			int textWidth = DiyGuiUserInterface.SCREEN_WIDTH / 4;
 			List<String> strings = DIYToolkit.wrapText(
-				text, DIYToolkit.getInstance().getComponent().getGraphics(), textWidth);
-			int textHeight = 25 + 25 * strings.size();
+				text, textWidth, g);
+
+			FontMetrics fm = g.getFontMetrics(f);
+
+			int textHeight = 5 + fm.getHeight() * strings.size();
 			int inset = 40;
+
+			g.setFont(oldFont);
 
 			switch (textPlacement)
 			{
@@ -146,12 +154,15 @@ public class StoryboardEvent extends MazeEvent
 				default -> throw new MazeException(textPlacement.toString());
 			}
 
-
-			DIYPanel textPanel = new DIYPanel(textX-25, textY-20, textWidth+50, textHeight+40);
+			int border = DIYToolkit.getInstance().getRendererProperties().getProperty(RendererProperties.Property.PANEL_MED_BORDER);
+			DIYPanel textPanel = new DIYPanel(
+				textX-border,
+				textY-border,
+				textWidth+border*2,
+				textHeight+border*2);
 			textPanel.setStyle(DIYPanel.Style.PANEL_MED);
 
 			textPanel.add(textArea);
-
 			textArea.setBounds(textX, textY, textWidth, textHeight);
 
 			dialog.add(textPanel);

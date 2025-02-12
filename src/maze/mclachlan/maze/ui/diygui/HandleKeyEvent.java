@@ -40,11 +40,11 @@ class HandleKeyEvent extends MazeEvent
 			Zone.Vector portalDest = Maze.getInstance().playerAttemptsMoveThroughWall(oldTile, oldFacing);
 			if (portalDest != null)
 			{
-				playerActivatesPortal(
+				result.addAll(playerActivatesPortal(
 					oldTile,
 					portalDest.location,
 					portalDest.facing,
-					portalDest.portal);
+					portalDest.portal));
 			}
 			else
 			{
@@ -101,7 +101,6 @@ class HandleKeyEvent extends MazeEvent
 		rc.setPlayerPos(newTile.x, newTile.y, facing);
 
 		result.addAll(maze.incTurn(true));
-
 		result.addAll(maze.encounterTile(newTile, oldTile, facing));
 
 		return result;
@@ -117,11 +116,12 @@ class HandleKeyEvent extends MazeEvent
 
 		DiyGuiUserInterface.instance.raycaster.handleKey(playerStatus);
 
-		result.addAll(Maze.getInstance().incTurn(true));
+		Maze maze = Maze.getInstance();
+		result.addAll(maze.incTurn(true));
 		Point newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
 		int facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
 
-		result.addAll(Maze.getInstance().encounterTile(newTile, oldTile, facing));
+		result.addAll(maze.encounterTile(newTile, oldTile, facing));
 
 		Maze.getPerfLog().exit("MazeActionListener::movePlayer");
 

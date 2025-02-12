@@ -26,16 +26,33 @@ import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.Foe;
 import mclachlan.maze.stat.FoeTemplate;
-import mclachlan.maze.util.MazeException;
+import mclachlan.maze.stat.PlayerCharacter;
+
+import static mclachlan.maze.balance.MockCombat.getRefCombatPC;
 
 /**
  *
  */
 public class FoeScorer
 {
+	private final Database db;
+	private final MockCombat mockCombat;
+	private final Maze maze;
+	private final CharacterBuilder characterBuilder;
+
 	/*-------------------------------------------------------------------------*/
-	public double scoreFoe(FoeTemplate ft)
+	public FoeScorer(Database db) throws Exception
+	{
+		this.db = db;
+		mockCombat = new MockCombat();
+		maze = MockCombat.getMockMaze(db);
+		characterBuilder = new CharacterBuilder(db);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public double scoreFoe(FoeTemplate ft) throws Exception
 	{
 		double result = 0D;
 
@@ -43,49 +60,32 @@ public class FoeScorer
 		result += ft.getLevelRange().getAverage();
 
 		// damage per round
-		result += scoreDamagePerRound(ft);
+		result += avgDamagePerRound(ft);
 
 		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public double scoreDamagePerRound(FoeTemplate ft)
+
+	/**
+	 * Average Damage per round vs a combat focus PC of the same level
+	 */
+	public double avgDamagePerRound(FoeTemplate ft) throws Exception
 	{
 		double result = 0D;
 
-		throw new MazeException("todo: implement this");
+		Foe foe = ft.create();
 
-		/*PercentageTable<FoeAttack> attacks = ft.getAttacks();
-
-		for (FoeAttack fa : attacks.getItems())
+		int max = 5;
+		for (int i=0; i< max; i++)
 		{
-			double perc = attacks.getPercentage(fa)/100D;
+			PlayerCharacter pc = getRefCombatPC(characterBuilder, foe.getLevel());
+			mockCombat.singleTest(db, maze, pc, foe);
 
-			switch (fa.getType())
-			{
-				case MELEE_ATTACK:
-				case RANGED_ATTACK:
-
-					double aveDam = fa.getDamage().getAverage();
-					int swings = 0;
-					for (int i : fa.getAttacks())
-					{
-						swings += i;
-					}
-
-					result += (aveDam * swings * perc);
-					break;
-				case CAST_SPELL:
-					// todo
-					break;
-				case SPECIAL_ABILITY:
-					// todo
-					break;
-				default: throw new MazeException(fa.getType().name());
-			}
+			result += (pc.getHitPoints().getMaximum() - pc.getHitPoints().getCurrent());
 		}
 
-		return result; */
+		return result/max;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -97,7 +97,7 @@ public class FoeScorer
 
 		Map<String, FoeTemplate> map = db.getFoeTemplates();
 
-		FoeScorer s = new FoeScorer();
+		FoeScorer s = new FoeScorer(db);
 
 		for (FoeTemplate t : map.values())
 		{

@@ -264,7 +264,7 @@ public class TileDetailsPanel extends JPanel
 		lightLevel.removeChangeListener(this);
 		ceilingHeight.removeChangeListener(this);
 		hasObject.removeActionListener(this);
-		objectName.addActionListener(this);
+		objectName.removeActionListener(this);
 		northTexture.removeActionListener(this);
 		southTexture.removeActionListener(this);
 		eastTexture.removeActionListener(this);
@@ -317,6 +317,10 @@ public class TileDetailsPanel extends JPanel
 				if (obj.getName() != null)
 				{
 					objectName.setText(obj.getName());
+				}
+				else
+				{
+					objectName.setText("");
 				}
 				northTexture.setSelectedItem(obj.getNorthTexture().getName());
 				southTexture.setSelectedItem(obj.getSouthTexture().getName());

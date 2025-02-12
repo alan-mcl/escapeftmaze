@@ -45,7 +45,7 @@ public class JournalManager
 		// Key per NPC. Includes all NPC dialogs
 		NPC("npc");
 
-		private String journalName;
+		private final String journalName;
 
 		JournalType(String journalName)
 		{
@@ -58,7 +58,7 @@ public class JournalManager
 		}
 	}
 
-	private static JournalManager instance = new JournalManager();
+	private static final JournalManager instance = new JournalManager();
 
 	private Map<JournalType, Journal> journals;
 
@@ -77,7 +77,7 @@ public class JournalManager
 	/*-------------------------------------------------------------------------*/
 	public void startGame()
 	{
-		journals = new HashMap<JournalType, Journal>();
+		journals = new HashMap<>();
 
 		journals.put(JournalType.QUEST, new Journal(JournalType.QUEST.getJournalName()));
 		journals.put(JournalType.NPC, new Journal(JournalType.NPC.getJournalName()));
@@ -88,7 +88,7 @@ public class JournalManager
 	/*-------------------------------------------------------------------------*/
 	public void loadGame(String name, Loader loader) throws Exception
 	{
-		journals = new HashMap<JournalType, Journal>();
+		journals = new HashMap<>();
 
 		journals.put(JournalType.QUEST, loader.loadJournal(name, JournalType.QUEST.getJournalName()));
 		journals.put(JournalType.NPC, loader.loadJournal(name, JournalType.NPC.getJournalName()));

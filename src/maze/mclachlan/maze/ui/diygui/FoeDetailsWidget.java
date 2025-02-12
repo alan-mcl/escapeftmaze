@@ -26,7 +26,6 @@ import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.StringUtil;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.util.MazeException;
@@ -107,7 +106,7 @@ public class FoeDetailsWidget extends DIYPane
 	private void wrapString(List<Widget> rows, StringBuilder sb)
 	{
 		List<String> strings = DIYToolkit.wrapText(
-			sb.toString(), Maze.getInstance().getComponent().getGraphics(), wrapWidth);
+			sb.toString(), wrapWidth, null);
 
 		for (String s : strings)
 		{

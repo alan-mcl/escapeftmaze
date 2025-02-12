@@ -43,14 +43,19 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		String title,
 		String... options)
 	{
-		super();
+		boolean hasTitle = title != null && title.length() > 0;
+		if (!hasTitle)
+		{
+			this.setStyle(Style.PANEL_MED);
+		}
+
 		this.callback = callback;
 		this.forceSelection = forceSelection;
 
 		int buttonHeight = getButtonPaneHeight();
 		int inset = getInset();
 		int border = getBorder();
-		int titlePaneHeight = getTitlePaneHeight();
+		int titlePaneHeight = hasTitle ? getTitlePaneHeight() : 0;
 
 		int dialogWidth = DiyGuiUserInterface.SCREEN_WIDTH/2;
 		int dialogHeight = buttonHeight*options.length +titlePaneHeight +inset*4 +border*2;
@@ -61,8 +66,6 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		Rectangle dialogBounds = new Rectangle(startX, startY, dialogWidth, dialogHeight);
 
 		this.setBounds(dialogBounds);
-
-		DIYPane titlePane = getTitlePane(title);
 
 		DIYPane optionsPane = new DIYPane(new DIYGridLayout(1,options.length,5,5));
 		optionsPane.setBounds(
@@ -79,7 +82,12 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 			optionsPane.add(optionButtons[i]);
 		}
 
-		this.add(titlePane);
+		if (hasTitle)
+		{
+			DIYPane titlePane = getTitlePane(title);
+			this.add(titlePane);
+		}
+
 		this.add(optionsPane);
 
 		close = getCloseButton();

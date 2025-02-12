@@ -850,6 +850,7 @@ public class PlayerCharacter extends UnifiedActor
 		ArrayList<AttackWith> result = new ArrayList<AttackWith>();
 
 		Item pw = getPrimaryWeapon();
+		List<NaturalWeapon> naturalWeapons = getNaturalWeapons();
 		if (pw != null)
 		{
 			// can backstab/snipe?
@@ -866,16 +867,15 @@ public class PlayerCharacter extends UnifiedActor
 
 			result.add(pw);
 		}
-		else if (getNaturalWeapons() == null)
+		else if (naturalWeapons == null || naturalWeapons.isEmpty())
 		{
 			result.add(GameSys.getInstance().getUnarmedWeapon(this, true));
 		}
 
-		if (getNaturalWeapons() != null)
+		if (naturalWeapons != null)
 		{
-			result.addAll(getNaturalWeapons());
+			result.addAll(naturalWeapons);
 		}
-
 
 		return result;
 	}

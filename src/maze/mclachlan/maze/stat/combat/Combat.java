@@ -911,7 +911,7 @@ public class Combat
 	private List<CombatAction> getOrderOfPlay()
 	{
 		// first we need a list of combat actions
-		List<CombatAction> result = new ArrayList<CombatAction>();
+		List<CombatAction> result = new ArrayList<>();
 
 		for (UnifiedActor actor : this.actors)
 		{
@@ -943,7 +943,7 @@ public class Combat
 			}
 
 			// sort the actor actions, so that we can rank them
-			Collections.sort(actorActions, comparator);
+			actorActions.sort(comparator);
 
 			int actorActionIndex = 0;
 			for (CombatAction action : actorActions)
@@ -966,7 +966,7 @@ public class Combat
 		Collections.shuffle(result);
 		
 		// next we need to sort it based on initiative
-		Collections.sort(result, comparator);
+		result.sort(comparator);
 
 		// debug logging
 		Maze.log(Log.DEBUG, "Order of play: ");
