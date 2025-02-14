@@ -81,6 +81,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	static DiyGuiUserInterface instance;
 
 	private final List<Animation> animations = new ArrayList<>();
+	private final ContentPaneActionListener contentPaneActionListener;
 
 	// config
 	private boolean fullScreen;
@@ -236,7 +237,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			queue,
 			Maze.getInstance().getAppConfig().get(Maze.AppConfig.UI_RENDERER));
 
-		gui.getContentPane().addActionListener(new ContentPaneActionListener(this));
+		contentPaneActionListener = new ContentPaneActionListener(this);
+		gui.getContentPane().addActionListener(contentPaneActionListener);
 
 		new EventProcessor(queue).start();
 

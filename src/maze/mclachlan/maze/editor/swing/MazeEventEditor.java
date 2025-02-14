@@ -34,6 +34,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.npc.NpcFaction;
@@ -108,6 +109,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JTextField setMazeVarMazeVar, setMazeVarValue;
 	private JSpinner fromX, fromY;
 	private JComboBox facing;
+	private JComboBox steKeyModifier;
+	private ValueComponent steSkillValue, steSuccessValue;
+	private JComboBox steSuccessScript, steFailureScript;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeEventEditor(Frame owner, MazeEvent event, int dirtyFlag) throws HeadlessException
@@ -312,6 +316,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _RemoveObjectEvent:
 				RemoveObjectEvent roe = (RemoveObjectEvent)e;
 				removeObjectName.setText(roe.getObjectName());
+				break;
+			case _SkillTestEvent:
+				SkillTestEvent ste = (SkillTestEvent)e;
+				steKeyModifier.setSelectedItem(ste.getKeyModifier() == null ? EditorPanel.NONE : ste.getKeyModifier());
+				steSkillValue.setValue(ste.getSkill());
+				steSuccessValue.setValue(ste.getSuccessValue());
+				steSuccessScript.setSelectedItem(ste.getSuccessScript() == null ? EditorPanel.NONE : ste.getSuccessScript());
+				steFailureScript.setSelectedItem(ste.getFailureScript() == null ? EditorPanel.NONE : ste.getFailureScript());
 				break;
 
 			case _ActorDiesEvent:
@@ -532,6 +544,14 @@ public class MazeEventEditor extends JDialog implements ActionListener
 			case _RemoveObjectEvent:
 				this.result = new RemoveObjectEvent(removeObjectName.getText());
 				break;
+			case _SkillTestEvent:
+				this.result = new SkillTestEvent(
+					steKeyModifier.getSelectedItem() == EditorPanel.NONE ? null : (Stats.Modifier)steKeyModifier.getSelectedItem(),
+					steSkillValue.getValue(),
+					steSuccessValue.getValue(),
+					steSuccessScript.getSelectedItem() == EditorPanel.NONE ? null : (String)steSuccessScript.getSelectedItem(),
+					steFailureScript.getSelectedItem() == EditorPanel.NONE ? null : (String)steFailureScript.getSelectedItem());
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -662,6 +682,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getTogglePortalStatePanel();
 			case _RemoveObjectEvent:
 				return getRemoveObjectEventPanel();
+			case _SkillTestEvent:
+				return getSkillTestEventPanel();
 				
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -729,6 +751,31 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 			default: return null;
 		}
+	}
+
+	private JPanel getSkillTestEventPanel()
+	{
+		Vector mods = new Vector(Stats.allModifiers);
+		mods.sort(Comparator.comparing(Object::toString));
+		mods.add(0, EditorPanel.NONE);
+		steKeyModifier = new JComboBox(mods);
+
+		steSkillValue = new ValueComponent(this.dirtyFlag);
+		steSuccessValue = new ValueComponent(this.dirtyFlag);
+
+		Vector scripts = new Vector(Database.getInstance().getMazeScripts().keySet());
+		scripts.sort(Comparator.comparing(Object::toString));
+		scripts.add(0, EditorPanel.NONE);
+
+		steSuccessScript = new JComboBox(scripts);
+		steFailureScript = new JComboBox(new Vector(scripts));
+
+		return dirtyGridBagCrap(
+			new JLabel("Key Modifier:"), steKeyModifier,
+			new JLabel("Skill:"), steSkillValue,
+			new JLabel("Success Value:"), steSuccessValue,
+			new JLabel("Success Script:"), steSuccessScript,
+			new JLabel("Failure Script:"), steFailureScript);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1269,6 +1316,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Toggle Portal State";
 			case _RemoveObjectEvent:
 				return "Remove Object";
+			case _SkillTestEvent:
+				return "Skill Test";
 					
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:

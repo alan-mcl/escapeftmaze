@@ -51,6 +51,7 @@ public class StartGameEvent extends MazeEvent
 		//... not needed at start of game
 
 		maze.getUi().clearBlockingScreen();
+		maze.getUi().enableInput();
 
 		// encounter tile
 		return maze.encounterTile(maze.getPlayerPos(), null, maze.getFacing());

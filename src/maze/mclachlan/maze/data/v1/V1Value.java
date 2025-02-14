@@ -141,7 +141,7 @@ public class V1Value
 
 		ValueList baseValue = new ValueList();
 
-		ArrayList<Value> values = new ArrayList<Value>();
+		ArrayList<Value> values = new ArrayList<>();
 
 		for (int i=0; i<rows.length; i++)
 		{

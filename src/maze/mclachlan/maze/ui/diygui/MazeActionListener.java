@@ -32,9 +32,9 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-class MazeActionListener implements ActionListener
+public class MazeActionListener implements ActionListener
 {
-	boolean acceptInput = true;
+	public static boolean acceptInput = true;
 
 	/*-------------------------------------------------------------------------*/
 	public boolean actionPerformed(ActionEvent event)
@@ -110,16 +110,19 @@ class MazeActionListener implements ActionListener
 	{
 		acceptInput = false;
 		Maze.getInstance().appendEvents(
-		new HandleKeyEvent(crusaderKey),
-			new MazeEvent()
-			{
-				@Override
-				public List<MazeEvent> resolve()
-				{
-					acceptInput = true;
-					return null;
-				}
-			});
+			new HandleKeyEvent(crusaderKey),
+			new EnableInputEvent());
 		return true;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static class EnableInputEvent extends MazeEvent
+	{
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			acceptInput = true;
+			return null;
+		}
 	}
 }

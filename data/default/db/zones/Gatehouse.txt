@@ -247,7 +247,7 @@ playerOrigin: 14:30
 228: 0:3f800000000000000000,01020101020202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 229: 0:3f800000000000000000,01020202020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 230: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.35,,,,:3f800000000000000000,02020101020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-231: 1:3,,,false,-1,gatehouse.level.1,gatehouse.encounter.42,,,,:3f800000000000000000,02020102020202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+231: 2:11,,,true,-1,:7,gatehouse.execute.once.eels,,false,-1,Gatehouse supplies 1 eels leave:3f800000000000000000,02020102020202:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 232: 0:3f800000000000000000,01010202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 233: 0:3f800000000000000000,02020202020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 234: 0:3f800000000000000000,01020101020101:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -279,7 +279,7 @@ playerOrigin: 14:30
 260: 0:3f800000000000000000,01020201020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 261: 0:3f800000000000000000,02020201010102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 262: 0:3f800000000000000000,01020101010102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
-263: 0:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
+263: 3:4,gatehouse.execute.once.29,01,true,-1,The pool of water in the alcove is deeper than the rest. You can't see the bottom, but you can see some movement beneath the surface...:4,gatehouse.execute.once.30,01,true,-1,Peering through the gloom, you can make out several large, pale eels circling lazily in the dark waters. %n%nThey don't look dangerous. If you're quick enough, you may be able to grab one of them.:15,gatehouse.execute.once.eels,01,true,-1,true,Try to grab an eel?,Yes#No thanks~ leave them alone,Gatehouse supplies 1 cave eels skill test#Gatehouse supplies 1 cave eels leave alone:3f800000000000000000,02010201010201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 264: 0:3f800000000000000000,02020201010102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 265: 0:3f800000000000000000,01020201020102:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
 266: 0:3f800000000000000000,01010202020201:DUNGEON:Deserted:0:gatehouse.level.1:MEDIUM:AVERAGE
@@ -1315,7 +1315,7 @@ playerOrigin: 14:30
 228: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32,1
 229: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,32,1
 230: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,16,1
-231: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,20,1
+231: WATER_FLOOR_1,,DUNGEON_CEILING_1,,20,1
 232: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,8,1
 233: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,36,1
 234: DUNGEON_FLOOR_1,,DUNGEON_CEILING_1,,44,1

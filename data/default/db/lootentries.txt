@@ -104,7 +104,7 @@ name=batch.3.mundane.weapons
 contains=0,Naginata/1d1:8,Fauchard/1d1:8,No-dachi/1d1:7,Zweihander/1d1:7,Zizka Star/1d1:7,Heavy Crossbow/1d1:7,Sai/1d1:7,Nunchaku/1d1:7,Bec De Corbin/1d1:7,Ninjato/1d1:7,Flambard/1d1:7,Bipennis/1d1:7,Lance/1d1:7,Sarissa/1d1:7
 @
 name=supplies.1.cave.eels
-contains=0,Cave Eel/4d4:100
+contains=0,Cave Eel/1d1:100
 @
 name=batch.1.steampunk.items
 contains=0,Faraday Helm/1d1:17,Miners Helmet/1d1:17,Ballistic Vest/1d1:17,Gyroscopic Boots/1d1:17,Pneumatic Gloves/1d1:16,Welding Goggles/1d1:16

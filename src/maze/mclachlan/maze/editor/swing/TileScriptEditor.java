@@ -35,13 +35,12 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeScript;
-import mclachlan.maze.map.HiddenStuff;
-import mclachlan.maze.map.Tile;
-import mclachlan.maze.map.TileScript;
-import mclachlan.maze.map.Zone;
+import mclachlan.maze.map.*;
 import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
@@ -66,8 +65,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private static final int TOGGLE_WALL = 13;
 	private static final int PERSONALITY_SPEECH = 14;
 	private static final int DISPLAY_OPTIONS = 15;
+	private static final int SKILL_TEST = 16;
 
-	private static final int MAX = 16;
+	private static final int MAX = 17;
 
 	static Map<Class<?>, Integer> types;
 
@@ -90,6 +90,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 		types.put(SetMazeVariable.class, SET_MAZE_VARIABLE);
 		types.put(HiddenStuff.class, HIDDEN_STUFF);
 		types.put(Water.class, WATER);
+		types.put(SkillTest.class, SKILL_TEST);
 	}
 
 	private TileScript result;
@@ -169,6 +170,12 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JTextField displayOptionsTitle;
 	private List<JTextField> displayOptionsOptions;
 	private List<JComboBox> displayOptionsScripts;
+
+	private JComboBox steKeyModifier;
+	private ValueComponent steSkillValue;
+	private ValueComponent steSuccessValue;
+	private JComboBox steSuccessScript;
+	private JComboBox steFailureScript;
 
 	/*-------------------------------------------------------------------------*/
 	public TileScriptEditor(Frame owner, TileScript tileScript, int dirtyFlag,
@@ -412,8 +419,9 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 				for (int i = 0; i < dop.getOptions().size(); i++)
 				{
-					 displayOptionsOptions.get(i).setText(dop.getOptions().get(i));
-					 displayOptionsScripts.get(i).setSelectedItem(dop.getScripts().get(i));
+					displayOptionsOptions.get(i).setText(dop.getOptions().get(i));
+					String scripti = dop.getScripts().get(i);
+					displayOptionsScripts.get(i).setSelectedItem(scripti==null ? EditorPanel.NONE : scripti);
 				}
 
 				break;
@@ -474,6 +482,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case WATER:
 				break;
+			case SKILL_TEST:
+				SkillTest ste = (SkillTest)ts;
+				steKeyModifier.setSelectedItem(ste.getKeyModifier() == null ? EditorPanel.NONE : ste.getKeyModifier());
+				steSkillValue.setValue(ste.getSkill());
+				steSuccessValue.setValue(ste.getSuccessValue());
+				steSuccessScript.setSelectedItem(ste.getSuccessScript() == null ? EditorPanel.NONE : ste.getSuccessScript());
+				steFailureScript.setSelectedItem(ste.getFailureScript() == null ? EditorPanel.NONE : ste.getFailureScript());
+				break;
 			default:
 				throw new MazeException("Invalid type " + tsType);
 		}
@@ -500,8 +516,35 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				case SET_MAZE_VARIABLE -> getSetMazeVariablePanel();
 				case HIDDEN_STUFF -> getHiddenStuffPanel();
 				case WATER -> new JPanel();
+				case SKILL_TEST -> getSkillTestPanel();
 				default -> throw new MazeException("Invalid type " + type);
 			};
+	}
+
+	private JPanel getSkillTestPanel()
+	{
+		Vector mods = new Vector(Stats.allModifiers);
+		mods.sort(Comparator.comparing(Object::toString));
+		mods.add(0, EditorPanel.NONE);
+		steKeyModifier = new JComboBox(mods);
+
+		steSkillValue = new ValueComponent(this.dirtyFlag);
+		steSuccessValue = new ValueComponent(this.dirtyFlag);
+
+		Vector scripts = new Vector(Database.getInstance().getMazeScripts().keySet());
+		scripts.sort(Comparator.comparing(Object::toString));
+		scripts.add(0, EditorPanel.NONE);
+
+		steSuccessScript = new JComboBox(scripts);
+		steFailureScript = new JComboBox(new Vector(scripts));
+
+		return dirtyGridBagCrap(
+			new JLabel("Key Modifier:"), steKeyModifier,
+			new JLabel("Skill:"), steSkillValue,
+			new JLabel("Success Value:"), steSuccessValue,
+			new JLabel("Success Script:"), steSuccessScript,
+			new JLabel("Failure Script:"), steFailureScript);
+
 	}
 
 	private JPanel getDisplayOptionsPanel()
@@ -980,6 +1023,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				case SET_MAZE_VARIABLE -> "Set Maze Variable";
 				case HIDDEN_STUFF -> "Hidden Stuff";
 				case WATER -> "Water";
+				case SKILL_TEST -> "Skill Test";
 				default -> throw new MazeException("Invalid type " + type);
 			};
 	}
@@ -1411,7 +1455,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					if (option != null && option.length() > 0)
 					{
 						options.add(option);
-						scripts.add((String)displayOptionsScripts.get(i).getSelectedItem());
+						Object scriptopt = displayOptionsScripts.get(i).getSelectedItem();
+						scripts.add(scriptopt == EditorPanel.NONE ? null : (String)scriptopt);
 					}
 				}
 				result = new DisplayOptions(
@@ -1473,6 +1518,14 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case WATER:
 				result = new Water();
+				break;
+			case SKILL_TEST:
+				Stats.Modifier keyMod = steKeyModifier.getSelectedItem() == EditorPanel.NONE ? null : (Stats.Modifier)steKeyModifier.getSelectedItem();
+				ValueList skill = steSkillValue.getValue();
+				ValueList successVal = steSuccessValue.getValue();
+				String successScript = steSuccessScript.getSelectedItem() == EditorPanel.NONE ? null : (String)steSuccessScript.getSelectedItem();
+				String failureScript = steFailureScript.getSelectedItem() == EditorPanel.NONE ? null : (String)steFailureScript.getSelectedItem();
+				result = new SkillTest(keyMod, skill, successVal, successScript, failureScript);
 				break;
 			default:
 				throw new MazeException("Invalid type " + srType);

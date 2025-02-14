@@ -31,7 +31,7 @@ import java.awt.event.ActionEvent;
 public class MazeEventComponent extends JButton implements ActionListener
 {
 	private MazeEvent result;
-	private int dirtyFlag;
+	private final int dirtyFlag;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeEventComponent(int dirtyFlag)

@@ -8,8 +8,7 @@ flat sky support in editor & maze
 map zones
 starting quest
 PC death counter
-gatehouse supplies
-
+db: v2 migration
 
 BACKLOG
 ----------

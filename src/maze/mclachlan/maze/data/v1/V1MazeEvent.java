@@ -25,8 +25,10 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.map.script.*;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.util.MazeException;
@@ -62,6 +64,7 @@ public class V1MazeEvent
 	public static final int _SetUserConfigEvent = 20;
 	public static final int _TogglePortalStateEvent = 21;
 	public static final int _RemoveObjectEvent = 22;
+	public static final int _SkillTestEvent = 23;
 
 	public static final int _ActorDiesEvent = 100;
 	public static final int _ActorUnaffectedEvent = 101;
@@ -172,6 +175,7 @@ public class V1MazeEvent
 		types.put(SetUserConfigEvent.class, _SetUserConfigEvent);
 		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
 		types.put(RemoveObjectEvent.class, _RemoveObjectEvent);
+		types.put(SkillTestEvent.class, _SkillTestEvent);
 
 		types.put(MazeScriptEvent.class, _MazeScript);
 		types.put(RemoveWallEvent.class, _RemoveWall);
@@ -394,6 +398,18 @@ public class V1MazeEvent
 				s.append(SEP);
 				s.append(sme.getValue());
 				break;
+			case _SkillTestEvent:
+				SkillTestEvent ste = (SkillTestEvent)e;
+				s.append(ste.getKeyModifier()==null?"":ste.getKeyModifier());
+				s.append(SEP);
+				s.append(V1Value.toString(ste.getSkill(), "~", "`"));
+				s.append(SEP);
+				s.append(V1Value.toString(ste.getSuccessValue(), "~", "`"));
+				s.append(SEP);
+				s.append(ste.getSuccessScript()==null?"":ste.getSuccessScript());
+				s.append(SEP);
+				s.append(ste.getFailureScript()==null?"":ste.getFailureScript());
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -596,6 +612,11 @@ public class V1MazeEvent
 				return new EndGameEvent();
 			case _SetMazeVariableEvent:
 				return new SetMazeVariableEvent(strs[1], strs[2]);
+			case _SkillTestEvent:
+				Stats.Modifier keyMod = "".equals(strs[1]) ? null : Stats.Modifier.valueOf(strs[1]);
+				ValueList skill = V1Value.fromString(strs[2], "~", "`");
+				ValueList successValue = V1Value.fromString(strs[3], "~", "`");
+				return new SkillTestEvent(keyMod, skill, successValue, "".equals(strs[4])?null:strs[4], "".equals(strs[5])?null:strs[5]);
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:

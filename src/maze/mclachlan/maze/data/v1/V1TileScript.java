@@ -23,11 +23,14 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.HiddenStuff;
+import mclachlan.maze.map.SkillTest;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Trap;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.PercentageTable;
+import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.magic.ValueList;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.util.MazeException;
 
@@ -56,6 +59,7 @@ public class V1TileScript
 	private static final int TOGGLE_WALL = 13;
 	private static final int PERSONALITY_SPEECH = 14;
 	private static final int DISPLAY_OPTIONS = 15;
+	private static final int SKILL_TEST = 16;
 
 	static V1PercentageTable<Trap> traps = new V1PercentageTable<>()
 	{
@@ -75,13 +79,13 @@ public class V1TileScript
 		@Override
 		public String typeToString(String s)
 		{
-			return s;
+			return s==null ? "" : s.replaceAll(SEP, "~").replaceAll(SUB_SEP, "`");
 		}
 
 		@Override
 		public String typeFromString(String s)
 		{
-			return s;
+			return "".equals(s) ? null : s.replaceAll("~", SEP).replaceAll("`", SUB_SEP);
 		}
 	};
 
@@ -104,6 +108,7 @@ public class V1TileScript
 		types.put(Water.class, WATER);
 		types.put(Lever.class, LEVER);
 		types.put(ToggleWall.class, TOGGLE_WALL);
+		types.put(SkillTest.class, SKILL_TEST);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -304,6 +309,19 @@ public class V1TileScript
 				break;
 			case WATER:
 				break;
+			case SKILL_TEST:
+				SkillTest ste = (SkillTest)t;
+				s.append(ste.getKeyModifier()==null?"":ste.getKeyModifier());
+				s.append(sep);
+				s.append(V1Value.toString(ste.getSkill(), "~", "`"));
+				s.append(sep);
+				s.append(V1Value.toString(ste.getSuccessValue(), "~", "`"));
+				s.append(sep);
+				s.append(ste.getSuccessScript()==null?"":ste.getSuccessScript());
+				s.append(sep);
+				s.append(ste.getFailureScript()==null?"":ste.getFailureScript());
+				break;
+
 
 			default: throw new MazeException("Invalid type "+type);
 		}
@@ -505,6 +523,18 @@ public class V1TileScript
 			case WATER:
 				result = new Water();
 				break;
+			case SKILL_TEST:
+				String str1 = strs[i++];
+				String str2 = strs[i++];
+				String str3 = strs[i++];
+				String str4 = strs[i++];
+				String str5 = strs[i++];
+				Stats.Modifier keyMod = "".equals(str1) ? null : Stats.Modifier.valueOf(str1);
+				ValueList skill = V1Value.fromString(str2, "~", "`");
+				ValueList successValue = V1Value.fromString(str3, "~", "`");
+				result = new SkillTest(keyMod, skill, successValue, "".equals(str4)?null: str4, "".equals(str5)?null: str5);
+				break;
+
 			default: throw new MazeException("Invalid type "+type+" ["+s+"]");
 		}
 		

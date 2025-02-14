@@ -1018,6 +1018,25 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public boolean skillTest(
+		UnifiedActor source,
+		UnifiedActor target,
+		ValueList skill,
+		ValueList successValue)
+	{
+		Maze.log(Log.DEBUG, source.getName()+" skill test");
+
+		int skillVal = skill.compute(source);
+		int targetVal;
+		targetVal = successValue.compute(Objects.requireNonNullElse(target, source));
+
+		Maze.log(Log.DEBUG, "skillVal = " + skillVal);
+		Maze.log(Log.DEBUG, "targetVal = " + targetVal);
+
+		return skillVal >= targetVal;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @return
 	 * 	A % chance of spell failure.

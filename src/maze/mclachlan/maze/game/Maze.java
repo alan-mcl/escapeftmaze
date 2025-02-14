@@ -566,6 +566,7 @@ public class Maze implements Runnable
 
 			// set message
 			ui.clearMessages();
+			ui.enableInput();
 			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name));
 
 			// encounter tile
@@ -1008,6 +1009,9 @@ public class Maze implements Runnable
 			{
 				e.resolve();
 			}
+
+			// clearing the queue may have disabled input
+			new MazeActionListener.EnableInputEvent().resolve();
 
 			backToMain();
 

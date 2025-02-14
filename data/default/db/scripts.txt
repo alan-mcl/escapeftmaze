@@ -52,8 +52,7 @@ name=Ekirth's Tomb to Crypt Of Atrocities
 0=1,Crypt Of Atrocities,17,10,4
 @
 name=test script
-0=18,hello world,true
-1=3,TestingTable,xxxxxxxx,ATTACKING,PARTY_MAY_AMBUSH_FOES,,
+0=23,SKILL,3`0`NONE``false`BRAWN~2`0`SCALE_WITH_CASTING_LEVEL``false`2d6,1`10`NONE``false,Ichiba Crossroad bones hidden stuff,Gatehouse encounter 1 bats
 @
 name=Danaos Castle feasting hall flava
 0=4,-1,true,You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.
@@ -386,6 +385,9 @@ name=_INVENTORY_MUSIC_
 name=Ichiba City thieves guild cck doors
 0=18,default.ichiba.thieves.guild.door,true
 @
+name=Gatehouse supplies 1 eels leave
+0=4,-1,false,The eels scatter into the depths and vanish.
+@
 name=Ichiba Depths to Gnoll Village
 0=1,Gnoll Village,16,28,0
 @
@@ -696,6 +698,10 @@ name=Hianbian intro
 0=4,-1,true,You appear in a low corridor. The walls are pale brick, and the floor is worn cobbles. Nothing unusual presents itself...
 1=18,default.hianbian.intro,true
 @
+name=Gatehouse supplies 1 skill test fail
+0=4,-1,false,You're not fast enough.
+1=13,Gatehouse supplies 1 eels leave
+@
 name=Aenen City intro
 0=4,-1,true,You step into the shadowy halls of Aenen. Your footsteps echo from the tall vaulted ceilings and sturdy stone walls, many of which have been carven with strange mechanical looking reliefs. Here and there tar torches crackle and flicker, and in many places strange luminous globes on the ceiling provide light. Despite the gloom, the air smells surprisingly fresh and wholesome.
 1=4,-1,true,Gnomes can be seen all around, hurrying here and there in small groups, many carrying metallic objects that you do not recognise. A quiet buzz of movement and conversation fills the passages. You draw some curious glances but nobody approaches you.
@@ -711,6 +717,10 @@ name=shrill sound from player
 0=138,4249__dobroide__knifegrinder.whistle
 1=104,1:20:animation/groupCurseFromPlayer1;animation/groupCurseFromPlayer2;animation/groupCurseFromPlayer3
 @
+name=Gatehouse supplies 1 cave eels leave alone
+0=4,-1,false,You leave the eels swimming in peace.
+1=17,gatehouse.execute.once.eels,0
+@
 name=sound - moulder
 0=138,55134__NoiseCollector__stereomonster
 @
@@ -723,6 +733,9 @@ name=Hianbian to Caves Of Ilast
 name=Gatehouse hidden pool pass
 0=4,-1,false,You decide to leave well enough alone.
 1=17,gatehouse.pool.cache.found,0
+@
+name=Gatehouse supplies 1 cave eels skill test
+0=23,SKILL,3`0`NONE``false`SKILL~3`0`NONE``false`DUNGEONEER~2`0`NONE``false`1d3,1`7`NONE``false,Gatehouse supplies 1 cave eels,Gatehouse supplies 1 skill test fail
 @
 name=Ichiba City COC tear off paper slip
 0=4,-1,true, You tear off one of the small paper slips...
@@ -1010,6 +1023,10 @@ name=generic spell woosh
 name=Danaos Dungeon to Stygios Forest
 0=138,24003__Erdie__mega_thunder
 1=1,Stygios Forest,27,15,4
+@
+name=Gatehouse supplies 1 cave eels
+0=4,-1,false,With blinding speed you grab a wriggling eel and haul it out of the water!%n%nThe other eels scatter into the depths.
+1=9,gatehouse.supplies.1.cave.eels
 @
 name=acid splash spell from player
 0=138,9508__petenice__SPLASH_1
