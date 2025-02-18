@@ -35,8 +35,6 @@ public class ElementalTransformation extends LevelAbility
 	private final SpellLikeAbility ally;
 	private List<TypeDescriptor> types;
 
-	// todo: gains Elemental creature type?
-
 	/*-------------------------------------------------------------------------*/
 	public ElementalTransformation()
 	{
@@ -56,13 +54,15 @@ public class ElementalTransformation extends LevelAbility
 		value.setReference("Elemental");
 		ValueList castingLevel = new ValueList(value);
 		ally = new SpellLikeAbility(spell, castingLevel);
+
+		initTypes();
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private void initTypes()
 	{
 		FoeType elemental = Database.getInstance().getFoeTypes().get("Elemental");
-		types = new ArrayList<TypeDescriptor>();
+		types = new ArrayList<>();
 		types.add(elemental);
 	}
 
@@ -89,5 +89,46 @@ public class ElementalTransformation extends LevelAbility
 			initTypes();
 		}
 		return types;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ElementalTransformation that = (ElementalTransformation)o;
+
+		if (statModifier != null ? !statModifier.equals(that.statModifier) : that.statModifier != null)
+		{
+			return false;
+		}
+		if (ally != null ? !ally.equals(that.ally) : that.ally != null)
+		{
+			return false;
+		}
+		return types != null ? types.equals(that.types) : that.types == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (statModifier != null ? statModifier.hashCode() : 0);
+		result = 31 * result + (ally != null ? ally.hashCode() : 0);
+		result = 31 * result + (types != null ? types.hashCode() : 0);
+		return result;
 	}
 }

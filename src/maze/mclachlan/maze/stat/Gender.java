@@ -36,6 +36,11 @@ public class Gender extends DataObject
 	private StatModifier bannerModifiers;
 
 	/*-------------------------------------------------------------------------*/
+	public Gender()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Gender(
 		String name,
 		StatModifier startingModifiers,
@@ -96,5 +101,46 @@ public class Gender extends DataObject
 			"name='" + name + '\'' +
 			"campaign='" + super.getCampaign() + '\'' +
 			"} ";
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Gender gender = (Gender)o;
+
+		if (!getName().equals(gender.getName()))
+		{
+			return false;
+		}
+		if (getStartingModifiers() != null ? !getStartingModifiers().equals(gender.getStartingModifiers()) : gender.getStartingModifiers() != null)
+		{
+			return false;
+		}
+		if (getConstantModifiers() != null ? !getConstantModifiers().equals(gender.getConstantModifiers()) : gender.getConstantModifiers() != null)
+		{
+			return false;
+		}
+		return getBannerModifiers() != null ? getBannerModifiers().equals(gender.getBannerModifiers()) : gender.getBannerModifiers() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName().hashCode();
+		result = 31 * result + (getStartingModifiers() != null ? getStartingModifiers().hashCode() : 0);
+		result = 31 * result + (getConstantModifiers() != null ? getConstantModifiers().hashCode() : 0);
+		result = 31 * result + (getBannerModifiers() != null ? getBannerModifiers().hashCode() : 0);
+		return result;
 	}
 }

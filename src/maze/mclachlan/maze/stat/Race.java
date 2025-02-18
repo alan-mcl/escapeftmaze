@@ -91,6 +91,12 @@ public class Race extends DataObject implements TypeDescriptor
 	private String characterCreationImage;
 
 	/*-------------------------------------------------------------------------*/
+
+	public Race()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Race(
 		String name,
 		String description,
@@ -146,13 +152,7 @@ public class Race extends DataObject implements TypeDescriptor
 		this.favouredEnemyModifier = favouredEnemyModifier;
 		this.characterCreationImage = characterCreationImage;
 
-		// todo: update the actual data model
-		bodyParts = new PercentageTable<>();
-		bodyParts.add(head, 18);
-		bodyParts.add(torso, 33);
-		bodyParts.add(leg, 31);
-		bodyParts.add(hand, 8);
-		bodyParts.add(foot, 10);
+		initBodyParts();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -181,6 +181,19 @@ public class Race extends DataObject implements TypeDescriptor
 			ft.getFavouredEnemyModifier(),
 			null);
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initBodyParts()
+	{
+		// todo: update the actual data model
+		bodyParts = new PercentageTable<>();
+		bodyParts.add(head, 18);
+		bodyParts.add(torso, 33);
+		bodyParts.add(leg, 31);
+		bodyParts.add(hand, 8);
+		bodyParts.add(foot, 10);
+	}
+
 
 	/*-------------------------------------------------------------------------*/
 	public boolean isLocked()
@@ -499,34 +512,6 @@ public class Race extends DataObject implements TypeDescriptor
 
 	/*-------------------------------------------------------------------------*/
 
-	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof Race))
-		{
-			return false;
-		}
-
-		Race race = (Race)o;
-
-		if (!name.equals(race.name))
-		{
-			return false;
-		}
-
-		return true;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		return name.hashCode();
-	}
-
 	public String getCharacterCreationImage()
 	{
 		return this.characterCreationImage;
@@ -535,5 +520,195 @@ public class Race extends DataObject implements TypeDescriptor
 	public void setCharacterCreationImage(String characterCreationImage)
 	{
 		this.characterCreationImage = characterCreationImage;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public String toString()
+	{
+		return "Race{" +
+			"name='" + name + '\'' +
+			", description='" + description + '\'' +
+			", startingHitPointPercent=" + startingHitPointPercent +
+			", startingActionPointPercent=" + startingActionPointPercent +
+			", startingMagicPointPercent=" + startingMagicPointPercent +
+			", startingModifiers=" + startingModifiers +
+			", constantModifiers=" + constantModifiers +
+			", bannerModifiers=" + bannerModifiers +
+			", attributeCeilings=" + attributeCeilings +
+			", head=" + head +
+			", torso=" + torso +
+			", leg=" + leg +
+			", hand=" + hand +
+			", foot=" + foot +
+			", rightHandIcon='" + rightHandIcon + '\'' +
+			", leftHandIcon='" + leftHandIcon + '\'' +
+			", allowedGenders=" + allowedGenders +
+			", magicDead=" + magicDead +
+			", specialAbility=" + specialAbility +
+			", startingItems=" + startingItems +
+			", bodyParts=" + bodyParts +
+			", naturalWeapons=" + naturalWeapons +
+			", suggestedNames=" + suggestedNames +
+			", unlockVariable='" + unlockVariable + '\'' +
+			", unlockDescription='" + unlockDescription + '\'' +
+			", favouredEnemyModifier=" + favouredEnemyModifier +
+			", characterCreationImage='" + characterCreationImage + '\'' +
+			"} " + super.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Race race = (Race)o;
+
+		if (getStartingHitPointPercent() != race.getStartingHitPointPercent())
+		{
+			return false;
+		}
+		if (getStartingActionPointPercent() != race.getStartingActionPointPercent())
+		{
+			return false;
+		}
+		if (getStartingMagicPointPercent() != race.getStartingMagicPointPercent())
+		{
+			return false;
+		}
+		if (isMagicDead() != race.isMagicDead())
+		{
+			return false;
+		}
+		if (!getName().equals(race.getName()))
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(race.getDescription()) : race.getDescription() != null)
+		{
+			return false;
+		}
+		if (getStartingModifiers() != null ? !getStartingModifiers().equals(race.getStartingModifiers()) : race.getStartingModifiers() != null)
+		{
+			return false;
+		}
+		if (getConstantModifiers() != null ? !getConstantModifiers().equals(race.getConstantModifiers()) : race.getConstantModifiers() != null)
+		{
+			return false;
+		}
+		if (getBannerModifiers() != null ? !getBannerModifiers().equals(race.getBannerModifiers()) : race.getBannerModifiers() != null)
+		{
+			return false;
+		}
+		if (getAttributeCeilings() != null ? !getAttributeCeilings().equals(race.getAttributeCeilings()) : race.getAttributeCeilings() != null)
+		{
+			return false;
+		}
+		if (getHead() != null ? !getHead().equals(race.getHead()) : race.getHead() != null)
+		{
+			return false;
+		}
+		if (getTorso() != null ? !getTorso().equals(race.getTorso()) : race.getTorso() != null)
+		{
+			return false;
+		}
+		if (getLeg() != null ? !getLeg().equals(race.getLeg()) : race.getLeg() != null)
+		{
+			return false;
+		}
+		if (getHand() != null ? !getHand().equals(race.getHand()) : race.getHand() != null)
+		{
+			return false;
+		}
+		if (getFoot() != null ? !getFoot().equals(race.getFoot()) : race.getFoot() != null)
+		{
+			return false;
+		}
+		if (getRightHandIcon() != null ? !getRightHandIcon().equals(race.getRightHandIcon()) : race.getRightHandIcon() != null)
+		{
+			return false;
+		}
+		if (getLeftHandIcon() != null ? !getLeftHandIcon().equals(race.getLeftHandIcon()) : race.getLeftHandIcon() != null)
+		{
+			return false;
+		}
+		if (getAllowedGenders() != null ? !getAllowedGenders().equals(race.getAllowedGenders()) : race.getAllowedGenders() != null)
+		{
+			return false;
+		}
+		if (getSpecialAbility() != null ? !getSpecialAbility().equals(race.getSpecialAbility()) : race.getSpecialAbility() != null)
+		{
+			return false;
+		}
+		if (getStartingItems() != null ? !getStartingItems().equals(race.getStartingItems()) : race.getStartingItems() != null)
+		{
+			return false;
+		}
+		if (getBodyParts() != null ? !getBodyParts().equals(race.getBodyParts()) : race.getBodyParts() != null)
+		{
+			return false;
+		}
+		if (getNaturalWeapons() != null ? !getNaturalWeapons().equals(race.getNaturalWeapons()) : race.getNaturalWeapons() != null)
+		{
+			return false;
+		}
+		if (getSuggestedNames() != null ? !getSuggestedNames().equals(race.getSuggestedNames()) : race.getSuggestedNames() != null)
+		{
+			return false;
+		}
+		if (getUnlockVariable() != null ? !getUnlockVariable().equals(race.getUnlockVariable()) : race.getUnlockVariable() != null)
+		{
+			return false;
+		}
+		if (getUnlockDescription() != null ? !getUnlockDescription().equals(race.getUnlockDescription()) : race.getUnlockDescription() != null)
+		{
+			return false;
+		}
+		if (getFavouredEnemyModifier() != race.getFavouredEnemyModifier())
+		{
+			return false;
+		}
+		return getCharacterCreationImage() != null ? getCharacterCreationImage().equals(race.getCharacterCreationImage()) : race.getCharacterCreationImage() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName().hashCode();
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + getStartingHitPointPercent();
+		result = 31 * result + getStartingActionPointPercent();
+		result = 31 * result + getStartingMagicPointPercent();
+		result = 31 * result + (getStartingModifiers() != null ? getStartingModifiers().hashCode() : 0);
+		result = 31 * result + (getConstantModifiers() != null ? getConstantModifiers().hashCode() : 0);
+		result = 31 * result + (getBannerModifiers() != null ? getBannerModifiers().hashCode() : 0);
+		result = 31 * result + (getAttributeCeilings() != null ? getAttributeCeilings().hashCode() : 0);
+		result = 31 * result + (getHead() != null ? getHead().hashCode() : 0);
+		result = 31 * result + (getTorso() != null ? getTorso().hashCode() : 0);
+		result = 31 * result + (getLeg() != null ? getLeg().hashCode() : 0);
+		result = 31 * result + (getHand() != null ? getHand().hashCode() : 0);
+		result = 31 * result + (getFoot() != null ? getFoot().hashCode() : 0);
+		result = 31 * result + (getRightHandIcon() != null ? getRightHandIcon().hashCode() : 0);
+		result = 31 * result + (getLeftHandIcon() != null ? getLeftHandIcon().hashCode() : 0);
+		result = 31 * result + (getAllowedGenders() != null ? getAllowedGenders().hashCode() : 0);
+		result = 31 * result + (isMagicDead() ? 1 : 0);
+		result = 31 * result + (getSpecialAbility() != null ? getSpecialAbility().hashCode() : 0);
+		result = 31 * result + (getStartingItems() != null ? getStartingItems().hashCode() : 0);
+		result = 31 * result + (getBodyParts() != null ? getBodyParts().hashCode() : 0);
+		result = 31 * result + (getNaturalWeapons() != null ? getNaturalWeapons().hashCode() : 0);
+		result = 31 * result + (getSuggestedNames() != null ? getSuggestedNames().hashCode() : 0);
+		result = 31 * result + (getUnlockVariable() != null ? getUnlockVariable().hashCode() : 0);
+		result = 31 * result + (getUnlockDescription() != null ? getUnlockDescription().hashCode() : 0);
+		result = 31 * result + (getFavouredEnemyModifier() != null ? getFavouredEnemyModifier().hashCode() : 0);
+		result = 31 * result + (getCharacterCreationImage() != null ? getCharacterCreationImage().hashCode() : 0);
+		return result;
 	}
 }

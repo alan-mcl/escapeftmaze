@@ -118,6 +118,40 @@ public class Dice
 		return modifier;
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Dice dice = (Dice)o;
+
+		if (getNumberOfDice() != dice.getNumberOfDice())
+		{
+			return false;
+		}
+		if (getDiceMax() != dice.getDiceMax())
+		{
+			return false;
+		}
+		return getModifier() == dice.getModifier();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getNumberOfDice();
+		result = 31 * result + getDiceMax();
+		result = 31 * result + getModifier();
+		return result;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public String toString()
 	{
@@ -136,6 +170,8 @@ public class Dice
 		}
 		
 		return this.numberOfDice+"d"+this.diceMax+""+modStr;
+
+
 	}
 	
 	/*-------------------------------------------------------------------------*/

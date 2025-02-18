@@ -1,0 +1,263 @@
+[
+  {
+    "displayName": "arm",
+    "name": "DEFAULT_ARM",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "head",
+    "name": "naga head",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "1",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "wing",
+    "name": "DEFAULT_WING",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "leg",
+    "name": "suede pants",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "1",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "leg",
+    "name": "DEFAULT_LEG",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "LEG_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "torso",
+    "name": "human torso",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "TORSO_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "head",
+    "name": "human head",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "HELM",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "foot",
+    "name": "buskins foot",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "1",
+    "equipableSlotType": "BOOTS",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "torso",
+    "name": "leather hauberk torso",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "4",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "head",
+    "name": "skullcap head",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "1",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "15"
+  },
+  {
+    "displayName": "hand",
+    "name": "chamois gloves hand",
+    "nrWeaponHardpoints": "2",
+    "damagePrevention": "1",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "body",
+    "name": "DEFAULT_BODY",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "TORSO_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "body",
+    "name": "chain hauberk (armless) torso",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "4",
+    "equipableSlotType": "TORSO_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "50"
+  },
+  {
+    "displayName": "tail",
+    "name": "naga tail",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "1",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "root",
+    "name": "DEFAULT_ROOT",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "wheel",
+    "name": "DEFAULT_WHEEL",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "foot",
+    "name": "human foot",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "BOOTS",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "hand",
+    "name": "human hand",
+    "nrWeaponHardpoints": "2",
+    "damagePrevention": "0",
+    "equipableSlotType": "GLOVES",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "head",
+    "name": "DEFAULT_HEAD",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "HELM",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "branch",
+    "name": "DEFAULT_BRANCH",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "trunk",
+    "name": "DEFAULT_TRUNK",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "TORSO_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "head",
+    "name": "iron helm head",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "3",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "33"
+  },
+  {
+    "displayName": "leg",
+    "name": "leather legging legs",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "3",
+    "equipableSlotType": "LEG_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "bulb",
+    "name": "DEFAULT_BULB",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "tail",
+    "name": "DEFAULT_TAIL",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "torso",
+    "name": "suede doublet",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "1",
+    "equipableSlotType": "TORSO_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  },
+  {
+    "displayName": "swarm",
+    "name": "swarm",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "leg",
+    "name": "human leg",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "0",
+    "equipableSlotType": "LEG_ARMOUR",
+    "modifiers": "0,",
+    "damagePreventionChance": "0"
+  },
+  {
+    "displayName": "shell",
+    "name": "giant snail shell",
+    "nrWeaponHardpoints": "0",
+    "damagePrevention": "4",
+    "equipableSlotType": "NONE",
+    "modifiers": "0,",
+    "damagePreventionChance": "100"
+  }
+]

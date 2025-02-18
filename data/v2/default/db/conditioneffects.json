@@ -1,0 +1,94 @@
+[
+  {
+    "IMPL": "mclachlan.maze.stat.condition.GaseousForm",
+    "name": "gaseous_form"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.BlindEffect",
+    "name": "blind"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.DiseaseEffect",
+    "name": "disease"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.SwallowedEffect",
+    "name": "swallow"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.KOEffect",
+    "name": "ko"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.PoisonedEffect",
+    "name": "poison"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.PossessionEffect",
+    "name": "possess"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.InvisibleEffect",
+    "name": "invisible"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.BlinkEffect",
+    "name": "blink"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.HasteEffect",
+    "name": "haste"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.ParalyseEffect",
+    "name": "paralyse"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.StoneEffect",
+    "name": "stone"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.NauseaEffect",
+    "name": "nausea"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.SleepEffect",
+    "name": "sleep"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.SlowEffect",
+    "name": "slow"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.WebEffect",
+    "name": "web"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.IrritateEffect",
+    "name": "irritate"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.EnchantedBladeEffect",
+    "name": "enchanted_blade"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.InsaneEffect",
+    "name": "insane"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.HexEffect",
+    "name": "hex"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.SilencedEffect",
+    "name": "silence"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.FearEffect",
+    "name": "fear"
+  },
+  {
+    "IMPL": "mclachlan.maze.stat.condition.BloodthirstyEffect",
+    "name": "bloodthirsty"
+  }
+]

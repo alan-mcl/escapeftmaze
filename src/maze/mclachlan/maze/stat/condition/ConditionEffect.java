@@ -248,6 +248,31 @@ public class ConditionEffect extends DataObject
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> attackOnConditionBearer(AttackAction attackAction, Condition condition)
 	{
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ConditionEffect that = (ConditionEffect)o;
+
+		return getName().equals(that.getName());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getName().hashCode();
 	}
 }

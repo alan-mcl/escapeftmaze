@@ -19,11 +19,13 @@
 
 package mclachlan.maze.stat.condition;
 
+import mclachlan.maze.data.v2.V2DataObject;
+
 /**
  * Represents spell effects that are repeatedly applied to the bearer of
  * this condition.
  */
-public class RepeatedSpellEffect
+public class RepeatedSpellEffect implements V2DataObject
 {
 	/** turn this effect starts */
 	private int startTurn;
@@ -40,9 +42,16 @@ public class RepeatedSpellEffect
 	/** the spell effect to be applied to the bearer of this condition */
 	private String spellEffect;
 
+	public RepeatedSpellEffect()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public RepeatedSpellEffect(
-		int startTurn, int endTurn, int turnMod, int probability,
+		int startTurn,
+		int endTurn,
+		int turnMod,
+		int probability,
 		String spellEffect)
 	{
 		this.startTurn = startTurn;
@@ -101,5 +110,62 @@ public class RepeatedSpellEffect
 	public void setProbability(int probability)
 	{
 		this.probability = probability;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public String getName()
+	{
+		return null;
+	}
+
+	@Override
+	public void setName(String newName)
+	{
+
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		RepeatedSpellEffect that = (RepeatedSpellEffect)o;
+
+		if (getStartTurn() != that.getStartTurn())
+		{
+			return false;
+		}
+		if (getEndTurn() != that.getEndTurn())
+		{
+			return false;
+		}
+		if (getTurnMod() != that.getTurnMod())
+		{
+			return false;
+		}
+		if (getProbability() != that.getProbability())
+		{
+			return false;
+		}
+		return getSpellEffect() != null ? getSpellEffect().equals(that.getSpellEffect()) : that.getSpellEffect() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getStartTurn();
+		result = 31 * result + getEndTurn();
+		result = 31 * result + getTurnMod();
+		result = 31 * result + getProbability();
+		result = 31 * result + (getSpellEffect() != null ? getSpellEffect().hashCode() : 0);
+		return result;
 	}
 }

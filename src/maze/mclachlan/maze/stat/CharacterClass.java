@@ -74,6 +74,10 @@ public class CharacterClass extends DataObject implements TypeDescriptor
 	/** ability progression for this class */
 	private LevelAbilityProgression progression;
 
+	public CharacterClass()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public enum Focus
 	{
@@ -133,7 +137,7 @@ public class CharacterClass extends DataObject implements TypeDescriptor
 		this.levelUpAssignableModifiers = levelUpAssignableModifiers;
 		this.levelUpModifiers = levelUpModifiers;
 		this.progression = progression;
-		progression.setCharacterClass(this);
+//		progression.setCharacterClass(this);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -339,30 +343,136 @@ public class CharacterClass extends DataObject implements TypeDescriptor
 	/*-------------------------------------------------------------------------*/
 
 	@Override
+	public String toString()
+	{
+		return "CharacterClass{" +
+			"name='" + name + '\'' +
+			", description='" + description + '\'' +
+			", focus=" + focus +
+			", startingHitPoints=" + startingHitPoints +
+			", startingActionPoints=" + startingActionPoints +
+			", startingMagicPoints=" + startingMagicPoints +
+			", startingModifiers=" + startingModifiers +
+			", unlockModifiers=" + unlockModifiers +
+			", startingActiveModifiers=" + startingActiveModifiers +
+			", allowedGenders=" + allowedGenders +
+			", allowedRaces=" + allowedRaces +
+			", experienceTable=" + experienceTable +
+			", levelUpHitPoints=" + levelUpHitPoints +
+			", levelUpActionPoints=" + levelUpActionPoints +
+			", levelUpMagicPoints=" + levelUpMagicPoints +
+			", levelUpAssignableModifiers=" + levelUpAssignableModifiers +
+			", levelUpModifiers=" + levelUpModifiers +
+			", progression=" + progression +
+			"} " + super.toString();
+	}
+
+	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
 		{
 			return true;
 		}
-		if (!(o instanceof CharacterClass))
+		if (o == null || getClass() != o.getClass())
 		{
 			return false;
 		}
 
 		CharacterClass that = (CharacterClass)o;
 
-		if (!name.equals(that.name))
+		if (getStartingHitPoints() != that.getStartingHitPoints())
 		{
 			return false;
 		}
-
-		return true;
+		if (getStartingActionPoints() != that.getStartingActionPoints())
+		{
+			return false;
+		}
+		if (getStartingMagicPoints() != that.getStartingMagicPoints())
+		{
+			return false;
+		}
+		if (getLevelUpAssignableModifiers() != that.getLevelUpAssignableModifiers())
+		{
+			return false;
+		}
+		if (!getName().equals(that.getName()))
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		if (getFocus() != that.getFocus())
+		{
+			return false;
+		}
+		if (getStartingModifiers() != null ? !getStartingModifiers().equals(that.getStartingModifiers()) : that.getStartingModifiers() != null)
+		{
+			return false;
+		}
+		if (getUnlockModifiers() != null ? !getUnlockModifiers().equals(that.getUnlockModifiers()) : that.getUnlockModifiers() != null)
+		{
+			return false;
+		}
+		if (getStartingActiveModifiers() != null ? !getStartingActiveModifiers().equals(that.getStartingActiveModifiers()) : that.getStartingActiveModifiers() != null)
+		{
+			return false;
+		}
+		if (getAllowedGenders() != null ? !getAllowedGenders().equals(that.getAllowedGenders()) : that.getAllowedGenders() != null)
+		{
+			return false;
+		}
+		if (getAllowedRaces() != null ? !getAllowedRaces().equals(that.getAllowedRaces()) : that.getAllowedRaces() != null)
+		{
+			return false;
+		}
+		if (getExperienceTable() != null ? !getExperienceTable().equals(that.getExperienceTable()) : that.getExperienceTable() != null)
+		{
+			return false;
+		}
+		if (getLevelUpHitPoints() != null ? !getLevelUpHitPoints().equals(that.getLevelUpHitPoints()) : that.getLevelUpHitPoints() != null)
+		{
+			return false;
+		}
+		if (getLevelUpActionPoints() != null ? !getLevelUpActionPoints().equals(that.getLevelUpActionPoints()) : that.getLevelUpActionPoints() != null)
+		{
+			return false;
+		}
+		if (getLevelUpMagicPoints() != null ? !getLevelUpMagicPoints().equals(that.getLevelUpMagicPoints()) : that.getLevelUpMagicPoints() != null)
+		{
+			return false;
+		}
+		if (getLevelUpModifiers() != null ? !getLevelUpModifiers().equals(that.getLevelUpModifiers()) : that.getLevelUpModifiers() != null)
+		{
+			return false;
+		}
+		return getProgression() != null ? getProgression().equals(that.getProgression()) : that.getProgression() == null;
 	}
 
 	@Override
 	public int hashCode()
 	{
-		return name.hashCode();
+		int result = getName().hashCode();
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getFocus() != null ? getFocus().hashCode() : 0);
+		result = 31 * result + getStartingHitPoints();
+		result = 31 * result + getStartingActionPoints();
+		result = 31 * result + getStartingMagicPoints();
+		result = 31 * result + (getStartingModifiers() != null ? getStartingModifiers().hashCode() : 0);
+		result = 31 * result + (getUnlockModifiers() != null ? getUnlockModifiers().hashCode() : 0);
+		result = 31 * result + (getStartingActiveModifiers() != null ? getStartingActiveModifiers().hashCode() : 0);
+		result = 31 * result + (getAllowedGenders() != null ? getAllowedGenders().hashCode() : 0);
+		result = 31 * result + (getAllowedRaces() != null ? getAllowedRaces().hashCode() : 0);
+		result = 31 * result + (getExperienceTable() != null ? getExperienceTable().hashCode() : 0);
+		result = 31 * result + (getLevelUpHitPoints() != null ? getLevelUpHitPoints().hashCode() : 0);
+		result = 31 * result + (getLevelUpActionPoints() != null ? getLevelUpActionPoints().hashCode() : 0);
+		result = 31 * result + (getLevelUpMagicPoints() != null ? getLevelUpMagicPoints().hashCode() : 0);
+		result = 31 * result + getLevelUpAssignableModifiers();
+		result = 31 * result + (getLevelUpModifiers() != null ? getLevelUpModifiers().hashCode() : 0);
+		result = 31 * result + (getProgression() != null ? getProgression().hashCode() : 0);
+		return result;
 	}
 }

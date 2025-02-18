@@ -1,15 +1,14 @@
 package mclachlan.maze.data.v1;
 
+import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
-public abstract class DataObject
+public abstract class DataObject implements V2DataObject
 {
 	private String campaign;
-
-	public abstract String getName();
 
 	public String getCampaign()
 	{

@@ -1,0 +1,5186 @@
+[
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "hitPointDamage": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "name": "SCALING_POISON",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Invisible",
+    "icon": "condition/invisible",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "invisible",
+    "name": "SCALING_INVISIBLE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "invisible",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "400000000000000000000000000000000000,01",
+    "displayName": "helm of flames",
+    "icon": "condition/helmofflames",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "helm of flames",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "7000000000000,050505",
+    "displayName": "Mage Armour",
+    "icon": "condition/magearmour",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "mage armour spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "exitConditionChance": "0",
+    "impl": "mclachlan.maze.stat.condition.impl.FatigueKO",
+    "name": "FATIGUE_KO",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "78000000000000000000000000000000000000000580000000000000000,0a0a0a02030101",
+    "displayName": "Shadow Kata",
+    "icon": "condition/shadowkata",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "shadow kata",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000018,010101",
+    "displayName": "Heroism (booze)",
+    "icon": "condition/heroism",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "BOOZE_HEROISM",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "600000000000000000,0b0b",
+    "displayName": "Soul Shield",
+    "icon": "condition/soulshield",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "soul shield spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Acid Cloud",
+    "icon": "condition/acidsplash",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "coated with acid",
+    "name": "acid cloud spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "100000000000000040000000000000,0514",
+    "displayName": "focus of force",
+    "icon": "condition/focusofforce",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "focussed",
+    "name": "focus of force",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "8000000000000000000005e0007000000000000,6464641e1e1e1e4b32",
+    "displayName": "spirit form",
+    "icon": "condition/spirit_form",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "spirit form",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "invisible",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Invisible",
+    "icon": "condition/invisible",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "invisible",
+    "name": "enchanter invisibility",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "invisible",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "8,03",
+    "displayName": "strength of belief",
+    "icon": "condition/strengthofbelief",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "believes",
+    "name": "strength of belief",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "110000000000000,0101",
+    "displayName": "Mage Blades",
+    "icon": "condition/mageblades",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "mage blades spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "enchanted_blade",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1f8,010101010101",
+    "displayName": "Superman",
+    "icon": "condition/superman",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "SCALING_SUPERMAN",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "8,f6",
+    "displayName": "Enfeebled",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "adjective": "weakened",
+    "name": "ray of enfeeblement trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "hex",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "statModifier": "11000000000000000000000000000000000,0101",
+    "displayName": "Gruesome Aspect",
+    "icon": "condition/gruesomeaspect",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "shrouded",
+    "name": "gruesome aspect spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "100000000000000000000000000000,0a",
+    "displayName": "Wall Of Force",
+    "icon": "condition/wallofforce",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "protected",
+    "name": "wall of force spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "3fe0000000000007e0007000000000199,0101010101030303050505050505010101010101010101",
+    "displayName": "Divinity",
+    "icon": "condition/divinity",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "divinity spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "7e0007000000000000,050505050505050505",
+    "displayName": "Magic Screen",
+    "icon": "condition/magicscreen",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "adjective": "screened",
+    "name": "magic screen spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "4000000588120000001f8,02020202020202020202020202",
+    "displayName": "frightful boasting",
+    "icon": "condition/frightfulboasting",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "inspired",
+    "name": "frightful boasting",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000,01",
+    "displayName": "Haste",
+    "icon": "condition/haste",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "quickened",
+    "name": "haste spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "haste",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Web",
+    "icon": "condition/web",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "webbed",
+    "name": "SCALING_WEB",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "web",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Paralyse",
+    "icon": "condition/paralyse",
+    "exitConditionChance": "0",
+    "adjective": "paralysed",
+    "name": "stunner trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "paralyse",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "7e0007000000000000,050505050505050505",
+    "displayName": "Faith",
+    "icon": "condition/faith",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "believes",
+    "name": "faith spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "7e0007000000000000,050505050505050505",
+    "displayName": "Magic Screen",
+    "icon": "condition/magicscreen",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "adjective": "screened",
+    "name": "mandolin of the magus screen",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000000000000000000000000,0a",
+    "displayName": "Diplomacy",
+    "icon": "condition/diplomacy",
+    "exitConditionChance": "0",
+    "adjective": "enchanted",
+    "name": "diplomacy spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "120000000000000000000000000000000000,0a05",
+    "displayName": "Tag",
+    "icon": "condition/tag",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "tag spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "exitConditionChance": "0",
+    "impl": "mclachlan.maze.stat.condition.impl.Berserk",
+    "name": "BERSERK",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "40"
+      }
+    ],
+    "statModifier": "22000000000000000000000000000000000,0101",
+    "displayName": "Fearsome Aspect",
+    "icon": "condition/gruesomeaspect",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "shrouded",
+    "name": "fearsome aspect spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "247000000000000,030303010a",
+    "displayName": "Barkskin",
+    "icon": "condition/barkskin",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "barkskin spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Disease",
+    "icon": "condition/disease",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "diseased",
+    "name": "SCALING_DISEASE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "disease",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,03",
+    "displayName": "Mage Shield",
+    "icon": "condition/mageshield",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "shield of force",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "exitConditionChance": "0",
+    "impl": "mclachlan.maze.stat.condition.impl.GuardianAngel",
+    "name": "GUARDIAN_ANGEL",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Fear",
+    "icon": "condition/fear",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "afraid",
+    "name": "SCALING_FEAR",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "fear",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1f8,010101010101",
+    "displayName": "Superman (booze)",
+    "icon": "condition/superman",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "BOOZE_SUPERMAN",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000000000,01",
+    "displayName": "Holy Ground",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "consecrated",
+    "name": "holy ground",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "100000000000000040000000000000,0101",
+    "displayName": "robes of the wind",
+    "icon": "condition/robesofthewind",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "robes of the wind",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "100000100000000000000000000000,0114",
+    "displayName": "Windwalker",
+    "icon": "condition/windwalker",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "bends like a reed in the wind",
+    "name": "windwalker",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Possession",
+    "icon": "condition/possess",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "possessed",
+    "name": "SCALING_POSSESS",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "possess",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "fe000000000,ffffffffffffff",
+    "displayName": "Anti-Magic",
+    "icon": "condition/antimagic",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "nullified",
+    "name": "anti-magic spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "exitConditionChance": "0",
+    "impl": "mclachlan.maze.stat.condition.impl.RestingSleep",
+    "name": "RESTING_SLEEP",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Blink",
+    "icon": "condition/invisible",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "blink",
+    "name": "GENERIC_BLINK",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "blink",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "1000000000000000040000000000000000000,0101",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "reference": "GREEN_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "aura of regeneration",
+    "icon": "condition/default",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "GREEN_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "blessed",
+    "name": "aura of regeneration",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Swallowed",
+    "icon": "condition/swallow",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "swallowed",
+    "name": "SCALING_SWALLOW",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "swallow",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "18000000000000,0202",
+    "displayName": "Fervour (booze)",
+    "icon": "condition/fervour",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "believes!",
+    "name": "BOOZE_FERVOUR",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "20080000000000000,0414",
+    "displayName": "focus of flame",
+    "icon": "condition/focusofflame",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "focussed",
+    "name": "focus of flame",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Silence",
+    "icon": "condition/silence",
+    "exitConditionChance": "0",
+    "exitSpellEffect": "BACKSTAB_2",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "silenced",
+    "name": "silence spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "silence",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "18000000000000,0202",
+    "displayName": "Fervour",
+    "icon": "condition/fervour",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "believes!",
+    "name": "fervour spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "800000000000000000000000400005000000000000,05050a04",
+    "displayName": "veil of shadows",
+    "icon": "condition/veilofshadows",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "veiled",
+    "name": "veil of shadows",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "81180000000001f8,ffffffffffffffffffff",
+    "displayName": "Hex",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "hexed",
+    "name": "SCALING_HEX",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "hex",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "5"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "50"
+      }
+    ],
+    "statModifier": "80007000000000000,01010101",
+    "displayName": "Stoneskin",
+    "icon": "condition/stoneskin",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "hardened",
+    "name": "SCALING_STONESKIN",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000000000000000000000000,f6",
+    "displayName": "Ill Repute",
+    "icon": "condition/disease",
+    "exitConditionChance": "0",
+    "adjective": "infected",
+    "name": "ill repute",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "disease",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1000000000000000000,01",
+    "displayName": "Unholy Ground",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "desecrated",
+    "name": "unholy ground",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "2000000000000000000000008000000000000,0301",
+    "displayName": "amazon fury",
+    "icon": "condition/amazonstrength",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "furious",
+    "name": "amazon fury",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000001bf800040000000000000,0101010101010101010102",
+    "displayName": "Cloak Of Magic",
+    "icon": "condition/cloakofmagic",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "cloak of magic",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000000000000000000000000000000000000,01",
+    "displayName": "wilderness veil",
+    "icon": "condition/default",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "veiled",
+    "name": "wilderness veil",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1e0000000000000000,06060606",
+    "displayName": "Prismic Shield",
+    "icon": "condition/resistelements",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "prismic shield",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Blind",
+    "icon": "condition/blind",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "blinded",
+    "name": "GENERIC_BLIND",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "blind",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Confusion",
+    "icon": "condition/insane",
+    "exitConditionChance": "0",
+    "adjective": "insane",
+    "name": "psionic bolt trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "insane",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Acid Splash",
+    "icon": "condition/acidsplash",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "coated with acid",
+    "name": "acid splash",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "magma spear",
+    "icon": "item/magmaspear",
+    "exitConditionChance": "0",
+    "exitSpellEffect": "shield of ice item expire",
+    "duration": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "4"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "magma spear",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "2000000000000000000000000,01",
+    "displayName": "song of heroism",
+    "icon": "condition/songofheroism",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "inspired",
+    "name": "song of heroism",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "mistform",
+    "icon": "condition/mistform",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "mistform",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "gaseous_form",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "600000000000000000,0b0b",
+    "displayName": "Soul Shield",
+    "icon": "condition/soulshield",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "soulful sax soul shield",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "20000000000000000,e2",
+    "displayName": "unnatural cold",
+    "icon": "condition/unnaturalcold",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "freezing",
+    "name": "unnatural cold",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "slow",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "8,ff",
+    "displayName": "Weakness",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "weakened",
+    "name": "weakness spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "hex",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "3fe0000000000007e0007000000000009,0102050505050505050505010101010101010101",
+    "displayName": "Force Of Nature",
+    "icon": "condition/forceofnature",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "force of nature",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "2000000000000000000,01",
+    "displayName": "Full Moon",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "full moon",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "Exorcist",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "7e0007000000000000,d8d8d8d8d8d8d8d8d8",
+    "displayName": "weaken spirits",
+    "icon": "condition/default",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "reference": "Exorcist",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "4"
+      }
+    ],
+    "adjective": "weakened",
+    "name": "weaken spirits",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "804000005f800040,ffffffffffffffffffff",
+    "displayName": "Glowing Curse",
+    "icon": "condition/faeriefire",
+    "exitConditionChance": "0",
+    "adjective": "outlined",
+    "name": "glowing curse trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "KO",
+    "icon": "condition/ko",
+    "exitConditionChance": "0",
+    "adjective": "unconscious",
+    "name": "GENERIC_KO",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "ko",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "40000000000000,ff",
+    "displayName": "Armourmelt",
+    "icon": "condition/armourmelt",
+    "exitConditionChance": "0",
+    "adjective": "exposed",
+    "name": "power of the pit armourmelt",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,02",
+    "displayName": "Bless",
+    "icon": "condition/bless",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "blessed",
+    "name": "bless",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1e0000000000000000,09090909",
+    "displayName": "Resist Elements",
+    "icon": "condition/resistelements",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "resist elements",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "400000000000000000000000000000000000,01",
+    "displayName": "Thorns",
+    "icon": "condition/thorns",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "grows thorns",
+    "name": "thorns spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Silence",
+    "icon": "condition/silence",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "silenced",
+    "name": "SCALING_SILENCE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "silence",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "40000000000000,f8",
+    "displayName": "Armourmelt",
+    "icon": "condition/armourmelt",
+    "exitConditionChance": "0",
+    "adjective": "softened",
+    "name": "melt armour trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "deadly poison spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "80000000000006000000,010101",
+    "displayName": "Chameleon",
+    "icon": "condition/chameleon",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "camouflaged",
+    "name": "chameleon spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "110000000000000,0101",
+    "displayName": "Enchanted Blade",
+    "icon": "condition/enchantedblade",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "enchanted blade spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "enchanted_blade",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Nausea",
+    "icon": "condition/nausea",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "nauseated",
+    "name": "SCALING_NAUSEA",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "nausea",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1f8,010101010101",
+    "displayName": "Superman",
+    "icon": "condition/superman",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "superman spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "108,0505",
+    "displayName": "dark majesty buff",
+    "icon": "condition/darkmajesty",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "darkened",
+    "name": "dark majesty buff",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,ff",
+    "displayName": "Bane",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "cursed",
+    "name": "bane spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "hex",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Sleep",
+    "icon": "condition/sleep",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "asleep",
+    "name": "SCALING_SLEEP",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "sleep",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8,04",
+    "displayName": "song of strength",
+    "icon": "condition/songofstrength",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "inspired",
+    "name": "song of strength",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "7000000000000,0a0a0a",
+    "displayName": "prepare for battle",
+    "icon": "condition/prepareforbattle",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "reference": "Sohei",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "resolute",
+    "name": "prepare for battle",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Irritate",
+    "icon": "condition/irritate",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "irritated",
+    "name": "SCALING_IRRITATE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "irritate",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Swallowed",
+    "icon": "condition/swallow",
+    "exitConditionChance": "0",
+    "adjective": "swallowed",
+    "name": "rock dragon swallow",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "swallow",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "401e0007000000000000,0505050101010101",
+    "displayName": "coat of ooze",
+    "icon": "condition/coatofooze",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "coat of ooze",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "180000000000000,0202",
+    "displayName": "Striking",
+    "icon": "condition/striking",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "striking spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "2000000000000000000000000000000000500008000000000000,010a0a01",
+    "displayName": "fey wings",
+    "icon": "condition/feywings",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "fey wings",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,ff",
+    "displayName": "Armourmelt",
+    "icon": "condition/armourmelt",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "softened",
+    "name": "melt armour spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000000000000,01",
+    "displayName": "Heatwave",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "heatwaved",
+    "name": "heatwave",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Fear",
+    "icon": "condition/fear",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "afraid",
+    "name": "GENERIC_FEAR",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "fear",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "guardian spirit",
+    "icon": "condition/eagleeye",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "fearless",
+    "name": "guardian spirit",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1100000000000020040000000000000,01080501",
+    "displayName": "Twinkling Cape",
+    "icon": "condition/twinklingcape",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "cloaked",
+    "name": "twinkling cape",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "600040000000000000,041414",
+    "displayName": "Bless",
+    "icon": "condition/bless",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "blessed",
+    "name": "rally spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Entangled",
+    "icon": "condition/web",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "entangled",
+    "name": "entangle spell web",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "web",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "GENERIC_POISON",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000,01",
+    "displayName": "Haste",
+    "icon": "condition/haste",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "quickened",
+    "name": "SCALING_HASTE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "haste",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "2000000000000000000000000000000000100008000000000000,011401",
+    "displayName": "focus of wind",
+    "icon": "condition/focusofwind",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "focussed",
+    "name": "focus of wind",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "fe000000000,f3f3f3f3f3f3f3",
+    "displayName": "Anti-Magic",
+    "icon": "condition/antimagic",
+    "exitConditionChance": "0",
+    "adjective": "nullified",
+    "name": "fizzle field trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000,ff",
+    "displayName": "Slow",
+    "icon": "condition/slow",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "slowed",
+    "name": "SCALING_SLOW",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "slow",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Blind",
+    "icon": "condition/blind",
+    "exitConditionChance": "0",
+    "adjective": "blinded",
+    "name": "colour spray blind",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "blind",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "6100000000000000000000000000,010101",
+    "displayName": "Surge Stance",
+    "icon": "condition/surgestance",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "is free",
+    "name": "surge stance",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "KO",
+    "icon": "condition/ko",
+    "exitConditionChance": "0",
+    "adjective": "unconscious",
+    "name": "colour spray ko",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "ko",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1e0000000000000000,09090909",
+    "displayName": "Element Shield",
+    "icon": "condition/resistelements",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "element shield",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "600040000000000000,041414",
+    "displayName": "Bless",
+    "icon": "condition/bless",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "blessed",
+    "name": "rally spell condition",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "mottled boa poison",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "5"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "50"
+      }
+    ],
+    "statModifier": "80007000000000000,01010101",
+    "displayName": "Stoneskin",
+    "icon": "condition/stoneskin",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "hardened",
+    "name": "stoneskin spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "400000000000000000080000000000000,0101",
+    "displayName": "Blades Of Fire",
+    "icon": "condition/bladesoffire",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "blades of fire",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "statModifier": "240000000000000,0101",
+    "displayName": "Armourplate",
+    "icon": "condition/armourplate",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "adjective": "protected",
+    "name": "angel\u0027s tongue armourplate",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Swallowed",
+    "icon": "condition/swallow",
+    "exitConditionChance": "0",
+    "adjective": "engulfed",
+    "name": "power of the pit swallowed",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "swallow",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Nausea",
+    "icon": "condition/nausea",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "nauseated",
+    "name": "GENERIC_NAUSEA",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "nausea",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "adjective": "poisoned",
+    "name": "spotted boa poison",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "600000000000000018,01011e1e",
+    "displayName": "amazon courage",
+    "icon": "condition/amazonstrength",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "fearless",
+    "name": "amazon courage",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison gas spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "10000000000000000000,01",
+    "displayName": "Verdant Growth",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "verdant growth",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000000000000000000,01",
+    "displayName": "Phantom Guardian",
+    "icon": "condition/phantom_guardian",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "guarded",
+    "name": "phantom guardian spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "10000000000000,02",
+    "displayName": "inspiring blow",
+    "icon": "condition/inspiringblow",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "inspired",
+    "name": "inspiring blow",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "80000000000000,01",
+    "displayName": "fists of rock",
+    "icon": "condition/fistsofrock",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "fists of rock",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "3fe000000000000000007000000000019,020201030303010101010101010101",
+    "displayName": "Mage Strength",
+    "icon": "condition/magestrength",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "mage strength spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "200000000000000000,0a",
+    "displayName": "Courage",
+    "icon": "condition/courage",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "fortified",
+    "name": "courage spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "20000000,01",
+    "displayName": "Divine Trap",
+    "icon": "condition/divinetrap",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "divine trap spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Insane",
+    "icon": "condition/insane",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "insane",
+    "name": "GENERIC_INSANE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "insane",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "81180000000001f8,fefefefefefefefefefe",
+    "displayName": "Hex",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "adjective": "hexed",
+    "name": "hexxer trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "hex",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "800000000000000000000000000000000000000000,03",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000000000000000000000000000000000000,fd",
+    "displayName": "Taunt",
+    "icon": "condition/taunt",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "targetted",
+    "name": "skald taunt",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "40000000000000000000,01",
+    "displayName": "Healing Factor",
+    "icon": "condition/healingfactor",
+    "exitConditionChance": "0",
+    "adjective": "enchanted",
+    "name": "healing factor spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "statModifier": "80000000000007800000,0101010101",
+    "displayName": "Blend In",
+    "icon": "condition/blendin",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "5"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "camouflaged",
+    "name": "blend in",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "3fe000000000000000050000000000119,010101010102010101010101010101",
+    "displayName": "Unleash Power",
+    "icon": "condition/unleashpower",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "unleash power spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "80000040000000000000,0202",
+    "displayName": "Blur",
+    "icon": "condition/blur",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "blur spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Nausea",
+    "icon": "condition/nausea",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "nauseated",
+    "name": "moulder nausea",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "nausea",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "400000000000000000000000000007800040,0a1414141401",
+    "displayName": "Test",
+    "icon": "condition/tag",
+    "exitConditionChance": "333",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "99"
+      }
+    ],
+    "adjective": "is tested",
+    "name": "test spell effect",
+    "exitCondition": "CHANCE_AT_EOT",
+    "conditionEffect": "none",
+    "repeatedSpellEffects": [
+      {
+        "spellEffect": "stoneskin spell",
+        "turnMod": "10",
+        "probability": "100",
+        "startTurn": "1",
+        "endTurn": "-1"
+      }
+    ],
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "80000000000001800000,010101",
+    "displayName": "Obfuscation",
+    "icon": "condition/obfuscation",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "obfuscated",
+    "name": "obfuscation spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1040000000000007000000000000,0a0a0a0101",
+    "displayName": "Rockheaded",
+    "icon": "condition/rockheaded",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "is hardened",
+    "name": "rockheaded",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000,01",
+    "displayName": "Haste",
+    "icon": "condition/haste",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "quickened",
+    "name": "pennywhistle haste",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "haste",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1000000000000000048000000000000,050501",
+    "displayName": "Reflexion",
+    "icon": "condition/reflexion",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "reference": "Monk",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "on the move",
+    "name": "reflexion",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000000,01",
+    "displayName": "Burning Speed",
+    "icon": "condition/burningspeed",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "quickened",
+    "name": "burning speed",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "haste",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "800000000100000000000200242000000000000,0a050a0a1405",
+    "displayName": "circle of protection",
+    "icon": "condition/circleofprotection",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "5"
+      }
+    ],
+    "adjective": "protected",
+    "name": "circle of protection",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000000,01",
+    "displayName": "mantle of the seas",
+    "icon": "condition/mantleoftheseas",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "mantle of the seas",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "1000000000000401c00000000000000,0303030a01",
+    "displayName": "focus of the moment",
+    "icon": "condition/focusofthemoment",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "focussed",
+    "name": "focus of the moment",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Stone",
+    "icon": "condition/stone",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "petrified",
+    "name": "SCALING_STONE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "stone",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "spit venom poison",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,02",
+    "displayName": "song of ambition",
+    "icon": "condition/songofambition",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      },
+      {
+        "reference": "Skald",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "inspired",
+    "name": "song of ambition",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "reference": "Ranger",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000100000000000001418000c16060000,0a0a0505050a0a020205050505",
+    "displayName": "eagle eye",
+    "icon": "condition/eagleeye",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "reference": "Ranger",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
+        "dice": "4d2",
+        "shouldNegate": "false",
+        "value": "0"
+      }
+    ],
+    "adjective": "alert",
+    "name": "eagle eye",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "400000000000000000000000000000000000,01",
+    "displayName": "Razor Cloak",
+    "icon": "condition/razorcloak",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "razor cloak",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "800000000108,030314",
+    "displayName": "amazon willpower",
+    "icon": "condition/amazonstrength",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "determined",
+    "name": "amazon willpower",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "statModifier": "4000000000000000200000000000000000,1401",
+    "displayName": "focus of will",
+    "icon": "condition/focusofwill",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "focussed",
+    "name": "focus of will",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "exitConditionChance": "0",
+    "impl": "mclachlan.maze.stat.condition.impl.Protect",
+    "name": "PROTECT",
+    "strengthWanes": "false"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1000000000000000000000000000000,01",
+    "displayName": "Blink",
+    "icon": "condition/blink_spell",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "SCALING_BLINK",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Fear",
+    "icon": "condition/fear",
+    "exitConditionChance": "0",
+    "adjective": "afraid",
+    "name": "cloud of fear trap",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "fear",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "4000000000000000000,01",
+    "displayName": "Subtle Glamour",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "subtle glamour",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Paralyse",
+    "icon": "condition/paralyse",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "paralysed",
+    "name": "SCALING_PARALYSE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "paralyse",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "shield of ice",
+    "icon": "item/shieldofice",
+    "exitConditionChance": "0",
+    "exitSpellEffect": "shield of ice item expire",
+    "duration": [
+      {
+        "reference": "BLUE_MAGIC_GEN",
+        "scaling": "SCALE_WITH_MODIFIER",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "4"
+      },
+      {
+        "reference": "Elemental",
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "shielded",
+    "name": "shield of ice",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison type A",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison type C",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "1000000000000000000000000000000,01",
+    "displayName": "Blink",
+    "icon": "condition/blink_spell",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "blink spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison type B",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison type E",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "poisoned",
+    "name": "poison type D",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "KO",
+    "icon": "condition/ko",
+    "exitConditionChance": "0",
+    "adjective": "unconscious",
+    "name": "mace ko",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "ko",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "8000000000000,ff",
+    "displayName": "Slow",
+    "icon": "condition/slow",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "slowed",
+    "name": "slow spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "slow",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,ff",
+    "displayName": "Faerie Fire",
+    "icon": "condition/faeriefire",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "outlined",
+    "name": "faerie fire",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "actionPointDamage": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
+        "dice": "2d3",
+        "shouldNegate": "false",
+        "value": "0"
+      }
+    ],
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "statModifier": "100000000000000000000000000000000000,01",
+    "displayName": "Demonic Aspect",
+    "icon": "condition/demonicaspect",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "shrouded",
+    "name": "demonic aspect spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "40000000000000,02",
+    "displayName": "Bless",
+    "icon": "condition/bless",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "2"
+      }
+    ],
+    "adjective": "blessed",
+    "name": "bardic harp bless",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Insane",
+    "icon": "condition/insane",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "insane",
+    "name": "SCALING_INSANE",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "insane",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "10000000001007e0007000000000000,0101010101010101010101",
+    "displayName": "Starlight",
+    "icon": "condition/starlight",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "enchanted",
+    "name": "starlight spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "20000000000000000000,01",
+    "displayName": "Crucible",
+    "icon": "condition/hex",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      }
+    ],
+    "adjective": "energised",
+    "name": "crucible",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Blind",
+    "icon": "condition/blind",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "blinded",
+    "name": "SCALING_BLIND",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "blind",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "displayName": "Confusion",
+    "icon": "condition/insane",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "insane",
+    "name": "confusion spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "insane",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "statModifier": "240000000000000,0101",
+    "displayName": "Armourplate",
+    "icon": "condition/armourplate",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "10"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "20"
+      }
+    ],
+    "adjective": "protected",
+    "name": "armourplate spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "true",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8000000000018,010101",
+    "displayName": "Heroism",
+    "icon": "condition/heroism",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "transformed",
+    "name": "heroism spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "statModifier": "0,",
+    "displayName": "Poison",
+    "icon": "condition/poison",
+    "exitConditionChance": "0",
+    "adjective": "poisoned",
+    "name": "emerald spider poison",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "poison",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "8,02",
+    "displayName": "amazon strength",
+    "icon": "condition/amazonstrength",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "buffed",
+    "name": "amazon strength buff",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "false"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Invisible",
+    "icon": "condition/invisible",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "invisible",
+    "name": "invisibility spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "invisible",
+    "strengthWanes": "true"
+  },
+  {
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "Acid Bomb",
+    "icon": "condition/acidsplash",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      },
+      {
+        "scaling": "SCALE_WITH_CASTING_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "adjective": "coated with acid",
+    "name": "acid bomb spell",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "none",
+    "strengthWanes": "true"
+  },
+  {
+    "bannerModifier": "0,",
+    "scaleModifierWithStrength": "false",
+    "strength": [
+      {
+        "scaling": "SCALE_WITH_CLASS_LEVEL",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "1"
+      }
+    ],
+    "statModifier": "0,",
+    "displayName": "bloodthirsty",
+    "icon": "condition/bloodthirsty",
+    "exitConditionChance": "0",
+    "duration": [
+      {
+        "scaling": "NONE",
+        "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+        "shouldNegate": "false",
+        "value": "3"
+      }
+    ],
+    "adjective": "is bloodthirsty!",
+    "name": "bloodthirsty",
+    "exitCondition": "DURATION_EXPIRES",
+    "conditionEffect": "bloodthirsty",
+    "strengthWanes": "false"
+  }
+]

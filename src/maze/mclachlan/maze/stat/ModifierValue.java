@@ -28,7 +28,7 @@ import java.util.*;
 public class ModifierValue
 {
 	private int value;
-	private List<ModifierInfluence> influences = new ArrayList<ModifierInfluence>();
+	private List<ModifierInfluence> influences = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	public ModifierValue()

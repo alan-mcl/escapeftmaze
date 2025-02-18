@@ -21,13 +21,14 @@ package mclachlan.maze.stat;
 
 import java.util.*;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 
 /**
  * A class to store the progression of abilities by level.
  */
-public class LevelAbilityProgression
+public class LevelAbilityProgression implements V2DataObject
 {
 	public static final int MAX_LEVELS = 20;
 
@@ -35,12 +36,12 @@ public class LevelAbilityProgression
 	 * The index of the list is the level, the contents are the list of
 	 * the abilities gained at that level.
 	 */
-	private List<List<LevelAbility>> progression = new ArrayList<List<LevelAbility>>();
+	private List<List<LevelAbility>> progression = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	public LevelAbilityProgression()
 	{
-		this(new ArrayList<List<LevelAbility>>(MAX_LEVELS));
+		this(new ArrayList<>(MAX_LEVELS));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -67,7 +68,7 @@ public class LevelAbilityProgression
 		{
 			if (levelAbilities != null)
 			{
-				Collections.sort(levelAbilities, new LevelAbilityComparator());
+				levelAbilities.sort(new LevelAbilityComparator());
 			}
 		}
 	}
@@ -84,7 +85,7 @@ public class LevelAbilityProgression
 
 		if (list == null)
 		{
-			list = new ArrayList<LevelAbility>();
+			list = new ArrayList<>();
 			progression.set(level-1, list);
 		}
 
@@ -104,10 +105,10 @@ public class LevelAbilityProgression
 	{
 		if (level > MAX_LEVELS)
 		{
-			return new ArrayList<LevelAbility>();
+			return new ArrayList<>();
 		}
 		List<LevelAbility> result = progression.get(level - 1);
-		return result==null?new ArrayList<LevelAbility>():result;
+		return result==null?new ArrayList<>():result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -118,9 +119,9 @@ public class LevelAbilityProgression
 	 */
 	public List<LevelAbility> getForLevelCumulative(int level)
 	{
-		List<LevelAbility> result = new ArrayList<LevelAbility>();
+		List<LevelAbility> result = new ArrayList<>();
 
-		Map<String, LevelAbility> keyed = new HashMap<String, LevelAbility>();
+		Map<String, LevelAbility> keyed = new HashMap<>();
 
 		for (int i=1; i<=level; i++)
 		{
@@ -190,7 +191,7 @@ public class LevelAbilityProgression
 	/*-------------------------------------------------------------------------*/
 	public List<StartingSpellBook> getMagicAbility(int atLevel)
 	{
-		List<StartingSpellBook> result = new ArrayList<StartingSpellBook>();
+		List<StartingSpellBook> result = new ArrayList<>();
 
 		List<LevelAbility> abilities = getForLevelCumulative(atLevel);
 
@@ -230,6 +231,53 @@ public class LevelAbilityProgression
 		}
 
 		return false;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public String getName()
+	{
+		return null;
+	}
+
+	@Override
+	public void setName(String newName)
+	{
+
+	}
+
+	public List<List<LevelAbility>> getProgression()
+	{
+		return progression;
+	}
+
+	public void setProgression(
+		List<List<LevelAbility>> progression)
+	{
+		this.progression = progression;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		LevelAbilityProgression that = (LevelAbilityProgression)o;
+
+		return getProgression().equals(that.getProgression());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getProgression().hashCode();
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -26,7 +26,11 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class MagicPresentValue extends Value
 {
-	private final int colour;
+	private int colour;
+
+	public MagicPresentValue()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -55,7 +59,7 @@ public class MagicPresentValue extends Value
 		// We actually want this ValueList to change as the magic present changes.
 		MagicPresentValue result = new MagicPresentValue(colour);
 		result.setValue(this.getValue());
-		result.setNegate(this.shouldNegate());
+		result.setShouldNegate(this.isShouldNegate());
 		result.setScaling(this.getScaling());
 		return result;
 	}
@@ -70,5 +74,35 @@ public class MagicPresentValue extends Value
 	public int getColour()
 	{
 		return colour;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		MagicPresentValue that = (MagicPresentValue)o;
+
+		return getColour() == that.getColour();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getColour();
+		return result;
 	}
 }

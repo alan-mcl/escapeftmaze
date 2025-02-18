@@ -281,7 +281,7 @@ public class ValueListDialog extends JDialog
 			result += " per player character";
 		}
 		
-		if (v.shouldNegate())
+		if (v.isShouldNegate())
 		{
 			result = " - "+result;
 		}

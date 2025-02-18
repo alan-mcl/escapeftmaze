@@ -322,6 +322,12 @@ public class Zone extends DataObject
 		return name;
 	}
 
+	@Override
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
 	public Tile getTile(Point p)
 	{
 		if (tiles == null)

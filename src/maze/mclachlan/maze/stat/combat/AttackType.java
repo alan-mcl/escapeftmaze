@@ -38,6 +38,10 @@ public class AttackType extends DataObject
 	private StatModifier modifiers;
 	private MagicSys.SpellEffectType damageType;
 
+	public AttackType()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public AttackType(String name, String verb, Stats.Modifier attackModifier,
 		MagicSys.SpellEffectType damageType)
@@ -125,5 +129,49 @@ public class AttackType extends DataObject
 		sb.append(", damageType=").append(damageType);
 		sb.append('}');
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		AttackType that = (AttackType)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getVerb() != null ? !getVerb().equals(that.getVerb()) : that.getVerb() != null)
+		{
+			return false;
+		}
+		if (getAttackModifier() != that.getAttackModifier())
+		{
+			return false;
+		}
+		if (getModifiers() != null ? !getModifiers().equals(that.getModifiers()) : that.getModifiers() != null)
+		{
+			return false;
+		}
+		return getDamageType() == that.getDamageType();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getVerb() != null ? getVerb().hashCode() : 0);
+		result = 31 * result + (getAttackModifier() != null ? getAttackModifier().hashCode() : 0);
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		result = 31 * result + (getDamageType() != null ? getDamageType().hashCode() : 0);
+		return result;
 	}
 }

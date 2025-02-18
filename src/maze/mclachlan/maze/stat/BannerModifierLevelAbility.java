@@ -27,7 +27,11 @@ import mclachlan.maze.data.StringUtil;
  */
 public class BannerModifierLevelAbility extends LevelAbility
 {
-	private final StatModifier modifier;
+	private StatModifier modifier;
+
+	public BannerModifierLevelAbility()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public BannerModifierLevelAbility(String key, String displayName,
@@ -44,6 +48,11 @@ public class BannerModifierLevelAbility extends LevelAbility
 		return modifier;
 	}
 
+	public void setBannerModifier(StatModifier modifier)
+	{
+		this.modifier = modifier;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public Object[] getDisplayArgs()
@@ -56,5 +65,34 @@ public class BannerModifierLevelAbility extends LevelAbility
 		}
 
 		return result.toArray();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		BannerModifierLevelAbility that = (BannerModifierLevelAbility)o;
+
+		return getModifier().equals(that.getModifier());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getModifier().hashCode();
+		return result;
 	}
 }

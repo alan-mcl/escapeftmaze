@@ -72,7 +72,7 @@ public class ValueTest
 	private static Value getBaseValue(int i, SCALE scale, String ref, boolean negate)
 	{
 		Value result = new Value(i, scale);
-		result.setNegate(negate);
+		result.setShouldNegate(negate);
 		result.setReference(ref);
 		return result;
 	}
@@ -82,7 +82,7 @@ public class ValueTest
 		Value result = new DiceValue(d);
 		result.setValue(i);
 		result.setScaling(scale);
-		result.setNegate(negate);
+		result.setShouldNegate(negate);
 		result.setReference(ref);
 		return result;
 	}
@@ -92,7 +92,7 @@ public class ValueTest
 		Value result = new ModifierValue(mod);
 		result.setValue(i);
 		result.setScaling(scale);
-		result.setNegate(negate);
+		result.setShouldNegate(negate);
 		result.setReference(ref);
 		return result;
 	}
@@ -102,7 +102,7 @@ public class ValueTest
 		Value result = new MagicPresentValue(col);
 		result.setValue(i);
 		result.setScaling(scale);
-		result.setNegate(negate);
+		result.setShouldNegate(negate);
 		result.setReference(ref);
 		return result;
 	}

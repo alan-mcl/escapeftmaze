@@ -35,8 +35,6 @@ public class AcolyteApotheosis extends LevelAbility
 	private final SpellLikeAbility demonAlly;
 	private ArrayList<TypeDescriptor> types;
 
-	// todo: gains Demon creature type?
-
 	/*-------------------------------------------------------------------------*/
 	public AcolyteApotheosis()
 	{
@@ -51,12 +49,14 @@ public class AcolyteApotheosis extends LevelAbility
 		value.setReference("Acolyte");
 		ValueList castingLevel = new ValueList(value);
 		demonAlly = new SpellLikeAbility(spell, castingLevel);
+
+		initTypes();
 	}
 
 	public void initTypes()
 	{
 		FoeType outsider = Database.getInstance().getFoeTypes().get("Outsider");
-		types = new ArrayList<TypeDescriptor>();
+		types = new ArrayList<>();
 		types.add(outsider);
 	}
 
@@ -91,5 +91,46 @@ public class AcolyteApotheosis extends LevelAbility
 			initTypes();
 		}
 		return types;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		AcolyteApotheosis that = (AcolyteApotheosis)o;
+
+		if (!statModifier.equals(that.statModifier))
+		{
+			return false;
+		}
+		if (!demonAlly.equals(that.demonAlly))
+		{
+			return false;
+		}
+		return types.equals(that.types);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + statModifier.hashCode();
+		result = 31 * result + demonAlly.hashCode();
+		result = 31 * result + types.hashCode();
+		return result;
 	}
 }

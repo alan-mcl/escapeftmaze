@@ -214,7 +214,6 @@ public class V1CharacterClass
 			StatModifier startingModifiers = V1StatModifier.fromString(p.getProperty("startingModifiers"));
 			StatModifier unlockModifiers = V1StatModifier.fromString(p.getProperty("unlockModifiers"));
 			StatModifier startingActiveModifiers = V1StatModifier.fromString(p.getProperty("startingActiveModifiers"));
-			String asb = p.getProperty("availableSpellBooks");
 			List<String> genders = V1Utils.stringList.fromString(p.getProperty("allowedGenders"));
 			Set<String> allowedGenders = genders==null?null:new HashSet<String>(genders);
 			List<String> races = V1Utils.stringList.fromString(p.getProperty("allowedRaces"));

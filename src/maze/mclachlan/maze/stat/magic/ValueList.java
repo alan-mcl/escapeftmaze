@@ -35,7 +35,7 @@ public class ValueList
 	/**
 	 * Other values that make up this computed value.
 	 */
-	private List<Value> values = new ArrayList<Value>();
+	private List<Value> values = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	public ValueList()
@@ -158,5 +158,28 @@ public class ValueList
 		}
 
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ValueList valueList = (ValueList)o;
+
+		return getValues().equals(valueList.getValues());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getValues().hashCode();
 	}
 }

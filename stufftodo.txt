@@ -4,11 +4,11 @@ STUFFTODO
 
 UI REFRESH
 --------------
-flat sky support in editor & maze
 map zones
 starting quest
 PC death counter
 db: v2 migration
+flat sky support in editor & maze
 
 BACKLOG
 ----------

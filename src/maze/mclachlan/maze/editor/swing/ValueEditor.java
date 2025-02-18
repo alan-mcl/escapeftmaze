@@ -61,7 +61,7 @@ public class ValueEditor extends JDialog implements ActionListener
 		scaling.addActionListener(this);
 
 		reference = new JComboBox();
-		negate = new JCheckBox("Negate?", v.shouldNegate());
+		negate = new JCheckBox("Negate?", v.isShouldNegate());
 		custom = new JRadioButton("Custom");
 		custom.addActionListener(this);
 		constant = new JRadioButton("Constant");
@@ -235,7 +235,7 @@ public class ValueEditor extends JDialog implements ActionListener
 			}
 			
 			this.value.setScaling(scale);
-			this.value.setNegate(negate);
+			this.value.setShouldNegate(negate);
 
 			if (ref != null && ref.toString().length() > 0)
 			{

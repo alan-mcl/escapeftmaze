@@ -20,12 +20,13 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
+import mclachlan.maze.data.v2.V2DataObject;
 
 /**
  * Represents an ability gained at a certain level. Can compose stat modifiers,
  * a spell-like ability, or both.
  */
-public abstract class LevelAbility
+public abstract class LevelAbility implements V2DataObject
 {
 	/**
 	 * Abilities with a given key are superseded by abilities with the same key
@@ -76,6 +77,18 @@ public abstract class LevelAbility
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public String getName()
+	{
+		return getDisplayName();
+	}
+
+	@Override
+	public void setName(String newName)
+	{
+		// no op
+	}
 
 	/**
 	 * @return
@@ -188,6 +201,47 @@ public abstract class LevelAbility
 	public Collection<TypeDescriptor> getTypeDescriptors()
 	{
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		LevelAbility that = (LevelAbility)o;
+
+		if (getKey() != null ? !getKey().equals(that.getKey()) : that.getKey() != null)
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(that.getDisplayName()) : that.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		return getCharacterClass() != null ? getCharacterClass().equals(that.getCharacterClass()) : that.getCharacterClass() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getKey() != null ? getKey().hashCode() : 0;
+		result = 31 * result + (getDisplayName() != null ? getDisplayName().hashCode() : 0);
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getCharacterClass() != null ? getCharacterClass().hashCode() : 0);
+		return result;
 	}
 }
 

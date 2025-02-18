@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat;
 
+import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.ValueList;
@@ -27,10 +28,14 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class SpellLikeAbility
+public class SpellLikeAbility implements V2DataObject
 {
 	private Spell spell;
 	private ValueList castingLevel;
+
+	public SpellLikeAbility()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public SpellLikeAbility(Spell spell, ValueList castingLevel)
@@ -49,6 +54,12 @@ public class SpellLikeAbility
 		return spell.getName();
 	}
 
+	@Override
+	public void setName(String newName)
+	{
+
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public String getDisplayName()
 	{
@@ -65,6 +76,16 @@ public class SpellLikeAbility
 	public ValueList getCastingLevel()
 	{
 		return castingLevel;
+	}
+
+	public void setSpell(Spell spell)
+	{
+		this.spell = spell;
+	}
+
+	public void setCastingLevel(ValueList castingLevel)
+	{
+		this.castingLevel = castingLevel;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -158,5 +179,36 @@ public class SpellLikeAbility
 			default:
 				throw new MazeException("invalid " + usabilityType);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SpellLikeAbility that = (SpellLikeAbility)o;
+
+		if (getSpell() != null ? !getSpell().equals(that.getSpell()) : that.getSpell() != null)
+		{
+			return false;
+		}
+		return getCastingLevel() != null ? getCastingLevel().equals(that.getCastingLevel()) : that.getCastingLevel() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getSpell() != null ? getSpell().hashCode() : 0;
+		result = 31 * result + (getCastingLevel() != null ? getCastingLevel().hashCode() : 0);
+		return result;
 	}
 }

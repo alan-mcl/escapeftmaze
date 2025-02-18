@@ -19,6 +19,8 @@
 
 package mclachlan.maze.stat;
 
+import java.util.*;
+
 /**
  * An experience table implemented with an array
  */
@@ -35,6 +37,10 @@ public class ExperienceTableArray extends ExperienceTable
 	 * The amount of experience required to advance each level after the table.
 	 */
 	int postGygaxIncrement;
+
+	public ExperienceTableArray()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -111,5 +117,41 @@ public class ExperienceTableArray extends ExperienceTable
 	public void setPostGygaxIncrement(int postGygaxIncrement)
 	{
 		this.postGygaxIncrement = postGygaxIncrement;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ExperienceTableArray that = (ExperienceTableArray)o;
+
+		if (getPostGygaxIncrement() != that.getPostGygaxIncrement())
+		{
+			return false;
+		}
+		if (!getName().equals(that.getName()))
+		{
+			return false;
+		}
+		return Arrays.equals(getLevels(), that.getLevels());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName().hashCode();
+		result = 31 * result + Arrays.hashCode(getLevels());
+		result = 31 * result + getPostGygaxIncrement();
+		return result;
 	}
 }

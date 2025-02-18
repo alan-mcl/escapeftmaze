@@ -95,12 +95,16 @@ public class ConditionTemplate extends DataObject
 	private Class impl;
 
 	/*-------------------------------------------------------------------------*/
-	public static enum ExitCondition
+	public enum ExitCondition
 	{
 		NEVER,
 		DURATION_EXPIRES,
 		CHANCE_AT_EOT
 		// todo: chance at successful save
+	}
+
+	public ConditionTemplate()
+	{
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -472,5 +476,126 @@ public class ConditionTemplate extends DataObject
 
 			return result;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ConditionTemplate that = (ConditionTemplate)o;
+
+		if (isScaleModifierWithStrength() != that.isScaleModifierWithStrength())
+		{
+			return false;
+		}
+		if (isStrengthWanes() != that.isStrengthWanes())
+		{
+			return false;
+		}
+		if (getExitConditionChance() != that.getExitConditionChance())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(that.getDisplayName()) : that.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getIcon() != null ? !getIcon().equals(that.getIcon()) : that.getIcon() != null)
+		{
+			return false;
+		}
+		if (getAdjective() != null ? !getAdjective().equals(that.getAdjective()) : that.getAdjective() != null)
+		{
+			return false;
+		}
+		if (getConditionEffect() != null ? !getConditionEffect().equals(that.getConditionEffect()) : that.getConditionEffect() != null)
+		{
+			return false;
+		}
+		if (getDuration() != null ? !getDuration().equals(that.getDuration()) : that.getDuration() != null)
+		{
+			return false;
+		}
+		if (getStrength() != null ? !getStrength().equals(that.getStrength()) : that.getStrength() != null)
+		{
+			return false;
+		}
+		if (getHitPointDamage() != null ? !getHitPointDamage().equals(that.getHitPointDamage()) : that.getHitPointDamage() != null)
+		{
+			return false;
+		}
+		if (getStaminaDamage() != null ? !getStaminaDamage().equals(that.getStaminaDamage()) : that.getStaminaDamage() != null)
+		{
+			return false;
+		}
+		if (getActionPointDamage() != null ? !getActionPointDamage().equals(that.getActionPointDamage()) : that.getActionPointDamage() != null)
+		{
+			return false;
+		}
+		if (getMagicPointDamage() != null ? !getMagicPointDamage().equals(that.getMagicPointDamage()) : that.getMagicPointDamage() != null)
+		{
+			return false;
+		}
+		if (getStatModifier() != null ? !getStatModifier().equals(that.getStatModifier()) : that.getStatModifier() != null)
+		{
+			return false;
+		}
+		if (getBannerModifier() != null ? !getBannerModifier().equals(that.getBannerModifier()) : that.getBannerModifier() != null)
+		{
+			return false;
+		}
+		if (getExitCondition() != that.getExitCondition())
+		{
+			return false;
+		}
+		if (getExitSpellEffect() != null ? !getExitSpellEffect().equals(that.getExitSpellEffect()) : that.getExitSpellEffect() != null)
+		{
+			return false;
+		}
+		if (getRepeatedSpellEffects() != null ? !getRepeatedSpellEffects().equals(that.getRepeatedSpellEffects()) : that.getRepeatedSpellEffects() != null)
+		{
+			return false;
+		}
+		return getImpl() != null ? getImpl().equals(that.getImpl()) : that.getImpl() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDisplayName() != null ? getDisplayName().hashCode() : 0);
+		result = 31 * result + (getIcon() != null ? getIcon().hashCode() : 0);
+		result = 31 * result + (getAdjective() != null ? getAdjective().hashCode() : 0);
+		result = 31 * result + (getConditionEffect() != null ? getConditionEffect().hashCode() : 0);
+		result = 31 * result + (getDuration() != null ? getDuration().hashCode() : 0);
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		result = 31 * result + (getHitPointDamage() != null ? getHitPointDamage().hashCode() : 0);
+		result = 31 * result + (getStaminaDamage() != null ? getStaminaDamage().hashCode() : 0);
+		result = 31 * result + (getActionPointDamage() != null ? getActionPointDamage().hashCode() : 0);
+		result = 31 * result + (getMagicPointDamage() != null ? getMagicPointDamage().hashCode() : 0);
+		result = 31 * result + (getStatModifier() != null ? getStatModifier().hashCode() : 0);
+		result = 31 * result + (getBannerModifier() != null ? getBannerModifier().hashCode() : 0);
+		result = 31 * result + (isScaleModifierWithStrength() ? 1 : 0);
+		result = 31 * result + (isStrengthWanes() ? 1 : 0);
+		result = 31 * result + (getExitCondition() != null ? getExitCondition().hashCode() : 0);
+		result = 31 * result + getExitConditionChance();
+		result = 31 * result + (getExitSpellEffect() != null ? getExitSpellEffect().hashCode() : 0);
+		result = 31 * result + (getRepeatedSpellEffects() != null ? getRepeatedSpellEffects().hashCode() : 0);
+		result = 31 * result + (getImpl() != null ? getImpl().hashCode() : 0);
+		return result;
 	}
 }

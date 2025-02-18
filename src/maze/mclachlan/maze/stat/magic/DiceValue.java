@@ -29,6 +29,10 @@ public class DiceValue extends Value
 {
 	private Dice dice;
 
+	public DiceValue()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public DiceValue(Dice source)
 	{
@@ -56,13 +60,18 @@ public class DiceValue extends Value
 		return dice;
 	}
 
+	public void setDice(Dice dice)
+	{
+		this.dice = dice;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Value getSnapShotValue(UnifiedActor source, int castingLevel)
 	{
 		// simply return a clone of this, no snapshotting required
 		DiceValue result = new DiceValue(dice);
 		result.setValue(this.getValue());
-		result.setNegate(this.shouldNegate());
+		result.setShouldNegate(this.isShouldNegate());
 		result.setScaling(this.getScaling());
 		return result;
 	}
@@ -85,6 +94,37 @@ public class DiceValue extends Value
 			result += " per class level ("+getReference()+")";
 		}
 
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		DiceValue diceValue = (DiceValue)o;
+
+		return getDice().equals(diceValue.getDice());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getDice().hashCode();
 		return result;
 	}
 }

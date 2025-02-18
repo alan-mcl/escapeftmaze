@@ -24,7 +24,11 @@ package mclachlan.maze.stat;
  */
 public class SpecialAbilityLevelAbility extends LevelAbility
 {
-	private final SpellLikeAbility ability;
+	private SpellLikeAbility ability;
+
+	public SpecialAbilityLevelAbility()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public SpecialAbilityLevelAbility(
@@ -43,6 +47,11 @@ public class SpecialAbilityLevelAbility extends LevelAbility
 		return ability;
 	}
 
+	public void setAbility(SpellLikeAbility ability)
+	{
+		this.ability = ability;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public String toString()
@@ -53,5 +62,36 @@ public class SpecialAbilityLevelAbility extends LevelAbility
 		sb.append("ability=").append(ability);
 		sb.append('}');
 		return sb.toString();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		SpecialAbilityLevelAbility that = (SpecialAbilityLevelAbility)o;
+
+		return getAbility().equals(that.getAbility());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getAbility().hashCode();
+		return result;
 	}
 }

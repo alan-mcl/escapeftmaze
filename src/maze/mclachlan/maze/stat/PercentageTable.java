@@ -280,5 +280,39 @@ public class PercentageTable<T>
 		sb.append('}');
 		return sb.toString();
 	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		PercentageTable<?> that = (PercentageTable<?>)o;
+
+		if (shouldSumTo100 != that.shouldSumTo100)
+		{
+			return false;
+		}
+		if (!getItems().equals(that.getItems()))
+		{
+			return false;
+		}
+		return cumulative.equals(that.cumulative);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getItems().hashCode();
+		result = 31 * result + (shouldSumTo100 ? 1 : 0);
+		result = 31 * result + cumulative.hashCode();
+		return result;
+	}
 }
 

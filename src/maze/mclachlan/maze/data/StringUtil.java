@@ -150,7 +150,7 @@ public class StringUtil
 		{
 			String vd = descValue(value);
 
-			if (value.shouldNegate())
+			if (value.isShouldNegate())
 			{
 				result.append(" - ").append(vd);
 			}

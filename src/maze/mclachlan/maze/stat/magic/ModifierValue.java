@@ -29,6 +29,10 @@ public class ModifierValue extends Value
 {
 	private Stats.Modifier modifier;
 
+	public ModifierValue()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ModifierValue(Stats.Modifier modifier)
 	{
@@ -53,7 +57,7 @@ public class ModifierValue extends Value
 		// in the future.
 		Value result = new Value(this.compute(source, castingLevel), SCALE.NONE);
 		result.setValue(this.getValue());
-		result.setNegate(this.shouldNegate());
+		result.setShouldNegate(this.isShouldNegate());
 		return result;
 	}
 
@@ -67,5 +71,36 @@ public class ModifierValue extends Value
 	public Stats.Modifier getModifier()
 	{
 		return modifier;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ModifierValue that = (ModifierValue)o;
+
+		return getModifier() == that.getModifier();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getModifier().hashCode();
+		return result;
 	}
 }

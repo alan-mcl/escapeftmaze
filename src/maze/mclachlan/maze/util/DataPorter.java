@@ -24,7 +24,8 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
 import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Campaign;
 
 /**
@@ -37,142 +38,178 @@ public class DataPorter
 		Campaign campaign = null;
 		List<Campaign> campaigns = new ArrayList<>(Database.getCampaigns().values());
 
-		Loader loader = null;//new HardCodedLoader();
-		Saver saver = new V1Saver();
+		Loader v1Loader = new V1Loader();
+		Saver v2Saver = new V2Saver();
+
+
 		// haxor to get the arena campaign
 		for (Campaign c : campaigns)
 		{
-			if (c.getName().equals("arena"))
+			if (c.getName().equals("default"))
 			{
-				saver.init(c);
 				campaign = c;
 				break;
 			}
 		}
+
+		new Database(v1Loader, v2Saver, campaign);
+		v2Saver.init(campaign);
 
 		if (campaign == null)
 		{
 			throw new RuntimeException("Cannot find Arena campaign");
 		}
 
-		new Database(loader, saver, campaign);
 
-
-		Loader test = new V1Loader();
+		Loader v2Loader = new V2Loader();
 
 		System.out.println("porting genders...");
-		saver.saveGenders(loader.loadGenders());
+		v2Saver.saveGenders(v1Loader.loadGenders());
 
 		System.out.println("porting body parts...");
-		saver.saveBodyParts(loader.loadBodyParts());
+		v2Saver.saveBodyParts(v1Loader.loadBodyParts());
 
 		System.out.println("porting races...");
-		saver.saveRaces(loader.loadRaces());
+		v2Saver.saveRaces(v1Loader.loadRaces());
 
 		System.out.println("porting experience tables...");
-		saver.saveExperienceTables(loader.loadExperienceTables());
+		v2Saver.saveExperienceTables(v1Loader.loadExperienceTables());
 
 		System.out.println("porting character classes...");
-		saver.saveCharacterClasses(loader.loadCharacterClasses());
+		v2Saver.saveCharacterClasses(v1Loader.loadCharacterClasses());
 
 		System.out.println("porting attack types...");
-		saver.saveAttackTypes(loader.loadAttackTypes());
+		v2Saver.saveAttackTypes(v1Loader.loadAttackTypes());
 
 		System.out.println("porting condition effects...");
-		saver.saveConditionEffects(loader.loadConditionEffects());
+		v2Saver.saveConditionEffects(v1Loader.loadConditionEffects());
 
 		System.out.println("porting condition templates...");
-		saver.saveConditionTemplates(loader.loadConditionTemplates());
+		v2Saver.saveConditionTemplates(v1Loader.loadConditionTemplates());
 
-		System.out.println("porting spell effects...");
-		saver.saveSpellEffects(loader.loadSpellEffects());
-
-		System.out.println("porting loot entries...");
-		saver.saveLootEntries(loader.loadLootEntries());
-
-		System.out.println("porting loot tables...");
-		saver.saveLootTables(loader.loadLootTables());
-
-		System.out.println("porting scripts...");
-		saver.saveMazeScripts(loader.loadMazeScripts());
-
-		System.out.println("porting spells...");
-		saver.saveSpells(loader.loadSpells());
-
-		System.out.println("porting player spell books...");
-		saver.savePlayerSpellBooks(loader.loadPlayerSpellBooks());
-
-		System.out.println("porting textures...");
-		saver.saveMazeTextures(loader.loadMazeTextures());
-
-		System.out.println("porting foe templates...");
-		saver.saveFoeTemplates(loader.loadFoeTemplates());
-
-		System.out.println("porting traps...");
-		saver.saveTraps(loader.loadTraps());
-
-		System.out.println("porting foe entries...");
-		saver.saveFoeEntries(loader.loadFoeEntries());
-
-		System.out.println("porting encounter tables...");
-		saver.saveEncounterTables(loader.loadEncounterTables());
-
-		System.out.println("porting npc faction templates...");
-		saver.saveNpcFactionTemplates(loader.loadNpcFactionTemplates());
-
-		System.out.println("porting npc templates...");
-		saver.saveNpcTemplates(loader.loadNpcTemplates());
-
-		System.out.println("porting wielding combos...");
-		saver.saveWieldingCombos(loader.loadWieldingCombos());
-
-		System.out.println("porting item templates...");
-		saver.saveItemTemplates(loader.loadItemTemplates());
-
-		System.out.println("porting zones...");
-		List<String> zoneNames = loader.getZoneNames();
-		for (String zoneName : zoneNames)
-		{
-			System.out.println(" - "+zoneName);
-			saver.saveZone(loader.getZone(zoneName));
-		}
-
-		System.out.println("porting guild...");
-		saver.saveCharacterGuild(loader.loadCharacterGuild());
+//		System.out.println("porting spell effects...");
+//		v2Saver.saveSpellEffects(v1Loader.loadSpellEffects());
+//
+//		System.out.println("porting loot entries...");
+//		v2Saver.saveLootEntries(v1Loader.loadLootEntries());
+//
+//		System.out.println("porting loot tables...");
+//		v2Saver.saveLootTables(v1Loader.loadLootTables());
+//
+//		System.out.println("porting scripts...");
+//		v2Saver.saveMazeScripts(v1Loader.loadMazeScripts());
+//
+//		System.out.println("porting spells...");
+//		v2Saver.saveSpells(v1Loader.loadSpells());
+//
+//		System.out.println("porting player spell books...");
+//		v2Saver.savePlayerSpellBooks(v1Loader.loadPlayerSpellBooks());
+//
+//		System.out.println("porting textures...");
+//		v2Saver.saveMazeTextures(v1Loader.loadMazeTextures());
+//
+//		System.out.println("porting foe templates...");
+//		v2Saver.saveFoeTemplates(v1Loader.loadFoeTemplates());
+//
+//		System.out.println("porting traps...");
+//		v2Saver.saveTraps(v1Loader.loadTraps());
+//
+//		System.out.println("porting foe entries...");
+//		v2Saver.saveFoeEntries(v1Loader.loadFoeEntries());
+//
+//		System.out.println("porting encounter tables...");
+//		v2Saver.saveEncounterTables(v1Loader.loadEncounterTables());
+//
+//		System.out.println("porting npc faction templates...");
+//		v2Saver.saveNpcFactionTemplates(v1Loader.loadNpcFactionTemplates());
+//
+//		System.out.println("porting npc templates...");
+//		v2Saver.saveNpcTemplates(v1Loader.loadNpcTemplates());
+//
+//		System.out.println("porting wielding combos...");
+//		v2Saver.saveWieldingCombos(v1Loader.loadWieldingCombos());
+//
+//		System.out.println("porting item templates...");
+//		v2Saver.saveItemTemplates(v1Loader.loadItemTemplates());
+//
+//		System.out.println("porting zones...");
+//		List<String> zoneNames = v1Loader.getZoneNames();
+//		for (String zoneName : zoneNames)
+//		{
+//			System.out.println(" - "+zoneName);
+//			v2Saver.saveZone(v1Loader.getZone(zoneName));
+//		}
+//
+//		System.out.println("porting guild...");
+//		v2Saver.saveCharacterGuild(v1Loader.loadCharacterGuild());
 
 		//----------------
-		System.out.println("test..");
-		test.init(campaign);
-		System.out.println("genders: "+test.loadGenders().size());
-		System.out.println("body parts: "+test.loadBodyParts().size());
-		System.out.println("races: "+test.loadRaces().size());
-		System.out.println("xp tables: "+test.loadExperienceTables().size());
-		System.out.println("character classes: "+test.loadCharacterClasses().size());
-		System.out.println("attack types: "+test.loadAttackTypes().size());
-		System.out.println("condition effects: "+test.loadConditionEffects().size());
-		System.out.println("condition templates: "+test.loadConditionTemplates().size());
-		System.out.println("spell effects: "+test.loadSpellEffects().size());
-		System.out.println("loot entries: "+test.loadLootEntries().size());
-		System.out.println("loot tables: "+test.loadLootTables().size());
-		System.out.println("scripts: "+test.loadMazeScripts().size());
-		System.out.println("spells: "+test.loadSpells().size());
-		System.out.println("player spell books: "+test.loadPlayerSpellBooks().size());
-		System.out.println("maze textures: "+test.loadMazeTextures().size());
-		System.out.println("foe templates: "+test.loadFoeTemplates().size());
-		System.out.println("traps: "+test.loadTraps().size());
-		System.out.println("foe entries: "+test.loadFoeEntries().size());
-		System.out.println("encounter tables: "+test.loadEncounterTables().size());
-		System.out.println("npc faction templates: "+test.loadNpcFactionTemplates().size());
-		System.out.println("npc templates: "+test.loadNpcTemplates().size());
-		System.out.println("wielding combos: "+test.loadWieldingCombos().size());
-		System.out.println("item templates: "+test.loadItemTemplates().size());
-		System.out.println("zones:");
-		zoneNames = test.getZoneNames();
-		for (String zoneName : zoneNames)
+		System.out.println("v2Loader..");
+		v2Loader.init(campaign);
+		System.out.println("genders: "+v2Loader.loadGenders().size());
+		assertEquals(v1Loader.loadGenders(), v2Loader.loadGenders());
+
+		System.out.println("body parts: "+v2Loader.loadBodyParts().size());
+		assertEquals(v1Loader.loadBodyParts(), v2Loader.loadBodyParts());
+
+		System.out.println("races: "+v2Loader.loadRaces().size());
+		assertEquals(v1Loader.loadRaces(), v2Loader.loadRaces());
+
+		System.out.println("xp tables: "+v2Loader.loadExperienceTables().size());
+		assertEquals(v1Loader.loadExperienceTables(), v2Loader.loadExperienceTables());
+
+		System.out.println("character classes: "+v2Loader.loadCharacterClasses().size());
+		assertEquals(v1Loader.loadCharacterClasses(), v2Loader.loadCharacterClasses());
+
+		System.out.println("attack types: "+v2Loader.loadAttackTypes().size());
+		assertEquals(v1Loader.loadAttackTypes(), v2Loader.loadAttackTypes());
+
+		System.out.println("condition effects: "+v2Loader.loadConditionEffects().size());
+		assertEquals(v1Loader.loadConditionEffects(), v2Loader.loadConditionEffects());
+
+		System.out.println("condition templates: "+v2Loader.loadConditionTemplates().size());
+		assertEquals(v1Loader.loadConditionTemplates(), v2Loader.loadConditionTemplates());
+
+//		System.out.println("spell effects: "+v2Loader.loadSpellEffects().size());
+//		System.out.println("loot entries: "+v2Loader.loadLootEntries().size());
+//		System.out.println("loot tables: "+v2Loader.loadLootTables().size());
+//		System.out.println("scripts: "+v2Loader.loadMazeScripts().size());
+//		System.out.println("spells: "+v2Loader.loadSpells().size());
+//		System.out.println("player spell books: "+v2Loader.loadPlayerSpellBooks().size());
+//		System.out.println("maze textures: "+v2Loader.loadMazeTextures().size());
+//		System.out.println("foe templates: "+v2Loader.loadFoeTemplates().size());
+//		System.out.println("traps: "+v2Loader.loadTraps().size());
+//		System.out.println("foe entries: "+v2Loader.loadFoeEntries().size());
+//		System.out.println("encounter tables: "+v2Loader.loadEncounterTables().size());
+//		System.out.println("npc faction templates: "+v2Loader.loadNpcFactionTemplates().size());
+//		System.out.println("npc templates: "+v2Loader.loadNpcTemplates().size());
+//		System.out.println("wielding combos: "+v2Loader.loadWieldingCombos().size());
+//		System.out.println("item templates: "+v2Loader.loadItemTemplates().size());
+//		System.out.println("zones:");
+//		zoneNames = v2Loader.getZoneNames();
+//		for (String zoneName : zoneNames)
+//		{
+//			System.out.println(" - "+zoneName);
+//			v2Loader.getZone(zoneName);
+//		}
+//		System.out.println("guild: "+v2Loader.loadCharacterGuild().size());
+
+	}
+
+	private static void assertEquals(Map<String, ?> v1Map, Map<String, ?> v2Map)
+	{
+		if (v1Map.size() != v2Map.size())
 		{
-			System.out.println(" - "+zoneName);
-			test.getZone(zoneName);
+			System.out.println("ERROR: different nr elements, v1 "+v1Map.size()+" v2 "+v2Map.size());
+			return;
 		}
-		System.out.println("guild: "+test.loadCharacterGuild().size());
+
+		for (String s : v1Map.keySet())
+		{
+			if (!v1Map.get(s).equals(v2Map.get(s)))
+			{
+				System.out.println("ERROR: different elements v1 ["+v1Map.get(s)+"] v2 ["+v2Map.get(s)+"]");
+			}
+		}
 	}
 }

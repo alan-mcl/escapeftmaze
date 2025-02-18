@@ -35,6 +35,12 @@ public class BodyPart extends DataObject
 	private EquipableSlot.Type equipableSlotType;
 
 	/*-------------------------------------------------------------------------*/
+
+	public BodyPart()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param name
 	 * 	The name of this body part
@@ -141,5 +147,61 @@ public class BodyPart extends DataObject
 	public void setNrWeaponHardpoints(int nrWeaponHardpoints)
 	{
 		this.nrWeaponHardpoints = nrWeaponHardpoints;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		BodyPart bodyPart = (BodyPart)o;
+
+		if (getDamagePrevention() != bodyPart.getDamagePrevention())
+		{
+			return false;
+		}
+		if (getDamagePreventionChance() != bodyPart.getDamagePreventionChance())
+		{
+			return false;
+		}
+		if (getNrWeaponHardpoints() != bodyPart.getNrWeaponHardpoints())
+		{
+			return false;
+		}
+		if (!getName().equals(bodyPart.getName()))
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(bodyPart.getDisplayName()) : bodyPart.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getModifiers() != null ? !getModifiers().equals(bodyPart.getModifiers()) : bodyPart.getModifiers() != null)
+		{
+			return false;
+		}
+		return getEquipableSlotType() == bodyPart.getEquipableSlotType();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName().hashCode();
+		result = 31 * result + (getDisplayName() != null ? getDisplayName().hashCode() : 0);
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		result = 31 * result + getDamagePrevention();
+		result = 31 * result + getDamagePreventionChance();
+		result = 31 * result + getNrWeaponHardpoints();
+		result = 31 * result + (getEquipableSlotType() != null ? getEquipableSlotType().hashCode() : 0);
+		return result;
 	}
 }

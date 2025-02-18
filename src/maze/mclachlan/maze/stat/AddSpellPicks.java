@@ -26,6 +26,10 @@ public class AddSpellPicks extends LevelAbility
 {
 	private int spellPicks;
 
+	public AddSpellPicks()
+	{
+	}
+
 	public AddSpellPicks(String key, String displayName, String description,
 		int spellPicks)
 	{
@@ -41,5 +45,34 @@ public class AddSpellPicks extends LevelAbility
 	public void setSpellPicks(int spellPicks)
 	{
 		this.spellPicks = spellPicks;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		AddSpellPicks that = (AddSpellPicks)o;
+
+		return getSpellPicks() == that.getSpellPicks();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getSpellPicks();
+		return result;
 	}
 }

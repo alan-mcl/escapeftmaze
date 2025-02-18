@@ -62,7 +62,7 @@ public class Database
 	 * List of campaigns, starting with the selected one at index 0  followed by
 	 * it's parent if any, then grandparent etc
 	 */
-	private List<CampaignCache> campaignCaches = new ArrayList<>();
+	private final List<CampaignCache> campaignCaches = new ArrayList<>();
 
 	/** User selected configuration */
 	private UserConfig userConfig;
@@ -315,6 +315,19 @@ public class Database
 	//////////////////////////////////////////////////
 
 	/*-------------------------------------------------------------------------*/
+	public Gender getGender(String name)
+	{
+		synchronized(mutex)
+		{
+			Gender result = getGenders().get(name);
+			if(result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
 	public Map<String, Gender> getGenders()
 	{
 		synchronized(mutex)
@@ -1098,6 +1111,19 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public NaturalWeapon getNaturalWeapon(String name)
+	{
+		synchronized(mutex)
+		{
+			NaturalWeapon result = this.getNaturalWeapons().get(name);
+			if (result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
 	public Map<String,NaturalWeapon> getNaturalWeapons()
 	{
 		synchronized(mutex)
@@ -1116,6 +1142,19 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public StartingKit getStartingKit(String name)
+	{
+		synchronized(mutex)
+		{
+			StartingKit result = this.getStartingKits().get(name);
+			if (result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
 	public Map<String,StartingKit> getStartingKits()
 	{
 		synchronized(mutex)

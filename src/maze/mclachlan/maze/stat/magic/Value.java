@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
+import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.util.MazeException;
@@ -32,7 +33,7 @@ import mclachlan.maze.util.MazeException;
  * </ul>
  * This base class just contains a constant.
  */
-public class Value
+public class Value implements V2DataObject
 {
 	/**
 	 * The base constant
@@ -53,6 +54,18 @@ public class Value
 	 * Whether or not to negate this value.
 	 */
 	private boolean negate;
+
+	@Override
+	public String getName()
+	{
+		return null;
+	}
+
+	@Override
+	public void setName(String newName)
+	{
+
+	}
 
 	/**
 	 * Different ways of scaling this value.
@@ -91,7 +104,7 @@ public class Value
 	{
 		this.value = other.getValue();
 		this.scaling = other.getScaling();
-		this.negate = other.shouldNegate();
+		this.negate = other.isShouldNegate();
 		this.reference = other.getReference();
 	}
 
@@ -224,17 +237,17 @@ public class Value
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean shouldNegate()
+	public boolean isShouldNegate()
 	{
 		return negate;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setNegate(boolean negate)
+	public void setShouldNegate(boolean negate)
 	{
 		this.negate = negate;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public String toString()
@@ -246,5 +259,44 @@ public class Value
 		sb.append(",").append(negate);
 		sb.append('}');
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Value value1 = (Value)o;
+
+		if (getValue() != value1.getValue())
+		{
+			return false;
+		}
+		if (negate != value1.negate)
+		{
+			return false;
+		}
+		if (getScaling() != value1.getScaling())
+		{
+			return false;
+		}
+		return getReference() != null ? getReference().equals(value1.getReference()) : value1.getReference() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getValue();
+		result = 31 * result + (getScaling() != null ? getScaling().hashCode() : 0);
+		result = 31 * result + (getReference() != null ? getReference().hashCode() : 0);
+		result = 31 * result + (negate ? 1 : 0);
+		return result;
 	}
 }

@@ -87,7 +87,7 @@ public class V1Value
 			s.append(colSep);
 			s.append(v.getReference()==null?"":v.getReference());
 			s.append(colSep);
-			s.append(v.shouldNegate());
+			s.append(v.isShouldNegate());
 
 			if (type == CUSTOM)
 			{
@@ -202,7 +202,7 @@ public class V1Value
 		}
 		
 		result.setValue(constant);
-		result.setNegate(negate);
+		result.setShouldNegate(negate);
 		result.setScaling(scale);
 		result.setReference(ref);
 		

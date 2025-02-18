@@ -367,6 +367,12 @@ public class ZonePanel extends EditorPanel
 				{
 					return zone;
 				}
+
+				@Override
+				public void setName(String newName)
+				{
+					// no op
+				}
 			});
 		}
 		return result;

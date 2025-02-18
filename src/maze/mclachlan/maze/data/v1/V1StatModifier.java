@@ -117,7 +117,7 @@ public class V1StatModifier
 	/*-------------------------------------------------------------------------*/
 	public static StatModifier fromString(String s, String separator)
 	{
-		if (s.equals(""))
+		if (s == null || s.equals(""))
 		{
 			return null;
 		}
