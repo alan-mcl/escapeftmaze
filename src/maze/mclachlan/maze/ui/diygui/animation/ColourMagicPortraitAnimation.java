@@ -42,6 +42,10 @@ public class ColourMagicPortraitAnimation extends Animation
 	long startTime = System.currentTimeMillis();
 	Rectangle[] bounds;
 
+	public ColourMagicPortraitAnimation()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ColourMagicPortraitAnimation(Color colour)
 	{
@@ -95,5 +99,35 @@ public class ColourMagicPortraitAnimation extends Animation
 	public Color getColour()
 	{
 		return colour;
+	}
+
+	public void setColour(Color colour)
+	{
+		this.colour = colour;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ColourMagicPortraitAnimation that = (ColourMagicPortraitAnimation)o;
+
+		return getColour() != null ? getColour().equals(that.getColour()) : that.getColour() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getColour() != null ? getColour().hashCode() : 0;
 	}
 }

@@ -28,7 +28,11 @@ import java.util.*;
  */
 public class SetMazeVariableEvent extends MazeEvent
 {
-	String mazeVariable, value;
+	private String mazeVariable, value;
+
+	public SetMazeVariableEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public SetMazeVariableEvent(String mazeVariable, String value)
@@ -64,5 +68,36 @@ public class SetMazeVariableEvent extends MazeEvent
 	public void setValue(String value)
 	{
 		this.value = value;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SetMazeVariableEvent that = (SetMazeVariableEvent)o;
+
+		if (getMazeVariable() != null ? !getMazeVariable().equals(that.getMazeVariable()) : that.getMazeVariable() != null)
+		{
+			return false;
+		}
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getMazeVariable() != null ? getMazeVariable().hashCode() : 0;
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
 	}
 }

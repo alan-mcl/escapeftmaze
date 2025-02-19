@@ -42,22 +42,26 @@ public class StoryboardEvent extends MazeEvent
 	/**
 	 * The image to display.
 	 */
-	private final String imageResource;
+	private String imageResource;
 
 	/**
 	 * The key of the text to display
 	 */
-	private final String textResource;
+	private String textResource;
 
 	/**
 	 * Placement of the text
 	 */
-	private final TextPlacement textPlacement;
+	private TextPlacement textPlacement;
 
 
 	public enum TextPlacement
 	{
 		CENTER, TOP_LEFT, TOP, TOP_RIGHT, RIGHT, BOTTOM_RIGHT, BOTTOM, BOTTOM_LEFT, LEFT
+	}
+
+	public StoryboardEvent()
+	{
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -201,5 +205,57 @@ public class StoryboardEvent extends MazeEvent
 	public TextPlacement getTextPlacement()
 	{
 		return textPlacement;
+	}
+
+	public void setImageResource(String imageResource)
+	{
+		this.imageResource = imageResource;
+	}
+
+	public void setTextResource(String textResource)
+	{
+		this.textResource = textResource;
+	}
+
+	public void setTextPlacement(
+		TextPlacement textPlacement)
+	{
+		this.textPlacement = textPlacement;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		StoryboardEvent that = (StoryboardEvent)o;
+
+		if (getImageResource() != null ? !getImageResource().equals(that.getImageResource()) : that.getImageResource() != null)
+		{
+			return false;
+		}
+		if (getTextResource() != null ? !getTextResource().equals(that.getTextResource()) : that.getTextResource() != null)
+		{
+			return false;
+		}
+		return getTextPlacement() == that.getTextPlacement();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getImageResource() != null ? getImageResource().hashCode() : 0;
+		result = 31 * result + (getTextResource() != null ? getTextResource().hashCode() : 0);
+		result = 31 * result + (getTextPlacement() != null ? getTextPlacement().hashCode() : 0);
+		return result;
 	}
 }

@@ -12,23 +12,23 @@ import mclachlan.crusader.ObjectScript;
 public class JagObjectVertically extends ObjectScript
 {
 	/** min and max offsets, in units of tile_size */
-	private final int minOffset, maxOffset;
+	private int minOffset, maxOffset;
 
 	/** min and max speed of movement, in units of rows per second */
-	private final int minSpeed;
-	private final int maxSpeed;
+	private int minSpeed;
+	private int maxSpeed;
 
 	// min and max pause between moves, in ms
-	private final int minPause;
-	private final int maxPause;
+	private int minPause;
+	private int maxPause;
 
 	// should pause at the top/bottom
-	private final boolean pauseTop;
-	private final boolean pauseBottom;
+	private boolean pauseTop;
+	private boolean pauseBottom;
 
 	// should always return to top/bottom
-	private final boolean homeTop;
-	private final boolean homeBottom;
+	private boolean homeTop;
+	private boolean homeBottom;
 
 
 	// volatile
@@ -50,6 +50,10 @@ public class JagObjectVertically extends ObjectScript
 
 	/** where we started */
 	private int startingTextureOffset;
+
+	public JagObjectVertically()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public JagObjectVertically(
@@ -188,9 +192,19 @@ public class JagObjectVertically extends ObjectScript
 		return minOffset;
 	}
 
+	public void setMinOffset(int minOffset)
+	{
+		this.minOffset = minOffset;
+	}
+
 	public int getMaxOffset()
 	{
 		return maxOffset;
+	}
+
+	public void setMaxOffset(int maxOffset)
+	{
+		this.maxOffset = maxOffset;
 	}
 
 	public int getMinSpeed()
@@ -198,9 +212,19 @@ public class JagObjectVertically extends ObjectScript
 		return minSpeed;
 	}
 
+	public void setMinSpeed(int minSpeed)
+	{
+		this.minSpeed = minSpeed;
+	}
+
 	public int getMaxSpeed()
 	{
 		return maxSpeed;
+	}
+
+	public void setMaxSpeed(int maxSpeed)
+	{
+		this.maxSpeed = maxSpeed;
 	}
 
 	public int getMinPause()
@@ -208,9 +232,19 @@ public class JagObjectVertically extends ObjectScript
 		return minPause;
 	}
 
+	public void setMinPause(int minPause)
+	{
+		this.minPause = minPause;
+	}
+
 	public int getMaxPause()
 	{
 		return maxPause;
+	}
+
+	public void setMaxPause(int maxPause)
+	{
+		this.maxPause = maxPause;
 	}
 
 	public boolean isPauseTop()
@@ -218,9 +252,19 @@ public class JagObjectVertically extends ObjectScript
 		return pauseTop;
 	}
 
+	public void setPauseTop(boolean pauseTop)
+	{
+		this.pauseTop = pauseTop;
+	}
+
 	public boolean isPauseBottom()
 	{
 		return pauseBottom;
+	}
+
+	public void setPauseBottom(boolean pauseBottom)
+	{
+		this.pauseBottom = pauseBottom;
 	}
 
 	public boolean isHomeTop()
@@ -228,8 +272,149 @@ public class JagObjectVertically extends ObjectScript
 		return homeTop;
 	}
 
+	public void setHomeTop(boolean homeTop)
+	{
+		this.homeTop = homeTop;
+	}
+
 	public boolean isHomeBottom()
 	{
 		return homeBottom;
+	}
+
+	public void setHomeBottom(boolean homeBottom)
+	{
+		this.homeBottom = homeBottom;
+	}
+
+	public int getNextDest()
+	{
+		return nextDest;
+	}
+
+	public void setNextDest(int nextDest)
+	{
+		this.nextDest = nextDest;
+	}
+
+	public double getCurrentSpeed()
+	{
+		return currentSpeed;
+	}
+
+	public void setCurrentSpeed(double currentSpeed)
+	{
+		this.currentSpeed = currentSpeed;
+	}
+
+	public long getPauseUntil()
+	{
+		return pauseUntil;
+	}
+
+	public void setPauseUntil(long pauseUntil)
+	{
+		this.pauseUntil = pauseUntil;
+	}
+
+	public long getLastUpdated()
+	{
+		return lastUpdated;
+	}
+
+	public void setLastUpdated(long lastUpdated)
+	{
+		this.lastUpdated = lastUpdated;
+	}
+
+	public int getDirection()
+	{
+		return direction;
+	}
+
+	public void setDirection(int direction)
+	{
+		this.direction = direction;
+	}
+
+	public int getStartingTextureOffset()
+	{
+		return startingTextureOffset;
+	}
+
+	public void setStartingTextureOffset(int startingTextureOffset)
+	{
+		this.startingTextureOffset = startingTextureOffset;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		JagObjectVertically that = (JagObjectVertically)o;
+
+		if (getMinOffset() != that.getMinOffset())
+		{
+			return false;
+		}
+		if (getMaxOffset() != that.getMaxOffset())
+		{
+			return false;
+		}
+		if (getMinSpeed() != that.getMinSpeed())
+		{
+			return false;
+		}
+		if (getMaxSpeed() != that.getMaxSpeed())
+		{
+			return false;
+		}
+		if (getMinPause() != that.getMinPause())
+		{
+			return false;
+		}
+		if (getMaxPause() != that.getMaxPause())
+		{
+			return false;
+		}
+		if (isPauseTop() != that.isPauseTop())
+		{
+			return false;
+		}
+		if (isPauseBottom() != that.isPauseBottom())
+		{
+			return false;
+		}
+		if (isHomeTop() != that.isHomeTop())
+		{
+			return false;
+		}
+		return isHomeBottom() == that.isHomeBottom();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getMinOffset();
+		result = 31 * result + getMaxOffset();
+		result = 31 * result + getMinSpeed();
+		result = 31 * result + getMaxSpeed();
+		result = 31 * result + getMinPause();
+		result = 31 * result + getMaxPause();
+		result = 31 * result + (isPauseTop() ? 1 : 0);
+		result = 31 * result + (isPauseBottom() ? 1 : 0);
+		result = 31 * result + (isHomeTop() ? 1 : 0);
+		result = 31 * result + (isHomeBottom() ? 1 : 0);
+		return result;
 	}
 }

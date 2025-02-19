@@ -233,7 +233,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 				actionDamageValue.setValue(dsr.getActionPointDamage());
 				magicDamageValue.setValue(dsr.getMagicPointDamage());
 				damageMultiplier.setValue(dsr.getMultiplier());
-				damageTransferToCaster.setSelected(dsr.transferToCaster());
+				damageTransferToCaster.setSelected(dsr.isTransferToCaster());
 				break;
 			case HEALING:
 				HealingSpellResult hsr = (HealingSpellResult)sr;
@@ -245,7 +245,7 @@ public class SpellResultEditor extends JDialog implements ActionListener
 			case IDENTIFY:
 				IdentifySpellResult isr = (IdentifySpellResult)sr;
 				identifyValue.setValue(isr.getValue());
-				revealCurses.setSelected(isr.revealCurses());
+				revealCurses.setSelected(isr.isRevealCurses());
 				break;
 			case MIND_READ:
 				MindReadSpellResult mrsr = (MindReadSpellResult)sr;

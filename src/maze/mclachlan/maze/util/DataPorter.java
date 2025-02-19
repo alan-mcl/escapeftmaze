@@ -87,33 +87,33 @@ public class DataPorter
 		System.out.println("porting condition templates...");
 		v2Saver.saveConditionTemplates(v1Loader.loadConditionTemplates());
 
-//		System.out.println("porting spell effects...");
-//		v2Saver.saveSpellEffects(v1Loader.loadSpellEffects());
-//
-//		System.out.println("porting loot entries...");
-//		v2Saver.saveLootEntries(v1Loader.loadLootEntries());
-//
-//		System.out.println("porting loot tables...");
-//		v2Saver.saveLootTables(v1Loader.loadLootTables());
-//
-//		System.out.println("porting scripts...");
-//		v2Saver.saveMazeScripts(v1Loader.loadMazeScripts());
-//
-//		System.out.println("porting spells...");
-//		v2Saver.saveSpells(v1Loader.loadSpells());
-//
-//		System.out.println("porting player spell books...");
-//		v2Saver.savePlayerSpellBooks(v1Loader.loadPlayerSpellBooks());
-//
-//		System.out.println("porting textures...");
-//		v2Saver.saveMazeTextures(v1Loader.loadMazeTextures());
-//
-//		System.out.println("porting foe templates...");
-//		v2Saver.saveFoeTemplates(v1Loader.loadFoeTemplates());
-//
-//		System.out.println("porting traps...");
-//		v2Saver.saveTraps(v1Loader.loadTraps());
-//
+		System.out.println("porting spell effects...");
+		v2Saver.saveSpellEffects(v1Loader.loadSpellEffects());
+
+		System.out.println("porting loot entries...");
+		v2Saver.saveLootEntries(v1Loader.loadLootEntries());
+
+		System.out.println("porting loot tables...");
+		v2Saver.saveLootTables(v1Loader.loadLootTables());
+
+		System.out.println("porting scripts...");
+		v2Saver.saveMazeScripts(v1Loader.loadMazeScripts());
+
+		System.out.println("porting spells...");
+		v2Saver.saveSpells(v1Loader.loadSpells());
+
+		System.out.println("porting player spell books...");
+		v2Saver.savePlayerSpellBooks(v1Loader.loadPlayerSpellBooks());
+
+		System.out.println("porting textures...");
+		v2Saver.saveMazeTextures(v1Loader.loadMazeTextures());
+
+		System.out.println("porting foe templates...");
+		v2Saver.saveFoeTemplates(v1Loader.loadFoeTemplates());
+
+		System.out.println("porting traps...");
+		v2Saver.saveTraps(v1Loader.loadTraps());
+
 //		System.out.println("porting foe entries...");
 //		v2Saver.saveFoeEntries(v1Loader.loadFoeEntries());
 //
@@ -170,15 +170,33 @@ public class DataPorter
 		System.out.println("condition templates: "+v2Loader.loadConditionTemplates().size());
 		assertEquals(v1Loader.loadConditionTemplates(), v2Loader.loadConditionTemplates());
 
-//		System.out.println("spell effects: "+v2Loader.loadSpellEffects().size());
-//		System.out.println("loot entries: "+v2Loader.loadLootEntries().size());
-//		System.out.println("loot tables: "+v2Loader.loadLootTables().size());
-//		System.out.println("scripts: "+v2Loader.loadMazeScripts().size());
-//		System.out.println("spells: "+v2Loader.loadSpells().size());
-//		System.out.println("player spell books: "+v2Loader.loadPlayerSpellBooks().size());
-//		System.out.println("maze textures: "+v2Loader.loadMazeTextures().size());
-//		System.out.println("foe templates: "+v2Loader.loadFoeTemplates().size());
-//		System.out.println("traps: "+v2Loader.loadTraps().size());
+		System.out.println("spell effects: "+v2Loader.loadSpellEffects().size());
+		assertEquals(v1Loader.loadSpellEffects(), v2Loader.loadSpellEffects());
+
+		System.out.println("loot entries: "+v2Loader.loadLootEntries().size());
+		assertEquals(v1Loader.loadLootEntries(), v2Loader.loadLootEntries());
+
+		System.out.println("loot tables: "+v2Loader.loadLootTables().size());
+		assertEquals(v1Loader.loadLootTables(), v2Loader.loadLootTables());
+
+		System.out.println("scripts: "+v2Loader.loadMazeScripts().size());
+		assertEquals(v1Loader.loadMazeScripts(), v2Loader.loadMazeScripts());
+
+		System.out.println("spells: "+v2Loader.loadSpells().size());
+		assertEquals(v1Loader.loadSpells(), v2Loader.loadSpells());
+
+		System.out.println("player spell books: "+v2Loader.loadPlayerSpellBooks().size());
+		assertEquals(v1Loader.loadPlayerSpellBooks(), v2Loader.loadPlayerSpellBooks());
+
+		System.out.println("maze textures: "+v2Loader.loadMazeTextures().size());
+		assertEquals(v1Loader.loadMazeTextures(), v2Loader.loadMazeTextures());
+
+		System.out.println("foe templates: "+v2Loader.loadFoeTemplates().size());
+		assertEquals(v1Loader.loadFoeTemplates(), v2Loader.loadFoeTemplates());
+
+		System.out.println("traps: "+v2Loader.loadTraps().size());
+		assertEquals(v1Loader.loadTraps(), v2Loader.loadTraps());
+
 //		System.out.println("foe entries: "+v2Loader.loadFoeEntries().size());
 //		System.out.println("encounter tables: "+v2Loader.loadEncounterTables().size());
 //		System.out.println("npc faction templates: "+v2Loader.loadNpcFactionTemplates().size());

@@ -52,6 +52,10 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	private int requiredWeaponType;
 	private GroupOfPossibilities<String> spellEffects;
 
+	public AttackWithWeaponSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	public AttackWithWeaponSpellResult(
@@ -362,6 +366,82 @@ public class AttackWithWeaponSpellResult extends SpellResult
 	public void setSpellEffects(GroupOfPossibilities<String> spellEffects)
 	{
 		this.spellEffects = spellEffects;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		AttackWithWeaponSpellResult that = (AttackWithWeaponSpellResult)o;
+
+		if (isRequiresBackstabWeapon() != that.isRequiresBackstabWeapon())
+		{
+			return false;
+		}
+		if (isRequiresSnipeWeapon() != that.isRequiresSnipeWeapon())
+		{
+			return false;
+		}
+		if (isConsumesWeapon() != that.isConsumesWeapon())
+		{
+			return false;
+		}
+		if (getRequiredWeaponType() != that.getRequiredWeaponType())
+		{
+			return false;
+		}
+		if (getNrStrikes() != null ? !getNrStrikes().equals(that.getNrStrikes()) : that.getNrStrikes() != null)
+		{
+			return false;
+		}
+		if (getModifiers() != null ? !getModifiers().equals(that.getModifiers()) : that.getModifiers() != null)
+		{
+			return false;
+		}
+		if (getAttackType() != null ? !getAttackType().equals(that.getAttackType()) : that.getAttackType() != null)
+		{
+			return false;
+		}
+		if (getDamageType() != that.getDamageType())
+		{
+			return false;
+		}
+		if (getAttackScript() != null ? !getAttackScript().equals(that.getAttackScript()) : that.getAttackScript() != null)
+		{
+			return false;
+		}
+		return getSpellEffects() != null ? getSpellEffects().equals(that.getSpellEffects()) : that.getSpellEffects() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getNrStrikes() != null ? getNrStrikes().hashCode() : 0);
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		result = 31 * result + (getAttackType() != null ? getAttackType().hashCode() : 0);
+		result = 31 * result + (getDamageType() != null ? getDamageType().hashCode() : 0);
+		result = 31 * result + (getAttackScript() != null ? getAttackScript().hashCode() : 0);
+		result = 31 * result + (isRequiresBackstabWeapon() ? 1 : 0);
+		result = 31 * result + (isRequiresSnipeWeapon() ? 1 : 0);
+		result = 31 * result + (isConsumesWeapon() ? 1 : 0);
+		result = 31 * result + getRequiredWeaponType();
+		result = 31 * result + (getSpellEffects() != null ? getSpellEffects().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

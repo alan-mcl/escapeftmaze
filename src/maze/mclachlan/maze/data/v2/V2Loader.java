@@ -108,8 +108,8 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, Race> loadRaces()
 	{
-		Map result = v2Crud(RACES, new SimpleMapSilo<>(getRaceSerialiser(db)));
-		result.forEach((key, value) -> ((Race)value).initBodyParts());
+		Map<String, Race> result = v2Crud(RACES, new SimpleMapSilo<>(getRaceSerialiser(db)));
+		result.forEach((key, value) -> value.initBodyParts());
 		return result;
 	}
 
@@ -152,55 +152,57 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, SpellEffect> loadSpellEffects()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(SPELL_EFFECTS, new SimpleMapSilo<>(getSpellEffectSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, MazeScript> loadMazeScripts()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(MAZE_SCRIPTS, new SimpleMapSilo<>(getMazeScriptSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, LootEntry> loadLootEntries()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(LOOT_ENTRIES, new SimpleMapSilo<>(getLootEntrySerialiser(db)));
 	}
 
 	@Override
 	public Map<String, LootTable> loadLootTables()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(LOOT_TABLES, new SimpleMapSilo<>(getLootTableSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, Spell> loadSpells()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(SPELLS, new SimpleMapSilo<>(getSpellsSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, PlayerSpellBook> loadPlayerSpellBooks()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(PLAYER_SPELL_BOOKS, new SimpleMapSilo<>(getPlayerSpellBooksSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, MazeTexture> loadMazeTextures()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		Map<String, MazeTexture> map = v2Crud(MAZE_TEXTURES, new SimpleMapSilo<>(getMazeTextureSerialiser()));
+		map.forEach((k, v) -> v.initRenderTexture());
+		return map;
 	}
 
 	@Override
 	public Map<String, FoeTemplate> loadFoeTemplates()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(FOE_TEMPLATES, new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, Trap> loadTraps()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(TRAPS, new SimpleMapSilo<>(getTrapSerialiser(db)));
 	}
 
 	@Override

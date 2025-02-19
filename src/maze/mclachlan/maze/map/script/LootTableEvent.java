@@ -33,6 +33,10 @@ public class LootTableEvent extends MazeEvent
 {
 	private LootTable lootTable;
 
+	public LootTableEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public LootTableEvent(LootTable lootTable)
 	{
@@ -50,5 +54,33 @@ public class LootTableEvent extends MazeEvent
 	public LootTable getLootTable()
 	{
 		return lootTable;
+	}
+
+	public void setLootTable(LootTable lootTable)
+	{
+		this.lootTable = lootTable;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		LootTableEvent that = (LootTableEvent)o;
+
+		return getLootTable() != null ? getLootTable().equals(that.getLootTable()) : that.getLootTable() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getLootTable() != null ? getLootTable().hashCode() : 0;
 	}
 }

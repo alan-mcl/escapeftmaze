@@ -45,6 +45,10 @@ public class CreateItemSpellResult extends SpellResult
 	 */
 	private boolean equipItems;
 
+	public CreateItemSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public CreateItemSpellResult(String lootTable, boolean equipItems)
 	{
@@ -106,5 +110,51 @@ public class CreateItemSpellResult extends SpellResult
 	public boolean isEquipItems()
 	{
 		return equipItems;
+	}
+
+	public void setLootTable(String lootTable)
+	{
+		this.lootTable = lootTable;
+	}
+
+	public void setEquipItems(boolean equipItems)
+	{
+		this.equipItems = equipItems;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		CreateItemSpellResult that = (CreateItemSpellResult)o;
+
+		if (isEquipItems() != that.isEquipItems())
+		{
+			return false;
+		}
+		return getLootTable() != null ? getLootTable().equals(that.getLootTable()) : that.getLootTable() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getLootTable() != null ? getLootTable().hashCode() : 0);
+		result = 31 * result + (isEquipItems() ? 1 : 0);
+		return result;
 	}
 }

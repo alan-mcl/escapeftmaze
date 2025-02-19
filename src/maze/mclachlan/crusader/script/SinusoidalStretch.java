@@ -11,13 +11,13 @@ import mclachlan.crusader.ObjectScript;
 public class SinusoidalStretch extends ObjectScript
 {
 	/** speed */
-	private final double speed;
+	private double speed;
 	/** max stretch as a faction of the original image size i.e. 1.5 = 50% beyond base image width */
-	private final double maxStretch;
+	private double maxStretch;
 	/** min stretch as a faction of the original image size i.e. 0.5 = 50% of base image width */
-	private final double minStretch;
-	private final boolean vertical;
-	private final boolean horizontal;
+	private double minStretch;
+	private boolean vertical;
+	private boolean horizontal;
 
 	/** current stretch fraction*/
 	private double currentStretch;
@@ -28,7 +28,17 @@ public class SinusoidalStretch extends ObjectScript
 	/** midpoint of the stretch */
 	private double halfStretch;
 
-	public SinusoidalStretch(double speed, double minStretch, double maxStretch, boolean vertical, boolean horizontal)
+	public SinusoidalStretch()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public SinusoidalStretch(
+		double speed,
+		double minStretch,
+		double maxStretch,
+		boolean vertical,
+		boolean horizontal)
 	{
 		this.speed = speed;
 		this.minStretch = minStretch;
@@ -116,5 +126,81 @@ public class SinusoidalStretch extends ObjectScript
 	public boolean isHorizontal()
 	{
 		return horizontal;
+	}
+
+	public void setSpeed(double speed)
+	{
+		this.speed = speed;
+	}
+
+	public void setMaxStretch(double maxStretch)
+	{
+		this.maxStretch = maxStretch;
+	}
+
+	public void setMinStretch(double minStretch)
+	{
+		this.minStretch = minStretch;
+	}
+
+	public void setVertical(boolean vertical)
+	{
+		this.vertical = vertical;
+	}
+
+	public void setHorizontal(boolean horizontal)
+	{
+		this.horizontal = horizontal;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SinusoidalStretch that = (SinusoidalStretch)o;
+
+		if (Double.compare(that.getSpeed(), getSpeed()) != 0)
+		{
+			return false;
+		}
+		if (Double.compare(that.getMaxStretch(), getMaxStretch()) != 0)
+		{
+			return false;
+		}
+		if (Double.compare(that.getMinStretch(), getMinStretch()) != 0)
+		{
+			return false;
+		}
+		if (isVertical() != that.isVertical())
+		{
+			return false;
+		}
+		return isHorizontal() == that.isHorizontal();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result;
+		long temp;
+		temp = Double.doubleToLongBits(getSpeed());
+		result = (int)(temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(getMaxStretch());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(getMinStretch());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		result = 31 * result + (isVertical() ? 1 : 0);
+		result = 31 * result + (isHorizontal() ? 1 : 0);
+		return result;
 	}
 }

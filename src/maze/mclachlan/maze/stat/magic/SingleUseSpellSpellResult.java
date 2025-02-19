@@ -53,6 +53,6 @@ public class SingleUseSpellSpellResult extends SpellResult
 			Maze.getInstance().getUi().refreshCharacterData();
 		}
 
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
 	}
 }

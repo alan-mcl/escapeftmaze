@@ -357,7 +357,7 @@ public class SpellEffectPanel extends EditorPanel
 					V1Value.fromString(V1Value.toString(actionDamage)),
 					V1Value.fromString(V1Value.toString(magicDamage)),
 					multiplier==0?0.5:multiplier/2,
-					d.transferToCaster());
+					d.isTransferToCaster());
 
 				result.setFoeType(d.getFoeType());
 

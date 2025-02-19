@@ -36,9 +36,11 @@ public class RemoveWall extends TileScript
 	private String mazeVariable;
 	private int wallIndex;
 	private boolean horizontalWall;
-	
-	public static final String FOUND = "found";
-	
+
+	public RemoveWall()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public RemoveWall(String mazeVariable, int wallIndex, boolean horizontalWall)
 	{
@@ -62,7 +64,7 @@ public class RemoveWall extends TileScript
 		MazeScript script = Database.getInstance().getMazeScript("_SECRET_PASSAGE_");
 		
 		List<MazeEvent> events = script.getEvents();
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 		result.addAll(events);
 		result.add(new RemoveWallEvent(mazeVariable, horizontalWall, wallIndex));
 		
@@ -83,5 +85,56 @@ public class RemoveWall extends TileScript
 	public int getWallIndex()
 	{
 		return wallIndex;
+	}
+
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setWallIndex(int wallIndex)
+	{
+		this.wallIndex = wallIndex;
+	}
+
+	public void setHorizontalWall(boolean horizontalWall)
+	{
+		this.horizontalWall = horizontalWall;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		RemoveWall that = (RemoveWall)o;
+
+		if (getWallIndex() != that.getWallIndex())
+		{
+			return false;
+		}
+		if (isHorizontalWall() != that.isHorizontalWall())
+		{
+			return false;
+		}
+		return getMazeVariable() != null ? getMazeVariable().equals(that.getMazeVariable()) : that.getMazeVariable() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getMazeVariable() != null ? getMazeVariable().hashCode() : 0;
+		result = 31 * result + getWallIndex();
+		result = 31 * result + (isHorizontalWall() ? 1 : 0);
+		return result;
 	}
 }

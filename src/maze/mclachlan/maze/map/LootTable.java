@@ -32,6 +32,10 @@ public class LootTable extends DataObject
 	private String name;
 	private GroupOfPossibilities<ILootEntry> lootEntries;
 
+	public LootTable()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public LootTable(String name, GroupOfPossibilities<ILootEntry> lootEntries)
 	{
@@ -76,6 +80,37 @@ public class LootTable extends DataObject
 			}
 		}
 
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		LootTable lootTable = (LootTable)o;
+
+		if (getName() != null ? !getName().equals(lootTable.getName()) : lootTable.getName() != null)
+		{
+			return false;
+		}
+		return getLootEntries() != null ? getLootEntries().equals(lootTable.getLootEntries()) : lootTable.getLootEntries() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getLootEntries() != null ? getLootEntries().hashCode() : 0);
 		return result;
 	}
 }

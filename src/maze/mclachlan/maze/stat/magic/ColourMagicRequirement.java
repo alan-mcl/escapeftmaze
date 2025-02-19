@@ -27,6 +27,10 @@ public class ColourMagicRequirement
 	int colour;
 	int amount;
 
+	public ColourMagicRequirement()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ColourMagicRequirement(int colour, int amount)
 	{
@@ -68,4 +72,34 @@ public class ColourMagicRequirement
 		sb.append('}');
 		return sb.toString();
 	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ColourMagicRequirement that = (ColourMagicRequirement)o;
+
+		if (getColour() != that.getColour())
+		{
+			return false;
+		}
+		return getAmount() == that.getAmount();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getColour();
+		result = 31 * result + getAmount();
+		return result;
+	}
 }
+

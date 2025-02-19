@@ -20,11 +20,12 @@
 package mclachlan.maze.game;
 
 import java.util.*;
+import mclachlan.maze.data.v2.V2Seralisable;
 
 /**
  *
  */
-public abstract class MazeEvent
+public abstract class MazeEvent implements V2Seralisable
 {
 	/*-------------------------------------------------------------------------*/
 	/**

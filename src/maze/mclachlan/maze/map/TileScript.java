@@ -345,6 +345,47 @@ public abstract class TileScript
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		TileScript that = (TileScript)o;
+
+		if (isReexecuteOnSameTile() != that.isReexecuteOnSameTile())
+		{
+			return false;
+		}
+		if (getScoutSecretDifficulty() != that.getScoutSecretDifficulty())
+		{
+			return false;
+		}
+		if (getExecuteOnceMazeVariable() != null ? !getExecuteOnceMazeVariable().equals(that.getExecuteOnceMazeVariable()) : that.getExecuteOnceMazeVariable() != null)
+		{
+			return false;
+		}
+		return getFacings() != null ? getFacings().equals(that.getFacings()) : that.getFacings() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getExecuteOnceMazeVariable() != null ? getExecuteOnceMazeVariable().hashCode() : 0;
+		result = 31 * result + (getFacings() != null ? getFacings().hashCode() : 0);
+		result = 31 * result + (isReexecuteOnSameTile() ? 1 : 0);
+		result = 31 * result + getScoutSecretDifficulty();
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static class PlayerAction
 	{
 		public static final int LOCKS = 2;

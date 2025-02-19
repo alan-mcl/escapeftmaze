@@ -33,6 +33,10 @@ public class TheftSpellResult extends SpellResult
 {
 	private ValueList value;
 
+	public TheftSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public TheftSpellResult(ValueList value)
 	{
@@ -60,5 +64,41 @@ public class TheftSpellResult extends SpellResult
 	public ValueList getValue()
 	{
 		return value;
+	}
+
+	public void setValue(ValueList value)
+	{
+		this.value = value;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		TheftSpellResult that = (TheftSpellResult)o;
+
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
 	}
 }

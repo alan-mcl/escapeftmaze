@@ -31,6 +31,10 @@ public class RemoveItemSpellResult extends SpellResult
 {
 	private String itemName;
 
+	public RemoveItemSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	public RemoveItemSpellResult(String itemName)
@@ -58,5 +62,41 @@ public class RemoveItemSpellResult extends SpellResult
 	public String getItemName()
 	{
 		return itemName;
+	}
+
+	public void setItemName(String itemName)
+	{
+		this.itemName = itemName;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		RemoveItemSpellResult that = (RemoveItemSpellResult)o;
+
+		return getItemName() != null ? getItemName().equals(that.getItemName()) : that.getItemName() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getItemName() != null ? getItemName().hashCode() : 0);
+		return result;
 	}
 }

@@ -74,6 +74,9 @@ public class SpellEffect extends DataObject
 	 */
 	private Application application;
 
+	public SpellEffect()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -87,7 +90,7 @@ public class SpellEffect extends DataObject
 	 * 	Subtype of the spell effect.
 	 * @param application
 	 * 	How to apply the spell effect.
-	 * @param saveModifier
+	 * @param saveAdjustment
 	 * 	Any bonus or penalty applied to the victim's saves.
 	 * @param unsavedResult
 	 * 	The result of this spell on a failed save.
@@ -103,7 +106,7 @@ public class SpellEffect extends DataObject
 		MagicSys.SpellEffectType type,
 		MagicSys.SpellEffectSubType subType,
 		Application application,
-		ValueList saveModifier,
+		ValueList saveAdjustment,
 		SpellResult unsavedResult,
 		SpellResult savedResult,
 		int targetType)
@@ -113,7 +116,7 @@ public class SpellEffect extends DataObject
 		this.application = application;
 		this.subType = subType;
 		this.savedResult = savedResult;
-		this.saveAdjustment = saveModifier;
+		this.saveAdjustment = saveAdjustment;
 		this.type = type;
 		this.unsavedResult = unsavedResult;
 		this.targetType = targetType;
@@ -245,6 +248,70 @@ public class SpellEffect extends DataObject
 		return sb.toString();
 	}
 
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SpellEffect that = (SpellEffect)o;
+
+		if (getTargetType() != that.getTargetType())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(that.getDisplayName()) : that.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getType() != that.getType())
+		{
+			return false;
+		}
+		if (getSubType() != that.getSubType())
+		{
+			return false;
+		}
+		if (getSaveAdjustment() != null ? !getSaveAdjustment().equals(that.getSaveAdjustment()) : that.getSaveAdjustment() != null)
+		{
+			return false;
+		}
+		if (getUnsavedResult() != null ? !getUnsavedResult().equals(that.getUnsavedResult()) : that.getUnsavedResult() != null)
+		{
+			return false;
+		}
+		if (getSavedResult() != null ? !getSavedResult().equals(that.getSavedResult()) : that.getSavedResult() != null)
+		{
+			return false;
+		}
+		return getApplication() == that.getApplication();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDisplayName() != null ? getDisplayName().hashCode() : 0);
+		result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+		result = 31 * result + (getSubType() != null ? getSubType().hashCode() : 0);
+		result = 31 * result + (getSaveAdjustment() != null ? getSaveAdjustment().hashCode() : 0);
+		result = 31 * result + (getUnsavedResult() != null ? getUnsavedResult().hashCode() : 0);
+		result = 31 * result + (getSavedResult() != null ? getSavedResult().hashCode() : 0);
+		result = 31 * result + getTargetType();
+		result = 31 * result + (getApplication() != null ? getApplication().hashCode() : 0);
+		return result;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public boolean meetsRequirements(UnifiedActor actor)
 	{
@@ -252,7 +319,7 @@ public class SpellEffect extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum Application
+	public  enum Application
 	{
 		AS_PER_SPELL_EFFECT,
 		AS_PER_SPELL,

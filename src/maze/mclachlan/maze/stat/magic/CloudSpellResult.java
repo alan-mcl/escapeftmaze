@@ -36,6 +36,10 @@ public class CloudSpellResult extends SpellResult
 	/** the icon for this cloud effect */
 	String icon;
 
+	public CloudSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public CloudSpellResult(
 		ValueList duration,
@@ -83,5 +87,51 @@ public class CloudSpellResult extends SpellResult
 	public String getIcon()
 	{
 		return icon;
+	}
+
+	public void setIcon(String icon)
+	{
+		this.icon = icon;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		CloudSpellResult that = (CloudSpellResult)o;
+
+		if (getDuration() != null ? !getDuration().equals(that.getDuration()) : that.getDuration() != null)
+		{
+			return false;
+		}
+		if (getStrength() != null ? !getStrength().equals(that.getStrength()) : that.getStrength() != null)
+		{
+			return false;
+		}
+		if (getSpell() != null ? !getSpell().equals(that.getSpell()) : that.getSpell() != null)
+		{
+			return false;
+		}
+		return getIcon() != null ? getIcon().equals(that.getIcon()) : that.getIcon() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getDuration() != null ? getDuration().hashCode() : 0;
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		result = 31 * result + (getSpell() != null ? getSpell().hashCode() : 0);
+		result = 31 * result + (getIcon() != null ? getIcon().hashCode() : 0);
+		return result;
 	}
 }

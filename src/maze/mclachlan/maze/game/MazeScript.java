@@ -30,6 +30,10 @@ public class MazeScript extends DataObject
 	String name;
 	List<MazeEvent> events;
 
+	public MazeScript()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public MazeScript(String name, List<MazeEvent> events)
 	{
@@ -56,5 +60,47 @@ public class MazeScript extends DataObject
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		MazeScript that = (MazeScript)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getEvents() != null)
+		{
+			if (getEvents().equals(that.getEvents()))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		return that.getEvents() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getEvents() != null ? getEvents().hashCode() : 0);
+		return result;
 	}
 }

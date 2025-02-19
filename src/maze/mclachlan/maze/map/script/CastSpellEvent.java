@@ -34,6 +34,10 @@ public class CastSpellEvent extends MazeEvent
 	private int casterLevel;
 	private int castingLevel;
 
+	public CastSpellEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public CastSpellEvent(String spellName, int casterLevel, int castingLevel)
 	{
@@ -67,5 +71,56 @@ public class CastSpellEvent extends MazeEvent
 	public String getSpellName()
 	{
 		return spellName;
+	}
+
+	public void setSpellName(String spellName)
+	{
+		this.spellName = spellName;
+	}
+
+	public void setCasterLevel(int casterLevel)
+	{
+		this.casterLevel = casterLevel;
+	}
+
+	public void setCastingLevel(int castingLevel)
+	{
+		this.castingLevel = castingLevel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		CastSpellEvent that = (CastSpellEvent)o;
+
+		if (getCasterLevel() != that.getCasterLevel())
+		{
+			return false;
+		}
+		if (getCastingLevel() != that.getCastingLevel())
+		{
+			return false;
+		}
+		return getSpellName() != null ? getSpellName().equals(that.getSpellName()) : that.getSpellName() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getSpellName() != null ? getSpellName().hashCode() : 0;
+		result = 31 * result + getCasterLevel();
+		result = 31 * result + getCastingLevel();
+		return result;
 	}
 }

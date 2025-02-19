@@ -34,6 +34,10 @@ public class CastSpell extends TileScript
 	private int castingLevel;
 	private int casterLevel;
 
+	public CastSpell()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public CastSpell(String spell, int castingLevel, int casterLevel)
 	{
@@ -63,5 +67,61 @@ public class CastSpell extends TileScript
 	public String getSpellName()
 	{
 		return spellName;
+	}
+
+	public void setSpellName(String spellName)
+	{
+		this.spellName = spellName;
+	}
+
+	public void setCastingLevel(int castingLevel)
+	{
+		this.castingLevel = castingLevel;
+	}
+
+	public void setCasterLevel(int casterLevel)
+	{
+		this.casterLevel = casterLevel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		CastSpell castSpell = (CastSpell)o;
+
+		if (getCastingLevel() != castSpell.getCastingLevel())
+		{
+			return false;
+		}
+		if (getCasterLevel() != castSpell.getCasterLevel())
+		{
+			return false;
+		}
+		return getSpellName() != null ? getSpellName().equals(castSpell.getSpellName()) : castSpell.getSpellName() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getSpellName() != null ? getSpellName().hashCode() : 0);
+		result = 31 * result + getCastingLevel();
+		result = 31 * result + getCasterLevel();
+		return result;
 	}
 }

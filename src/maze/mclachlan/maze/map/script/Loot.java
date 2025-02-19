@@ -37,6 +37,11 @@ public class Loot extends TileScript
 {
 	private String lootTable;
 
+	public Loot()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public Loot(String lootTable)
 	{
 		this.lootTable = lootTable;
@@ -62,5 +67,41 @@ public class Loot extends TileScript
 	public String getLootTable()
 	{
 		return lootTable;
+	}
+
+	public void setLootTable(String lootTable)
+	{
+		this.lootTable = lootTable;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		Loot loot = (Loot)o;
+
+		return getLootTable() != null ? getLootTable().equals(loot.getLootTable()) : loot.getLootTable() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getLootTable() != null ? getLootTable().hashCode() : 0);
+		return result;
 	}
 }

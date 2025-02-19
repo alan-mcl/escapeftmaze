@@ -28,19 +28,23 @@ import mclachlan.maze.game.MazeEvent;
  */
 public class SignBoardEvent extends MazeEvent
 {
-	String text;
+	private String signBoardText;
+
+	public SignBoardEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
-	public SignBoardEvent(String text)
+	public SignBoardEvent(String signBoardText)
 	{
-		this.text = text;
+		this.signBoardText = signBoardText;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().signBoard(this.text, this);
+		Maze.getInstance().signBoard(this.signBoardText, this);
 		return null;
 	}
 
@@ -54,6 +58,34 @@ public class SignBoardEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getSignBoardText()
 	{
-		return text;
+		return signBoardText;
+	}
+
+	public void setSignBoardText(String signBoardText)
+	{
+		this.signBoardText = signBoardText;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SignBoardEvent that = (SignBoardEvent)o;
+
+		return getSignBoardText() != null ? getSignBoardText().equals(that.getSignBoardText()) : that.getSignBoardText() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getSignBoardText() != null ? getSignBoardText().hashCode() : 0;
 	}
 }

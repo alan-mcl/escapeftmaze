@@ -31,8 +31,12 @@ import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
  */
 public class PersonalitySpeech extends TileScript
 {
-	private final String speechKey;
-	private final boolean modal;
+	private String speechKey;
+	private boolean modal;
+
+	public PersonalitySpeech()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public PersonalitySpeech(String text, boolean modal)
@@ -58,5 +62,51 @@ public class PersonalitySpeech extends TileScript
 	public boolean isModal()
 	{
 		return modal;
+	}
+
+	public void setSpeechKey(String speechKey)
+	{
+		this.speechKey = speechKey;
+	}
+
+	public void setModal(boolean modal)
+	{
+		this.modal = modal;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		PersonalitySpeech that = (PersonalitySpeech)o;
+
+		if (isModal() != that.isModal())
+		{
+			return false;
+		}
+		return getSpeechKey() != null ? getSpeechKey().equals(that.getSpeechKey()) : that.getSpeechKey() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getSpeechKey() != null ? getSpeechKey().hashCode() : 0);
+		result = 31 * result + (isModal() ? 1 : 0);
+		return result;
 	}
 }

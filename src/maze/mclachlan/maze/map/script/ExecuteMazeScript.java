@@ -33,8 +33,12 @@ import java.util.*;
  */
 public class ExecuteMazeScript extends TileScript
 {
-	String mazeScript;
-	
+	private String mazeScript;
+
+	public ExecuteMazeScript()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ExecuteMazeScript(String mazeScript)
 	{
@@ -56,5 +60,41 @@ public class ExecuteMazeScript extends TileScript
 	public String getScript()
 	{
 		return mazeScript;
+	}
+
+	public void setMazeScript(String mazeScript)
+	{
+		this.mazeScript = mazeScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ExecuteMazeScript that = (ExecuteMazeScript)o;
+
+		return mazeScript != null ? mazeScript.equals(that.mazeScript) : that.mazeScript == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (mazeScript != null ? mazeScript.hashCode() : 0);
+		return result;
 	}
 }

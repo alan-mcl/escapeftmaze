@@ -37,6 +37,13 @@ public class MazeTexture extends DataObject
 	private int imageWidth; // todo remove
 	private int imageHeight; // todo remove
 	private int animationDelay;
+	private Texture.ScrollBehaviour scrollBehaviour;
+	private int scrollSpeed;
+
+	public MazeTexture()
+	{
+		this.texture = new Texture(null, new BufferedImage[0], 0, Texture.ScrollBehaviour.NONE, 0, null);
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture(
@@ -53,14 +60,22 @@ public class MazeTexture extends DataObject
 		this.imageWidth = imageWidth;
 		this.imageHeight = imageHeight;
 		this.animationDelay = animationDelay;
+		this.scrollBehaviour = scrollBehaviour;
+		this.scrollSpeed = scrollSpeed;
 
-		BufferedImage[] images = new BufferedImage[imageResources.size()];
+		initRenderTexture();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initRenderTexture()
+	{
+		BufferedImage[] images = new BufferedImage[this.imageResources.size()];
 		for (int i = 0; i < imageResources.size(); i++)
 		{
 			images[i] = Database.getInstance().getImage(imageResources.get(i));
 		}
 
-		this.texture = new Texture(name, images, animationDelay, scrollBehaviour, scrollSpeed, null);
+		this.texture = new Texture(this.name, images, this.animationDelay, this.scrollBehaviour, this.scrollSpeed, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -139,20 +154,60 @@ public class MazeTexture extends DataObject
 	public void setScrollBehaviour(
 		Texture.ScrollBehaviour scrollBehaviour)
 	{
-		this.texture.setScrollBehaviour(scrollBehaviour);
+		this.scrollBehaviour = scrollBehaviour;
 	}
 
 	public void setScrollSpeed(int scrollSpeed)
 	{
-		this.texture.setScrollSpeed(scrollSpeed);
+		this.scrollSpeed = scrollSpeed;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public MazeTexture cloneWithTint(Color tint)
 	{
-		MazeTexture result = new MazeTexture(name, imageResources, imageWidth, imageHeight, animationDelay, getScrollBehaviour(), animationDelay);
+		MazeTexture result = new MazeTexture(name, imageResources, imageWidth, imageHeight, animationDelay, scrollBehaviour, scrollSpeed);
 		result.texture.setTint(tint);
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		MazeTexture that = (MazeTexture)o;
+
+		if (getAnimationDelay() != that.getAnimationDelay())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getImageResources() != null ? !getImageResources().equals(that.getImageResources()) : that.getImageResources() != null)
+		{
+			return false;
+		}
+		return getTexture() != null ? getTexture().equals(that.getTexture()) : that.getTexture() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getImageResources() != null ? getImageResources().hashCode() : 0);
+		result = 31 * result + (getTexture() != null ? getTexture().hashCode() : 0);
+		result = 31 * result + getAnimationDelay();
+		return result;
+	}
 }

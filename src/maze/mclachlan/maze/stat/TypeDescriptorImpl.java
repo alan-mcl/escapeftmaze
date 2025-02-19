@@ -19,10 +19,12 @@
 
 package mclachlan.maze.stat;
 
+import mclachlan.maze.data.v2.V2DataObject;
+
 /**
  *
  */
-public class TypeDescriptorImpl implements TypeDescriptor
+public class TypeDescriptorImpl implements TypeDescriptor, V2DataObject
 {
 	private String name;
 
@@ -38,8 +40,37 @@ public class TypeDescriptorImpl implements TypeDescriptor
 	}
 
 	@Override
+	public void setName(String newName)
+	{
+		this.name = name;
+	}
+
+	@Override
 	public Stats.Modifier getFavouredEnemyModifier()
 	{
 		return null;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		TypeDescriptorImpl that = (TypeDescriptorImpl)o;
+
+		return getName() != null ? getName().equals(that.getName()) : that.getName() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getName() != null ? getName().hashCode() : 0;
 	}
 }

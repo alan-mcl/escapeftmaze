@@ -19,7 +19,7 @@
 
 package mclachlan.maze.map;
 
-import java.util.BitSet;
+import java.util.*;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.util.MazeException;
 
@@ -48,6 +48,10 @@ public class Trap extends DataObject
 	 * The nasty effects of this trap
 	 */
 	private TileScript payload;
+
+	public Trap()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public Trap(String name, int[] difficulty, BitSet required, TileScript payload)
@@ -101,6 +105,47 @@ public class Trap extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Trap trap = (Trap)o;
+
+		if (getName() != null ? !getName().equals(trap.getName()) : trap.getName() != null)
+		{
+			return false;
+		}
+		if (!Arrays.equals(getDifficulty(), trap.getDifficulty()))
+		{
+			return false;
+		}
+		if (getRequired() != null ? !getRequired().equals(trap.getRequired()) : trap.getRequired() != null)
+		{
+			return false;
+		}
+		return getPayload() != null ? getPayload().equals(trap.getPayload()) : trap.getPayload() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + Arrays.hashCode(getDifficulty());
+		result = 31 * result + (getRequired() != null ? getRequired().hashCode() : 0);
+		result = 31 * result + (getPayload() != null ? getPayload().hashCode() : 0);
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public static class Tool
 	{
 		public static final int CHISEL = 0;
@@ -116,31 +161,34 @@ public class Trap extends DataObject
 
 		public static String toString(int i)
 		{
-			switch (i)
-			{
-				case CHISEL: return "chisel";
-				case CROWBAR: return "crowbar";
-				case DRILL: return "drill";
-				case HAMMER: return "hammer";
-				case JACKKNIFE: return "jackknife";
-				case LOCKPICK: return "lockpick";
-				case SKELETON_KEY: return "skeleton key";
-				case TENSION_WRENCH: return "tension wrench";
-				default: throw new MazeException("Invalid tool "+i);
-			}
+			return switch (i)
+				{
+					case CHISEL -> "chisel";
+					case CROWBAR -> "crowbar";
+					case DRILL -> "drill";
+					case HAMMER -> "hammer";
+					case JACKKNIFE -> "jackknife";
+					case LOCKPICK -> "lockpick";
+					case SKELETON_KEY -> "skeleton key";
+					case TENSION_WRENCH -> "tension wrench";
+					default -> throw new MazeException("Invalid tool " + i);
+				};
 		}
 
 		public static int valueOf(String s)
 		{
-			if (s.equals("chisel")) return CHISEL;
-			else if (s.equals("crowbar")) return CROWBAR;
-			else if (s.equals("drill")) return DRILL;
-			else if (s.equals("hammer")) return HAMMER;
-			else if (s.equals("jackknife")) return JACKKNIFE;
-			else if (s.equals("lockpick")) return LOCKPICK;
-			else if (s.equals("skeleton key")) return SKELETON_KEY;
-			else if (s.equals("tension wrench")) return TENSION_WRENCH;
-			else throw new MazeException("Invalid tool ["+s+"]");
+			return switch (s)
+				{
+					case "chisel" -> CHISEL;
+					case "crowbar" -> CROWBAR;
+					case "drill" -> DRILL;
+					case "hammer" -> HAMMER;
+					case "jackknife" -> JACKKNIFE;
+					case "lockpick" -> LOCKPICK;
+					case "skeleton key" -> SKELETON_KEY;
+					case "tension wrench" -> TENSION_WRENCH;
+					default -> throw new MazeException("Invalid tool [" + s + "]");
+				};
 		}
 	}
 

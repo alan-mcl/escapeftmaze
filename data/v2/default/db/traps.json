@@ -1,0 +1,668 @@
+[
+  {
+    "difficulty": [
+      "0",
+      "6",
+      "0",
+      "5",
+      "5",
+      "0",
+      "5",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Boiling Blood - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Boiling Blood",
+    "required": "0101101"
+  },
+  {
+    "difficulty": [
+      "0",
+      "0",
+      "5",
+      "5",
+      "6",
+      "0",
+      "5",
+      "5"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Ray Of Enfeeblement - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Ray Of Enfeeblement",
+    "required": "00111011"
+  },
+  {
+    "difficulty": [
+      "0",
+      "7",
+      "0",
+      "7",
+      "6",
+      "7",
+      "0",
+      "6"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Armourmelt - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Armourmelt",
+    "required": "01011101"
+  },
+  {
+    "difficulty": [
+      "9",
+      "8",
+      "9",
+      "7",
+      "0",
+      "9",
+      "0",
+      "8"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Curse Of Medusa - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Curse Of Medusa",
+    "required": "11110101"
+  },
+  {
+    "difficulty": [
+      "0",
+      "10",
+      "0",
+      "9",
+      "11",
+      "9",
+      "0",
+      "9"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Vacuum - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "4 - Vacuum",
+    "required": "01011101"
+  },
+  {
+    "difficulty": [
+      "0",
+      "3",
+      "0",
+      "0",
+      "0",
+      "0",
+      "5",
+      "4"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "5",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Forget - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "1 - Forget",
+    "required": "01000011"
+  },
+  {
+    "difficulty": [
+      "7",
+      "0",
+      "0",
+      "7",
+      "7",
+      "0",
+      "6",
+      "6"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Acid Bomb - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Acid Bomb",
+    "required": "10011011"
+  },
+  {
+    "difficulty": [
+      "0",
+      "0",
+      "0",
+      "4",
+      "0",
+      "5",
+      "4",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Glowing Curse - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "1 - Glowing Curse",
+    "required": "0001011"
+  },
+  {
+    "difficulty": [
+      "9",
+      "0",
+      "8",
+      "0",
+      "8",
+      "8",
+      "8",
+      "7"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Null Magic - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Null Magic",
+    "required": "10101111"
+  },
+  {
+    "difficulty": [
+      "8",
+      "8",
+      "7",
+      "7",
+      "0",
+      "8",
+      "0",
+      "9"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Hexxer - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Hexxer",
+    "required": "11110101"
+  },
+  {
+    "difficulty": [
+      "3",
+      "0",
+      "0",
+      "3",
+      "0",
+      "5",
+      "0",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Prismic Missile - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "1 - Prismic Missile",
+    "required": "100101"
+  },
+  {
+    "difficulty": [
+      "10",
+      "11",
+      "0",
+      "11",
+      "0",
+      "11",
+      "9",
+      "10"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Kiss Of Death - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "4 - Kiss Of Death",
+    "required": "11010111"
+  },
+  {
+    "difficulty": [
+      "10",
+      "9",
+      "10",
+      "0",
+      "11",
+      "11",
+      "10",
+      "10"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "18",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Rune Of Destruction - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "4 - Rune Of Destruction",
+    "required": "11101111"
+  },
+  {
+    "difficulty": [
+      "0",
+      "0",
+      "1",
+      "0",
+      "3",
+      "0",
+      "0",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "3",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Daggers - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "0 - Daggers",
+    "required": "00101"
+  },
+  {
+    "difficulty": [
+      "5",
+      "6",
+      "0",
+      "0",
+      "0",
+      "0",
+      "7",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Stunner - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Stunner",
+    "required": "1100001"
+  },
+  {
+    "difficulty": [
+      "1",
+      "0",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "3",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Magic Sparks",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "3"
+    },
+    "name": "0 - Magic Sparks",
+    "required": "1001"
+  },
+  {
+    "difficulty": [
+      "0",
+      "3",
+      "0",
+      "5",
+      "0",
+      "4",
+      "0",
+      "4"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "15",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Hidden Snakebite - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "5"
+    },
+    "name": "1 - Hidden Snakebite",
+    "required": "01010101"
+  },
+  {
+    "difficulty": [
+      "8",
+      "0",
+      "8",
+      "7",
+      "0",
+      "7",
+      "8",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Fizzle Field - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Fizzle Field",
+    "required": "1011011"
+  },
+  {
+    "difficulty": [
+      "0",
+      "0",
+      "3",
+      "0",
+      "0",
+      "0",
+      "5",
+      "4"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "mazeVariable": "",
+      "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+      "scoutSecretDifficulty": "-1",
+      "encounterTable": "guardian.trap",
+      "reexecuteOnSameTile": "false"
+    },
+    "name": "1 - Guardian",
+    "required": "00100011"
+  },
+  {
+    "difficulty": [
+      "0",
+      "0",
+      "0",
+      "0",
+      "7",
+      "6",
+      "7",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Cloud Of Fear - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Cloud Of Fear",
+    "required": "0000111"
+  },
+  {
+    "difficulty": [
+      "7",
+      "0",
+      "0",
+      "7",
+      "0",
+      "9",
+      "0",
+      "8"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "3",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Lifestealer - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Lifestealer",
+    "required": "10010101"
+  },
+  {
+    "difficulty": [
+      "6",
+      "6",
+      "0",
+      "0",
+      "0",
+      "6",
+      "0",
+      "6"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Fire Bomb - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Fire Bomb",
+    "required": "11000101"
+  },
+  {
+    "difficulty": [
+      "8",
+      "7",
+      "8",
+      "9",
+      "0",
+      "8",
+      "0",
+      "9"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Toxic Gas - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Toxic Gas",
+    "required": "11110101"
+  },
+  {
+    "difficulty": [
+      "0",
+      "5",
+      "5",
+      "5",
+      "0",
+      "0",
+      "3",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Noxious Vapours - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "1 - Noxious Vapours",
+    "required": "0111001"
+  },
+  {
+    "difficulty": [
+      "1",
+      "0",
+      "1",
+      "0",
+      "1",
+      "0",
+      "0",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "6",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Fire Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "6"
+    },
+    "name": "0 - Fire Trap",
+    "required": "10101"
+  },
+  {
+    "difficulty": [
+      "8",
+      "1",
+      "1",
+      "0",
+      "0",
+      "0",
+      "0",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "3",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Poison Darts",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "3"
+    },
+    "name": "0 - Poison Darts",
+    "required": "011"
+  },
+  {
+    "difficulty": [
+      "0",
+      "5",
+      "0",
+      "0",
+      "5",
+      "7",
+      "7",
+      "7"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Energy Drain - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "2 - Energy Drain",
+    "required": "01001111"
+  },
+  {
+    "difficulty": [
+      "3",
+      "5",
+      "0",
+      "0",
+      "0",
+      "0",
+      "5",
+      "0"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "7",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Psionic Bolt - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "1 - Psionic Bolt",
+    "required": "1100001"
+  },
+  {
+    "difficulty": [
+      "7",
+      "7",
+      "9",
+      "0",
+      "0",
+      "7",
+      "8",
+      "9"
+    ],
+    "TYPE_KEY": "mclachlan.maze.map.Trap",
+    "payload": {
+      "TYPE_KEY": "mclachlan.maze.map.script.CastSpell",
+      "castingLevel": "10",
+      "scoutSecretDifficulty": "-1",
+      "spellName": "Forget - Trap",
+      "reexecuteOnSameTile": "false",
+      "casterLevel": "20"
+    },
+    "name": "3 - Forget",
+    "required": "11100111"
+  }
+]

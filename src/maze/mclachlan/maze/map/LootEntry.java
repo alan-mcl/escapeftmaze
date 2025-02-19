@@ -35,6 +35,10 @@ public class LootEntry extends DataObject implements ILootEntry
 	private String name;
 	private PercentageTable<LootEntryRow> contains;
 
+	public LootEntry()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Creates a new composite loot entry
@@ -133,7 +137,7 @@ public class LootEntry extends DataObject implements ILootEntry
 	 */
 	public static List<Item> generate(List<ILootEntry> entries)
 	{
-		List<Item> result = new ArrayList<Item>();
+		List<Item> result = new ArrayList<>();
 
 		for (ILootEntry t : entries)
 		{
@@ -141,6 +145,37 @@ public class LootEntry extends DataObject implements ILootEntry
 			result.add(item);
 		}
 
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		LootEntry lootEntry = (LootEntry)o;
+
+		if (getName() != null ? !getName().equals(lootEntry.getName()) : lootEntry.getName() != null)
+		{
+			return false;
+		}
+		return getContains() != null ? getContains().equals(lootEntry.getContains()) : lootEntry.getContains() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getContains() != null ? getContains().hashCode() : 0);
 		return result;
 	}
 }

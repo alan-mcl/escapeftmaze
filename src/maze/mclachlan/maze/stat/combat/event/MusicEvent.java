@@ -32,6 +32,10 @@ public class MusicEvent extends MazeEvent
 	private List<String> trackNames;
 	private String musicState;
 
+	public MusicEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public MusicEvent(String clipName, String musicState)
 	{
@@ -97,5 +101,46 @@ public class MusicEvent extends MazeEvent
 	public List<String> getTrackNames()
 	{
 		return trackNames;
+	}
+
+	public void setTrackNames(List<String> trackNames)
+	{
+		this.trackNames = trackNames;
+	}
+
+	public void setMusicState(String musicState)
+	{
+		this.musicState = musicState;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		MusicEvent that = (MusicEvent)o;
+
+		if (getTrackNames() != null ? !getTrackNames().equals(that.getTrackNames()) : that.getTrackNames() != null)
+		{
+			return false;
+		}
+		return getMusicState() != null ? getMusicState().equals(that.getMusicState()) : that.getMusicState() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getTrackNames() != null ? getTrackNames().hashCode() : 0;
+		result = 31 * result + (getMusicState() != null ? getMusicState().hashCode() : 0);
+		return result;
 	}
 }

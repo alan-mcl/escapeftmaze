@@ -20,10 +20,6 @@
 package mclachlan.maze.campaign.def.stat.magic;
 
 import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.SpellTarget;
-import mclachlan.maze.stat.UnifiedActor;
-import mclachlan.maze.stat.combat.Combat;
-import mclachlan.maze.stat.magic.Spell;
 
 /**
  *

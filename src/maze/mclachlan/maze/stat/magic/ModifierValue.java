@@ -73,6 +73,11 @@ public class ModifierValue extends Value
 		return modifier;
 	}
 
+	public void setModifier(Stats.Modifier modifier)
+	{
+		this.modifier = modifier;
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	@Override

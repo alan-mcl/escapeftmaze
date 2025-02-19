@@ -1,0 +1,6072 @@
+[
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Jonga Powder",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Crushed Widows",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Dust Of Dessication",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Dust Of Defection",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Dust Of Banishment",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Snake Dust",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Ancient Dust",
+          "quantity": "1d4"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.powders"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        25,
+        25,
+        25,
+        25
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Flechette",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Death Star",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Skull Dagger",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Thunderbolt",
+          "quantity": "3d8"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.throwing.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Book Of Call Plants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Crush",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Cure Disease",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Cure Paralysis",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Cure Poison",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Dazzling Lights",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Deadly Poison",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Element Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Entwine",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Fey Bolt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Haste",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Invisible Stalker",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Knock Knock",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Mage Blades",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Melt Armour",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Mirror Image",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Noxious Fumes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Pain",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Remove Curse",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Rest All",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Silence",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Soul Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Spooks",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Superman",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of Tag",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.spell.books"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Magic Cookie",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Herbal Patty",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Bottle Of Old Jake\u0027s",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Moser\u0027s Mojo Tea",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Crab Cakes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Falafal",
+          "quantity": "2d2+1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.food"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Gun Halberd",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Electrified Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Disruptor Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Goggled Helmet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Charged Armour",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brass Legs",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Clockwork Watchdog",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.steampunk.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        5,
+        5,
+        5,
+        5,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Script Of Blur",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Charm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Fear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Frostbite",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Heal Light Wounds",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Insect Swarm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Mage Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Paralysis",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Poison",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Sleep",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Stamina",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Striking",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Cure Lesser Condition",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Identify",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Theft",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Disease",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Skullduggery",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Web",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Sonic Boom",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Darkness",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Slow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Slow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Guardian Angel",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Script Of Flame Blade",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.spell.books"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Scroll Of Fireball",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Melt Armour",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Blades Of Fire",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Shadow Warriors",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Call Treant",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Rest All",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Confusion",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Blink",
+          "quantity": "1d2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.scrolls"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        7,
+        7,
+        7,
+        7,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Deadly Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cross Of Purity",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Wonder",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Garland Of Roses",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Displacer Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "PK Crystal",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Demons",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cameo Locket",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Diamond Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Stars",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brooch Of Heroism",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Thieves Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Voidstone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ambassador\u0027s Amulet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shade Essence",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crown Of Vengeance",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.magic.trinkets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Doom Dart",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Throwing Stiletto",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Shiken Shuri",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Pilum",
+          "quantity": "3d8"
+        },
+        {
+          "itemName": "Francisca",
+          "quantity": "3d8"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.throwing.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        9,
+        9,
+        9,
+        9,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Codex Of Binding",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Blizzard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Concussion",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Curse",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Dragon",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Falling Stars",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Fervour",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Heroism",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Nuclear Blast",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Prismic Chaos",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Renewal",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Codex Of Vampirism",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.spell.books"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Willow Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Bullet Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Quarrel",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Spike Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Shrike Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Hunter Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Fletched Bolt",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Rhine Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Elm Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Musket Ball",
+          "quantity": "3d10"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.ammo"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Cherry Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Corrosion Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Hail Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Stink Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Bottled Mephits",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Boom Bomb",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Flashbang",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.bombs"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        7,
+        7,
+        7,
+        7
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Lord\u0027s Garb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chain Of Ice",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jeweled Armet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Water Wings",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Infinity Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Platinum Greaves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mirror Armour",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Robes Of Rejuvenation",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Talismanic Shirt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fists Of Fury",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lightning Targe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Phobia Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Heroic Plate (U)",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.magic.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Grimoire Of Acid Cloud",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Astral Gate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Boiling Blood",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Bolt Of Lightning",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Call Elemental",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Cure Stone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Curing",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Dehydrate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Diplomacy",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Faith",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Firestorm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Freeze All",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Hex",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Hurricane",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Phantasm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Prismic Missile",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Purify Air",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Recharge",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Remedy",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Resurrection",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Ruin",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Sane Mind",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Starlight",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Summon Demon",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Grimoire Of Wither Plants",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.spell.books"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        25,
+        25,
+        25,
+        25
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Cracker Stix",
+          "quantity": "3d5"
+        },
+        {
+          "itemName": "Fire Stix",
+          "quantity": "3d5"
+        },
+        {
+          "itemName": "Rocket Stix",
+          "quantity": "3d5"
+        },
+        {
+          "itemName": "Bottlerocket",
+          "quantity": "3d5"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.stix"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Amulet Of Health",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Elven Cape",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sapphire Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Eagle Feather",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Birch Amulet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Electrum Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Granite Talisman",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blood Diamond",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mantis Feathers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rhinohide Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Warning",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Deadeye Talisman",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Carnelian Necklace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Ambition",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Legends",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Jade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Night",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Minds",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bone Necklace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Ice",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Phyre",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jade Figurine",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lion\u0027s Claws",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ju-Ju Stones",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dragon\u0027s Teeth",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Pro Frost",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bat Necklace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Spiders",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Might",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Truth",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mystic\u0027s Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Pro Magic",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Stillness",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Airs",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Illusions",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Youth",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Speed",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Dexterity",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Sanctity",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stone Pro Airs",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mana Stone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Life",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Aeromancer\u0027s Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Geomancer\u0027s Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hydromancer\u0027s Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pyromancer\u0027s Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Forest Cape",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fey Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dragonhide Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Beasts",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Midnight Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Daba Brooch",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Recharging Gem",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Miranda\u0027s Tiara",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.magic.trinkets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Iron Ration",
+          "quantity": "3d6+6"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.iron.rations"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Hades Harp",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cornu Of The Demonspawn",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fey Pipes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Midnight Choir",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mandolin Of The Magus",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lyre Of Cakes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bone Flute",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chromatic Lyre",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.musical.instruments"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Ambercap",
+          "quantity": "4d4+6"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.ambercaps"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        25,
+        25,
+        25,
+        25
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Potion Of Cure Stone",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Cure Disease",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Renewal",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Restoration",
+          "quantity": "1d2+1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.potions.healing"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Felt Slippers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jesters Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jesters Staff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jo Stick",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ninja Cowl",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ninja Garb (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ninja Garb (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Patchwork Coat",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silk Pantaloons",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silk Shirt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tabi Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tartan Kilt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tartan Trews",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shuriken",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Bo Stick",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Assegai",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tomahawk",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hachimaki",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sword Cane",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Omnigun Prototype",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Welding Goggles",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Utilikilt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Athame",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Smallsword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bullwhip",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Wand Of Airs",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Short Staff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Nagamaki",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "exotic.starting.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Greek Fire",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "High Voltage Transformer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Large Battery",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Electrodes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Metronome",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lazurite Crystal",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Reticulated Wolverine",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Large Clockwork Motor",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.gadgets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        6,
+        6,
+        6,
+        6,
+        6
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Odinsword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rod Of Sprites",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Muramasa Blade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Excalibur",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Zatoichi Bo",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cane Of Corpus",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blades Of Aesir",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mindblast Rod",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Short Sword Of Swinging",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Butterfly Knife",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sylvan Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bloodwand",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Was Staff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Claw Of Despair",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Minerva\u0027s Tresses",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.magic.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        8,
+        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Wytch Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Fire Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Sparkle Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Icicle Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Knock Pick",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Mindread Wand",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Charming Wand",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Cracker Stix",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Fire Stix",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Rocket Stix",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Bottlerocket",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Demolition Stix",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Detonation Tube",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Null Magic Wand",
+          "quantity": "2d2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "wand.crafting.1"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        12,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Mystic Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Viper Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Impaling Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Clothyard Shaft",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Gold Nugget",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Bone Breaker",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Demon Quarrel",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Fear Bolt",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "DU Slug",
+          "quantity": "3d10"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.ammo"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        6,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Cherry Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Corrosion Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Hail Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Stink Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Bottled Mephits",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Boom Bomb",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Flashbang",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fire Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Acid Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ice Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Poison Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Napalm Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flashbang",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Earthshaker Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Canned Elemental",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Death Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tsunami Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Angelic Essence",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gadgeteer.bomb.construction"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Gold Piece",
+          "quantity": "20d10+1000"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gold.1000"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Electric Eye",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Electrodes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Coil Of Copper Wire",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Copper Mesh",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Small Clockwork Motor",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pneumatic Piston",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gnome.clockwork.loot"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Lion Claw",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shark Tooth",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Monkey Finger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cat Paw",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Owl Feather",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Scorpion Tail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ruby Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bearskin Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Snakeskin Belt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Torbernite Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Circlet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Emerald Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Iron Circlet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stone Armband",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crystal Monocle",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Red Gold Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Toadskin Wristband",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pewter Cross",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brooch",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cloak Of Capricorn",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Poetry",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ruby Talisman",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lynx Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Toadstone Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sea Shells",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Skull Bones",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Deadman\u0027s Hair",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shadow Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cross Of Protection",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Cross",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rock Crystals",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brimstone Nuggets",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Aromatic Salts",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Manta Roots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Resounding",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Shielding",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Filcher\u0027s Band",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Valentine Necklace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Death Shroud",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Anointed Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lodestone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cross Of Turning",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Vitriolic Warder",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bracers Of Defense",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Static",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Oilskin Cloak",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Necklace Of Endurance",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Protection",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Aqua Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brimstone Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Granite Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Breezes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blarneystone Amulet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hunter\u0027s Cape",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Propero\u0027s Cloak",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.magic.trinkets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Pain",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Asa",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Raqban",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Demon Harp",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lladdedigaeth",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Kavalireco",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gorgon",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Saint Bastard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tamahagane",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Wrist Rocket",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Spear Of Fuchai",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mystic Spear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Spear Of Death",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Vorpal Blade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dragonslayer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hayai Bo",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Vulcan Hammer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sword Of Fire",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Estoc De Olivia",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Maenad\u0027s Lance",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Elven Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Winterwand",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Siege Arbalest",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Axe Of Many Runes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Strongbow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Demonsting",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Disruptor",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dread Spear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Demonsbane",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Diamond Epee",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mageblade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Boomerang Shuriken",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Yew Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stave Of Moons",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dryadic Staff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stave Of Silence",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Haunting Stick",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chu-ko-nu",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mushkila",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Zatoichi\u0027s Shikomizue",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.magic.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Gold Piece",
+          "quantity": "10d10+500"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gold.500"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Potion Of Lesser Curing",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Potion Of Light Heal",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "Potion Of Stamina",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "Potion Of Cure Paralysis",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Cure Poison",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Mod Heal",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "Magic Nectar",
+          "quantity": "1d4"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.potions.healing"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        7,
+        7,
+        7,
+        7
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Black Powder",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Empty Bottle",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Capacitor",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Conducting Solution",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Copper Mesh",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Coil Of Copper Wire",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gyroscope",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Halogen Lamp",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Parabolic Reflector",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pneumatic Piston",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Small Clockwork Motor",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Telescoping Lance",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tesla Coil",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.gadgets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Gold Piece",
+          "quantity": "1d30+100"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gold.100"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        8,
+        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Naginata",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fauchard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "No-dachi",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Zweihander",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Zizka Star",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Heavy Crossbow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sai",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Nunchaku",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bec De Corbin",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ninjato",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flambard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bipennis",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lance",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sarissa",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.mundane.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Cave Eel",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.cave.eels"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Faraday Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Miners Helmet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ballistic Vest",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gyroscopic Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pneumatic Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Welding Goggles",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.steampunk.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Smudge Powder",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bone Dust",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Faerie Dust",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flash Powder",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Acid Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sneeze Powder",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Smelling Salts",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Devil Dust",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "minor powder creation"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Silver Coin",
+          "quantity": "3d6+100"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "mid.level.gold"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Poison Dart",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Bite Dagger",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Hiraken",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Harpoon",
+          "quantity": "3d8"
+        },
+        {
+          "itemName": "Hurlblat",
+          "quantity": "3d8"
+        },
+        {
+          "itemName": "Dwarven Thrower",
+          "quantity": "3d8"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.throwing.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Wytch Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Fire Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Sparkle Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Icicle Stix",
+          "quantity": "5d5"
+        },
+        {
+          "itemName": "Knock Pick",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Mindread Wand",
+          "quantity": "2d5"
+        },
+        {
+          "itemName": "Charming Wand",
+          "quantity": "2d5"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.stix"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        12,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Lightning Rod",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "White Standard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stone Of Fields",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jiyuu Sashimono",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lyre Of Legends",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Ares",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shaolin Sash",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Koga Headband",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Thieves Tools",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.banner.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Red Mushroom",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Rose Petals",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Roasted Corn",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Rutabaga",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Dungore\u0027s Malt Ale",
+          "quantity": "1d4"
+        },
+        {
+          "itemName": "Bread Roll",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Bunch Of Bananas",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Golden Apple",
+          "quantity": "2d2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.food"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Fear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Staff Of Shritis",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dark Wings",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Death Prow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Nordhammer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dark December",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Snow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sword Of Goujian",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Kontarion",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cascade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Freedom",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bushido Blade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Hammer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Soulstealer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Golden Rod",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bushido Blade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Thieves Dagger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blade Cuisinart",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crusader Axe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Raven\u0027s Bill",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sword Of Four Winds",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fang",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Coil Of The Serpent",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Diamond Eyes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Staff Of Doom",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Wand Of Winds",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tripleshot",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "The Mauler",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Vampire Chain",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flamestaff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Giant\u0027s Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ivory Blade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Vex Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rhinablade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Immolator",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "The Avenger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pandora\u0027s Wand",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.magic.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        12,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Helazoid Pennant",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Petrified Demon",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Clockwork Watchdog",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Urn Of Ashes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Yuuki Sashimono",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Moonstone Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Manual Of Magic",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Kanzen Sashimono",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Banner Of Roland",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.banner.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        12,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Green Parrot",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rallying Horn",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shrunken Head Totem",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chikara Sashimono",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blessed Cross",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Yamabushi Headband",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bands Of Artemis",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crusader Banner",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silk Sleeve",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.banner.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Poet\u0027s Lute",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Luther\u0027s Fiddle",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Baleful Sax",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Succubus Song",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Viola D\u0027Amore",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bardic Harp",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Soulful Sax",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Angel\u0027s Tongue",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pan Pipes",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Turtleshell Ukulele",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.musical.intruments"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        34,
+        33,
+        33
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Potion Of Snakespeed",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Potion Of Majesty",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Potion Of Heroism",
+          "quantity": "1d2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.potions.other"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Anger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Diamondtip",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dys Gaf",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gallicus",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jade Jian",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Reaper",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Seagull",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Kisten",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sphyrna",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stuka",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tongji",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Calthaw",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Walriblade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Monstrance",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Enchanted Broadsword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Maiden Head",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Great Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sword Of Hearts",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Faust",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Spiked Spear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Beastslayer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Woodsman\u0027s Axe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Doubleshot",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Enchanted Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Greenwood",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Doublestrike",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Poison Dagger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Thunder Stick",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bloodlust",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mahou Katana",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mahou Wakazashi",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gleaming Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stinger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blackblade",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Thieves Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Staff Of Blessing",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Staff Of Charming",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stave Of Missiles",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sathuli Tulwar",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tarnished Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mercutio\u0027s Blade",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.magic.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Long Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Poignard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Katana",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stiletto",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bastard Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Claymore",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Light Crossbow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Scimitar",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Wakazashi",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Morningstar",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tachi",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Broadsword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flanged Mace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Horsemans Mace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mace And Chain",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Anointed Flail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Awl Pike",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Halberd",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Battleaxe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Horsemans Axe",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.mundane.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Cask Of Ill Repute",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Granite Potion",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Superman",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Courage",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Demonic Aspect",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Mirror Image",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Haste",
+          "quantity": "1d3"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.potions.other"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Crux Ansata",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sorcerer\u0027s Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Elemental Stone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Holy Cross",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Book Of The Dead",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Moss Staff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of The Moon",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mustapha\u0027s Pocketwatch",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Cover",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Trollkin Ring",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rock Of Reflection",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Delphi",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mempo Of Death",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Speed",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Deftness",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cape Of Hi-Zen",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bag Of Tricks",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gem Of Power",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Invisibility",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Emerald Talisman",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Scarab Necklace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Life",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Death",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Golden Medallion",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Blackbelt Of Five Flowers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bag Of Death",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ankh Of Healing",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stone Of New Life",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Asphixiation",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Pro Magic",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Rainbows",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Reflextion",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Medicine Bag",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cloak Of Fortune",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Amulet Of Healing",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Sanity",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Felix",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of The Road",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tinker\u0027s Carryall Bracers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ring Of Regeneration",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cape Of Stealth",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cloak Of Perception",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.magic.trinkets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Omnigun Prototype",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Musket",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Arquebus",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flintlock Pistol",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fowling Piece",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.modern.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Milk Of Magmanasia",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Heavy Stamina",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Potion Of Heavy Heal",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Potion Of Regeneration",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Potion Of Curing",
+          "quantity": "2d2"
+        },
+        {
+          "itemName": "Pickmeup Potion",
+          "quantity": "2d2+1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.potions.healing"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Skeleton Powder",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Concussion Powder",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Pandemonium Powder",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Resurrection Powder",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Mystic Dust",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Talc Of Tamaris",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Powder Of Creation",
+          "quantity": "1d2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.powders"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Copper Coin",
+          "quantity": "3d6+100"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "low.level.gold"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Faerie Dust",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Smudge Powder",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Sneeze Powder",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Flash Powder",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Bone Dust",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Smelling Salts",
+          "quantity": "2d2+1"
+        },
+        {
+          "itemName": "Devil Dust",
+          "quantity": "1d3"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.powders"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        9,
+        9,
+        9,
+        9,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Scroll Of Armourplate",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Enchanted Blade",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Fear",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Identify",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Knock Knock",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Mage Missiles",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Magic Screen",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Mesmerism",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Slow",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Turn Undead",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Wall Of Force",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Scroll Of Whipping Rocks",
+          "quantity": "1d2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.scrolls"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Peacemaker",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Lightning Bolt",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Medusa Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Devil Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Bowel Raker",
+          "quantity": "3d10"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.ammo"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Scrymgeour\u0027s Bitter",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "Aenen Sundew",
+          "quantity": "1d2"
+        },
+        {
+          "itemName": "Dungore\u0027s Malt Ale",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "McCavity Ale",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "Hail Cider",
+          "quantity": "1d3+1"
+        },
+        {
+          "itemName": "Twentypints Weiss",
+          "quantity": "1d3+1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.booze"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        9,
+        9,
+        9,
+        9,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8,
+        8
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Tungsten Filament",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Barbed Net",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Spring Powered Catapult",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dispersive Prism",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Laser Pointer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Steam Powered Hydraulics",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "High Pressure Hose",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "RPG Launcher",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Air Filter",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Vacuum Pump",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Electric Eye",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Small Battery",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.gadgets"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Earthshaker Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Canned Elemental",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Death Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tsunami Bomb",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Angelic Essence",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.bombs"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        34,
+        33,
+        33
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Demolition Stix",
+          "quantity": "1d5"
+        },
+        {
+          "itemName": "Detonation Tube",
+          "quantity": "1d5"
+        },
+        {
+          "itemName": "Null Magic Wand",
+          "quantity": "1d5"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.stix"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Kabuto",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chamois Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Iron Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mitre",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silk Shirt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Quilt Leggings",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Quilt Tunic",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fur Leggings",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fur Tunic",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Buskins",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tartan Kilt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tabi Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Suede Doublet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Feathered Hat",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tartan Trews",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Buckler Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Suede Pants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ninja Cowl",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hachimaki",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Skullcap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sandals",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chamois Skirt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fur Halter",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Robes (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Robes (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cloth Pants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cloth Shirt",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.mundane.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        15,
+        15,
+        14,
+        14,
+        14,
+        14,
+        14
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Iron Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chain Hauberk",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chamois Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Buskins",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Coin",
+          "quantity": "6d6"
+        },
+        {
+          "itemName": "Bastard Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Targe",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "coc.sheriff.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Gold Piece",
+          "quantity": "3d6"
+        },
+        {
+          "itemName": "Bearded War Axe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Suede Pants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Suede Doublet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Buskins",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gnome.scout.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        34,
+        33,
+        33
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Ion Field Generator",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mephit Portal",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Glass Cannon",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gadgeteer.invention.1"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        8,
+        8,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7,
+        7
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Hotoke Do",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Heaume",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Armet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Haramaki Do",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Burgonet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Plate Mail (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Suneate And Haidate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bascinet And Camail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Plate Mail (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sollerets",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Steel Guantlets",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bronze Greaves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crusader Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Heater Shield",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.mundane.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Gold Piece",
+          "quantity": "20d6+100"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "high.level.gold"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        34,
+        33,
+        33
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Steam Powered Gatling",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "The Motivator",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Clockwork Orrery",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gadgeteer.invention.2"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Potion Of Barkskin",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Invisibility",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Resist Elements",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Guardian Angel",
+          "quantity": "1d2+1"
+        },
+        {
+          "itemName": "Potion Of Bless",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Blink",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Holy Water",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Potion Of Razor Cloak",
+          "quantity": "1d2+1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.potions.other"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        60,
+        40
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Willow Arrow",
+          "quantity": "3d6+40"
+        },
+        {
+          "itemName": "Shrike Arrow",
+          "quantity": "2d6+40"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "only.arrows"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Resurrection Powder",
+          "quantity": "1d2+1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "vital.items.resurrection.powder"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Tsubo Suneate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chain Hauberk",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chain Chausses",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bronze Cuirass",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Phrygian Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mempo",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bascinet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Kite Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Greaves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Aspis",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Breastplate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Do Maru",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shino Suneate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chain Hosen",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Wizard\u0027s Cone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mail Mittens",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Hauberk",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Steel Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Parma",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mail Coif",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Targe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Felt Slippers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Cuirass",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cuir Guantlets",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leather Leggings",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.mundane.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Throwing Axe",
+          "quantity": "3d8"
+        },
+        {
+          "itemName": "Throwing Knife",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Throwing Hammer",
+          "quantity": "3d8"
+        },
+        {
+          "itemName": "Shuriken",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Javelin",
+          "quantity": "3d8"
+        },
+        {
+          "itemName": "Feather Dart",
+          "quantity": "3d10"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.throwing.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        25,
+        25,
+        25,
+        25
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Wrist Mounted Flamer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Powered Exoskeleton (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Powered Exoskeleton (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pneumatic Boots",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.steampunk.items"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        13,
+        13,
+        13,
+        13,
+        12,
+        12,
+        12,
+        12
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Horn Of Prometheus",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pipes Of Doom",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Infernal Horn",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Strings Of Seduction",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pennywhistle",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bodhisattva",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Navajo Bullroarer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Pipes Of The Sea",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.musical.instruments"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Scroll Of Zap Undead",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Scroll Of Crush",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Scroll Of Heal All",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Scroll Of Resurrection",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Scroll Of Remove Curse",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.scrolls"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        17,
+        17,
+        17,
+        17,
+        16,
+        16
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Fire Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Acid Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Poison Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Ice Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Napalm Bomb",
+          "quantity": "1d3"
+        },
+        {
+          "itemName": "Flashbang",
+          "quantity": "1d3"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.bombs"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Crabshell",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ebony Plate (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ebony Plate (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ameratsu\u0027s Gown",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dana\u0027s Halter",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Trapper\u0027s Trousers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hussar Gauntlets",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bourgundian Sallet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crusader Coif",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Master Scalemail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sacred Slippers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Water Wings",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Glass Slippers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Deathmail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dragon Kite",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Faerie Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Black Gown Of Death (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Black Gown Of Death (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mantis Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mantis Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ebony Heaume",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Necromatic Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Snakeskin Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brilliant Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rainbow Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Golden Breastplate",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Displacer Robe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Coif Of Divine Mail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gown (L) Of Divine Mail",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gown (U) Of Divine Mail",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.magic.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Short Bow",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Rapier",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bearded War Axe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sabre",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "War Scepter",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jian",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Short Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hand Axe",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tomahawk",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mace",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "War Hammer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Longsword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cutlass",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jo Stick",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tanto",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Baselard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Kwai",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Main Guache",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sling",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dagger",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Spear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Crook",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Assegai",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Hammer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Short Spear",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bo Stick",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Quarterstaff",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Club",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gnarled Staff",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.mundane.weapons"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        12,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11,
+        11
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Barbed Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Hunter Quarrel",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Ta-li Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Precision Arrow",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Armour Piercer",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Razor Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Serpent Stone",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Piercing Bolt",
+          "quantity": "3d10"
+        },
+        {
+          "itemName": "Silver Bullet",
+          "quantity": "3d10"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.ammo"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Field Of Gules",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Black Robe (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Conjurers Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Forest Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Runed Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Striders",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Feathered Pants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jesters Slippers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Resolve",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Gloves Of Myrdall",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mordecai\u0027s Cone",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silken Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Enchanted Mail (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Enchanted Mail (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Gloves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Silver Sollerets",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jazeraint Tunic",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Jazeraint Skirt",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mystic Robes (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mystic Robes (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Goatfoot Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Winged Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Assassin\u0027s Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Lithe Buckler",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Aqua Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Brimstone Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Granite Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dragon Plate (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Dragon Plate (L)",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.magic.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        4,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3,
+        3
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Leonal Cuirass",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Muckraker Boots",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Beggars Pants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Leopardskin Halter",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Stonewall Helm",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flak Jacket",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ringing Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Piety",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Argyll Doublet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Oliveskin Doublet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Enchanted Robes (U)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Enchanted Robes (L)",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chamail Doublet",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Chamail Pants",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Cap Of Wiles",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mitre De Sanct",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flynn\u0027s Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Helm Of Insight",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Thieves Buckler",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Philosopher\u0027s Shield",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Tricorne Hat",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Winter Mittens",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Caliban\u0027s Cuirass",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Ariel\u0027s Slippers",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Puck\u0027s Cap",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Oberon\u0027s Greaves",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Shield Of Sacrifice",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.magic.armour"
+  },
+  {
+    "contains": {
+      "PERCENTAGES": [
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10,
+        10
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Awl Pike",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Bastard Sword",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Claymore",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Flambard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Fauchard",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Halberd",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Mace And Chain",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Sarissa",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "War Hammer",
+          "quantity": "1d1"
+        },
+        {
+          "itemName": "Anointed Flail",
+          "quantity": "1d1"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    },
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "heavy.weapon"
+  }
+]

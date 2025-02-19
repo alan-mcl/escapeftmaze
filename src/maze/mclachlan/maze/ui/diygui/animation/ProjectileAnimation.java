@@ -57,6 +57,10 @@ public class ProjectileAnimation extends Animation
 	int currentImage = 0;
 	private boolean finished;
 
+	public ProjectileAnimation()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ProjectileAnimation(List<String> projectileImages, int frameDelay)
 	{
@@ -226,5 +230,46 @@ public class ProjectileAnimation extends Animation
 	public int getFrameDelay()
 	{
 		return frameDelay;
+	}
+
+	public void setProjectileImages(List<String> projectileImages)
+	{
+		this.projectileImages = projectileImages;
+	}
+
+	public void setFrameDelay(int frameDelay)
+	{
+		this.frameDelay = frameDelay;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ProjectileAnimation that = (ProjectileAnimation)o;
+
+		if (getFrameDelay() != that.getFrameDelay())
+		{
+			return false;
+		}
+		return getProjectileImages() != null ? getProjectileImages().equals(that.getProjectileImages()) : that.getProjectileImages() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getProjectileImages() != null ? getProjectileImages().hashCode() : 0;
+		result = 31 * result + getFrameDelay();
+		return result;
 	}
 }

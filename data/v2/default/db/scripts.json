@@ -1,0 +1,4764 @@
+[
+  {
+    "name": "dire wasps from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "35089__Erdie__bee_colony_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/direWaspsFromPlayer1",
+            "animation/direWaspsFromPlayer2",
+            "animation/direWaspsFromPlayer3",
+            "animation/direWaspsFromPlayer4"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "colour spray from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail intro",
+    "events": [
+      {
+        "flavourText": "You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitully through the devastation.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "It seems pretty clear to you that this city has been deserted by it\u0027s inhabitants...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ruins.of.hail.intro",
+        "modal": "true"
+      },
+      {
+        "mazeVariable": "coc.quest.3.completed",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - leonal",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24797__Terwelp__Lions_Roar_at_Lincoln_Park_Zoo"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - ghost",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "33501__CosmicD__dreamyghost"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - marching",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "14624__man__soldati_marcia"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad test load",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "19:12",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse encounter 1 cruds",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - crud"
+      },
+      {
+        "flavourText": "With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+        "pos": "-1:-1",
+        "facing": "1"
+      },
+      {
+        "mazeVariable": "gatehouse.encounter.cruds.intro",
+        "ambushStatus": "FOES_MAY_AMBUSH_PARTY",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "gatehouse.level.1.cruds"
+      }
+    ]
+  },
+  {
+    "name": "sound - ninjastab",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "63985__iwilldstroyu__quickstab1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - snake",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "33458__Kjell_Persson__Boa_Constrictor_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ekirth\u0027s Tomb to Temple Of The Gate",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Temple Of The Gate",
+        "pos": "27:15",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Crossroad",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "3:30",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse lever pre transition",
+    "events": [
+      {
+        "flavourText": "You give the lever a hard yank.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "sound - rustle",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "2589__schademans__bush10"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ekirth\u0027s Tomb to Crypt Of Atrocities",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Crypt Of Atrocities",
+        "pos": "17:10",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "test script",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.SkillTestEvent",
+        "successValue": [
+          {
+            "scaling": "NONE",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+            "shouldNegate": "false",
+            "value": "10"
+          }
+        ],
+        "keyModifier": "SKILL",
+        "skill": [
+          {
+            "scaling": "NONE",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
+            "modifier": "BRAWN",
+            "shouldNegate": "false",
+            "value": "0"
+          },
+          {
+            "scaling": "SCALE_WITH_CASTING_LEVEL",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
+            "dice": "2d6",
+            "shouldNegate": "false",
+            "value": "0"
+          }
+        ],
+        "successScript": "Ichiba Crossroad bones hidden stuff",
+        "failureScript": "Gatehouse encounter 1 bats"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Castle feasting hall flava",
+    "events": [
+      {
+        "flavourText": "You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "_PORTCULLIS_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "336888__omnisis__gate-heavy-openclose2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "_MAIN_MENU_MUSIC_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "musicState": "MAINMENU",
+        "trackNames": [
+          "prescience"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "_OPEN_CHEST_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24244__Corsica_S__cupboard_creak_3"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Isle Of The Gate intro",
+    "events": [
+      {
+        "flavourText": "A cool, fresh breeze washes over you, welcome after the dank and stuffy caves. You gratefully suck in the sweet smelling air and examine your surroundings.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "You appear to be on a green island in the middle of a large lake. Tendrils of mist drift across the calm, cool water, and the grass beneath your feet is soft and green.\n\nYou are tempted to tarry here a while, in this peaceful sanctuary. But at the back of your mind, you can\u0027t help wondering what terrors lurk in this seeming paradise...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Corrosive Slime Death",
+    "events": [
+      {
+        "mazeVariable": "sir.kay.corrosive.slime.slain",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "_UNLOCK_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "23451__Percy_Duke__Opening_Older_Lock_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - snail",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "72755_reinsamba_snail_munching"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Castle Fangorn castle intro",
+    "events": [
+      {
+        "flavourText": "The hall receeds into darkness. Flickering torches shed little light and less heat. The cold inside the castle momentarily makes you gasp. The temperature is well below freezing, to be sure. But something else about this place makes your gut clench and chills you to the bone, something unnatural and terrifying that seems to be flickering just at the edge of your vision and the back of your mind.\n\nYou wonder if exploring here is such a good idea...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - vampire",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "48688__Sea_Fury__Monster_4"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - growl",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "23387__ljudman__dog"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (gnolls)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "13:6",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad bones hidden stuff",
+    "events": [
+      {
+        "flavourText": "A moldy pile of bones lies here, overgrown with moss and fungus.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.crossroad.hidden.stuff.1",
+        "modal": "true"
+      },
+      {
+        "amount": "200",
+        "TYPE_KEY": "mclachlan.maze.map.script.GrantGoldEvent"
+      },
+      {
+        "lootTable": "ichiba.crossroad.hidden.stuff.1",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "Sir Kay Death",
+    "events": [
+      {
+        "mazeVariable": "coc.quest.4.completed",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse angry swarms encounter",
+    "events": [
+      {
+        "flavourText": "Stepping through the door, you are assailed by swarms of angry insects!",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.angry.swarms",
+        "modal": "false"
+      },
+      {
+        "mazeVariable": "gatehouse.encounter.angry.swarms",
+        "ambushStatus": "NONE",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "gatehouse.angry.swarms"
+      }
+    ]
+  },
+  {
+    "name": "willow arrow from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/willowArrowFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Plain Of Pillars to Caves Of Ilast",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Caves Of Ilast",
+        "pos": "3:3",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "static bolt from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "19486__Halleck__JacobsLadderSingle1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "sound - cat-hiss",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "16466__acclivity__TheLadySaysNo"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "gold enchantment from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/goldEnchantmentFromPlayer1",
+            "animation/goldEnchantmentFromPlayer2",
+            "animation/goldEnchantmentFromPlayer3",
+            "animation/goldEnchantmentFromPlayer4"
+          ],
+          "frameDelay": "30"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City Imogen Door cck",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.city.imogen.door",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "ambient - cicada",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "15345__fotomacc__cicada2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Plain Of Pillars intro",
+    "events": [
+      {
+        "flavourText": "You appear in the domain several feet above the ground, and drop in an undignified heap on a bare, crusty surface.\n\nPicking yourself up, you are confronted by an alien and inhospitable landscape. A small orange sun looks apologetically down from a blood red sky on a parched white desert. Mysterious pillars and rocky outcroppings dot the landscape as far as you can see. A hot dry breeze stirs your clothing as it drifts steadily from the north.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "The desert surface crunches beneath your boots, and on impulse you stoop and taste a few grains... salt.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.plain.of.pillars.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "musket ball from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "34708__Jon285__44_black_powder_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "400",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/musketBallFromPlayer1"
+          ],
+          "frameDelay": "1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Dalen to Ichiba City",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "9:10",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Tornado Mountain dragon cave flava",
+    "events": [
+      {
+        "flavourText": "The cave smells musty and dry, and is heaped with bones of all descriptions. It appears deserted at first glance...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.tornado.mountain.dragon.cave",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "shuriken from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/shurikenFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - curse",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "575__aarondbaron__messed_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Tornado Mountain intro",
+    "events": [
+      {
+        "flavourText": "Your first impression is wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "Stygios Forest faerie circle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.stygios.forest.faerie.circle",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Plain Of Pillars",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Plain Of Pillars",
+        "pos": "32:32",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Stygios Forest to Ruins Of Hail",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "flavourText": "You wade into the dark pool...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "23:21",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "white portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ffffffff",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - clockwork",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "49214_tombola_Fisher_Price3"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "white cloud from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/whiteCloudFromPlayer1",
+            "animation/whiteCloudFromPlayer2",
+            "animation/whiteCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City Temple of The Lady sign",
+    "events": [
+      {
+        "flavourText": "Over the doorway there is etched a striking ikon of crossed spears before a round shield.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.city.temple.of.the_lady.sign",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "_WEAPON_HIT_",
+    "events": [
+      {
+        "die": "1d3",
+        "clipNames": [
+          "27826_Erdie_sword01",
+          "27856_Erdie_sword02",
+          "27857_Erdie_sword03"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "400",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain South antenor bones",
+    "events": [
+      {
+        "flavourText": "Here lie the remains of some unfortunate traveller - a humanoid of small stature, perhaps a child or a dwarf. Grass and weeds grow tall around the remains.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "quarrel from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/quarrelFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "gold portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ffffd700",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Dalen intro",
+    "events": [
+      {
+        "flavourText": "You appear in a lush jungle, an amazing profusion of growth surrounds you and vegetation smells fill your nostrils. The air is warm and humid. Giant trees tower far overhead, their trunks vanishing into the greenish gloom beneath their mighty canopies. Vines and creepers hang low overhead.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "The place is oddly quiet... few of the animal sounds that you would expect in a place like this are to be heard...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.dalen.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse hidden stuff 1 pre",
+    "events": [
+      {
+        "flavourText": "The dry bones of some long dead traveller lie here, huddled in this dark and dusty corner.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Isle Of The Gate to Caves Of Ilast",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Caves Of Ilast",
+        "pos": "29:27",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "ambient - bird2",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "19264__reinsamba__morning_birds_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "ambient - bird1",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "19257__reinsamba__bird_in_rainforest_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "witchbolt from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blackBoltFromPlayer"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Dungeon to Castle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle",
+        "pos": "22:22",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse malignant widow encounter",
+    "events": [
+      {
+        "flavourText": "You enter the dank chamber.  Small clumps of fungi give off a sickly radiance, and moving amongst the stalks are a number of large spiders.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "The arachnids pause and regard you in silence for a moment. Then as one they scuttle towards you, an uncanny malice glittering in their dark eyes.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "mazeVariable": "gatehouse.encounter.malignant.widows",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "gatehouse.malignant.widows"
+      }
+    ]
+  },
+  {
+    "name": "bullet stone from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/bulletStoneFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - fireburn",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25712_Erdie_fire_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City cck",
+    "events": [
+      {
+        "flavourText": "Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "The inhabitants hurry about their business, many casting you curious glances but none approaching. Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don\u0027t recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.city.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "_INSPECT_TRAP_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "23451__Percy_Duke__Opening_Older_Lock"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "3100",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - hag",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "80187__Robinhood76__01277_witch_cackle_laughter_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast to Hianbian",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Hianbian",
+        "pos": "2:26",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail use black blood",
+    "events": [
+      {
+        "flavourText": "On a hunch, you uncork the bottle and pour the noxious liquid out at the base of the pillar.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "\nThe evil smelling stuff is absorbed between the cracks in the paving with haste that is almost unseemly.\nYou are left holding an empty bottle and wondering if you have achieved anything...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "mazeVariable": "ruins.of.hail.black.blood.used",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain North to Crossroad",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "6:1",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "colour spray from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast to Isle Of The Gate",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Isle Of The Gate",
+        "pos": "33:29",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "ghul laugh",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - kami"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse block golem encounter",
+    "events": [
+      {
+        "flavourText": "Standing in the middle of the chamber is a stone statue of a chunky humanoid figure.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.block.golem",
+        "modal": "true"
+      },
+      {
+        "flavourText": "The eyes of the stone construct flare to life and it lumbers towards you...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
+        "objectName": "gatehouse.block.golem.obj"
+      },
+      {
+        "mazeVariable": "gatehouse.block.golem.encounter",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "gatehouse.block.golem",
+        "attitude": "ATTACKING"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City wanted signboard",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SignBoardEvent",
+        "signBoardText": "WANTED\nDEAD OR ALIVE\nBounty collectable at C.O.C."
+      },
+      {
+        "flavourText": "The signboard has several paper posters bearing sketched portraits nailed to it.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, \u0027SIR\u0027 KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "\"For Murder, Kidnapping, Banditry, Rape, Assault With Deadly Intent, VIRGILIO PATRICO. Reward 9000\"\n\nThe portrait shows a sneering human male with sharp features and long dark hair.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS \u0027THE HAND\u0027. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Castle intro",
+    "events": [
+      {
+        "flavourText": "Smells of leather and sweat reach your nostrils. The clink of armour and weapons, bootsteps and gruff leonal voices echo down the stone corridors of Danaos Castle.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "Patrols are visible moving around the passages, and the whole structure gives you the impression bustle and confidence, and an underlying a martial edginess. This would be a bad place for an enemy of the White Order to find themselves...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.danaos.castle.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Danaos to Ichiba Domain North",
+    "events": [
+      {
+        "flavourText": " You step through the door...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain North",
+        "pos": "6:3",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "Rhys Death",
+    "events": [
+      {
+        "IMPL": "mclachlan.maze.campaign.def.script.RhysDeath"
+      }
+    ]
+  },
+  {
+    "name": "Temple Of The Gate endgame cck",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.temple.of.the.gate.end",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - bird",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "56233__Q.K.__Crows_01"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "purple portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ff800080",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "z_arena lever",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
+        "tile": "10:9",
+        "facing": "1"
+      }
+    ]
+  },
+  {
+    "name": "shuriken from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/shurikenFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Stygios Forest",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Stygios Forest",
+        "pos": "26:7",
+        "facing": "1"
+      }
+    ]
+  },
+  {
+    "name": "sound - golem",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "48709__Sea_Fury__Monster_5"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Castle to Dungeon",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle Dungeon",
+        "pos": "10:9",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian Yenluo encounter",
+    "events": [
+      {
+        "flavourText": "The vaulted roof of the chamber is lost in darkness above you. Stone pillars stand in seemingly random order near the walls, and still pools of water betray no hint of their depth.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "You pause for a moment. From somewhere within the room comes the sound of water slowly dripping.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "\nSuddenly, your eyes register a blur of motion. With speed that takes your breath away a deadly looking insectoid figure appears before you. Behind it, the still waters are disturbed as black garbed warriors spring from the pools, discarding breathing tubes.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "flavourText": "\nThe mantis pauses for a moment and flexes it\u0027s limbs with fearsome purpose, then flashes towards you in attack.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.hianbian.yenluo.encounter",
+        "modal": "true"
+      },
+      {
+        "mazeVariable": "hianbian.yenluo.encounter",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "yenluo.encounter"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast to Plain Of Pillars",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Plain Of Pillars",
+        "pos": "20:34",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Hianbian",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Hianbian",
+        "pos": "11:13",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail hidden stuff 1",
+    "events": [
+      {
+        "lootTable": "ruins.of.hail.hidden.stuff.1",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "_PULL_LEVER_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "676412__a_kuha__pulling-a-lever"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Tornado Mountain to Aenen City",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Aenen City",
+        "pos": "28:27",
+        "facing": "1"
+      }
+    ]
+  },
+  {
+    "name": "_ENCOUNTER_",
+    "events": [
+      {
+        "die": "1d2",
+        "clipNames": [
+          "26198__tobyk__Medieval_Fanfare",
+          "37596__hello_flowers__Sword"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "1000",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Tornado Mountain",
+    "events": [
+      {
+        "flavourText": "The pillar feels slightly warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Tornado Mountain",
+        "pos": "15:14",
+        "facing": "1"
+      }
+    ]
+  },
+  {
+    "name": "Goblin Magsman Death",
+    "events": [
+      {
+        "mazeVariable": "coc.quest.2.completed",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "red bolt from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "_INVENTORY_MUSIC_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "musicState": "INVENTORY",
+        "trackNames": [
+          "paper_dolls"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City thieves guild cck doors",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.thieves.guild.door",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 eels leave",
+    "events": [
+      {
+        "flavourText": "The eels scatter into the depths and vanish.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to Gnoll Village",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Gnoll Village",
+        "pos": "16:28",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City villa cck",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.villa.door",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Castle Fangorn",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Castle Fangorn",
+        "pos": "11:21",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast miriam chest contents",
+    "events": [
+      {
+        "flavourText": "The chest is filled with trinket and junk - bent needles, old gnawed bones, bunches of twigs, discarded shoes and so on.\n\nYou find only one thing remotely interesting.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "lootTable": "caves.of.ilast.miriam.chest",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - accountant",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "79774__engreitz__ManClearingThroat_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "blinding flash spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redCloudFromPlayer1",
+            "animation/redCloudFromPlayer2",
+            "animation/redCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - dragon",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "85568__JoelAudio__DRAGON_ROAR"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Writhing Mire intro",
+    "events": [
+      {
+        "flavourText": "You appear in a gloomy marsh. Small buzzing insects rise from pools of fetid water, and the air is hot and humid. The stench of rotting vegetation is pervasive.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.writhing.mire.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Castle to Village",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Village",
+        "pos": "4:16",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse Bonebrood bones",
+    "events": [
+      {
+        "flavourText": "Poking through the pile of moldy bones, you discover several items of interest...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "lootTable": "gatehouse.key.loot",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "burning hands from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25712_Erdie_fire_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "15"
+        }
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "47252__nthompson__rocketexpl"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "pennywhistle animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "pennywhistle"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ffffd700",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Isle Of The Gate ladder flava",
+    "events": [
+      {
+        "flavourText": "Incongruous in the midst of these idyllic surroundings, a ladder and chute lead down into the earth. Approaching it, you peer into the shaft hoping to divine where it leads, but to no avail. Darkness is all you can see, darkness and menace.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "_PARTY_DEAD_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "30305__ERH__call"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "imageResource": "screen/party_death_1",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "",
+        "textPlacement": "CENTER"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain South to Aenen",
+    "events": [
+      {
+        "flavourText": " You step through the door...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Aenen Outskirts",
+        "pos": "3:4",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad pre mantis cck",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.crossroad.mantis.glen",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - ape",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "34137__SylverMonk__SylverMonk_cavegrunt"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "feather dart from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/featherDartFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_SECRET_PASSAGE_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "14096_adcbicycle_9_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25845__FreqMan__concrete_blocks_moving1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "throwing knife from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/throwingKnifeFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "_CREATE_CHARACTER_MUSIC_",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "musicState": "CREATE_CHARACTER",
+        "trackNames": [
+          "shattered_windows"
+        ]
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City Intro",
+    "events": [
+      {
+        "flavourText": "Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.\n",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Castle Fangorn to Ruins Of Hail",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "21:23",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "sound - running",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "54779_bevangoldswain_running_hard_surface"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Isle Of The Gate to Ekirth\u0027s Tomb",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ekirth\u0027s Tomb",
+        "pos": "3:15",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Caves Of Ilast Brass Pillar",
+    "events": [
+      {
+        "flavourText": "You strike the hollow brass pillar hard with a nearby rock.\n\nA loud CLANG echoes through the caves...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "mazeVariable": "null",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "caves.of.ilast.random.enc"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (gnolls)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "15:8",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse first wall button pre toggle",
+    "events": [
+      {
+        "flavourText": "Searching the wall, one of the stones shifts inwards at your touch!",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Village to Castle",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle",
+        "pos": "29:15",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "sonic boom from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "47252__nthompson__rocketexpl_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail damla\u0027s bones hidden stuff",
+    "events": [
+      {
+        "lootTable": "ruins.of.hail.damla\u0027s.bones",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - gnome",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "79774__engreitz__ManClearingThroat_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 iron rations",
+    "events": [
+      {
+        "flavourText": "Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped \"HAIL SUPPLY CO\".\n\nThe biscuits are very stale but still edible.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "lootTable": "gatehouse.supplies.1.iron.rations",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "gold enchantment from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "22267__zeuss__The_Chime"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/goldEnchantmentFromPlayer1",
+            "animation/goldEnchantmentFromPlayer2",
+            "animation/goldEnchantmentFromPlayer3",
+            "animation/goldEnchantmentFromPlayer4"
+          ],
+          "frameDelay": "30"
+        }
+      }
+    ]
+  },
+  {
+    "name": "willow arrow from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/willowArrowFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City gnome garden cck",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.city.gnome.garden",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "red bolt from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse lever post transition",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_PORTCULLIS_"
+      },
+      {
+        "flavourText": "A loud clanking and grinding fills the dungeon.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
+        "tile": "15:26",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "gigantopithecus taunt",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - ape"
+      },
+      {
+        "delay": "800",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse exit portal 3",
+    "events": [
+      {
+        "flavourText": "You step purposefully into the vivid portal...",
+        "delay": "1000",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain South",
+        "pos": "3:5",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse exit portal 2",
+    "events": [
+      {
+        "flavourText": "You step purposefully into the vivid portal...",
+        "delay": "1000",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "19:12",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse exit portal 1",
+    "events": [
+      {
+        "flavourText": "You step purposefully into the vivid portal...",
+        "delay": "1000",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain North",
+        "pos": "25:28",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse hidden stuff 1 contents",
+    "events": [
+      {
+        "flavourText": "Quelling any misgivings about disturbing the remains, you decide to have a closer look.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.hidden.stuff.1",
+        "modal": "true"
+      },
+      {
+        "flavourText": "Any clothing has long since rotted to pieces, but you do find two durable items.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "lootTable": "gatehouse.hiddenstuff.1",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad to Domain North",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain North",
+        "pos": "28:26",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "group curse from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "575__aarondbaron__messed_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Onburi Death",
+    "events": [
+      {
+        "mazeVariable": "sir.kay.quest.3.complete",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - imogen",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "15288_Hell_s_Sound_Guy_FEMALE_GIGGLE"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "burning hands from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25712_Erdie_fire_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "15"
+        }
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "47252__nthompson__rocketexpl"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - hiss",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "33458__Kjell_Persson__Boa_Constrictor_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Aenen Outskirts charred stump",
+    "events": [
+      {
+        "flavourText": "In this part of the clearing you find a twisted, burnt stump of an old tree, long hacked down. The ground around is charred and blackened. Despite the jungle warmth you feel a strange chill on your skin...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.aenen.outskirts.charred.stump",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 ambercaps",
+    "events": [
+      {
+        "flavourText": "You harvest the mushrooms. The smell pretty tasty.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
+        "objectName": "gatehouse.supplies.1.ambercaps"
+      },
+      {
+        "lootTable": "gatehouse.supplies.1.ambercaps",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "blinding flash spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redCloudFromPlayer1",
+            "animation/redCloudFromPlayer2",
+            "animation/redCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse load",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Gatehouse",
+        "pos": "14:30",
+        "facing": "1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": [
+          "shadows_in_an_empty_cathedral"
+        ]
+      },
+      {
+        "imageResource": "screen/default_intro_1",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "default.intro.1",
+        "textPlacement": "TOP_LEFT"
+      },
+      {
+        "imageResource": "screen/default_intro_2",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "default.intro.2",
+        "textPlacement": "BOTTOM_LEFT"
+      },
+      {
+        "imageResource": "screen/default_intro_3",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "default.intro.3",
+        "textPlacement": "BOTTOM_RIGHT"
+      },
+      {
+        "imageResource": "screen/default_intro_4",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "default.intro.4",
+        "textPlacement": "BOTTOM_LEFT"
+      },
+      {
+        "imageResource": "screen/default_intro_5",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "default.intro.5",
+        "textPlacement": "BOTTOM_LEFT"
+      },
+      {
+        "imageResource": "screen/default_intro_6",
+        "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
+        "textResource": "default.intro.6",
+        "textPlacement": "TOP_LEFT"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent"
+      }
+    ]
+  },
+  {
+    "name": "frontier phaser from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "0"
+        }
+      }
+    ]
+  },
+  {
+    "name": "white cloud from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/whiteCloudFromPlayer1",
+            "animation/whiteCloudFromPlayer2",
+            "animation/whiteCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse first room window",
+    "events": [
+      {
+        "flavourText": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "sound - faerie",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "51713__BristolStories__u_chimes_short1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Dalen",
+    "events": [
+      {
+        "flavourText": "You cup the mysterious seeds in your hand...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "\nWarmth grows slowly in your closed palm, and the sounds of the bustling city behind you fade into silence... with a start you realise that time has frozen around you. You stare in surprise at the dust particles suspended in mid air before you...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "flavourText": "... when suddenly, you feel the familiar wrenching pull of  planar travel!",
+        "delay": "1000",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Dalen",
+        "pos": "5:17",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain South shrine",
+    "events": [
+      {
+        "flavourText": "A small stone shrine stands at the side of the road, weathered and moss covered. Crude animal figures have been inscribed, along with a few lines of text in an unfamiliar script...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.domain.south.shrine",
+        "modal": "true"
+      },
+      {
+        "flavourText": "The text reads:\n\nHail to ye traveller from afar. Fortunate is he who fashions his own fortune. I, Badr al-Din Hasan, erected this shrine to the glory of Garret in gratitude and fulfilment of my oath on reaching the Second Realm and in preparation for my attempt to escape to the Third. Freedom or death.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Ekirth\u0027s Tomb to Isle Of The Gate",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Isle Of The Gate",
+        "pos": "37:35",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "sound - water elemental",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "17783__suonho__ELEMENTS_WATER_02_Phasin_bubbles"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "ambient - rustle",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "2589__schademans__bush10_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ruins Of Hail to Writhing Mire",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Writhing Mire",
+        "pos": "15:4",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "red portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25074_FreqMan_whoosh06"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ffff0000",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "dire wasps from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "35089__Erdie__bee_colony_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/direWaspsFromPlayer1",
+            "animation/direWaspsFromPlayer2",
+            "animation/direWaspsFromPlayer3",
+            "animation/direWaspsFromPlayer4"
+          ],
+          "frameDelay": "15"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Castle Fangorn intro",
+    "events": [
+      {
+        "flavourText": "You survey the blasted and inhospitable landscape.\n\nShattered and tumbled rocks cover the ground and are piled up in impassable heaps around the level space that you are in. Tattered grey clouds race across an empty sky, driven by a freezing wind that moans relentlessly from the west. You shudder and draw your clothing closer around you.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "To your right looms an evil looking castle, rough cut stone walls and battlements menacing the stormy sky, dark window slits peering vacantly at you like the eyes of a skull. Human skeletons litter the stony ground around it.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - skeleton",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "58626__kathol__A_Moaning_Zombie"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Danoas Village intro",
+    "events": [
+      {
+        "flavourText": "You appear in a warm and pleasant seeming forest domain. Puffy white clouds dot a pale blue sky, and the gentle breeze fanning your cheeks reminds you of your life in the First Realm and, perhaps, some earlier childhood memory.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "Chimney smoke rises in lazy columns over a small hamlet in the forest clearing before you. Looming over the dwellings you see the dark stone ramparts of a powerful looking castle to the west, overlooking the friendly scene with brooding sternness. White pennants with no visible marking flutter from it\u0027s spired.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.danaos.village.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain South antenor loot",
+    "events": [
+      {
+        "flavourText": "Your eyes are drawn to a bright gold ring on the finger of the skeleton.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "lootTable": "gnome.antenor.loot",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "Gnoll Village intro",
+    "events": [
+      {
+        "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gnoll.village.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Aenen Outskirts charred stump search",
+    "events": [
+      {
+        "flavourText": "Groping around the stump, you feel a sudden pain in your hand!",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.CastSpellEvent",
+        "castingLevel": "7",
+        "spellName": "Hidden Snakebite - Trap",
+        "casterLevel": "20"
+      },
+      {
+        "flavourText": "\nThe small bright green snake that bit you slithers rapidly away into the undergrowth! You curse and attend to the wound.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "spine from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/spineFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gnoll Village to Ichiba Depths",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "21:4",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Stygios Forest intro",
+    "events": [
+      {
+        "flavourText": "Dark gnarled trees crowd you from all sides, their presence somehow malevolent. Clumps of malignant fungi sprout from the mouldy forest floor. Smells of rot and decay fill your nostrils, reminding you of your own mortality.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "The ominous silence of the Stygios Forest makes the hair on the back of your neck rise. Your skin tingles with danger and you hold your breath as your ears strain to detect movement in your surroundings, but the forest is quiet. Dead quiet.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.stygios.forest.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "green portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "26722__Leady__women_singing_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ff00b200",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse welcome sign",
+    "events": [
+      {
+        "flavourText": "Above you a fixture on the ceiling gives off some kind of soft magical light.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian intro",
+    "events": [
+      {
+        "flavourText": "You appear in a low corridor. The walls are pale brick, and the floor is worn cobbles. Nothing unusual presents itself...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.hianbian.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 skill test fail",
+    "events": [
+      {
+        "flavourText": "You\u0027re not fast enough.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "Gatehouse supplies 1 eels leave"
+      }
+    ]
+  },
+  {
+    "name": "Aenen City intro",
+    "events": [
+      {
+        "flavourText": "You step into the shadowy halls of Aenen. Your footsteps echo from the tall vaulted ceilings and sturdy stone walls, many of which have been carven with strange mechanical looking reliefs. Here and there tar torches crackle and flicker, and in many places strange luminous globes on the ceiling provide light. Despite the gloom, the air smells surprisingly fresh and wholesome.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "Gnomes can be seen all around, hurrying here and there in small groups, many carrying metallic objects that you do not recognise. A quiet buzz of movement and conversation fills the passages. You draw some curious glances but nobody approaches you.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.aenen.city.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (coc)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "2:5",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "sound - puppet",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "9557__thanvannispen__2gnomes"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "shrill sound from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "4249__dobroide__knifegrinder.whistle"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 cave eels leave alone",
+    "events": [
+      {
+        "flavourText": "You leave the eels swimming in peace.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "mazeVariable": "gatehouse.execute.once.eels",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "name": "sound - moulder",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "55134__NoiseCollector__stereomonster"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian to Caves Of Ilast",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Caves Of Ilast",
+        "pos": "30:3",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse hidden pool pass",
+    "events": [
+      {
+        "flavourText": "You decide to leave well enough alone.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "mazeVariable": "gatehouse.pool.cache.found",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "0"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 cave eels skill test",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.SkillTestEvent",
+        "successValue": [
+          {
+            "scaling": "NONE",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
+            "shouldNegate": "false",
+            "value": "7"
+          }
+        ],
+        "keyModifier": "SKILL",
+        "skill": [
+          {
+            "scaling": "NONE",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
+            "modifier": "SKILL",
+            "shouldNegate": "false",
+            "value": "0"
+          },
+          {
+            "scaling": "NONE",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
+            "modifier": "DUNGEONEER",
+            "shouldNegate": "false",
+            "value": "0"
+          },
+          {
+            "scaling": "NONE",
+            "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
+            "dice": "1d3",
+            "shouldNegate": "false",
+            "value": "0"
+          }
+        ],
+        "successScript": "Gatehouse supplies 1 cave eels",
+        "failureScript": "Gatehouse supplies 1 skill test fail"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City COC tear off paper slip",
+    "events": [
+      {
+        "flavourText": " You tear off one of the small paper slips...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "lootTable": "ichiba.city.coc.paper.slip",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "Temple Of The Gate to Ekirth\u0027s Tomb",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ekirth\u0027s Tomb",
+        "pos": "28:16",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Stygios Forest to Danaos Dungeon",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Castle Dungeon",
+        "pos": "8:5",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse encounter 1 bats",
+    "events": [
+      {
+        "flavourText": "With a flurry of wings, you are suddenly assaulted from above!",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "mazeVariable": "gatehouse.encounter.1.bats",
+        "ambushStatus": "NONE",
+        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
+        "encounterTable": "gatehouse.level.1.bats",
+        "attitude": "ATTACKING"
+      }
+    ]
+  },
+  {
+    "name": "quarrel from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/quarrelFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse intro",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "flavourText": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Crypt Of Atrocities to Ekirth\u0027s Tomb",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ekirth\u0027s Tomb",
+        "pos": "23:26",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "generic weapon swish",
+    "events": [
+      {
+        "die": "1d2",
+        "clipNames": [
+          "9509_petenice_whoosh",
+          "12657__mich3d__Whoosh_Swish_02"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain South to Crossroad",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Crossroad",
+        "pos": "28:28",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Aenen Outskirts clearing intro",
+    "events": [
+      {
+        "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Default Campaign Intro",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_MAIN_MENU_MUSIC_"
+      }
+    ]
+  },
+  {
+    "name": "sound - panther",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "63668__Miselaineous__elaine_growl"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "feather dart from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/featherDartFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain North to Danaos",
+    "events": [
+      {
+        "flavourText": " You step through the door...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Danaos Village",
+        "pos": "27:15",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "sound - cicada",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "15345__fotomacc__cicada1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City Imogens tower lvl1",
+    "events": [
+      {
+        "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn\u0027t been used in a while.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.city.imogen.tower.1",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "_OUCH_",
+    "events": [
+      {
+        "die": "1d3",
+        "clipNames": [
+          "34875__Sruddi1__Grunts_1",
+          "34875__Sruddi1__Grunts_2",
+          "34875__Sruddi1__Grunts_3"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichneumorax Death",
+    "events": [
+      {
+        "mazeVariable": "leonal.quest.1.complete",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "web spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/brownCloudFromPlayer1",
+            "animation/brownCloudFromPlayer2",
+            "animation/brownCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Plain Of Pillars to Ruins Of Hail",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "21:21",
+        "facing": "3"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse hidden pool contents",
+    "events": [
+      {
+        "flavourText": "You reach your arm deep into the cold, dark water...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "Feeling along the bottom, your questing fingers brush a small cloth sack. Retrieving it you find some interesting contents.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "lootTable": "gatehouse.potion.chest",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      },
+      {
+        "mazeVariable": "gatehouse.pool.cache.found",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "1"
+      }
+    ]
+  },
+  {
+    "name": "spine from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/spineFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Writhing Mire to Ruins Of Hail",
+    "events": [
+      {
+        "flavourText": "The pillar feels warm beneath your hand...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "22:21",
+        "facing": "2"
+      }
+    ]
+  },
+  {
+    "name": "Aenen City to Tornado Mountain",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Tornado Mountain",
+        "pos": "28:25",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "sound - buzz",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "35089__Erdie__bee_colony_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse feral familiar encounter",
+    "events": [
+      {
+        "flavourText": "You find a small, fierce looking creature rooting and scratching in the barrels in this room.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "flavourText": "It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creature\u0027s eyes blaze with fury and it moves to attack!",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      }
+    ]
+  },
+  {
+    "name": "sound - air elemental",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "17645__Cyril_Laurier__Wind"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "_DIE_",
+    "events": [
+      {
+        "die": "1d3",
+        "clipNames": [
+          "34875__Sruddi1__Grunts_4",
+          "34875__Sruddi1__Grunts_5",
+          "34875__Sruddi1__Grunts_6"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad to Domain South",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain South",
+        "pos": "4:2",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Imogen Death",
+    "events": [
+      {
+        "mazeVariable": "sir.kay.quest.4.complete",
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "value": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - tree",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "33256__ERH__creaking_silver_birch_3c"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Aenen Outskirts to City",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Aenen City",
+        "pos": "18:14",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "_THIEF_TOOL_",
+    "events": [
+      {
+        "die": "1d7",
+        "clipNames": [
+          "14090_adcbicycle_3",
+          "14095_adcbicycle_8",
+          "14096_adcbicycle_9",
+          "14098_adcbicycle_11",
+          "14099_adcbicycle_12",
+          "14100_adcbicycle_13",
+          "14109_adcbicycle_22"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse bones2 hidden stuff",
+    "events": [
+      {
+        "flavourText": "These remains are so ancient and desiccated as to be hardly recognisable. You find nothing.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (coc)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "6:14",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "bullet stone from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/bulletStoneFromPlayer1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "musket ball from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "34708__Jon285__44_black_powder_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "400",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/musketBallFromFoe1"
+          ],
+          "frameDelay": "1"
+        }
+      }
+    ]
+  },
+  {
+    "name": "shrill sound from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "4249__dobroide__knifegrinder.whistle"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Stygios Forest shrine to nergal",
+    "events": [
+      {
+        "flavourText": "Luminous toadstools grow around this small carven stone shrine, which is covered in moss and lichen. Peering closer at the carvings, you make out the form of some squat, malignant godling hunched over a pile of bones.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.stygios.forest.shrine",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "frostbite spell from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blueBoltFromFoe"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "sound - yelp",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "23387__ljudman__dog_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Aenen to Ichiba Domain South",
+    "events": [
+      {
+        "flavourText": " You step through the door...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba Domain South",
+        "pos": "16:37",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "paper tiger roar",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "48709__Sea_Fury__Monster_5"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/whiteCloudFromPlayer1",
+            "animation/whiteCloudFromPlayer2",
+            "animation/whiteCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse pre widows cck",
+    "events": [
+      {
+        "flavourText": "As you reach for the handle, something about this door makes you hesitate for a second...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.malignant.widows",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Default Campaign Outtro",
+    "events": [
+      {
+        "flavourText": "Gathering your courage, you step into the Great Gate...",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.EndGameEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - wings",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "9329__tigersound__pigeon_wings"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Domain North chest 1 pre",
+    "events": [
+      {
+        "flavourText": "An old coffer lies here, partly buried in dirt and mould.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      }
+    ]
+  },
+  {
+    "name": "sound - reptile-screech",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25713__Wolfsinger__inhuman_screech"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian teleporter 1",
+    "events": [
+      {
+        "die": "1d3",
+        "clipNames": [
+          "12652__mich3d__Door_Wood_Open_01",
+          "12741_Leady_opening_a_creaky_door",
+          "29690__HerbertBoland__Creak_3"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
+        "pos": "15:17",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "throwing knife from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "50773__smcameron__arrow_whoosh"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/throwingKnifeFromFoe1"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - earth elemental",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "7135_mystiscool_rocks1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse deactivated portal",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.deactivated.portal",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "frostbite spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blueBoltFromPlayer"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "group curse from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "575__aarondbaron__messed_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad intro",
+    "events": [
+      {
+        "flavourText": "... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird\u0027s shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "flavourText": "What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin?\n\nOf more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.ichiba.crossroad.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "gnoll taunt",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "23387__ljudman__dog_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "800",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "Aenen City to Outskirts",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Aenen Outskirts",
+        "pos": "16:14",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (gsc1)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "2:16",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "acid splash spell from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "9508__petenice__SPLASH_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/greenBoltFromFoe1",
+            "animation/greenBoltFromFoe2",
+            "animation/greenBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "9508__petenice__SPLASH_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "witchbolt from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/blackBoltFromFoe"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Dungeon Portal intro",
+    "events": [
+      {
+        "flavourText": "The small chamber is dominated by a shimmering golden portal encased in a stone arch that is inlaid with golden and silver vines across its regal frame.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.danaos.dungeon.intro",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "blue portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "25074_FreqMan_whoosh06"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ff0000ff",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sonic boom from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "47252__nthompson__rocketexpl_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromPlayer1",
+            "animation/redBoltFromPlayer2",
+            "animation/redBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (gsc1)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "5:19",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "_FORCE_PORTAL_",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "31625__Srehpog__heavy_crate_smash"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  },
+  {
+    "name": "saliopod screech from foe",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "sound - reptile-screech"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/groupCurseFromPlayer1",
+            "animation/groupCurseFromPlayer2",
+            "animation/groupCurseFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - kami",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "76455__str4ngS__monster_insane_laugh_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad to City",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "35:21",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "Aenen Outskirts solar array flava",
+    "events": [
+      {
+        "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.aenen.outskirts.solar.panel.discovery",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "web spell from player",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic spell woosh"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/brownCloudFromPlayer1",
+            "animation/brownCloudFromPlayer2",
+            "animation/brownCloudFromPlayer3"
+          ],
+          "frameDelay": "20"
+        }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba City to Depths (gsc2)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City Depths",
+        "pos": "28:8",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "black portrait animation",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "16999__Incarnadine__sinister_chord"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "colour": "ff000000",
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation"
+        }
+      }
+    ]
+  },
+  {
+    "name": "sound - dun.draco",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "44022__AaronGNP__Hissing_Snakes"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "sound - crud",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "52293__XxBirdoxX__stomach_growl_PiSh_01"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "generic spell woosh",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "18397__inferno__smalllas"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Danaos Dungeon to Stygios Forest",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Stygios Forest",
+        "pos": "27:15",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse supplies 1 cave eels",
+    "events": [
+      {
+        "flavourText": "With blinding speed you grab a wriggling eel and haul it out of the water!\n\nThe other eels scatter into the depths.",
+        "delay": "-1",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "false"
+      },
+      {
+        "lootTable": "gatehouse.supplies.1.cave.eels",
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent"
+      }
+    ]
+  },
+  {
+    "name": "acid splash spell from player",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "9508__petenice__SPLASH_1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/greenBoltFromPlayer1",
+            "animation/greenBoltFromPlayer2",
+            "animation/greenBoltFromPlayer3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "9508__petenice__SPLASH_2"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      }
+    ]
+  },
+  {
+    "name": "Hianbian to Ruins Of Hail",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "generic door creak"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "23:23",
+        "facing": "4"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Depths to City (gsc2)",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ichiba City",
+        "pos": "27:8",
+        "facing": "0"
+      }
+    ]
+  },
+  {
+    "name": "static bolt from foe",
+    "events": [
+      {
+        "die": "1d1",
+        "clipNames": [
+          "19486__Halleck__JacobsLadderSingle1"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.ProjectileAnimation",
+          "projectileImages": [
+            "animation/redBoltFromFoe1",
+            "animation/redBoltFromFoe2",
+            "animation/redBoltFromFoe3"
+          ],
+          "frameDelay": "10"
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
+        "script": "_WEAPON_HIT_"
+      }
+    ]
+  },
+  {
+    "name": "Gatehouse first room",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
+        "speechKey": "default.gatehouse.1",
+        "modal": "true"
+      }
+    ]
+  },
+  {
+    "name": "Tornado Mountain to Ruins Of Hail",
+    "events": [
+      {
+        "flavourText": "You pass through the archway...",
+        "delay": "1500",
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "shouldClearText": "true"
+      },
+      {
+        "die": "1d1",
+        "clipNames": [
+          "24003__Erdie__mega_thunder"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Ruins Of Hail",
+        "pos": "22:23",
+        "facing": "1"
+      }
+    ]
+  },
+  {
+    "name": "generic door creak",
+    "events": [
+      {
+        "die": "1d3",
+        "clipNames": [
+          "12652__mich3d__Door_Wood_Open_01",
+          "12741_Leady_opening_a_creaky_door",
+          "29690__HerbertBoland__Creak_3"
+        ],
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent"
+      },
+      {
+        "delay": "500",
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.DelayEvent"
+      }
+    ]
+  }
+]

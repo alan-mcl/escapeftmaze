@@ -15,15 +15,15 @@ public class JagObjectWithinRadius extends ObjectScript
 	private int originX, originY;
 
 	// max radius of movement
-	private final int maxRadius;
+	private int maxRadius;
 	// min duration in ms
-	private final int minSpeed;
+	private int minSpeed;
 	// max duration in ms
-	private final int maxSpeed;
+	private int maxSpeed;
 	// min pause between moves, in ms
-	private final int minPause;
+	private int minPause;
 	// max pause between moves, in ms
-	private final int maxPause;
+	private int maxPause;
 
 
 	// current origin
@@ -39,6 +39,10 @@ public class JagObjectWithinRadius extends ObjectScript
 
 	// nano time started
 	private long started = 0;
+
+	public JagObjectWithinRadius()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public JagObjectWithinRadius(
@@ -187,5 +191,76 @@ public class JagObjectWithinRadius extends ObjectScript
 	public int getMaxPause()
 	{
 		return maxPause;
+	}
+
+	public void setMaxRadius(int maxRadius)
+	{
+		this.maxRadius = maxRadius;
+	}
+
+	public void setMinSpeed(int minSpeed)
+	{
+		this.minSpeed = minSpeed;
+	}
+
+	public void setMaxSpeed(int maxSpeed)
+	{
+		this.maxSpeed = maxSpeed;
+	}
+
+	public void setMinPause(int minPause)
+	{
+		this.minPause = minPause;
+	}
+
+	public void setMaxPause(int maxPause)
+	{
+		this.maxPause = maxPause;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		JagObjectWithinRadius that = (JagObjectWithinRadius)o;
+
+		if (getMaxRadius() != that.getMaxRadius())
+		{
+			return false;
+		}
+		if (getMinSpeed() != that.getMinSpeed())
+		{
+			return false;
+		}
+		if (getMaxSpeed() != that.getMaxSpeed())
+		{
+			return false;
+		}
+		if (getMinPause() != that.getMinPause())
+		{
+			return false;
+		}
+		return getMaxPause() == that.getMaxPause();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getMaxRadius();
+		result = 31 * result + getMinSpeed();
+		result = 31 * result + getMaxSpeed();
+		result = 31 * result + getMinPause();
+		result = 31 * result + getMaxPause();
+		return result;
 	}
 }

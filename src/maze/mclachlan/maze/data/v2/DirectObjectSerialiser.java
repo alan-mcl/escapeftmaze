@@ -6,18 +6,18 @@ import mclachlan.maze.data.Database;
  * Just pass the Object straight to GSON to sort out. Useful for maps of strings
  * and similar.
  */
-public class DirectObjectSerialiser implements V2SerialiserObject<Object>
+public class DirectObjectSerialiser<T> implements V2SerialiserObject<T>
 {
 
 	@Override
-	public Object toObject(Object o, Database db)
+	public Object toObject(T o, Database db)
 	{
 		return o;
 	}
 
 	@Override
-	public Object fromObject(Object obj, Database db)
+	public T fromObject(Object obj, Database db)
 	{
-		return obj;
+		return (T)obj;
 	}
 }

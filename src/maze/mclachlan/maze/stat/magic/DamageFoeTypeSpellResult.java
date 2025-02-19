@@ -35,7 +35,11 @@ public class DamageFoeTypeSpellResult extends SpellResult
 	private double multiplier;
 	private TypeDescriptor type;
 
-	/*-------------------------------------------------------------------------*/	
+	public DamageFoeTypeSpellResult()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public DamageFoeTypeSpellResult(ValueList damage, TypeDescriptor type)
 	{
 		this(damage, 1, type);
@@ -96,5 +100,63 @@ public class DamageFoeTypeSpellResult extends SpellResult
 	public TypeDescriptor getType()
 	{
 		return type;
+	}
+
+	public void setDamage(ValueList damage)
+	{
+		this.damage = damage;
+	}
+
+	public void setMultiplier(double multiplier)
+	{
+		this.multiplier = multiplier;
+	}
+
+	public void setType(TypeDescriptor type)
+	{
+		this.type = type;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		DamageFoeTypeSpellResult that = (DamageFoeTypeSpellResult)o;
+
+		if (Double.compare(that.getMultiplier(), getMultiplier()) != 0)
+		{
+			return false;
+		}
+		if (getDamage() != null ? !getDamage().equals(that.getDamage()) : that.getDamage() != null)
+		{
+			return false;
+		}
+		return getType() != null ? getType().equals(that.getType()) : that.getType() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		long temp;
+		result = 31 * result + (getDamage() != null ? getDamage().hashCode() : 0);
+		temp = Double.doubleToLongBits(getMultiplier());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		result = 31 * result + (getType() != null ? getType().hashCode() : 0);
+		return result;
 	}
 }

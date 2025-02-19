@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
-import mclachlan.maze.data.v2.V2DataObject;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.util.MazeException;
@@ -33,7 +33,7 @@ import mclachlan.maze.util.MazeException;
  * </ul>
  * This base class just contains a constant.
  */
-public class Value implements V2DataObject
+public class Value implements V2Seralisable
 {
 	/**
 	 * The base constant
@@ -54,18 +54,6 @@ public class Value implements V2DataObject
 	 * Whether or not to negate this value.
 	 */
 	private boolean negate;
-
-	@Override
-	public String getName()
-	{
-		return null;
-	}
-
-	@Override
-	public void setName(String newName)
-	{
-
-	}
 
 	/**
 	 * Different ways of scaling this value.

@@ -1032,6 +1032,19 @@ public class Database
 		}
 	}
 
+	public FoeType getFoeType(String name)
+	{
+		synchronized(mutex)
+		{
+			FoeType result = this.getFoeTypes().get(name);
+			if (result == null)
+			{
+				throw new MazeException("invalid name ["+name+"]");
+			}
+			return result;
+		}
+	}
+
 	public void saveFoeTypes(Map<String, FoeType> map, Campaign campaign) throws Exception
 	{
 		getSaver(campaign).saveFoeTypes((Map<String, FoeType>)filterMap(map, campaign));

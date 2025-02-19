@@ -30,11 +30,15 @@ import mclachlan.maze.game.MazeScript;
  */
 public class HiddenStuff extends TileScript
 {
-	private final int findDifficulty;
-	private final String mazeVariable;
-	private final MazeScript preScript;
-	private final MazeScript content;
-	
+	private int findDifficulty;
+	private String mazeVariable;
+	private MazeScript preScript;
+	private MazeScript content;
+
+	public HiddenStuff()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public HiddenStuff(
 		MazeScript content,
@@ -108,5 +112,71 @@ public class HiddenStuff extends TileScript
 	public int getFindDifficulty()
 	{
 		return findDifficulty;
+	}
+
+	public void setFindDifficulty(int findDifficulty)
+	{
+		this.findDifficulty = findDifficulty;
+	}
+
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setPreScript(MazeScript preScript)
+	{
+		this.preScript = preScript;
+	}
+
+	public void setContent(MazeScript content)
+	{
+		this.content = content;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		HiddenStuff that = (HiddenStuff)o;
+
+		if (getFindDifficulty() != that.getFindDifficulty())
+		{
+			return false;
+		}
+		if (getMazeVariable() != null ? !getMazeVariable().equals(that.getMazeVariable()) : that.getMazeVariable() != null)
+		{
+			return false;
+		}
+		if (getPreScript() != null ? !getPreScript().equals(that.getPreScript()) : that.getPreScript() != null)
+		{
+			return false;
+		}
+		return getContent() != null ? getContent().equals(that.getContent()) : that.getContent() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getFindDifficulty();
+		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
+		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
+		result = 31 * result + (getContent() != null ? getContent().hashCode() : 0);
+		return result;
 	}
 }

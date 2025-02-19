@@ -33,6 +33,10 @@ public class GrantExperienceEvent extends MazeEvent
 	private int amount;
 	private PlayerCharacter pc;
 
+	public GrantExperienceEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param amount
@@ -108,5 +112,51 @@ public class GrantExperienceEvent extends MazeEvent
 	public int getAmount()
 	{
 		return amount;
+	}
+
+	public void setAmount(int amount)
+	{
+		this.amount = amount;
+	}
+
+	public PlayerCharacter getPc()
+	{
+		return pc;
+	}
+
+	public void setPc(PlayerCharacter pc)
+	{
+		this.pc = pc;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		GrantExperienceEvent that = (GrantExperienceEvent)o;
+
+		if (getAmount() != that.getAmount())
+		{
+			return false;
+		}
+		return getPc() != null ? getPc().equals(that.getPc()) : that.getPc() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getAmount();
+		result = 31 * result + (getPc() != null ? getPc().hashCode() : 0);
+		return result;
 	}
 }

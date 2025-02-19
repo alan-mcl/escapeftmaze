@@ -131,56 +131,56 @@ public class V2Saver extends Saver
 	@Override
 	public void saveSpellEffects(Map<String, SpellEffect> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, SPELL_EFFECTS, new SimpleMapSilo<>(getSpellEffectSerialiser(db)));
 	}
 
 	@Override
 	public void saveLootEntries(Map<String, LootEntry> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, LOOT_ENTRIES, new SimpleMapSilo<>(getLootEntrySerialiser(db)));
 	}
 
 	@Override
 	public void saveLootTables(Map<String, LootTable> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, LOOT_TABLES, new SimpleMapSilo<>(getLootTableSerialiser(db)));
 	}
 
 	@Override
 	public void saveMazeScripts(Map<String, MazeScript> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, MAZE_SCRIPTS, new SimpleMapSilo<>(getMazeScriptSerialiser(db)));
 	}
 
 	@Override
 	public void saveSpells(Map<String, Spell> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, SPELLS, new SimpleMapSilo<>(getSpellsSerialiser(db)));
 	}
 
 	@Override
 	public void savePlayerSpellBooks(
 		Map<String, PlayerSpellBook> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, PLAYER_SPELL_BOOKS, new SimpleMapSilo<>(getPlayerSpellBooksSerialiser(db)));
 	}
 
 	@Override
 	public void saveMazeTextures(Map<String, MazeTexture> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, MAZE_TEXTURES, new SimpleMapSilo<>(getMazeTextureSerialiser()));
 	}
 
 	@Override
 	public void saveFoeTemplates(Map<String, FoeTemplate> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, FOE_TEMPLATES, new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));
 	}
 
 	@Override
 	public void saveTraps(Map<String, Trap> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, TRAPS, new SimpleMapSilo<>(getTrapSerialiser(db)));
 	}
 
 	@Override

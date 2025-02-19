@@ -29,7 +29,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class SpellBook
 {
-	private List<Spell> spells = new ArrayList<Spell>();
+	private List<Spell> spells = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	public SpellBook()
@@ -43,7 +43,7 @@ public class SpellBook
 
 		if (this.spells == null)
 		{
-			this.spells = new ArrayList<Spell>();
+			this.spells = new ArrayList<>();
 		}
 	}
 
@@ -52,11 +52,11 @@ public class SpellBook
 	{
 		if (sb.spells == null)
 		{
-			this.spells = new ArrayList<Spell>();
+			this.spells = new ArrayList<>();
 		}
 		else
 		{
-			this.spells = new ArrayList<Spell>(sb.spells);
+			this.spells = new ArrayList<>(sb.spells);
 		}
 	}
 
@@ -110,7 +110,7 @@ public class SpellBook
 	/*-------------------------------------------------------------------------*/
 	public List<Spell> getSpells(int level, String school)
 	{
-		List<Spell> result = new ArrayList<Spell>();
+		List<Spell> result = new ArrayList<>();
 		
 		for (Spell s : spells)
 		{
@@ -126,7 +126,7 @@ public class SpellBook
 	/*-------------------------------------------------------------------------*/
 	public List<Spell> getSpellsThatCanBeLearned(PlayerCharacter pc)
 	{
-		List<Spell> result = new ArrayList<Spell>();
+		List<Spell> result = new ArrayList<>();
 
 		for (MagicSys.SpellBook book : MagicSys.SpellBook.getAllBooks())
 		{
@@ -154,7 +154,7 @@ public class SpellBook
 	/*-------------------------------------------------------------------------*/
 	public List<Spell> getSpells(String school)
 	{
-		List<Spell> result = new ArrayList<Spell>();
+		List<Spell> result = new ArrayList<>();
 
 		for (Spell s : spells)
 		{
@@ -173,10 +173,40 @@ public class SpellBook
 		return Collections.unmodifiableList(spells);
 	}
 
+	public void setSpells(List<Spell> spells)
+	{
+		this.spells = spells;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public int size()
 	{
 		return this.spells.size();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SpellBook spellBook = (SpellBook)o;
+
+		return getSpells() != null ? getSpells().equals(spellBook.getSpells()) : spellBook.getSpells() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getSpells() != null ? getSpells().hashCode() : 0;
 	}
 
 	/*-------------------------------------------------------------------------*/

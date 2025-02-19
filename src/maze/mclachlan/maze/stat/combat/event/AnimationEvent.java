@@ -33,6 +33,10 @@ public class AnimationEvent extends MazeEvent
 	private Animation animation;
 	private AnimationContext animationContext;
 
+	public AnimationEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public AnimationEvent(Animation anim)
 	{
@@ -61,5 +65,46 @@ public class AnimationEvent extends MazeEvent
 	public void setAnimationContext(AnimationContext animationContext)
 	{
 		this.animationContext = animationContext;
+	}
+
+	public void setAnimation(Animation animation)
+	{
+		this.animation = animation;
+	}
+
+	public AnimationContext getAnimationContext()
+	{
+		return animationContext;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		AnimationEvent that = (AnimationEvent)o;
+
+		if (getAnimation() != null ? !getAnimation().equals(that.getAnimation()) : that.getAnimation() != null)
+		{
+			return false;
+		}
+		return getAnimationContext() != null ? getAnimationContext().equals(that.getAnimationContext()) : that.getAnimationContext() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getAnimation() != null ? getAnimation().hashCode() : 0;
+		result = 31 * result + (getAnimationContext() != null ? getAnimationContext().hashCode() : 0);
+		return result;
 	}
 }

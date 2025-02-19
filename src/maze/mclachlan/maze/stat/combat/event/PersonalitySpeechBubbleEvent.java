@@ -41,6 +41,10 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 	private boolean modal;
 	private SpeechBubble.Orientation orientation;
 
+	public PersonalitySpeechBubbleEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public PersonalitySpeechBubbleEvent(String speechKey, boolean modal)
 	{
@@ -239,5 +243,36 @@ public class PersonalitySpeechBubbleEvent extends MazeEvent
 		SpeechBubble.Orientation orientation)
 	{
 		this.orientation = orientation;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		PersonalitySpeechBubbleEvent that = (PersonalitySpeechBubbleEvent)o;
+
+		if (isModal() != that.isModal())
+		{
+			return false;
+		}
+		return getSpeechKey() != null ? getSpeechKey().equals(that.getSpeechKey()) : that.getSpeechKey() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getSpeechKey() != null ? getSpeechKey().hashCode() : 0;
+		result = 31 * result + (isModal() ? 1 : 0);
+		return result;
 	}
 }

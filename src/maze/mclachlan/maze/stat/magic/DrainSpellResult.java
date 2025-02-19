@@ -33,7 +33,11 @@ public class DrainSpellResult extends SpellResult
 	private ValueList drain;
 	private Stats.Modifier modifier;
 
-	/*-------------------------------------------------------------------------*/	
+	public DrainSpellResult()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public DrainSpellResult(ValueList drain, Stats.Modifier modifier)
 	{
 		this.drain = drain;
@@ -65,5 +69,51 @@ public class DrainSpellResult extends SpellResult
 	public Stats.Modifier getModifier()
 	{
 		return modifier;
+	}
+
+	public void setDrain(ValueList drain)
+	{
+		this.drain = drain;
+	}
+
+	public void setModifier(Stats.Modifier modifier)
+	{
+		this.modifier = modifier;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		DrainSpellResult that = (DrainSpellResult)o;
+
+		if (getDrain() != null ? !getDrain().equals(that.getDrain()) : that.getDrain() != null)
+		{
+			return false;
+		}
+		return getModifier() == that.getModifier();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getDrain() != null ? getDrain().hashCode() : 0);
+		result = 31 * result + (getModifier() != null ? getModifier().hashCode() : 0);
+		return result;
 	}
 }

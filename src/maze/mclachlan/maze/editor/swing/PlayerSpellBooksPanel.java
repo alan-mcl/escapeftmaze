@@ -168,7 +168,7 @@ public class PlayerSpellBooksPanel extends EditorPanel
 	public DataObject commit(String name)
 	{
 		PlayerSpellBook psb = Database.getInstance().getPlayerSpellBook(name);
-		psb.setSpellNames(new HashSet<String>(tableModel.spellNames));
+		psb.setSpellNames(new ArrayList<>(tableModel.spellNames));
 		psb.setDescription(description.getText());
 
 		return psb;

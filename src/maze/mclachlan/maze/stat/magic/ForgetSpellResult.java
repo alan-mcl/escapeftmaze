@@ -34,6 +34,10 @@ public class ForgetSpellResult extends SpellResult
 	/** The strength of the forget */
 	private ValueList strength;
 
+	public ForgetSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ForgetSpellResult(ValueList strength)
 	{
@@ -78,5 +82,36 @@ public class ForgetSpellResult extends SpellResult
 	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ForgetSpellResult that = (ForgetSpellResult)o;
+
+		return getStrength() != null ? getStrength().equals(that.getStrength()) : that.getStrength() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		return result;
 	}
 }

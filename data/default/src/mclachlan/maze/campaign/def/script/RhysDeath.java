@@ -16,7 +16,7 @@ public class RhysDeath extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		ArrayList<MazeEvent> result = new ArrayList<MazeEvent>();
+		ArrayList<MazeEvent> result = new ArrayList<>();
 
 		Npc kepnasha = NpcManager.getInstance().getNpc("Kepnasha Minion Of Usark");
 
@@ -25,4 +25,17 @@ public class RhysDeath extends MazeEvent
 
 		return result;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return getClass().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o != null && getClass() == o.getClass();
+	}
+
 }

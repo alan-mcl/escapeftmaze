@@ -29,7 +29,11 @@ import java.util.*;
  */
 public class GrantGoldEvent extends MazeEvent
 {
-	int amount;
+	private int amount;
+
+	public GrantGoldEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public GrantGoldEvent(int amount)
@@ -60,5 +64,33 @@ public class GrantGoldEvent extends MazeEvent
 	public int getAmount()
 	{
 		return amount;
+	}
+
+	public void setAmount(int amount)
+	{
+		this.amount = amount;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		GrantGoldEvent that = (GrantGoldEvent)o;
+
+		return getAmount() == that.getAmount();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getAmount();
 	}
 }

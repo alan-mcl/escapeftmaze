@@ -31,7 +31,11 @@ import mclachlan.maze.stat.combat.event.TheftSpellFailed;
  */
 public class TheftFailedSpellResult extends SpellResult
 {
-	ValueList value;
+	private ValueList value;
+
+	public TheftFailedSpellResult()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public TheftFailedSpellResult(ValueList value)
@@ -61,5 +65,41 @@ public class TheftFailedSpellResult extends SpellResult
 	public ValueList getValue()
 	{
 		return value;
+	}
+
+	public void setValue(ValueList value)
+	{
+		this.value = value;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		TheftFailedSpellResult that = (TheftFailedSpellResult)o;
+
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
 	}
 }

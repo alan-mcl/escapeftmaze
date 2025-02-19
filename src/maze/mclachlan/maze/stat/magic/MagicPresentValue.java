@@ -76,6 +76,11 @@ public class MagicPresentValue extends Value
 		return colour;
 	}
 
+	public void setColour(int colour)
+	{
+		this.colour = colour;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	@Override
 	public boolean equals(Object o)

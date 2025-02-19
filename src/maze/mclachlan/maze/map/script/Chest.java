@@ -46,14 +46,18 @@ import mclachlan.maze.ui.diygui.ChestOptionsCallback;
  */
 public class Chest extends TileScript implements SpellTarget, ChestOptionsCallback, LockOrTrap
 {
-	private final TileScript chestContents;
-	private final PercentageTable<Trap> traps;
-	private final String mazeVariable;
-	private final String northTexture, southTexture, eastTexture, westTexture;
+	private TileScript chestContents;
+	private PercentageTable<Trap> traps;
+	private String mazeVariable;
+	private String northTexture, southTexture, eastTexture, westTexture;
 	private MazeScript preScript;
 	
-	private final EngineObject engineObject;
+	private EngineObject engineObject;
 	private Trap currentTrap;
+
+	public Chest()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -229,7 +233,53 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	{
 		this.preScript = preScript;
 	}
-	
+
+	public void setChestContents(TileScript chestContents)
+	{
+		this.chestContents = chestContents;
+	}
+
+	public void setTraps(
+		PercentageTable<Trap> traps)
+	{
+		this.traps = traps;
+	}
+
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setNorthTexture(String northTexture)
+	{
+		this.northTexture = northTexture;
+	}
+
+	public void setSouthTexture(String southTexture)
+	{
+		this.southTexture = southTexture;
+	}
+
+	public void setEastTexture(String eastTexture)
+	{
+		this.eastTexture = eastTexture;
+	}
+
+	public void setWestTexture(String westTexture)
+	{
+		this.westTexture = westTexture;
+	}
+
+	public void setEngineObject(EngineObject engineObject)
+	{
+		this.engineObject = engineObject;
+	}
+
+	public void setCurrentTrap(Trap currentTrap)
+	{
+		this.currentTrap = currentTrap;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void setState(String chestState)
 	{
@@ -404,6 +454,82 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	public int getModifier(Stats.Modifier modifier)
 	{
 		return 0;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		Chest chest = (Chest)o;
+
+		if (getChestContents() != null ? !getChestContents().equals(chest.getChestContents()) : chest.getChestContents() != null)
+		{
+			return false;
+		}
+		if (getTraps() != null ? !getTraps().equals(chest.getTraps()) : chest.getTraps() != null)
+		{
+			return false;
+		}
+		if (getMazeVariable() != null ? !getMazeVariable().equals(chest.getMazeVariable()) : chest.getMazeVariable() != null)
+		{
+			return false;
+		}
+		if (getNorthTexture() != null ? !getNorthTexture().equals(chest.getNorthTexture()) : chest.getNorthTexture() != null)
+		{
+			return false;
+		}
+		if (getSouthTexture() != null ? !getSouthTexture().equals(chest.getSouthTexture()) : chest.getSouthTexture() != null)
+		{
+			return false;
+		}
+		if (getEastTexture() != null ? !getEastTexture().equals(chest.getEastTexture()) : chest.getEastTexture() != null)
+		{
+			return false;
+		}
+		if (getWestTexture() != null ? !getWestTexture().equals(chest.getWestTexture()) : chest.getWestTexture() != null)
+		{
+			return false;
+		}
+		if (getPreScript() != null ? !getPreScript().equals(chest.getPreScript()) : chest.getPreScript() != null)
+		{
+			return false;
+		}
+		if (getEngineObject() != null ? !getEngineObject().equals(chest.getEngineObject()) : chest.getEngineObject() != null)
+		{
+			return false;
+		}
+		return getCurrentTrap() != null ? getCurrentTrap().equals(chest.getCurrentTrap()) : chest.getCurrentTrap() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getChestContents() != null ? getChestContents().hashCode() : 0);
+		result = 31 * result + (getTraps() != null ? getTraps().hashCode() : 0);
+		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
+		result = 31 * result + (getNorthTexture() != null ? getNorthTexture().hashCode() : 0);
+		result = 31 * result + (getSouthTexture() != null ? getSouthTexture().hashCode() : 0);
+		result = 31 * result + (getEastTexture() != null ? getEastTexture().hashCode() : 0);
+		result = 31 * result + (getWestTexture() != null ? getWestTexture().hashCode() : 0);
+		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
+		result = 31 * result + (getEngineObject() != null ? getEngineObject().hashCode() : 0);
+		result = 31 * result + (getCurrentTrap() != null ? getCurrentTrap().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

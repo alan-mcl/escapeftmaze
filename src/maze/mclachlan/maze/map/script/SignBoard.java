@@ -30,7 +30,11 @@ import mclachlan.maze.map.TileScript;
  */
 public class SignBoard extends TileScript
 {
-	String text;
+	private String text;
+
+	public SignBoard()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public SignBoard(String text)
@@ -50,5 +54,41 @@ public class SignBoard extends TileScript
 	public String getText()
 	{
 		return text;
+	}
+
+	public void setText(String text)
+	{
+		this.text = text;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		SignBoard signBoard = (SignBoard)o;
+
+		return getText() != null ? getText().equals(signBoard.getText()) : signBoard.getText() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
+		return result;
 	}
 }

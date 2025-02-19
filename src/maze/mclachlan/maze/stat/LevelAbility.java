@@ -20,13 +20,13 @@
 package mclachlan.maze.stat;
 
 import java.util.*;
-import mclachlan.maze.data.v2.V2DataObject;
+import mclachlan.maze.data.v2.V2Seralisable;
 
 /**
  * Represents an ability gained at a certain level. Can compose stat modifiers,
  * a spell-like ability, or both.
  */
-public abstract class LevelAbility implements V2DataObject
+public abstract class LevelAbility implements V2Seralisable
 {
 	/**
 	 * Abilities with a given key are superseded by abilities with the same key
@@ -77,18 +77,6 @@ public abstract class LevelAbility implements V2DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public String getName()
-	{
-		return getDisplayName();
-	}
-
-	@Override
-	public void setName(String newName)
-	{
-		// no op
-	}
 
 	/**
 	 * @return

@@ -91,6 +91,10 @@ public class Spell extends DataObject
 	/** projectile spells use projectile rules instead of saving throws */
 	private boolean projectile;
 
+	public Spell()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Spell(
 		String name,
@@ -402,6 +406,133 @@ public class Spell extends DataObject
 		
 		int present = actor.getAmountMagicPresent(m.colour);
 		return present >= m.amount;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Spell spell = (Spell)o;
+
+		if (getTargetType() != spell.getTargetType())
+		{
+			return false;
+		}
+		if (getLevel() != spell.getLevel())
+		{
+			return false;
+		}
+		if (getUsabilityType() != spell.getUsabilityType())
+		{
+			return false;
+		}
+		if (isProjectile() != spell.isProjectile())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(spell.getName()) : spell.getName() != null)
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(spell.getDisplayName()) : spell.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getHitPointCost() != null ? !getHitPointCost().equals(spell.getHitPointCost()) : spell.getHitPointCost() != null)
+		{
+			return false;
+		}
+		if (getActionPointCost() != null ? !getActionPointCost().equals(spell.getActionPointCost()) : spell.getActionPointCost() != null)
+		{
+			return false;
+		}
+		if (getMagicPointCost() != null ? !getMagicPointCost().equals(spell.getMagicPointCost()) : spell.getMagicPointCost() != null)
+		{
+			return false;
+		}
+		if (getSchool() != null ? !getSchool().equals(spell.getSchool()) : spell.getSchool() != null)
+		{
+			return false;
+		}
+		if (getBook() != null ? !getBook().equals(spell.getBook()) : spell.getBook() != null)
+		{
+			return false;
+		}
+		if (getEffects() != null ? !getEffects().equals(spell.getEffects()) : spell.getEffects() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(spell.getDescription()) : spell.getDescription() != null)
+		{
+			return false;
+		}
+		if (getRequirementsToLearn() != null ? !getRequirementsToLearn().equals(spell.getRequirementsToLearn()) : spell.getRequirementsToLearn() != null)
+		{
+			return false;
+		}
+		if (getRequirementsToCast() != null ? !getRequirementsToCast().equals(spell.getRequirementsToCast()) : spell.getRequirementsToCast() != null)
+		{
+			return false;
+		}
+		if (getCastByPlayerScript() != null ? !getCastByPlayerScript().equals(spell.getCastByPlayerScript()) : spell.getCastByPlayerScript() != null)
+		{
+			return false;
+		}
+		if (getCastByFoeScript() != null ? !getCastByFoeScript().equals(spell.getCastByFoeScript()) : spell.getCastByFoeScript() != null)
+		{
+			return false;
+		}
+		if (getPrimaryModifier() != spell.getPrimaryModifier())
+		{
+			return false;
+		}
+		if (getSecondaryModifier() != spell.getSecondaryModifier())
+		{
+			return false;
+		}
+		if (getWildMagicValue() != null ? !getWildMagicValue().equals(spell.getWildMagicValue()) : spell.getWildMagicValue() != null)
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		return Arrays.equals(getWildMagicTable(), spell.getWildMagicTable());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDisplayName() != null ? getDisplayName().hashCode() : 0);
+		result = 31 * result + (getHitPointCost() != null ? getHitPointCost().hashCode() : 0);
+		result = 31 * result + (getActionPointCost() != null ? getActionPointCost().hashCode() : 0);
+		result = 31 * result + (getMagicPointCost() != null ? getMagicPointCost().hashCode() : 0);
+		result = 31 * result + getTargetType();
+		result = 31 * result + (getSchool() != null ? getSchool().hashCode() : 0);
+		result = 31 * result + (getBook() != null ? getBook().hashCode() : 0);
+		result = 31 * result + (getEffects() != null ? getEffects().hashCode() : 0);
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + getLevel();
+		result = 31 * result + (getRequirementsToLearn() != null ? getRequirementsToLearn().hashCode() : 0);
+		result = 31 * result + (getRequirementsToCast() != null ? getRequirementsToCast().hashCode() : 0);
+		result = 31 * result + (getCastByPlayerScript() != null ? getCastByPlayerScript().hashCode() : 0);
+		result = 31 * result + (getCastByFoeScript() != null ? getCastByFoeScript().hashCode() : 0);
+		result = 31 * result + getUsabilityType();
+		result = 31 * result + (getPrimaryModifier() != null ? getPrimaryModifier().hashCode() : 0);
+		result = 31 * result + (getSecondaryModifier() != null ? getSecondaryModifier().hashCode() : 0);
+		result = 31 * result + (getWildMagicValue() != null ? getWildMagicValue().hashCode() : 0);
+		result = 31 * result + Arrays.hashCode(getWildMagicTable());
+		result = 31 * result + (isProjectile() ? 1 : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

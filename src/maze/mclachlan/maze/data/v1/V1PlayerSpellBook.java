@@ -90,7 +90,7 @@ public class V1PlayerSpellBook
 		else
 		{
 			b.append("spellNames=");
-			b.append(V1Utils.stringList.toString(new ArrayList<String>(obj.getSpellNames())));
+			b.append(V1Utils.stringList.toString(new ArrayList<>(obj.getSpellNames())));
 			b.append(V1Utils.NEWLINE);
 		}
 
@@ -112,7 +112,7 @@ public class V1PlayerSpellBook
 		else
 		{
 
-			Collection<String> spellNames = V1Utils.stringList.fromString(p.getProperty("spellNames"));
+			List<String> spellNames = V1Utils.stringList.fromString(p.getProperty("spellNames"));
 			return new PlayerSpellBook(name, description, spellNames);
 		}
 	}

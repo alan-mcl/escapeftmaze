@@ -34,6 +34,10 @@ public class CharmSpellResult extends SpellResult
 {
 	private ValueList value;
 
+	public CharmSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public CharmSpellResult(ValueList value)
 	{
@@ -44,6 +48,11 @@ public class CharmSpellResult extends SpellResult
 	public ValueList getValue()
 	{
 		return value;
+	}
+
+	public void setValue(ValueList value)
+	{
+		this.value = value;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -72,5 +81,29 @@ public class CharmSpellResult extends SpellResult
 
 		// todo: double as a paralysis result when in combat?
 		return null;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		CharmSpellResult that = (CharmSpellResult)o;
+
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getValue() != null ? getValue().hashCode() : 0;
 	}
 }

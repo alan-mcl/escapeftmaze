@@ -33,11 +33,15 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class Encounter extends TileScript
 {
-	private final EncounterTable encounterTable;
-	private final String mazeVariable;
-	private final NpcFaction.Attitude attitude;
-	private final String preScript, postAppearanceScript;
+	private EncounterTable encounterTable;
+	private String mazeVariable;
+	private NpcFaction.Attitude attitude;
+	private String preScript, postAppearanceScript;
 	private Combat.AmbushStatus ambushStatus;
+
+	public Encounter()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -162,5 +166,92 @@ public class Encounter extends TileScript
 	public String getPostAppearanceScript()
 	{
 		return postAppearanceScript;
+	}
+
+	public void setEncounterTable(EncounterTable encounterTable)
+	{
+		this.encounterTable = encounterTable;
+	}
+
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setAttitude(NpcFaction.Attitude attitude)
+	{
+		this.attitude = attitude;
+	}
+
+	public void setPreScript(String preScript)
+	{
+		this.preScript = preScript;
+	}
+
+	public void setPostAppearanceScript(String postAppearanceScript)
+	{
+		this.postAppearanceScript = postAppearanceScript;
+	}
+
+	public void setAmbushStatus(
+		Combat.AmbushStatus ambushStatus)
+	{
+		this.ambushStatus = ambushStatus;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		Encounter encounter = (Encounter)o;
+
+		if (getEncounterTable() != null ? !getEncounterTable().equals(encounter.getEncounterTable()) : encounter.getEncounterTable() != null)
+		{
+			return false;
+		}
+		if (getMazeVariable() != null ? !getMazeVariable().equals(encounter.getMazeVariable()) : encounter.getMazeVariable() != null)
+		{
+			return false;
+		}
+		if (getAttitude() != encounter.getAttitude())
+		{
+			return false;
+		}
+		if (getPreScript() != null ? !getPreScript().equals(encounter.getPreScript()) : encounter.getPreScript() != null)
+		{
+			return false;
+		}
+		if (getPostAppearanceScript() != null ? !getPostAppearanceScript().equals(encounter.getPostAppearanceScript()) : encounter.getPostAppearanceScript() != null)
+		{
+			return false;
+		}
+		return getAmbushStatus() == encounter.getAmbushStatus();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getEncounterTable() != null ? getEncounterTable().hashCode() : 0);
+		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
+		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
+		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
+		result = 31 * result + (getPostAppearanceScript() != null ? getPostAppearanceScript().hashCode() : 0);
+		result = 31 * result + (getAmbushStatus() != null ? getAmbushStatus().hashCode() : 0);
+		return result;
 	}
 }

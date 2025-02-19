@@ -212,7 +212,7 @@ public class V1SpellResult
 				s.append(SEP);
 				s.append(dsr.getMultiplier());
 				s.append(SEP);
-				s.append(dsr.transferToCaster());
+				s.append(dsr.isTransferToCaster());
 				break;
 			case HEALING:
 				s.append(V1Value.toString(((HealingSpellResult)sr).getHitPointHealing()));
@@ -227,7 +227,7 @@ public class V1SpellResult
 				IdentifySpellResult isr = (IdentifySpellResult)sr;
 				s.append(V1Value.toString(isr.getValue()));
 				s.append(SEP);
-				s.append(isr.revealCurses());
+				s.append(isr.isRevealCurses());
 				break;
 			case MIND_READ:
 				s.append(V1Value.toString(((MindReadSpellResult)sr).getValue()));

@@ -19,7 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
-import java.util.Collection;
+import java.util.*;
 import mclachlan.maze.data.v1.DataObject;
 
 /**
@@ -29,10 +29,14 @@ public class PlayerSpellBook extends DataObject
 {
 	private String name;
 	private String description;
-	private Collection<String> spellNames;
+	private List<String> spellNames;
+
+	public PlayerSpellBook()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
-	public PlayerSpellBook(String name, String description, Collection<String> spellNames)
+	public PlayerSpellBook(String name, String description, List<String> spellNames)
 	{
 		this.name = name;
 		this.spellNames = spellNames;
@@ -60,12 +64,12 @@ public class PlayerSpellBook extends DataObject
 		this.description = description;
 	}
 
-	public Collection<String> getSpellNames()
+	public List<String> getSpellNames()
 	{
 		return spellNames;
 	}
 
-	public void setSpellNames(Collection<String> spellNames)
+	public void setSpellNames(List<String> spellNames)
 	{
 		this.spellNames = spellNames;
 	}
@@ -74,5 +78,41 @@ public class PlayerSpellBook extends DataObject
 	public void addSpell(String spellName)
 	{
 		this.spellNames.add(spellName);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		PlayerSpellBook that = (PlayerSpellBook)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		return getSpellNames() != null ? getSpellNames().equals(that.getSpellNames()) : that.getSpellNames() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getSpellNames() != null ? getSpellNames().hashCode() : 0);
+		return result;
 	}
 }

@@ -19,13 +19,13 @@
 
 package mclachlan.maze.stat.condition;
 
-import mclachlan.maze.data.v2.V2DataObject;
+import mclachlan.maze.data.v2.V2Seralisable;
 
 /**
  * Represents spell effects that are repeatedly applied to the bearer of
  * this condition.
  */
-public class RepeatedSpellEffect implements V2DataObject
+public class RepeatedSpellEffect implements V2Seralisable
 {
 	/** turn this effect starts */
 	private int startTurn;
@@ -113,18 +113,6 @@ public class RepeatedSpellEffect implements V2DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	@Override
-	public String getName()
-	{
-		return null;
-	}
-
-	@Override
-	public void setName(String newName)
-	{
-
-	}
-
 	@Override
 	public boolean equals(Object o)
 	{

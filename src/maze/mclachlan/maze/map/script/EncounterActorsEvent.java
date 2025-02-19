@@ -37,14 +37,18 @@ import mclachlan.maze.stat.npc.NpcFaction;
  */
 public class EncounterActorsEvent extends MazeEvent
 {
-	private final String mazeVariable;
-	private final String encounterTable;
-	private final NpcFaction.Attitude attitude;
+	private String mazeVariable;
+	private String encounterTable;
+	private NpcFaction.Attitude attitude;
 	private Combat.AmbushStatus ambushStatus;
-	private final String preScript, postAppearanceScript;
+	private String preScript, postAppearanceScript;
 
 	// volatile
 	private EncounterTable encounterTableRef;
+
+	public EncounterActorsEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public EncounterActorsEvent(
@@ -163,5 +167,87 @@ public class EncounterActorsEvent extends MazeEvent
 	public String getPostAppearanceScript()
 	{
 		return postAppearanceScript;
+	}
+
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setEncounterTable(String encounterTable)
+	{
+		this.encounterTable = encounterTable;
+	}
+
+	public void setAttitude(NpcFaction.Attitude attitude)
+	{
+		this.attitude = attitude;
+	}
+
+	public void setAmbushStatus(
+		Combat.AmbushStatus ambushStatus)
+	{
+		this.ambushStatus = ambushStatus;
+	}
+
+	public void setPreScript(String preScript)
+	{
+		this.preScript = preScript;
+	}
+
+	public void setPostAppearanceScript(String postAppearanceScript)
+	{
+		this.postAppearanceScript = postAppearanceScript;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		EncounterActorsEvent that = (EncounterActorsEvent)o;
+
+		if (getMazeVariable() != null ? !getMazeVariable().equals(that.getMazeVariable()) : that.getMazeVariable() != null)
+		{
+			return false;
+		}
+		if (getEncounterTable() != null ? !getEncounterTable().equals(that.getEncounterTable()) : that.getEncounterTable() != null)
+		{
+			return false;
+		}
+		if (getAttitude() != that.getAttitude())
+		{
+			return false;
+		}
+		if (getAmbushStatus() != that.getAmbushStatus())
+		{
+			return false;
+		}
+		if (getPreScript() != null ? !getPreScript().equals(that.getPreScript()) : that.getPreScript() != null)
+		{
+			return false;
+		}
+		return getPostAppearanceScript() != null ? getPostAppearanceScript().equals(that.getPostAppearanceScript()) : that.getPostAppearanceScript() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getMazeVariable() != null ? getMazeVariable().hashCode() : 0;
+		result = 31 * result + (getEncounterTable() != null ? getEncounterTable().hashCode() : 0);
+		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
+		result = 31 * result + (getAmbushStatus() != null ? getAmbushStatus().hashCode() : 0);
+		result = 31 * result + (getPreScript() != null ? getPreScript().hashCode() : 0);
+		result = 31 * result + (getPostAppearanceScript() != null ? getPostAppearanceScript().hashCode() : 0);
+		return result;
 	}
 }

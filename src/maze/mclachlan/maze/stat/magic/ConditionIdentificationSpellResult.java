@@ -33,6 +33,10 @@ public class ConditionIdentificationSpellResult extends SpellResult
 	private ValueList strength;
 	private boolean canIdentifyConditionStrength;
 
+	public ConditionIdentificationSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ConditionIdentificationSpellResult(ValueList strength,
 		boolean canIdentifyConditionStrength)
@@ -84,5 +88,41 @@ public class ConditionIdentificationSpellResult extends SpellResult
 		boolean canIdentifyConditionStrength)
 	{
 		this.canIdentifyConditionStrength = canIdentifyConditionStrength;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ConditionIdentificationSpellResult that = (ConditionIdentificationSpellResult)o;
+
+		if (isCanIdentifyConditionStrength() != that.isCanIdentifyConditionStrength())
+		{
+			return false;
+		}
+		return getStrength() != null ? getStrength().equals(that.getStrength()) : that.getStrength() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		result = 31 * result + (isCanIdentifyConditionStrength() ? 1 : 0);
+		return result;
 	}
 }

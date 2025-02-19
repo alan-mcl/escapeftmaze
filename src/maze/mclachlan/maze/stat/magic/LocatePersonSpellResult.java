@@ -33,7 +33,11 @@ import mclachlan.maze.ui.diygui.TextDialogCallback;
  */
 public class LocatePersonSpellResult extends SpellResult
 {
-	private final ValueList value;
+	private ValueList value;
+
+	public LocatePersonSpellResult()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public LocatePersonSpellResult(ValueList value)
@@ -45,6 +49,11 @@ public class LocatePersonSpellResult extends SpellResult
 	public ValueList getValue()
 	{
 		return value;
+	}
+
+	public void setValue(ValueList value)
+	{
+		this.value = value;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -69,6 +78,37 @@ public class LocatePersonSpellResult extends SpellResult
 			public void textEntryCancelled() { }
 		}));
 
-		return new ArrayList<MazeEvent>();
+		return new ArrayList<>();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		LocatePersonSpellResult that = (LocatePersonSpellResult)o;
+
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
 	}
 }

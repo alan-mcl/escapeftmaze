@@ -39,13 +39,13 @@ public class GroupOfPossibilities<T>
 	 */
 	public GroupOfPossibilities()
 	{
-		this(new ArrayList<T>(), new ArrayList<Integer>());
+		this(new ArrayList<T>(), new ArrayList<>());
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public GroupOfPossibilities(GroupOfPossibilities<T> other)
 	{
-		this(new ArrayList<T>(other.possibilities), new ArrayList<Integer>(other.percentages));
+		this(new ArrayList<T>(other.possibilities), new ArrayList<>(other.percentages));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -88,7 +88,7 @@ public class GroupOfPossibilities<T>
 	 */
 	public List<T> getRandom()
 	{
-		List<T> result = new ArrayList<T>();
+		List<T> result = new ArrayList<>();
 
 		for (int i=0; i< possibilities.size(); i++)
 		{
@@ -109,7 +109,7 @@ public class GroupOfPossibilities<T>
 	 */
 	public List<T> getRandom(int maxNr)
 	{
-		List<T> result = new ArrayList<T>();
+		List<T> result = new ArrayList<>();
 
 		for (int i=0; i< possibilities.size(); i++)
 		{
@@ -163,5 +163,36 @@ public class GroupOfPossibilities<T>
 			this.percentages.addAll(other.getPercentages());
 			this.possibilities.addAll(other.getPossibilities());
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		GroupOfPossibilities<?> that = (GroupOfPossibilities<?>)o;
+
+		if (getPossibilities() != null ? !getPossibilities().equals(that.getPossibilities()) : that.getPossibilities() != null)
+		{
+			return false;
+		}
+		return getPercentages() != null ? getPercentages().equals(that.getPercentages()) : that.getPercentages() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getPossibilities() != null ? getPossibilities().hashCode() : 0;
+		result = 31 * result + (getPercentages() != null ? getPercentages().hashCode() : 0);
+		return result;
 	}
 }

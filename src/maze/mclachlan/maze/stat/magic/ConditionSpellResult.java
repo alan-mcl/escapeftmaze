@@ -35,7 +35,11 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
  */
 public class ConditionSpellResult extends SpellResult
 {
-	private final ConditionTemplate conditionTemplate;
+	private ConditionTemplate conditionTemplate;
+
+	public ConditionSpellResult()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public ConditionSpellResult(ConditionTemplate conditionTemplate)
@@ -83,5 +87,42 @@ public class ConditionSpellResult extends SpellResult
 	public ConditionTemplate getConditionTemplate()
 	{
 		return conditionTemplate;
+	}
+
+	public void setConditionTemplate(
+		ConditionTemplate conditionTemplate)
+	{
+		this.conditionTemplate = conditionTemplate;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ConditionSpellResult that = (ConditionSpellResult)o;
+
+		return getConditionTemplate() != null ? getConditionTemplate().equals(that.getConditionTemplate()) : that.getConditionTemplate() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getConditionTemplate() != null ? getConditionTemplate().hashCode() : 0);
+		return result;
 	}
 }

@@ -185,6 +185,16 @@ public class Texture implements Comparable<Texture>
 		this.tint = tint;
 	}
 
+	public void setNrFrames(int nrFrames)
+	{
+		this.nrFrames = nrFrames;
+	}
+
+	public void setAnimationDelay(int animationDelay)
+	{
+		this.animationDelay = animationDelay;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void applyTint(Color tint)
 	{

@@ -25,7 +25,7 @@ import mclachlan.maze.data.Database;
 /**
  *
  */
-public class ReflectiveSerialiser<E extends V2DataObject> implements V2SerialiserMap<E>
+public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 {
 	private final Class<E> clazz;
 	private final List<String> fields;
@@ -45,6 +45,11 @@ public class ReflectiveSerialiser<E extends V2DataObject> implements V2Serialise
 	@Override
 	public Map toObject(E e, Database db)
 	{
+		if (e == null)
+		{
+			return null;
+		}
+
 		try
 		{
 			Map<String, Object> result = new HashMap<>();
@@ -104,21 +109,14 @@ public class ReflectiveSerialiser<E extends V2DataObject> implements V2Serialise
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private V2SerialiserObject<?> getCustomSerialiser(String field, Class fieldType)
-	{
-		// prefer specific field custom serialisers, fall back to custom type
-		V2SerialiserObject<?> customSerialiser = customSerialisersByField.get(field);
-		if (customSerialiser == null)
-		{
-			customSerialiser = customSerialisersByType.get(fieldType);
-		}
-		return customSerialiser;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	@Override
 	public E fromObject(Object obj, Database db)
 	{
+		if (obj == null)
+		{
+			return null;
+		}
+
 		try
 		{
 			Map<String, ?> map = (Map<String, ?>)obj;
@@ -250,4 +248,30 @@ public class ReflectiveSerialiser<E extends V2DataObject> implements V2Serialise
 		this.customSerialisersByField.put(param, serialiser);
 	}
 
+	/*-------------------------------------------------------------------------*/
+	private V2SerialiserObject<?> getCustomSerialiser(String field, Class fieldType)
+	{
+		// prefer specific field custom serialisers, fall back to custom type
+		V2SerialiserObject<?> customSerialiser = customSerialisersByField.get(field);
+		if (customSerialiser == null)
+		{
+			if (customSerialisersByType.containsKey(fieldType))
+			{
+				customSerialiser = customSerialisersByType.get(fieldType);
+			}
+			else
+			{
+				// check for superclasses
+				for (Class clazz : customSerialisersByType.keySet())
+				{
+					if (clazz.isAssignableFrom(fieldType))
+					{
+						customSerialiser = customSerialisersByType.get(clazz);
+						break;
+					}
+				}
+			}
+		}
+		return customSerialiser;
+	}
 }

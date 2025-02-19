@@ -3,8 +3,8 @@ package mclachlan.maze.data.v2.serialisers;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v2.ReflectiveSerialiser;
-import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.data.v2.V2Exception;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.data.v2.V2SerialiserMap;
 import mclachlan.maze.util.MazeException;
 
@@ -29,6 +29,11 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 	@Override
 	public Map toObject(T t, Database db)
 	{
+		if (t == null)
+		{
+			return null;
+		}
+
 		String typeKey = t.getClass().getName();
 		if (serialisers.containsKey(typeKey))
 		{
@@ -39,7 +44,7 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 		else
 		{
 			ReflectiveSerialiser serialiser = new ReflectiveSerialiser(t.getClass(), defaultFields);
-			Map result = serialiser.toObject((V2DataObject)t, db);
+			Map result = serialiser.toObject((V2Seralisable)t, db);
 			result.put(IMPL, typeKey);
 			return result;
 		}
@@ -48,6 +53,11 @@ public class MazeObjectImplSerialiser<T> implements V2SerialiserMap<T>
 	@Override
 	public T fromObject(Object obj, Database db)
 	{
+		if (obj == null)
+		{
+			return null;
+		}
+
 		Map<String, ?> map = (Map<String, ?>)obj;
 
 		if (map.containsKey(IMPL))

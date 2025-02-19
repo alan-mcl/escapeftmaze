@@ -21,6 +21,7 @@ package mclachlan.maze.stat.magic;
 
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.Gender;
 import mclachlan.maze.stat.Race;
@@ -75,7 +76,7 @@ public class MagicSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static class SpellBook
+	public static class SpellBook implements V2DataObject
 	{
 		private final String name;
 		private final String displayNameKey;
@@ -147,6 +148,12 @@ public class MagicSys
 		public String getName()
 		{
 			return name;
+		}
+
+		@Override
+		public void setName(String newName)
+		{
+
 		}
 
 		/*-------------------------------------------------------------------------*/

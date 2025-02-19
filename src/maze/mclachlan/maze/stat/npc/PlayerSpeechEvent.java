@@ -76,7 +76,7 @@ public class PlayerSpeechEvent extends MazeEvent
 				2000,
 				pc.getPersonality().getColour()));
 
-			result.add(new DelayEvent());
+			result.add(new DelayEvent(Maze.getInstance().getUserConfig().getCombatDelay()));
 
 			result.addAll(npc.getActionScript().parsePartySpeech(pc, speech));
 

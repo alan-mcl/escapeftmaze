@@ -32,6 +32,10 @@ public class RemoveObjectEvent extends MazeEvent
 	private String objectName;
 	private EngineObject engineObject;
 
+	public RemoveObjectEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public RemoveObjectEvent(String objectName)
 	{
@@ -64,5 +68,41 @@ public class RemoveObjectEvent extends MazeEvent
 	public String getObjectName()
 	{
 		return objectName;
+	}
+
+	public void setObjectName(String objectName)
+	{
+		this.objectName = objectName;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		RemoveObjectEvent that = (RemoveObjectEvent)o;
+
+		if (getObjectName() != null ? !getObjectName().equals(that.getObjectName()) : that.getObjectName() != null)
+		{
+			return false;
+		}
+		return engineObject != null ? engineObject.equals(that.engineObject) : that.engineObject == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getObjectName() != null ? getObjectName().hashCode() : 0;
+		result = 31 * result + (engineObject != null ? engineObject.hashCode() : 0);
+		return result;
 	}
 }

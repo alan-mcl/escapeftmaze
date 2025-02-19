@@ -30,7 +30,11 @@ import mclachlan.maze.map.TileScript;
  */
 public class FlavourText extends TileScript
 {
-	private final String text;
+	private String text;
+
+	public FlavourText()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourText(String text)
@@ -41,7 +45,7 @@ public class FlavourText extends TileScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 		result.add(new FlavourTextEvent(text, MazeEvent.Delay.WAIT_ON_CLICK, true));
 		return result;
 	}
@@ -50,5 +54,41 @@ public class FlavourText extends TileScript
 	public String getText()
 	{
 		return text;
+	}
+
+	public void setText(String text)
+	{
+		this.text = text;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		FlavourText that = (FlavourText)o;
+
+		return getText() != null ? getText().equals(that.getText()) : that.getText() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
+		return result;
 	}
 }

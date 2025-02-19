@@ -35,6 +35,10 @@ public class PurifyAirSpellResult extends SpellResult
 	/** The strength of the purification */
 	private ValueList strength;
 
+	public PurifyAirSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public PurifyAirSpellResult(ValueList strength)
 	{
@@ -93,5 +97,36 @@ public class PurifyAirSpellResult extends SpellResult
 	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		PurifyAirSpellResult that = (PurifyAirSpellResult)o;
+
+		return getStrength() != null ? getStrength().equals(that.getStrength()) : that.getStrength() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		return result;
 	}
 }

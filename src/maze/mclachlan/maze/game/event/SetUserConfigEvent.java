@@ -31,6 +31,10 @@ public class SetUserConfigEvent extends MazeEvent
 {
 	private transient String var, value;
 
+	public SetUserConfigEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public SetUserConfigEvent(String var, String value)
 	{
@@ -59,5 +63,46 @@ public class SetUserConfigEvent extends MazeEvent
 	public String getValue()
 	{
 		return value;
+	}
+
+	public void setVar(String var)
+	{
+		this.var = var;
+	}
+
+	public void setValue(String value)
+	{
+		this.value = value;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SetUserConfigEvent that = (SetUserConfigEvent)o;
+
+		if (getVar() != null ? !getVar().equals(that.getVar()) : that.getVar() != null)
+		{
+			return false;
+		}
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getVar() != null ? getVar().hashCode() : 0;
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
 	}
 }

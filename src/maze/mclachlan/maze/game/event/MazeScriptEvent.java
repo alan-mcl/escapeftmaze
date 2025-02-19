@@ -30,8 +30,12 @@ import java.util.*;
  */
 public class MazeScriptEvent extends MazeEvent
 {
-	String script;
-	
+	private String script;
+
+	public MazeScriptEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param script
@@ -59,5 +63,30 @@ public class MazeScriptEvent extends MazeEvent
 	public void setScript(String script)
 	{
 		this.script = script;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		MazeScriptEvent that = (MazeScriptEvent)o;
+
+		return getScript() != null ? getScript().equals(that.getScript()) : that.getScript() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getScript() != null ? getScript().hashCode() : 0;
 	}
 }

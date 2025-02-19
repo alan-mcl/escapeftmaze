@@ -42,6 +42,10 @@ public class ConditionTransferSpellResult extends SpellResult
 	 */
 	private boolean deliver;
 
+	public ConditionTransferSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ConditionTransferSpellResult(List<ConditionEffect> effects,
 		boolean deliver)
@@ -130,5 +134,41 @@ public class ConditionTransferSpellResult extends SpellResult
 	public void setDeliver(boolean deliver)
 	{
 		this.deliver = deliver;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ConditionTransferSpellResult that = (ConditionTransferSpellResult)o;
+
+		if (isDeliver() != that.isDeliver())
+		{
+			return false;
+		}
+		return getEffects() != null ? getEffects().equals(that.getEffects()) : that.getEffects() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getEffects() != null ? getEffects().hashCode() : 0);
+		result = 31 * result + (isDeliver() ? 1 : 0);
+		return result;
 	}
 }

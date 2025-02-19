@@ -35,7 +35,11 @@ public class ConditionRemovalSpellResult extends SpellResult
 {
 	private List<ConditionEffect> effects;
 	private ValueList strength;
-	
+
+	public ConditionRemovalSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ConditionRemovalSpellResult(List<ConditionEffect> effects, ValueList strength)
 	{
@@ -99,5 +103,41 @@ public class ConditionRemovalSpellResult extends SpellResult
 	public void setStrength(ValueList strength)
 	{
 		this.strength = strength;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		ConditionRemovalSpellResult that = (ConditionRemovalSpellResult)o;
+
+		if (getEffects() != null ? !getEffects().equals(that.getEffects()) : that.getEffects() != null)
+		{
+			return false;
+		}
+		return getStrength() != null ? getStrength().equals(that.getStrength()) : that.getStrength() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getEffects() != null ? getEffects().hashCode() : 0);
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		return result;
 	}
 }

@@ -30,9 +30,13 @@ import mclachlan.maze.ui.diygui.FlavourTextDialog;
  */
 public class FlavourTextEvent extends MazeEvent
 {
-	private final String flavourText;
-	private final int delay;
-	private final boolean shouldClearText;
+	private String flavourText;
+	private int delay;
+	private boolean shouldClearText;
+
+	public FlavourTextEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextEvent(String flavourText)
@@ -75,5 +79,59 @@ public class FlavourTextEvent extends MazeEvent
 	public boolean shouldClearText()
 	{
 		return shouldClearText;
+	}
+
+	public void setFlavourText(String flavourText)
+	{
+		this.flavourText = flavourText;
+	}
+
+	public void setDelay(int delay)
+	{
+		this.delay = delay;
+	}
+
+	public boolean isShouldClearText()
+	{
+		return shouldClearText;
+	}
+
+	public void setShouldClearText(boolean shouldClearText)
+	{
+		this.shouldClearText = shouldClearText;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		FlavourTextEvent that = (FlavourTextEvent)o;
+
+		if (getDelay() != that.getDelay())
+		{
+			return false;
+		}
+		if (isShouldClearText() != that.isShouldClearText())
+		{
+			return false;
+		}
+		return getFlavourText() != null ? getFlavourText().equals(that.getFlavourText()) : that.getFlavourText() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getFlavourText() != null ? getFlavourText().hashCode() : 0;
+		result = 31 * result + getDelay();
+		result = 31 * result + (isShouldClearText() ? 1 : 0);
+		return result;
 	}
 }

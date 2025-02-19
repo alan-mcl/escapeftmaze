@@ -28,8 +28,12 @@ import java.awt.*;
  */
 public class MovePartyEvent extends MazeEvent
 {
-	private final Point pos;
-	private final int facing;
+	private Point pos;
+	private int facing;
+
+	public MovePartyEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public MovePartyEvent(Point pos, int facing)
@@ -60,5 +64,46 @@ public class MovePartyEvent extends MazeEvent
 	public Point getPos()
 	{
 		return pos;
+	}
+
+	public void setPos(Point pos)
+	{
+		this.pos = pos;
+	}
+
+	public void setFacing(int facing)
+	{
+		this.facing = facing;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		MovePartyEvent that = (MovePartyEvent)o;
+
+		if (getFacing() != that.getFacing())
+		{
+			return false;
+		}
+		return getPos() != null ? getPos().equals(that.getPos()) : that.getPos() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getPos() != null ? getPos().hashCode() : 0;
+		result = 31 * result + getFacing();
+		return result;
 	}
 }

@@ -36,12 +36,14 @@ public class DamageSpellResult extends SpellResult
 	private ValueList fatigueDamage;
 	private ValueList actionPointDamage;
 	private ValueList magicPointDamage;
-	
 	private double multiplier;
-
 	private boolean transferToCaster;
 
-	/*-------------------------------------------------------------------------*/	
+	public DamageSpellResult()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public DamageSpellResult(
 		ValueList hitPointDamage,
 		ValueList fatigueDamage,
@@ -187,8 +189,92 @@ public class DamageSpellResult extends SpellResult
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean transferToCaster()
+	public boolean isTransferToCaster()
 	{
 		return transferToCaster;
+	}
+
+	public void setHitPointDamage(ValueList hitPointDamage)
+	{
+		this.hitPointDamage = hitPointDamage;
+	}
+
+	public void setFatigueDamage(ValueList fatigueDamage)
+	{
+		this.fatigueDamage = fatigueDamage;
+	}
+
+	public void setActionPointDamage(ValueList actionPointDamage)
+	{
+		this.actionPointDamage = actionPointDamage;
+	}
+
+	public void setMagicPointDamage(ValueList magicPointDamage)
+	{
+		this.magicPointDamage = magicPointDamage;
+	}
+
+	public void setMultiplier(double multiplier)
+	{
+		this.multiplier = multiplier;
+	}
+
+	public void setTransferToCaster(boolean transferToCaster)
+	{
+		this.transferToCaster = transferToCaster;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		DamageSpellResult that = (DamageSpellResult)o;
+
+		if (Double.compare(that.getMultiplier(), getMultiplier()) != 0)
+		{
+			return false;
+		}
+		if (transferToCaster != that.transferToCaster)
+		{
+			return false;
+		}
+		if (getHitPointDamage() != null ? !getHitPointDamage().equals(that.getHitPointDamage()) : that.getHitPointDamage() != null)
+		{
+			return false;
+		}
+		if (getFatigueDamage() != null ? !getFatigueDamage().equals(that.getFatigueDamage()) : that.getFatigueDamage() != null)
+		{
+			return false;
+		}
+		if (getActionPointDamage() != null ? !getActionPointDamage().equals(that.getActionPointDamage()) : that.getActionPointDamage() != null)
+		{
+			return false;
+		}
+		return getMagicPointDamage() != null ? getMagicPointDamage().equals(that.getMagicPointDamage()) : that.getMagicPointDamage() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result;
+		long temp;
+		result = getHitPointDamage() != null ? getHitPointDamage().hashCode() : 0;
+		result = 31 * result + (getFatigueDamage() != null ? getFatigueDamage().hashCode() : 0);
+		result = 31 * result + (getActionPointDamage() != null ? getActionPointDamage().hashCode() : 0);
+		result = 31 * result + (getMagicPointDamage() != null ? getMagicPointDamage().hashCode() : 0);
+		temp = Double.doubleToLongBits(getMultiplier());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		result = 31 * result + (transferToCaster ? 1 : 0);
+		return result;
 	}
 }

@@ -38,6 +38,11 @@ public class UnlockSpellResult extends SpellResult
 {
 	private ValueList value;
 
+	public UnlockSpellResult()
+	{
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public UnlockSpellResult(ValueList value)
 	{
 		this.value = value;
@@ -48,6 +53,12 @@ public class UnlockSpellResult extends SpellResult
 		return value;
 	}
 
+	public void setValue(ValueList value)
+	{
+		this.value = value;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public List<MazeEvent> apply(
 		UnifiedActor caster,
@@ -154,20 +165,43 @@ public class UnlockSpellResult extends SpellResult
 
 		switch (disarmResult)
 		{
-			case Trap.DisarmResult.NOTHING:
-				result.add(new NoEffectEvent());
-				break;
-			case Trap.DisarmResult.DISARMED:
-				result.add(new SuccessEvent());
-				break;
-			case Trap.DisarmResult.SPRING_TRAP:
-				result.add(new FailureEvent());
-				break;
-			default:
-				throw new MazeException("Invalid result: "+disarmResult);
+			case Trap.DisarmResult.NOTHING -> result.add(new NoEffectEvent());
+			case Trap.DisarmResult.DISARMED -> result.add(new SuccessEvent());
+			case Trap.DisarmResult.SPRING_TRAP -> result.add(new FailureEvent());
+			default -> throw new MazeException("Invalid result: " + disarmResult);
 		}
 
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		UnlockSpellResult that = (UnlockSpellResult)o;
+
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
+	}
 }

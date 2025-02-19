@@ -31,7 +31,11 @@ public class BlockingScreenEvent extends MazeEvent
 {
 	private String imageResource;
 	private int mode;
-	
+
+	public BlockingScreenEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public BlockingScreenEvent(String imageResource, int mode)
 	{
@@ -73,5 +77,46 @@ public class BlockingScreenEvent extends MazeEvent
 	public int getMode()
 	{
 		return mode;
+	}
+
+	public void setImageResource(String imageResource)
+	{
+		this.imageResource = imageResource;
+	}
+
+	public void setMode(int mode)
+	{
+		this.mode = mode;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		BlockingScreenEvent that = (BlockingScreenEvent)o;
+
+		if (getMode() != that.getMode())
+		{
+			return false;
+		}
+		return getImageResource() != null ? getImageResource().equals(that.getImageResource()) : that.getImageResource() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getImageResource() != null ? getImageResource().hashCode() : 0;
+		result = 31 * result + getMode();
+		return result;
 	}
 }

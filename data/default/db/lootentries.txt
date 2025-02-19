@@ -191,10 +191,10 @@ name=batch.1.mundane.armour
 contains=0,Kabuto/1d1:4,Chamois Gloves/1d1:4,Iron Helm/1d1:4,Mitre/1d1:4,Silk Shirt/1d1:4,Quilt Leggings/1d1:4,Quilt Tunic/1d1:4,Fur Leggings/1d1:4,Fur Tunic/1d1:4,Leather Gloves/1d1:4,Leather Helm/1d1:4,Buskins/1d1:4,Tartan Kilt/1d1:4,Tabi Boots/1d1:3,Suede Doublet/1d1:3,Feathered Hat/1d1:3,Tartan Trews/1d1:3,Buckler Shield/1d1:3,Suede Pants/1d1:3,Ninja Cowl/1d1:3,Hachimaki/1d1:3,Skullcap/1d1:3,Sandals/1d1:3,Chamois Skirt/1d1:3,Fur Halter/1d1:3,Robes (L)/1d1:3,Robes (U)/1d1:3,Cloth Pants/1d1:3,Cloth Shirt/1d1:3
 @
 name=coc.sheriff.items
-contains=0,Iron Helm/1d1:100,Chain Hauberk/1d1:100,Chamois Gloves/1d1:100,Buskins/1d1:100,Silver Coin/6d6:20,Bastard Sword/1d1:100,Targe/1d1:100
+contains=0,Iron Helm/1d1:15,Chain Hauberk/1d1:15,Chamois Gloves/1d1:14,Buskins/1d1:14,Silver Coin/6d6:14,Bastard Sword/1d1:14,Targe/1d1:14
 @
 name=gnome.scout.items
-contains=0,Gold Piece/3d6:55,Bearded War Axe/1d1:100,Suede Pants/1d1:100,Suede Doublet/1d1:100,Buskins/1d1:100
+contains=0,Gold Piece/3d6:20,Bearded War Axe/1d1:20,Suede Pants/1d1:20,Suede Doublet/1d1:20,Buskins/1d1:20
 @
 name=gadgeteer.invention.1
 contains=0,Ion Field Generator/1d1:34,Mephit Portal/1d1:33,Glass Cannon/1d1:33

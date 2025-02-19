@@ -32,6 +32,10 @@ public class SoundEffectEvent extends MazeEvent
 	private List<String> clipNames;
 	private Dice die;
 
+	public SoundEffectEvent()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public SoundEffectEvent(String clipName)
 	{
@@ -78,5 +82,51 @@ public class SoundEffectEvent extends MazeEvent
 	public List<String> getClipNames()
 	{
 		return clipNames;
+	}
+
+	public void setClipNames(List<String> clipNames)
+	{
+		this.clipNames = clipNames;
+	}
+
+	public Dice getDie()
+	{
+		return die;
+	}
+
+	public void setDie(Dice die)
+	{
+		this.die = die;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SoundEffectEvent that = (SoundEffectEvent)o;
+
+		if (getClipNames() != null ? !getClipNames().equals(that.getClipNames()) : that.getClipNames() != null)
+		{
+			return false;
+		}
+		return getDie() != null ? getDie().equals(that.getDie()) : that.getDie() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getClipNames() != null ? getClipNames().hashCode() : 0;
+		result = 31 * result + (getDie() != null ? getDie().hashCode() : 0);
+		return result;
 	}
 }

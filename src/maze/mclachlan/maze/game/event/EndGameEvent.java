@@ -34,4 +34,16 @@ public class EndGameEvent extends MazeEvent
 		Maze.getInstance().backToMain();
 		return null;
 	}
+
+	@Override
+	public int hashCode()
+	{
+		return getClass().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o != null && getClass() == o.getClass();
+	}
 }

@@ -29,6 +29,10 @@ public class LootEntryRow
 	private String itemName;
 	private Dice quantity;
 
+	public LootEntryRow()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public LootEntryRow(String itemName, Dice quantity)
 	{
@@ -55,5 +59,36 @@ public class LootEntryRow
 	public void setQuantity(Dice quantity)
 	{
 		this.quantity = quantity;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		LootEntryRow that = (LootEntryRow)o;
+
+		if (getItemName() != null ? !getItemName().equals(that.getItemName()) : that.getItemName() != null)
+		{
+			return false;
+		}
+		return getQuantity() != null ? getQuantity().equals(that.getQuantity()) : that.getQuantity() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getItemName() != null ? getItemName().hashCode() : 0;
+		result = 31 * result + (getQuantity() != null ? getQuantity().hashCode() : 0);
+		return result;
 	}
 }

@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.magic;
 
+import java.util.*;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.game.MazeEvent;
@@ -27,7 +28,6 @@ import mclachlan.maze.stat.combat.event.SummoningFailsEvent;
 import mclachlan.maze.map.FoeEntry;
 import mclachlan.maze.map.EncounterTable;
 import mclachlan.maze.data.Database;
-import java.util.List;
 
 
 /**
@@ -44,6 +44,10 @@ public class SummoningSpellResult extends SpellResult
 	//
 	private String[] encounterTable;
 	private ValueList strength;
+
+	public SummoningSpellResult()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public SummoningSpellResult(String[] encounterTable, ValueList strength)
@@ -112,5 +116,52 @@ public class SummoningSpellResult extends SpellResult
 	public ValueList getStrength()
 	{
 		return strength;
+	}
+
+	public void setEncounterTable(String[] encounterTable)
+	{
+		this.encounterTable = encounterTable;
+	}
+
+	public void setStrength(ValueList strength)
+	{
+		this.strength = strength;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		SummoningSpellResult that = (SummoningSpellResult)o;
+
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getEncounterTable(), that.getEncounterTable()))
+		{
+			return false;
+		}
+		return getStrength() != null ? getStrength().equals(that.getStrength()) : that.getStrength() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + Arrays.hashCode(getEncounterTable());
+		result = 31 * result + (getStrength() != null ? getStrength().hashCode() : 0);
+		return result;
 	}
 }

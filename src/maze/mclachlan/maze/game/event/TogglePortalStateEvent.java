@@ -28,8 +28,12 @@ import mclachlan.maze.util.MazeException;
 
 public class TogglePortalStateEvent extends MazeEvent
 {
-	private final Point tile;
-	private final int facing;
+	private Point tile;
+	private int facing;
+
+	public TogglePortalStateEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public TogglePortalStateEvent(Point tile, int facing)
@@ -77,5 +81,46 @@ public class TogglePortalStateEvent extends MazeEvent
 	public int getFacing()
 	{
 		return facing;
+	}
+
+	public void setTile(Point tile)
+	{
+		this.tile = tile;
+	}
+
+	public void setFacing(int facing)
+	{
+		this.facing = facing;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		TogglePortalStateEvent that = (TogglePortalStateEvent)o;
+
+		if (getFacing() != that.getFacing())
+		{
+			return false;
+		}
+		return getTile() != null ? getTile().equals(that.getTile()) : that.getTile() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getTile() != null ? getTile().hashCode() : 0;
+		result = 31 * result + getFacing();
+		return result;
 	}
 }

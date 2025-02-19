@@ -38,6 +38,10 @@ public class HealingSpellResult extends SpellResult
 	private ValueList actionPointHealing;
 	private ValueList magicPointHealing;
 
+	public HealingSpellResult()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public HealingSpellResult(
 		ValueList hitPointHealing,
@@ -108,5 +112,72 @@ public class HealingSpellResult extends SpellResult
 	public ValueList getActionPointHealing()
 	{
 		return actionPointHealing;
+	}
+
+	public void setHitPointHealing(ValueList hitPointHealing)
+	{
+		this.hitPointHealing = hitPointHealing;
+	}
+
+	public void setStaminaHealing(ValueList staminaHealing)
+	{
+		this.staminaHealing = staminaHealing;
+	}
+
+	public void setActionPointHealing(
+		ValueList actionPointHealing)
+	{
+		this.actionPointHealing = actionPointHealing;
+	}
+
+	public void setMagicPointHealing(ValueList magicPointHealing)
+	{
+		this.magicPointHealing = magicPointHealing;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		HealingSpellResult that = (HealingSpellResult)o;
+
+		if (getHitPointHealing() != null ? !getHitPointHealing().equals(that.getHitPointHealing()) : that.getHitPointHealing() != null)
+		{
+			return false;
+		}
+		if (getStaminaHealing() != null ? !getStaminaHealing().equals(that.getStaminaHealing()) : that.getStaminaHealing() != null)
+		{
+			return false;
+		}
+		if (getActionPointHealing() != null ? !getActionPointHealing().equals(that.getActionPointHealing()) : that.getActionPointHealing() != null)
+		{
+			return false;
+		}
+		return getMagicPointHealing() != null ? getMagicPointHealing().equals(that.getMagicPointHealing()) : that.getMagicPointHealing() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getHitPointHealing() != null ? getHitPointHealing().hashCode() : 0);
+		result = 31 * result + (getStaminaHealing() != null ? getStaminaHealing().hashCode() : 0);
+		result = 31 * result + (getActionPointHealing() != null ? getActionPointHealing().hashCode() : 0);
+		result = 31 * result + (getMagicPointHealing() != null ? getMagicPointHealing().hashCode() : 0);
+		return result;
 	}
 }

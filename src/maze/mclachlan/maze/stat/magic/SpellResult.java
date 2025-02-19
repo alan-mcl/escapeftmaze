@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.magic;
 
 import java.util.*;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.script.LockOrTrap;
@@ -32,7 +33,7 @@ import mclachlan.maze.util.MazeException;
 /**
  * The consequences of a spell.
  */
-public abstract class SpellResult
+public abstract class SpellResult implements V2Seralisable
 {
 	/**
 	 * The foe types that this spell result affects, null if all
@@ -195,6 +196,35 @@ public abstract class SpellResult
 		sb.append("{foeType='").append(foeType).append('\'');
 		sb.append('}');
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		SpellResult that = (SpellResult)o;
+
+		if (getFoeType() != null ? !getFoeType().equals(that.getFoeType()) : that.getFoeType() != null)
+		{
+			return false;
+		}
+		return getFocusAffinity() == that.getFocusAffinity();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getFoeType() != null ? getFoeType().hashCode() : 0;
+		result = 31 * result + (getFocusAffinity() != null ? getFocusAffinity().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -17,7 +17,7 @@
 
 package mclachlan.maze.data.v2;
 
-public interface V2DataObject
+public interface V2DataObject extends V2Seralisable
 {
 	String getName();
 

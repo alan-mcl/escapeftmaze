@@ -30,7 +30,11 @@ import mclachlan.maze.map.TileScript;
  */
 public class SetMazeVariable extends TileScript
 {
-	String mazeVariable, value;
+	private String mazeVariable, value;
+
+	public SetMazeVariable()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public SetMazeVariable(String mazeVariable, String value)
@@ -57,5 +61,51 @@ public class SetMazeVariable extends TileScript
 	public String getValue()
 	{
 		return value;
+	}
+
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setValue(String value)
+	{
+		this.value = value;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		SetMazeVariable that = (SetMazeVariable)o;
+
+		if (getMazeVariable() != null ? !getMazeVariable().equals(that.getMazeVariable()) : that.getMazeVariable() != null)
+		{
+			return false;
+		}
+		return getValue() != null ? getValue().equals(that.getValue()) : that.getValue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
+		result = 31 * result + (getValue() != null ? getValue().hashCode() : 0);
+		return result;
 	}
 }

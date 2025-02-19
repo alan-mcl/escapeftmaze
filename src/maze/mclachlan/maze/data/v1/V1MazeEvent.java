@@ -65,12 +65,14 @@ public class V1MazeEvent
 	public static final int _TogglePortalStateEvent = 21;
 	public static final int _RemoveObjectEvent = 22;
 	public static final int _SkillTestEvent = 23;
+	public static final int _AnimationEvent = 104;
+	public static final int _MusicEvent = 149;
+	public static final int _SoundEffectEvent = 138;
 
 	public static final int _ActorDiesEvent = 100;
 	public static final int _ActorUnaffectedEvent = 101;
 	public static final int _AmbushHitEvent = 102;
 	public static final int _AmbushMissEvent = 103;
-	public static final int _AnimationEvent = 104;
 	public static final int _AttackDodgeEvent = 105;
 	public static final int _AttackEvent = 106;
 	public static final int _AttackHitEvent = 107;
@@ -103,7 +105,6 @@ public class V1MazeEvent
 	public static final int _RunAwayAttemptEvent = 135;
 	public static final int _RunAwayFailedEvent = 136;
 	public static final int _RunAwaySuccessEvent = 137;
-	public static final int _SoundEffectEvent = 138;
 	public static final int _SpecialAbilityUseEvent = 139;
 	public static final int _SpellCastEvent = 140;
 	public static final int _SpellFizzlesEvent = 141;
@@ -114,7 +115,6 @@ public class V1MazeEvent
 	public static final int _SummoningSucceedsEvent = 146;
 	public static final int _TheftSpellFailed = 147;
 	public static final int _TheftSpellSucceeded = 148;
-	public static final int _MusicEvent = 149;
 
 	public static final int _ChangeNpcAttitudeEvent = 200;
 	public static final int _ChangeNpcLocationEvent = 201;
@@ -411,6 +411,21 @@ public class V1MazeEvent
 				s.append(ste.getFailureScript()==null?"":ste.getFailureScript());
 				break;
 
+			case _SoundEffectEvent:
+				SoundEffectEvent see = (SoundEffectEvent)e;
+				s.append(slashSeparatedStringList.toString(see.getClipNames()));
+				break;
+			case _MusicEvent:
+				MusicEvent me = (MusicEvent)e;
+				s.append(slashSeparatedStringList.toString(me.getTrackNames()));
+				s.append(SEP);
+				s.append(me.getMusicState()==null?"":me.getMusicState());
+				break;
+			case _AnimationEvent:
+				AnimationEvent ae = (AnimationEvent)e;
+				s.append(V1Animation.toString(ae.getAnimation()));
+				break;
+
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
 			case _AmbushHitEvent:
@@ -457,22 +472,6 @@ public class V1MazeEvent
 			case _SummoningSucceedsEvent:
 			case _TheftSpellFailed:
 			case _TheftSpellSucceeded:
-				throw new MazeException("not supported "+e);
-			case _SoundEffectEvent:
-				SoundEffectEvent see = (SoundEffectEvent)e;
-				s.append(slashSeparatedStringList.toString(see.getClipNames()));
-				break;
-			case _MusicEvent:
-				MusicEvent me = (MusicEvent)e;
-				s.append(slashSeparatedStringList.toString(me.getTrackNames()));
-				s.append(SEP);
-				s.append(me.getMusicState()==null?"":me.getMusicState());
-				break;
-			case _AnimationEvent:
-				AnimationEvent ae = (AnimationEvent)e;
-				s.append(V1Animation.toString(ae.getAnimation()));
-				break;
-
 			case _ChangeNpcFactionAttitudeEvent:
 			case _ChangeNpcAttitudeEvent:
 			case _ChangeNpcLocationEvent:

@@ -92,7 +92,7 @@ public class FoeTemplate extends DataObject
 	/** the faction (if any) that this foe belongs to */
 	private String faction;
 	/** is this Foe an NPC */
-	private boolean isNpc;
+	private boolean npc;
 	/** how to scroll the sprite onto the screen*/
 	private AppearanceDirection appearanceDirection;
 	/** script to run when a group of this foe type appears */
@@ -122,6 +122,10 @@ public class FoeTemplate extends DataObject
 	private NpcFaction.Attitude defaultAttitude;
 	/** any allies that this foe can summon at the start of combat */
 	private String alliesOnCall;
+
+	public FoeTemplate()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public FoeTemplate(
@@ -156,7 +160,7 @@ public class FoeTemplate extends DataObject
 		int fleeChance,
 		int stealthBehaviour,
 		String faction,
-		boolean isNpc,
+		boolean npc,
 		MazeScript appearanceScript,
 		List<ObjectScript> animationScripts,
 		AppearanceDirection appearanceDirection,
@@ -199,7 +203,7 @@ public class FoeTemplate extends DataObject
 		this.fleeChance = fleeChance;
 		this.stealthBehaviour = stealthBehaviour;
 		this.faction = faction;
-		this.isNpc = isNpc;
+		this.npc = npc;
 		this.appearanceScript = appearanceScript;
 		this.animationScripts = animationScripts;
 		this.appearanceDirection = appearanceDirection;
@@ -356,12 +360,12 @@ public class FoeTemplate extends DataObject
 
 	public boolean isNpc()
 	{
-		return isNpc;
+		return npc;
 	}
 
 	public void setNpc(boolean npc)
 	{
-		isNpc = npc;
+		this.npc = npc;
 	}
 
 	public Dice getLevelRange()
@@ -640,6 +644,242 @@ public class FoeTemplate extends DataObject
 	public void setAlliesOnCall(String alliesOnCall)
 	{
 		this.alliesOnCall = alliesOnCall;
+	}
+
+	public boolean isCannotBeEvaded()
+	{
+		return cannotBeEvaded;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		FoeTemplate that = (FoeTemplate)o;
+
+		if (getExperience() != that.getExperience())
+		{
+			return false;
+		}
+		if (isCannotBeEvaded() != that.isCannotBeEvaded())
+		{
+			return false;
+		}
+		if (getIdentificationDifficulty() != that.getIdentificationDifficulty())
+		{
+			return false;
+		}
+		if (isNpc() != that.isNpc())
+		{
+			return false;
+		}
+		if (getFleeChance() != that.getFleeChance())
+		{
+			return false;
+		}
+		if (getStealthBehaviour() != that.getStealthBehaviour())
+		{
+			return false;
+		}
+		if (getEvasionBehaviour() != that.getEvasionBehaviour())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getPluralName() != null ? !getPluralName().equals(that.getPluralName()) : that.getPluralName() != null)
+		{
+			return false;
+		}
+		if (getUnidentifiedName() != null ? !getUnidentifiedName().equals(that.getUnidentifiedName()) : that.getUnidentifiedName() != null)
+		{
+			return false;
+		}
+		if (getUnidentifiedPluralName() != null ? !getUnidentifiedPluralName().equals(that.getUnidentifiedPluralName()) : that.getUnidentifiedPluralName() != null)
+		{
+			return false;
+		}
+		if (getTypes() != null ? !getTypes().equals(that.getTypes()) : that.getTypes() != null)
+		{
+			return false;
+		}
+		if (getRace() != null ? !getRace().equals(that.getRace()) : that.getRace() != null)
+		{
+			return false;
+		}
+		if (getCharacterClass() != null ? !getCharacterClass().equals(that.getCharacterClass()) : that.getCharacterClass() != null)
+		{
+			return false;
+		}
+		if (getHitPointsRange() != null ? !getHitPointsRange().equals(that.getHitPointsRange()) : that.getHitPointsRange() != null)
+		{
+			return false;
+		}
+		if (getActionPointsRange() != null ? !getActionPointsRange().equals(that.getActionPointsRange()) : that.getActionPointsRange() != null)
+		{
+			return false;
+		}
+		if (getMagicPointsRange() != null ? !getMagicPointsRange().equals(that.getMagicPointsRange()) : that.getMagicPointsRange() != null)
+		{
+			return false;
+		}
+		if (getLevelRange() != null ? !getLevelRange().equals(that.getLevelRange()) : that.getLevelRange() != null)
+		{
+			return false;
+		}
+		if (getStats() != null ? !getStats().equals(that.getStats()) : that.getStats() != null)
+		{
+			return false;
+		}
+		if (getBodyParts() != null ? !getBodyParts().equals(that.getBodyParts()) : that.getBodyParts() != null)
+		{
+			return false;
+		}
+		if (getPlayerBodyParts() != null ? !getPlayerBodyParts().equals(that.getPlayerBodyParts()) : that.getPlayerBodyParts() != null)
+		{
+			return false;
+		}
+		if (getBaseTexture() != null ? !getBaseTexture().equals(that.getBaseTexture()) : that.getBaseTexture() != null)
+		{
+			return false;
+		}
+		if (getMeleeAttackTexture() != null ? !getMeleeAttackTexture().equals(that.getMeleeAttackTexture()) : that.getMeleeAttackTexture() != null)
+		{
+			return false;
+		}
+		if (getRangedAttackTexture() != null ? !getRangedAttackTexture().equals(that.getRangedAttackTexture()) : that.getRangedAttackTexture() != null)
+		{
+			return false;
+		}
+		if (getCastSpellTexture() != null ? !getCastSpellTexture().equals(that.getCastSpellTexture()) : that.getCastSpellTexture() != null)
+		{
+			return false;
+		}
+		if (getSpecialAbilityTexture() != null ? !getSpecialAbilityTexture().equals(that.getSpecialAbilityTexture()) : that.getSpecialAbilityTexture() != null)
+		{
+			return false;
+		}
+		if (getVerticalAlignment() != that.getVerticalAlignment())
+		{
+			return false;
+		}
+		if (getTextureTint() != null ? !getTextureTint().equals(that.getTextureTint()) : that.getTextureTint() != null)
+		{
+			return false;
+		}
+		if (getLoot() != null ? !getLoot().equals(that.getLoot()) : that.getLoot() != null)
+		{
+			return false;
+		}
+		if (getFoeGroupBannerModifiers() != null ? !getFoeGroupBannerModifiers().equals(that.getFoeGroupBannerModifiers()) : that.getFoeGroupBannerModifiers() != null)
+		{
+			return false;
+		}
+		if (getAllFoesBannerModifiers() != null ? !getAllFoesBannerModifiers().equals(that.getAllFoesBannerModifiers()) : that.getAllFoesBannerModifiers() != null)
+		{
+			return false;
+		}
+		if (getFaction() != null ? !getFaction().equals(that.getFaction()) : that.getFaction() != null)
+		{
+			return false;
+		}
+		if (getAppearanceDirection() != that.getAppearanceDirection())
+		{
+			return false;
+		}
+		if (getAppearanceScript() != null ? !getAppearanceScript().equals(that.getAppearanceScript()) : that.getAppearanceScript() != null)
+		{
+			return false;
+		}
+		if (getAnimationScripts() != null ? !getAnimationScripts().equals(that.getAnimationScripts()) : that.getAnimationScripts() != null)
+		{
+			return false;
+		}
+		if (getDeathScript() != null ? !getDeathScript().equals(that.getDeathScript()) : that.getDeathScript() != null)
+		{
+			return false;
+		}
+		if (getNaturalWeapons() != null ? !getNaturalWeapons().equals(that.getNaturalWeapons()) : that.getNaturalWeapons() != null)
+		{
+			return false;
+		}
+		if (getSpellBook() != null ? !getSpellBook().equals(that.getSpellBook()) : that.getSpellBook() != null)
+		{
+			return false;
+		}
+		if (getSpellLikeAbilities() != null ? !getSpellLikeAbilities().equals(that.getSpellLikeAbilities()) : that.getSpellLikeAbilities() != null)
+		{
+			return false;
+		}
+		if (getFocus() != that.getFocus())
+		{
+			return false;
+		}
+		if (getDefaultAttitude() != that.getDefaultAttitude())
+		{
+			return false;
+		}
+		return getAlliesOnCall() != null ? getAlliesOnCall().equals(that.getAlliesOnCall()) : that.getAlliesOnCall() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getPluralName() != null ? getPluralName().hashCode() : 0);
+		result = 31 * result + (getUnidentifiedName() != null ? getUnidentifiedName().hashCode() : 0);
+		result = 31 * result + (getUnidentifiedPluralName() != null ? getUnidentifiedPluralName().hashCode() : 0);
+		result = 31 * result + (getTypes() != null ? getTypes().hashCode() : 0);
+		result = 31 * result + (getRace() != null ? getRace().hashCode() : 0);
+		result = 31 * result + (getCharacterClass() != null ? getCharacterClass().hashCode() : 0);
+		result = 31 * result + (getHitPointsRange() != null ? getHitPointsRange().hashCode() : 0);
+		result = 31 * result + (getActionPointsRange() != null ? getActionPointsRange().hashCode() : 0);
+		result = 31 * result + (getMagicPointsRange() != null ? getMagicPointsRange().hashCode() : 0);
+		result = 31 * result + (getLevelRange() != null ? getLevelRange().hashCode() : 0);
+		result = 31 * result + getExperience();
+		result = 31 * result + (getStats() != null ? getStats().hashCode() : 0);
+		result = 31 * result + (getBodyParts() != null ? getBodyParts().hashCode() : 0);
+		result = 31 * result + (getPlayerBodyParts() != null ? getPlayerBodyParts().hashCode() : 0);
+		result = 31 * result + (getBaseTexture() != null ? getBaseTexture().hashCode() : 0);
+		result = 31 * result + (getMeleeAttackTexture() != null ? getMeleeAttackTexture().hashCode() : 0);
+		result = 31 * result + (getRangedAttackTexture() != null ? getRangedAttackTexture().hashCode() : 0);
+		result = 31 * result + (getCastSpellTexture() != null ? getCastSpellTexture().hashCode() : 0);
+		result = 31 * result + (getSpecialAbilityTexture() != null ? getSpecialAbilityTexture().hashCode() : 0);
+		result = 31 * result + (getVerticalAlignment() != null ? getVerticalAlignment().hashCode() : 0);
+		result = 31 * result + (getTextureTint() != null ? getTextureTint().hashCode() : 0);
+		result = 31 * result + (getLoot() != null ? getLoot().hashCode() : 0);
+		result = 31 * result + (isCannotBeEvaded() ? 1 : 0);
+		result = 31 * result + getIdentificationDifficulty();
+		result = 31 * result + (getFoeGroupBannerModifiers() != null ? getFoeGroupBannerModifiers().hashCode() : 0);
+		result = 31 * result + (getAllFoesBannerModifiers() != null ? getAllFoesBannerModifiers().hashCode() : 0);
+		result = 31 * result + (getFaction() != null ? getFaction().hashCode() : 0);
+		result = 31 * result + (isNpc() ? 1 : 0);
+		result = 31 * result + (getAppearanceDirection() != null ? getAppearanceDirection().hashCode() : 0);
+		result = 31 * result + (getAppearanceScript() != null ? getAppearanceScript().hashCode() : 0);
+		result = 31 * result + (getAnimationScripts() != null ? getAnimationScripts().hashCode() : 0);
+		result = 31 * result + (getDeathScript() != null ? getDeathScript().hashCode() : 0);
+		result = 31 * result + (getNaturalWeapons() != null ? getNaturalWeapons().hashCode() : 0);
+		result = 31 * result + (getSpellBook() != null ? getSpellBook().hashCode() : 0);
+		result = 31 * result + (getSpellLikeAbilities() != null ? getSpellLikeAbilities().hashCode() : 0);
+		result = 31 * result + getFleeChance();
+		result = 31 * result + getStealthBehaviour();
+		result = 31 * result + (getFocus() != null ? getFocus().hashCode() : 0);
+		result = 31 * result + getEvasionBehaviour();
+		result = 31 * result + (getDefaultAttitude() != null ? getDefaultAttitude().hashCode() : 0);
+		result = 31 * result + (getAlliesOnCall() != null ? getAlliesOnCall().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -34,8 +34,10 @@ import mclachlan.maze.game.Maze;
  */
 public class BlockingScreen extends DIYPanel implements ActionListener
 {
-	private final int delay;
-	private final Object mutex;
+	private int delay;
+	private Object mutex;
+
+
 
 	/*-------------------------------------------------------------------------*/
 	public BlockingScreen(String imageResource, int delay, Object mutex)

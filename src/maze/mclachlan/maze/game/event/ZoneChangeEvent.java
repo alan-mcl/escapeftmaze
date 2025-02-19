@@ -32,9 +32,13 @@ import mclachlan.maze.game.journal.JournalManager;
  */
 public class ZoneChangeEvent extends MazeEvent
 {
-	private final String zone;
-	private final Point pos;
-	private final int facing;
+	private String zone;
+	private Point pos;
+	private int facing;
+
+	public ZoneChangeEvent()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -88,6 +92,57 @@ public class ZoneChangeEvent extends MazeEvent
 	public String getZone()
 	{
 		return zone;
+	}
+
+	public void setZone(String zone)
+	{
+		this.zone = zone;
+	}
+
+	public void setPos(Point pos)
+	{
+		this.pos = pos;
+	}
+
+	public void setFacing(int facing)
+	{
+		this.facing = facing;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ZoneChangeEvent that = (ZoneChangeEvent)o;
+
+		if (getFacing() != that.getFacing())
+		{
+			return false;
+		}
+		if (getZone() != null ? !getZone().equals(that.getZone()) : that.getZone() != null)
+		{
+			return false;
+		}
+		return getPos() != null ? getPos().equals(that.getPos()) : that.getPos() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getZone() != null ? getZone().hashCode() : 0;
+		result = 31 * result + (getPos() != null ? getPos().hashCode() : 0);
+		result = 31 * result + getFacing();
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
