@@ -208,31 +208,31 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, FoeEntry> loadFoeEntries()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(FOE_ENTRIES, new SimpleMapSilo<>(getFoeEntrySerialiser(db)));
 	}
 
 	@Override
 	public Map<String, EncounterTable> loadEncounterTables()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(ENCOUNTER_TABLES, new SimpleMapSilo<>(getEncounterTableSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, NpcFactionTemplate> loadNpcFactionTemplates()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(NPC_FACTION_TEMPLATES, new SimpleMapSilo<>(getNpcFactionTemplatesSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, NpcTemplate> loadNpcTemplates()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(NPC_TEMPLATES, new SimpleMapSilo<>(getNpcTemplatesSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, WieldingCombo> loadWieldingCombos()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(WIELDING_COMBOS, new SimpleMapSilo<>(getWieldingComboSerialiser(db)));
 	}
 
 	@Override

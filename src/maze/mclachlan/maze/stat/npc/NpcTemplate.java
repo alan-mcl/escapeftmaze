@@ -111,6 +111,10 @@ public class NpcTemplate extends DataObject
 	/** whether this NPC is a guild master */
 	private boolean guildMaster;
 
+	public NpcTemplate()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public NpcTemplate(
 		String displayName,
@@ -384,5 +388,131 @@ public class NpcTemplate extends DataObject
 	public FoeTemplate getFoeTemplate()
 	{
 		return Database.getInstance().getFoeTemplate(this.getFoeName());
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		NpcTemplate that = (NpcTemplate)o;
+
+		if (getBuysAt() != that.getBuysAt())
+		{
+			return false;
+		}
+		if (getSellsAt() != that.getSellsAt())
+		{
+			return false;
+		}
+		if (getMaxPurchasePrice() != that.getMaxPurchasePrice())
+		{
+			return false;
+		}
+		if (getResistThreats() != that.getResistThreats())
+		{
+			return false;
+		}
+		if (getResistBribes() != that.getResistBribes())
+		{
+			return false;
+		}
+		if (getResistSteal() != that.getResistSteal())
+		{
+			return false;
+		}
+		if (getTheftCounter() != that.getTheftCounter())
+		{
+			return false;
+		}
+		if (isFound() != that.isFound())
+		{
+			return false;
+		}
+		if (isDead() != that.isDead())
+		{
+			return false;
+		}
+		if (isGuildMaster() != that.isGuildMaster())
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(that.getDisplayName()) : that.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getFoeName() != null ? !getFoeName().equals(that.getFoeName()) : that.getFoeName() != null)
+		{
+			return false;
+		}
+		if (getFaction() != null ? !getFaction().equals(that.getFaction()) : that.getFaction() != null)
+		{
+			return false;
+		}
+		if (getAttitude() != that.getAttitude())
+		{
+			return false;
+		}
+		if (getScript() != null ? !getScript().equals(that.getScript()) : that.getScript() != null)
+		{
+			return false;
+		}
+		if (getAlliesOnCall() != null ? !getAlliesOnCall().equals(that.getAlliesOnCall()) : that.getAlliesOnCall() != null)
+		{
+			return false;
+		}
+		if (getWillBuyItemTypes() != null ? !getWillBuyItemTypes().equals(that.getWillBuyItemTypes()) : that.getWillBuyItemTypes() != null)
+		{
+			return false;
+		}
+		if (getInventoryTemplate() != null ? !getInventoryTemplate().equals(that.getInventoryTemplate()) : that.getInventoryTemplate() != null)
+		{
+			return false;
+		}
+		if (getDialogue() != null ? !getDialogue().equals(that.getDialogue()) : that.getDialogue() != null)
+		{
+			return false;
+		}
+		if (getZone() != null ? !getZone().equals(that.getZone()) : that.getZone() != null)
+		{
+			return false;
+		}
+		return getTile() != null ? getTile().equals(that.getTile()) : that.getTile() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getDisplayName() != null ? getDisplayName().hashCode() : 0;
+		result = 31 * result + (getFoeName() != null ? getFoeName().hashCode() : 0);
+		result = 31 * result + (getFaction() != null ? getFaction().hashCode() : 0);
+		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
+		result = 31 * result + (getScript() != null ? getScript().hashCode() : 0);
+		result = 31 * result + (getAlliesOnCall() != null ? getAlliesOnCall().hashCode() : 0);
+		result = 31 * result + getBuysAt();
+		result = 31 * result + getSellsAt();
+		result = 31 * result + getMaxPurchasePrice();
+		result = 31 * result + (getWillBuyItemTypes() != null ? getWillBuyItemTypes().hashCode() : 0);
+		result = 31 * result + (getInventoryTemplate() != null ? getInventoryTemplate().hashCode() : 0);
+		result = 31 * result + getResistThreats();
+		result = 31 * result + getResistBribes();
+		result = 31 * result + getResistSteal();
+		result = 31 * result + getTheftCounter();
+		result = 31 * result + (getDialogue() != null ? getDialogue().hashCode() : 0);
+		result = 31 * result + (getZone() != null ? getZone().hashCode() : 0);
+		result = 31 * result + (getTile() != null ? getTile().hashCode() : 0);
+		result = 31 * result + (isFound() ? 1 : 0);
+		result = 31 * result + (isDead() ? 1 : 0);
+		result = 31 * result + (isGuildMaster() ? 1 : 0);
+		return result;
 	}
 }

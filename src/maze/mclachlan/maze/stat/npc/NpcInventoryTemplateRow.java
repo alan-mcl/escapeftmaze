@@ -32,6 +32,10 @@ public abstract class NpcInventoryTemplateRow
 	private int maxStocked;
 	private int chanceOfVanishing;
 
+	public NpcInventoryTemplateRow()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	protected NpcInventoryTemplateRow(int chanceOfSpawning,
 		int partyLevelAppearing,
@@ -149,4 +153,45 @@ public abstract class NpcInventoryTemplateRow
 
 	/*-------------------------------------------------------------------------*/
 	public abstract int compareTo(NpcInventoryTemplateRow r2);
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		NpcInventoryTemplateRow that = (NpcInventoryTemplateRow)o;
+
+		if (getChanceOfSpawning() != that.getChanceOfSpawning())
+		{
+			return false;
+		}
+		if (getPartyLevelAppearing() != that.getPartyLevelAppearing())
+		{
+			return false;
+		}
+		if (getMaxStocked() != that.getMaxStocked())
+		{
+			return false;
+		}
+		return getChanceOfVanishing() == that.getChanceOfVanishing();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getChanceOfSpawning();
+		result = 31 * result + getPartyLevelAppearing();
+		result = 31 * result + getMaxStocked();
+		result = 31 * result + getChanceOfVanishing();
+		return result;
+	}
 }

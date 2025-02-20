@@ -34,6 +34,10 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 	private String itemName;
 	private Dice stackSize;
 
+	public NpcInventoryTemplateRowItem()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public NpcInventoryTemplateRowItem(
 		String itemName,
@@ -140,5 +144,41 @@ public class NpcInventoryTemplateRowItem extends NpcInventoryTemplateRow
 	public void setStackSize(Dice stackSize)
 	{
 		this.stackSize = stackSize;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		NpcInventoryTemplateRowItem that = (NpcInventoryTemplateRowItem)o;
+
+		if (getItemName() != null ? !getItemName().equals(that.getItemName()) : that.getItemName() != null)
+		{
+			return false;
+		}
+		return getStackSize() != null ? getStackSize().equals(that.getStackSize()) : that.getStackSize() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getItemName() != null ? getItemName().hashCode() : 0);
+		result = 31 * result + (getStackSize() != null ? getStackSize().hashCode() : 0);
+		return result;
 	}
 }

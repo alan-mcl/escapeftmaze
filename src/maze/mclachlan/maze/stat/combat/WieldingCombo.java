@@ -31,6 +31,10 @@ public class WieldingCombo extends DataObject
 	private String primaryHand, secondaryHand;
 	private StatModifier modifiers;
 
+	public WieldingCombo()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public WieldingCombo(
 		String name,
@@ -126,7 +130,47 @@ public class WieldingCombo extends DataObject
 			(Key.WAND.equals(hand) && item.getSubType() == ItemTemplate.WeaponSubType.WAND) ||
 			(Key.MODERN.equals(hand) && item.getSubType() == ItemTemplate.WeaponSubType.MODERN) ||
 			(Key.BOW.equals(hand) && item.getSubType() == ItemTemplate.WeaponSubType.BOW));
+	}
 
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		WieldingCombo that = (WieldingCombo)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getPrimaryHand() != null ? !getPrimaryHand().equals(that.getPrimaryHand()) : that.getPrimaryHand() != null)
+		{
+			return false;
+		}
+		if (getSecondaryHand() != null ? !getSecondaryHand().equals(that.getSecondaryHand()) : that.getSecondaryHand() != null)
+		{
+			return false;
+		}
+		return getModifiers() != null ? getModifiers().equals(that.getModifiers()) : that.getModifiers() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getPrimaryHand() != null ? getPrimaryHand().hashCode() : 0);
+		result = 31 * result + (getSecondaryHand() != null ? getSecondaryHand().hashCode() : 0);
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

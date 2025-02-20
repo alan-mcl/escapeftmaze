@@ -26,8 +26,12 @@ import mclachlan.maze.stat.Dice;
  */
 public class FoeEntryRow
 {
-	String foeName;
-	Dice quantity;
+	private String foeName;
+	private Dice quantity;
+
+	public FoeEntryRow()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public FoeEntryRow(String foeName, Dice quantity)
@@ -45,5 +49,46 @@ public class FoeEntryRow
 	public Dice getQuantity()
 	{
 		return quantity;
+	}
+
+	public void setFoeName(String foeName)
+	{
+		this.foeName = foeName;
+	}
+
+	public void setQuantity(Dice quantity)
+	{
+		this.quantity = quantity;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		FoeEntryRow that = (FoeEntryRow)o;
+
+		if (getFoeName() != null ? !getFoeName().equals(that.getFoeName()) : that.getFoeName() != null)
+		{
+			return false;
+		}
+		return getQuantity() != null ? getQuantity().equals(that.getQuantity()) : that.getQuantity() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getFoeName() != null ? getFoeName().hashCode() : 0;
+		result = 31 * result + (getQuantity() != null ? getQuantity().hashCode() : 0);
+		return result;
 	}
 }

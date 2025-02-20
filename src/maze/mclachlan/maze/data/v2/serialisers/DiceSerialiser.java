@@ -13,12 +13,20 @@ public class DiceSerialiser implements V2SerialiserObject<Dice>
 	@Override
 	public Object toObject(Dice dice, Database db)
 	{
+		if (dice == null)
+		{
+			return null;
+		}
 		return V1Dice.toString(dice);
 	}
 
 	@Override
 	public Dice fromObject(Object obj, Database db)
 	{
+		if (obj == null)
+		{
+			return null;
+		}
 		return V1Dice.fromString((String)obj);
 	}
 }

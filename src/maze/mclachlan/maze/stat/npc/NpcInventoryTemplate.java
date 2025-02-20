@@ -34,7 +34,7 @@ public class NpcInventoryTemplate
 	/*-------------------------------------------------------------------------*/
 	public NpcInventoryTemplate()
 	{
-		this(new ArrayList<NpcInventoryTemplateRow>());
+		this(new ArrayList<>());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -154,5 +154,36 @@ public class NpcInventoryTemplate
 	public List<NpcInventoryTemplateRow> getRows()
 	{
 		return rows;
+	}
+
+	public void setRows(
+		List<NpcInventoryTemplateRow> rows)
+	{
+		this.rows = rows;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		NpcInventoryTemplate that = (NpcInventoryTemplate)o;
+
+		return getRows() != null ? getRows().equals(that.getRows()) : that.getRows() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getRows() != null ? getRows().hashCode() : 0;
 	}
 }

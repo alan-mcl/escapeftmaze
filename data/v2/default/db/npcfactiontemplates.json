@@ -1,0 +1,77 @@
+[
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Minions Of Usark"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Gnolls"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Ichiba GSC"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Ichiba Chamber Of Commerce"
+  },
+  {
+    "startingAttitude": "ATTACKING",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Hags"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Stick Men"
+  },
+  {
+    "startingAttitude": "ATTACKING",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Fangorn"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "White Order"
+  },
+  {
+    "startingAttitude": "ATTACKING",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Old Igor"
+  },
+  {
+    "startingAttitude": "ATTACKING",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Bel Ies"
+  },
+  {
+    "startingAttitude": "ATTACKING",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Keepers Of Dalen"
+  },
+  {
+    "startingAttitude": "ATTACKING",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Ghul"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Gnomes"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Allies of Imogen"
+  },
+  {
+    "startingAttitude": "NEUTRAL",
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "Allies of Lorelei"
+  }
+]

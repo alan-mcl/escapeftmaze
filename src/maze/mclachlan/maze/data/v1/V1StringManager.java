@@ -75,7 +75,7 @@ public class V1StringManager implements StringManager
 	}
 
 	/*-------------------------------------------------------------------------*/
-	Properties loadProperties(String namespace)
+	public Properties loadProperties(String namespace)
 	{
 		try
 		{

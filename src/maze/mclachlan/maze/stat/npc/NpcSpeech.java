@@ -32,9 +32,9 @@ public class NpcSpeech
 	/**
 	 * All possible NPC speech rows, keyed by phrase.
 	 */
-	private Map<String, NpcSpeechRow> map = new HashMap<String, NpcSpeechRow>();
+	private Map<String, NpcSpeechRow> lookup = new HashMap<>();
 
-	private List<NpcSpeechRow> rows = new ArrayList<NpcSpeechRow>();
+	private List<NpcSpeechRow> dialogue = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -66,7 +66,7 @@ public class NpcSpeech
 
 			if (found != null)
 			{
-				if (result == null || found.priority < result.priority)
+				if (result == null || found.getPriority() < result.getPriority())
 				{
 					result = found;
 				}
@@ -75,7 +75,7 @@ public class NpcSpeech
 
 		if (result != null)
 		{
-			return result.speech;
+			return result.getSpeech();
 		}
 		else
 		{
@@ -86,7 +86,7 @@ public class NpcSpeech
 	/*-------------------------------------------------------------------------*/
 	private NpcSpeechRow lookupPhrase(String phrase)
 	{
-		return map.get(phrase);
+		return lookup.get(phrase);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -135,23 +135,56 @@ public class NpcSpeech
 	/*-------------------------------------------------------------------------*/
 	public void addNpcSpeechRow(NpcSpeechRow row)
 	{
-		for (String phrase : row.keywords)
+		for (String phrase : row.getKeywords())
 		{
-			map.put(phrase, row);
+			lookup.put(phrase, row);
 		}
-		rows.add(row);
+		dialogue.add(row);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public int getNumRows()
 	{
-		return rows.size();
+		return dialogue.size();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Collection<NpcSpeechRow> getRows()
+	public Collection<NpcSpeechRow> getDialogue()
 	{
-		return rows;
+		return dialogue;
+	}
+
+	public void setDialogue(List<NpcSpeechRow> dialogue)
+	{
+		this.dialogue = new ArrayList<>();
+		this.lookup = new HashMap<>();
+
+		dialogue.forEach(this::addNpcSpeechRow);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		NpcSpeech npcSpeech = (NpcSpeech)o;
+
+		return getDialogue() != null ? getDialogue().equals(npcSpeech.getDialogue()) : npcSpeech.getDialogue() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getDialogue() != null ? getDialogue().hashCode() : 0;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -29,8 +29,12 @@ import mclachlan.maze.stat.*;
  */
 public class FoeEntry extends DataObject
 {
-	String name;
-	GroupOfPossibilities<FoeEntryRow> contains;
+	private String name;
+	private GroupOfPossibilities<FoeEntryRow> contains;
+
+	public FoeEntry()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public FoeEntry(String name, GroupOfPossibilities<FoeEntryRow> contains)
@@ -70,14 +74,14 @@ public class FoeEntry extends DataObject
 	 */
 	public List<FoeGroup> generate()
 	{
-		List<FoeGroup> result = new ArrayList<FoeGroup>();
+		List<FoeGroup> result = new ArrayList<>();
 
 		List<FoeEntryRow> entries = contains.getRandom();
 
 		for (FoeEntryRow t : entries)
 		{
-			FoeTemplate foeTemplate = Database.getInstance().getFoeTemplate(t.foeName);
-			int max = t.quantity.roll("Foe entry generate ["+getName()+"]");
+			FoeTemplate foeTemplate = Database.getInstance().getFoeTemplate(t.getFoeName());
+			int max = t.getQuantity().roll("Foe entry generate ["+getName()+"]");
 			FoeGroup fg = new FoeGroup();
 
 			for (int i=0; i<max; i++)
@@ -89,6 +93,37 @@ public class FoeEntry extends DataObject
 			result.add(fg);
 		}
 
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		FoeEntry foeEntry = (FoeEntry)o;
+
+		if (getName() != null ? !getName().equals(foeEntry.getName()) : foeEntry.getName() != null)
+		{
+			return false;
+		}
+		return getContains() != null ? getContains().equals(foeEntry.getContains()) : foeEntry.getContains() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getContains() != null ? getContains().hashCode() : 0);
 		return result;
 	}
 }

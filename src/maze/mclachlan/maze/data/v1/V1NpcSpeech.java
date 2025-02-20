@@ -33,7 +33,7 @@ public class V1NpcSpeech
 	{
 		Properties result = new Properties();
 
-		for (NpcSpeechRow row : speech.getRows())
+		for (NpcSpeechRow row : speech.getDialogue())
 		{
 			result.setProperty(getKey(row.getKeywords()), getValue(row.getPriority(), row.getSpeech()));
 		}
@@ -65,7 +65,7 @@ public class V1NpcSpeech
 	}
 
 	/*-------------------------------------------------------------------------*/
-	static NpcSpeech fromProperties(Properties p)
+	public static NpcSpeech fromProperties(Properties p)
 	{
 		NpcSpeech result = new NpcSpeech();
 

@@ -114,21 +114,21 @@ public class DataPorter
 		System.out.println("porting traps...");
 		v2Saver.saveTraps(v1Loader.loadTraps());
 
-//		System.out.println("porting foe entries...");
-//		v2Saver.saveFoeEntries(v1Loader.loadFoeEntries());
-//
-//		System.out.println("porting encounter tables...");
-//		v2Saver.saveEncounterTables(v1Loader.loadEncounterTables());
-//
-//		System.out.println("porting npc faction templates...");
-//		v2Saver.saveNpcFactionTemplates(v1Loader.loadNpcFactionTemplates());
-//
-//		System.out.println("porting npc templates...");
-//		v2Saver.saveNpcTemplates(v1Loader.loadNpcTemplates());
-//
-//		System.out.println("porting wielding combos...");
-//		v2Saver.saveWieldingCombos(v1Loader.loadWieldingCombos());
-//
+		System.out.println("porting foe entries...");
+		v2Saver.saveFoeEntries(v1Loader.loadFoeEntries());
+
+		System.out.println("porting encounter tables...");
+		v2Saver.saveEncounterTables(v1Loader.loadEncounterTables());
+
+		System.out.println("porting npc faction templates...");
+		v2Saver.saveNpcFactionTemplates(v1Loader.loadNpcFactionTemplates());
+
+		System.out.println("porting npc templates...");
+		v2Saver.saveNpcTemplates(v1Loader.loadNpcTemplates());
+
+		System.out.println("porting wielding combos...");
+		v2Saver.saveWieldingCombos(v1Loader.loadWieldingCombos());
+
 //		System.out.println("porting item templates...");
 //		v2Saver.saveItemTemplates(v1Loader.loadItemTemplates());
 //
@@ -197,11 +197,21 @@ public class DataPorter
 		System.out.println("traps: "+v2Loader.loadTraps().size());
 		assertEquals(v1Loader.loadTraps(), v2Loader.loadTraps());
 
-//		System.out.println("foe entries: "+v2Loader.loadFoeEntries().size());
-//		System.out.println("encounter tables: "+v2Loader.loadEncounterTables().size());
-//		System.out.println("npc faction templates: "+v2Loader.loadNpcFactionTemplates().size());
-//		System.out.println("npc templates: "+v2Loader.loadNpcTemplates().size());
-//		System.out.println("wielding combos: "+v2Loader.loadWieldingCombos().size());
+		System.out.println("foe entries: "+v2Loader.loadFoeEntries().size());
+		assertEquals(v1Loader.loadFoeEntries(), v2Loader.loadFoeEntries());
+
+		System.out.println("encounter tables: "+v2Loader.loadEncounterTables().size());
+		assertEquals(v1Loader.loadEncounterTables(), v2Loader.loadEncounterTables());
+
+		System.out.println("npc faction templates: "+v2Loader.loadNpcFactionTemplates().size());
+		assertEquals(v1Loader.loadNpcFactionTemplates(), v2Loader.loadNpcFactionTemplates());
+
+		System.out.println("npc templates: "+v2Loader.loadNpcTemplates().size());
+		assertEquals(v1Loader.loadNpcTemplates(), v2Loader.loadNpcTemplates());
+
+		System.out.println("wielding combos: "+v2Loader.loadWieldingCombos().size());
+		assertEquals(v1Loader.loadWieldingCombos(), v2Loader.loadWieldingCombos());
+
 //		System.out.println("item templates: "+v2Loader.loadItemTemplates().size());
 //		System.out.println("zones:");
 //		zoneNames = v2Loader.getZoneNames();

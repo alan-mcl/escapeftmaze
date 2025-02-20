@@ -8,6 +8,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.Saver;
+import mclachlan.maze.data.StringManager;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
@@ -21,10 +22,7 @@ import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.magic.PlayerSpellBook;
 import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
-import mclachlan.maze.stat.npc.Npc;
-import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.stat.npc.NpcFactionTemplate;
-import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.stat.npc.*;
 
 import static mclachlan.maze.data.v2.serialisers.SerialiserFactory.*;
 import static mclachlan.maze.data.v2.serialisers.V2Files.*;
@@ -70,6 +68,11 @@ public class V2Saver extends Saver
 
 		writer.flush();
 		writer.close();
+	}
+
+	public StringManager getStringManager()
+	{
+		throw new RuntimeException("Unimplemented auto generated method!");
 	}
 
 	//
@@ -186,34 +189,34 @@ public class V2Saver extends Saver
 	@Override
 	public void saveFoeEntries(Map<String, FoeEntry> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, FOE_ENTRIES, new SimpleMapSilo<>(getFoeEntrySerialiser(db)));
 	}
 
 	@Override
 	public void saveEncounterTables(
 		Map<String, EncounterTable> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, ENCOUNTER_TABLES, new SimpleMapSilo<>(getEncounterTableSerialiser(db)));
 	}
 
 	@Override
 	public void saveNpcFactionTemplates(
 		Map<String, NpcFactionTemplate> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, NPC_FACTION_TEMPLATES, new SimpleMapSilo<>(getNpcFactionTemplatesSerialiser(db)));
 	}
 
 	@Override
 	public void saveNpcTemplates(Map<String, NpcTemplate> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, NPC_TEMPLATES, new SimpleMapSilo<>(getNpcTemplatesSerialiser(db)));
 	}
 
 	@Override
 	public void saveWieldingCombos(
 		Map<String, WieldingCombo> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, WIELDING_COMBOS, new SimpleMapSilo<>(getWieldingComboSerialiser(db)));
 	}
 
 	@Override

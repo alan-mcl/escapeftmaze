@@ -95,7 +95,7 @@ public class NpcSpeechPanel extends JPanel implements ActionListener, MouseListe
 
 		if (npcSpeech != null)
 		{
-			for (NpcSpeechRow row : npcSpeech.getRows())
+			for (NpcSpeechRow row : npcSpeech.getDialogue())
 			{
 				speech.add(row);
 			}

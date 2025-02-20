@@ -17,11 +17,13 @@ import mclachlan.maze.map.*;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
+import mclachlan.maze.stat.combat.WieldingCombo;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.condition.RepeatedSpellEffect;
 import mclachlan.maze.stat.magic.*;
+import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
 import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 
@@ -749,4 +751,122 @@ public class SerialiserFactory
 		return new MazeObjectImplSerialiser<>(map,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty");
 	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<FoeEntry> getFoeEntrySerialiser(Database db)
+	{
+		ReflectiveSerialiser<FoeEntry> defaultSerialiser = getReflectiveSerialiser(
+			FoeEntry.class, "name", "contains");
+
+		defaultSerialiser.addCustomSerialiser("contains",
+			new GroupOfPossibiltiesSerialiser<FoeEntry>(
+				getReflectiveSerialiser(FoeEntryRow.class, "foeName", "quantity")));
+
+		HashMap<Class, V2SerialiserMap<FoeEntry>> map = new HashMap<>();
+		map.put(FoeEntry.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<EncounterTable> getEncounterTableSerialiser(Database db)
+	{
+		ReflectiveSerialiser<EncounterTable> defaultSerialiser = getReflectiveSerialiser(
+			EncounterTable.class, "name", "encounterTable");
+
+		defaultSerialiser.addCustomSerialiser("encounterTable",
+			new PercentageTableSerialiser<>(new NameSerialiser<>(db::getFoeEntry)));
+
+		HashMap<Class, V2SerialiserMap<EncounterTable>> map = new HashMap<>();
+		map.put(EncounterTable.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<NpcFactionTemplate> getNpcFactionTemplatesSerialiser(Database db)
+	{
+		ReflectiveSerialiser<NpcFactionTemplate> defaultSerialiser = getReflectiveSerialiser(
+			NpcFactionTemplate.class, "name", "startingAttitude");
+
+		HashMap<Class, V2SerialiserMap<NpcFactionTemplate>> map = new HashMap<>();
+		map.put(NpcFactionTemplate.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<NpcTemplate> getNpcTemplatesSerialiser(Database db)
+	{
+		ReflectiveSerialiser<NpcTemplate> defaultSerialiser = getReflectiveSerialiser(
+			NpcTemplate.class,
+			"name",
+			"foeName",
+			"faction",
+			"attitude",
+			"script",
+			"alliesOnCall",
+			"buysAt",
+			"sellsAt",
+			"maxPurchasePrice",
+			"willBuyItemTypes",
+			"inventoryTemplate",
+			"resistThreats",
+			"resistBribes",
+			"resistSteal",
+			"theftCounter",
+			"dialogue",
+			"zone",
+			"tile",
+			"found",
+			"dead",
+			"guildMaster");
+
+		defaultSerialiser.addCustomSerialiser("script", new MazeObjectImplSerialiser<>(new HashMap<>()));
+
+		ReflectiveSerialiser npcInvTemplateSerialiser = getReflectiveSerialiser(NpcInventoryTemplate.class, "rows");
+
+		HashMap<Object, Object> npcInvRowItemSerialiser = new HashMap<>();
+		npcInvRowItemSerialiser.put(NpcInventoryTemplateRowItem.class,
+			getReflectiveSerialiser(NpcInventoryTemplateRowItem.class,
+				"chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing", "itemName", "stackSize"));
+		npcInvRowItemSerialiser.put(NpcInventoryTemplateRowLootEntry.class,
+			getReflectiveSerialiser(NpcInventoryTemplateRowLootEntry.class,
+				"chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing", "lootEntry", "itemsToSpawn"));
+
+		npcInvTemplateSerialiser.addCustomSerialiser("rows",
+			new ListSerialiser(
+				new MazeObjectImplSerialiser(npcInvRowItemSerialiser,
+					"chanceOfSpawning", "partyLevelAppearing", "maxStocked", "chanceOfVanishing")));
+
+		defaultSerialiser.addCustomSerialiser("inventoryTemplate", npcInvTemplateSerialiser);
+		defaultSerialiser.addCustomSerialiser("dialogue", getNpcSpeechSerialiser());
+
+		HashMap<Class, V2SerialiserMap<NpcTemplate>> map = new HashMap<>();
+		map.put(NpcTemplate.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<NpcSpeech> getNpcSpeechSerialiser()
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(NpcSpeech.class, "dialogue");
+
+		ReflectiveSerialiser rowSerialiser = getReflectiveSerialiser(NpcSpeechRow.class, "priority", "keywords", "speech");
+
+		rowSerialiser.addCustomSerialiser("keywords", new StringSetSerialiser());
+
+		result.addCustomSerialiser("dialogue", new ListSerialiser(rowSerialiser));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<WieldingCombo> getWieldingComboSerialiser(Database db)
+	{
+		ReflectiveSerialiser<WieldingCombo> defaultSerialiser = getReflectiveSerialiser(
+			WieldingCombo.class, "name", "primaryHand", "secondaryHand", "modifiers");
+
+		HashMap<Class, V2SerialiserMap<WieldingCombo>> map = new HashMap<>();
+		map.put(WieldingCombo.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
 }

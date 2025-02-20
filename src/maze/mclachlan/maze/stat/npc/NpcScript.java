@@ -22,6 +22,7 @@ package mclachlan.maze.stat.npc;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.game.ActorEncounter;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -35,7 +36,7 @@ import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
 /**
  * 
  */
-public abstract class NpcScript implements GeneralOptionsCallback
+public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 {
 	protected Foe npc;
 
@@ -544,5 +545,18 @@ public abstract class NpcScript implements GeneralOptionsCallback
 	public List<MazeEvent> npcInventoryFull(Item item)
 	{
 		return getList(new NpcSpeechEvent(StringUtil.getEventText("msg.npc.inventory.full"), npc));
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public int hashCode()
+	{
+		return getClass().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o != null && getClass() == o.getClass();
 	}
 }

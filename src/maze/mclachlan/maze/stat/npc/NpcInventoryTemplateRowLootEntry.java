@@ -35,6 +35,10 @@ public class NpcInventoryTemplateRowLootEntry extends NpcInventoryTemplateRow
 	private String lootEntry;
 	private Dice itemsToSpawn;
 
+	public NpcInventoryTemplateRowLootEntry()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public NpcInventoryTemplateRowLootEntry(
 		int chanceOfSpawning,
@@ -149,5 +153,39 @@ public class NpcInventoryTemplateRowLootEntry extends NpcInventoryTemplateRow
 		{
 			return s.toString();
 		}
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		NpcInventoryTemplateRowLootEntry that = (NpcInventoryTemplateRowLootEntry)o;
+
+		if (getLootEntry() != null ? !getLootEntry().equals(that.getLootEntry()) : that.getLootEntry() != null)
+		{
+			return false;
+		}
+		return getItemsToSpawn() != null ? getItemsToSpawn().equals(that.getItemsToSpawn()) : that.getItemsToSpawn() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getLootEntry() != null ? getLootEntry().hashCode() : 0);
+		result = 31 * result + (getItemsToSpawn() != null ? getItemsToSpawn().hashCode() : 0);
+		return result;
 	}
 }

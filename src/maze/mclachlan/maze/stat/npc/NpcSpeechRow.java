@@ -31,17 +31,21 @@ public class NpcSpeechRow
 	 * The priority of this bit of speech. 0 is the top priority, a higher
 	 * value is lower priority
 	 */
-	int priority;
+	private int priority;
 
 	/**
 	 * A set of keywords that cause this response.
 	 */
-	Set<String> keywords;
+	private Set<String> keywords;
 
 	/**
 	 * What the NPC has to say in response.
 	 */
-	String speech;
+	private String speech;
+
+	public NpcSpeechRow()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public NpcSpeechRow(int priority, Set<String> keywords, String speech)
@@ -64,6 +68,21 @@ public class NpcSpeechRow
 	public String getSpeech()
 	{
 		return speech;
+	}
+
+	public void setPriority(int priority)
+	{
+		this.priority = priority;
+	}
+
+	public void setKeywords(Set<String> keywords)
+	{
+		this.keywords = keywords;
+	}
+
+	public void setSpeech(String speech)
+	{
+		this.speech = speech;
 	}
 
 	/*-------------------------------------------------------------------------*/

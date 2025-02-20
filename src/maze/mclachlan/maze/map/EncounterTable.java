@@ -30,6 +30,10 @@ public class EncounterTable extends DataObject
 	private String name;
 	private PercentageTable<FoeEntry> encounterTable;
 
+	public EncounterTable()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public EncounterTable(String name, PercentageTable<FoeEntry> encounterTable)
 	{
@@ -57,5 +61,36 @@ public class EncounterTable extends DataObject
 	public void setName(String name)
 	{
 		this.name = name;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		EncounterTable that = (EncounterTable)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		return getEncounterTable() != null ? getEncounterTable().equals(that.getEncounterTable()) : that.getEncounterTable() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getEncounterTable() != null ? getEncounterTable().hashCode() : 0);
+		return result;
 	}
 }

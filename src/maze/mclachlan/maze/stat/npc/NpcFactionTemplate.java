@@ -34,6 +34,10 @@ public class NpcFactionTemplate extends DataObject
 	/** starting attitide for this NPC faction */
 	private NpcFaction.Attitude startingAttitude;
 
+	public NpcFactionTemplate()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public NpcFactionTemplate(String name, NpcFaction.Attitude startingAttitude)
 	{
@@ -61,5 +65,36 @@ public class NpcFactionTemplate extends DataObject
 	public void setStartingAttitude(NpcFaction.Attitude startingAttitude)
 	{
 		this.startingAttitude = startingAttitude;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		NpcFactionTemplate that = (NpcFactionTemplate)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		return getStartingAttitude() == that.getStartingAttitude();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getStartingAttitude() != null ? getStartingAttitude().hashCode() : 0);
+		return result;
 	}
 }
