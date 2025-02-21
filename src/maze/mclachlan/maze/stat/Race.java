@@ -565,7 +565,7 @@ public class Race extends DataObject implements TypeDescriptor
 		{
 			return true;
 		}
-		if (o == null || getClass() != o.getClass())
+		if (!(o instanceof Race))
 		{
 			return false;
 		}
@@ -588,7 +588,7 @@ public class Race extends DataObject implements TypeDescriptor
 		{
 			return false;
 		}
-		if (!getName().equals(race.getName()))
+		if (getName() != null ? !getName().equals(race.getName()) : race.getName() != null)
 		{
 			return false;
 		}

@@ -1,0 +1,3940 @@
+[
+  {
+    "damage": "2d4",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "Mirka Claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_IRRITATE"
+      ]
+    },
+    "description": "attacks",
+    "maxRange": "1",
+    "modifiers": "100000000000000,32",
+    "attackScript": "sound - buzz",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3"
+    ],
+    "name": "angry swarm attack",
+    "damageType": "NONE",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+2",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "antidiluvomorph claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d6+8",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "parched vulture claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d20",
+    "spellEffects": {
+      "PERCENTAGES": [
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "glacier dragon bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4+1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "lashes tentacle",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "seeding omnifid lash",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3+1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        80
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "2",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "harvestman spider bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "5d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        30,
+        30,
+        5
+      ],
+      "POSSIBILITIES": [
+        "mace ko",
+        "TOUCH_FEAR",
+        "TOUCH_STONE"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "clockwork vengeance punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d20",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "inferno dragon bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+24",
+    "spellEffects": {
+      "PERCENTAGES": [
+        20
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "aboroth punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d6+6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "lashes tentacle",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "colonising omnifid lash",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        25
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "kicks",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "yenluo kick",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6",
+    "description": "thrusts foreleg",
+    "maxRange": "1",
+    "modifiers": "100000000000000,02",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "hunting mantis foreleg",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "slithering hagspawn bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4+1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        66
+      ],
+      "POSSIBILITIES": [
+        "viridifid leeching"
+      ]
+    },
+    "description": "lashes tentacle",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "viridifid lash",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+12",
+    "description": "punches",
+    "maxRange": "2",
+    "modifiers": "100000000,03",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "thorn elemental punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "MARTIAL_ARTS_KO"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "10000000000000,04",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "block golem punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "100000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "bloodwyrm bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "13d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "brooding willow bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "spout mephit bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d7+7",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "vampire vulture drain"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "100000000,0a",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "vampire vulture bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d3+2",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "saliopod bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "stings",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "flying hagspawn sting",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "mephit bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6",
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "water elemental punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d13+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        26
+      ],
+      "POSSIBILITIES": [
+        "MARTIAL_ARTS_KO"
+      ]
+    },
+    "description": "kicks",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000108000100000000,0d040e01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "ninja kick",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d3+6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "shoots barb",
+    "maxRange": "3",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "creeping hagspawn barb",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+18",
+    "spellEffects": {
+      "PERCENTAGES": [
+        40
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "fiero claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_NAUSEA",
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "miriam marrowsucker bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d6+6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15
+      ],
+      "POSSIBILITIES": [
+        "rock dragon swallow"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "red spotted snail bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75,
+        25
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "TOUCH_SILENCE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "screaming bat bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d6+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "thrusts foreleg",
+    "maxRange": "1",
+    "modifiers": "100000100000000,0114",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "zombie mantis foreleg",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE",
+        "foxfire drain"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "bat vampire bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "angry puppet punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d12+24",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "stomps",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "aboroth stomp",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "nightstalker bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d5",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15,
+        15,
+        15,
+        15,
+        15
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_BLIND",
+        "TOUCH_PARALYSE",
+        "TOUCH_NAUSEA",
+        "TOUCH_FEAR",
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "6",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "2",
+      "1"
+    ],
+    "name": "ghul claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "100000000000000,0a",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "jumping roach claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33,
+        33,
+        33
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_SLEEP",
+        "TOUCH_SILENCE"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "lost kami touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        44
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "grabs",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "gigantopithecus grasp",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "rock dragon swallow"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "old igor bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "100000000000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3"
+    ],
+    "name": "scarab of bel bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "rockeater bite",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4+1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_BLIND"
+      ]
+    },
+    "description": "lashes tentacle",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "lurching omnifid lash",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33,
+        33,
+        33
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_HEX",
+        "TOUCH_INSANE",
+        "TOUCH_STONE"
+      ]
+    },
+    "description": "touches...",
+    "maxRange": "2",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "will o\u0027 wisp touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "bolt of fire damage"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "1"
+    ],
+    "name": "lava wolf bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "haunt drain"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "2",
+    "modifiers": "100000000000000,14",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "haunt touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "rock dragon swallow"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "rock dragon bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d3+2",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "bemiropterix bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "spotted crud bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4+1",
+    "description": "shoots spine",
+    "maxRange": "3",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1"
+    ],
+    "name": "emerald spider spine",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        30
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_BLIND"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "fire elemental punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "frostbite"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3"
+    ],
+    "name": "winter wolf bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        66
+      ],
+      "POSSIBILITIES": [
+        "viridifid leeching"
+      ]
+    },
+    "description": "shoots fungal spores",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "viridifid spore",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+4",
+    "description": "claws",
+    "maxRange": "2",
+    "modifiers": "100000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "vampire vulture claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d6+6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "moulder nausea"
+      ]
+    },
+    "description": "slams",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "shambler slam",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d8+2",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "Apotheosis Claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        25
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "grabs",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "skull crusher grasp",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d8+1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "shoots spine",
+    "maxRange": "4",
+    "modifiers": "100000000000000,05",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1"
+    ],
+    "name": "scarab of bel spine",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "50d6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "crushes!",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "orngog hug",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "12d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "3",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "scaled wyrm bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d8",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "owlbear claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "spawn of ekirth bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "clockwork beast claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d13+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        26
+      ],
+      "POSSIBILITIES": [
+        "MARTIAL_ARTS_KO"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000118000100000000,0d04010d01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "ninja punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d10",
+    "description": "fires cannon",
+    "maxRange": "4",
+    "modifiers": "400000000,0a",
+    "attackScript": "burning hands from foe",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "resolution engine cannon",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+2",
+    "description": "thrusts foreleg",
+    "maxRange": "1",
+    "modifiers": "100000000000000,02",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "patient mantis foreleg",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "ichneumorax bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "4",
+      "4"
+    ],
+    "name": "rhys claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "acid splash condition"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "corrosive slime bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d8",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "griffon bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d2+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        30,
+        30
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "gropes",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "4",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "groaning bones touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d3+1",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "sawtooth snail bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50,
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE",
+        "TOUCH_NAUSEA"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "plague bat bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "TOUCH_HEX",
+        "TOUCH_SLEEP"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "100000000000000,32",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "ghost touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_IRRITATE"
+      ]
+    },
+    "description": "stings",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "slithering hagspawn sting",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d3",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "toothy velox bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "clockwork digger punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d5+10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "parched vulture bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d3",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "sewer crud bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "stasis machine punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d10",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "paper tiger bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "8d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        25
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "frost wyrm bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "moulder nausea"
+      ]
+    },
+    "description": "grasps",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "manky moulder grasp",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "fruit bat bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d6",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "black panther bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d5+5",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "storm crow bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "MARTIAL_ARTS_KO"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "10000000000000,04",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "tower guardian punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "19d2+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "gropes",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "4",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "ageyr\u0027s bones touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15,
+        15
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "entangle spell web"
+      ]
+    },
+    "description": "lashes",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "twisted sapling lash",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d12+32",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        5,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_STONE",
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "100000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "minion of usark claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "30d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        5
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_INSANE",
+        "TOUCH_POSSESS"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "punch maker-killer claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d6+7",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_HEX"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "miriam marrowsucker claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d12+1",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "rabid gnoll bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6+3",
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "earth elemental punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4+2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_IRRITATE",
+        "TOUCH_NAUSEA",
+        "TOUCH_SLEEP"
+      ]
+    },
+    "description": "lashes tongue",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "braided moth bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "mud spider bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4+1",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2"
+    ],
+    "name": "tan draco claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d8+8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "sweeps tail",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "old igor tail",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d6+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_POSSESS"
+      ]
+    },
+    "description": "shoots fungal spore",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "colonising omnifid spore",
+    "damageType": "NONE",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12",
+    "description": "attacks",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "hungry mist attack",
+    "damageType": "NONE",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d10+3",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "paper tiger claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "8d5",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "10000000000000,0f",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "6",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "ghul bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+12",
+    "description": "shoots thorns",
+    "maxRange": "3",
+    "modifiers": "100000000,02",
+    "attackScript": "spine from player",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "thorn elemental spines",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d3+2",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "antidiluvomorph bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "bloated spider bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6",
+    "description": "thrusts foreleg",
+    "maxRange": "1",
+    "modifiers": "100000000000000,02",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "maneater mantis foreleg",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_HEX"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "flying hagspawn bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "spout mephit claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6",
+    "description": "punches",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "treant punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "9d2+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_INSANE"
+      ]
+    },
+    "description": "gropes",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "4",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "napiers bones touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "stings",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "spotted crud sting",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6",
+    "description": "strikes",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "yenluo strike",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "8d4+8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "lashes tail",
+    "maxRange": "3",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "scaled wyrm tail",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15,
+        15
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "entangle spell web"
+      ]
+    },
+    "description": "lashes",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "brooding willow lash",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_WEB"
+      ]
+    },
+    "description": "fires cannon",
+    "maxRange": "4",
+    "modifiers": "8000000000000,05",
+    "attackScript": "frostbite spell from foe",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "stasis machine cannon",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+24",
+    "spellEffects": {
+      "PERCENTAGES": [
+        40,
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_STONE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "100000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "fantasmagora claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d5",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "nightstalker claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d20+12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "glacier dragon claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "moulder nausea"
+      ]
+    },
+    "description": "grasps",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "moulder grasp",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "mephit claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "stings",
+    "maxRange": "2",
+    "modifiers": "100000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "bloodwyrm sting",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        20
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "resolution engine punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        5
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "goldcrown bat bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d12+2",
+    "description": "strikes",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "invisible stalker punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d20+12",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "100000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "wind dragon claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d8",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE",
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "rhys bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+2",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "saliopod claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "MARTIAL_ARTS_KO"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "nejd golem punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2"
+    ],
+    "name": "bonebrood bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "5d4+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        5,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_INSANE",
+        "TOUCH_POSSESS"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "punch maker-killer touch",
+    "damageType": "MENTAL",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "clockwork soldier punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d8",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "griffon claw",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d12+24",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "punches hard",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "force of nature punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "20d2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        30,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SLEEP",
+        "TOUCH_WEB",
+        "faerie fire"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000008000000000000,0101",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "4",
+      "4",
+      "4"
+    ],
+    "name": "morrigan touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        20,
+        25,
+        5
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "emerald spider poison",
+        "TOUCH_STONE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "kolidra claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "description": "claws",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "fruit bat claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d6+6",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "clockwork beast bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3+2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        80
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "2",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "emerald spider bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d6+2",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "storm crow claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33,
+        33,
+        33
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "TOUCH_HEX",
+        "TOUCH_INSANE"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "6",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "mad kami touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+32",
+    "spellEffects": {
+      "PERCENTAGES": [
+        40,
+        10,
+        25
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_STONE",
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "100000000,05",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "necromanis claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        25,
+        25
+      ],
+      "POSSIBILITIES": [
+        "mace ko",
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "clockwork terror punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "bemiropterix claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "grasps",
+    "maxRange": "2",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "verdant force grasp",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50
+      ],
+      "POSSIBILITIES": [
+        "spotted boa poison"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "1"
+    ],
+    "name": "spotted boa bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d6+4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_DISEASE"
+      ]
+    },
+    "description": "shoots fungal spore",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1"
+    ],
+    "name": "seeding omnifid spore",
+    "damageType": "NONE",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d20+2",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "old igor claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d12+12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100,
+        100,
+        100,
+        100,
+        100,
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "TOUCH_HEX",
+        "TOUCH_INSANE",
+        "TOUCH_DISEASE",
+        "TOUCH_BLIND",
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "6",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "4",
+      "4",
+      "4"
+    ],
+    "name": "tsurayogoshi punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "laughing puppet punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d3+6",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_NAUSEA"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "creeping hagspawn claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        10
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE"
+      ]
+    },
+    "description": "shoots pod",
+    "maxRange": "3",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "1"
+    ],
+    "name": "spore moth pod",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12+48",
+    "spellEffects": {
+      "PERCENTAGES": [
+        40
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "yreguoth claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_BLIND"
+      ]
+    },
+    "description": "shoots spine",
+    "maxRange": "3",
+    "modifiers": "0,",
+    "attackScript": "spine from foe",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "true",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "slithering hagspawn spine",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d20+12",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "inferno dragon claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d6+2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        30
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_BLIND"
+      ]
+    },
+    "description": "punches",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1"
+    ],
+    "name": "air elemental punch",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d20+12",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33
+      ],
+      "POSSIBILITIES": [
+        "mace ko"
+      ]
+    },
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2",
+      "2"
+    ],
+    "name": "boulder dragon claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "3d3+3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_PARALYSE",
+        "TOUCH_FEAR"
+      ]
+    },
+    "description": "gropes",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "4",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "revenant touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d8",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2"
+    ],
+    "name": "owlbear bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75,
+        75,
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "TOUCH_HEX",
+        "TOUCH_SLEEP"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "100000000000000,14",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "6",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "shade touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d20+2",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "rock dragon claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d5",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3",
+      "3"
+    ],
+    "name": "black panther claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "6d2",
+    "spellEffects": {
+      "PERCENTAGES": [
+        50,
+        50
+      ],
+      "POSSIBILITIES": [
+        "foxfire drain",
+        "TOUCH_HEX"
+      ]
+    },
+    "description": "touches...",
+    "maxRange": "2",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "foxfire touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d4",
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "hawk moth bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d10",
+    "spellEffects": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_IRRITATE"
+      ]
+    },
+    "description": "thrashes",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "living hive attack",
+    "damageType": "NONE",
+    "minRange": "1"
+  },
+  {
+    "damage": "13d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15,
+        15
+      ],
+      "POSSIBILITIES": [
+        "mace ko",
+        "entangle spell web"
+      ]
+    },
+    "description": "clubs",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000000000000000000,01",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "7",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1",
+      "1",
+      "1"
+    ],
+    "name": "brooding willow club",
+    "damageType": "BLUDGEONING",
+    "minRange": "1"
+  },
+  {
+    "damage": "13d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        15
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_SWALLOW"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "paper dragon bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "1d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75,
+        75,
+        75
+      ],
+      "POSSIBILITIES": [
+        "TOUCH_FEAR",
+        "TOUCH_HEX",
+        "TOUCH_SLEEP"
+      ]
+    },
+    "description": "touches",
+    "maxRange": "1",
+    "modifiers": "2000000000000000000000100000000000000,1401",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "3",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "2",
+      "2"
+    ],
+    "name": "inghean shade touch",
+    "damageType": "ENERGY",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d3",
+    "description": "claws",
+    "maxRange": "1",
+    "modifiers": "100000000000000,02",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "swarming roach claw",
+    "damageType": "SLASHING",
+    "minRange": "1"
+  },
+  {
+    "damage": "4d4",
+    "spellEffects": {
+      "PERCENTAGES": [
+        75
+      ],
+      "POSSIBILITIES": [
+        "mottled boa poison"
+      ]
+    },
+    "description": "bites",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "5",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "3",
+      "3"
+    ],
+    "name": "mottled boa bite",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  },
+  {
+    "damage": "2d3",
+    "spellEffects": {
+      "PERCENTAGES": [
+        33
+      ],
+      "POSSIBILITIES": [
+        "emerald spider poison"
+      ]
+    },
+    "description": "stings",
+    "maxRange": "1",
+    "modifiers": "0,",
+    "attackScript": "generic weapon swish",
+    "spellEffectLevel": "1",
+    "TYPE_KEY": "mclachlan.maze.stat.NaturalWeapon",
+    "ranged": "false",
+    "attacks": [
+      "1"
+    ],
+    "name": "sewer crud sting",
+    "damageType": "PIERCING",
+    "minRange": "1"
+  }
+]

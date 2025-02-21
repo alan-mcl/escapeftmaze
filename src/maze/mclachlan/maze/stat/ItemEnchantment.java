@@ -30,6 +30,10 @@ public class ItemEnchantment
 	private String prefix, suffix;
 	private int costModifier;
 
+	public ItemEnchantment()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ItemEnchantment(
 		String name,
@@ -94,5 +98,51 @@ public class ItemEnchantment
 	public void setCostModifier(int costModifier)
 	{
 		this.costModifier = costModifier;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ItemEnchantment that = (ItemEnchantment)o;
+
+		if (getCostModifier() != that.getCostModifier())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getModifiers() != null ? !getModifiers().equals(that.getModifiers()) : that.getModifiers() != null)
+		{
+			return false;
+		}
+		if (getPrefix() != null ? !getPrefix().equals(that.getPrefix()) : that.getPrefix() != null)
+		{
+			return false;
+		}
+		return getSuffix() != null ? getSuffix().equals(that.getSuffix()) : that.getSuffix() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		result = 31 * result + (getPrefix() != null ? getPrefix().hashCode() : 0);
+		result = 31 * result + (getSuffix() != null ? getSuffix().hashCode() : 0);
+		result = 31 * result + getCostModifier();
+		return result;
 	}
 }

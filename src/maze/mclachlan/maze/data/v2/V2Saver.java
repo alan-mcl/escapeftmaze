@@ -216,59 +216,59 @@ public class V2Saver extends Saver
 	public void saveWieldingCombos(
 		Map<String, WieldingCombo> map) throws Exception
 	{
-		v2Crud(map, WIELDING_COMBOS, new SimpleMapSilo<>(getWieldingComboSerialiser(db)));
+		v2Crud(map, WIELDING_COMBOS, new SimpleMapSilo<>(getWieldingComboSerialiser()));
 	}
 
 	@Override
 	public void saveItemTemplates(Map<String, ItemTemplate> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, ITEM_TEMPLATES, new SimpleMapSilo<>(getItemTemplateSerialiser(db)));
 	}
 
 	@Override
 	public void saveDifficultyLevels(
 		Map<String, DifficultyLevel> map) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(map, DIFFICULTY_LEVELS, new SimpleMapSilo<>(getDifficultyLevelSerialiser()));
 	}
 
 	@Override
 	public void saveCraftRecipes(
 		Map<String, CraftRecipe> craftRecipes) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(craftRecipes, CRAFT_RECIPES, new SimpleMapSilo<>(getCraftRecipeSerialiser()));
 	}
 
 	@Override
 	public void saveItemEnchantments(
 		Map<String, ItemEnchantments> itemEnchantments) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(itemEnchantments, ITEM_ENCHANTMENTS, new SimpleMapSilo<>(getItemEnchantmentsSerialiser()));
 	}
 
 	@Override
 	public void saveNaturalWeapons(
 		Map<String, NaturalWeapon> naturalWeapons) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(naturalWeapons, NATURAL_WEAPONS, new SimpleMapSilo<>(getNaturalWeaponSerialiser(db)));
 	}
 
 	@Override
 	public void saveStartingKits(Map<String, StartingKit> kits) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(kits, STARTING_KITS, new SimpleMapSilo<>(getStartingKitSerialiser()));
 	}
 
 	@Override
 	public void savePersonalities(Map<String, Personality> p) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(p, PERSONALITIES, new SimpleMapSilo<>(getPersonalitySerialiser()));
 	}
 
 	@Override
 	public void saveFoeTypes(Map<String, FoeType> foeTypes) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(foeTypes, FOE_TYPES, new SimpleMapSilo<>(getFoeTypeSerialiser(db)));
 	}
 
 	@Override

@@ -45,6 +45,10 @@ public class NaturalWeapon extends DataObject implements AttackWith
 	private int maxRange;
 	private MazeScript attackScript;
 
+	public NaturalWeapon()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public NaturalWeapon(
 		String name,
@@ -293,6 +297,12 @@ public class NaturalWeapon extends DataObject implements AttackWith
 		this.spellEffects = spellEffects;
 	}
 
+	public MagicSys.SpellEffectType getDamageType()
+	{
+		return damageType;
+	}
+
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public String toString()
 	{
@@ -301,5 +311,89 @@ public class NaturalWeapon extends DataObject implements AttackWith
 		sb.append("{name='").append(name).append('\'');
 		sb.append('}');
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		NaturalWeapon that = (NaturalWeapon)o;
+
+		if (isRanged() != that.isRanged())
+		{
+			return false;
+		}
+		if (getSpellEffectLevel() != that.getSpellEffectLevel())
+		{
+			return false;
+		}
+		if (getMinRange() != that.getMinRange())
+		{
+			return false;
+		}
+		if (getMaxRange() != that.getMaxRange())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		if (getDamage() != null ? !getDamage().equals(that.getDamage()) : that.getDamage() != null)
+		{
+			return false;
+		}
+		if (getDamageType() != that.getDamageType())
+		{
+			return false;
+		}
+		if (getSlaysFoeType() != null ? !getSlaysFoeType().equals(that.getSlaysFoeType()) : that.getSlaysFoeType() != null)
+		{
+			return false;
+		}
+		if (!Arrays.equals(getAttacks(), that.getAttacks()))
+		{
+			return false;
+		}
+		if (getSpellEffects() != null ? !getSpellEffects().equals(that.getSpellEffects()) : that.getSpellEffects() != null)
+		{
+			return false;
+		}
+		if (getModifiers() != null ? !getModifiers().equals(that.getModifiers()) : that.getModifiers() != null)
+		{
+			return false;
+		}
+		return getAttackScript() != null ? getAttackScript().equals(that.getAttackScript()) : that.getAttackScript() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (isRanged() ? 1 : 0);
+		result = 31 * result + (getDamage() != null ? getDamage().hashCode() : 0);
+		result = 31 * result + (getDamageType() != null ? getDamageType().hashCode() : 0);
+		result = 31 * result + (getSlaysFoeType() != null ? getSlaysFoeType().hashCode() : 0);
+		result = 31 * result + Arrays.hashCode(getAttacks());
+		result = 31 * result + (getSpellEffects() != null ? getSpellEffects().hashCode() : 0);
+		result = 31 * result + getSpellEffectLevel();
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		result = 31 * result + getMinRange();
+		result = 31 * result + getMaxRange();
+		result = 31 * result + (getAttackScript() != null ? getAttackScript().hashCode() : 0);
+		return result;
 	}
 }

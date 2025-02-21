@@ -1,0 +1,17 @@
+[
+  {
+    "IMPL": "mclachlan.maze.campaign.def.game.HeroicDifficulty",
+    "sortOrder": "2",
+    "name": "Heroic"
+  },
+  {
+    "IMPL": "mclachlan.maze.campaign.def.game.HardDifficulty",
+    "sortOrder": "1",
+    "name": "Hard"
+  },
+  {
+    "IMPL": "mclachlan.maze.campaign.def.game.NormalDifficulty",
+    "sortOrder": "0",
+    "name": "Normal"
+  }
+]

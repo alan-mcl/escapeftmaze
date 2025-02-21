@@ -1,0 +1,2101 @@
+[
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Cloth Pants",
+    "displayName": "Woodsgirl",
+    "primaryWeapon": "Short Bow",
+    "description": "\"Magic draws magic unto itself.\" You read this in your mothers journal on your sixteenth birthday. You had always thought you were lucky that you and your mother lived alone in the woods. Other children had far less fun without the forest on their doorstep.\n\nWhen your mother died you buried her and kept the house on your own. It was only years later when the magic came alive within you too, that you learned your mother\u0027s secret - witchcraft. Magic drew magic, and suddenly the forest that had been your playground grew dark and threatening.\n\nWith a heavy heart you were forced to leave your childhood home behind.",
+    "combatModifiers": "44002020000,02010101",
+    "magicModifiers": "44002020000,01020101",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Woodsgirl",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "44012000000,02010101",
+    "usableByCharacterClass": [
+      "Amazon"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Heart of the Forty",
+    "primaryWeapon": "Battleaxe",
+    "description": "The Abbot Graves saved you from darkness and sin. He saw in you what even you yourself could not see and brought you into light and purity. The years you spent with the others of the Forty under his tutelage were the best of your life.\n\nWhen the day that the Abott had spoken of came you were ready. You armed yourselves and rode forth from the monastery for the first and last time. The Forty fell upon the creatures of the Maze at Caradam River and Armand\u0027s famous victory owed much to your actions.\n\nIt was not without a price. All of your comrades met their deaths that morning. As he lay dying after the battle the Abott told you that one always remained to find and train the next Forty. He said that as he had been chosen, so too were you and that you were the one who would continue the order outside of the Maze...",
+    "combatModifiers": "2000200200,020102",
+    "magicModifiers": "2000200200,020102",
+    "helm": "Iron Helm",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Heart of the Forty",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "2000200200,020102",
+    "usableByCharacterClass": [
+      "Paladin"
+    ]
+  },
+  {
+    "secondaryWeapon": "Quarrel",
+    "legArmour": "Fur Leggings",
+    "displayName": "Default",
+    "primaryWeapon": "Light Crossbow",
+    "description": "These are the default starting items and modifiers for a Scout.",
+    "combatModifiers": "200002020000,020201",
+    "magicModifiers": "200002020000,020201",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Scout_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "200012000000,020201",
+    "usableByCharacterClass": []
+  },
+  {
+    "secondaryWeapon": "Bullet Stone",
+    "legArmour": "Cloth Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Sling",
+    "description": "These are the default starting items and modifiers for a Troubadour.",
+    "combatModifiers": "0,",
+    "magicModifiers": "0,",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Troubadour_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Poet\u0027s Lute"
+    ],
+    "stealthModifiers": "400000000010010800000,01010102",
+    "usableByCharacterClass": [
+      "Troubadour"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Disbanded Skirmisher",
+    "primaryWeapon": "Javelin",
+    "description": "Life in the village was pretty peaceful and you always dreamed of being a soldier. When the creatures of the Maze invaded and Armand raised his army you were one of those conscripted. You discovered that army life wasn\u0027t all you\u0027d dreamed it to be.\n\nThankfully your stamina, fleetness of foot and wits got you assigned to scouting and skirmishing duties. Thus it was that you spent most of the campaign away from the main forces and when the decisive action was fought at Caradam River you were nowhere near there.\n\nAfter being disbanded you had little taste for returning to village life and decided that since the Maze was clearly beatable you would have a go yourself.",
+    "combatModifiers": "2010400,010202",
+    "magicModifiers": "2010400,010202",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Disbanded Skirmisher",
+    "boots": "Buskins",
+    "packItems": [
+      "Dagger"
+    ],
+    "stealthModifiers": "1a000000,020102",
+    "usableByCharacterClass": [
+      "Hero",
+      "Amazon"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Dungeon Crawler",
+    "primaryWeapon": "Mace",
+    "description": "Dungeons are your thing. Few are more experienced than you. You were on the party that recovered the Jade Eye from the Spiral. You were among the first to pass alone through the labyrinth beneath the tomb of Uatna. You alone, as far as you know, have returned sane from the Pit that lies beyond the Carpenter\u0027s Workshop. You became renowned in taverns and adventuring halls throughout the Realm.\n\nBut always you knew that something was missing, and one day it suddenly all made sense. It dawned on you that the Maze itself was one giant dungeon! Suddenly your life had meaning and direction. Nobody still trapped in the Maze could call themselves the ultimate Dungeon Crawler!",
+    "combatModifiers": "300001002000,02010101",
+    "magicModifiers": "300001002000,02010101",
+    "helm": "Leather Helm",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Dungeon Crawler",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "300001002000,02010101",
+    "usableByCharacterClass": [
+      "Berserker",
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Ninja Garb (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Shuriken",
+    "description": "These are the default starting items and modifiers for a Ninja.",
+    "combatModifiers": "50800000,020201",
+    "magicModifiers": "50800000,020201",
+    "helm": "Ninja Cowl",
+    "torsoArmour": "Ninja Garb (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Ninja_Default",
+    "boots": "Tabi Boots",
+    "packItems": [
+      "Flash Powder"
+    ],
+    "stealthModifiers": "50800000,020201",
+    "usableByCharacterClass": [
+      "Ninja"
+    ]
+  },
+  {
+    "secondaryWeapon": "Quarrel",
+    "legArmour": "Suede Pants",
+    "miscItem1": "Pewter Cross",
+    "displayName": "Default",
+    "primaryWeapon": "Light Crossbow",
+    "description": "These are the default starting items and modifiers for an Exorcist.",
+    "combatModifiers": "12010000000,020201",
+    "magicModifiers": "12010000000,020201",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Exorcist_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "12010000000,020201",
+    "usableByCharacterClass": [
+      "Exorcist"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for a Priest.",
+    "combatModifiers": "12000002000,010202",
+    "magicModifiers": "12000002000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Priest_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Potion Of Light Heal"
+    ],
+    "stealthModifiers": "12000002000,010202",
+    "usableByCharacterClass": [
+      "Priest"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Faerie Dust",
+    "displayName": "Fey Wanderer",
+    "primaryWeapon": "Quarterstaff",
+    "description": "You are a child of both worlds, embodying the enchanting essence of the Fey. Born at the intersection of mortal and magical realms, you possess an innate connection to the whimsical creatures of the Feywild. Growing up amidst shimmering meadows and enchanted groves, you learned to wield enchantment to commune with faeries, harnessing their magic for both protection and mischief.\n\nDrawn by a sense of duty to protect the fey Realm from harm, you embark on a quest to discover the secrets of the prison that is the Maze.",
+    "combatModifiers": "14002000000,010202",
+    "magicModifiers": "14002000000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Fey Wanderer",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "14002000000,010202",
+    "usableByCharacterClass": [
+      "Enchanter"
+    ]
+  },
+  {
+    "secondaryWeapon": "Buckler Shield",
+    "legArmour": "Suede Pants",
+    "displayName": "The Captain",
+    "primaryWeapon": "Short Sword",
+    "description": "You enlisted at a young age. Army life saw you serve in conflicts across many of the Domains of the First Realm. You were a natural career officer - brave, decisive, shrewd and dedicated. Men followed you because you kept them warm, fed, and often brought them home alive.\n\nDespite this you never settled. Your secret dream was always to escape from the Maze. Finally you saved enough to retire from the force, a decorated veteran of dozens of campaigns, and pursue your personal goal. Without delay you started fitting out a private company to make the attempt.",
+    "combatModifiers": "200000001800,020201",
+    "magicModifiers": "200000001800,020201",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "The Captain",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "200018000000,020201",
+    "usableByCharacterClass": [
+      "Blackguard",
+      "Hero",
+      "Paladin"
+    ]
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Suede Pants",
+    "displayName": "Outlaw Leader",
+    "primaryWeapon": "Short Bow",
+    "description": "Life was pretty good in your part of the forest. There were easy pickings to be had off the coaches and caravans plying the North Road, and you had plenty of time for lazing in the glades. Word spread and recruits were easy to come by.\n\nRumours started spreading too, and before you knew it you were some kind of folk hero amongst the peasantry. Fame went to your head and one day you made a huge mistake by actually living the legend and giving some of your money stolen from the rich back to the poor.\n\nNeedless to say the local authorities couldn\u0027t tolerate this kind of rabble rousing altruism, and before you knew it your woods were crawling with the Prince\u0027s soldiers. All good things come to an end, and you and the lads went your separate ways down the forest paths.",
+    "combatModifiers": "42820000,02010101",
+    "magicModifiers": "42820000,02010101",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Outlaw Leader",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "52800000,01010201",
+    "usableByCharacterClass": [
+      "Shaman",
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for a Magician.",
+    "combatModifiers": "28000002000,010202",
+    "magicModifiers": "a0000002000,010202",
+    "helm": "Pointed Hat",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Magician_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "28000002000,010202",
+    "usableByCharacterClass": []
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "miscItem1": "Silver Ring",
+    "displayName": "Rogue Sabreur",
+    "primaryWeapon": "Sabre",
+    "description": "Fencing was always more of a game than a competition to you. Naturally quick and strong, you were obviously gifted from the moment you started lessons. In your short competitive fencing career you met few equals and no betters, and your name was starting to be mentioned in discerning quarters as a contender at the Games at Kilin.\n\nBut you were bored, and showed it. Matters came to a head, and after one heated class too many you challenged your Master and defeated him on the school floor. That same night you took your clothes and your sabre and left your old life behind you.",
+    "combatModifiers": "800a00,020201",
+    "magicModifiers": "800a00,020201",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Rogue Sabreur",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "9800000,020102",
+    "usableByCharacterClass": [
+      "Exorcist",
+      "Blackguard",
+      "Hero",
+      "Burglar"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Dagger",
+    "description": "These are the default starting items and modifiers for a Courtesan.",
+    "combatModifiers": "44012800000,0101010101",
+    "magicModifiers": "44012800000,0101010101",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Courtesan_Default",
+    "boots": "Buskins",
+    "packItems": [
+      "Sling",
+      "Bullet Stone"
+    ],
+    "stealthModifiers": "44012800000,0101010101",
+    "usableByCharacterClass": [
+      "Courtesan"
+    ]
+  },
+  {
+    "legArmour": "Fur Leggings",
+    "displayName": "Noble Savage",
+    "primaryWeapon": "Hand Axe",
+    "description": "Brave are the hearts that beat beneath the wild skies of your far off homeland. After coming of age you left on your name-quest and passed through many of the Domains of the First Realm. From what you saw of civilisation, your people have not been missing much.\n\nIndeed civilisation seemed to be doing it\u0027s best to kill you, or at least divest you of all your earthly possessions. One night at camp you were ambushed by ruffians. Robbed and lying near death, you received a vision from your ancestors and realised that your name-quest would take you further from home than you ever imagined.",
+    "combatModifiers": "2020200,020201",
+    "magicModifiers": "2020200,020201",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Noble Savage",
+    "packItems": [
+      "Short Bow",
+      "Willow Arrow"
+    ],
+    "stealthModifiers": "1a000000,010202",
+    "usableByCharacterClass": [
+      "Ranger",
+      "Skald",
+      "Sohei",
+      "Shaman",
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Itinerant Musician",
+    "primaryWeapon": "Dagger",
+    "description": "All you ever wanted was fame and fortune on the stage. You had talent, no doubt about that. As soon as you could you ran away from your old life and lived on the road, performing for a living and learning your trade along the way.\n\nYou performed at carnivals and fairs from the White Mountains to Kilin Domain and played in roadhouses, inns and taverns of all kinds across the First Realm. Food and shelter were seldom a problem, but it has to be said that fame and fortune persistently eluded you.\n\nEventually you determined that if the First Realm could not appreciate your talents you seek out other Realms that did...",
+    "combatModifiers": "400000000000002000400,010202",
+    "magicModifiers": "0,",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Itinerant Musician",
+    "boots": "Sandals",
+    "packItems": [
+      "Poet\u0027s Lute"
+    ],
+    "stealthModifiers": "40000000000000a000000,020102",
+    "usableByCharacterClass": [
+      "Troubadour"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Silver Ring",
+    "displayName": "Default",
+    "primaryWeapon": "Dagger",
+    "description": "These are the default starting items and modifiers for a Sorcerer.",
+    "combatModifiers": "0,",
+    "magicModifiers": "28000000400,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Sorcerer_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Sorcerer"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Demon Consort",
+    "primaryWeapon": "Wand Of Airs",
+    "description": "Others in the Sisterhood mocked your endless fascination with demonology, but they stopped laughing the night that you drew the pentacle and summoned Him to you.\n\nHe was all you could have desired and more. You knew power and passion beyond your wildest dreams and saw sights and experienced sensations that your pitiful former sisters could neither have imagined nor survived.\n\nThen He discarded you. You were dropped like the mortal plaything that you were, left broken and burned out, a puppet with cut strings. You felt like you had died and arisen again in a world of ashes, without hope or direction.\n\nYou were alone.",
+    "combatModifiers": "244000000000,020201",
+    "magicModifiers": "244000000000,020201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Demon Consort",
+    "packItems": [
+      "Potion Of Cure Disease"
+    ],
+    "stealthModifiers": "244000000000,020201",
+    "usableByCharacterClass": [
+      "Courtesan",
+      "Witch"
+    ]
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Cloth Pants",
+    "displayName": "Highwayman",
+    "primaryWeapon": "Short Bow",
+    "description": "Some might take to a life on the road in search of adventure or fame. Some might glorify the act of robbing rich travellers as brave and altruistic. Not you. Profit was your only motivation.\n\nYou and your band spent three years raiding the caravans and coaches in the Broken Hills. It was a hard life, but not as hard as the life of petty crime that you had left behind in the slums of Janpur. At least the air was clean and you were master of your own destiny. Profits there were, and you began to think of retiring from the raider\u0027s life.\n\nIt was not to be. One cold autumn morning you chose the wrong convoy to ambush. Armed Neotroll mercenaries spilled from the covered wagons and cavalry appeared on your flank. You barely escaped with your life; most of your band did not. Only your knowledge of the hills saved you as you were hunted for days through the blinds and gullies. Finally the chase died down and you decided that a career change was urgently called for.",
+    "combatModifiers": "60820000,02010101",
+    "magicModifiers": "60820000,02010101",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Highwayman",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "70800000,01020101",
+    "usableByCharacterClass": [
+      "Burglar"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Disbanded Battlemage",
+    "primaryWeapon": "Dagger",
+    "description": "When word went out in the Year of the Lizard that Armand was recruiting mages for his united forces you were one of the first to enlist. You had always hated the injustice of the Maze and this was the perfect opportunity to take action.\n\nIt was a brief campaign but you learned much from the experience and from your more experienced arcane comrades. Armand was a good commander and used his Battlemage companies skillfully.\n\nAfter the victory at Caradam River where the creatures of the Maze were finally scattered and pushed back your company was disbanded. You decided that the time had come to take your own stand against the oppressor.",
+    "combatModifiers": "28000000400,010202",
+    "magicModifiers": "28000000400,010202",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Disbanded Battlemage",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "28008000000,010202",
+    "usableByCharacterClass": [
+      "Sorcerer",
+      "Warlock"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Maze Scholar",
+    "primaryWeapon": "Quarterstaff",
+    "description": "You graduated top of your class from the Cabal academy in Kilin, one of the youngest ever. Glory and renown were yours throughout the city, and there was already talk of your progression through the senior ranks. Now admitted to the inner sanctums and forums of the secretive organisation, you looked forward to pursuing your true passion: study of the Maze.\n\nBut you found inner Cabal full of people eager to debate, discuss and research endlessly, happy to never reach conclusions or make decisions. Eventually frustrated with this inaction you packed your books and set off in search of answers.",
+    "combatModifiers": "0,",
+    "magicModifiers": "328001000000,0101010101",
+    "helm": "Wizard\u0027s Cone",
+    "torsoArmour": "Robes (U)",
+    "gloves": "Sandals",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Maze Scholar",
+    "packItems": [],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Sorcerer"
+    ]
+  },
+  {
+    "legArmour": "Ninja Garb (L)",
+    "displayName": "Cynical Assassin",
+    "primaryWeapon": "Ninjato",
+    "description": "You never could understand the nijna legends passed around by the common folk, but you were more than willing to take advantage of them. The shinobi of Naomasa Domain are not supermen. You should know, you\u0027ve killed a number of them.\n\nThe assassination business in Kilin was a competitive one; every yokel with a knife and low moral fiber was your rival. You were one of the best because you were smart. One of your edges you flaunted - the ninja myth. A few black clothes and some acrobatics and your employers and enemies both believed and paid their respective prices.\n\nEventually you\u0027d had enough killing, and when the opportunity presented itself you decided to try and escape from the Maze forever.",
+    "combatModifiers": "1801800,01010201",
+    "magicModifiers": "9800000,020102",
+    "helm": "Ninja Cowl",
+    "torsoArmour": "Ninja Garb (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Cynical Assassin",
+    "boots": "Tabi Boots",
+    "packItems": [
+      "Shuriken"
+    ],
+    "stealthModifiers": "9800000,020102",
+    "usableByCharacterClass": [
+      "Ninja",
+      "Warlock"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Jian",
+    "description": "These are the default starting items and modifiers for a Warlock.",
+    "combatModifiers": "28000001800,01010101",
+    "magicModifiers": "28000801800,0101010101",
+    "helm": "Hachimaki",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Warlock_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "28008800000,01020101",
+    "usableByCharacterClass": [
+      "Warlock"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Pewter Cross",
+    "displayName": "Demon Smiter",
+    "primaryWeapon": "Quarterstaff",
+    "description": "Ever since your sister was taken you\u0027ve made it your mission to find demon scum and send them back from whence they came. Those from the other side are presistent and devious.\n\nYou\u0027ve fought them in basements and attics, in barns and corn fields, in caves and sinkholes, in black temples and abandoned towers. You\u0027ve exorcised devils from babies and grandmothers, from beggars and princes, from all the races of the First Realm. You\u0027ve banished the restless dead from wherever you could find them. The First Realm is much the better for your tireless work.\n\nDespite this, you sensed a demonic presence that you could not banish from the Realm. You came to realise that you needed to travel beyond the civilised Domains to track it down.",
+    "combatModifiers": "202000002400,01010201",
+    "magicModifiers": "202008000000,020201",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "gloves": "Sandals",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Demon Smiter",
+    "packItems": [],
+    "stealthModifiers": "202008000000,020201",
+    "usableByCharacterClass": [
+      "Priest",
+      "Exorcist"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Disciple of the Five Flowers",
+    "description": "High in the White Mountains lies the secluded Monastery of the Five Flowers. Here you grew up receiving education and discipline from Master Xeng.\n\nYou studied science, history and the arts, and learned of the way of the Five Flowers and Path between them. Your body and mind were hardened by manual labour, meditation and games of skill and stamina. All this time you secretly harboured the dream that you might escape the clutches of the Maze.\n\nOne day Master Xeng summoned you and told you that though you were a promising pupil your secret desire to be elsewhere was holding back your progress along the Path at the Monastery. The next day you departed and began the search for your own Path between the Five Flowers.",
+    "combatModifiers": "200080010000,020201",
+    "magicModifiers": "200080010000,020201",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Disciple of the Five Flowers",
+    "boots": "Sandals",
+    "packItems": [
+      "Shuriken"
+    ],
+    "stealthModifiers": "200080010000,020201",
+    "usableByCharacterClass": [
+      "Monk"
+    ]
+  },
+  {
+    "legArmour": "Gossamer Gown (L)",
+    "displayName": "Fey Dart",
+    "primaryWeapon": "Fey Dart",
+    "description": "Faeries use unique starting items and modifiers.",
+    "combatModifiers": "b00002010000,0101010101",
+    "magicModifiers": "b00002010000,0101010101",
+    "torsoArmour": "Gossamer Gown (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Faerie_Fey Dart",
+    "packItems": [
+      "Faerie Dust"
+    ],
+    "stealthModifiers": "b00012000000,0101010101",
+    "usableByCharacterClass": []
+  },
+  {
+    "secondaryWeapon": "Nunchaku",
+    "legArmour": "Cloth Pants",
+    "displayName": "Reformed Prize Fighter",
+    "description": "Born an orphan on the streets of Ponang, you escaped a life of petty crime by entering the fighting pits. You had enough skills to attract the attention of a dojo, and soon you were training with professionals and learning the life of a prize fighter.\n\nAll that changed one day when you went to make an offering at the shrine of The Lady. There you met a wise old sage who with but a few words convinced you to renounce material wealth and devotd your life to mastering the martial arts and achieving spiritual harmony. You bought yourself out of the dojo at once and set out on your new journey.",
+    "combatModifiers": "e000,010202",
+    "magicModifiers": "e000,010202",
+    "helm": "Hachimaki",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Reformed Brawler",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "e000,010202",
+    "usableByCharacterClass": [
+      "Monk"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Mad Hermit",
+    "primaryWeapon": "Quarterstaff",
+    "description": "For years you lived in your cave in the hills, chasing away intruders and desiring nothing more than to tend your herb garden and meditate in peace and solitude. Folks in the village below muttered disparaging rumours about you and did their best to forget that you were there.\n\nAs time passed you spent more and more time meditating and less time on anything else and your health and sanity went into decline. Eventually you realised that you had had enough of the silence and solitude, and furthermore that you had had enough of captivity in the Maze. Filled with new purpose you departed your tiny cave and set out into the Maze once again.",
+    "combatModifiers": "42000400000,010202",
+    "magicModifiers": "42000400000,010202",
+    "helm": "Skullcap",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Mad Hermit",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "42000400000,010202",
+    "usableByCharacterClass": [
+      "Druid",
+      "Sohei"
+    ]
+  },
+  {
+    "legArmour": "Ninja Garb (L)",
+    "displayName": "Venomous Shadow",
+    "primaryWeapon": "Poison Dagger",
+    "description": "You were born into an exiled clan, one of the losers in the incessant politics of Naomasa Domain. You were marked from a young age for training in the clandestine arts. As your clan elders plotted revenge and redemption, you learnt the ways of stealth and toxicology.\n\nBut you cared little for Naomasa politics or the schemes of your daimyo. As soon as the opportunity presented itself you deserted. Fearing revenge, you sought to leave Naomasa Domain as far behind as possible.",
+    "combatModifiers": "88001800400,0101010101",
+    "magicModifiers": "88009800000,0101010101",
+    "helm": "Ninja Cowl",
+    "torsoArmour": "Ninja Garb (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Venomous Shadow",
+    "boots": "Tabi Boots",
+    "packItems": [],
+    "stealthModifiers": "88009800000,0101010101",
+    "usableByCharacterClass": [
+      "Ninja"
+    ]
+  },
+  {
+    "secondaryWeapon": "Bullet Stone",
+    "legArmour": "Cloth Pants",
+    "displayName": "Surplus Apprentice",
+    "primaryWeapon": "Sling",
+    "description": "The night that you were born the moon turned black and the chieftain\u0027s horse gave birth to a two-headed colt. It soon became obvious that you had a gift: the ability to see into the spirit world and to channel the powers of fire, water, earth and air.\n\nSuch powers were rare and prized in the tribes and the gifted such as you were trained by the shamen to become their successors as spiritual leaders and counselors to the chieftains.\n\nAlas, there was an unfortunate abundance of talent in your generation. By the time you completed your name-quest and were eligible for training Old Man Eastwind already had three older apprentices and it was unthinkable for a shaman of another tribe to take you on. Faced with a few prospects of future advancement you chose to abscond. You renounced your tribal heritage and left, knowing that you could never return.",
+    "combatModifiers": "a0000010000,010202",
+    "magicModifiers": "a0000010000,010202",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Surplus Apprentice",
+    "boots": "Sandals",
+    "packItems": [
+      "Knife"
+    ],
+    "stealthModifiers": "a0010000000,010202",
+    "usableByCharacterClass": [
+      "Shugenja",
+      "Elemental"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Deserting Conscript",
+    "primaryWeapon": "Spear",
+    "description": "You hated farming so you left the country and came to the city. Working as a porter was even worse so you quit that and were unemployed for a while. Slum life in the city was dreadful so you robbed some drunkards and were arrested.\n\nIn prison you learnt to fight but the food was even worse than in the slums. After prison you worked in a warehouse for a while but got in an argument with some drunkards. Now that you could fight you killed them and were arrested again. War broke out, so instead of being sent to prison you were given a spear and a helmet and found yourself back in the country.\n\nArmy food was even worse than prison so first chance you got you deserted and set out on a quest for employment that offered better victuals.",
+    "combatModifiers": "24400,020201",
+    "magicModifiers": "100000024400,01020101",
+    "helm": "Leather Helm",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Deserting Conscript",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "8804000,010202",
+    "usableByCharacterClass": [
+      "Berserker"
+    ]
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "displayName": "Default",
+    "primaryWeapon": "Short Sword",
+    "description": "These are the default starting items and modifiers for a Knave.",
+    "combatModifiers": "68800000,01020101",
+    "magicModifiers": "68800000,01020101",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Knave_Default",
+    "packItems": [],
+    "stealthModifiers": "68800000,01020101",
+    "usableByCharacterClass": []
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for a Kamunushi.",
+    "combatModifiers": "42000002000,010202",
+    "magicModifiers": "42000002000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Kamunushi_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "42000002000,010202",
+    "usableByCharacterClass": []
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for an Elemental.",
+    "combatModifiers": "a0000002000,010202",
+    "magicModifiers": "a0000002000,010202",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Elemental_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "a0000002000,010202",
+    "usableByCharacterClass": [
+      "Elemental"
+    ]
+  },
+  {
+    "secondaryWeapon": "Wakazashi",
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Katana",
+    "description": "These are the default starting items and modifiers for a Samurai.",
+    "combatModifiers": "20000401a00,0101010101",
+    "magicModifiers": "20000401a00,0101010101",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Samurai_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "20000401a00,0101010101",
+    "usableByCharacterClass": [
+      "Samurai"
+    ]
+  },
+  {
+    "legArmour": "Fur Leggings",
+    "displayName": "Default",
+    "primaryWeapon": "Short Sword",
+    "description": "These are the default starting items and modifiers for a Berserker",
+    "combatModifiers": "21800,020201",
+    "magicModifiers": "0,",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Berserker_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Berserker"
+    ]
+  },
+  {
+    "legArmour": "Ninja Garb (L)",
+    "displayName": "Shinobi Infiltrator",
+    "primaryWeapon": "Tanto",
+    "description": "You grew up in a famous ninja clan and were trained from birth as a spy, saboteur and infiltrator of enemy positions. Daily lessons and exercises of concealment, stamina, agility, speed and precision were drilled into you.\n\nAfter you mastered the third circle your daimyo began sending you on missions against the other clans of Naomasa Domain. You excelled at your tasks and one spring morning when the daimyo\u0027s summons arrived you expected to be granted the fourth circle and the privilege of solo missions.\n\nInstead he told you that he had an unusual mission for you, a mission from which you would never again return the clan castle...",
+    "combatModifiers": "23800400,0101010101",
+    "magicModifiers": "2b800000,0101010101",
+    "helm": "Ninja Cowl",
+    "torsoArmour": "Ninja Garb (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Shinobi Infiltrator",
+    "boots": "Tabi Boots",
+    "packItems": [
+      "Shuriken"
+    ],
+    "stealthModifiers": "2b800000,0101010101",
+    "usableByCharacterClass": [
+      "Ninja",
+      "Warlock"
+    ]
+  },
+  {
+    "legArmour": "Silk Pantaloons",
+    "displayName": "Court Jester",
+    "primaryWeapon": "Jesters Staff",
+    "description": "You were born into the circus and trained there in music, illusion and performance art. After your years of apprenticeship followed three more as part of the main act before eventually you were able to buy your contract out from the owners and set out to travel the First Realm.\n\nYour talents ensured you of a variety of steady job oppurtunities culminating in the coveted role of jester in the Prince\u0027s halls, where you entertained royal guests with songs, music, storytelling, acrobatics, juggling and magic.\n\nThat was a good gig, but palace politics ran their course and one rainy night you were forced to hastily leave it behind you forever.",
+    "combatModifiers": "400000000012000800000,01010102",
+    "magicModifiers": "400000000012000800000,01010102",
+    "helm": "Jesters Cap",
+    "torsoArmour": "Patchwork Coat",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Court Jester",
+    "boots": "Felt Slippers",
+    "packItems": [
+      "Poet\u0027s Lute"
+    ],
+    "stealthModifiers": "400000000012000800000,01010102",
+    "usableByCharacterClass": [
+      "Troubadour"
+    ]
+  },
+  {
+    "displayName": "Garland Of Lilies",
+    "primaryWeapon": "Fey Dart",
+    "description": "Dryads use unique starting items and modifiers.",
+    "combatModifiers": "300002010000,01020101",
+    "magicModifiers": "300002010000,01020101",
+    "torsoArmour": "Garland Of Lilies",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Dryad_Garland Of Lilies",
+    "packItems": [
+      "Faerie Dust"
+    ],
+    "stealthModifiers": "300012000000,02010101",
+    "usableByCharacterClass": []
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "displayName": "Prince of Cats",
+    "primaryWeapon": "Smallsword",
+    "description": "Peace and quiet were in short supply on the bustling streets of your home town. Fortunately neither ever held much appeal for you. From alley to highstreet, palace to hovel and theater to bed chamber, none could match your verve or skill.\n\nYou carved a name for yourself in that city, though how exactly you earned it is best not discussed in polite company. You also made a lot of enemies, chiefly from those not as fast, smart or successful as you. Eventually every dog has his day, and it took a pack of them to chase the Prince of Cats out of town.",
+    "combatModifiers": "60801000,02010101",
+    "magicModifiers": "60801000,02010101",
+    "torsoArmour": "Silk Shirt",
+    "gloves": "Chamois Gloves",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Prince of Cats",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "68800000,01020101",
+    "usableByCharacterClass": [
+      "Blackguard",
+      "Hero",
+      "Burglar"
+    ]
+  },
+  {
+    "legArmour": "Fur Leggings",
+    "displayName": "Forest Avenger",
+    "primaryWeapon": "Scimitar",
+    "description": "You always could understand the voices of the trees. Different voices belonged to different types of trees, and you learned them all. Others could hear the voices too but only you could understand them.\n\nYour friends the trees could do little to defend themselves, so you took that upon yourself. You learned about the wielding of blades, about the ways of the forest paths, and about summoning the secret power that lay within you. You brought what vengeance you were able against those who would harm your friends.\n\nOne day the voices of the trees told you that you were needed elsewhere, and you began to prepare for a long journey.",
+    "combatModifiers": "42000000a00,01010102",
+    "magicModifiers": "42000000a00,01010102",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Forest Avenger",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "42008000000,020102",
+    "usableByCharacterClass": [
+      "Druid",
+      "Ranger",
+      "Sohei"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Bo Stick",
+    "description": "These are the default starting items and modifiers for a Monk.",
+    "combatModifiers": "80002400,020201",
+    "magicModifiers": "80002400,020201",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Monk_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "80002400,020201",
+    "usableByCharacterClass": [
+      "Monk"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Skull Bones",
+    "displayName": "Remorseful Necromancer",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "Once, blinded by ambition and arrogance, you made choices that led to a personal tragedy, causing immense suffering to those around you. You do not speak of these events to anyone, but the experiences are written on your face and in your soul.\n\nConsumed by remorse and guilt, you sought desperate measures to mend the consequences of your mistakes. Willingly you cast your lot in with the powers of darkness, and left your home forever.",
+    "combatModifiers": "88001000000,010202",
+    "magicModifiers": "88001000000,010202",
+    "torsoArmour": "Robes (U)",
+    "gloves": "Sandals",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Remorseful Necromancer",
+    "packItems": [],
+    "stealthModifiers": "88001000000,010202",
+    "usableByCharacterClass": [
+      "Acolyte"
+    ]
+  },
+  {
+    "legArmour": "Chamois Skirt",
+    "displayName": "Agent of the Winds",
+    "primaryWeapon": "Wand Of Airs",
+    "description": "Your mother led you to the left handed path of magic. You learned the ways of witchcraft at her knee and spent your childhood gathering herbs and  following the changes of the seasons even as you dreamed of escaping from the captivity of the Maze.\n\nWhen you were ready you joined the coven and took part in the ceremonies. In time your roll as the wielder of the wand became habitual and you played a prominant part in the ceremonies of birth, growth and death.\n\nThe wheel turned, and in time you were ready to follow your heart and leave the coven behind.",
+    "combatModifiers": "144000000000,020201",
+    "magicModifiers": "144000000000,020201",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Agent of the Winds",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "144000000000,020201",
+    "usableByCharacterClass": [
+      "Witch"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Caravan Wench",
+    "primaryWeapon": "Club",
+    "description": "You always were a rebelious one. Born into the wagons of a gypsy caravan, you ran away for the first time when you were ten years old. You doubt that your parents missed you much.\n\nCaravans seemed to have a habit of crossing your path, and soon you\u0027d travelled with and run away from half a dozen of them. You became a veteran of caravan life - you\u0027d seen it all, done it all and lived to tell the tale.\n\nYour parents, though, had the last laugh when the mystic powers that were your bithright manifested themselves on your sixteenth birthday. Ostracised from your current troupe, you suddenly found that caravans no longer appeared miraculously in your path at every turn.\n\nLost and alone you were forced for the first time to fend for yourself in the wilderness.",
+    "combatModifiers": "44002802000,0101010101",
+    "magicModifiers": "44002802000,0101010101",
+    "torsoArmour": "Fur Halter",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Caravan Wench",
+    "boots": "Buskins",
+    "packItems": [
+      "Feather Dart"
+    ],
+    "stealthModifiers": "4400a800000,0101010101",
+    "usableByCharacterClass": [
+      "Courtesan",
+      "Witch"
+    ]
+  },
+  {
+    "legArmour": "Chamois Skirt",
+    "displayName": "Default",
+    "primaryWeapon": "Spear",
+    "description": "These are the default starting items and modifiers for an Amazon.",
+    "combatModifiers": "44000020400,02010101",
+    "magicModifiers": "44000020400,02010101",
+    "helm": "Leather Helm",
+    "torsoArmour": "Fur Halter",
+    "gloves": "Sandals",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Amazon_Default",
+    "packItems": [],
+    "stealthModifiers": "44000020400,02010101",
+    "usableByCharacterClass": [
+      "Amazon"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Defender of the Faith",
+    "primaryWeapon": "Mace",
+    "description": "You\u0027ve never been one for fiery sermons, for theological reasoning, or for wordy counselling and guidance. Actions, after all, speak louder than words and you\u0027re far more comfortable with them.\n\nYou\u0027ve found ways to spend your restless ineloquence in the service of your faith by works of construction, agriculture and where necessary by bashing in a few heads. Sometimes that\u0027s the only way.\n\nEventually you could not bear being confined in the First Realm any longer and resolved to escape or die trying.",
+    "combatModifiers": "12000002000,010202",
+    "magicModifiers": "12000002000,010202",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Defender of the Faith",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "12008000000,010202",
+    "usableByCharacterClass": [
+      "Priest",
+      "Paladin"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Silver Ring",
+    "displayName": "Diabolist",
+    "primaryWeapon": "Short Staff",
+    "description": "You\u0027ve always scorned those who worshipped remote, invisible gods. Such are mere abstract philosophies compared to your masters.\n\nDemons... you can hear their voices in your ears, you can feel their breath on your cheek, you can taste the heat of their bodies and understand the power of their will even as you only imagine them. You can draw the pentacle and invite your masters to converse with you. Let the cautious worshipper of some tedious debating god attempt that...\n\nBy such a visitation were you instructed of your purpose. Few are chosen to attempt to escape from the Maze. You are such a one. You did not question your masters.",
+    "combatModifiers": "288000000000,020201",
+    "magicModifiers": "288000000000,020201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Diabolist",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "288000000000,020201",
+    "usableByCharacterClass": [
+      "Ninja",
+      "Acolyte"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Bramblewood Friar",
+    "primaryWeapon": "Club",
+    "description": "You enrolled in a priestly order at a young age, but the ways of the cloth weren\u0027t for you. After that you worked for a while as a brewers assistant in Jinpur but the road called and before long you had joined the army as a medic. Campaign life wasn\u0027t much fun so you deserted and fell in with an outlaw band roaming the southern reaches of the Bramblewood.\n\nIt was there that you met the ancient druid Augustin and finally discovered your true calling. After Augustin passed away you lingered with the outlaws for a time, learning the ways of the forest and doing what you could for the people of the area. Eventually the road called once more and you left your comrades behind.",
+    "combatModifiers": "42002002000,01010102",
+    "magicModifiers": "42002002000,01010102",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Bramblewood Friar",
+    "boots": "Sandals",
+    "packItems": [
+      "Potion Of Cure Poison"
+    ],
+    "stealthModifiers": "4200a000000,01010102",
+    "usableByCharacterClass": [
+      "Druid"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Dreamweaver",
+    "primaryWeapon": "Club",
+    "description": "You were raised in a sacred grove where the boundaries between day and night blurred. There, under the twilight stars, you learned to harness the mystical energies of nature. You journeyed through the dimly lit landscapes of your forest home where shadows and light intertwined in balance, drawing power from the liminal spaces.\n\nAs you grew to adulthood, a sense of imbalance grew with you. Eventually the wider world intruded and you felt keenly the walls of the Maze around you, unseen but making the balance between light and shadow, waking and sleeping, impossible. You reluctantly left your grove in a quest to set the balance right.",
+    "combatModifiers": "42800000000,010202",
+    "magicModifiers": "42800000000,010202",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Dreamweaver",
+    "packItems": [
+      "Faerie Dust"
+    ],
+    "stealthModifiers": "42800000000,010202",
+    "usableByCharacterClass": [
+      "Druid"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Altar Attendant",
+    "primaryWeapon": "Knife",
+    "description": "Sacrifice is the path to true power. You have sacrificed much on your path: your soul, your innocence, years of your life. Perhaps some of your sanity. And the lives of many others.\n\nMen and beasts both have died under your knife, their blood running down the channels carved in your cold stone altar. The best met their fate without fear, the worst wailed and thrashed against the inevitable. The dark powers granted you much power.\n\nOne day you received a vision and came to realise that your power had been granted for a reason and you set out leaving your blood stained altar in it\u0027s stone chamber behind forever.",
+    "combatModifiers": "88000000400,020201",
+    "magicModifiers": "88000000400,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Altar Attendant",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "88008000000,010202",
+    "usableByCharacterClass": [
+      "Acolyte"
+    ]
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Suede Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Short Bow",
+    "description": "These are the default starting items and modfiers for a Ranger.",
+    "combatModifiers": "40012000000,020201",
+    "magicModifiers": "40012000000,020201",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Ranger_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "40012000000,020201",
+    "usableByCharacterClass": [
+      "Ranger"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Longsword",
+    "description": "These are the default starting items and modifiers for a Paladin.",
+    "combatModifiers": "2000001800,020201",
+    "magicModifiers": "2000001800,020201",
+    "helm": "Iron Helm",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Paladin_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "2000001800,020201",
+    "usableByCharacterClass": [
+      "Paladin"
+    ]
+  },
+  {
+    "secondaryWeapon": "Buckler Shield",
+    "legArmour": "Cloth Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Short Sword",
+    "description": "These are the default starting items and modifiers for a Hero.",
+    "combatModifiers": "21800,020201",
+    "magicModifiers": "21800,020201",
+    "torsoArmour": "Leather Cuirass",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Hero_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "21800,020201",
+    "usableByCharacterClass": [
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Gossamer Gown (L)",
+    "displayName": "Faerie Stick",
+    "primaryWeapon": "Faerie Stick",
+    "description": "Faeries use unique starting items and modifiers.",
+    "combatModifiers": "b00002000400,0101010101",
+    "magicModifiers": "b00002000400,0101010101",
+    "torsoArmour": "Gossamer Gown (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Faerie_Faerie Stick",
+    "packItems": [
+      "Faerie Dust"
+    ],
+    "stealthModifiers": "b0000a000000,0101010101",
+    "usableByCharacterClass": []
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Robes (L)",
+    "displayName": "Bushido Marksman",
+    "primaryWeapon": "Long Bow",
+    "description": "Where your peers favoured the blade, you were always drawn to the bow. The child of an elite family, you had access to the best schooling on offer. You excelled at it all, but none as much as archery. In due course your father chose you for more responsibilities.\n\nDisaster struck on your very first diplomatic mission, meant to foster peace between rival factions. A traitor within your own ranks betrayed your delegation, leading to a catastrophic ambush. In the chaos, your comrades fell, and you were left for dead. Haunted by guilt and failure, you chose to atone by taking on a momentus quest.",
+    "combatModifiers": "28000420000,02010101",
+    "magicModifiers": "28000420000,02010101",
+    "torsoArmour": "Robes (U)",
+    "gloves": "Sandals",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Bushido Marksman",
+    "packItems": [],
+    "stealthModifiers": "28000420000,02010101",
+    "usableByCharacterClass": [
+      "Samurai"
+    ]
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "miscItem1": "Silver Ring",
+    "displayName": "Warrior Poet",
+    "primaryWeapon": "Short Sword",
+    "description": "The minstrel boy to the war is gone,\nIn the ranks of death you\u0027ll find him;\nHis father\u0027s sword he has girded on,\nAnd his wild harp slung behind him;\n\"Land of Song!\" said the warrior bard,\n\"Though all the world betrays thee,\nOne sword, at least, thy rights shall guard,\nOne faithful harp shall praise thee!\"\n ~ Thomas Moore, \"The Minstrel Boy\"",
+    "combatModifiers": "400000000000000001800,020201",
+    "magicModifiers": "400000000200000001800,01010102",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Warrior Poet",
+    "boots": "Buskins",
+    "packItems": [
+      "Bardic Harp"
+    ],
+    "stealthModifiers": "40000000000000a800000,01010201",
+    "usableByCharacterClass": [
+      "Skald"
+    ]
+  },
+  {
+    "secondaryWeapon": "Quarrel",
+    "legArmour": "Suede Pants",
+    "miscItem1": "Welding Goggles",
+    "displayName": "Arbalist",
+    "primaryWeapon": "Light Crossbow",
+    "description": "You\u0027ve always felt that other engineers discounted the six simple machines in favour of flashier technology. Where others sought answers further afield, you could achieve amazing things with mere mechanical advantage.\n\nYour peers scoffed at you, and unable to find a patron in Kilin you fell on hard times. Determined to prove them all wrong and fed up with plying your trade in the First Realm, you spent the last of your funds constructing your own crossbow from scratch. Given enough time and materials, you know that you can turn it into a fearsome weapon of destruction.",
+    "combatModifiers": "200000000100000020000,020102",
+    "magicModifiers": "200000000100000020000,020102",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Suede Doublet",
+    "gloves": "Leather Gloves",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Arbalist",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "200000000100000020000,020102",
+    "usableByCharacterClass": [
+      "Gadgeteer"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Mercenary Captain",
+    "primaryWeapon": "Bearded War Axe",
+    "description": "In your memories the campaigns have all blended into one, all except the last one. You were a talented captain. Men fought for you, whether from fear, loyalty or greed did not much matter when the crows descended. You were good at the business of war, few could say they were better. \n\nThat last campaign... perhaps it was one too many. Everyone\u0027s luck runs out eventually, and yours did that day on the bleak moors of Gernoed. Your company was slaughtered to a man and you were left for dead on the field of battle.\n\nBadly wounded, you dragged yourself slowly away from the crows and the looters and somehow managed to find a dark place in which to hide and recover. Your days as a mercenary captain were over.",
+    "combatModifiers": "200000020200,020201",
+    "magicModifiers": "88000000200,010202",
+    "torsoArmour": "Breastplate",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Mercenary Captain",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "88009000000,01020101",
+    "usableByCharacterClass": [
+      "Blackguard",
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Field Medic",
+    "primaryWeapon": "Mace",
+    "description": "From an early age you knew that medicine was your calling. You dedicated your life to the craft, leaving home to join a famous order of healers in Kilin and learning your trade working in the hospital attached to your school.\n\nYou were never a martial sort, but fate had other ideas. War came to the Domains of the First Realm and you were drafted into the ranks as a field medic. Lightly armed and mobile, your squad\u0027s role was to rescue the fallen, support other units in battle and run the camp hospitals.\n\nIt was dangerous work, but you were good enough to survive your term of service. You emerged stronger and with new resolve to pursue your dreams of escape from the Maze.",
+    "combatModifiers": "12000002000,010202",
+    "magicModifiers": "12000002000,010202",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Field Medic",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "12000002000,010202",
+    "usableByCharacterClass": [
+      "Priest",
+      "Paladin"
+    ]
+  },
+  {
+    "legArmour": "Chamois Skirt",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for a Witch.",
+    "combatModifiers": "44000002000,010202",
+    "magicModifiers": "44000002000,010202",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Witch_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "44008000000,010202",
+    "usableByCharacterClass": [
+      "Witch"
+    ]
+  },
+  {
+    "secondaryWeapon": "Dagger",
+    "legArmour": "Fur Leggings",
+    "displayName": "Frontier Drifter",
+    "primaryWeapon": "Short Sword",
+    "description": "In winter the Bleak Hills are frosted still and the wilder Mirka tribes cross the Gates from the snow-bound mountains to hunt in the pale sunlight. In summer the rains come falling sideways in the east wind and turn the hills into a labyrinth of flash floods and mud slides. Life isn\u0027t easy, but you\u0027ve always liked the open spaces and the silence.\n\nSome crofters and small villages eke out a living in these hard lands, but you\u0027ve preferred to keep on the move. Hunter, trapper, guide, trader - you\u0027ve drifted through all of them, and others beside.\n\nYour unease at staying still in life slowly crystalised into a realisation that it was time to leave the Hills behind.",
+    "combatModifiers": "100002001800,01010201",
+    "magicModifiers": "100002001800,01010201",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Frontier Drifter",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "10000a000000,020201",
+    "usableByCharacterClass": [
+      "Ranger",
+      "Berserker",
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Circus Runaway",
+    "primaryWeapon": "Throwing Knife",
+    "description": "The circus troupe was all the family you ever knew. As an urchin you worked cleaning the wagons. Later it was the kitchens, cooking, washing dishes and serving the performers.\n\nBefore long your talent was put to use in the ring, first as an assistant then as part of the knife throwing act. But on your sixteenth birthday everything changed. The magical powers that are your heritage awakened and with it the wanderlust sprung up in your heart.\n\nThat night you deserted the troupe and struck out to find your destiny.",
+    "combatModifiers": "2810000,020201",
+    "magicModifiers": "2810000,020201",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Circus Runaway",
+    "boots": "Buskins",
+    "packItems": [
+      "Dagger"
+    ],
+    "stealthModifiers": "12800000,020102",
+    "usableByCharacterClass": [
+      "Troubadour",
+      "Courtesan"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Spear",
+    "description": "These are the default starting items and modifiers for a Sohei.",
+    "combatModifiers": "40000400400,020201",
+    "magicModifiers": "0,",
+    "helm": "Hachimaki",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Sohei_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Potion Of Light Heal"
+    ],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Sohei"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Street Corner Busker",
+    "primaryWeapon": "Club",
+    "description": "The docks at Kilin are as cosmopolitan as it gets in the First Realm. For years you earned your bread busking on the corner outside the Goat and Tower inn. You were pretty good - Triton merchants would always pay for one of your shanties, and Goblin vagrants would sometimes stop to listen to a jig instead of trying to rob you. Once a year at the harvest festival you\u0027d set up a stall and add a few magic tricks to the performance. All told it wasn\u0027t a bad life.\n\nYou never really knew why the wanderlust hit you, but the day it did you packed your bag and hit the road. Kilin suddenly seemed small and crowded and boring. You needed to move on.\n\nTimes were hard travelling the First Realm. You scaped a living off tips and charity, but sleeping under the stars got old really quickly. You tried Janpur but left soon - the wanderlust again. While on the road to Ponang you started to realise that maybe you\u0027d have to travel further than that to scratch this particular itch.",
+    "combatModifiers": "400000000000000802000,010202",
+    "magicModifiers": "400000000000008002000,010202",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Street Corner Busker",
+    "boots": "Sandals",
+    "packItems": [
+      "Poet\u0027s Lute"
+    ],
+    "stealthModifiers": "400000000000008800000,020102",
+    "usableByCharacterClass": [
+      "Troubadour"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for a Cultist.",
+    "combatModifiers": "44000002000,010202",
+    "magicModifiers": "c000002000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Cultist_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "44000002000,010202",
+    "usableByCharacterClass": []
+  },
+  {
+    "secondaryWeapon": "Musket Ball",
+    "legArmour": "Cloth Pants",
+    "miscItem1": "Welding Goggles",
+    "displayName": "Pistoleer",
+    "primaryWeapon": "Flintlock Pistol",
+    "description": "Black powder is the way of the future. Where some see entertaining fireworks and crudely innacurate firearms, you see limitless potential.\n\nGiven the chance you know that you can build the ultimate black powder powered hand cannon. Chances for engineers with big ideas are hard to come by in the First Realm, and after you burned down your third workshop you were left with little more than the clothes on your back.\n\nNot dismayed by these circumstances, you prepared you seek your fortune elsewhere.",
+    "combatModifiers": "200000000100000040000,020102",
+    "magicModifiers": "200000000100000040000,020102",
+    "torsoArmour": "Silk Shirt",
+    "gloves": "Leather Gloves",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Pistoleer",
+    "boots": "Leather Boots",
+    "packItems": [],
+    "stealthModifiers": "200000000100000040000,020102",
+    "usableByCharacterClass": [
+      "Gadgeteer"
+    ]
+  },
+  {
+    "secondaryWeapon": "Quarrel",
+    "legArmour": "Cloth Pants",
+    "displayName": "Former Warden",
+    "primaryWeapon": "Light Crossbow",
+    "description": "You never could believe that you ended up working for the Prince. All you\u0027d ever wanted growing up was to be outdoors. Then one day you discovered that you could actually be paid for patrolling the forest, watching for poachers. Conveniently forgetting that some of your former activities might well have been called poaching by some, you signed up at once.\n\nYou were pretty good at your job, and the food and lodging was a lot better than what you were used to. But popularity isn\u0027t part of the job description of a game warden, and after a while you got tired of getting dirty looks in the taverns. You decided that it was time to see the world and resigned.",
+    "combatModifiers": "200002020000,020201",
+    "magicModifiers": "200012000000,020201",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Former Warden",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "200012000000,020201",
+    "usableByCharacterClass": [
+      "Ranger"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Silver Ring",
+    "displayName": "Rejected Applicant",
+    "primaryWeapon": "Short Staff",
+    "description": "You always knew you had the talent. Too bad that you were born with little else to your name.\n\nYou learnt what you could from street performers and hedge wizards, rapidly surpassing all of your teachers. With high hopes you journied to Kilin and applied to join the prestigious Sorcerous Cabal.\n\nDespite your obvious aptitude you had no name, no connections and no money. The Cabal rejected your application. Burning with anger and ambition you vowed to seek out your own path to magical mastery.",
+    "combatModifiers": "228000000000,020201",
+    "magicModifiers": "228000000000,020201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Rejected Applicant",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "228000000000,020201",
+    "usableByCharacterClass": [
+      "Sorcerer"
+    ]
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "miscItem1": "Silver Ring",
+    "displayName": "Cabalist",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "As a member (albiet a junior member) of the prestigious Sorcerous Cabal of Kilin you consider yourself to be on the cutting edge of your craft. The Cabal admits only the talented elite as it\u0027s members and in this rarified company you were able learn from the best in the First Realm.\n\nYour mornings were spent in study and experimentation in your rented laboratory and every afternoon you attended whatever lecture was being held in the assembly hall. Evenings you frequented the club jostling with the other students at the bar and hanging off the words of your seniors in the smoking room.\n\nDespite your hard work advancement was not as swift as you felt you deserved. Tiring of watching others less competent promoted over you you turned your attention to an endeavour that was sure to get you the recognition that you deserved...",
+    "combatModifiers": "0,",
+    "magicModifiers": "128000000000,020201",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Cabalist",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Sorcerer"
+    ]
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Fur Leggings",
+    "displayName": "Guerilla Commander",
+    "primaryWeapon": "Short Bow",
+    "description": "You met them at Gernoed field and lived, unlike many others. You fought in the retreat, village to village, hopeless against the teaming creatures of the Maze. Eventually there were no more villages and you took to the forests of the Red Hills to continue the battle as best you could.\n\nRaiding swiftly and retreating, hitting with stealth behind enemy lines, your band and others like you took a heavy toll of blood on the invaders. But the Maze is tireless and ever you were harried, forced deeper into the hills, never allowed to rest.\n\nOne morning your band was ambushed and scattered, and you were hard pressed to retreat alive, alone on the trail.",
+    "combatModifiers": "2820000,020102",
+    "magicModifiers": "12800000,010202",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Guerilla Commander",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "12800000,010202",
+    "usableByCharacterClass": [
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Chamois Skirt",
+    "displayName": "Mistress of the Night",
+    "primaryWeapon": "Bullwhip",
+    "description": "Others may have hidden behind hastily shuttered windows or in pools of flickering candlelight, but you were ever a creature of the night. You knew that darkness could only temporarily be pushed away, always it would stream back eventually.\n\nBetter to embrace it, to be a part of the night. For you, night was a tapestry full of patterns, a moving mosaic of meaning and moment. You followed the patterns through life as closely as you could, moving through the night ever guided by their shifting forms.\n\nFor a while others joined you and there were gatherings, conjunctions. You tried to show them the patterns too, even though many could not see. Eventually the patterns shifted again and you followed them away.",
+    "combatModifiers": "144000000000,020201",
+    "magicModifiers": "144000000000,020201",
+    "torsoArmour": "Fur Halter",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Mistress of the Night",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "144000000000,020201",
+    "usableByCharacterClass": [
+      "Courtesan",
+      "Witch"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Black Knight",
+    "primaryWeapon": "Flanged Mace",
+    "description": "The old servants shuffling around your echoing manor house still speak of the night when the young master changed. You remember little of your life before you came to serve the powers of darkness, but since then your days have been filled with confidence and purpose.\n\nDaily you rode the Domains of the First Realm on your black steed in the service of darkness. Your tasks were usually straightforward - wait on a bridge here, ride this road for a week, go to a feast at a certain castle. Inevitably these would end in a combat - someone would arrive and contest passage or otherwise seek conflict with you. You slew all of these challengers, and the powers of darkness were well pleased.\n\nOne day you received a new task, and left the cold halls of your manor and it\u0027s decrepit servants behind forever.",
+    "combatModifiers": "88000022000,02010101",
+    "magicModifiers": "88000002000,010202",
+    "torsoArmour": "Breastplate",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Black Knight",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "88009000000,01020101",
+    "usableByCharacterClass": [
+      "Blackguard"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Traveling Storyteller",
+    "primaryWeapon": "Quarterstaff",
+    "description": "Long ago it was that you ran away from home to follow your calling studying at the knee of the renowned bard Anacreon. You learned much from him before he moved on and you again set out on your own.\n\nThe road was your home and the path of your footsteps followed where fate led you. You earned your wayfaring keep retelling the sagas and histories in villages and taverns along the way. The road can be a harsh school but you were born tough and lucky and you learned it\u0027s lessons well.\n\nAfter a time you found that your footsteps lay on a path that led you outwards beyond the First Realm.",
+    "combatModifiers": "400000000212000000000,01010102",
+    "magicModifiers": "400000000212000000000,01010102",
+    "torsoArmour": "Suede Doublet",
+    "gloves": "Buskins",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Traveling Storyteller",
+    "packItems": [
+      "Bardic Harp"
+    ],
+    "stealthModifiers": "400000000212000000000,01010102",
+    "usableByCharacterClass": [
+      "Skald",
+      "Troubadour"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Banished Monk",
+    "primaryWeapon": "Jo Stick",
+    "description": "You came to the secluded Monastery of the Five Flowers as a youth and were enrolled in the Order for training. The mental disciplines came naturally to you and you excelled at the physical exercises but always the spiritual peace that so many of your fellow students seemed to embrace eluded you.\n\nOne day in a hidden chamber of the monastery library you discovered a forbidden tome describing the fundamentals of sorcery, and from that day you were lost to the Order. The forceful evocations of the right handed path made far more sense to you that the passive ways of inner harmony that your instructors had been trying to teach you. You studied the tome in secret a month but were soon discovered and brought before Master Xeng himself.\n\nHe stripped you of your belt and titles and cast you over the walls and into the wilderness outside the monastery. With no attachments and little purpose in life you set out to discover how far your newfound talents could take you.",
+    "combatModifiers": "28000000400,010202",
+    "magicModifiers": "28000000400,010202",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Banished Monk",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "28008000000,010202",
+    "usableByCharacterClass": [
+      "Warlock"
+    ]
+  },
+  {
+    "secondaryWeapon": "Bullet Stone",
+    "legArmour": "Utilikilt",
+    "miscItem1": "Welding Goggles",
+    "displayName": "Default",
+    "primaryWeapon": "Omnigun Prototype",
+    "description": "These are the default starting items and modifiers for a Gadgeteer.",
+    "combatModifiers": "200000000100000040000,020102",
+    "magicModifiers": "200000000100000040000,020102",
+    "torsoArmour": "Cloth Shirt",
+    "gloves": "Leather Gloves",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Gadgeteer_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "200000000100000040000,020102",
+    "usableByCharacterClass": [
+      "Gadgeteer"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Oath Breaker",
+    "primaryWeapon": "Hand Axe",
+    "description": "It was a moonless night when you pledged yourself to the Master\u0027s service. You wore the shroud and sang the oath, made the sacrifice and sliced your palm and let your blood drop upon the runes of stone. You bound the vassal\u0027s knot around your wrist and the power of the Master flowed through you.\n\nService both overt and covert was yours. On the battlefield and in the corridors of power, in back alleys and lost catacombs, by day and by night, your power and skill and wits were sharp tools in your Master\u0027s hand.\n\nA year and a day after that fateful night you cut the knotted cord from your wrist and broke your sacred oath of service. Few ever did such a thing and escaped the Master\u0027s fatal wrath, but you were a sharp tool indeed and slipped the hand the once wielded you. Fleeing into the night, you knew that there could be no return.",
+    "combatModifiers": "2800200,020201",
+    "magicModifiers": "2800200,020201",
+    "helm": "Skullcap",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Oath Breaker",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "a800000,020102",
+    "usableByCharacterClass": [
+      "Warlock"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Child Prodigy",
+    "description": "You were three when your powers first manifested and you set something on fire. By the age of six your traumatised parents had had enough and gave you away to a travelling sorcerer who promised to train you properly. He was a fraud and you knew it, but your parents wouldn\u0027t believe you.\n\nAfter a month you burned down his wagon and ran away. You spent your childhood making your way in the world on your own. Where other children played and dreamed, you pondered your destiny and the ways of the Maze and decided that the prison would not hold you. You learned to harness your powers and your self-taught mastery fed you and protected you while you prepared for your escape.",
+    "combatModifiers": "1a0000000000,020201",
+    "magicModifiers": "1a0000000000,020201",
+    "helm": "Skullcap",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Child Prodigy",
+    "boots": "Sandals",
+    "packItems": [
+      "Flash Powder"
+    ],
+    "stealthModifiers": "1a0000000000,020201",
+    "usableByCharacterClass": [
+      "Shugenja",
+      "Elemental"
+    ]
+  },
+  {
+    "secondaryWeapon": "Buckler Shield",
+    "legArmour": "Robes (L)",
+    "displayName": "Shadowbane Inquisitor",
+    "primaryWeapon": "Short Sword",
+    "description": "Your path began when your village fell victim to a demonic incursion. The traumatic event ignited a fervent desire to protect others from similar horrors. Trained by a secretive order, you learned to blend into the shadows and wield both blade and faith against infernal foes. For a few short years you served your masters skilfully and enthusiastically.\n\nBefore long, however, your journey directed you towards the heart of darkness. You sought companions who understood the importance of the fight against demonic and undead threats, and set forth to leave the First Realm.",
+    "combatModifiers": "2000001800,020201",
+    "magicModifiers": "2000001800,020201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Shadowbane Inquisitor",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "2018000000,020201",
+    "usableByCharacterClass": [
+      "Exorcist"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Mystic Sage",
+    "primaryWeapon": "Quarterstaff",
+    "description": "Your upbringing was in the spartan Monastery of Illumination, far away on a barren island. There you studied the mystic way - a series of demanding mental disciplines, rigourous physical training, and studious reflection.\n\nAll things pass and so too did your time of study. When the Master Sage summoned you for the Ceremony of Examination, you already knew how you would answer his final question. That night you left the Monastery behind forever.",
+    "combatModifiers": "300080002400,0101010101",
+    "magicModifiers": "300080002400,0101010101",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Mystic Sage",
+    "boots": "Sandals",
+    "packItems": [
+      "Potion Of Light Heal"
+    ],
+    "stealthModifiers": "300080002400,0101010101",
+    "usableByCharacterClass": [
+      "Monk"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Flash Powder",
+    "displayName": "Street Magic Performer",
+    "primaryWeapon": "Dagger",
+    "description": "You always had a knack for magic of various kinds, but mostly you had a quick wit and an eye for the main chance. Life on the streets of Ponang taught you that there are two types of people - the smart and the dead.\n\nYou hustled the shell game on corners near the Bazaar, you busked on the stairs of the Three Gates and you performed for an honest living where you could in dives and cheap theaters around the Sprawl. Life was fast and fun but you always dreamed of more.\n\nOne day working the docks a mysterious stranger saw through your shell game tricks and told you to follow your heart or lose it to the Maze. You surprised even yourself by leaving Ponang forever that night.",
+    "combatModifiers": "14000800000,010202",
+    "magicModifiers": "14000800000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Street Magic Performer",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "14000800000,010202",
+    "usableByCharacterClass": [
+      "Skald",
+      "Enchanter"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Potion Of Stamina",
+    "displayName": "Holy Pilgrim",
+    "description": "Your dedication to your faith led you to undertake the Pilgrimage of the Rim - a circumvention of the First Realm\u0027s Domains visiting the twenty holy sites along the way.\n\nLeaving the monastery behind you traveled alone for many months, faithful in your daily dedications and generous in your alms to the poor. The seasons turned and one by one you visited the sacred sites and performed the necessary rituals of consecration at each one. Finally you reached the great temple at Menyr and spent the mandatory week of rapture, and your pilgrimage was done.\n\nDuring your travels an idea had been growing in your mind, and you came to realise that your future did not lie for much longer in the Domains of the First Realm.",
+    "combatModifiers": "212000000000,020201",
+    "magicModifiers": "212000000000,020201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Holy Pilgrim",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "212000000000,020201",
+    "usableByCharacterClass": [
+      "Priest"
+    ]
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Fur Leggings",
+    "displayName": "Bandit Archer",
+    "primaryWeapon": "Short Bow",
+    "description": "You spent three years in Emyn Bryn with the crew of the renowned bandit chief Estaban, raiding the rivers and lowlands. They were hard men, seasoned veterans of dozens of skirmishes and raids. No one spoke of their pasts, and you were no exception.\n\nFew other chiefs even bothered to maintain companies of archers or magic users but Estaban was a commander of some skill. His treaties with the Neotroll tribes in the hills kept your supply lines safe and his tactical skill and carefully planned raids ensured that you enjoyed more success than most.\n\nYet there is little honour amongst thieves, as you discovered when you were the victim of false accusations of treachery. With no time to lose you left the encampment with little more than what you were carrying and set out in search of new adventures.",
+    "combatModifiers": "42020000,020201",
+    "magicModifiers": "42020000,020201",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Bandit Archer",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "52000000,020201",
+    "usableByCharacterClass": [
+      "Ranger"
+    ]
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "miscItem1": "Pewter Cross",
+    "displayName": "Blade of Justice",
+    "primaryWeapon": "Rapier",
+    "description": "You would be the first to admit that your youth was somewhat misspent. There never was any need for the rowdy adventure seeking, or the brief flirtation with the stage. The less said about the fledgling fencing career the better. You were somewhat lost.\n\nThat changed when you found religion and were recruited as agent of the Commision of Justice, an organisation to dedicated to tracking down and eradicating evil in whatever form it reared it\u0027s head. They appreciated your new-found faith, your skills with the blade, and most importantly (to you) your innate sense of style and panache.\n\nYour years with the Commision were unforgettable, but eventually your restless nature prevailed and you resigned to pursue your own ends.",
+    "combatModifiers": "2000801000,020102",
+    "magicModifiers": "2008800000,010202",
+    "helm": "Tricorne Hat",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Blade of Justice",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "2008800000,010202",
+    "usableByCharacterClass": [
+      "Exorcist",
+      "Paladin"
+    ]
+  },
+  {
+    "secondaryWeapon": "Buckler Shield",
+    "legArmour": "Chamois Skirt",
+    "displayName": "Hoplite",
+    "primaryWeapon": "Short Spear",
+    "description": "A lost and dirty orphan on the streets of Daningrad, you were rescued from poverty by the warrior woman Cyme, a former gladiator. She brought you to her school and raised you as a warrior. You and the other girls were molded from rabble to soldiers.\n\nFemale gladiators were out of fashion, but Cyme was resourceful and hired her charges out as a mercenary company. You started in the ranks and worked your way upwards, seeing battle across much of the Domains. Finally your success brought you enough money to buy your commission back from Cyme.\n\nFree at last, you were able to pursue your own choice of quest and seek out your own battles.",
+    "combatModifiers": "44000020400,02010101",
+    "magicModifiers": "44000020400,02010101",
+    "torsoArmour": "Fur Halter",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Hoplite",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "44000020400,02010101",
+    "usableByCharacterClass": [
+      "Amazon"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Silver Ring",
+    "displayName": "Sister Nightfall",
+    "primaryWeapon": "Athame",
+    "description": "Though being part of the coven hurt it felt much like a dream. The world was filled with light and serenity as you and your sisters learned secrets untold and and lingered in undreamed hallways of the soul divine.\n\nBut there is more to life than your young eyes could reveal and in time the coven was soured and poisoned with jealousy and heresy. You were confused, your feelings diverted from the light, and your sisters abandoned you.\n\nWhat should have been was gone and all the heavens fell around you. Once again you set sail on another sea searching for a way to be free.",
+    "combatModifiers": "244000000000,020201",
+    "magicModifiers": "244000000000,020201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Sister Nightfall",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "244000000000,020201",
+    "usableByCharacterClass": [
+      "Witch"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "The Swordsman",
+    "primaryWeapon": "Smallsword",
+    "description": "Life growing up on the streets of Janpur left you nimble of wit and fleet of foot. Both qualities served you well when you left the city seeking adventure and fortune in the Domains of the First Realm.\n\nDanger and opportunity lurked in equal measure, often waiting only for a rascal bold enough flush them out. You shared the road with soldiers and pilgrims, knights and magicians, amazons and berserkers. You made your fortune and lost it again. Your adventures took you the length and breadth of the Realm and you earned a reputation as a a wily and nimble rascal.\n\nFinally you decided that your fate and fortune did not lie in the First Realm and set out to leave it behind.",
+    "combatModifiers": "60801000,02010101",
+    "magicModifiers": "60801000,02010101",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "The Swordsman",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "68800000,01020101",
+    "usableByCharacterClass": [
+      "Burglar"
+    ]
+  },
+  {
+    "legArmour": "Tartan Trews",
+    "displayName": "Raconteur",
+    "primaryWeapon": "Smallsword",
+    "description": "Substance is useless without style, you always believed. You\u0027ve always tried your best to marry the two into one irresistable package.\n\nYou had a privileged upbringing. Your magical talents were identified early and you excelled at your arcane lessons. Though you were not much of an athlete, at your father\u0027s insistence you enrolled with the famous fencing master Argivo and learned enough to be honourably challenged to a duel.\n\nThis was somewhat unfortunate, because your feckless lifestyle meant that before long a jealous suitor had thrown his gauntlet at your feet. Rather than face certain injury at the brute\u0027s hands you absconded in search of new adventures.",
+    "combatModifiers": "14000001000,010202",
+    "magicModifiers": "14000001000,010202",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Raconteur",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "14008000000,010202",
+    "usableByCharacterClass": [
+      "Skald",
+      "Troubadour",
+      "Enchanter"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Jo Stick",
+    "description": "These are the default starting items and modifiers for a Shugenja.",
+    "combatModifiers": "0,",
+    "magicModifiers": "0,",
+    "helm": "Hachimaki",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Shugenja_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Shuriken"
+    ],
+    "stealthModifiers": "8000a000000,020201",
+    "usableByCharacterClass": [
+      "Shugenja"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "miscItem1": "Silver Ring",
+    "displayName": "Wayfaring Missionary",
+    "primaryWeapon": "Quarterstaff",
+    "description": "Faith has always been the guiding light in your life. You were active from a young age within your denomination and volunteered early for works of mission within the First Realm.\n\nYou let it be known that no assignment was too daunting. You spent time with the Mirka tribes of the White Mountains, lived in the stone villages of the Neotrolls of Emyn Beowyn, and spread the faith amongst destitute Goblins on the streets of Janpur.\n\nAfter the last of these missions your superiors told you that you had been chosen for a unique missionary opportunity.",
+    "combatModifiers": "12000002400,01010201",
+    "magicModifiers": "12000002400,01010201",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Wayfaring Missionary",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "1200a000000,01010201",
+    "usableByCharacterClass": [
+      "Priest"
+    ]
+  },
+  {
+    "legArmour": "Fur Leggings",
+    "displayName": "Default",
+    "primaryWeapon": "Assegai",
+    "description": "These are the default starting items and modifiers for a Shaman.",
+    "combatModifiers": "280000000400,020201",
+    "magicModifiers": "0,",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Shaman_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Sneeze Powder"
+    ],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Shaman"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for an Enchanter.",
+    "combatModifiers": "14000002000,010202",
+    "magicModifiers": "14000002000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Enchanter_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "14000002000,010202",
+    "usableByCharacterClass": [
+      "Enchanter"
+    ]
+  },
+  {
+    "secondaryWeapon": "Tanto",
+    "legArmour": "Robes (L)",
+    "displayName": "Lordless Ronin",
+    "primaryWeapon": "Tachi",
+    "description": "You were one of a score of faithful samurai serving your daimyo in Naomasa Domain. Your skill with the blade and mount was renowned and it was known that your word was your bond.\n\nWhen the creatures of the Maze came against your Domain your lands were some of the first invaded and your swords were bloodied on the front lines of the battle for survival. You fell on the field and were left for dead even as your daimyo\u0027s forces were routed and the battle lost.\n\nWhen you recovered your senses you found yourself a leaderless samurai. Your daimyo\u0027s keep had been razed and his lands lay in ruins. There and then you swore an oath dedicating your life to opposing the machinations and forces of the Maze.",
+    "combatModifiers": "401800,020201",
+    "magicModifiers": "401800,020201",
+    "helm": "Hachimaki",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Lordless Ronin",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "401800,020201",
+    "usableByCharacterClass": [
+      "Samurai"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "miscItem1": "Silver Ring",
+    "displayName": "Agent of the Shogun",
+    "primaryWeapon": "Tanto",
+    "description": "You were born into a family of farmers but left at a young age to begin your studies at faraway Yamashiro monastery. You studied for years under the tutelage of sensei Shun Oko, learning the ways of the mind, body and spirit.\n\nIn due course you served briefly as abbot of the monastery but the station did not sit well with you and you renounced your wealth and embarked on a series of travels. Publicly you busied yourself raising funds for your home monastery, but unbeknownst to all agents of the shogun of Naomasa Domain had secretly contracted you to investigate the activities of the minions of the Maze.\n\nYou performed your task with distinction and one day orders came that were to send you further afield than ever before.",
+    "combatModifiers": "2400400,010202",
+    "magicModifiers": "2400400,010202",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Agent of the Shogun",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "a400000,020201",
+    "usableByCharacterClass": [
+      "Shugenja"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for a Druid.",
+    "combatModifiers": "42000002000,010202",
+    "magicModifiers": "42000002000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Druid_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Potion Of Cure Poison"
+    ],
+    "stealthModifiers": "42000002000,010202",
+    "usableByCharacterClass": [
+      "Druid"
+    ]
+  },
+  {
+    "legArmour": "Silk Pantaloons",
+    "displayName": "Charismatic Showman",
+    "primaryWeapon": "Wand Of Airs",
+    "description": "You were born under the bright lights of traveling carnivals, learning the art of enchantment to captivate audiences. From a young age, you wowed crowds with illusions and charm.\n\nYou dreamt of performing in legendary places, captivating the hearts of kings and queens, and leaving a mark on the world with your enchanting talents. Fueled by a thirst for new stories and the desire to showcase your talents to the world, you set out to entertain and enchant beyond the familiar faces of your hometown.",
+    "combatModifiers": "14000800000,010202",
+    "magicModifiers": "14000800000,010202",
+    "helm": "Wizard\u0027s Cone",
+    "torsoArmour": "Silk Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Charismatic Showman",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "14000800000,010202",
+    "usableByCharacterClass": [
+      "Enchanter"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Yamabushi Mystic",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "Renouncing your misspent youth, you ascended Mount Miska and dwelt in a cave there.\n\nYou constructed and tended a shrine to the four winds. You communed with the monsoons as they came and went. You meditated at length on how all things return to the ashes from whence they came. You guided the occasional pilgrim through the caverns under the earth whose ways you had studied and learned. Indeed you slowly became known as a medium and an oracle.\n\nPilgrims began seeking you out, bringing offerings for your shrine and seeking answers or solace from you. This became completely untenable - soon you had a visitor almost every month!\n\nSeeking further solitude you descended Mount Miska and set out to leave the First Realm behind.",
+    "combatModifiers": "a0002000000,010202",
+    "magicModifiers": "a0002000000,010202",
+    "helm": "Pointed Hat",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Yamabushi Mystic",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "a0002000000,010202",
+    "usableByCharacterClass": [
+      "Shugenja",
+      "Elemental"
+    ]
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "White Knight",
+    "primaryWeapon": "Greatsword",
+    "description": "After you found religion you spent a month in prayer asking for guidance and understanding. You had been a sinner and a bringer of strife to the world, no doubt about that, but you had been saved and now you sought some new meaning to your life.\n\nOn the last morning your prayers were answered. Without question you donated your estates and all your wealth to charity. Guided by your prayers you embarked on a series of quests throughout the Domains of the First Realm. You slew beasts and monsters, rescued the helpless and innocent and brought justice to those owed it.\n\nOne day after prayer you realised that your work in the First Realm was finished and that your path lay ever outward.",
+    "combatModifiers": "2000200c00,01010201",
+    "magicModifiers": "0,",
+    "helm": "Iron Helm",
+    "torsoArmour": "Suede Doublet",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "White Knight",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Paladin"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Last of the Bears",
+    "primaryWeapon": "Tomahawk",
+    "description": "Bear tribe had lived along Dao River for as long as the oldest could remember. Bear warriors were brave and their skill was legend throughout the tribes, Bear shamen were wise and potent in lore. The Bear totem was worth much respect in all the lands.\n\nThen in the Year of the Lizard the creatures of the Maze invaded the First Realm. They were without honour and were not seeking a fair fight, and the clans fell back before them. The Bears gave battle, but betrayed by the worthless Jackal tribe they were slaughtered.\n\nAs a young Bear warrior you fought and fell with the others, but you did not die. Arising days later on the battefield and finding your tribe slain and your home burned you swore the blood oath of vengeance against the Maze. You would escape or die trying.",
+    "combatModifiers": "200002020200,02010101",
+    "magicModifiers": "200002020200,01010102",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Last of the Bears",
+    "boots": "Sandals",
+    "packItems": [
+      "Throwing Axe"
+    ],
+    "stealthModifiers": "20001a000000,01020101",
+    "usableByCharacterClass": [
+      "Ranger",
+      "Shaman",
+      "Shugenja"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Warrior Monk",
+    "primaryWeapon": "Tachi",
+    "description": "You were recruited into a milltant monastic order in your youth and grew up to the rythms of monastery life. Every other full moon you were taught the many and varied devotions of your order and studied the histories and natural sciences. The balance of your time was spent on combat training - you learned the ways of the blade and the bow, the mount and the shield.\n\nYou were a good student and the year after your coming of age you participated in the annual tournament and performed with great honour. Three years later you defeated all opponents and were declared the winner. Following tradition, your reward was to depart the monastery on a mission to escape from the Maze.",
+    "combatModifiers": "401800,020201",
+    "magicModifiers": "401800,020201",
+    "helm": "Hachimaki",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Warrior Monk",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "a400000,010202",
+    "usableByCharacterClass": [
+      "Sohei",
+      "Samurai",
+      "Monk"
+    ]
+  },
+  {
+    "legArmour": "Fur Leggings",
+    "miscItem1": "Silver Ring",
+    "displayName": "Apprentice Smith",
+    "primaryWeapon": "Hammer",
+    "description": "Everyone considered you fortunate to have been apprenticed a famous smith like Sergei, but you had always dreamed of a life of adventure. You undoubtably had a talent for smithcraft - this Sergei had seen at once - but life in the village bored you. \n\nStill you tried to be a dutiful student to the old man and learned much from his patient teachings. In the year of the Lizard when the creatures of the Maze came against many Domains your village was engulfed in the conflict. Sergei was slain and the smithy burned to the ground.\n\nAfter the war had moved on you were left with nothing holding you there and decided to pursue the adventure that you had always dreamed of.",
+    "combatModifiers": "500000002000,020102",
+    "magicModifiers": "500000002000,020102",
+    "torsoArmour": "Fur Tunic",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Apprentice Smith",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "500008000000,020102",
+    "usableByCharacterClass": [
+      "Hero"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Dagger",
+    "description": "These are the default starting items and modifiers for a Burglar.",
+    "combatModifiers": "0,",
+    "magicModifiers": "0,",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Burglar_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "69800000,0101010101",
+    "usableByCharacterClass": [
+      "Burglar"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Ragged Savant",
+    "primaryWeapon": "Dagger",
+    "description": "You always knew that the calculus was impossible. The conjunction of planes needed to create the Maze was never feasible no matter which way you calculated it. This many pocket Domains, this many different shards of so many different worlds so far separated in physical space? This many Gates needing magical power? Madness!\n\nThe more you learned from books the more your intuition was validated. It was obvious. You spent your days on street corners trying to explain this to everyone you could, but nobody would listen. You could feel the answers encoded in the elemental powers flowing through you, but everyone else seemed oblivious.\n\nIt became clear that they could not be saved, and you began to prepare to escape from this mad prison without them.",
+    "combatModifiers": "a0000000400,010202",
+    "magicModifiers": "a0000000400,010202",
+    "helm": "Skullcap",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Ragged Savant",
+    "packItems": [],
+    "stealthModifiers": "a0008000000,010202",
+    "usableByCharacterClass": [
+      "Shaman",
+      "Shugenja",
+      "Elemental"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Default",
+    "primaryWeapon": "Gnarled Staff",
+    "description": "These are the default starting items and modifiers for an Acolyte.",
+    "combatModifiers": "88000002000,010202",
+    "magicModifiers": "88000002000,010202",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Acolyte_Default",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "88000002000,010202",
+    "usableByCharacterClass": [
+      "Acolyte"
+    ]
+  },
+  {
+    "legArmour": "Tartan Kilt",
+    "displayName": "Default",
+    "primaryWeapon": "Hand Axe",
+    "description": "These are the default starting items and modifiers for a Skald.",
+    "combatModifiers": "400000000200000000200,020102",
+    "magicModifiers": "0,",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Skald_Default",
+    "boots": "Sandals",
+    "packItems": [
+      "Bardic Harp"
+    ],
+    "stealthModifiers": "0,",
+    "usableByCharacterClass": [
+      "Skald"
+    ]
+  },
+  {
+    "legArmour": "Robes (L)",
+    "displayName": "Red Valley Ashigaru",
+    "primaryWeapon": "Nagamaki",
+    "description": "You were trained from childhood as an elite warrior in your clan\u0027s secret refuge in the hidden Red Valley. The arts of blade and sorcery were taught to you by the daimyo himself, and you excelled at your lessons.\n\nThe hand of every other clan was turned against you and you had many chances to put your skills to use. The arts of war came naturally to you.\n\nOne winter evening returning through the snow from a solo mission you found your clan stronghold in ruins. The hidden valley had been discovered and an alliance of other clans had moved against your daimyo. There were no other survivors. Faced with few choices, you left Naomasa Domain behind forever.",
+    "combatModifiers": "401800,020201",
+    "magicModifiers": "28000401800,0101010101",
+    "helm": "Kabuto",
+    "torsoArmour": "Robes (U)",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Red Valley Ashigaru",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "a400000,010202",
+    "usableByCharacterClass": [
+      "Sohei",
+      "Samurai",
+      "Warlock"
+    ]
+  },
+  {
+    "secondaryWeapon": "Willow Arrow",
+    "legArmour": "Chamois Skirt",
+    "displayName": "Daughter of Artemis",
+    "primaryWeapon": "Short Bow",
+    "description": "Your childhood days in the Briarwood were filled with adventure and excitement. Roaming the great forest with the other daughters, you learned to fight and to survive. You became skilled with bow and spear and earned your feather badges.\n\nBy the time of your coming of age you knew that you were different. Most of the others hoped for no more than assignments through the ranks. You knew that a different quest awaited you, and when the Hag threw the bones and hissed in surprise you were already packed for the road.",
+    "combatModifiers": "2020400,020201",
+    "magicModifiers": "44000020400,01020101",
+    "helm": "Leather Helm",
+    "torsoArmour": "Fur Halter",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Daughter of Artemis",
+    "boots": "Sandals",
+    "packItems": [],
+    "stealthModifiers": "1a000000,010202",
+    "usableByCharacterClass": [
+      "Amazon"
+    ]
+  },
+  {
+    "displayName": "Wreath Of Ivy",
+    "primaryWeapon": "Fey Needle",
+    "description": "Dryads use unique starting items and modifiers.",
+    "combatModifiers": "300002000400,01020101",
+    "magicModifiers": "300002000400,01020101",
+    "torsoArmour": "Wreath Of Ivy",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Dryad_Wreath Of Ivy",
+    "packItems": [
+      "Faerie Dust"
+    ],
+    "stealthModifiers": "30000a000000,02010101",
+    "usableByCharacterClass": []
+  },
+  {
+    "legArmour": "Suede Pants",
+    "displayName": "Default",
+    "primaryWeapon": "Short Sword",
+    "description": "These are the default starting items and modifiers for a Blackguard.",
+    "combatModifiers": "8000001800,020201",
+    "magicModifiers": "8000001800,020201",
+    "torsoArmour": "Breastplate",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Blackguard_Default",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "8000001800,020201",
+    "usableByCharacterClass": [
+      "Blackguard"
+    ]
+  },
+  {
+    "secondaryWeapon": "Knife",
+    "legArmour": "Cloth Pants",
+    "displayName": "Haunted Seer",
+    "primaryWeapon": "Knife",
+    "description": "Plagued by haunting visions and tormented by spectral entities, you were born with a unique connection to the ethereal Realm. From a young age, you were haunted by glimpses into the ethereal plane that others could not comprehend. To escape the torments, you turned to dark rituals that allowed you to harness and control these spirits. \n\nSeeking companions who could withstand the eerie atmosphere you bring, you set out on the road.",
+    "combatModifiers": "188000000000,020201",
+    "magicModifiers": "188000000000,020201",
+    "torsoArmour": "Cloth Shirt",
+    "gloves": "Buskins",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Haunted Seer",
+    "packItems": [],
+    "stealthModifiers": "188000000000,020201",
+    "usableByCharacterClass": [
+      "Acolyte"
+    ]
+  },
+  {
+    "legArmour": "Cloth Pants",
+    "displayName": "Grounded Buccaneer",
+    "primaryWeapon": "Cutlass",
+    "description": "You earned your name sailing the six seas of the First Realm under the infamous Captain Bartholomew. Aboard the cutter Westwind you waylaid Kilin supply shipments, raided Triton villages and plundered where and when you could. Life was good, the seas were warm and the skies were blue.\n\nThis came to an end when Batholomew\u0027s ravages became intolerable and the three cities banded together to hunt him down. Many ships came against you, but Westwind was a swift vessel and kept ahead of the hunting pack for more than a month. Despite this, the hunters were tireless.\n\nEventually sensing the inevitable, Bartholomew siezed a hapless merchant, burned the Westwind and coasted through the pursuing ranks and into the port of Janpur. There you and the rest of the crew dispersed in search of new adventures.",
+    "combatModifiers": "200000000a00,020201",
+    "magicModifiers": "300000000a00,01010102",
+    "helm": "Feathered Hat",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Grounded Buccaneer",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "20000a000000,010202",
+    "usableByCharacterClass": [
+      "Berserker",
+      "Blackguard"
+    ]
+  },
+  {
+    "legArmour": "Chamois Skirt",
+    "miscItem1": "Silver Ring",
+    "displayName": "Moonchild",
+    "primaryWeapon": "Dagger",
+    "description": "The moon cult was all you knew growing up. Your life was spent in daily rituals of worship, training, and service to the elders. You were a good student as a child, obedient and faithful. You were a believer.\n\nAs you grew older you were allowed outside the compound, and the small glimpses of life outside accumulated in your mind. You began to question your situation. Only when you were tasked with kidnapping a newborn girl child did you understand how you came to be raised as a child of the moon. Surely this was not right?\n\nThe cult was a dangerous place for dissenters. You still believed! But you knew that your thoughts made you damaged goods, that you would never be able to keep them secret forever.  Confused and scared, you fled the compound into a world that you did not understand.",
+    "combatModifiers": "44000000400,010202",
+    "magicModifiers": "44000000400,010202",
+    "torsoArmour": "Cloth Shirt",
+    "TYPE_KEY": "mclachlan.maze.stat.StartingKit",
+    "name": "Moonchild",
+    "boots": "Buskins",
+    "packItems": [],
+    "stealthModifiers": "44008000000,010202",
+    "usableByCharacterClass": [
+      "Courtesan",
+      "Witch"
+    ]
+  }
+]

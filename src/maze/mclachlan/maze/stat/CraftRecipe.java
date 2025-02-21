@@ -32,6 +32,10 @@ public class CraftRecipe extends DataObject
 	private String item2;
 	private String resultingItem;
 
+	public CraftRecipe()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public CraftRecipe(
 		String name, StatModifier requirements,
@@ -103,5 +107,51 @@ public class CraftRecipe extends DataObject
 	{
 		return (name1.equals(item1) && name2.equals(item2)) ||
 			(name1.equals(item2) && name2.equals(item1));
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		CraftRecipe that = (CraftRecipe)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getRequirements() != null ? !getRequirements().equals(that.getRequirements()) : that.getRequirements() != null)
+		{
+			return false;
+		}
+		if (getItem1() != null ? !getItem1().equals(that.getItem1()) : that.getItem1() != null)
+		{
+			return false;
+		}
+		if (getItem2() != null ? !getItem2().equals(that.getItem2()) : that.getItem2() != null)
+		{
+			return false;
+		}
+		return getResultingItem() != null ? getResultingItem().equals(that.getResultingItem()) : that.getResultingItem() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getRequirements() != null ? getRequirements().hashCode() : 0);
+		result = 31 * result + (getItem1() != null ? getItem1().hashCode() : 0);
+		result = 31 * result + (getItem2() != null ? getItem2().hashCode() : 0);
+		result = 31 * result + (getResultingItem() != null ? getResultingItem().hashCode() : 0);
+		return result;
 	}
 }

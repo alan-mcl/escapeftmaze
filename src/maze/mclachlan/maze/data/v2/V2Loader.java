@@ -232,55 +232,57 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, WieldingCombo> loadWieldingCombos()
 	{
-		return v2Crud(WIELDING_COMBOS, new SimpleMapSilo<>(getWieldingComboSerialiser(db)));
+		return v2Crud(WIELDING_COMBOS, new SimpleMapSilo<>(getWieldingComboSerialiser()));
 	}
 
 	@Override
 	public Map<String, ItemTemplate> loadItemTemplates()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(ITEM_TEMPLATES, new SimpleMapSilo<>(getItemTemplateSerialiser(db)));
 	}
 
 	@Override
 	public Map<String, DifficultyLevel> loadDifficultyLevels()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(DIFFICULTY_LEVELS, new SimpleMapSilo<>(getDifficultyLevelSerialiser()));
 	}
 
 	@Override
 	public Map<String, CraftRecipe> loadCraftRecipes()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(CRAFT_RECIPES, new SimpleMapSilo<>(getCraftRecipeSerialiser()));
 	}
 
 	@Override
 	public Map<String, ItemEnchantments> loadItemEnchantments()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(ITEM_ENCHANTMENTS, new SimpleMapSilo<>(getItemEnchantmentsSerialiser()));
 	}
 
 	@Override
 	public Map<String, Personality> loadPersonalities()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(PERSONALITIES, new SimpleMapSilo<>(getPersonalitySerialiser()));
 	}
 
 	@Override
 	public Map<String, StartingKit> loadStartingKits()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(STARTING_KITS, new SimpleMapSilo<>(getStartingKitSerialiser()));
 	}
 
 	@Override
 	public Map<String, FoeType> loadFoeTypes()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		Map<String, FoeType> result = v2Crud(FOE_TYPES, new SimpleMapSilo<>(getFoeTypeSerialiser(db)));
+		result.forEach((key, value) -> value.initBodyParts());
+		return result;
 	}
 
 	@Override
 	public Map<String, NaturalWeapon> loadNaturalWeapons()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(NATURAL_WEAPONS, new SimpleMapSilo<>(getNaturalWeaponSerialiser(db)));
 	}
 
 	@Override

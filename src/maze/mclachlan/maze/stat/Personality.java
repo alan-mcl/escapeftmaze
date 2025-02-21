@@ -14,6 +14,10 @@ public class Personality extends DataObject
 	private Color colour;
 	private Map<String, String> speech;
 
+	public Personality()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Personality(String name, String description,
 		Map<String, String> speech, Color colour)
@@ -21,7 +25,7 @@ public class Personality extends DataObject
 		this.name = name;
 		this.description = description;
 		this.colour = colour;
-		this.speech = new TreeMap<String, String>(speech);
+		this.speech = new TreeMap<>(speech);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -87,6 +91,45 @@ public class Personality extends DataObject
 		sb.append(", colour=").append(colour);
 		sb.append('}');
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		Personality that = (Personality)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		if (getColour() != null ? !getColour().equals(that.getColour()) : that.getColour() != null)
+		{
+			return false;
+		}
+		return getSpeech() != null ? getSpeech().equals(that.getSpeech()) : that.getSpeech() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getColour() != null ? getColour().hashCode() : 0);
+		result = 31 * result + (getSpeech() != null ? getSpeech().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

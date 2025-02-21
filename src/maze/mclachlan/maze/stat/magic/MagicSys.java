@@ -153,7 +153,7 @@ public class MagicSys
 		@Override
 		public void setName(String newName)
 		{
-
+			throw new MazeException("not supported");
 		}
 
 		/*-------------------------------------------------------------------------*/

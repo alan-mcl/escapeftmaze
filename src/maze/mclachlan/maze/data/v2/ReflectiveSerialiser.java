@@ -63,7 +63,7 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 				}
 				catch (NoSuchMethodException ex)
 				{
-					method = clazz.getMethod("is"+getMethodSuffix(field));
+					method = clazz.getMethod("is" + getMethodSuffix(field));
 				}
 				catch (SecurityException ex)
 				{
@@ -78,31 +78,46 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 				}
 				else
 				{
-					V2SerialiserObject customSerialiser = getCustomSerialiser(field, value.getClass());
+					Class<?> valueClazz = value.getClass();
+					V2SerialiserObject customSerialiser = getCustomSerialiser(field, valueClazz);
 
 					if (customSerialiser != null)
 					{
 						result.put(field, customSerialiser.toObject(value, db));
 					}
-					else if (Enum.class.isAssignableFrom(value.getClass()))
+					else if (valueClazz.isPrimitive() ||
+						Byte.class.isAssignableFrom(valueClazz) ||
+						Short.class.isAssignableFrom(valueClazz) ||
+						Integer.class.isAssignableFrom(valueClazz) ||
+						Long.class.isAssignableFrom(valueClazz) ||
+						Float.class.isAssignableFrom(valueClazz) ||
+						Double.class.isAssignableFrom(valueClazz) ||
+						Boolean.class.isAssignableFrom(valueClazz) ||
+						Character.class.isAssignableFrom(valueClazz))
+					{
+						result.put(field, String.valueOf(value));
+					}
+					else if (Enum.class.isAssignableFrom(valueClazz))
 					{
 						// use name() here so that toString() can be used for the UI
 						result.put(field, ((Enum<?>)value).name());
 					}
-					else if (Class.class.isAssignableFrom(value.getClass()))
+					else if (Class.class.isAssignableFrom(valueClazz))
 					{
 						result.put(field, ((Class<?>)value).getName());
 					}
 					else
 					{
-						result.put(field, value.toString());
+						// yolo in the object
+						result.put(field, value);
 					}
 				}
 			}
 
 			return result;
 		}
-		catch (NoSuchMethodException | IllegalAccessException | InvocationTargetException ex)
+		catch (NoSuchMethodException | IllegalAccessException |
+				 InvocationTargetException ex)
 		{
 			throw new V2Exception(ex);
 		}
@@ -139,7 +154,7 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 
 				if (setMethod == null)
 				{
-					throw new V2Exception("No set method ["+setMethodName+"] for "+clazz);
+					throw new V2Exception("No set method [" + setMethodName + "] for " + clazz);
 				}
 
 				Object value = map.get(field);
@@ -155,11 +170,11 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 					{
 						setMethod.invoke(result, Integer.valueOf((String)value));
 					}
-					else if (parameterType == Short.class|| parameterType == short.class)
+					else if (parameterType == Short.class || parameterType == short.class)
 					{
 						setMethod.invoke(result, Short.valueOf((String)value));
 					}
-					else if (parameterType == Byte.class|| parameterType == byte.class)
+					else if (parameterType == Byte.class || parameterType == byte.class)
 					{
 						setMethod.invoke(result, Byte.valueOf((String)value));
 					}
@@ -167,7 +182,7 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 					{
 						setMethod.invoke(result, Double.valueOf((String)value));
 					}
-					else if (parameterType == Float.class|| parameterType == float.class)
+					else if (parameterType == Float.class || parameterType == float.class)
 					{
 						setMethod.invoke(result, Float.valueOf((String)value));
 					}
@@ -211,10 +226,10 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 				}
 				catch (Exception e)
 				{
-					throw new V2Exception("Error setting field [" +field+
-						"] paramType [" +parameterType+
-						"] setMethod [" +setMethod+
-						"] value ["+value+"]", e);
+					throw new V2Exception("Error setting field [" + field +
+						"] paramType [" + parameterType +
+						"] setMethod [" + setMethod +
+						"] value [" + value + "]", e);
 				}
 			}
 
@@ -249,7 +264,8 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private V2SerialiserObject<?> getCustomSerialiser(String field, Class fieldType)
+	private V2SerialiserObject<?> getCustomSerialiser(String field,
+		Class fieldType)
 	{
 		// prefer specific field custom serialisers, fall back to custom type
 		V2SerialiserObject<?> customSerialiser = customSerialisersByField.get(field);

@@ -10,6 +10,7 @@ import mclachlan.crusader.script.SinusoidalStretch;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v2.*;
+import mclachlan.maze.game.DifficultyLevel;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.*;
@@ -46,6 +47,9 @@ public class SerialiserFactory
 		result.addCustomSerialiser(Point.class, new PointSerialiser());
 		result.addCustomSerialiser(Color.class, new ColorSerialiser());
 		result.addCustomSerialiser(BitSet.class, new BitSetSerialiser());
+		result.addCustomSerialiser(Set.class, new StringSetSerialiser());
+		result.addCustomSerialiser(String[].class, new StringArraySerialiser());
+		result.addCustomSerialiser(int[].class, new IntArraySerialiser());
 		return result;
 	}
 
@@ -130,11 +134,12 @@ public class SerialiserFactory
 
 		HashMap<Class, V2SerialiserMap<ExperienceTable>> map = new HashMap<>();
 		map.put(ExperienceTableArray.class, expTableArraySerialiser);
-		return new MazeObjectImplSerialiser<>(map );
+		return new MazeObjectImplSerialiser<>(map);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<CharacterClass> getCharacterClassSerialiser(Database db)
+	public static V2SerialiserMap<CharacterClass> getCharacterClassSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser<CharacterClass> result = getReflectiveSerialiser(
 			CharacterClass.class,
@@ -201,7 +206,8 @@ public class SerialiserFactory
 
 	/*-------------------------------------------------------------------------*/
 
-	private static ReflectiveSerialiser getSpellLikeAbilitySerialiser(Database db)
+	private static ReflectiveSerialiser getSpellLikeAbilitySerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser slas = getReflectiveSerialiser(
 			SpellLikeAbility.class, "spell", "castingLevel");
@@ -228,7 +234,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<ConditionTemplate> getConditionTemplateSerialiser(Database db)
+	public static V2SerialiserMap<ConditionTemplate> getConditionTemplateSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(
 			ConditionTemplate.class,
@@ -265,7 +272,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<SpellEffect> getSpellEffectSerialiser(Database db)
+	public static V2SerialiserMap<SpellEffect> getSpellEffectSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(
 			SpellEffect.class,
@@ -286,7 +294,8 @@ public class SerialiserFactory
 		return result;
 	}
 
-	private static V2SerialiserObject<SpellResult> getSpellResultSerialiser(Database db)
+	private static V2SerialiserObject<SpellResult> getSpellResultSerialiser(
+		Database db)
 	{
 		HashMap<Class, V2SerialiserMap<SpellResult>> map = new HashMap<>();
 
@@ -394,7 +403,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<MazeScript> getMazeScriptSerialiser(Database db)
+	public static V2SerialiserMap<MazeScript> getMazeScriptSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(MazeScript.class, "name", "events");
 
@@ -499,7 +509,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<PlayerSpellBook> getPlayerSpellBooksSerialiser(Database db)
+	public static V2SerialiserMap<PlayerSpellBook> getPlayerSpellBooksSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser defaultSerialiser =
 			getReflectiveSerialiser(PlayerSpellBook.class, "name", "description", "spellNames");
@@ -525,7 +536,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<FoeTemplate> getFoeTemplateSerialiser(Database db)
+	public static V2SerialiserMap<FoeTemplate> getFoeTemplateSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser defaultSerialiser =
 			getReflectiveSerialiser(FoeTemplate.class,
@@ -595,7 +607,8 @@ public class SerialiserFactory
 		return new MazeObjectImplSerialiser<>(map, "name");
 	}
 
-	private static ReflectiveSerialiser<SpellBook> getSpellBookSerialiser(Database db)
+	private static ReflectiveSerialiser<SpellBook> getSpellBookSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser<SpellBook> result = getReflectiveSerialiser(SpellBook.class, "spells");
 
@@ -658,7 +671,8 @@ public class SerialiserFactory
 		return new MazeObjectImplSerialiser<>(map, "name");
 	}
 
-	private static V2SerialiserObject<TileScript> getTileScriptSerialiser(Database db)
+	private static V2SerialiserObject<TileScript> getTileScriptSerialiser(
+		Database db)
 	{
 		HashMap<Class, V2SerialiserMap<TileScript>> map = new HashMap<>();
 
@@ -709,7 +723,7 @@ public class SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable",
 			"findDifficulty", "mazeVariable", "preScript", "content"));
 		map.put(Water.class, getReflectiveSerialiser(Water.class,
-				"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable"));
 
 		ReflectiveSerialiser leverSerialiser = getReflectiveSerialiser(Lever.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable",
@@ -768,7 +782,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<EncounterTable> getEncounterTableSerialiser(Database db)
+	public static V2SerialiserMap<EncounterTable> getEncounterTableSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser<EncounterTable> defaultSerialiser = getReflectiveSerialiser(
 			EncounterTable.class, "name", "encounterTable");
@@ -782,7 +797,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<NpcFactionTemplate> getNpcFactionTemplatesSerialiser(Database db)
+	public static V2SerialiserMap<NpcFactionTemplate> getNpcFactionTemplatesSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser<NpcFactionTemplate> defaultSerialiser = getReflectiveSerialiser(
 			NpcFactionTemplate.class, "name", "startingAttitude");
@@ -793,7 +809,8 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<NpcTemplate> getNpcTemplatesSerialiser(Database db)
+	public static V2SerialiserMap<NpcTemplate> getNpcTemplatesSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser<NpcTemplate> defaultSerialiser = getReflectiveSerialiser(
 			NpcTemplate.class,
@@ -859,7 +876,7 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<WieldingCombo> getWieldingComboSerialiser(Database db)
+	public static V2SerialiserMap<WieldingCombo> getWieldingComboSerialiser()
 	{
 		ReflectiveSerialiser<WieldingCombo> defaultSerialiser = getReflectiveSerialiser(
 			WieldingCombo.class, "name", "primaryHand", "secondaryHand", "modifiers");
@@ -869,4 +886,216 @@ public class SerialiserFactory
 		return new MazeObjectImplSerialiser<>(map, "name");
 	}
 
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<ItemTemplate> getItemTemplateSerialiser(
+		Database db)
+	{
+		ReflectiveSerialiser<ItemTemplate> defaultSerialiser = getReflectiveSerialiser(
+			ItemTemplate.class,
+			"name",
+			"name",
+			"pluralName",
+			"unidentifiedName",
+			"type",
+			"subtype",
+			"description",
+			"modifiers",
+			"image",
+			"equipableSlots",
+			"weight",
+			"maxItemsPerStack",
+			"baseCost",
+			"invokedSpell",
+			"invokedSpellLevel",
+			"charges",
+			"chargesType",
+			"usableByCharacterClass",
+			"usableByRace",
+			"usableByGender",
+			"questItem",
+			"curseStrength",
+			"identificationDifficulty",
+			"rechargeDifficulty",
+			"equipRequirements",
+			"useRequirements",
+			"attackScript",
+			"damage",
+			"defaultDamageType",
+			"attackTypes",
+			"twoHanded",
+			"ranged",
+			"returning",
+			"backstabCapable",
+			"snipeCapable",
+			"toHit",
+			"toPenetrate",
+			"toCritical",
+			"toInitiative",
+			"minRange",
+			"maxRange",
+			"ammo",
+			"spellEffects",
+			"bonusAttacks",
+			"bonusStrikes",
+			"discipline",
+			"slaysFoeType",
+			"ammoType",
+			"damagePrevention",
+			"damagePreventionChance",
+			"enchantmentChance",
+			"enchantmentCalculation",
+			"enchantmentScheme",
+			"disassemblyLootTable",
+			"conversionRate");
+
+		defaultSerialiser.addCustomSerialiser("invokedSpell", new NameSerialiser<>(db::getSpell));
+		defaultSerialiser.addCustomSerialiser("attackScript", new NameSerialiser<>(db::getMazeScript));
+		defaultSerialiser.addCustomSerialiser("ammo", new ListSerialiser(new NameSerialiser<>(ItemTemplate.AmmoType::valueOf)));
+		defaultSerialiser.addCustomSerialiser("spellEffects", new GroupOfPossibiltiesSerialiser<>(new NameSerialiser<>(db::getSpellEffect)));
+
+		HashMap<Class, V2SerialiserMap<ItemTemplate>> map = new HashMap<>();
+		map.put(ItemTemplate.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<DifficultyLevel> getDifficultyLevelSerialiser()
+	{
+		HashMap<Class, V2SerialiserMap<DifficultyLevel>> map = new HashMap<>();
+		map.put(DifficultyLevel.class, null);
+		return new MazeObjectImplSerialiser<>(map, "name", "sortOrder");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<CraftRecipe> getCraftRecipeSerialiser()
+	{
+		return getReflectiveSerialiser(
+			CraftRecipe.class, "name", "requirements", "item1", "item2", "resultingItem");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<ItemEnchantments> getItemEnchantmentsSerialiser()
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			ItemEnchantments.class, "name", "enchantments");
+
+		result.addCustomSerialiser("enchantments",
+			new PercentageTableSerialiser<>(
+				getReflectiveSerialiser(ItemEnchantment.class,
+					"name", "modifiers", "prefix", "suffix", "costModifier")));
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<NaturalWeapon> getNaturalWeaponSerialiser(
+		Database db)
+	{
+		ReflectiveSerialiser<NaturalWeapon> defaultSerialiser = getReflectiveSerialiser(
+			NaturalWeapon.class,
+			"name",
+			"name",
+			"description",
+			"ranged",
+			"damage",
+			"damageType",
+			"modifiers",
+			"minRange",
+			"maxRange",
+			"spellEffects",
+			"spellEffectLevel",
+			"attacks",
+			"slaysFoeType",
+			"attackScript");
+
+		defaultSerialiser.addCustomSerialiser("spellEffects",
+			new GroupOfPossibiltiesSerialiser<>(new NameSerialiser<>(db::getSpellEffect)));
+		defaultSerialiser.addCustomSerialiser("attackScript",
+			new NameSerialiser<>(db::getMazeScript));
+
+		HashMap<Class, V2SerialiserMap<NaturalWeapon>> map = new HashMap<>();
+		map.put(NaturalWeapon.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<StartingKit> getStartingKitSerialiser()
+	{
+		ReflectiveSerialiser<StartingKit> defaultSerialiser = getReflectiveSerialiser(
+			StartingKit.class,
+			"name",
+			"displayName",
+			"primaryWeapon",
+			"secondaryWeapon",
+			"helm",
+			"torsoArmour",
+			"legArmour",
+			"gloves",
+			"boots",
+			"miscItem1",
+			"miscItem2",
+			"bannerItem",
+			"packItems",
+			"description",
+			"combatModifiers",
+			"stealthModifiers",
+			"magicModifiers",
+			"usableByCharacterClass");
+
+		defaultSerialiser.addCustomSerialiser("packItems", new ListSerialiser(new DirectObjectSerialiser<String>()));
+
+		HashMap<Class, V2SerialiserMap<StartingKit>> map = new HashMap<>();
+		map.put(StartingKit.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map, "name");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Personality> getPersonalitySerialiser()
+	{
+		ReflectiveSerialiser<Personality> result = getReflectiveSerialiser(
+			Personality.class, "name", "description", "colour", "speech");
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<FoeType> getFoeTypeSerialiser(Database db)
+	{
+		ReflectiveSerialiser<FoeType> result = getReflectiveSerialiser(
+			FoeType.class,
+			"name",
+			"description",
+			"startingHitPointPercent",
+			"startingActionPointPercent",
+			"startingMagicPointPercent",
+			"startingModifiers",
+			"constantModifiers",
+			"bannerModifiers",
+			"attributeCeilings",
+			"head",
+			"torso",
+			"leg",
+			"hand",
+			"foot",
+			"leftHandIcon",
+			"rightHandIcon",
+			"allowedGenders",
+			"magicDead",
+			"specialAbility",
+			"startingItems",
+			"naturalWeapons",
+			"suggestedNames",
+			"unlockVariable",
+			"unlockDescription",
+			"favouredEnemyModifier",
+			"characterCreationImage");
+
+		result.addCustomSerialiser(BodyPart.class, new NameSerialiser<>(db::getBodyPart));
+		result.addCustomSerialiser("allowedGenders", new NameListSerialiser<>(db::getGender));
+		result.addCustomSerialiser("specialAbility", new NameSerialiser<>(db::getSpell));
+		result.addCustomSerialiser("startingItems", new NameListSerialiser<>(db::getStartingKit));
+		result.addCustomSerialiser("naturalWeapons", new NameListSerialiser<>(db::getNaturalWeapon));
+//		result.addCustomSerialiser("suggestedNames", new DirectObjectSerialiser());
+
+		return result;
+	}
 }

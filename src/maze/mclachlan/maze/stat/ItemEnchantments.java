@@ -30,7 +30,11 @@ public class ItemEnchantments extends DataObject
 	private String name;
 	private PercentageTable<ItemEnchantment> enchantments;
 
-	private Map<String, ItemEnchantment> enchantmentsByName = new HashMap<String, ItemEnchantment>();
+	private Map<String, ItemEnchantment> enchantmentsByName = new HashMap<>();
+
+	public ItemEnchantments()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public ItemEnchantments(String name,
@@ -80,5 +84,35 @@ public class ItemEnchantments extends DataObject
 	public ItemEnchantment getEnchantment(String enchantment)
 	{
 		return enchantmentsByName.get(enchantment);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ItemEnchantments that = (ItemEnchantments)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		return getEnchantments() != null ? getEnchantments().equals(that.getEnchantments()) : that.getEnchantments() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getEnchantments() != null ? getEnchantments().hashCode() : 0);
+		return result;
 	}
 }

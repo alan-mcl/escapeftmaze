@@ -23,6 +23,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.v2.V2DataObject;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.stat.combat.event.AttackEvent;
 import mclachlan.maze.stat.magic.MagicSys;
@@ -91,14 +92,14 @@ public class ItemTemplate extends DataObject
 	int weight;
 
 	/**
-	 * Which heroic classes can use this item. See 
-	 * {@link mclachlan.maze.data.Database#getCharacterClassList()}
+	 * Which heroic classes can use this item. See
+	 * {@link mclachlan.maze.data.Database#getCharacterClasses()}
 	 */
 	Set<String> usableByCharacterClass;
 
 	/**
 	 * Which races can use this item. See 
-	 * {@link mclachlan.maze.data.Database#getRaceList()}
+	 * {@link mclachlan.maze.data.Database#getRaces()}
 	 */
 	Set<String> usableByRace;
 
@@ -246,9 +247,21 @@ public class ItemTemplate extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public enum AmmoType
+	public enum AmmoType implements V2DataObject
 	{
-		ARROW, BOLT, STONE, SELF, SHOT, STAR, DART, JAVELIN, HAMMER, AXE, KNIFE
+		ARROW, BOLT, STONE, SELF, SHOT, STAR, DART, JAVELIN, HAMMER, AXE, KNIFE;
+
+		@Override
+		public String getName()
+		{
+			return this.name();
+		}
+
+		@Override
+		public void setName(String newName)
+		{
+			throw new MazeException("not supported");
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -291,7 +304,7 @@ public class ItemTemplate extends DataObject
 		StatModifier useRequirements,
 		MazeScript attackScript,
 		Dice damage,
-		MagicSys.SpellEffectType damageType,
+		MagicSys.SpellEffectType defaultDamageType,
 		String[] attackTypes,
 		boolean twoHanded,
 		boolean isRanged,
@@ -346,7 +359,7 @@ public class ItemTemplate extends DataObject
 		this.useRequirements = useRequirements;
 		this.attackScript = attackScript;
 		this.damage = damage;
-		this.defaultDamageType = damageType;
+		this.defaultDamageType = defaultDamageType;
 		this.attackTypes = attackTypes;
 		this.twoHanded = twoHanded;
 		this.isRanged = isRanged;
@@ -982,6 +995,298 @@ public class ItemTemplate extends DataObject
 		}
 
 		return s;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		ItemTemplate that = (ItemTemplate)o;
+
+		if (getType() != that.getType())
+		{
+			return false;
+		}
+		if (getSubtype() != that.getSubtype())
+		{
+			return false;
+		}
+		if (getWeight() != that.getWeight())
+		{
+			return false;
+		}
+		if (isQuestItem() != that.isQuestItem())
+		{
+			return false;
+		}
+		if (getCurseStrength() != that.getCurseStrength())
+		{
+			return false;
+		}
+		if (getMaxItemsPerStack() != that.getMaxItemsPerStack())
+		{
+			return false;
+		}
+		if (getBaseCost() != that.getBaseCost())
+		{
+			return false;
+		}
+		if (getInvokedSpellLevel() != that.getInvokedSpellLevel())
+		{
+			return false;
+		}
+		if (getIdentificationDifficulty() != that.getIdentificationDifficulty())
+		{
+			return false;
+		}
+		if (getRechargeDifficulty() != that.getRechargeDifficulty())
+		{
+			return false;
+		}
+		if (getEnchantmentChance() != that.getEnchantmentChance())
+		{
+			return false;
+		}
+		if (Float.compare(that.getConversionRate(), getConversionRate()) != 0)
+		{
+			return false;
+		}
+		if (isTwoHanded() != that.isTwoHanded())
+		{
+			return false;
+		}
+		if (isRanged() != that.isRanged())
+		{
+			return false;
+		}
+		if (isReturning() != that.isReturning())
+		{
+			return false;
+		}
+		if (isBackstabCapable() != that.isBackstabCapable())
+		{
+			return false;
+		}
+		if (isSnipeCapable() != that.isSnipeCapable())
+		{
+			return false;
+		}
+		if (getToHit() != that.getToHit())
+		{
+			return false;
+		}
+		if (getToPenetrate() != that.getToPenetrate())
+		{
+			return false;
+		}
+		if (getToCritical() != that.getToCritical())
+		{
+			return false;
+		}
+		if (getToInitiative() != that.getToInitiative())
+		{
+			return false;
+		}
+		if (getMinRange() != that.getMinRange())
+		{
+			return false;
+		}
+		if (getMaxRange() != that.getMaxRange())
+		{
+			return false;
+		}
+		if (getBonusAttacks() != that.getBonusAttacks())
+		{
+			return false;
+		}
+		if (getBonusStrikes() != that.getBonusStrikes())
+		{
+			return false;
+		}
+		if (getDamagePrevention() != that.getDamagePrevention())
+		{
+			return false;
+		}
+		if (getDamagePreventionChance() != that.getDamagePreventionChance())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getPluralName() != null ? !getPluralName().equals(that.getPluralName()) : that.getPluralName() != null)
+		{
+			return false;
+		}
+		if (getUnidentifiedName() != null ? !getUnidentifiedName().equals(that.getUnidentifiedName()) : that.getUnidentifiedName() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		if (getImage() != null ? !getImage().equals(that.getImage()) : that.getImage() != null)
+		{
+			return false;
+		}
+		if (getModifiers() != null ? !getModifiers().equals(that.getModifiers()) : that.getModifiers() != null)
+		{
+			return false;
+		}
+		if (getEquipableSlots() != null ? !getEquipableSlots().equals(that.getEquipableSlots()) : that.getEquipableSlots() != null)
+		{
+			return false;
+		}
+		if (getUsableByCharacterClass() != null ? !getUsableByCharacterClass().equals(that.getUsableByCharacterClass()) : that.getUsableByCharacterClass() != null)
+		{
+			return false;
+		}
+		if (getUsableByRace() != null ? !getUsableByRace().equals(that.getUsableByRace()) : that.getUsableByRace() != null)
+		{
+			return false;
+		}
+		if (getUsableByGender() != null ? !getUsableByGender().equals(that.getUsableByGender()) : that.getUsableByGender() != null)
+		{
+			return false;
+		}
+		if (getInvokedSpell() != null ? !getInvokedSpell().equals(that.getInvokedSpell()) : that.getInvokedSpell() != null)
+		{
+			return false;
+		}
+		if (getCharges() != null ? !getCharges().equals(that.getCharges()) : that.getCharges() != null)
+		{
+			return false;
+		}
+		if (getChargesType() != that.getChargesType())
+		{
+			return false;
+		}
+		if (getEquipRequirements() != null ? !getEquipRequirements().equals(that.getEquipRequirements()) : that.getEquipRequirements() != null)
+		{
+			return false;
+		}
+		if (getUseRequirements() != null ? !getUseRequirements().equals(that.getUseRequirements()) : that.getUseRequirements() != null)
+		{
+			return false;
+		}
+		if (getAttackScript() != null ? !getAttackScript().equals(that.getAttackScript()) : that.getAttackScript() != null)
+		{
+			return false;
+		}
+		if (getEnchantmentCalculation() != that.getEnchantmentCalculation())
+		{
+			return false;
+		}
+		if (getEnchantmentScheme() != null ? !getEnchantmentScheme().equals(that.getEnchantmentScheme()) : that.getEnchantmentScheme() != null)
+		{
+			return false;
+		}
+		if (getDisassemblyLootTable() != null ? !getDisassemblyLootTable().equals(that.getDisassemblyLootTable()) : that.getDisassemblyLootTable() != null)
+		{
+			return false;
+		}
+		if (getDamage() != null ? !getDamage().equals(that.getDamage()) : that.getDamage() != null)
+		{
+			return false;
+		}
+		if (getDefaultDamageType() != that.getDefaultDamageType())
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getAttackTypes(), that.getAttackTypes()))
+		{
+			return false;
+		}
+		if (getAmmo() != null ? !getAmmo().equals(that.getAmmo()) : that.getAmmo() != null)
+		{
+			return false;
+		}
+		if (getSpellEffects() != null ? !getSpellEffects().equals(that.getSpellEffects()) : that.getSpellEffects() != null)
+		{
+			return false;
+		}
+		if (getDiscipline() != that.getDiscipline())
+		{
+			return false;
+		}
+		if (getSlaysFoeType() != null ? !getSlaysFoeType().equals(that.getSlaysFoeType()) : that.getSlaysFoeType() != null)
+		{
+			return false;
+		}
+		return getAmmoType() == that.getAmmoType();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getPluralName() != null ? getPluralName().hashCode() : 0);
+		result = 31 * result + (getUnidentifiedName() != null ? getUnidentifiedName().hashCode() : 0);
+		result = 31 * result + getType();
+		result = 31 * result + getSubtype();
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getImage() != null ? getImage().hashCode() : 0);
+		result = 31 * result + (getModifiers() != null ? getModifiers().hashCode() : 0);
+		result = 31 * result + (getEquipableSlots() != null ? getEquipableSlots().hashCode() : 0);
+		result = 31 * result + getWeight();
+		result = 31 * result + (getUsableByCharacterClass() != null ? getUsableByCharacterClass().hashCode() : 0);
+		result = 31 * result + (getUsableByRace() != null ? getUsableByRace().hashCode() : 0);
+		result = 31 * result + (getUsableByGender() != null ? getUsableByGender().hashCode() : 0);
+		result = 31 * result + (isQuestItem() ? 1 : 0);
+		result = 31 * result + getCurseStrength();
+		result = 31 * result + getMaxItemsPerStack();
+		result = 31 * result + getBaseCost();
+		result = 31 * result + (getInvokedSpell() != null ? getInvokedSpell().hashCode() : 0);
+		result = 31 * result + getInvokedSpellLevel();
+		result = 31 * result + (getCharges() != null ? getCharges().hashCode() : 0);
+		result = 31 * result + (getChargesType() != null ? getChargesType().hashCode() : 0);
+		result = 31 * result + getIdentificationDifficulty();
+		result = 31 * result + getRechargeDifficulty();
+		result = 31 * result + (getEquipRequirements() != null ? getEquipRequirements().hashCode() : 0);
+		result = 31 * result + (getUseRequirements() != null ? getUseRequirements().hashCode() : 0);
+		result = 31 * result + (getAttackScript() != null ? getAttackScript().hashCode() : 0);
+		result = 31 * result + getEnchantmentChance();
+		result = 31 * result + (getEnchantmentCalculation() != null ? getEnchantmentCalculation().hashCode() : 0);
+		result = 31 * result + (getEnchantmentScheme() != null ? getEnchantmentScheme().hashCode() : 0);
+		result = 31 * result + (getDisassemblyLootTable() != null ? getDisassemblyLootTable().hashCode() : 0);
+		result = 31 * result + (getConversionRate() != +0.0f ? Float.floatToIntBits(getConversionRate()) : 0);
+		result = 31 * result + (getDamage() != null ? getDamage().hashCode() : 0);
+		result = 31 * result + (getDefaultDamageType() != null ? getDefaultDamageType().hashCode() : 0);
+		result = 31 * result + Arrays.hashCode(getAttackTypes());
+		result = 31 * result + (isTwoHanded() ? 1 : 0);
+		result = 31 * result + (isRanged() ? 1 : 0);
+		result = 31 * result + (isReturning() ? 1 : 0);
+		result = 31 * result + (isBackstabCapable() ? 1 : 0);
+		result = 31 * result + (isSnipeCapable() ? 1 : 0);
+		result = 31 * result + getToHit();
+		result = 31 * result + getToPenetrate();
+		result = 31 * result + getToCritical();
+		result = 31 * result + getToInitiative();
+		result = 31 * result + getMinRange();
+		result = 31 * result + getMaxRange();
+		result = 31 * result + (getAmmo() != null ? getAmmo().hashCode() : 0);
+		result = 31 * result + (getSpellEffects() != null ? getSpellEffects().hashCode() : 0);
+		result = 31 * result + getBonusAttacks();
+		result = 31 * result + getBonusStrikes();
+		result = 31 * result + (getDiscipline() != null ? getDiscipline().hashCode() : 0);
+		result = 31 * result + (getSlaysFoeType() != null ? getSlaysFoeType().hashCode() : 0);
+		result = 31 * result + (getAmmoType() != null ? getAmmoType().hashCode() : 0);
+		result = 31 * result + getDamagePrevention();
+		result = 31 * result + getDamagePreventionChance();
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

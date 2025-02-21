@@ -52,9 +52,13 @@ public class StartingKit extends DataObject
 
 	/**
 	 * Which heroic classes can use this item. See
-	 * {@link mclachlan.maze.data.Database#getCharacterClassList()}
+	 * {@link mclachlan.maze.data.Database#getCharacterClasses()}
 	 */
 	private Set<String> usableByCharacterClass;
+
+	public StartingKit()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public StartingKit(
@@ -282,7 +286,7 @@ public class StartingKit extends DataObject
 	/*-------------------------------------------------------------------------*/
 	public List<String> getStartingItemNames()
 	{
-		List<String> result = new ArrayList<String>();
+		List<String> result = new ArrayList<>();
 
 		addIfNotNull(result, primaryWeapon);
 		addIfNotNull(result, secondaryWeapon);
@@ -311,5 +315,116 @@ public class StartingKit extends DataObject
 	private void addIfNotNull(List<String> result, String item)
 	{
 		if (item != null) result.add(item);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (o == null || getClass() != o.getClass())
+		{
+			return false;
+		}
+
+		StartingKit that = (StartingKit)o;
+
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getDisplayName() != null ? !getDisplayName().equals(that.getDisplayName()) : that.getDisplayName() != null)
+		{
+			return false;
+		}
+		if (getDescription() != null ? !getDescription().equals(that.getDescription()) : that.getDescription() != null)
+		{
+			return false;
+		}
+		if (getCombatModifiers() != null ? !getCombatModifiers().equals(that.getCombatModifiers()) : that.getCombatModifiers() != null)
+		{
+			return false;
+		}
+		if (getStealthModifiers() != null ? !getStealthModifiers().equals(that.getStealthModifiers()) : that.getStealthModifiers() != null)
+		{
+			return false;
+		}
+		if (getMagicModifiers() != null ? !getMagicModifiers().equals(that.getMagicModifiers()) : that.getMagicModifiers() != null)
+		{
+			return false;
+		}
+		if (getPrimaryWeapon() != null ? !getPrimaryWeapon().equals(that.getPrimaryWeapon()) : that.getPrimaryWeapon() != null)
+		{
+			return false;
+		}
+		if (getSecondaryWeapon() != null ? !getSecondaryWeapon().equals(that.getSecondaryWeapon()) : that.getSecondaryWeapon() != null)
+		{
+			return false;
+		}
+		if (getHelm() != null ? !getHelm().equals(that.getHelm()) : that.getHelm() != null)
+		{
+			return false;
+		}
+		if (getTorsoArmour() != null ? !getTorsoArmour().equals(that.getTorsoArmour()) : that.getTorsoArmour() != null)
+		{
+			return false;
+		}
+		if (getLegArmour() != null ? !getLegArmour().equals(that.getLegArmour()) : that.getLegArmour() != null)
+		{
+			return false;
+		}
+		if (getGloves() != null ? !getGloves().equals(that.getGloves()) : that.getGloves() != null)
+		{
+			return false;
+		}
+		if (getBoots() != null ? !getBoots().equals(that.getBoots()) : that.getBoots() != null)
+		{
+			return false;
+		}
+		if (getMiscItem1() != null ? !getMiscItem1().equals(that.getMiscItem1()) : that.getMiscItem1() != null)
+		{
+			return false;
+		}
+		if (getMiscItem2() != null ? !getMiscItem2().equals(that.getMiscItem2()) : that.getMiscItem2() != null)
+		{
+			return false;
+		}
+		if (getBannerItem() != null ? !getBannerItem().equals(that.getBannerItem()) : that.getBannerItem() != null)
+		{
+			return false;
+		}
+		if (getPackItems() != null ? !getPackItems().equals(that.getPackItems()) : that.getPackItems() != null)
+		{
+			return false;
+		}
+		return getUsableByCharacterClass() != null ? getUsableByCharacterClass().equals(that.getUsableByCharacterClass()) : that.getUsableByCharacterClass() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getDisplayName() != null ? getDisplayName().hashCode() : 0);
+		result = 31 * result + (getDescription() != null ? getDescription().hashCode() : 0);
+		result = 31 * result + (getCombatModifiers() != null ? getCombatModifiers().hashCode() : 0);
+		result = 31 * result + (getStealthModifiers() != null ? getStealthModifiers().hashCode() : 0);
+		result = 31 * result + (getMagicModifiers() != null ? getMagicModifiers().hashCode() : 0);
+		result = 31 * result + (getPrimaryWeapon() != null ? getPrimaryWeapon().hashCode() : 0);
+		result = 31 * result + (getSecondaryWeapon() != null ? getSecondaryWeapon().hashCode() : 0);
+		result = 31 * result + (getHelm() != null ? getHelm().hashCode() : 0);
+		result = 31 * result + (getTorsoArmour() != null ? getTorsoArmour().hashCode() : 0);
+		result = 31 * result + (getLegArmour() != null ? getLegArmour().hashCode() : 0);
+		result = 31 * result + (getGloves() != null ? getGloves().hashCode() : 0);
+		result = 31 * result + (getBoots() != null ? getBoots().hashCode() : 0);
+		result = 31 * result + (getMiscItem1() != null ? getMiscItem1().hashCode() : 0);
+		result = 31 * result + (getMiscItem2() != null ? getMiscItem2().hashCode() : 0);
+		result = 31 * result + (getBannerItem() != null ? getBannerItem().hashCode() : 0);
+		result = 31 * result + (getPackItems() != null ? getPackItems().hashCode() : 0);
+		result = 31 * result + (getUsableByCharacterClass() != null ? getUsableByCharacterClass().hashCode() : 0);
+		return result;
 	}
 }

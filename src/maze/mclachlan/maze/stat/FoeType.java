@@ -27,6 +27,10 @@ import mclachlan.maze.stat.magic.Spell;
  */
 public class FoeType extends Race implements TypeDescriptor
 {
+	public FoeType()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public FoeType(String name, String description, int startingHitPointPercent,
 		int startingActionPointPercent, int startingMagicPointPercent,
@@ -91,5 +95,17 @@ public class FoeType extends Race implements TypeDescriptor
 	public String toString()
 	{
 		return getName();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return super.equals(o);
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode();
 	}
 }

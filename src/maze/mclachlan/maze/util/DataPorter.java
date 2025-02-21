@@ -129,9 +129,33 @@ public class DataPorter
 		System.out.println("porting wielding combos...");
 		v2Saver.saveWieldingCombos(v1Loader.loadWieldingCombos());
 
-//		System.out.println("porting item templates...");
-//		v2Saver.saveItemTemplates(v1Loader.loadItemTemplates());
-//
+		System.out.println("porting item templates...");
+		v2Saver.saveItemTemplates(v1Loader.loadItemTemplates());
+
+		System.out.println("porting difficulty levels...");
+		v2Saver.saveDifficultyLevels(v1Loader.loadDifficultyLevels());
+
+		System.out.println("porting craft recipes...");
+		v2Saver.saveCraftRecipes(v1Loader.loadCraftRecipes());
+
+		System.out.println("porting item enchantments...");
+		v2Saver.saveItemEnchantments(v1Loader.loadItemEnchantments());
+
+		System.out.println("porting natural weapons...");
+		v2Saver.saveNaturalWeapons(v1Loader.loadNaturalWeapons());
+
+		System.out.println("porting starting kits...");
+		v2Saver.saveStartingKits(v1Loader.loadStartingKits());
+
+		System.out.println("porting personalities...");
+		v2Saver.savePersonalities(v1Loader.loadPersonalities());
+
+		System.out.println("porting foe types...");
+		v2Saver.saveFoeTypes(v1Loader.loadFoeTypes());
+
+//		System.out.println("porting guild...");
+//		v2Saver.saveCharacterGuild(v1Loader.loadCharacterGuild());
+
 //		System.out.println("porting zones...");
 //		List<String> zoneNames = v1Loader.getZoneNames();
 //		for (String zoneName : zoneNames)
@@ -139,9 +163,7 @@ public class DataPorter
 //			System.out.println(" - "+zoneName);
 //			v2Saver.saveZone(v1Loader.getZone(zoneName));
 //		}
-//
-//		System.out.println("porting guild...");
-//		v2Saver.saveCharacterGuild(v1Loader.loadCharacterGuild());
+
 
 		//----------------
 		System.out.println("v2Loader..");
@@ -212,7 +234,30 @@ public class DataPorter
 		System.out.println("wielding combos: "+v2Loader.loadWieldingCombos().size());
 		assertEquals(v1Loader.loadWieldingCombos(), v2Loader.loadWieldingCombos());
 
-//		System.out.println("item templates: "+v2Loader.loadItemTemplates().size());
+		System.out.println("item templates: "+v2Loader.loadItemTemplates().size());
+		assertEquals(v1Loader.loadItemTemplates(), v2Loader.loadItemTemplates());
+
+		System.out.println("difficulty levels: "+v2Loader.loadDifficultyLevels().size());
+		assertEquals(v1Loader.loadDifficultyLevels(), v2Loader.loadDifficultyLevels());
+
+		System.out.println("craft recipes: "+v2Loader.loadCraftRecipes().size());
+		assertEquals(v1Loader.loadCraftRecipes(), v2Loader.loadCraftRecipes());
+
+		System.out.println("item enchantments: "+v2Loader.loadItemEnchantments().size());
+		assertEquals(v1Loader.loadItemEnchantments(), v2Loader.loadItemEnchantments());
+
+		System.out.println("natural weapons: "+v2Loader.loadNaturalWeapons().size());
+		assertEquals(v1Loader.loadNaturalWeapons(), v2Loader.loadNaturalWeapons());
+
+		System.out.println("starting kits: "+v2Loader.loadStartingKits().size());
+		assertEquals(v1Loader.loadStartingKits(), v2Loader.loadStartingKits());
+
+		System.out.println("personalities: "+v2Loader.loadPersonalities().size());
+		assertEquals(v1Loader.loadPersonalities(), v2Loader.loadPersonalities());
+
+		System.out.println("foe types: "+v2Loader.loadFoeTypes().size());
+		assertEquals(v1Loader.loadFoeTypes(), v2Loader.loadFoeTypes());
+
 //		System.out.println("zones:");
 //		zoneNames = v2Loader.getZoneNames();
 //		for (String zoneName : zoneNames)

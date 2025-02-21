@@ -57,6 +57,7 @@ public class DifficultyLevel extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Called each time the engine spawns a foe. This difficulty implementation
 	 * can make whatever modifications to each foe are required.
@@ -67,16 +68,15 @@ public class DifficultyLevel extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Called each time random encounters are checked. This difficulty
 	 * implementation can modify that chance as required.
 	 *
-	 * @param t
-	 * 	the Tile encountered by the player party
-	 * @return
-	 * 	the chance of a random encounter, expressed as a value out of 1000 (or,
-	 * 	if you prefer, in tenths of a percent). For example 10 represents a
-	 * 	1% chance of a random encounter
+	 * @param t the Tile encountered by the player party
+	 * @return the chance of a random encounter, expressed as a value out of 1000
+	 * (or, if you prefer, in tenths of a percent). For example 10 represents a
+	 * 1% chance of a random encounter
 	 */
 	public int getRandomEncounterChance(Tile t)
 	{
@@ -84,6 +84,7 @@ public class DifficultyLevel extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Called by each combat instance to return foe AI to use. This difficulty
 	 * implementation can return a custom foe AI implementation as required.
@@ -91,5 +92,18 @@ public class DifficultyLevel extends DataObject
 	public FoeCombatAi getFoeCombatAi()
 	{
 		return new BasicFoeAi();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	@Override
+	public int hashCode()
+	{
+		return getClass().hashCode();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		return o != null && getClass() == o.getClass();
 	}
 }
