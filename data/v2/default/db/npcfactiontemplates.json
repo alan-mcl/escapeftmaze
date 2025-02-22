@@ -1,77 +1,77 @@
 [
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Minions Of Usark"
+    "name": "Minions Of Usark",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Gnolls"
+    "name": "Gnolls",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Ichiba GSC"
+    "name": "Ichiba GSC",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Ichiba Chamber Of Commerce"
+    "name": "Ichiba Chamber Of Commerce",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "ATTACKING",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Hags"
+    "name": "Hags",
+    "startingAttitude": "ATTACKING"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Stick Men"
+    "name": "Stick Men",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "ATTACKING",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Fangorn"
+    "name": "Fangorn",
+    "startingAttitude": "ATTACKING"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "White Order"
+    "name": "White Order",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "ATTACKING",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Old Igor"
+    "name": "Old Igor",
+    "startingAttitude": "ATTACKING"
   },
   {
-    "startingAttitude": "ATTACKING",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Bel Ies"
+    "name": "Bel Ies",
+    "startingAttitude": "ATTACKING"
   },
   {
-    "startingAttitude": "ATTACKING",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Keepers Of Dalen"
+    "name": "Keepers Of Dalen",
+    "startingAttitude": "ATTACKING"
   },
   {
-    "startingAttitude": "ATTACKING",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Ghul"
+    "name": "Ghul",
+    "startingAttitude": "ATTACKING"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Gnomes"
+    "name": "Gnomes",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Allies of Imogen"
+    "name": "Allies of Imogen",
+    "startingAttitude": "NEUTRAL"
   },
   {
-    "startingAttitude": "NEUTRAL",
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
-    "name": "Allies of Lorelei"
+    "name": "Allies of Lorelei",
+    "startingAttitude": "NEUTRAL"
   }
 ]

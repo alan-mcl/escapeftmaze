@@ -22,6 +22,7 @@ package mclachlan.maze.stat;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -44,7 +45,7 @@ import static mclachlan.maze.stat.EquipableSlot.Type.*;
  * The class to unify the PC and Foe data models.
  * This class is intended as a working data class, not a template class.
  */
-public abstract class UnifiedActor implements ConditionBearer, SpellTarget
+public abstract class UnifiedActor extends DataObject implements ConditionBearer, SpellTarget
 {
 	public static final int MAX_PACK_ITEMS = 20;
 	
@@ -239,7 +240,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	private Map<EquipableSlot.Type, List<EquipableSlot>> buildEquipableSlots()
 	{
 		Map<EquipableSlot.Type, List<EquipableSlot>> result =
-			new HashMap<EquipableSlot.Type, List<EquipableSlot>>();
+			new HashMap<>();
 
 		// count the weapon-wielding parts
 		int weaponWieldingParts = 0;
@@ -577,6 +578,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public void setBodyParts(PercentageTable<BodyPart> bodyParts)
 	{
 		this.bodyParts = bodyParts;
+		this.equipableSlots = buildEquipableSlots();
 	}
 
 	public CharacterClass getCharacterClass()
@@ -637,6 +639,7 @@ public abstract class UnifiedActor implements ConditionBearer, SpellTarget
 	public void setRace(Race race)
 	{
 		this.race = race;
+		setBodyParts(race.getBodyParts());
 	}
 
 	public SpellBook getSpellBook()

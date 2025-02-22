@@ -63,7 +63,7 @@ public class PlayerCharacter extends UnifiedActor
 	private int karma;
 
 	/*-------------------------------------------------------------------------*/
-	private static SignatureWeaponUpgradePath
+	private static final SignatureWeaponUpgradePath
 		engineeringOmnigun, engineeringXbow, engineeringHandCannon;
 
 	static
@@ -120,6 +120,10 @@ public class PlayerCharacter extends UnifiedActor
 		engineeringHandCannon.addUpgrade("Hand Cannon Mk5", "Hand Cannon Mk6", req);
 	}
 
+	public PlayerCharacter()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	/**
@@ -158,7 +162,6 @@ public class PlayerCharacter extends UnifiedActor
 	{
 		super(name, gender, race, characterClass, race.getBodyParts(),
 			levels, stats, spellBook, inventory);
-
 
 		setEquippedItem(PRIMARY_WEAPON, primaryWeapon, 0);
 		setEquippedItem(PRIMARY_WEAPON, altPrimaryWeapon, 1);
@@ -297,16 +300,11 @@ public class PlayerCharacter extends UnifiedActor
 	{
 		switch (getCharacterClass().getFocus())
 		{
-			case COMBAT:
-				applyPermanentStatModifier(kit.getCombatModifiers());
-				break;
-			case STEALTH:
-				applyPermanentStatModifier(kit.getStealthModifiers());
-				break;
-			case MAGIC:
-				applyPermanentStatModifier(kit.getMagicModifiers());
-				break;
-			default: throw new MazeException("Invalid focus "+getCharacterClass().getFocus());
+			case COMBAT -> applyPermanentStatModifier(kit.getCombatModifiers());
+			case STEALTH -> applyPermanentStatModifier(kit.getStealthModifiers());
+			case MAGIC -> applyPermanentStatModifier(kit.getMagicModifiers());
+			default ->
+				throw new MazeException("Invalid focus " + getCharacterClass().getFocus());
 		}
 
 		setPrimaryWeapon(GameSys.getInstance().createItemForStartingKit(kit.getPrimaryWeapon(), this));
@@ -1453,6 +1451,12 @@ public class PlayerCharacter extends UnifiedActor
 		this.spellPicks = spellPicks;
 	}
 
+	public void setRemovedLevelAbilities(
+		List<String> removedLevelAbilities)
+	{
+		this.removedLevelAbilities = removedLevelAbilities;
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	@Override
@@ -1484,6 +1488,72 @@ public class PlayerCharacter extends UnifiedActor
 	public StatModifier getBaseModifiers()
 	{
 		return getStats().getModifiers();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof PlayerCharacter))
+		{
+			return false;
+		}
+
+		PlayerCharacter that = (PlayerCharacter)o;
+
+		if (getExperience() != that.getExperience())
+		{
+			return false;
+		}
+		if (getKills() != that.getKills())
+		{
+			return false;
+		}
+		if (getSpellPicks() != that.getSpellPicks())
+		{
+			return false;
+		}
+		if (getKarma() != that.getKarma())
+		{
+			return false;
+		}
+		if (getPortrait() != null ? !getPortrait().equals(that.getPortrait()) : that.getPortrait() != null)
+		{
+			return false;
+		}
+		if (getPersonality() != null ? !getPersonality().equals(that.getPersonality()) : that.getPersonality() != null)
+		{
+			return false;
+		}
+		if (getPractice() != null ? !getPractice().equals(that.getPractice()) : that.getPractice() != null)
+		{
+			return false;
+		}
+		if (getActiveModifiers() != null ? !getActiveModifiers().equals(that.getActiveModifiers()) : that.getActiveModifiers() != null)
+		{
+			return false;
+		}
+		return getRemovedLevelAbilities() != null ? getRemovedLevelAbilities().equals(that.getRemovedLevelAbilities()) : that.getRemovedLevelAbilities() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getExperience();
+		result = 31 * result + getKills();
+		result = 31 * result + (getPortrait() != null ? getPortrait().hashCode() : 0);
+		result = 31 * result + (getPersonality() != null ? getPersonality().hashCode() : 0);
+		result = 31 * result + getSpellPicks();
+		result = 31 * result + (getPractice() != null ? getPractice().hashCode() : 0);
+		result = 31 * result + (getActiveModifiers() != null ? getActiveModifiers().hashCode() : 0);
+		result = 31 * result + (getRemovedLevelAbilities() != null ? getRemovedLevelAbilities().hashCode() : 0);
+		result = 31 * result + getKarma();
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

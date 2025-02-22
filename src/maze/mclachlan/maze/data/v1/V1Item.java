@@ -71,7 +71,7 @@ public class V1Item
 		int indentificationState = Integer.parseInt(strs[2]);
 		CurMax stack = V1CurMax.fromString(strs[3]);
 		CurMax charges = V1CurMax.fromString(strs[4]);
-		String enchantment = strs[5];
+		String enchantmentName = strs[5];
 
 		return new Item(
 			template,
@@ -79,6 +79,6 @@ public class V1Item
 			indentificationState,
 			stack,
 			charges,
-			template.getEnchantment(enchantment));
+			enchantmentName);
 	}
 }

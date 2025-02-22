@@ -79,442 +79,442 @@
       ],
       "ITEMS": [
         {
-          "costModifier": "1000",
-          "prefix": "Opal",
           "name": "resistEnergy",
-          "modifiers": "400000000000000000,01"
+          "modifiers": "400000000000000000,01",
+          "prefix": "Opal",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Heavy",
           "name": "bash",
-          "modifiers": "2000,01"
+          "modifiers": "2000,01",
+          "prefix": "Heavy",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Thieves",
           "name": "thieving",
-          "modifiers": "20,01"
+          "modifiers": "20,01",
+          "prefix": "Thieves",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Coward\u0027s",
           "name": "toRunAway",
-          "modifiers": "8000000000000000,01"
+          "modifiers": "8000000000000000,01",
+          "prefix": "Coward\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Druid\u0027s",
           "name": "herbal",
-          "modifiers": "40000000000,01"
+          "modifiers": "40000000000,01",
+          "prefix": "Druid\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
           "name": "hitPointRegenRate",
           "modifiers": "40000000000000000000,01",
-          "suffix": "Of Healing"
+          "suffix": "Of Healing",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Keen",
           "name": "attack",
-          "modifiers": "10000000000000,01"
+          "modifiers": "10000000000000,01",
+          "prefix": "Keen",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Weighted",
           "name": "cut",
-          "modifiers": "800,01"
+          "modifiers": "800,01",
+          "prefix": "Weighted",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "3000",
           "name": "goldMagicGen",
           "modifiers": "4000000000000000000,01",
-          "suffix": "Of Enchantment"
+          "suffix": "Of Enchantment",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Ranger\u0027s",
           "name": "dualWeapons",
-          "modifiers": "100000,01"
+          "modifiers": "100000,01",
+          "prefix": "Ranger\u0027s",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Deadeye",
           "name": "fire",
-          "modifiers": "40000,01"
+          "modifiers": "40000,01",
+          "prefix": "Deadeye",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
           "name": "streetwise",
           "modifiers": "800000,01",
-          "suffix": "Of Disguise"
+          "suffix": "Of Disguise",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "3000",
           "name": "redMagicGen",
           "modifiers": "800000000000000000,01",
-          "suffix": "Of Sorcery"
+          "suffix": "Of Sorcery",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "2000",
           "name": "stealthPointRegenRate",
           "modifiers": "80000000000000000000,01",
-          "suffix": "Of Hiding"
+          "suffix": "Of Hiding",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Somatic",
           "name": "gesture",
-          "modifiers": "8000000000,01"
+          "modifiers": "8000000000,01",
+          "prefix": "Somatic",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Sniper\u0027s",
           "name": "snipe",
-          "modifiers": "10000000,01"
+          "modifiers": "10000000,01",
+          "prefix": "Sniper\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
           "name": "powerCast",
           "modifiers": "800000000000,01",
-          "suffix": "Of Domination"
+          "suffix": "Of Domination",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
           "name": "steal",
           "modifiers": "40000000,01",
-          "suffix": "Of Theft"
+          "suffix": "Of Theft",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Piercing",
           "name": "thrust",
-          "modifiers": "400,01"
-        },
-        {
-          "costModifier": "2000",
-          "prefix": "Quick",
-          "name": "initiative",
-          "modifiers": "8000000000000,01"
-        },
-        {
-          "costModifier": "1000",
-          "prefix": "Genius",
-          "name": "brains",
-          "modifiers": "80,01"
-        },
-        {
-          "costModifier": "1000",
-          "prefix": "True Seeing",
-          "name": "vsHide",
-          "modifiers": "1000000000000000,01"
-        },
-        {
-          "costModifier": "1000",
+          "modifiers": "400,01",
           "prefix": "Piercing",
-          "name": "toPenetrate",
-          "modifiers": "100000000000000,01"
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
+          "name": "initiative",
+          "modifiers": "8000000000000,01",
+          "prefix": "Quick",
+          "costModifier": "2000"
+        },
+        {
+          "name": "brains",
+          "modifiers": "80,01",
+          "prefix": "Genius",
+          "costModifier": "1000"
+        },
+        {
+          "name": "vsHide",
+          "modifiers": "1000000000000000,01",
+          "prefix": "True Seeing",
+          "costModifier": "1000"
+        },
+        {
+          "name": "toPenetrate",
+          "modifiers": "100000000000000,01",
+          "prefix": "Piercing",
+          "costModifier": "1000"
+        },
+        {
           "name": "defence",
           "modifiers": "40000000000000,01",
-          "suffix": "Of Parrying"
+          "suffix": "Of Parrying",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "3000",
           "name": "purpleMagicGen",
           "modifiers": "2000000000000000000,01",
-          "suffix": "Of Witchcraft"
+          "suffix": "Of Witchcraft",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Accurate",
           "name": "throw",
-          "modifiers": "10000,01"
+          "modifiers": "10000,01",
+          "prefix": "Accurate",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Emerald",
           "name": "resistEarth",
-          "modifiers": "80000000000000000,01"
+          "modifiers": "80000000000000000,01",
+          "prefix": "Emerald",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
           "name": "magicPointRegenRate",
           "modifiers": "100000000000000000000,01",
-          "suffix": "Of Mana"
+          "suffix": "Of Mana",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Priest\u0027s",
           "name": "chant",
-          "modifiers": "2000000000,01"
+          "modifiers": "2000000000,01",
+          "prefix": "Priest\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Sage",
           "name": "artifacts",
-          "modifiers": "100000000000,01"
+          "modifiers": "100000000000,01",
+          "prefix": "Sage",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
           "name": "vsAmbush",
           "modifiers": "400000000000000,01",
-          "suffix": "Of Alertness"
+          "suffix": "Of Alertness",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Diamond",
           "name": "resistSlashing",
-          "modifiers": "4000000000000,01"
+          "modifiers": "4000000000000,01",
+          "prefix": "Diamond",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Mental",
           "name": "thought",
-          "modifiers": "20000000000,01"
+          "modifiers": "20000000000,01",
+          "prefix": "Mental",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Ronin\u0027s",
           "name": "kendo",
-          "modifiers": "400000,01"
+          "modifiers": "400000,01",
+          "prefix": "Ronin\u0027s",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Poet\u0027s",
           "name": "rhyme",
-          "modifiers": "4000000000,01"
+          "modifiers": "4000000000,01",
+          "prefix": "Poet\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Knight\u0027s",
           "name": "chivalry",
-          "modifiers": "200000,01"
+          "modifiers": "200000,01",
+          "prefix": "Knight\u0027s",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
           "name": "posture",
           "modifiers": "10000000000,01",
-          "suffix": "Of Stance"
+          "suffix": "Of Stance",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Kirijutsu",
           "name": "meleeCriticals",
-          "modifiers": "100000000,01"
+          "modifiers": "100000000,01",
+          "prefix": "Kirijutsu",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Sapphire",
           "name": "resistWater",
-          "modifiers": "40000000000000000,01"
+          "modifiers": "40000000000000000,01",
+          "prefix": "Sapphire",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Topaz",
           "name": "resistAir",
-          "modifiers": "100000000000000000,01"
+          "modifiers": "100000000000000000,01",
+          "prefix": "Topaz",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Archer\u0027s",
           "name": "shoot",
-          "modifiers": "20000,01"
+          "modifiers": "20000,01",
+          "prefix": "Archer\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Masterwork",
           "name": "skill",
-          "modifiers": "10,01"
+          "modifiers": "10,01",
+          "prefix": "Masterwork",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Quartz",
           "name": "resistPiercing",
-          "modifiers": "2000000000000,01"
+          "modifiers": "2000000000000,01",
+          "prefix": "Quartz",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
           "name": "survival",
           "modifiers": "4000000,01",
-          "suffix": "Of Survival"
+          "suffix": "Of Survival",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
           "name": "brawn",
           "modifiers": "8,01",
-          "suffix": "Of Strength"
+          "suffix": "Of Strength",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Corrupt",
           "name": "toBribe",
-          "modifiers": "4000000000000000,01"
+          "modifiers": "4000000000000000,01",
+          "prefix": "Corrupt",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Tempered",
           "name": "damage",
-          "modifiers": "80000000000000,01"
+          "modifiers": "80000000000000,01",
+          "prefix": "Tempered",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Immortal",
           "name": "alchemic",
-          "modifiers": "80000000000,01"
+          "modifiers": "80000000000,01",
+          "prefix": "Immortal",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Headshot",
           "name": "rangedCriticals",
-          "modifiers": "400000000,01"
+          "modifiers": "400000000,01",
+          "prefix": "Headshot",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Deadly",
           "name": "thrownCriticals",
-          "modifiers": "200000000,01"
+          "modifiers": "200000000,01",
+          "prefix": "Deadly",
+          "costModifier": "2000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "True Striking",
           "name": "vsDodge",
-          "modifiers": "800000000000000,01"
+          "modifiers": "800000000000000,01",
+          "prefix": "True Striking",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "3000",
-          "prefix": "Unholy",
           "name": "blackMagicGen",
-          "modifiers": "1000000000000000000,01"
+          "modifiers": "1000000000000000000,01",
+          "prefix": "Unholy",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "3000",
           "name": "blueMagicGen",
           "modifiers": "20000000000000000000,01",
-          "suffix": "Of The Elements"
+          "suffix": "Of The Elements",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Open Hand",
           "name": "punch",
-          "modifiers": "4000,01"
+          "modifiers": "4000,01",
+          "prefix": "Open Hand",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Moonstone",
           "name": "resistBludgeoning",
-          "modifiers": "1000000000000,01"
+          "modifiers": "1000000000000,01",
+          "prefix": "Moonstone",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Backstabbing",
           "name": "backstab",
-          "modifiers": "8000000,01"
+          "modifiers": "8000000,01",
+          "prefix": "Backstabbing",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Ruby",
           "name": "resistFire",
-          "modifiers": "20000000000000000,01"
+          "modifiers": "20000000000000000,01",
+          "prefix": "Ruby",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Slashing",
           "name": "swing",
-          "modifiers": "200,01"
+          "modifiers": "200,01",
+          "prefix": "Slashing",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Balanced",
           "name": "lunge",
-          "modifiers": "1000,01"
+          "modifiers": "1000,01",
+          "prefix": "Balanced",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Camouflaged",
           "name": "sneaking",
-          "modifiers": "40,01"
+          "modifiers": "40,01",
+          "prefix": "Camouflaged",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Crystal",
           "name": "resistMental",
-          "modifiers": "200000000000000000,01"
+          "modifiers": "200000000000000000,01",
+          "prefix": "Crystal",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "3000",
-          "prefix": "Holy",
           "name": "whiteMagicGen",
-          "modifiers": "8000000000000000000,01"
+          "modifiers": "8000000000000000000,01",
+          "prefix": "Holy",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "1000",
           "name": "power",
           "modifiers": "100,01",
-          "suffix": "Of Potency"
+          "suffix": "Of Potency",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Intimidating",
           "name": "threaten",
-          "modifiers": "0,"
+          "modifiers": "0,",
+          "prefix": "Intimidating",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Bard\u0027s",
           "name": "mythology",
-          "modifiers": "200000000000,01"
+          "modifiers": "200000000000,01",
+          "prefix": "Bard\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
           "name": "lock\u0026trap",
           "modifiers": "20000000,01",
-          "suffix": "Of Looting"
+          "suffix": "Of Looting",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Adventurer\u0027s",
           "name": "dungeoneer",
-          "modifiers": "1000000,01"
+          "modifiers": "1000000,01",
+          "prefix": "Adventurer\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Hunter\u0027s",
           "name": "wildernessLore",
-          "modifiers": "2000000,01"
+          "modifiers": "2000000,01",
+          "prefix": "Hunter\u0027s",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Steady",
           "name": "vsPenetrate",
-          "modifiers": "200000000000000,01"
+          "modifiers": "200000000000000,01",
+          "prefix": "Steady",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "3000",
           "name": "greenMagicGen",
           "modifiers": "10000000000000000000,01",
-          "suffix": "Of Druidism"
+          "suffix": "Of Druidism",
+          "costModifier": "3000"
         },
         {
-          "costModifier": "1000",
           "name": "craft",
           "modifiers": "400000000000,01",
-          "suffix": "Of Engineering"
+          "suffix": "Of Engineering",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "1000",
-          "prefix": "Tornado",
           "name": "kick",
-          "modifiers": "8000,01"
+          "modifiers": "8000,01",
+          "prefix": "Tornado",
+          "costModifier": "1000"
         },
         {
-          "costModifier": "2000",
-          "prefix": "Monk\u0027s",
           "name": "martialArts",
-          "modifiers": "80000000,01"
+          "modifiers": "80000000,01",
+          "prefix": "Monk\u0027s",
+          "costModifier": "2000"
         }
       ],
       "SHOULD_SUM_TO_100": "false"

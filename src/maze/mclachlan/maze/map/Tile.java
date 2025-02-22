@@ -104,6 +104,10 @@ public class Tile implements ConditionBearer
 		POOR, AVERAGE, GOOD, EXCELLENT
 	}
 
+	public Tile()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Tile(
 		List<TileScript> scripts,
@@ -314,5 +318,76 @@ public class Tile implements ConditionBearer
 	public List<Condition> getConditions()
 	{
 		return ConditionManager.getInstance().getConditions(this);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Tile))
+		{
+			return false;
+		}
+
+		Tile tile = (Tile)o;
+
+		if (getRandomEncounterChance() != tile.getRandomEncounterChance())
+		{
+			return false;
+		}
+		if (getScripts() != null ? !getScripts().equals(tile.getScripts()) : tile.getScripts() != null)
+		{
+			return false;
+		}
+		if (getStatModifier() != null ? !getStatModifier().equals(tile.getStatModifier()) : tile.getStatModifier() != null)
+		{
+			return false;
+		}
+		if (getTerrainType() != tile.getTerrainType())
+		{
+			return false;
+		}
+		if (getTerrainSubType() != null ? !getTerrainSubType().equals(tile.getTerrainSubType()) : tile.getTerrainSubType() != null)
+		{
+			return false;
+		}
+		if (getRandomEncounters() != null ? !getRandomEncounters().equals(tile.getRandomEncounters()) : tile.getRandomEncounters() != null)
+		{
+			return false;
+		}
+		if (getZone() != null ? !getZone().equals(tile.getZone()) : tile.getZone() != null)
+		{
+			return false;
+		}
+		if (getCoords() != null ? !getCoords().equals(tile.getCoords()) : tile.getCoords() != null)
+		{
+			return false;
+		}
+		if (getRestingDanger() != tile.getRestingDanger())
+		{
+			return false;
+		}
+		return getRestingEfficiency() == tile.getRestingEfficiency();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getScripts() != null ? getScripts().hashCode() : 0;
+		result = 31 * result + (getStatModifier() != null ? getStatModifier().hashCode() : 0);
+		result = 31 * result + (getTerrainType() != null ? getTerrainType().hashCode() : 0);
+		result = 31 * result + (getTerrainSubType() != null ? getTerrainSubType().hashCode() : 0);
+		result = 31 * result + getRandomEncounterChance();
+		result = 31 * result + (getRandomEncounters() != null ? getRandomEncounters().hashCode() : 0);
+		result = 31 * result + (getZone() != null ? getZone().hashCode() : 0);
+		result = 31 * result + (getCoords() != null ? getCoords().hashCode() : 0);
+		result = 31 * result + (getRestingDanger() != null ? getRestingDanger().hashCode() : 0);
+		result = 31 * result + (getRestingEfficiency() != null ? getRestingEfficiency().hashCode() : 0);
+		return result;
 	}
 }

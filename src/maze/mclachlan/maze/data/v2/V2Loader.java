@@ -12,6 +12,7 @@ import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.StringManager;
 import mclachlan.maze.data.v1.DataObject;
+import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.map.*;
@@ -87,6 +88,19 @@ public class V2Loader extends Loader
 		{
 			Map result = silo.load(reader, db);
 			result.forEach((key, value) -> ((DataObject)value).setCampaign(campaign.getName()));
+			return result;
+		}
+		catch (Exception e)
+		{
+			throw new MazeException(e);
+		}
+	}
+
+	private Object v2Crud(String fileName, V2SiloSingleton silo)
+	{
+		try (BufferedReader reader = getReader(getPath() + fileName))
+		{
+			Object result = silo.load(reader, db);
 			return result;
 		}
 		catch (Exception e)
@@ -324,13 +338,27 @@ public class V2Loader extends Loader
 	@Override
 	public List<String> getZoneNames()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		List<String> result = new ArrayList<>();
+		File dir = new File(getPath()+ V1Utils.ZONES);
+		if (dir.exists())
+		{
+			File[] files = dir.listFiles();
+			for (File file : files)
+			{
+				String name = file.getName();
+				result.add(name.substring(0, name.lastIndexOf(".")));
+			}
+		}
+
+		return result;
 	}
 
 	@Override
 	public Zone getZone(String name)
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		Zone result = (Zone)v2Crud(ZONES + name + ".json", new SingletonSilo(getZoneSerialiser(db)));
+		result.getMap().init();
+		return result;
 	}
 
 	@Override
@@ -342,7 +370,7 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, PlayerCharacter> loadCharacterGuild()
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		return v2Crud(CHARACTER_GUILD, new SimpleMapSilo<>(getGuildSerialiser(db)));
 	}
 
 	@Override

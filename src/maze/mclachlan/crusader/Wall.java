@@ -200,6 +200,69 @@ public class Wall
 		this.height = height;
 	}
 
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Wall))
+		{
+			return false;
+		}
+
+		Wall wall = (Wall)o;
+
+		if (isVisible() != wall.isVisible())
+		{
+			return false;
+		}
+		if (isSolid() != wall.isSolid())
+		{
+			return false;
+		}
+		if (getHeight() != wall.getHeight())
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getTextures(), wall.getTextures()))
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getMaskTextures(), wall.getMaskTextures()))
+		{
+			return false;
+		}
+		if (getMouseClickScript() != null ? !getMouseClickScript().equals(wall.getMouseClickScript()) : wall.getMouseClickScript() != null)
+		{
+			return false;
+		}
+		if (getMaskTextureMouseClickScript() != null ? !getMaskTextureMouseClickScript().equals(wall.getMaskTextureMouseClickScript()) : wall.getMaskTextureMouseClickScript() != null)
+		{
+			return false;
+		}
+		return getInternalScript() != null ? getInternalScript().equals(wall.getInternalScript()) : wall.getInternalScript() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = (isVisible() ? 1 : 0);
+		result = 31 * result + (isSolid() ? 1 : 0);
+		result = 31 * result + getHeight();
+		result = 31 * result + Arrays.hashCode(getTextures());
+		result = 31 * result + Arrays.hashCode(getMaskTextures());
+		result = 31 * result + (getMouseClickScript() != null ? getMouseClickScript().hashCode() : 0);
+		result = 31 * result + (getMaskTextureMouseClickScript() != null ? getMaskTextureMouseClickScript().hashCode() : 0);
+		result = 31 * result + (getInternalScript() != null ? getInternalScript().hashCode() : 0);
+		return result;
+	}
+
 	@Override
 	public String toString()
 	{

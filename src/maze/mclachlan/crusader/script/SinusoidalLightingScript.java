@@ -19,6 +19,7 @@
 
 package mclachlan.crusader.script;
 
+import java.util.*;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.MapScript;
 import mclachlan.crusader.Tile;
@@ -33,7 +34,11 @@ public class SinusoidalLightingScript extends MapScript
 	private int frequency;
 	private int minLightLevel;
 	private int maxLightLevel;
-	
+
+	public SinusoidalLightingScript()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param affectedTiles
@@ -89,5 +94,81 @@ public class SinusoidalLightingScript extends MapScript
 	public int getFrequency()
 	{
 		return frequency;
+	}
+
+	public void setAffectedTiles(int[] affectedTiles)
+	{
+		this.affectedTiles = affectedTiles;
+	}
+
+	public int getDiff()
+	{
+		return diff;
+	}
+
+	public void setDiff(int diff)
+	{
+		this.diff = diff;
+	}
+
+	public void setFrequency(int frequency)
+	{
+		this.frequency = frequency;
+	}
+
+	public void setMinLightLevel(int minLightLevel)
+	{
+		this.minLightLevel = minLightLevel;
+	}
+
+	public void setMaxLightLevel(int maxLightLevel)
+	{
+		this.maxLightLevel = maxLightLevel;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof SinusoidalLightingScript))
+		{
+			return false;
+		}
+
+		SinusoidalLightingScript that = (SinusoidalLightingScript)o;
+
+		if (getDiff() != that.getDiff())
+		{
+			return false;
+		}
+		if (getFrequency() != that.getFrequency())
+		{
+			return false;
+		}
+		if (getMinLightLevel() != that.getMinLightLevel())
+		{
+			return false;
+		}
+		if (getMaxLightLevel() != that.getMaxLightLevel())
+		{
+			return false;
+		}
+		return Arrays.equals(getAffectedTiles(), that.getAffectedTiles());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = Arrays.hashCode(getAffectedTiles());
+		result = 31 * result + getDiff();
+		result = 31 * result + getFrequency();
+		result = 31 * result + getMinLightLevel();
+		result = 31 * result + getMaxLightLevel();
+		return result;
 	}
 }

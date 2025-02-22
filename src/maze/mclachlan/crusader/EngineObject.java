@@ -98,6 +98,15 @@ public class EngineObject
 	/** Any offset to draw this object at, to support up/down animations */
 	int textureOffset = 0;
 
+	public EngineObject()
+	{
+		this.textures = new Texture[]{null, null, null, null};
+		this.northTexture = 0;
+		this.southTexture = 1;
+		this.eastTexture = 2;
+		this.westTexture = 3;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * Note that different texture views is only supported for DISCRETE mode
@@ -209,49 +218,35 @@ public class EngineObject
 		//
 		if (movementMode == CrusaderEngine.MovementMode.DISCRETE && this.currentTexture == -1)
 		{
-			switch(playerFacing)
+			switch (playerFacing)
 			{
-				case CrusaderEngine.Facing.NORTH:
+				case CrusaderEngine.Facing.NORTH ->
 					renderTexture = this.textures[this.northTexture];
-					break;
-				case CrusaderEngine.Facing.SOUTH:
+				case CrusaderEngine.Facing.SOUTH ->
 					renderTexture = this.textures[this.southTexture];
-					break;
-				case CrusaderEngine.Facing.EAST:
+				case CrusaderEngine.Facing.EAST ->
 					renderTexture = this.textures[this.eastTexture];
-					break;
-				case CrusaderEngine.Facing.WEST:
+				case CrusaderEngine.Facing.WEST ->
 					renderTexture = this.textures[this.westTexture];
-					break;
-				default:
-					throw new CrusaderException(
-						"invalid facing: "+playerFacing);
+				default -> throw new CrusaderException(
+					"invalid facing: " + playerFacing);
 			}
 		}
 		else if (movementMode == CrusaderEngine.MovementMode.OCTO && this.currentTexture == -1)
 		{
 			// yeah this fudges it a bit
-			switch(playerFacing)
+			switch (playerFacing)
 			{
-				case CrusaderEngine.Facing.NORTH:
-				case CrusaderEngine.Facing.NORTH_EAST:
-				case CrusaderEngine.Facing.NORTH_WEST:
+				case CrusaderEngine.Facing.NORTH, CrusaderEngine.Facing.NORTH_EAST, CrusaderEngine.Facing.NORTH_WEST ->
 					renderTexture = this.textures[this.northTexture];
-					break;
-				case CrusaderEngine.Facing.SOUTH:
-				case CrusaderEngine.Facing.SOUTH_EAST:
-				case CrusaderEngine.Facing.SOUTH_WEST:
+				case CrusaderEngine.Facing.SOUTH, CrusaderEngine.Facing.SOUTH_EAST, CrusaderEngine.Facing.SOUTH_WEST ->
 					renderTexture = this.textures[this.southTexture];
-					break;
-				case CrusaderEngine.Facing.EAST:
+				case CrusaderEngine.Facing.EAST ->
 					renderTexture = this.textures[this.eastTexture];
-					break;
-				case CrusaderEngine.Facing.WEST:
+				case CrusaderEngine.Facing.WEST ->
 					renderTexture = this.textures[this.westTexture];
-					break;
-				default:
-					throw new CrusaderException(
-						"invalid facing: "+playerFacing);
+				default -> throw new CrusaderException(
+					"invalid facing: " + playerFacing);
 			}
 		}
 		else if (movementMode == CrusaderEngine.MovementMode.CONTINUOUS)
@@ -384,17 +379,15 @@ public class EngineObject
 
 		int skySize = ((CrusaderEngine32)engine).getProjectionPlaneHeight()/2 - projectedWallHeight/2;
 
-		switch (getVerticalAlignment())
-		{
-			case TOP:
-				return -projectedObjectHeight -skySize;
-			case CENTER:
-				return -(projectedWallHeight/2 + projectedObjectHeight/2) -skySize;
-			case BOTTOM:
-				return -projectedWallHeight -skySize;
-			default:
-				throw new MazeException("invalid "+getVerticalAlignment());
-		}
+		return switch (getVerticalAlignment())
+			{
+				case TOP -> -projectedObjectHeight - skySize;
+				case CENTER ->
+					-(projectedWallHeight / 2 + projectedObjectHeight / 2) - skySize;
+				case BOTTOM -> -projectedWallHeight - skySize;
+				default ->
+					throw new MazeException("invalid " + getVerticalAlignment());
+			};
 
 	}
 
@@ -616,6 +609,21 @@ public class EngineObject
 		this.textureOffset = textureOffset;
 	}
 
+	public void setTextures(Texture[] textures)
+	{
+		this.textures = textures;
+	}
+
+	public ObjectScript[] getScripts()
+	{
+		return scripts;
+	}
+
+	public void setScripts(ObjectScript[] scripts)
+	{
+		this.scripts = scripts;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	void executeScripts(long frameCount)
 	{
@@ -702,6 +710,84 @@ public class EngineObject
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof EngineObject))
+		{
+			return false;
+		}
+
+		EngineObject that = (EngineObject)o;
+
+		if (getNorthTexture() != that.getNorthTexture())
+		{
+			return false;
+		}
+		if (getSouthTexture() != that.getSouthTexture())
+		{
+			return false;
+		}
+		if (getEastTexture() != that.getEastTexture())
+		{
+			return false;
+		}
+		if (getWestTexture() != that.getWestTexture())
+		{
+			return false;
+		}
+		if (isLightSource() != that.isLightSource())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(that.getName()) : that.getName() != null)
+		{
+			return false;
+		}
+		if (getMouseClickScript() != null ? !getMouseClickScript().equals(that.getMouseClickScript()) : that.getMouseClickScript() != null)
+		{
+			return false;
+		}
+		if (getPlacementMask() != null ? !getPlacementMask().equals(that.getPlacementMask()) : that.getPlacementMask() != null)
+		{
+			return false;
+		}
+		if (getVerticalAlignment() != that.getVerticalAlignment())
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getScripts(), that.getScripts()))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getNorthTexture() == null ? 0 : getNorthTexture().hashCode());
+		result = 31 * result + (getSouthTexture() == null ? 0 : getSouthTexture().hashCode());
+		result = 31 * result + (getEastTexture() == null ? 0 : getEastTexture().hashCode());
+		result = 31 * result + (getWestTexture() == null ? 0 : getWestTexture().hashCode());
+		result = 31 * result + (isLightSource() ? 1 : 0);
+		result = 31 * result + (getMouseClickScript() != null ? getMouseClickScript().hashCode() : 0);
+		result = 31 * result + (getPlacementMask() != null ? getPlacementMask().hashCode() : 0);
+		result = 31 * result + (getVerticalAlignment() != null ? getVerticalAlignment().hashCode() : 0);
+		result = 31 * result + Arrays.hashCode(getScripts());
+		return result;
+	}
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * There are nine possible placement positions.

@@ -36,6 +36,10 @@ public class Tile
 	int currentLightLevel;
 	int ceilingHeight;
 
+	public Tile()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Tile(
 		Texture ceilingTexture,
@@ -189,5 +193,76 @@ public class Tile
 	public void setCeilingHeight(int ceilingHeight)
 	{
 		this.ceilingHeight = ceilingHeight;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Tile))
+		{
+			return false;
+		}
+
+		Tile tile = (Tile)o;
+
+		if (getLightLevel() != tile.getLightLevel())
+		{
+			return false;
+		}
+		if (getCeilingHeight() != tile.getCeilingHeight())
+		{
+			return false;
+		}
+		if (getNorthWallTexture() != null ? !getNorthWallTexture().equals(tile.getNorthWallTexture()) : tile.getNorthWallTexture() != null)
+		{
+			return false;
+		}
+		if (getSouthWallTexture() != null ? !getSouthWallTexture().equals(tile.getSouthWallTexture()) : tile.getSouthWallTexture() != null)
+		{
+			return false;
+		}
+		if (getEastWallTexture() != null ? !getEastWallTexture().equals(tile.getEastWallTexture()) : tile.getEastWallTexture() != null)
+		{
+			return false;
+		}
+		if (getWestWallTexture() != null ? !getWestWallTexture().equals(tile.getWestWallTexture()) : tile.getWestWallTexture() != null)
+		{
+			return false;
+		}
+		if (getFloorTexture() != null ? !getFloorTexture().equals(tile.getFloorTexture()) : tile.getFloorTexture() != null)
+		{
+			return false;
+		}
+		if (getFloorMaskTexture() != null ? !getFloorMaskTexture().equals(tile.getFloorMaskTexture()) : tile.getFloorMaskTexture() != null)
+		{
+			return false;
+		}
+		if (getCeilingTexture() != null ? !getCeilingTexture().equals(tile.getCeilingTexture()) : tile.getCeilingTexture() != null)
+		{
+			return false;
+		}
+		return getCeilingMaskTexture() != null ? getCeilingMaskTexture().equals(tile.getCeilingMaskTexture()) : tile.getCeilingMaskTexture() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getNorthWallTexture() != null ? getNorthWallTexture().hashCode() : 0;
+		result = 31 * result + (getSouthWallTexture() != null ? getSouthWallTexture().hashCode() : 0);
+		result = 31 * result + (getEastWallTexture() != null ? getEastWallTexture().hashCode() : 0);
+		result = 31 * result + (getWestWallTexture() != null ? getWestWallTexture().hashCode() : 0);
+		result = 31 * result + (getFloorTexture() != null ? getFloorTexture().hashCode() : 0);
+		result = 31 * result + (getFloorMaskTexture() != null ? getFloorMaskTexture().hashCode() : 0);
+		result = 31 * result + (getCeilingTexture() != null ? getCeilingTexture().hashCode() : 0);
+		result = 31 * result + (getCeilingMaskTexture() != null ? getCeilingMaskTexture().hashCode() : 0);
+		result = 31 * result + getLightLevel();
+		result = 31 * result + getCeilingHeight();
+		return result;
 	}
 }

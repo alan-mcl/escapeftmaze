@@ -38,48 +38,48 @@ public class Stats
 	private CurMax magicPoints = new CurMax();
 
 	/** Resources */
-	public static List<Modifier> resourceModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> resourceModifiers = new ArrayList<>();
 	
 	/** Attributes */
-	public static List<Modifier> attributeModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> attributeModifiers = new ArrayList<>();
 
 	/** swing, thrust, and so on */
-	public static List<Modifier> martialModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> martialModifiers = new ArrayList<>();
 
 	/** steal, stealth, and so on */
-	public static List<Modifier> stealthModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> stealthModifiers = new ArrayList<>();
 
 	/** chant, gesture, and so on */
-	public static List<Modifier> magicModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> magicModifiers = new ArrayList<>();
 
 	/** The set of modifiers that can be edited by the player */
-	public static List<Modifier> regularModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> regularModifiers = new ArrayList<>();
 
 	/** The various stats that can't be edited by the player */
-	public static List<Modifier> statistics = new ArrayList<Modifier>();
+	public static List<Modifier> statistics = new ArrayList<>();
 
 	/** Resistance modifiers */
-	public static List<Modifier> resistances = new ArrayList<Modifier>();
+	public static List<Modifier> resistances = new ArrayList<>();
 
-	public static List<Modifier> resistancesAndImmunities = new ArrayList<Modifier>();
-	public static List<Modifier> touches = new ArrayList<Modifier>();
-	public static List<Modifier> weaponAbilities = new ArrayList<Modifier>();
-	public static List<Modifier> favouredEnemies = new ArrayList<Modifier>();
-	public static List<Modifier> otherCombat = new ArrayList<Modifier>();
-	public static List<Modifier> otherStealth = new ArrayList<Modifier>();
-	public static List<Modifier> otherMagic = new ArrayList<Modifier>();
+	public static List<Modifier> resistancesAndImmunities = new ArrayList<>();
+	public static List<Modifier> touches = new ArrayList<>();
+	public static List<Modifier> weaponAbilities = new ArrayList<>();
+	public static List<Modifier> favouredEnemies = new ArrayList<>();
+	public static List<Modifier> otherCombat = new ArrayList<>();
+	public static List<Modifier> otherStealth = new ArrayList<>();
+	public static List<Modifier> otherMagic = new ArrayList<>();
 
 	/** Spell casting level modifiers */
-	public static List<Modifier> spellCastingLevels = new ArrayList<Modifier>();
+	public static List<Modifier> spellCastingLevels = new ArrayList<>();
 
 	/** properties of a character - boolean flags that can't be edited */
-	public static List<Modifier> propertiesModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> propertiesModifiers = new ArrayList<>();
 
 	/** all modifiers */
-	public static List<Modifier> allModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> allModifiers = new ArrayList<>();
 
 	/** all modifiers except attributes and resistances */
-	public static List<Modifier> middleModifiers = new ArrayList<Modifier>();
+	public static List<Modifier> middleModifiers = new ArrayList<>();
 
 	/*-------------------------------------------------------------------------*/
 	static
@@ -181,7 +181,7 @@ public class Stats
 		touches.add(TOUCH_POISON);
 		touches.add(TOUCH_KO);
 
-		Collections.sort(touches, new ModifierComparatorAlphabetic());
+		touches.sort(new ModifierComparatorAlphabetic());
 
 		favouredEnemies.add(FAVOURED_ENEMY_BEAST);
 		favouredEnemies.add(FAVOURED_ENEMY_CONSTRUCT);
@@ -201,7 +201,7 @@ public class Stats
 		favouredEnemies.add(FAVOURED_ENEMY_UNDEAD);
 		favouredEnemies.add(FAVOURED_ENEMY_VERMIN);
 
-		Collections.sort(favouredEnemies, new ModifierComparatorAlphabetic());
+		favouredEnemies.sort(new ModifierComparatorAlphabetic());
 
 		weaponAbilities.add(TIRELESS_AXE);
 		weaponAbilities.add(TIRELESS_BOW);
@@ -276,7 +276,7 @@ public class Stats
 		otherCombat.add(BATTLE_MASTER);
 		otherCombat.add(INSPIRING_BLOW);
 
-		Collections.sort(otherCombat, new ModifierComparatorAlphabetic());
+		otherCombat.sort(new ModifierComparatorAlphabetic());
 
 		otherStealth.add(AMBUSHER);
 		otherStealth.add(DISPLACER);
@@ -300,7 +300,7 @@ public class Stats
 		otherStealth.add(NO_SURVIVORS);
 		otherStealth.add(ATTUNE_WITH_NATURE);
 
-		Collections.sort(otherStealth, new ModifierComparatorAlphabetic());
+		otherStealth.sort(new ModifierComparatorAlphabetic());
 
 		otherMagic.add(MAGIC_ABSORPTION);
 		otherMagic.add(DIVINE_PROTECTION);
@@ -333,14 +333,14 @@ public class Stats
 		otherMagic.add(CURSED_POWER);
 		otherMagic.add(REVERSE_GLAMOUR);
 
-		Collections.sort(otherMagic, new ModifierComparatorAlphabetic());
+		otherMagic.sort(new ModifierComparatorAlphabetic());
 
 		middleModifiers.addAll(allModifiers);
 		middleModifiers.removeAll(attributeModifiers);
 		middleModifiers.removeAll(resistancesAndImmunities);
 
 		// validate modifier IDs
-		Set<Integer> ids = new HashSet<Integer>();
+		Set<Integer> ids = new HashSet<>();
 		for (Modifier m : Modifier.values())
 		{
 			if (ids.contains(m.getId()))
@@ -388,17 +388,13 @@ public class Stats
 	public static String descModifier(Modifier modifier, int value)
 	{
 		ModifierMetric metric = modifier.getMetric();
-		switch (metric)
-		{
-			case PLAIN:
-				return descPlainModifier(value);
-			case BOOLEAN:
-				return "";
-			case PERCENTAGE:
-				return descPlainModifier(value)+"%";
-			default:
-				throw new MazeException(metric.name());
-		}
+		return switch (metric)
+			{
+				case PLAIN -> descPlainModifier(value);
+				case BOOLEAN -> "";
+				case PERCENTAGE -> descPlainModifier(value) + "%";
+				default -> throw new MazeException(metric.name());
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -435,7 +431,7 @@ public class Stats
 	/*-------------------------------------------------------------------------*/
 	public void incModifier(Modifier modifier, int amount)
 	{
-		Integer current = getModifier(modifier);
+		int current = getModifier(modifier);
 		current += amount;
 		this.modifiers.setModifier(modifier, current);
 	}
@@ -482,7 +478,48 @@ public class Stats
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum Modifier
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Stats))
+		{
+			return false;
+		}
+
+		Stats stats = (Stats)o;
+
+		if (getModifiers() != null ? !getModifiers().equals(stats.getModifiers()) : stats.getModifiers() != null)
+		{
+			return false;
+		}
+		if (getHitPoints() != null ? !getHitPoints().equals(stats.getHitPoints()) : stats.getHitPoints() != null)
+		{
+			return false;
+		}
+		if (getActionPoints() != null ? !getActionPoints().equals(stats.getActionPoints()) : stats.getActionPoints() != null)
+		{
+			return false;
+		}
+		return getMagicPoints() != null ? getMagicPoints().equals(stats.getMagicPoints()) : stats.getMagicPoints() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getModifiers() != null ? getModifiers().hashCode() : 0;
+		result = 31 * result + (getHitPoints() != null ? getHitPoints().hashCode() : 0);
+		result = 31 * result + (getActionPoints() != null ? getActionPoints().hashCode() : 0);
+		result = 31 * result + (getMagicPoints() != null ? getMagicPoints().hashCode() : 0);
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public enum Modifier
 	{
 		NONE(-1, "-", ModifierType.NONE),
 
@@ -807,22 +844,22 @@ public class Stats
 		 * An integer ID to track these with. Used at the moment as an index
 		 * into the storage bitmap
 		 */
-		private int id;
+		private final int id;
 
 		/**
 		 * The key to use when finding strings in the resource bundle.
 		 */
-		private String resourceBundleKey;
+		private final String resourceBundleKey;
 
 		/**
 		 * What type of modifier this is.
 		 */
-		private ModifierType type;
+		private final ModifierType type;
 
 		/**
 		 * How this modifier is measured.
 		 */
-		private ModifierMetric metric;
+		private final ModifierMetric metric;
 
 		/**
 		 * Defaults to {@link mclachlan.maze.stat.Stats.ModifierMetric#PLAIN} and
@@ -890,13 +927,13 @@ public class Stats
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum ModifierMetric
+	public enum ModifierMetric
 	{
 		PLAIN, BOOLEAN, PERCENTAGE;
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum ModifierType
+	public enum ModifierType
 	{
 		NONE,
 		RESOURCE,

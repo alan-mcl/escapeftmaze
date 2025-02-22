@@ -1,5 +1,7 @@
 [
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.powders",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -41,11 +43,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.powders"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.throwing.weapons",
     "contains": {
       "PERCENTAGES": [
         25,
@@ -72,11 +74,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.4.throwing.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.spell.books",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -208,11 +210,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.spell.books"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.food",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -249,11 +251,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.food"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.steampunk.items",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -295,11 +297,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.steampunk.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.spell.books",
     "contains": {
       "PERCENTAGES": [
         5,
@@ -426,11 +428,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.spell.books"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.scrolls",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -477,11 +479,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.scrolls"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.magic.trinkets",
     "contains": {
       "PERCENTAGES": [
         7,
@@ -568,11 +570,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.4.magic.trinkets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.throwing.weapons",
     "contains": {
       "PERCENTAGES": [
         20,
@@ -604,11 +606,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.throwing.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.spell.books",
     "contains": {
       "PERCENTAGES": [
         9,
@@ -675,11 +677,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.4.spell.books"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.ammo",
     "contains": {
       "PERCENTAGES": [
         10,
@@ -736,11 +738,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.ammo"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.bombs",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -782,11 +784,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.bombs"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.magic.armour",
     "contains": {
       "PERCENTAGES": [
         8,
@@ -858,11 +860,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.4.magic.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.spell.books",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -994,11 +996,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.spell.books"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.stix",
     "contains": {
       "PERCENTAGES": [
         25,
@@ -1025,11 +1027,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.stix"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.magic.trinkets",
     "contains": {
       "PERCENTAGES": [
         2,
@@ -1306,11 +1308,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.magic.trinkets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.iron.rations",
     "contains": {
       "PERCENTAGES": [
         100
@@ -1322,11 +1324,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "supplies.1.iron.rations"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.musical.instruments",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -1373,11 +1375,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.musical.instruments"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.ambercaps",
     "contains": {
       "PERCENTAGES": [
         100
@@ -1389,11 +1391,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "supplies.1.ambercaps"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.potions.healing",
     "contains": {
       "PERCENTAGES": [
         25,
@@ -1420,11 +1422,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.potions.healing"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "exotic.starting.items",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -1576,11 +1578,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "exotic.starting.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.gadgets",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -1627,11 +1629,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.gadgets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.magic.weapons",
     "contains": {
       "PERCENTAGES": [
         7,
@@ -1713,11 +1715,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.4.magic.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "wand.crafting.1",
     "contains": {
       "PERCENTAGES": [
         8,
@@ -1794,11 +1796,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "wand.crafting.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.ammo",
     "contains": {
       "PERCENTAGES": [
         12,
@@ -1850,11 +1852,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.ammo"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gadgeteer.bomb.construction",
     "contains": {
       "PERCENTAGES": [
         6,
@@ -1951,11 +1953,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gadgeteer.bomb.construction"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gold.1000",
     "contains": {
       "PERCENTAGES": [
         100
@@ -1967,11 +1969,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gold.1000"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gnome.clockwork.loot",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -2008,11 +2010,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gnome.clockwork.loot"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.magic.trinkets",
     "contains": {
       "PERCENTAGES": [
         2,
@@ -2294,11 +2296,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.magic.trinkets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.magic.weapons",
     "contains": {
       "PERCENTAGES": [
         3,
@@ -2505,11 +2507,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.magic.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gold.500",
     "contains": {
       "PERCENTAGES": [
         100
@@ -2521,11 +2523,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gold.500"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.potions.healing",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -2567,11 +2569,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.potions.healing"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.gadgets",
     "contains": {
       "PERCENTAGES": [
         8,
@@ -2643,11 +2645,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.gadgets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gold.100",
     "contains": {
       "PERCENTAGES": [
         100
@@ -2659,11 +2661,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gold.100"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.mundane.weapons",
     "contains": {
       "PERCENTAGES": [
         8,
@@ -2740,11 +2742,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.mundane.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.cave.eels",
     "contains": {
       "PERCENTAGES": [
         100
@@ -2756,11 +2758,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "supplies.1.cave.eels"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.steampunk.items",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -2797,11 +2799,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.steampunk.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "minor powder creation",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -2848,11 +2850,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "minor powder creation"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "mid.level.gold",
     "contains": {
       "PERCENTAGES": [
         100
@@ -2864,11 +2866,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "mid.level.gold"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.throwing.weapons",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -2905,11 +2907,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.throwing.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.stix",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -2951,11 +2953,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.stix"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.banner.items",
     "contains": {
       "PERCENTAGES": [
         12,
@@ -3007,11 +3009,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.banner.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.food",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -3058,11 +3060,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.food"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.magic.weapons",
     "contains": {
       "PERCENTAGES": [
         3,
@@ -3254,11 +3256,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.magic.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.banner.items",
     "contains": {
       "PERCENTAGES": [
         12,
@@ -3310,11 +3312,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.banner.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.banner.items",
     "contains": {
       "PERCENTAGES": [
         12,
@@ -3366,11 +3368,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.banner.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.musical.intruments",
     "contains": {
       "PERCENTAGES": [
         10,
@@ -3427,11 +3429,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.musical.intruments"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.potions.other",
     "contains": {
       "PERCENTAGES": [
         34,
@@ -3453,11 +3455,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.potions.other"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.magic.weapons",
     "contains": {
       "PERCENTAGES": [
         3,
@@ -3669,11 +3671,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.magic.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.mundane.weapons",
     "contains": {
       "PERCENTAGES": [
         5,
@@ -3780,11 +3782,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.mundane.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.potions.other",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -3826,11 +3828,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.potions.other"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.magic.trinkets",
     "contains": {
       "PERCENTAGES": [
         3,
@@ -4047,11 +4049,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.magic.trinkets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.modern.weapons",
     "contains": {
       "PERCENTAGES": [
         20,
@@ -4083,11 +4085,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.modern.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.potions.healing",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -4124,11 +4126,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.potions.healing"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.powders",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -4170,11 +4172,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.powders"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "low.level.gold",
     "contains": {
       "PERCENTAGES": [
         100
@@ -4186,11 +4188,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "low.level.gold"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.powders",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -4232,11 +4234,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.powders"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.scrolls",
     "contains": {
       "PERCENTAGES": [
         9,
@@ -4303,11 +4305,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.scrolls"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.4.ammo",
     "contains": {
       "PERCENTAGES": [
         20,
@@ -4339,11 +4341,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.4.ammo"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.booze",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -4380,11 +4382,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.booze"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.gadgets",
     "contains": {
       "PERCENTAGES": [
         9,
@@ -4451,11 +4453,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.gadgets"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.bombs",
     "contains": {
       "PERCENTAGES": [
         20,
@@ -4487,11 +4489,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.bombs"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.stix",
     "contains": {
       "PERCENTAGES": [
         34,
@@ -4513,11 +4515,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.stix"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.mundane.armour",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -4669,11 +4671,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.mundane.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "coc.sheriff.items",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -4715,11 +4717,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "coc.sheriff.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gnome.scout.items",
     "contains": {
       "PERCENTAGES": [
         20,
@@ -4751,11 +4753,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gnome.scout.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gadgeteer.invention.1",
     "contains": {
       "PERCENTAGES": [
         34,
@@ -4777,11 +4779,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gadgeteer.invention.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.mundane.armour",
     "contains": {
       "PERCENTAGES": [
         8,
@@ -4858,11 +4860,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.mundane.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "high.level.gold",
     "contains": {
       "PERCENTAGES": [
         100
@@ -4874,11 +4876,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "high.level.gold"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "gadgeteer.invention.2",
     "contains": {
       "PERCENTAGES": [
         34,
@@ -4900,11 +4902,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "gadgeteer.invention.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.potions.other",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -4951,11 +4953,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.potions.other"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "only.arrows",
     "contains": {
       "PERCENTAGES": [
         60,
@@ -4972,11 +4974,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "only.arrows"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "vital.items.resurrection.powder",
     "contains": {
       "PERCENTAGES": [
         100
@@ -4988,11 +4990,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "vital.items.resurrection.powder"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.mundane.armour",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -5129,11 +5131,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.mundane.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.throwing.weapons",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -5170,11 +5172,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.throwing.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.steampunk.items",
     "contains": {
       "PERCENTAGES": [
         25,
@@ -5201,11 +5203,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.steampunk.items"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.musical.instruments",
     "contains": {
       "PERCENTAGES": [
         13,
@@ -5252,11 +5254,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.musical.instruments"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.scrolls",
     "contains": {
       "PERCENTAGES": [
         20,
@@ -5288,11 +5290,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.scrolls"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.bombs",
     "contains": {
       "PERCENTAGES": [
         17,
@@ -5329,11 +5331,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.bombs"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.3.magic.armour",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -5490,11 +5492,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.3.magic.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.mundane.weapons",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -5646,11 +5648,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.mundane.weapons"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.ammo",
     "contains": {
       "PERCENTAGES": [
         12,
@@ -5702,11 +5704,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.ammo"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.2.magic.armour",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -5858,11 +5860,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.2.magic.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "batch.1.magic.armour",
     "contains": {
       "PERCENTAGES": [
         4,
@@ -6004,11 +6006,11 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "batch.1.magic.armour"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "heavy.weapon",
     "contains": {
       "PERCENTAGES": [
         10,
@@ -6065,8 +6067,6 @@
         }
       ],
       "SHOULD_SUM_TO_100": "false"
-    },
-    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
-    "name": "heavy.weapon"
+    }
   }
 ]

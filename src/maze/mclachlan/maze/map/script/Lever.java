@@ -23,16 +23,20 @@ public class Lever extends TileScript
 	enum State {POSITION_1, POSITION_2};
 
 	/** Variable to store the state of this lever. */
-	private final String mazeVariable;
+	private String mazeVariable;
 
 	/** textures representing an POSITION_1 state */
-	private final String northTexture, southTexture, eastTexture, westTexture;
+	private String northTexture, southTexture, eastTexture, westTexture;
 
 	/** script on transition */
-	private final MazeScript preTransitionScript, postTransitionScript;
+	private MazeScript preTransitionScript, postTransitionScript;
 
 	/** raycaster object */
-	private final EngineObject engineObject;
+	private EngineObject engineObject;
+
+	public Lever()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public Lever(
@@ -52,6 +56,12 @@ public class Lever extends TileScript
 		this.preTransitionScript = preTransitionScript;
 		this.postTransitionScript = postTransitionScript;
 
+		initEngineObject();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initEngineObject()
+	{
 		this.engineObject = new EngineObject(
 			null,
 			getTexture(northTexture),
@@ -63,9 +73,9 @@ public class Lever extends TileScript
 			null,
 			null,
 			EngineObject.Alignment.BOTTOM);
-
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private Texture getTexture(String texture)
 	{
 		return Database.getInstance().getMazeTexture(texture).getTexture();
@@ -99,21 +109,23 @@ public class Lever extends TileScript
 	{
 		switch (State.valueOf(MazeVariables.get(this.mazeVariable)))
 		{
-			case POSITION_1:
+			case POSITION_1 ->
+			{
 				engineObject.setNorthTexture(getTexture(northTexture));
 				engineObject.setSouthTexture(getTexture(southTexture));
 				engineObject.setEastTexture(getTexture(eastTexture));
 				engineObject.setWestTexture(getTexture(westTexture));
-				break;
-			case POSITION_2:
+			}
+			case POSITION_2 ->
+			{
 				// swap textures
 				engineObject.setNorthTexture(getTexture(southTexture));
 				engineObject.setSouthTexture(getTexture(northTexture));
 				engineObject.setEastTexture(getTexture(westTexture));
 				engineObject.setWestTexture(getTexture(eastTexture));
-				break;
-			default:
-				throw new MazeException("invalid state "+MazeVariables.get(this.mazeVariable));
+			}
+			default ->
+				throw new MazeException("invalid state " + MazeVariables.get(this.mazeVariable));
 		}
 	}
 
@@ -154,6 +166,57 @@ public class Lever extends TileScript
 		return postTransitionScript;
 	}
 
+	public void setMazeVariable(String mazeVariable)
+	{
+		this.mazeVariable = mazeVariable;
+	}
+
+	public void setNorthTexture(String northTexture)
+	{
+		this.northTexture = northTexture;
+	}
+
+	public void setSouthTexture(String southTexture)
+	{
+		this.southTexture = southTexture;
+	}
+
+	public void setEastTexture(String eastTexture)
+	{
+		this.eastTexture = eastTexture;
+	}
+
+	public void setWestTexture(String westTexture)
+	{
+		this.westTexture = westTexture;
+	}
+
+	public void setPreTransitionScript(MazeScript preTransitionScript)
+	{
+		this.preTransitionScript = preTransitionScript;
+	}
+
+	public void setPostTransitionScript(
+		MazeScript postTransitionScript)
+	{
+		this.postTransitionScript = postTransitionScript;
+	}
+
+	public EngineObject getEngineObject()
+	{
+		if (engineObject == null)
+		{
+			initEngineObject();
+		}
+
+		return engineObject;
+	}
+
+	public void setEngineObject(EngineObject engineObject)
+	{
+		this.engineObject = engineObject;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	private static class ChangeLeverState extends MazeEvent
 	{
@@ -173,20 +236,89 @@ public class Lever extends TileScript
 
 			switch (State.valueOf(MazeVariables.get(lever.mazeVariable)))
 			{
-				case POSITION_1:
+				case POSITION_1 ->
 					MazeVariables.set(lever.mazeVariable, State.POSITION_2.name());
-					break;
-				case POSITION_2:
+				case POSITION_2 ->
 					MazeVariables.set(lever.mazeVariable, State.POSITION_1.name());
-					break;
-				default:
-					throw new MazeException("invalid state "+MazeVariables.get(lever.mazeVariable));
+				default ->
+					throw new MazeException("invalid state " + MazeVariables.get(lever.mazeVariable));
 			}
 
 			lever.setTextureBasedOnState();
 
 			return result;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Lever))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		Lever lever = (Lever)o;
+
+		if (getMazeVariable() != null ? !getMazeVariable().equals(lever.getMazeVariable()) : lever.getMazeVariable() != null)
+		{
+			return false;
+		}
+		if (getNorthTexture() != null ? !getNorthTexture().equals(lever.getNorthTexture()) : lever.getNorthTexture() != null)
+		{
+			return false;
+		}
+		if (getSouthTexture() != null ? !getSouthTexture().equals(lever.getSouthTexture()) : lever.getSouthTexture() != null)
+		{
+			return false;
+		}
+		if (getEastTexture() != null ? !getEastTexture().equals(lever.getEastTexture()) : lever.getEastTexture() != null)
+		{
+			return false;
+		}
+		if (getWestTexture() != null ? !getWestTexture().equals(lever.getWestTexture()) : lever.getWestTexture() != null)
+		{
+			return false;
+		}
+		if (getPreTransitionScript() != null ? !getPreTransitionScript().equals(lever.getPreTransitionScript()) : lever.getPreTransitionScript() != null)
+		{
+			return false;
+		}
+		if (getPostTransitionScript() != null ? !getPostTransitionScript().equals(lever.getPostTransitionScript()) : lever.getPostTransitionScript() != null)
+		{
+			return false;
+		}
+		if (!(getEngineObject() != null ? getEngineObject().equals(lever.getEngineObject()) : lever.getEngineObject() == null))
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + (getMazeVariable() != null ? getMazeVariable().hashCode() : 0);
+		result = 31 * result + (getNorthTexture() != null ? getNorthTexture().hashCode() : 0);
+		result = 31 * result + (getSouthTexture() != null ? getSouthTexture().hashCode() : 0);
+		result = 31 * result + (getEastTexture() != null ? getEastTexture().hashCode() : 0);
+		result = 31 * result + (getWestTexture() != null ? getWestTexture().hashCode() : 0);
+		result = 31 * result + (getPreTransitionScript() != null ? getPreTransitionScript().hashCode() : 0);
+		result = 31 * result + (getPostTransitionScript() != null ? getPostTransitionScript().hashCode() : 0);
+		result = 31 * result + (getEngineObject() != null ? getEngineObject().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

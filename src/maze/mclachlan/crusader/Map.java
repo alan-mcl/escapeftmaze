@@ -42,6 +42,7 @@ public class Map
 
 	/** @deprecated */
 	ImageGroup paletteImage;
+
 	int skyTextureIndex;
 	
 	Tile[] tiles;
@@ -52,17 +53,22 @@ public class Map
 	List<EngineObject> originalObjects;
 	Texture[] textures;
 	MapScript[] scripts;
-	
-	private final Object scriptMutex = new Object();
-	int currentSkyImage;
 	SkyTextureType skyTextureType;
 
-	public static enum SkyTextureType
+	private final Object scriptMutex = new Object();
+	int currentSkyImage;
+
+	public enum SkyTextureType
 	{
 		/** sky texture is rendered as if it were a cylinder around the map */
 		CYLINDER,
 		/** sky texture is rendered as if it were a very high flat ceiling */
 		HIGH_CEILING
+	}
+
+	public Map()
+	{
+		this.textures = new Texture[0];
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -116,6 +122,93 @@ public class Map
 		{
 			this.initObjectsFromArray();
 		}
+
+		initTextures();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void init()
+	{
+		initObjectsFromArray();
+		initTextures();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void initTextures()
+	{
+		java.util.Map<String, Texture> texturesMap = new HashMap<>();
+
+		Texture skyTexture = getSkyTexture();
+		this.textures = new Texture[0];
+
+		texturesMap.put(skyTexture.getName(), skyTexture);
+		addTexture(skyTexture);
+
+		for (Tile t : tiles)
+		{
+			_addTexture(t.getFloorTexture(), texturesMap);
+			_addTexture(t.getFloorMaskTexture(), texturesMap);
+			_addTexture(t.getCeilingTexture(), texturesMap);
+			_addTexture(t.getCeilingMaskTexture(), texturesMap);
+			_addTexture(t.getEastWallTexture(), texturesMap);
+			_addTexture(t.getWestWallTexture(), texturesMap);
+			_addTexture(t.getNorthWallTexture(), texturesMap);
+			_addTexture(t.getSouthWallTexture(), texturesMap);
+		}
+
+		for (Wall w : horizontalWalls)
+		{
+			for (Texture t : w.getTextures())
+			{
+				_addTexture(t, texturesMap);
+			}
+			if (w.getMaskTextures() != null)
+			{
+				for (Texture t : w.getMaskTextures())
+				{
+					_addTexture(t, texturesMap);
+				}
+			}
+		}
+
+		for (Wall w : verticalWalls)
+		{
+			for (Texture t : w.getTextures())
+			{
+				_addTexture(t, texturesMap);
+			}
+			if (w.getMaskTextures() != null)
+			{
+				for (Texture t : w.getMaskTextures())
+				{
+					_addTexture(t, texturesMap);
+				}
+			}
+		}
+
+		for (EngineObject obj : objects)
+		{
+			for (Texture t : obj.getTextures())
+			{
+				_addTexture(t, texturesMap);
+			}
+		}
+
+		// add to the array
+		for (Texture t : texturesMap.values())
+		{
+			addTexture(t);
+		}
+
+		setSkyTexture(skyTexture);
+	}
+
+	private void _addTexture(Texture t, java.util.Map<String, Texture> texturesMap)
+	{
+		if (t != null && t != NO_WALL)
+		{
+			texturesMap.put(t.getName(), t);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -163,47 +256,56 @@ public class Map
 		int xOffset;
 		int yOffset;
 		int n = baseImageSize/3;
-		
+
 		switch (placement)
 		{
-			case EngineObject.Placement.CENTER:
+			case EngineObject.Placement.CENTER ->
+			{
 				xOffset = 0;
 				yOffset = 0;
-				break;
-			case EngineObject.Placement.NORTH_WEST:
+			}
+			case EngineObject.Placement.NORTH_WEST ->
+			{
 				xOffset = -n;
 				yOffset = -n;
-				break;
-			case EngineObject.Placement.NORTH:
+			}
+			case EngineObject.Placement.NORTH ->
+			{
 				xOffset = 0;
 				yOffset = -n;
-				break;
-			case EngineObject.Placement.NORTH_EAST:
+			}
+			case EngineObject.Placement.NORTH_EAST ->
+			{
 				xOffset = n;
 				yOffset = -n;
-				break;
-			case EngineObject.Placement.WEST:
+			}
+			case EngineObject.Placement.WEST ->
+			{
 				xOffset = -n;
 				yOffset = 0;
-				break;
-			case EngineObject.Placement.EAST:
+			}
+			case EngineObject.Placement.EAST ->
+			{
 				xOffset = n;
 				yOffset = 0;
-				break;
-			case EngineObject.Placement.SOUTH_WEST:
+			}
+			case EngineObject.Placement.SOUTH_WEST ->
+			{
 				xOffset = -n;
 				yOffset = n;
-				break;
-			case EngineObject.Placement.SOUTH:
+			}
+			case EngineObject.Placement.SOUTH ->
+			{
 				xOffset = 0;
 				yOffset = n;
-				break;
-			case EngineObject.Placement.SOUTH_EAST:
+			}
+			case EngineObject.Placement.SOUTH_EAST ->
+			{
 				xOffset = n;
 				yOffset = n;
-				break;
-			default:
-				throw new CrusaderException("Invalid placement index: "+placement);
+			}
+			default ->
+				throw new CrusaderException("Invalid placement index: " + placement);
 		}
 		
 		obj.xPos = obj.gridX*baseImageSize + baseImageSize/2 + xOffset;
@@ -569,6 +671,42 @@ public class Map
 		this.verticalWalls = verticalWalls;
 	}
 
+	public void setLength(int length)
+	{
+		this.length = length;
+	}
+
+	public void setBaseImageSize(int baseImageSize)
+	{
+		this.baseImageSize = baseImageSize;
+	}
+
+	public void setPaletteImage(ImageGroup paletteImage)
+	{
+		this.paletteImage = paletteImage;
+	}
+
+	public void setObjects(EngineObject[] objects)
+	{
+		this.objects = objects;
+	}
+
+	public void setOriginalObjects(
+		List<EngineObject> originalObjects)
+	{
+		this.originalObjects = originalObjects;
+	}
+
+	public void setTextures(Texture[] textures)
+	{
+		this.textures = textures;
+	}
+
+	public void setSkyTextureType(SkyTextureType skyTextureType)
+	{
+		this.skyTextureType = skyTextureType;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public int getIndex(Tile t)
 	{
@@ -615,5 +753,92 @@ public class Map
 	public void setScripts(MapScript[] mapScripts)
 	{
 		this.scripts = mapScripts;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Map))
+		{
+			return false;
+		}
+
+		Map map = (Map)o;
+
+		if (getWidth() != map.getWidth())
+		{
+			return false;
+		}
+		if (getLength() != map.getLength())
+		{
+			return false;
+		}
+		if (getBaseImageSize() != map.getBaseImageSize())
+		{
+			return false;
+		}
+		if (getSkyTextureIndex() != map.getSkyTextureIndex())
+		{
+			return false;
+		}
+		if (getPaletteImage() != null ? !getPaletteImage().equals(map.getPaletteImage()) : map.getPaletteImage() != null)
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getTiles(), map.getTiles()))
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getHorizontalWalls(), map.getHorizontalWalls()))
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getVerticalWalls(), map.getVerticalWalls()))
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getObjects(), map.getObjects()))
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getTextures(), map.getTextures()))
+		{
+			return false;
+		}
+		// Probably incorrect - comparing Object[] arrays with Arrays.equals
+		if (!Arrays.equals(getScripts(), map.getScripts()))
+		{
+			return false;
+		}
+		return getSkyTextureType() == map.getSkyTextureType();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getWidth();
+		result = 31 * result + getLength();
+		result = 31 * result + getBaseImageSize();
+		result = 31 * result + (getPaletteImage() != null ? getPaletteImage().hashCode() : 0);
+		result = 31 * result + getSkyTextureIndex();
+		result = 31 * result + Arrays.hashCode(getTiles());
+		result = 31 * result + Arrays.hashCode(getHorizontalWalls());
+		result = 31 * result + Arrays.hashCode(getVerticalWalls());
+		result = 31 * result + Arrays.hashCode(getObjects());
+		result = 31 * result + Arrays.hashCode(getTextures());
+		result = 31 * result + Arrays.hashCode(getScripts());
+		result = 31 * result + (getSkyTextureType() != null ? getSkyTextureType().hashCode() : 0);
+		return result;
 	}
 }

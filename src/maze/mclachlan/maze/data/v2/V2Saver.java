@@ -70,6 +70,18 @@ public class V2Saver extends Saver
 		writer.close();
 	}
 
+	private void v2Crud(Object obj, String fileName, V2SiloSingleton silo) throws Exception
+	{
+		File f = new File(path + fileName);
+		f.getParentFile().mkdirs();
+		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+
+		silo.save(writer, obj, db);
+
+		writer.flush();
+		writer.close();
+	}
+
 	public StringManager getStringManager()
 	{
 		throw new RuntimeException("Unimplemented auto generated method!");
@@ -274,7 +286,7 @@ public class V2Saver extends Saver
 	@Override
 	public void saveZone(Zone zone) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(zone, ZONES+zone.getName()+".json", new SingletonSilo<>(getZoneSerialiser(db)));
 	}
 
 	@Override
@@ -287,7 +299,7 @@ public class V2Saver extends Saver
 	public void saveCharacterGuild(
 		Map<String, PlayerCharacter> guild) throws Exception
 	{
-		throw new RuntimeException("Unimplemented auto generated method!");
+		v2Crud(guild, CHARACTER_GUILD, new SimpleMapSilo<>(getGuildSerialiser(db)));
 	}
 
 	@Override

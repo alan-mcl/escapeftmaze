@@ -30,13 +30,13 @@ public class MapSingletonSilo implements V2SiloSingleton<Map>
 {
 	@Override
 	public Map load(BufferedReader reader,
-		Database database) throws IOException
+		Database db) throws IOException
 	{
 		return (Map)V2Utils.getMap(reader);
 	}
 
 	@Override
-	public void save(BufferedWriter writer, Map obj) throws IOException
+	public void save(BufferedWriter writer, Map obj, Database db) throws IOException
 	{
 		V2Utils.writeJson((Map)obj, writer);
 	}

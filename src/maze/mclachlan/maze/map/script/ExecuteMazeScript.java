@@ -57,7 +57,7 @@ public class ExecuteMazeScript extends TileScript
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public String getScript()
+	public String getMazeScript()
 	{
 		return mazeScript;
 	}

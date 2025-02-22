@@ -37,8 +37,13 @@ public class Item implements AttackWith, SpellTarget
 	private int cursedState = CursedState.UNDISCOVERED;
 	private int identificationState = IdentificationState.UNIDENTIFIED;
 	private ItemTemplate template;
+	private String enchantmentName;
 	private CurMax stack, charges;
 	private ItemEnchantment enchantment;
+
+	public Item()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public Item(
@@ -47,14 +52,15 @@ public class Item implements AttackWith, SpellTarget
 		int identificationState,
 		CurMax stack,
 		CurMax charges,
-		ItemEnchantment enchantment)
+		String enchantmentName)
 	{
 		this.charges = charges;
 		this.cursedState = cursedState;
 		this.identificationState = identificationState;
 		this.stack = stack;
 		this.template = template;
-		this.enchantment = enchantment;
+		this.enchantmentName = enchantmentName;
+		this.enchantment = template.getEnchantment(enchantmentName);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -107,10 +113,10 @@ public class Item implements AttackWith, SpellTarget
 	public String getDisplayName()
 	{
 		String result;
-		switch(getIdentificationState())
+		switch (getIdentificationState())
 		{
-			case Item.IdentificationState.IDENTIFIED:
-
+			case IdentificationState.IDENTIFIED ->
+			{
 				if (isStackable() && getStack().getCurrent() > 1)
 				{
 					result = template.getPluralName();
@@ -119,24 +125,23 @@ public class Item implements AttackWith, SpellTarget
 				{
 					result = template.getName();
 				}
-
 				if (enchantment != null)
 				{
 					if (enchantment.getPrefix() != null)
 					{
-						result = enchantment.getPrefix() + " "+  result;
+						result = enchantment.getPrefix() + " " + result;
 					}
 					if (enchantment.getSuffix() != null)
 					{
 						result = result + " " + enchantment.getSuffix();
 					}
 				}
-				break;
-			case Item.IdentificationState.UNIDENTIFIED:
+			}
+			case IdentificationState.UNIDENTIFIED ->
 				result = getUnidentifiedName();
-				break;
-			default: throw new MazeException("Invalid item identification state: "+
-				getIdentificationState());
+			default ->
+				throw new MazeException("Invalid item identification state: " +
+					getIdentificationState());
 		}
 		
 		return result;
@@ -557,6 +562,21 @@ public class Item implements AttackWith, SpellTarget
 		return template.getDisassemblyLootTable();
 	}
 
+	public void setEnchantment(ItemEnchantment enchantment)
+	{
+		this.enchantment = enchantment;
+	}
+
+	public String getEnchantmentName()
+	{
+		return enchantmentName;
+	}
+
+	public void setEnchantmentName(String enchantmentName)
+	{
+		this.enchantmentName = enchantmentName;
+	}
+
 	@Override
 	public String toString()
 	{
@@ -565,6 +585,55 @@ public class Item implements AttackWith, SpellTarget
 		sb.append("{name=").append(getName());
 		sb.append('}');
 		return sb.toString();
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Item))
+		{
+			return false;
+		}
+
+		Item item = (Item)o;
+
+		if (getCursedState() != item.getCursedState())
+		{
+			return false;
+		}
+		if (getIdentificationState() != item.getIdentificationState())
+		{
+			return false;
+		}
+		if (getTemplate() != null ? !getTemplate().equals(item.getTemplate()) : item.getTemplate() != null)
+		{
+			return false;
+		}
+		if (getEnchantmentName() != null ? !getEnchantmentName().equals(item.getEnchantmentName()) : item.getEnchantmentName() != null)
+		{
+			return false;
+		}
+		if (getStack() != null ? !getStack().equals(item.getStack()) : item.getStack() != null)
+		{
+			return false;
+		}
+		return getCharges() != null ? getCharges().equals(item.getCharges()) : item.getCharges() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getCursedState();
+		result = 31 * result + getIdentificationState();
+		result = 31 * result + (getTemplate() != null ? getTemplate().hashCode() : 0);
+		result = 31 * result + (getEnchantmentName() != null ? getEnchantmentName().hashCode() : 0);
+		result = 31 * result + (getStack() != null ? getStack().hashCode() : 0);
+		result = 31 * result + (getCharges() != null ? getCharges().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -576,13 +645,13 @@ public class Item implements AttackWith, SpellTarget
 		
 		public String toString(int cursedState)
 		{
-			switch (cursedState)
-			{
-				case UNDISCOVERED: return "undiscovered";
-				case DISCOVERED: return "discovered";
-				case TEMPORARILY_REMOVED: return "removed";
-				default: throw new MazeException("Invalid cursedState: "+cursedState);
-			}
+			return switch (cursedState)
+				{
+					case UNDISCOVERED -> "undiscovered";
+					case DISCOVERED -> "discovered";
+					case TEMPORARILY_REMOVED -> "removed";
+					default -> throw new MazeException("Invalid cursedState: " + cursedState);
+				};
 		}
 		
 		public int valueOf(String s)

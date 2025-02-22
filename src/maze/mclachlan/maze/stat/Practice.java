@@ -82,4 +82,29 @@ public class Practice
 	{
 		this.modifiers = modifiers;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Practice))
+		{
+			return false;
+		}
+
+		Practice practice = (Practice)o;
+
+		return getModifiers() != null ? getModifiers().equals(practice.getModifiers()) : practice.getModifiers() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getModifiers() != null ? getModifiers().hashCode() : 0;
+	}
 }

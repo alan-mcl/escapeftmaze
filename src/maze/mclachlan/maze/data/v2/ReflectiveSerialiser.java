@@ -43,7 +43,7 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public Map toObject(E e, Database db)
+	public Map<String, Object> toObject(E e, Database db)
 	{
 		if (e == null)
 		{
@@ -52,7 +52,8 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 
 		try
 		{
-			Map<String, Object> result = new HashMap<>();
+			// Provide for sorted keys in the JSON to help readbility
+			Map<String, Object> result = new TreeMap<>((o1, o2) -> fields.indexOf(o1) - fields.indexOf(o2));
 
 			for (String field : fields)
 			{
@@ -145,7 +146,8 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 				Method setMethod = null;
 				for (Method m : methods)
 				{
-					if (m.getName().equals(setMethodName) && m.getParameterTypes().length == 1)
+					if (m.getName().equals(setMethodName) &&
+						m.getParameterTypes().length == 1)
 					{
 						setMethod = m;
 						break;

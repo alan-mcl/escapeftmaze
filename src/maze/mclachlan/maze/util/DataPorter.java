@@ -27,6 +27,7 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Campaign;
+import mclachlan.maze.map.Zone;
 
 /**
  *
@@ -63,6 +64,7 @@ public class DataPorter
 
 		Loader v2Loader = new V2Loader();
 
+/*
 		System.out.println("porting genders...");
 		v2Saver.saveGenders(v1Loader.loadGenders());
 
@@ -153,21 +155,24 @@ public class DataPorter
 		System.out.println("porting foe types...");
 		v2Saver.saveFoeTypes(v1Loader.loadFoeTypes());
 
-//		System.out.println("porting guild...");
-//		v2Saver.saveCharacterGuild(v1Loader.loadCharacterGuild());
+		System.out.println("porting guild...");
+		v2Saver.saveCharacterGuild(v1Loader.loadCharacterGuild());
+*/
 
-//		System.out.println("porting zones...");
-//		List<String> zoneNames = v1Loader.getZoneNames();
-//		for (String zoneName : zoneNames)
-//		{
-//			System.out.println(" - "+zoneName);
-//			v2Saver.saveZone(v1Loader.getZone(zoneName));
-//		}
+		System.out.println("porting zones...");
+		List<String> zoneNames = v1Loader.getZoneNames();
+		for (String zoneName : zoneNames)
+		{
+			System.out.println(" - "+zoneName);
+			v2Saver.saveZone(v1Loader.getZone(zoneName));
+		}
 
 
 		//----------------
 		System.out.println("v2Loader..");
 		v2Loader.init(campaign);
+
+/*
 		System.out.println("genders: "+v2Loader.loadGenders().size());
 		assertEquals(v1Loader.loadGenders(), v2Loader.loadGenders());
 
@@ -258,15 +263,23 @@ public class DataPorter
 		System.out.println("foe types: "+v2Loader.loadFoeTypes().size());
 		assertEquals(v1Loader.loadFoeTypes(), v2Loader.loadFoeTypes());
 
-//		System.out.println("zones:");
-//		zoneNames = v2Loader.getZoneNames();
-//		for (String zoneName : zoneNames)
-//		{
-//			System.out.println(" - "+zoneName);
-//			v2Loader.getZone(zoneName);
-//		}
-//		System.out.println("guild: "+v2Loader.loadCharacterGuild().size());
+		System.out.println("guild: "+v2Loader.loadCharacterGuild().size());
+		assertEquals(v1Loader.loadCharacterGuild(), v2Loader.loadCharacterGuild());
+*/
 
+		System.out.println("zones:");
+		zoneNames = v2Loader.getZoneNames();
+		for (String zoneName : zoneNames)
+		{
+			System.out.println(" - "+zoneName);
+			Zone zone = v2Loader.getZone(zoneName);
+
+			Zone zone1 = v1Loader.getZone(zoneName);
+			if (!zone.equals(zone1))
+			{
+				System.out.println("ERROR: different elements v1 ["+zone1+"] v2 ["+zone+"]");
+			}
+		}
 	}
 
 	private static void assertEquals(Map<String, ?> v1Map, Map<String, ?> v2Map)

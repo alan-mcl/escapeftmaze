@@ -3,10 +3,9 @@ package mclachlan.maze.data.v2.serialisers;
 import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
-import mclachlan.crusader.ObjectScript;
-import mclachlan.crusader.script.JagObjectVertically;
-import mclachlan.crusader.script.JagObjectWithinRadius;
-import mclachlan.crusader.script.SinusoidalStretch;
+import mclachlan.crusader.*;
+import mclachlan.crusader.Map;
+import mclachlan.crusader.script.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v2.*;
@@ -15,6 +14,8 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.map.*;
+import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
@@ -43,6 +44,8 @@ public class SerialiserFactory
 		result.addCustomSerialiser(StatModifier.class, new StatModifierSerialiser());
 		result.addCustomSerialiser(Dice.class, new DiceSerialiser());
 		result.addCustomSerialiser(ValueList.class, new ValueListSerialiser());
+		result.addCustomSerialiser(CurMaxSub.class, new CurMaxSubSerialiser());
+		result.addCustomSerialiser(CurMax.class, new CurMaxSerialiser());
 		result.addCustomSerialiser(TypeDescriptor.class, new TypeDescriptorSerialiser());
 		result.addCustomSerialiser(Point.class, new PointSerialiser());
 		result.addCustomSerialiser(Color.class, new ColorSerialiser());
@@ -684,6 +687,7 @@ public class SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"chestContents", "traps", "mazeVariable", "northTexture", "southTexture", "eastTexture", "westTexture", "preScript");
 		chestSerialiser.addCustomSerialiser("traps", new PercentageTableSerialiser<>(new NameSerialiser<>(db::getTrap)));
+		chestSerialiser.addCustomSerialiser("preScript", new NameSerialiser<>(db::getMazeScript));
 		map.put(Chest.class, chestSerialiser);
 
 		ReflectiveSerialiser encounterSerialiser = getReflectiveSerialiser(Encounter.class,
@@ -719,14 +723,19 @@ public class SerialiserFactory
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "text"));
 		map.put(SetMazeVariable.class, getReflectiveSerialiser(SetMazeVariable.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable", "value"));
-		map.put(HiddenStuff.class, getReflectiveSerialiser(HiddenStuff.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable",
-			"findDifficulty", "mazeVariable", "preScript", "content"));
+
+		ReflectiveSerialiser hiddenStuffSerialiser = getReflectiveSerialiser(HiddenStuff.class,
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
+			"findDifficulty", "mazeVariable", "preScript", "content");
+		hiddenStuffSerialiser.addCustomSerialiser("preScript", new NameSerialiser<>(db::getMazeScript));
+		hiddenStuffSerialiser.addCustomSerialiser("content", new NameSerialiser<>(db::getMazeScript));
+		map.put(HiddenStuff.class, hiddenStuffSerialiser);
+
 		map.put(Water.class, getReflectiveSerialiser(Water.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty"));
 
 		ReflectiveSerialiser leverSerialiser = getReflectiveSerialiser(Lever.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"northTexture", "southTexture", "eastTexture", "westTexture", "mazeVariable",
 			"preTransitionScript", "postTransitionScript");
 		leverSerialiser.addCustomSerialiser("preTransitionScript", new NameSerialiser<>(db::getMazeScript));
@@ -734,7 +743,7 @@ public class SerialiserFactory
 		map.put(Lever.class, leverSerialiser);
 
 		ReflectiveSerialiser toggleWallSerialiser = getReflectiveSerialiser(ToggleWall.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"mazeVariable",
 			"wallIndex",
 			"horizontalWall",
@@ -759,11 +768,16 @@ public class SerialiserFactory
 		map.put(ToggleWall.class, toggleWallSerialiser);
 
 		map.put(SkillTest.class, getReflectiveSerialiser(SkillTest.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "mazeVariable",
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty",
 			"keyModifier", "skill", "successValue", "successScript", "failureScript"));
 
-		return new MazeObjectImplSerialiser<>(map,
+		MazeObjectImplSerialiser<TileScript> result = new MazeObjectImplSerialiser<>(map,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty");
+
+		// dubiousness
+		chestSerialiser.addCustomSerialiser("chestContents", result);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1094,8 +1108,335 @@ public class SerialiserFactory
 		result.addCustomSerialiser("specialAbility", new NameSerialiser<>(db::getSpell));
 		result.addCustomSerialiser("startingItems", new NameListSerialiser<>(db::getStartingKit));
 		result.addCustomSerialiser("naturalWeapons", new NameListSerialiser<>(db::getNaturalWeapon));
-//		result.addCustomSerialiser("suggestedNames", new DirectObjectSerialiser());
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<PlayerCharacter> getGuildSerialiser(Database db)
+	{
+		ReflectiveSerialiser<PlayerCharacter> result = getReflectiveSerialiser(
+			PlayerCharacter.class,
+			"name",
+			"gender",
+			"race",
+			"characterClass",
+			"personality",
+			"levels",
+			"experience",
+			"kills",
+			"karma",
+			"portrait",
+			"helm",
+			"torsoArmour",
+			"legArmour",
+			"boots",
+			"gloves",
+			"miscItem1",
+			"miscItem2",
+			"bannerItem",
+			"primaryWeapon",
+			"secondaryWeapon",
+			"altPrimaryWeapon",
+			"altSecondaryWeapon",
+			"inventory",
+			"spellBook",
+			"spellPicks",
+			"stats",
+			"practice",
+			"activeModifiers",
+			"removedLevelAbilities");
+
+		result.addCustomSerialiser("race", new NameSerialiser<>(db::getRace));
+		result.addCustomSerialiser("gender", new NameSerialiser<>(db::getGender));
+		result.addCustomSerialiser("characterClass", new NameSerialiser<>(db::getCharacterClass));
+		result.addCustomSerialiser("personality", new NameSerialiser<>(db.getPersonalities()::get));
+		result.addCustomSerialiser(Item.class, getItemSerialiser(db));
+
+		ReflectiveSerialiser inventorySerialiser = getReflectiveSerialiser(
+			Inventory.class, "nrSlots", "items");
+		inventorySerialiser.addCustomSerialiser("items", new ListSerialiser(getItemSerialiser(db)));
+		result.addCustomSerialiser("inventory", inventorySerialiser);
+
+		result.addCustomSerialiser("spellBook", getSpellBookSerialiser(db));
+		result.addCustomSerialiser("practice", getReflectiveSerialiser(Practice.class, "modifiers"));
+		result.addCustomSerialiser("removedLevelAbilities", new ListSerialiser(new DirectObjectSerialiser<String>()));
+
+		result.addCustomSerialiser("stats", getReflectiveSerialiser(
+			Stats.class, "modifiers", "hitPoints", "actionPoints", "magicPoints"));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Item> getItemSerialiser(Database db)
+	{
+		ReflectiveSerialiser<Item> result = getReflectiveSerialiser(
+			Item.class,
+			"template",
+			"cursedState",
+			"identificationState",
+			"stack",
+			"charges",
+			"enchantment");
+
+		result.addCustomSerialiser("template", new NameSerialiser<>(db::getItemTemplate));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Zone> getZoneSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(Zone.class,
+			"name",
+			"script",
+			"shadeTargetColor",
+			"transparentColor",
+			"doShading",
+			"doLighting",
+			"shadingDistance",
+			"shadingMultiplier",
+			"projectionPlaneOffset",
+			"playerFieldOfView",
+			"scaleDistFromProjPlane",
+			"order",
+			"playerOrigin",
+			"portals",
+			"tiles",
+			"map");
+
+		result.addCustomSerialiser("map", getMapSerialiser(db));
+		result.addCustomSerialiser("tiles",
+			new ArraySerialiser<Tile[]>(Tile[].class, new ArraySerialiser<Tile>(Tile.class, getTileSerialiser(db))));
+
+		result.addCustomSerialiser("portals", new ArraySerialiser<Portal>(Portal.class, getPortalSerialiser(db)));
+		result.addCustomSerialiser("script", getZoneScriptSerialiser(db));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<ZoneScript> getZoneScriptSerialiser(Database db)
+	{
+
+		ReflectiveSerialiser<ZoneScript> defaultSerialiser = getReflectiveSerialiser(
+			DefaultZoneScript.class,
+			"turnsBetweenChange",
+			"lightLevelDiff",
+			"ambientScripts");
+
+		defaultSerialiser.addCustomSerialiser("ambientScripts",
+			new PercentageTableSerialiser<String>(new DirectObjectSerialiser<>()));
+
+		HashMap<Class, V2SerialiserMap<ZoneScript>> map = new HashMap<>();
+		map.put(DefaultZoneScript.class, defaultSerialiser);
+		return new MazeObjectImplSerialiser<>(map);
+	}
+
+	private static V2SerialiserObject<Portal> getPortalSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(Portal.class,
+			"mazeVariable",
+			"initialState",
+			"from",
+			"fromFacing",
+			"to",
+			"toFacing",
+			"twoWay",
+			"canForce",
+			"canPick",
+			"canSpellPick",
+			"hitPointCostToForce",
+			"resistForce",
+			"difficulty",
+			"required",
+			"keyItem",
+			"consumeKeyItem",
+			"mazeScript",
+			"stateChangeScript");
+
+		result.addCustomSerialiser("stateChangeScript", getTileScriptSerialiser(db));
+
+		return result;
+	}
+
+	private static V2SerialiserMap<Tile> getTileSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(Tile.class,
+			"scripts",
+			"randomEncounters",
+			"statModifier",
+			"terrainType",
+			"terrainSubType",
+			"randomEncounterChance",
+			"restingDanger",
+			"restingEfficiency");
+
+		result.addCustomSerialiser("scripts", new ListSerialiser(getTileScriptSerialiser(db)));
+		result.addCustomSerialiser("randomEncounters", new NameSerialiser<>(db::getEncounterTable));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<mclachlan.crusader.Map> getMapSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(Map.class,
+			"length",
+			"width",
+			"baseImageSize",
+			"skyTexture",
+			"skyTextureType",
+			"tiles",
+//			"textures", todo
+			"horizontalWalls",
+			"verticalWalls",
+			"objects",
+			"scripts");
+
+		result.addCustomSerialiser("skyTexture", getCrusaderTextureSerialiser(db));
+		result.addCustomSerialiser("tiles", new ArraySerialiser<>(mclachlan.crusader.Tile.class, getCrusaderTileSerialiser(db)));
+//		result.addCustomSerialiser("textures", );
+		result.addCustomSerialiser(Wall[].class, new ArraySerialiser<>(Wall.class, getCrusaderWallSerialiser(db)));
+		result.addCustomSerialiser("objects", new ArraySerialiser<>(EngineObject.class, getCrusaderObjectSerialiser(db)));
+		result.addCustomSerialiser("scripts", new ArraySerialiser<>(MapScript.class, getMapScriptSerialiser(db)));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<MapScript> getMapScriptSerialiser(Database db)
+	{
+		HashMap map = new HashMap();
+
+		map.put(SinusoidalLightingScript.class, getReflectiveSerialiser(
+			SinusoidalLightingScript.class, "affectedTiles", "diff", "frequency", "minLightLevel", "maxLightLevel"));
+
+		map.put(RandomLightingScript.class, getReflectiveSerialiser(
+			RandomLightingScript.class, "affectedTiles", "frequency", "minLightLevel", "maxLightLevel"));
+
+		return new MazeObjectImplSerialiser<>(map);
+	}
+
+	private static V2SerialiserObject<EngineObject> getCrusaderObjectSerialiser(
+		Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(EngineObject.class,
+			"name",
+			"northTexture",
+			"southTexture",
+			"eastTexture",
+			"westTexture",
+			"tileIndex",
+			"lightSource",
+			"mouseClickScript",
+			"placementMask",
+			"verticalAlignment");
+
+		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));
+		result.addCustomSerialiser(MouseClickScript.class, getMouseClickScriptSerialiser(db));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<Wall> getCrusaderWallSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(Wall.class,
+			"textures",
+			"maskTextures",
+			"visible",
+			"solid",
+			"height",
+			"mouseClickScript",
+			"maskTextureMouseClickScript",
+			"internalScript");
+
+		result.addCustomSerialiser(Texture[].class, new ArraySerialiser<>(Texture.class, getCrusaderTextureSerialiser(db)));
+		result.addCustomSerialiser(MouseClickScript.class, getMouseClickScriptSerialiser(db));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<MouseClickScript> getMouseClickScriptSerialiser(
+		Database db)
+	{
+		V2SerialiserObject<TileScript> tileScriptSerialiser = getTileScriptSerialiser(db);
+
+		return new V2SerialiserObject<>()
+		{
+			@Override
+			public Object toObject(MouseClickScript msc, Database db)
+			{
+				if (msc == null)
+				{
+					return null;
+				}
+
+				MouseClickScriptAdapter adapter = (MouseClickScriptAdapter)msc;
+				return tileScriptSerialiser.toObject(adapter.getScript(), db);
+			}
+
+			@Override
+			public MouseClickScript fromObject(Object obj, Database db)
+			{
+				if (obj == null)
+				{
+					return null;
+				}
+
+				TileScript tileScript = tileScriptSerialiser.fromObject(obj, db);
+				return new MouseClickScriptAdapter(tileScript);
+			}
+		};
+	}
+
+	private static V2SerialiserObject<mclachlan.crusader.Tile> getCrusaderTileSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(mclachlan.crusader.Tile.class,
+			"ceilingTexture",
+			"ceilingMaskTexture",
+			"floorTexture",
+			"floorMaskTexture",
+			"northWallTexture",
+			"southWallTexture",
+			"eastWallTexture",
+			"westWallTexture",
+			"lightLevel",
+			"ceilingHeight");
+
+		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<Texture> getCrusaderTextureSerialiser(
+		Database db)
+	{
+		return new V2SerialiserObject<>()
+		{
+			@Override
+			public Object toObject(Texture t, Database db)
+			{
+				if (t == null)
+				{
+					return null;
+				}
+
+				return t.getName();
+			}
+
+			@Override
+			public Texture fromObject(Object obj, Database db)
+			{
+				if (obj == null)
+				{
+					return null;
+				}
+				else if (Map.NO_WALL.getName().equals(obj))
+				{
+					return Map.NO_WALL;
+				}
+
+				return db.getMazeTexture((String)obj).getTexture();
+			}
+		};
 	}
 }

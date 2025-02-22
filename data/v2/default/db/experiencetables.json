@@ -1,7 +1,6 @@
 [
   {
     "TYPE_KEY": "mclachlan.maze.stat.ExperienceTableArray",
-    "postGygaxIncrement": "120000",
     "name": "unity",
     "levels": [
       "0",
@@ -37,11 +36,11 @@
       "1160000",
       "1271000",
       "1388800"
-    ]
+    ],
+    "postGygaxIncrement": "120000"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.ExperienceTableArray",
-    "postGygaxIncrement": "150000",
     "name": "retainer",
     "levels": [
       "0",
@@ -77,11 +76,11 @@
       "1247000",
       "1364000",
       "1488000"
-    ]
+    ],
+    "postGygaxIncrement": "150000"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.ExperienceTableArray",
-    "postGygaxIncrement": "120000",
     "name": "heroic",
     "levels": [
       "0",
@@ -117,6 +116,7 @@
       "1160000",
       "1271000",
       "1388800"
-    ]
+    ],
+    "postGygaxIncrement": "120000"
   }
 ]

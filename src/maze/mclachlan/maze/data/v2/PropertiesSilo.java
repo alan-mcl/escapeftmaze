@@ -30,7 +30,7 @@ public class PropertiesSilo implements V2SiloSingleton<Properties>
 {
 	@Override
 	public Properties load(BufferedReader reader,
-		Database database) throws IOException
+		Database db) throws IOException
 	{
 		Properties result = new Properties();
 		result.load(reader);
@@ -38,7 +38,7 @@ public class PropertiesSilo implements V2SiloSingleton<Properties>
 	}
 
 	@Override
-	public void save(BufferedWriter writer, Properties obj) throws IOException
+	public void save(BufferedWriter writer, Properties obj, Database db) throws IOException
 	{
 		obj.store(writer, null);
 	}

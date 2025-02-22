@@ -71,7 +71,7 @@ public class ZoneReport
 						if (ms instanceof ExecuteMazeScript)
 						{
 							MazeScript script = Database.getInstance().getMazeScripts().get(
-								((ExecuteMazeScript)ms).getScript());
+								((ExecuteMazeScript)ms).getMazeScript());
 
 							for (MazeEvent me : script.getEvents())
 							{

@@ -30,13 +30,17 @@ public class Inventory implements Iterable<Item>
 	/**
 	 * Max number of slots in this inventory.
 	 */
-	private final int nrSlots;
+	private int nrSlots;
 
 	/**
 	 * Items in this inventory. This list has a fixed size of {@link #nrSlots},
 	 * and item slots that are empty in this inventory contain a <code>null</code>.
 	 */
-	private final List<Item> items;
+	private List<Item> items;
+
+	public Inventory()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 
@@ -308,5 +312,53 @@ public class Inventory implements Iterable<Item>
 	public void sort(Comparator<Item> cmp)
 	{
 		this.items.sort(cmp);
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public int getNrSlots()
+	{
+		return nrSlots;
+	}
+
+	public void setNrSlots(int nrSlots)
+	{
+		this.nrSlots = nrSlots;
+	}
+
+	public void setItems(List<Item> items)
+	{
+		this.items = items;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Inventory))
+		{
+			return false;
+		}
+
+		Inventory items1 = (Inventory)o;
+
+		if (getNrSlots() != items1.getNrSlots())
+		{
+			return false;
+		}
+		return getItems() != null ? getItems().equals(items1.getItems()) : items1.getItems() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getNrSlots();
+		result = 31 * result + (getItems() != null ? getItems().hashCode() : 0);
+		return result;
 	}
 }

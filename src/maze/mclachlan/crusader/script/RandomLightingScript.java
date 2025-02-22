@@ -19,6 +19,7 @@
 
 package mclachlan.crusader.script;
 
+import java.util.*;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.MapScript;
 
@@ -29,7 +30,11 @@ public class RandomLightingScript extends MapScript
 {
 	private int[] affectedTiles;
 	private int minLightLevel, maxLightLevel, frequency;
-	
+
+	public RandomLightingScript()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param affectedTiles
@@ -94,5 +99,66 @@ public class RandomLightingScript extends MapScript
 	public int getMinLightLevel()
 	{
 		return minLightLevel;
+	}
+
+	public void setAffectedTiles(int[] affectedTiles)
+	{
+		this.affectedTiles = affectedTiles;
+	}
+
+	public void setMinLightLevel(int minLightLevel)
+	{
+		this.minLightLevel = minLightLevel;
+	}
+
+	public void setMaxLightLevel(int maxLightLevel)
+	{
+		this.maxLightLevel = maxLightLevel;
+	}
+
+	public void setFrequency(int frequency)
+	{
+		this.frequency = frequency;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof RandomLightingScript))
+		{
+			return false;
+		}
+
+		RandomLightingScript that = (RandomLightingScript)o;
+
+		if (getMinLightLevel() != that.getMinLightLevel())
+		{
+			return false;
+		}
+		if (getMaxLightLevel() != that.getMaxLightLevel())
+		{
+			return false;
+		}
+		if (getFrequency() != that.getFrequency())
+		{
+			return false;
+		}
+		return Arrays.equals(getAffectedTiles(), that.getAffectedTiles());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = Arrays.hashCode(getAffectedTiles());
+		result = 31 * result + getMinLightLevel();
+		result = 31 * result + getMaxLightLevel();
+		result = 31 * result + getFrequency();
+		return result;
 	}
 }

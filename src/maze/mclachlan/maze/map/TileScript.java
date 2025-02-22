@@ -21,6 +21,7 @@ package mclachlan.maze.map;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
@@ -35,7 +36,7 @@ import mclachlan.maze.stat.PlayerCharacter;
 /**
  *
  */
-public abstract class TileScript
+public abstract class TileScript implements V2Seralisable
 {
 	// these are optional conditions of execution common to every TileScript
 
@@ -244,7 +245,6 @@ public abstract class TileScript
 	public boolean isHiddenSecret()
 	{
 		return scoutSecretDifficulty > -1 && !isFinishedExecuting();
-
 	}
 
 	/*-------------------------------------------------------------------------*/

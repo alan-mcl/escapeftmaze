@@ -285,7 +285,7 @@ public class V1TileScript
 				break;
 			case EXECUTE_MAZE_SCRIPT:
 				ExecuteMazeScript eme = (ExecuteMazeScript)t;
-				s.append(eme.getScript());
+				s.append(eme.getMazeScript());
 				break;
 			case SIGNBOARD:
 				SignBoard sb = (SignBoard)t;
@@ -487,14 +487,14 @@ public class V1TileScript
 					toggleWallMazeVar,
 					wallIndex,
 					horizontalWall,
-					"".equals(state1Texture)?null:Database.getInstance().getMazeTexture(state1Texture).getTexture(),
-					"".equals(state1MaskTexture)?null:Database.getInstance().getMazeTexture(state1MaskTexture).getTexture(),
+					"".equals(state1Texture)?null:Database.getInstance().getMazeTexture(state1Texture),
+					"".equals(state1MaskTexture)?null:Database.getInstance().getMazeTexture(state1MaskTexture),
 					state1Visible,
 					state1Solid,
 					state1Secret,
 					state1Height,
-					"".equals(state2Texture)?null:Database.getInstance().getMazeTexture(state2Texture).getTexture(),
-					"".equals(state2MaskTexture)?null:Database.getInstance().getMazeTexture(state2MaskTexture).getTexture(),
+					"".equals(state2Texture)?null:Database.getInstance().getMazeTexture(state2Texture),
+					"".equals(state2MaskTexture)?null:Database.getInstance().getMazeTexture(state2MaskTexture),
 					state2Visible,
 					state2Solid,
 					state2Secret,

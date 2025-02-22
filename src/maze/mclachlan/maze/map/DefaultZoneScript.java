@@ -48,7 +48,11 @@ public class DefaultZoneScript extends ZoneScript
 	 * Should not sum to 100.
 	 */
 	private PercentageTable<String> ambientScripts;
-	
+
+	public DefaultZoneScript()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param turnsBetweenChange
@@ -138,9 +142,61 @@ public class DefaultZoneScript extends ZoneScript
 		return lightLevelDiff;
 	}
 
+	public void setTurnsBetweenChange(int turnsBetweenChange)
+	{
+		this.turnsBetweenChange = turnsBetweenChange;
+	}
+
+	public void setLightLevelDiff(int lightLevelDiff)
+	{
+		this.lightLevelDiff = lightLevelDiff;
+	}
+
+	public void setAmbientScripts(
+		PercentageTable<String> ambientScripts)
+	{
+		this.ambientScripts = ambientScripts;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public PercentageTable<String> getAmbientScripts()
 	{
 		return ambientScripts;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof DefaultZoneScript))
+		{
+			return false;
+		}
+
+		DefaultZoneScript that = (DefaultZoneScript)o;
+
+		if (getTurnsBetweenChange() != that.getTurnsBetweenChange())
+		{
+			return false;
+		}
+		if (getLightLevelDiff() != that.getLightLevelDiff())
+		{
+			return false;
+		}
+		return getAmbientScripts() != null ? getAmbientScripts().equals(that.getAmbientScripts()) : that.getAmbientScripts() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getTurnsBetweenChange();
+		result = 31 * result + getLightLevelDiff();
+		result = 31 * result + (getAmbientScripts() != null ? getAmbientScripts().hashCode() : 0);
+		return result;
 	}
 }

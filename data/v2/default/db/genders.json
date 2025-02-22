@@ -1,20 +1,20 @@
 [
   {
-    "startingModifiers": "0,",
     "name": "Male",
-    "bannerModifiers": "0,",
-    "constantModifiers": "0,"
+    "startingModifiers": "0,",
+    "constantModifiers": "0,",
+    "bannerModifiers": "0,"
   },
   {
-    "startingModifiers": "0,",
     "name": "Female",
-    "bannerModifiers": "0,",
-    "constantModifiers": "0,"
+    "startingModifiers": "0,",
+    "constantModifiers": "0,",
+    "bannerModifiers": "0,"
   },
   {
-    "startingModifiers": "0,",
     "name": "None",
-    "bannerModifiers": "0,",
-    "constantModifiers": "0,"
+    "startingModifiers": "0,",
+    "constantModifiers": "0,",
+    "bannerModifiers": "0,"
   }
 ]

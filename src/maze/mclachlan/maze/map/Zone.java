@@ -64,6 +64,10 @@ public class Zone extends DataObject
 	private int order;
 	private Point playerOrigin;
 
+	public Zone()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Zone(
 		String name,
@@ -101,6 +105,15 @@ public class Zone extends DataObject
 		this.transparentColor = transparentColor;
 		this.shadeTargetColor = shadeTargetColor;
 
+		initTiles();
+
+		this.order = order;
+		this.playerOrigin = playerOrigin;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void initTiles()
+	{
 		for (int x = 0; x < tiles.length; x++)
 		{
 			for (int y = 0; y < tiles[x].length; y++)
@@ -109,9 +122,6 @@ public class Zone extends DataObject
 				tiles[x][y].setCoords(new Point(x, y));
 			}
 		}
-
-		this.order = order;
-		this.playerOrigin = playerOrigin;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -483,6 +493,42 @@ public class Zone extends DataObject
 		this.playerOrigin = playerOrigin;
 	}
 
+	public void setTiles(Tile[][] tiles)
+	{
+		this.tiles = tiles;
+		initTiles();
+	}
+
+	public void setPortalsList(List<Portal> portals)
+	{
+		this.portals = portals;
+	}
+
+	public void setPortals(Portal[] portals)
+	{
+		this.portals = Arrays.asList(portals);
+	}
+
+	public void setWidth(int width)
+	{
+		this.width = width;
+	}
+
+	public void setLength(int length)
+	{
+		this.length = length;
+	}
+
+	public boolean isDoShading()
+	{
+		return doShading;
+	}
+
+	public boolean isDoLighting()
+	{
+		return doLighting;
+	}
+
 	/*-------------------------------------------------------------------------*/
 
 	/**
@@ -675,6 +721,112 @@ public class Zone extends DataObject
 	public void setMap(Map map)
 	{
 		this.map = map;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Zone))
+		{
+			return false;
+		}
+
+		Zone zone = (Zone)o;
+
+		if (isDoShading() != zone.isDoShading())
+		{
+			return false;
+		}
+		if (isDoLighting() != zone.isDoLighting())
+		{
+			return false;
+		}
+		if (Double.compare(zone.getShadingDistance(), getShadingDistance()) != 0)
+		{
+			return false;
+		}
+		if (Double.compare(zone.getShadingMultiplier(), getShadingMultiplier()) != 0)
+		{
+			return false;
+		}
+		if (getProjectionPlaneOffset() != zone.getProjectionPlaneOffset())
+		{
+			return false;
+		}
+		if (getPlayerFieldOfView() != zone.getPlayerFieldOfView())
+		{
+			return false;
+		}
+		if (Double.compare(zone.getScaleDistFromProjPlane(), getScaleDistFromProjPlane()) != 0)
+		{
+			return false;
+		}
+		if (getOrder() != zone.getOrder())
+		{
+			return false;
+		}
+		if (getName() != null ? !getName().equals(zone.getName()) : zone.getName() != null)
+		{
+			return false;
+		}
+		if (getMap() != null ? !getMap().equals(zone.getMap()) : zone.getMap() != null)
+		{
+			return false;
+		}
+		if (!Arrays.deepEquals(getTiles(), zone.getTiles()))
+		{
+			return false;
+		}
+		if (!Arrays.deepEquals(getPortals(), zone.getPortals()))
+		{
+			return false;
+		}
+		if (getScript() != null ? !getScript().equals(zone.getScript()) : zone.getScript() != null)
+		{
+			return false;
+		}
+		if (getShadeTargetColor() != null ? !getShadeTargetColor().equals(zone.getShadeTargetColor()) : zone.getShadeTargetColor() != null)
+		{
+			return false;
+		}
+		if (getTransparentColor() != null ? !getTransparentColor().equals(zone.getTransparentColor()) : zone.getTransparentColor() != null)
+		{
+			return false;
+		}
+		return getPlayerOrigin() != null ? getPlayerOrigin().equals(zone.getPlayerOrigin()) : zone.getPlayerOrigin() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result;
+		long temp;
+		result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getMap() != null ? getMap().hashCode() : 0);
+		result = 31 * result + Arrays.deepHashCode(getTiles());
+		result = 31 * result + (getPortals() != null ? getPortals().hashCode() : 0);
+		result = 31 * result + (getScript() != null ? getScript().hashCode() : 0);
+		result = 31 * result + (getShadeTargetColor() != null ? getShadeTargetColor().hashCode() : 0);
+		result = 31 * result + (getTransparentColor() != null ? getTransparentColor().hashCode() : 0);
+		result = 31 * result + (isDoShading() ? 1 : 0);
+		result = 31 * result + (isDoLighting() ? 1 : 0);
+		temp = Double.doubleToLongBits(getShadingDistance());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		temp = Double.doubleToLongBits(getShadingMultiplier());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		result = 31 * result + getProjectionPlaneOffset();
+		result = 31 * result + getPlayerFieldOfView();
+		temp = Double.doubleToLongBits(getScaleDistFromProjPlane());
+		result = 31 * result + (int)(temp ^ (temp >>> 32));
+		result = 31 * result + getOrder();
+		result = 31 * result + (getPlayerOrigin() != null ? getPlayerOrigin().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

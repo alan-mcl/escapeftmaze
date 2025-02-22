@@ -68,4 +68,27 @@ public class MouseClickScriptAdapter implements MouseClickScript
 	{
 		return script;
 	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof MouseClickScriptAdapter))
+		{
+			return false;
+		}
+
+		MouseClickScriptAdapter that = (MouseClickScriptAdapter)o;
+
+		return getScript() != null ? getScript().equals(that.getScript()) : that.getScript() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getScript() != null ? getScript().hashCode() : 0;
+	}
 }

@@ -1,5 +1,7 @@
 [
   {
+    "name": "Wit",
+    "description": "Laconic, sardonic and witty. Pragmatic and eloquent. The wit is never at a loss for words.",
     "colour": "ff66ccff",
     "speech": {
       "ally.dies.female": "She always said she\u0027d be the first of us to go.",
@@ -72,11 +74,11 @@
       "resurrected": "Lucky for you, I\u0027d say that the other side ain\u0027t all it\u0027s cracked up to be.",
       "scouting.spot.stash": "Something is hidden nearby! Let\u0027s search...\n",
       "slay.foe.1": "Looks like I win this round."
-    },
-    "name": "Wit",
-    "description": "Laconic, sardonic and witty. Pragmatic and eloquent. The wit is never at a loss for words."
+    }
   },
   {
+    "name": "Mystic",
+    "description": "Reflective, solitary and meditative. Zen seeks and truth, and has limited 6th sense and ESP powers.",
     "colour": "ffffff66",
     "speech": {
       "ally.dies.female": "She has passed away.",
@@ -149,11 +151,11 @@
       "resurrected": "My next life awaits, but the time is not yet come.",
       "scouting.spot.stash": "Stop and search. We will find something.",
       "slay.foe.1": "Farewell, foe. Seek greater balance in your next life."
-    },
-    "name": "Mystic",
-    "description": "Reflective, solitary and meditative. Zen seeks and truth, and has limited 6th sense and ESP powers."
+    }
   },
   {
+    "name": "Scholar",
+    "description": "Business-like, educated, scientific..",
     "colour": "fff7c374",
     "speech": {
       "ally.dies.female": "Oh no, I\u0027ll miss her!",
@@ -226,11 +228,11 @@
       "resurrected": "Goodness, I\u0027ll have to write a book about that!",
       "scouting.spot.stash": "I do believe I detect something hidden nearby.",
       "slay.foe.1": "I got one!"
-    },
-    "name": "Scholar",
-    "description": "Business-like, educated, scientific.."
+    }
   },
   {
+    "name": "Peer",
+    "description": "Diplomatic, chivalrous and thoughtful, the Peer is an aristocratic warrior.",
     "colour": "ffc0c0c0",
     "speech": {
       "ally.dies.female": "She died with honour.",
@@ -303,11 +305,11 @@
       "resurrected": "I have been brought back to continue my service. Thank you comrades.",
       "scouting.spot.stash": "I believe I see something hidden!",
       "slay.foe.1": "You are slain."
-    },
-    "name": "Peer",
-    "description": "Diplomatic, chivalrous and thoughtful, the Peer is an aristocratic warrior."
+    }
   },
   {
+    "name": "Sage",
+    "description": "Whimsical, wise old sage. Full of cryptic riddles, wise sayings, and koans.",
     "colour": "ffccffcc",
     "speech": {
       "ally.dies.female": "A beautiful woman who is pleasing to men is good only for frightening fish when she falls into the water.",
@@ -380,11 +382,11 @@
       "resurrected": "The infinite is in the finite of every instant.",
       "scouting.spot.stash": "Is a lamp brought in to be hidden under a basket?",
       "slay.foe.1": "When the pupil is ready to learn, a teacher will appear."
-    },
-    "name": "Sage",
-    "description": "Whimsical, wise old sage. Full of cryptic riddles, wise sayings, and koans."
+    }
   },
   {
+    "name": "Pro",
+    "description": "Simple and straightforward, an expert on dungeoneering.",
     "colour": "ffff6666",
     "speech": {
       "ally.dies.female": "Man down, man down!",
@@ -457,11 +459,11 @@
       "resurrected": "Thanks, death is overrated. Do we still have enough resurrection powders?",
       "scouting.spot.stash": "Something hidden here! Watch my back while I have a look...",
       "slay.foe.1": "One down."
-    },
-    "name": "Pro",
-    "description": "Simple and straightforward, an expert on dungeoneering."
+    }
   },
   {
+    "name": "Grunt",
+    "description": "The Grunt isn\u0027t much of a talker. Not much of a thinker, either.",
     "colour": "ff00ff99",
     "speech": {
       "ally.dies.female": "I miss her.",
@@ -534,17 +536,17 @@
       "resurrected": "Just now I see a bright light? Anyone else? What you all looking at?",
       "scouting.spot.stash": "Something secret here!",
       "slay.foe.1": "I crush!"
-    },
-    "name": "Grunt",
-    "description": "The Grunt isn\u0027t much of a talker. Not much of a thinker, either."
+    }
   },
   {
-    "colour": "ff5d83fd",
-    "speech": {},
     "name": "The Silent Type",
-    "description": "Never says anything."
+    "description": "Never says anything.",
+    "colour": "ff5d83fd",
+    "speech": {}
   },
   {
+    "name": "Faithful",
+    "description": "Religious, faithful and yet pessimistic.",
     "colour": "ffffffff",
     "speech": {
       "ally.dies.female": "Her fate is now in the hands of the merciful gods. Rest in peace, sister.",
@@ -617,11 +619,11 @@
       "resurrected": "Blessed is the light of heaven, but my work here is not yet done.",
       "scouting.spot.stash": "I think I see something concealed here...",
       "slay.foe.1": "Rest in peace."
-    },
-    "name": "Faithful",
-    "description": "Religious, faithful and yet pessimistic."
+    }
   },
   {
+    "name": "Sensitive",
+    "description": "Feminine, squeamish, girly. Sees fey folk and sprites.",
     "colour": "ffffff99",
     "speech": {
       "ally.dies.female": "No! I can\u0027t believe she\u0027s dead! She was like a sister to me! Somebody do something!",
@@ -694,11 +696,11 @@
       "resurrected": "Oh my. Thanks for bringing me back.",
       "scouting.spot.stash": "What\u0027s that hidden over there?",
       "slay.foe.1": "Oops, you\u0027re dead!"
-    },
-    "name": "Sensitive",
-    "description": "Feminine, squeamish, girly. Sees fey folk and sprites."
+    }
   },
   {
+    "name": "Team Player",
+    "description": "The Team Player is always there, always positive, always on your side.",
     "colour": "ffccccff",
     "speech": {
       "ally.dies.female": "She was an important part of the team.",
@@ -771,11 +773,11 @@
       "resurrected": "Way to go, I\u0027m back in the team!",
       "scouting.spot.stash": "Something is hidden nearby! Let\u0027s split up and search the area!",
       "slay.foe.1": "Gotcha!"
-    },
-    "name": "Team Player",
-    "description": "The Team Player is always there, always positive, always on your side."
+    }
   },
   {
+    "name": "Cunning",
+    "description": "Brash and boastful. Impatient. Likes cities.",
     "colour": "ffffbe18",
     "speech": {
       "ally.dies.female": "Dibs on her magic items.",
@@ -848,11 +850,11 @@
       "resurrected": "Thanks, I owe you one.",
       "scouting.spot.stash": "Hey wait! There\u0027s something hidden here!",
       "slay.foe.1": "Dibs on this one\u0027s purse!"
-    },
-    "name": "Cunning",
-    "description": "Brash and boastful. Impatient. Likes cities."
+    }
   },
   {
+    "name": "Veteran",
+    "description": "Deadpan, world weary, diplomatic. He leans on his sword amidst heaps of the slain.",
     "colour": "ffff9999",
     "speech": {
       "ally.dies.female": "Rest her soul.",
@@ -925,11 +927,11 @@
       "resurrected": "Once more unto the breach, dear friends.",
       "scouting.spot.stash": "Let us pause a bit and investigate here.",
       "slay.foe.1": "Another great treasure."
-    },
-    "name": "Veteran",
-    "description": "Deadpan, world weary, diplomatic. He leans on his sword amidst heaps of the slain."
+    }
   },
   {
+    "name": "Wayfarer",
+    "description": "An outdoorsman. Observant, thoughtful and free spirited. Prefers outdoors.",
     "colour": "ff00cc00",
     "speech": {
       "ally.dies.female": "",
@@ -1002,11 +1004,11 @@
       "resurrected": "Mmmmm, fresh air...",
       "scouting.spot.stash": "Somebody has hidden something here.",
       "slay.foe.1": "A kill!"
-    },
-    "name": "Wayfarer",
-    "description": "An outdoorsman. Observant, thoughtful and free spirited. Prefers outdoors."
+    }
   },
   {
+    "name": "Valiant",
+    "description": "Brash, bold, valourous and adventurous. With a sensative side.",
     "colour": "ff9966ff",
     "speech": {
       "ally.dies.female": "I will avenge you my sister.",
@@ -1079,11 +1081,11 @@
       "resurrected": "Many thanks for bringing me back. I am not ready for the afterlife!",
       "scouting.spot.stash": "This area seems worth searching.",
       "slay.foe.1": "To victory!"
-    },
-    "name": "Valiant",
-    "description": "Brash, bold, valourous and adventurous. With a sensative side."
+    }
   },
   {
+    "name": "Killer",
+    "description": "Fatalistic, gloomy and with a professional interest in killing.",
     "colour": "ff009999",
     "speech": {
       "ally.dies.female": "She\u0027s better off dead.",
@@ -1156,11 +1158,11 @@
       "resurrected": "Death is patient. He will wait a little longer for me.",
       "scouting.spot.stash": "I think something is hidden here. One of you lot have a look around.",
       "slay.foe.1": "Stay down."
-    },
-    "name": "Killer",
-    "description": "Fatalistic, gloomy and with a professional interest in killing."
+    }
   },
   {
+    "name": "Gung Ho",
+    "description": "Bold and bravo. A bit of an Indiana Jones.",
     "colour": "ff9999ff",
     "speech": {
       "ally.dies.female": "The biggest trouble with her was the noise.",
@@ -1233,8 +1235,6 @@
       "resurrected": "Here I am, walking back through your door.",
       "scouting.spot.stash": "Hey, let\u0027s look around a bit here and see what we can find!",
       "slay.foe.1": "Sorry about the mess."
-    },
-    "name": "Gung Ho",
-    "description": "Bold and bravo. A bit of an Indiana Jones."
+    }
   }
 ]

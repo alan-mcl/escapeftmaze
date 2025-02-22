@@ -6,6 +6,7 @@ import mclachlan.crusader.Map;
 import mclachlan.crusader.Texture;
 import mclachlan.crusader.Wall;
 import mclachlan.maze.data.Database;
+import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
@@ -29,16 +30,16 @@ public class ToggleWall extends TileScript
 	// todo: multiple textures for wall heights
 
 	// state 1 wall attributes
-	private Texture state1Texture;
-	private Texture state1MaskTexture;
+	private MazeTexture state1Texture;
+	private MazeTexture state1MaskTexture;
 	private boolean state1Visible;
 	private boolean state1Solid;
 	private boolean state1Secret;
 	private int state1Height;
 
 	// state 2 wall attributes
-	private Texture state2Texture;
-	private Texture state2MaskTexture;
+	private MazeTexture state2Texture;
+	private MazeTexture state2MaskTexture;
 	private boolean state2Visible;
 	private boolean state2Solid;
 	private boolean state2Secret;
@@ -57,14 +58,14 @@ public class ToggleWall extends TileScript
 		String mazeVariable,
 		int wallIndex,
 		boolean horizontalWall,
-		Texture state1Texture,
-		Texture state1MaskTexture,
+		MazeTexture state1Texture,
+		MazeTexture state1MaskTexture,
 		boolean state1Visible,
 		boolean state1Solid,
 		boolean state1Secret,
 		int state1Height,
-		Texture state2Texture,
-		Texture state2MaskTexture,
+		MazeTexture state2Texture,
+		MazeTexture state2MaskTexture,
 		boolean state2Visible,
 		boolean state2Solid,
 		boolean state2Secret,
@@ -107,19 +108,19 @@ public class ToggleWall extends TileScript
 		// make sure any textures are added to the raycaster
 		if (state1Texture != null)
 		{
-			maze.getUi().addTexture(state1Texture);
+			maze.getUi().addTexture(state1Texture.getTexture());
 		}
 		if (state1MaskTexture != null)
 		{
-			maze.getUi().addTexture(state1MaskTexture);
+			maze.getUi().addTexture(state1MaskTexture.getTexture());
 		}
 		if (state2Texture != null)
 		{
-			maze.getUi().addTexture(state2Texture);
+			maze.getUi().addTexture(state2Texture.getTexture());
 		}
 		if (state2MaskTexture != null)
 		{
-			maze.getUi().addTexture(state2MaskTexture);
+			maze.getUi().addTexture(state2MaskTexture.getTexture());
 		}
 
 		setWallAttributes(
@@ -127,13 +128,13 @@ public class ToggleWall extends TileScript
 			mazeVariable,
 			wallIndex,
 			horizontalWall,
-			state1Texture,
-			state1MaskTexture,
+			state1Texture.getTexture(),
+			state1MaskTexture.getTexture(),
 			state1Visible,
 			state1Solid,
 			state1Height,
-			state2Texture,
-			state2MaskTexture,
+			state2Texture.getTexture(),
+			state2MaskTexture.getTexture(),
 			state2Visible,
 			state2Solid,
 			state2Height);
@@ -154,13 +155,13 @@ public class ToggleWall extends TileScript
 			new ToggleWallEvent(mazeVariable,
 				wallIndex,
 				horizontalWall,
-				state1Texture,
-				state1MaskTexture,
+				state1Texture.getTexture(),
+				state1MaskTexture.getTexture(),
 				state1Visible,
 				state1Solid,
 				state1Height,
-				state2Texture,
-				state2MaskTexture,
+				state2Texture.getTexture(),
+				state2MaskTexture.getTexture(),
 				state2Visible,
 				state2Solid,
 				state2Height));
@@ -246,12 +247,12 @@ public class ToggleWall extends TileScript
 		return mazeVariable;
 	}
 
-	public Texture getState1Texture()
+	public MazeTexture getState1Texture()
 	{
 		return state1Texture;
 	}
 
-	public Texture getState1MaskTexture()
+	public MazeTexture getState1MaskTexture()
 	{
 		return state1MaskTexture;
 	}
@@ -271,12 +272,12 @@ public class ToggleWall extends TileScript
 		return state1Height;
 	}
 
-	public Texture getState2Texture()
+	public MazeTexture getState2Texture()
 	{
 		return state2Texture;
 	}
 
-	public Texture getState2MaskTexture()
+	public MazeTexture getState2MaskTexture()
 	{
 		return state2MaskTexture;
 	}
@@ -331,12 +332,12 @@ public class ToggleWall extends TileScript
 		this.mazeVariable = mazeVariable;
 	}
 
-	public void setState1Texture(Texture state1Texture)
+	public void setState1Texture(MazeTexture state1Texture)
 	{
 		this.state1Texture = state1Texture;
 	}
 
-	public void setState1MaskTexture(Texture state1MaskTexture)
+	public void setState1MaskTexture(MazeTexture state1MaskTexture)
 	{
 		this.state1MaskTexture = state1MaskTexture;
 	}
@@ -361,12 +362,12 @@ public class ToggleWall extends TileScript
 		this.state1Height = state1Height;
 	}
 
-	public void setState2Texture(Texture state2Texture)
+	public void setState2Texture(MazeTexture state2Texture)
 	{
 		this.state2Texture = state2Texture;
 	}
 
-	public void setState2MaskTexture(Texture state2MaskTexture)
+	public void setState2MaskTexture(MazeTexture state2MaskTexture)
 	{
 		this.state2MaskTexture = state2MaskTexture;
 	}

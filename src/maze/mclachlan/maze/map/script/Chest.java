@@ -65,7 +65,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	 * 	What happens when this chest is opened
 	 * @param traps
 	 * @param mazeVariable
-* 	The maze variable storing the state of this chest
+	 * 	The maze variable storing the state of this chest
 	 * @param preScript
 	 */
 	public Chest(
@@ -86,12 +86,16 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		this.southTexture = southTexture;
 		this.eastTexture = eastTexture;
 		this.westTexture = westTexture;
-		
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initEngineObject()
+	{
 		this.engineObject = new EngineObject(
 			null,
-			Database.getInstance().getMazeTexture(northTexture).getTexture(), 
-			Database.getInstance().getMazeTexture(southTexture).getTexture(), 
-			Database.getInstance().getMazeTexture(eastTexture).getTexture(), 
+			Database.getInstance().getMazeTexture(northTexture).getTexture(),
+			Database.getInstance().getMazeTexture(southTexture).getTexture(),
+			Database.getInstance().getMazeTexture(eastTexture).getTexture(),
 			Database.getInstance().getMazeTexture(westTexture).getTexture(),
 			0,
 			false,
@@ -111,7 +115,7 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 				public void execute(Map map)
 				{
 					Maze.getInstance().processPlayerAction(
-						TileScript.PlayerAction.LOCKS,
+						PlayerAction.LOCKS,
 						Maze.getInstance().getFacing());
 				}
 
@@ -120,17 +124,30 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 				{
 					return 1;
 				}
+
+				@Override
+				public int hashCode()
+				{
+					return getClass().hashCode();
+				}
+
+				@Override
+				public boolean equals(Object obj)
+				{
+					return obj.getClass().equals(this.getClass());
+				}
 			}
 		);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void initialise(Maze maze, Point tile, int tileIndex)
 	{
 		if (!State.EMPTY.equalsIgnoreCase(MazeVariables.get(this.mazeVariable)))
 		{
-			engineObject.setTileIndex(tileIndex);
-			maze.addObject(engineObject);
+			EngineObject obj = getEngineObject();
+			obj.setTileIndex(tileIndex);
+			maze.addObject(obj);
 		}
 	}
 
@@ -201,6 +218,11 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 
 	public EngineObject getEngineObject()
 	{
+		if (this.engineObject == null)
+		{
+			initEngineObject();
+		}
+
 		return engineObject;
 	}
 
@@ -512,7 +534,14 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 		{
 			return false;
 		}
-		return getCurrentTrap() != null ? getCurrentTrap().equals(chest.getCurrentTrap()) : chest.getCurrentTrap() == null;
+		if (!(getCurrentTrap() != null ? getCurrentTrap().equals(chest.getCurrentTrap()) : chest.getCurrentTrap() == null))
+		{
+			return false;
+		}
+		else
+		{
+			return true;
+		}
 	}
 
 	@Override

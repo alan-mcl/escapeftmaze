@@ -1,5 +1,7 @@
 [
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "necromanis.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -7,19 +9,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Necromanis"
+          "foeName": "Necromanis",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Necromanis"
+          "foeName": "Necromanis",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "necromanis.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.warlocks.party",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -28,23 +30,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Warlock"
+          "foeName": "Gnome Warlock",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Warlock"
+          "foeName": "Gnome Warlock",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Primary"
+          "foeName": "Gnome Primary",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.warlocks.party"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "necromanis.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -52,49 +54,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Necromanis"
+          "foeName": "Necromanis",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Necromanis"
+          "foeName": "Necromanis",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "necromanis.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.fire.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Smouldering Fire Elemental"
+          "foeName": "Smouldering Fire Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.fire.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.fire.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Blazing Fire Elemental"
+          "foeName": "Blazing Fire Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.fire.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "skull.crushers.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -102,34 +104,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d5",
-          "foeName": "Skull Crusher"
+          "foeName": "Skull Crusher",
+          "quantity": "1d5"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Skull Crusher"
+          "foeName": "Skull Crusher",
+          "quantity": "1d4"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "skull.crushers.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.fire.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Smoking Fire Elemental"
+          "foeName": "Smoking Fire Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.fire.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "groaning.bones.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -137,19 +139,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Groaning Bones"
+          "foeName": "Groaning Bones",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Groaning Bones"
+          "foeName": "Groaning Bones",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "groaning.bones.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "will-o-wisp.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -158,23 +160,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Will o\u0027 Wisp"
+          "foeName": "Will o\u0027 Wisp",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Will o\u0027 Wisp"
+          "foeName": "Will o\u0027 Wisp",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Will o\u0027 Wisp"
+          "foeName": "Will o\u0027 Wisp",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "will-o-wisp.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "coc.sheriffs",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -182,19 +184,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "C.O.C. Sheriff"
+          "foeName": "C.O.C. Sheriff",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "C.O.C. Sheriff"
+          "foeName": "C.O.C. Sheriff",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "coc.sheriffs"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.beggar.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -202,19 +204,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Beggar"
+          "foeName": "Gnome Beggar",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Gnome Beggar"
+          "foeName": "Gnome Beggar",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.beggar.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.warlocks.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -223,23 +225,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Warlock"
+          "foeName": "Gnome Warlock",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Warlock"
+          "foeName": "Gnome Warlock",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Primary"
+          "foeName": "Gnome Primary",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.warlocks.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "lurching.omnifid.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -247,84 +249,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Lurching Omnifid"
+          "foeName": "Lurching Omnifid",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Lurching Omnifid"
+          "foeName": "Lurching Omnifid",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "lurching.omnifid.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "toothy.velox.small.pack",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Toothy Velox"
+          "foeName": "Toothy Velox",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "toothy.velox.small.pack"
+    }
   },
   {
-    "contains": {
-      "PERCENTAGES": [
-        100,
-        5
-      ],
-      "POSSIBILITIES": [
-        {
-          "quantity": "1d1",
-          "foeName": "Kolidra"
-        },
-        {
-          "quantity": "1d1",
-          "foeName": "Kolidra"
-        }
-      ]
-    },
     "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "kolidra.1"
-  },
-  {
-    "contains": {
-      "PERCENTAGES": [
-        100
-      ],
-      "POSSIBILITIES": [
-        {
-          "quantity": "2d2+2",
-          "foeName": "Harvestman Spider"
-        }
-      ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "harvestman.spiders.small"
-  },
-  {
-    "contains": {
-      "PERCENTAGES": [
-        100
-      ],
-      "POSSIBILITIES": [
-        {
-          "quantity": "3d2",
-          "foeName": "Goldcrown Bat"
-        }
-      ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "goldcrown.bats.1"
-  },
-  {
+    "name": "kolidra.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -332,19 +284,69 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Kolidra"
+          "foeName": "Kolidra",
+          "quantity": "1d1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Kolidra"
+          "foeName": "Kolidra",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "kolidra.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "harvestman.spiders.small",
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Harvestman Spider",
+          "quantity": "2d2+2"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "goldcrown.bats.1",
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Goldcrown Bat",
+          "quantity": "3d2"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "kolidra.2",
+    "contains": {
+      "PERCENTAGES": [
+        100,
+        5
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Kolidra",
+          "quantity": "2d2"
+        },
+        {
+          "foeName": "Kolidra",
+          "quantity": "2d2"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "master.thieves.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -352,19 +354,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Master Thief"
+          "foeName": "Master Thief",
+          "quantity": "2d3"
         },
         {
-          "quantity": "2d3",
-          "foeName": "Master Thief"
+          "foeName": "Master Thief",
+          "quantity": "2d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "master.thieves.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "viridifids.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -375,91 +377,91 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Viridifid"
+          "foeName": "Viridifid",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Viridifid"
+          "foeName": "Viridifid",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Viridifid"
+          "foeName": "Viridifid",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Viridifid"
+          "foeName": "Viridifid",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Viridifid"
+          "foeName": "Viridifid",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "viridifids.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.air.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Whistling Air Elemental"
+          "foeName": "Whistling Air Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.air.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.air.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Faint Air Elemental"
+          "foeName": "Faint Air Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.air.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.air.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Howling Air Elemental"
+          "foeName": "Howling Air Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.air.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mud.spiders.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mud.spiders.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "leonal.champions",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -467,19 +469,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Champion"
+          "foeName": "Leonal Champion",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Champion"
+          "foeName": "Leonal Champion",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "leonal.champions"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "lost.kami.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -487,19 +489,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Lost Kami"
+          "foeName": "Lost Kami",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Mad Kami"
+          "foeName": "Mad Kami",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "lost.kami.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "seeding.omnifid.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -507,19 +509,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Lurching Omnifid"
+          "foeName": "Lurching Omnifid",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Lurching Omnifid"
+          "foeName": "Lurching Omnifid",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "seeding.omnifid.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "seraph.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -527,19 +529,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Seraph"
+          "foeName": "Seraph",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Seraph"
+          "foeName": "Seraph",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "seraph.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "aboroth.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -547,19 +549,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Aboroth"
+          "foeName": "Aboroth",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Aboroth"
+          "foeName": "Aboroth",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "aboroth.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bonebrood.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -567,19 +569,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Bonebrood"
+          "foeName": "Bonebrood",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bonebrood.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "clockwork.diggers",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -587,49 +589,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Digger"
+          "foeName": "Clockwork Digger",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Digger"
+          "foeName": "Clockwork Digger",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "clockwork.diggers"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shadow.warriors.spell.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shadow.warriors.spell.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shadow.warriors.spell.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shadow.warriors.spell.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shadow.warriors.spell.3",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -637,19 +639,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shadow.warriors.spell.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shadow.warriors.spell.4",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -657,19 +659,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shadow.warriors.spell.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "human.hirebrand.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -677,19 +679,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+2",
-          "foeName": "Human Hirebrand"
+          "foeName": "Human Hirebrand",
+          "quantity": "1d3+2"
         },
         {
-          "quantity": "1d2+2",
-          "foeName": "Human Hirebrand"
+          "foeName": "Human Hirebrand",
+          "quantity": "1d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "human.hirebrand.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "stone.bear.summon",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -697,49 +699,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Stone Bear"
+          "foeName": "Stone Bear",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Stone Bear"
+          "foeName": "Stone Bear",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "stone.bear.summon"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "fruit.bats.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Fruit Bat"
+          "foeName": "Fruit Bat",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "fruit.bats.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "old.igor.encounter",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Old Igor"
+          "foeName": "Old Igor",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "old.igor.encounter"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "moulders.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -747,19 +749,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Moulder"
+          "foeName": "Moulder",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Moulder"
+          "foeName": "Moulder",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "moulders.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "creeping.hagspawn.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -768,23 +770,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Creeping Hagspawn"
+          "foeName": "Creeping Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Slithering Hagspawn"
+          "foeName": "Slithering Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Flying Hagspawn"
+          "foeName": "Flying Hagspawn",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "creeping.hagspawn.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "creeping.hagspawn.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -793,38 +795,38 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Creeping Hagspawn"
+          "foeName": "Creeping Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Slithering Hagspawn"
+          "foeName": "Slithering Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Flying Hagspawn"
+          "foeName": "Flying Hagspawn",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "creeping.hagspawn.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.water.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Pale Water Elemental"
+          "foeName": "Pale Water Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.water.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnoll.hunters.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -832,19 +834,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Gnoll Hunter"
+          "foeName": "Gnoll Hunter",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Gnoll Hunter"
+          "foeName": "Gnoll Hunter",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnoll.hunters.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "rhys.allies.on.call",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -852,34 +854,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Ghoul Sheriff"
+          "foeName": "Ghoul Sheriff",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Ghoul Sheriff"
+          "foeName": "Ghoul Sheriff",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "rhys.allies.on.call"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.water.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Sour Water Elemental"
+          "foeName": "Sour Water Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.water.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "maneater.mantis.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -887,34 +889,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Maneater Mantis"
+          "foeName": "Maneater Mantis",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Maneater Mantis"
+          "foeName": "Maneater Mantis",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "maneater.mantis.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.water.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Sullen Water Elemental"
+          "foeName": "Sullen Water Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.water.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "leonal.peers",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -922,34 +924,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Peer"
+          "foeName": "Leonal Peer",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Peer"
+          "foeName": "Leonal Peer",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "leonal.peers"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "orngog",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Orngog"
+          "foeName": "Orngog",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "orngog"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.robbers.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -957,19 +959,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Gnome Robber"
+          "foeName": "Gnome Robber",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Gnome Robber"
+          "foeName": "Gnome Robber",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.robbers.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.knaves.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -978,23 +980,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Knave"
+          "foeName": "Gnome Knave",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Knave"
+          "foeName": "Gnome Knave",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Shaman"
+          "foeName": "Gnome Shaman",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.knaves.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "vampire.vulture.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1003,53 +1005,53 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Vampire Vulture"
+          "foeName": "Vampire Vulture",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Vampire Vulture"
+          "foeName": "Vampire Vulture",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Vampire Vulture"
+          "foeName": "Vampire Vulture",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "vampire.vulture.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "angry.swarm.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "angry.swarm.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "angry.swarm.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "angry.swarm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "frozen.skeletons.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1058,23 +1060,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Frozen Skeleton"
+          "foeName": "Frozen Skeleton",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d3+1",
-          "foeName": "Frozen Skeleton"
+          "foeName": "Frozen Skeleton",
+          "quantity": "2d3+1"
         },
         {
-          "quantity": "2d3",
-          "foeName": "Frozen Skeleton"
+          "foeName": "Frozen Skeleton",
+          "quantity": "2d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "frozen.skeletons.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "haunts.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1083,23 +1085,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Haunt"
+          "foeName": "Haunt",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Haunt"
+          "foeName": "Haunt",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Haunt"
+          "foeName": "Haunt",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "haunts.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.troopers.party",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1108,23 +1110,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Trooper"
+          "foeName": "Gnome Trooper",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Trooper"
+          "foeName": "Gnome Trooper",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Elemental"
+          "foeName": "Gnome Elemental",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.troopers.party"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.med.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1132,19 +1134,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.med.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "river.serpents.summon",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1154,27 +1156,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "River Serpent"
+          "foeName": "River Serpent",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "River Serpent"
+          "foeName": "River Serpent",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "River Serpent"
+          "foeName": "River Serpent",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "River Serpent"
+          "foeName": "River Serpent",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "river.serpents.summon"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "zombie.mantis.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1183,23 +1185,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Zombie Mantis"
+          "foeName": "Zombie Mantis",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Zombie Mantis"
+          "foeName": "Zombie Mantis",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Zombie Mantis"
+          "foeName": "Zombie Mantis",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "zombie.mantis.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.med.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1207,19 +1209,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.med.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.med.4",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1227,19 +1229,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.med.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.med.3",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1247,19 +1249,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.med.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "archangel.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1267,19 +1269,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Archangel"
+          "foeName": "Archangel",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Archangel"
+          "foeName": "Archangel",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "archangel.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "napier\u0027s.bones.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1289,42 +1291,42 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Napiers Bones"
+          "foeName": "Napiers Bones",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d3+1",
-          "foeName": "Napiers Bones"
+          "foeName": "Napiers Bones",
+          "quantity": "2d3+1"
         },
         {
-          "quantity": "2d3",
-          "foeName": "Napiers Bones"
+          "foeName": "Napiers Bones",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Parched Vulture"
+          "foeName": "Parched Vulture",
+          "quantity": "1d4"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "napier\u0027s.bones.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "angry.swarm.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "angry.swarm.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "clockwork.terrors",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1332,49 +1334,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Terror"
+          "foeName": "Clockwork Terror",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Terror"
+          "foeName": "Clockwork Terror",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "clockwork.terrors"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "rogue.clockwork",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Rogue Clockwork"
+          "foeName": "Rogue Clockwork",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "rogue.clockwork"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bemiropteric.small.pack",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Bemiropterix"
+          "foeName": "Bemiropterix",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bemiropteric.small.pack"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "yenluo.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1383,23 +1385,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Yenluo"
+          "foeName": "Yenluo",
+          "quantity": "1d1"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Ninja"
+          "foeName": "Ninja",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Ninja"
+          "foeName": "Ninja",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "yenluo.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.vermin.1",
     "contains": {
       "PERCENTAGES": [
         30,
@@ -1418,78 +1420,78 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d3",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Malignant Widow"
+          "foeName": "Malignant Widow",
+          "quantity": "3d2"
         },
         {
-          "quantity": "4d3",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "4d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Emerald Spider"
+          "foeName": "Emerald Spider",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Harvestman Spider"
+          "foeName": "Harvestman Spider",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Spore Moth"
+          "foeName": "Spore Moth",
+          "quantity": "3d3"
         },
         {
-          "quantity": "4d3",
-          "foeName": "Swarming Roach"
+          "foeName": "Swarming Roach",
+          "quantity": "4d3"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Bloated Spider"
+          "foeName": "Bloated Spider",
+          "quantity": "3d2"
         },
         {
-          "quantity": "2d3",
-          "foeName": "Sawtooth Snail"
+          "foeName": "Sawtooth Snail",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d10",
-          "foeName": "Red Spotted Snail"
+          "foeName": "Red Spotted Snail",
+          "quantity": "1d10"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Braided Moth"
+          "foeName": "Braided Moth",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Screaming Bat"
+          "foeName": "Screaming Bat",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.vermin.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "winter.wolf.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Winter Wolf"
+          "foeName": "Winter Wolf",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "winter.wolf.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "serra.angel.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1497,34 +1499,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Serra Angel"
+          "foeName": "Serra Angel",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Serra Angel"
+          "foeName": "Serra Angel",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "serra.angel.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "spagyric.spirit",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Bone Spirit"
+          "foeName": "Bone Spirit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "spagyric.spirit"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnoll.braves.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1532,19 +1534,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Gnoll Brave"
+          "foeName": "Gnoll Brave",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Gnoll Brave"
+          "foeName": "Gnoll Brave",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnoll.braves.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "nightstalkers.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1552,19 +1554,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Nightstalker"
+          "foeName": "Nightstalker",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Nightstalker"
+          "foeName": "Nightstalker",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "nightstalkers.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "paper.tiger.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1573,68 +1575,68 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4+2",
-          "foeName": "Paper Tiger"
+          "foeName": "Paper Tiger",
+          "quantity": "1d4+2"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Paper Tiger"
+          "foeName": "Paper Tiger",
+          "quantity": "1d4"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Paper Tiger"
+          "foeName": "Paper Tiger",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "paper.tiger.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.earth.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Heavy Earth Elemental"
+          "foeName": "Heavy Earth Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.earth.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "glacier.dragon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Glacier Dragon"
+          "foeName": "Glacier Dragon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "glacier.dragon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.earth.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Solid Earth Elemental"
+          "foeName": "Solid Earth Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.earth.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "living.hive.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1642,34 +1644,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Living Hive"
+          "foeName": "Living Hive",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Living Hive"
+          "foeName": "Living Hive",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "living.hive.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.earth.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Light Earth Elemental"
+          "foeName": "Light Earth Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.earth.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "sawtooth.snails.med",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1677,19 +1679,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Sawtooth Snail"
+          "foeName": "Sawtooth Snail",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Sawtooth Snail"
+          "foeName": "Sawtooth Snail",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "sawtooth.snails.med"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "lorelei.allies.on.call",
     "contains": {
       "PERCENTAGES": [
         50,
@@ -1700,31 +1702,31 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Hunting Mantis"
+          "foeName": "Hunting Mantis",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Moulder"
+          "foeName": "Moulder",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Spotted Boa"
+          "foeName": "Spotted Boa",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Seeding Omnifid"
+          "foeName": "Seeding Omnifid",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "lorelei.allies.on.call"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "manky.moulders.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1732,19 +1734,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Manky Moulder"
+          "foeName": "Manky Moulder",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Manky Moulder"
+          "foeName": "Manky Moulder",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "manky.moulders.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "antidiluvomorph.pack.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1752,19 +1754,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Antidiluvomorph"
+          "foeName": "Antidiluvomorph",
+          "quantity": "3d2"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Antidiluvomorph"
+          "foeName": "Antidiluvomorph",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "antidiluvomorph.pack.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "clockwork.vengeance",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1772,19 +1774,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Vengeance"
+          "foeName": "Clockwork Vengeance",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Vengeance"
+          "foeName": "Clockwork Vengeance",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "clockwork.vengeance"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnoll.heroes.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1792,19 +1794,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Gnoll Hero"
+          "foeName": "Gnoll Hero",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Gnoll Hero"
+          "foeName": "Gnoll Hero",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnoll.heroes.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shamblers.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1813,23 +1815,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Shambler"
+          "foeName": "Shambler",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Shambler"
+          "foeName": "Shambler",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Shambler"
+          "foeName": "Shambler",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shamblers.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnoll.thugs.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1837,34 +1839,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Gnoll Thug"
+          "foeName": "Gnoll Thug",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Gnoll Thug"
+          "foeName": "Gnoll Thug",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnoll.thugs.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "paper.dragon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Paper Dragon"
+          "foeName": "Paper Dragon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "paper.dragon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ninja.group",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1873,23 +1875,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Ninja"
+          "foeName": "Ninja",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Ninja"
+          "foeName": "Ninja",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Ninja"
+          "foeName": "Ninja",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ninja.group"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "plague.bats.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1898,23 +1900,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2+1",
-          "foeName": "Plague Bat"
+          "foeName": "Plague Bat",
+          "quantity": "3d2+1"
         },
         {
-          "quantity": "3d2+1",
-          "foeName": "Plague Bat"
+          "foeName": "Plague Bat",
+          "quantity": "3d2+1"
         },
         {
-          "quantity": "3d2+1",
-          "foeName": "Plague Bat"
+          "foeName": "Plague Bat",
+          "quantity": "3d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "plague.bats.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "hungry.mist.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1922,19 +1924,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Hungry Mist"
+          "foeName": "Hungry Mist",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Hungry Mist"
+          "foeName": "Hungry Mist",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "hungry.mist.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "angry.swarm.party",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1942,19 +1944,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "angry.swarm.party"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "human.footpads.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1962,19 +1964,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Human Footpad"
+          "foeName": "Human Footpad",
+          "quantity": "3d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Human Footpad"
+          "foeName": "Human Footpad",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "human.footpads.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shadow.warriors.spell.5",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -1982,34 +1984,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Shadow Warrior"
+          "foeName": "Shadow Warrior",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shadow.warriors.spell.5"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "spotted.cruds.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Spotted Crud"
+          "foeName": "Spotted Crud",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "spotted.cruds.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "imogen.allies.on.call",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2018,23 +2020,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Tower Guardian"
+          "foeName": "Tower Guardian",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Alpha Omnifid"
+          "foeName": "Alpha Omnifid",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Inghean Shade"
+          "foeName": "Inghean Shade",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "imogen.allies.on.call"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "leonal.paladins",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2042,34 +2044,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Paladin"
+          "foeName": "Leonal Paladin",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Paladin"
+          "foeName": "Leonal Paladin",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "leonal.paladins"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mud.spiders.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mud.spiders.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ghul.allies.on.call",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2077,34 +2079,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Napiers Bones"
+          "foeName": "Napiers Bones",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Napiers Bones"
+          "foeName": "Napiers Bones",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ghul.allies.on.call"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "swarming.roach.swarm",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3+3",
-          "foeName": "Swarming Roach"
+          "foeName": "Swarming Roach",
+          "quantity": "2d3+3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "swarming.roach.swarm"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "shades.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2112,34 +2114,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Shade"
+          "foeName": "Shade",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Shade"
+          "foeName": "Shade",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "shades.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "rock.dragon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Rock Dragon"
+          "foeName": "Rock Dragon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "rock.dragon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "tower.guardians",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2147,54 +2149,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Tower Guardian"
+          "foeName": "Tower Guardian",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Tower Guardian"
+          "foeName": "Tower Guardian",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "tower.guardians"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bloated.spiders.medium",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Bloated Spider"
+          "foeName": "Bloated Spider",
+          "quantity": "2d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bloated.spiders.medium"
+    }
   },
   {
-    "contains": {
-      "PERCENTAGES": [
-        100,
-        90
-      ],
-      "POSSIBILITIES": [
-        {
-          "quantity": "1d3+1",
-          "foeName": "Crag Faerie"
-        },
-        {
-          "quantity": "1d3+1",
-          "foeName": "Crag Faerie"
-        }
-      ]
-    },
     "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "crag.faeries.1"
-  },
-  {
+    "name": "crag.faeries.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2202,34 +2184,54 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Harvestman Spider"
+          "foeName": "Crag Faerie",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Harvestman Spider"
+          "foeName": "Crag Faerie",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "harvestman.spiders.medium"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "harvestman.spiders.medium",
+    "contains": {
+      "PERCENTAGES": [
+        100,
+        90
+      ],
+      "POSSIBILITIES": [
+        {
+          "foeName": "Harvestman Spider",
+          "quantity": "2d2+2"
+        },
+        {
+          "foeName": "Harvestman Spider",
+          "quantity": "2d2+1"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "exposition.machine.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Exposition Machine"
+          "foeName": "Exposition Machine",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "exposition.machine.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gigantopithecus.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2239,27 +2241,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gigantopithecus"
+          "foeName": "Gigantopithecus",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gigantopithecus"
+          "foeName": "Gigantopithecus",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gigantopithecus"
+          "foeName": "Gigantopithecus",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gigantopithecus"
+          "foeName": "Gigantopithecus",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gigantopithecus.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "fantasmagora.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2267,34 +2269,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Fantasmagora"
+          "foeName": "Fantasmagora",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Fantasmagora"
+          "foeName": "Fantasmagora",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "fantasmagora.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "jumping.roaches.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "jumping.roaches.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "fantasmagora.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2302,19 +2304,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Fantasmagora"
+          "foeName": "Fantasmagora",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Fantasmagora"
+          "foeName": "Fantasmagora",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "fantasmagora.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "scarab.of.bel.swarm",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2325,31 +2327,31 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "4d2",
-          "foeName": "Scarab Of Bel"
+          "foeName": "Scarab Of Bel",
+          "quantity": "4d2"
         },
         {
-          "quantity": "4d2",
-          "foeName": "Scarab Of Bel"
+          "foeName": "Scarab Of Bel",
+          "quantity": "4d2"
         },
         {
-          "quantity": "4d2",
-          "foeName": "Scarab Of Bel"
+          "foeName": "Scarab Of Bel",
+          "quantity": "4d2"
         },
         {
-          "quantity": "4d2",
-          "foeName": "Scarab Of Bel"
+          "foeName": "Scarab Of Bel",
+          "quantity": "4d2"
         },
         {
-          "quantity": "4d2",
-          "foeName": "Scarab Of Bel"
+          "foeName": "Scarab Of Bel",
+          "quantity": "4d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "scarab.of.bel.swarm"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "spotted.cruds.medium",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2357,94 +2359,94 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Spotted Crud"
+          "foeName": "Spotted Crud",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Feral Familiar"
+          "foeName": "Feral Familiar",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "spotted.cruds.medium"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "punch.maker.killer",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Punch The Maker-Killer"
+          "foeName": "Punch The Maker-Killer",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "punch.maker.killer"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "tsurayogoshi",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Tsurayogoshi"
+          "foeName": "Tsurayogoshi",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "tsurayogoshi"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mirror.image.spell.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4+1",
-          "foeName": "Mirror Image"
+          "foeName": "Mirror Image",
+          "quantity": "1d4+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mirror.image.spell.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mirror.image.spell.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d4+1",
-          "foeName": "Mirror Image"
+          "foeName": "Mirror Image",
+          "quantity": "3d4+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mirror.image.spell.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mirror.image.spell.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d4+1",
-          "foeName": "Mirror Image"
+          "foeName": "Mirror Image",
+          "quantity": "2d4+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mirror.image.spell.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "braided.moth.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2452,19 +2454,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Braided Moth"
+          "foeName": "Braided Moth",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Braided Moth"
+          "foeName": "Braided Moth",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "braided.moth.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mottled.boas.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2472,34 +2474,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4",
-          "foeName": "Mottled Boa"
+          "foeName": "Mottled Boa",
+          "quantity": "1d4"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Mottled Boa"
+          "foeName": "Mottled Boa",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mottled.boas.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "twisted.saplings.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+3",
-          "foeName": "Twisted Sapling"
+          "foeName": "Twisted Sapling",
+          "quantity": "2d2+3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "twisted.saplings.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "hunting.mantis.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2507,19 +2509,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Hunting Mantis"
+          "foeName": "Hunting Mantis",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Hunting Mantis"
+          "foeName": "Hunting Mantis",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "hunting.mantis.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "hunting.mantis.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2527,19 +2529,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Hunting Mantis"
+          "foeName": "Hunting Mantis",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Hunting Mantis"
+          "foeName": "Hunting Mantis",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "hunting.mantis.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.vermin.3",
     "contains": {
       "PERCENTAGES": [
         5,
@@ -2558,63 +2560,63 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d3",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Malignant Widow"
+          "foeName": "Malignant Widow",
+          "quantity": "3d2"
         },
         {
-          "quantity": "4d3",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "4d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Emerald Spider"
+          "foeName": "Emerald Spider",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Harvestman Spider"
+          "foeName": "Harvestman Spider",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Spore Moth"
+          "foeName": "Spore Moth",
+          "quantity": "3d3"
         },
         {
-          "quantity": "4d3",
-          "foeName": "Swarming Roach"
+          "foeName": "Swarming Roach",
+          "quantity": "4d3"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Bloated Spider"
+          "foeName": "Bloated Spider",
+          "quantity": "3d2"
         },
         {
-          "quantity": "2d3",
-          "foeName": "Sawtooth Snail"
+          "foeName": "Sawtooth Snail",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d10",
-          "foeName": "Red Spotted Snail"
+          "foeName": "Red Spotted Snail",
+          "quantity": "1d10"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Braided Moth"
+          "foeName": "Braided Moth",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Screaming Bat"
+          "foeName": "Screaming Bat",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.vermin.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.vermin.2",
     "contains": {
       "PERCENTAGES": [
         10,
@@ -2633,63 +2635,63 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d3",
-          "foeName": "Angry Swarm"
+          "foeName": "Angry Swarm",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Malignant Widow"
+          "foeName": "Malignant Widow",
+          "quantity": "3d2"
         },
         {
-          "quantity": "4d3",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "4d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Emerald Spider"
+          "foeName": "Emerald Spider",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Harvestman Spider"
+          "foeName": "Harvestman Spider",
+          "quantity": "3d3"
         },
         {
-          "quantity": "3d3",
-          "foeName": "Spore Moth"
+          "foeName": "Spore Moth",
+          "quantity": "3d3"
         },
         {
-          "quantity": "4d3",
-          "foeName": "Swarming Roach"
+          "foeName": "Swarming Roach",
+          "quantity": "4d3"
         },
         {
-          "quantity": "3d2",
-          "foeName": "Bloated Spider"
+          "foeName": "Bloated Spider",
+          "quantity": "3d2"
         },
         {
-          "quantity": "2d3",
-          "foeName": "Sawtooth Snail"
+          "foeName": "Sawtooth Snail",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d10",
-          "foeName": "Red Spotted Snail"
+          "foeName": "Red Spotted Snail",
+          "quantity": "1d10"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Braided Moth"
+          "foeName": "Braided Moth",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Screaming Bat"
+          "foeName": "Screaming Bat",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.vermin.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "black.stalkers.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2697,64 +2699,64 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Black Stalker"
+          "foeName": "Black Stalker",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Black Stalker"
+          "foeName": "Black Stalker",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "black.stalkers.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ageyrs.bones.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Ageyr\u0027s Bones"
+          "foeName": "Ageyr\u0027s Bones",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ageyrs.bones.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "einherjar.berserkers.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "6d2+2",
-          "foeName": "Einherjar Berserker"
+          "foeName": "Einherjar Berserker",
+          "quantity": "6d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "einherjar.berserkers.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "frost.wyrm.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "frost.wyrm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.scouts.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2763,38 +2765,38 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Scout"
+          "foeName": "Gnome Scout",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Scout"
+          "foeName": "Gnome Scout",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Machinist"
+          "foeName": "Gnome Machinist",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.scouts.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "inferno.dragon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Inferno Dragon"
+          "foeName": "Inferno Dragon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "inferno.dragon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bat.vampires.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2803,38 +2805,38 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Bat Vampire"
+          "foeName": "Bat Vampire",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Bat Vampire"
+          "foeName": "Bat Vampire",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Bat Vampire"
+          "foeName": "Bat Vampire",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bat.vampires.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "naba.uga.gobo.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Naba Uga Gobo"
+          "foeName": "Naba Uga Gobo",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "naba.uga.gobo.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "tornado.moutain.elementals",
     "contains": {
       "PERCENTAGES": [
         30,
@@ -2844,42 +2846,42 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Whistling Air Elemental"
+          "foeName": "Whistling Air Elemental",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Faint Air Elemental"
+          "foeName": "Faint Air Elemental",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Solid Earth Elemental"
+          "foeName": "Solid Earth Elemental",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Light Earth Elemental"
+          "foeName": "Light Earth Elemental",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "tornado.moutain.elementals"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "lord.of.eight.banners",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Lord Of Eight Banners"
+          "foeName": "Lord Of Eight Banners",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "lord.of.eight.banners"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "nhapukom.allies.on.call",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2888,23 +2890,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Blazing Fire Elemental"
+          "foeName": "Blazing Fire Elemental",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Haunt"
+          "foeName": "Haunt",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Vampire Vulture"
+          "foeName": "Vampire Vulture",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "nhapukom.allies.on.call"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "force.of.nature.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2912,19 +2914,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Force Of Nature"
+          "foeName": "Force Of Nature",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Force Of Nature"
+          "foeName": "Force Of Nature",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "force.of.nature.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "black.panthers.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2934,27 +2936,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Black Panther"
+          "foeName": "Black Panther",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Black Panther"
+          "foeName": "Black Panther",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Black Panther"
+          "foeName": "Black Panther",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Black Stalker"
+          "foeName": "Black Stalker",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "black.panthers.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.scouts.party",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2963,23 +2965,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Scout"
+          "foeName": "Gnome Scout",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Scout"
+          "foeName": "Gnome Scout",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Machinist"
+          "foeName": "Gnome Machinist",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.scouts.party"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "spotted.boas.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -2987,19 +2989,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Spotted Boa"
+          "foeName": "Spotted Boa",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Spotted Boa"
+          "foeName": "Spotted Boa",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "spotted.boas.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "patient.mantis.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3007,49 +3009,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Patient Mantis"
+          "foeName": "Patient Mantis",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Patient Mantis"
+          "foeName": "Patient Mantis",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "patient.mantis.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "feral.familiar.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Feral Familiar"
+          "foeName": "Feral Familiar",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "feral.familiar.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "griffon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Griffon"
+          "foeName": "Griffon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "griffon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "goblin.magsmen.encounter",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3058,68 +3060,68 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Goblin Magsman"
+          "foeName": "Goblin Magsman",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Goblin Magsman"
+          "foeName": "Goblin Magsman",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Goblin Cutpurse"
+          "foeName": "Goblin Cutpurse",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "goblin.magsmen.encounter"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.air.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Faint Air Elemental"
+          "foeName": "Faint Air Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.air.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "tower.guardians.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+2",
-          "foeName": "Tower Guardian"
+          "foeName": "Tower Guardian",
+          "quantity": "1d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "tower.guardians.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.air.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Whistling Air Elemental"
+          "foeName": "Whistling Air Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.air.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "terrifying.phantasm.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3127,94 +3129,94 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Terrifying Phantasm"
+          "foeName": "Terrifying Phantasm",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Terrifying Phantasm"
+          "foeName": "Terrifying Phantasm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "terrifying.phantasm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.air.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Howling Air Elemental"
+          "foeName": "Howling Air Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.air.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.water.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Sullen Water Elemental"
+          "foeName": "Sullen Water Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.water.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.water.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Pale Water Elemental"
+          "foeName": "Pale Water Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.water.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.water.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Sour Water Elemental"
+          "foeName": "Sour Water Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.water.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "resolution.engine.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Resolution Engine"
+          "foeName": "Resolution Engine",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "resolution.engine.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "parched.vulture.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3224,27 +3226,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Parched Vulture"
+          "foeName": "Parched Vulture",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Parched Vulture"
+          "foeName": "Parched Vulture",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Parched Vulture"
+          "foeName": "Parched Vulture",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Parched Vulture"
+          "foeName": "Parched Vulture",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "parched.vulture.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bloodwyrm.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3253,98 +3255,98 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bloodwyrm.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bloodwyrm.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bloodwyrm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.med.4",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.med.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.med.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.med.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.med.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.med.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.med.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.med.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "thorn.elemental.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3352,19 +3354,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Thorn Elemental"
+          "foeName": "Thorn Elemental",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Thorn Elemental"
+          "foeName": "Thorn Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "thorn.elemental.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ren.san.allies.on.call",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3376,35 +3378,35 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Tao"
+          "foeName": "Tao",
+          "quantity": "1d1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Black Panther"
+          "foeName": "Black Panther",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Brooding Willow"
+          "foeName": "Brooding Willow",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Viridifid"
+          "foeName": "Viridifid",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Shambler"
+          "foeName": "Shambler",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Black Stalker"
+          "foeName": "Black Stalker",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ren.san.allies.on.call"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "coc.merc.team.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3416,50 +3418,50 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Durek Hammerhand"
+          "foeName": "Durek Hammerhand",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Kudawu Aku"
+          "foeName": "Kudawu Aku",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Sarij bin Abdullah"
+          "foeName": "Sarij bin Abdullah",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Onburi"
+          "foeName": "Onburi",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Seress Silverlock"
+          "foeName": "Seress Silverlock",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Prof Therust"
+          "foeName": "Prof Therust",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "coc.merc.team.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "scaled.wyrm.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "scaled.wyrm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "hawk.moth.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3467,19 +3469,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Hawk Moth"
+          "foeName": "Hawk Moth",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Hawk Moth"
+          "foeName": "Hawk Moth",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "hawk.moth.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "leonal.knights",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3487,34 +3489,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Knight"
+          "foeName": "Leonal Knight",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Leonal Knight"
+          "foeName": "Leonal Knight",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "leonal.knights"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "emerald.spiders.small",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d5",
-          "foeName": "Emerald Spider"
+          "foeName": "Emerald Spider",
+          "quantity": "1d5"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "emerald.spiders.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "spawn.of.ekirth.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3522,19 +3524,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+2",
-          "foeName": "Spawn Of Ekirth"
+          "foeName": "Spawn Of Ekirth",
+          "quantity": "1d2+2"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Spawn Of Ekirth"
+          "foeName": "Spawn Of Ekirth",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "spawn.of.ekirth.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "alpha.ominifids.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3543,23 +3545,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Alpha Omnifid"
+          "foeName": "Alpha Omnifid",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Alpha Omnifid"
+          "foeName": "Alpha Omnifid",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Alpha Omnifid"
+          "foeName": "Alpha Omnifid",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "alpha.ominifids.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "revenants.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3568,53 +3570,53 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4+1",
-          "foeName": "Revenant"
+          "foeName": "Revenant",
+          "quantity": "1d4+1"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Revenant"
+          "foeName": "Revenant",
+          "quantity": "1d4"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Revenant"
+          "foeName": "Revenant",
+          "quantity": "1d4"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "revenants.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.fire.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Smouldering Fire Elemental"
+          "foeName": "Smouldering Fire Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.fire.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.fire.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Smoking Fire Elemental"
+          "foeName": "Smoking Fire Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.fire.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "laughing.puppet.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3623,23 +3625,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Laughing Puppet"
+          "foeName": "Laughing Puppet",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "1d4+1",
-          "foeName": "Crying Puppet"
+          "foeName": "Crying Puppet",
+          "quantity": "1d4+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Angry Puppet"
+          "foeName": "Angry Puppet",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "laughing.puppet.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "TestingFoeEntry",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3647,19 +3649,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "testing foe"
+          "foeName": "testing foe",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "testing foe"
+          "foeName": "testing foe",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "TestingFoeEntry"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "rabid.gnolls.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3667,34 +3669,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3+1",
-          "foeName": "Rabid Gnoll"
+          "foeName": "Rabid Gnoll",
+          "quantity": "2d3+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Rabid Gnoll"
+          "foeName": "Rabid Gnoll",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "rabid.gnolls.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elemental.swarm.fire.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Blazing Fire Elemental"
+          "foeName": "Blazing Fire Elemental",
+          "quantity": "3d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elemental.swarm.fire.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "fruit.bats.medium",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3702,19 +3704,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Fruit Bat"
+          "foeName": "Fruit Bat",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Feral Familiar"
+          "foeName": "Feral Familiar",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "fruit.bats.medium"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "malignant.widow.party",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3722,34 +3724,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Malignant Widow"
+          "foeName": "Malignant Widow",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Malignant Widow"
+          "foeName": "Malignant Widow",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "malignant.widow.party"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "block.golem.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Block Golem"
+          "foeName": "Block Golem",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "block.golem.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "spore.moth.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3757,64 +3759,64 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Spore Moth"
+          "foeName": "Spore Moth",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Spore Moth"
+          "foeName": "Spore Moth",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "spore.moth.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "invisible.stalker.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Invisible Sneak"
+          "foeName": "Invisible Sneak",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "invisible.stalker.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "nejd.golems.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Nejd Golem"
+          "foeName": "Nejd Golem",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "nejd.golems.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "invisible.stalker.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Invisible Stalker"
+          "foeName": "Invisible Stalker",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "invisible.stalker.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "goblin.cutpurse.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3822,19 +3824,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4+1",
-          "foeName": "Goblin Cutpurse"
+          "foeName": "Goblin Cutpurse",
+          "quantity": "1d4+1"
         },
         {
-          "quantity": "1d5",
-          "foeName": "Goblin Cutpurse"
+          "foeName": "Goblin Cutpurse",
+          "quantity": "1d5"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "goblin.cutpurse.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "fiero.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3842,19 +3844,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Fiero"
+          "foeName": "Fiero",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Fiero"
+          "foeName": "Fiero",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "fiero.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "fiero.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3862,64 +3864,64 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Fiero"
+          "foeName": "Fiero",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Fiero"
+          "foeName": "Fiero",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "fiero.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "treants.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Mighty Treant"
+          "foeName": "Mighty Treant",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "treants.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "invisible.stalker.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Invisible Assassin"
+          "foeName": "Invisible Assassin",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "invisible.stalker.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "tornado.dragon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Tornado Dragon"
+          "foeName": "Tornado Dragon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "tornado.dragon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "angry.puppet.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3928,23 +3930,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Angry Puppet"
+          "foeName": "Angry Puppet",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "1d4+1",
-          "foeName": "Laughing Puppet"
+          "foeName": "Laughing Puppet",
+          "quantity": "1d4+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Crying Puppet"
+          "foeName": "Crying Puppet",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "angry.puppet.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "sewer.cruds.medium",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -3952,49 +3954,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Sewer Crud"
+          "foeName": "Sewer Crud",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Sewer Crud"
+          "foeName": "Sewer Crud",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "sewer.cruds.medium"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "treants.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Gnarled Treant"
+          "foeName": "Gnarled Treant",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "treants.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "treants.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Tall Treant"
+          "foeName": "Tall Treant",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "treants.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.plants.spell.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4002,19 +4004,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Seeding Omnifid"
+          "foeName": "Seeding Omnifid",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Lurching Omnifid"
+          "foeName": "Lurching Omnifid",
+          "quantity": "1d4"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.plants.spell.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.plants.spell.3",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4022,19 +4024,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Moulder"
+          "foeName": "Moulder",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Seeding Omnifid"
+          "foeName": "Seeding Omnifid",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.plants.spell.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.plants.spell.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4042,49 +4044,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Lurching Omnifid"
+          "foeName": "Lurching Omnifid",
+          "quantity": "2d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Seeding Omnifid"
+          "foeName": "Seeding Omnifid",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.plants.spell.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ichneumorax",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Ichneumorax"
+          "foeName": "Ichneumorax",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ichneumorax"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "minion.of.usark",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Imunos Minion Of Usark"
+          "foeName": "Imunos Minion Of Usark",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "minion.of.usark"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "feral.familiar.pack.1",
     "contains": {
       "PERCENTAGES": [
         75,
@@ -4094,42 +4096,42 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Fruit Bat"
+          "foeName": "Fruit Bat",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Spotted Crud"
+          "foeName": "Spotted Crud",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "feral.familiar.pack.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "owlbear.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Owlbear"
+          "foeName": "Owlbear",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "owlbear.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "verdant.force.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4137,19 +4139,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Verdant Force"
+          "foeName": "Verdant Force",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Verdant Force"
+          "foeName": "Verdant Force",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "verdant.force.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "screaming.bat.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4158,23 +4160,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2+2",
-          "foeName": "Screaming Bat"
+          "foeName": "Screaming Bat",
+          "quantity": "3d2+2"
         },
         {
-          "quantity": "3d2+2",
-          "foeName": "Screaming Bat"
+          "foeName": "Screaming Bat",
+          "quantity": "3d2+2"
         },
         {
-          "quantity": "3d2+2",
-          "foeName": "Screaming Bat"
+          "foeName": "Screaming Bat",
+          "quantity": "3d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "screaming.bat.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ghosts.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4182,19 +4184,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Ghost"
+          "foeName": "Ghost",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Ghost"
+          "foeName": "Ghost",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ghosts.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "ineoth.encounter",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4204,27 +4206,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Ineoth-Em-Risiss-Mar"
+          "foeName": "Ineoth-Em-Risiss-Mar",
+          "quantity": "1d1"
         },
         {
-          "quantity": "3d2+1",
-          "foeName": "Rabid Gnoll"
+          "foeName": "Rabid Gnoll",
+          "quantity": "3d2+1"
         },
         {
-          "quantity": "2d3+1",
-          "foeName": "Rabid Gnoll"
+          "foeName": "Rabid Gnoll",
+          "quantity": "2d3+1"
         },
         {
-          "quantity": "1d6+1",
-          "foeName": "Rabid Gnoll"
+          "foeName": "Rabid Gnoll",
+          "quantity": "1d6+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "ineoth.encounter"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "avenging.angel.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4232,49 +4234,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Avenging Angel"
+          "foeName": "Avenging Angel",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Avenging Angel"
+          "foeName": "Avenging Angel",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "avenging.angel.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "morrigan",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Morrigan"
+          "foeName": "Morrigan",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "morrigan"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "lava.wolf.summon",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+2",
-          "foeName": "Lava Wolf"
+          "foeName": "Lava Wolf",
+          "quantity": "1d3+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "lava.wolf.summon"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "inghean.shades",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4283,53 +4285,53 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Inghean Shade"
+          "foeName": "Inghean Shade",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Inghean Shade"
+          "foeName": "Inghean Shade",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Inghean Shade"
+          "foeName": "Inghean Shade",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "inghean.shades"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.low.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.low.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.low.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.low.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mud.spiders.medium",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4337,49 +4339,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Mud Spider"
+          "foeName": "Mud Spider",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Feral Familiar"
+          "foeName": "Feral Familiar",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mud.spiders.medium"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.low.4",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.low.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "summon.mephit.spell.low.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "summon.mephit.spell.low.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "yreguoth.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4387,19 +4389,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Yreguoth"
+          "foeName": "Yreguoth",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Yreguoth"
+          "foeName": "Yreguoth",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "yreguoth.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "yreguoth.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4407,19 +4409,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Yreguoth"
+          "foeName": "Yreguoth",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Yreguoth"
+          "foeName": "Yreguoth",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "yreguoth.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "bel.ies.encounter",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4429,27 +4431,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2+1",
-          "foeName": "Mottled Boa"
+          "foeName": "Mottled Boa",
+          "quantity": "3d2+1"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Braided Moth"
+          "foeName": "Braided Moth",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Will o\u0027 Wisp"
+          "foeName": "Will o\u0027 Wisp",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Bel Ies"
+          "foeName": "Bel Ies",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "bel.ies.encounter"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "dog.soldiers.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4457,19 +4459,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d1",
-          "foeName": "Dog Soldier"
+          "foeName": "Dog Soldier",
+          "quantity": "2d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Dog Soldier"
+          "foeName": "Dog Soldier",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "dog.soldiers.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "rockeater.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4477,19 +4479,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Rockeater"
+          "foeName": "Rockeater",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Rockeater"
+          "foeName": "Rockeater",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "rockeater.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mad.kami.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4497,19 +4499,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Mad Kami"
+          "foeName": "Mad Kami",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Lost Kami"
+          "foeName": "Lost Kami",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mad.kami.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "foxfire.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4519,27 +4521,27 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4",
-          "foeName": "Foxfire"
+          "foeName": "Foxfire",
+          "quantity": "1d4"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Foxfire"
+          "foeName": "Foxfire",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Foxfire"
+          "foeName": "Foxfire",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Agenor"
+          "foeName": "Agenor",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "foxfire.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "clockwork.soldiers",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4547,19 +4549,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Soldier"
+          "foeName": "Clockwork Soldier",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Clockwork Soldier"
+          "foeName": "Clockwork Soldier",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "clockwork.soldiers"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "brooding.willow.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4567,19 +4569,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d6",
-          "foeName": "Brooding Willow"
+          "foeName": "Brooding Willow",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d4",
-          "foeName": "Brooding Willow"
+          "foeName": "Brooding Willow",
+          "quantity": "1d4"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "brooding.willow.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "corrosive.slime.encounter",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4588,23 +4590,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Corrosive Slime"
+          "foeName": "Corrosive Slime",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Sewer Crud"
+          "foeName": "Sewer Crud",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Sewer Crud"
+          "foeName": "Sewer Crud",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "corrosive.slime.encounter"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "slithering.hagspawn.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4613,23 +4615,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Slithering Hagspawn"
+          "foeName": "Slithering Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Flying Hagspawn"
+          "foeName": "Flying Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Creeping Hagspawn"
+          "foeName": "Creeping Hagspawn",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "slithering.hagspawn.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "slithering.hagspawn.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4638,23 +4640,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Slithering Hagspawn"
+          "foeName": "Slithering Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Flying Hagspawn"
+          "foeName": "Flying Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Creeping Hagspawn"
+          "foeName": "Creeping Hagspawn",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "slithering.hagspawn.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "flying.hagspawn.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4663,23 +4665,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Flying Hagspawn"
+          "foeName": "Flying Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Creeping Hagspawn"
+          "foeName": "Creeping Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Slithering Hagspawn"
+          "foeName": "Slithering Hagspawn",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "flying.hagspawn.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "force.of.fury.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4687,19 +4689,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Force Of Fury"
+          "foeName": "Force Of Fury",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Force Of Fury"
+          "foeName": "Force Of Fury",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "force.of.fury.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "storm.crows.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4707,19 +4709,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2",
-          "foeName": "Storm Crow"
+          "foeName": "Storm Crow",
+          "quantity": "2d2"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Storm Crow"
+          "foeName": "Storm Crow",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "storm.crows.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "stasis.machine.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4727,19 +4729,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Stasis Machine"
+          "foeName": "Stasis Machine",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Stasis Machine"
+          "foeName": "Stasis Machine",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "stasis.machine.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.army.spell.4",
     "contains": {
       "PERCENTAGES": [
         90,
@@ -4753,43 +4755,43 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.army.spell.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.army.spell.5",
     "contains": {
       "PERCENTAGES": [
         90,
@@ -4803,43 +4805,43 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3+2",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "2d3+2"
         },
         {
-          "quantity": "2d3+2",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "2d3+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.army.spell.5"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.army.spell.2",
     "contains": {
       "PERCENTAGES": [
         90,
@@ -4853,43 +4855,43 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3+1",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "1d3+1"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.army.spell.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.army.spell.3",
     "contains": {
       "PERCENTAGES": [
         90,
@@ -4903,43 +4905,43 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.army.spell.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "lost.souls.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -4948,23 +4950,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d3",
-          "foeName": "Lost Soul"
+          "foeName": "Lost Soul",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Lost Soul"
+          "foeName": "Lost Soul",
+          "quantity": "1d3"
         },
         {
-          "quantity": "1d3",
-          "foeName": "Lost Kami"
+          "foeName": "Lost Kami",
+          "quantity": "1d3"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "lost.souls.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.army.spell.1",
     "contains": {
       "PERCENTAGES": [
         90,
@@ -4978,43 +4980,43 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Kite Mephit"
+          "foeName": "Kite Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Glow Mephit"
+          "foeName": "Glow Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Spout Mephit"
+          "foeName": "Spout Mephit",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2+1",
-          "foeName": "Dune Mephit"
+          "foeName": "Dune Mephit",
+          "quantity": "1d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.army.spell.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "flying.hagspawn.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5023,23 +5025,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Flying Hagspawn"
+          "foeName": "Flying Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Creeping Hagspawn"
+          "foeName": "Creeping Hagspawn",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Slithering Hagspawn"
+          "foeName": "Slithering Hagspawn",
+          "quantity": "2d2+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "flying.hagspawn.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "crying.puppet.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5048,23 +5050,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Crying Puppet"
+          "foeName": "Crying Puppet",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "1d4+1",
-          "foeName": "Angry Puppet"
+          "foeName": "Angry Puppet",
+          "quantity": "1d4+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Laughing Puppet"
+          "foeName": "Laughing Puppet",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "crying.puppet.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.wyrms.spell.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5076,35 +5078,35 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.wyrms.spell.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.wyrms.spell.3",
     "contains": {
       "PERCENTAGES": [
         30,
@@ -5116,35 +5118,35 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.wyrms.spell.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.wyrms.spell.2",
     "contains": {
       "PERCENTAGES": [
         60,
@@ -5156,35 +5158,35 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.wyrms.spell.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.wyrms.spell.5",
     "contains": {
       "PERCENTAGES": [
         5,
@@ -5196,35 +5198,35 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.wyrms.spell.5"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "gnome.troopers.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5233,23 +5235,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Trooper"
+          "foeName": "Gnome Trooper",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Gnome Trooper"
+          "foeName": "Gnome Trooper",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2",
-          "foeName": "Gnome Elemental"
+          "foeName": "Gnome Elemental",
+          "quantity": "2d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "gnome.troopers.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "call.wyrms.spell.4",
     "contains": {
       "PERCENTAGES": [
         15,
@@ -5261,35 +5263,35 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Bloodwyrm"
+          "foeName": "Bloodwyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Frost Wyrm"
+          "foeName": "Frost Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         },
         {
-          "quantity": "1d6",
-          "foeName": "Scaled Wyrm"
+          "foeName": "Scaled Wyrm",
+          "quantity": "1d6"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "call.wyrms.spell.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.low.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5297,34 +5299,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Breeze Mephit"
+          "foeName": "Breeze Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.low.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.earth.2",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Solid Earth Elemental"
+          "foeName": "Solid Earth Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.earth.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.low.2",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5332,34 +5334,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Candle Mephit"
+          "foeName": "Candle Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.low.2"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.earth.3",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Heavy Earth Elemental"
+          "foeName": "Heavy Earth Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.earth.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.low.3",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5367,34 +5369,34 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Fountain Mephit"
+          "foeName": "Fountain Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.low.3"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "clockwork.beast.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Clockwork Beast"
+          "foeName": "Clockwork Beast",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "clockwork.beast.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "mephit.swarm.spell.low.4",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5402,19 +5404,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Sand Mephit"
+          "foeName": "Sand Mephit",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "mephit.swarm.spell.low.4"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "red.spotted.snail.small",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5422,19 +5424,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+1",
-          "foeName": "Red Spotted Snail"
+          "foeName": "Red Spotted Snail",
+          "quantity": "2d2+1"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Red Spotted Snail"
+          "foeName": "Red Spotted Snail",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "red.spotted.snail.small"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "saliopod.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5444,57 +5446,57 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d2+2",
-          "foeName": "Saliopod"
+          "foeName": "Saliopod",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Saliopod"
+          "foeName": "Saliopod",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+2",
-          "foeName": "Saliopod"
+          "foeName": "Saliopod",
+          "quantity": "2d2+2"
         },
         {
-          "quantity": "2d2+1",
-          "foeName": "Saliopod"
+          "foeName": "Saliopod",
+          "quantity": "2d2+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "saliopod.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "elementals.earth.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Light Earth Elemental"
+          "foeName": "Light Earth Elemental",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "elementals.earth.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "boulder.dragon.1",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Boulder Dragon"
+          "foeName": "Boulder Dragon",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "boulder.dragon.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "storm.kestrel.summon",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5502,49 +5504,49 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "3d2",
-          "foeName": "Storm Kestrel"
+          "foeName": "Storm Kestrel",
+          "quantity": "3d2"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Storm Kestrel"
+          "foeName": "Storm Kestrel",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "storm.kestrel.summon"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "dun.draco.small.pack",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d4+2",
-          "foeName": "Dun Draco"
+          "foeName": "Dun Draco",
+          "quantity": "1d4+2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "dun.draco.small.pack"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "temple.of.the.gate.ghost.of.igor",
     "contains": {
       "PERCENTAGES": [
         100
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Igor\u0027s Ghost"
+          "foeName": "Igor\u0027s Ghost",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "temple.of.the.gate.ghost.of.igor"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "chilling.phantasm.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5552,19 +5554,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Chilling Phantasm"
+          "foeName": "Chilling Phantasm",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Chilling Phantasm"
+          "foeName": "Chilling Phantasm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "chilling.phantasm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "horrifying.phantasm.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5572,19 +5574,19 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d1",
-          "foeName": "Horrifying Phantasm"
+          "foeName": "Horrifying Phantasm",
+          "quantity": "1d1"
         },
         {
-          "quantity": "1d1",
-          "foeName": "Horrifying Phantasm"
+          "foeName": "Horrifying Phantasm",
+          "quantity": "1d1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "horrifying.phantasm.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "colonizer.ominifids.1",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5593,23 +5595,23 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "1d2+1",
-          "foeName": "Coloniser Omnifid"
+          "foeName": "Coloniser Omnifid",
+          "quantity": "1d2+1"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Coloniser Omnifid"
+          "foeName": "Coloniser Omnifid",
+          "quantity": "1d2"
         },
         {
-          "quantity": "1d2",
-          "foeName": "Coloniser Omnifid"
+          "foeName": "Coloniser Omnifid",
+          "quantity": "1d2"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "colonizer.ominifids.1"
+    }
   },
   {
+    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
+    "name": "jumping.roaches.medium",
     "contains": {
       "PERCENTAGES": [
         100,
@@ -5618,20 +5620,18 @@
       ],
       "POSSIBILITIES": [
         {
-          "quantity": "2d3",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "2d3"
         },
         {
-          "quantity": "1d3+2",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "1d3+2"
         },
         {
-          "quantity": "1d3+1",
-          "foeName": "Jumping Roach"
+          "foeName": "Jumping Roach",
+          "quantity": "1d3+1"
         }
       ]
-    },
-    "TYPE_KEY": "mclachlan.maze.map.FoeEntry",
-    "name": "jumping.roaches.medium"
+    }
   }
 ]

@@ -95,6 +95,10 @@ public class Portal implements LockOrTrap
 	private int[] toolStatus = new int[8];
 	private BitSet picked = new BitSet(8);
 
+	public Portal()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Portal(
 		String mazeVariable,
@@ -474,6 +478,147 @@ public class Portal implements LockOrTrap
 	public BitSet getPickLockToolsRequired()
 	{
 		return required;
+	}
+
+	public boolean isCanForce()
+	{
+		return canForce;
+	}
+
+	public boolean isCanPick()
+	{
+		return canPick;
+	}
+
+	public boolean isCanSpellPick()
+	{
+		return canSpellPick;
+	}
+
+	public int getHitPointCostToForce()
+	{
+		return hitPointCostToForce;
+	}
+
+	public int getResistForce()
+	{
+		return resistForce;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Portal))
+		{
+			return false;
+		}
+
+		Portal portal = (Portal)o;
+
+		if (isTwoWay() != portal.isTwoWay())
+		{
+			return false;
+		}
+		if (getFromFacing() != portal.getFromFacing())
+		{
+			return false;
+		}
+		if (getToFacing() != portal.getToFacing())
+		{
+			return false;
+		}
+		if (isCanForce() != portal.isCanForce())
+		{
+			return false;
+		}
+		if (isCanPick() != portal.isCanPick())
+		{
+			return false;
+		}
+		if (isCanSpellPick() != portal.isCanSpellPick())
+		{
+			return false;
+		}
+		if (getHitPointCostToForce() != portal.getHitPointCostToForce())
+		{
+			return false;
+		}
+		if (getResistForce() != portal.getResistForce())
+		{
+			return false;
+		}
+		if (isConsumeKeyItem() != portal.isConsumeKeyItem())
+		{
+			return false;
+		}
+		if (getMazeVariable() != null ? !getMazeVariable().equals(portal.getMazeVariable()) : portal.getMazeVariable() != null)
+		{
+			return false;
+		}
+		if (getInitialState() != null ? !getInitialState().equals(portal.getInitialState()) : portal.getInitialState() != null)
+		{
+			return false;
+		}
+		if (getFrom() != null ? !getFrom().equals(portal.getFrom()) : portal.getFrom() != null)
+		{
+			return false;
+		}
+		if (getTo() != null ? !getTo().equals(portal.getTo()) : portal.getTo() != null)
+		{
+			return false;
+		}
+		if (!Arrays.equals(getDifficulty(), portal.getDifficulty()))
+		{
+			return false;
+		}
+		if (getRequired() != null ? !getRequired().equals(portal.getRequired()) : portal.getRequired() != null)
+		{
+			return false;
+		}
+		if (getKeyItem() != null ? !getKeyItem().equals(portal.getKeyItem()) : portal.getKeyItem() != null)
+		{
+			return false;
+		}
+		if (getMazeScript() != null ? !getMazeScript().equals(portal.getMazeScript()) : portal.getMazeScript() != null)
+		{
+			return false;
+		}
+		if (getStateChangeScript() != null ? !getStateChangeScript().equals(portal.getStateChangeScript()) : portal.getStateChangeScript() != null)
+		{
+			return false;
+		}
+
+		return true;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getMazeVariable() != null ? getMazeVariable().hashCode() : 0;
+		result = 31 * result + (isTwoWay() ? 1 : 0);
+		result = 31 * result + (getInitialState() != null ? getInitialState().hashCode() : 0);
+		result = 31 * result + (getFrom() != null ? getFrom().hashCode() : 0);
+		result = 31 * result + getFromFacing();
+		result = 31 * result + (getTo() != null ? getTo().hashCode() : 0);
+		result = 31 * result + getToFacing();
+		result = 31 * result + (isCanForce() ? 1 : 0);
+		result = 31 * result + (isCanPick() ? 1 : 0);
+		result = 31 * result + (isCanSpellPick() ? 1 : 0);
+		result = 31 * result + getHitPointCostToForce();
+		result = 31 * result + getResistForce();
+		result = 31 * result + Arrays.hashCode(getDifficulty());
+		result = 31 * result + (getRequired() != null ? getRequired().hashCode() : 0);
+		result = 31 * result + (getKeyItem() != null ? getKeyItem().hashCode() : 0);
+		result = 31 * result + (isConsumeKeyItem() ? 1 : 0);
+		result = 31 * result + (getMazeScript() != null ? getMazeScript().hashCode() : 0);
+		result = 31 * result + (getStateChangeScript() != null ? getStateChangeScript().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

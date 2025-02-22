@@ -33,10 +33,10 @@ public interface V2SiloSingleton<V>
 	/**
 	 * Load up this silo from the given input stream.
 	 */
-	V load(BufferedReader reader, Database database) throws Exception;
+	V load(BufferedReader reader, Database db) throws Exception;
 
 	/**
 	 * Save this silo to the given output stream.
 	 */
-	void save(BufferedWriter writer, V obj) throws Exception;
+	void save(BufferedWriter writer, V obj, Database db) throws Exception;
 }

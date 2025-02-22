@@ -462,7 +462,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				break;
 			case EXECUTE_MAZE_EVENTS:
 				ExecuteMazeScript eme = (ExecuteMazeScript)ts;
-				mazeScript.setSelectedItem(eme.getScript());
+				mazeScript.setSelectedItem(eme.getMazeScript());
 				break;
 			case SIGNBOARD:
 				SignBoard sb = (SignBoard)ts;
@@ -1478,15 +1478,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				result = new ToggleWall(
 					toggleWallMazeVariable.getText(), (Integer)toggleWallWallIndex.getValue(), toggleWallIsHoriz.isSelected(),
 
-					EditorPanel.NONE == state1Texture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state1Texture.getSelectedItem()).getTexture(),
-					EditorPanel.NONE == state1MaskTexture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state1MaskTexture.getSelectedItem()).getTexture(),
+					EditorPanel.NONE == state1Texture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state1Texture.getSelectedItem()),
+					EditorPanel.NONE == state1MaskTexture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state1MaskTexture.getSelectedItem()),
 					state1Visible.isSelected(),
 					state1Solid.isSelected(),
 					state1Secret.isSelected(),
 					(Integer)state1Height.getValue(),
 
-					EditorPanel.NONE == state2Texture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state2Texture.getSelectedItem()).getTexture(),
-					EditorPanel.NONE == state2MaskTexture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state2MaskTexture.getSelectedItem()).getTexture(),
+					EditorPanel.NONE == state2Texture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state2Texture.getSelectedItem()),
+					EditorPanel.NONE == state2MaskTexture.getSelectedItem() ? null : Database.getInstance().getMazeTexture((String)state2MaskTexture.getSelectedItem()),
 					state2Visible.isSelected(),
 					state2Solid.isSelected(),
 					state2Secret.isSelected(),

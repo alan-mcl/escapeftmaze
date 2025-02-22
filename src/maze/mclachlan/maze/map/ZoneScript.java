@@ -20,13 +20,14 @@
 package mclachlan.maze.map;
 
 import java.util.*;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.game.MazeEvent;
 
 /**
  * A class for controlling regular transitions to a zone, like day/night cycles
  * and weather.
  */
-public abstract class ZoneScript
+public abstract class ZoneScript implements V2Seralisable
 {
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -51,5 +52,18 @@ public abstract class ZoneScript
 	 * 	Any events to be processed
 	 */
 	public abstract List<MazeEvent> endOfTurn(Zone zone, long turnNr);
+
+	@Override
+	public boolean equals(Object obj)
+	{
+		return this.getClass().equals(obj.getClass());
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return super.hashCode() ^ this.getClass().hashCode();
+	}
+
 
 }
