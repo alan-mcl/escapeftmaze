@@ -1293,7 +1293,7 @@ public class SerialiserFactory
 			"skyTexture",
 			"skyTextureType",
 			"tiles",
-//			"textures", todo
+//			"textures", done separately by init
 			"horizontalWalls",
 			"verticalWalls",
 			"objects",

@@ -162,7 +162,7 @@ public class Tile
 
 	public void setLightLevel(int lightLevel)
 	{
-		this.lightLevel = lightLevel;
+		this.lightLevel = this.currentLightLevel = lightLevel;
 	}
 
 	public Texture getFloorMaskTexture()
