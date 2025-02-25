@@ -1,0 +1,29 @@
+{
+  "name": "quest",
+  "contents": {
+    "Quest 1": [
+      {
+        "turnNr": "55",
+        "text": "Quest granted"
+      },
+      {
+        "turnNr": "56",
+        "text": "Quest step 1"
+      }
+    ],
+    "Quest 2": [
+      {
+        "turnNr": "888",
+        "text": "Quest granted text"
+      },
+      {
+        "turnNr": "909",
+        "text": "Quest step 1"
+      },
+      {
+        "turnNr": "9999",
+        "text": "Quest complete!"
+      }
+    ]
+  }
+}

@@ -45,7 +45,7 @@ public class Npc extends Foe
 	//
 
 	/** what this NPC has in stock at the moment */
-	private final List<Item> currentInventory;
+	private List<Item> currentInventory;
 
 	//
 	// Interaction parameters
@@ -78,7 +78,11 @@ public class Npc extends Foe
 	private List<String> guild;
 
 	/** manager for quests, if the NPC has them */
-	private final QuestManager questManager;
+	private QuestManager questManager;
+
+	public Npc()
+	{
+	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -100,8 +104,7 @@ public class Npc extends Foe
 		super(foeTemplate);
 
 		this.attitude = attitude;
-		this.currentInventory = currentInventory;
-		this.currentInventory.addAll(currentInventory);
+		this.currentInventory = new ArrayList<>(currentInventory);
 		this.dead = dead;
 		this.found = found;
 		this.template = template;
@@ -110,9 +113,8 @@ public class Npc extends Foe
 		this.zone = zone;
 		this.guildMaster = guildMaster;
 		this.guild = guild;
-		this.questManager = new QuestManager(this);
-		this.template.getScript().npc = this;
-		this.template.getScript().initialise();
+
+		init();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -124,17 +126,27 @@ public class Npc extends Foe
 		this(
 			npcTemplate,
 			npcTemplate.getAttitude(),
-			new ArrayList<Item>(),
+			new ArrayList<>(),
 			npcTemplate.getTheftCounter(),
 			npcTemplate.getTile(),
 			npcTemplate.getZone(),
 			npcTemplate.isFound(),
 			npcTemplate.isDead(),
 			npcTemplate.isGuildMaster(),
-			new ArrayList<String>(),
+			new ArrayList<>(),
 			npcTemplate.getFoeTemplate());
 
 		this.template.getScript().start();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void init()
+	{
+		this.questManager = new QuestManager(this);
+		this.template.getScript().npc = this;
+		this.template.getScript().initialise();
+
+		super.setTemplate(template.getFoeTemplate());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -316,7 +328,7 @@ public class Npc extends Foe
 	{
 		this.guild = guild;
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public CurMaxSub getHitPoints()
 	{
@@ -332,7 +344,7 @@ public class Npc extends Foe
 
 	public void setCurrentInventory(List<Item> inv)
 	{
-		this.currentInventory.clear();
+		this.currentInventory = new ArrayList<>();
 		this.currentInventory.addAll(inv);
 	}
 
@@ -392,12 +404,93 @@ public class Npc extends Foe
 
 	public String getName()
 	{
-		return super.getName();
+		return template.getName();
 	}
 
 	public QuestManager getQuestManager()
 	{
 		return questManager;
+	}
+
+	public List<Item> getCurrentInventory()
+	{
+		return currentInventory;
+	}
+
+	public void setTheftCounter(int theftCounter)
+	{
+		this.theftCounter = theftCounter;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Npc))
+		{
+			return false;
+		}
+
+		Npc npc = (Npc)o;
+
+		if (getTheftCounter() != npc.getTheftCounter())
+		{
+			return false;
+		}
+		if (isFound() != npc.isFound())
+		{
+			return false;
+		}
+		if (isDead() != npc.isDead())
+		{
+			return false;
+		}
+		if (isGuildMaster() != npc.isGuildMaster())
+		{
+			return false;
+		}
+		if (getTemplate() != null ? !getTemplate().equals(npc.getTemplate()) : npc.getTemplate() != null)
+		{
+			return false;
+		}
+		if (getAttitude() != npc.getAttitude())
+		{
+			return false;
+		}
+		if (getCurrentInventory() != null ? !getCurrentInventory().equals(npc.getCurrentInventory()) : npc.getCurrentInventory() != null)
+		{
+			return false;
+		}
+		if (getZone() != null ? !getZone().equals(npc.getZone()) : npc.getZone() != null)
+		{
+			return false;
+		}
+		if (getTile() != null ? !getTile().equals(npc.getTile()) : npc.getTile() != null)
+		{
+			return false;
+		}
+		return getGuild() != null ? getGuild().equals(npc.getGuild()) : npc.getGuild() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getTemplate() != null ? getTemplate().hashCode() : 0;
+		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
+		result = 31 * result + (getCurrentInventory() != null ? getCurrentInventory().hashCode() : 0);
+		result = 31 * result + getTheftCounter();
+		result = 31 * result + (getZone() != null ? getZone().hashCode() : 0);
+		result = 31 * result + (getTile() != null ? getTile().hashCode() : 0);
+		result = 31 * result + (isFound() ? 1 : 0);
+		result = 31 * result + (isDead() ? 1 : 0);
+		result = 31 * result + (isGuildMaster() ? 1 : 0);
+		result = 31 * result + (getGuild() != null ? getGuild().hashCode() : 0);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

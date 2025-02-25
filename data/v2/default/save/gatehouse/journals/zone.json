@@ -1,0 +1,67 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "2",
+        "text": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing."
+      },
+      {
+        "turnNr": "2",
+        "text": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here..."
+      },
+      {
+        "turnNr": "10",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "14",
+        "text": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever."
+      },
+      {
+        "turnNr": "18",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "34",
+        "text": "With a flurry of wings, you are suddenly assaulted from above!"
+      },
+      {
+        "turnNr": "34",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "34",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "34",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "35",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "35",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "39",
+        "text": "The large lever mechanism looks tarnished and old but otherwise functional.\n\nYou wonder what hidden machinery it connects to..."
+      },
+      {
+        "turnNr": "39",
+        "text": "You give the lever a hard yank."
+      },
+      {
+        "turnNr": "39",
+        "text": "A loud clanking and grinding fills the dungeon."
+      }
+    ]
+  }
+}

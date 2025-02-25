@@ -27,6 +27,8 @@ import mclachlan.maze.data.v1.V1Loader;
 import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Campaign;
+import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.map.Zone;
 
 /**
@@ -64,7 +66,6 @@ public class DataPorter
 
 		Loader v2Loader = new V2Loader();
 
-/*
 		System.out.println("porting genders...");
 		v2Saver.saveGenders(v1Loader.loadGenders());
 
@@ -157,7 +158,6 @@ public class DataPorter
 
 		System.out.println("porting guild...");
 		v2Saver.saveCharacterGuild(v1Loader.loadCharacterGuild());
-*/
 
 		System.out.println("porting zones...");
 		List<String> zoneNames = v1Loader.getZoneNames();
@@ -167,12 +167,30 @@ public class DataPorter
 			v2Saver.saveZone(v1Loader.getZone(zoneName));
 		}
 
+		System.out.println("porting save games...");
+		List<String> saveGames = v1Loader.getSaveGames();
+		for (String saveGame : saveGames)
+		{
+			System.out.println(" - "+saveGame);
+			v2Saver.saveGameState(saveGame, v1Loader.loadGameState(saveGame));
+			v2Saver.savePlayerCharacters(saveGame, v1Loader.loadPlayerCharacters(saveGame));
+			v2Saver.saveNpcs(saveGame, v1Loader.loadNpcs(saveGame));
+			v2Saver.saveNpcFactions(saveGame, v1Loader.loadNpcFactions(saveGame));
+			v1Loader.loadMazeVariables(saveGame); v2Saver.saveMazeVariables(saveGame);
+			v2Saver.saveItemCaches(saveGame, v1Loader.loadItemCaches(saveGame));
+			v2Saver.savePlayerTilesVisited(saveGame, v1Loader.loadPlayerTilesVisited(saveGame));
+			v2Saver.saveConditions(saveGame, v1Loader.loadConditions(saveGame, v1Loader.loadPlayerCharacters(saveGame)));
+			v2Saver.saveJournal(saveGame, v1Loader.loadJournal(saveGame, JournalManager.JournalType.QUEST.getJournalName()));
+			v2Saver.saveJournal(saveGame, v1Loader.loadJournal(saveGame, JournalManager.JournalType.ZONE.getJournalName()));
+			v2Saver.saveJournal(saveGame, v1Loader.loadJournal(saveGame, JournalManager.JournalType.NPC.getJournalName()));
+			v2Saver.saveJournal(saveGame, v1Loader.loadJournal(saveGame, JournalManager.JournalType.LOGBOOK.getJournalName()));
+		}
+
 
 		//----------------
 		System.out.println("v2Loader..");
 		v2Loader.init(campaign);
 
-/*
 		System.out.println("genders: "+v2Loader.loadGenders().size());
 		assertEquals(v1Loader.loadGenders(), v2Loader.loadGenders());
 
@@ -265,7 +283,6 @@ public class DataPorter
 
 		System.out.println("guild: "+v2Loader.loadCharacterGuild().size());
 		assertEquals(v1Loader.loadCharacterGuild(), v2Loader.loadCharacterGuild());
-*/
 
 		System.out.println("zones:");
 		zoneNames = v2Loader.getZoneNames();
@@ -279,6 +296,40 @@ public class DataPorter
 			{
 				System.out.println("ERROR: different elements v1 ["+zone1+"] v2 ["+zone+"]");
 			}
+		}
+
+		System.out.println("save games...");
+		for (String saveGame : saveGames)
+		{
+			System.out.println(" - "+saveGame);
+			assertEquals(v1Loader.loadGameState(saveGame), v2Loader.loadGameState(saveGame));
+			assertEquals(v1Loader.loadPlayerCharacters(saveGame), v2Loader.loadPlayerCharacters(saveGame));
+			assertEquals(v1Loader.loadNpcs(saveGame), v2Loader.loadNpcs(saveGame));
+			assertEquals(v1Loader.loadNpcFactions(saveGame), v2Loader.loadNpcFactions(saveGame));
+
+			v1Loader.loadMazeVariables(saveGame);
+			Map<String, String> v1Vars = MazeVariables.getVars();
+			v2Loader.loadMazeVariables(saveGame);
+			Map<String, String> v2Vars = MazeVariables.getVars();
+
+			assertEquals(v1Vars, v2Vars);
+
+			assertEquals(v1Loader.loadItemCaches(saveGame), v2Loader.loadItemCaches(saveGame));
+			assertEquals(v1Loader.loadPlayerTilesVisited(saveGame), v2Loader.loadPlayerTilesVisited(saveGame));
+			assertEquals(v1Loader.loadConditions(saveGame, v1Loader.loadPlayerCharacters(saveGame)),
+				v2Loader.loadConditions(saveGame, v2Loader.loadPlayerCharacters(saveGame)));
+			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.QUEST.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.QUEST.getJournalName()));
+			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.ZONE.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.ZONE.getJournalName()));
+			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.NPC.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.NPC.getJournalName()));
+			assertEquals(v1Loader.loadJournal(saveGame, JournalManager.JournalType.LOGBOOK.getJournalName()), v2Loader.loadJournal(saveGame, JournalManager.JournalType.LOGBOOK.getJournalName()));
+		}
+	}
+
+	private static void assertEquals(Object obj1, Object obj2)
+	{
+		if (!obj1.equals(obj2))
+		{
+			System.out.println("ERROR: different nr elements, v1 "+obj1+" v2 "+obj2);
 		}
 	}
 

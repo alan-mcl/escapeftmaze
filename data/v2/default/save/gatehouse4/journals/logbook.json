@@ -1,0 +1,11 @@
+{
+  "name": "logbook",
+  "contents": {
+    "Logbook": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      }
+    ]
+  }
+}

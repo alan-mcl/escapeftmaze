@@ -7,41 +7,47 @@ import mclachlan.maze.data.v2.V2SerialiserObject;
 /**
  *
  */
-public class ListSerialiser implements V2SerialiserObject<List>
+public class ListSerialiser<T> implements V2SerialiserObject<List<T>>
 {
-	private final V2SerialiserObject elementSerialiser;
+	private final V2SerialiserObject<T> elementSerialiser;
 
-	public ListSerialiser(V2SerialiserObject elementSerialiser)
+	public ListSerialiser(V2SerialiserObject<T> elementSerialiser)
 	{
 		this.elementSerialiser = elementSerialiser;
 	}
 
 	@Override
-	public Object toObject(List list, Database db)
+	public Object toObject(List<T> list, Database db)
 	{
 		if (list == null)
 		{
 			return null;
 		}
 
-		List result = new ArrayList();
+		List<Object> result = new ArrayList<>();
 
-		list.forEach(obj -> result.add(elementSerialiser.toObject(obj, db)));
+		for (T t : list)
+		{
+			Object map = elementSerialiser.toObject(t, db);
+			result.add(map);
+		}
+
+//		list.forEach(obj -> result.add(elementSerialiser.toObject(obj, db)));
 
 		return result;
 	}
 
 	@Override
-	public List fromObject(Object obj, Database db)
+	public List<T> fromObject(Object obj, Database db)
 	{
 		if (obj == null)
 		{
 			return null;
 		}
 
-		ArrayList list = (ArrayList)obj;
+		ArrayList<Object> list = (ArrayList<Object>)obj;
 
-		ArrayList result = new ArrayList();
+		ArrayList<T> result = new ArrayList<>();
 
 		list.forEach(e -> result.add(elementSerialiser.fromObject(e, db)));
 

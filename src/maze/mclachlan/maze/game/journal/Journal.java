@@ -38,11 +38,15 @@ public class Journal
 	 */
 	private Map<String, List<JournalEntry>> contents;
 
+	public Journal()
+	{
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Journal(String name)
 	{
 		this.name = name;
-		this.contents = new HashMap<String, List<JournalEntry>>();
+		this.contents = new HashMap<>();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -82,11 +86,42 @@ public class Journal
 	{
 		if (!contents.containsKey(key))
 		{
-			contents.put(key, new ArrayList<JournalEntry>());
+			contents.put(key, new ArrayList<>());
 		}
 
 		List<JournalEntry> journalEntries = contents.get(key);
 
 		journalEntries.add(new JournalEntry(turnNr, text));
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof Journal))
+		{
+			return false;
+		}
+
+		Journal journal = (Journal)o;
+
+		if (getName() != null ? !getName().equals(journal.getName()) : journal.getName() != null)
+		{
+			return false;
+		}
+		return getContents() != null ? getContents().equals(journal.getContents()) : journal.getContents() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getName() != null ? getName().hashCode() : 0;
+		result = 31 * result + (getContents() != null ? getContents().hashCode() : 0);
+		return result;
 	}
 }

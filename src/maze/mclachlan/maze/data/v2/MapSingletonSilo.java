@@ -28,16 +28,52 @@ import mclachlan.maze.data.Database;
  */
 public class MapSingletonSilo implements V2SiloSingleton<Map>
 {
+	private V2SerialiserObject valueSerialiser;
+
+	public MapSingletonSilo()
+	{
+	}
+
+	public MapSingletonSilo(V2SerialiserObject valueSerialiser)
+	{
+		this.valueSerialiser = valueSerialiser;
+	}
+
 	@Override
 	public Map load(BufferedReader reader,
 		Database db) throws IOException
 	{
-		return (Map)V2Utils.getMap(reader);
+		Map map = V2Utils.getMap(reader);
+
+		if (valueSerialiser != null)
+		{
+			map.forEach((k, v) -> map.put(k, valueSerialiser.fromObject(v, db)));
+		}
+
+		return map;
 	}
 
 	@Override
 	public void save(BufferedWriter writer, Map obj, Database db) throws IOException
 	{
-		V2Utils.writeJson((Map)obj, writer);
+		Map map = obj;
+
+		Map<Object, Object> temp = new HashMap<>();
+
+		if (valueSerialiser != null)
+		{
+			for (Object key : map.keySet())
+			{
+				Object value = valueSerialiser.toObject(map.get(key), db);
+				temp.put(key, value);
+			}
+
+//			map.forEach((k, v) -> map.put(k, valueSerialiser.toObject(v, db)));
+			V2Utils.writeJson(temp, writer);
+		}
+		else
+		{
+			V2Utils.writeJson(map, writer);
+		}
 	}
 }

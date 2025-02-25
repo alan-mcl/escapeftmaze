@@ -1,0 +1,70 @@
+{
+  "arena": {
+    "9:7": [
+      {
+        "template": "Frontier Phaser",
+        "cursedState": "1",
+        "identificationState": "1",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Script Of Identify",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Script Of Blur",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Bone Flute",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Djembe Drum",
+        "cursedState": "2",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Chromatic Lyre",
+        "cursedState": "1",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Cornu Of The Demonspawn",
+        "cursedState": "1",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      },
+      {
+        "template": "Pipes Of The Sea",
+        "cursedState": "1",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "0-0",
+        "enchantmentName": ""
+      }
+    ]
+  }
+}

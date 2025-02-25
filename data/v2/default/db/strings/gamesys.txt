@@ -1,0 +1,1582 @@
+
+#
+# General stuff
+#
+unarmed.weapon = Unarmed
+
+#
+# MODIFIERS
+#
+
+# Modifier Names
+
+modifier_name-hitPoints: Hit Points
+modifier_name-actionPoints: Action Points
+modifier_name-magicPoints: Magic Points
+
+modifier_name-reserved: reserved
+
+modifier_name-hitPointRegenRate: Hits Regen
+modifier_name-actionPointRegenRate: Stealth Regen
+modifier_name-magicPointRegenRate: Magic Regen
+modifier_name-staminaRegenRate: Stamina Regen
+
+modifier_name-brawn: Brawn
+modifier_name-skill: Skill
+modifier_name-thieving: Thieving
+modifier_name-sneaking: Sneaking
+modifier_name-brains: Brains
+modifier_name-power: Power
+
+modifier_name-swing: Swing
+modifier_name-thrust: Thrust
+modifier_name-cut: Cut
+modifier_name-lunge: Lunge
+modifier_name-bash: Bash
+modifier_name-punch: Punch
+modifier_name-kick: Kick
+modifier_name-throw: Throw
+modifier_name-shoot: Shoot
+modifier_name-fire: Fire
+modifier_name-dualWeapons: Dual Weapons
+modifier_name-chivalry: Chivalry
+modifier_name-kendo: Kendo
+
+modifier_name-chant: Chant
+modifier_name-rhyme: Rhyme
+modifier_name-gesture: Gesture
+modifier_name-posture: Posture
+modifier_name-thought: Thought
+modifier_name-herbal: Herbal
+modifier_name-alchemic: Alchemic
+modifier_name-artifacts: Artifacts
+modifier_name-mythology: Mythology
+modifier_name-craft: Smithcraft
+modifier_name-powerCast: Power Cast
+modifier_name-engineering: Engineering
+modifier_name-music: Music
+
+modifier_name-streetwise: Streetwise
+modifier_name-dungeoneer: Dungeoneer
+modifier_name-wildernessLore: Wilderness Lore
+modifier_name-survival: Survival
+modifier_name-backstab: Backstab
+modifier_name-snipe: Snipe
+modifier_name-lock&trap: Locks and Traps
+modifier_name-steal: Steal
+modifier_name-martialArts: Martial Arts
+modifier_name-meleeCriticals: Melee Criticals
+modifier_name-thrownCriticals: Thrown Criticals
+modifier_name-rangedCriticals: Ranged Criticals
+modifier_name-scouting: Scouting
+
+modifier_name-initiative: Initiative
+modifier_name-defence: Defence
+modifier_name-attack: Attack
+modifier_name-damage: Damage
+modifier_name-toPenetrate: To Penetrate
+modifier_name-vsPenetrate: Versus Penetrate
+modifier_name-vsAmbush: Anti-Ambush
+modifier_name-vsDodge: Anti-Dodge
+modifier_name-vsHide: Anti-Hide
+modifier_name-toBribe: Bribe
+modifier_name-toRunAway: To Run Away
+
+modifier_name-resistBludgeoning: Resist Bludgeoning
+modifier_name-resistPiercing: Resist Piercing
+modifier_name-resistSlashing: Resist Slashing
+modifier_name-resistFire: Resist Fire
+modifier_name-resistWater: Resist Water
+modifier_name-resistEarth: Resist Earth
+modifier_name-resistAir: Resist Air
+modifier_name-resistMental: Resist Mental
+modifier_name-resistEnergy: Resist Energy
+
+modifier_name-saveVsBeguilement: vs Beguilement
+modifier_name-saveVsTransmutation: vs Transmutation
+modifier_name-saveVsIllusion: vs Illusion
+modifier_name-saveVsEvocation: vs Evocation
+modifier_name-saveVsConjuration: vs Conjuration
+modifier_name-saveVsCurses: vs Curses
+modifier_name-saveVsBlessings: vs Blessings
+
+modifier_name-redMagicSpells: Red Magic Ability
+modifier_name-blackMagicSpells: Black Magic Ability
+modifier_name-purpleMagicSpells: Purple Magic Ability
+modifier_name-goldMagicSpells: Gold Magic Ability
+modifier_name-whiteMagicSpells: White Magic Ability
+modifier_name-greenMagicSpells: Green Magic Ability
+modifier_name-blueMagicSpells: Blue Magic Ability
+
+modifier_name-redMagicGen: Red Magic
+modifier_name-blackMagicGen: Black Magic
+modifier_name-purpleMagicGen: Purple Magic
+modifier_name-goldMagicGen: Gold Magic
+modifier_name-whiteMagicGen: White Magic
+modifier_name-greenMagicGen: Green Magic
+modifier_name-blueMagicGen: Blue Magic
+
+modifier_name-immuneToDamage: Immune To Damage
+modifier_name-immuneToHeat: Immune To Heat
+modifier_name-immuneToCold: Immune To Cold
+modifier_name-immuneToPoison: Immune To Poison
+modifier_name-immuneToLightning: Immune To Lightning
+modifier_name-immuneToPsychic: Immune To Psychic
+modifier_name-immuneToAcid: Immune To Acid
+
+modifier_name-immuneToBlind: Immune To Blind
+modifier_name-immuneToDisease: Immune To Disease
+modifier_name-immuneToFear: Immune To Fear
+modifier_name-immuneToHex: Immune To Hex
+modifier_name-immuneToInsane: Immune To Insane
+modifier_name-immuneToInvisible: Immune To Invisible
+modifier_name-immuneToIrritate: Immune To Irritate
+modifier_name-immuneToKO: Immune To KO
+modifier_name-immuneToNausea: Immune To Nausea
+modifier_name-immuneToParalyse: Immune To Paralyse
+modifier_name-immuneToPossession: Immune To Possession
+modifier_name-immuneToSilence: Immune To Silence
+modifier_name-immuneToSleep: Immune To Sleep
+modifier_name-immuneToStone: Immune To Stone
+modifier_name-immuneToSwallow: Immune To Swallow
+modifier_name-immuneToWeb: Immune To Web
+modifier_name-immuneToCriticals: Immune To Criticals
+
+modifier_name-lightSleeper: Light Sleeper
+modifier_name-blindFighting: Blind Fighting
+modifier_name-extraGold: Extra Gold
+modifier_name-cheatDeath: Cheat Death
+modifier_name-magicAbsorption: Magic Absorption
+modifier_name-arrowCutting: Arrow Cutting
+modifier_name-ambusher: Ambusher
+modifier_name-entertainer: Entertainer
+modifier_name-diplomat: Diplomat
+modifier_name-blink: Blink
+modifier_name-tirelessSword: Tireless With Swords
+modifier_name-tirelessAxe: Tireless With Axes
+modifier_name-tirelessSpear: Tireless With Spears
+modifier_name-tirelessMace: Tireless With Mace
+modifier_name-tirelessDagger: Tireless With Dagger
+modifier_name-tirelessStaff: Tireless With Staff
+modifier_name-tirelessBow: Tireless With Bow
+modifier_name-tirelessThrown: Tireless: Thrown Weapons
+modifier_name-tirelessUnarmed: Tireless: Unarmed Combat
+modifier_name-blindTouch: Blinding Touch
+modifier_name-fearTouch: Terrifying Touch
+modifier_name-hexTouch: Hex Touch
+modifier_name-insaneTouch: Touch of Insanity
+modifier_name-irritateTouch: Itching Touch
+modifier_name-nauseaTouch: Nauseating Touch
+modifier_name-silenceTouch: Touch of Silence
+modifier_name-sleepTouch: Touch of Drowsiness
+modifier_name-stoneTouch: Petrifying Touch
+modifier_name-paralyseTouch: Paralysing Touch
+modifier_name-webTouch: Entangling Touch
+modifier_name-diseaseTouch: Corrupting Touch
+modifier_name-poisonTouch: Poison Touch
+modifier_name-koTouch: KO Touch
+modifier_name-razorCloak: Damage Reflection
+modifier_name-ccPenalty: Carrying Capacity
+modifier_name-damageMultiplier: Damage Multiplier
+modifier_name-lightningStrikeSword: Lightning Strike - Sword
+modifier_name-lightningStrikeAxe: Lightning Strike - Axe
+modifier_name-lightningStrikeSpear: Lightning Strike - Spear
+modifier_name-lightningStrikeMace: Lightning Strike - Mace
+modifier_name-lightningStrikeDagger: Lightning Strike - Dagger
+modifier_name-lightningStrikeStaff: Lightning Strike - Staff
+modifier_name-lightningStrikeUnarmed: Lightning Strike - Unarmed
+modifier_name-berserker: Berserker
+modifier_name-deadlyStrike: Deadly Strike
+modifier_name-dodge: Dodge
+modifier_name-masterArcher: Master Archer
+modifier_name-divineProtection: Divine Protection
+modifier_name-kiFury: Ki Fury
+modifier_name-feyAffinity: Fey Affinity
+modifier_name-arcaneBlood: Arcane Blood
+modifier_name-displacer: Displacer
+modifier_name-parry: Parry
+modifier_name-riposte: Riposte
+modifier_name-meleeMaster: Melee Master
+modifier_name-deadlyAim: Deadly Aim
+modifier_name-masterThief: Master Thief
+modifier_name-obfuscation: Obfuscation
+modifier_name-shadowMaster: Shadowmaster
+modifier_name-charmedDestiny: Charmed Destiny
+modifier_name-channelling: Channelling
+modifier_name-signatureWeaponEngineering: Signature Weapon/Engineer
+modifier_name-amphibious: Amphibious
+modifier_name-bonusAttacks: Bonus Attacks
+modifier_name-bonusStrikes: Bonus Strikes
+modifier_name-largeSize: Size: Large
+modifier_name-threaten: Threaten
+modifier_name-drinkingFit: Drinking Fit
+modifier_name-iajutsu: Iajutsu
+modifier_name-favouredEnemyHorror: Favoured Enemy: Horror
+modifier_name-favouredEnemyBeast: Favoured Enemy: Beast
+modifier_name-favouredEnemyConstruct: Favoured Enemy: Construct
+modifier_name-favouredEnemyElemental: Favoured Enemy: Elemental
+modifier_name-favouredEnemyMazeCreature: Favoured Enemy: Creature of the Maze
+modifier_name-favouredEnemyDragon: Favoured Enemy: Dragon
+modifier_name-favouredEnemyFey: Favoured Enemy: Fey
+modifier_name-favouredEnemyGiant: Favoured Enemy: Giant
+modifier_name-favouredEnemyHumanoid: Favoured Enemy: Humanoid
+modifier_name-favouredEnemyIllusion: Favoured Enemy: Illusion
+modifier_name-favouredEnemyCryptobestia: Favoured Enemy: Cryptobestia
+modifier_name-favouredEnemyMonstrosity: Favoured Enemy: Monstrosity
+modifier_name-favouredEnemyOoze: Favoured Enemy: Ooze
+modifier_name-favouredEnemyOutsider: Favoured Enemy: Outsider
+modifier_name-favouredEnemyPlant: Favoured Enemy: Plant
+modifier_name-favouredEnemyUndead: Favoured Enemy: Undead
+modifier_name-favouredEnemyVermin: Favoured Enemy: Vermin
+modifier_name-powerOfDarkness: Powers of Darkness
+modifier_name-flier: Flier
+modifier_name-strongSwimmer: Strong Swimmer
+modifier_name-furiousPurpose: Furious Purpose
+modifier_name-swordParry: Sword Parry
+modifier_name-axeParry: Axe Parry
+modifier_name-maceParry: Mace Parry
+modifier_name-polearmParry: Polearm Parry
+modifier_name-staffParry: Staff Parry
+modifier_name-unarmedParry: Unarmed Parry
+modifier_name-amazonCourage: Amazon Courage
+modifier_name-amazonWillpower: Amazon Willpower
+modifier_name-amazonFury: Amazon Fury
+modifier_name-sword1HWield: Sword 1H Wield
+modifier_name-axe1HWield: Axe 1H Wield
+modifier_name-mace1HWield: Mace 1H Wield
+modifier_name-polearm1HWield: Polearm 1H Wield
+modifier_name-staff1HWield: Staff 1H Wield
+modifier_name-berserkPowers: Berserk Powers
+modifier_name-codeOfHonour: Code of Honour
+modifier_name-codeOfDishonour: Code of Dishonour
+modifier_name-dyingBlow: Dying Blow
+modifier_name-finisher: Finisher
+modifier_name-bloodthirsty: Bloodthirsty
+modifier_name-notoriety: Notoriety
+modifier_name-terrifyingReputation: Terrifying Reputation
+modifier_name-hide: Hide
+modifier_name-actionRegenUrban: Action Regen: Urban
+modifier_name-actionRegenDungeon: Action Regen: Dungeon
+modifier_name-actionRegenWilderness: Action Regen: Wilderness
+modifier_name-actionRegenWasteland: Action Regen: Wasteland
+modifier_name-dangerSense: Danger Sense
+modifier_name-quickWits: Quick Wits
+modifier_name-trapSense: Trap Sense
+modifier_name-slipAway: Slip Away
+modifier_name-surpriseParry: Surprise Parry
+modifier_name-barterExpert: Barter Expert
+modifier_name-persuasion: Persuasion
+modifier_name-supplyConsumption: Supply Consumption
+modifier_name-reincarnateBeast: Reincarnate: Beast
+modifier_name-powerSummonElemental: Power Summon: Elemental
+modifier_name-powerSummonBeast: Power Summon: Beast
+modifier_name-powerSummonPlant: Power Summon: Plant
+modifier_name-powerSummonFey: Power Summon: Fey
+modifier_name-powerSummonIllusion: Power Summon: Illusion
+modifier_name-masterDiviner: Master Diviner
+modifier_name-bombThrower: Bomb Thrower
+modifier_name-packRat: Pack Rat
+modifier_name-meleeCleave: Melee Cleave
+modifier_name-weaponMaster: Weapon Master
+modifier_name-toToToe: Toe to Toe
+modifier_name-lastStand: Last Stand
+modifier_name-selfAwareness: Self Awareness
+modifier_name-snakespeed: Snakespeed
+modifier_name-acrobatics: Acrobatics
+modifier_name-yubiJutsu: Yubi-Jutsu
+modifier_name-shieldBash: Shield Bash
+modifier_name-shieldBlock: Shield Block
+modifier_name-empoweredHealing: Empowered Healing
+modifier_name-patience: Patience
+modifier_name-shedBlights: Shed Blights
+modifier_name-modifierSelectionFavouredEnemy: Modifier Selection/Favoured Enemy
+modifier_name-guardDuty: Guard Duty
+modifier_name-deadlyThrow: Deadly Throw
+modifier_name-battleMaster: Battle Master
+modifier_name-arrowCatching: Arrow Catching
+modifier_name-inspiringBlow: Inspiring Blow
+modifier_name-bonusExperienceCombat: Bonus Experience: Combat Focus
+modifier_name-bonusExperienceStealth: Bonus Experience: Stealth Focus
+modifier_name-bonusExperienceMagic: Bonus Experience: Magic Focus
+modifier_name-dieHard: Die Hard
+modifier_name-resistantSaves: Resistant Saves
+modifier_name-spellSniping: Spell Sniping
+modifier_name-powerOfRestraint: Power of Restraint
+modifier_name-focusOfSpeed: Focus of Speed
+modifier_name-coiledSpring: Coiled Spring
+modifier_name-noSurvivors: No Survivors
+modifier_name-blackMagicCircle: Black Magic Circle
+modifier_name-blueMagicCircle: Blue Magic Circle
+modifier_name-greenMagicCircle: Green Magic Circle
+modifier_name-whiteMagicCircle: White Magic Circle
+modifier_name-redMagicCircle: Red Magic Circle
+modifier_name-purpleMagicCircle: Purple Magic Circle
+modifier_name-goldMagicCircle: Gold Magic Circle
+modifier_name-beyondInsanity: Beyond Insanity
+modifier_name-cursedPower: Cursed Power
+modifier_name-attuneWithNature: Attune With Nature
+modifier_name-reverseGlamour: Reverse Glamour
+
+# Modifier Descriptions
+
+modifier_desc-hitPoints: todo
+modifier_desc-actionPoints: todo
+modifier_desc-magicPoints: todo
+
+modifier_desc-reserved: reserved
+
+modifier_desc-hitPointRegenRate: Modifies the rate at which this character recovers Hit Points.
+modifier_desc-actionPointRegenRate: Modifies the rate at which this character recovers Stealth Points.
+modifier_desc-magicPointRegenRate: Modifies the rate at which this character recovers Magic Points.
+modifier_desc-staminaRegenRate: Modifies the rate at which this character restores fatigue
+
+modifier_desc-brawn: A measure of this characters physical toughness.
+modifier_desc-skill: A measure of this characters skill with arms and large motor coordination.
+modifier_desc-thieving: A measure of this characters proficiency at skulduggery.
+modifier_desc-sneaking: A measure of this characters proficiency at hiding and skulking.
+modifier_desc-brains: A measure of this characters intelligence.
+modifier_desc-power: A measure of this characters raw magic power.
+
+modifier_desc-swing: A wide slashing attack.  Weapons with this attack mode can include axes, scimitars and maces.
+modifier_desc-thrust: An unsophisticated thrusting attack.  Weapons with this attack mode can include spears, staves and two handed swords.
+modifier_desc-cut: A sword stroke intended to wound with the edge of the blade.  Most swords have this attack mode.
+modifier_desc-lunge: A sword stroke intended to wound with the point of the blade.  Most swords and daggers have this attack mode.
+modifier_desc-bash: An unsophisticated attack with a blunt weapon.  Weapons with this attack mode include maces, staves and clubs.
+modifier_desc-punch: An unarmed attack carried out with the hand, upper arm or elbow.
+modifier_desc-kick: An unarmed attack carried out with the foot, lower leg or knee.
+modifier_desc-throw: The attack mode of thrown weapons, including knives, darts and slings.
+modifier_desc-shoot: The attack mode of missile weapons, including bows and crossbows.
+modifier_desc-fire: The attack mode of modern projectile and energy weapons.
+modifier_desc-dualWeapons: Modifies this characters ability to fight with an offhand weapon, and the use of weapons with from the 'Dual Weapons' discipline.
+modifier_desc-chivalry: Modifies the use of weapons from the 'Chivalry' discipline, for example broadswords and lances.
+modifier_desc-kendo: Modifies the use of weapons from the 'Kendo' discipline, for example the katana and wakizashi.
+
+modifier_desc-chant: Modifies spell effects that require a continuous chanted invocation.  These are typically White and Green magic spells.
+modifier_desc-rhyme: Modifies spell effects that require a rhyme or verse component.  These are typically Purple and Gold magic spells.
+modifier_desc-gesture: Modifies spell effects that require a hand sign or gesture.  These are typically Black Magic and Red magic spells.
+modifier_desc-posture: Modifies spell effects that require a posture or dance component.  These are typically Gold and White Magic spells.
+modifier_desc-thought: Modifies spell effects that require a purely mental component.  These are typically Red and Blue magic spells.
+modifier_desc-herbal: Modifies spell effects that require herbal reagents.  These are typically Green and Purple magic spells. Also governs attempts to create potions and powders from herbal components.
+modifier_desc-alchemic: Modifies spell effects that require mineral, metal or similar reagents.  These are typically Blue and Black Magic spells. Also governs attempts to create potions and powders from alchemic components.
+modifier_desc-artifacts: Modifies attempts to identify and use items.
+modifier_desc-mythology: Modifies attempts to identify foes.
+modifier_desc-craft: The mystic art of the smith, used by this character to craft weapons and armour.
+modifier_desc-powerCast: Reduces the ability of foes to resist your spells.
+modifier_desc-engineering: Modifies attempts to create and use gadgets.
+modifier_desc-music: Modifies attempts to use magical musical instruments and attempts to combine them with musical scores.
+
+modifier_desc-streetwise: A measure of this characters stealth in urban environments, typically cities and buildings.
+modifier_desc-dungeoneer: A measure of this characters stealth in dungeon environments, including caves and tunnels.
+modifier_desc-wildernessLore: A measure of this characters stealth in wilderness areas - uninhabited but not inhospitable areas.  Includes forests, jungles, plains, and hills.
+modifier_desc-survival: A measure of this characters stealth in wasteland areas - uninhabited and actively inhospitable areas.  Includes deserts, tundra, mountains and sundry fantastical landscapes.
+modifier_desc-backstab: Modifies backstabs with melee weapons.
+modifier_desc-snipe: Modifies snipes with missile weapons.
+modifier_desc-lock&trap: Modifies attempts to pick locks and disarm traps.
+modifier_desc-steal: Modifies attempts to pick pockets, shoplift and similar criminal activities.
+modifier_desc-martialArts: Modifies unarmed combat, and the use of weapons from the 'Martial Arts' discipline, for example the tsai and shuriken.
+modifier_desc-meleeCriticals: Modifies the chance of a critical hit with a melee weapon, including unarmed attacks
+modifier_desc-thrownCriticals: Modifies the chance of a critical hit with a thrown weapon like knives and shuriken, and including slings
+modifier_desc-rangedCriticals: Modifies the chance of a critical hit with a ranged weapon, including bows, crossbows and modern ranged weapons
+modifier_desc-scouting: Gives this character the ability to locate hidden items and other secrets
+
+modifier_desc-initiative: Modifies how early this character acts in each combat round.
+modifier_desc-defence: Modifies how difficult this character is to hit by melee and missile attacks.
+modifier_desc-attack: Modifies this characters attempts to hit others with melee and missile attacks.
+modifier_desc-damage: Modifies the damage that this character deals with melee and missile attacks.
+modifier_desc-toPenetrate: Modifies the armour penetration chance of successful attacks by this character.
+modifier_desc-vsPenetrate: Modifies the armour penetration chance of successful attacks on this character
+modifier_desc-vsAmbush: Makes ambushes against this character harder.
+modifier_desc-vsDodge: Makes dodging this characters attacks harder.
+modifier_desc-vsHide: Makes hiding harder for enemies of this character.
+modifier_desc-toBribe: This character can bribe others into working with him or her.
+modifier_desc-toRunAway: Makes this character better at running away from combat.
+
+modifier_desc-resistBludgeoning: Reduces bludgeoning damage. Such damage is usually dealt by blunt weapons and crushing attacks.
+modifier_desc-resistPiercing: Reduces piercing damage. Such damage is usually dealt by pointed weapons and impaling attacks.
+modifier_desc-resistSlashing: Reduces slashing damage. Such damage is usually dealt by edged weapons and slicing attacks.
+modifier_desc-resistFire: Reduces fire-type damage and effects to this character.
+modifier_desc-resistWater: Reduces water-type damage and effects to this character.
+modifier_desc-resistEarth: Reduces earth-type damage and effects to this character.
+modifier_desc-resistAir: Reduces air-type damage and effects to this character.
+modifier_desc-resistMental: Reduces psychic-type damage and effects to this character.
+modifier_desc-resistEnergy: Reduces energy-type damage and effects to this character.
+
+modifier_desc-saveVsBeguilement: Modifies this characters saves against beguilement spells and effects.
+modifier_desc-saveVsTransmutation: Modifies this characters saves against transmutation spells and effects.
+modifier_desc-saveVsIllusion: Modifies this characters saves against illusion spells and effects.
+modifier_desc-saveVsEvocation: Modifies this characters saves against evocation spells and effects.
+modifier_desc-saveVsConjuration: Modifies this characters saves against conjuration spells and effects.
+modifier_desc-saveVsCurses: Modifies this characters saves against curse spells and effects.
+modifier_desc-saveVsBlessings: Modifies this characters saves against blessed spells and effects.  Since most blessings are bestowed on willing recipients, this modifier is rarely used.
+
+modifier_desc-redMagicSpells: The maximum level of Red magic spells that this character can cast.
+modifier_desc-blackMagicSpells: The maximum level of Black magic spells that this character can cast.
+modifier_desc-purpleMagicSpells: The maximum level of Purple magic spells that this character can cast.
+modifier_desc-goldMagicSpells: The maximum level of Gold magic spells that this character can cast.
+modifier_desc-whiteMagicSpells: The maximum level of White magic spells that this character can cast.
+modifier_desc-greenMagicSpells: The maximum level of Green magic spells that this character can cast.
+modifier_desc-blueMagicSpells: The maximum level of Blue magic spells that this character can cast.
+
+modifier_desc-redMagicGen: The amount of red magic generated by this character.
+modifier_desc-blackMagicGen: The amount of black magic generated by this character.
+modifier_desc-purpleMagicGen: The amount of purple magic generated by this character.
+modifier_desc-goldMagicGen: The amount of gold magic generated by this character.
+modifier_desc-whiteMagicGen: The amount of white magic generated by this character.
+modifier_desc-greenMagicGen: The amount of green magic generated by this character.
+modifier_desc-blueMagicGen: The amount of blue magic generated by this character.
+
+modifier_desc-immuneToDamage: This character is immune to normal damage.
+modifier_desc-immuneToHeat: This character is unaffected by heat damage.
+modifier_desc-immuneToCold: This character is unaffected by cold damage.
+modifier_desc-immuneToPoison: This character is unaffected by poison effects.
+modifier_desc-immuneToLightning: This character is unaffected by lightning effects.
+modifier_desc-immuneToPsychic: This character is unaffected by psychic effects.
+modifier_desc-immuneToAcid: This character is unaffected by acid effects.
+
+modifier_desc-immuneToBlind: This character is unaffected by blinding effects.
+modifier_desc-immuneToDisease: This character is unaffected by disease effects.
+modifier_desc-immuneToFear: This character is unaffected by fear effects.
+modifier_desc-immuneToHex: This character is unaffected by hex effects.
+modifier_desc-immuneToInsane: This character is unaffected by insane effects.
+modifier_desc-immuneToInvisible: This character is unaffected by invisibility effects.
+modifier_desc-immuneToIrritate: This character is unaffected by irritate effects.
+modifier_desc-immuneToKO: This character is unaffected by KO effects.
+modifier_desc-immuneToNausea: This character is unaffected by nausea effects.
+modifier_desc-immuneToParalyse: This character is unaffected by paralyse effects.
+modifier_desc-immuneToPossession: This character is unaffected by possession effects.
+modifier_desc-immuneToSilence: This character is unaffected by silence effects.
+modifier_desc-immuneToSleep: This character is unaffected by sleep effects.
+modifier_desc-immuneToStone: This character is unaffected by stone effects.
+modifier_desc-immuneToSwallow: This character is unaffected by swallow effects.
+modifier_desc-immuneToWeb: This character is unaffected by web effects.
+modifier_desc-immuneToCriticals: This character is unaffected by critical hits.
+
+modifier_desc-lightSleeper: This character always wakes up if the party is attacked when resting.
+modifier_desc-blindFighting: This character can attack and defend normally while blind.
+modifier_desc-extraGold: This character gleans extra gold from foes and chests.
+modifier_desc-cheatDeath: This character has a chance of cheating certain death.
+modifier_desc-magicAbsorption: This character gains magic points when afflicted by enemy spells and special abilities.
+modifier_desc-arrowCutting: This character has a chance of deflecting incoming projectiles.
+modifier_desc-ambusher: This character is particularly deadly when the party manages to surprise a group of enemies
+modifier_desc-entertainer: This character boosts the parties regeneration rates when camping
+modifier_desc-diplomat: NPCs react more favourably to this character
+modifier_desc-blink: During combat this character blinks randomly in and out of existence
+modifier_desc-tirelessSword: This character is not fatigued when using swords in battle.
+modifier_desc-tirelessAxe: This character is not fatigued when using axes in battle.
+modifier_desc-tirelessSpear: This character is not fatigued when using spears and polearms in battle.
+modifier_desc-tirelessMace: This character is not fatigued when using maces and flails in battle.
+modifier_desc-tirelessDagger: This character is not fatigued when using daggers in battle.
+modifier_desc-tirelessStaff: This character is not fatigued when using staves in battle.
+modifier_desc-tirelessBow: This character is not fatigued when using bows and crossbows in battle.
+modifier_desc-tirelessThrown: This character is not fatigued when using thrown weapons in battle.
+modifier_desc-tirelessUnarmed: This character is not fatigued when fighting unarmed.
+modifier_desc-blindTouch: Melee attacks by this character may deliver a curse of blindness.
+modifier_desc-fearTouch: Melee attacks by this character may deliver a curse of fear.
+modifier_desc-hexTouch: Melee attacks by this character may deliver a debilitating curse.
+modifier_desc-insaneTouch: Melee attacks by this character may deliver a curse of insanity.
+modifier_desc-irritateTouch: Melee attacks by this character may deliver a curse of itching.
+modifier_desc-nauseaTouch: Melee attacks by this character may deliver a curse of nausea.
+modifier_desc-silenceTouch: Melee attacks by this character may deliver a curse of silence.
+modifier_desc-sleepTouch: Melee attacks by this character may deliver a curse of sleep.
+modifier_desc-stoneTouch: Melee attacks by this character may deliver a curse of petrification.
+modifier_desc-paralyseTouch: Melee attacks by this character may deliver a curse of paralysis.
+modifier_desc-webTouch: Melee attacks by this character may deliver a curse of entanglement.
+modifier_desc-diseaseTouch: Melee attacks by this character may deliver a curse of disease.
+modifier_desc-poisonTouch: Melee attacks by character may deliver a dose of deadly poison.
+modifier_desc-koTouch: Melee attacks by character may knock a foe unconscious.
+modifier_desc-razorCloak: Some damage dealt to this character is reflected to its source.
+modifier_desc-ccPenalty: This character has a modified carrying capacity.
+modifier_desc-damageMultiplier: Multiplier for damage done.
+modifier_desc-lightningStrikeSword: When using a sword this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-lightningStrikeAxe: When using an axe this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-lightningStrikeSpear: When using a spear this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-lightningStrikeMace: When using a mace this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-lightningStrikeDagger: When using a dagger this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-lightningStrikeStaff: When using a stave this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-lightningStrikeUnarmed: When fighting unarmed this character occasionally attacks with blazing speed, striking many more times than usual.
+modifier_desc-berserker: In combat this character has a chance of flying into a terrifying berserker rage.
+modifier_desc-deadlyStrike: In melee combat this character has a chance of delivering a precise and deadly attack that deals extra damage.
+modifier_desc-dodge: This character has a chance of dodging melee and missile attacks.
+modifier_desc-masterArcher: This character is a master marskman and makes much more accurate attacks with bows, crossbows and firearms.
+modifier_desc-divineProtection: This character receives a defence bonus in combat relative to the amount of White magic present.
+modifier_desc-kiFury: This character receives an attack rate bonus in combat relative to the amount of Green magic present.
+modifier_desc-feyAffinity: This character regenerates magic points at an increased rate depending on the amount of Gold magic present.
+modifier_desc-arcaneBlood: This character regenerates hit points at an increased rate depending on the amount of Red magic present.
+modifier_desc-displacer: Once every combat round, this character can swap places with another in the party before the combat round starts.
+modifier_desc-parry: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks.
+modifier_desc-riposte: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks and riposting with a melee attack of their own.
+modifier_desc-meleeMaster: When armed with a melee weapon, this character gets a attack rate bonus proportional to the number of foes present.
+modifier_desc-deadlyAim: This character has a boosted chance to hit with ranged weapons.
+modifier_desc-masterThief: Vendors will not catch this character red-handed when stealing.
+modifier_desc-obfuscation: This character is less likely (relative to other characters levels of obfuscation) to be targetted by foe attacks.
+modifier_desc-shadowMaster: This character gets a bonus to all critical hit modifiers based on the amount of Black magic present.
+modifier_desc-charmedDestiny: This character gets a bonus to various evasive modifiers based on the amount of Purple magic present.
+modifier_desc-channelling: This character gets a bonus to initiative based on the amount of Blue magic present.
+modifier_desc-signatureWeaponEngineering: On level up this character has a chance of upgrading a signature weapon based on his or her Engineering ability.
+modifier_desc-amphibious: This character is equally at home on land and in water.
+modifier_desc-bonusAttacks: Grants this character bonus attacks in combat.
+modifier_desc-bonusStrikes: Grants this character bonus strikes during each attack in combat.
+modifier_desc-largeSize: This character is physically larger than average.
+modifier_desc-threaten: The ability to intimidate another into doing what you want.
+modifier_desc-drinkingFit: This character never suffers ill effects from alcohol.
+modifier_desc-iajutsu: The art of rapidly drawing and attacking with a sword.
+modifier_desc-favouredEnemyHorror: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyBeast: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyConstruct: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyElemental: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyMazeCreature: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyDragon: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyFey: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyGiant: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyHumanoid: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyIllusion: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyCryptobestia: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyMonstrosity: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyOoze: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyOutsider: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyPlant: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyUndead: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-favouredEnemyVermin: This character gets bonuses in combat and other interactions with this type of foe.
+modifier_desc-powerOfDarkness: The Powers of Darkness draw near, granting this character a Power Cast bonus based on the amount of Black Magic present.
+modifier_desc-flier: This character has some capability to fly.
+modifier_desc-strongSwimmer: Swimming costs this character half the usual fatigue.
+modifier_desc-furiousPurpose: When hit with a KO effect, this character gains hit points instead.
+modifier_desc-swordParry: Gains parry when armed with a sword
+modifier_desc-axeParry: Gains parry when armed with an axe
+modifier_desc-maceParry: Gains parry when armed with a mace or hammer
+modifier_desc-polearmParry: Gains parry when armed with a polearm
+modifier_desc-staffParry: Gains parry when armed with a staff
+modifier_desc-unarmedParry: This character gains parry while fighting unarmed.
+modifier_desc-amazonCourage: Instead of getting afflicted by the Fear condition, this character gains an Amazon Courage condition instead.
+modifier_desc-amazonWillpower: Instead of getting afflicted by Confusion or Possession, this character gains an Amazon Willpower condition instead.
+modifier_desc-amazonFury: Instead of getting afflicted by Web, Sleep, Slow or Paralyse, this character gains an Amazon Fury condition instead.
+modifier_desc-sword1HWield: The character can wield two-handed swords with one hand.
+modifier_desc-axe1HWield: The character can wield two-handed axes with one hand.
+modifier_desc-mace1HWield: The character can wield two-handed maces with one hand.
+modifier_desc-polearm1HWield: The character can wield two-handed polearms with one hand.
+modifier_desc-staff1HWield: The character can wield two-handed staves with one hand.
+modifier_desc-berserkPowers: This modifier tracks the increasing benefits a character gets while berserk.
+modifier_desc-codeOfHonour: The character loses experience points if the party ever acts dishonourably.
+modifier_desc-codeOfDishonour: The character loses experience points if the party ever acts honourably.
+modifier_desc-dyingBlow: If killed by a melee attack, this character makes one melee strike against the attacker.
+modifier_desc-finisher: The characters melee attacks against incapacitated enemies are all critical hits
+modifier_desc-bloodthirsty: The character receives combat bonuses at low hit point levels.
+modifier_desc-notoriety: The character receives bonus experience points for killing named NPCs and other party members.
+modifier_desc-terrifyingReputation: Strangers will react strongly to this characters terrifying reputation.
+modifier_desc-hide: This character can hide in combat.
+modifier_desc-actionRegenUrban: This character has boosted Action Point regeneration in Urban terrain.
+modifier_desc-actionRegenDungeon: This character has boosted Action Point regeneration in Dungeon terrain.
+modifier_desc-actionRegenWilderness: This character has boosted Action Point regeneration in Wilderness terrain.
+modifier_desc-actionRegenWasteland: This character has boosted Action Point regeneration in Wasteland terrain.
+modifier_desc-dangerSense: This character has bonus resistance against trap spells and backfiring spells from party.
+modifier_desc-quickWits: When the party is surprised, this character can act in the surprise round.
+modifier_desc-trapSense: This character automatically identifies traps.
+modifier_desc-slipAway: If this character is the last one left alive in the party, he or she will automatically escape from combat
+modifier_desc-surpriseParry: If the character is attacked while empty handed, he or she will equip a hidden blade and parry the attack.
+modifier_desc-barterExpert: The character is able to drive much better deals with vendors.
+modifier_desc-persuasion: When another character in the party tried to influence an NPC with treats, bribes or otherwise, it works much better.
+modifier_desc-supplyConsumption: Modifies how many units of supplies this character consumes when resting.
+modifier_desc-reincarnateBeast: If this character dies in combat, a powerful beast appears to aid the party.
+modifier_desc-powerSummonElemental: Elementals summoned by this character come into play buffed.
+modifier_desc-powerSummonBeast: Beasts summoned by this character come into play buffed.
+modifier_desc-powerSummonPlant: Plants summoned by this character come into play buffed.
+modifier_desc-powerSummonFey: Fey summoned by this character come into play buffed.
+modifier_desc-powerSummonIllusion: Illusions summoned by this character come into play buffed.
+modifier_desc-masterDiviner: This character restores Action Points every time he or she identifies an item.
+modifier_desc-bombThrower: This character has reduced chance of fumbling a bomb or powder in combat.
+modifier_desc-packRat: This character can change equipment during the action selection phase instead of spending a whole combat round on it.
+modifier_desc-meleeCleave: On a killing blow with a melee weapon, this character makes an extra attack on another foe.
+modifier_desc-weaponMaster: The character ignores most modifier requirements for wielding weapons.
+modifier_desc-toToToe: Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to this character.
+modifier_desc-lastStand: If this character is the last party member standing, restore hit points and action points.
+modifier_desc-selfAwareness: This character can always identify baneful conditions that afflict their person.
+modifier_desc-snakespeed: In combat this character can choose to act before characters that do not have snakespeed.
+modifier_desc-acrobatics: Dodge actions in combat cost this character fewer action points than usual.
+modifier_desc-yubiJutsu: This character gets a bonus to melee criticals when fighting unarmed.
+modifier_desc-shieldBash: When equipped with a shield that takes an enemy blow, this character has a chance of executing a bash attack with the shield.
+modifier_desc-shieldBlock: When blocking a blow with a shield, this character restores fatigue.
+modifier_desc-empoweredHealing: This character restores extra hit points with every healing spell.
+modifier_desc-patience: In combat this character can choose to act after any characters that do not also have patience.
+modifier_desc-shedBlights: At the end of every turn this character has a chance of shedding any baneful conditions.
+modifier_desc-modifierSelectionFavouredEnemy: At level up, this character has a chance of selecting a new favoured enemy type.
+modifier_desc-guardDuty: This character reduces the risk an random encounters each time the party rests.
+modifier_desc-deadlyThrow: This character has a boosted chance to hit with thrown weapons.
+modifier_desc-battleMaster: This character regains Action Points every time he or she is wounded.
+modifier_desc-arrowCatching: This character has a chance of catching incoming projectiles.
+modifier_desc-inspiringBlow: When this character strikes the blow that slays a foe, others in the party are inspired to greater feats.
+modifier_desc-bonusExperienceCombat: If this character belongs to a combat focused class, he or she gains extra experience.
+modifier_desc-bonusExperienceStealth: If this character belongs to a stealth focused class, he or she gains extra experience.
+modifier_desc-bonusExperienceMagic: If this character belongs to a magic focused class, he or she gains extra experience.
+modifier_desc-dieHard: When this character takes lethal damage in combat, he or she keeps fighting until the end of the round.
+modifier_desc-resistantSaves: When this character succeeds at a saving throw and would still take damage, he or she takes no damage instead.
+modifier_desc-spellSniping: Projectile spells cast by this character count as snipe attacks.
+modifier_desc-powerOfRestraint: This character gets extra magic resistance for every unspent spellpick.
+modifier_desc-focusOfSpeed: This character gains +1 initiative for every condition on him or her.
+modifier_desc-coiledSpring: This character does more combat damage as his or her action points run out.
+modifier_desc-noSurvivors: This character does an automatic backstab or snipe attack against any foes that try to flee.
+modifier_desc-blackMagicCircle: This character grants a Power Cast bonus to all Black Magic casters in the party.
+modifier_desc-blueMagicCircle: This character grants a Power Cast bonus to all Blue Magic casters in the party.
+modifier_desc-greenMagicCircle: This character grants a Power Cast bonus to all Green Magic casters in the party.
+modifier_desc-whiteMagicCircle: This character grants a Power Cast bonus to all White Magic casters in the party.
+modifier_desc-redMagicCircle: This character grants a Power Cast bonus to all Red Magic casters in the party.
+modifier_desc-purpleMagicCircle: This character grants a Power Cast bonus to all Purple Magic casters in the party.
+modifier_desc-goldMagicCircle: This character grants a Power Cast bonus to all Gold Magic casters in the party.
+modifier_desc-beyondInsanity: While insane this character gains bonus Magic Point regeneration and Power Cast.
+modifier_desc-cursedPower: While hexed this character gains bonus Action Point regeneration and Power.
+modifier_desc-attuneWithNature: This character gets an Action Point regeneration bonus in the presence of Green Magic.
+modifier_desc-reverseGlamour: Gold magic spells directed at this character are reflected back at the caster.
+
+#
+# LEVEL ABILITY PROGRESSION
+#
+
+# common
+lap_name_spellpicks+1=Spellpicks +1
+lap_desc_spellpicks+1=This character can choose 1 new spell.
+lap_name_spellpicks+2=Spellpicks +2
+lap_desc_spellpicks+2=This character can choose 2 new spells.
+lap_name_spellpicks+3=Spellpicks +3
+lap_desc_spellpicks+3=This character can choose 3 new spells.
+
+lap_name_red_magic_1=Red Magic 1
+lap_name_red_magic_2=Red Magic 2
+lap_name_red_magic_3=Red Magic 3
+lap_name_red_magic_4=Red Magic 4
+lap_name_red_magic_5=Red Magic 5
+lap_name_red_magic_6=Red Magic 6
+lap_name_red_magic_7=Red Magic 7
+lap_name_red_magic_8=Red Magic 8
+lap_name_red_magic_9=Red Magic 9
+lap_desc_red_magic=This character has the ability to cast Red Magic spells up to the listed spell level.
+
+lap_name_black_magic_1=Black Magic 1
+lap_name_black_magic_2=Black Magic 2
+lap_name_black_magic_3=Black Magic 3
+lap_name_black_magic_4=Black Magic 4
+lap_name_black_magic_5=Black Magic 5
+lap_name_black_magic_6=Black Magic 6
+lap_name_black_magic_7=Black Magic 7
+lap_name_black_magic_8=Black Magic 8
+lap_name_black_magic_9=Black Magic 9
+lap_desc_black_magic=This character has the ability to cast Black Magic spells up to the listed spell level.
+
+lap_name_purple_magic_1=Purple Magic 1
+lap_name_purple_magic_2=Purple Magic 2
+lap_name_purple_magic_3=Purple Magic 3
+lap_name_purple_magic_4=Purple Magic 4
+lap_name_purple_magic_5=Purple Magic 5
+lap_name_purple_magic_6=Purple Magic 6
+lap_name_purple_magic_7=Purple Magic 7
+lap_name_purple_magic_8=Purple Magic 8
+lap_name_purple_magic_9=Purple Magic 9
+lap_desc_purple_magic=This character has the ability to cast Purple Magic spells up to the listed spell level.
+
+lap_name_gold_magic_1=Gold Magic 1
+lap_name_gold_magic_2=Gold Magic 2
+lap_name_gold_magic_3=Gold Magic 3
+lap_name_gold_magic_4=Gold Magic 4
+lap_name_gold_magic_5=Gold Magic 5
+lap_name_gold_magic_6=Gold Magic 6
+lap_name_gold_magic_7=Gold Magic 7
+lap_name_gold_magic_8=Gold Magic 8
+lap_name_gold_magic_9=Gold Magic 9
+lap_desc_gold_magic=This character has the ability to cast Gold Magic spells up to the listed spell level.
+
+lap_name_white_magic_1=White Magic 1
+lap_name_white_magic_2=White Magic 2
+lap_name_white_magic_3=White Magic 3
+lap_name_white_magic_4=White Magic 4
+lap_name_white_magic_5=White Magic 5
+lap_name_white_magic_6=White Magic 6
+lap_name_white_magic_7=White Magic 7
+lap_name_white_magic_8=White Magic 8
+lap_name_white_magic_9=White Magic 9
+lap_desc_white_magic=This character has the ability to cast White Magic spells up to the listed spell level.
+
+lap_name_green_magic_1=Green Magic 1
+lap_name_green_magic_2=Green Magic 2
+lap_name_green_magic_3=Green Magic 3
+lap_name_green_magic_4=Green Magic 4
+lap_name_green_magic_5=Green Magic 5
+lap_name_green_magic_6=Green Magic 6
+lap_name_green_magic_7=Green Magic 7
+lap_name_green_magic_8=Green Magic 8
+lap_name_green_magic_9=Green Magic 9
+lap_desc_green_magic=This character has the ability to cast Green Magic spells up to the listed spell level.
+
+lap_name_blue_magic_1=Blue Magic 1
+lap_name_blue_magic_2=Blue Magic 2
+lap_name_blue_magic_3=Blue Magic 3
+lap_name_blue_magic_4=Blue Magic 4
+lap_name_blue_magic_5=Blue Magic 5
+lap_name_blue_magic_6=Blue Magic 6
+lap_name_blue_magic_7=Blue Magic 7
+lap_name_blue_magic_8=Blue Magic 8
+lap_name_blue_magic_9=Blue Magic 9
+lap_desc_blue_magic=This character has the ability to cast Blue Magic spells up to the listed spell level.
+
+# common to several classes
+lap_name_deadly_aim = Deadly Aim %s
+lap_desc_deadly_aim = This character has a boosted chance to hit with ranged weapons.
+lap_name_deadly_throw = Deadly Throw %s
+lap_desc_deadly_throw = This character has a boosted chance to hit with thrown weapons.
+lap_name_turn_undead = Lesser Turn Undead
+lap_desc_turn_undead = The character can turn undead.
+lap_name_greater_turn_undead = Greater Turn Undead
+lap_desc_greater_turn_undead = The character can turn undead.
+lap_name_deadly_strike = Deadly Strike %s
+lap_desc_deadly_strike = The character can deal a number of strikes that do double damage.
+lap_name_ambusher = Ambusher %s
+lap_desc_ambusher = The character is especially deadly to foes that the party has surprised.
+lap_name_master_archer = Master Archer
+lap_desc_master_archer = The character is supremely accurate with ranged weapons.
+lap_name_parry = Parry %s
+lap_desc_parry = When armed, the character has a chance of parrying melee attacks.
+lap_name_riposte = Riposte %s
+lap_desc_riposte: When armed with a melee weapon, this character has a chance of parrying enemy melee attacks and riposting with a melee attack of their own.
+lap_name_arrow_cutting = Arrow Cutting %s
+lap_desc_arrow_cutting = The character is extremely adept at deflecting incoming projectiles.
+lap_name_bard = Bard
+lap_desc_bard = Strangers met on the road always react more favourably to this character, and his or her presence in a party increases the rate of resource regeneration when camping.
+lap_name_bomb_thrower = Bomb Thrower
+lap_desc_bomb_thrower = This character is unlikely to fumble a bomb or powder in combat.
+lap_name_finisher = Finisher
+lap_desc_finisher = Melee attacks by this character against incapacitated enemies are all critical hits.
+lap_name_forager1 = Forager 1
+lap_name_forager2 = Forager 2
+lap_desc_forager = This character supplies him or herself from the land and consumes fewer party supplies while resting.
+lap_name_acrobatics = Acrobatics
+lap_desc_acrobatics = With great agility this character can easily evade melee attacks.
+lap_name_poison_use = Poison Use
+lap_desc_poison_use = This character applies a foul poison to weapons that he or she wields.
+lap_name_blind_fighting = Blind Fighting
+lap_desc_blind_fighting = This character can attack and defend normally while blind.
+lap_name_melee_cleave = Melee Cleave
+lap_desc_melee_cleave = On landing a fatal blow with a melee weapon, this character will make one extra attack against another foe.
+lap_name_lightning_strike_spear = Lightning Strike - Spear %s
+lap_desc_lightning_strike_spear = This modifier governs how many strikes the character makes with each special ability use.
+
+# stealth abilities
+lap_name_backstab1 = Backstab 1
+lap_name_backstab2 = Backstab 2
+lap_name_backstab3 = Backstab 3
+lap_desc_backstab = The character can execute a backstab - a melee attack with the primary weapon that deals double damage. Requires a backstab-capable weapon.
+lap_name_snipe1 = Snipe 1
+lap_name_snipe2 = Snipe 2
+lap_name_snipe3 = Snipe 3
+lap_desc_snipe = The character can execute a snipe - a ranged attack with the primary weapon that deals double damage. Requires a snipe-capable weapon.
+lap_name_hide = Hide
+lap_desc_hide = The character can hide in combat.
+lap_name_steal = Steal %s
+lap_desc_steal = The character has a much better chance of stealing items from vendors.
+lap_name_dodge = Dodge %s
+lap_desc_dodge = This character has a chance of dodging melee and missile attacks.
+lap_name_lockpicker = Locks and Traps %s
+lap_desc_lockpicker = This character is good at picking locks and disarming traps.
+lap_name_slip_away = Slip Away
+lap_desc_slip_away = If this character is the last one left alive in the party, he or she will automatically escape from combat.
+
+# NPC abilities
+lap_name_threaten = Threaten
+lap_desc_threaten = The character can bully an NPC is improving their attitude towards the party.
+lap_name_bribe = Bribe %s
+lap_desc_bribe = This character can bribe others into working with him or her.
+lap_name_diplomacy = Diplomacy
+lap_desc_diplomacy = TODO
+
+# Acolyte
+lap_name_unholy = Unholy
+lap_desc_unholy = The Acolyte is a walking source of one Black magic to the whole party.
+lap_name_soulless = Soulless
+lap_desc_soulless = Having already sealed unspeakable pacts with the powers of darkness, the Acolyte laughs off all but the most potent of enemy curses.
+lap_name_corrupting_touch = Corrupting Touch
+lap_desc_corrupting_touch = The touch of the Acolyte causes nausea.
+lap_name_whispers_of_evil = Whispers of Evil
+lap_desc_whispers_of_evil = Paralyse a single foe.
+lap_name_life_leech = Life Leech
+lap_desc_life_leech = Transfer hit points from all other party members to the Acolyte.
+lap_name_dark_majesty = Dark Majesty
+lap_desc_dark_majesty = Buffs the Acolyte's brawn and power.
+lap_name_hellfire = Hellfire
+lap_desc_hellfire = Burning fire from hell sears all foes, and the party too.
+lap_name_power_of_darkness = Powers of Darkness
+lap_desc_power_of_darkness = The Powers of Darkness draw near, granting the Acolyte a Power Cast bonus based on the amount of Black Magic present.
+lap_name_apotheosis = Apotheosis
+lap_desc_apotheosis = The Acolyte's demon transformation manifests!
+lap_name_beyond_insanity = Beyond Insanity
+lap_desc_beyond_insanity = Insanity holds no fears for the Acolyte, who while inflicted gains Magic Point regeneration and Power Cast bonus.
+lap_name_cursed_power = Cursed Power
+lap_desc_cursed_power = The curses of others have give power to the Acolyte, who gets bonuses on Action Point regeneration and Power while Hexed.
+
+# Kamunushi
+lap_name_divine_protection = Divine Protection
+lap_desc_divine_protection = This character receives a defence bonus in combat relative to the amount of White magic present.
+
+# Amazon
+lap_name_amazon_stamina = Amazon Stamina
+lap_desc_amazon_stamina = The tireless Amazon excels at various physical activities.
+lap_name_amazon_strength = Amazon Strength
+lap_desc_amazon_strength = Provides a temporary increase to the Amazon's brawn.
+lap_name_amazon_speed = Amazon Speed
+lap_desc_amazon_speed = The Amazon is especially fleet of foot.
+lap_name-furious_purpose = Furious Purpose %s
+lap_desc-furious_purpose = When hit with a KO effect, the Amazon gains hit points instead.
+lap_name-polearm_parry = Polearm Parry %s
+lap_desc-polearm_parry = The Amazon gains parry when armed with a polearm
+lap_name-amazonCourage: Amazon Courage
+lap_desc-amazonCourage: Instead of getting afflicted by the Fear condition, the Amazon gains an Amazon Courage condition instead.
+lap_name-amazonWillpower Amazon Willpower
+lap_desc-amazonWillpower: Instead of getting afflicted by Confusion or Possession, the Amazon gains an Amazon Willpower condition instead.
+lap_name-hailOfArrows: Hail of Arrows
+lap_desc-hailOfArrows: The Amazon unleashes a hail of arrows at each foe in a group. Needs to be armed with a bow.
+lap_name-phalanxFighter: Phalanx Fighter
+lap_desc-phalanxFighter: The Amazon can wield two-handed polearms with one hand.
+lap_name-amazonFury: Amazon Fury
+lap_desc-amazonFury: Instead of getting afflicted by any of the Web, Sleep, Slow or Paralyze conditions, the Amazon gains an Amazon Fury condition instead.
+
+# Berserker
+lap_name_berserker = Berserker %s
+lap_desc_berserker = In combat this character has a chance of flying into a terrifying berserker rage.
+lap_name_blade_nor_flame = Neither Blade Nor Flame
+lap_desc_blade_nor_flame = The Berserker is resistant to slashing and fire damage.
+lap_name_indefatigable = Indefatigable
+lap_desc_indefatigable = The Berserker recovers faster from fatigue.
+lap_name_unstoppable = Unstoppable
+lap_desc_unstoppable = The Berserker is immune to KO.
+lap_name_axe_wielder = Axe Wielder
+lap_desc_axe_wielder = The Berserker can wield two-handed axes with one hand
+lap_name_breaking_of_bonds = Breaking of Bonds
+lap_desc_breaking_of_bonds = When going berserk the Berserker is freed from any Web or Paralyze conditions.
+lap_name_blunting_of_blades = Blunting of Blades
+lap_desc_blunting_of_blades = The Berserker receives a bonus vs armour penetration while berserk
+lap_name_staying_of_shafts = Staying of Shafts
+lap_desc_staying_of_shafts = The Berserker receives an arrow cutting bonus while berserk
+lap_name_bewildering_of_witches = Bewildering of Witches
+lap_desc_bewildering_of_witches = While berserk the Berserker has increased magic resistance
+lap_name_quenching_of_flames = Quenching of Flames
+lap_desc_quenching_of_flames = The Berserker gains immunity to fire while berserk
+lap_name_berserk_at_will = Berserk At Will
+lap_desc_berserk_at_will = The Berserker can fly into a berserk rage at will
+
+# Blackguard
+lap_name_fearless = Fearless
+lap_desc_fearless = The Blackguard knows no fear.
+lap_name_code_of_dishonour = Code of Dishonour
+lap_desc_code_of_dishonour = The Blackguard loses experience points if the part acts honourably.
+lap_name_killer = Killer
+lap_desc_killer = The Blackguard receives combat bonuses against humanoid foes.
+lap_name_dying_blow = Dying Blow
+lap_desc_dying_blow = If slain by a melee attack, the Blackguard strikes out one last time at his or her attacker.
+lap_name_bloodthirsty = Bloodthirsty %s
+lap_desc_bloodthirsty = The Blackguard receives combat bonuses at low hit point levels
+lap_name_cold_hearted = Cold Hearted
+lap_desc_cold_hearted = The Blackguard receives boosted resistance to mental effects.
+lap_name_fearful_visage = Fearful Visage
+lap_desc_fearful_visage = Enemies engaged in melee may be struck with terror at the Blackguard presence.
+lap_name_pitiless = Pitiless
+lap_desc_pitiless = The Blackguards melee and ranged attacks against incapacitated enemies are all critical hits.
+lap_name_remorseless = Remorseless
+lap_desc_remorseless = The Blackguard gets bonus experience points for killing named NPCs and other party members.
+lap_name_unbowed = Unbowed
+lap_desc_unbowed = The Blackguard is immune to critical hits.
+lap_name_chilling_hatred = Chilling Hatred
+lap_desc_chilling_hatred = Foes of the Blackguard may freeze with terror during melee.
+lap_name_great_notoriety = Great Notoriety
+lap_desc_great_notoriety = The Blackguards terrifying reputation is known throughout the Maze, and he or she benefits greatly from slaying named NPCs or other party members.
+lap_name_wrath = Wrath
+lap_desc_wrath = The Blackgaurd gets a combat bonus for each foe present.
+
+
+# Burglar
+lap_name_extra_loot = Extra Loot %s
+lap_desc_extra_loot = A party including a Burglar receives more loot from slain foes.
+lap_name_master_thief = Master Thief
+lap_desc_master_thief = Victims of theft will never catch the Burglar red-handed.
+lap_name_light_sleeper = Light Sleeper
+lap_desc_light_sleeper = The cunning Burglar sleeps lightly and is never caught unawares if the party is attacked while resting.
+lap_name_pickpocket = Pickpocket
+lap_desc_pickpocket = This character can steal items from foes during combat.
+lap_name_nondescript = Nondescript
+lap_desc_nondescript = The Burglar gets boosted Action Point regeneration in Urban terrain.
+lap_name_dirty_attack = Dirty Attack
+lap_desc_dirty_attack = The Burglar executes a melee attack that restores his or her own Action Points.
+lap_name_dangerSense = Danger Sense
+lap_desc_dangerSense = This character has bonus resistance against trap spells and backfiring spells from party.
+lap_name_sap = Sap
+lap_desc_sap = The Burglar executes a melee attack that can apply the KO condition.
+lap_name_quick_wits = Quick Wits
+lap_desc_quick_wits = When the party is surprised, the Burglar can act in the surprise round.
+lap_name_disable = Disable
+lap_desc_disable = The Burglar executes a melee attack that can apply the Web and Confuse conditions.
+lap_name_trap_sense = Trap Sense
+lap_desc_trap_sense = The Burglar automatically identifies traps.
+lap_name_lurker = Lurker
+lap_desc_lurker = Somehow the Burglar doesn't really draw much attention from foes.
+
+# Courtesan
+lap_name_evasion = Evasion
+lap_desc_evasion = Discretion being the better part of valour, the Courtesan receives a bonus to attempts to run away from combat.
+lap_name_charmed_destiny = Charmed Destiny
+lap_desc_charmed_destiny = The Courtesan receives a bonus to various protective modifiers based on the amount of Purple magic present.
+lap_name_hidden_blade_1 = Hidden Blade 1
+lap_name_hidden_blade_2 = Hidden Blade 2
+lap_name_hidden_blade_3 = Hidden Blade 3
+lap_desc_hidden_blade = If she has an empty hand, the Courtesan can suddenly equip a hidden dagger.
+lap_name_underhand_throw_1 = Underhand Throw 1
+lap_name_underhand_throw_2 = Underhand Throw 2
+lap_name_underhand_throw_3 = Underhand Throw 3
+lap_desc_underhand_throw_1 = The Courtesan can throw an equipped dagger with bonuses to hit and critical.
+lap_desc_underhand_throw_2 = The Courtesan can throw an equipped dagger with bonuses to hit and critical. The attack can also poison and paralyze the target.
+lap_desc_underhand_throw_3 = The Courtesan can throw an equipped dagger with bonuses to hit and critical. The attack can also poison, paralyze, hex and petrify the target.
+lap_name_hidden_dart = Hidden Dart
+lap_desc_hidden_dart = The Courtesan fires a dart from a concealed launcher that can poison or stun the target.
+lap_name_deadly_dart = Deadly Dart
+lap_desc_deadly_dart = The Courtesan fires a dart from a concealed launcher that can badly poison or confuse the target.
+lap_name_surprise_parry = Surprise Parry
+lap_desc_surprise_parry = If the the Courtesan is attacked while empty handed, she will equip a hidden blade and parry the attack.
+lap_name_surprise_riposte = Surprise Riposte
+lap_desc_surprise_riposte = If the the Courtesan is attacked while empty handed, she will equip a hidden blade, parry and riposte the attack.
+lap_name_sense_motive = Sense Motive
+lap_desc_sense_motive = The Courtesan can practically read the mind of an NPC.
+lap_name_barter_expert = Barter Expert %s
+lap_desc_barter_expert = The Courtesan is able to drive much better deals with vendors.
+lap_name_minor_powder_creation = Minor Powder Creation
+lap_desc_minor_powder_creation = The Courtesan can create a powder containing a minor spell.
+lap_name_persuasion = Persuasion
+lap_desc_persuasion = The Courtesan assists other characters attempts to influence NPCs.
+lap_name_locate_person = Locate Person
+lap_desc_locate_person = The Courtesan can divine where an NPC is located.
+lap_name_courtesan_skills = Courtesan Skills
+lap_desc_courtesan_skills = The Courtesan is a master of various skills.
+
+# Druid
+lap_name_pass_without_trace = Pass Without Trace
+lap_desc_pass_without_trace = At peace with nature, the Druid adds to the stealth of the whole party when in wilderness areas.
+lap_name_druidic_immunity = Druidic Immunity
+lap_desc_druidic_immunity = The Druid is immune to various effects.
+lap_name_hungerless = Hungerless
+lap_desc_hungerless = The Druid consumes 1 less supplies while resting.
+lap_name_thirstless = Thirstless
+lap_desc_thirstless = The Druid consumes 1 less supplies while resting.
+lap_name_regenerate_self = Regenerate Self
+lap_desc_regenerate_self = The Druid restores his or her own health based on the amount of Green magic present.
+lap_name_wilderness_veil = Wilderness Veil
+lap_desc_wilderness_veil = In areas with a great amount of green magic, the Druid can choose to pass unobtrusively.
+lap_name_entangling_blows = Entangling Blows
+lap_desc_entangling_blows = The Druid's blows in combat can entangle victims with restraining creepers.
+lap_name_aura_of_regeneration = Aura of Regeneration
+lap_desc_aura_of_regeneration = The Druid can radiate an aura that speeds the recuperation of all party members.
+lap_name_bestial_reincarnate = Bestial Reincarnation
+lap_desc_bestial_reincarnate = If the Druid dies in combat, a powerful beast appears to aid the party.
+lap_name_attune_with_nature = Attune With Nature
+lap_desc_attune_with_nature = The Druid gets an Action Point regeneration bonus in the presence of Green Magic.
+lap_name_verdant_summoner = Verdant Summoner
+lap_desc_verdant_summoner = The Druid's summoned plants and beasts have boosted stats.
+
+# Elemental
+lap_name_elemental_aura = Elemental Aura
+lap_desc_elemental_aura = The Elemental radiates an aura that protects the whole party from fire, water, earth and air magic.
+lap_name_dragon_blood = Dragon Blood
+lap_desc_dragon_blood = The Elemental is a walking source of one Blue magic to the whole party.
+lap_name_fists_of_rock = Fists of Rock
+lap_desc_fists_of_rock = The Elemental gains a melee damage bonus.
+lap_name_channel_elements = Channel Elements
+lap_desc_channel_elements = Elementals summoned by this character come into play buffed.
+lap_name_helm_of_flames = Helm of Flames
+lap_desc_helm_of_flames = Foes striking the Elemental in battle take damage.
+lap_name_mantle_of_the_seas = Mantle of the Seas
+lap_desc_mantle_of_the_seas = The Elemental receives a Power Cast bonus.
+lap_name_elemental_bane = Elemental Bane
+lap_desc_elemental_bane = The Elemental gets bonuses in combat and other interactions with this foes of the Elemental type.
+lap_name_robes_of_the_wind = Robes of the Wind
+lap_desc_robes_of_the_wind = The robes grant the Elemental a defence bonus and can deflect incoming projectiles.
+lap_name_shield_of_ice = Shield of Ice
+lap_desc_shield_of_ice = The Elemental conjures and equips a sturdy shield of ice.
+lap_name_magma_spear = Magma Spear
+lap_desc_magma_spear = The Elemental conjures and equips a deadly spear of molten rock.
+lap_name_coat_of_ooze = Coat of Ooze
+lap_desc_coat_of_ooze = The Elemental is cloaked in a tunic of elemental ooze, providing protection and regeneration
+lap_name_mistform = Mistform
+lap_desc_mistform = The Elemental takes on a form composed only of mists. He or she gains a great deal of protection, but cannot make melee or missile attacks.
+lap_name_elemental_transformation = Elemental Transformation
+lap_desc_elemental_transformation = The Elemental becomes an embodiment of the raw elements!
+
+# Enchanter
+lap_name_vanish = Vanish
+lap_desc_vanish = The Enchanter's best trick is disappearing.
+lap_name_sociable = Sociable
+lap_desc_sociable = The Enchanter gets a bonuses dealing with NPCs.
+lap_name_fey_affinity = Fey Affinity
+lap_desc_fey_affinity = The Enchanter recovers magic points at a faster rate in the presence of Gold magic.
+lap_name_illusion_mastery = Illusion Mastery
+lap_desc_illusion_mastery = The Enchanter can see through the glamours of others.
+lap_name_on_the_ball = On the Ball
+lap_desc_on_the_ball = It's hard to catch the Enchanter napping.
+lap_name_minds_eye = Mind's Eye
+lap_desc_minds_eye = The Enchanter can take actions normally while blind.
+lap_name_mind_control = Mind Control
+lap_desc_mind_control = The Enchanter gains various mental resistances
+lap_name_greater_mind_control = Greater Mind Control
+lap_desc_greater_mind_control = The Enchanter gains strong mental resistances and immunities
+lap_name_fey_mastery = Fey Mastery
+lap_desc_fey_mastery = The Enchanter's knowledge of the fey makes them easy foes.
+lap_name_silver_tongue = Silver Tongue
+lap_desc_silver_tongue = The Enchanter is very proficient at dealing with strangers.
+lap_name_master_diviner = Master Diviner
+lap_desc_master_diviner = The Enchanter restores Action Points whenever he or she identifies an item.
+lap_name_dispel_illusions = Dispel Illusions
+lap_desc_dispel_illusions = The Enchanter can dispel the illusions of others.
+lap_name_master_illusionist = Master Illusionist
+lap_desc_master_illusionist = The Enchanter's summoned illusions have boosted stats.
+lap_name_leyline_to_faerie = Leyline to Faerie
+lap_desc_leyline_to_faerie = The Enchanter's summoned fey have boosted stats.
+lap_name_wild_fey_magic = Wild Fey Magic
+lap_desc_wild_fey_magic = The Enchanter unleashes the wild magic of the fey, with unpredictable results.
+lap_name_reverse_glamour = Reverse Glamour
+lap_desc_reverse_glamour = Gold magic spells directed at the Enchanter are reflected back at the caster.
+
+# Exorcist
+lap_name_wards_and_charms = Wards and Charms
+lap_desc_wards_and_charms = The presence of an Exorcist protects the whole party from mental and energy magic.
+lap_name_exorcism = Exorcism
+lap_desc_exorcism = The Exorcist can summon his or her spiritual power against any demons, undead or other planar creatures.
+lap_name_conviction = Conviction
+lap_desc_conviction = The Exorcist is immune to possession and insanity.
+lap_name_strength_of_spirit = Strength of Spirit
+lap_desc_strength_of_spirit = The Exorcist has boosted mental and energy resistance.
+lap_name_demonslayer = Demonslayer
+lap_desc_demonslayer = The Exorcist excels at hunting those from beyond the material plane.
+lap_name_spirit_form = Spirit Form
+lap_desc_spirit_form = The Exorcist becomes temporarily incorporeal.
+lap_name_dispel_illusions = Dispel Illusions
+lap_desc_dispel_illusions = The Exorcist can dispel illusory foes.
+lap_name_bane_of_undeath = Bane of Undeath
+lap_desc_bane_of_undeath = The Exorcist is a deadly foe of the unliving.
+lap_name_weaken_spirits = Weaken Spirits
+lap_desc_weaken_spirits = The Exorcist greatly reduces the resistances of undead, illusions and outsiders.
+lap_name_anathema = Anathema
+lap_desc_anathema = The Exorcist banishes all outsiders present to their home plane.
+lap_name_seeking_evil = Seeking Evil
+lap_desc_seeking_evil = The Exorcist is committed to seeking out evil in it's own environment.
+lap_name_demonslayer = Demonslayer
+lap_desc_demonslayer = The Exorcist specialises in banishing fiendish foes back whence they came.
+lap_name_eyes_of_righteousness = Eyes of Righteousness
+lap_desc_eyes_of_righteousness = Meer darkness and blindness can't prevent the Exorcist fighting effectively.
+lap_name_hero_of_myth = Hero of Myth
+lap_desc_hero_of_myth = The Exorcist faces down horrors and abominations of all kinds without flinching.
+lap_name_light_of_faith = Light of Faith
+lap_desc_light_of_faith = The light undying burns within the Exorcist.
+
+# Gadgeteer
+lap_name_disbeliever = Disbeliever
+lap_desc_disbeliever = The capricious forces of magic have little hold on the psych of the Gadgeteer.
+lap_name_pack_mule = Pack Mule
+lap_desc_pack_mule = The Gadgeteer gets a bonus to his or her carrying capacity.
+lap_name_signature_weapon = Signature Weapon
+lap_desc_signature_weapon = On level up, the Gadgeteer has a chance of upgrading a signature weapon in his or her possession.
+lap_name_ammo_stash1 = Ammo Stash
+lap_name_ammo_stash2 = Greater Ammo Stash
+lap_name_ammo_stash3 = Amazing Ammo Stash
+lap_desc_ammo_stash = The Gadgeteer produces a stash of ammo for his or her ranged weapon
+lap_name_destroy_trap1 = Destroy Trap 1
+lap_name_destroy_trap2 = Destroy Trap 2
+lap_name_destroy_trap3 = Destroy Trap 3
+lap_desc_destroy_trap = The Gadgeteer destroys (and springs) a trap, retrieving some useful gadgets from it.
+lap_name_deadeye = Deadeye
+lap_desc_deadeye = The Gadgeteer gets a bonus to ranged criticals
+lap_name_invention = Invention
+lap_desc_invention = The Gadgeteer creates a nifty invention! This ability is single-use only.
+lap_name_grand_invention = Grand Invention
+lap_desc_grand_invention = The Gadgeteer creates a really amazing invention! This ability is single-use only.
+lap_name_deconstructor = Deconstructor
+lap_desc_deconstructor = The Gadgeteer is a deadly foe of artificial constructs.
+lap_name_bomb_construction = Bomb Construction
+lap_desc_bomb_construction = The Gadgeteer builds a bomb.
+lap_name_pack_rat = Pack Rat
+lap_desc_pack_rat = The Gadgeteer can change equipment during the action selection phase instead of spending a whole combat round on it.
+lap_name_fast_hands = Fast Hands
+lap_desc_fast_hands = The Gadgeteer's quick hands grant various bonuses.
+lap_name_urbanite = Urbanite
+lap_desc_urbanite = The Gagdgeteer's urban background provides various bonuses.
+
+# Hero
+lap_name_cheat_death = Cheat Death
+lap_desc_cheat_death = Through sheer strength of spirit, the Hero can sometimes cheat certain death.
+lap_name_melee_master = Melee Master
+lap_desc_melee_master = The Hero loves being outnumbered and attacks large numbers of foes with increased fervour.
+lap_name_journeyman = Journeyman
+lap_desc_journeyman = Giant rats and spiders? The Hero is on top of the situation.
+lap_name_veteran = Veteran
+lap_desc_veteran = No Basilisk or Ankheg is safe from the Hero.
+lap_name_master = Master
+lap_desc_master = The Hero fears neither the Mimic nor the Will-o'-Wisp.
+lap_name_champion = Champion
+lap_desc_champion = Giants and their misbegotten kin flee before the mighty Hero.
+lap_name_legend = Legend
+lap_desc_legend = Even Dragons fear the name of the legendary Hero.
+lap_name_second_wind = Second Wind
+lap_desc_second_wind = The Hero removes all fatigue and heals a small amount.
+lap_name_iron_skin = Iron Skin
+lap_desc_iron_skin = The Hero has boosted physical resistance.
+lap_name_provisions = Provisions
+lap_desc_provisions = The Hero always has some spare jerky to go around.
+lap_name_ko_blow = KO Blow
+lap_desc_ko_blow = Blows from the Hero have a chance of knocking a foe unconscious.
+lap_name_campfire_tales = Campfire Tales
+lap_desc_campfire_tales = The Hero is always good for a cracking story around the camp fire.
+lap_name_weapon_master = Weapon Master
+lap_desc_weapon_master = The Hero can wield any weapon, ignoring any usual requirements.
+lap_name_toe_to_toe = Toe to Toe
+lap_desc_toe_to_toe = Every blow in melee combat that doesn't kill an opponent restores action points or fatigue to the Hero.
+lap_name_greater_cleave = Greater Cleave
+lap_desc_greater_cleave = Cleaves on killing blows are no longer limited to just one.
+lap_name_last_stand = Last Stand
+lap_desc_last_stand = If the Hero is the last party member still alive in battle, he or she gets a boost to carry on the fight.
+
+# Monk
+lap_name_mindshield = Mindshield
+lap_desc_mindshield = The Monk's mind is hard to attack.
+lap_name_monk_immunities = Monk Immunities
+lap_desc_monk_immunities = Monk Immunities
+lap_name_monk_resistances = Monk Resistances
+lap_desc_monk_resistances = Monk Resistances
+lap_name_monk_skills = Monk Skills
+lap_desc_monk_skills = The Monk's exotic training and spiritual discipline gives him or her a variety of abilities, resistances and immunities that appear almost supernatural to the uninitiated.
+lap_name_combo_strike = Combo Strike
+lap_desc_combo_strike = When fighting unarmed, the Monk has the ability to unleash a flurry of lightning fast blows.
+lap_name_lighting_strike_unarmed = Lightning Strike - Unarmed %s
+lap_desc_lighting_strike_unarmed = This modifier governs how many strikes the Monk makes with each Combo Strike.
+lap_name_stunning_blow = Stunning Blow
+lap_desc_stunning_blow = Attacks by the monk have a chance of paralysing opponents.
+lap_name_self_awareness = Self Awareness %s
+lap_desc_self_awareness_1 = The Monk always knows the name and type of conditions afflicting him or her
+lap_desc_self_awareness_2 = The Monk always knows the name, type and strength of conditions afflicting him or her
+lap_name_reflexion = Reflexion
+lap_desc_reflexion = The Monk puts on a burst of speed that makes him or her nearly impossible to target.
+
+# Ninja
+lap_name_ninja_initiate = Ninja Initiate
+lap_desc_ninja_initiate = To complete their training an aspiring Ninja must wound his or her master trainer with an unexpected blow. Many do not survive the attempt.
+lap_name_ninja_master = Ninja Master
+lap_desc_ninja_master = No Ninja can earn the title Master without surviving at least one violent assassination attempt.
+lap_name_ninja_grandmaster = Ninja Grandmaster
+lap_desc_ninja_grandmaster = Grandmasters are held in awe by other Ninjas, but are seldom seen by them.
+lap_name_inner_force_blow = Inner Force Blow
+lap_desc_inner_force_blow = When fighting unarmed, the Ninja can deliver a single greatly damaging blow.
+lap_name_poison_needles = Poison Needles
+lap_desc_poison_needles = The Ninja can spit a poisoned dart at an unsuspecting foe.
+lap_name_shin_ren = Shin Ren
+lap_desc_shin_ren = Hostile magic users will struggle to overcome the the Ninja's great internal discipline.
+lap_name_taijutsu = Taijutsu
+lap_desc_taijutsu = By means of steel rods in his or her sleeves, the Ninja gains parry while fighting unarmed.
+lap_name_snakespeed = Snakespeed
+lap_desc_snakespeed = The Ninja strikes with blinding speed in combat.
+lap_name_flash_powder = Flash Powder
+lap_desc_flash_powder = The Ninja deploys incendiary powder, blinding foes.
+lap_name_kotodama_kata = Kotodama Kata
+lap_desc_kotodama_kata = Arcane training grants the Ninja some bonus spell picks.
+lap_name_yubi_jutsu = Yubi-Jutsu
+lap_desc_yubi_jutsu = The art of nerve striking grants the Ninja a melee critical bonus while fighting unarmed.
+lap_name_shurikenjitsu = Shurikenjitsu
+lap_desc_shurikenjitsu = The Ninja rapidly hurls shuriken at a group of foes.
+
+# Paladin
+lap_name_tactics = Tactics
+lap_desc_tactics = With the Paladin in the party, all members get a bonus to their Attack modifier.
+lap_name_health = Health
+lap_desc_health = The Paladin receives a boosted hit point regeneration rate.
+lap_name_etiquette = Etiquette
+lap_desc_etiquette = NPCs react more favourably to the Paladin.
+lap_name_code_of_honour = Code of Honour
+lap_desc_code_of_honour = The Paladin is bound to honourable behaviour, and cannot associate with others who act dishonourably.
+lap_name_lay_on_hands_1 = Lay On Hands 1
+lap_name_lay_on_hands_2 = Lay On Hands 2
+lap_name_lay_on_hands_3 = Lay On Hands 3
+lap_name_lay_on_hands_4 = Lay On Hands 4
+lap_name_lay_on_hands_5 = Lay On Hands 5
+lap_desc_lay_on_hands = The Paladin heals an ally and him or her self.
+lap_name_shield_bash = Shield Bash %s
+lap_desc_shield_bash = The Paladin has a chance of bashing enemies with his or her shield.
+lap_name_protect = Protect
+lap_desc_protect = The Paladin protects an ally, taking blows on their behalf.
+lap_name_combat_command_3 = Combat Command
+lap_name_combat_command_5 = Greater Combat Command
+lap_desc_combat_command = The Paladin issues combat orders to an ally, granting an extra attack at a bonus to hit.
+lap_name_lifes_champion = Life's Champion
+lap_desc_lifes_champion = The Paladin is very effective at combating undead foes.
+lap_name_shield_block = Shield Block %s
+lap_desc_shield_block = The Paladin restored fatigue when blocking a blow with a shield.
+lap_name_consecrate = Consecrate
+lap_desc_consecrate = The Paladin consecrates the ground the party stands on. Foes are dismayed, allies are heartened, and white magic wells forth.
+lap_name_holy_champion = Holy Champion
+lap_desc_holy_champion = The Paladin vows to combat demons and outsiders wherever they are found.
+lap_name_lead_the_charge = Lead the Charge
+lap_desc_lead_the_charge = The Paladin charges into battle, becoming the target of all enemy melee attacks.
+
+# Priest
+lap_name_holiness = Holiness
+lap_desc_holiness = The Priest is a walking source of one White magic for the whole party.
+lap_name_code_of_ethics = Code of Ethics
+lap_desc_code_of_ethics = The Priest and is bound to follow the path of light, and keep the company of those who do too.
+lap_name_empowered_healing = Empowered Healing %s
+lap_desc_empowered_healing = The Priest's healing spells are very effective.
+lap_name_sanctify = Sanctify
+lap_desc_sanctify = The Priest can free party members from cursed items they are bearing.
+lap_name_patience = Patience
+lap_desc_patience = The Priest can choose to act last almost all the time.
+lap_name_shed_blights = Shed Blights %s
+lap_desc_shed_blights = Baneful conditions do not afflict the Priest for long.
+lap_name_holy_light = Holy Light
+lap_desc_holy_light = The Priest is very effective at combating undead foes.
+lap_name_pray_for_miracle = Pray for Miracle
+lap_desc_pray_for_miracle = The Priest prays for divine intervention. Effects will vary depending on past behaviour.
+lap_name_martyr = Martyr
+lap_desc_martyr = The Priest sacrifices him or herself to restore the party to life and health. This sacrifice is permanent.
+
+# Ranger
+lap_name_deadshot = Deadshot
+lap_desc_deadshot = The Ranger gets a bonus to ranged criticals.
+lap_name_dual_wielder = Dual Wielder
+lap_desc_dual_wielder = The Ranger gets a bonus to dual wielding melee weapons.
+lap_name_select_favoured_enemy = Select Favoured Enemy
+lap_desc_select_favoured_enemy = The Ranger may select a new favoured enemy type.
+lap_name_guard_duty = Guard Duty
+lap_desc_guard_duty = With the Ranger on guard the part can rest more safely on the road.
+lap_name_volley_of_arrows = Volley of Arrows
+lap_desc_volley_of_arrows = The Ranger fires an arrow at every foe in one group.
+lap_name_hail_of_arrows = Hail of Arrows
+lap_desc_hail_of_arrows = The Ranger fires an arrow at every foe.
+lap_name_eagle_eye = Eagle Eye
+lap_desc_eagle_eye = The Ranger sees with the eyes of the eagle, gaining great accuracy and other bonuses.
+lap_name_combat_veteran1 = Combat Veteran 1
+lap_name_combat_veteran2 = Combat Veteran 2
+lap_name_combat_veteran3 = Combat Veteran 3
+lap_name_combat_veteran4 = Combat Veteran 4
+lap_name_combat_veteran5 = Combat Veteran 5
+lap_desc_combat_veteran = The Ranger learns a variety of combat styles and tricks.
+lap_name_guardian_spirit = Guardian Spirit
+lap_desc_guardian_spirit = The Ranger can summon a guardian spirit to watch over him or her. This spirit varies depending on the local terrain.
+
+# Samurai
+lap_name_sword_master = Sword Master
+lap_desc_sword_master = When fighting with a sword, the Samurai has the ability to unleash a flurry of lightning fast blows.
+lap_name_lightning_strike_with_swords = Lightning Strike - Swords %s
+lap_desc_lightning_strike_with_swords = This modifier governs how many strikes the Samurai makes with each Sword Master strike.
+lap_name_iajutsu = Iajutsu %s
+lap_desc_iajutsu = Iajutsu is the art of rapidly drawing and attacking with a sword.\n\nCost\nCosts 1 Action Point per activation\n\nMechanics\nRequires the character to be wielding a primary weapon that is a sword and has the KENDO weapon focus\nWhen attacked, as a pre-combat action the character makes a single attack with one or more strikes against a random foe within reach.\n\nValue\nA non-zero IAJUTSU modifier enables this ability The value of the modifier indicates how many strikes are made.
+lap_name_nito_ichi1 = Nito Ichi 1
+lap_name_nito_ichi2 = Nito Ichi 2
+lap_name_nito_ichi3 = Nito Ichi 3
+lap_name_nito_ichi4 = Nito Ichi 4
+lap_desc_nito_ichi = The way of two swords: the trademark Samurai fighting style.
+lap_name_samurai_code = Samurai Code
+lap_desc_samurai_code = The Samurai is bound to honourable behaviour, and cannot associate with others who act dishonourably.
+lap_name_iron_will = Iron Will
+lap_desc_iron_will = The Samurai's iron will cannot be broken.
+lap_name_hard_to_kill = Hard to Kill
+lap_desc_hard_to_kill = One does not simply strike the Samurai down.
+
+# Scout
+lap_name_alert = Alert
+lap_desc_alert = Foes will find it particularly hard to ambush or hide from the wily Scout.
+
+# Shaman
+lap_name_tribesman = Tribesman
+lap_desc_tribesman = The Shaman's tribal ancestry provides stealth bonuses, particularly in wilderness and wasteland areas.
+lap_name_chanelling = Channelling
+lap_desc_chanelling = The Shaman draws energy from elements around him or her, and gets a bonus to initiative based on the amount of Blue magic present.
+lap_name_fire_manifestation = Fire Manifestation
+lap_desc_fire_manifestation = The Shaman's affinity with the element of fire manifests as boosted resistance.
+lap_name_water_manifestation = Water Manifestation
+lap_desc_water_manifestation = The Shaman's affinity with the element of water manifests as boosted resistance.
+lap_name_earth_manifestation = Earth Manifestation
+lap_desc_earth_manifestation = The Shaman's affinity with the element of earth manifests as boosted resistance.
+lap_name_air_manifestation = Air Manifestation
+lap_desc_air_manifestation = The Shaman's affinity with the element of air manifests as boosted resistance.
+lap_name_axe_parry = Axe Parry %s
+lap_desc_axe_parry = Fighting with an axe, the Shaman can block incoming blows.
+lap_name_spear_strike = Spear Strike
+lap_desc_spear_strike = Armed with a spear, the Shaman can execute a rapid series of strikes against a foe.
+lap_name_burning_speed = Burning Speed
+lap_desc_burning_speed = The Shaman calls upon the element of fire to speed his or her movements.
+lap_name_surge_stance = Surge Stance
+lap_desc_surge_stance = The Shaman calls upon the element of water to free his or her movements.
+lap_name_rockheaded = Rockheaded
+lap_desc_rockheaded = The Shaman calls upon the element of earth to harden his or her resolve.
+lap_name_windwalker = Wind Walker
+lap_desc_windwalker = The Shaman calls upon the element of air to quicken his defences.
+lap_name_summon_animal_spirits = Summon Animal Spirits
+lap_desc_summon_animal_spirits = The Shaman summons elemental animal spirits to fight for the party.
+lap_name_elemental_manifestation = Elemental Manifestation
+lap_desc_elemental_manifestation = The Shaman is one with the elements.
+lap_name_battle_master = Battle Master
+lap_desc_battle_master = The Shaman regains Action Points every time he or she is wounded.
+
+# Shugenja
+lap_name_displacer = Displacer
+lap_desc_displacer = The Shugenja can change places with another character in the party before each combat round starts.
+lap_name_magic_absorbtion = Magic Absorption %s
+lap_desc_magic_absorbtion = The Shugenja is resistant to enemy magic, and indeed can absorb a portion of any spell that targets him or her.
+lap_name_ninjutsu1 = Ninjutsu 1
+lap_name_ninjutsu2 = Ninjutsu 2
+lap_name_ninjutsu3 = Ninjutsu 3
+lap_desc_ninjutsu = The Shugenja is skilled in the arts of deception, misdirection and stealth.
+lap_name_resilience1 = Resilience
+lap_name_resilience2 = Greater Resilience
+lap_desc_resilience = The Shugenja recovers fast from wounds.
+lap_name_blend_in = Blend In
+lap_desc_blend_in = The Shugenja blends easily into the background, unnoticed by foes.
+lap_name_arrow_catching = Arrow Catching %s
+lap_desc_arrow_catching = The Shugenja can catch incoming projectiles.
+
+# Skald
+lap_name_taunt = Taunt
+lap_desc_taunt = The Skald can deliver a creative and infuriating insult to foes that will cause them to target him or her over other party members.
+lap_name_song_of_ambition = Song of Ambition
+lap_desc_song_of_ambition = The Skald sings a song that bolsters the defence of the party.
+lap_name_song_of_heroism = Song of Heroism
+lap_desc_song_of_heroism = The Skald sings a heroic ode that inspires the party to fearlessness.
+lap_name_inspiring_blow = Inspiring Blow
+lap_desc_inspiring_blow = When the Skald strikes the blow that slays a foe, others in the party are inspired to greater feats.
+lap_name_song_of_endurance = Song of Endurance
+lap_desc_song_of_endurance = The Skald sings a song of enduring and outlasting.
+lap_name_song_of_panic = Song of Panic
+lap_desc_song_of_panic = The Skald's performance causes a group of foes to flee in fear.
+lap_name_recorder_of_great_deeds = Recorder of Great Deeds
+lap_desc_recorder_of_great_deeds = The Skald immortalises his or her fellow warriors in poem, granting them extra experience.
+lap_name_song_of_rage = Song of Rage
+lap_desc_song_of_rage = The Skald sings a deadly song of unbridled rage and hatred.
+lap_name_song_of_shameful_weakness = Song of Shameful Weakness
+lap_desc_song_of_shameful_weakness = The Skald's dreary dirge weakens his or her foes.
+lap_name_lore_master = Lore Master
+lap_desc_lore_master = The Skald's is a master of many different types of lore.
+lap_name_song_of_strength = Song of Strength
+lap_desc_song_of_strength = The Skald sings a great song of power to strengthen the party.
+lap_name_stun_into_silence = Stun Into Silence
+lap_desc_stun_into_silence = The Skald's performance stuns the audience into silence.
+lap_name_thick_skinned = Thick Skinned
+lap_desc_thick_skinned = The Skald shrugs off cuts, scratches and critics.
+lap_name_battle_prowess = Battle Prowess
+lap_desc_battle_prowess = The Skald's presence inspires the party to great confidence in combat.
+lap_name_song_of_rejuvenation = Song of Rejuvenation
+lap_desc_song_of_rejuvenation = The Skald's song restores the party to health and vitality.
+lap_name_frightful_boasting = Frightful Boasting
+lap_desc_frightful_boasting = The Skald's boastful proclamations inspires him or her to great deeds.
+lap_name_battle_scion = Battle Scion
+lap_desc_battle_scion = The Skald has a chance of cheating death itself.
+lap_name_song_of_the_warriors_of_valhalla = Song of the Warriors of Valhalla
+lap_desc_song_of_the_warriors_of_valhalla = The Skald sings a song that summons the departed heroes of legend back to battle once more!
+
+# Sohei
+lap_name_ki_fury = Ki Fury
+lap_desc_ki_fury = The Sohei gains a bonus to his or her attack rate depending on the amount of Green magic present.
+lap_name_unsurprised = Unsurprised
+lap_desc_unsurprised = When the party is ambushed the Sohei can act in the surprise round.
+lap_name_awareness = Awareness
+lap_desc_awareness = The Sohei's is always scanning the surroundings.
+lap_name_power_strike = Power Strike
+lap_desc_power_Strike = The Sohei's powerful blows deal extra damage.
+lap_name_sohei_grit = Sohei Grit
+lap_desc_sohei_grit = The Sohei can't be knocked unconscious.
+lap_name_yari_kata = Yari Kata
+lap_desc_yari_kata = The Sohei can execute a series of rapid attacks with a polearm.
+lap_name_die_hard = Die Hard
+lap_desc_die_hard = When the Sohei takes lethal damage in combat, he or she keeps fighting until the end of the round.
+lap_name_prepare_for_battle_1 = Prepare For Battle 1
+lap_name_prepare_for_battle_2 = Prepare For Battle 2
+lap_name_prepare_for_battle_3 = Prepare For Battle 3
+lap_name_prepare_for_battle_4 = Prepare For Battle 4
+lap_desc_prepare_for_battle = Through meditation the Sohei prepares him or herself for upcoming battle.
+lap_name_sohei_resistance = Sohei Resistance
+lap_desc_sohei_resistance = The Sohei takes no damage from successful saving throws.
+
+# Sorcerer
+lap_name_power_within = Power Within
+lap_desc_power_within = The Sorcerer is a walking source of one red magic for the entire party.
+lap_name_force_of_will = Force of Will
+lap_desc_force_of_will = The Sorcerer gets a boost to his Power Cast skill.
+lap_name_ambition = Ambition
+lap_desc_ambition = The Sorcerer gets an extra spell pick.
+lap_name_force_field = Force Field
+lap_desc_force_field = The Sorcerer generates a magical field that enhances the defence of the whole party.
+lap_name_cryptozoology = Cryptozoology
+lap_desc_cryptozoology = The Sorcerer has studied the creatures of the Maze.
+lap_name_ancient_history = Ancient History
+lap_desc_ancient_history = The Sorcerer has studied ancient history, myths and legends.
+lap_name_arcane_strike_1 = Arcane Strike 1
+lap_name_arcane_strike_2 = Arcane Strike 2
+lap_name_arcane_strike_3 = Arcane Strike 3
+lap_desc_arcane_strike = The Sorcerer's weapon flies from his hand and strikes a foe at range, then returns.
+lap_name_wand_crafting = Wand Crafting
+lap_desc_wand_crafting = The Sorcerer can create a powerful wand that can be used by other party members.
+
+# Troubadour
+lap_name_tumble = Tumble
+lap_desc_tumble = The agile Troubadour is quick on the draw and hard to hit in combat.
+lap_name_up_to_no_good = Up To No Good
+lap_desc_up_to_no_good = You better watch the Troubadour closely in town.
+lap_name_harmless = Harmless
+lap_desc_harmless = The Troubadour doesn't look like much of a threat and tends to be ignored by foes.
+lap_name_expanded_repertoire = Expanded Repertoire
+lap_desc_expanded_repertoire = The Troubadour learns a few extra spells.
+lap_name_still_up_to_no_good = Still Up To No Good
+lap_desc_still_up_to_no_good = Some rascals just can't be reformed.
+lap_name_prank_1 = Prank 1
+lap_name_prank_2 = Prank 2
+lap_name_prank_3 = Prank 3
+lap_desc_prank = The Troubadour pranks an opponent somehow, putting them at a disadvantage.
+lap_name_slick_performance = Slick Performance
+lap_name_wild_performance = Wild Performance
+lap_name_unforgettable_performance = Unforgettable Performance
+lap_desc_slick_performance = The Troubadour unleashes wild magic with an intense performance.
+lap_name_spell_stealing = Spell Stealing
+lap_desc_spell_stealing = The Troubadour casts a random spell known by a spell casting foe.
+lap_name_spell_sniping = Spell Sniping
+lap_desc_spell_sniping = The Troubadour's projectile spells count as snipe attacks.
+lap_name_escape_artist = Escape Artist
+lap_desc_escape_artist = The Troubadour can't easily be immobilised.
+
+# Warlock
+lap_name_ruthless = Ruthless
+lap_desc_ruthless = A model of efficiency and precision, the Warlock receives a bonus to melee criticals.
+lap_name_arcane_blood = Arcane Blood
+lap_desc_arcane_blood = The Warlock regenerates hit points faster in the presence of strong Red magic.
+lap_name_focus_of_force = Focus of Force
+lap_desc_focus_of_force = This focus provides the Warlock with boosted defence against melee and missile attacks.
+lap_name_fire_kata = Fire Kata
+lap_desc_fire_kata = A Warlock performing the Fire Kata creates a wave of flame that consumes his foes.
+lap_name_focus_of_flame = Focus of Flame
+lap_desc_focus_of_flame = This focus provides the Warlock with boosted fire resistance and a burning touch.
+lap_name_strength_of_belief = Strength of Belief
+lap_desc_strength_of_belief = The Warlock's belief provides boosted physical strength.
+lap_name_unburdening_kata = Unburdening Kata
+lap_desc_unburdening_kata = The Warlock executes a melee attack that transfers baneful conditions on the Warlock to the target.
+lap_name_power_of_restraint = Power of Restraint
+lap_desc_power_of_restraint = The Warlock gets increased magic resistance for every unspent spellpick.
+lap_name_focus_of_the_moment = Focus of the Moment
+lap_desc_focus_of_the_moment = This focus provides the Warlock with heightened senses and uncanny evasive abilities.
+lap_name_focus_of_speed = Focus of Speed
+lap_desc_focus_of_speed = The Warlock's is quickened for every condition he bears.
+lap_name_stealing_kata = Stealing Kata
+lap_desc_stealing_kata = The Warlock executes a melee attack that transfers a beneficial condition from the victim to the himself.
+lap_name_focus_of_will = Focus of Will
+lap_desc_focus_of_will = This focus temporarily increases the Warlock's resistance to psychic effects, and causes insanity in foes with his touch.
+lap_name_coiled_spring = Coiled Spring
+lap_desc_coiled_spring = The Warlock does extra combat damage as his action point total runs low.
+lap_name_enlightening_kata = Enlightening Kata
+lap_desc_enlightening_kata = The Warlock temporarily gains expert knowledge of combating a foe's type.
+lap_name_shadow_kata = Shadow Kata
+lap_desc_shadow_kata = The Warlock energises all stealth focused characters in the party.
+lap_name_focus_of_wind = Focus of Wind
+lap_desc_focus_of_wind = This focus makes the Warlock temporarily at one with the winds.
+lap_name_no_survivors = No Survivors
+lap_desc_no_survivors = The Warlock makes an automatic backstab or snipe attack against any foes that flee.
+lap_name_inversion_kata = Inversion Kata
+lap_desc_inversion_kata = This kata swaps the hit points of the Warlock and the target foe.
+
+# Witch
+lap_name_curse_1 = Curse 1
+lap_name_curse_2 = Curse 2
+lap_name_curse_3 = Curse 3
+lap_name_curse_4 = Curse 4
+lap_desc_curse = The Witch can hurl a powerful curse at a single foe.
+lap_name_mystic_birthright = Mystic Birthright
+lap_desc_mystic_birthright = The Witch is a walking source of one Purple magic for the whole party.
+lap_name_witch_fyre = Witch Fyre
+lap_desc_witch_fyre = The Witch lights up a group of foes with eerie witch fyre.
+lap_name_healing_hands = Healing Hands
+lap_desc_healing_hands = The Witch restores health and stamina to one ally.
+lap_name_summon_swarm = Summon Swarm
+lap_desc_summon_swarm = The Witch summons a swarm of vicious insects.
+lap_name_power_of_the_circle_1 = Power of the Circle 1
+lap_name_power_of_the_circle_2 = Power of the Circle 2
+lap_desc_power_of_the_circle = Purple Magic casters in the party get a Power Cast bonus.
+lap_name_fey_wings = Fey Wings
+lap_desc_fey_wings = The Witch flies on the wings of the fey.
+lap_name_unnatural_cold = Unnatural Cold
+lap_desc_unnatural_cold = The Witch emanates unnatural cold that slows and weakens foes.
+lap_name_circle_of_protection = Circle of Protection
+lap_desc_circle_of_protection = The Witch draws a circle of strong protective magic around the party.
+lap_name_summon_vermin = Summon Vermin
+lap_desc_summon_vermin = The Witch calls to her aid hordes of angry vermin.
+lap_name_veil_of_shadows = Veil of Shadows
+lap_desc_veil_of_shadows = The Witch fades into shadow and summons a haze of shadowy warriors to engage her foes.
+lap_name_moonlight_blessings = Moonlight Blessings
+lap_desc_moonlight_blessings = The Witch gains several supernatural immunities.
+lap_name_eye_of_truth = Eye of Truth
+lap_desc_eye_of_truth = The Witch's eye can discern the truth of many things.
+
+#
+# Item Properties
+#
+
+item.type.short_weapon = short weapon
+item.type.extended_weapon = extended weapon
+item.type.thrown_weapon = thrown weapon
+item.type.ranged_weapon = ranged weapon
+item.type.ammunition = ammunition
+item.type.shield = shield
+item.type.torso_armour = torso armour
+item.type.leg_armour = leg armour
+item.type.head_armour = head armour
+item.type.gloves = gloves
+item.type.boots = boots
+item.type.misc_equipment = misc equipment
+item.type.banner_equipment = banner equipment
+item.type.misc_magic = misc magic
+item.type.potion = potion
+item.type.bomb = bomb
+item.type.powder = powder
+item.type.spellbook = spellbook
+item.type.scroll = scroll
+item.type.food = food
+item.type.drink = drink
+item.type.key = key
+item.type.writing = writing
+item.type.gadget = gadget
+item.type.musical_instrument = musical instrument
+item.type.money = money
+item.type.supplies = supplies
+item.type.other = other
+
+#
+# Spell Effect Types
+#
+
+set.none = none
+set.fire = fire
+set.water = water
+set.earth = earth
+set.air = air
+set.mental = mental
+set.energy = energy
+set.bludgeon = bludgeoning
+set.pierce = piercing
+set.slash = slashing
+
+#
+# Spell Effect Sub Types
+#
+
+sest.none = none
+sest.normal.damage = normal damage
+sest.heat = heat
+sest.cold = cold
+sest.poison = poison
+sest.disease = disease
+sest.curse = curse
+sest.acid = acid
+sest.lightning = lightning
+sest.psychic = psychic
+
+#
+# Condition Properties
+#
+cond.unknown.condition = ?unknown condition?
+cond.unknown.affliction = ?unknown affliction?
+
+#
+# Scouting
+#
+scouting.spot.stash = %s notices something!
+scouting.find.stash = %s finds something!

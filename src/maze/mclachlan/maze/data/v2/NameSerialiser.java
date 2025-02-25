@@ -46,7 +46,14 @@ public class NameSerialiser<E extends V2DataObject> implements V2SerialiserObjec
 		}
 		else
 		{
-			return dbGetter.apply(key);
+			E result = dbGetter.apply(key);
+
+			if (result == null && defaultKey == null)
+			{
+				return defaultValue;
+			}
+
+			return result;
 		}
 	}
 }

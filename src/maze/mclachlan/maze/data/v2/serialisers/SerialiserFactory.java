@@ -2,25 +2,29 @@ package mclachlan.maze.data.v2.serialisers;
 
 import java.awt.Color;
 import java.awt.Point;
+import java.util.Map;
 import java.util.*;
 import mclachlan.crusader.*;
-import mclachlan.crusader.Map;
 import mclachlan.crusader.script.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
 import mclachlan.maze.data.v2.*;
 import mclachlan.maze.game.DifficultyLevel;
+import mclachlan.maze.game.GameState;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.*;
-import mclachlan.maze.map.*;
+import mclachlan.maze.game.journal.Journal;
+import mclachlan.maze.game.journal.JournalEntry;
 import mclachlan.maze.map.Tile;
+import mclachlan.maze.map.*;
 import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.AttackType;
 import mclachlan.maze.stat.combat.WieldingCombo;
 import mclachlan.maze.stat.combat.event.*;
+import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionEffect;
 import mclachlan.maze.stat.condition.ConditionTemplate;
 import mclachlan.maze.stat.condition.RepeatedSpellEffect;
@@ -41,6 +45,7 @@ public class SerialiserFactory
 		// some default custom serialised for the Maze db
 
 		ReflectiveSerialiser result = new ReflectiveSerialiser(clazz, fields);
+
 		result.addCustomSerialiser(StatModifier.class, new StatModifierSerialiser());
 		result.addCustomSerialiser(Dice.class, new DiceSerialiser());
 		result.addCustomSerialiser(ValueList.class, new ValueListSerialiser());
@@ -53,6 +58,7 @@ public class SerialiserFactory
 		result.addCustomSerialiser(Set.class, new StringSetSerialiser());
 		result.addCustomSerialiser(String[].class, new StringArraySerialiser());
 		result.addCustomSerialiser(int[].class, new IntArraySerialiser());
+
 		return result;
 	}
 
@@ -1178,7 +1184,7 @@ public class SerialiserFactory
 			"identificationState",
 			"stack",
 			"charges",
-			"enchantment");
+			"enchantmentName");
 
 		result.addCustomSerialiser("template", new NameSerialiser<>(db::getItemTemplate));
 
@@ -1280,7 +1286,7 @@ public class SerialiserFactory
 
 	private static V2SerialiserObject<mclachlan.crusader.Map> getMapSerialiser(Database db)
 	{
-		ReflectiveSerialiser result = getReflectiveSerialiser(Map.class,
+		ReflectiveSerialiser result = getReflectiveSerialiser(mclachlan.crusader.Map.class,
 			"length",
 			"width",
 			"baseImageSize",
@@ -1430,13 +1436,154 @@ public class SerialiserFactory
 				{
 					return null;
 				}
-				else if (Map.NO_WALL.getName().equals(obj))
+				else if (mclachlan.crusader.Map.NO_WALL.getName().equals(obj))
 				{
-					return Map.NO_WALL;
+					return mclachlan.crusader.Map.NO_WALL;
 				}
 
 				return db.getMazeTexture((String)obj).getTexture();
 			}
 		};
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<GameState> getGameStateSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			GameState.class,
+			"currentZone",
+			"difficultyLevel",
+			"facing",
+			"playerPos",
+			"partyGold",
+			"partySupplies",
+			"partyNames",
+			"formation",
+			"turnNr");
+
+		result.addCustomSerialiser("currentZone", new NameSerialiser<>(db::getZone));
+		result.addCustomSerialiser("difficultyLevel", new NameSerialiser<>(db.getDifficultyLevels()::get));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Npc> getNpcSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			Npc.class,
+			"template",
+			"attitude",
+			"currentInventory",
+			"theftCounter",
+			"tile",
+			"zone",
+			"found",
+			"dead",
+			"guildMaster",
+			"guild");
+
+		result.addCustomSerialiser("template", new NameSerialiser<>(db.getNpcTemplates()::get));
+		result.addCustomSerialiser("currentInventory", new ListSerialiser(getItemSerialiser(db)));
+		result.addCustomSerialiser("guild", new ListSerialiser(new DirectObjectSerialiser<String>()));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Npc> getNpcFactionSerialiser(Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			NpcFaction.class,
+			"template",
+			"attitude");
+
+		result.addCustomSerialiser("template", new NameSerialiser<>(db.getNpcFactionTemplates()::get));
+
+		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Map<Point, List>> getItemCacheSerialiser(Database db)
+	{
+		V2SerialiserObject<Point> keySerialiser = new PointSerialiser();
+		V2SerialiserObject<List> valueSerialiser = new ListSerialiser(getItemSerialiser(db));
+
+		return new MapSerialiser<>(keySerialiser, valueSerialiser);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserObject<List> getTilesVisitedSerialiser()
+	{
+		return new ListSerialiser(new PointSerialiser());
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static ListSerialiser getConditionsSerialiser(Database db,
+		Map<String, PlayerCharacter> playerCharacterCache)
+	{
+		ReflectiveSerialiser<Condition> conditionSerialiser =
+			getReflectiveSerialiser(Condition.class,
+				"template",
+				"duration",
+				"strength",
+				"castingLevel",
+				"hpDamage",
+				"apDamage",
+				"mpDamage",
+				"staminaDamage",
+				"type",
+				"subtype",
+				"source",
+				"isIdentified",
+				"isStrengthIdentified",
+				"createdTurn",
+				"hostile");
+
+		conditionSerialiser.addCustomSerialiser("template", new NameSerialiser<>(db::getConditionTemplate));
+		conditionSerialiser.addCustomSerialiser("source", new NameSerialiser<>(playerCharacterCache::get, null, new AbstractActor(){}));
+
+		return new ListSerialiser<Condition>(new V2SerialiserObject<>()
+		{
+			@Override
+			public Object toObject(Condition condition, Database db)
+			{
+				return conditionSerialiser.toObject(condition, db);
+			}
+
+			@Override
+			public Condition fromObject(Object obj, Database db)
+			{
+				Condition condition = conditionSerialiser.fromObject(obj, db);
+
+				if (condition.getTemplate().getImpl() != null)
+				{
+					// this is a custom condition, restore it differently
+					return condition.getTemplate().create(
+						condition.getSource(),
+						null,
+						condition.getCastingLevel(),
+						condition.getType(),
+						condition.getSubtype());
+				}
+
+				return condition;
+
+			}
+		});
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static V2SerialiserMap<Journal> getJournalSerialiser()
+	{
+		ReflectiveSerialiser<Journal> result = getReflectiveSerialiser(Journal.class, "name", "contents");
+
+		ReflectiveSerialiser<JournalEntry> jeSerialiser = getReflectiveSerialiser(JournalEntry.class, "turnNr", "text");
+
+		result.addCustomSerialiser("contents",
+			new MapSerialiser<String, List<JournalEntry>>(
+				new DirectObjectSerialiser<>(), new ListSerialiser<>(jeSerialiser)));
+
+		return result;
 	}
 }

@@ -1,0 +1,16 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [],
+    "arena": [
+      {
+        "turnNr": "3250",
+        "text": "Save Game \u0027bugtest\u0027 Loaded"
+      },
+      {
+        "turnNr": "3260",
+        "text": "Save Game \u0027bugtest\u0027 Loaded"
+      }
+    ]
+  }
+}

@@ -575,6 +575,7 @@ public class Item implements AttackWith, SpellTarget
 	public void setEnchantmentName(String enchantmentName)
 	{
 		this.enchantmentName = enchantmentName;
+		this.enchantment = template.getEnchantment(enchantmentName);
 	}
 
 	@Override

@@ -180,6 +180,10 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 					{
 						setMethod.invoke(result, Byte.valueOf((String)value));
 					}
+					else if (parameterType == Long.class || parameterType == long.class)
+					{
+						setMethod.invoke(result, Long.valueOf((String)value));
+					}
 					else if (parameterType == Double.class || parameterType == double.class)
 					{
 						setMethod.invoke(result, Double.valueOf((String)value));

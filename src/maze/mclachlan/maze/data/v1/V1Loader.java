@@ -446,7 +446,7 @@ public class V1Loader extends Loader
 	{
 		try (BufferedReader reader = getReader(getSavePath() + saveGameName + "/" + V1Utils.CONDITIONS))
 		{
-			return V1ConditionManager.load(reader, saveGameName, playerCharacterCache);
+			return V1ConditionManager.load(reader, playerCharacterCache);
 		}
 	}
 

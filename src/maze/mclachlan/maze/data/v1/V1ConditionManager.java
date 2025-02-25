@@ -33,7 +33,7 @@ public class V1ConditionManager
 {
 	/*-------------------------------------------------------------------------*/
 	public static Map<ConditionBearer,List<Condition>> load(
-		BufferedReader reader, String saveGameName,
+		BufferedReader reader,
 		Map<String, PlayerCharacter> playerCharacterCache) throws Exception
 	{
 		Map<ConditionBearer,List<Condition>> result = new HashMap<ConditionBearer,List<Condition>>();
@@ -46,10 +46,12 @@ public class V1ConditionManager
 			}
 			ConditionBearer cb = V1ConditionBearer.fromString(
 				p.getProperty("conditionBearer"),
-				saveGameName,
 				playerCharacterCache);
-			List<Condition> conditions = fromProperties(p, cb);
-			result.put(cb, conditions);
+			if (cb != null)
+			{
+				List<Condition> conditions = fromProperties(p, cb);
+				result.put(cb, conditions);
+			}
 		}
 
 		return result;

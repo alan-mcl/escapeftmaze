@@ -103,4 +103,42 @@ public class PlayerTilesVisited
 			return false;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public Map<String, List<Point>> getTilesVisited()
+	{
+		return tilesVisited;
+	}
+
+	public void setTilesVisited(
+		Map<String, List<Point>> tilesVisited)
+	{
+		this.tilesVisited = tilesVisited;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof PlayerTilesVisited))
+		{
+			return false;
+		}
+
+		PlayerTilesVisited that = (PlayerTilesVisited)o;
+
+		return getTilesVisited() != null ? getTilesVisited().equals(that.getTilesVisited()) : that.getTilesVisited() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		return getTilesVisited() != null ? getTilesVisited().hashCode() : 0;
+	}
 }

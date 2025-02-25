@@ -1,0 +1,103 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "2",
+        "text": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing."
+      },
+      {
+        "turnNr": "2",
+        "text": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here..."
+      },
+      {
+        "turnNr": "3",
+        "text": "Save Game \u0027walkthrough1\u0027 Loaded"
+      },
+      {
+        "turnNr": "5",
+        "text": "Save Game \u0027walkthrough1\u0027 Loaded"
+      },
+      {
+        "turnNr": "34",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "35",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "42",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "52",
+        "text": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever."
+      },
+      {
+        "turnNr": "64",
+        "text": "With a flurry of wings, you are suddenly assaulted from above!"
+      },
+      {
+        "turnNr": "64",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "64",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "64",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "65",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "65",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "69",
+        "text": "The large lever mechanism looks tarnished and old but otherwise functional.\n\nYou wonder what hidden machinery it connects to..."
+      },
+      {
+        "turnNr": "69",
+        "text": "You give the lever a hard yank."
+      },
+      {
+        "turnNr": "69",
+        "text": "A loud clanking and grinding fills the dungeon."
+      },
+      {
+        "turnNr": "98",
+        "text": "Save Game \u0027walkthrough2\u0027 Loaded"
+      },
+      {
+        "turnNr": "147",
+        "text": "You give the lever a hard yank."
+      },
+      {
+        "turnNr": "147",
+        "text": "A loud clanking and grinding fills the dungeon."
+      },
+      {
+        "turnNr": "147",
+        "text": "locked!"
+      },
+      {
+        "turnNr": "171",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "172",
+        "text": "LOCKED!"
+      }
+    ]
+  }
+}

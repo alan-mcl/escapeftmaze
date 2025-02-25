@@ -1,0 +1,23 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "2",
+        "text": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing."
+      },
+      {
+        "turnNr": "2",
+        "text": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here..."
+      },
+      {
+        "turnNr": "3",
+        "text": "Save Game \u0027walkthrough1\u0027 Loaded"
+      }
+    ]
+  }
+}

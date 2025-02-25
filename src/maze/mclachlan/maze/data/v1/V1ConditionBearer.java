@@ -69,7 +69,7 @@ public class V1ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static ConditionBearer fromString(String s, String saveGameName,
+	public static ConditionBearer fromString(String s,
 		Map<String, PlayerCharacter> playerCharacterCache)
 	{
 		try

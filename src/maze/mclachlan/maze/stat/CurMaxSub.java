@@ -132,4 +132,33 @@ public class CurMaxSub extends CurMax
 	{
 		return this.getCurrent()+"/"+this.getMaximum();
 	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof CurMaxSub))
+		{
+			return false;
+		}
+		if (!super.equals(o))
+		{
+			return false;
+		}
+
+		CurMaxSub curMaxSub = (CurMaxSub)o;
+
+		return getSub() == curMaxSub.getSub();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = super.hashCode();
+		result = 31 * result + getSub();
+		return result;
+	}
 }

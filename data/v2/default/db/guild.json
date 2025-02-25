@@ -17,28 +17,32 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Suede Pants",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Hand Axe",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -77,28 +81,32 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Cloth Pants",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Dagger",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -137,28 +145,32 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Robes (L)",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Gnarled Staff",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -199,37 +211,43 @@
       "template": "Feathered Hat",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "torsoArmour": {
       "template": "Suede Doublet",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Suede Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Short Bow",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "secondaryWeapon": {
       "template": "Willow Arrow",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "50-100"
+      "stack": "50-100",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -268,21 +286,24 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Gossamer Gown (L)",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Faerie Stick",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -292,7 +313,8 @@
           "cursedState": "1",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1"
+          "charges": "1-1",
+          "enchantmentName": ""
         }
       ]
     },
@@ -331,25 +353,29 @@
       "template": "Cloth Shirt",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Cloth Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Mace",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -390,31 +416,36 @@
       "template": "Feathered Hat",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "torsoArmour": {
       "template": "Cloth Shirt",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Cloth Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Club",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -423,7 +454,8 @@
           "template": "Poet\u0027s Lute",
           "cursedState": "1",
           "identificationState": "2",
-          "stack": "1-1"
+          "stack": "1-1",
+          "enchantmentName": ""
         }
       ]
     },
@@ -461,37 +493,43 @@
       "template": "Feathered Hat",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "torsoArmour": {
       "template": "Suede Doublet",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Suede Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Short Bow",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "secondaryWeapon": {
       "template": "Willow Arrow",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "50-100"
+      "stack": "50-100",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -530,35 +568,40 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Fur Leggings",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Short Sword",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "secondaryWeapon": {
       "template": "Buckler Shield",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -596,31 +639,36 @@
       "template": "Pointed Hat",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "torsoArmour": {
       "template": "Robes (U)",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Robes (L)",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Gnarled Staff",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -661,19 +709,22 @@
       "template": "Gossamer Gown (U)",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Gossamer Gown (L)",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Faerie Stick",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -683,7 +734,8 @@
           "cursedState": "1",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1"
+          "charges": "1-1",
+          "enchantmentName": ""
         }
       ]
     },
@@ -720,28 +772,32 @@
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Cloth Pants",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Assegai",
       "cursedState": "1",
       "identificationState": "2",
       "stack": "1-1",
-      "charges": "0-0"
+      "charges": "0-0",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -779,13 +835,15 @@
       "template": "Garland Of Lilies",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Fey Dart",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "20-50"
+      "stack": "20-50",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -795,7 +853,8 @@
           "cursedState": "1",
           "identificationState": "2",
           "stack": "5-5",
-          "charges": "1-1"
+          "charges": "1-1",
+          "enchantmentName": ""
         }
       ]
     },
@@ -831,25 +890,29 @@
       "template": "Fur Tunic",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Fur Leggings",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Sandals",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Short Sword",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",
@@ -887,37 +950,43 @@
       "template": "Feathered Hat",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "torsoArmour": {
       "template": "Suede Doublet",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "legArmour": {
       "template": "Suede Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "primaryWeapon": {
       "template": "Short Bow",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "enchantmentName": ""
     },
     "secondaryWeapon": {
       "template": "Willow Arrow",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "50-100"
+      "stack": "50-100",
+      "enchantmentName": ""
     },
     "inventory": {
       "nrSlots": "20",

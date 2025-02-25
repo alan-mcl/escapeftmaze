@@ -85,7 +85,7 @@ public class Lever extends TileScript
 	@Override
 	public void initialise(Maze maze, Point tile, int tileIndex)
 	{
-		engineObject.setTileIndex(tileIndex);
+		getEngineObject().setTileIndex(tileIndex);
 
 		if (MazeVariables.get(this.mazeVariable) == null)
 		{
@@ -96,9 +96,9 @@ public class Lever extends TileScript
 		setTextureBasedOnState();
 
 		// add the mouse click script
-		engineObject.setMouseClickScript(new LeverMouseClickScript(this));
+		getEngineObject().setMouseClickScript(new LeverMouseClickScript(this));
 
-		maze.addObject(engineObject);
+		maze.addObject(getEngineObject());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -111,18 +111,18 @@ public class Lever extends TileScript
 		{
 			case POSITION_1 ->
 			{
-				engineObject.setNorthTexture(getTexture(northTexture));
-				engineObject.setSouthTexture(getTexture(southTexture));
-				engineObject.setEastTexture(getTexture(eastTexture));
-				engineObject.setWestTexture(getTexture(westTexture));
+				getEngineObject().setNorthTexture(getTexture(northTexture));
+				getEngineObject().setSouthTexture(getTexture(southTexture));
+				getEngineObject().setEastTexture(getTexture(eastTexture));
+				getEngineObject().setWestTexture(getTexture(westTexture));
 			}
 			case POSITION_2 ->
 			{
 				// swap textures
-				engineObject.setNorthTexture(getTexture(southTexture));
-				engineObject.setSouthTexture(getTexture(northTexture));
-				engineObject.setEastTexture(getTexture(westTexture));
-				engineObject.setWestTexture(getTexture(eastTexture));
+				getEngineObject().setNorthTexture(getTexture(southTexture));
+				getEngineObject().setSouthTexture(getTexture(northTexture));
+				getEngineObject().setEastTexture(getTexture(westTexture));
+				getEngineObject().setWestTexture(getTexture(eastTexture));
 			}
 			default ->
 				throw new MazeException("invalid state " + MazeVariables.get(this.mazeVariable));

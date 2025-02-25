@@ -137,4 +137,33 @@ public class CurMax
 	{
 		return this.current+"/"+this.maximum;
 	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof CurMax))
+		{
+			return false;
+		}
+
+		CurMax curMax = (CurMax)o;
+
+		if (getCurrent() != curMax.getCurrent())
+		{
+			return false;
+		}
+		return getMaximum() == curMax.getMaximum();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getCurrent();
+		result = 31 * result + getMaximum();
+		return result;
+	}
 }

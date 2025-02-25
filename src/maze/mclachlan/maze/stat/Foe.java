@@ -63,6 +63,13 @@ public class Foe extends UnifiedActor
 
 	/*-------------------------------------------------------------------------*/
 
+	public Foe()
+	{
+	}
+
+
+	/*-------------------------------------------------------------------------*/
+
 	/**
 	 * Creates a new foe from the given foe template
 	 */
@@ -84,7 +91,7 @@ public class Foe extends UnifiedActor
 
 		// set level
 		HashMap<String, Integer> levels = new HashMap<String, Integer>();
-		levels.put(getName(), template.getLevelRange().roll("Foe: level"));
+		levels.put(template.getName(), template.getLevelRange().roll("Foe: level"));
 		this.setLevels(levels);
 
 		// roll up this foes vitals
@@ -123,9 +130,22 @@ public class Foe extends UnifiedActor
 	}
 
 	/*-------------------------------------------------------------------------*/
+
+	public void setTemplate(FoeTemplate template)
+	{
+		this.template = template;
+
+		super.setName(template.getName());
+		super.setBodyParts(template.getBodyParts());
+		super.setStats(new Stats(template.getStats()));
+		super.setSpellBook(template.getSpellBook());
+		super.setInventory(new Inventory(MAX_PACK_ITEMS));
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private void generateInventory()
 	{
-		Maze.log(Log.DEBUG, "generating inventory for "+getName());
+		Maze.log(Log.DEBUG, "generating inventory for "+template.getName());
 
 		LootTable lootTable = getLootTable();
 		if (lootTable == null)
@@ -140,7 +160,7 @@ public class Foe extends UnifiedActor
 
 			for (Item i : items)
 			{
-				Maze.log(Log.DEBUG, getName()+" carries "+i.getName());
+				Maze.log(Log.DEBUG, template.getName()+" carries "+i.getName());
 				addInventoryItem(i);
 			}
 		}
@@ -154,9 +174,9 @@ public class Foe extends UnifiedActor
 	 */
 	public void initialEquip()
 	{
-		Maze.log(Log.DEBUG, getName()+" organises inventory");
-		Maze.log(Log.DEBUG, getName()+" slots: ["+this.getAllEquipableSlots()+"]");
-		Maze.log(Log.DEBUG, getName()+" inventory: ["+this.getInventory()+"]");
+		Maze.log(Log.DEBUG, template.getName()+" organises inventory");
+		Maze.log(Log.DEBUG, template.getName()+" slots: ["+this.getAllEquipableSlots()+"]");
+		Maze.log(Log.DEBUG, template.getName()+" inventory: ["+this.getInventory()+"]");
 
 		for (EquipableSlot slot : this.getAllEquipableSlots())
 		{
@@ -164,7 +184,7 @@ public class Foe extends UnifiedActor
 			Item item = getBestItemForSlot(slot.getType(), inventory);
 			if (item != null)
 			{
-				Maze.log(Log.DEBUG, getName()+" equips "+item.getName()+" in "+slot.getType());
+				Maze.log(Log.DEBUG, template.getName()+" equips "+item.getName()+" in "+slot.getType());
 				this.setEquippedItem(slot.getType(), item);
 				this.getInventory().remove(item);
 			}
@@ -407,19 +427,14 @@ public class Foe extends UnifiedActor
 	 */
 	public String getDisplayName()
 	{
-		String result;
-		switch(getIdentificationState())
-		{
-			case Item.IdentificationState.IDENTIFIED:
-				result = getName();
-				break;
-			case Item.IdentificationState.UNIDENTIFIED:
-				result = getUnidentifiedName();
-				break;
-			default: throw new MazeException("Invalid item identification state: "+
-				getIdentificationState());
-		}
-		return result;
+		return switch (getIdentificationState())
+			{
+				case Item.IdentificationState.IDENTIFIED -> template.getName();
+				case Item.IdentificationState.UNIDENTIFIED -> template.getUnidentifiedName();
+				default ->
+					throw new MazeException("Invalid item identification state: " +
+						getIdentificationState());
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -430,19 +445,15 @@ public class Foe extends UnifiedActor
 	 */
 	public String getDisplayNamePlural()
 	{
-		String result;
-		switch(getIdentificationState())
-		{
-			case Item.IdentificationState.IDENTIFIED:
-				result = getPluralName();
-				break;
-			case Item.IdentificationState.UNIDENTIFIED:
-				result = getUnidentifiedPluralName();
-				break;
-			default: throw new MazeException("Invalid item identification state: "+
-				getIdentificationState());
-		}
-		return result;
+		return switch (getIdentificationState())
+			{
+				case Item.IdentificationState.IDENTIFIED -> getPluralName();
+				case Item.IdentificationState.UNIDENTIFIED ->
+					getUnidentifiedPluralName();
+				default ->
+					throw new MazeException("Invalid item identification state: " +
+						getIdentificationState());
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -894,14 +905,15 @@ public class Foe extends UnifiedActor
 
 		public static String toString(int i)
 		{
-			switch (i)
-			{
-				case NEVER_EVADE: return "never evade";
-				case RANDOM_EVADE: return "random evade";
-				case ALWAYS_EVADE: return "always evade";
-				case CLEVER_EVADE: return "clever evade";
-				default: throw new MazeException("Invalid evasion behaviour: "+i);
-			}
+			return switch (i)
+				{
+					case NEVER_EVADE -> "never evade";
+					case RANDOM_EVADE -> "random evade";
+					case ALWAYS_EVADE -> "always evade";
+					case CLEVER_EVADE -> "clever evade";
+					default ->
+						throw new MazeException("Invalid evasion behaviour: " + i);
+				};
 		}
 
 		public static int valueOf(String s)
@@ -927,13 +939,14 @@ public class Foe extends UnifiedActor
 
 		public static String toString(int i)
 		{
-			switch (i)
-			{
-				case NOT_STEALTHY: return "not stealthy";
-				case OPPORTUNISTIC: return "opportunistic";
-				case STEALTH_RELIANT: return "stealth reliant";
-				default: throw new MazeException("Invalid stealth behaviour: "+i);
-			}
+			return switch (i)
+				{
+					case NOT_STEALTHY -> "not stealthy";
+					case OPPORTUNISTIC -> "opportunistic";
+					case STEALTH_RELIANT -> "stealth reliant";
+					default ->
+						throw new MazeException("Invalid stealth behaviour: " + i);
+				};
 		}
 
 		public static int valueOf(String s)

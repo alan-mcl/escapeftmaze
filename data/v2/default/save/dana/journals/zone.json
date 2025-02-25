@@ -1,0 +1,319 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [
+      {
+        "turnNr": "1",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "2",
+        "text": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing."
+      },
+      {
+        "turnNr": "2",
+        "text": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here..."
+      },
+      {
+        "turnNr": "10",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "14",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "15",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "16",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "17",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "18",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "27",
+        "text": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever."
+      },
+      {
+        "turnNr": "31",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "40",
+        "text": "With a flurry of wings, you are suddenly assaulted from above!"
+      },
+      {
+        "turnNr": "40",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "40",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "40",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "41",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "41",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "55",
+        "text": "The large lever mechanism looks tarnished and old but otherwise functional.\n\nYou wonder what hidden machinery it connects to..."
+      },
+      {
+        "turnNr": "55",
+        "text": "You give the lever a hard yank."
+      },
+      {
+        "turnNr": "55",
+        "text": "A loud clanking and grinding fills the dungeon."
+      },
+      {
+        "turnNr": "115",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "116",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "149",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "160",
+        "text": "Large silky webs cover the walls and recede around the corner."
+      },
+      {
+        "turnNr": "168",
+        "text": "This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.\n\nFrom the darkness you seem to feel many eyes watching you through the strands of webbing."
+      },
+      {
+        "turnNr": "190",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "251",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "272",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "273",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "274",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "274",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "290",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "319",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "340",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "343",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "350",
+        "text": "Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!"
+      },
+      {
+        "turnNr": "350",
+        "text": "Encountered Mud Spiders "
+      },
+      {
+        "turnNr": "350",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "350",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "351",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "351",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "357",
+        "text": "You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.\n\nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!"
+      },
+      {
+        "turnNr": "357",
+        "text": "Encountered Bonebrood, Mud Spiders "
+      },
+      {
+        "turnNr": "357",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "357",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "358",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "358",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "358",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "359",
+        "text": "--- combat round 2 ends ---"
+      },
+      {
+        "turnNr": "360",
+        "text": "--- combat round 3 ends ---"
+      },
+      {
+        "turnNr": "360",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "362",
+        "text": "A pile of dry and dusty bones has been heaped in this dark corner."
+      },
+      {
+        "turnNr": "362",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "373",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "376",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "417",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "420",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "439",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "442",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "467",
+        "text": "A large web has been spun across the entrance to this alcove."
+      },
+      {
+        "turnNr": "469",
+        "text": "Unsurprisingly, the creator of the web is unimpressed with your intrusion."
+      },
+      {
+        "turnNr": "469",
+        "text": "Encountered Mud Spider "
+      },
+      {
+        "turnNr": "469",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "469",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "470",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "470",
+        "text": "Victory!"
+      },
+      {
+        "turnNr": "548",
+        "text": "OUCH!"
+      },
+      {
+        "turnNr": "583",
+        "text": "UNLOCKED!"
+      },
+      {
+        "turnNr": "585",
+        "text": "On the far wall of this large room you see what looks like two deactivated inter-domain portals. \n\nBefore you can move over to get a close look, something else draws your urgent attention..."
+      },
+      {
+        "turnNr": "585",
+        "text": "Encountered Spotted Cruds "
+      },
+      {
+        "turnNr": "585",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "585",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "586",
+        "text": "--- combat round 1 ends ---"
+      },
+      {
+        "turnNr": "586",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "587",
+        "text": "--- combat round 2 ends ---"
+      },
+      {
+        "turnNr": "587",
+        "text": "--- combat round 3 starts ---"
+      },
+      {
+        "turnNr": "588",
+        "text": "--- combat round 3 ends ---"
+      },
+      {
+        "turnNr": "588",
+        "text": "Victory!"
+      }
+    ]
+  }
+}

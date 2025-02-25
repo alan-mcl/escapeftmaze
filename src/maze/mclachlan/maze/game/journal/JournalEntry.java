@@ -27,6 +27,10 @@ public class JournalEntry
 	private long turnNr;
 	private String text;
 
+	public JournalEntry()
+	{
+	}
+
 	public JournalEntry(long turnNr, String text)
 	{
 		this.turnNr = turnNr;
@@ -51,5 +55,34 @@ public class JournalEntry
 	public void setText(String text)
 	{
 		this.text = text;
+	}
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof JournalEntry))
+		{
+			return false;
+		}
+
+		JournalEntry that = (JournalEntry)o;
+
+		if (getTurnNr() != that.getTurnNr())
+		{
+			return false;
+		}
+		return getText() != null ? getText().equals(that.getText()) : that.getText() == null;
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = (int)(getTurnNr() ^ (getTurnNr() >>> 32));
+		result = 31 * result + (getText() != null ? getText().hashCode() : 0);
+		return result;
 	}
 }

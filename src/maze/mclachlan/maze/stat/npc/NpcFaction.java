@@ -19,7 +19,8 @@
 
 package mclachlan.maze.stat.npc;
 
-import java.util.Collection;
+import java.util.*;
+import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.GameSys;
 
 /**
@@ -27,7 +28,7 @@ import mclachlan.maze.stat.GameSys;
  * way towards the party.  While the starting attitude of NPCs can be different
  * from their Faction, when one changes all are synced up and remain that way.
  */
-public class NpcFaction
+public class NpcFaction extends DataObject
 {
 	private NpcFactionTemplate template;
 
@@ -45,7 +46,7 @@ public class NpcFaction
 		FRIENDLY(5),
 		ALLIED(6);
 
-		int sortOrder;
+		final int sortOrder;
 
 		Attitude(int sortOrder)
 		{
@@ -59,11 +60,15 @@ public class NpcFaction
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static enum AttitudeChange
+	public enum AttitudeChange
 	{
 		BETTER,
 		NO_CHANGE,
 		WORSE
+	}
+
+	public NpcFaction()
+	{
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -90,6 +95,12 @@ public class NpcFaction
 	public String getName()
 	{
 		return template.getName();
+	}
+
+	@Override
+	public void setName(String newName)
+	{
+
 	}
 
 	public Attitude getAttitude()
@@ -140,5 +151,36 @@ public class NpcFaction
 				}
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public boolean equals(Object o)
+	{
+		if (this == o)
+		{
+			return true;
+		}
+		if (!(o instanceof NpcFaction))
+		{
+			return false;
+		}
+
+		NpcFaction that = (NpcFaction)o;
+
+		if (getTemplate() != null ? !getTemplate().equals(that.getTemplate()) : that.getTemplate() != null)
+		{
+			return false;
+		}
+		return getAttitude() == that.getAttitude();
+	}
+
+	@Override
+	public int hashCode()
+	{
+		int result = getTemplate() != null ? getTemplate().hashCode() : 0;
+		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
+		return result;
 	}
 }
