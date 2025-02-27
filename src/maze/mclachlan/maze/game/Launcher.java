@@ -19,20 +19,17 @@
 
 package mclachlan.maze.game;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.FileInputStream;
 import java.io.IOException;
-import java.util.List;
 import java.util.*;
 import javax.swing.*;
-import mclachlan.maze.audio.WavAudioPlayer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.CampaignPanel;
-import mclachlan.maze.ui.UserInterface;
-import mclachlan.maze.ui.diygui.DiyGuiUserInterface;
-import mclachlan.maze.util.PerfLog;
 
 /**
  *
@@ -176,54 +173,7 @@ public class Launcher implements ActionListener
 	{
 		Maze maze = new Maze(config, c);
 
-		maze.initAudio(new WavAudioPlayer());
-		maze.initLog(getLog(config));
-		maze.initPerfLog(getPerfLog(config));
-		maze.initState();
-		// Beware the dependencies between components here.
-		maze.initDb();
-		maze.initSystems();
-		maze.startThreads();
-		maze.initUi(getUi(config));
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private Log getLog(Map<String, String> config)
-		throws ClassNotFoundException, IllegalAccessException, InstantiationException
-	{
-		String log_impl = this.config.get(Maze.AppConfig.LOG_IMPL);
-		Class log_class = Class.forName(log_impl);
-		Log log = (Log)log_class.newInstance();
-		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.LOG_LEVEL));
-		log.setLevel(logLevel);
-		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
-		log.setBufferSize(bufferSize);
-
-		return log;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private PerfLog getPerfLog(Map<String, String> config)
-		throws ClassNotFoundException, IllegalAccessException, InstantiationException
-	{
-		String log_impl = this.config.get(Maze.AppConfig.PERF_LOG_IMPL);
-		Class log_class = Class.forName(log_impl);
-		PerfLog log = (PerfLog)log_class.newInstance();
-		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.PERF_LOG_LEVEL));
-		log.setLevel(logLevel);
-		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
-		log.setBufferSize(bufferSize);
-
-		return log;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private UserInterface getUi(Map<String, String> config)
-		throws ClassNotFoundException, IllegalAccessException, InstantiationException
-	{
-		String ui_impl = this.config.get(Maze.AppConfig.UI_IMPL);
-		Class ui_class = Class.forName(ui_impl);
-		return (DiyGuiUserInterface)ui_class.newInstance();
+		maze.init();
 	}
 
 	/*-------------------------------------------------------------------------*/

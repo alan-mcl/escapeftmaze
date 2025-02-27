@@ -142,6 +142,11 @@ public class TurnCache implements GameCache
 		{
 			StatModifier sm = practiseInternal.get(actor);
 
+			if (sm == null)
+			{
+				System.out.println(actor);
+			}
+
 			for (Stats.Modifier modifier : sm.getModifiers().keySet())
 			{
 				if (sm.getModifier(modifier) > 0)

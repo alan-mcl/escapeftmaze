@@ -56,7 +56,7 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 	 * Key  : String(character class name) <br>
 	 * Value: character level in that class.
 	 */
-	private Map<String, Integer> levels = new HashMap<String, Integer>();
+	private Map<String, Integer> levels = new HashMap<>();
 
 	/** The race of this actor. May be null, in which case the actor is race-less. */
 	private Race race;

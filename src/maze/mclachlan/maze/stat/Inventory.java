@@ -50,11 +50,7 @@ public class Inventory implements Iterable<Item>
 	public Inventory(int nrSlots)
 	{
 		this.nrSlots = nrSlots;
-		items = new ArrayList<>(nrSlots);
-		for (int i=0; i<nrSlots; i++)
-		{
-			items.add(null);
-		}
+		initItems(nrSlots);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -296,6 +292,28 @@ public class Inventory implements Iterable<Item>
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private void initItems(int nrSlots)
+	{
+		List<Item> currentItems = new ArrayList<>();
+		if (items != null)
+		{
+			currentItems.addAll(items);
+		}
+
+		items = new ArrayList<>(nrSlots);
+
+		int i;
+		for (i=0; i<Math.min(nrSlots, currentItems.size()); i++)
+		{
+			items.add(currentItems.get(i));
+		}
+		for (; i<nrSlots; i++)
+		{
+			items.add(null);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public String toString()
 	{
@@ -324,11 +342,13 @@ public class Inventory implements Iterable<Item>
 	public void setNrSlots(int nrSlots)
 	{
 		this.nrSlots = nrSlots;
+		initItems(nrSlots);
 	}
 
 	public void setItems(List<Item> items)
 	{
 		this.items = items;
+		initItems(nrSlots);
 	}
 
 	/*-------------------------------------------------------------------------*/

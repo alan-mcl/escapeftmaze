@@ -92,8 +92,6 @@ public class Zone extends DataObject
 		this.tiles = tiles;
 		this.portals = new ArrayList<>(Arrays.asList(portals));
 		this.script = script;
-		this.width = tiles.length;
-		this.length = tiles[0].length;
 
 		this.projectionPlaneOffset = projectionPlaneOffset;
 		this.scaleDistFromProjPlane = scaleDistFromProjPlane;
@@ -114,6 +112,9 @@ public class Zone extends DataObject
 	/*-------------------------------------------------------------------------*/
 	private void initTiles()
 	{
+		this.width = tiles.length;
+		this.length = tiles[0].length;
+
 		for (int x = 0; x < tiles.length; x++)
 		{
 			for (int y = 0; y < tiles[x].length; y++)

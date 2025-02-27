@@ -62,15 +62,13 @@ public class V2Loader extends Loader
 	/*-------------------------------------------------------------------------*/
 	private String getPath(String file)
 	{
-		// todo: remove v2
-		return "data/v2/"+this.campaign.getName()+"/db/"+file;
+		return "data/"+this.campaign.getName()+"/db/"+file;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private String getSavePath()
 	{
-		// todo: remove v2
-		return "data/v2/"+this.campaign.getName()+"/save/";
+		return "data/"+this.campaign.getName()+"/save/";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -82,7 +80,6 @@ public class V2Loader extends Loader
 		if (!file.exists())
 		{
 			// fake it out
-//			return new BufferedReader(new StringReader(""));
 			throw new MazeException("invalid: ["+str+"]");
 		}
 		reader = new BufferedReader(new FileReader(file));
@@ -219,7 +216,9 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, FoeTemplate> loadFoeTemplates()
 	{
-		return v2Crud(getPath(FOE_TEMPLATES), new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));
+		Map<String, FoeTemplate> map = v2Crud(getPath(FOE_TEMPLATES), new SimpleMapSilo<>(getFoeTemplateSerialiser(db)));
+		map.forEach((k, v) -> v.init());
+		return map;
 	}
 
 	@Override

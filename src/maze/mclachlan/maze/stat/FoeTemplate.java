@@ -214,6 +214,22 @@ public class FoeTemplate extends DataObject
 		this.focus = focus;
 		this.defaultAttitude = defaultAttitude;
 		this.alliesOnCall = alliesOnCall;
+
+		init();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void init()
+	{
+		// if there is a tint, clone any textures so that the originals are not tinted
+		if (textureTint != null)
+		{
+			baseTexture = baseTexture.cloneWithTint(textureTint);
+			meleeAttackTexture = baseTexture.cloneWithTint(textureTint);
+			rangedAttackTexture = baseTexture.cloneWithTint(textureTint);
+			castSpellTexture = baseTexture.cloneWithTint(textureTint);
+			specialAbilityTexture = baseTexture.cloneWithTint(textureTint);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

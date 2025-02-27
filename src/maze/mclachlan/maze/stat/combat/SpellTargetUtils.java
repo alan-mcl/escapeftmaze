@@ -780,7 +780,7 @@ public class SpellTargetUtils
 			effect.getSubType(),
 			spellLevel,
 			castingLevel,
-			effect.getSaveAdjustment().compute(caster, castingLevel));
+			effect.getSaveAdjustment());
 
 		if (!saved)
 		{
@@ -798,7 +798,7 @@ public class SpellTargetUtils
 			}
 		}
 
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (sr != null && sr.appliesTo(victim))
 		{

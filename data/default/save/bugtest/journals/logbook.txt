@@ -1,4 +1,0 @@
-logbook
--section-
-logbook
--end-section-

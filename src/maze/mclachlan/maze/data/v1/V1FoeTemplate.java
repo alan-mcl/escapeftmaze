@@ -417,16 +417,6 @@ public class V1FoeTemplate
 
 			List<ObjectScript> animScripts = animationScripts.fromString(p.getProperty("animationScripts"));
 
-			// if there is a tint, clone any textures so that the originals are not tinted
-			if (textureTint != null)
-			{
-				baseTexture = baseTexture.cloneWithTint(textureTint);
-				meleeAttackTexture = baseTexture.cloneWithTint(textureTint);
-				rangedAttackTexture = baseTexture.cloneWithTint(textureTint);
-				castSpellTexture = baseTexture.cloneWithTint(textureTint);
-				specialAbilityTexture = baseTexture.cloneWithTint(textureTint);
-			}
-
 			return new FoeTemplate(
 				name,
 				pluralName,

@@ -1,8 +1,0 @@
-name=test
-displayName=
-damagePrevention=0
-damagePreventionChance=0
-modifiers=0,
-nrWeaponHardpoints=0
-equipableSlotType=NONE
-@

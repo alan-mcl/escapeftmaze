@@ -197,7 +197,7 @@ public class Tile
 
 	/*-------------------------------------------------------------------------*/
 
-	@Override
+/*	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
@@ -264,5 +264,5 @@ public class Tile
 		result = 31 * result + getLightLevel();
 		result = 31 * result + getCeilingHeight();
 		return result;
-	}
+	}*/
 }

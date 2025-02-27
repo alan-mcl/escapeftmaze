@@ -134,7 +134,7 @@ public class Encounter extends TileScript
 
 	public boolean isRovingSpritesMode(Maze maze)
 	{
-		return Boolean.getBoolean(maze.getAppConfig().get(Maze.AppConfig.DEBUG_KNOWLEDGE_EVENTS));
+		return false; //Boolean.getBoolean(maze.getAppConfig().get(Maze.AppConfig.ROVING_SPRITES_MODE));
 	}
 
 	/*-------------------------------------------------------------------------*/

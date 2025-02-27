@@ -198,7 +198,7 @@ public class Music
 		boolean muteFailed = false;
 		try
 		{
-			if (line.isControlSupported(BooleanControl.Type.MUTE))
+			if (line != null && line.isControlSupported(BooleanControl.Type.MUTE))
 			{
 				BooleanControl bc = (BooleanControl)line.getControl(BooleanControl.Type.MUTE);
 				bc.setValue(volume == 0);
@@ -217,7 +217,7 @@ public class Music
 		try
 		{
 			// try master gain
-			if (line.isControlSupported(FloatControl.Type.MASTER_GAIN))
+			if (line != null && line.isControlSupported(FloatControl.Type.MASTER_GAIN))
 			{
 				FloatControl fc = (FloatControl)line.getControl(FloatControl.Type.MASTER_GAIN);
 				if (muteFailed)
@@ -240,7 +240,7 @@ public class Music
 		try
 		{
 			// try volume
-			if (line.isControlSupported(FloatControl.Type.VOLUME))
+			if (line != null && line.isControlSupported(FloatControl.Type.VOLUME))
 			{
 				FloatControl fc = (FloatControl)line.getControl(FloatControl.Type.VOLUME);
 				if (muteFailed)

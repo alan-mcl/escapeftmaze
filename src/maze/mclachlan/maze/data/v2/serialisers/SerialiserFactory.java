@@ -1157,6 +1157,22 @@ public class SerialiserFactory
 		result.addCustomSerialiser("gender", new NameSerialiser<>(db::getGender));
 		result.addCustomSerialiser("characterClass", new NameSerialiser<>(db::getCharacterClass));
 		result.addCustomSerialiser("personality", new NameSerialiser<>(db.getPersonalities()::get));
+		result.addCustomSerialiser("levels", new MapSerialiser<String, Integer>(
+			new DirectObjectSerialiser<>(), new
+			V2SerialiserObject<>()
+			{
+				@Override
+				public Object toObject(Integer integer, Database db)
+				{
+					return String.valueOf(integer);
+				}
+
+				@Override
+				public Integer fromObject(Object obj, Database db)
+				{
+					return Integer.valueOf((String)obj);
+				}
+			}));
 		result.addCustomSerialiser(Item.class, getItemSerialiser(db));
 
 		ReflectiveSerialiser inventorySerialiser = getReflectiveSerialiser(

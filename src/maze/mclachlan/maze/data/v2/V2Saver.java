@@ -48,8 +48,8 @@ public class V2Saver extends Saver
 	public void init(Campaign c)
 	{
 		// todo: remove v2
-		path = "data/v2/"+ c.getName()+"/db/";
-		savePath = "data/v2/"+ c.getName()+"/save/";
+		path = "data/"+ c.getName()+"/db/";
+		savePath = "data/"+ c.getName()+"/save/";
 		campaign = c;
 		db = Database.getInstance();
 	}

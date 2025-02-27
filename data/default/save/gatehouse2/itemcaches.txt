@@ -1,3 +1,0 @@
-zone=Gatehouse
-16,28=
-@

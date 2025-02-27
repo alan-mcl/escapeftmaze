@@ -34,9 +34,9 @@ import mclachlan.maze.util.MazeException;
  */
 public class V1StringManager implements StringManager
 {
-	private File baseDir;
-	private Map<String, Properties> strings = new HashMap<String, Properties>();
-	private Object mutex = new Object();
+	private final File baseDir;
+	private final Map<String, Properties> strings = new HashMap<>();
+	private final Object mutex = new Object();
 
 	/*-------------------------------------------------------------------------*/
 	public V1StringManager(String path)

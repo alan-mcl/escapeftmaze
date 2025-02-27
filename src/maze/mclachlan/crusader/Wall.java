@@ -201,7 +201,7 @@ public class Wall
 	}
 
 	/*-------------------------------------------------------------------------*/
-
+/*
 	@Override
 	public boolean equals(Object o)
 	{
@@ -261,7 +261,7 @@ public class Wall
 		result = 31 * result + (getMaskTextureMouseClickScript() != null ? getMaskTextureMouseClickScript().hashCode() : 0);
 		result = 31 * result + (getInternalScript() != null ? getInternalScript().hashCode() : 0);
 		return result;
-	}
+	}*/
 
 	@Override
 	public String toString()

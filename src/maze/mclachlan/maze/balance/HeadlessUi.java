@@ -498,4 +498,10 @@ public class HeadlessUi implements UserInterface
 	{
 		return null;
 	}
+
+	@Override
+	public void buildGui()
+	{
+
+	}
 }

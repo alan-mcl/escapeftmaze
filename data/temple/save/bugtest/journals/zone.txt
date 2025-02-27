@@ -1,5 +1,0 @@
-zone
--section-
-testgen
-1~Arrived in testgen
--end-section-

@@ -30,6 +30,7 @@ import java.util.function.*;
 import javax.sound.sampled.Clip;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Utils;
+import mclachlan.maze.data.v2.V2Loader;
 import mclachlan.maze.game.*;
 import mclachlan.maze.map.*;
 import mclachlan.maze.stat.*;
@@ -42,6 +43,7 @@ import mclachlan.maze.stat.magic.Spell;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.npc.NpcFactionTemplate;
 import mclachlan.maze.stat.npc.NpcTemplate;
+import mclachlan.maze.ui.diygui.ProgressListener;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -103,6 +105,9 @@ public class Database
 	private Map<String, Map<String, String>> strings = new HashMap<>();
 	private Map<String, PlayerCharacter> characterGuild;
 	private Map<String, BufferedImage> images = new HashMap<>();
+	private Loader loader;
+	private Saver saver;
+	private Campaign campaign;
 
 
 	/*-------------------------------------------------------------------------*/
@@ -124,7 +129,7 @@ public class Database
 		if (!c.campaign.getName().equals(campaign.getName()))
 		{
 			throw new MazeException("Expected campaign ["+c.campaign.getName()+"], " +
-				"got ["+campaign.getName()+"]");
+				"got ["+ campaign.getName()+"]");
 		}
 		return c.saver;
 	}
@@ -144,40 +149,141 @@ public class Database
 	/*-------------------------------------------------------------------------*/
 	public Database(Loader loader, Saver saver, Campaign campaign) throws Exception
 	{
+		this.loader = loader;
+		this.saver = saver;
+		this.campaign = campaign;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initImpls() throws Exception
+	{
 		Map<String, String> config = Launcher.getConfig();
 		initCampaignCache(loader, saver, campaign, config);
+	}
 
+	/*-------------------------------------------------------------------------*/
+	public void initCaches(ProgressListener progress)
+	{
 		// init caches
+		progress.message(StringUtil.getUiLabel("ls.load.genders"));
 		getGenders();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.body.parts"));
 		getBodyParts();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.xp.tables"));
 		getExperienceTables();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.attack.types"));
 		getAttackTypes();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.condition.effects"));
 		getConditionEffects();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.condition.templates"));
 		getConditionTemplates();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.spell.effects"));
 		getSpellEffects();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.loot.entries"));
 		getLootEntries();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.loot.tables"));
 		getLootTables();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.maze.scripts"));
 		getMazeScripts();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.spells"));
 		getSpells();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.starting.kits"));
 		getStartingKits();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.character.classes"));
 		getCharacterClasses();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.player.spell.books"));
 		getPlayerSpellBooks();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.natural.weapons"));
 		getNaturalWeapons();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.races"));
 		getRaces();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.maze.textures"));
 		getMazeTextures();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.foe.types"));
 		getFoeTypes();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.foe.templates"));
 		getFoeTemplates();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.foe.entries"));
 		getFoeEntries();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.encounter.tables"));
 		getEncounterTables();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.traps"));
 		getTraps();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.npc.faction.templates"));
 		getNpcFactionTemplates();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.npc.templates"));
 		getNpcTemplates();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.wielding.combos"));
 		getWieldingCombos();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.item.templates"));
 		getItemTemplates();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.difficulty.levels"));
 		getDifficultyLevels();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.craft.recipes"));
 		getCraftRecipes();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.item.enchantments"));
 		getItemEnchantments();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.load.personalities"));
 		getPersonalities();
+		progress.incProgress(1);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1438,7 +1544,7 @@ public class Database
 				try
 				{
 					// we can use any loader to load this
-					userConfig = getCurrentCampaign().loader.loadUserConfig();
+					userConfig = new V2Loader().loadUserConfig();
 				}
 				catch (Exception e)
 				{

@@ -25,9 +25,9 @@ import java.awt.Rectangle;
 import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.EngineObject;
-import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.audio.AudioThread;
+import mclachlan.maze.audio.WavAudioPlayer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.Saver;
@@ -175,17 +175,96 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initState()
+	public void init() throws Exception
 	{
-		this.state = State.MAINMENU;
+		Database db = new Database();
+		this.userConfig = db.getUserConfig();
+
+		log("init db");
+		Database.getInstance().initImpls();
+		initUi(getUi(appConfig));
+
+		log("start threads");
+		startThreads();
+
+		int MAX_PROGRESS = 35;
+
+		LoadingScreen screen = new LoadingScreen(MAX_PROGRESS);
+		ui.showDialog(screen);
+		ProgressListener progress = screen.getProgressListener();
+
+		Database.getInstance().initCaches(progress);
+
+		progress.message(StringUtil.getUiLabel("ls.init.audio"));
+		initAudio(new WavAudioPlayer());
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.init.logs"));
+		initLog(getLog(appConfig));
+		initPerfLog(getPerfLog(appConfig));
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.init.state"));
+		initState();
+		progress.incProgress(1);
+
+		// Beware the dependencies between components here.
+		progress.message(StringUtil.getUiLabel("ls.init.systems"));
+		initSystems();
+		progress.incProgress(1);
+
+		progress.message(StringUtil.getUiLabel("ls.build.gui"));
+		getUi().buildGui();
+		progress.incProgress(1);
+
+		this.ui.setDebug(Boolean.valueOf(appConfig.get(AppConfig.UI_DEBUG)));
+		this.ui.clearDialog();
+		this.ui.showMainMenu();
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initDb() throws Exception
+	private Log getLog(Map<String, String> config)
+		throws ClassNotFoundException, IllegalAccessException, InstantiationException
 	{
-		log("init db");
-		Database db = new Database();
-		this.userConfig = db.getUserConfig();
+		String log_impl = config.get(Maze.AppConfig.LOG_IMPL);
+		Class<Log> log_class = (Class<Log>)Class.forName(log_impl);
+		Log log = (Log)log_class.newInstance();
+		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.LOG_LEVEL));
+		log.setLevel(logLevel);
+		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
+		log.setBufferSize(bufferSize);
+
+		return log;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private PerfLog getPerfLog(Map<String, String> config)
+		throws ClassNotFoundException, IllegalAccessException, InstantiationException
+	{
+		String log_impl = config.get(Maze.AppConfig.PERF_LOG_IMPL);
+		Class<PerfLog> log_class = (Class<PerfLog>)Class.forName(log_impl);
+		PerfLog log = (PerfLog)log_class.newInstance();
+		int logLevel = Integer.parseInt(config.get(Maze.AppConfig.PERF_LOG_LEVEL));
+		log.setLevel(logLevel);
+		int bufferSize = Integer.parseInt(config.get(Maze.AppConfig.LOG_BUFFER_SIZE));
+		log.setBufferSize(bufferSize);
+
+		return log;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private UserInterface getUi(Map<String, String> config)
+		throws ClassNotFoundException, IllegalAccessException, InstantiationException
+	{
+		String ui_impl = config.get(Maze.AppConfig.UI_IMPL);
+		Class<UserInterface> ui_class = (Class<UserInterface>)Class.forName(ui_impl);
+		return (DiyGuiUserInterface)ui_class.newInstance();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initState()
+	{
+		this.state = State.MAINMENU;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -205,8 +284,6 @@ public class Maze implements Runnable
 	{
 		log("init ui: "+ui.getClass());
 		this.ui = ui;
-		this.ui.setDebug(Boolean.valueOf(appConfig.get(AppConfig.UI_DEBUG)));
-		this.ui.showMainMenu();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -234,7 +311,7 @@ public class Maze implements Runnable
 	{
 		log("starting main thread...");
 
-		BlockingQueue<MazeEvent> q = new ArrayBlockingQueue<MazeEvent>(9999);
+		BlockingQueue<MazeEvent> q = new ArrayBlockingQueue<>(9999);
 		processor = new EventProcessor(q);
 		processor.start();
 
@@ -435,37 +512,54 @@ public class Maze implements Runnable
 			ui.getMusic().stop();
 			ui.getMusic().setState(null);
 
+			final int MAX_PROGRESS = 6;
+
 			// loading screen
-			ui.showBlockingScreen(
-				DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/loading_screen"),
-				BlockingScreen.Mode.UNINTERRUPTABLE,
-				null);
+			LoadingScreen screen = new LoadingScreen(MAX_PROGRESS);
+			ui.showDialog(screen);
+			ProgressListener progress = screen.getProgressListener();
 
 			// load gamestate
 			//... not needed
+			progress.message(StringUtil.getUiLabel("ls.gametime"));
 			GameTime.startGame();
+			progress.incProgress(1);
 
 			// construct player party
 			//... already done
 			
 			// set difficulty level
+			progress.message(StringUtil.getUiLabel("ls.difficulty"));
 			this.difficultyLevel = Database.getInstance().getDifficultyLevels().get(difficultyLevel);
+			progress.incProgress(1);
 
 			// load tiles visited
+			progress.message(StringUtil.getUiLabel("ls.tiles.visited"));
 			this.playerTilesVisited = new PlayerTilesVisited();
+			progress.incProgress(1);
 
 			// clear maze vars
+			progress.message(StringUtil.getUiLabel("ls.clear.maze.vars"));
 			MazeVariables.clearAll();
+			progress.incProgress(1);
 		
 			// load NPCs
+			progress.message(StringUtil.getUiLabel("ls.npc"));
 			NpcManager.getInstance().startGame();
+			progress.incProgress(1);
 
 			// load maze vars
 			// load item caches
 			//... not needed
 
 			// init journals
+			progress.message(StringUtil.getUiLabel("ls.journals"));
 			JournalManager.getInstance().startGame();
+			progress.incProgress(1);
+
+			ui.clearMessages();
+			ui.clearDialog();
+			ui.showBlockingScreen("screen/blank_screen", -1, null);
 
 			// start campaign
 			party.setSupplies(party.size()*4);
@@ -1282,7 +1376,10 @@ public class Maze implements Runnable
 		//~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 		String perfTag = "Maze::resolveEvent [" + event.getClass().getName() + "]";
-		Maze.getPerfLog().enter(perfTag);
+		if (getPerfLog() != null)
+		{
+			Maze.getPerfLog().enter(perfTag);
+		}
 
 		List<MazeEvent> subEvents = event.resolve();
 		
@@ -1349,7 +1446,10 @@ public class Maze implements Runnable
 			}
 		}
 
-		Maze.getPerfLog().exit(perfTag);
+		if (getPerfLog() != null)
+		{
+			Maze.getPerfLog().exit(perfTag);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2362,7 +2462,7 @@ public class Maze implements Runnable
 		@Override
 		public List<MazeEvent> resolve()
 		{
-			List<MazeEvent> result = new ArrayList<MazeEvent>();
+			List<MazeEvent> result = new ArrayList<>();
 
 			//
 			// Display and journal any needed messages

@@ -1,8 +1,0 @@
-zone
--section-
-Gatehouse
-1~Arrived in Gatehouse
-2~... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing.
-2~You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.%nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here...
-3~Save Game 'walkthrough1' Loaded
--end-section-

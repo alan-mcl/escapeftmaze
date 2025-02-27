@@ -22,17 +22,19 @@ package mclachlan.maze.editor.swing;
 import java.awt.*;
 import java.awt.event.*;
 import java.io.File;
-import java.util.*;
 import java.util.List;
+import java.util.*;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
-import mclachlan.maze.data.v1.V1Loader;
-import mclachlan.maze.data.v1.V1Saver;
+import mclachlan.maze.data.v2.V2Loader;
+import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Launcher;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.ui.diygui.ProgressListener;
+import mclachlan.maze.ui.diygui.ProgressListenerCallback;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -431,9 +433,30 @@ public class SwingEditor extends JFrame implements WindowListener
 	static void initDatabase(Campaign campaign)
 		throws Exception
 	{
-		V1Loader loader = new V1Loader();
-		V1Saver saver = new V1Saver();
-		new Database(loader, saver, campaign);
+		V2Loader loader = new V2Loader();
+		V2Saver saver = new V2Saver();
+		Database db = new Database(loader, saver, campaign);
+		db.initImpls();
+		db.initCaches(new ProgressListener()
+		{
+			@Override
+			public void incProgress(int amount)
+			{
+
+			}
+
+			@Override
+			public void setCallback(ProgressListenerCallback callback)
+			{
+
+			}
+
+			@Override
+			public void message(String msg)
+			{
+
+			}
+		});
 	}
 
 	/*-------------------------------------------------------------------------*/

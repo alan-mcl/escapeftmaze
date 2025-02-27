@@ -993,18 +993,24 @@ public class GameSys
 		MagicSys.SpellEffectSubType subType,
 		int spellLevel,
 		int castingLevel,
-		int saveAdjustment)
+		ValueList saveAdjustmentVal)
 	{
 		Maze.log(Log.DEBUG, target.getName()+" attempts saving throw for ["+
 			type+"/"+subType+"] coming from ["+source.getName()+"]");
 		Maze.log(Log.DEBUG, "spellLevel = [" + spellLevel + "]");
 		Maze.log(Log.DEBUG, "castingLevel = [" + castingLevel + "]");
-		Maze.log(Log.DEBUG, "saveAdjustment = [" + saveAdjustment + "]");
+		Maze.log(Log.DEBUG, "saveAdjustment = [" + saveAdjustmentVal + "]");
 		
 		if (isActorImmuneToSpellEffect(target, subType))
 		{
 			Maze.log(Log.DEBUG, target.getName()+" is immune to this type of attack ("+subType+")");
 			return true;
+		}
+
+		int saveAdjustment = 0;
+		if (saveAdjustmentVal != null)
+		{
+			saveAdjustment = saveAdjustmentVal.compute(source, castingLevel);
 		}
 
 		int resistance = getResistance(target, source, type);
@@ -3674,7 +3680,7 @@ public class GameSys
 			MagicSys.SpellEffectSubType.NORMAL_DAMAGE,
 			0,
 			0,
-			0);
+			new ValueList());
 	}
 
 	/*-------------------------------------------------------------------------*/

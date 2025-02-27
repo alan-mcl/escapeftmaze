@@ -1,1 +1,0 @@
-img/screen/aurora.png: https://www.vecteezy.com/free-vector/sky

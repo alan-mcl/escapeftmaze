@@ -711,7 +711,7 @@ public class EngineObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-
+/*
 	@Override
 	public boolean equals(Object o)
 	{
@@ -787,7 +787,8 @@ public class EngineObject
 		result = 31 * result + (getVerticalAlignment() != null ? getVerticalAlignment().hashCode() : 0);
 		result = 31 * result + Arrays.hashCode(getScripts());
 		return result;
-	}
+	}*/
+
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * There are nine possible placement positions.

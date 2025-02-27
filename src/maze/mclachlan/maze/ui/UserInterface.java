@@ -247,4 +247,6 @@ public interface UserInterface
 
 	/*-------------------------------------------------------------------------*/
 	ActorGroup getSelectedFoeGroup();
+
+	void buildGui();
 }

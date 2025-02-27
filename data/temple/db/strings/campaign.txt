@@ -1,5 +1,0 @@
-# intro storyboard
-temple.intro.1 = Aided by the trickster Hugen the Giants have ambushed and slain the war god \
-Wasud and are preparing to invade heaven. Without Wasud to lead them in battle the Gods are \
-in disarray and will surely be routed.\n\n \
-YOU lead a party to Wasud's temple. Your task is to find the dismembered parts of his body and revive him to lead the Gods to victory.

@@ -322,7 +322,7 @@ public class Tile implements ConditionBearer
 
 	/*-------------------------------------------------------------------------*/
 
-	@Override
+/*	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
@@ -389,5 +389,5 @@ public class Tile implements ConditionBearer
 		result = 31 * result + (getRestingDanger() != null ? getRestingDanger().hashCode() : 0);
 		result = 31 * result + (getRestingEfficiency() != null ? getRestingEfficiency().hashCode() : 0);
 		return result;
-	}
+	}*/
 }

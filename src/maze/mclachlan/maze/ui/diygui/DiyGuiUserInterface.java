@@ -156,6 +156,69 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public DiyGuiUserInterface()
+	{
+		initConfig();
+		screenBounds = new Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+
+		instance = this;
+		this.setTitle("Maze");
+
+		BlockingQueue<InputEvent> queue = new ArrayBlockingQueue<>(1000);
+
+		this.setFont(this.getDefaultFont());
+
+		DiyGuiUserInterface.gui = new DIYToolkit(
+			SCREEN_WIDTH,
+			SCREEN_HEIGHT,
+			this,
+			queue,
+			Maze.getInstance().getAppConfig().get(Maze.AppConfig.UI_RENDERER));
+
+		contentPaneActionListener = new ContentPaneActionListener(this);
+		gui.getContentPane().addActionListener(contentPaneActionListener);
+
+		new EventProcessor(queue).start();
+
+		if (fullScreen)
+		{
+			GraphicsDevice device =
+				GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+
+			this.enableEvents(KeyEvent.KEY_EVENT_MASK);
+			this.setUndecorated(true);
+
+			device.setFullScreenWindow(this);
+			this.enableInputMethods(false);
+			device.setDisplayMode(getDisplayMode(device));
+		}
+		else
+		{
+			this.setUndecorated(true); // should we support the native menu bar?
+			this.setBounds(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+			this.setVisible(true);
+		}
+
+		this.createBufferStrategy(2);
+
+		// todo: not dynamic?
+		int musicVolume = Maze.getInstance().getUserConfig().getMusicVolume();
+		final boolean musicEnabled = (musicVolume > 0);
+		music = new Music(Database.getInstance(), musicEnabled);
+		music.setVolume(musicVolume);
+
+//		buildGUI();
+
+		// FPS calculations
+		frameCount = frameCountRecord = 0;
+
+		counter = sumRenderTime = avgRenderTime = 0;
+
+		strategy = this.getBufferStrategy();
+		curTime = System.currentTimeMillis();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	public void initConfig()
 	{
 		java.util.Map<String, String> p = Maze.getInstance().getAppConfig();
@@ -218,66 +281,63 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public DiyGuiUserInterface()
+	public void buildGui()
 	{
-		initConfig();
-		screenBounds = new Rectangle(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
+		this.getGraphics().setFont(this.getDefaultFont());
 
-		instance = this;
-		this.setTitle("Maze");
+//		mazeActionListener = new MazeActionListener();
+//		DiyGuiUserInterface.gui.addGlobalListener(mazeActionListener);
 
-		BlockingQueue<InputEvent> queue = new ArrayBlockingQueue<>(1000);
+		ArrayList<ContainerWidget> cards = new ArrayList<>();
 
-		this.setFont(this.getDefaultFont());
+		this.initCommonWidgets();
 
-		DiyGuiUserInterface.gui = new DIYToolkit(
-			SCREEN_WIDTH,
-			SCREEN_HEIGHT,
-			this,
-			queue,
-			Maze.getInstance().getAppConfig().get(Maze.AppConfig.UI_RENDERER));
+		// The main menu
+		mainMenu = getMainMenu();
+		cards.add(mainMenu);
 
-		contentPaneActionListener = new ContentPaneActionListener(this);
-		gui.getContentPane().addActionListener(contentPaneActionListener);
+		// The save/load screen
+		saveLoad = getSaveLoad();
+		cards.add(saveLoad);
 
-		new EventProcessor(queue).start();
+		// The exploration screen
+		movementScreen = getMovementScreen();
+		cards.add(movementScreen);
 
-		if (fullScreen)
-		{
-			GraphicsDevice device =
-				GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
+		// The modifiers display screen
+		modifiersDisplayScreen = getModifiersDisplayScreen();
+		cards.add(modifiersDisplayScreen);
 
-			this.enableEvents(KeyEvent.KEY_EVENT_MASK);
-			this.setUndecorated(true);
+		// The stats display screen
+		statsDisplayScreen = getStatsDisplayScreen();
+		cards.add(statsDisplayScreen);
 
-			device.setFullScreenWindow(this);
-			this.enableInputMethods(false);
-			device.setDisplayMode(getDisplayMode(device));
-		}
-		else
-		{
-			this.setUndecorated(true); // should we support the native menu bar?
-			this.setBounds(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT);
-			this.setVisible(true);
-		}
+		// The properties display screen
+		propertiesDisplayScreen = getPropertiesDisplayScreen();
+		cards.add(propertiesDisplayScreen);
 
-		this.createBufferStrategy(2);
+		// The inventory screen
+		inventoryScreen = getInventoryScreen();
+		cards.add(inventoryScreen);
 
-		// todo: not dynamic?
-		int musicVolume = Maze.getInstance().getUserConfig().getMusicVolume();
-		final boolean musicEnabled = (musicVolume > 0);
-		music = new Music(Database.getInstance(), musicEnabled);
-		music.setVolume(musicVolume);
+		// The magic screen
+		magicScreen = getMagicScreen();
+		cards.add(magicScreen);
 
-		buildGUI();
+		// The character creation screen
+		createCharacterScreen = getCreateCharacterScreen();
+		cards.add(createCharacterScreen);
 
-		// FPS calculations
-		frameCount = frameCountRecord = 0;
+		// The level up screen
+		levelUpScreen = getLevelUpScreen();
+		cards.add(levelUpScreen);
 
-		counter = sumRenderTime = avgRenderTime = 0;
+		// a layout to display the various screens.
+		CardLayoutWidget mainLayout = new CardLayoutWidget(screenBounds, cards);
 
-		strategy = this.getBufferStrategy();
-		curTime = System.currentTimeMillis();
+		DiyGuiUserInterface.gui.add(mainLayout);
+
+		this.mainLayout = mainLayout;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -730,67 +790,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void clearBlockingScreen()
 	{
 		clearDialog();
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void buildGUI()
-	{
-		this.getGraphics().setFont(this.getDefaultFont());
-
-//		mazeActionListener = new MazeActionListener();
-//		DiyGuiUserInterface.gui.addGlobalListener(mazeActionListener);
-
-		ArrayList<ContainerWidget> cards = new ArrayList<>();
-
-		this.initCommonWidgets();
-
-		// The main menu
-		mainMenu = getMainMenu();
-		cards.add(mainMenu);
-
-		// The save/load screen
-		saveLoad = getSaveLoad();
-		cards.add(saveLoad);
-
-		// The exploration screen
-		movementScreen = getMovementScreen();
-		cards.add(movementScreen);
-
-		// The modifiers display screen
-		modifiersDisplayScreen = getModifiersDisplayScreen();
-		cards.add(modifiersDisplayScreen);
-
-		// The stats display screen
-		statsDisplayScreen = getStatsDisplayScreen();
-		cards.add(statsDisplayScreen);
-
-		// The properties display screen
-		propertiesDisplayScreen = getPropertiesDisplayScreen();
-		cards.add(propertiesDisplayScreen);
-
-		// The inventory screen
-		inventoryScreen = getInventoryScreen();
-		cards.add(inventoryScreen);
-
-		// The magic screen
-		magicScreen = getMagicScreen();
-		cards.add(magicScreen);
-
-		// The character creation screen
-		createCharacterScreen = getCreateCharacterScreen();
-		cards.add(createCharacterScreen);
-
-		// The level up screen
-		levelUpScreen = getLevelUpScreen();
-		cards.add(levelUpScreen);
-
-		// a layout to display the various screens.
-		CardLayoutWidget mainLayout = new CardLayoutWidget(screenBounds, cards);
-
-		DiyGuiUserInterface.gui.add(mainLayout);
-
-		this.mainLayout = mainLayout;
-		this.mainLayout.show(mainMenu);
 	}
 
 	public void showCreateCharacterScreen()
@@ -1694,8 +1693,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 			default ->
 			{
+				// ignore
 			}
-			// ignore
 		}
 	}
 

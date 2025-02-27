@@ -41,6 +41,8 @@ import mclachlan.maze.stat.magic.MagicSys;
 import mclachlan.maze.stat.magic.SpellEffect;
 import mclachlan.maze.stat.npc.NpcFaction;
 import mclachlan.maze.ui.diygui.Constants;
+import mclachlan.maze.ui.diygui.ProgressListener;
+import mclachlan.maze.ui.diygui.ProgressListenerCallback;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.util.PerfLog;
 
@@ -93,7 +95,28 @@ public class MockCombat
 		maze.initLog(new SoutLog());
 		maze.initPerfLog(new PerfLog());
 		maze.initState();
-		maze.initDb();
+		Maze.log("init db");
+		Database.getInstance().initImpls();
+		Database.getInstance().initCaches(new ProgressListener()
+		{
+			@Override
+			public void incProgress(int amount)
+			{
+
+			}
+
+			@Override
+			public void setCallback(ProgressListenerCallback callback)
+			{
+
+			}
+
+			@Override
+			public void message(String msg)
+			{
+
+			}
+		});
 		maze.initSystems();
 		maze.initUi(new HeadlessUi());
 //		maze.startThreads();
