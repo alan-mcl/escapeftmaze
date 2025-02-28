@@ -4,6 +4,7 @@ import java.awt.Font;
 import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import javax.imageio.ImageIO;
 import javax.sound.sampled.Clip;
@@ -73,7 +74,7 @@ public class V2Loader extends Loader
 
 	/*-------------------------------------------------------------------------*/
 	private BufferedReader getReader(String str)
-		throws FileNotFoundException
+		throws IOException
 	{
 		BufferedReader reader;
 		File file = new File(str);
@@ -82,7 +83,7 @@ public class V2Loader extends Loader
 			// fake it out
 			throw new MazeException("invalid: ["+str+"]");
 		}
-		reader = new BufferedReader(new FileReader(file));
+		reader = new BufferedReader(new FileReader(file, StandardCharsets.UTF_8));
 		return reader;
 	}
 

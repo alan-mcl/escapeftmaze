@@ -19,12 +19,13 @@ package mclachlan.maze.data.v2;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.TypeAdapter;
 import com.google.gson.reflect.TypeToken;
 import com.google.gson.stream.JsonReader;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.Writer;
+import com.google.gson.stream.JsonWriter;
+import java.io.*;
 import java.lang.reflect.Type;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import mclachlan.maze.data.Database;
 
@@ -36,29 +37,47 @@ public class V2Utils
 	/*-------------------------------------------------------------------------*/
 	public static List<Map> getObjects(BufferedReader reader)
 	{
-		Gson gson = new Gson();
-		Type type = new TypeToken<List<Map>>(){}.getType();
+		Gson gson = getGsonReader();
+		Type type = new TypeToken<List<Map>>()
+		{
+		}.getType();
 		return gson.fromJson(new JsonReader(reader), type);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static Map getMap(BufferedReader reader)
 	{
-		Gson gson = new Gson();
-		Type type = new TypeToken<Map>(){}.getType();
+		Gson gson = getGsonReader();
+		Type type = new TypeToken<Map>()
+		{
+		}.getType();
 		return gson.fromJson(new JsonReader(reader), type);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static Gson getGsonReader()
+	{
+		GsonBuilder builder = new GsonBuilder();
+		builder.registerTypeAdapter(String.class, new Utf8StringTypeAdapter());
+		Gson gson = builder.create();
+		return gson;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public static String getJson(List<Map> list)
 	{
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		Type type = new TypeToken<List<Map>>(){}.getType();
+		GsonBuilder gsonBuilder = new GsonBuilder();
+//		gsonBuilder.registerTypeAdapter(String.class, new UnicodeStringAdapter());
+		Gson gson = gsonBuilder.setPrettyPrinting().create();
+		Type type = new TypeToken<List<Map>>()
+		{
+		}.getType();
 		return gson.toJson(list, type);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static void writeJson(List<Map> list, Writer writer) throws IOException
+	public static void writeJson(List<Map> list,
+		Writer writer) throws IOException
 	{
 		writer.write(getJson(list));
 		writer.flush();
@@ -68,7 +87,9 @@ public class V2Utils
 	public static String getJson(Map obj)
 	{
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
-		Type type = new TypeToken<Map>(){}.getType();
+		Type type = new TypeToken<Map>()
+		{
+		}.getType();
 		return gson.toJson(obj, type);
 	}
 
@@ -80,11 +101,12 @@ public class V2Utils
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static Map serialiseMap(Map<?,?> map, V2SerialiserMap serialiser, Database db)
+	public static Map serialiseMap(Map<?, ?> map, V2SerialiserMap serialiser,
+		Database db)
 	{
 		Map result = new HashMap();
 
-		for (Map.Entry<?,?> e : map.entrySet())
+		for (Map.Entry<?, ?> e : map.entrySet())
 		{
 			if (e.getValue() != null)
 			{
@@ -100,7 +122,8 @@ public class V2Utils
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static Map deserialiseMap(Map<?, ?> map, V2SerialiserMap serialiser, Database db)
+	public static Map deserialiseMap(Map<?, ?> map, V2SerialiserMap serialiser,
+		Database db)
 	{
 		Map result = new HashMap();
 
@@ -113,7 +136,8 @@ public class V2Utils
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static List serialiseList(List list, V2SerialiserMap serialiser, Database db)
+	public static List serialiseList(List list, V2SerialiserMap serialiser,
+		Database db)
 	{
 		List result = new ArrayList();
 
@@ -144,7 +168,8 @@ public class V2Utils
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static List deserialiseList(List list, V2SerialiserMap serialiser, Database db)
+	public static List deserialiseList(List list, V2SerialiserMap serialiser,
+		Database db)
 	{
 		List result = new ArrayList();
 
@@ -166,5 +191,89 @@ public class V2Utils
 		}
 
 		return result;
+	}
+
+	static class UnicodeStringAdapter extends TypeAdapter<String>
+	{
+		@Override
+		public void write(JsonWriter out, String value) throws IOException
+		{
+			if (value == null)
+			{
+				out.nullValue();
+				return;
+			}
+			StringBuilder unicodeString = new StringBuilder();
+			for (char c : value.toCharArray())
+			{
+//				if (c > 127)
+//				{
+//					unicodeString.append(String.format("\\u%04x", (int)c));
+//				}
+//				else
+				{
+					unicodeString.append(c);
+				}
+			}
+			String value1 = unicodeString.toString();
+			System.out.println("value1 = " + value1);
+			out.value(value1);
+		}
+
+		@Override
+		public String read(JsonReader in) throws IOException
+		{
+			return in.nextString();//.replaceAll("\\\\u", "\\u");
+		}
+
+		public static void main(String[] args) throws IOException
+		{
+			GsonBuilder builder = new GsonBuilder();
+			builder.disableHtmlEscaping();
+			builder.registerTypeAdapter(String.class, new UnicodeStringAdapter());
+			Gson gson = builder.setPrettyPrinting().create();
+
+			// Example usage
+			Map<String, String> exampleMap = new HashMap<>();
+			String value = "value with unicode: \u00A9. Der Mond flüstert mir Geheimnisse, doch sie sind nicht für sterbliche Ohren bestimmt!";
+			System.out.println("value = " + value);
+			exampleMap.put("key", value);
+
+			Writer writer = new PrintWriter(System.out);
+			gson.toJson(exampleMap, writer);
+			writer.close();
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class Utf8StringTypeAdapter extends TypeAdapter<String>
+	{
+		@Override
+		public void write(JsonWriter jsonWriter, String s) throws IOException
+		{
+			jsonWriter.value(s);
+		}
+
+		@Override
+		public String read(JsonReader jsonReader) throws IOException
+		{
+			String s = jsonReader.nextString();
+			return new String(s.getBytes(StandardCharsets.UTF_8), StandardCharsets.UTF_8);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static void main(String[] args) throws IOException
+	{
+		Map<String, String> map = new HashMap<>();
+
+		map.put("val", "\u00A9. Der Mond flüstert mir Geheimnisse, doch sie sind nicht für sterbliche Ohren bestimmt!");
+		System.out.println("map = " + map);
+
+		String json = V2Utils.getJson(map);
+		System.out.println("json = " + json);
+
+		Map map1 = V2Utils.getMap(new BufferedReader(new StringReader(json)));
+		System.out.println("map1 = " + map1);
 	}
 }

@@ -7,7 +7,6 @@ UI REFRESH
 map zones
 starting quest
 PC death counter
-db: v2 migration
 flat sky support in editor & maze
 
 BACKLOG

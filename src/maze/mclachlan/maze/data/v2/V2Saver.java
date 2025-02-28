@@ -4,6 +4,7 @@ import java.awt.Point;
 import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
+import java.nio.charset.StandardCharsets;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.MazeTexture;
@@ -74,7 +75,7 @@ public class V2Saver extends Saver
 	{
 		File f = new File(path);
 		f.getParentFile().mkdirs();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8));
 
 		silo.save(writer, map, db);
 
@@ -86,7 +87,7 @@ public class V2Saver extends Saver
 	{
 		File f = new File(path);
 		f.getParentFile().mkdirs();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8));
 
 		silo.save(writer, obj, db);
 
@@ -378,7 +379,7 @@ public class V2Saver extends Saver
 	{
 		File f = new File(getSaveGamePath(saveGameName, CONDITIONS));
 		f.getParentFile().mkdirs();
-		BufferedWriter writer = new BufferedWriter(new FileWriter(f));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(f, StandardCharsets.UTF_8));
 
 		Map<Object, Object> temp = new HashMap<>();
 		ListSerialiser conditionsSerialiser = getConditionsSerialiser(db, new HashMap<>());
@@ -411,7 +412,7 @@ public class V2Saver extends Saver
 	@Override
 	public void saveUserConfig(UserConfig userConfig) throws Exception
 	{
-		BufferedWriter writer = new BufferedWriter(new FileWriter(USER_CONFIG));
+		BufferedWriter writer = new BufferedWriter(new FileWriter(USER_CONFIG, StandardCharsets.UTF_8));
 		Properties p = userConfig.toProperties();
 		p.store(writer, "Written by V2Saver");
 		writer.flush();

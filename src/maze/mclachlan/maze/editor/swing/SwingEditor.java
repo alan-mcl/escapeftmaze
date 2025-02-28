@@ -33,8 +33,7 @@ import mclachlan.maze.data.v2.V2Saver;
 import mclachlan.maze.game.Campaign;
 import mclachlan.maze.game.Launcher;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.ui.diygui.ProgressListener;
-import mclachlan.maze.ui.diygui.ProgressListenerCallback;
+import mclachlan.maze.ui.diygui.NullProgressListener;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -437,26 +436,7 @@ public class SwingEditor extends JFrame implements WindowListener
 		V2Saver saver = new V2Saver();
 		Database db = new Database(loader, saver, campaign);
 		db.initImpls();
-		db.initCaches(new ProgressListener()
-		{
-			@Override
-			public void incProgress(int amount)
-			{
-
-			}
-
-			@Override
-			public void setCallback(ProgressListenerCallback callback)
-			{
-
-			}
-
-			@Override
-			public void message(String msg)
-			{
-
-			}
-		});
+		db.initCaches(new NullProgressListener());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1331,21 +1311,11 @@ public class SwingEditor extends JFrame implements WindowListener
 				final CampaignPanel campaignPanel = new CampaignPanel(parent.campaigns);
 				dialog.add(campaignPanel, BorderLayout.CENTER);
 				dialog.add(buttonPanel, BorderLayout.SOUTH);
-				ok.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent e)
-					{
-						parent.changeCampaign(campaignPanel.getCampaign());
-						dialog.setVisible(false);
-					}
+				ok.addActionListener(e13 -> {
+					parent.changeCampaign(campaignPanel.getCampaign());
+					dialog.setVisible(false);
 				});
-				cancel.addActionListener(new ActionListener()
-				{
-					public void actionPerformed(ActionEvent e)
-					{
-						dialog.setVisible(false);
-					}
-				});
+				cancel.addActionListener(e12 -> dialog.setVisible(false));
 				dialog.pack();
 				dialog.setLocationRelativeTo(parent);
 				dialog.setVisible(true);
@@ -1376,4 +1346,5 @@ public class SwingEditor extends JFrame implements WindowListener
 	{
 		new SwingEditor();
 	}
+
 }
