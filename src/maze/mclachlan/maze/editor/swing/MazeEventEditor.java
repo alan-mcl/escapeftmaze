@@ -33,6 +33,8 @@ import mclachlan.maze.data.v1.V1Saver;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
+import mclachlan.maze.game.journal.JournalEntryEvent;
+import mclachlan.maze.game.journal.JournalManager;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
@@ -112,6 +114,9 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JComboBox steKeyModifier;
 	private ValueComponent steSkillValue, steSuccessValue;
 	private JComboBox steSuccessScript, steFailureScript;
+	private JComboBox journalType;
+	private JTextField journalKey;
+	private JTextArea journalText;
 
 	/*-------------------------------------------------------------------------*/
 	public MazeEventEditor(Frame owner, MazeEvent event, int dirtyFlag) throws HeadlessException
@@ -125,18 +130,19 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		}
 
 		JPanel top = new JPanel();
-		Vector<String> vec = new Vector<String>();
+		Vector<String> types = new Vector<>();
 		for (int i=0; i<MAX; i++)
 		{
 			String str = describeType(i);
 			if (str != null)
 			{
-				int index = vec.size();
+				int index = types.size();
 				dialogLookup[index] = i;
-				vec.addElement(str);
+				types.addElement(str);
 			}
 		}
-		type = new JComboBox(vec);
+
+		type = new JComboBox(types);
 		type.addActionListener(this);
 		top.add(new JLabel("Type"));
 		top.add(type);
@@ -324,6 +330,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				steSuccessValue.setValue(ste.getSuccessValue());
 				steSuccessScript.setSelectedItem(ste.getSuccessScript() == null ? EditorPanel.NONE : ste.getSuccessScript());
 				steFailureScript.setSelectedItem(ste.getFailureScript() == null ? EditorPanel.NONE : ste.getFailureScript());
+				break;
+			case _JournalEntryEvent:
+				JournalEntryEvent jee = (JournalEntryEvent)e;
+				journalType.setSelectedItem(jee.getType());
+				journalKey.setText(jee.getKey() == null ? "" : jee.getKey());
+				journalText.setText(jee.getJournalText() == null ? "" : jee.getJournalText());
 				break;
 
 			case _ActorDiesEvent:
@@ -552,6 +564,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 					steSuccessScript.getSelectedItem() == EditorPanel.NONE ? null : (String)steSuccessScript.getSelectedItem(),
 					steFailureScript.getSelectedItem() == EditorPanel.NONE ? null : (String)steFailureScript.getSelectedItem());
 				break;
+			case _JournalEntryEvent:
+				this.result = new JournalEntryEvent(
+					(JournalManager.JournalType)journalType.getSelectedItem(),
+					"".equals(journalKey.getText()) ? null : journalKey.getText(),
+					"".equals(journalText.getText()) ? null : journalText.getText());
+				break;
 
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -684,6 +702,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return getRemoveObjectEventPanel();
 			case _SkillTestEvent:
 				return getSkillTestEventPanel();
+			case _JournalEntryEvent:
+				return getJournalEntryEventPanel();
 				
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:
@@ -751,6 +771,20 @@ public class MazeEventEditor extends JDialog implements ActionListener
 
 			default: return null;
 		}
+	}
+
+	private JPanel getJournalEntryEventPanel()
+	{
+		journalType = new JComboBox(JournalManager.JournalType.values());
+		journalKey = new JTextField(20);
+		journalText = new JTextArea(10, 35);
+		journalText.setLineWrap(true);
+		journalText.setWrapStyleWord(true);
+
+		return dirtyGridBagCrap(
+			new JLabel("Journal Type:"), journalType,
+			new JLabel("Key:"), journalKey,
+			new JLabel("Text:"), journalText);
 	}
 
 	private JPanel getSkillTestEventPanel()
@@ -1318,6 +1352,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				return "Remove Object";
 			case _SkillTestEvent:
 				return "Skill Test";
+			case _JournalEntryEvent:
+				return "Journal Entry";
 					
 			case _ActorDiesEvent:
 			case _ActorUnaffectedEvent:

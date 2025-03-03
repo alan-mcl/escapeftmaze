@@ -1420,6 +1420,27 @@
         "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
         "tile": "10:9",
         "facing": "1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
+        "mazeVariable": "arena.stick.man.vendor.quest.1.completed",
+        "value": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "LOGBOOK",
+        "journalText": "test logbook event"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "QUEST",
+        "key": "LolQuest",
+        "journalText": "Test Quest Event"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "ZONE",
+        "journalText": "Test Zone Event"
       }
     ]
   },
@@ -4716,6 +4737,18 @@
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
         "speechKey": "default.gatehouse.1",
         "modal": "true"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "QUEST",
+        "key": "Escape from the Second Realm",
+        "journalText": "You have escaped from the First Realm of the Maze.\nYou seek now to escape from the Second.\n\nSomewhere in this Realm you have entered lies a Great Gate. You must locate it, access it and pass through to escape this Realm and continue your journey to escape from the Maze entirely."
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.journal.JournalEntryEvent",
+        "type": "QUEST",
+        "key": "Escape from the Second Realm",
+        "journalText": "Quest added"
       }
     ]
   },

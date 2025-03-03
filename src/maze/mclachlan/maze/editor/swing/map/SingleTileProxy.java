@@ -211,4 +211,16 @@ public class SingleTileProxy extends TileProxy
 	{
 		mazeTile.setTerrainType(terrainType);
 	}
+
+	@Override
+	public void setSector(String sector)
+	{
+		mazeTile.setSector(sector);
+	}
+
+	@Override
+	public String getSector()
+	{
+		return mazeTile.getSector();
+	}
 }

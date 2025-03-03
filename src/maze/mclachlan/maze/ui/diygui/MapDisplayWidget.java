@@ -41,7 +41,7 @@ import mclachlan.maze.util.MazeException;
 public class MapDisplayWidget extends DIYPanel
 {
 	// for debugging
-	private boolean filterByVisited = true;
+	private final boolean filterByVisited = true;
 
 	//	a cache of scaled images
 	private final java.util.Map<Image, Image> floorScaledImages = new HashMap<>();
@@ -99,17 +99,20 @@ public class MapDisplayWidget extends DIYPanel
 
 		g.setColor(Color.DARK_GRAY);
 
-		Zone zone = Maze.getInstance().getCurrentZone();
+		Maze maze = Maze.getInstance();
+		Zone zone = maze.getCurrentZone();
 
 		int tileSize = TILE_SIZE * zoomLevel;
 		int wallSize = WALL_SIZE + zoomLevel;
 
 		Map map = zone.getMap();
-		Component component = Maze.getInstance().getComponent();
-		PlayerTilesVisited visited = Maze.getInstance().getPlayerTilesVisited();
+		Component component = maze.getComponent();
+		PlayerTilesVisited visited = maze.getPlayerTilesVisited();
 
-		Point playerPos = Maze.getInstance().getPlayerPos();
-		int facing = Maze.getInstance().getFacing();
+		Point playerPos = maze.getPlayerPos();
+		int facing = maze.getFacing();
+		mclachlan.maze.map.Tile playerTile = maze.getCurrentTile();
+		String currentSector = playerTile.getSector();
 
 		List<Integer> tilesToDisplay = new ArrayList<>();
 
@@ -139,8 +142,18 @@ public class MapDisplayWidget extends DIYPanel
 		for (int index : tilesToDisplay)
 		{
 			Point p = map.getPoint(index);
+			Tile tile = tiles[index];
+			mclachlan.maze.map.Tile mazeTile = zone.getTile(p);
 
 			if (!visited.hasVisited(zone.getName(), p) && filterByVisited)
+			{
+				continue;
+			}
+
+			String tileSector = mazeTile.getSector();
+
+			if (!((currentSector == null && tileSector == null) ||
+				tileSector != null && tileSector.equals(currentSector)))
 			{
 				continue;
 			}
@@ -152,13 +165,13 @@ public class MapDisplayWidget extends DIYPanel
 
 			// tile
 			g.drawImage(
-				getFloorScaledImage(tiles[index].getFloorTexture().getImages()[0]),
+				getFloorScaledImage(tile.getFloorTexture().getImages()[0]),
 				x1, y1, component);
 
-			if (tiles[index].getFloorMaskTexture() != null)
+			if (tile.getFloorMaskTexture() != null)
 			{
 				g.drawImage(
-					getFloorScaledImage(tiles[index].getFloorMaskTexture().getImages()[0]),
+					getFloorScaledImage(tile.getFloorMaskTexture().getImages()[0]),
 					x1, y1, component);
 			}
 

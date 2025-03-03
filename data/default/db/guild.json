@@ -337,6 +337,77 @@
     "activeModifiers": "7fe0000027f8,01010101010101010101010101010101010101"
   },
   {
+    "name": "Martina",
+    "gender": "Female",
+    "race": "Human",
+    "characterClass": "Amazon",
+    "personality": "Valiant",
+    "levels": {
+      "Amazon": "1"
+    },
+    "experience": "0",
+    "kills": "0",
+    "karma": "0",
+    "portrait": "portrait/human_female_8",
+    "helm": {
+      "template": "Feathered Hat",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "torsoArmour": {
+      "template": "Cloth Shirt",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "legArmour": {
+      "template": "Cloth Pants",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "boots": {
+      "template": "Buskins",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Short Bow",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "secondaryWeapon": {
+      "template": "Willow Arrow",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "50-100"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": []
+    },
+    "spellBook": {
+      "spells": [
+        "Heal Light Wounds"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "5e00000440020201ff,02020205040504030202010101050505050a",
+      "hitPoints": "22-22-0",
+      "actionPoints": "2-2",
+      "magicPoints": "5-5"
+    },
+    "practice": {
+      "modifiers": "0,"
+    },
+    "activeModifiers": "4400003fff8,0101010101010101010101010101010101",
+    "removedLevelAbilities": []
+  },
+  {
     "name": "Dawa",
     "gender": "Male",
     "race": "Mirka",

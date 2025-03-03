@@ -57,6 +57,7 @@ public class TileDetailsPanel extends JPanel
 	private final JComboBox randomEncounterTable;
 	private final JComboBox restingDanger;
 	private final JComboBox restingEfficiency;
+	private final JTextField sector;
 	private final MultipleTileScriptComponent tileScript;
 	
 	// crusader tile properties
@@ -109,6 +110,10 @@ public class TileDetailsPanel extends JPanel
 		restingEfficiency = new JComboBox(Tile.RestingEfficiency.values());
 		restingEfficiency.addActionListener(this);
 		dodgyGridBagShite(content, new JLabel("Resting Efficiency:"), restingEfficiency, gbc);
+
+		sector = new JTextField(15);
+		sector.addKeyListener(this);
+		dodgyGridBagShite(content, new JLabel("Map Sector:"), sector, gbc);
 		
 		randomEncounterChance = new JSpinner(new SpinnerNumberModel(0, 0, 1000, 1));
 		randomEncounterChance.addChangeListener(this);
@@ -255,6 +260,7 @@ public class TileDetailsPanel extends JPanel
 		terrainSubType.removeKeyListener(this);
 		restingDanger.removeActionListener(this);
 		restingEfficiency.removeActionListener(this);
+		sector.removeKeyListener(this);
 		randomEncounterChance.removeChangeListener(this);
 		randomEncounterTable.removeActionListener(this);
 		floorTexture.removeActionListener(this);
@@ -284,6 +290,7 @@ public class TileDetailsPanel extends JPanel
 		randomEncounterChance.setValue(tile.getRandomEncounterChance());
 		randomEncounterTable.setSelectedItem(tile.getRandomEncounters()==null?EditorPanel.NONE:tile.getRandomEncounters().getName());
 		tileScript.refresh(tile.getScripts(), zone);
+		sector.setText(tile.getSector() == null ? "" : tile.getSector());
 		
 		floorTexture.setSelectedItem(tile.getFloorTexture()==null?EditorPanel.NONE:tile.getFloorTexture().getName());
 		floorMaskTexture.setSelectedItem(tile.getFloorMaskTexture()==null?EditorPanel.NONE:tile.getFloorMaskTexture().getName());
@@ -363,6 +370,7 @@ public class TileDetailsPanel extends JPanel
 		terrainSubType.addKeyListener(this);
 		restingDanger.addActionListener(this);
 		restingEfficiency.addActionListener(this);
+		sector.addKeyListener(this);
 		randomEncounterChance.addChangeListener(this);
 		randomEncounterTable.addActionListener(this);
 		floorTexture.addActionListener(this);
@@ -457,6 +465,13 @@ public class TileDetailsPanel extends JPanel
 			if (tile != null)
 			{
 				tile.setTerrainSubType(terrainSubType.getText());
+			}
+		}
+		else if (e.getSource() == sector)
+		{
+			if (tile != null)
+			{
+				tile.setSector("".equals(sector.getText()) ? null : sector.getText());
 			}
 		}
 	}

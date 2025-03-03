@@ -22,25 +22,27 @@ package mclachlan.maze.stat.npc;
 import java.util.*;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.game.journal.JournalManager;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
  */
 public class QuestManager
 {
-	private List<Quest> quests;
+	private final List<Quest> quests;
 
-	private String counterVar, stateVar;
+	private final String counterVar, stateVar;
 
 	/*-------------------------------------------------------------------------*/
-	public QuestManager(Npc npc)
+	public QuestManager(String name)
 	{
-		this.quests = new ArrayList<Quest>();
+		this.quests = new ArrayList<>();
 
-		String npcVarName = npc.getName().toLowerCase().replaceAll(" ", ".");
+		String varName = name.toLowerCase().replaceAll(" ", ".");
 
-		counterVar = npcVarName +".quest.manager.counter";
-		stateVar = npcVarName +".quest.manager.state";
+		counterVar = varName +".quest.manager.counter";
+		stateVar = varName +".quest.manager.state";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -52,7 +54,7 @@ public class QuestManager
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> getNextQuestRelatedStuff()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (getQuestState().equals(State.PRIMED))
 		{
@@ -65,7 +67,7 @@ public class QuestManager
 			if (currentQuest != null)
 			{
 				result.addAll(currentQuest.getIntroduction());
-				setQuestState(State.GRANTED);
+				setQuestState(currentQuest, State.GRANTED);
 			}
 		}
 		else if (getQuestState().equals(State.GRANTED))
@@ -74,10 +76,10 @@ public class QuestManager
 
 			if (currentQuest.isComplete())
 			{
-				setQuestState(State.COMPLETED);
+				setQuestState(currentQuest, State.COMPLETED);
 				result.addAll(currentQuest.getReward());
 				acceptNextQuest();
-				setQuestState(State.PRIMED);
+				setQuestState(null, State.PRIMED);
 			}
 			else
 			{
@@ -133,27 +135,49 @@ public class QuestManager
 	public void start()
 	{
 		setQuestCounter(0);
-		setQuestState(State.PRIMED);
+		setQuestState(null, State.PRIMED);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void setQuestState(String state)
+	private void setQuestState(Quest q, State state)
 	{
-		MazeVariables.set(stateVar, state);
-	}
+		MazeVariables.set(stateVar, state.name());
 
-	/*-------------------------------------------------------------------------*/
-	private String getQuestState()
-	{
-		String result = MazeVariables.get(stateVar);
-
-		if (result == null)
+		switch (state)
 		{
-			result = State.PRIMED;
-			setQuestState(result);
+			case PRIMED, REWARDED ->
+			{
+			}
+			case GRANTED ->
+			{
+				if (q != null)
+				{
+					String name = q.getName();
+					JournalManager.getInstance().questJournal(name, q.getDescription());
+					JournalManager.getInstance().questJournal(name, "Quest added");
+				}
+			}
+			case COMPLETED ->
+			{
+				if (q != null)
+				{
+					String name = q.getName();
+					JournalManager.getInstance().questJournal(name, "Quest completed");
+				}
+			}
+			default -> throw new MazeException("invalid "+state);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private State getQuestState()
+	{
+		if (MazeVariables.get(stateVar) == null)
+		{
+			setQuestState(null, State.PRIMED);
 		}
 
-		return result;
+		return State.valueOf(MazeVariables.get(stateVar));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -173,11 +197,11 @@ public class QuestManager
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private static class State
+	private static enum State
 	{
-		public static final String PRIMED = "primed";
-		public static final String GRANTED = "granted";
-		public static final String COMPLETED = "completed";
-		public static final String REWARDED = "rewarded";
+		PRIMED,
+		GRANTED,
+		COMPLETED,
+		REWARDED;
 	}
 }

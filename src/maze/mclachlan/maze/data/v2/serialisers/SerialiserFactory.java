@@ -16,6 +16,7 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.game.event.*;
 import mclachlan.maze.game.journal.Journal;
 import mclachlan.maze.game.journal.JournalEntry;
+import mclachlan.maze.game.journal.JournalEntryEvent;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.*;
 import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
@@ -474,6 +475,8 @@ public class SerialiserFactory
 		ReflectiveSerialiser ses = getReflectiveSerialiser(SoundEffectEvent.class, "clipNames", "die");
 		ses.addCustomSerialiser("clipNames", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		map.put(SoundEffectEvent.class, ses);
+
+		map.put(JournalEntryEvent.class, getReflectiveSerialiser(JournalEntryEvent.class, "type", "key", "journalText"));
 
 		return new MazeObjectImplSerialiser<>(map);
 	}
@@ -1292,7 +1295,8 @@ public class SerialiserFactory
 			"terrainSubType",
 			"randomEncounterChance",
 			"restingDanger",
-			"restingEfficiency");
+			"restingEfficiency",
+			"sector");
 
 		result.addCustomSerialiser("scripts", new ListSerialiser(getTileScriptSerialiser(db)));
 		result.addCustomSerialiser("randomEncounters", new NameSerialiser<>(db::getEncounterTable));

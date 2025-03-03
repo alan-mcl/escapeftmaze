@@ -426,7 +426,7 @@ public class Maze implements Runnable
 			JournalManager.getInstance().saveGame(name, saver);
 			ConditionManager.getInstance().saveGame(name, saver);
 			
-			ui.addMessage("Game Saved");
+			ui.addMessage("Game Saved", true);
 		}
 		catch (Exception x)
 		{
@@ -661,7 +661,7 @@ public class Maze implements Runnable
 			// set message
 			ui.clearMessages();
 			ui.enableInput();
-			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name));
+			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name), true);
 
 			// encounter tile
 			// at this point we transition control to the event processing thread
@@ -957,7 +957,8 @@ public class Maze implements Runnable
 	public void executeCombatRound(Combat combat)
 	{
 		getUi().addMessage(
-			StringUtil.getEventText("msg.combat.round.starts", combat.getRoundNr()));
+			StringUtil.getEventText("msg.combat.round.starts", combat.getRoundNr()),
+			true);
 
 		//
 		// foe intentions
@@ -1781,7 +1782,7 @@ public class Maze implements Runnable
 			{
 				MazeScript script = Database.getInstance().getMazeScript("_OUCH_");
 				resolveEvents(script.getEvents());
-				ui.addMessage(StringUtil.getEventText("event.locked"));
+				ui.addMessage(StringUtil.getEventText("event.locked"), true);
 				Maze.getInstance().processPlayerAction(
 					TileScript.PlayerAction.LOCKS,
 					Maze.getInstance().getFacing());
@@ -1810,7 +1811,7 @@ public class Maze implements Runnable
 		MazeScript script = Database.getInstance().getMazeScript("_OUCH_");
 		resolveEvents(script.getEvents());
 		// todo: should probably make these temp messages maze events
-		ui.addMessage("OUCH!");
+		ui.addMessage("OUCH!", false);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2499,19 +2500,28 @@ public class Maze implements Runnable
 			}
 			else
 			{
-				getUi().addMessage(sb.toString());
+				getUi().addMessage(sb.toString(), true);
 			}
 
 			// any post-appearance events from the encounter
-			addAll(result, currentActorEncounter.getPostAppearanceScript());
+			List<MazeEvent> postAppearanceScript = currentActorEncounter.getPostAppearanceScript();
+			if (postAppearanceScript !=null && postAppearanceScript.size() > 0)
+			{
+//				result.add(new EnableInputEvent());
+				addAll(result, postAppearanceScript);
+//				result.add(new DisableInputEvent());
+			}
 
 			if (!leader.isFound())
 			{
+				result.add(new EnableInputEvent());
 				addAll(result, leader.getActionScript().firstGreeting());
+				result.add(new DisableInputEvent());
 				leader.setFound(true);
 			}
 			else
 			{
+				result.add(new EnableInputEvent());
 				if (fAttitude == NpcFaction.Attitude.FRIENDLY ||
 					fAttitude == NpcFaction.Attitude.ALLIED)
 				{
@@ -2521,6 +2531,7 @@ public class Maze implements Runnable
 				{
 					addAll(result, leader.getActionScript().neutralGreeting());
 				}
+				result.add(new DisableInputEvent());
 			}
 
 			//
@@ -2530,7 +2541,9 @@ public class Maze implements Runnable
 				fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_FOES &&
 				fAmbushStatus != Combat.AmbushStatus.PARTY_MAY_AMBUSH_OR_EVADE_FOES)
 			{
+				result.add(new EnableInputEvent());
 				addAll(result, leader.getActionScript().attacksParty(fAmbushStatus));
+				result.add(new DisableInputEvent());
 			}
 			else if (fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_OR_EVADE_PARTY ||
 				fAmbushStatus == Combat.AmbushStatus.FOES_MAY_AMBUSH_PARTY)
@@ -2542,17 +2555,29 @@ public class Maze implements Runnable
 						getUi().getMessageDestination()));
 			}
 
-			result.add(new MazeEvent()
-			{
-				@Override
-				public List<MazeEvent> resolve()
-				{
-					Maze.this.getUi().enableInput();
-					return null;
-				}
-			});
+			result.add(new EnableInputEvent());
 
 			return result;
+		}
+
+		private class EnableInputEvent extends MazeEvent
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				Maze.this.getUi().enableInput();
+				return null;
+			}
+		}
+
+		private class DisableInputEvent extends MazeEvent
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				Maze.this.getUi().disableInput();
+				return null;
+			}
 		}
 	}
 }

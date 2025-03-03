@@ -101,6 +101,8 @@ public class SirKay extends NpcScript
 			new GrantExperienceEvent(100, null));
 
 		return new Quest(
+			"Kay And The Slime",
+			"Go down to the sewers and waste the slime creature.",
 			CORROSIVE_SLIME_SLAIN,
 			CORROSIVE_SLIME_REWARD,
 			intro,
@@ -146,6 +148,9 @@ public class SirKay extends NpcScript
 			new GrantExperienceEvent(200, null));
 
 		return new Quest(
+			"Kay And The Skull",
+
+			"Steal the Dreamer Skull from Three Eyes, and Gnoll shaman.",
 			QUEST_2_COMPLETE,
 			QUEST_2_REWARD,
 			intro,
@@ -190,6 +195,8 @@ public class SirKay extends NpcScript
 			new GrantExperienceEvent(400, null));
 
 		return new Quest(
+			"Kay's Advice",
+			"Lay low until the heat is off.",
 			QUEST_3_COMPLETE,
 			QUEST_3_REWARD,
 			intro,
@@ -201,7 +208,7 @@ public class SirKay extends NpcScript
 	private Quest createQuest4()
 	{
 		List<MazeEvent> intro = getList(
-			new NpcSpeechEvent("Well, you have proved youselves quite the " +
+			new NpcSpeechEvent("Well, you have proved yourselves quite the " +
 				"heros. I am impressed.", npc),
 			new NpcSpeechEvent("I have some very disturbing news, and a new task " +
 				"for you. A difficult one.", npc),
@@ -228,8 +235,8 @@ public class SirKay extends NpcScript
 				"think that you're up to it.", npc),
 			new NpcSpeechEvent("In her paranoia she has fortified the tower " +
 				"quite impenetrably, so the plan is simple - you go in through " +
-				"the front door, locate her and kill her. Needless to say, you " +
-				"can keep any loot that you come by in the place.", npc),
+				"the front door, locate her and kill her. You " +
+				"can keep any loot that you come by in the place, of course.", npc),
 			new NpcSpeechEvent("Heh, and here's a little something to help you deal " +
 				"with the golem at the door. Wear it as you enter, and if you're " +
 				"lucky it'll deactivate the construct. The last intruder used it, " +
@@ -258,6 +265,8 @@ public class SirKay extends NpcScript
 				"until things calm down a bit.", npc));
 
 		return new Quest(
+			"Kay And The Witch",
+			"Find and slay Imogen in her tower.",
 			QUEST_4_COMPLETE,
 			QUEST_4_REWARD,
 			intro,

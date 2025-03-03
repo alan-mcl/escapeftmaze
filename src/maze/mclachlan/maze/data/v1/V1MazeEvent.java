@@ -24,6 +24,7 @@ import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.*;
+import mclachlan.maze.game.journal.JournalEntryEvent;
 import mclachlan.maze.map.script.*;
 import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
@@ -68,6 +69,7 @@ public class V1MazeEvent
 	public static final int _AnimationEvent = 104;
 	public static final int _MusicEvent = 149;
 	public static final int _SoundEffectEvent = 138;
+	public static final int _JournalEntryEvent = 24;
 
 	public static final int _ActorDiesEvent = 100;
 	public static final int _ActorUnaffectedEvent = 101;
@@ -176,6 +178,7 @@ public class V1MazeEvent
 		types.put(TogglePortalStateEvent.class, _TogglePortalStateEvent);
 		types.put(RemoveObjectEvent.class, _RemoveObjectEvent);
 		types.put(SkillTestEvent.class, _SkillTestEvent);
+		types.put(JournalEntryEvent.class, _JournalEntryEvent);
 
 		types.put(MazeScriptEvent.class, _MazeScript);
 		types.put(RemoveWallEvent.class, _RemoveWall);
@@ -409,6 +412,14 @@ public class V1MazeEvent
 				s.append(ste.getSuccessScript()==null?"":ste.getSuccessScript());
 				s.append(SEP);
 				s.append(ste.getFailureScript()==null?"":ste.getFailureScript());
+				break;
+			case _JournalEntryEvent:
+				JournalEntryEvent jee = (JournalEntryEvent)e;
+				s.append(jee.getType());
+				s.append(SEP);
+				s.append(jee.getKey());
+				s.append(SEP);
+				s.append(jee.getJournalText());
 				break;
 
 			case _SoundEffectEvent:

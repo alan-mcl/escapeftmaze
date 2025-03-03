@@ -77,7 +77,7 @@ public class EndCombatRoundEvent extends MazeEvent
 					{
 						verb += "s";
 					}
-					maze.getUi().addMessage(strongest.getDescription() + " " + verb + "!");
+					maze.getUi().addMessage(strongest.getDescription() + " " + verb + "!", true);
 					combat.advanceFoeGroup(strongest);
 				}
 
@@ -88,7 +88,7 @@ public class EndCombatRoundEvent extends MazeEvent
 					{
 						verb += "s";
 					}
-					maze.getUi().addMessage(weakest.getDescription()+ " " + verb + "!");
+					maze.getUi().addMessage(weakest.getDescription()+ " " + verb + "!", true);
 					combat.retreatFoeGroup(weakest);
 				}
 			}

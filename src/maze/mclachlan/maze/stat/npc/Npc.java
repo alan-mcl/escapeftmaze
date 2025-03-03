@@ -142,7 +142,7 @@ public class Npc extends Foe
 	/*-------------------------------------------------------------------------*/
 	public void init()
 	{
-		this.questManager = new QuestManager(this);
+		this.questManager = new QuestManager(this.getName());
 		this.template.getScript().npc = this;
 		this.template.getScript().initialise();
 

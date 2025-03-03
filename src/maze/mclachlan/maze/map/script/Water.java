@@ -46,7 +46,7 @@ public class Water extends TileScript
 		int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		maze.getUi().addMessage("... WATER ...");
+		maze.getUi().addMessage("... WATER ...", false);
 
 		for (UnifiedActor a : maze.getParty().getActors())
 		{

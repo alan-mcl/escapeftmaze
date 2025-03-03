@@ -106,6 +106,11 @@ public class Imogen extends NpcScript
 			new ActorsLeaveEvent());
 
 		return new Quest(
+			"Imogen's Amulet",
+			"Journey to the Forest of Stygios and find the altar of the " +
+				"godling Nergal. Once there, you must place the Ebony Amulet on " +
+				"the altar.\n\nObserve what happens, collect anything of " +
+				"significance that appears, and return to Imogen.",
 			QUEST_1_COMPLETE,
 			QUEST_1_REWARD,
 			intro,
@@ -135,7 +140,7 @@ public class Imogen extends NpcScript
 				"doubt that you will be able to read the ancient abjad script in " +
 				"which it is written, but you will recognise it by the motif " +
 				"of a bearded face surrounded by leaves scored on its leather " +
-				"cover, which is bound with mahogony and shining copper.", npc),
+				"cover, which is bound with mahogany and shining copper.", npc),
 			new NpcSpeechEvent("The journey will again be a dangerous one, and " +
 				"Hail these days is stalked by the monsters of the Maze. Do not " +
 				"linger there, return at once when you find the book.", npc),
@@ -161,6 +166,9 @@ public class Imogen extends NpcScript
 			new ActorsLeaveEvent());
 
 		return new Quest(
+			"Imogen's Grimoire",
+			"Travel to the ruins of Hail and search the library for " +
+				"\"Al-Khydr's Grimoire\", and return to Imogen with it. ",
 			QUEST_2_COMPLETE,
 			QUEST_2_REWARD,
 			intro,
@@ -220,6 +228,10 @@ public class Imogen extends NpcScript
 			new ActorsLeaveEvent());
 
 		return new Quest(
+			"Imogen's Alliances",
+			"Go to the gnoll village, north of Ichiba. Find their " +
+				"chieftain Broken Fang, and tell him the Imogen says that the " +
+				"washing of the spears is come.",
 			QUEST_3_COMPLETE,
 			QUEST_3_REWARD,
 			intro,
@@ -238,7 +250,7 @@ public class Imogen extends NpcScript
 			new NpcSpeechEvent("Much has been revealed to me - the most shocking " +
 				"is this: the Chamber of Commerce has a hidden leader.", npc),
 			new NpcSpeechEvent("Pickett is a puppet, a talking head for the " +
-				"adminstration. The truth is far darker. I know not how it came " +
+				"administration. The truth is far darker. I know not how it came " +
 				"to Ichiba, but for years a spirit of evil has been behind the " +
 				"Chambers every move.", npc),
 			new NpcSpeechEvent("I wondered, often, how that bumbling fool " +
@@ -271,6 +283,9 @@ public class Imogen extends NpcScript
 			new ActorsLeaveEvent());
 
 		return new Quest(
+			"Imogen's Rival",
+			"Storm the Ichiba Chamber of Commerce and locate and slay " +
+				"the vampire Rhys.",
 			QUEST_4_COMPLETE,
 			QUEST_4_REWARD,
 			intro,

@@ -30,9 +30,8 @@ import mclachlan.maze.game.Maze;
  */
 public class SignBoardWidget extends DIYPanel
 {
+	private Point[] positions;
 	private String[] text;
-	private int[] textY;
-	private int[] textX;
 	private final Rectangle bounds;
 	private Font font;
 
@@ -43,32 +42,26 @@ public class SignBoardWidget extends DIYPanel
 		this.bounds = bounds;
 		this.setBackgroundImage(image);
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void setText(String text)
 	{
 		this.text = text.split("\n");
-		textX = new int[this.text.length];
-		textY = new int[this.text.length];
 
-		font = Maze.getInstance().getUi().getSignboardFont().deriveFont(Font.BOLD, 20.0F);
-		FontMetrics fm = Maze.getInstance().getComponent().getFontMetrics(font);
-		int lineHeight = fm.getHeight();
+		Component comp = Maze.getInstance().getComponent();
+		Font signboardFont = Maze.getInstance().getUi().getSignboardFont();
 
-		// center vertically
-		int startY = bounds.y + height/2 - lineHeight/2 - (lineHeight-1)*this.text.length;
-		for (int i = 0; i < this.text.length; i++)
-		{
-			textY[i] = startY+lineHeight*(i+2);
-		}
+		int inset = 40;
+		Rectangle textBounds = new Rectangle(
+			bounds.x +inset,
+			bounds.y +inset,
+			bounds.width -inset*2,
+			bounds.height -inset*2);
 
-		// center horizontally
-		for (int i = 0; i < textX.length; i++)
-		{
-			textX[i] = bounds.x + bounds.width/2 - fm.stringWidth(this.text[i])/2;
-		}
+		layoutText((Graphics2D)comp.getGraphics(), this.text, textBounds, signboardFont);
+
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	public void draw(Graphics2D g)
 	{
@@ -78,7 +71,7 @@ public class SignBoardWidget extends DIYPanel
 		g.setColor(Color.BLACK);
 		for (int i = 0; i < text.length; i++)
 		{
-			g.drawString(text[i], textX[i], textY[i]);
+			g.drawString(text[i], positions[i].x, positions[i].y);
 		}
 		g.setFont(Maze.getInstance().getUi().getDefaultFont());
 	}
@@ -101,12 +94,66 @@ public class SignBoardWidget extends DIYPanel
 	public void clearSignboard()
 	{
 		Maze.getInstance().setState(Maze.State.MOVEMENT);
-		
-		synchronized(Maze.getInstance().getEventMutex())
+
+		synchronized (Maze.getInstance().getEventMutex())
 		{
 			Maze.getInstance().getEventMutex().notifyAll();
 		}
 
 		Maze.getInstance().getUi().clearDialog();
 	}
+
+
+	/*-------------------------------------------------------------------------*/
+	public void layoutText(Graphics2D g2d, String[] textRows,
+		Rectangle bounds, Font baseFont)
+	{
+		if (textRows == null || textRows.length == 0 || bounds.width <= 0 || bounds.height <= 0)
+		{
+			return;
+		}
+
+		int low = 1, high = 1000;
+		Font bestFont = baseFont;
+		FontMetrics metrics;
+
+		while (low < high)
+		{
+			int mid = (low + high + 1) / 2;
+			Font testFont = baseFont.deriveFont((float)mid);
+			metrics = g2d.getFontMetrics(testFont);
+
+			int totalHeight = textRows.length * metrics.getHeight();
+			int maxWidth = 0;
+			for (String row : textRows)
+			{
+				maxWidth = Math.max(maxWidth, metrics.stringWidth(row));
+			}
+
+			if (totalHeight <= bounds.height && maxWidth <= bounds.width)
+			{
+				bestFont = testFont;
+				low = mid;
+			}
+			else
+			{
+				high = mid - 1;
+			}
+		}
+		this.font = bestFont;
+
+		metrics = g2d.getFontMetrics(bestFont);
+		int totalHeight = textRows.length * metrics.getHeight();
+		int startY = bounds.y + (bounds.height - totalHeight) / 2 + metrics.getAscent();
+
+		positions = new Point[textRows.length];
+		for (int i = 0; i < textRows.length; i++)
+		{
+			int textWidth = metrics.stringWidth(textRows[i]);
+			int x = bounds.x + (bounds.width - textWidth) / 2;
+			int y = startY + i * metrics.getHeight();
+			positions[i] = new Point(x, y);
+		}
+	}
+
 }

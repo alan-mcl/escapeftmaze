@@ -271,6 +271,15 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			Font nunito = Database.getInstance().getFont("nunito/Nunito-Regular.ttf");
 			fonts.put("nunito", nunito);
 
+			Font caudex = Database.getInstance().getFont("caudex/Caudex-Regular.ttf");
+			fonts.put("caudex", caudex);
+
+			Font im_fell = Database.getInstance().getFont("IM_Fell_English_SC/IMFellEnglishSC-Regular.ttf");
+			fonts.put("im_fell", im_fell);
+
+			Font goudy = Database.getInstance().getFont("goudy_medieval/Goudy Mediaeval Regular.ttf");
+			fonts.put("goudy", goudy);
+
 			Font f = fonts.get(defaultFont);
 			DiyGuiUserInterface.font = f.deriveFont(Font.PLAIN, fontSize);
 		}
@@ -466,7 +475,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			case FINISHED:
 				break;
 			case COMBAT:
-				addMessage(StringUtil.getEventText("msg.combat.starts"));
+				addMessage(StringUtil.getEventText("msg.combat.starts"), true);
 				showCombatScreen();
 				break;
 			case ENCOUNTER_CHEST:
@@ -661,7 +670,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	@Override
 	public Font getSignboardFont()
 	{
-		return font;
+		return fonts.get("im_fell");
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -738,12 +747,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	public void signBoard(String message, MazeEvent event)
 	{
+		BufferedImage img = Database.getInstance().getImage("screen/sign_board");
+
 		Rectangle bounds = new Rectangle(LOW_BOUNDS);
 		bounds.translate(0,-(SCREEN_HEIGHT/3));
 
-		SignBoardWidget sbw = new SignBoardWidget(
-			bounds,
-			Database.getInstance().getImage("screen/sign_board"));
+//		Rectangle bounds = new Rectangle(
+//			SCREEN_WIDTH/2 -img.getWidth()/2,
+//			LOW_BOUNDS.y-(SCREEN_HEIGHT/3),
+//			img.getWidth(),
+//			img.getHeight());
+
+		SignBoardWidget sbw = new SignBoardWidget(bounds, img);
 
 		sbw.setText(message);
 
@@ -1199,13 +1214,10 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		Rectangle rect = (Rectangle)DiyGuiUserInterface.LOW_BOUNDS.clone();
 
 		partyOptionsAndTextWidget = new PartyOptionsAndTextWidget(rect);
-		signBoardWidget = new SignBoardWidget(DiyGuiUserInterface.LOW_BOUNDS,
-			Database.getInstance().getImage("screen/sign_board"));
 		restingWidget = new RestingWidget(rect);
 
 		ArrayList<ContainerWidget> list = new ArrayList<>();
 		list.add(partyOptionsAndTextWidget);
-		list.add(signBoardWidget);
 		list.add(restingWidget);
 
 		movementCardLayout = new CardLayoutWidget(DiyGuiUserInterface.LOW_BOUNDS, list);
@@ -1699,10 +1711,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void addMessage(String msg)
+	public void addMessage(String msg, boolean shouldJournal)
 	{
 		this.partyOptionsAndTextWidget.addMessage(msg);
-		Maze.getInstance().journalInContext(msg);
+		if (shouldJournal)
+		{
+			Maze.getInstance().journalInContext(msg);
+		}
 		Maze.log(msg);
 	}
 
@@ -1724,23 +1739,16 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		int index = Maze.getInstance().getParty().getPlayerCharacterIndex(playerCharacter);
 
-		switch (index)
-		{
-			case 0:
-				return charTopLeft.getBounds();
-			case 1:
-				return charTopRight.getBounds();
-			case 2:
-				return charMidLeft.getBounds();
-			case 3:
-				return charMidRight.getBounds();
-			case 4:
-				return charLowLeft.getBounds();
-			case 5:
-				return charLowRight.getBounds();
-			default:
-				throw new MazeException("Invalid index " + index);
-		}
+		return switch (index)
+			{
+				case 0 -> charTopLeft.getBounds();
+				case 1 -> charTopRight.getBounds();
+				case 2 -> charMidLeft.getBounds();
+				case 3 -> charMidRight.getBounds();
+				case 4 -> charLowLeft.getBounds();
+				case 5 -> charLowRight.getBounds();
+				default -> throw new MazeException("Invalid index " + index);
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1749,23 +1757,16 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		int index = Maze.getInstance().getParty().getPlayerCharacterIndex(playerCharacter);
 
-		switch (index)
-		{
-			case 0:
-				return charTopLeft;
-			case 1:
-				return charTopRight;
-			case 2:
-				return charMidLeft;
-			case 3:
-				return charMidRight;
-			case 4:
-				return charLowLeft;
-			case 5:
-				return charLowRight;
-			default:
-				throw new MazeException("Invalid index " + index);
-		}
+		return switch (index)
+			{
+				case 0 -> charTopLeft;
+				case 1 -> charTopRight;
+				case 2 -> charMidLeft;
+				case 3 -> charMidRight;
+				case 4 -> charLowLeft;
+				case 5 -> charLowRight;
+				default -> throw new MazeException("Invalid index " + index);
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/

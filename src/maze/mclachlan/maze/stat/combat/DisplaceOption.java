@@ -77,14 +77,14 @@ public class DisplaceOption extends ActorActionOption
 		if (displacer.getActionPoints().getCurrent() < 2)
 		{
 			Maze.getInstance().getUi().addMessage(
-				StringUtil.getEventText("msg.cannot.displace.ap", displacer.getDisplayName()));
+				StringUtil.getEventText("msg.cannot.displace.ap", displacer.getDisplayName()), false);
 			return true;
 		}
 
 		if (displacer.getCombatantData().isDisplaced())
 		{
 			Maze.getInstance().getUi().addMessage(
-				StringUtil.getEventText("msg.already.displaced", displacer.getDisplayName()));
+				StringUtil.getEventText("msg.already.displaced", displacer.getDisplayName()), false);
 			return true;
 		}
 

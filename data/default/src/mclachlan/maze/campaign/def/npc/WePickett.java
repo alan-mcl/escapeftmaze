@@ -76,7 +76,7 @@ public class WePickett extends NpcScript
 
 		List<MazeEvent> intro = getList(
 			new NpcSpeechEvent("Very well. Your first job is revenue " +
-				"collection, very important to our operations.", npc),
+				"collection. Very important to our operations.", npc),
 			new NpcSpeechEvent("In town there is a shop run by a gnoll " +
 				"who goes by the uncouth name of 'Red Ear'. You can't miss it - " +
 				"the little junk shop near the waterfront.", npc),
@@ -133,6 +133,8 @@ public class WePickett extends NpcScript
 			new GrantExperienceEvent(100, null));
 
 		return new Quest(
+			"Pickett's Taxes",
+			"Collect overdue rents and taxes from the gnoll merchant Red Ear.",
 			QUEST_1_COLLECTED_TAXES,
 			QUEST_1_REWARDED,
 			intro,
@@ -195,6 +197,9 @@ public class WePickett extends NpcScript
 			new GrantExperienceEvent(200, null));
 
 		return new Quest(
+			"Pickett's Fine China",
+			"Bring the caravan robbers to justice. Ideally bring the " +
+				"fine china back unbroken.",
 			QUEST_2_COMPLETED,
 			QUEST_2_REWARDED,
 			intro,
@@ -278,6 +283,8 @@ public class WePickett extends NpcScript
 			new GrantExperienceEvent(300, null));
 
 		return new Quest(
+			"Pickett's Caravan",
+			"Scout a caravan route to Hail, and return with information.",
 			QUEST_3_COMPLETED,
 			QUEST_3_REWARDED,
 			intro,
@@ -308,7 +315,7 @@ public class WePickett extends NpcScript
 				"comes to over twenty thousand... 20982 gold pieces to be precise, " +
 				"for the capture or execution of the bandit who calls himself " +
 				"Sir Kay.", npc),
-			new NpcSpeechEvent("Needless to say, npc is a dangerous man. " +
+			new NpcSpeechEvent("Needless to say, this Kay is a dangerous man. " +
 				"The C.O.C. is not liable for any medical bills or other " +
 				"expenses you might incur.", npc),
 			new NpcSpeechEvent("This is a public bounty, so you're not the " +
@@ -338,6 +345,8 @@ public class WePickett extends NpcScript
 			new GrantExperienceEvent(500, null));
 
 		return new Quest(
+			"Pickett's Bounty",
+			"Find and slay Sir Kay.",
 			QUEST_4_COMPLETED,
 			QUEST_4_REWARDED,
 			intro,

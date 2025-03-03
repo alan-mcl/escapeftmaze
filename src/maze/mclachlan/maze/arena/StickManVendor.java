@@ -19,25 +19,29 @@
 
 package mclachlan.maze.arena;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
+import mclachlan.maze.game.MazeEvent;
+import mclachlan.maze.game.MazeVariables;
+import mclachlan.maze.map.script.FlavourTextEvent;
+import mclachlan.maze.map.script.GrantExperienceEvent;
+import mclachlan.maze.map.script.GrantItemsEvent;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.npc.*;
-import mclachlan.maze.game.MazeEvent;
-import mclachlan.maze.map.script.FlavourTextEvent;
 
 /**
  *
  */
 public class StickManVendor extends NpcScript
 {
-	List<String> ambiguousResponses = new ArrayList<String>();
-	Set<String> goodbyes = new HashSet<String>();
+	public static final String PARTY_ASKED_FOR_QUESTS = "arena.stick.man.vendor.party.asked.for.quests";
+
+	List<String> ambiguousResponses = new ArrayList<>();
+	Set<String> goodbyes = new HashSet<>();
+
+	private QuestManager questManager;
 
 	{
 		ambiguousResponses.add("I see.");
@@ -59,6 +63,26 @@ public class StickManVendor extends NpcScript
 		goodbyes.add("farewell");
 		goodbyes.add("see ya");
 		goodbyes.add("seeya");
+	}
+
+	/*-------------------------------------------------------------------------*/
+	protected void start()
+	{
+		initInternal();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initialise()
+	{
+		initInternal();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void initInternal()
+	{
+		questManager = ((Npc)npc).getQuestManager();
+		questManager.addQuest(createQuest1());
+		questManager.start();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -88,24 +112,45 @@ public class StickManVendor extends NpcScript
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> firstGreeting()
 	{
-		return getList(
+		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Hello!  I haven't seen you before!  I'm your " +
-			"friendly stick man vendor, here to buy and sell shit to you!", npc));
+				"friendly stick man vendor, here to buy and sell shit to you!", npc));
+
+		if (MazeVariables.getBoolean(PARTY_ASKED_FOR_QUESTS))
+		{
+			checkQuests(result);
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> subsequentGreeting()
 	{
-		return getList(
+		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Hello again!  What can I help you with!", npc));
+
+		if (MazeVariables.getBoolean(PARTY_ASKED_FOR_QUESTS))
+		{
+			checkQuests(result);
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> neutralGreeting()
 	{
-		return getList(
+		List<MazeEvent> result = getList(
 			new NpcSpeechEvent("Don't touch anything.  I don't like the look " +
-			"of you lot.", npc));
+				"of you lot.", npc));
+
+		if (MazeVariables.getBoolean(PARTY_ASKED_FOR_QUESTS))
+		{
+			checkQuests(result);
+		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -195,6 +240,11 @@ public class StickManVendor extends NpcScript
 			return getList(
 				new NpcSpeechEvent("Cheerio then!", npc));
 		}
+		else if (speech.toLowerCase().contains("quest"))
+		{
+			MazeVariables.set(PARTY_ASKED_FOR_QUESTS, "true");
+			return questManager.getNextQuestRelatedStuff();
+		}
 		else
 		{
 			Dice d = new Dice(1, ambiguousResponses.size(), -1);
@@ -202,5 +252,34 @@ public class StickManVendor extends NpcScript
 				new NpcSpeechEvent(npc, ambiguousResponses.get(d.roll("Stick Man Vendor response")), MazeEvent.Delay.WAIT_ON_CLICK),
 				new WaitForPlayerSpeech(npc, pc));
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private Quest createQuest1()
+	{
+		List<MazeEvent> intro = getList(
+			new NpcSpeechEvent("Quests! blah blah blah blah blah" +
+				" blah blah blah blah blah ", npc),
+			new NpcSpeechEvent("Your quest is to pull the lever.", npc));
+
+		List<MazeEvent> encouragement = getList(
+			new NpcSpeechEvent("I am told that you have not completed the task " +
+				"that I set you yet.", npc));
+
+		List<MazeEvent> reward = getList(
+			new NpcSpeechEvent("Well done, you have pulled the lever.", npc),
+			new GrantItemsEvent(createItem("Dagger")),
+			new GrantExperienceEvent(100, null));
+
+		return new Quest(
+			"Stick Man Vendor And The Test Quest",
+			"Just yesterday, a vicious wyrm of some sort came writhing " +
+				"through the Gate. It is contained in the chamber below the castle.\n\n" +
+				"Anyway, your quest is to pull the lever.",
+			"arena.stick.man.vendor.quest.1.completed",
+			"arena.stick.man.vendor.quest.1.rewarded",
+			intro,
+			reward,
+			encouragement);
 	}
 }

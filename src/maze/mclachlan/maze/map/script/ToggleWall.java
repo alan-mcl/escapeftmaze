@@ -156,7 +156,7 @@ public class ToggleWall extends TileScript
 				wallIndex,
 				horizontalWall,
 				state1Texture.getTexture(),
-				state1MaskTexture == null ? null : state2MaskTexture.getTexture(),
+				state1MaskTexture == null ? null : state1MaskTexture.getTexture(),
 				state1Visible,
 				state1Solid,
 				state1Height,

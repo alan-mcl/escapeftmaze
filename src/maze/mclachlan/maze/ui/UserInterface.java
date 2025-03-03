@@ -210,7 +210,7 @@ public interface UserInterface
 	void characterSelected(PlayerCharacter pc);
 
 	/*-------------------------------------------------------------------------*/
-	void addMessage(String msg);
+	void addMessage(String msg, boolean shouldJournal);
 
 	/*-------------------------------------------------------------------------*/
 	MessageDestination getMessageDestination();

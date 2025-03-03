@@ -52,11 +52,18 @@ public class Tile implements ConditionBearer
 
 	/** Zone to which this tile belongs */
 	private String zone;
+
+	/** Sector name of this tile within the zone, may be null.
+	 * Used to partition the auto-map.*/
+	private String sector;
+
 	/** X,Y coords of this tile */
 	private Point coords;
 
 	/** Danger of resting on this tile*/
 	private RestingDanger restingDanger;
+
+	/** Efficiency of resting on this tile*/
 	private RestingEfficiency restingEfficiency;
 
 	private static final Set<Stats.Modifier> magicModifiers;
@@ -291,6 +298,16 @@ public class Tile implements ConditionBearer
 		return terrainType.stealthModifier;
 	}
 
+	public String getSector()
+	{
+		return sector;
+	}
+
+	public void setSector(String sector)
+	{
+		this.sector = sector;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public String getName()
 	{
@@ -321,73 +338,4 @@ public class Tile implements ConditionBearer
 	}
 
 	/*-------------------------------------------------------------------------*/
-
-/*	@Override
-	public boolean equals(Object o)
-	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof Tile))
-		{
-			return false;
-		}
-
-		Tile tile = (Tile)o;
-
-		if (getRandomEncounterChance() != tile.getRandomEncounterChance())
-		{
-			return false;
-		}
-		if (getScripts() != null ? !getScripts().equals(tile.getScripts()) : tile.getScripts() != null)
-		{
-			return false;
-		}
-		if (getStatModifier() != null ? !getStatModifier().equals(tile.getStatModifier()) : tile.getStatModifier() != null)
-		{
-			return false;
-		}
-		if (getTerrainType() != tile.getTerrainType())
-		{
-			return false;
-		}
-		if (getTerrainSubType() != null ? !getTerrainSubType().equals(tile.getTerrainSubType()) : tile.getTerrainSubType() != null)
-		{
-			return false;
-		}
-		if (getRandomEncounters() != null ? !getRandomEncounters().equals(tile.getRandomEncounters()) : tile.getRandomEncounters() != null)
-		{
-			return false;
-		}
-		if (getZone() != null ? !getZone().equals(tile.getZone()) : tile.getZone() != null)
-		{
-			return false;
-		}
-		if (getCoords() != null ? !getCoords().equals(tile.getCoords()) : tile.getCoords() != null)
-		{
-			return false;
-		}
-		if (getRestingDanger() != tile.getRestingDanger())
-		{
-			return false;
-		}
-		return getRestingEfficiency() == tile.getRestingEfficiency();
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getScripts() != null ? getScripts().hashCode() : 0;
-		result = 31 * result + (getStatModifier() != null ? getStatModifier().hashCode() : 0);
-		result = 31 * result + (getTerrainType() != null ? getTerrainType().hashCode() : 0);
-		result = 31 * result + (getTerrainSubType() != null ? getTerrainSubType().hashCode() : 0);
-		result = 31 * result + getRandomEncounterChance();
-		result = 31 * result + (getRandomEncounters() != null ? getRandomEncounters().hashCode() : 0);
-		result = 31 * result + (getZone() != null ? getZone().hashCode() : 0);
-		result = 31 * result + (getCoords() != null ? getCoords().hashCode() : 0);
-		result = 31 * result + (getRestingDanger() != null ? getRestingDanger().hashCode() : 0);
-		result = 31 * result + (getRestingEfficiency() != null ? getRestingEfficiency().hashCode() : 0);
-		return result;
-	}*/
 }

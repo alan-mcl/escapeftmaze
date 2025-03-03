@@ -34,7 +34,7 @@ public class JournalManager
 {
 	public static String LOGBOOK_KEY;
 
-	public static enum JournalType
+	public enum JournalType
 	{
 		// Single key. Includes zone entries, exits, npc meetings, day turnovers
 		LOGBOOK("logbook"),
@@ -57,6 +57,8 @@ public class JournalManager
 			return journalName;
 		}
 	}
+
+	/*-------------------------------------------------------------------------*/
 
 	private static final JournalManager instance = new JournalManager();
 

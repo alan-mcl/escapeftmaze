@@ -360,7 +360,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public void addMessage(String msg)
+	public void addMessage(String msg, boolean shouldJournal)
 	{
 		
 	}

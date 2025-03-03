@@ -28,18 +28,23 @@ import mclachlan.maze.game.MazeVariables;
  */
 public class Quest
 {
+	private String name, description;
 	private String completionVar, rewardedVar;
 	private List<MazeEvent> introduction, reward;
 	private List<MazeEvent> encouragement;
 
 	/*-------------------------------------------------------------------------*/
 	public Quest(
+		String name,
+		String description,
 		String completionVar,
 		String rewardedVar,
 		List<MazeEvent> introduction,
 		List<MazeEvent> reward,
 		List<MazeEvent> encouragement)
 	{
+		this.name = name;
+		this.description = description;
 		this.completionVar = completionVar;
 		this.rewardedVar = rewardedVar;
 		this.introduction = introduction;
@@ -75,5 +80,25 @@ public class Quest
 	public List<MazeEvent> getEncouragement()
 	{
 		return this.encouragement;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public String getCompletionVar()
+	{
+		return completionVar;
+	}
+
+	public String getRewardedVar()
+	{
+		return rewardedVar;
 	}
 }

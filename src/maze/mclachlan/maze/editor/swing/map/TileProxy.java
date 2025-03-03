@@ -64,4 +64,8 @@ public abstract class TileProxy
 	public abstract Tile.RestingEfficiency getRestingEfficiency();
 	public abstract void setRestingDanger(Tile.RestingDanger restingDanger);
 	public abstract void setRestingEfficiency(Tile.RestingEfficiency restingEfficiency);
+
+	public abstract void setSector(String sector);
+
+	public abstract String getSector();
 }

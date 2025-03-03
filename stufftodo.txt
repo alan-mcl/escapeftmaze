@@ -4,10 +4,9 @@ STUFFTODO
 
 UI REFRESH
 --------------
-map zones
-starting quest
 PC death counter
 flat sky support in editor & maze
+signboard font
 
 BACKLOG
 ----------

@@ -70,6 +70,11 @@ public class Belisarius extends NpcScript
 			new GrantExperienceEvent(100, null));
 
 		return new Quest(
+			"Belisarius And The Wyrm",
+			"Just yesterday, a vicious wyrm of some sort came writhing " +
+				"through the Gate. It is contained in the chamber below the castle.\n\n" +
+				"Instead of risking valuable soldiers on this trivial task, I will send you.\n\n" +
+				"If you triumph, you will find the Gate in the same chamber.",
 			QUEST_1_COMPLETE,
 			QUEST_1_REWARDED,
 			intro,

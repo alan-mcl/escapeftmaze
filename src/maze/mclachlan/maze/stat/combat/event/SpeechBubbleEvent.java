@@ -117,8 +117,6 @@ public class SpeechBubbleEvent extends MazeEvent
 			Maze.getInstance().startAnimation(a, null, new AnimationContext(playerCharacter));
 		}
 
-
-
 		return null;
 	}
 

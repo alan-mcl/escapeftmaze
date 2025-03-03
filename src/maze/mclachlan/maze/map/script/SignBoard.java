@@ -45,7 +45,7 @@ public class SignBoard extends TileScript
 	/*-------------------------------------------------------------------------*/
 	public java.util.List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 		result.add(new SignBoardEvent(text));
 		return result;
 	}

@@ -2484,7 +2484,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],
@@ -2494,7 +2495,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],
@@ -2504,7 +2506,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],
@@ -2704,7 +2707,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],
@@ -2714,7 +2718,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],
@@ -2936,7 +2941,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],
@@ -2956,7 +2962,8 @@
         "terrainSubType": "Arena",
         "randomEncounterChance": "1",
         "restingDanger": "MEDIUM",
-        "restingEfficiency": "AVERAGE"
+        "restingEfficiency": "AVERAGE",
+        "sector": "testSector"
       },
       {
         "scripts": [],

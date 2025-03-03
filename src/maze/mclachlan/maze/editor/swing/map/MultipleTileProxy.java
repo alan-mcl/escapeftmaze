@@ -415,4 +415,29 @@ public class MultipleTileProxy extends TileProxy
 			t.setTerrainType(terrainType);
 		}
 	}
+
+	@Override
+	public void setSector(String sector)
+	{
+		for (mclachlan.maze.map.Tile t : mazeTiles)
+		{
+			t.setSector(sector);
+		}
+	}
+
+	@Override
+	public String getSector()
+	{
+		String x = mazeTiles.get(0).getSector();
+
+		for (mclachlan.maze.map.Tile t : mazeTiles)
+		{
+			if (!(x == null && t.getSector() == null || x.equals(t.getSector())))
+			{
+				return null;
+			}
+		}
+
+		return x;
+	}
 }
