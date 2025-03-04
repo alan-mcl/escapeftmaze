@@ -279,6 +279,14 @@ public class CrusaderClient extends Frame
 					{
 						filter[x] = CrusaderEngine.Filter.GREYSCALE;
 					}
+					else if (fStrs[x].equalsIgnoreCase("ghost"))
+					{
+						filter[x] = CrusaderEngine.Filter.GHOST;
+					}
+					else if (fStrs[x].equalsIgnoreCase("hex"))
+					{
+						filter[x] = CrusaderEngine.Filter.HEX;
+					}
 					else if (fStrs[x].equalsIgnoreCase("none"))
 					{
 						filter[x] = CrusaderEngine.Filter.NONE;

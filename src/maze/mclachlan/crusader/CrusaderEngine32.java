@@ -327,6 +327,12 @@ public class CrusaderEngine32 implements CrusaderEngine
 					case GREYSCALE:
 						processors.add(new GreyscaleFilter(projectionPlaneWidth, projectionPlaneHeight));
 						break;
+					case GHOST:
+						processors.add(new GhostlyPostProcessor(projectionPlaneWidth, projectionPlaneHeight));
+						break;
+					case HEX:
+						processors.add(new HexagonalPostProcessor(projectionPlaneWidth, projectionPlaneHeight, 3));
+						break;
 					case DEFAULT:
 					case FXAA:
 						processors.add(new FXAAFilter(projectionPlaneWidth, projectionPlaneHeight));

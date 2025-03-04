@@ -290,5 +290,7 @@ public interface CrusaderEngine
 		FXAA,
 		WIREFRAME,
 		GREYSCALE,
+		GHOST,
+		HEX,
 	}
 }
