@@ -155,11 +155,13 @@ public class MazeTexture extends DataObject
 		Texture.ScrollBehaviour scrollBehaviour)
 	{
 		this.scrollBehaviour = scrollBehaviour;
+		this.texture.setScrollBehaviour(scrollBehaviour);
 	}
 
 	public void setScrollSpeed(int scrollSpeed)
 	{
 		this.scrollSpeed = scrollSpeed;
+		this.texture.setScrollSpeed(scrollSpeed);
 	}
 
 	/*-------------------------------------------------------------------------*/

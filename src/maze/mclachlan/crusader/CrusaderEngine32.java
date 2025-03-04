@@ -2813,22 +2813,20 @@ public class CrusaderEngine32 implements CrusaderEngine
 		// tile the sky texture as if were a giant cylinder around the map
 		switch (map.skyTextureType)
 		{
-			case CYLINDER:
+			case CYLINDER ->
+			{
 				skyTextureX = castArc % this.skyImage.imageWidth;
 				skyTextureY = screenY * this.skyImage.imageHeight / playerHeight;
-				break;
-			case HIGH_CEILING:
-
+			}
+			case HIGH_CEILING ->
+			{
 				double heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
 
 				// this scaling makes the sky appear higher than normal
 				heightOnProjectionPlane /= 10;
-
 				double straightDistance = playerDistToProjectionPlane
 					* playerHeightInUnits / (float)(heightOnProjectionPlane);
-
 				int beta = playerArc - castArc;
-
 				if (beta < 0)
 				{
 					beta += ANGLE360;
@@ -2837,7 +2835,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 				{
 					beta -= ANGLE360;
 				}
-
 				double actualDistance = straightDistance / cosTable[beta];
 
 				// now we know that the ray intersects with the floor at an
@@ -2845,15 +2842,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 				double xDistance = actualDistance * cosTable[castArc];
 				double yDistance = actualDistance * sinTable[castArc];
-
 				int xIntersection = (int)(playerX + xDistance);
 				int yIntersection = (int)(playerY + yDistance);
-
 				skyTextureX = xIntersection % this.skyImage.imageWidth;
 				skyTextureY = yIntersection % this.skyImage.imageHeight;
-				break;
-			default:
-				throw new CrusaderException("invalid sky texture type: "+map.skyTextureType);
+			}
+			default ->
+				throw new CrusaderException("invalid sky texture type: " + map.skyTextureType);
 		}
 
 		return this.skyImage.getCurrentImageData(skyTextureX, skyTextureY, timeNow);

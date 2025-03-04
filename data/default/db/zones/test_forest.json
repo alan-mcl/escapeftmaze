@@ -10,7 +10,7 @@
       "SHOULD_SUM_TO_100": "false"
     }
   },
-  "shadeTargetColor": "ff009933",
+  "shadeTargetColor": "ff003300",
   "transparentColor": "ffffffff",
   "doShading": "true",
   "doLighting": "true",
@@ -2620,7 +2620,7 @@
     "length": "16",
     "width": "16",
     "baseImageSize": "512",
-    "skyTexture": "sky.ichiba",
+    "skyTexture": "sky.ichiba.flat",
     "skyTextureType": "HIGH_CEILING",
     "tiles": [
       {

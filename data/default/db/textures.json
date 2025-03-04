@@ -632,6 +632,16 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "sky.ichiba.flat",
+    "imageResources": [
+      "crusader/scene/sky_ichiba_flat"
+    ],
+    "animationDelay": "-1",
+    "scrollBehaviour": "DOWN",
+    "scrollSpeed": "1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "TRANSPARENT",
     "imageResources": [
       "crusader/scene/transparent"
