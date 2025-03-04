@@ -50,7 +50,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 	
 	// general tab
 	private CharacterLevelsTablePanel levels;
-	private JSpinner experience, kills, spellPicks;
+	private JSpinner experience, kills, deaths, spellPicks;
 	private JComboBox gender, race, characterClass, personality;
 	private JTextField portrait;
 	private CurMaxComponent hitPoints, actionPoints, magicPoints;
@@ -280,7 +280,11 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		kills = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
 		kills.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("Kills:"), kills, gbc);
-		
+
+		deaths = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
+		deaths.addChangeListener(this);
+		dodgyGridBagShite(result, new JLabel("Deaths:"), deaths, gbc);
+
 		gender = new JComboBox();
 		gender.addActionListener(this);
 		dodgyGridBagShite(result, new JLabel("Gender:"), gender, gbc);
@@ -378,6 +382,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		
 		pc.setExperience((Integer)experience.getValue());
 		pc.setKills((Integer)kills.getValue());
+		pc.setDeaths((Integer)deaths.getValue());
 		pc.setSpellPicks((Integer)spellPicks.getValue());
 		pc.setGender(Database.getInstance().getGenders().get((String)gender.getSelectedItem()));
 		pc.setRace(Database.getInstance().getRace((String)race.getSelectedItem()));
@@ -448,6 +453,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		
 		experience.removeChangeListener(this);
 		kills.removeChangeListener(this);
+		deaths.removeChangeListener(this);
 		spellPicks.removeChangeListener(this);
 		gender.removeActionListener(this);
 		race.removeActionListener(this);
@@ -457,6 +463,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		levels.refresh(pc.getLevels());
 		experience.setValue(pc.getExperience());
 		kills.setValue(pc.getKills());
+		deaths.setValue(pc.getDeaths());
 		spellPicks.setValue(pc.getSpellPicks());
 		gender.setSelectedItem(pc.getGender().getName());
 		race.setSelectedItem(pc.getRace().getName());
@@ -493,6 +500,7 @@ public abstract class PlayerCharactersPanel extends JPanel implements ListSelect
 		
 		experience.addChangeListener(this);
 		kills.addChangeListener(this);
+		deaths.addChangeListener(this);
 		spellPicks.addChangeListener(this);
 		gender.addActionListener(this);
 		race.addActionListener(this);

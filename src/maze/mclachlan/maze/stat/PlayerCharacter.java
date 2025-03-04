@@ -42,7 +42,7 @@ import static mclachlan.maze.stat.EquipableSlot.Type.*;
 public class PlayerCharacter extends UnifiedActor
 {
 	private int experience;
-	private int kills;
+	private int kills, deaths;
 	private String portrait;
 	private Personality personality;
 
@@ -138,6 +138,7 @@ public class PlayerCharacter extends UnifiedActor
 		Map<String, Integer> levels,
 		int experience,
 		int kills,
+		int deaths,
 		int karma,
 		String portrait,
 		Item helm,
@@ -179,6 +180,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = activeModifiers;
 		this.experience = experience;
 		this.kills = kills;
+		this.deaths = deaths;
 		this.karma = karma;
 		this.portrait = portrait;
 		this.practice = practice;
@@ -212,6 +214,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = activeModifiers;
 		this.practice = new Practice();
 		this.kills = 0;
+		this.deaths = 0;
 		this.karma = 0;
 		this.removedLevelAbilities = new ArrayList<String>();
 
@@ -237,6 +240,7 @@ public class PlayerCharacter extends UnifiedActor
 		this.activeModifiers = new StatModifier(pc.activeModifiers);
 		this.experience = pc.experience;
 		this.kills = pc.kills;
+		this.deaths = pc.deaths;
 		this.karma = pc.karma;
 		this.portrait = pc.portrait;
 		this.practice = new Practice(pc.practice);
@@ -956,6 +960,16 @@ public class PlayerCharacter extends UnifiedActor
 		return karma;
 	}
 
+	public int getDeaths()
+	{
+		return deaths;
+	}
+
+	public void setDeaths(int deaths)
+	{
+		this.deaths = deaths;
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public ActorGroup getActorGroup()
 	{
@@ -1016,21 +1030,14 @@ public class PlayerCharacter extends UnifiedActor
 	/*-------------------------------------------------------------------------*/
 	public void incExperience(int amount)
 	{
-		Stats.Modifier bonusExperienceModifier;
-		switch (this.getCharacterClass().getFocus())
-		{
-			case COMBAT:
-				bonusExperienceModifier = Stats.Modifier.BONUS_EXPERIENCE_COMBAT;
-				break;
-			case STEALTH:
-				bonusExperienceModifier = Stats.Modifier.BONUS_EXPERIENCE_STEALTH;
-				break;
-			case MAGIC:
-				bonusExperienceModifier = Stats.Modifier.BONUS_EXPERIENCE_MAGIC;
-				break;
-			default:
-				throw new MazeException(this.getCharacterClass().getFocus().toString());
-		}
+		Stats.Modifier bonusExperienceModifier = switch (this.getCharacterClass().getFocus())
+			{
+				case COMBAT -> Stats.Modifier.BONUS_EXPERIENCE_COMBAT;
+				case STEALTH -> Stats.Modifier.BONUS_EXPERIENCE_STEALTH;
+				case MAGIC -> Stats.Modifier.BONUS_EXPERIENCE_MAGIC;
+				default ->
+					throw new MazeException(this.getCharacterClass().getFocus().toString());
+			};
 
 		int modifier = getModifier(bonusExperienceModifier);
 		if (modifier != 0)
@@ -1045,6 +1052,10 @@ public class PlayerCharacter extends UnifiedActor
 	public void incKills(int amount)
 	{
 		this.kills += amount;
+	}
+	public void incDeaths(int amount)
+	{
+		this.deaths += amount;
 	}
 
 	/*-------------------------------------------------------------------------*/

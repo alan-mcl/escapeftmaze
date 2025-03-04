@@ -270,6 +270,7 @@ public class V1PlayerCharacter
 			levels,
 			experience,
 			kills,
+			0, // todo
 			karma,
 			portrait,
 			helm,

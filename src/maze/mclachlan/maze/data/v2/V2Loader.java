@@ -37,7 +37,7 @@ import mclachlan.maze.stat.npc.NpcFactionTemplate;
 import mclachlan.maze.stat.npc.NpcTemplate;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.data.v2.serialisers.SerialiserFactory.*;
+import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.*;
 import static mclachlan.maze.data.v2.serialisers.V2Files.*;
 
 /**
@@ -446,7 +446,7 @@ public class V2Loader extends Loader
 	@Override
 	public Map<String, PlayerCharacter> loadCharacterGuild()
 	{
-		return v2Crud(getPath(CHARACTER_GUILD), new SimpleMapSilo<>(getGuildSerialiser(db)));
+		return v2Crud(getPath(CHARACTER_GUILD), new SimpleMapSilo<>(getPlayerCharacterSerialiser(db)));
 	}
 
 	@Override
@@ -481,7 +481,7 @@ public class V2Loader extends Loader
 		String saveGameName) throws Exception
 	{
 		return v2Crud(getSavePath()+saveGameName+"/"+PLAYER_CHARACTERS,
-			new SimpleMapSilo<>(getGuildSerialiser(db)));
+			new SimpleMapSilo<>(getPlayerCharacterSerialiser(db)));
 	}
 
 	@Override

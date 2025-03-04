@@ -4,9 +4,10 @@ STUFFTODO
 
 UI REFRESH
 --------------
-PC death counter
+maze intervention cue
 flat sky support in editor & maze
-signboard font
+foe loot rationalisation
+foe weapon use
 
 BACKLOG
 ----------

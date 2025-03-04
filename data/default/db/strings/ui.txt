@@ -67,6 +67,7 @@ mew.title = Assign Modifiers
 # stats display widget
 sdw.title = Statistics
 sdw.kills = Kills: %s
+sdw.deaths = Deaths: %s
 sdw.experience = Experience: %s / %s
 sdw.resistances = Resistances
 sdw.resources = Resources

@@ -37,7 +37,7 @@ import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 /**
  *
  */
-public class SerialiserFactory
+public class V2SerialiserFactory
 {
 	/*-------------------------------------------------------------------------*/
 	private static ReflectiveSerialiser getReflectiveSerialiser(
@@ -1122,7 +1122,7 @@ public class SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<PlayerCharacter> getGuildSerialiser(Database db)
+	public static V2SerialiserMap<PlayerCharacter> getPlayerCharacterSerialiser(Database db)
 	{
 		ReflectiveSerialiser<PlayerCharacter> result = getReflectiveSerialiser(
 			PlayerCharacter.class,
@@ -1134,6 +1134,7 @@ public class SerialiserFactory
 			"levels",
 			"experience",
 			"kills",
+			"deaths",
 			"karma",
 			"portrait",
 			"helm",

@@ -170,35 +170,59 @@ public class ReflectiveSerialiser<E> implements V2SerialiserMap<E>
 					}
 					else if (parameterType == Integer.class || parameterType == int.class)
 					{
-						setMethod.invoke(result, Integer.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Integer.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Short.class || parameterType == short.class)
 					{
-						setMethod.invoke(result, Short.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Short.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Byte.class || parameterType == byte.class)
 					{
-						setMethod.invoke(result, Byte.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Byte.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Long.class || parameterType == long.class)
 					{
-						setMethod.invoke(result, Long.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Long.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Double.class || parameterType == double.class)
 					{
-						setMethod.invoke(result, Double.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Double.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Float.class || parameterType == float.class)
 					{
-						setMethod.invoke(result, Float.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Float.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Boolean.class || parameterType == boolean.class)
 					{
-						setMethod.invoke(result, Boolean.valueOf((String)value));
+						if (value != null)
+						{
+							setMethod.invoke(result, Boolean.valueOf((String)value));
+						}
 					}
 					else if (parameterType == Character.class || parameterType == char.class)
 					{
-						setMethod.invoke(result, Character.valueOf(value.toString().charAt(0)));
+						if (value != null)
+						{
+							setMethod.invoke(result, Character.valueOf(value.toString().charAt(0)));
+						}
 					}
 					else if (Enum.class.isAssignableFrom(parameterType))
 					{

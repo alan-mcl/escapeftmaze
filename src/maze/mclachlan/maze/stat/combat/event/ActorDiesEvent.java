@@ -43,8 +43,8 @@ import mclachlan.maze.util.MazeException;
  */
 public class ActorDiesEvent extends MazeEvent
 {
-	private UnifiedActor victim;
-	private UnifiedActor attacker;
+	private final UnifiedActor victim;
+	private final UnifiedActor attacker;
 
 	/*-------------------------------------------------------------------------*/
 	/**
@@ -124,6 +124,8 @@ public class ActorDiesEvent extends MazeEvent
 
 		if (victim instanceof PlayerCharacter)
 		{
+			((PlayerCharacter)victim).incDeaths(1);
+
 			PlayerParty party = Maze.getInstance().getParty();
 			Combat currentCombat = Maze.getInstance().getCurrentCombat();
 

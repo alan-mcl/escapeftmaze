@@ -53,7 +53,7 @@ public class StatsDisplayWidget extends ContainerWidget
 	private final DIYButton portraitButton;
 	private final DIYButton nameButton;
 	private final DIYButton personalityButton;
-	private DIYLabel kills;
+	private DIYLabel kills, deaths;
 	private final ActionListener modifiersDisplayActionListener;
 
 	private FilledBarWidget hitPoints;
@@ -124,6 +124,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		experience.setTextType(FilledBarWidget.InnerTextType.CUSTOM);
 
 		kills = new DIYLabel("", DIYToolkit.Align.LEFT);
+		deaths = new DIYLabel("", DIYToolkit.Align.LEFT);
 
 		hitPoints = new FilledBarWidget(0, 0);
 		actionPoints = new FilledBarWidget(0, 0);
@@ -208,7 +209,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		personalPanel.add(nameLabel);
 		personalPanel.add(experience);
 
-		// kills & deaths (todo)
+		// kills & deaths
 		DIYPanel kdPanel = new DIYPanel();
 		kdPanel.setStyle(DIYPanel.Style.PANEL_LIGHT);
 		kdPanel.setBounds(
@@ -221,9 +222,10 @@ public class StatsDisplayWidget extends ContainerWidget
 		kdPanel.setInsets(new Insets(frameBorderInset, frameBorderInset + inset / 2, frameBorderInset, frameBorderInset));
 
 		kills.setForegroundColour(WHITE);
+		deaths.setForegroundColour(WHITE);
 
 		kdPanel.add(kills);
-		kdPanel.add(new DIYLabel("Deaths: TODO"));
+		kdPanel.add(deaths);
 
 		// resources and resistances
 		int rows = 15;
@@ -456,6 +458,7 @@ public class StatsDisplayWidget extends ContainerWidget
 		resistEnergy.set(character.getModifier(RESIST_ENERGY), 100);
 
 		kills.setText(StringUtil.getUiLabel("sdw.kills", character.getKills()));
+		deaths.setText(StringUtil.getUiLabel("sdw.deaths", character.getDeaths()));
 	}
 
 	/*-------------------------------------------------------------------------*/
