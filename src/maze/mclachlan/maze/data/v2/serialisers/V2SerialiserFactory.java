@@ -1307,6 +1307,7 @@ public class V2SerialiserFactory
 
 	private static V2SerialiserObject<mclachlan.crusader.Map> getMapSerialiser(Database db)
 	{
+		// "textures", done separately by init
 		ReflectiveSerialiser result = getReflectiveSerialiser(mclachlan.crusader.Map.class,
 			"length",
 			"width",
@@ -1314,17 +1315,15 @@ public class V2SerialiserFactory
 			"skyTexture",
 			"skyTextureType",
 			"tiles",
-//			"textures", done separately by init
 			"horizontalWalls",
 			"verticalWalls",
-			"objects",
+			"originalObjects",
 			"scripts");
 
 		result.addCustomSerialiser("skyTexture", getCrusaderTextureSerialiser(db));
 		result.addCustomSerialiser("tiles", new ArraySerialiser<>(mclachlan.crusader.Tile.class, getCrusaderTileSerialiser(db)));
-//		result.addCustomSerialiser("textures", );
 		result.addCustomSerialiser(Wall[].class, new ArraySerialiser<>(Wall.class, getCrusaderWallSerialiser(db)));
-		result.addCustomSerialiser("objects", new ArraySerialiser<>(EngineObject.class, getCrusaderObjectSerialiser(db)));
+		result.addCustomSerialiser("originalObjects", new ListSerialiser<>(getCrusaderObjectSerialiser(db)));
 		result.addCustomSerialiser("scripts", new ArraySerialiser<>(MapScript.class, getMapScriptSerialiser(db)));
 
 		return result;

@@ -10,6 +10,7 @@
     },
     "experience": "182",
     "kills": "1",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/faerie_female_3",
     "torsoArmour": {
@@ -72,6 +73,7 @@
     },
     "experience": "182",
     "kills": "0",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/faerie_male_1",
     "torsoArmour": {
@@ -134,6 +136,7 @@
     },
     "experience": "182",
     "kills": "2",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/naga_4",
     "torsoArmour": {
@@ -184,6 +187,7 @@
     },
     "experience": "182",
     "kills": "3",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/dryad_female_4",
     "torsoArmour": {
@@ -241,6 +245,7 @@
     },
     "experience": "281",
     "kills": "0",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/pasht_female_1",
     "torsoArmour": {
@@ -312,6 +317,7 @@
     },
     "experience": "281",
     "kills": "0",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/human_male_4",
     "torsoArmour": {
@@ -383,6 +389,7 @@
     },
     "experience": "281",
     "kills": "3",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/dwarf_male_3",
     "helm": {
@@ -459,6 +466,7 @@
     },
     "experience": "281",
     "kills": "0",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/hynobi_female_3",
     "torsoArmour": {
@@ -537,6 +545,7 @@
     },
     "experience": "182",
     "kills": "1",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/pasht_male_1",
     "helm": {
@@ -621,6 +630,7 @@
     },
     "experience": "281",
     "kills": "5",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/triton_male_2",
     "helm": {
@@ -698,6 +708,7 @@
     },
     "experience": "182",
     "kills": "2",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/triton_female_1",
     "torsoArmour": {
@@ -767,6 +778,7 @@
     },
     "experience": "281",
     "kills": "7",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/mata_5",
     "torsoArmour": {

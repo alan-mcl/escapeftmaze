@@ -385,7 +385,7 @@ public class ClientMapLoader
 			textures,
 			horizontalWalls,
 			verticalWalls,
-			objects,
+			Arrays.asList(objects),
 			scripts);
 	}
 

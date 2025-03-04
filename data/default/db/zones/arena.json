@@ -10114,7 +10114,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.plant.1",
         "southTexture": "objects.plant.1",
@@ -10122,6 +10122,7 @@
         "westTexture": "objects.plant.1",
         "tileIndex": "201",
         "lightSource": "false",
+        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10131,6 +10132,7 @@
         "westTexture": "objects.plant.1",
         "tileIndex": "230",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10140,6 +10142,7 @@
         "westTexture": "objects.plant.1",
         "tileIndex": "235",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10149,6 +10152,7 @@
         "westTexture": "objects.plant.2",
         "tileIndex": "198",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10177,6 +10181,7 @@
             "Aenen Outskirts solar array flava"
           ]
         },
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

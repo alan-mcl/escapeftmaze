@@ -15606,7 +15606,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.torch.1",
         "southTexture": "objects.torch.1",
@@ -15659,6 +15659,7 @@
         "westTexture": "objects.altar.1",
         "tileIndex": "202",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

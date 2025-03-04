@@ -10,6 +10,7 @@
     },
     "experience": "601416",
     "kills": "6",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/mirka_female_1",
     "torsoArmour": {
@@ -198,6 +199,7 @@
     },
     "experience": "5789000",
     "kills": "31",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/neotroll_male_1",
     "helm": {
@@ -426,6 +428,7 @@
     },
     "experience": "601416",
     "kills": "11",
+    "deaths": "0",
     "karma": "10",
     "portrait": "portrait/elf_female_1",
     "helm": {
@@ -571,6 +574,7 @@
     },
     "experience": "601416",
     "kills": "25",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/dwarf_male_1",
     "helm": {
@@ -718,6 +722,7 @@
     },
     "experience": "601416",
     "kills": "31",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/mata_1",
     "helm": {
@@ -951,6 +956,7 @@
     },
     "experience": "601416",
     "kills": "21",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/goblin_female_1",
     "helm": {

@@ -405,7 +405,7 @@ public class V1Zone
 			textureArray,
 			horizontalWalls,
 			verticalWalls,
-			objects,
+			Arrays.asList(objects),
 			scripts);
 
 		return new Zone(

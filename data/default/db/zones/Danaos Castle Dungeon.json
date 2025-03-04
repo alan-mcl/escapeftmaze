@@ -9601,7 +9601,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.pillar.1",
         "southTexture": "objects.pillar.1",
@@ -9636,6 +9636,7 @@
         "westTexture": "SHIMMERING_PORTAL",
         "tileIndex": "72",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

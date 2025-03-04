@@ -38857,7 +38857,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.ladder.up",
         "southTexture": "objects.ladder.up",
@@ -38871,6 +38871,7 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Aenen City to Outskirts"
         },
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38880,6 +38881,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "204",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38889,6 +38891,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "140",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38898,6 +38901,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "107",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38907,6 +38911,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "171",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38916,33 +38921,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "485",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "485",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "485",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "485",
-        "lightSource": "false",
+        "placementMask": "101000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38952,33 +38931,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "549",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "549",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "549",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.pillar.1",
-        "southTexture": "objects.pillar.1",
-        "eastTexture": "objects.pillar.1",
-        "westTexture": "objects.pillar.1",
-        "tileIndex": "549",
-        "lightSource": "false",
+        "placementMask": "101000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38988,6 +38941,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "484",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38997,6 +38951,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "483",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39006,6 +38961,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "482",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39033,6 +38989,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "546",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39042,6 +38999,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "494",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39051,6 +39009,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "558",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39060,6 +39019,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "560",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39069,6 +39029,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "836",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39078,6 +39039,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "900",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39087,6 +39049,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "902",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39105,6 +39068,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "783",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39114,6 +39078,7 @@
         "westTexture": "objects.woodsign.side",
         "tileIndex": "566",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39123,6 +39088,7 @@
         "westTexture": "objects.woodsign.side",
         "tileIndex": "782",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39132,6 +39098,7 @@
         "westTexture": "SHIMMERING_PORTAL",
         "tileIndex": "924",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39141,6 +39108,7 @@
         "westTexture": "objects.woodsign.side",
         "tileIndex": "527",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39150,6 +39118,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "748",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39159,6 +39128,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "753",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39168,6 +39138,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "818",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39177,6 +39148,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "848",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39186,6 +39158,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "813",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39195,6 +39168,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "177",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39204,6 +39178,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "149",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39213,6 +39188,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "370",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39222,6 +39198,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "659",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39231,6 +39208,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "699",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39240,6 +39218,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "853",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39249,6 +39228,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "890",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39258,6 +39238,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "858",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39267,6 +39248,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "861",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -39276,6 +39258,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "893",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

@@ -45,8 +45,8 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	MapDisplay display;
 	JButton save, cancel, zoomIn, zoomOut;
 	Zone zone;
-	Map<JCheckBox, Integer> displayFeatureBoxes = new HashMap<JCheckBox, Integer>();
-	Map<JCheckBox, Integer> selectionFeatureBoxes = new HashMap<JCheckBox, Integer>();
+	Map<JCheckBox, Integer> displayFeatureBoxes = new HashMap<>();
+	Map<JCheckBox, Integer> selectionFeatureBoxes = new HashMap<>();
 	private Point mousePressed;
 	private TileDisplayPanel tileDisplayPanel;
 	private WallDisplayPanel wallDisplayPanel;
@@ -65,7 +65,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	private static final String EDIT_MULTIPLE_WALLS = "EDIT MULTIPLE WALLS";
 	private JDialog dialog;
 	private ZonePanel panel;
-	private Map<String, Tool> selectionTools = new HashMap<String, Tool>();
+	private Map<String, Tool> selectionTools = new HashMap<>();
 
 	/*-------------------------------------------------------------------------*/
 	public MapEditor(Zone zone, JDialog dialog, ZonePanel panel)

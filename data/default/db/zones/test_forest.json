@@ -10,7 +10,7 @@
       "SHOULD_SUM_TO_100": "false"
     }
   },
-  "shadeTargetColor": "ffffffff",
+  "shadeTargetColor": "ff009933",
   "transparentColor": "ffffffff",
   "doShading": "true",
   "doLighting": "true",
@@ -2621,7 +2621,7 @@
     "width": "16",
     "baseImageSize": "512",
     "skyTexture": "sky.ichiba",
-    "skyTextureType": "CYLINDER",
+    "skyTextureType": "HIGH_CEILING",
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",
@@ -9603,7 +9603,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "TREE_WALL_1",
         "southTexture": "TREE_WALL_1",
@@ -9611,15 +9611,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "118",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "118",
-        "lightSource": "false",
+        "placementMask": "010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9629,6 +9621,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "119",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9638,24 +9631,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "103",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "103",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "103",
-        "lightSource": "false",
+        "placementMask": "100010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9665,15 +9641,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "102",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "102",
-        "lightSource": "false",
+        "placementMask": "0010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9683,15 +9651,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "134",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "134",
-        "lightSource": "false",
+        "placementMask": "0010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9701,15 +9661,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "135",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "135",
-        "lightSource": "false",
+        "placementMask": "0010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9719,6 +9671,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "120",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9728,6 +9681,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "104",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9737,6 +9691,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "88",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9746,15 +9701,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "100",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "100",
-        "lightSource": "false",
+        "placementMask": "0100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9764,24 +9711,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "116",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "116",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "116",
-        "lightSource": "false",
+        "placementMask": "11000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9791,24 +9721,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "132",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "132",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "132",
-        "lightSource": "false",
+        "placementMask": "100000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9818,6 +9731,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "131",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9827,33 +9741,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "148",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "148",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "148",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "148",
-        "lightSource": "false",
+        "placementMask": "01011001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9863,6 +9751,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "147",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9872,6 +9761,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "149",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9881,24 +9771,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "150",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "150",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "150",
-        "lightSource": "false",
+        "placementMask": "0000111",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9908,15 +9781,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "151",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "151",
-        "lightSource": "false",
+        "placementMask": "000100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9926,15 +9791,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "152",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "152",
-        "lightSource": "false",
+        "placementMask": "000000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9944,24 +9801,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "153",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "153",
-        "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "153",
-        "lightSource": "false",
+        "placementMask": "001010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9971,6 +9811,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "136",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9980,6 +9821,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "133",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -9989,15 +9831,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "117",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "117",
-        "lightSource": "false",
+        "placementMask": "100000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10007,15 +9841,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "101",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "TREE_WALL_1",
-        "southTexture": "TREE_WALL_1",
-        "eastTexture": "TREE_WALL_1",
-        "westTexture": "TREE_WALL_1",
-        "tileIndex": "101",
-        "lightSource": "false",
+        "placementMask": "0010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10025,6 +9851,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "165",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10034,6 +9861,7 @@
         "westTexture": "TREE_WALL_1",
         "tileIndex": "167",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       }
     ],

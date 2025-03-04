@@ -243,7 +243,8 @@ public class CrusaderClient extends Frame
 
 				for (int x = 0; x < fStrs.length; x++)
 				{
-					if (fStrs[x].equalsIgnoreCase("smooth"))
+					filter[x] = CrusaderEngine.Filter.valueOf(fStrs[x]);
+/*					if (fStrs[x].equalsIgnoreCase("smooth"))
 					{
 						filter[x] = CrusaderEngine.Filter.SMOOTH;
 					}
@@ -294,7 +295,7 @@ public class CrusaderClient extends Frame
 					else
 					{
 						throw new CrusaderException("invalid filter arg: [" + fStrs[x] + "]");
-					}
+					}*/
 				}
 			}
 			else if (arg.startsWith("-threads:"))

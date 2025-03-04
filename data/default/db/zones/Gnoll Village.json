@@ -37717,7 +37717,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.ladder.down",
         "southTexture": "objects.ladder.down",
@@ -37740,6 +37740,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "51",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37749,15 +37750,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "104",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "104",
-        "lightSource": "false",
+        "placementMask": "000000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37767,6 +37760,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "107",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37776,15 +37770,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "135",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "135",
-        "lightSource": "false",
+        "placementMask": "0001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37794,6 +37780,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "198",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37803,15 +37790,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "200",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "200",
-        "lightSource": "false",
+        "placementMask": "0011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37821,15 +37800,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "203",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "203",
-        "lightSource": "false",
+        "placementMask": "000000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37839,6 +37810,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "207",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37848,6 +37820,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "212",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37857,15 +37830,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "248",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "248",
-        "lightSource": "false",
+        "placementMask": "011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37875,15 +37840,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "305",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "305",
-        "lightSource": "false",
+        "placementMask": "0000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37893,15 +37850,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "344",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "344",
-        "lightSource": "false",
+        "placementMask": "00100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37911,6 +37860,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "358",
         "lightSource": "false",
+        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37920,15 +37870,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "366",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "366",
-        "lightSource": "false",
+        "placementMask": "11",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37938,15 +37880,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "392",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "392",
-        "lightSource": "false",
+        "placementMask": "0101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37956,15 +37890,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "418",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "418",
-        "lightSource": "false",
+        "placementMask": "00000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37974,15 +37900,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "469",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "469",
-        "lightSource": "false",
+        "placementMask": "0001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37992,6 +37910,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "489",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38001,15 +37920,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "490",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "490",
-        "lightSource": "false",
+        "placementMask": "011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38019,6 +37930,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "491",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38028,6 +37940,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "492",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38037,6 +37950,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "496",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38046,6 +37960,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "498",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38055,15 +37970,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "531",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "531",
-        "lightSource": "false",
+        "placementMask": "0000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38073,6 +37980,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "546",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38082,15 +37990,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "557",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "557",
-        "lightSource": "false",
+        "placementMask": "011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38100,6 +38000,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "653",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38109,6 +38010,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "714",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38118,15 +38020,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "727",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "727",
-        "lightSource": "false",
+        "placementMask": "01000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38136,15 +38030,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "741",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "741",
-        "lightSource": "false",
+        "placementMask": "000000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38154,15 +38040,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "747",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "747",
-        "lightSource": "false",
+        "placementMask": "0001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38172,6 +38050,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "782",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38181,6 +38060,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "824",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38190,15 +38070,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "841",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "841",
-        "lightSource": "false",
+        "placementMask": "00000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38208,15 +38080,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "848",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "848",
-        "lightSource": "false",
+        "placementMask": "0011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38226,6 +38090,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "853",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38235,15 +38100,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "867",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "867",
-        "lightSource": "false",
+        "placementMask": "010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38253,15 +38110,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "872",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "872",
-        "lightSource": "false",
+        "placementMask": "101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38271,15 +38120,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "882",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "882",
-        "lightSource": "false",
+        "placementMask": "00010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38289,15 +38130,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "899",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.5",
-        "southTexture": "objects.plant.5",
-        "eastTexture": "objects.plant.5",
-        "westTexture": "objects.plant.5",
-        "tileIndex": "899",
-        "lightSource": "false",
+        "placementMask": "10001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38307,6 +38140,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "900",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38316,6 +38150,7 @@
         "westTexture": "objects.plant.5",
         "tileIndex": "937",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38325,15 +38160,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "83",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "83",
-        "lightSource": "false",
+        "placementMask": "0011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38343,15 +38170,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "106",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "106",
-        "lightSource": "false",
+        "placementMask": "1000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38361,6 +38180,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "110",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38370,15 +38190,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "167",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "167",
-        "lightSource": "false",
+        "placementMask": "0011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38388,6 +38200,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "183",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38397,6 +38210,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "246",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38406,15 +38220,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "295",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "295",
-        "lightSource": "false",
+        "placementMask": "0100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38424,15 +38230,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "297",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "297",
-        "lightSource": "false",
+        "placementMask": "00011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38442,15 +38240,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "357",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "357",
-        "lightSource": "false",
+        "placementMask": "000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38460,6 +38250,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "361",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38469,6 +38260,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "370",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38478,15 +38270,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "399",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "399",
-        "lightSource": "false",
+        "placementMask": "00101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38496,6 +38280,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "401",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38505,6 +38290,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "409",
         "lightSource": "false",
+        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38514,6 +38300,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "419",
         "lightSource": "false",
+        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38523,15 +38310,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "459",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "459",
-        "lightSource": "false",
+        "placementMask": "10000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38541,6 +38320,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "464",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38550,6 +38330,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "477",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38559,15 +38340,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "485",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "485",
-        "lightSource": "false",
+        "placementMask": "0000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38577,15 +38350,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "488",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "488",
-        "lightSource": "false",
+        "placementMask": "101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38595,15 +38360,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "500",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "500",
-        "lightSource": "false",
+        "placementMask": "001000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38613,6 +38370,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "516",
         "lightSource": "false",
+        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38622,15 +38380,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "522",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "522",
-        "lightSource": "false",
+        "placementMask": "10000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38640,6 +38390,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "539",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38649,15 +38400,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "540",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "540",
-        "lightSource": "false",
+        "placementMask": "0000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38667,6 +38410,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "559",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38676,6 +38420,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "582",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38685,15 +38430,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "603",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "603",
-        "lightSource": "false",
+        "placementMask": "0000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38703,15 +38440,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "636",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "636",
-        "lightSource": "false",
+        "placementMask": "01001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38721,6 +38450,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "681",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38730,6 +38460,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "690",
         "lightSource": "false",
+        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38739,15 +38470,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "695",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "695",
-        "lightSource": "false",
+        "placementMask": "0100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38757,15 +38480,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "706",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "706",
-        "lightSource": "false",
+        "placementMask": "00001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38775,15 +38490,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "722",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "722",
-        "lightSource": "false",
+        "placementMask": "01000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38793,15 +38500,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "738",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "738",
-        "lightSource": "false",
+        "placementMask": "00011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38811,15 +38510,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "753",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "753",
-        "lightSource": "false",
+        "placementMask": "000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38829,15 +38520,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "791",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "791",
-        "lightSource": "false",
+        "placementMask": "10001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38847,15 +38530,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "835",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "835",
-        "lightSource": "false",
+        "placementMask": "000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38865,15 +38540,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "842",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "842",
-        "lightSource": "false",
+        "placementMask": "00011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38883,6 +38550,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "857",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38892,6 +38560,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "876",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38901,6 +38570,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "879",
         "lightSource": "false",
+        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38910,15 +38580,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "884",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "884",
-        "lightSource": "false",
+        "placementMask": "00000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38928,6 +38590,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "887",
         "lightSource": "false",
+        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38937,6 +38600,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "889",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38946,15 +38610,7 @@
         "westTexture": "objects.plant.3",
         "tileIndex": "911",
         "lightSource": "false",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.plant.3",
-        "southTexture": "objects.plant.3",
-        "eastTexture": "objects.plant.3",
-        "westTexture": "objects.plant.3",
-        "tileIndex": "911",
-        "lightSource": "false",
+        "placementMask": "1000001",
         "verticalAlignment": "BOTTOM"
       }
     ],

@@ -292,5 +292,6 @@ public interface CrusaderEngine
 		GREYSCALE,
 		GHOST,
 		HEX,
+		RIPPLE,
 	}
 }

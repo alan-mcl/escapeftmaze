@@ -107,7 +107,7 @@ public class Noise4jDungeonGen implements DungeonGen
 			textures.values().toArray(new Texture[]{}),
 			horizWalls,
 			vertWalls,
-			baseMap.getObjects(),
+			baseMap.getOriginalObjects(),
 			baseMap.getScripts());
 		map.setHorizontalWalls(horizWalls);
 		map.setVerticalWalls(vertWalls);

@@ -4,8 +4,8 @@ STUFFTODO
 
 UI REFRESH
 --------------
-maze intervention cue
 flat sky support in editor & maze
+maze intervention cue
 foe loot rationalisation
 foe weapon use
 

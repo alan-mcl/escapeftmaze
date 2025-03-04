@@ -26,6 +26,7 @@ import java.awt.image.PixelGrabber;
 import java.util.List;
 import java.util.*;
 import java.util.concurrent.*;
+import mclachlan.crusader.postprocessor.*;
 import mclachlan.crusader.script.MoveTo;
 
 /**
@@ -333,6 +334,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 					case HEX:
 						processors.add(new HexagonalPostProcessor(projectionPlaneWidth, projectionPlaneHeight, 3));
 						break;
+					case RIPPLE:
+						processors.add(new RipplePostProcessor(
+							projectionPlaneWidth, projectionPlaneHeight,
+							projectionPlaneWidth/2, projectionPlaneHeight/2,
+							.2, 5));
 					case DEFAULT:
 					case FXAA:
 						processors.add(new FXAAFilter(projectionPlaneWidth, projectionPlaneHeight));
@@ -369,7 +375,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		mapWidth = map.width;
 		mapLength = map.length;
 
-		this.objects = (EngineObject[])map.objects.clone();
+		this.objects = (EngineObject[])map.renderObjects.clone();
 		
 		pictureArray = new MemoryImageSource(
 			screenWidth, 

@@ -152,6 +152,12 @@ public class Database
 		this.loader = loader;
 		this.saver = saver;
 		this.campaign = campaign;
+
+		if (campaign != null && loader != null && saver != null)
+		{
+			loader.init(campaign);
+			saver.init(campaign);
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -162,128 +168,128 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void initCaches(ProgressListener progress)
+	public void initCaches(ProgressListener p)
 	{
 		// init caches
-		progress.message(StringUtil.getUiLabel("ls.load.genders"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.genders"));
 		getGenders();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.body.parts"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.body.parts"));
 		getBodyParts();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.xp.tables"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.xp.tables"));
 		getExperienceTables();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.attack.types"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.attack.types"));
 		getAttackTypes();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.condition.effects"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.condition.effects"));
 		getConditionEffects();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.condition.templates"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.condition.templates"));
 		getConditionTemplates();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.spell.effects"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.spell.effects"));
 		getSpellEffects();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.loot.entries"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.loot.entries"));
 		getLootEntries();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.loot.tables"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.loot.tables"));
 		getLootTables();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.maze.scripts"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.maze.scripts"));
 		getMazeScripts();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.spells"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.spells"));
 		getSpells();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.starting.kits"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.starting.kits"));
 		getStartingKits();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.character.classes"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.character.classes"));
 		getCharacterClasses();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.player.spell.books"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.player.spell.books"));
 		getPlayerSpellBooks();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.natural.weapons"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.natural.weapons"));
 		getNaturalWeapons();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.races"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.races"));
 		getRaces();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.maze.textures"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.maze.textures"));
 		getMazeTextures();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.foe.types"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.foe.types"));
 		getFoeTypes();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.foe.templates"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.foe.templates"));
 		getFoeTemplates();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.foe.entries"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.foe.entries"));
 		getFoeEntries();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.encounter.tables"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.encounter.tables"));
 		getEncounterTables();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.traps"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.traps"));
 		getTraps();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.npc.faction.templates"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.npc.faction.templates"));
 		getNpcFactionTemplates();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.npc.templates"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.npc.templates"));
 		getNpcTemplates();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.wielding.combos"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.wielding.combos"));
 		getWieldingCombos();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.item.templates"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.item.templates"));
 		getItemTemplates();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.difficulty.levels"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.difficulty.levels"));
 		getDifficultyLevels();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.craft.recipes"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.craft.recipes"));
 		getCraftRecipes();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.item.enchantments"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.item.enchantments"));
 		getItemEnchantments();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 
-		progress.message(StringUtil.getUiLabel("ls.load.personalities"));
+		if (p != null) p.message(StringUtil.getUiLabel("ls.load.personalities"));
 		getPersonalities();
-		progress.incProgress(1);
+		if (p != null) p.incProgress(1);
 	}
 
 	/*-------------------------------------------------------------------------*/

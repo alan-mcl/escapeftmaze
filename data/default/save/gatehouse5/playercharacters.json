@@ -10,6 +10,7 @@
     },
     "experience": "514",
     "kills": "3",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/dryad_male_2",
     "torsoArmour": {
@@ -77,6 +78,7 @@
     },
     "experience": "601416",
     "kills": "6",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/mirka_female_1",
     "torsoArmour": {
@@ -284,6 +286,7 @@
     },
     "experience": "5789000",
     "kills": "31",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/neotroll_male_1",
     "helm": {
@@ -512,6 +515,7 @@
     },
     "experience": "514",
     "kills": "0",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/neotroll_male_1",
     "helm": {
@@ -596,6 +600,7 @@
     },
     "experience": "601416",
     "kills": "11",
+    "deaths": "0",
     "karma": "10",
     "portrait": "portrait/elf_female_1",
     "helm": {
@@ -741,6 +746,7 @@
     },
     "experience": "514",
     "kills": "1",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/hynobi_female_1",
     "torsoArmour": {
@@ -830,6 +836,7 @@
     },
     "experience": "514",
     "kills": "7",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/naga_8",
     "torsoArmour": {
@@ -897,6 +904,7 @@
     },
     "experience": "601416",
     "kills": "25",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/dwarf_male_1",
     "helm": {
@@ -1044,6 +1052,7 @@
     },
     "experience": "514",
     "kills": "9",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/neotroll_female_2",
     "helm": {
@@ -1135,6 +1144,7 @@
     },
     "experience": "601416",
     "kills": "31",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/mata_1",
     "helm": {
@@ -1368,6 +1378,7 @@
     },
     "experience": "601416",
     "kills": "21",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/goblin_female_1",
     "helm": {
@@ -1539,6 +1550,7 @@
     },
     "experience": "514",
     "kills": "9",
+    "deaths": "0",
     "karma": "0",
     "portrait": "portrait/pasht_male_1",
     "legArmour": {

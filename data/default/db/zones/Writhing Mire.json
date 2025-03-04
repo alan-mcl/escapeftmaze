@@ -37864,7 +37864,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.pillar.1",
         "southTexture": "objects.pillar.1",
@@ -37878,6 +37878,7 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Writhing Mire to Ruins Of Hail"
         },
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37887,6 +37888,7 @@
         "westTexture": "objects.woodsign.front",
         "tileIndex": "175",
         "lightSource": "false",
+        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -37896,6 +37898,7 @@
         "westTexture": "objects.fungus.2",
         "tileIndex": "238",
         "lightSource": "false",
+        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       }
     ],

@@ -40,7 +40,7 @@ public class LbawDungeonGen implements DungeonGen
 			baseMap.getTextures(),
 			baseMap.getHorizontalWalls(),
 			baseMap.getVerticalWalls(),
-			baseMap.getObjects(),
+			baseMap.getOriginalObjects(),
 			baseMap.getScripts());
 
 		Tile[] crusaderTiles = new Tile[width*length];

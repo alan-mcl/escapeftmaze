@@ -176,6 +176,7 @@ public class EngineObject
 		this.tileIndex = clone.tileIndex;
 		this.isLightSource = clone.isLightSource;
 		this.verticalAlignment = clone.verticalAlignment;
+		this.placementMask = clone.placementMask;
 	}
 
 	/*-------------------------------------------------------------------------*/

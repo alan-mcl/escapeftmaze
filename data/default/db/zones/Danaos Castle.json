@@ -38635,7 +38635,7 @@
         "height": "1"
       }
     ],
-    "objects": [
+    "originalObjects": [
       {
         "northTexture": "objects.pillar.1",
         "southTexture": "objects.pillar.1",
@@ -38643,6 +38643,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "470",
         "lightSource": "false",
+        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38652,6 +38653,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "472",
         "lightSource": "false",
+        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38661,6 +38663,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "394",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38670,6 +38673,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "396",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38679,6 +38683,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "398",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38688,6 +38693,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "490",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38697,6 +38703,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "492",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38706,6 +38713,7 @@
         "westTexture": "objects.torch.1",
         "tileIndex": "494",
         "lightSource": "true",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38715,6 +38723,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "534",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38724,6 +38733,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "566",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38733,6 +38743,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "598",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38742,6 +38753,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "536",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38751,6 +38763,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "568",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38760,6 +38773,7 @@
         "westTexture": "objects.pillar.1",
         "tileIndex": "600",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -38769,6 +38783,7 @@
         "westTexture": "objects.altar.1",
         "tileIndex": "599",
         "lightSource": "false",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       }
     ],

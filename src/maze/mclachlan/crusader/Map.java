@@ -48,9 +48,12 @@ public class Map
 	Tile[] tiles;
 	Wall[] horizontalWalls;
 	Wall[] verticalWalls;
-	
-	EngineObject[] objects;
+
+	/** these are the objects that are rendered */
+	EngineObject[] renderObjects;
+	/* the original configured objects from the db */
 	List<EngineObject> originalObjects;
+
 	Texture[] textures;
 	MapScript[] scripts;
 	SkyTextureType skyTextureType;
@@ -90,7 +93,7 @@ public class Map
 	 * 	The horizontal walls in this map.  
 	 * @param verticalWalls
 	 * 	The vertical walls in this map
-	 * @param objects
+	 * @param originalObjects
 	 * 	The objects in this map
 	 */ 
 	public Map(
@@ -103,7 +106,7 @@ public class Map
 		Texture[] textures,
 		Wall[] horizontalWalls,
 		Wall[] verticalWalls,
-		EngineObject[] objects,
+		List<EngineObject> originalObjects,
 		MapScript[] scripts)
 	{
 		this.length = length;
@@ -115,10 +118,10 @@ public class Map
 		this.textures = textures;
 		this.horizontalWalls = horizontalWalls;
 		this.verticalWalls = verticalWalls;
-		this.objects = objects;
+		this.originalObjects = originalObjects;
 		this.scripts = scripts;
 
-		if (objects != null)
+		if (this.originalObjects != null)
 		{
 			this.initObjectsFromArray();
 		}
@@ -186,7 +189,7 @@ public class Map
 			}
 		}
 
-		for (EngineObject obj : objects)
+		for (EngineObject obj : originalObjects)
 		{
 			for (Texture t : obj.getTextures())
 			{
@@ -220,9 +223,9 @@ public class Map
 		List<EngineObject> newObjects = new ArrayList<>();
 
 		// place each object in the middle of it's grid block
-		for (int i = 0; i < this.objects.length; i++)
+		for (int i = 0; i < this.originalObjects.size(); i++)
 		{
-			EngineObject obj = objects[i];
+			EngineObject obj = originalObjects.get(i);
 			
 			if (obj.placementMask == null)
 			{
@@ -243,8 +246,7 @@ public class Map
 			}
 		}
 		
-		this.originalObjects = new ArrayList<>(Arrays.asList(objects));
-		this.objects = (EngineObject[])newObjects.toArray(new EngineObject[0]);
+		this.renderObjects = (EngineObject[])newObjects.toArray(new EngineObject[0]);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -327,7 +329,7 @@ public class Map
 	 */
 	public void removeObject(int tileIndex)
 	{
-		List<EngineObject> newObjects = new ArrayList<EngineObject>();
+		List<EngineObject> newObjects = new ArrayList<>();
 		
 		for (EngineObject obj : originalObjects)
 		{
@@ -565,6 +567,30 @@ public class Map
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void setRenderObjects(EngineObject[] renderObjects)
+	{
+		this.renderObjects = renderObjects;
+		this.originalObjects = new ArrayList<>(Arrays.asList(renderObjects));
+	}
+
+	public EngineObject[] getRenderObjects()
+	{
+		return renderObjects;
+	}
+
+	public void setOriginalObjects(
+		List<EngineObject> originalObjects)
+	{
+		this.originalObjects = originalObjects;
+	}
+
+	public List<EngineObject> getOriginalObjects()
+	{
+		return originalObjects;
+	}
+
+
+	/*-------------------------------------------------------------------------*/
 	public int getBaseImageSize()
 	{
 		return baseImageSize;
@@ -573,11 +599,6 @@ public class Map
 	public Wall[] getHorizontalWalls()
 	{
 		return horizontalWalls;
-	}
-
-	public EngineObject[] getObjects()
-	{
-		return objects;
 	}
 
 	public ImageGroup getPaletteImage()
@@ -641,11 +662,6 @@ public class Map
 		return verticalWalls;
 	}
 
-	public List<EngineObject> getOriginalObjects()
-	{
-		return originalObjects;
-	}
-
 	public SkyTextureType getSkyTextureType()
 	{
 		return skyTextureType;
@@ -684,17 +700,6 @@ public class Map
 	public void setPaletteImage(ImageGroup paletteImage)
 	{
 		this.paletteImage = paletteImage;
-	}
-
-	public void setObjects(EngineObject[] objects)
-	{
-		this.objects = objects;
-	}
-
-	public void setOriginalObjects(
-		List<EngineObject> originalObjects)
-	{
-		this.originalObjects = originalObjects;
 	}
 
 	public void setTextures(Texture[] textures)
@@ -807,7 +812,7 @@ public class Map
 			return false;
 		}
 		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getObjects(), map.getObjects()))
+		if (!Arrays.equals(getRenderObjects(), map.getRenderObjects()))
 		{
 			return false;
 		}
@@ -835,7 +840,7 @@ public class Map
 		result = 31 * result + Arrays.hashCode(getTiles());
 		result = 31 * result + Arrays.hashCode(getHorizontalWalls());
 		result = 31 * result + Arrays.hashCode(getVerticalWalls());
-		result = 31 * result + Arrays.hashCode(getObjects());
+		result = 31 * result + Arrays.hashCode(getRenderObjects());
 		result = 31 * result + Arrays.hashCode(getTextures());
 		result = 31 * result + Arrays.hashCode(getScripts());
 		result = 31 * result + (getSkyTextureType() != null ? getSkyTextureType().hashCode() : 0);
