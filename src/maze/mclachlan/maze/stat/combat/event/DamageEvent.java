@@ -339,7 +339,8 @@ public class DamageEvent extends MazeEvent
 
 		// character speech if badly wounded
 		if (defender instanceof PlayerCharacter &&
-			defender.getHitPoints().getCurrent() > 0 &&
+			defender.isAlive() &&
+			defender.isConscious() &&
 			defender.getHitPoints().getRatio() <= 0.1)
 		{
 			result.addAll(SpeechUtil.getInstance().badlyWoundedSpeech((PlayerCharacter)defender));

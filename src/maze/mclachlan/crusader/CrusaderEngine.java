@@ -22,6 +22,7 @@ package mclachlan.crusader;
 import java.util.List;
 import java.awt.*;
 import java.awt.image.ColorModel;
+import mclachlan.crusader.postprocessor.PostProcessor;
 
 /**
  */
@@ -205,6 +206,10 @@ public interface CrusaderEngine
 	 * to the caller to decide whether to execute it.
 	 */
 	MouseClickScript handleMouseClickAndReturnScript(int x, int y);
+
+	/*-------------------------------------------------------------------------*/
+	void addPostProcessor(PostProcessor postProcessor);
+	void removePostProcessor(PostProcessor postProcessor);
 
 	/*-------------------------------------------------------------------------*/
 	class PlayerStatus

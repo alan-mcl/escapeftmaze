@@ -20,14 +20,13 @@
 package mclachlan.maze.audio;
 
 import java.io.InputStream;
-import javax.sound.sampled.Clip;
 
 /**
  *
  */
 public interface AudioPlayer
 {
-	void playSound(String clipName, int volume);
+	void playSound(String soundName, int volume);
 
-	Clip getClip(String clipName, InputStream stream);
+	void cacheSound(String soundName, InputStream stream);
 }

@@ -27,7 +27,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 import java.util.function.*;
-import javax.sound.sampled.Clip;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.data.v1.V1Utils;
 import mclachlan.maze.data.v2.V2Loader;
@@ -1342,28 +1341,33 @@ public class Database
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public Clip getClip(String clipName)
+	public void cacheSound(String soundName)
 	{
 		// try to load from all campaigns, starting with the current one
 		synchronized(mutex)
 		{
 			List<MazeException> errors = new ArrayList<>();
 
+			boolean hadErrors = false;
 			for (CampaignCache cc : campaignCaches)
 			{
 				try
 				{
-					return cc.loader.getClip(clipName, Maze.getInstance().getAudioPlayer());
+					cc.loader.cacheSound(soundName, Maze.getInstance().getAudioPlayer());
 				}
 				catch (MazeException e)
 				{
+					hadErrors = true;
 					errors.add(e);
 				}
 			}
 
-			MazeException me = new MazeException("Can't load [" + clipName + "]");
-			errors.forEach(me::addSuppressed);
-			throw me;
+			if (hadErrors)
+			{
+				MazeException me = new MazeException("Can't load [" + soundName + "]");
+				errors.forEach(me::addSuppressed);
+				throw me;
+			}
 		}
 	}
 

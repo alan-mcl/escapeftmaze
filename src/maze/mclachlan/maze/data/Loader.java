@@ -24,7 +24,6 @@ import java.awt.Point;
 import java.awt.image.BufferedImage;
 import java.io.InputStream;
 import java.util.*;
-import javax.sound.sampled.Clip;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.game.*;
 import mclachlan.maze.game.journal.Journal;
@@ -96,7 +95,7 @@ public abstract class Loader
 	// stuff that can be optionally lazy loaded
 	public abstract BufferedImage getImage(String resourceName);
 	public abstract List<String> getPortraitNames();
-	public abstract Clip getClip(String clipName, AudioPlayer audioPlayer);
+	public abstract void cacheSound(String clipName, AudioPlayer audioPlayer);
 	public abstract InputStream getMusic(String trackName);
 	public abstract List<String> getZoneNames();
 	public abstract Zone getZone(String name);

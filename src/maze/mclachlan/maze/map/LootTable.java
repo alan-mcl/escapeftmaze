@@ -19,9 +19,11 @@
 
 package mclachlan.maze.map;
 
+import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.GroupOfPossibilities;
+import mclachlan.maze.stat.Item;
 import mclachlan.maze.stat.ItemTemplate;
 
 /**
@@ -81,6 +83,18 @@ public class LootTable extends DataObject
 		}
 
 		return result;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public List<Item> generate()
+	{
+		if (lootEntries != null)
+		{
+			List<ILootEntry> entries = lootEntries.getRandom();
+			return LootEntry.generate(entries);
+		}
+
+		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/

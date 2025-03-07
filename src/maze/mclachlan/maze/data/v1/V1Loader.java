@@ -26,7 +26,6 @@ import java.io.*;
 import java.util.*;
 import java.util.function.*;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.Clip;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.data.Loader;
 import mclachlan.maze.data.MazeTexture;
@@ -520,18 +519,18 @@ public class V1Loader extends Loader
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public Clip getClip(String clipName, AudioPlayer audioPlayer)
+	public void cacheSound(String clipName, AudioPlayer audioPlayer)
 	{
 		try
 		{
-			File file = new File("data/"+campaign.getName()+"/sound/"+clipName+".wav");
+			File file = new File("data/"+campaign.getName()+"/sound/"+clipName+".ogg");
 			if (!file.exists())
 			{
 				throw new MazeException("invalid audio resource ["+file+"]");
 			}
 
 			FileInputStream fis = new FileInputStream(file);
-			return audioPlayer.getClip(clipName, fis);
+			audioPlayer.cacheSound(clipName, fis);
 		}
 		catch (FileNotFoundException e)
 		{

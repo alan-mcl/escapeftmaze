@@ -34,6 +34,7 @@ import mclachlan.crusader.script.AppearanceFromSide;
 import mclachlan.crusader.script.AppearanceFromTop;
 import mclachlan.crusader.script.DisappearanceToSide;
 import mclachlan.crusader.script.TempChangeTexture;
+import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
 import mclachlan.diygui.toolkit.ContainerWidget;
@@ -397,6 +398,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			{
 				Animation animation = li.next();
 				li.remove();
+				animation.destroy();
 				if (animation.getMutex() != null)
 				{
 					synchronized (animation.getMutex())
@@ -532,6 +534,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					if (animation.isFinished())
 					{
 						li.remove();
+						animation.destroy();
 						if (animation.getMutex() != null)
 						{
 							synchronized (animation.getMutex())
@@ -677,7 +680,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public void disableInput()
 	{
 		// transparent modal dialog to block all user input while combat runs
-		showDialog(new DIYPane(screenBounds));
+		showDialog(getInputDisablingPane());
 
 		this.charLowLeft.setEnabled(false);
 		this.charLowRight.setEnabled(false);
@@ -704,6 +707,25 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		refreshCharacterData();
 
 		partyOptionsAndTextWidget.enableInput();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private DIYPane getInputDisablingPane()
+	{
+		DIYPane result = new DIYPane(screenBounds);
+
+		BufferedImage img = Database.getInstance().getImage("screen/logo_divider");
+		DIYLabel label = new DIYLabel(img);
+
+		label.setBounds(
+			SCREEN_WIDTH - img.getWidth(),
+			SCREEN_HEIGHT - img.getHeight(),
+			img.getWidth(),
+			img.getHeight());
+
+		result.add(label);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1889,6 +1911,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public ActorGroup getSelectedFoeGroup()
 	{
 		return mazeWidget.getSelectedFoeGroup();
+	}
+
+	public CrusaderEngine getRaycaster()
+	{
+		return raycaster;
 	}
 
 	/*-------------------------------------------------------------------------*/

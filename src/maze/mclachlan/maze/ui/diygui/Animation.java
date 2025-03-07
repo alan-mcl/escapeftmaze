@@ -22,12 +22,13 @@ package mclachlan.maze.ui.diygui;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import mclachlan.maze.data.v2.V2Seralisable;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
 
 /**
  *
  */
-public abstract class Animation
+public abstract class Animation implements V2Seralisable
 {
 	private Object mutex;
 
@@ -36,6 +37,9 @@ public abstract class Animation
 
 	/*-------------------------------------------------------------------------*/
 	public abstract Animation spawn(AnimationContext context);
+
+	/*-------------------------------------------------------------------------*/
+	public abstract boolean isFinished();
 
 	/*-------------------------------------------------------------------------*/
 	public Object getMutex()
@@ -56,7 +60,10 @@ public abstract class Animation
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public abstract boolean isFinished();
+	public void destroy()
+	{
+
+	}
 
 	/*-------------------------------------------------------------------------*/
 

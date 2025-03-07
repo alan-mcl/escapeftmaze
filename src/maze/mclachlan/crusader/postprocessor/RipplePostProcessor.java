@@ -3,10 +3,11 @@ package mclachlan.crusader.postprocessor;
 public class RipplePostProcessor implements PostProcessor
 {
 	private final int width, height;
-	private final int centerX, centerY; // Ripple center
-	private final double frequency; // Controls ripple wave frequency
-	private final double amplitude; // Controls ripple strength
+	private int centerX, centerY; // Ripple center
+	private double frequency; // Controls ripple wave frequency
+	private double amplitude; // Controls ripple strength
 
+	/*-------------------------------------------------------------------------*/
 	public RipplePostProcessor(int width, int height, int centerX, int centerY,
 		double frequency, double amplitude)
 	{
@@ -18,6 +19,7 @@ public class RipplePostProcessor implements PostProcessor
 		this.amplitude = amplitude;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void process(int[] renderBuffer, int[] outputBuffer, int screenX)
 	{
@@ -35,6 +37,7 @@ public class RipplePostProcessor implements PostProcessor
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private int[] getRippleEffect(int x, int y)
 	{
 		double dx = x - centerX;
@@ -58,5 +61,47 @@ public class RipplePostProcessor implements PostProcessor
 		int distortedY = (int)Math.round(centerY + newDistance * Math.sin(angle));
 
 		return new int[]{distortedX, distortedY};
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public int getCenterX()
+	{
+		return centerX;
+	}
+
+	public void setCenterX(int centerX)
+	{
+		this.centerX = centerX;
+	}
+
+	public int getCenterY()
+	{
+		return centerY;
+	}
+
+	public void setCenterY(int centerY)
+	{
+		this.centerY = centerY;
+	}
+
+	public double getFrequency()
+	{
+		return frequency;
+	}
+
+	public void setFrequency(double frequency)
+	{
+		this.frequency = frequency;
+	}
+
+	public double getAmplitude()
+	{
+		return amplitude;
+	}
+
+	public void setAmplitude(double amplitude)
+	{
+		this.amplitude = amplitude;
 	}
 }

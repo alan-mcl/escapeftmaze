@@ -57,6 +57,12 @@ public class DifficultyLevel extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public int getBaseLootMultiplier()
+	{
+		return 10;
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	/**
 	 * Called each time the engine spawns a foe. This difficulty implementation

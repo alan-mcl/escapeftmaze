@@ -20,7 +20,6 @@
 package mclachlan.maze.balance;
 
 import java.io.InputStream;
-import javax.sound.sampled.Clip;
 import mclachlan.maze.audio.AudioPlayer;
 
 /**
@@ -28,13 +27,13 @@ import mclachlan.maze.audio.AudioPlayer;
 */
 class MockAudioPlayer implements AudioPlayer
 {
-	public void playSound(String clipName, int vol)
+	public void playSound(String soundName, int vol)
 	{
 		//no op
 	}
 
-	public Clip getClip(String clipName, InputStream stream)
+	public void cacheSound(String clipName, InputStream stream)
 	{
-		return null;
+		//no op
 	}
 }

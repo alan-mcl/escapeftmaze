@@ -20,6 +20,7 @@
 package mclachlan.maze.stat.combat;
 
 import java.util.*;
+import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Log;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
@@ -1006,13 +1007,79 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	public List<Item> getLoot()
 	{
-		List<Item> result = new ArrayList<Item>();
-
+		List<Item> allItems = new ArrayList<>();
 		for (Foe f : this.deadFoes)
 		{
-			// todo: this will result in a lot of trash drops
-			// Need some way to limit trash drops?
-			result.addAll(f.getAllItems());
+			allItems.addAll(f.getAllItems());
+		}
+
+		return getLootedItems(allItems);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public static List<Item> getLootedItems(List<Item> allItems)
+	{
+		Map<String, List<Item>> items = new HashMap<>();
+
+
+		for (Item item : allItems)
+		{
+			if (!items.containsKey(item.getName()))
+			{
+				items.put(item.getName(), new ArrayList<>());
+			}
+			items.get(item.getName()).add(item);
+		}
+
+		List<Item> result = new ArrayList<>();
+
+		// try to limit trash drops
+		for (String itemName : items.keySet())
+		{
+			ItemTemplate it = Database.getInstance().getItemTemplate(itemName);
+
+			// percentage chance
+			int perc = 0;
+
+			int multiplier = Maze.getInstance().getDifficultyLevel().getBaseLootMultiplier();
+			if (it.getBaseCost() < 100)
+			{
+				multiplier *= 1;
+			}
+			else if (it.getBaseCost() < 1000)
+			{
+				multiplier *= 2;
+			}
+			else if (it.getBaseCost() < 5000)
+			{
+				multiplier *= 5;
+			}
+			else
+			{
+				multiplier *= 8;
+			}
+
+			if (it.isQuestItem())
+			{
+				perc = 100;
+			}
+			else
+			{
+				perc = items.get(itemName).size() * multiplier;
+			}
+
+			int total = perc/100;
+			int percXtra = perc%100;
+
+			total += Dice.d100.roll("loot-xtra") <= percXtra ? 1 : 0;
+
+			if (total > 0)
+			{
+				for (int i=0; i<total; i++)
+				{
+					result.add(items.get(itemName).get(i));
+				}
+			}
 		}
 
 		return result;
@@ -1038,24 +1105,15 @@ public class Combat
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private class CombatActionComparator implements Comparator
+	private static class CombatActionComparator implements Comparator<CombatAction>
 	{
-		public int compare(Object o1, Object o2)
+		public int compare(CombatAction a1, CombatAction a2)
 		{
-			if (!(o1 instanceof CombatAction && o2 instanceof CombatAction))
-			{
-				throw new MazeException("Should be instances of CombatAction: " +
-					"[" + o1 + "] [" + o2 + "]");
-			}
+			UnifiedActor actor1 = ((CombatAction)a1).getActor();
+			UnifiedActor actor2 = ((CombatAction)a2).getActor();
 
-			CombatAction action1 = (CombatAction)o1;
-			CombatAction action2 = (CombatAction)o2;
-
-			UnifiedActor actor1 = action1.getActor();
-			UnifiedActor actor2 = action2.getActor();
-
-			UnifiedActor.Stance stance1 = getStance(actor1, action1);
-			UnifiedActor.Stance stance2 = getStance(actor2, action2);
+			UnifiedActor.Stance stance1 = getStance(actor1, (CombatAction)a1);
+			UnifiedActor.Stance stance2 = getStance(actor2, (CombatAction)a2);
 
 			// default to ACT_EARLY. may be hiding bugs here.
 			if (stance1 == null) stance1 = UnifiedActor.Stance.ACT_EARLY;
@@ -1068,7 +1126,7 @@ public class Combat
 			}
 			else
 			{
-				return action2.getInitiative() - action1.getInitiative();
+				return ((CombatAction)a2).getInitiative() - ((CombatAction)a1).getInitiative();
 			}
 		}
 

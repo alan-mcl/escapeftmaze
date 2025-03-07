@@ -21,8 +21,7 @@ package mclachlan.maze.audio;
 
 import java.io.BufferedInputStream;
 import java.io.InputStream;
-import java.util.Map;
-import java.util.HashMap;
+import java.util.*;
 import javax.sound.sampled.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.util.MazeException;
@@ -32,19 +31,20 @@ import mclachlan.maze.util.MazeException;
  */
 public class WavAudioPlayer implements AudioPlayer
 {
-	private Map<String, Clip> clips = new HashMap<String, Clip>();
+	private final Map<String, Clip> clips = new HashMap<>();
 
 	/*-------------------------------------------------------------------------*/
 
 	/**
-	 * @param clipName
+	 * @param soundName
 	 * 	Name of the clip to play
 	 * @param volume
 	 * 	Volume in percent (0..100)
 	 */
-	public void playSound(String clipName, int volume)
+	public void playSound(String soundName, int volume)
 	{
-		Clip clip = Database.getInstance().getClip(clipName);
+		Database.getInstance().cacheSound(soundName);
+		Clip clip = clips.get(soundName);
 		clip.setMicrosecondPosition(0);
 
 		FloatControl volControl = (FloatControl)clip.getControl(FloatControl.Type.MASTER_GAIN);
@@ -57,7 +57,7 @@ public class WavAudioPlayer implements AudioPlayer
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public synchronized Clip getClip(String clipName, InputStream stream)
+	public synchronized void cacheSound(String clipName, InputStream stream)
 	{
 		Clip result = clips.get(clipName);
 		
@@ -86,6 +86,6 @@ public class WavAudioPlayer implements AudioPlayer
 			}
 		}
 		
-		return result;
+		clips.put(clipName, result);
 	}
 }

@@ -1898,13 +1898,9 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 	/*-------------------------------------------------------------------------*/
 	public List<Item> getAllItems()
 	{
-		List<Item> result = new ArrayList<Item>();
+		List<Item> result = new ArrayList<>();
 
-		for (Item i : getEquippedItems())
-		{
-			result.add(i);
-		}
-
+		result.addAll(getEquippedItems());
 		result.addAll(getInventory().getItems());
 
 		return result;

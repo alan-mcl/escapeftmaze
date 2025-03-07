@@ -48,7 +48,7 @@ public class TempChangeTexture extends MapScript
 
 		long now = System.currentTimeMillis();
 		obj.setTextureLastChanged(now);
-		timeToRemove = now + (obj.getTextures()[texture].getAnimationDelay() * 
+		timeToRemove = now + ((long)obj.getTextures()[texture].getAnimationDelay() *
 			obj.getTextures()[texture].getImages().length);
 	}
 

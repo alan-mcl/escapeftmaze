@@ -77,6 +77,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 	/** pipeline of post processors (eg for anti-aliasing)*/
 	private PostProcessor[] filters;
+	private final Object filterMutex = new Object();
 	
 	/** The pixels that the engine returns to the outside world. */
 	private int[] renderBuffer;
@@ -955,6 +956,37 @@ public class CrusaderEngine32 implements CrusaderEngine
 			}
 		}
 		return null;
+	}
+
+	@Override
+	public void addPostProcessor(PostProcessor postProcessor)
+	{
+		List<PostProcessor> list = new ArrayList<>();
+		if (filters != null)
+		{
+			list.addAll(Arrays.asList(filters));
+		}
+
+		list.add(postProcessor);
+		synchronized (filterMutex)
+		{
+			this.filters = list.toArray(new PostProcessor[0]);
+		}
+	}
+
+	@Override
+	public void removePostProcessor(PostProcessor postProcessor)
+	{
+		if (this.filters != null)
+		{
+			List<PostProcessor> list = new ArrayList<>(Arrays.asList(filters));
+			list.remove(postProcessor);
+
+			synchronized (filterMutex)
+			{
+				this.filters = list.toArray(new PostProcessor[0]);
+			}
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2246,26 +2278,30 @@ public class CrusaderEngine32 implements CrusaderEngine
 				// post processing filter
 				if (filters != null)
 				{
-					for (int i = 0; i < filters.length; i++)
+
+					synchronized (filterMutex)
 					{
-						for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+						for (int i = 0; i < filters.length; i++)
 						{
-							columnFilterers[screenX].filter = filters[i];
-							executor.submit(columnFilterers[screenX]);
-						}
+							for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+							{
+								columnFilterers[screenX].filter = filters[i];
+								executor.submit(columnFilterers[screenX]);
+							}
 
-						// wait for all the render threads to finish
-						for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
-						{
-							executor.take();
-						}
+							// wait for all the render threads to finish
+							for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+							{
+								executor.take();
+							}
 
-						System.arraycopy(
-							postProcessingBuffer,
-							0,
-							renderBuffer,
-							0,
-							renderBuffer.length);
+							System.arraycopy(
+								postProcessingBuffer,
+								0,
+								renderBuffer,
+								0,
+								renderBuffer.length);
+						}
 					}
 				}
 			}

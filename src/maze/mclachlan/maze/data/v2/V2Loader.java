@@ -7,7 +7,6 @@ import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.*;
 import javax.imageio.ImageIO;
-import javax.sound.sampled.Clip;
 import mclachlan.maze.audio.AudioPlayer;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.Loader;
@@ -37,8 +36,8 @@ import mclachlan.maze.stat.npc.NpcFactionTemplate;
 import mclachlan.maze.stat.npc.NpcTemplate;
 import mclachlan.maze.util.MazeException;
 
-import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.*;
 import static mclachlan.maze.data.v2.serialisers.V2Files.*;
+import static mclachlan.maze.data.v2.serialisers.V2SerialiserFactory.*;
 
 /**
  *
@@ -362,18 +361,18 @@ public class V2Loader extends Loader
 	}
 
 	@Override
-	public Clip getClip(String clipName, AudioPlayer audioPlayer)
+	public void cacheSound(String soundName, AudioPlayer audioPlayer)
 	{
 		try
 		{
-			File file = new File("data/"+campaign.getName()+"/sound/"+clipName+".wav");
+			File file = new File("data/"+campaign.getName()+"/sound/"+soundName+".ogg");
 			if (!file.exists())
 			{
 				throw new MazeException("invalid audio resource ["+file+"]");
 			}
 
 			FileInputStream fis = new FileInputStream(file);
-			return audioPlayer.getClip(clipName, fis);
+			audioPlayer.cacheSound(soundName, fis);
 		}
 		catch (FileNotFoundException e)
 		{

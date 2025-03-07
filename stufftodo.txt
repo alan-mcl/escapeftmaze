@@ -4,13 +4,13 @@ STUFFTODO
 
 UI REFRESH
 --------------
-flat sky support in editor & maze
-maze intervention cue
-foe loot rationalisation
 foe weapon use
+ichiba flat sky
 
 BACKLOG
 ----------
+audio system unfication: one ogg player
+
 bug: zone change flickering bug
 bug: should not be able to evade foes while resting (really?  maybe just adjust stealth)
 

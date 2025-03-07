@@ -61,4 +61,12 @@ public class HardDifficulty extends DifficultyLevel
 		hp.incMaximum(value);
 		hp.setCurrentToMax();
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public int getBaseLootMultiplier()
+	{
+		return 5;
+	}
 }

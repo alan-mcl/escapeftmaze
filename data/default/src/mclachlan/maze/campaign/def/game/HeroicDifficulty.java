@@ -86,4 +86,12 @@ public class HeroicDifficulty extends DifficultyLevel
 	{
 		return t.getRandomEncounterChance()+2;
 	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public int getBaseLootMultiplier()
+	{
+		return 5;
+	}
 }
