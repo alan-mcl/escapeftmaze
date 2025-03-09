@@ -965,7 +965,7 @@ public class Maze implements Runnable
 		//
 		// foe intentions
 		//
-		List<ActorActionIntention[]> foeIntentionList = new ArrayList<ActorActionIntention[]>();
+		List<ActorActionIntention[]> foeIntentionList = new ArrayList<>();
 		for (FoeGroup other : combat.getFoes())
 		{
 			foeIntentionList.add(getFoeCombatIntentions(other));

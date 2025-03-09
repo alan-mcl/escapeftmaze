@@ -139,12 +139,6 @@
         "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
         "pos": "-1:-1",
         "facing": "1"
-      },
-      {
-        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
-        "mazeVariable": "gatehouse.encounter.cruds.intro",
-        "encounterTable": "gatehouse.level.1.cruds",
-        "ambushStatus": "FOES_MAY_AMBUSH_PARTY"
       }
     ]
   },
@@ -478,12 +472,6 @@
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
         "speechKey": "default.gatehouse.angry.swarms",
         "modal": "false"
-      },
-      {
-        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
-        "mazeVariable": "gatehouse.encounter.angry.swarms",
-        "encounterTable": "gatehouse.angry.swarms",
-        "ambushStatus": "NONE"
       }
     ]
   },
@@ -1085,11 +1073,6 @@
         "flavourText": "As one the spiders scuttle towards you, an uncanny malice glittering in their dark eyes.",
         "delay": "-1",
         "shouldClearText": "true"
-      },
-      {
-        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
-        "mazeVariable": "gatehouse.encounter.malignant.widows",
-        "encounterTable": "gatehouse.malignant.widows"
       }
     ]
   },
@@ -1318,12 +1301,6 @@
       {
         "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
         "objectName": "gatehouse.block.golem.obj"
-      },
-      {
-        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
-        "mazeVariable": "gatehouse.block.golem.encounter",
-        "encounterTable": "gatehouse.block.golem",
-        "attitude": "ATTACKING"
       }
     ]
   },

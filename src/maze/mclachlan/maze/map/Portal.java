@@ -139,6 +139,12 @@ public class Portal implements LockOrTrap
 		this.mazeScript = mazeScript;
 		this.stateChangeScript = stateChangeScript;
 
+		initToolStatus();
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initToolStatus()
+	{
 		for (int i = 0; i < toolStatus.length; i++)
 		{
 			if (getRequired() != null && getRequired().get(i))

@@ -39,6 +39,7 @@ public class CombatantData
 	private boolean active=true;
 	private boolean displaced=false;
 	private boolean dieHard=false;
+	private boolean askForUiInput=true;
 
 	public void startRound()
 	{
@@ -48,6 +49,7 @@ public class CombatantData
 		this.miscModifiers = new StatModifier();
 		this.dieHard = false;
 		this.displaced = false;
+		this.askForUiInput = true;
 	}
 
 	public void endRound()
@@ -169,5 +171,15 @@ public class CombatantData
 	public boolean isDieHard()
 	{
 		return dieHard;
+	}
+
+	public boolean isAskForUiInput()
+	{
+		return askForUiInput;
+	}
+
+	public void setAskForUiInput(boolean askForUiInput)
+	{
+		this.askForUiInput = askForUiInput;
 	}
 }

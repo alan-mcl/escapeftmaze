@@ -4,8 +4,6 @@ STUFFTODO
 
 GATEHOUSE
 ---------
-run away
-pick lock bug
 non playing oggs
 load game hotkey
 foe weapon use

@@ -2950,7 +2950,7 @@ public class GameSys
 	{
 		Maze.log(Log.DEBUG, "Party tries to run away");
 
-		int base = 80;
+		int base = 75;
 		int mod = party.getTotalModifier(Stats.Modifier.TO_RUN_AWAY);
 
 		Maze.log(Log.DEBUG, "success chance is "+base+" + "+mod+" - "+nrFoes);
@@ -3393,9 +3393,17 @@ public class GameSys
 	{
 		if (actor.getHitPoints().getCurrent() <= 0 || isActorImmobile(actor))
 		{
+			// don't ask an incapacitated actor for any intentions
 			return false;
 		}
 
+		if (!actor.getCombatantData().isAskForUiInput())
+		{
+			// something has preempted the UI input, use that instead
+			return false;
+		}
+
+		// check if any conditions cause unasked-for behaviour
 		for (Condition c : actor.getConditions())
 		{
 			if (!c.getEffect().askForCombatIntentions(actor, c))

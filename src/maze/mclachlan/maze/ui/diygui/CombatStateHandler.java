@@ -30,7 +30,6 @@ import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.maze.stat.ActorActionIntention;
 import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.Combat;
@@ -174,7 +173,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 					CombatantData combatantData = pc.getCombatantData();
 					if (combatantData != null)
 					{
-						combatantData.setCurrentIntention(ActorActionIntention.INTEND_NOTHING);
+						combatantData.setAskForUiInput(false);
 					}
 				}
 				startRound();

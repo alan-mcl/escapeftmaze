@@ -424,6 +424,12 @@ public class V2Loader extends Loader
 		Zone result = (Zone)v2Crud(getPath(ZONES) + name + ".json",
 			new SingletonSilo<>(getZoneSerialiser(db)));
 		result.getMap().init();
+
+		for (Portal p : result.getPortals())
+		{
+			p.initToolStatus();
+		}
+
 		return result;
 	}
 

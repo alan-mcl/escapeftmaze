@@ -87,7 +87,7 @@ public class ExecuteMazeScript extends TileScript
 
 		ExecuteMazeScript that = (ExecuteMazeScript)o;
 
-		return mazeScript != null ? mazeScript.equals(that.mazeScript) : that.mazeScript == null;
+		return Objects.equals(mazeScript, that.mazeScript);
 	}
 
 	@Override

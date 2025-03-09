@@ -2451,6 +2451,15 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "mazeScript": "Gatehouse malignant widow encounter"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "encounterTable": "gatehouse.malignant.widows",
+            "mazeVariable": "gatehouse.encounter.12",
+            "attitude": "ATTACKING",
+            "ambushStatus": "NONE"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -2558,6 +2567,15 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "mazeScript": "Gatehouse angry swarms encounter"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "encounterTable": "gatehouse.angry.swarms",
+            "mazeVariable": "gatehouse.encounter.9",
+            "attitude": "ATTACKING",
+            "ambushStatus": "NONE"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -2872,6 +2890,15 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "mazeScript": "Gatehouse block golem encounter"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "encounterTable": "gatehouse.block.golem",
+            "mazeVariable": "gatehouse.encounter.10",
+            "attitude": "ATTACKING",
+            "ambushStatus": "NONE"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
@@ -9460,6 +9487,15 @@
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
             "mazeScript": "Gatehouse encounter 1 cruds"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "encounterTable": "gatehouse.level.1.cruds",
+            "mazeVariable": "gatehouse.encounter.8",
+            "attitude": "ATTACKING",
+            "ambushStatus": "FOES_MAY_AMBUSH_PARTY"
           }
         ],
         "randomEncounters": "gatehouse.level.1",
