@@ -294,7 +294,7 @@ public class Combat
 	/*-------------------------------------------------------------------------*/
 	public List<ActorGroup> getFoesOf(UnifiedActor actor)
 	{
-		List<ActorGroup> result = new ArrayList<ActorGroup>();
+		List<ActorGroup> result = new ArrayList<>();
 		if (actor instanceof PlayerCharacter ||
 			(isPlayerAlly(actor)))
 		{

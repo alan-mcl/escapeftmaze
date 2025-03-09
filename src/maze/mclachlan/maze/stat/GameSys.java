@@ -2930,10 +2930,6 @@ public class GameSys
 	 */
 	public boolean attemptToRunAway(PlayerParty party, List<ActorGroup> actors)
 	{
-		Maze.log(Log.DEBUG, "Party tries to run away");
-
-		int base = 80;
-		int mod = party.getTotalModifier(Stats.Modifier.TO_RUN_AWAY);
 		int nrFoes = 0;
 		for (ActorGroup ag : actors)
 		{

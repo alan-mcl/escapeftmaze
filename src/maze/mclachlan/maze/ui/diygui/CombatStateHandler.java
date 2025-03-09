@@ -30,9 +30,15 @@ import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYGridLayout;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.stat.ActorActionIntention;
+import mclachlan.maze.stat.GameSys;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.combat.Combat;
+import mclachlan.maze.stat.combat.CombatantData;
 import mclachlan.maze.stat.combat.DefendOption;
+import mclachlan.maze.stat.combat.event.PartyFleeFailedEvent;
+import mclachlan.maze.stat.combat.event.PartyFleesEvent;
+import mclachlan.maze.stat.combat.event.SuccessEvent;
 
 /**
  *
@@ -42,18 +48,19 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	private final Maze maze;
 	private final int buttonRows;
 	private final int inset;
-	private final MessageDestination messageDestination;
+	private final MessageDestination msg;
 
-	private DIYButton startRound, formation, defendAll;
+	private DIYButton startRound, formation, defendAll, flee;
+	private Combat currentCombat;
 
 	/*-------------------------------------------------------------------------*/
 	public CombatStateHandler(Maze maze, int buttonRows, int inset,
-		MessageDestination messageDestination)
+		MessageDestination msg)
 	{
 		this.maze = maze;
 		this.buttonRows = buttonRows;
 		this.inset = inset;
-		this.messageDestination = messageDestination;
+		this.msg = msg;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -73,14 +80,18 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		defendAll.setTooltip(StringUtil.getUiLabel("poatw.defend.all.tooltip"));
 		defendAll.addActionListener(this);
 
+		flee = new DIYButton(StringUtil.getUiLabel("poatw.flee.no.hotkey"));
+		flee.setTooltip(StringUtil.getUiLabel("poatw.flee.tooltip"));
+		flee.addActionListener(this);
+
 		result.add(new DIYLabel());
 		result.add(new DIYLabel());
 		result.add(new DIYLabel());
 		result.add(new DIYLabel());
 
 		result.add(startRound);
-		result.add(new DIYLabel());
 		result.add(defendAll);
+		result.add(flee);
 		result.add(formation);
 
 		return result;
@@ -106,6 +117,11 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		else if (obj == defendAll)
 		{
 			defendAll();
+			return true;
+		}
+		else if (obj == flee)
+		{
+			flee();
 			return true;
 		}
 		return false;
@@ -141,11 +157,41 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		}
 	}
 
+	public void flee()
+	{
+		if (flee.isVisible())
+		{
+			msg.addMessage(StringUtil.getEventText("msg.party.flees"));
+
+			boolean success = GameSys.getInstance().attemptToRunAway(
+				maze.getParty(), currentCombat.getFoes().size());
+
+			if (!success)
+			{
+				maze.appendEvents(new PartyFleeFailedEvent());
+				for (PlayerCharacter pc : maze.getParty().getPlayerCharacters())
+				{
+					CombatantData combatantData = pc.getCombatantData();
+					if (combatantData != null)
+					{
+						combatantData.setCurrentIntention(ActorActionIntention.INTEND_NOTHING);
+					}
+				}
+				startRound();
+			}
+			else
+			{
+				maze.appendEvents(new SuccessEvent());
+				maze.appendEvents(new PartyFleesEvent());
+			}
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void setCurrentCombat(Combat currentCombat)
 	{
-		startRound.setVisible(true);
-		formation.setVisible(true);
+		this.currentCombat = currentCombat;
+		setEnabled(true);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -162,7 +208,7 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 	{
 		if (maze.getPendingPartyOrder() == null)
 		{
-			messageDestination.addMessage(StringUtil.getUiLabel("cow.formation.changed"));
+			msg.addMessage(StringUtil.getUiLabel("cow.formation.changed"));
 		}
 		maze.setPendingFormationChanges(actors, formation);
 	}
@@ -184,5 +230,6 @@ public class CombatStateHandler implements ActionListener, ConfirmCallback, Form
 		startRound.setEnabled(b);
 		formation.setEnabled(b);
 		defendAll.setEnabled(b);
+		flee.setEnabled(b);
 	}
 }

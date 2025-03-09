@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.combat.event;
 
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 
@@ -42,6 +43,6 @@ public class PartyFleeFailedEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return "Failed!";
+		return StringUtil.getEventText("event.failed");
 	}
 }

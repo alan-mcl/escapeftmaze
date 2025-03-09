@@ -283,9 +283,8 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public List<MazeEvent> setPlayerPos(Point pos, int facing)
+	public void setPlayerPos(Point pos, int facing)
 	{
-		return null;
 	}
 
 	public void setTile(Zone zone, Tile t, Point tile)
@@ -308,7 +307,7 @@ public class HeadlessUi implements UserInterface
 		
 	}
 
-	public List<MazeEvent> backPartyUp(int maxTiles)
+	public List<MazeEvent> backPartyUp(int maxTiles, int facing)
 	{
 		return null;
 	}

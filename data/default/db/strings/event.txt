@@ -3,6 +3,7 @@
 #
 modify.supplies = Party receives %s units of supplies
 grant.gold = Party receives %sgp
+event.success = SUCCESS!
 event.failed = FAILED!
 event.ouch = OUCH!
 event.locked = LOCKED!

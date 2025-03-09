@@ -5714,11 +5714,14 @@
       {
         "scripts": [
           {
-            "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
-            "executeOnceMazeVariable": "gatehouse.execute.once.2",
+            "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "mazeScript": "Gatehouse encounter 1 bats"
+            "encounterTable": "gatehouse.level.1.bats",
+            "mazeVariable": "gatehouse.encounter.3",
+            "attitude": "ATTACKING",
+            "ambushStatus": "NONE",
+            "preScript": "Gatehouse encounter 1 bats"
           }
         ],
         "randomEncounters": "gatehouse.level.1",

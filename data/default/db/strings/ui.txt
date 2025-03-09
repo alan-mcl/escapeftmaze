@@ -233,6 +233,7 @@ poatw.wait.tooltip = Wait and see what the other party decides to do.
 poatw.leave = (L)eave
 poatw.leave.tooltip = The party leaves.
 poatw.flee = (F)lee
+poatw.flee.no.hotkey = Flee
 poatw.flee.tooltip = Attempt to run away from this encounter.
 poatw.evade = (E)vade
 poatw.evade.tooltip = The party stealthily evades this encounter.

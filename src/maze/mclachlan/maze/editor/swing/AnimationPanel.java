@@ -19,18 +19,20 @@
 
 package mclachlan.maze.editor.swing;
 
-import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.util.*;
+import java.awt.event.ActionListener;
 import java.util.List;
-import static mclachlan.maze.data.v1.V1Animation.*;
-import mclachlan.maze.util.MazeException;
+import java.util.*;
+import javax.swing.*;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
-import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
+import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
+import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
+import mclachlan.maze.util.MazeException;
+
+import static mclachlan.maze.data.v1.V1Animation.*;
 
 /**
  *
@@ -42,18 +44,19 @@ public class AnimationPanel extends JPanel implements ActionListener
 	CardLayout cards;
 	JPanel controls;
 	JComboBox type;
-	
+
 	JTextField impl;
 	JTextArea projectileImages;
 	JSpinner projectileFrameDelay;
 	JRadioButton blue, red, black, purple, gold, white, green, custom;
 	JButton customColourButton;
+	JSpinner duration;
 
 	/*-------------------------------------------------------------------------*/
 	public AnimationPanel()
 	{
 		JPanel top = new JPanel();
-		Vector<String> vec = new Vector<String>();
+		Vector<String> vec = new Vector<>();
 		for (int i=0; i<MAX; i++)
 		{
 			String str = describeType(i);
@@ -160,7 +163,10 @@ public class AnimationPanel extends JPanel implements ActionListener
 					custom.setSelected(true);
 					customColourButton.setBackground(c);
 				}
-
+				break;
+			case FADE_TO_BLACK:
+				FadeToBlackAnimation fba = (FadeToBlackAnimation)a;
+				duration.setValue(fba.getDuration());
 				break;
 			default: throw new MazeException("Invalid animation type: "+animType);
 		}
@@ -169,25 +175,38 @@ public class AnimationPanel extends JPanel implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	private String describeType(int i)
 	{
-		switch (i)
-		{
-			case CUSTOM: return "Custom";
-			case PROJECTILE: return "Projectile";
-			case COLOUR_PORTRAIT: return "Colour Magic Portrait";
-			default: throw new MazeException("Invalid animation type: "+i);
-		}
+		return switch (i)
+			{
+				case CUSTOM -> "Custom";
+				case PROJECTILE -> "Projectile";
+				case COLOUR_PORTRAIT -> "Colour Magic Portrait";
+				case FADE_TO_BLACK -> "Fade To Black";
+				default -> throw new MazeException("Invalid animation type: " + i);
+			};
 	}
 
 	/*-------------------------------------------------------------------------*/
 	private JPanel getControls(int i)
 	{
-		switch (i)
-		{
-			case CUSTOM: return getCustomPanel();
-			case PROJECTILE: return getProjectilePanel();
-			case COLOUR_PORTRAIT: return getColourMagicPanel();
-			default: throw new MazeException("Invalid animation type: "+i);
-		}
+		return switch (i)
+			{
+				case CUSTOM -> getCustomPanel();
+				case PROJECTILE -> getProjectilePanel();
+				case COLOUR_PORTRAIT -> getColourMagicPanel();
+				case FADE_TO_BLACK -> getFadeToBlackPanel();
+				default -> throw new MazeException("Invalid animation type: " + i);
+			};
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getFadeToBlackPanel()
+	{
+		duration = new JSpinner(new SpinnerNumberModel(1, 1, 99999, 1));
+
+		JPanel result = new JPanel();
+		dirtyGridLayoutCrap(result,
+			new JLabel("Duration:"), duration);
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -344,6 +363,8 @@ public class AnimationPanel extends JPanel implements ActionListener
 					c = customColourButton.getBackground();
 				}
 				return new ColourMagicPortraitAnimation(c);
+			case FADE_TO_BLACK:
+				return new FadeToBlackAnimation((Integer)duration.getValue());
 			default: throw new MazeException("Invalid animation type: "+index);
 		}
 	}

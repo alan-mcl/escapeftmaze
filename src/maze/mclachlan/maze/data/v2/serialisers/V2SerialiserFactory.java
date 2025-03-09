@@ -32,6 +32,7 @@ import mclachlan.maze.stat.condition.RepeatedSpellEffect;
 import mclachlan.maze.stat.magic.*;
 import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
+import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
 import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 
 /**
@@ -463,6 +464,7 @@ public class V2SerialiserFactory
 		pas.addCustomSerialiser("projectileImages", new ListSerialiser(new DirectObjectSerialiser<String>()));
 		map2.put(ProjectileAnimation.class, pas);
 		map2.put(ColourMagicPortraitAnimation.class, getReflectiveSerialiser(ColourMagicPortraitAnimation.class, "colour"));
+		map2.put(FadeToBlackAnimation.class, getReflectiveSerialiser(FadeToBlackAnimation.class, "duration"));
 		MazeObjectImplSerialiser<MazeEvent> animationSerialiser = new MazeObjectImplSerialiser<>(map2);
 		ReflectiveSerialiser aes = getReflectiveSerialiser(AnimationEvent.class, "animation");
 		aes.addCustomSerialiser("animation", animationSerialiser);

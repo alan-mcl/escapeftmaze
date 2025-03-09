@@ -2441,7 +2441,7 @@
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step purposefully into the vivid portal...",
-        "delay": "1000",
+        "delay": "-1",
         "shouldClearText": "true"
       },
       {
@@ -2465,7 +2465,7 @@
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step purposefully into the vivid portal...",
-        "delay": "1000",
+        "delay": "-1",
         "shouldClearText": "true"
       },
       {
@@ -2489,7 +2489,7 @@
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step purposefully into the vivid portal...",
-        "delay": "1000",
+        "delay": "-1",
         "shouldClearText": "true"
       },
       {
@@ -2693,12 +2693,6 @@
     "name": "Gatehouse load",
     "events": [
       {
-        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
-        "zone": "Gatehouse",
-        "pos": "14:30",
-        "facing": "1"
-      },
-      {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
         "trackNames": [
           "shadows_in_an_empty_cathedral"
@@ -2741,7 +2735,14 @@
         "textPlacement": "TOP_LEFT"
       },
       {
-        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent"
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.MusicEvent",
+        "trackNames": []
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
+        "zone": "Gatehouse",
+        "pos": "14:30",
+        "facing": "1"
       }
     ]
   },
@@ -3446,13 +3447,6 @@
         "flavourText": "With a flurry of wings, you are suddenly assaulted from above!",
         "delay": "-1",
         "shouldClearText": "false"
-      },
-      {
-        "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
-        "mazeVariable": "gatehouse.encounter.1.bats",
-        "encounterTable": "gatehouse.level.1.bats",
-        "attitude": "ATTACKING",
-        "ambushStatus": "NONE"
       }
     ]
   },

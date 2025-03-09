@@ -7,6 +7,7 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeScript;
+import mclachlan.maze.game.event.ZoneChangeEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.Zone;
 
@@ -78,24 +79,15 @@ class HandleKeyEvent extends MazeEvent
 			result.addAll(script.getEvents());
 		}
 
-//		if (maze.getParty() == null)
-//		{
-			// something in the script has ended the party
-//			return;
-//		}
-
-/*
-		if (oldZone != maze.getCurrentZone())
+		for (MazeEvent me : result)
 		{
-			// something in the script has changed the zone
-			maze.getUi().showMovementScreen();
-			maze.incTurn(true);
-			newTile = DiyGuiUserInterface.instance.raycaster.getPlayerPos();
-			facing = DiyGuiUserInterface.instance.raycaster.getPlayerFacing();
-			maze.encounterTile(newTile, oldTile, facing);
-			return;
+			if (me instanceof ZoneChangeEvent && !(oldZone.getName().equals(((ZoneChangeEvent)me).getZone())))
+			{
+				// player is going to change zones, we do not need to handle
+				// the rest of the key implications
+				return result;
+			}
 		}
-*/
 
 		CrusaderEngine rc = DiyGuiUserInterface.instance.raycaster;
 		rc.setPlayerPos(newTile.x, newTile.y, facing);

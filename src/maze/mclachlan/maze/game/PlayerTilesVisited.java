@@ -34,32 +34,42 @@ public class PlayerTilesVisited
 	 */
 	private Map<String, List<Point>> tilesVisited;
 
+	private List<Point> recentTiles;
+
+	public static final int MAX_RECENT_TILES = 10;
+	public static final String RECENT_TILES_KEY = "__RECENT_TILES_KEY__";
+
 	/*-------------------------------------------------------------------------*/
 	public PlayerTilesVisited()
 	{
 		tilesVisited = new HashMap<>();
+		recentTiles = new ArrayList<>();
+
+		tilesVisited.put(RECENT_TILES_KEY, recentTiles);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public PlayerTilesVisited(Map<String, List<Point>> tilesVisited)
 	{
 		this.tilesVisited = tilesVisited;
+		recentTiles = tilesVisited.computeIfAbsent(RECENT_TILES_KEY, k -> new ArrayList<>());
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void visitTile(String zoneName, Point tile)
 	{
-		List<Point> visited = tilesVisited.get(zoneName);
-
-		if (visited == null)
-		{
-			visited = new ArrayList<>();
-			tilesVisited.put(zoneName, visited);
-		}
+		List<Point> visited = tilesVisited.computeIfAbsent(zoneName, k -> new ArrayList<>());
 
 		if (!visited.contains(tile))
 		{
 			visited.add(tile);
+		}
+
+		recentTiles.add(tile);
+
+		if (recentTiles.size() > MAX_RECENT_TILES)
+		{
+			recentTiles.remove(0);
 		}
 	}
 
@@ -117,9 +127,25 @@ public class PlayerTilesVisited
 		this.tilesVisited = tilesVisited;
 	}
 
+	public List<Point> getRecentTiles()
+	{
+		return tilesVisited.get(RECENT_TILES_KEY);
+	}
+
+	public void setRecentTiles(List<Point> recentTiles)
+	{
+		this.recentTiles = recentTiles;
+		tilesVisited.put(RECENT_TILES_KEY, recentTiles);
+	}
+
+	public void resetRecentTiles()
+	{
+		setRecentTiles(new ArrayList<>());
+	}
+
 	/*-------------------------------------------------------------------------*/
 
-	@Override
+/*	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
@@ -140,5 +166,5 @@ public class PlayerTilesVisited
 	public int hashCode()
 	{
 		return getTilesVisited() != null ? getTilesVisited().hashCode() : 0;
-	}
+	}*/
 }

@@ -23,6 +23,7 @@ import java.util.*;
 import java.awt.Color;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
+import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
 import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
 import mclachlan.maze.util.MazeException;
 
@@ -37,8 +38,9 @@ public class V1Animation
 	public static final int CUSTOM = 0;
 	public static final int PROJECTILE = 1;
 	public static final int COLOUR_PORTRAIT = 2;
-	
-	public static final int MAX = 3;
+	public static final int FADE_TO_BLACK = 3;
+
+	public static final int MAX = 4;
 	
 	static V1List<String> animationImages = new V1List<String>(";")
 	{
@@ -60,6 +62,7 @@ public class V1Animation
 
 		types.put(ProjectileAnimation.class, PROJECTILE);
 		types.put(ColourMagicPortraitAnimation.class, COLOUR_PORTRAIT);
+		types.put(FadeToBlackAnimation.class, FADE_TO_BLACK);
 	}
 
 	/*-------------------------------------------------------------------------*/

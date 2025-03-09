@@ -27,7 +27,7 @@ import mclachlan.maze.util.MazeException;
  */
 public class MazeVariables
 {
-	private static Map<String, String> vars = new HashMap<String, String>();
+	private final static Map<String, String> vars = new HashMap<String, String>();
 	
 	/*-------------------------------------------------------------------------*/
 	/**

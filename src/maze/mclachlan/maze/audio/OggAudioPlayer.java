@@ -17,6 +17,7 @@ public class OggAudioPlayer implements AudioPlayer
 	@Override
 	public void playSound(String soundName, int volume)
 	{
+
 		Database.getInstance().cacheSound(soundName);
 		byte[] soundData = soundCache.get(soundName);
 		if (soundData == null)
@@ -119,14 +120,51 @@ public class OggAudioPlayer implements AudioPlayer
 
 		OggAudioPlayer player = new OggAudioPlayer();
 		Maze maze = new Maze(new HashMap<>(), Maze.getStubCampaign());
-		maze.initAudio(player);;
+		maze.initAudio(player);
+		;
 
 		dbv2.initImpls();
 //      dbv2.initCaches(null);
 
 		String clipName = "424690__9931__dissonance-example";
+		String clipName2 = "27826_Erdie_sword01";
 
 		player.cacheSound(clipName, new FileInputStream("data/default/sound/" + clipName + ".ogg"));
-		player.playSound(clipName, 100);
+		player.cacheSound(clipName, new FileInputStream("data/default/sound/" + clipName2 + ".ogg"));
+
+		new Thread(() ->
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				player.playSound(clipName, 100);
+				try
+				{
+					Thread.sleep(1000);
+				}
+				catch (InterruptedException e)
+				{
+					throw new RuntimeException(e);
+				}
+			}
+		}).start();
+
+		new Thread(() ->
+		{
+			for (int i = 0; i < 20; i++)
+			{
+				player.playSound(clipName2, 100);
+				try
+				{
+					Thread.sleep(200);
+				}
+				catch (InterruptedException e)
+				{
+					throw new RuntimeException(e);
+				}
+			}
+		}).start();
+
+
+		Thread.sleep(5000);
 	}
 }

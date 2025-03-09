@@ -139,9 +139,17 @@ public class JournalManager
 	/*-------------------------------------------------------------------------*/
 	public void zoneJournal(String text)
 	{
+		String zoneName = Maze.getInstance().getCurrentZone().getName();
+
+		zoneJournal(zoneName, text);
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void zoneJournal(String zoneName, String text)
+	{
 		getJournal(JournalType.ZONE).addJournalEntry(
 			GameTime.getTurnNr(),
-			Maze.getInstance().getCurrentZone().getName(),
+			zoneName,
 			text);
 	}
 

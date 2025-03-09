@@ -399,9 +399,12 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				MusicEvent me = (MusicEvent)e;
 				List<String> trackNames1 = me.getTrackNames();
 				StringBuilder sb1 = new StringBuilder();
-				for (String s : trackNames1)
+				if (trackNames1 != null)
 				{
-					sb1.append(s).append('\n');
+					for (String s : trackNames1)
+					{
+						sb1.append(s).append('\n');
+					}
 				}
 				trackNames.setText(sb1.toString());
 				musicState.setText(me.getMusicState()==null?"":me.getMusicState());

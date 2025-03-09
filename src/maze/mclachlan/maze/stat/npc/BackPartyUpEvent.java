@@ -29,16 +29,18 @@ import java.util.*;
 public class BackPartyUpEvent extends MazeEvent
 {
 	private int maxKeys;
+	private int facing;
 
 	/*-------------------------------------------------------------------------*/
-	public BackPartyUpEvent(int maxKeys)
+	public BackPartyUpEvent(int maxKeys, int facing)
 	{
 		this.maxKeys = maxKeys;
+		this.facing = facing;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		return Maze.getInstance().backPartyUp(maxKeys);
+		return Maze.getInstance().backPartyUp(maxKeys, facing);
 	}
 }

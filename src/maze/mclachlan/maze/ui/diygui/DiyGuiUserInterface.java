@@ -893,7 +893,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		this.mainLayout.show(this.movementScreen);
 		this.movementCardLayout.show(this.partyOptionsAndTextWidget);
 
-
 		stopMusic();
 	}
 
@@ -1314,12 +1313,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> setPlayerPos(Point pos, int facing)
+	public void setPlayerPos(Point pos, int facing)
 	{
-		Point oldTile = Maze.getInstance().getPlayerPos();
-		CrusaderEngine rc = DiyGuiUserInterface.instance.raycaster;
-		rc.setPlayerPos(pos.x, pos.y, facing);
-		return Maze.getInstance().encounterTile(pos, oldTile, facing);
+		raycaster.setPlayerPos(pos.x, pos.y, facing);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1374,17 +1370,17 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public List<MazeEvent> backPartyUp(int maxTiles)
+	public List<MazeEvent> backPartyUp(int maxTiles, int facing)
 	{
-		List<Point> tilesVisited = Maze.getInstance().getPlayerTilesVisited().getTilesVisited(Maze.getInstance().getCurrentZone().getName());
+		List<Point> recentTiles = Maze.getInstance().getPlayerTilesVisited().getRecentTiles();
 
-		for (int i=0; i<maxTiles; i++)
+		for (int i=maxTiles; i>0; i--)
 		{
-			int index = tilesVisited.size() -1 -i;
+			int index = recentTiles.size() -i;
 
 			if (index >= 0)
 			{
-				Point tile = tilesVisited.get(index);
+				Point tile = recentTiles.get(index);
 
 				try
 				{
@@ -1395,33 +1391,11 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					throw new MazeException(e);
 				}
 
-				return Maze.getInstance().setPlayerPos(tile, Maze.getInstance().getFacing());
+				return Maze.getInstance().setPlayerPos(tile, facing);
 			}
 		}
 
 		return null;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private int getFleeKey(int key)
-	{
-		switch (key)
-		{
-			case CrusaderEngine.KeyStroke.FORWARD:
-				return CrusaderEngine.KeyStroke.FORWARD;
-			case CrusaderEngine.KeyStroke.BACKWARD:
-				return CrusaderEngine.KeyStroke.BACKWARD;
-			case CrusaderEngine.KeyStroke.STRAFE_LEFT:
-				return CrusaderEngine.KeyStroke.STRAFE_LEFT;
-			case CrusaderEngine.KeyStroke.STRAFE_RIGHT:
-				return CrusaderEngine.KeyStroke.STRAFE_RIGHT;
-			case CrusaderEngine.KeyStroke.TURN_LEFT:
-				return CrusaderEngine.KeyStroke.TURN_RIGHT;
-			case CrusaderEngine.KeyStroke.TURN_RIGHT:
-				return CrusaderEngine.KeyStroke.TURN_LEFT;
-			default:
-				return key;
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/

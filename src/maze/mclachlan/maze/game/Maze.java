@@ -41,6 +41,7 @@ import mclachlan.maze.stat.*;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.CombatAction;
 import mclachlan.maze.stat.combat.DefendIntention;
+import mclachlan.maze.stat.combat.event.AnimationEvent;
 import mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent;
 import mclachlan.maze.stat.condition.Condition;
 import mclachlan.maze.stat.condition.ConditionManager;
@@ -53,6 +54,7 @@ import mclachlan.maze.stat.npc.NpcManager;
 import mclachlan.maze.ui.UserInterface;
 import mclachlan.maze.ui.diygui.*;
 import mclachlan.maze.ui.diygui.animation.AnimationContext;
+import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
 import mclachlan.maze.ui.diygui.animation.SpeechBubble;
 import mclachlan.maze.util.MazeException;
 import mclachlan.maze.util.PerfLog;
@@ -401,14 +403,15 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setGameState(GameState gs)
+	public List<MazeEvent> setGameState(GameState gs)
 	{
 		GameTime.setTurnNr(gs.getTurnNr());
 		difficultyLevel = gs.getDifficultyLevel();
 		party.setGold(gs.getPartyGold());
 		party.setSupplies(gs.getPartySupplies());
 		party.setFormation(gs.getFormation());
-		changeZone(gs.getCurrentZone().getName(), gs.getPlayerPos(), gs.getFacing());
+
+		return changeZone(gs.getCurrentZone().getName(), gs.getPlayerPos(), gs.getFacing());
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -558,6 +561,7 @@ public class Maze implements Runnable
 			JournalManager.getInstance().startGame();
 			progress.incProgress(1);
 
+			// ui cleanup for the transition
 			ui.clearMessages();
 			ui.clearDialog();
 			ui.showBlockingScreen("screen/blank_screen", -1, null);
@@ -566,7 +570,6 @@ public class Maze implements Runnable
 			party.setSupplies(party.size()*4);
 			MazeScript startingScript = Database.getInstance().getMazeScript(campaign.getStartingScript());
 			appendEvents(startingScript.getEvents());
-			appendEvents(new StartGameEvent(this, party));
 		}
 		catch (Exception x)
 		{
@@ -643,7 +646,7 @@ public class Maze implements Runnable
 
 			// init state
 			progress.message(StringUtil.getUiLabel("ls.init"));
-			setGameState(gs);
+			List<MazeEvent> gameStateEvents = setGameState(gs);
 			ui.setParty(party);
 			this.setState(State.MOVEMENT);
 			progress.incProgress(1);
@@ -659,22 +662,20 @@ public class Maze implements Runnable
 			ConditionManager.getInstance().loadGame(name, loader, playerCharacterCache);
 			progress.incProgress(1);
 
-			// set message
+			// ui cleanup for the transition
+			ui.clearDialog();
 			ui.clearMessages();
-			ui.enableInput();
+			ui.showBlockingScreen("screen/blank_screen", -1, null);
+
+			// set message
 			ui.addMessage(StringUtil.getUiLabel("ls.game.loaded", name), true);
 
-			// encounter tile
 			// at this point we transition control to the event processing thread
-			appendEvents(encounterTile(playerPos, null, getFacing()));
+			appendEvents(gameStateEvents);
 		}
 		catch (Exception x)
 		{
 			throw new MazeException(x);
-		}
-		finally
-		{
-			ui.clearBlockingScreen();
 		}
 	}
 
@@ -1265,7 +1266,7 @@ public class Maze implements Runnable
 		if (currentCombat != null)
 		{
 			// the party flees from combat
-			this.currentCombat.endCombat();
+			currentCombat.endCombat();
 		}
 
 		// nuke anything else that may happen this combat
@@ -1282,7 +1283,14 @@ public class Maze implements Runnable
 		this.currentCombat = null;
 
 		// back up the party along their previous path of travel
-		return this.ui.backPartyUp(3+Dice.d4.roll("Party flees"));
+		List<MazeEvent> result = new ArrayList<>();
+
+		result.add(new AnimationEvent(new FadeToBlackAnimation(1500)));
+
+		int randomFacing = Dice.d4.roll("random facing");
+		result.addAll(this.ui.backPartyUp(3+Dice.d4.roll("Party flees"), randomFacing));
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1291,9 +1299,9 @@ public class Maze implements Runnable
 	 * 	The maximum number of player keystrokes to reverse; may turn out to
 	 * 	be less if there is less key history available.
 	 */
-	public List<MazeEvent> backPartyUp(int maxKeys)
+	public List<MazeEvent> backPartyUp(int maxKeys, int facing)
 	{
-		return this.ui.backPartyUp(maxKeys);
+		return this.ui.backPartyUp(maxKeys, facing);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1737,11 +1745,18 @@ public class Maze implements Runnable
 		}
 		Tile t = zone.getTile(tile);
 
-		playerTilesVisited.visitTile(zone.getName(), tile);
-
 		this.playerPos = tile;
 		this.ui.setTile(zone, t, tile);
 
+		result.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				playerTilesVisited.visitTile(zone.getName(), tile);
+				return null;
+			}
+		});
 		addAll(result, this.zone.encounterTile(instance, tile, previousTile, facing));
 
 		return result;
@@ -2028,10 +2043,17 @@ public class Maze implements Runnable
 
 		addAll(result, this.zone.initZoneScript(getTurnNr()));
 
-		this.ui.setZone(zone, pos, newFacing);
-		this.zone.initialise(getTurnNr());
-
-//		Tile t = zone.getTile(pos);
+		result.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				ui.setZone(zone, pos, newFacing);
+				zone.initialise(getTurnNr());
+				getPlayerTilesVisited().resetRecentTiles();
+				return null;
+			}
+		});
 
 		if (pos.x >= 0 || pos.y >= 0)
 		{
@@ -2039,14 +2061,6 @@ public class Maze implements Runnable
 		}
 
 		return result;
-	}
-
-	private void addAll(List<MazeEvent> result, List<MazeEvent> events)
-	{
-		if (events != null)
-		{
-			result.addAll(events);
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2063,12 +2077,40 @@ public class Maze implements Runnable
 		{
 			newFacing = facing;
 		}
-		this.playerPos = pos;
-		addAll(result, this.ui.setPlayerPos(pos, newFacing));
+		Point oldTile = Maze.getInstance().getPlayerPos();
+
+		result.add(new MazeEvent()
+		{
+			@Override
+			public List<MazeEvent> resolve()
+			{
+				playerPos = pos;
+				ui.setPlayerPos(pos, newFacing);
+
+				setState(Maze.State.MOVEMENT);
+				ui.showMovementScreen();
+
+				ui.clearBlockingScreen();
+				ui.enableInput();
+
+				return null;
+			}
+		});
+
+		addAll(result, Maze.getInstance().encounterTile(pos, oldTile, facing));
 
 		return result;
 	}
-	
+
+	/*-------------------------------------------------------------------------*/
+	private void addAll(List<MazeEvent> result, List<MazeEvent> events)
+	{
+		if (events != null)
+		{
+			result.addAll(events);
+		}
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public Component getComponent()
 	{
