@@ -4,7 +4,6 @@ STUFFTODO
 
 GATEHOUSE
 ---------
-non playing oggs
 load game hotkey
 foe weapon use
 gold / supplies conversion button on item details dialog

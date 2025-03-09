@@ -1988,6 +1988,13 @@
         "die": "1d1"
       },
       {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation",
+          "duration": "2000"
+        }
+      },
+      {
         "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
         "imageResource": "screen/party_death_1",
         "textResource": "",

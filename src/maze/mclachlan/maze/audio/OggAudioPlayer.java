@@ -17,7 +17,6 @@ public class OggAudioPlayer implements AudioPlayer
 	@Override
 	public void playSound(String soundName, int volume)
 	{
-
 		Database.getInstance().cacheSound(soundName);
 		byte[] soundData = soundCache.get(soundName);
 		if (soundData == null)
@@ -28,7 +27,7 @@ public class OggAudioPlayer implements AudioPlayer
 		new Thread(() -> {
 			try (AudioInputStream audioStream = AudioSystem.getAudioInputStream(new ByteArrayInputStream(soundData)))
 			{
-				playOggStream2(audioStream, volume);
+				playOggStream2(soundName, audioStream, volume);
 			}
 			catch (Exception e)
 			{
@@ -58,7 +57,9 @@ public class OggAudioPlayer implements AudioPlayer
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void playOggStream2(AudioInputStream in,
+	private void playOggStream2(
+		String soundName,
+		AudioInputStream in,
 		int volume) throws Exception
 	{
 		AudioFormat baseFormat = in.getFormat();
@@ -80,14 +81,20 @@ public class OggAudioPlayer implements AudioPlayer
 			line.open();
 
 			line.start();
-			int nBytesRead = 0, nBytesWritten = 0;
+			int nBytesRead = 0, nBytesWritten = 0, totalBytesRead = 0;
 			while (nBytesRead != -1)
 			{
 				nBytesRead = dataIn.read(buffer, 0, buffer.length);
+				totalBytesRead += nBytesRead;
 				if (nBytesRead != -1)
 				{
 					nBytesWritten = line.write(buffer, 0, nBytesRead);
 				}
+			}
+
+			if (totalBytesRead < 0)
+			{
+				System.out.println("ERROR: invalid OGG resource: "+soundName);
 			}
 
 			line.drain();
