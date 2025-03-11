@@ -22,6 +22,7 @@ package mclachlan.maze.ui.diygui;
 import java.awt.Font;
 import java.awt.Insets;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.util.*;
 import mclachlan.diygui.DIYButton;
 import mclachlan.diygui.DIYLabel;
@@ -358,5 +359,25 @@ public class MainMenu extends DIYPanel
 		{
 			Maze.getInstance().startGame(difficultyLevel);
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	@Override
+	public void processHotKey(KeyEvent e)
+	{
+		switch (e.getKeyCode())
+		{
+			case KeyEvent.VK_U -> quickStart();
+			case KeyEvent.VK_S -> startGame();
+			case KeyEvent.VK_C -> createCharacter();
+			case KeyEvent.VK_A -> addCharacter();
+			case KeyEvent.VK_R -> removeCharacter();
+			case KeyEvent.VK_D -> saveOrLoad();
+			case KeyEvent.VK_G -> showSettingsDialog();
+			case KeyEvent.VK_Q -> quit();
+		}
+
+		updateState();
 	}
 }

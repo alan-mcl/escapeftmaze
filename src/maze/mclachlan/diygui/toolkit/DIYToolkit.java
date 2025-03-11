@@ -796,6 +796,12 @@ public class DIYToolkit
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
+	private boolean isWidgetInteractable(Widget widget)
+	{
+		return widget != null && widget.isEnabled() && widget.isVisible();
+	}
+
 	/*----------------------------------------------------------------------*/
 	public void keyPressed(KeyEvent e)
 	{
@@ -813,17 +819,13 @@ public class DIYToolkit
 		else if (isWidgetInteractable(focusWidget))
 		{
 			focusWidget.processKeyPressed(e);
+			notifyContentPaneChildrenOfKeyEvent(e);
 		}
 		else if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processKeyPressed(e);
+			notifyContentPaneChildrenOfKeyEvent(e);
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private boolean isWidgetInteractable(Widget widget)
-	{
-		return widget != null && widget.isEnabled() && widget.isVisible();
 	}
 
 	/*----------------------------------------------------------------------*/
@@ -833,13 +835,18 @@ public class DIYToolkit
 		{
 			getDialog().processKeyReleased(e);
 		}
-		else if (isWidgetInteractable(focusWidget))
+		else
 		{
-			focusWidget.processKeyReleased(e);
-		}
-		else if (isWidgetInteractable(hoverWidget))
-		{
-			hoverWidget.processKeyReleased(e);
+			if (isWidgetInteractable(focusWidget))
+			{
+				focusWidget.processKeyReleased(e);
+				notifyContentPaneChildrenOfKeyEvent(e);
+			}
+			else if (isWidgetInteractable(hoverWidget))
+			{
+				hoverWidget.processKeyReleased(e);
+				notifyContentPaneChildrenOfKeyEvent(e);
+			}
 		}
 	}
 
@@ -853,13 +860,32 @@ public class DIYToolkit
 		else if (isWidgetInteractable(focusWidget))
 		{
 			focusWidget.processKeyTyped(e);
+			notifyContentPaneChildrenOfKeyEvent(e);
 		}
 		else if (isWidgetInteractable(hoverWidget))
 		{
 			hoverWidget.processKeyTyped(e);
+			notifyContentPaneChildrenOfKeyEvent(e);
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * A poor man's version of Swing's InputMap/ActionMap: just send key events
+	 * directly to each child of the content pane, in addition to whatever other
+	 * widget got them.
+	 */
+	private void notifyContentPaneChildrenOfKeyEvent(KeyEvent e)
+	{
+		if (e.getID() == KeyEvent.KEY_PRESSED)
+		{
+			for (Widget w : contentPane.children)
+			{
+				w.processHotKey(e);
+			}
+		}
+	}
 
 	/*----------------------------------------------------------------------*/
 	public void mouseEntered(MouseEvent e)

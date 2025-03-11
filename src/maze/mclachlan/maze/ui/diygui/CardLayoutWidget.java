@@ -21,7 +21,9 @@ package mclachlan.maze.ui.diygui;
 
 import java.awt.Graphics2D;
 import java.awt.Rectangle;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseEvent;
+import java.awt.event.MouseWheelEvent;
 import java.util.*;
 import mclachlan.diygui.toolkit.ContainerWidget;
 import mclachlan.diygui.toolkit.DIYToolkit;
@@ -157,32 +159,75 @@ public class CardLayoutWidget extends ContainerWidget
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void processMouseClicked(MouseEvent e)
 	{
 		this.currentWidget.processMouseClicked(e);
 	}
 
+	@Override
 	public void processMouseEntered(MouseEvent e)
 	{
 		this.currentWidget.processMouseEntered(e);
 	}
 
+	@Override
 	public void processMouseExited(MouseEvent e)
 	{
 		this.currentWidget.processMouseExited(e);
 	}
 
+	@Override
 	public void processMousePressed(MouseEvent e)
 	{
 		this.currentWidget.processMousePressed(e);
 	}
 
+	@Override
 	public void processMouseReleased(MouseEvent e)
 	{
 		this.currentWidget.processMouseReleased(e);
 	}
 
+	@Override
+	public void processMouseDragged(MouseEvent e)
+	{
+		this.currentWidget.processMouseDragged(e);
+	}
+
+	@Override
+	public boolean processMouseWheelMoved(MouseWheelEvent e)
+	{
+		return this.currentWidget.processMouseWheelMoved(e);
+	}
+
+	@Override
+	public void processKeyPressed(KeyEvent e)
+	{
+		System.out.println("currentWidget = " + currentWidget);
+		this.currentWidget.processKeyPressed(e);
+	}
+
+	@Override
+	public void processKeyReleased(KeyEvent e)
+	{
+		this.currentWidget.processKeyReleased(e);
+	}
+
+	@Override
+	public void processKeyTyped(KeyEvent e)
+	{
+		this.currentWidget.processKeyTyped(e);
+	}
+
+	@Override
+	public void processHotKey(KeyEvent e)
+	{
+		this.currentWidget.processHotKey(e);
+	}
+
 	/*-------------------------------------------------------------------------*/
+	@Override
 	public void setBounds(int x, int y, int width, int height)
 	{
 		super.setBounds(x, y, width, height);

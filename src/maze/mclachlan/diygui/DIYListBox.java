@@ -277,7 +277,6 @@ public class DIYListBox extends ContainerWidget
 				moveSelectionDown();
 				this.notifyListeners(e);
 			}
-//			default -> super.processKeyPressed(e);
 		}
 	}
 
@@ -337,7 +336,13 @@ public class DIYListBox extends ContainerWidget
 			// dodgy hack to ensure that the parent ActionListeners see this
 			DIYListBox.this.processMouseClicked(e);
 		}
-		
+
+		@Override
+		public void processKeyPressed(KeyEvent e)
+		{
+			parent.processKeyPressed(e);
+		}
+
 		/*----------------------------------------------------------------------*/
 		public DIYListBox getParent()
 		{

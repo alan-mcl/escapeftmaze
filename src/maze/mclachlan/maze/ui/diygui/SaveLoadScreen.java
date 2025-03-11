@@ -19,15 +19,14 @@
 
 package mclachlan.maze.ui.diygui;
 
-import java.awt.*;
+import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
+import mclachlan.diygui.*;
 import mclachlan.diygui.toolkit.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
-import mclachlan.diygui.*;
 
 /**
  *
@@ -187,7 +186,9 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void keyPressed(KeyEvent e)
+
+	@Override
+	public void processHotKey(KeyEvent e)
 	{
 		switch (e.getKeyCode())
 		{
@@ -197,6 +198,8 @@ public class SaveLoadScreen extends DIYPanel implements ActionListener
 				this.refresh();
 			}
 			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_D -> loadGame();
+			case KeyEvent.VK_S -> saveGame();
 		}
 	}
 

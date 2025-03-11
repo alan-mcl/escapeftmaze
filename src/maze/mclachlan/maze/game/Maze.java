@@ -1108,7 +1108,7 @@ public class Maze implements Runnable
 			}
 
 			// clearing the queue may have disabled input
-			new MazeActionListener.EnableInputEvent().resolve();
+			new DiyGuiUserInterface.EnableInputEvent().resolve();
 
 			backToMain();
 

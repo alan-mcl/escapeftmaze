@@ -143,6 +143,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 	private List<FoeGroup> foeGroups;
 
+	public static boolean acceptInput = true;
+
 	/*-------------------------------------------------------------------------*/
 	static
 	{
@@ -435,7 +437,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		{
 			for (Animation a : animations)
 			{
-				consumed =  consumed || a.processKeyEvent(event);
+				consumed = consumed || a.processKeyEvent(event);
 			}
 		}
 
@@ -548,7 +550,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				}
 			}
 
-			long renderTime = (System.nanoTime() - now)/1000000;
+			long renderTime = (System.nanoTime() - now) / 1000000;
 			counter++;
 			sumRenderTime += renderTime;
 		}
@@ -622,8 +624,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			Rectangle thisBounds = mazeWidget.getBounds();
 
 			return new Rectangle(
-				thisBounds.x+objBounds.x,
-				thisBounds.y+objBounds.y,
+				thisBounds.x + objBounds.x,
+				thisBounds.y + objBounds.y,
 				objBounds.width,
 				objBounds.height);
 		}
@@ -772,7 +774,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		BufferedImage img = Database.getInstance().getImage("screen/sign_board");
 
 		Rectangle bounds = new Rectangle(LOW_BOUNDS);
-		bounds.translate(0,-(SCREEN_HEIGHT/3));
+		bounds.translate(0, -(SCREEN_HEIGHT / 3));
 
 //		Rectangle bounds = new Rectangle(
 //			SCREEN_WIDTH/2 -img.getWidth()/2,
@@ -817,7 +819,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void showBlockingScreen(ContainerWidget dialog, int delay, Object mutex)
+	public void showBlockingScreen(ContainerWidget dialog, int delay,
+		Object mutex)
 	{
 		DIYPanel bs = new BlockingScreen(dialog, delay, mutex);
 		showDialog(bs);
@@ -968,18 +971,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		int internalInset = 10;
 		SCREEN_EDGE_INSET = 10;
 
-		PC_WIDTH = (SCREEN_WIDTH - MAZE_WIDTH - SCREEN_EDGE_INSET*2 - internalInset *2) /2;
+		PC_WIDTH = (SCREEN_WIDTH - MAZE_WIDTH - SCREEN_EDGE_INSET * 2 - internalInset * 2) / 2;
 
 		int column1x = SCREEN_EDGE_INSET;
-		int column1Width = (SCREEN_WIDTH -MAZE_WIDTH -SCREEN_EDGE_INSET*2 -internalInset*2)/2;
+		int column1Width = (SCREEN_WIDTH - MAZE_WIDTH - SCREEN_EDGE_INSET * 2 - internalInset * 2) / 2;
 
-		int column2x = column1x +column1Width +internalInset;
+		int column2x = column1x + column1Width + internalInset;
 		int column2Width = MAZE_WIDTH;
 
-		int column3x = column2x +column2Width +internalInset;
+		int column3x = column2x + column2Width + internalInset;
 		// col 3 width same as col 1
 
-		int pcwHeight = (SCREEN_HEIGHT -SCREEN_EDGE_INSET*2 -internalInset*2) /3;
+		int pcwHeight = (SCREEN_HEIGHT - SCREEN_EDGE_INSET * 2 - internalInset * 2) / 3;
 
 		int internalOverlap = 8;
 
@@ -990,24 +993,24 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				column1Width, pcwHeight));
 
 		charTopRight = new PlayerCharacterWidget(1,
-					new Rectangle(column3x, SCREEN_EDGE_INSET,
-						column1Width, pcwHeight));
+			new Rectangle(column3x, SCREEN_EDGE_INSET,
+				column1Width, pcwHeight));
 
 		charMidLeft = new PlayerCharacterWidget(2,
-					new Rectangle(column1x, charTopLeft.y +charTopLeft.height +internalInset,
-						column1Width, pcwHeight));
+			new Rectangle(column1x, charTopLeft.y + charTopLeft.height + internalInset,
+				column1Width, pcwHeight));
 
 		charMidRight = new PlayerCharacterWidget(3,
-					new Rectangle(column3x, charTopRight.y +charTopRight.height +internalInset,
-						column1Width, pcwHeight));
+			new Rectangle(column3x, charTopRight.y + charTopRight.height + internalInset,
+				column1Width, pcwHeight));
 
 		charLowLeft = new PlayerCharacterWidget(4,
-					new Rectangle(column1x, charMidLeft.y +charMidLeft.height +internalInset,
-						column1Width, pcwHeight));
+			new Rectangle(column1x, charMidLeft.y + charMidLeft.height + internalInset,
+				column1Width, pcwHeight));
 
 		charLowRight = new PlayerCharacterWidget(5,
-					new Rectangle(column3x, charMidRight.y +charMidRight.height +internalInset,
-						column1Width, pcwHeight));
+			new Rectangle(column3x, charMidRight.y + charMidRight.height + internalInset,
+				column1Width, pcwHeight));
 
 		charTopLeft.setPlayerCharacter(null);
 		charTopRight.setPlayerCharacter(null);
@@ -1019,34 +1022,34 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		// zone info display header
 		zoneDisplay = new ZoneDisplayWidget(
 			new Rectangle(
-				column2x -internalInset/2,
+				column2x - internalInset / 2,
 				SCREEN_EDGE_INSET,
-				column2Width +internalOverlap,
-				zoneDisplayHeight +internalOverlap));
+				column2Width + internalOverlap,
+				zoneDisplayHeight + internalOverlap));
 
 		// the maze view with embedded raycaster
 		mazeWidget = new MazeWidget(
 			new Rectangle(
 				column2x,
-				SCREEN_EDGE_INSET +zoneDisplayHeight, // intentionally no inset here
+				SCREEN_EDGE_INSET + zoneDisplayHeight, // intentionally no inset here
 				MAZE_WIDTH,
 				MAZE_HEIGHT),
 			raycaster);
 
 		// intentionally sized over the insets here, to emphasise the widget
 		LOW_BOUNDS = new Rectangle(
-			column2x -internalInset/2,
-			mazeWidget.y +mazeWidget.height -internalOverlap,
-			column2Width +internalInset,
-			SCREEN_HEIGHT -zoneDisplayHeight -mazeWidget.height -SCREEN_EDGE_INSET*2 +internalOverlap);
+			column2x - internalInset / 2,
+			mazeWidget.y + mazeWidget.height - internalOverlap,
+			column2Width + internalInset,
+			SCREEN_HEIGHT - zoneDisplayHeight - mazeWidget.height - SCREEN_EDGE_INSET * 2 + internalOverlap);
 
 		// char picker for the details screens
 		partyDisplay = new PartyDisplayWidget(
 			new Rectangle(
 				SCREEN_EDGE_INSET,
 				SCREEN_EDGE_INSET,
-				SCREEN_WIDTH/6,
-				SCREEN_HEIGHT -SCREEN_EDGE_INSET*2)
+				SCREEN_WIDTH / 6,
+				SCREEN_HEIGHT - SCREEN_EDGE_INSET * 2)
 			, null);
 
 		// button toolbar for the details screens
@@ -1058,13 +1061,72 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getStatsDisplayScreen()
 	{
-		DIYPanel screen = new DIYPanel(screenBounds);
+		DIYPanel screen = new DIYPanel(screenBounds)
+		{
+			@Override
+			public void processHotKey(KeyEvent e)
+			{
+				if (Maze.getInstance().getState() == Maze.State.STATSDISPLAY)
+				{
+					switch (e.getKeyCode())
+					{
+						case KeyEvent.VK_1:
+							characterSelected(0);
+							break;
+						case KeyEvent.VK_2:
+							characterSelected(1);
+							break;
+						case KeyEvent.VK_3:
+							characterSelected(2);
+							break;
+						case KeyEvent.VK_4:
+							characterSelected(3);
+							break;
+						case KeyEvent.VK_5:
+							characterSelected(4);
+							break;
+						case KeyEvent.VK_6:
+							characterSelected(5);
+							break;
+						case KeyEvent.VK_A:
+							buttonToolbar.magic();
+							break;
+						case KeyEvent.VK_M:
+							buttonToolbar.modifiers();
+							break;
+						case KeyEvent.VK_S:
+							buttonToolbar.stats();
+							break;
+						case KeyEvent.VK_P:
+							buttonToolbar.properties();
+							break;
+						case KeyEvent.VK_I:
+							buttonToolbar.inventory();
+							break;
+						case KeyEvent.VK_E:
+							buttonToolbar.exit();
+							break;
+						case KeyEvent.VK_ENTER:
+						case KeyEvent.VK_ESCAPE:
+							if (Maze.getInstance().isInCombat())
+							{
+								Maze.getInstance().setState(Maze.State.COMBAT);
+							}
+							else
+							{
+								Maze.getInstance().setState(Maze.State.MOVEMENT);
+							}
+							break;
+					}
+				}
+			}
+		};
 
 		statsDisplay = new StatsDisplayWidget(
 			new Rectangle(
-				partyDisplay.x +partyDisplay.width,
+				partyDisplay.x + partyDisplay.width,
 				0,
-				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_WIDTH - partyDisplay.width - SCREEN_EDGE_INSET,
 				SCREEN_HEIGHT));
 
 		BufferedImage back = DIYToolkit.getInstance().getRendererProperties().getImageResource("screen/stats_back");
@@ -1080,13 +1142,72 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getMagicScreen()
 	{
-		DIYPanel screen = new DIYPanel(screenBounds);
+		DIYPanel screen = new DIYPanel(screenBounds)
+		{
+			@Override
+			public void processHotKey(KeyEvent e)
+			{
+				if (Maze.getInstance().getState() == Maze.State.MAGIC)
+				{
+					switch (e.getKeyCode())
+					{
+						case KeyEvent.VK_1:
+							characterSelected(0);
+							break;
+						case KeyEvent.VK_2:
+							characterSelected(1);
+							break;
+						case KeyEvent.VK_3:
+							characterSelected(2);
+							break;
+						case KeyEvent.VK_4:
+							characterSelected(3);
+							break;
+						case KeyEvent.VK_5:
+							characterSelected(4);
+							break;
+						case KeyEvent.VK_6:
+							characterSelected(5);
+							break;
+						case KeyEvent.VK_A:
+							buttonToolbar.magic();
+							break;
+						case KeyEvent.VK_M:
+							buttonToolbar.modifiers();
+							break;
+						case KeyEvent.VK_S:
+							buttonToolbar.stats();
+							break;
+						case KeyEvent.VK_P:
+							buttonToolbar.properties();
+							break;
+						case KeyEvent.VK_I:
+							buttonToolbar.inventory();
+							break;
+						case KeyEvent.VK_E:
+							buttonToolbar.exit();
+							break;
+						case KeyEvent.VK_ENTER:
+						case KeyEvent.VK_ESCAPE:
+							if (Maze.getInstance().isInCombat())
+							{
+								Maze.getInstance().setState(Maze.State.COMBAT);
+							}
+							else
+							{
+								Maze.getInstance().setState(Maze.State.MOVEMENT);
+							}
+							break;
+					}
+				}
+			}
+		};
 
 		magicDisplay = new MagicDisplayWidget(
 			new Rectangle(
-				partyDisplay.x +partyDisplay.width,
+				partyDisplay.x + partyDisplay.width,
 				0,
-				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_WIDTH - partyDisplay.width - SCREEN_EDGE_INSET,
 				SCREEN_HEIGHT));
 
 		screen.add(magicDisplay);
@@ -1124,13 +1245,72 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getModifiersDisplayScreen()
 	{
-		DIYPanel screen = new DIYPanel(screenBounds);
+		DIYPanel screen = new DIYPanel(screenBounds)
+		{
+			@Override
+			public void processHotKey(KeyEvent e)
+			{
+				if (Maze.getInstance().getState() == Maze.State.MODIFIERSDISPLAY)
+				{
+					switch (e.getKeyCode())
+					{
+						case KeyEvent.VK_1:
+							characterSelected(0);
+							break;
+						case KeyEvent.VK_2:
+							characterSelected(1);
+							break;
+						case KeyEvent.VK_3:
+							characterSelected(2);
+							break;
+						case KeyEvent.VK_4:
+							characterSelected(3);
+							break;
+						case KeyEvent.VK_5:
+							characterSelected(4);
+							break;
+						case KeyEvent.VK_6:
+							characterSelected(5);
+							break;
+						case KeyEvent.VK_A:
+							buttonToolbar.magic();
+							break;
+						case KeyEvent.VK_M:
+							buttonToolbar.modifiers();
+							break;
+						case KeyEvent.VK_S:
+							buttonToolbar.stats();
+							break;
+						case KeyEvent.VK_P:
+							buttonToolbar.properties();
+							break;
+						case KeyEvent.VK_I:
+							buttonToolbar.inventory();
+							break;
+						case KeyEvent.VK_E:
+							buttonToolbar.exit();
+							break;
+						case KeyEvent.VK_ENTER:
+						case KeyEvent.VK_ESCAPE:
+							if (Maze.getInstance().isInCombat())
+							{
+								Maze.getInstance().setState(Maze.State.COMBAT);
+							}
+							else
+							{
+								Maze.getInstance().setState(Maze.State.MOVEMENT);
+							}
+							break;
+					}
+				}
+			}
+		};
 
 		modifiersDisplay = new ModifiersDisplayWidget(
 			new Rectangle(
-				partyDisplay.x +partyDisplay.width,
+				partyDisplay.x + partyDisplay.width,
 				0,
-				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_WIDTH - partyDisplay.width - SCREEN_EDGE_INSET,
 				SCREEN_HEIGHT));
 
 		screen.add(modifiersDisplay);
@@ -1146,13 +1326,72 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getPropertiesDisplayScreen()
 	{
-		DIYPanel screen = new DIYPanel(screenBounds);
+		DIYPanel screen = new DIYPanel(screenBounds)
+		{
+			@Override
+			public void processHotKey(KeyEvent e)
+			{
+				if (Maze.getInstance().getState() == Maze.State.PROPERTIESDISPLAY)
+				{
+					switch (e.getKeyCode())
+					{
+						case KeyEvent.VK_1:
+							characterSelected(0);
+							break;
+						case KeyEvent.VK_2:
+							characterSelected(1);
+							break;
+						case KeyEvent.VK_3:
+							characterSelected(2);
+							break;
+						case KeyEvent.VK_4:
+							characterSelected(3);
+							break;
+						case KeyEvent.VK_5:
+							characterSelected(4);
+							break;
+						case KeyEvent.VK_6:
+							characterSelected(5);
+							break;
+						case KeyEvent.VK_A:
+							buttonToolbar.magic();
+							break;
+						case KeyEvent.VK_M:
+							buttonToolbar.modifiers();
+							break;
+						case KeyEvent.VK_S:
+							buttonToolbar.stats();
+							break;
+						case KeyEvent.VK_P:
+							buttonToolbar.properties();
+							break;
+						case KeyEvent.VK_I:
+							buttonToolbar.inventory();
+							break;
+						case KeyEvent.VK_E:
+							buttonToolbar.exit();
+							break;
+						case KeyEvent.VK_ENTER:
+						case KeyEvent.VK_ESCAPE:
+							if (Maze.getInstance().isInCombat())
+							{
+								Maze.getInstance().setState(Maze.State.COMBAT);
+							}
+							else
+							{
+								Maze.getInstance().setState(Maze.State.MOVEMENT);
+							}
+							break;
+					}
+				}
+			}
+		};
 
 		propertiesDisplay = new PropertiesDisplayWidget(
 			new Rectangle(
-				partyDisplay.x +partyDisplay.width,
+				partyDisplay.x + partyDisplay.width,
 				0,
-				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_WIDTH - partyDisplay.width - SCREEN_EDGE_INSET,
 				SCREEN_HEIGHT));
 
 		screen.add(propertiesDisplay);
@@ -1168,13 +1407,90 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private DIYPanel getInventoryScreen()
 	{
-		DIYPanel screen = new DIYPanel(screenBounds);
+		DIYPanel screen = new DIYPanel(screenBounds)
+		{
+			@Override
+			public void processHotKey(KeyEvent e)
+			{
+				if (Maze.getInstance().getState() == Maze.State.INVENTORY)
+				{
+					switch (e.getKeyCode())
+					{
+						case KeyEvent.VK_1:
+							characterSelected(0);
+							break;
+						case KeyEvent.VK_2:
+							characterSelected(1);
+							break;
+						case KeyEvent.VK_3:
+							characterSelected(2);
+							break;
+						case KeyEvent.VK_4:
+							characterSelected(3);
+							break;
+						case KeyEvent.VK_5:
+							characterSelected(4);
+							break;
+						case KeyEvent.VK_6:
+							characterSelected(5);
+							break;
+						case KeyEvent.VK_A:
+							buttonToolbar.magic();
+							break;
+						case KeyEvent.VK_M:
+							buttonToolbar.modifiers();
+							break;
+						case KeyEvent.VK_S:
+							buttonToolbar.stats();
+							break;
+						case KeyEvent.VK_P:
+							buttonToolbar.properties();
+							break;
+						case KeyEvent.VK_I:
+							buttonToolbar.inventory();
+							break;
+						case KeyEvent.VK_E:
+							buttonToolbar.exit();
+							break;
+						case KeyEvent.VK_C:
+							inventoryDisplay.spell();
+							break;
+						case KeyEvent.VK_U:
+							inventoryDisplay.use();
+							break;
+						case KeyEvent.VK_R:
+							inventoryDisplay.craft();
+							break;
+						case KeyEvent.VK_D:
+							inventoryDisplay.drop();
+							break;
+						case KeyEvent.VK_L:
+							inventoryDisplay.split();
+							break;
+						case KeyEvent.VK_B:
+							inventoryDisplay.disassemble();
+							break;
+						case KeyEvent.VK_ENTER:
+						case KeyEvent.VK_ESCAPE:
+							if (Maze.getInstance().isInCombat())
+							{
+								Maze.getInstance().setState(Maze.State.COMBAT);
+							}
+							else
+							{
+								Maze.getInstance().setState(Maze.State.MOVEMENT);
+							}
+							break;
+					}
+				}
+			}
+		};
 
 		inventoryDisplay = new InventoryDisplayWidget(
 			new Rectangle(
-				partyDisplay.x +partyDisplay.width,
+				partyDisplay.x + partyDisplay.width,
 				0,
-				SCREEN_WIDTH - partyDisplay.width -SCREEN_EDGE_INSET,
+				SCREEN_WIDTH - partyDisplay.width - SCREEN_EDGE_INSET,
 				SCREEN_HEIGHT));
 
 		screen.add(inventoryDisplay);
@@ -1220,7 +1536,57 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/*-------------------------------------------------------------------------*/
 	private ContainerWidget getMovementScreen()
 	{
-		DIYPanel screen = new DIYPanel(screenBounds);
+		DIYPanel screen = new DIYPanel(screenBounds)
+		{
+			@Override
+			public void processHotKey(KeyEvent event)
+			{
+				if (Maze.getInstance().getState() == Maze.State.MOVEMENT)
+				{
+					int code = event.getKeyCode();
+
+					if (acceptInput)
+					{
+						if (DiyGuiUserInterface.crusaderKeys.containsKey(code) &&
+							Maze.getInstance().getState() == Maze.State.MOVEMENT &&
+							DIYToolkit.getInstance().getDialog() == null)
+						{
+							int crusaderKey = DiyGuiUserInterface.crusaderKeys.get(code);
+							acceptInput = false;
+							Maze.getInstance().appendEvents(
+								new HandleKeyEvent(crusaderKey),
+								new EnableInputEvent());
+						}
+					}
+
+					partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+				}
+				else if (Maze.getInstance().getState() == Maze.State.COMBAT)
+				{
+					partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+				}
+				else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+				{
+					partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+				}
+				else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_ACTORS)
+				{
+					partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+				}
+				else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+				{
+					partyOptionsAndTextWidget.handleKey(event.getKeyCode());
+				}
+				else if (Maze.getInstance().getState() == Maze.State.RESTING)
+				{
+					switch (event.getKeyCode())
+					{
+						case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER, KeyEvent.VK_SPACE, KeyEvent.VK_D ->
+							restingWidget.done();
+					}
+				}
+			}
+		};
 
 		screen.add(charTopLeft);
 		screen.add(charMidLeft);
@@ -1365,7 +1731,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			EngineObject sprite = ((Foe)foe).getSprite();
 
 			sprite.removeAllScripts();
-			sprite.addScript(new DisappearanceToSide(Math.random()>.5, 500).spawnNewInstance(sprite, raycaster));
+			sprite.addScript(new DisappearanceToSide(Math.random() > .5, 500).spawnNewInstance(sprite, raycaster));
 		}
 	}
 
@@ -1374,9 +1740,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	{
 		List<Point> recentTiles = Maze.getInstance().getPlayerTilesVisited().getRecentTiles();
 
-		for (int i=maxTiles; i>0; i--)
+		for (int i = maxTiles; i > 0; i--)
 		{
-			int index = recentTiles.size() -i;
+			int index = recentTiles.size() - i;
 
 			if (index >= 0)
 			{
@@ -1403,8 +1769,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	/**
 	 * Remove all current foes and add the given new ones.
 	 *
-	 * @param runAppearanceAnimations
-	 * 	True if entrance animations should be run for the foes
+	 * @param runAppearanceAnimations True if entrance animations should be run
+	 *                                for the foes
 	 */
 	public void setFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
@@ -1441,8 +1807,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 	/**
 	 * Adds the given foes to any already in view.
-	 * @param runAppearanceAnimations
-	 * 	True if appearance animations should be run
+	 *
+	 * @param runAppearanceAnimations True if appearance animations should be
+	 *                                run
 	 */
 	public void addFoes(List<FoeGroup> others, boolean runAppearanceAnimations)
 	{
@@ -1862,7 +2229,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setPlayerCharacterActionOption(PlayerCharacter pc, Class<? extends ActorActionOption> option)
+	public void setPlayerCharacterActionOption(PlayerCharacter pc,
+		Class<? extends ActorActionOption> option)
 	{
 		PlayerCharacterWidget pcw = getPlayerCharacterWidget(pc);
 
@@ -1893,10 +2261,21 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public static class EnableInputEvent extends MazeEvent
+	{
+		@Override
+		public List<MazeEvent> resolve()
+		{
+			acceptInput = true;
+			return null;
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 
 	/**
 	 * This is the thread responsible for processing all UI events.
-	 *
+	 * <p>
 	 * It exists to disentangle the rendering and game logic from the AWT theads
 	 * that are delivering system mouse and key events.
 	 */
@@ -1912,7 +2291,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 
 		public void run()
 		{
-			long time, counter=0, sumProcessingTime=0;
+			long time, counter = 0, sumProcessingTime = 0;
 
 			while (true)
 			{
@@ -1924,13 +2303,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					counter++;
 					sumProcessingTime += diff;
 
-					if (counter==10)
+					if (counter == 10)
 					{
 						//double ave = 1D*sumProcessingTime/counter;//100000D;
 						//System.out.println("ave = [" + ave + "]");
 
-						counter=0;
-						sumProcessingTime=0;
+						counter = 0;
+						sumProcessingTime = 0;
 					}
 
 				}
