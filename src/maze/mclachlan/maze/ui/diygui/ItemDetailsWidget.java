@@ -38,14 +38,17 @@ import static mclachlan.maze.stat.ItemTemplate.*;
 /**
  * To be used as the popup dialog to display item details.
  */
-public class ItemDetailsWidget extends GeneralDialog
+public class ItemDetailsWidget extends GeneralDialog implements ActionListener
 {
+	private Item item;
+	private DIYButton convert;
 	private int wrapWidth;
 
 	/*-------------------------------------------------------------------------*/
 	public ItemDetailsWidget(Rectangle bounds, Item item)
 	{
 		super(bounds);
+		this.item = item;
 		buildGui(bounds, item);
 	}
 
@@ -61,6 +64,13 @@ public class ItemDetailsWidget extends GeneralDialog
 		int height1 = bounds.height - getInset() * 3 - getBorder() * 2;
 
 		wrapWidth = width1;
+
+		// use case for the Convert button is an item that was initially not
+		// identified, lands in the inventory, and now is
+		boolean showConvertButton =
+			Maze.getInstance().getState() == Maze.State.INVENTORY &&
+			item.getIdentificationState() == Item.IdentificationState.IDENTIFIED &&
+				(item.getType() == Type.SUPPLIES || item.getType() == Type.MONEY);
 
 		DIYButton close = getCloseButton();
 
@@ -172,6 +182,25 @@ public class ItemDetailsWidget extends GeneralDialog
 
 		this.add(title);
 		this.add(close);
+
+		if (showConvertButton)
+		{
+			String buttonTitle;
+			switch (item.getType())
+			{
+				case Type.SUPPLIES -> buttonTitle = StringUtil.getUiLabel("iw.convert.to.supplies");
+				case Type.MONEY -> buttonTitle = StringUtil.getUiLabel("iw.convert.to.money");
+				default -> throw new MazeException("Invalid type "+item.getType());
+			}
+			convert = new DIYButton(buttonTitle);
+			convert.addActionListener(this);
+
+			DIYPane buttonPane = getButtonPane();
+			buttonPane.add(convert);
+
+			this.add(buttonPane);
+			this.doLayout();
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -887,5 +916,36 @@ public class ItemDetailsWidget extends GeneralDialog
 		{
 			Maze.getInstance().getUi().clearDialog();
 		}
+	}
+
+	@Override
+	public boolean actionPerformed(ActionEvent event)
+	{
+		if (event.getSource() == convert)
+		{
+			PlayerParty party = Maze.getInstance().getParty();
+			if (item.getType() == ItemTemplate.Type.MONEY)
+			{
+				int amount = item.applyConversionRate();
+				party.incGold(amount);
+				party.removeItem(item);
+				Maze.getInstance().getUi().showInventoryScreen();
+				return true;
+			}
+			else if (item.getType() == ItemTemplate.Type.SUPPLIES)
+			{
+				int amount = item.applyConversionRate();
+				party.incSupplies(amount);
+				party.removeItem(item);
+				Maze.getInstance().getUi().showInventoryScreen();
+				return true;
+			}
+			else
+			{
+				throw new MazeException("Invalid "+item.getType());
+			}
+		}
+
+		return false;
 	}
 }

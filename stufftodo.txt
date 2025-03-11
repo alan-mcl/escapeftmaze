@@ -5,7 +5,6 @@ STUFFTODO
 GATEHOUSE
 ---------
 foe weapon use
-gold / supplies conversion button on item details dialog
 
 ICHIBA CROSSROADS
 -----------------
@@ -13,7 +12,6 @@ ichiba flat sky
 
 BACKLOG
 ----------
-bug: zone change flickering bug
 bug: should not be able to evade foes while resting (really?  maybe just adjust stealth)
 
 icon: wilderness veil
@@ -64,7 +62,6 @@ code: berserk should replace combat actions (for same round things in flight) as
 
 code+data: balance
 code+data: demo/training mode
-data: city windows & arches
 code+data: Sort out NPC inventories.
 
 spell: magic eye, reveals map
@@ -85,9 +82,6 @@ editor: copying/renaming zones
 raycaster: ceiling height
 raycaster: proper FXAA implementation
 
---------------------------------------------
-IN PROGRESS
---------------------------------------------
 data: herbal modifier to be used for crafting with herbs/plants
 data: alchemic modifier to be used for crafting with reagents/potions
 data: CRAFT modifier to be replaced with SMITHCRAFT and used for crafting weapons/armour

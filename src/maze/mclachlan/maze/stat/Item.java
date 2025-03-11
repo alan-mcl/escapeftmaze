@@ -588,7 +588,7 @@ public class Item implements AttackWith, SpellTarget
 		return sb.toString();
 	}
 
-	@Override
+/*	@Override
 	public boolean equals(Object o)
 	{
 		if (this == o)
@@ -635,7 +635,7 @@ public class Item implements AttackWith, SpellTarget
 		result = 31 * result + (getStack() != null ? getStack().hashCode() : 0);
 		result = 31 * result + (getCharges() != null ? getCharges().hashCode() : 0);
 		return result;
-	}
+	}*/
 
 	/*-------------------------------------------------------------------------*/
 	public static class CursedState

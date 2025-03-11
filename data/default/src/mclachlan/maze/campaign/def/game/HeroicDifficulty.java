@@ -30,11 +30,29 @@ import mclachlan.maze.map.Tile;
  */
 public class HeroicDifficulty extends DifficultyLevel
 {
+	@Override
+	public String getDisplayName()
+	{
+		return "Heroic Mode";
+	}
+
+	@Override
+	public String getDescription()
+	{
+		return "\"Know that Maze is alive and is turned against you. Your every step is watched. Every turn of fate will go against you. Expect it, or perish. \"\n~Rainmaker";
+	}
+
+	@Override
+	public String getImage()
+	{
+		return "screen/heroic_difficulty";
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void foeIsSpawned(Foe foe)
 	{
 		// foes scale up with level
-		int value = Math.max(1, foe.getLevel()/2);
+		int value = Math.max(1, foe.getLevel() / 2);
 
 		// + hits, stealth and magic
 		incMaximum(foe.getHitPoints(), value);
@@ -49,15 +67,15 @@ public class HeroicDifficulty extends DifficultyLevel
 		foe.incModifier(Stats.Modifier.POWER_CAST, value);
 
 		// + on all resistances
-		foe.incModifier(Stats.Modifier.RESIST_BLUDGEONING, value*2);
-		foe.incModifier(Stats.Modifier.RESIST_PIERCING, value*2);
-		foe.incModifier(Stats.Modifier.RESIST_SLASHING, value*2);
-		foe.incModifier(Stats.Modifier.RESIST_ENERGY, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_FIRE, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_WATER, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_AIR, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_EARTH, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_MENTAL, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_BLUDGEONING, value * 2);
+		foe.incModifier(Stats.Modifier.RESIST_PIERCING, value * 2);
+		foe.incModifier(Stats.Modifier.RESIST_SLASHING, value * 2);
+		foe.incModifier(Stats.Modifier.RESIST_ENERGY, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_FIRE, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_WATER, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_AIR, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_EARTH, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_MENTAL, value * 5);
 
 		// tireless
 		foe.incModifier(Stats.Modifier.TIRELESS_UNARMED, value);
@@ -84,7 +102,7 @@ public class HeroicDifficulty extends DifficultyLevel
 	/*-------------------------------------------------------------------------*/
 	public int getRandomEncounterChance(Tile t)
 	{
-		return t.getRandomEncounterChance()+2;
+		return t.getRandomEncounterChance() + 2;
 	}
 
 	/*-------------------------------------------------------------------------*/

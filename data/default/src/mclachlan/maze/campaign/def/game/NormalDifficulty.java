@@ -26,4 +26,27 @@ import mclachlan.maze.game.DifficultyLevel;
  */
 public class NormalDifficulty extends DifficultyLevel
 {
+	@Override
+	public boolean isDefaultSelection()
+	{
+		return true;
+	}
+
+	@Override
+	public String getDisplayName()
+	{
+		return "Adventurer Mode";
+	}
+
+	@Override
+	public String getDescription()
+	{
+		return "\"Get yer gear and let's away wi'out delay. Though the way be testing, together we'll yet prevail!\"\n~Gurney, captain of the West Wind";
+	}
+
+	@Override
+	public String getImage()
+	{
+		return "screen/normal_difficulty";
+	}
 }

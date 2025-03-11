@@ -1,5 +1,10 @@
 [
   {
+    "IMPL": "mclachlan.maze.campaign.def.game.EasyDifficultyLevel",
+    "name": "Easy",
+    "sortOrder": "0"
+  },
+  {
     "IMPL": "mclachlan.maze.campaign.def.game.HeroicDifficulty",
     "name": "Heroic",
     "sortOrder": "2"

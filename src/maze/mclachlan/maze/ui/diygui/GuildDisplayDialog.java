@@ -230,9 +230,11 @@ public class GuildDisplayDialog extends GeneralDialog
 		PlayerCharacter pc = gdWidget.getSelected();
 		if (pc != null)
 		{
-			guildCallback.transferPlayerCharacterToParty(pc, recruitPrice);
-			gdWidget.remove(pc);
-			refresh();
+			if (guildCallback.transferPlayerCharacterToParty(pc, recruitPrice))
+			{
+				gdWidget.remove(pc);
+				refresh();
+			}
 		}
 	}
 

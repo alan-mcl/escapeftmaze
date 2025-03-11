@@ -93,6 +93,7 @@ public class DifficultyLevelPanel extends EditorPanel
 	{
 		SwingEditor.instance.setDirty(SwingEditor.Tab.DIFFICULTY_LEVELS);
 		DifficultyLevel dl = new DifficultyLevel();
+		dl.setName(name);
 		Database.getInstance().getDifficultyLevels().put(name, dl);
 
 		return dl;
@@ -169,6 +170,13 @@ public class DifficultyLevelPanel extends EditorPanel
 		{
 			Class clazz = Class.forName(impl.getText());
 			DifficultyLevel dl = (DifficultyLevel)clazz.newInstance();
+
+			if (difficultyLevels.containsKey(name))
+			{
+				// carry the campaign over
+				dl.setCampaign(difficultyLevels.get(name).getCampaign());
+			}
+
 			dl.setName(name);
 			dl.setSortOrder((Integer)sortOrder.getValue());
 			difficultyLevels.put(name, dl);

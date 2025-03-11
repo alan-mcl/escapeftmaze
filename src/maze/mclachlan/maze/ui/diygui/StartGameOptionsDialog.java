@@ -79,12 +79,13 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 			DIYPane warningPane = new DIYPane(new DIYFlowLayout(0,0, DIYToolkit.Align.CENTER));
 			warningPane.setBounds(
 				x +border +inset,
-				y +border +inset +titlePaneHeight,
+				y +height -border -inset -buttonPaneHeight -titlePaneHeight,
 				width -border*2 -inset*2,
 				titlePaneHeight);
 			DIYTextArea warningLabel = new DIYTextArea(StringUtil.getUiLabel("sgo.small.party.warning"));
 			warningLabel.setForegroundColour(Color.WHITE);
 			warningLabel.setTransparent(true);
+			warningLabel.setBounds(warningPane.getBounds());
 			warningPane.add(warningLabel);
 
 			this.add(warningPane);

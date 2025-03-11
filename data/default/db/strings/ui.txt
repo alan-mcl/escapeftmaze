@@ -169,6 +169,8 @@ iw.modifiers = Modifiers:
 iw.equip.requirements = Required to equip:
 iw.use.requirements = Required to use:
 iw.cancel = Cancel
+iw.convert.to.money = Convert to party gold
+iw.convert.to.supplies = Convert to party supplies
 iw.conversion.rate.money = (will be converted to %s gold pieces)
 iw.conversion.rate.supplies  = (will be converted to %s supply units)
 

@@ -385,6 +385,15 @@ public class PlayerParty implements ActorGroup
 	}
 
 	/*-------------------------------------------------------------------------*/
+	public void removeItem(Item item)
+	{
+		for (UnifiedActor a : actors)
+		{
+			a.removeItem(item, true);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
 	/**
 	 * Grants the given amount of experience to each player character.
 	 */

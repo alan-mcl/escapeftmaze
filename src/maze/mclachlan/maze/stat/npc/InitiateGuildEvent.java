@@ -77,10 +77,15 @@ public class InitiateGuildEvent extends MazeEvent
 				}
 
 				@Override
-				public void transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice)
+				public boolean transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice)
 				{
-					Maze.getInstance().transferPlayerCharacterToParty(pc, npc);
-					Maze.getInstance().deductPartyGold(recruitPrice);
+					if (Maze.getInstance().transferPlayerCharacterToParty(pc, npc))
+					{
+						Maze.getInstance().deductPartyGold(recruitPrice);
+						return true;
+					}
+
+					return false;
 				}
 
 				@Override

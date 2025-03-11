@@ -867,6 +867,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		{
 			executeMazeScript("_INVENTORY_MUSIC_");
 		}
+		clearAllDialogs();
 		stopAllAnimations();
 		inventoryDisplay.setCharacter(partyDisplay.getSelectedCharacter());
 		this.mainLayout.show(this.inventoryScreen);

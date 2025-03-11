@@ -29,7 +29,7 @@ import mclachlan.maze.stat.Foe;
  */
 public class DifficultyLevel extends DataObject
 {
-	private String name;
+	private String name, displayName, description, image;
 	private int sortOrder;
 
 	/*-------------------------------------------------------------------------*/
@@ -54,6 +54,28 @@ public class DifficultyLevel extends DataObject
 	public void setSortOrder(int sortOrder)
 	{
 		this.sortOrder = sortOrder;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	public String getDisplayName()
+	{
+		return displayName;
+	}
+
+	public String getDescription()
+	{
+		return description;
+	}
+
+	public String getImage()
+	{
+		return image;
+	}
+
+	public boolean isDefaultSelection()
+	{
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

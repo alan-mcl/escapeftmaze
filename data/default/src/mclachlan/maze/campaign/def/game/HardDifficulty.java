@@ -29,6 +29,24 @@ import mclachlan.maze.stat.Stats;
  */
 public class HardDifficulty extends DifficultyLevel
 {
+	@Override
+	public String getDisplayName()
+	{
+		return "Dungeoneer Mode";
+	}
+
+	@Override
+	public String getDescription()
+	{
+		return "\"Many before us have failed. I do not intend to suffer the same fate. Come if you will, but do not slow me down.\"\n~Eva Wingfield, Thorn Of The Rose";
+	}
+
+	@Override
+	public String getImage()
+	{
+		return "screen/hard_difficulty";
+	}
+
 	/*-------------------------------------------------------------------------*/
 	public void foeIsSpawned(Foe foe)
 	{
@@ -44,15 +62,15 @@ public class HardDifficulty extends DifficultyLevel
 		foe.incModifier(Stats.Modifier.DEFENCE, value);
 
 		// +5 on all resistances
-		foe.incModifier(Stats.Modifier.RESIST_ENERGY, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_BLUDGEONING, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_PIERCING, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_SLASHING, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_FIRE, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_WATER, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_AIR, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_EARTH, value*5);
-		foe.incModifier(Stats.Modifier.RESIST_MENTAL, value*5);
+		foe.incModifier(Stats.Modifier.RESIST_ENERGY, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_BLUDGEONING, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_PIERCING, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_SLASHING, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_FIRE, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_WATER, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_AIR, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_EARTH, value * 5);
+		foe.incModifier(Stats.Modifier.RESIST_MENTAL, value * 5);
 	}
 
 	/*-------------------------------------------------------------------------*/

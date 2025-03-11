@@ -1481,10 +1481,15 @@ public class Maze implements Runnable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void transferPlayerCharacterToParty(PlayerCharacter pc, Foe npc)
+	public boolean transferPlayerCharacterToParty(PlayerCharacter pc, Foe npc)
 	{
-		removePlayerCharacterFromGuild(pc, npc);
-		addPlayerCharacterToParty(pc);
+		if (addPlayerCharacterToParty(pc))
+		{
+			removePlayerCharacterFromGuild(pc, npc);
+			return true;
+		}
+
+		return false;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -1524,7 +1529,7 @@ public class Maze implements Runnable
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void addPlayerCharacterToParty(PlayerCharacter pc)
+	public boolean addPlayerCharacterToParty(PlayerCharacter pc)
 	{
 		playerCharacterCache.put(pc.getName(), pc);
 		if (party == null || party.getActors().isEmpty())
@@ -1536,8 +1541,10 @@ public class Maze implements Runnable
 			party = new PlayerParty(chars, 0, 0, 1);
 			this.ui.setParty(party);
 			this.ui.characterSelected(pc);
+
+			return true;
 		}
-		else
+		else if (party.getPlayerCharacters().size() < 6)
 		{
 			party.getActors().add(pc);
 			if (party.size() <3)
@@ -1550,7 +1557,11 @@ public class Maze implements Runnable
 			}
 			this.ui.setParty(party);
 			this.ui.characterSelected(pc);
+
+			return true;
 		}
+
+		return false;
 	}
 
 	/*-------------------------------------------------------------------------*/

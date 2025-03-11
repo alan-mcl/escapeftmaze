@@ -25,7 +25,7 @@ public interface GuildCallback
 {
 	void createCharacter(int createPrice);
 
-	void transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice);
+	boolean transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice);
 
 	void removeFromParty(PlayerCharacter pc, int recruitPrice);
 }

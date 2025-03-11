@@ -325,7 +325,7 @@ public class MainMenu extends DIYPanel
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice)
+	public boolean transferPlayerCharacterToParty(PlayerCharacter pc, int recruitPrice)
 	{
 		PlayerCharacter playerCharacter = pc;
 		if (pc != null)
@@ -333,7 +333,10 @@ public class MainMenu extends DIYPanel
 			// in this case the player character has been taken from a game guild,
 			// not an NPC guild, so for consistency we clone the character
 			playerCharacter = new PlayerCharacter(pc);
-			Maze.getInstance().addPlayerCharacterToParty(playerCharacter);
+			if (!Maze.getInstance().addPlayerCharacterToParty(playerCharacter))
+			{
+				return false;
+			}
 		}
 
 		SpeechUtil.getInstance().genericSpeech(
@@ -344,6 +347,8 @@ public class MainMenu extends DIYPanel
 			null);
 
 		updateState();
+
+		return true;
 	}
 
 	/*-------------------------------------------------------------------------*/

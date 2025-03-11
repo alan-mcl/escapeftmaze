@@ -47,7 +47,7 @@ _Text in italics is not yet implemented._
 * Profit and Loss: This plot line deals with the Chamber of Commerce and it's struggle for power in Ichiba.
 * The Gentlemen's Social Club: This plot line deals with the guild of thieves and it's struggle for power in Ichiba.
 * Imogen: This plot line deals with the witch Imogen and her struggle for power both magical and political in Ichiba.
-* Disciples of Dana: This plot line deals with the Leonals in Danaos Castle and their battle against the Gnomes of Aenen.
+* Disciples of The Lady: This plot line deals with the Leonals in Danaos Castle and their battle against the Gnomes of Aenen.
 * On a Granite Throne: This plot line deals with the Gnomes in the underground city Aenen and their battle against the Leonals of Danaos.
 * _The Tale of Azael: The tale of the Maze's most legendary escapee._
 * _The Eye of Azael: A powerful artefact that surfaced a century or so ago._
