@@ -805,8 +805,11 @@ public class Maze implements Runnable
 					boolean disable_random_spawns = Boolean.valueOf(
 						Maze.getInstance().getAppConfig().get((
 							AppConfig.DISABLE_RANDOM_SPAWNS)));
+					boolean no_encounters = Boolean.valueOf(
+						Maze.getInstance().getAppConfig().get((
+							AppConfig.NO_ENCOUNTERS)));
 
-					if (!disable_random_spawns)
+					if (!(disable_random_spawns || no_encounters))
 					{
 						if (Dice.d1000.roll("Wandering monster roll") <= GameSys.getInstance().getRandomEncounterChance(t))
 						{
@@ -2427,6 +2430,7 @@ public class Maze implements Runnable
 
 		public static final String DEBUG_KNOWLEDGE_EVENTS = "mclachlan.maze.game.debug_knowledge_events";
 		public static final String DISABLE_RANDOM_SPAWNS = "mclachlan.maze.game.disable_random_spawns";
+		public static final String NO_ENCOUNTERS = "mclachlan.maze.game.no_encounters";
 		public static final String ROVING_SPRITES_MODE = "mclachlan.maze.game.roving_sprites";
 		public static final String DEFAULT_FONT = "mclachlan.maze.screen.default_font";
 		public static final String DEFAULT_FONT_SIZE = "mclachlan.maze.screen.default_font_size";

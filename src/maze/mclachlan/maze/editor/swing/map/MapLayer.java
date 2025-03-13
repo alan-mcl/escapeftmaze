@@ -19,13 +19,15 @@
 
 package mclachlan.maze.editor.swing.map;
 
-import java.util.List;
 import java.awt.*;
-import mclachlan.maze.map.Zone;
+import java.util.*;
+import java.util.List;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
-import mclachlan.crusader.EngineObject;
+import mclachlan.maze.map.Zone;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -55,7 +57,7 @@ public class MapLayer extends Layer
 
 		Map map = zone.getMap();
 		
-		if (display.displayFeatures.get(MapDisplay.Display.TILES))
+		if (display.displayFeatures.get(MapDisplay.Display.TILES) || display.displayFeatures.get(MapDisplay.Display.TILE_MASK_TEXTURES))
 		{
 			Tile[] tiles = map.getTiles();
 			for (int i = 0; i < tiles.length; i++)
@@ -64,11 +66,17 @@ public class MapLayer extends Layer
 				int row=i/width;
 				int x1 = (wallSize*(column+1))+(column*tileSize);
 				int y1 = (wallSize*(row+1))+(row*tileSize);
-			
-				g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorTexture().getImages()[0], true), x1, y1, display);
-				if (tiles[i].getFloorMaskTexture() != null)
+
+				if (display.displayFeatures.get(MapDisplay.Display.TILES))
 				{
-					g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorMaskTexture().getImages()[0], false), x1, y1, display);
+					g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorTexture().getImages()[0], true), x1, y1, display);
+				}
+				if (display.displayFeatures.get(MapDisplay.Display.TILE_MASK_TEXTURES))
+				{
+					if (tiles[i].getFloorMaskTexture() != null)
+					{
+						g2d.drawImage(display.getFloorScaledImage(tiles[i].getFloorMaskTexture().getImages()[0], false), x1, y1, display);
+					}
 				}
 			}
 		}
@@ -127,11 +135,92 @@ public class MapLayer extends Layer
 			for (EngineObject object : objects)
 			{
 				Rectangle r = display.getTileBounds(object.getTileIndex());
-				g2d.setColor(Color.GREEN);
-				g2d.fillOval(r.x+2, r.y+2, r.width-4, r.height-4);
-				g2d.setColor(Color.BLACK);
-				g2d.drawOval(r.x+2, r.y+2, r.width-4, r.height-4);
+
+				BitSet placementMask = object.getPlacementMask();
+
+				for (int j=0; j<=9; j++)
+				{
+					if (placementMask.get(j))
+					{
+						Point p = getCoords(r, j);
+
+						int radius = r.width / 5;
+						drawObject(g2d, p.x, p.y, radius, radius);
+					}
+				}
 			}
 		}
+	}
+
+	private void drawObject(Graphics2D g2d, int x, int y, int w, int h)
+	{
+		g2d.setColor(Color.GREEN);
+		g2d.fillOval(x, y, w, h);
+		g2d.setColor(Color.BLACK);
+		g2d.drawOval(x, y, w, h);
+	}
+
+	Point getCoords(Rectangle r, int placement)
+	{
+		int radius = r.width/5;
+
+		int midX = r.x +r.width/2 -radius/2;
+		int midY = r.y +r.height/2 -radius/2;
+
+		int xOffset;
+		int yOffset;
+
+		switch (placement)
+		{
+			case EngineObject.Placement.CENTER ->
+			{
+				xOffset = 0;
+				yOffset = 0;
+			}
+			case EngineObject.Placement.NORTH_WEST ->
+			{
+				xOffset = -radius*2;
+				yOffset = -radius*2;
+			}
+			case EngineObject.Placement.NORTH ->
+			{
+				xOffset = 0;
+				yOffset = -radius*2;
+			}
+			case EngineObject.Placement.NORTH_EAST ->
+			{
+				xOffset = radius*2;
+				yOffset = -radius*2;
+			}
+			case EngineObject.Placement.WEST ->
+			{
+				xOffset = -radius*2;
+				yOffset = 0;
+			}
+			case EngineObject.Placement.EAST ->
+			{
+				xOffset = radius*2;
+				yOffset = 0;
+			}
+			case EngineObject.Placement.SOUTH_WEST ->
+			{
+				xOffset = -radius*2;
+				yOffset = radius*2;
+			}
+			case EngineObject.Placement.SOUTH ->
+			{
+				xOffset = 0;
+				yOffset = radius*2;
+			}
+			case EngineObject.Placement.SOUTH_EAST ->
+			{
+				xOffset = radius*2;
+				yOffset = radius*2;
+			}
+			default ->
+				throw new MazeException("Invalid placement index: " + placement);
+		}
+
+		return new Point(midX+xOffset, midY+yOffset);
 	}
 }

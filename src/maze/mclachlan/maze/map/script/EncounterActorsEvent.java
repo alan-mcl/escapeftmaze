@@ -89,6 +89,11 @@ public class EncounterActorsEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
+		if (Boolean.valueOf(Maze.getInstance().getAppConfig().get(Maze.AppConfig.NO_ENCOUNTERS)))
+		{
+			return null;
+		}
+
 		if (this.mazeVariable != null)
 		{
 			if (MazeVariables.getBoolean(this.mazeVariable))

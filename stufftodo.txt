@@ -2,10 +2,6 @@
 STUFFTODO
 --------------------------------------------
 
-GATEHOUSE
----------
-foe weapon use
-
 ICHIBA CROSSROADS
 -----------------
 ichiba flat sky

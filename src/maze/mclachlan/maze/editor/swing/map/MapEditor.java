@@ -146,6 +146,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		JPanel displayFeatures = new JPanel(new GridLayout(15,1));
 		addDisplayFeatureCheckbox("Grid", MapDisplay.Display.GRID, displayFeatures);
 		addDisplayFeatureCheckbox("Tiles", MapDisplay.Display.TILES, displayFeatures);
+		addDisplayFeatureCheckbox("Tile Mask Textures", MapDisplay.Display.TILE_MASK_TEXTURES, displayFeatures);
 		addDisplayFeatureCheckbox("Horiz Walls", MapDisplay.Display.HORIZ_WALLS, displayFeatures);
 		addDisplayFeatureCheckbox("Vert Walls", MapDisplay.Display.VERT_WALLS, displayFeatures);
 		addDisplayFeatureCheckbox("Encounters", MapDisplay.Display.ENCOUNTERS, displayFeatures);
