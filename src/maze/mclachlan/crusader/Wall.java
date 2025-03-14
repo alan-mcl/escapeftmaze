@@ -19,6 +19,8 @@
 
 package mclachlan.crusader;
 
+import java.io.PrintWriter;
+import java.io.StringWriter;
 import java.util.*;
 
 /**
@@ -26,41 +28,57 @@ import java.util.*;
  */
 public class Wall
 {
-	/** True if this wall is visible*/
+	/**
+	 * True if this wall is visible
+	 */
 	boolean visible;
-	/** True if this wall is solid and prevent*/
+	/**
+	 * True if this wall is solid and prevent
+	 */
 	boolean solid;
-	/** height of this wall, in blocks */
+	/**
+	 * height of this wall, in blocks
+	 */
 	int height;
-	/** The textures to map onto this wall, indexed by height from ground up*/
+	/**
+	 * The textures to map onto this wall, indexed by height from ground up
+	 */
 	Texture[] textures;
-	/** Any textures to mask over this wall, indexed by height from ground up*/
+	/**
+	 * Any textures to mask over this wall, indexed by height from ground up
+	 */
 	Texture[] maskTextures;
-	/** Any script to run when the user clicks on this wall*/
+	/**
+	 * Any script to run when the user clicks on this wall
+	 */
 	MouseClickScript mouseClickScript;
-	/** Any script to run when the user clicks on the mask texture on this wall*/
+	/**
+	 * Any script to run when the user clicks on the mask texture on this wall
+	 */
 	MouseClickScript maskTextureMouseClickScript;
-	/** Any internal script run by other means */
+	/**
+	 * Any internal script run by other means
+	 */
 	MouseClickScript internalScript;
 
+	String created;
+
 	/*-------------------------------------------------------------------------*/
+
 	/**
-	 * @param textures
-	 * 	The textures to map onto this wall, indexed by height from ground up
-	 * @param maskTextures
-	 * 	Any textures to mask over this wall, indexed by height from ground up
-	 * @param visible
-	 * 	True if this wall is visible
-	 * @param solid
-	 * 	True if this wall is solid and can't be moved through
-	 * @param height
-	 * 	Height of this wall in blocks
-	 * @param mouseClickScript
-	 * 	Any script to run when the user clicks on this wall
-	 * @param maskTextureMouseClickScript
-	 * 	Any script to run when the user clicks on the mask texture on this wall
-	 * @param internalScript
-	 * 	Any internal script run by other means
+	 * @param textures                    The textures to map onto this wall,
+	 *                                    indexed by height from ground up
+	 * @param maskTextures                Any textures to mask over this wall,
+	 *                                    indexed by height from ground up
+	 * @param visible                     True if this wall is visible
+	 * @param solid                       True if this wall is solid and can't be
+	 *                                    moved through
+	 * @param height                      Height of this wall in blocks
+	 * @param mouseClickScript            Any script to run when the user clicks
+	 *                                    on this wall
+	 * @param maskTextureMouseClickScript Any script to run when the user clicks
+	 *                                    on the mask texture on this wall
+	 * @param internalScript              Any internal script run by other means
 	 */
 	public Wall(
 		Texture[] textures,
@@ -80,10 +98,17 @@ public class Wall
 		this.visible = visible;
 		this.solid = solid;
 		this.internalScript = internalScript;
+
+		StringWriter stringWriter = new StringWriter();
+		new Exception().printStackTrace(new PrintWriter(stringWriter));
+		created = stringWriter.toString();
 	}
 
 	public Wall()
 	{
+		StringWriter stringWriter = new StringWriter();
+		new Exception().printStackTrace(new PrintWriter(stringWriter));
+		created = stringWriter.toString();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -149,7 +174,8 @@ public class Wall
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void setMaskTextureMouseClickScript(MouseClickScript maskTextureMouseClickScript)
+	public void setMaskTextureMouseClickScript(
+		MouseClickScript maskTextureMouseClickScript)
 	{
 		this.maskTextureMouseClickScript = maskTextureMouseClickScript;
 	}

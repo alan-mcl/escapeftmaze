@@ -21,6 +21,7 @@ package mclachlan.crusader;
 
 import java.awt.Point;
 import java.util.*;
+import mclachlan.maze.util.MazeException;
 
 /**
  * A aggregation of walls and tiles.
@@ -132,8 +133,38 @@ public class Map
 	/*-------------------------------------------------------------------------*/
 	public void init()
 	{
+		validate();
 		initObjectsFromArray();
 		initTextures();
+	}
+
+	private void validate()
+	{
+		StringBuilder errors = new StringBuilder();
+
+		for (int i = 0; i < horizontalWalls.length; i++)
+		{
+			Wall w = horizontalWalls[i];
+			if (w.isVisible() && w.getTextures().length == 0)
+			{
+				errors.append("Invalid wall textures: horiz ").append(i).append("\n");
+//				w.setTextures(new Texture[]{Database.getInstance().getMazeTexture("WEBS_1").getTexture()});
+			}
+		}
+		for (int i = 0; i < verticalWalls.length; i++)
+		{
+			Wall w = verticalWalls[i];
+			if (w.isVisible() && w.getTextures().length == 0)
+			{
+				errors.append("Invalid wall textures: vert ").append(i).append("\n");
+//				w.setTextures(new Texture[]{Database.getInstance().getMazeTexture("WEBS_1").getTexture()});
+			}
+		}
+
+		if (errors.length() > 0)
+		{
+			throw new MazeException(errors.toString());
+		}
 	}
 
 	/*-------------------------------------------------------------------------*/

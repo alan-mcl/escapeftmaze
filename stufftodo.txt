@@ -5,6 +5,7 @@ STUFFTODO
 ICHIBA CROSSROADS
 -----------------
 ichiba flat sky
+bug: zone change flickering
 
 BACKLOG
 ----------

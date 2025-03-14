@@ -46,8 +46,8 @@ public class MultipleTileEditingPanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public void setTiles(List<Object> selected)
 	{
-		List<mclachlan.crusader.Tile> crusaderTiles = new ArrayList<Tile>();
-		List<mclachlan.maze.map.Tile> mazeTiles = new ArrayList<mclachlan.maze.map.Tile>();
+		List<mclachlan.crusader.Tile> crusaderTiles = new ArrayList<>();
+		List<mclachlan.maze.map.Tile> mazeTiles = new ArrayList<>();
 		
 		for (Object obj : selected)
 		{

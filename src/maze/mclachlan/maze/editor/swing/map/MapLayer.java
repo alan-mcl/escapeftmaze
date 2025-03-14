@@ -138,6 +138,11 @@ public class MapLayer extends Layer
 
 				BitSet placementMask = object.getPlacementMask();
 
+				if (placementMask == null)
+				{
+					placementMask = new BitSet();
+					placementMask.set(EngineObject.Placement.CENTER);
+				}
 				for (int j=0; j<=9; j++)
 				{
 					if (placementMask.get(j))

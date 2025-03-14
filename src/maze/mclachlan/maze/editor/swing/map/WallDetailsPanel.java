@@ -111,6 +111,7 @@ public class WallDetailsPanel extends JPanel
 		isVisible.removeActionListener(this);
 		isSolid.removeActionListener(this);
 		height.removeChangeListener(this);
+		texturesPanel.removeListeners();
 
 		if (index >= 0)
 		{
@@ -125,7 +126,6 @@ public class WallDetailsPanel extends JPanel
 		if (wall.isVisible())
 		{
 			setVisibleState(true);
-
 
 			MouseClickScriptAdapter m1 = ((MouseClickScriptAdapter)wall.getMouseClickScript());
 			mouseClickScript.refresh(m1 == null ? null : m1.getScript(), zone);
@@ -149,6 +149,7 @@ public class WallDetailsPanel extends JPanel
 		isVisible.addActionListener(this);
 		isSolid.addActionListener(this);
 		height.addChangeListener(this);
+		texturesPanel.addListeners();
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -344,6 +345,26 @@ public class WallDetailsPanel extends JPanel
 		}
 
 		/*-------------------------------------------------------------------------*/
+		void removeListeners()
+		{
+			for (int i = 0; i < MAX; i++)
+			{
+				textures.get(i).removeActionListener(this);
+				maskTextures.get(i).removeActionListener(this);
+			}
+		}
+
+		/*-------------------------------------------------------------------------*/
+		void addListeners()
+		{
+			for (int i = 0; i < MAX; i++)
+			{
+				textures.get(i).addActionListener(this);
+				maskTextures.get(i).addActionListener(this);
+			}
+		}
+
+		/*-------------------------------------------------------------------------*/
 		public void refresh(WallProxy wall)
 		{
 			this.wall = wall;
@@ -352,9 +373,6 @@ public class WallDetailsPanel extends JPanel
 			{
 				for (int i = 0; i < MAX; i++)
 				{
-					textures.get(i).removeActionListener(this);
-					maskTextures.get(i).removeActionListener(this);
-
 					if (wall.getTextures().length > i)
 					{
 						textures.get(i).setSelectedItem(wall.getTexture(i).getName());
@@ -372,21 +390,27 @@ public class WallDetailsPanel extends JPanel
 					{
 						maskTextures.get(i).setSelectedItem(EditorPanel.NONE);
 					}
-
-					textures.get(i).addActionListener(this);
-					maskTextures.get(i).addActionListener(this);
 				}
 			}
 		}
 
+		/*-------------------------------------------------------------------------*/
 		public void setVisibleState(boolean b)
 		{
 			for (JComboBox<String> cb : textures)
 			{
+				if (!b)
+				{
+					cb.setSelectedItem(EditorPanel.NONE);
+				}
 				cb.setEnabled(b);
 			}
 			for (JComboBox<String> cb : maskTextures)
 			{
+				if (!b)
+				{
+					cb.setSelectedItem(EditorPanel.NONE);
+				}
 				cb.setEnabled(b);
 			}
 		}

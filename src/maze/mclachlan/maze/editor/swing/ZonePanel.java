@@ -656,7 +656,7 @@ public class ZonePanel extends EditorPanel
 			for (int y = 0; y < mazeTiles[x].length; y++)
 			{
 				mazeTiles[x][y] = new mclachlan.maze.map.Tile(
-					null,
+					new ArrayList<>(),
 					Database.getInstance().getEncounterTable((String)initialEncounters.getSelectedItem()),
 					new StatModifier(),
 					(mclachlan.maze.map.Tile.TerrainType)initialTerrainType.getSelectedItem(),

@@ -31,7 +31,7 @@ import mclachlan.maze.map.Zone;
  */
 public class MultipleWallEditingPanel extends JPanel
 {
-	private WallDetailsPanel details;
+	private final WallDetailsPanel details;
 
 	/*-------------------------------------------------------------------------*/
 	public MultipleWallEditingPanel(Zone zone)
@@ -45,7 +45,7 @@ public class MultipleWallEditingPanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public void setWalls(List<Object> selected)
 	{
-		List<Wall> walls = new ArrayList<Wall>();
+		List<Wall> walls = new ArrayList<>();
 		for (Object obj : selected)
 		{
 			walls.add((Wall)obj);
