@@ -33,6 +33,12 @@ public class FlavourTextEvent extends MazeEvent
 	private String flavourText;
 	private int delay;
 	private boolean shouldClearText;
+	private Alignment alignment = Alignment.CENTER;
+
+	public enum Alignment
+	{
+		CENTER, TOP, BOTTOM
+	}
 
 	public FlavourTextEvent()
 	{
@@ -41,15 +47,21 @@ public class FlavourTextEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextEvent(String flavourText)
 	{
-		this(flavourText, Delay.WAIT_ON_CLICK, false);
+		this(flavourText, Delay.WAIT_ON_CLICK, false, Alignment.CENTER);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public FlavourTextEvent(String flavourText, int delay, boolean shouldClearText)
 	{
+		this(flavourText, delay, shouldClearText, Alignment.CENTER);
+	}
+	/*-------------------------------------------------------------------------*/
+	public FlavourTextEvent(String flavourText, int delay, boolean shouldClearText, Alignment alignment)
+	{
 		this.flavourText = flavourText;
 		this.delay = delay;
 		this.shouldClearText = shouldClearText;
+		this.alignment = alignment;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -63,7 +75,7 @@ public class FlavourTextEvent extends MazeEvent
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().journalInContext(flavourText);
-		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, flavourText));
+		Maze.getInstance().getUi().showDialog(new FlavourTextDialog(null, flavourText, alignment));
 		return null;
 	}
 
@@ -99,6 +111,17 @@ public class FlavourTextEvent extends MazeEvent
 	public void setShouldClearText(boolean shouldClearText)
 	{
 		this.shouldClearText = shouldClearText;
+	}
+
+	public Alignment getAlignment()
+	{
+		return alignment;
+	}
+
+	public void setAlignment(
+		Alignment alignment)
+	{
+		this.alignment = alignment;
 	}
 
 	@Override

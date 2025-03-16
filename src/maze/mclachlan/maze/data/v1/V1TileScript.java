@@ -443,7 +443,7 @@ public class V1TileScript
 					sb.append(strs[ii]).append(',');
 				}
 				String text = V1Utils.replaceNewlines(sb.substring(0, sb.length()-1));
-				result = new FlavourText(text);
+				result = new FlavourText(text, FlavourTextEvent.Alignment.CENTER);
 				break;
 			case PERSONALITY_SPEECH:
 				result = new PersonalitySpeech(strs[i++], Boolean.valueOf(strs[i++]));

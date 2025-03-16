@@ -561,7 +561,7 @@ public class V1MazeEvent
 					sb.append(strs[i]).append(',');
 				}
 				String text = V1Utils.replaceNewlines(sb.substring(0, sb.length()-1));
-				return new FlavourTextEvent(text, delay, shouldClearTest);
+				return new FlavourTextEvent(text, delay, shouldClearTest, FlavourTextEvent.Alignment.CENTER); // todo
 			case _GrantExperienceEvent:
 				int amount = Integer.parseInt(strs[1]);
 				return new GrantExperienceEvent(amount, null);

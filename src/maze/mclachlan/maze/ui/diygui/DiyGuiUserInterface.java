@@ -68,7 +68,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	public static int SCREEN_EDGE_INSET;
 	public static int MAZE_WIDTH;
 	public static int MAZE_HEIGHT;
-	public static Rectangle LOW_BOUNDS;
+	public static Rectangle LOW_BOUNDS, MAZE_WINDOW_BOUNDS;
 
 	private static int PC_WIDTH;
 
@@ -1036,6 +1036,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				MAZE_WIDTH,
 				MAZE_HEIGHT),
 			raycaster);
+
+		MAZE_WINDOW_BOUNDS = new Rectangle(mazeWidget.getBounds());
 
 		// intentionally sized over the insets here, to emphasise the widget
 		LOW_BOUNDS = new Rectangle(

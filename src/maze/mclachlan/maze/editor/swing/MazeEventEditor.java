@@ -83,6 +83,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	private JComboBox encounterPreScript, encounterPostAppearanceScript;
 	private JSpinner flavourTextDelay;
 	private JCheckBox shouldClearText;
+	private JComboBox alignment;
 	private JTextArea flavourText;
 	private JSpinner xpAmount;
 	private JSpinner goldAmount;
@@ -236,6 +237,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				flavourText.setText(fte.getFlavourText());
 				flavourTextDelay.setValue(fte.getDelay());
 				shouldClearText.setSelected(fte.shouldClearText());
+				alignment.setSelectedItem(fte.getAlignment());
 				break;
 			case _GrantExperienceEvent:
 				GrantExperienceEvent gee = (GrantExperienceEvent)e;
@@ -477,7 +479,8 @@ public class MazeEventEditor extends JDialog implements ActionListener
 				this.result = new FlavourTextEvent(
 					flavourText.getText(),
 					(Integer)flavourTextDelay.getValue(),
-					shouldClearText.isSelected());
+					shouldClearText.isSelected(),
+					(FlavourTextEvent.Alignment)alignment.getSelectedItem());
 				break;
 			case _GrantExperienceEvent:
 				this.result = new GrantExperienceEvent(
@@ -1117,6 +1120,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	{
 		flavourTextDelay = new JSpinner(new SpinnerNumberModel(-1, -1, 99999, 1));
 		shouldClearText = new JCheckBox("Clear Text?");
+		alignment = new JComboBox(FlavourTextEvent.Alignment.values());
 		flavourText = new JTextArea();
 		flavourText.setWrapStyleWord(true);
 		flavourText.setLineWrap(true);
@@ -1126,6 +1130,7 @@ public class MazeEventEditor extends JDialog implements ActionListener
 		JPanel result = new JPanel();
 		dirtyGridLayoutCrap(
 			result,
+			new JLabel("Alignment: "), alignment,
 			new JLabel("Delay: "), flavourTextDelay,
 			shouldClearText, null,
 			new JLabel("Flavour Text: "), new JScrollPane(flavourText));

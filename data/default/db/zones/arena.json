@@ -2246,7 +2246,29 @@
         "restingEfficiency": "AVERAGE"
       },
       {
-        "scripts": [],
+        "scripts": [
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "text": "FLAVOUR TEXT TOP\nHELLO",
+            "alignment": "TOP"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "text": "FLAVA TEXT CENTER\nWORLD",
+            "alignment": "CENTER"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "text": "FLAVAR TEXXT BOTTOM\nYEAH",
+            "alignment": "BOTTOM"
+          }
+        ],
         "randomEncounters": "TestingTable",
         "statModifier": "3f800000000000000000,07080807070708",
         "terrainType": "URBAN",
@@ -4234,6 +4256,7 @@
       {
         "ceilingTexture": "TRANSPARENT",
         "floorTexture": "CITY_FLOOR_1",
+        "floorMaskTexture": "BLOOD_SPLAT_1",
         "northWallTexture": "No_WAll",
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",

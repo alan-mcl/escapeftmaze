@@ -77,8 +77,9 @@ public class SummoningSucceedsEvent extends MazeEvent
 				StringUtil.getEventText("msg.summoning.multiple") :
 				StringUtil.getEventText("msg.summoning.single");
 			result.append(StringUtil.getEventText("msg.summoning.succeeds", size, name, verb))
-				.append("\n");
+				.append(", ");
 		}
-		return result.toString();
+
+		return result.substring(0, result.length()-2);
 	}
 }

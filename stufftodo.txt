@@ -4,6 +4,7 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
+hotkey multi-input issue on text field
 ichiba flat sky
 bug: zone change flickering
 

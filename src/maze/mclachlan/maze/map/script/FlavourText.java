@@ -31,22 +31,24 @@ import mclachlan.maze.map.TileScript;
 public class FlavourText extends TileScript
 {
 	private String text;
+	private FlavourTextEvent.Alignment alignment;
 
 	public FlavourText()
 	{
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public FlavourText(String text)
+	public FlavourText(String text, FlavourTextEvent.Alignment alignment)
 	{
 		this.text = text;
+		this.alignment = alignment;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> execute(Maze maze, Point tile, Point previousTile, int facing)
 	{
 		List<MazeEvent> result = new ArrayList<>();
-		result.add(new FlavourTextEvent(text, MazeEvent.Delay.WAIT_ON_CLICK, true));
+		result.add(new FlavourTextEvent(text, MazeEvent.Delay.WAIT_ON_CLICK, true, alignment));
 		return result;
 	}
 
@@ -59,6 +61,17 @@ public class FlavourText extends TileScript
 	public void setText(String text)
 	{
 		this.text = text;
+	}
+
+	public FlavourTextEvent.Alignment getAlignment()
+	{
+		return alignment;
+	}
+
+	public void setAlignment(
+		FlavourTextEvent.Alignment alignment)
+	{
+		this.alignment = alignment;
 	}
 
 	/*-------------------------------------------------------------------------*/

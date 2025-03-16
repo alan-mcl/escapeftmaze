@@ -29,6 +29,7 @@ import mclachlan.diygui.toolkit.ActionEvent;
 import mclachlan.diygui.toolkit.ActionListener;
 import mclachlan.diygui.toolkit.DIYToolkit;
 import mclachlan.maze.game.Maze;
+import mclachlan.maze.map.script.FlavourTextEvent;
 
 public class FlavourTextDialog extends GeneralDialog implements ActionListener
 {
@@ -37,7 +38,10 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 	private static final int DIALOG_WIDTH = DiyGuiUserInterface.SCREEN_WIDTH/3;
 
 	/*-------------------------------------------------------------------------*/
-	public FlavourTextDialog(String title, String text)
+	public FlavourTextDialog(
+		String title,
+		String text,
+		FlavourTextEvent.Alignment alignment)
 	{
 		super.setStyle(Style.PANEL_MED);
 
@@ -50,8 +54,18 @@ public class FlavourTextDialog extends GeneralDialog implements ActionListener
 
 		int dialogHeight = (int)(lines.size() * (DIYToolkit.getDimension("|").getHeight())) + getBorder() *2;
 
+		if (alignment == null)
+		{
+			alignment = FlavourTextEvent.Alignment.CENTER;
+		}
+
 		int startX = DiyGuiUserInterface.SCREEN_WIDTH/2 - DIALOG_WIDTH/2;
-		int startY = DiyGuiUserInterface.SCREEN_HEIGHT/2 - dialogHeight/2;
+		int startY = switch (alignment)
+			{
+				case TOP -> DiyGuiUserInterface.SCREEN_HEIGHT/2 - DiyGuiUserInterface.MAZE_HEIGHT/2;
+				case CENTER -> DiyGuiUserInterface.SCREEN_HEIGHT / 2 - dialogHeight/2;
+				case BOTTOM -> DiyGuiUserInterface.MAZE_WINDOW_BOUNDS.y + DiyGuiUserInterface.MAZE_HEIGHT -DiyGuiUserInterface.SCREEN_EDGE_INSET -dialogHeight;
+			};
 
 		this.setBounds(startX, startY, DIALOG_WIDTH, dialogHeight);
 

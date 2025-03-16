@@ -87,7 +87,8 @@ public class CharacterClassKnowledgeEvent extends MazeEvent
 				result.add(new FlavourTextEvent(
 					characterClass+":\n\n"+ knowledgeText.get(characterClass),
 					FlavourTextEvent.Delay.WAIT_ON_CLICK,
-					true));
+					true,
+					FlavourTextEvent.Alignment.CENTER));
 			}
 		}
 		

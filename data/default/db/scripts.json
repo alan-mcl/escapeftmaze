@@ -55,13 +55,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You are in a dusty pillar-lined courtyard, surrounded by buildings in varying states of ruin. A sullen overcast sky hangs low overhead, and a cold wind moans fitully through the devastation.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "It seems pretty clear to you that this city has been deserted by it\u0027s inhabitants...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -133,7 +135,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "With a loud *SPLAT* you hear something large and slimy drop to the ground behind you!",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.game.event.MovePartyEvent",
@@ -195,7 +198,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You give the lever a hard yank.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -264,7 +268,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You enter a mighty feasting hall, high roofed and heavy gabled. A dark wooden table stands down the center, its length flanked with high backed chairs. Flaming torches in alcoves line the walls, driving back the darkness.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -315,13 +320,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "A cool, fresh breeze washes over you, welcome after the dank and stuffy caves. You gratefully suck in the sweet smelling air and examine your surroundings.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You appear to be on a green island in the middle of a large lake. Tendrils of mist drift across the calm, cool water, and the grass beneath your feet is soft and green.\n\nYou are tempted to tarry here a while, in this peaceful sanctuary. But at the back of your mind, you can\u0027t help wondering what terrors lurk in this seeming paradise...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -370,7 +377,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The hall receeds into darkness. Flickering torches shed little light and less heat. The cold inside the castle momentarily makes you gasp. The temperature is well below freezing, to be sure. But something else about this place makes your gut clench and chills you to the bone, something unnatural and terrifying that seems to be flickering just at the edge of your vision and the back of your mind.\n\nYou wonder if exploring here is such a good idea...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -416,7 +424,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "A moldy pile of bones lies here, overgrown with moss and fungus.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -450,7 +459,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Stepping through the door you find clouds of insects hovering near putrid pools of shallow water.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
@@ -460,13 +470,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "In unnerving unison, the swarms rise from the pools and attack you!",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -504,7 +516,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -615,13 +628,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You appear in the domain several feet above the ground, and drop in an undignified heap on a bare, crusty surface.\n\nPicking yourself up, you are confronted by an alien and inhospitable landscape. A small orange sun looks apologetically down from a blood red sky on a parched white desert. Mysterious pillars and rocky outcroppings dot the landscape as far as you can see. A hot dry breeze stirs your clothing as it drifts steadily from the north.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The desert surface crunches beneath your boots, and on impulse you stoop and taste a few grains... salt.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -681,7 +696,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The cave smells musty and dry, and is heaped with bones of all descriptions. It appears deserted at first glance...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -731,7 +747,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Your first impression is wind. Howling wind fills your eyes and ears, and you are nearly knocked from your feet by swirling blasts. You steady yourself and look around. This seems to be a windswept mountain top. Jagged rocks are piled around you, and white clouds race overhead in a dark blue sky. The air is thin, cold, and cruel.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -752,7 +769,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -783,7 +801,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You wade into the dark pool...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.game.event.ZoneChangeEvent",
@@ -855,7 +874,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Over the doorway there is etched a striking ikon of crossed spears before a round shield.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -889,7 +909,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Here lie the remains of some unfortunate traveller - a humanoid of small stature, perhaps a child or a dwarf. Grass and weeds grow tall around the remains.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -941,13 +962,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You appear in a lush jungle, an amazing profusion of growth surrounds you and vegetation smells fill your nostrils. The air is warm and humid. Giant trees tower far overhead, their trunks vanishing into the greenish gloom beneath their mighty canopies. Vines and creepers hang low overhead.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The place is oddly quiet... few of the animal sounds that you would expect in a place like this are to be heard...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -963,7 +986,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The dry bones of some long dead traveller lie here, huddled in this dark and dusty corner.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -1050,13 +1074,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You enter the dank chamber.  Small clumps of fungi give off a sickly radiance, and moving amongst the stalks are a number of large spiders.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The arachnids pause and regard you in silence for a moment.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
@@ -1066,13 +1092,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "As one the spiders scuttle towards you, an uncanny malice glittering in their dark eyes.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -1117,19 +1145,22 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Ichiba City is... dirty, busy and drab. Muddy cobbled streets wind between nondescript mud brick structures, and a dusty haze mingled with the spicy smoke of a thousand kitchens and hearths hangs over all.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The inhabitants hurry about their business, many casting you curious glances but none approaching. Most are armed and more than a few walk past you with narrowed eyes and one hand on their weapons. Unsavoury huddles in dark alleys barely bother to look inconspicuous to you, only ducking out of sight as occasional armoured patrolmen pass nearby.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You espy many Humans and Goblins amongst them, as well as several representatives that you don\u0027t recognise. Hunchbacked dog men slink around in small groups, mingling with what are either large ruddy faced gnomes or strikingly unfetching human children. Here and there, a tall solitary lion-headed figure in gleaming armour strides through the crowds, sneering at the grubby street children and you alike.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -1191,13 +1222,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "On a hunch, you uncork the bottle and pour the noxious liquid out at the base of the pillar.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\nThe evil smelling stuff is absorbed between the cracks in the paving with haste that is almost unseemly.\nYou are left holding an empty bottle and wondering if you have achieved anything...",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
@@ -1275,7 +1308,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Standing in the middle of the chamber is a stone statue of a chunky humanoid figure.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -1290,13 +1324,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Suddenly you feel a familiar sense of dissonance... the feeling of the Maze moving against you!",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The eyes of the stone construct flare to life and it lumbers towards you...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
@@ -1315,25 +1351,29 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The signboard has several paper posters bearing sketched portraits nailed to it.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\"For Theft, Murder, Arson, Banditry, Treason, Kidnapping, Burglary, Smuggling, Receiving Stolen Goods and Assault with Deadly Intent, \u0027SIR\u0027 KAY. Reward 15000\"\n\nThe portrait shows a nondescript human male, beardless with short curly hair, age indeterminate.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\"For Murder, Kidnapping, Banditry, Rape, Assault With Deadly Intent, VIRGILIO PATRICO. Reward 9000\"\n\nThe portrait shows a sneering human male with sharp features and long dark hair.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\"For Theft, Arson, Banditry, Burglary, Smuggling, Receiving Stolen Goods, Forgery, and Illegal Brewing And Distilling, EMMONS \u0027THE HAND\u0027. Reward 10500\"\n\nThe portrait shows a sly looking goblin male with tattered ears and a prominant scar on his left cheek.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -1344,13 +1384,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Smells of leather and sweat reach your nostrils. The clink of armour and weapons, bootsteps and gruff leonal voices echo down the stone corridors of Danaos Castle.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Patrols are visible moving around the passages, and the whole structure gives you the impression bustle and confidence, and an underlying a martial edginess. This would be a bad place for an enemy of the White Order to find themselves...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -1366,7 +1408,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": " You step through the door...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -1492,7 +1535,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -1539,25 +1583,29 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The vaulted roof of the chamber is lost in darkness above you. Stone pillars stand in seemingly random order near the walls, and still pools of water betray no hint of their depth.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You pause for a moment. From somewhere within the room comes the sound of water slowly dripping.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\nSuddenly, your eyes register a blur of motion. With speed that takes your breath away a deadly looking insectoid figure appears before you. Behind it, the still waters are disturbed as black garbed warriors spring from the pools, discarding breathing tubes.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\nThe mantis pauses for a moment and flexes it\u0027s limbs with fearsome purpose, then flashes towards you in attack.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -1596,7 +1644,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -1680,7 +1729,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels slightly warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -1761,7 +1811,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The eels scatter into the depths and vanish.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -1793,7 +1844,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -1817,7 +1869,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The chest is filled with trinket and junk - bent needles, old gnawed bones, bunches of twigs, discarded shoes and so on.\n\nYou find only one thing remotely interesting.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -1877,7 +1930,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You appear in a gloomy marsh. Small buzzing insects rise from pools of fetid water, and the air is hot and humid. The stench of rotting vegetation is pervasive.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -1908,7 +1962,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Poking through the pile of moldy bones, you discover several items of interest...",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -1973,7 +2028,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Incongruous in the midst of these idyllic surroundings, a ladder and chute lead down into the earth. Approaching it, you peer into the shaft hoping to divine where it leads, but to no avail. Darkness is all you can see, darkness and menace.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -2009,7 +2065,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": " You step through the door...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2134,13 +2191,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Looming out of the jungle before you is an imposing gateway of brick and clay. The path beneath your feet is well trodden, and from within you sense the sounds and stenches of a busy town.\n",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The ancient gates lie open and unguarded, and the settlement beyond is clearly inhabited. You wonder what kind of beings, friend or foe, you will find dwelling here, just within the Second Realm.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -2151,7 +2210,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2198,7 +2258,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You strike the hollow brass pillar hard with a nearby rock.\n\nA loud CLANG echoes through the caves...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.EncounterActorsEvent",
@@ -2225,7 +2286,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Searching the wall, one of the stones shifts inwards at your touch!",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -2296,7 +2358,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Rummaging in the bottom of the barrel you find a stash of hardtack, still neatly wrapped cloth and stamped \"HAIL SUPPLY CO\".\n\nThe biscuits are very stale but still edible.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -2397,7 +2460,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "A loud clanking and grinding fills the dungeon.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.game.event.TogglePortalStateEvent",
@@ -2426,7 +2490,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step purposefully into the vivid portal...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2450,7 +2515,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step purposefully into the vivid portal...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2474,7 +2540,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step purposefully into the vivid portal...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2498,7 +2565,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Quelling any misgivings about disturbing the remains, you decide to have a closer look.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -2509,7 +2577,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Any clothing has long since rotted to pieces, but you do find two durable items.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -2624,7 +2693,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "In this part of the clearing you find a twisted, burnt stump of an old tree, long hacked down. The ground around is charred and blackened. Despite the jungle warmth you feel a strange chill on your skin...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -2640,7 +2710,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You harvest the mushrooms. The smell pretty tasty.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.RemoveObjectEvent",
@@ -2782,7 +2853,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -2805,19 +2877,22 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You cup the mysterious seeds in your hand...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\nWarmth grows slowly in your closed palm, and the sounds of the bustling city behind you fade into silence... with a start you realise that time has frozen around you. You stare in surprise at the dust particles suspended in mid air before you...",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "... when suddenly, you feel the familiar wrenching pull of  planar travel!",
         "delay": "1000",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2841,7 +2916,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "A small stone shrine stands at the side of the road, weathered and moss covered. Crude animal figures have been inscribed, along with a few lines of text in an unfamiliar script...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -2852,7 +2928,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The text reads:\n\nHail to ye traveller from afar. Fortunate is he who fashions his own fortune. I, Badr al-Din Hasan, erected this shrine to the glory of Garret in gratitude and fulfilment of my oath on reaching the Second Realm and in preparation for my attempt to escape to the Third. Freedom or death.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -2898,7 +2975,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -2966,13 +3044,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You survey the blasted and inhospitable landscape.\n\nShattered and tumbled rocks cover the ground and are piled up in impassable heaps around the level space that you are in. Tattered grey clouds race across an empty sky, driven by a freezing wind that moans relentlessly from the west. You shudder and draw your clothing closer around you.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "To your right looms an evil looking castle, rough cut stone walls and battlements menacing the stormy sky, dark window slits peering vacantly at you like the eyes of a skull. Human skeletons litter the stony ground around it.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -2995,13 +3075,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You appear in a warm and pleasant seeming forest domain. Puffy white clouds dot a pale blue sky, and the gentle breeze fanning your cheeks reminds you of your life in the First Realm and, perhaps, some earlier childhood memory.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Chimney smoke rises in lazy columns over a small hamlet in the forest clearing before you. Looming over the dwellings you see the dark stone ramparts of a powerful looking castle to the west, overlooking the friendly scene with brooding sternness. White pennants with no visible marking flutter from it\u0027s spired.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -3017,7 +3099,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Your eyes are drawn to a bright gold ring on the finger of the skeleton.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -3032,7 +3115,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "There is some sort of village in the clearing ahead. Crude stone huts have been built in a circle, smoke curling upwards from their hearths.\n\nA large number of dog-like gnolls lounge around, drinking from rough clay mugs and enjoying the sun while conversing in low growls. They eye you warily, but make no move to approach.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -3048,7 +3132,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Groping around the stump, you feel a sudden pain in your hand!",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.CastSpellEvent",
@@ -3060,7 +3145,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "\nThe small bright green snake that bit you slithers rapidly away into the undergrowth! You curse and attend to the wound.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -3104,13 +3190,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Dark gnarled trees crowd you from all sides, their presence somehow malevolent. Clumps of malignant fungi sprout from the mouldy forest floor. Smells of rot and decay fill your nostrils, reminding you of your own mortality.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The ominous silence of the Stygios Forest makes the hair on the back of your neck rise. Your skin tingles with danger and you hold your breath as your ears strain to detect movement in your surroundings, but the forest is quiet. Dead quiet.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -3145,7 +3233,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Above you a fixture on the ceiling gives off some kind of soft magical light.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -3156,7 +3245,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You appear in a low corridor. The walls are pale brick, and the floor is worn cobbles. Nothing unusual presents itself...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -3172,7 +3262,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You\u0027re not fast enough.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.game.event.MazeScriptEvent",
@@ -3187,13 +3278,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You step into the shadowy halls of Aenen. Your footsteps echo from the tall vaulted ceilings and sturdy stone walls, many of which have been carven with strange mechanical looking reliefs. Here and there tar torches crackle and flicker, and in many places strange luminous globes on the ceiling provide light. Despite the gloom, the air smells surprisingly fresh and wholesome.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Gnomes can be seen all around, hurrying here and there in small groups, many carrying metallic objects that you do not recognise. A quiet buzz of movement and conversation fills the passages. You draw some curious glances but nobody approaches you.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -3256,7 +3349,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You leave the eels swimming in peace.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
@@ -3328,7 +3422,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You decide to leave well enough alone.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.SetMazeVariableEvent",
@@ -3386,7 +3481,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": " You tear off one of the small paper slips...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -3430,7 +3526,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "With a flurry of wings, you are suddenly assaulted from above!",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -3470,13 +3567,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -3522,13 +3621,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You blink your eyes from the sudden brightness as you step out from the jungle darkness and into a clearing that has been hacked out of the surrounding vegetation. The remains of some jagged stumps lie scattered around, a reminder to the surrounding jungle of the axes that felled them.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Your eyes adjusted to the light, you see that at the center of the clearing stands a fortified structure of some kind, and ringing the clearing are a number of guard towers. From the battlements, you see diminutive figures armed with bows and spears watching you closely.\n\nSuddenly the open ground of the clearing feels very exposed...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -3582,7 +3683,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": " You step through the door...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -3618,7 +3720,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The room smells musty and sports a ratty assortment of old faded furniture that clearly hasn\u0027t been used in a while.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -3679,7 +3782,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -3703,13 +3807,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You reach your arm deep into the cold, dark water...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Feeling along the bottom, your questing fingers brush a small cloth sack. Retrieving it you find some interesting contents.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -3751,7 +3857,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The pillar feels warm beneath your hand...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -3805,13 +3912,15 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You find a small, fierce looking creature rooting and scratching in the barrels in this room.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "true",
+        "alignment": "TOP"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "It freezes and meets your eyes. For a moment you have a frission of hope that the situation might be resolved non-violently ... but then the creature\u0027s eyes blaze with fury and it moves to attack!",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "true",
+        "alignment": "TOP"
       }
     ]
   },
@@ -3914,7 +4023,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "These remains are so ancient and desiccated as to be hardly recognisable. You find nothing.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -4008,7 +4118,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Luminous toadstools grow around this small carven stone shrine, which is covered in moss and lichen. Peering closer at the carvings, you make out the form of some squat, malignant godling hunched over a pile of bones.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -4059,7 +4170,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": " You step through the door...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -4107,7 +4219,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "As you reach for the handle, something about this door makes you hesitate for a second...",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -4123,7 +4236,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Gathering your courage, you step into the Great Gate...",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
@@ -4156,7 +4270,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "An old coffer lies here, partly buried in dirt and mould.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },
@@ -4293,19 +4408,22 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird\u0027s shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin?\n\nOf more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -4413,7 +4531,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "The small chamber is dominated by a shimmering golden portal encased in a stone arch that is inlaid with golden and silver vines across its regal frame.",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -4543,7 +4662,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "Emerging from the ground is a bizarre metal contraption of poles and shiny panels.\n\nSome kind of sculpture perhaps?",
         "delay": "-1",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.PersonalitySpeechBubbleEvent",
@@ -4664,7 +4784,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "With blinding speed you grab a wriggling eel and haul it out of the water!\n\nThe other eels scatter into the depths.",
         "delay": "-1",
-        "shouldClearText": "false"
+        "shouldClearText": "false",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
@@ -4797,7 +4918,8 @@
         "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
         "flavourText": "You pass through the archway...",
         "delay": "1500",
-        "shouldClearText": "true"
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       },
       {
         "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",

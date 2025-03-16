@@ -137,6 +137,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 	private JComboBox encounterPreScript, encounterPostAppearanceScript;
 	private JButton encounterQuickAssignMazeVar;
 	private JTextArea flavourText;
+	private JComboBox flavourTextAlignment;
 	private JComboBox lootTable;
 
 	private JTextField removeWallMazeVariable;
@@ -398,6 +399,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 				FlavourText ft = (FlavourText)ts;
 				flavourText.setText(ft.getText());
 				flavourText.setCaretPosition(0);
+				flavourTextAlignment.setSelectedItem(ft.getAlignment());
 				break;
 			case PERSONALITY_SPEECH:
 				PersonalitySpeech ps = (PersonalitySpeech)ts;
@@ -781,11 +783,15 @@ public class TileScriptEditor extends JDialog implements ActionListener
 
 	private JPanel getFlavourTextPanel()
 	{
+		flavourTextAlignment = new JComboBox(FlavourTextEvent.Alignment.values());
+
 		flavourText = new JTextArea(20, 30);
 		flavourText.setLineWrap(true);
 		flavourText.setWrapStyleWord(true);
 
-		return dirtyGridBagCrap(new JScrollPane(flavourText), new JLabel());
+		return dirtyGridBagCrap(
+			new JLabel("Alignment:"), flavourTextAlignment,
+			new JScrollPane(flavourText), new JLabel());
 	}
 
 	private JPanel getEncounterPanel()
@@ -1439,7 +1445,7 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					encPostAppearanceScript);
 				break;
 			case FLAVOUR_TEXT:
-				result = new FlavourText(flavourText.getText());
+				result = new FlavourText(flavourText.getText(), (FlavourTextEvent.Alignment)flavourTextAlignment.getSelectedItem());
 				break;
 			case PERSONALITY_SPEECH:
 				result = new PersonalitySpeech(psSpeechKey.getText(), psModal.isSelected());

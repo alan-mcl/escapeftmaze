@@ -30,6 +30,7 @@ import mclachlan.maze.data.v1.V1TileScript;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.map.script.FlavourText;
+import mclachlan.maze.map.script.FlavourTextEvent;
 
 /**
  *
@@ -165,7 +166,7 @@ public class MultipleTileScriptComponent extends JButton implements ActionListen
 
 			if (e.getSource() == add)
 			{
-				TileScript script = new FlavourText("");
+				TileScript script = new FlavourText("", FlavourTextEvent.Alignment.CENTER);
 				TileScriptEditor dialog = new TileScriptEditor(SwingEditor.instance, script, dirtyFlag, zone);
 				if (dialog.getResult() != null)
 				{

@@ -432,7 +432,7 @@ public class V2SerialiserFactory
 		map.put(CastSpellEvent.class, getReflectiveSerialiser(CastSpellEvent.class, "spellName", "casterLevel", "castingLevel"));
 		map.put(EncounterActorsEvent.class, getReflectiveSerialiser(EncounterActorsEvent.class,
 			"mazeVariable", "encounterTable", "attitude", "ambushStatus", "preScript", "postAppearanceScript"));
-		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "delay", "shouldClearText"));
+		map.put(FlavourTextEvent.class, getReflectiveSerialiser(FlavourTextEvent.class, "flavourText", "delay", "shouldClearText", "alignment"));
 		map.put(GrantExperienceEvent.class, getReflectiveSerialiser(GrantExperienceEvent.class, "amount", "pc"));
 		map.put(GrantGoldEvent.class, getReflectiveSerialiser(GrantGoldEvent.class, "amount"));
 		map.put(SignBoardEvent.class, getReflectiveSerialiser(SignBoardEvent.class, "signBoardText"));
@@ -708,7 +708,7 @@ public class V2SerialiserFactory
 		map.put(Encounter.class, encounterSerialiser);
 
 		map.put(FlavourText.class, getReflectiveSerialiser(FlavourText.class,
-			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "text"));
+			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "text", "alignment"));
 
 		map.put(PersonalitySpeech.class, getReflectiveSerialiser(PersonalitySpeech.class,
 			"executeOnceMazeVariable", "facings", "reexecuteOnSameTile", "scoutSecretDifficulty", "speechKey", "modal"));
