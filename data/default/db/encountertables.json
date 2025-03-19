@@ -990,6 +990,19 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.omnifid.1",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "lurching.omnifid.small"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "orngog",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1073,6 +1086,19 @@
         "haunts.small"
       ],
       "SHOULD_SUM_TO_100": "false"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.toothy.velox.1",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "toothy.velox.small.pack"
+      ],
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1241,6 +1267,19 @@
         "lurching.omnifid.small"
       ],
       "SHOULD_SUM_TO_100": "false"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "ichiba.crossroad.dun.draco.1",
+    "encounterTable": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        "dun.draco.small.pack"
+      ],
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1515,7 +1554,7 @@
       "ITEMS": [
         "call.plants.spell.3"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1739,7 +1778,7 @@
       "ITEMS": [
         "imogen.allies.on.call"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1878,7 +1917,7 @@
       "ITEMS": [
         "hunting.mantis.2"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2039,7 +2078,7 @@
         "emerald.spiders.small",
         "dog.soldiers.small"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -2346,7 +2385,7 @@
       "ITEMS": [
         "call.wyrms.spell.2"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {

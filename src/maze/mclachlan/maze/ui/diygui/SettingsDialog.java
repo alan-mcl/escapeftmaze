@@ -236,6 +236,7 @@ public class SettingsDialog extends GeneralDialog implements ActionListener
 
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
+			e.consume();
 			exit();
 		}
 	}

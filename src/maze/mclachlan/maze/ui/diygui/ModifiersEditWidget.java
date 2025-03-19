@@ -370,37 +370,46 @@ public class ModifiersEditWidget extends ContainerWidget
 		int pc = pointerColumn;
 		EditWidget w;
 
-		switch(e.getKeyCode())
+		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_UP:
+			case KeyEvent.VK_UP ->
+			{
+				e.consume();
 				if (pr > 1)
 					pr--;
-				break;
-			case KeyEvent.VK_DOWN:
+			}
+			case KeyEvent.VK_DOWN ->
+			{
+				e.consume();
 				if (pr < 10)
 					pr++;
-				break;
-			case KeyEvent.VK_LEFT:
+			}
+			case KeyEvent.VK_LEFT ->
+			{
+				e.consume();
 				if (pc > 0)
 					pc--;
-				break;
-			case KeyEvent.VK_RIGHT:
+			}
+			case KeyEvent.VK_RIGHT ->
+			{
+				e.consume();
 				if (pc < 2)
 					pc++;
-				break;
-			case KeyEvent.VK_PLUS:
-			case KeyEvent.VK_ADD:
-			case KeyEvent.VK_EQUALS:
+			}
+			case KeyEvent.VK_PLUS, KeyEvent.VK_ADD, KeyEvent.VK_EQUALS ->
+			{
+				e.consume();
 				w = this.editLabelMap.get(modifierPointer);
 				if (w.plus.isEnabled())
 					w.plus();
-				break;
-			case KeyEvent.VK_SUBTRACT:
-			case KeyEvent.VK_MINUS:
+			}
+			case KeyEvent.VK_SUBTRACT, KeyEvent.VK_MINUS ->
+			{
+				e.consume();
 				w = this.editLabelMap.get(modifierPointer);
 				if (w.minus.isEnabled())
 					w.minus();
-				break;
+			}
 		}
 
 		if (layout[pr][pc] instanceof Stats.Modifier)

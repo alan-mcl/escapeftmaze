@@ -101,12 +101,12 @@ public class FormationDialog extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> canceled();
-			case KeyEvent.VK_ENTER -> finished();
-			case KeyEvent.VK_U -> moveUp();
-			case KeyEvent.VK_D -> moveDown();
-			case KeyEvent.VK_UP -> formationWidget.moveSelectionUp();
-			case KeyEvent.VK_DOWN -> formationWidget.moveSelectionDown();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); canceled(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); finished(); }
+			case KeyEvent.VK_U -> { e.consume(); moveUp(); }
+			case KeyEvent.VK_D -> { e.consume(); moveDown(); }
+			case KeyEvent.VK_UP -> { e.consume(); formationWidget.moveSelectionUp(); }
+			case KeyEvent.VK_DOWN -> { e.consume(); formationWidget.moveSelectionDown(); }
 		}
 	}
 

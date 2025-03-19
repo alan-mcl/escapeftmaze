@@ -124,9 +124,9 @@ public class TheftDialog extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> exit();
-			case KeyEvent.VK_ENTER, KeyEvent.VK_S -> steal();
-			case KeyEvent.VK_G -> grabAndAttack();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
+			case KeyEvent.VK_ENTER, KeyEvent.VK_S -> { e.consume(); steal(); }
+			case KeyEvent.VK_G -> { e.consume(); grabAndAttack(); }
 			default -> itemWidget.processKeyPressed(e);
 		}
 	}

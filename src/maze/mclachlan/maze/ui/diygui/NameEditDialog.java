@@ -90,8 +90,8 @@ public class NameEditDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> exit();
-			case KeyEvent.VK_ENTER -> setName();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); setName(); }
 			default -> text.processKeyPressed(e);
 		}
 	}

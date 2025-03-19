@@ -422,12 +422,12 @@ public class PartyOptionsAndTextWidget extends DIYPanel
 	{
 		switch (keyCode)
 		{
-			case KeyEvent.VK_Q -> quit();
-			case KeyEvent.VK_D -> saveOrLoad();
-			case KeyEvent.VK_G -> showSettingsDialog();
-			case KeyEvent.VK_J -> showJournal();
-			case KeyEvent.VK_M, KeyEvent.VK_TAB -> showMap();
-			case KeyEvent.VK_V -> viewLog();
+			case KeyEvent.VK_Q -> { if (quit.isEnabled()) quit(); }
+			case KeyEvent.VK_D -> { if (saveload.isEnabled()) saveOrLoad(); }
+			case KeyEvent.VK_G -> { if (settings.isEnabled()) showSettingsDialog(); }
+			case KeyEvent.VK_J -> { if (journal.isEnabled()) showJournal(); }
+			case KeyEvent.VK_M, KeyEvent.VK_TAB -> { if (map.isEnabled()) showMap(); }
+			case KeyEvent.VK_V -> { if (viewLog.isEnabled()) viewLog(); }
 		}
 
 		switch (maze.getState())

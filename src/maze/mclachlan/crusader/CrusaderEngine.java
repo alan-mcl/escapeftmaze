@@ -84,6 +84,14 @@ public interface CrusaderEngine
 
 	/**
 	 * @return
+	 * 	The map size, in tiles.
+	 */
+	Dimension getMapSize();
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @return
 	 * 	An approximate bounds (within this raycaster's XY coord system) that
 	 * 	will contain the sprite of the given EngineObject
 	 */

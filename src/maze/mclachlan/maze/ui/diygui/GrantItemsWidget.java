@@ -123,8 +123,8 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener, C
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_A -> takeAll();
-			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			case KeyEvent.VK_A -> { e.consume(); takeAll(); }
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> { e.consume(); exit(); }
 		}
 		
 		Item item = (Item)DIYToolkit.getInstance().getCursorContents();
@@ -156,6 +156,7 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener, C
 		{
 			if (playerCharacter.addInventoryItem(item))
 			{
+				e.consume();
 				DIYToolkit.getInstance().clearCursor();
 			}
 		}

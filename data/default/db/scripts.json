@@ -2044,13 +2044,6 @@
         "die": "1d1"
       },
       {
-        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
-        "animation": {
-          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation",
-          "duration": "2000"
-        }
-      },
-      {
         "TYPE_KEY": "mclachlan.maze.game.event.StoryboardEvent",
         "imageResource": "screen/party_death_1",
         "textResource": "",
@@ -3296,6 +3289,22 @@
     ]
   },
   {
+    "name": "Ichiba Crossroad berry forage",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You pick a handful of berries off the bush.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.LootTableEvent",
+        "lootTable": "ichiba.crossroad.berry.forage"
+      }
+    ]
+  },
+  {
     "name": "Ichiba Depths to City (coc)",
     "events": [
       {
@@ -4398,6 +4407,39 @@
           ],
           "frameDelay": "20"
         }
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad omnifid glade",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "The dirt path runs through a peaceful looking glade and wends it\u0027s way around some strange looking clumps of bush.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You pause and cast a suspicious eye over the bushes. \n\nFor a moment nothing moves in the glade.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "2589__schademans__bush10"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "Suddenly, with little more than an eery rustle, the real danger here emerges from the trees around you!",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
       }
     ]
   },

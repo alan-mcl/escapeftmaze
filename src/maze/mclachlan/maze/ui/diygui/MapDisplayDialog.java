@@ -137,10 +137,10 @@ public class MapDisplayDialog extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> { e.consume(); exit(); }
 			case KeyEvent.VK_PAGE_DOWN, KeyEvent.VK_PLUS, KeyEvent.VK_EQUALS ->
-				zoomIn();
-			case KeyEvent.VK_PAGE_UP, KeyEvent.VK_MINUS -> zoomOut();
+			{ e.consume(); zoomIn(); }
+			case KeyEvent.VK_PAGE_UP, KeyEvent.VK_MINUS -> { e.consume(); zoomOut(); }
 		}
 	}
 }

@@ -285,40 +285,16 @@ public abstract class Widget
 	/*-------------------------------------------------------------------------*/
 	public void processKeyPressed(KeyEvent e)
 	{
-		/*if (this.parent != null)
-		{
-			this.parent.processKeyPressed(e);
-		}
-		else*/ /*if (enabled)
-		{
-			this.notifyListeners(e);
-		}*/
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public void processKeyReleased(KeyEvent e)
 	{
-		/*if (this.parent != null)
-		{
-			this.parent.processKeyReleased(e);
-		}
-		else*/ /*if (enabled)
-		{
-			this.notifyListeners(e);
-		}*/
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public void processKeyTyped(KeyEvent e)
 	{
-		/*if (this.parent != null)
-		{
-			this.parent.processKeyTyped(e);
-		}
-		else*/ /*if (enabled)
-		{
-			this.notifyListeners(e);
-		}*/
 	}
 
 	/*-------------------------------------------------------------------------*/

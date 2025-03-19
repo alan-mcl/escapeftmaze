@@ -54,11 +54,31 @@ A large road runs north-south through most of the Domain, crossed by an east-wes
 ==== Ichiba Crossroads
 The north-south road is crossed by an equally well-travelled pathway going east-west. To the west, it leads to Ichiba City. To the east, it fast peters out into nothingness. Perhaps it once led somewhere, but the forest has overgrown it.
 
-Foes: giant mantis', roaches, walking plants, velociraptors, moths, flying lizards, giant snails
+* A small bush near the sign to Ichiba can be harvested for edible berries. Other such
+bushes are dotted around the area.
+* A cache of items (including a few Resurrection Powders) is hidden in a secluded glade and is guarded by a giant mantis's who stalk the party and attack
+* A glade on the north road is overgrown with Omnifids. Lurching mobile Omnifids attack
+out of the trees when the party enters.
+* _A trio of velociraptors lurk in the underbrush on the west road, waiting for prey to enter the clearing before pouncing in coordinated attacks. Closer inspection of their territory reveals an old dinosaur nest with shattered eggshells—something bigger may still be nearby._
+* _A small cave opening is visible at the base of the cliffs, partially hidden by ferns.
+    Inside, bioluminescent moths flutter around glowing mushrooms. A giant snail slumbers in the dark, but disturbing the fungi might wake it._
+* _On the south road, a massive flying lizard circles overhead, watching the party from above.
+ It lets out a shriek that attracts smaller flying lizards to attack from the trees._
+* _Following the overgrown eastern path, the players find remnants of old stone milestones leading into the jungle. The way is blocked by a massive tree covered in strange red moss: touching it causes hallucinations of whispering voices._
+
+Foes:
+
+* giant mantis'
+* roaches
+* walking plants
+* velociraptors
+* moths
+* flying lizards
+* giant snails
 
 Notes
 
-* A cache of items (including a few Resurrection Powders) is hidden in a secluded glade and is guarded by a giant mantis's
+
 
 ==== Ichiba Domain North
 The road wends northwards from the crossroads, passing through thick forest. It ends in a glade that contains a Gate in the form of a door stands alone without walls or support. The Gate leads to Danaos Castle.

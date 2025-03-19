@@ -80,6 +80,7 @@ public class SignBoardWidget extends DIYPanel
 	@Override
 	public void processKeyPressed(KeyEvent e)
 	{
+		e.consume();
 		clearSignboard();
 	}
 

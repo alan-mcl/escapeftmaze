@@ -586,6 +586,21 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.LootTable",
+    "name": "ichiba.crossroad.berry.forage",
+    "lootEntries": {
+      "PERCENTAGES": [
+        100
+      ],
+      "POSSIBILITIES": [
+        {
+          "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+          "NAME": "supplies.1.sunbite.berries"
+        }
+      ]
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootTable",
     "name": "ruins.of.hail.old.igor.chest",
     "lootEntries": {
       "PERCENTAGES": [

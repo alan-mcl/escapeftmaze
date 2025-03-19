@@ -72,6 +72,7 @@ public class ContainerDialog extends GeneralDialog implements ActionListener
 	{
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE || e.getKeyCode() == KeyEvent.VK_ENTER)
 		{
+			e.consume();
 			exitDialog();
 		}
 	}

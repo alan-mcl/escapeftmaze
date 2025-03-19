@@ -113,8 +113,8 @@ public class StartGameOptionsDialog extends GeneralDialog implements ActionListe
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> exit();
-			case KeyEvent.VK_ENTER -> startGame();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); startGame(); }
 			default ->
 			{
 			}

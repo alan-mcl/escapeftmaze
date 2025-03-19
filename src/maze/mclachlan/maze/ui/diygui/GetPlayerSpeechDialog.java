@@ -93,8 +93,8 @@ public class GetPlayerSpeechDialog extends GeneralDialog implements ActionListen
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER -> finished();
-			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> { e.consume(); finished(); }
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
 			default -> inputField.processKeyPressed(e);
 		}
 	}

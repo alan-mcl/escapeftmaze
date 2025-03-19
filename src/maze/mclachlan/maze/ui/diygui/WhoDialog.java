@@ -101,6 +101,7 @@ class WhoDialog extends DIYPane
 
 		if (playerCharacter != null)
 		{
+			e.consume();
 			chooseCharacter(playerCharacter);
 		}
 	}

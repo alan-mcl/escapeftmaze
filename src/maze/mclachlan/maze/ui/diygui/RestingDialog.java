@@ -149,8 +149,8 @@ public class RestingDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER, KeyEvent.VK_C -> rest();
-			case KeyEvent.VK_ESCAPE -> cancel();
+			case KeyEvent.VK_ENTER, KeyEvent.VK_C -> { e.consume(); rest(); }
+			case KeyEvent.VK_ESCAPE -> { e.consume(); cancel(); }
 		}
 	}
 

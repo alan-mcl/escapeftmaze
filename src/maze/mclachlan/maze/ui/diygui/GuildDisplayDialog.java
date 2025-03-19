@@ -177,12 +177,12 @@ public class GuildDisplayDialog extends GeneralDialog
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
-			case KeyEvent.VK_A -> addToParty();
-			case KeyEvent.VK_R -> removeFromParty();
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> { e.consume(); exit(); }
+			case KeyEvent.VK_A -> { e.consume(); addToParty(); }
+			case KeyEvent.VK_R -> { e.consume(); removeFromParty(); }
 			case KeyEvent.VK_C ->
 			{
-				if (mode == Mode.MAIN_MENU) { createCharacter(); }
+				if (mode == Mode.MAIN_MENU) { e.consume(); createCharacter(); }
 			}
 			default -> gdWidget.processKeyPressed(e);
 		}

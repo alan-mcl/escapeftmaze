@@ -187,11 +187,11 @@ public class TradingDialog extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_B -> buy();
-			case KeyEvent.VK_S -> sell();
-			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
-			case KeyEvent.VK_LEFT -> switchToSell();
-			case KeyEvent.VK_RIGHT -> switchToBuy();
+			case KeyEvent.VK_B -> { e.consume(); buy(); }
+			case KeyEvent.VK_S -> { e.consume(); sell(); }
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> { e.consume(); exit(); }
+			case KeyEvent.VK_LEFT -> { e.consume(); switchToSell(); }
+			case KeyEvent.VK_RIGHT -> { e.consume(); switchToBuy(); }
 			default ->
 			{
 				if (pcWidget.getSelected() != null)

@@ -30,10 +30,7 @@ import java.util.Map;
 import java.util.*;
 import java.util.concurrent.*;
 import mclachlan.crusader.*;
-import mclachlan.crusader.script.AppearanceFromSide;
-import mclachlan.crusader.script.AppearanceFromTop;
-import mclachlan.crusader.script.DisappearanceToSide;
-import mclachlan.crusader.script.TempChangeTexture;
+import mclachlan.crusader.script.*;
 import mclachlan.diygui.DIYLabel;
 import mclachlan.diygui.DIYPane;
 import mclachlan.diygui.DIYPanel;
@@ -1887,23 +1884,22 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					{
 						switch (foe.getAppearanceDirection())
 						{
-							case FROM_LEFT:
+							case FROM_LEFT ->
 								obj.addScript(new AppearanceFromSide(true, 500, foe.getAnimationScripts()).
 									spawnNewInstance(obj, this.raycaster));
-								break;
-							case FROM_RIGHT:
+							case FROM_RIGHT ->
 								obj.addScript(new AppearanceFromSide(false, 500, foe.getAnimationScripts()).
 									spawnNewInstance(obj, this.raycaster));
-								break;
-							case FROM_LEFT_OR_RIGHT:
+							case FROM_LEFT_OR_RIGHT ->
 								obj.addScript(new AppearanceFromSide(Math.random() > .5, 500, foe.getAnimationScripts()).
 									spawnNewInstance(obj, this.raycaster));
-								break;
-							case FROM_TOP:
+							case FROM_TOP ->
 								obj.addScript(new AppearanceFromTop(500, foe.getAnimationScripts()).
 									spawnNewInstance(obj, raycaster));
-								break;
-							default:
+							case FROM_FAR ->
+								obj.addScript(new AppearanceFromFar(500, foe.getAnimationScripts()).
+									spawnNewInstance(obj, raycaster));
+							default ->
 								throw new MazeException("invalid appearance direction " + foe.getAppearanceDirection());
 						}
 					}

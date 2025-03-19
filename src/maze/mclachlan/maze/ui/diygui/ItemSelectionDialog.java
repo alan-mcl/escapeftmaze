@@ -112,12 +112,12 @@ public class ItemSelectionDialog extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> canceled();
-			case KeyEvent.VK_ENTER -> itemSelected();
-			case KeyEvent.VK_UP -> itemSelectionWidget.moveSelectionUp();
-			case KeyEvent.VK_DOWN -> itemSelectionWidget.moveSelectionDown();
-			case KeyEvent.VK_RIGHT -> itemSelectionWidget.moveSelectionRight();
-			case KeyEvent.VK_LEFT -> itemSelectionWidget.moveSelectionLeft();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); canceled(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); itemSelected(); }
+			case KeyEvent.VK_UP -> { e.consume(); itemSelectionWidget.moveSelectionUp(); }
+			case KeyEvent.VK_DOWN -> { e.consume(); itemSelectionWidget.moveSelectionDown(); }
+			case KeyEvent.VK_RIGHT -> { e.consume(); itemSelectionWidget.moveSelectionRight(); }
+			case KeyEvent.VK_LEFT -> { e.consume(); itemSelectionWidget.moveSelectionLeft(); }
 		}
 	}
 

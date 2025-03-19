@@ -75,7 +75,7 @@
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.woodsign.side",
     "imageResources": [
-      "crusader/scene/woodsign_side"
+      "crusader/scene/wood_sign_side"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"
@@ -436,7 +436,7 @@
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.omnifid.1",
     "imageResources": [
-      "crusader/foe/omnifid_1"
+      "crusader/foe/omnifid_2"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"
@@ -761,7 +761,7 @@
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.woodsign.front",
     "imageResources": [
-      "crusader/scene/woodsign_front"
+      "crusader/scene/wood_sign_front"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"
@@ -1140,12 +1140,9 @@
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.flyinglizard.1",
     "imageResources": [
-      "crusader/foe/flying_lizard_1",
-      "crusader/foe/flying_lizard_2",
-      "crusader/foe/flying_lizard_3",
-      "crusader/foe/flying_lizard_2"
+      "crusader/foe/flying_lizard_1"
     ],
-    "animationDelay": "150",
+    "animationDelay": "-1",
     "scrollSpeed": "-1"
   },
   {

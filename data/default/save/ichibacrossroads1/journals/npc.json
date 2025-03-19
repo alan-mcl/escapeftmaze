@@ -1,0 +1,55 @@
+{
+  "name": "npc",
+  "contents": {
+    "Emmons": [
+      {
+        "turnNr": "530",
+        "text": "Rounding the corner you nearly collide with a short, scruffy goblin who is furtively picking with a knife between the cracks of the northern wall."
+      },
+      {
+        "turnNr": "530",
+        "text": "Encountered Emmons "
+      },
+      {
+        "turnNr": "530",
+        "text": "In a flash the stranger confronts you!"
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Oh aye! What have we here?\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Could it be ... ye\u0027re newcomers to this here Second Realm?\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Ha! Newly arrived through the Great Gate eh! Been a while, quite a while, since Emmons has seen the likes of ye!\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Where are me manners?\n\nGreetings travellers, from Emmons, called by some The Hand. On account of me skill at juggling.\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Now mind you I have little time for prattle. Got business to take care of.\n\nNo doubt ye\u0027ll be wanting to move on quickly to Ichiba ...\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"So listen mateys.\n\nEmmons know these halls. There are three Gates outta here.\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"All will take ye to places in the crater.\n\nIf I were ye I\u0027d take the center and make for the city. It\u0027s where all the action is.\""
+      },
+      {
+        "turnNr": "530",
+        "text": "Emmons- \"Emmons has his own ways out!\n\nFarewell, mayhap we\u0027ll meet again in Ichiba City!\""
+      },
+      {
+        "turnNr": "530",
+        "text": "With a casual but surprisingly fast saunter, the goblin steps around the corner and out of sight."
+      }
+    ]
+  }
+}

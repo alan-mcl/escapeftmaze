@@ -283,8 +283,8 @@ public class TradingWidget extends DIYPane
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_UP -> moveSelectionUp();
-			case KeyEvent.VK_DOWN -> moveSelectionDown();
+			case KeyEvent.VK_UP -> { e.consume(); moveSelectionUp(); }
+			case KeyEvent.VK_DOWN -> { e.consume(); moveSelectionDown(); }
 		}
 	}
 	

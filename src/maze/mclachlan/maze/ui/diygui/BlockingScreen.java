@@ -71,6 +71,7 @@ public class BlockingScreen extends DIYPanel implements ActionListener
 	@Override
 	public void processKeyTyped(KeyEvent e)
 	{
+		e.consume();
 		clear();
 	}
 

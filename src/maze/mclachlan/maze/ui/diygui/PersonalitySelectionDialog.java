@@ -109,8 +109,8 @@ public class PersonalitySelectionDialog extends GeneralDialog implements ActionL
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> exit();
-			case KeyEvent.VK_ENTER -> setPersonality();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); setPersonality(); }
 			default -> personalities.processKeyPressed(e);
 		}
 	}

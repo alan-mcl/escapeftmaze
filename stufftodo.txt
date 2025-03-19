@@ -4,9 +4,10 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
-hotkey multi-input issue on text field
 ichiba flat sky
 bug: zone change flickering
+finer grained object placement
+mirror image foe textures
 
 BACKLOG
 ----------
@@ -41,7 +42,7 @@ data: RESISTANCES: Resistances of foes.
 data: mind read results from all NPCs
 data: more hidden stashes to find with SCOUTING
 
-code: audio system unfication: one ogg player
+code: audio system unification: one ogg player
 code: damage multipliers to be applied before armour soak
 code: Scavenger Mode: characters start with nothing, most loot is replaced with trash, and crafting is the only way to survive.
 code: Ironman Mode: One save only.

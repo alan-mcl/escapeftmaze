@@ -75,6 +75,7 @@ public class SpeechBubbleDialog extends DIYPane
 	@Override
 	public void processKeyTyped(KeyEvent e)
 	{
+		e.consume();
 		clear();
 	}
 }

@@ -42,6 +42,18 @@ public class MazeInterventionAnimation extends Animation
 	@Override
 	public Animation spawn(AnimationContext context)
 	{
+/*
+		return new MazeInterventionAnimation(
+			1500,
+			new HexRipplePostProcessor(
+				DiyGuiUserInterface.MAZE_WIDTH,
+				DiyGuiUserInterface.MAZE_HEIGHT,
+				DiyGuiUserInterface.MAZE_WIDTH/2,
+				DiyGuiUserInterface.MAZE_HEIGHT/2,
+				1D,
+				2));
+*/
+
 		return new MazeInterventionAnimation(
 			1500,
 			new RipplePostProcessor(

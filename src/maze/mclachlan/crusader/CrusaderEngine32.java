@@ -814,6 +814,11 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return tileSize;
 	}
 
+	public Dimension getMapSize()
+	{
+		return new Dimension(map.width, map.length);
+	}
+
 	public int getProjectionPlaneWidth()
 	{
 		return projectionPlaneWidth;

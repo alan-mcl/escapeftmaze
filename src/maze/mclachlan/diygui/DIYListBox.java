@@ -269,11 +269,13 @@ public class DIYListBox extends ContainerWidget
 		{
 			case KeyEvent.VK_UP ->
 			{
+				e.consume();
 				moveSelectionUp();
 				this.notifyListeners(e);
 			}
 			case KeyEvent.VK_DOWN ->
 			{
+				e.consume();
 				moveSelectionDown();
 				this.notifyListeners(e);
 			}

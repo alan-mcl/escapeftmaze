@@ -193,11 +193,11 @@ public class JournalDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_L -> refresh(JournalManager.JournalType.LOGBOOK);
-			case KeyEvent.VK_Z -> refresh(JournalManager.JournalType.ZONE);
-			case KeyEvent.VK_N -> refresh(JournalManager.JournalType.NPC);
-			case KeyEvent.VK_Q -> refresh(JournalManager.JournalType.QUEST);
-			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> exit();
+			case KeyEvent.VK_L -> { e.consume(); refresh(JournalManager.JournalType.LOGBOOK); }
+			case KeyEvent.VK_Z -> { e.consume(); refresh(JournalManager.JournalType.ZONE); }
+			case KeyEvent.VK_N -> { e.consume(); refresh(JournalManager.JournalType.NPC); }
+			case KeyEvent.VK_Q -> { e.consume(); refresh(JournalManager.JournalType.QUEST); }
+			case KeyEvent.VK_ESCAPE, KeyEvent.VK_ENTER -> { e.consume(); exit(); }
 			default ->
 			{
 			}

@@ -92,10 +92,10 @@ public class PortraitSelectionDialog extends GeneralDialog implements ActionList
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> exit();
-			case KeyEvent.VK_ENTER -> setPortrait();
-			case KeyEvent.VK_LEFT -> portraitWidget.previous();
-			case KeyEvent.VK_RIGHT -> portraitWidget.next();
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); setPortrait(); }
+			case KeyEvent.VK_LEFT -> { e.consume(); portraitWidget.previous(); }
+			case KeyEvent.VK_RIGHT -> { e.consume(); portraitWidget.next(); }
 		}
 	}
 

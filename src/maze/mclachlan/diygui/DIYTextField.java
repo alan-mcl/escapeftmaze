@@ -86,6 +86,7 @@ public class DIYTextField extends Widget
 			case KeyEvent.VK_BACK_SPACE:
 				if (text.length() > 0)
 					text = text.substring(0,text.length()-1);
+				e.consume();
 				break;
 			case KeyEvent.VK_SHIFT:
 			case KeyEvent.VK_CONTROL:
@@ -94,11 +95,13 @@ public class DIYTextField extends Widget
 				break;
 			case KeyEvent.VK_ENTER:
 				// notify any action listeners
+				e.consume();
 				notifyListeners(e);
 				break;
 			default:
 				if (maxLength == -1 || this.text.length() < maxLength)
 				{
+					e.consume();
 					this.text += e.getKeyChar();
 				}
 		}

@@ -108,6 +108,7 @@ public class GeneralOptionsDialog extends GeneralDialog implements ActionListene
 		{
 			if (!forceSelection)
 			{
+				e.consume();
 				cancel();
 			}
 		}

@@ -110,8 +110,8 @@ public class GetAmountDialog extends GeneralDialog implements ActionListener
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER -> amountEntered();
-			case KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER -> { e.consume(); amountEntered(); }
+			case KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
 			default -> amountField.processKeyPressed(e);
 		}
 	}

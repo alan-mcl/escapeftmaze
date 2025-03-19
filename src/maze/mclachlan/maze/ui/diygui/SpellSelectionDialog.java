@@ -101,24 +101,30 @@ public class SpellSelectionDialog extends GeneralDialog implements ActionListene
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> canceled();
-			case KeyEvent.VK_ENTER -> spellSelected();
-			case KeyEvent.VK_1 -> sdw.setSpellLevel(1);
-			case KeyEvent.VK_2 -> sdw.setSpellLevel(2);
-			case KeyEvent.VK_3 -> sdw.setSpellLevel(3);
-			case KeyEvent.VK_4 -> sdw.setSpellLevel(4);
-			case KeyEvent.VK_5 -> sdw.setSpellLevel(5);
-			case KeyEvent.VK_6 -> sdw.setSpellLevel(6);
-			case KeyEvent.VK_7 -> sdw.setSpellLevel(7);
+			case KeyEvent.VK_ESCAPE -> { e.consume(); canceled(); }
+			case KeyEvent.VK_ENTER -> { e.consume(); spellSelected(); }
+			case KeyEvent.VK_1 -> { e.consume(); sdw.setSpellLevel(1); }
+			case KeyEvent.VK_2 -> { e.consume(); sdw.setSpellLevel(2); }
+			case KeyEvent.VK_3 -> { e.consume(); sdw.setSpellLevel(3); }
+			case KeyEvent.VK_4 -> { e.consume(); sdw.setSpellLevel(4); }
+			case KeyEvent.VK_5 -> { e.consume(); sdw.setSpellLevel(5); }
+			case KeyEvent.VK_6 -> { e.consume(); sdw.setSpellLevel(6); }
+			case KeyEvent.VK_7 -> { e.consume(); sdw.setSpellLevel(7); }
 			case KeyEvent.VK_EQUALS, KeyEvent.VK_ADD, KeyEvent.VK_PLUS ->
+			{
 				// The '+' key
 				sdw.incrementPowerLevel();
+			}
 			case KeyEvent.VK_MINUS, KeyEvent.VK_SUBTRACT ->
+			{
+				e.consume();
 				sdw.decrementPowerLevel();
+			}
 			case KeyEvent.VK_UP, KeyEvent.VK_DOWN ->
 				sdw.getSpellList().processKeyPressed(e);
 			default ->
 			{
+				e.consume();
 				sdw.getQuickName().processKeyPressed(e);
 				sdw.filterSpells();
 			}

@@ -1973,6 +1973,22 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.LootEntry",
+    "name": "supplies.1.sunbite.berries",
+    "contains": {
+      "PERCENTAGES": [
+        100
+      ],
+      "ITEMS": [
+        {
+          "itemName": "Sunbite Berry",
+          "quantity": "2d8+2"
+        }
+      ],
+      "SHOULD_SUM_TO_100": "false"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.LootEntry",
     "name": "gnome.clockwork.loot",
     "contains": {
       "PERCENTAGES": [

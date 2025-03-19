@@ -265,15 +265,15 @@ public class PickLockWidget extends GeneralDialog implements ActionListener
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ESCAPE -> cancel();
-			case KeyEvent.VK_C -> manipulateTool(0);
-			case KeyEvent.VK_R -> manipulateTool(1);
-			case KeyEvent.VK_D -> manipulateTool(2);
-			case KeyEvent.VK_H -> manipulateTool(3);
-			case KeyEvent.VK_J -> manipulateTool(4);
-			case KeyEvent.VK_L -> manipulateTool(5);
-			case KeyEvent.VK_S -> manipulateTool(6);
-			case KeyEvent.VK_T -> manipulateTool(7);
+			case KeyEvent.VK_ESCAPE -> { e.consume(); cancel(); }
+			case KeyEvent.VK_C -> { e.consume(); manipulateTool(0); }
+			case KeyEvent.VK_R -> { e.consume(); manipulateTool(1); }
+			case KeyEvent.VK_D -> { e.consume(); manipulateTool(2); }
+			case KeyEvent.VK_H -> { e.consume(); manipulateTool(3); }
+			case KeyEvent.VK_J -> { e.consume(); manipulateTool(4); }
+			case KeyEvent.VK_L -> { e.consume(); manipulateTool(5); }
+			case KeyEvent.VK_S -> { e.consume(); manipulateTool(6); }
+			case KeyEvent.VK_T -> { e.consume(); manipulateTool(7); }
 		}
 	}
 

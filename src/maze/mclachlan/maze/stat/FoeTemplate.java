@@ -905,5 +905,6 @@ public class FoeTemplate extends DataObject
 		FROM_RIGHT,
 		FROM_LEFT_OR_RIGHT,
 		FROM_TOP,
+		FROM_FAR
 	}
 }

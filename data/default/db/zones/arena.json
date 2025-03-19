@@ -1031,10 +1031,8 @@
             "TYPE_KEY": "mclachlan.maze.map.script.Encounter",
             "reexecuteOnSameTile": "false",
             "scoutSecretDifficulty": "-1",
-            "encounterTable": "ichiba.crossroad.mantis",
-            "mazeVariable": "arena.encounter.12",
-            "preScript": "Gatehouse first room",
-            "postAppearanceScript": "Hianbian intro"
+            "encounterTable": "ichiba.crossroad.toothy.velox.1",
+            "mazeVariable": "arena.encounter.12"
           }
         ],
         "randomEncounters": "TestingTable",
@@ -10147,13 +10145,13 @@
     ],
     "originalObjects": [
       {
-        "northTexture": "objects.plant.1",
-        "southTexture": "objects.plant.1",
-        "eastTexture": "objects.plant.1",
-        "westTexture": "objects.plant.1",
+        "northTexture": "objects.plant.5",
+        "southTexture": "objects.plant.5",
+        "eastTexture": "objects.plant.5",
+        "westTexture": "objects.plant.5",
         "tileIndex": "201",
         "lightSource": "false",
-        "placementMask": "00000001",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10163,7 +10161,7 @@
         "westTexture": "objects.plant.1",
         "tileIndex": "230",
         "lightSource": "false",
-        "placementMask": "01",
+        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10213,6 +10211,33 @@
           ]
         },
         "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.2",
+        "southTexture": "objects.plant.2",
+        "eastTexture": "objects.plant.2",
+        "westTexture": "objects.plant.2",
+        "tileIndex": "231",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.3",
+        "southTexture": "objects.plant.3",
+        "eastTexture": "objects.plant.3",
+        "westTexture": "objects.plant.3",
+        "tileIndex": "232",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.plant.4",
+        "southTexture": "objects.plant.4",
+        "eastTexture": "objects.plant.4",
+        "westTexture": "objects.plant.4",
+        "tileIndex": "217",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }
     ],

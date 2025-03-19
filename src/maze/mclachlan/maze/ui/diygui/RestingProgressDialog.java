@@ -90,7 +90,7 @@ public class RestingProgressDialog extends GeneralDialog
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_ENTER, KeyEvent.VK_ESCAPE -> exit();
+			case KeyEvent.VK_ENTER, KeyEvent.VK_ESCAPE -> { e.consume(); exit(); }
 		}
 	}
 

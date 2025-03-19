@@ -223,8 +223,8 @@ public class PortraitSelectionWidget extends ContainerWidget
 	{
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_LEFT -> previous();
-			case KeyEvent.VK_RIGHT -> next();
+			case KeyEvent.VK_LEFT -> { e.consume(); previous(); }
+			case KeyEvent.VK_RIGHT -> { e.consume(); next(); }
 		}
 	}
 

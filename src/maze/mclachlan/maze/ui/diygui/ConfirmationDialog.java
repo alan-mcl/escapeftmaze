@@ -106,10 +106,12 @@ public class ConfirmationDialog extends GeneralDialog implements ActionListener
 	{
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE)
 		{
+			e.consume();
 			exitDialog();
 		}
 		else if (e.getKeyCode() == KeyEvent.VK_ENTER)
 		{
+			e.consume();
 			callback.confirm();
 			exitDialog();
 		}

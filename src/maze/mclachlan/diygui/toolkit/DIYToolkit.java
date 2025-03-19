@@ -739,11 +739,20 @@ public class DIYToolkit
 		if (e instanceof KeyEvent)
 		{
 			KeyEvent event = (KeyEvent)e;
+			KeyEvent ke = new KeyEvent(
+				event.getComponent(),
+				event.getID(),
+				event.getWhen(),
+				event.getModifiers(),
+				event.getKeyCode(),
+				event.getKeyChar(),
+				event.getKeyLocation());
+
 			switch (event.getID())
 			{
-				case KeyEvent.KEY_PRESSED -> this.keyPressed(event);
-				case KeyEvent.KEY_RELEASED -> this.keyReleased(event);
-				case KeyEvent.KEY_TYPED -> this.keyTyped(event);
+				case KeyEvent.KEY_PRESSED -> this.keyPressed(ke);
+				case KeyEvent.KEY_RELEASED -> this.keyReleased(ke);
+				case KeyEvent.KEY_TYPED -> this.keyTyped(ke);
 				default ->
 					throw new DIYException("Unrecognised KeyEvent ID: " + event.getID());
 			}
@@ -878,7 +887,7 @@ public class DIYToolkit
 	 */
 	private void notifyContentPaneChildrenOfKeyEvent(KeyEvent e)
 	{
-		if (e.getID() == KeyEvent.KEY_PRESSED)
+		if (e.getID() == KeyEvent.KEY_PRESSED && !e.isConsumed())
 		{
 			for (Widget w : contentPane.children)
 			{

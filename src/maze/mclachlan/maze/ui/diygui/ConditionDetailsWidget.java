@@ -278,6 +278,7 @@ public class ConditionDetailsWidget extends GeneralDialog
 		if (e.getKeyCode() == KeyEvent.VK_ESCAPE ||
 			e.getKeyCode() == KeyEvent.VK_ENTER)
 		{
+			e.consume();
 			Maze.getInstance().getUi().clearDialog();
 		}
 	}

@@ -313,19 +313,25 @@ public class SpellDisplayWidget extends DIYPane
 
 		switch (e.getKeyCode())
 		{
-			case KeyEvent.VK_1 -> setSpellLevel(1);
-			case KeyEvent.VK_2 -> setSpellLevel(2);
-			case KeyEvent.VK_3 -> setSpellLevel(3);
-			case KeyEvent.VK_4 -> setSpellLevel(4);
-			case KeyEvent.VK_5 -> setSpellLevel(5);
-			case KeyEvent.VK_6 -> setSpellLevel(6);
-			case KeyEvent.VK_7 -> setSpellLevel(7);
+			case KeyEvent.VK_1 -> { e.consume(); setSpellLevel(1); }
+			case KeyEvent.VK_2 -> { e.consume(); setSpellLevel(2); }
+			case KeyEvent.VK_3 -> { e.consume(); setSpellLevel(3); }
+			case KeyEvent.VK_4 -> { e.consume(); setSpellLevel(4); }
+			case KeyEvent.VK_5 -> { e.consume(); setSpellLevel(5); }
+			case KeyEvent.VK_6 -> { e.consume(); setSpellLevel(6); }
+			case KeyEvent.VK_7 -> { e.consume(); setSpellLevel(7); }
 			case KeyEvent.VK_EQUALS, KeyEvent.VK_ADD, KeyEvent.VK_PLUS ->
+			{
+				e.consume();
 				// The '+' key
 				incrementPowerLevel();
+			}
 			case KeyEvent.VK_MINUS, KeyEvent.VK_SUBTRACT, KeyEvent.VK_UNDERSCORE ->
+			{
+				e.consume();
 				// The '-' key
 				decrementPowerLevel();
+			}
 			default -> this.quickName.processKeyPressed(e);
 		}
 	}
