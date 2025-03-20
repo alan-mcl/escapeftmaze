@@ -25,6 +25,7 @@ import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
 import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
 import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
+import mclachlan.maze.ui.diygui.animation.LightLevelPass;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -39,10 +40,11 @@ public class V1Animation
 	public static final int PROJECTILE = 1;
 	public static final int COLOUR_PORTRAIT = 2;
 	public static final int FADE_TO_BLACK = 3;
+	public static final int LIGHT_LEVEL_PASS = 4;
 
-	public static final int MAX = 4;
+	public static final int MAX = 5;
 	
-	static V1List<String> animationImages = new V1List<String>(";")
+	static V1List<String> animationImages = new V1List<>(";")
 	{
 		public String typeToString(String s)
 		{
@@ -63,6 +65,7 @@ public class V1Animation
 		types.put(ProjectileAnimation.class, PROJECTILE);
 		types.put(ColourMagicPortraitAnimation.class, COLOUR_PORTRAIT);
 		types.put(FadeToBlackAnimation.class, FADE_TO_BLACK);
+		types.put(LightLevelPass.class, LIGHT_LEVEL_PASS);
 	}
 
 	/*-------------------------------------------------------------------------*/

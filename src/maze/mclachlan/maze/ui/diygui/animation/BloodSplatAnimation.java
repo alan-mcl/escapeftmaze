@@ -67,7 +67,7 @@ public class BloodSplatAnimation extends Animation
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public void draw(Graphics2D g)
+	public void update(Graphics2D g)
 	{
 		long diff = System.currentTimeMillis() - startTime;
 

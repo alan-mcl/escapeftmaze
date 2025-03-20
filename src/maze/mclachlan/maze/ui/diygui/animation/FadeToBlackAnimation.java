@@ -36,7 +36,7 @@ public class FadeToBlackAnimation extends Animation
 	}
 
 	@Override
-	public void draw(Graphics2D g)
+	public void update(Graphics2D g)
 	{
 		double elapsedTime = System.currentTimeMillis() - startTime;
 

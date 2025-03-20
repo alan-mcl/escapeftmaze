@@ -40,6 +40,7 @@ import mclachlan.maze.stat.Stats;
 import mclachlan.maze.stat.combat.Combat;
 import mclachlan.maze.stat.combat.event.*;
 import mclachlan.maze.stat.npc.NpcFaction;
+import mclachlan.maze.ui.diygui.NullProgressListener;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.data.v1.V1MazeEvent.*;
@@ -1465,7 +1466,10 @@ public class MazeEventEditor extends JDialog implements ActionListener
 	{
 		Loader loader = new V1Loader();
 		Saver saver = new V1Saver();
-		new Database(loader, saver, Maze.getStubCampaign());
+		Database db = new Database(loader, saver, Maze.getStubCampaign());
+		db.initImpls();
+		db.initCaches(new NullProgressListener());
+
 
 		JFrame owner = new JFrame("test");
 		owner.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);

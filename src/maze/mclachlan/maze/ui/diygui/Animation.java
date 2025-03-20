@@ -33,7 +33,7 @@ public abstract class Animation implements V2Seralisable
 	private Object mutex;
 
 	/*-------------------------------------------------------------------------*/
-	public abstract void draw(Graphics2D g);
+	public abstract void update(Graphics2D g);
 
 	/*-------------------------------------------------------------------------*/
 	public abstract Animation spawn(AnimationContext context);

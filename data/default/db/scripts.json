@@ -216,6 +216,18 @@
     ]
   },
   {
+    "name": "Ichiba Crossroad toothy velox enc",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "Suddenly, a group of fierce looking reptiles rush out of the undergrowth and confront you!\n\nThey regard you with eyes that glint with malicious intelligence. The situation is tense...",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      }
+    ]
+  },
+  {
     "name": "Ekirth\u0027s Tomb to Crypt Of Atrocities",
     "events": [
       {
@@ -230,34 +242,32 @@
     "name": "test script",
     "events": [
       {
-        "TYPE_KEY": "mclachlan.maze.game.event.SkillTestEvent",
-        "keyModifier": "SKILL",
-        "skill": [
-          {
-            "TYPE_KEY": "mclachlan.maze.stat.magic.ModifierValue",
-            "value": "0",
-            "scaling": "NONE",
-            "shouldNegate": "false",
-            "modifier": "BRAWN"
-          },
-          {
-            "TYPE_KEY": "mclachlan.maze.stat.magic.DiceValue",
-            "value": "0",
-            "scaling": "SCALE_WITH_CASTING_LEVEL",
-            "shouldNegate": "false",
-            "dice": "2d6"
-          }
-        ],
-        "successValue": [
-          {
-            "TYPE_KEY": "mclachlan.maze.stat.magic.Value",
-            "value": "10",
-            "scaling": "NONE",
-            "shouldNegate": "false"
-          }
-        ],
-        "successScript": "Ichiba Crossroad bones hidden stuff",
-        "failureScript": "Gatehouse encounter 1 bats"
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
+          "duration": "500",
+          "startX": "7",
+          "startY": "3",
+          "endX": "14",
+          "endY": "5",
+          "lightLevels": [
+            [
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "25",
+              "15"
+            ],
+            [
+              "-1",
+              "15",
+              "15"
+            ]
+          ]
+        }
       }
     ]
   },
@@ -1812,6 +1822,151 @@
         "flavourText": "The eels scatter into the depths and vanish.",
         "delay": "-1",
         "shouldClearText": "false",
+        "alignment": "CENTER"
+      }
+    ]
+  },
+  {
+    "name": "Ichiba Crossroad dun draco enc",
+    "events": [
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "A shadow suddenly passes rapidly over the forest around you, and a distant shriek echoes from above. ",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.SoundEffectEvent",
+        "clipNames": [
+          "528625__justinamolsch__hawk-screech"
+        ],
+        "die": "1d1"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.stat.combat.event.AnimationEvent",
+        "animation": {
+          "TYPE_KEY": "mclachlan.maze.ui.diygui.animation.LightLevelPass",
+          "duration": "1000",
+          "startX": "25",
+          "startY": "29",
+          "endX": "25",
+          "endY": "12",
+          "lightLevels": [
+            [
+              "-1",
+              "-1",
+              "-1",
+              "25",
+              "25",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "-1",
+              "25",
+              "15",
+              "25",
+              "25",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "-1",
+              "25",
+              "15",
+              "25",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "25",
+              "15",
+              "15",
+              "25",
+              "25",
+              "25",
+              "25",
+              "-1"
+            ],
+            [
+              "25",
+              "15",
+              "15",
+              "15",
+              "15",
+              "15",
+              "15",
+              "25",
+              "-1"
+            ],
+            [
+              "-1",
+              "25",
+              "15",
+              "15",
+              "25",
+              "25",
+              "25",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "-1",
+              "25",
+              "15",
+              "25",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "-1",
+              "25",
+              "15",
+              "25",
+              "25",
+              "-1",
+              "-1",
+              "-1"
+            ],
+            [
+              "-1",
+              "-1",
+              "-1",
+              "25",
+              "25",
+              "-1",
+              "-1",
+              "-1",
+              "-1"
+            ]
+          ]
+        }
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "You glance at the sky and catch a fleeting glimpse of something large disappearing northwards.",
+        "delay": "-1",
+        "shouldClearText": "true",
+        "alignment": "CENTER"
+      },
+      {
+        "TYPE_KEY": "mclachlan.maze.map.script.FlavourTextEvent",
+        "flavourText": "But you have no time to track it\u0027s course for, as if answering the creature\u0027s shrieking call, a flock of small reptiles decend out of the trees to attack you!",
+        "delay": "-1",
+        "shouldClearText": "true",
         "alignment": "CENTER"
       }
     ]

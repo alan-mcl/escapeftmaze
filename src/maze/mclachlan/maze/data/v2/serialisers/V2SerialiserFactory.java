@@ -34,6 +34,7 @@ import mclachlan.maze.stat.npc.*;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
 import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
 import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
+import mclachlan.maze.ui.diygui.animation.LightLevelPass;
 
 /**
  *
@@ -459,13 +460,7 @@ public class V2SerialiserFactory
 		map.put(SkillTestEvent.class, getReflectiveSerialiser(SkillTestEvent.class,
 			"keyModifier", "skill", "successValue", "successScript", "failureScript"));
 
-		HashMap<Class, V2SerialiserMap<MazeEvent>> map2 = new HashMap<>();
-		ReflectiveSerialiser pas = getReflectiveSerialiser(ProjectileAnimation.class, "projectileImages", "frameDelay");
-		pas.addCustomSerialiser("projectileImages", new ListSerialiser(new DirectObjectSerialiser<String>()));
-		map2.put(ProjectileAnimation.class, pas);
-		map2.put(ColourMagicPortraitAnimation.class, getReflectiveSerialiser(ColourMagicPortraitAnimation.class, "colour"));
-		map2.put(FadeToBlackAnimation.class, getReflectiveSerialiser(FadeToBlackAnimation.class, "duration"));
-		MazeObjectImplSerialiser<MazeEvent> animationSerialiser = new MazeObjectImplSerialiser<>(map2);
+		MazeObjectImplSerialiser<MazeEvent> animationSerialiser = getAnimationSerialiser();
 		ReflectiveSerialiser aes = getReflectiveSerialiser(AnimationEvent.class, "animation");
 		aes.addCustomSerialiser("animation", animationSerialiser);
 		map.put(AnimationEvent.class, aes);
@@ -481,6 +476,26 @@ public class V2SerialiserFactory
 		map.put(JournalEntryEvent.class, getReflectiveSerialiser(JournalEntryEvent.class, "type", "key", "journalText"));
 
 		return new MazeObjectImplSerialiser<>(map);
+	}
+
+	private static MazeObjectImplSerialiser<MazeEvent> getAnimationSerialiser()
+	{
+		HashMap<Class, V2SerialiserMap<MazeEvent>> map = new HashMap<>();
+
+		ReflectiveSerialiser pas = getReflectiveSerialiser(ProjectileAnimation.class, "projectileImages", "frameDelay");
+		pas.addCustomSerialiser("projectileImages", new ListSerialiser(new DirectObjectSerialiser<String>()));
+		map.put(ProjectileAnimation.class, pas);
+
+		map.put(ColourMagicPortraitAnimation.class, getReflectiveSerialiser(ColourMagicPortraitAnimation.class, "colour"));
+		map.put(FadeToBlackAnimation.class, getReflectiveSerialiser(FadeToBlackAnimation.class, "duration"));
+
+		ReflectiveSerialiser spa = getReflectiveSerialiser(LightLevelPass.class,
+			"duration", "startX", "startY", "endX", "endY", "lightLevels");
+		spa.addCustomSerialiser("lightLevels", new ArraySerialiser<>(int[].class, new IntArraySerialiser()));
+		map.put(LightLevelPass.class, spa);
+
+		MazeObjectImplSerialiser<MazeEvent> animationSerialiser = new MazeObjectImplSerialiser<>(map);
+		return animationSerialiser;
 	}
 
 	/*-------------------------------------------------------------------------*/

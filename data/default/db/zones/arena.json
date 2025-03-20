@@ -2265,6 +2265,12 @@
             "scoutSecretDifficulty": "-1",
             "text": "FLAVAR TEXXT BOTTOM\nYEAH",
             "alignment": "BOTTOM"
+          },
+          {
+            "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+            "reexecuteOnSameTile": "false",
+            "scoutSecretDifficulty": "-1",
+            "mazeScript": "test script"
           }
         ],
         "randomEncounters": "TestingTable",

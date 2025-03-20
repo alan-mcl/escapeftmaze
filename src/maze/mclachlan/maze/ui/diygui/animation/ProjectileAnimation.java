@@ -79,7 +79,7 @@ public class ProjectileAnimation extends Animation
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void draw(Graphics2D g)
+	public void update(Graphics2D g)
 	{
 		long now = System.currentTimeMillis();
 		if (now - startTime > frameDelay)

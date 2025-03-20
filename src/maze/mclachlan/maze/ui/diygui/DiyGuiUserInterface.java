@@ -523,7 +523,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				int max = animations.size();
 				for (int i = 0; i < max; i++)
 				{
-					animations.get(i).draw(g);
+					animations.get(i).update(g);
 				}
 
 				ListIterator<Animation> li = animations.listIterator();

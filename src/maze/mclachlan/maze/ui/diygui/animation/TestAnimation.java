@@ -35,7 +35,7 @@ public class TestAnimation extends Animation
 		startTime = System.currentTimeMillis();
 	}
 
-	public void draw(Graphics2D g)
+	public void update(Graphics2D g)
 	{
 		counter += counter;
 

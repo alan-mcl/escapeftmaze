@@ -25,11 +25,13 @@ import java.awt.event.ActionListener;
 import java.util.List;
 import java.util.*;
 import javax.swing.*;
+import mclachlan.crusader.CrusaderEngine;
 import mclachlan.maze.ui.diygui.Animation;
 import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.ui.diygui.animation.ColourMagicPortraitAnimation;
 import mclachlan.maze.ui.diygui.animation.FadeToBlackAnimation;
 import mclachlan.maze.ui.diygui.animation.ProjectileAnimation;
+import mclachlan.maze.ui.diygui.animation.LightLevelPass;
 import mclachlan.maze.util.MazeException;
 
 import static mclachlan.maze.data.v1.V1Animation.*;
@@ -51,6 +53,10 @@ public class AnimationPanel extends JPanel implements ActionListener
 	JRadioButton blue, red, black, purple, gold, white, green, custom;
 	JButton customColourButton;
 	JSpinner duration;
+
+	JSpinner lightLevelPassDuration;
+	JSpinner startX, startY, endX, endY;
+	LightLevelMatrixPanel lightLevelPassMatrix;
 
 	/*-------------------------------------------------------------------------*/
 	public AnimationPanel()
@@ -168,6 +174,19 @@ public class AnimationPanel extends JPanel implements ActionListener
 				FadeToBlackAnimation fba = (FadeToBlackAnimation)a;
 				duration.setValue(fba.getDuration());
 				break;
+			case LIGHT_LEVEL_PASS:
+				LightLevelPass spa = (LightLevelPass)a;
+
+				lightLevelPassDuration.setValue(spa.getDuration());
+				startX.setValue(spa.getStartX());
+				startY.setValue(spa.getStartY());
+				endX.setValue(spa.getEndX());
+				endY.setValue(spa.getEndY());
+
+				lightLevelPassMatrix.refresh(spa.getLightLevels());
+
+				break;
+
 			default: throw new MazeException("Invalid animation type: "+animType);
 		}
 	}
@@ -181,6 +200,7 @@ public class AnimationPanel extends JPanel implements ActionListener
 				case PROJECTILE -> "Projectile";
 				case COLOUR_PORTRAIT -> "Colour Magic Portrait";
 				case FADE_TO_BLACK -> "Fade To Black";
+				case LIGHT_LEVEL_PASS -> "Light Level Pass";
 				default -> throw new MazeException("Invalid animation type: " + i);
 			};
 	}
@@ -194,8 +214,38 @@ public class AnimationPanel extends JPanel implements ActionListener
 				case PROJECTILE -> getProjectilePanel();
 				case COLOUR_PORTRAIT -> getColourMagicPanel();
 				case FADE_TO_BLACK -> getFadeToBlackPanel();
+				case LIGHT_LEVEL_PASS -> getLightLevelPassPanel();
 				default -> throw new MazeException("Invalid animation type: " + i);
 			};
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private JPanel getLightLevelPassPanel()
+	{
+		lightLevelPassDuration = new JSpinner(new SpinnerNumberModel(1, 1, 99999, 1));
+
+		startX = new JSpinner(new SpinnerNumberModel(0, 0, 9999, 1));
+		startY = new JSpinner(new SpinnerNumberModel(0, 0, 9999, 1));
+		endX = new JSpinner(new SpinnerNumberModel(0, 0, 9999, 1));
+		endY = new JSpinner(new SpinnerNumberModel(0, 0, 9999, 1));
+
+		lightLevelPassMatrix = new LightLevelMatrixPanel();
+
+		JPanel result = new JPanel(new BorderLayout());
+
+		JPanel spinners = new JPanel();
+
+		dirtyGridLayoutCrap(spinners,
+			new JLabel("Duration:"), lightLevelPassDuration,
+			new JLabel("Start X:"), startX,
+			new JLabel("Start Y:"), startY,
+			new JLabel("End X:"), endX,
+			new JLabel("End X:"), endY);
+
+		result.add(spinners, BorderLayout.WEST);
+		result.add(lightLevelPassMatrix, BorderLayout.CENTER);
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -365,6 +415,14 @@ public class AnimationPanel extends JPanel implements ActionListener
 				return new ColourMagicPortraitAnimation(c);
 			case FADE_TO_BLACK:
 				return new FadeToBlackAnimation((Integer)duration.getValue());
+			case LIGHT_LEVEL_PASS:
+				return new LightLevelPass(
+					(int)lightLevelPassDuration.getValue(),
+					(int)startX.getValue(),
+					(int)startY.getValue(),
+					(int)endX.getValue(),
+					(int)endY.getValue(),
+					lightLevelPassMatrix.getLightLevels());
 			default: throw new MazeException("Invalid animation type: "+index);
 		}
 	}
@@ -389,6 +447,143 @@ public class AnimationPanel extends JPanel implements ActionListener
 				Color.BLACK);
 			
 			customColourButton.setBackground(c);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	static class LightLevelMatrixPanel extends JPanel implements ActionListener
+	{
+		JComboBox<MatrixSize> size;
+		JSpinner[][] lightLevels;
+
+		enum MatrixSize
+		{
+			_3x3, _5x5, _7x7, _9x9
+		}
+
+		public LightLevelMatrixPanel()
+		{
+			super(new BorderLayout(5, 5));
+
+			size = new JComboBox<>(MatrixSize.values());
+			size.addActionListener(this);
+			add(size, BorderLayout.NORTH);
+
+			JPanel spinners = new JPanel(new GridLayout(9, 9, 5, 5));
+
+			lightLevels = new JSpinner[9][9];
+			for (int i = 0; i < lightLevels.length; i++)
+			{
+				for (int j = 0; j < lightLevels[i].length; j++)
+				{
+					JSpinner jSpinner = new JSpinner(new SpinnerNumberModel(-1, -1, CrusaderEngine.MAX_LIGHT_LEVEL, 1));
+					lightLevels[i][j] = jSpinner;
+					spinners.add(jSpinner);
+				}
+			}
+
+			add(spinners, BorderLayout.CENTER);
+
+			refresh(new int[][]{
+				{-1,-1,-1},
+				{-1,-1,-1},
+				{-1,-1,-1},
+			});
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e)
+		{
+			if (e.getSource() == size)
+			{
+				int nr = getMatrixSize();
+
+				setSpinnerState(nr);
+			}
+		}
+
+		private void setSpinnerState(int nr)
+		{
+			for (int i = 0; i < lightLevels.length; i++)
+			{
+				for (int j = 0; j < lightLevels[i].length; j++)
+				{
+					JSpinner jSpinner = lightLevels[i][j];
+
+					if (i < nr && j < nr)
+					{
+						jSpinner.setEnabled(true);
+					}
+					else
+					{
+						jSpinner.setValue(-1);
+						jSpinner.setEnabled(false);
+					}
+				}
+			}
+		}
+
+		private int getMatrixSize()
+		{
+			return switch ((MatrixSize)(size.getSelectedItem()))
+				{
+					case _3x3 -> 3;
+					case _5x5 -> 5;
+					case _7x7 -> 7;
+					case _9x9 -> 9;
+					default -> throw new MazeException("invalid " + size.getSelectedItem());
+				};
+		}
+
+		public int[][] getLightLevels()
+		{
+			int nr = getMatrixSize();
+
+			int[][] result = new int[nr][nr];
+
+			for (int i = 0; i < result.length; i++)
+			{
+				for (int j = 0; j < result[i].length; j++)
+				{
+					result[i][j] = (int)lightLevels[i][j].getValue();
+				}
+			}
+
+			return result;
+		}
+
+		public void refresh(int[][] lightLevelsIn)
+		{
+			int nr = lightLevelsIn.length;
+
+			if (!(nr == 3 || nr == 5 || nr == 7 || nr == 9))
+			{
+				throw new MazeException("invalid "+nr);
+			}
+
+			switch (nr)
+			{
+				case 3 -> size.setSelectedItem(MatrixSize._3x3);
+				case 5 -> size.setSelectedItem(MatrixSize._5x5);
+				case 7 -> size.setSelectedItem(MatrixSize._7x7);
+				case 9 -> size.setSelectedItem(MatrixSize._9x9);
+			}
+
+			setSpinnerState(nr);
+			for (int i = 0; i < lightLevels.length; i++)
+			{
+				for (int j = 0; j < lightLevels[i].length; j++)
+				{
+					if (i < nr && j < nr)
+					{
+						lightLevels[i][j].setValue(lightLevelsIn[i][j]);
+					}
+					else
+					{
+						lightLevels[i][j].setValue(-1);
+					}
+				}
+			}
 		}
 	}
 }
