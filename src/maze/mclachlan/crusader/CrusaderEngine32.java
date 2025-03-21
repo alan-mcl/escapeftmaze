@@ -2388,6 +2388,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		float wallTop = playerHeight - (projectedWallHeight / 2) - (projectedWallHeight * (wallStackHeight - 1)) + projPlaneOffset;
 		float wallBottom = playerHeight + (projectedWallHeight / 2) + projPlaneOffset;
+		// todo: do we really need this?
+		float diff = -(playerHeight -(projectedWallHeight/2) -(projectedWallHeight*(wallStackHeight-1))) -projPlaneOffset;
 
 		int top = Math.round(Math.max(wallTop, 0));
 		int bottom = Math.round(Math.min(wallBottom, projectionPlaneHeight));
@@ -2404,16 +2406,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 		int textureY = 0;
 		int screenY = top;
 
-		// todo: can probably be optomised
-		float diff = -(playerHeight -(projectedWallHeight/2) -(projectedWallHeight*(wallStackHeight-1))) -projPlaneOffset;
-
 		if (ceilingTop > 0)
 		{
 			hasAlpha |= drawCeiling(castArc, screenX, projectedWallHeight, depth, ceilingTop, outputBuffer);
 		}
 
-		int roundedProjWallHeight = Math.round(projectedWallHeight);
-		int roundedWallTop = Math.round(wallTop);
+		int roundedProjWallHeight = (int)Math.ceil(projectedWallHeight);
+		int roundedWallTop = (int)Math.ceil(wallTop);
 
 		while (screenY <= bottom)
 		{
@@ -2435,23 +2434,25 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 				}
 
-				if (diff <= 0)
+//				if (diff <= 0)
+//				{
+//					textureY = Math.round(((screenY-top) * tileSize) / projectedWallHeight);
+//				}
+//				else
 				{
-					textureY = Math.round(((screenY-top) * tileSize) / projectedWallHeight);
+//					textureY = (int)(((screenY+diff) * tileSize) / projectedWallHeight);
+					textureY = (int)(((screenY+diff) * tileSize) / roundedProjWallHeight);
 				}
-				else
-				{
-					textureY = Math.round(((screenY+diff) * tileSize) / projectedWallHeight);
-				}
+
+//				if (textureY <= 0)
+//				{
+//					System.out.println(textures[textureIndex].getName()+" = " + textureY);
+//				}
 
 				int colour;
 				if (maskTextures != null)
 				{
 					// use the mask texture instead of the wall texture
-					if (maskTextures[maskTextureIndex] == null)
-					{
-
-					}
 					int maskPixel = maskTextures[maskTextureIndex].getCurrentImageData(textureX, textureY, timeNow);
 
 					colour = alphaBlend(

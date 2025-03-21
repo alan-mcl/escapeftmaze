@@ -73,6 +73,33 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_TOP_RIGHT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_top_right"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_THICKET_2",
+    "imageResources": [
+      "crusader/scene/jungle_thicket_2"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_THICKET_1",
+    "imageResources": [
+      "crusader/scene/jungle_thicket_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.woodsign.side",
     "imageResources": [
       "crusader/scene/wood_sign_side"
@@ -166,6 +193,15 @@
     "name": "foe.dwarf.female.1",
     "imageResources": [
       "crusader/foe/dwarf_female_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_bottom_right"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"
@@ -596,6 +632,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_bottom_left"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "sky.aenen",
     "imageResources": [
       "crusader/scene/aenen_sky"
@@ -881,6 +926,15 @@
     "name": "SAND_ROAD_C_NW",
     "imageResources": [
       "crusader/scene/sand_road_c_nw"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_TREE_BIG_TOP_LEFT",
+    "imageResources": [
+      "crusader/scene/jungle_tree_big_top_left"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"
@@ -1495,6 +1549,15 @@
     "name": "foe.dwarf.male.1",
     "imageResources": [
       "crusader/foe/dwarf_male_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_CLIFF_1",
+    "imageResources": [
+      "crusader/scene/jungle_cliff_1"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

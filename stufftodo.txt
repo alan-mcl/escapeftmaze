@@ -4,6 +4,7 @@ STUFFTODO
 
 ICHIBA CROSSROADS
 -----------------
+better trees
 ichiba flat sky
 bug: zone change flickering
 finer grained object placement

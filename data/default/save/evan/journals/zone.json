@@ -1,0 +1,107 @@
+{
+  "name": "zone",
+  "contents": {
+    "Gatehouse": [
+      {
+        "turnNr": "0",
+        "text": "Arrived in Gatehouse"
+      },
+      {
+        "turnNr": "0",
+        "text": "... you blink as the familiar disorientation of extradimensional travel wears off and your eyes adjust to the darkness. You appear to be in a gloomy stone corridor, and a dead end at that. The air is stale and heavy, and the oppresive silence is broken only by your breathing."
+      },
+      {
+        "turnNr": "0",
+        "text": "You look around. Some crudely etched runes on nearby walls emit a desultory glow, but otherwise this section of  corridor is unremarkable.\nThis gate seems to have been a one way trip: you can see no immediate way back to the First Realm from here..."
+      },
+      {
+        "turnNr": "10",
+        "text": "Above you a fixture on the ceiling gives off some kind of soft magical light."
+      },
+      {
+        "turnNr": "26",
+        "text": "Peering through the bars, the room beyond is gloomy and quiet. A dank, feral smell faintly tickles your nose.\n\nOn the far side of the room you can just make out what looks like some kind of lever."
+      },
+      {
+        "turnNr": "43",
+        "text": "With a flurry of wings, you are suddenly assaulted from above!"
+      },
+      {
+        "turnNr": "43",
+        "text": "Encountered Fruit Bats "
+      },
+      {
+        "turnNr": "43",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "43",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "158",
+        "text": "The large lever mechanism looks tarnished and old but otherwise functional.\n\nYou wonder what hidden machinery it connects to..."
+      },
+      {
+        "turnNr": "158",
+        "text": "You give the lever a hard yank."
+      },
+      {
+        "turnNr": "158",
+        "text": "A loud clanking and grinding fills the dungeon."
+      },
+      {
+        "turnNr": "208",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "209",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "210",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "241",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "242",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "285",
+        "text": "Large silky webs cover the walls and recede around the corner."
+      },
+      {
+        "turnNr": "289",
+        "text": "This area of the dungeon is even dustier, gloomier and more run down than what you have seen so far.\n\nFrom the darkness you seem to feel many eyes watching you through the strands of webbing."
+      },
+      {
+        "turnNr": "310",
+        "text": "Game Saved"
+      },
+      {
+        "turnNr": "346",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "395",
+        "text": "Unsurprisingly, the creator of the web is unimpressed with your intrusion."
+      },
+      {
+        "turnNr": "395",
+        "text": "Encountered Mud Spider "
+      },
+      {
+        "turnNr": "395",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "395",
+        "text": "--- combat round 1 starts ---"
+      }
+    ]
+  }
+}

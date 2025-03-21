@@ -1,0 +1,15 @@
+{
+  "name": "quest",
+  "contents": {
+    "Escape from the Second Realm": [
+      {
+        "turnNr": "5",
+        "text": "You have escaped from the First Realm of the Maze.\nYou seek now to escape from the Second.\n\nSomewhere in this Realm you have entered lies a Great Gate. You must locate it, access it and pass through to escape this Realm and continue your journey to escape from the Maze entirely."
+      },
+      {
+        "turnNr": "5",
+        "text": "Quest added"
+      }
+    ]
+  }
+}
