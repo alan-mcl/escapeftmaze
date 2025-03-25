@@ -101,6 +101,82 @@
       {
         "turnNr": "395",
         "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "396",
+        "text": "Save Game \u0027evan\u0027 Loaded"
+      },
+      {
+        "turnNr": "448",
+        "text": "Swarming from the surrounding webbing, you are attacked by a group of disturbingly large spiders!"
+      },
+      {
+        "turnNr": "448",
+        "text": "Encountered Mud Spiders "
+      },
+      {
+        "turnNr": "448",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "448",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "452",
+        "text": "You brush cobwebs aside and peer nervously through the darkness. This area smells of mold, dust and fungus.\n\nA spider, larger than the others, rouses itself angrily from a nest of bones in the far corner and moves to attack!"
+      },
+      {
+        "turnNr": "452",
+        "text": "Encountered Bonebrood, Mud Spiders "
+      },
+      {
+        "turnNr": "452",
+        "text": "COMBAT!"
+      },
+      {
+        "turnNr": "452",
+        "text": "--- combat round 1 starts ---"
+      },
+      {
+        "turnNr": "453",
+        "text": "--- combat round 2 starts ---"
+      },
+      {
+        "turnNr": "455",
+        "text": "A pile of dry and dusty bones has been heaped in this dark corner."
+      },
+      {
+        "turnNr": "455",
+        "text": "Poking through the pile of moldy bones, you discover several items of interest..."
+      },
+      {
+        "turnNr": "473",
+        "text": "A large web has been spun across the entrance to this alcove."
+      },
+      {
+        "turnNr": "509",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "510",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "511",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "512",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "513",
+        "text": "LOCKED!"
+      },
+      {
+        "turnNr": "1069",
+        "text": "Game Saved"
       }
     ]
   }

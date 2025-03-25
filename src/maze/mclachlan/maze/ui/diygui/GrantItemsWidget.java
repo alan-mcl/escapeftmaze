@@ -229,7 +229,16 @@ public class GrantItemsWidget extends GeneralDialog implements ActionListener, C
 	@Override
 	public boolean characterChosen(PlayerCharacter pc, int pcIndex)
 	{
-		List<Item> untakenItems = pc.getInventory().addAll(lootWidget.getRemainingItems());
+		List<Item> items = lootWidget.getRemainingItems();
+
+		Item item = (Item)DIYToolkit.getInstance().getCursorContents();
+		if (item != null)
+		{
+			items.add(item);
+		}
+
+		List<Item> untakenItems = pc.getInventory().addAll(items);
+
 		this.lootWidget.setItems(untakenItems);
 		return true;
 	}

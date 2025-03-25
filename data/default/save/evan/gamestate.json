@@ -1,8 +1,8 @@
 {
   "currentZone": "Gatehouse",
   "difficultyLevel": "Easy",
-  "facing": "4",
-  "playerPos": "22:26",
+  "facing": "2",
+  "playerPos": "16:24",
   "partyGold": "0",
   "partySupplies": "12",
   "partyNames": [
@@ -14,5 +14,5 @@
     "Th\u0027shaa"
   ],
   "formation": "3",
-  "turnNr": "396"
+  "turnNr": "1069"
 }

@@ -455,7 +455,6 @@ public class PlayerCharacterWidget extends DIYPanel
 			Maze.State state = Maze.getInstance().getState();
 			if (state == Maze.State.COMBAT && playerCharacter.isAlive())
 			{
-				stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
 				stance.setVisible(true);
 				stance.setEnabled(thisEnabled && !stance.getModel().isEmpty() && !(stance.getModel().size() == 1));
 
@@ -489,23 +488,35 @@ public class PlayerCharacterWidget extends DIYPanel
 			refreshStance(stance.getSelected());
 
 			// action
-			action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
 			action.setVisible(true);
 			action.setEnabled(thisEnabled && !action.getModel().isEmpty() && !(action.getModel().size() == 1));
+		}
+	}
 
-			if (state == Maze.State.MOVEMENT ||
-				state == Maze.State.COMBAT)
+	/*-------------------------------------------------------------------------*/
+	public void refreshPcActionOptions()
+	{
+		Combat combat = Maze.getInstance().getCurrentCombat();
+		Maze.State state = Maze.getInstance().getState();
+		if (state == Maze.State.COMBAT && playerCharacter.isAlive())
+		{
+			stance.setModel(playerCharacter.getCharacterStanceOptions(Maze.getInstance(), combat));
+		}
+		
+		action.setModel(playerCharacter.getCharacterActionOptions(Maze.getInstance(), combat));
+
+		if (state == Maze.State.MOVEMENT ||
+			state == Maze.State.COMBAT)
+		{
+			if (combat == null)
 			{
-				if (combat == null)
-				{
-					action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
-					action.setEnabled(!action.getModel().isEmpty());
-				}
-				else
-				{
-					action.setEditorText(null);
-					action.getSelected().select(playerCharacter, combat, this);
-				}
+				action.setEditorText(StringUtil.getUiLabel("pcw.take.an.action", playerCharacter.getDisplayName()));
+				action.setEnabled(!action.getModel().isEmpty());
+			}
+			else
+			{
+				action.setEditorText(null);
+				action.getSelected().select(playerCharacter, combat, this);
 			}
 		}
 	}

@@ -56,7 +56,7 @@ public class RunAwayAttemptEvent extends MazeEvent
 	@Override
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		if (combat == null)
 		{

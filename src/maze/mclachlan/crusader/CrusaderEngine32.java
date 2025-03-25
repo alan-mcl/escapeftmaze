@@ -2434,20 +2434,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 					}
 				}
 
-//				if (diff <= 0)
-//				{
-//					textureY = Math.round(((screenY-top) * tileSize) / projectedWallHeight);
-//				}
-//				else
-				{
-//					textureY = (int)(((screenY+diff) * tileSize) / projectedWallHeight);
-					textureY = (int)(((screenY+diff) * tileSize) / roundedProjWallHeight);
-				}
-
-//				if (textureY <= 0)
-//				{
-//					System.out.println(textures[textureIndex].getName()+" = " + textureY);
-//				}
+				textureY = (int)(((screenY+diff) * tileSize) / roundedProjWallHeight);
 
 				int colour;
 				if (maskTextures != null)

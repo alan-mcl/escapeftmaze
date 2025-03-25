@@ -156,6 +156,8 @@ public class StartCombatEvent extends MazeEvent
 					maze.executeCombatRound(combat);
 				}
 
+				maze.getUi().refreshPcActionOptions();
+
 				return null;
 			}
 		});

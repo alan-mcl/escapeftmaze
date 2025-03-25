@@ -1,0 +1,29 @@
+{
+  "name": "npc",
+  "contents": {
+    "Other NPC": [
+      {
+        "turnNr": "999",
+        "text": "First meeting text"
+      },
+      {
+        "turnNr": "1000",
+        "text": "NPC: speach"
+      },
+      {
+        "turnNr": "1200",
+        "text": "Next meeting text"
+      }
+    ],
+    "Red Ear": [
+      {
+        "turnNr": "55",
+        "text": "You meet Red Ear for the first time."
+      },
+      {
+        "turnNr": "56",
+        "text": "Red Ear: Hello!"
+      }
+    ]
+  }
+}

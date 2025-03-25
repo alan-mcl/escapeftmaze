@@ -31,7 +31,7 @@ import mclachlan.maze.stat.UnifiedActor;
  */
 public class RunAwaySuccessEvent extends MazeEvent
 {
-	private UnifiedActor actor;
+	private final UnifiedActor actor;
 
 	/*-------------------------------------------------------------------------*/
 	public RunAwaySuccessEvent(UnifiedActor actor)
@@ -48,17 +48,15 @@ public class RunAwaySuccessEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		Maze.getInstance().actorFlees(actor);
+		List<MazeEvent> result = new ArrayList<>(Maze.getInstance().actorFlees(actor));
 
 		if (actor instanceof PlayerCharacter)
 		{
-			return GameSys.getInstance().processDishonourableAction(
-				Maze.getInstance().getParty(), (PlayerCharacter)actor);
+			result.addAll(GameSys.getInstance().processDishonourableAction(
+				Maze.getInstance().getParty(), (PlayerCharacter)actor));
 		}
-		else
-		{
-			return null;
-		}
+
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

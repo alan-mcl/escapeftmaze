@@ -423,6 +423,7 @@ public class MapDisplay extends JPanel implements Scrollable
 		public static final int EXECUTE_MAZE_SCRIPT = 14;
 		public static final int LEVERS = 15;
 		public static final int TILE_MASK_TEXTURES = 16;
+		public static final int LIGHT_LEVELS = 17;
 	}
 	
 	/*-------------------------------------------------------------------------*/

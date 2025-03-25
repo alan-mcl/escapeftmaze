@@ -94,6 +94,8 @@ public interface UserInterface
 	/*-------------------------------------------------------------------------*/
 	void enableInput();
 
+	void refreshPcActionOptions();
+
 	/*-------------------------------------------------------------------------*/
 	void addObject(EngineObject obj);
 

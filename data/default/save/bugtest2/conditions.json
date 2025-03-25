@@ -1,0 +1,92 @@
+{
+  "1~Silvia": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Silvia",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~Ug": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Silvia",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~Brunswick": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Silvia",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~Gibby": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Silvia",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~Dwaf": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Silvia",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~IG-87": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Silvia",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ]
+}

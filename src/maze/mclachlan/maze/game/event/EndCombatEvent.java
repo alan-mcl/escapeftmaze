@@ -78,6 +78,8 @@ public class EndCombatEvent extends MazeEvent
 		maze.setCurrentActorEncounter(null);
 		maze.setState(Maze.State.MOVEMENT);
 
+		maze.getUi().refreshPcActionOptions();
+
 		if (!alive)
 		{
 			return null;

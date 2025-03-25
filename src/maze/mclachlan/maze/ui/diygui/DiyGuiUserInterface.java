@@ -709,6 +709,18 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	@Override
+	public void refreshPcActionOptions()
+	{
+		this.charLowLeft.refreshPcActionOptions();
+		this.charLowRight.refreshPcActionOptions();
+		this.charMidLeft.refreshPcActionOptions();
+		this.charMidRight.refreshPcActionOptions();
+		this.charTopLeft.refreshPcActionOptions();
+		this.charTopRight.refreshPcActionOptions();
+	}
+
+	/*-------------------------------------------------------------------------*/
 	private DIYPane getInputDisablingPane()
 	{
 		DIYPane result = new DIYPane(screenBounds);

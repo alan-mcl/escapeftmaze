@@ -1391,7 +1391,7 @@
         "DEFAULT_ARM",
         "DEFAULT_LEG"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -1408,7 +1408,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.shade"
@@ -1441,6 +1441,7 @@
     "appearanceScript": {
       "NAME": "sound - ghost"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "shade touch"
@@ -1461,6 +1462,7 @@
         "Unholy Ground"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "MAGIC",
     "defaultAttitude": "ATTACKING"
   },
@@ -12273,7 +12275,7 @@
     ],
     "hitPointsRange": "6d3+6",
     "actionPointsRange": "3d6",
-    "magicPointsRange": "3d6",
+    "magicPointsRange": "6d6+6",
     "levelRange": "1d1+2",
     "experience": "300",
     "stats": "2c1fdf0fe0000001f8,010604040606060606060606060a0a0a010101010101010101323232",
@@ -20109,6 +20111,7 @@
     "pluralName": "C.O.C Sergeants",
     "unidentifiedName": "?human",
     "unidentifiedPluralName": "?humans",
+    "types": [],
     "race": "Human",
     "hitPointsRange": "10d4+6",
     "actionPointsRange": "0d1",
@@ -20131,7 +20134,7 @@
         "human hand",
         "human foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -20148,7 +20151,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.human.1"
@@ -20180,10 +20183,13 @@
     "appearanceScript": {
       "NAME": "sound - marching"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -20494,7 +20500,7 @@
         "DEFAULT_BODY",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -20511,7 +20517,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.bat.1"
@@ -20544,6 +20550,7 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "bat vampire bite"
@@ -20557,6 +20564,7 @@
         "Freeze"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },

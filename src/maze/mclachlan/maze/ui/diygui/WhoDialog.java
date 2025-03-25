@@ -43,7 +43,10 @@ class WhoDialog extends DIYPane
 			Database.getInstance().getImage("cursor/who"),
 			new Point(0,0),
 			"cursor/who");
-		DIYToolkit.getInstance().setCursor(cursor, null);
+
+		// retain any cursor contents, in case the callback needs this.
+		// cursor contents will be destroyed one exit anyway
+		DIYToolkit.getInstance().setCursor(cursor, DIYToolkit.getInstance().getCursorContents());
 	}
 
 	/*----------------------------------------------------------------------*/

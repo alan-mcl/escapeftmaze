@@ -1,0 +1,1120 @@
+[
+  {
+    "name": "Brunswick",
+    "gender": "Female",
+    "race": "Mirka",
+    "characterClass": "Enchanter",
+    "personality": "Faithful",
+    "levels": {
+      "Enchanter": "20"
+    },
+    "experience": "601416",
+    "kills": "6",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/mirka_female_1",
+    "torsoArmour": {
+      "template": "Caliban\u0027s Cuirass",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0"
+    },
+    "legArmour": {
+      "template": "Trapper\u0027s Trousers",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0"
+    },
+    "boots": {
+      "template": "Snakeskin Boots",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0"
+    },
+    "primaryWeapon": {
+      "template": "Mystic Spear",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0"
+    },
+    "altPrimaryWeapon": {
+      "template": "Long Bow",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0"
+    },
+    "altSecondaryWeapon": {
+      "template": "Viper Arrow",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "50-100",
+      "charges": "0-0"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Succubus Song",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Strings Of Seduction",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Viola D\u0027Amore",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Fey Pipes",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Midnight Choir",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Bardic Harp",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Mandolin Of The Magus",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Pennywhistle",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Soulful Sax",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Pipes Of Doom",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Angel\u0027s Tongue",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Lyre Of Cakes",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        },
+        {
+          "template": "Bullwhip",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0"
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Bane",
+        "Heal Light Wounds",
+        "Dazzling Lights",
+        "Fey Voice",
+        "Mass Blur",
+        "Fey Bolt",
+        "Haste",
+        "Soul Shield",
+        "Mage Strength",
+        "Stoneskin",
+        "Tag",
+        "Unleash Power",
+        "Melt Into Mist",
+        "Prismic Chaos",
+        "Might To Magic",
+        "Curse",
+        "Left Handed Bane",
+        "Binding",
+        "Theft",
+        "Goldfingers",
+        "Sleep"
+      ]
+    },
+    "spellPicks": "4",
+    "stats": {
+      "modifiers": "30000000000000000000040000000007e0778501f8,030a04070202051304040404070a0a0a0b0a0a0a0b0d3201",
+      "hitPoints": "2-79-0",
+      "actionPoints": "83-83",
+      "magicPoints": "58-58"
+    },
+    "practice": {
+      "modifiers": "20010000,3359"
+    },
+    "activeModifiers": "441f785e7f8,010101010101010101010101010101010101010101010101"
+  },
+  {
+    "name": "Ug",
+    "gender": "Male",
+    "race": "Neotroll",
+    "characterClass": "Sohei",
+    "personality": "Wit",
+    "levels": {
+      "Sohei": "20"
+    },
+    "experience": "5789000",
+    "kills": "31",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/neotroll_male_1",
+    "helm": {
+      "template": "Hachimaki",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "torsoArmour": {
+      "template": "Ameratsu\u0027s Gown",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "legArmour": {
+      "template": "Shino Suneate",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "boots": {
+      "template": "Mantis Boots",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "primaryWeapon": {
+      "template": "Cascade",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Potion Of Light Heal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "3-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Claymore",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Club",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Wakazashi",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Scrymgeour\u0027s Bitter",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Aenen Sundew",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Dungore\u0027s Malt Ale",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Hail Cider",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "McCavity Ale",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Potion Of Light Heal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "3-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Potion Of Mod Heal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "4-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Potion Of Mod Heal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "3-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Potion Of Mod Heal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "2-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Fire Bomb",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "2-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Ice Bomb",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "2-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Knock Pick",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-25",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Aenen Cavegrown Tobacco",
+          "cursedState": "0",
+          "identificationState": "1",
+          "stack": "0-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Heal Light Wounds",
+        "Chameleon",
+        "Cure Lesser Condition",
+        "Cure Poison",
+        "Entangle",
+        "Revitalise",
+        "Call Plants",
+        "Call Treant",
+        "Entwine",
+        "Call Elemental",
+        "Call Wyrms",
+        "Force Of Nature",
+        "Cure Disease",
+        "Bolt Of Lightning",
+        "Blizzard",
+        "Falling Stars",
+        "Call Wyrm",
+        "Firestorm"
+      ]
+    },
+    "spellPicks": "7",
+    "stats": {
+      "modifiers": "442880401f18,120c010f040807030102060706",
+      "hitPoints": "2-148-0",
+      "actionPoints": "10-10",
+      "magicPoints": "32-41"
+    },
+    "practice": {
+      "modifiers": "1a00,011e1e"
+    },
+    "activeModifiers": "4208043fff8,01010101010101010101010101010101010101"
+  },
+  {
+    "name": "Silvia",
+    "gender": "Female",
+    "race": "Elf",
+    "characterClass": "Enchanter",
+    "personality": "Valiant",
+    "levels": {
+      "Enchanter": "20"
+    },
+    "experience": "601416",
+    "kills": "11",
+    "deaths": "0",
+    "karma": "10",
+    "portrait": "portrait/elf_female_1",
+    "helm": {
+      "template": "Wizard\u0027s Cone",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "0-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "torsoArmour": {
+      "template": "Robes Of Rejuvenation",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "legArmour": {
+      "template": "Enchanted Robes (L)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "boots": {
+      "template": "Glass Slippers",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "primaryWeapon": {
+      "template": "Flamestaff",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Knock Pick",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-25",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Silver Ring",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Conjurers Gloves",
+          "cursedState": "2",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "2-4",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Valentine Necklace",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "0-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Brooch",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "0-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Bat Necklace",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "0-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Blarneystone Amulet",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "0-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Fear",
+        "Wave Of Heat",
+        "Pain",
+        "Deadly Poison",
+        "Power Of The Pit",
+        "Gates Of Hell",
+        "Unholy Ground",
+        "Acid Cloud",
+        "Deadly Air",
+        "Draining Cloud",
+        "Knock Knock",
+        "Identify",
+        "TestingSpell",
+        "Elemental Swarm",
+        "Heal Serious Wounds"
+      ]
+    },
+    "spellPicks": "3",
+    "stats": {
+      "modifiers": "2000000008fe000002190,01100b01141a14141414145b01",
+      "hitPoints": "2-73-0",
+      "actionPoints": "10-10",
+      "magicPoints": "605-629"
+    },
+    "practice": {
+      "modifiers": "188000000000,040405"
+    },
+    "activeModifiers": "ffe0000027f8,0101010101010101010101010101010101010101"
+  },
+  {
+    "name": "Dwaf",
+    "gender": "Male",
+    "race": "Dwarf",
+    "characterClass": "Paladin",
+    "personality": "Peer",
+    "levels": {
+      "Paladin": "20"
+    },
+    "experience": "601416",
+    "kills": "25",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/dwarf_male_1",
+    "helm": {
+      "template": "Infinity Helm",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "torsoArmour": {
+      "template": "Dragon Plate (U)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "legArmour": {
+      "template": "Dragon Plate (L)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "boots": {
+      "template": "Mantis Boots",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "primaryWeapon": {
+      "template": "Flanged Mace",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "secondaryWeapon": {
+      "template": "Shield of Ice",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Corrosion Bomb",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Acid Bomb",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Fire Bomb",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-5",
+          "charges": "1-1",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Getsel\u0027s Bone Comb",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Ghola Coin",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Miriam\u0027s Rag Doll",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Copper Coin",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "99-9999",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Iron Ration",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "5-25",
+          "charges": "0-0",
+          "enchantmentName": ""
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Heal Light Wounds"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "1fc0000000000000000000000000120002007d8,10100101010f0803050501010101010101",
+      "hitPoints": "28-161-0",
+      "actionPoints": "8-10",
+      "magicPoints": "120-120"
+    },
+    "practice": {
+      "modifiers": "300000000600,3a010f25"
+    },
+    "activeModifiers": "712000233ff8,01010101010101010101010101010101010101"
+  },
+  {
+    "name": "IG-87",
+    "gender": "None",
+    "race": "Mata",
+    "characterClass": "Warlock",
+    "personality": "Cunning",
+    "levels": {
+      "Warlock": "20"
+    },
+    "experience": "601416",
+    "kills": "31",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/mata_1",
+    "helm": {
+      "template": "Jeweled Armet",
+      "cursedState": "1",
+      "identificationState": "1",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "torsoArmour": {
+      "template": "Powered Exoskeleton (U)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "1-1",
+      "enchantmentName": ""
+    },
+    "legArmour": {
+      "template": "Ebony Plate (L)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "boots": {
+      "template": "Silver Sollerets",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "primaryWeapon": {
+      "template": "Katana",
+      "cursedState": "1",
+      "identificationState": "1",
+      "stack": "0-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Demilitarised Clockwork Head",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Air Filter",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Vacuum Pump",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "RPG Launcher",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "3-5",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Tesla Coil",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Metronome",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Lazurite Crystal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Large Clockwork Motor",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Reticulated Wolverine",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Electric Eye",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Large Battery",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Long Steel Rails",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Quartz Crystal",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "High Voltage Transformer",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Electrodes",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Tungsten Filament",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Barbed Net",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Spring Powered Catapult",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Gyroscope",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Copper Mesh",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": []
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "8200000000000000000000000000000000000000000002000000000000005518f8,0a0c020101171701070501140101",
+      "hitPoints": "2-206-0",
+      "actionPoints": "120-120",
+      "magicPoints": "19-19"
+    },
+    "practice": {
+      "modifiers": "1800,1c1f"
+    },
+    "activeModifiers": "20000000000000013fff8,0101010101010101010101010101010101"
+  },
+  {
+    "name": "Gibby",
+    "gender": "Female",
+    "race": "Goblin",
+    "characterClass": "Courtesan",
+    "personality": "Pro",
+    "levels": {
+      "Courtesan": "20"
+    },
+    "experience": "601416",
+    "kills": "21",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/goblin_female_1",
+    "helm": {
+      "template": "Phrygian Cap",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "0-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "torsoArmour": {
+      "template": "Flak Jacket",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "legArmour": {
+      "template": "Trapper\u0027s Trousers",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "boots": {
+      "template": "Muckraker Boots",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "gloves": {
+      "template": "Chamois Gloves",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "primaryWeapon": {
+      "template": "Siege Arbalest",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "altPrimaryWeapon": {
+      "template": "Omnigun Prototype",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1",
+      "charges": "0-0",
+      "enchantmentName": ""
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Frontier Phaser",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "49-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Empty Bottle",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Black Powder",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Conducting Solution",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-5",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Green Parrot",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Welding Goggles",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Scroll Of Identify",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-3",
+          "charges": "0-0",
+          "enchantmentName": ""
+        },
+        {
+          "template": "Sarissa",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1",
+          "charges": "0-0",
+          "enchantmentName": ""
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Burning Hands",
+        "Paralysis",
+        "Blinding Flash",
+        "Mephit Swarm",
+        "Noxious Fumes",
+        "Whipping Rocks",
+        "Elemental",
+        "Lava Burst",
+        "Mephit Army",
+        "Stoneskin",
+        "Dragon",
+        "Earthquake",
+        "Lightning Cloud",
+        "Nuclear Blast",
+        "Silence",
+        "Mindread",
+        "Fey Bolt"
+      ]
+    },
+    "spellPicks": "4",
+    "stats": {
+      "modifiers": "4100200000000000000000002000000002a01080009fa,02090c010201010a0963020d0b02010104",
+      "hitPoints": "2-147-0",
+      "actionPoints": "10-10",
+      "magicPoints": "56-56"
+    },
+    "practice": {
+      "modifiers": "200,43"
+    },
+    "activeModifiers": "a01000327f8,0101010101010101010101010101"
+  }
+]

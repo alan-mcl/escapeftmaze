@@ -47,35 +47,35 @@
         "charges": "1-1"
       },
       {
-        "template": "Faerie Dust",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Guardian Angel",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Light Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Blink",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
         "template": "Smudge Powder",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Invisibility",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Flash Powder",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Bless",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Resist Elements",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "5-5",
@@ -119,12 +119,6 @@
         "stack": "1-1"
       },
       {
-        "template": "Skullcap",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Ninja Cowl",
         "cursedState": "0",
         "identificationState": "2",
@@ -132,12 +126,6 @@
       },
       {
         "template": "Chamois Gloves",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Piety",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -155,18 +143,6 @@
         "stack": "1-1"
       },
       {
-        "template": "Sling",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Gossamer Gown (L)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Red Gold Ring",
         "cursedState": "0",
         "identificationState": "2",
@@ -174,6 +150,72 @@
       },
       {
         "template": "Silk Shirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Garland Of Lilies",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Beggars Pants",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Feathered Hat",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Robes (L)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Skullcap",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Suede Doublet",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Tartan Trews",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Cloth Shirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Emerald Ring",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Ruby Ring",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Sling",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -192,13 +234,6 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
-        "template": "Potion Of Barkskin",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
         "template": "Potion Of Lesser Curing",
         "cursedState": "0",
         "identificationState": "2",
@@ -207,6 +242,41 @@
       },
       {
         "template": "Potion Of Light Heal",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Cure Poison",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Resist Elements",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Holy Water",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Pickmeup Potion",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Bless",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "5-5",
@@ -322,20 +392,6 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
-        "template": "Potion Of Resist Elements",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Potion Of Blink",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
         "template": "Potion Of Cure Poison",
         "cursedState": "0",
         "identificationState": "2",
@@ -354,13 +410,6 @@
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Guardian Angel",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
       },
       {
         "template": "Potion Of Invisibility",
@@ -382,7 +431,98 @@
         "stack": "1-1"
       },
       {
+        "template": "Script Of Poison",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Cure Paralysis",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Script Of Paralysis",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Sleep",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Striking",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Fear",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Blink",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Lesser Curing",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Mod Heal",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Script Of Charm",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
         "template": "Stink Bomb",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Emerald Ring",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Faerie Dust",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Flash Powder",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Barkskin",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "5-5",
@@ -396,7 +536,13 @@
         "charges": "1-1"
       },
       {
-        "template": "Script Of Poison",
+        "template": "Red Gold Ring",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Heal Light Wounds",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -444,12 +590,6 @@
         "identificationState": "2",
         "stack": "3-3",
         "charges": "1-1"
-      },
-      {
-        "template": "Mistletoe Berry",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "50-50"
       },
       {
         "template": "Blarneystone Amulet",
@@ -504,55 +644,10 @@
         "charges": "1-1"
       },
       {
-        "template": "Potion Of Razor Cloak",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
         "template": "Script Of Stamina",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
-      },
-      {
-        "template": "Script Of Web",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Scroll Of Slow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1"
-      },
-      {
-        "template": "Vitriolic Warder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Filcher\u0027s Band",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Mingminder\u0027s Green Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Potion Of Light Heal",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
       },
       {
         "template": "Potion Of Stamina",
@@ -560,12 +655,6 @@
         "identificationState": "2",
         "stack": "5-5",
         "charges": "1-1"
-      },
-      {
-        "template": "Robes (L)",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
       },
       {
         "template": "Scorpion Tail",
@@ -587,13 +676,6 @@
         "charges": "1-1"
       },
       {
-        "template": "Scroll Of Slow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "3-3",
-        "charges": "1-1"
-      },
-      {
         "template": "Scroll Of Wall Of Force",
         "cursedState": "0",
         "identificationState": "2",
@@ -601,20 +683,359 @@
         "charges": "1-1"
       },
       {
-        "template": "Scroll Of Whipping Rocks",
+        "template": "Skull Bones",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Aenen Cavegrown Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Corrosion Bomb",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Crystal Monocle",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Deadman\u0027s Hair",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Barkskin",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Invisibility",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Stamina",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Script Of Fear",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Mage Shield",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Scroll Of Armourplate",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "3-3",
         "charges": "1-1"
       },
       {
-        "template": "Shadow Cloak",
+        "template": "Silver Circlet",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
       },
       {
-        "template": "Skull Bones",
+        "template": "Sneeze Powder",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Tartan Trews",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Bearskin Cloak",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Beggars Pants",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Boom Bomb",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Cherry Bomb",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Coil Of Copper Wire",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Icicle Stix",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Magic Nectar",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Oilskin Cloak",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Invisibility",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Ring Of Protection",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Flame Blade",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Sonic Boom",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Scroll Of Mesmerism",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Snakeskin Belt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Bone Dust",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Cross Of Turning",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1",
+        "charges": "7-7"
+      },
+      {
+        "template": "Potion Of Lesser Curing",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Resist Elements",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Script Of Sleep",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Scroll Of Identify",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Scroll Of Knock Knock",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Scroll Of Slow",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Sparkle Stix",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Stink Bomb",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Wytch Stix",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Amulet Of Ares",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Boom Bomb",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Cat Paw",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Koga Headband",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Mingminder\u0027s Green Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Mistletoe Berry",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "50-50"
+      },
+      {
+        "template": "Potion Of Razor Cloak",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Stamina",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Robes (U)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Ruby Talisman",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Poison",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Script Of Theft",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Scroll Of Fear",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Scroll Of Mesmerism",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Scroll Of Slow",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "3-3",
+        "charges": "1-1"
+      },
+      {
+        "template": "Torbernite Ring",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -645,12 +1066,6 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
-        "template": "Tabi Boots",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Adventurer\u0027s Armoury Key",
         "cursedState": "0",
         "identificationState": "2",
@@ -669,7 +1084,19 @@
         "stack": "1-1"
       },
       {
-        "template": "Garland Of Lilies",
+        "template": "Adventurer\u0027s Armoury Key",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Silk Shirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Chamois Gloves",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -682,13 +1109,19 @@
         "charges": "1-1"
       },
       {
-        "template": "Adventurer\u0027s Armoury Key",
+        "template": "Sling",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
       },
       {
-        "template": "Hachimaki",
+        "template": "Robes (L)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Robes (U)",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -738,6 +1171,48 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
+        "template": "Mingminder\u0027s Green Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Aenen Cavegrown Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Aenen Cavegrown Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Chamois Gloves",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Mingminder\u0027s Green Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Silver Leaf Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Aenen Cavegrown Tobacco",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
         "template": "Silver Leaf Tobacco",
         "cursedState": "0",
         "identificationState": "2",
@@ -750,31 +1225,20 @@
         "stack": "1-1"
       },
       {
-        "template": "Aenen Cavegrown Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Mingminder\u0027s Green Tobacco",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Skullcap",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
       },
       {
-        "template": "Time Tobacco",
+        "template": "Aenen Sundew",
         "cursedState": "0",
         "identificationState": "2",
-        "stack": "1-1"
+        "stack": "5-5",
+        "charges": "1-1"
       },
       {
-        "template": "Aenen Cavegrown Tobacco",
+        "template": "Brooch",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -798,17 +1262,10 @@
         "stack": "1-1"
       },
       {
-        "template": "Silver Ring",
+        "template": "Time Tobacco",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
-      },
-      {
-        "template": "Sneeze Powder",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
       }
     ],
     "theftCounter": "0",
@@ -836,31 +1293,7 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
-        "template": "Cloth Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Kilt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Ninja Cowl",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Tabi Boots",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Buskins",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -870,12 +1303,6 @@
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
-      },
-      {
-        "template": "Conducting Solution",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5"
       },
       {
         "template": "Spring Powered Catapult",
@@ -890,26 +1317,7 @@
         "stack": "25-25"
       },
       {
-        "template": "Feathered Hat",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Golden Apple",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "5-5",
-        "charges": "1-1"
-      },
-      {
         "template": "Silk Shirt",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Tartan Trews",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -927,22 +1335,97 @@
         "stack": "1-1"
       },
       {
-        "template": "Parabolic Reflector",
+        "template": "Halogen Lamp",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
       },
       {
-        "template": "Pneumatic Piston",
+        "template": "Coil Of Copper Wire",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
       },
       {
-        "template": "Suede Doublet",
+        "template": "Dungore\u0027s Malt Ale",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Hachimaki",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
+      },
+      {
+        "template": "Robes (U)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Tungsten Filament",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Bunch Of Bananas",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Capacitor",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Feathered Hat",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Skullcap",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Tartan Trews",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Cloth Shirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Gyroscope",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Icicle Stix",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Iron Ration",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25"
       }
     ],
     "theftCounter": "0",
@@ -1028,9 +1511,16 @@
   {
     "template": "Sir Kay",
     "attitude": "NEUTRAL",
-    "currentInventory": [],
+    "currentInventory": [
+      {
+        "template": "Sling",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      }
+    ],
     "theftCounter": "1",
-    "tile": "11:17",
+    "tile": "12:25",
     "zone": "Ichiba Crossroad",
     "found": "false",
     "dead": "false",
@@ -1066,37 +1556,7 @@
         "stack": "1-1"
       },
       {
-        "template": "Hachimaki",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Iron Ration",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "25-25"
-      },
-      {
-        "template": "Suede Doublet",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Buskins",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Cloth Pants",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
-        "template": "Feathered Hat",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -1108,7 +1568,19 @@
         "stack": "1-1"
       },
       {
-        "template": "Tartan Trews",
+        "template": "Chamois Gloves",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Robes (U)",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Hachimaki",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -1139,35 +1611,40 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
+        "template": "Willow Arrow",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "26-100"
+      },
+      {
+        "template": "Spike Stone",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "39-100"
+      },
+      {
         "template": "Bullet Stone",
         "cursedState": "0",
         "identificationState": "2",
-        "stack": "40-100"
+        "stack": "27-100"
+      },
+      {
+        "template": "Quarrel",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "50-100"
       },
       {
         "template": "Hunter Arrow",
         "cursedState": "0",
         "identificationState": "2",
-        "stack": "37-100"
+        "stack": "31-100"
       },
       {
-        "template": "Acid Bomb",
+        "template": "Quarrel",
         "cursedState": "0",
         "identificationState": "2",
-        "stack": "2-5",
-        "charges": "1-1"
-      },
-      {
-        "template": "Musket Ball",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "26-100"
-      },
-      {
-        "template": "Willow Arrow",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "26-100"
+        "stack": "46-100"
       }
     ],
     "theftCounter": "0",
@@ -1183,7 +1660,25 @@
     "attitude": "NEUTRAL",
     "currentInventory": [
       {
+        "template": "Throwing Knife",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "50-50"
+      },
+      {
         "template": "Assegai",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Dagger",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Dagger",
         "cursedState": "0",
         "identificationState": "2",
         "stack": "1-1"
@@ -1195,10 +1690,10 @@
         "stack": "50-50"
       },
       {
-        "template": "Dagger",
+        "template": "Throwing Knife",
         "cursedState": "0",
         "identificationState": "2",
-        "stack": "1-1"
+        "stack": "50-50"
       }
     ],
     "theftCounter": "0",
@@ -1220,12 +1715,6 @@
         "stack": "1-1"
       },
       {
-        "template": "Silk Pantaloons",
-        "cursedState": "0",
-        "identificationState": "2",
-        "stack": "1-1"
-      },
-      {
         "template": "Potion Of Light Heal",
         "cursedState": "0",
         "identificationState": "2",
@@ -1237,6 +1726,72 @@
         "cursedState": "0",
         "identificationState": "2",
         "stack": "25-25"
+      },
+      {
+        "template": "Cloth Pants",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Cure Poison",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Iron Ration",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25"
+      },
+      {
+        "template": "Bread Roll",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "50-50"
+      },
+      {
+        "template": "Potion Of Light Heal",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Cloth Shirt",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "1-1"
+      },
+      {
+        "template": "Potion Of Cure Poison",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Bunch Of Bananas",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "25-25",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Bless",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
+      },
+      {
+        "template": "Potion Of Cure Poison",
+        "cursedState": "0",
+        "identificationState": "2",
+        "stack": "5-5",
+        "charges": "1-1"
       }
     ],
     "theftCounter": "0",

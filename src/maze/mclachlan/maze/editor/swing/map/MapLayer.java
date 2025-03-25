@@ -22,10 +22,8 @@ package mclachlan.maze.editor.swing.map;
 import java.awt.*;
 import java.util.*;
 import java.util.List;
-import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.*;
 import mclachlan.crusader.Map;
-import mclachlan.crusader.Tile;
-import mclachlan.crusader.Wall;
 import mclachlan.maze.map.Zone;
 import mclachlan.maze.util.MazeException;
 
@@ -81,25 +79,69 @@ public class MapLayer extends Layer
 			}
 		}
 
+		if (display.displayFeatures.get(MapDisplay.Display.LIGHT_LEVELS))
+		{
+			Paint temp = g2d.getPaint();
+
+			Tile[] tiles = map.getTiles();
+			for (int i = 0; i < tiles.length; i++)
+			{
+				int column = i%width;
+				int row=i/width;
+				int x1 = (wallSize*(column+1))+(column*tileSize);
+				int y1 = (wallSize*(row+1))+(row*tileSize);
+
+				int lightLevel = tiles[i].getLightLevel();
+
+				int alpha;
+				if (lightLevel >= CrusaderEngine32.NORMAL_LIGHT_LEVEL)
+				{
+					// white rect, up to 50% alpha at max light level
+					alpha = (int)(255 * ((lightLevel - 32) / 32.0));
+					g2d.setPaint(new Color(0xFF,0xFF,0xFF, alpha));
+					g2d.fillRect(x1, y1, tileSize, tileSize);
+				}
+				else
+				{
+					// black rect, up to 50% alpha at min light level
+					alpha = (int)(255 * (1 - (lightLevel / 31.0)));
+					g2d.setPaint(new Color(0,0,0, alpha));
+					g2d.fillRect(x1, y1, tileSize, tileSize);
+				}
+			}
+
+			g2d.setPaint(temp);
+		}
+
 		if (display.displayFeatures.get(MapDisplay.Display.HORIZ_WALLS))
 		{
 			Wall[] horizontalWalls = map.getHorizontalWalls();
 			for (int i = 0; i < horizontalWalls.length; i++)
 			{
-				if (horizontalWalls[i].isVisible())
+				Wall wall = horizontalWalls[i];
+				if (wall.isVisible() || wall.isSolid())
 				{
 					int column = i%width;
 					int row = i/width;
 					int x1 = (wallSize*(column+1))+(column*tileSize);
 					int y1 = wallSize*row+tileSize*row;
 	
-					if (horizontalWalls[i].isVisible())
+					if (wall.isVisible())
 					{
-						g2d.drawImage(display.getHorizScaledImage(horizontalWalls[i].getTexture(0).getImages()[0]), x1, y1, display);
-						if (display.displayFeatures.get(MapDisplay.Display.GRID))
+						g2d.drawImage(display.getHorizScaledImage(wall.getTexture(0).getImages()[0]), x1, y1, display);
+					}
+
+					if (display.displayFeatures.get(MapDisplay.Display.GRID) && (wall.isVisible() || wall.isSolid()))
+					{
+						if (wall.isVisible())
 						{
-							g2d.drawRect(x1,y1,tileSize,wallSize);
+							g2d.setColor(Color.BLACK);
 						}
+						else
+						{
+							g2d.setColor(Color.GRAY);
+						}
+						g2d.drawRect(x1,y1,tileSize,wallSize);
 					}
 				}
 			}
@@ -110,20 +152,30 @@ public class MapLayer extends Layer
 			Wall[] verticalWalls = map.getVerticalWalls();
 			for (int i = 0; i < verticalWalls.length; i++)
 			{
-				if (verticalWalls[i].isVisible())
+				Wall wall = verticalWalls[i];
+				if (wall.isVisible() || wall.isSolid())
 				{
 					int column = i%(width+1);
 					int row = i/(width+1);
 					int x1 = column*(wallSize+tileSize);
 					int y1 = (wallSize*(row+1))+(row*tileSize);
 				
-					if (verticalWalls[i].isVisible())
+					if (wall.isVisible())
 					{
-						g2d.drawImage(display.getVertScaledImage(verticalWalls[i].getTexture(0).getImages()[0]), x1, y1, display);
-						if (display.displayFeatures.get(MapDisplay.Display.GRID))
+						g2d.drawImage(display.getVertScaledImage(wall.getTexture(0).getImages()[0]), x1, y1, display);
+					}
+					if (display.displayFeatures.get(MapDisplay.Display.GRID)&& (wall.isVisible() || wall.isSolid()))
+					{
+						if (wall.isVisible())
 						{
-							g2d.drawRect(x1,y1,wallSize,tileSize);
+							g2d.setColor(Color.BLACK);
 						}
+						else
+						{
+							g2d.setColor(Color.GRAY);
+						}
+
+						g2d.drawRect(x1,y1,wallSize,tileSize);
 					}
 				}
 			}

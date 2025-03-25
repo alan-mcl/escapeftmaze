@@ -141,6 +141,12 @@ public class HeadlessUi implements UserInterface
 		throw new RuntimeException("Unimplemented auto generated method!");
 	}
 
+	@Override
+	public void refreshPcActionOptions()
+	{
+
+	}
+
 	public void addObject(EngineObject obj)
 	{
 		

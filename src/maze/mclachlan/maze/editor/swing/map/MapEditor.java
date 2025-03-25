@@ -144,24 +144,25 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		selected.add(selectionCards, BorderLayout.CENTER);
 		
 		JPanel displayFeatures = new JPanel(new GridLayout(15,1));
-		addDisplayFeatureCheckbox("Grid", MapDisplay.Display.GRID, displayFeatures);
-		addDisplayFeatureCheckbox("Tiles", MapDisplay.Display.TILES, displayFeatures);
-		addDisplayFeatureCheckbox("Tile Mask Textures", MapDisplay.Display.TILE_MASK_TEXTURES, displayFeatures);
-		addDisplayFeatureCheckbox("Horiz Walls", MapDisplay.Display.HORIZ_WALLS, displayFeatures);
-		addDisplayFeatureCheckbox("Vert Walls", MapDisplay.Display.VERT_WALLS, displayFeatures);
-		addDisplayFeatureCheckbox("Encounters", MapDisplay.Display.ENCOUNTERS, displayFeatures);
-		addDisplayFeatureCheckbox("Chests", MapDisplay.Display.CHESTS, displayFeatures);
-		addDisplayFeatureCheckbox("Levers", MapDisplay.Display.LEVERS, displayFeatures);
-		addDisplayFeatureCheckbox("Cast Spell Scripts", MapDisplay.Display.CAST_SPELL_SCRIPTS, displayFeatures);
-		addDisplayFeatureCheckbox("Loot Scripts", MapDisplay.Display.LOOT_SCRIPTS, displayFeatures);
-		addDisplayFeatureCheckbox("Flavour Text", MapDisplay.Display.FLAVOUR_TEXT_SCRIPTS, displayFeatures);
-		addDisplayFeatureCheckbox("Remove Wall Scripts", MapDisplay.Display.REMOVE_WALL_SCRIPTS, displayFeatures);
-		addDisplayFeatureCheckbox("Execute Script Scripts", MapDisplay.Display.EXECUTE_MAZE_SCRIPT, displayFeatures);
-		addDisplayFeatureCheckbox("Custom Scripts", MapDisplay.Display.CUSTOM_SCRIPTS, displayFeatures);
-		addDisplayFeatureCheckbox("Scripts On Walls", MapDisplay.Display.SCRIPTS_ON_WALLS, displayFeatures);
-		addDisplayFeatureCheckbox("Objects", MapDisplay.Display.OBJECTS, displayFeatures);
-		addDisplayFeatureCheckbox("Portals", MapDisplay.Display.PORTALS, displayFeatures);
-		
+		addDisplayFeatureCheckbox("Grid", MapDisplay.Display.GRID, displayFeatures, true);
+		addDisplayFeatureCheckbox("Tiles", MapDisplay.Display.TILES, displayFeatures, false);
+		addDisplayFeatureCheckbox("Tile Mask Textures", MapDisplay.Display.TILE_MASK_TEXTURES, displayFeatures, true);
+		addDisplayFeatureCheckbox("Horiz Walls", MapDisplay.Display.HORIZ_WALLS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Vert Walls", MapDisplay.Display.VERT_WALLS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Encounters", MapDisplay.Display.ENCOUNTERS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Chests", MapDisplay.Display.CHESTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Levers", MapDisplay.Display.LEVERS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Cast Spell Scripts", MapDisplay.Display.CAST_SPELL_SCRIPTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Loot Scripts", MapDisplay.Display.LOOT_SCRIPTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Flavour Text", MapDisplay.Display.FLAVOUR_TEXT_SCRIPTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Remove Wall Scripts", MapDisplay.Display.REMOVE_WALL_SCRIPTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Execute Script Scripts", MapDisplay.Display.EXECUTE_MAZE_SCRIPT, displayFeatures, true);
+		addDisplayFeatureCheckbox("Custom Scripts", MapDisplay.Display.CUSTOM_SCRIPTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Scripts On Walls", MapDisplay.Display.SCRIPTS_ON_WALLS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Objects", MapDisplay.Display.OBJECTS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Portals", MapDisplay.Display.PORTALS, displayFeatures, true);
+		addDisplayFeatureCheckbox("Light Levels", MapDisplay.Display.LIGHT_LEVELS, displayFeatures, false);
+
 		JPanel selectionFeatures = new JPanel(new GridLayout(20,10));
 		addSelectionFeatureCheckbox("Tiles", MapDisplay.Selection.TILES, selectionFeatures);
 		addSelectionFeatureCheckbox("Horiz Walls", MapDisplay.Selection.HORIZ_WALLS, selectionFeatures);
@@ -190,13 +191,15 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	}
 
 	/*-------------------------------------------------------------------------*/
-	private void addDisplayFeatureCheckbox(String title, int feature, JPanel panel)
+	private void addDisplayFeatureCheckbox(String title, int feature, JPanel panel,
+		boolean selected)
 	{
 		JCheckBox box = new JCheckBox(title);
 		box.addActionListener(this);
-		box.setSelected(true);
+		box.setSelected(selected);
 		displayFeatureBoxes.put(box, feature);
 		panel.add(box);
+		display.setDisplayFeature(feature, box.isSelected());
 	}
 	
 	/*-------------------------------------------------------------------------*/

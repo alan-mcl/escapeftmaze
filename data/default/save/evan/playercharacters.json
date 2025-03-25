@@ -573,7 +573,7 @@
     "levels": {
       "Druid": "1"
     },
-    "experience": "82",
+    "experience": "181",
     "kills": "0",
     "deaths": "0",
     "karma": "0",
@@ -620,7 +620,7 @@
       "magicPoints": "10-10"
     },
     "practice": {
-      "modifiers": "0,"
+      "modifiers": "100000000000,01"
     },
     "activeModifiers": "7fe0000027f8,01010101010101010101010101010101010101",
     "removedLevelAbilities": []
@@ -1098,8 +1098,8 @@
     "levels": {
       "Blackguard": "1"
     },
-    "experience": "82",
-    "kills": "1",
+    "experience": "181",
+    "kills": "2",
     "deaths": "0",
     "karma": "0",
     "portrait": "portrait/pasht_female_3",
@@ -1144,7 +1144,7 @@
       "magicPoints": "2-2"
     },
     "practice": {
-      "modifiers": "2000,01"
+      "modifiers": "2000,04"
     },
     "activeModifiers": "88000033ff8,010101010101010101010101010101",
     "removedLevelAbilities": []
@@ -1158,8 +1158,8 @@
     "levels": {
       "Exorcist": "1"
     },
-    "experience": "82",
-    "kills": "2",
+    "experience": "181",
+    "kills": "4",
     "deaths": "0",
     "karma": "0",
     "portrait": "portrait/gnome_male_1",
@@ -1211,12 +1211,12 @@
     "spellPicks": "0",
     "stats": {
       "modifiers": "7e00000020088001f8,030303060104010202050505050505",
-      "hitPoints": "12-12-1",
-      "actionPoints": "7-10",
+      "hitPoints": "12-12-0",
+      "actionPoints": "10-10",
       "magicPoints": "3-3"
     },
     "practice": {
-      "modifiers": "8000000,02"
+      "modifiers": "8001000,0104"
     },
     "activeModifiers": "1201e033ff8,01010101010101010101010101010101010101",
     "removedLevelAbilities": []
@@ -1459,8 +1459,8 @@
     "levels": {
       "Skald": "1"
     },
-    "experience": "82",
-    "kills": "1",
+    "experience": "181",
+    "kills": "2",
     "deaths": "0",
     "karma": "0",
     "portrait": "portrait/gnome_female_4",
@@ -1512,7 +1512,7 @@
       "magicPoints": "3-3"
     },
     "practice": {
-      "modifiers": "2400,0101"
+      "modifiers": "2400,0102"
     },
     "activeModifiers": "400000000014000033ff8,01010101010101010101010101010101",
     "removedLevelAbilities": []
@@ -1526,7 +1526,7 @@
     "levels": {
       "Elemental": "1"
     },
-    "experience": "82",
+    "experience": "181",
     "kills": "0",
     "deaths": "0",
     "karma": "0",
@@ -1741,7 +1741,7 @@
     "levels": {
       "Ninja": "1"
     },
-    "experience": "82",
+    "experience": "181",
     "kills": "1",
     "deaths": "0",
     "karma": "0",
@@ -1785,6 +1785,36 @@
           "identificationState": "2",
           "stack": "5-5",
           "charges": "1-1"
+        },
+        {
+          "template": "Gnarled Staff",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1"
+        },
+        {
+          "template": "Quilt Leggings",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1"
+        },
+        {
+          "template": "Javelin",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "11-25"
+        },
+        {
+          "template": "Tesla Coil",
+          "cursedState": "0",
+          "identificationState": "1",
+          "stack": "1-1"
+        },
+        {
+          "template": "Gatehouse Key",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1"
         }
       ]
     },
@@ -1801,7 +1831,7 @@
       "magicPoints": "0-0"
     },
     "practice": {
-      "modifiers": "90000000,0101"
+      "modifiers": "b0000000,030103"
     },
     "activeModifiers": "887ff83fff8,0101010101010101010101010101010101010101010101010101010101",
     "removedLevelAbilities": []

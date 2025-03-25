@@ -1251,7 +1251,7 @@ public class Maze implements Runnable
 			Foe foe = (Foe)coward;
 			currentCombat.removeFoe(foe);
 			this.ui.foeLeaves(coward);
-			return null;
+			return new ArrayList<>();
 		}
 		else if (coward instanceof PlayerCharacter)
 		{
@@ -2065,6 +2065,7 @@ public class Maze implements Runnable
 				ui.setZone(zone, pos, newFacing);
 				zone.initialise(getTurnNr());
 				getPlayerTilesVisited().resetRecentTiles();
+				ui.refreshPcActionOptions();
 				return null;
 			}
 		});

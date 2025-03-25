@@ -1,0 +1,411 @@
+[
+  {
+    "name": "Casteneaba",
+    "gender": "Male",
+    "race": "Gnome",
+    "characterClass": "Paladin",
+    "personality": "Scholar",
+    "levels": {
+      "Paladin": "1"
+    },
+    "experience": "183",
+    "kills": "5",
+    "deaths": "0",
+    "karma": "-1",
+    "portrait": "portrait/gnome_male_4",
+    "helm": {
+      "template": "Iron Helm",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "torsoArmour": {
+      "template": "Suede Doublet",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "legArmour": {
+      "template": "Suede Pants",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "boots": {
+      "template": "Buskins",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Greatsword",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Mitre",
+          "cursedState": "0",
+          "identificationState": "2",
+          "stack": "1-1"
+        },
+        {
+          "template": "Shrike Arrow",
+          "cursedState": "0",
+          "identificationState": "1",
+          "stack": "19-100"
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Heal Light Wounds"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "6e0000002000200df8,05040303010401010301050505050a",
+      "hitPoints": "11-15-4",
+      "actionPoints": "0-0",
+      "magicPoints": "3-3"
+    },
+    "practice": {
+      "modifiers": "200000000c00,050505"
+    },
+    "activeModifiers": "712000233ff8,01010101010101010101010101010101010101",
+    "removedLevelAbilities": []
+  },
+  {
+    "name": "Vasuki",
+    "gender": "None",
+    "race": "Naga",
+    "characterClass": "Troubadour",
+    "personality": "Scholar",
+    "levels": {
+      "Troubadour": "1"
+    },
+    "experience": "233",
+    "kills": "0",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/naga_4",
+    "torsoArmour": {
+      "template": "Patchwork Coat",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Jesters Staff",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Poet\u0027s Lute",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "1-1"
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Sleep"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "4007e00000120008001f8,03050304030201010105050505050503",
+      "hitPoints": "14-14-0",
+      "actionPoints": "7-7",
+      "magicPoints": "0-0"
+    },
+    "practice": {
+      "modifiers": "20000000,02"
+    },
+    "activeModifiers": "4000000003140618127f8,01010101010101010101010101010101010101",
+    "removedLevelAbilities": []
+  },
+  {
+    "name": "Ku Ya",
+    "gender": "Male",
+    "race": "Pasht",
+    "characterClass": "Ranger",
+    "personality": "Faithful",
+    "levels": {
+      "Ranger": "1"
+    },
+    "experience": "233",
+    "kills": "3",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/pasht_male_2",
+    "torsoArmour": {
+      "template": "Fur Tunic",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "legArmour": {
+      "template": "Fur Leggings",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "boots": {
+      "template": "Buskins",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Short Sword",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "secondaryWeapon": {
+      "template": "Dagger",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": []
+    },
+    "spellBook": {
+      "spells": [
+        "Stamina"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "1e000010000a1000f8,040603060101020201050a0a05",
+      "hitPoints": "6-12-6",
+      "actionPoints": "0-13",
+      "magicPoints": "0-0"
+    },
+    "practice": {
+      "modifiers": "8100000,0a04"
+    },
+    "activeModifiers": "4281f9327f8,010101010101010101010101010101010101010101",
+    "removedLevelAbilities": []
+  },
+  {
+    "name": "Sa\u0027thar",
+    "gender": "Male",
+    "race": "Hynobi",
+    "characterClass": "Ninja",
+    "personality": "Pro",
+    "levels": {
+      "Ninja": "1"
+    },
+    "experience": "233",
+    "kills": "2",
+    "deaths": "0",
+    "karma": "-1",
+    "portrait": "portrait/hynobi_male_3",
+    "helm": {
+      "template": "Ninja Cowl",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "torsoArmour": {
+      "template": "Ninja Garb (U)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "legArmour": {
+      "template": "Ninja Garb (L)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "boots": {
+      "template": "Tabi Boots",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Tanto",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Shuriken",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "20-50"
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Fear"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "6c00000000ab8001f0,030608010201010101010105050a0a",
+      "hitPoints": "12-12-4",
+      "actionPoints": "0-9",
+      "magicPoints": "0-0"
+    },
+    "practice": {
+      "modifiers": "88000400,050405"
+    },
+    "activeModifiers": "887ff83fff8,0101010101010101010101010101010101010101010101010101010101",
+    "removedLevelAbilities": []
+  },
+  {
+    "name": "Elilmadith",
+    "gender": "Female",
+    "race": "Elf",
+    "characterClass": "Skald",
+    "personality": "Killer",
+    "levels": {
+      "Skald": "1"
+    },
+    "experience": "233",
+    "kills": "3",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/elf_female_1",
+    "torsoArmour": {
+      "template": "Robes (U)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "legArmour": {
+      "template": "Robes (L)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "boots": {
+      "template": "Sandals",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "miscItem1": {
+      "template": "Flash Powder",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "5-5",
+      "charges": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Dagger",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": []
+    },
+    "spellBook": {
+      "spells": [
+        "Tag"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "4005200000140008001b8,03060207020102020a0a0a01",
+      "hitPoints": "10-10-4",
+      "actionPoints": "0-0",
+      "magicPoints": "4-4"
+    },
+    "practice": {
+      "modifiers": "400,0a"
+    },
+    "activeModifiers": "400000000014000033ff8,01010101010101010101010101010101",
+    "removedLevelAbilities": []
+  },
+  {
+    "name": "Slane",
+    "gender": "Male",
+    "race": "Neotroll",
+    "characterClass": "Druid",
+    "personality": "Veteran",
+    "levels": {
+      "Druid": "1"
+    },
+    "experience": "233",
+    "kills": "0",
+    "deaths": "0",
+    "karma": "0",
+    "portrait": "portrait/neotroll_male_1",
+    "helm": {
+      "template": "Skullcap",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "torsoArmour": {
+      "template": "Robes (U)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "legArmour": {
+      "template": "Robes (L)",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "primaryWeapon": {
+      "template": "Club",
+      "cursedState": "1",
+      "identificationState": "2",
+      "stack": "1-1"
+    },
+    "inventory": {
+      "nrSlots": "20",
+      "items": [
+        {
+          "template": "Faerie Dust",
+          "cursedState": "1",
+          "identificationState": "2",
+          "stack": "5-5",
+          "charges": "1-1"
+        }
+      ]
+    },
+    "spellBook": {
+      "spells": [
+        "Dire Wasps",
+        "Barkskin"
+      ]
+    },
+    "spellPicks": "0",
+    "stats": {
+      "modifiers": "1c00000428000001f8,0604010302040102020a0f05",
+      "hitPoints": "13-15-0",
+      "actionPoints": "0-0",
+      "magicPoints": "9-9"
+    },
+    "practice": {
+      "modifiers": "0,"
+    },
+    "activeModifiers": "7fe0000027f8,01010101010101010101010101010101010101",
+    "removedLevelAbilities": []
+  }
+]
