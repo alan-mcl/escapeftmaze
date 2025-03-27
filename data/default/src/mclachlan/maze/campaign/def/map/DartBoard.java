@@ -6,10 +6,7 @@ import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.script.FlavourTextEvent;
-import mclachlan.maze.stat.Dice;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
-import mclachlan.maze.stat.Stats;
+import mclachlan.maze.stat.*;
 
 /**
  *
@@ -18,7 +15,7 @@ public class DartBoard extends TileScript
 {
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		List<MazeEvent> events = new ArrayList<MazeEvent>();
 

@@ -135,7 +135,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	ButtonToolbar buttonToolbar;
 	CardLayoutWidget movementCardLayout;
 	PartyOptionsAndTextWidget partyOptionsAndTextWidget;
-	SignBoardWidget signBoardWidget;
 	ZoneDisplayWidget zoneDisplay;
 
 	private List<FoeGroup> foeGroups;
@@ -206,8 +205,6 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		final boolean musicEnabled = (musicVolume > 0);
 		music = new Music(Database.getInstance(), musicEnabled);
 		music.setVolume(musicVolume);
-
-//		buildGUI();
 
 		// FPS calculations
 		frameCount = frameCountRecord = 0;

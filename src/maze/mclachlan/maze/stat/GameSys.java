@@ -1936,10 +1936,12 @@ public class GameSys
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void resolveActorActionIntention(Maze maze, UnifiedActor caster,
+	public void resolveActorActionIntention(
+		Maze maze,
+		UnifiedActor actor,
 		ActorActionIntention intention)
 	{
-		List<CombatAction> combatActions = caster.getCombatActions(intention);
+		List<CombatAction> combatActions = actor.getCombatActions(intention);
 
 		for (CombatAction action : combatActions)
 		{
@@ -1954,8 +1956,8 @@ public class GameSys
 		int castingLevel,
 		SpellTarget target)
 	{
-		processPlayerCharacterIntentionOutsideCombat(
-			new SpellIntention(target, spell, castingLevel), caster);
+		resolveActorActionIntention(
+			Maze.getInstance(), caster, new SpellIntention(target, spell, castingLevel));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1964,22 +1966,8 @@ public class GameSys
 		PlayerCharacter user,
 		SpellTarget target)
 	{
-		processPlayerCharacterIntentionOutsideCombat(
-			new UseItemIntention(item, target), user);
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void processPlayerCharacterIntentionOutsideCombat(
-		ActorActionIntention intention,
-		PlayerCharacter pc)
-	{
-		Maze maze = Maze.getInstance();
-		List<CombatAction> combatActions = pc.getCombatActions(intention);
-
-		for (CombatAction action : combatActions)
-		{
-			maze.appendEvents(ActorActionResolver.resolveAction(action, null));
-		}
+		resolveActorActionIntention(
+			Maze.getInstance(), user, new UseItemIntention(item, target));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1993,8 +1981,8 @@ public class GameSys
 			"] casting ["+spell.getName()+" ("+castingLevel+
 			")] on NPC ["+npc.getName()+"]");
 
-		processPlayerCharacterIntentionOutsideCombat(
-			new SpellIntention(npc, spell, castingLevel), caster);
+		resolveActorActionIntention(
+			Maze.getInstance(), caster, new SpellIntention(npc, spell, castingLevel));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2003,8 +1991,8 @@ public class GameSys
 		PlayerCharacter caster,
 		Npc npc)
 	{
-		processPlayerCharacterIntentionOutsideCombat(
-			new UseItemIntention(item, npc), caster);
+		resolveActorActionIntention(
+			Maze.getInstance(), caster, new UseItemIntention(item, npc));
 	}
 
 	/*-------------------------------------------------------------------------*/

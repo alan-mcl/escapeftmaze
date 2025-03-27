@@ -21,6 +21,7 @@ package mclachlan.maze.stat.combat;
 
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.stat.*;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -40,6 +41,18 @@ public class EquipOption extends ActorActionOption
 		{
 			Maze.getInstance().getUi().characterSelected((PlayerCharacter)actor);
 			Maze.getInstance().setState(Maze.State.INVENTORY, this);
+
+			synchronized (this)
+			{
+				try
+				{
+					wait();
+				}
+				catch (InterruptedException e)
+				{
+					throw new MazeException(e);
+				}
+			}
 		}
 		else
 		{

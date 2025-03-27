@@ -11,7 +11,7 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.RemoveObjectEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
 
 /**
@@ -32,7 +32,7 @@ public class EkirthsTombGetselsBoneComb extends TileScript
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		if (item.getName().equals("Getsel's Bone Comb") &&
 			!MazeVariables.getBoolean(BONE_COMB_USED))

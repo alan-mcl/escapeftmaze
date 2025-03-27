@@ -280,9 +280,10 @@ public class Zone extends DataObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public boolean processUseItem(
-		Maze maze, Point tile, int facing, Item item, PlayerCharacter user)
+	public List<MazeEvent> processUseItem(
+		Maze maze, Point tile, int facing, Item item, UnifiedActor user)
 	{
+		List<MazeEvent> result = new ArrayList<>();
 		List<TileScript> scripts = this.tiles[tile.x][tile.y].getScripts();
 
 		for (TileScript script : scripts)
@@ -292,13 +293,16 @@ public class Zone extends DataObject
 				List<MazeEvent> events = script.handleUseItem(maze, tile, facing, item, user);
 				if (events == TileScript.PREVENT_ACTION)
 				{
-					return false;
+					return result;
 				}
-				maze.appendEvents(events);
+				else if (events != null)
+				{
+					result.addAll(events);
+				}
 			}
 		}
 
-		return true;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

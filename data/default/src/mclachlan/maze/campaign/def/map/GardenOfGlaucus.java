@@ -10,7 +10,6 @@ import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.stat.Dice;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.HealingEvent;
 
@@ -21,7 +20,7 @@ public class GardenOfGlaucus extends TileScript
 {
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		if (item.getName().equals("Mistletoe Berry"))
 		{

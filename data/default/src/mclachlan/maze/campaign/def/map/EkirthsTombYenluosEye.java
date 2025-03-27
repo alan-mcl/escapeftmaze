@@ -11,7 +11,7 @@ import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.RemoveWallEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
 
 /**
@@ -23,7 +23,7 @@ public class EkirthsTombYenluosEye extends TileScript
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		if (facing == CrusaderEngine.Facing.NORTH &&
 			item.getName().equals("Yenluo's Eye") &&

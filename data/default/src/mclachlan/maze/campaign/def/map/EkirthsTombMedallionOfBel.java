@@ -9,7 +9,7 @@ import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
 
 /**
@@ -21,7 +21,7 @@ public class EkirthsTombMedallionOfBel extends TileScript
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		if (item.getName().equals("Medallion Of Bel") &&
 			!MazeVariables.getBoolean(MEDALLION_OF_BEL_USED))

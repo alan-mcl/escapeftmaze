@@ -748,18 +748,28 @@ public class Maze implements Runnable
 	 */
 	public void setState(State state)
 	{
-		setState(state, statePopMutex);
+		setState(state, null);
 	}
 
 	/*-------------------------------------------------------------------------*/
 	/**
-	 * Sets the given state onto the stack, and notifies the given mutex when
+	 * Sets the current state and notifies the given mutex when
 	 * the state is changed.
 	 */
 	public void setState(State state, Object waiter)
 	{
 		this.state = state;
 		this.changeState(state);
+
+		if (this.statePopMutex != null)
+		{
+			synchronized (statePopMutex)
+			{
+				this.statePopMutex.notifyAll();
+				this.statePopMutex = null;
+			}
+		}
+
 		this.statePopMutex = waiter;
 	}
 
@@ -2031,9 +2041,9 @@ public class Maze implements Runnable
 	 * @return
 	 * 	true if the normal item use must continue, false otherwise
 	 */
-	public boolean processUseItem(Item item, PlayerCharacter user, int facing)
+	public List<MazeEvent> processUseItem(Item item, UnifiedActor user)
 	{
-		return this.zone.processUseItem(instance, this.playerPos, facing, item, user);
+		return this.zone.processUseItem(instance, this.playerPos, this.getFacing(), item, user);
 	}
 
 	/*-------------------------------------------------------------------------*/

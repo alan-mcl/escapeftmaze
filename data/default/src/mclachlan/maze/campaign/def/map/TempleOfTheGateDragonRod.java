@@ -10,7 +10,7 @@ import mclachlan.maze.map.script.EncounterActorsEvent;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
@@ -21,7 +21,7 @@ public class TempleOfTheGateDragonRod extends TileScript
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		if (item.getName().equals("Dragon Rod") &&
 			!MazeVariables.getBoolean(DRAGON_ROD_USED))

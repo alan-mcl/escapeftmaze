@@ -79,8 +79,7 @@ public class ActorIntentionResolver
 
 			Item item = ui.getItem();
 
-			result.add(new UseItemAction(item,
-				ui.getTarget()));
+			result.add(new UseItemAction(item, ui.getTarget()));
 		}
 		else if (intention instanceof EquipIntention)
 		{

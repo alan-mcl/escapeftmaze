@@ -2,9 +2,6 @@
 STUFFTODO
 --------------------------------------------
 
-gatehouse key not working
-change equipment transition back to combat
-
 ICHIBA CROSSROADS
 -----------------
 better trees

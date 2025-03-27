@@ -11,6 +11,7 @@ msg.grant.experience.single = %s gets %s experience
 msg.grant.experience.all = All survivors get %s experience
 msg.lose.experience.single = %s loses %s experience
 msg.lose.experience.all = Party loses %s experience
+no.effect = ...no effect
 
 #
 # Attitude descriptions
@@ -111,6 +112,7 @@ msg.bribe.succeeds = Bribe succeeds
 #
 msg.hide.attempt = %s hides...
 msg.combat.fumble = %s fumbles!
+msg.change.equipment = %s changes equipment...
 
 #
 # Lock/trap events

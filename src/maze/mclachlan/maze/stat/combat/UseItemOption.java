@@ -96,11 +96,6 @@ public class UseItemOption extends ActorActionOption implements UseItemCallback
 
 			return true;
 		}
-		else if (item.getInvokedSpell() == null)
-		{
-			return true;
-		}
-
 
 		SpellTarget spellTarget = target;
 

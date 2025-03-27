@@ -28,10 +28,7 @@ import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.game.event.ModifySuppliesEvent;
 import mclachlan.maze.map.script.GrantGoldEvent;
 import mclachlan.maze.map.script.GrantItemsEvent;
-import mclachlan.maze.stat.GameSys;
-import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.ItemTemplate;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.*;
 
 /**
  *
@@ -196,7 +193,8 @@ public abstract class TileScript implements V2Seralisable
 		Maze maze,
 		Point tile,
 		int facing,
-		Item item, PlayerCharacter user)
+		Item item,
+		UnifiedActor user)
 	{
 		return null;
 	}

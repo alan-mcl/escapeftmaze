@@ -9,7 +9,7 @@ import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.SetMazeVariableEvent;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 
 /**
  *
@@ -20,7 +20,7 @@ public class TempleOfTheGateGholaCoin extends TileScript
 
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> handleUseItem(Maze maze, Point tile, int facing,
-		Item item, PlayerCharacter user)
+		Item item, UnifiedActor user)
 	{
 		if (item.getName().equals("Ghola Coin") &&
 			!MazeVariables.getBoolean(GHOLA_COIN_USED))

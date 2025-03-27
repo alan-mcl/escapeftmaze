@@ -20,10 +20,12 @@
 package mclachlan.maze.stat.combat.event;
 
 import java.util.*;
+import mclachlan.maze.data.StringUtil;
 import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.stat.PlayerCharacter;
 import mclachlan.maze.stat.UnifiedActor;
+import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -51,22 +53,31 @@ public class EquipEvent extends MazeEvent
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public int getDelay()
-	{
-		return Delay.WAIT_ON_CLICK;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
 		Maze.getInstance().getUi().characterSelected((PlayerCharacter)actor);
 		Maze.getInstance().setState(Maze.State.INVENTORY, this);
+
+		synchronized (this)
+		{
+			try
+			{
+				wait();
+			}
+			catch (InterruptedException e)
+			{
+				throw new MazeException(e);
+			}
+		}
+
+		Maze.getInstance().getUi().disableInput();
+
 		return null;
 	}
 
 	/*-------------------------------------------------------------------------*/
 	public String getText()
 	{
-		return getActor().getDisplayName() + " changes equipment...";
+		return StringUtil.getEventText("msg.change.equipment", getActor().getDisplayName());
 	}
 }

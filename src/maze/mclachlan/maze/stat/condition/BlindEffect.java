@@ -92,13 +92,6 @@ public class BlindEffect extends ConditionEffect
 
 	/*-------------------------------------------------------------------------*/
 	@Override
-	public boolean isAware(UnifiedActor actor, Condition condition)
-	{
-		return false;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	@Override
 	public Stats.Modifier getImmunityModifier()
 	{
 		return Stats.Modifier.IMMUNE_TO_BLIND;

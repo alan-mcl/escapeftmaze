@@ -26,6 +26,7 @@ import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.event.ActorsTurnToAct;
 import mclachlan.maze.game.event.RemoveItemEvent;
 import mclachlan.maze.game.event.SetLockState;
+import mclachlan.maze.game.event.SetStateEvent;
 import mclachlan.maze.map.Portal;
 import mclachlan.maze.map.script.Chest;
 import mclachlan.maze.map.script.LockOrTrap;
@@ -67,7 +68,7 @@ public class ActorActionResolver
 
 		AnimationContext animationContext = new AnimationContext(actor);
 
-		List<MazeEvent> result = new ArrayList<MazeEvent>();
+		List<MazeEvent> result = new ArrayList<>();
 
 		CombatantData combatantData = action.getActor().getCombatantData();
 		if (combatantData != null)
@@ -415,6 +416,17 @@ public class ActorActionResolver
 		Item item = useItemAction.getItem();
 		events.add(new ItemUseEvent(actor, item));
 
+		Maze maze = Maze.getInstance();
+
+		// first, give the zone (and thus the tile script) chance to intercede
+		List<MazeEvent> zoneEvents = maze.processUseItem(item, actor);
+		if (zoneEvents != null && zoneEvents.size() > 0)
+		{
+			// the zone result takes precedence
+			events.addAll(zoneEvents);
+			return;
+		}
+
 		Spell invokedSpell = item.getInvokedSpell();
 		int castingLevel = item.getInvokedSpellLevel();
 
@@ -422,13 +434,13 @@ public class ActorActionResolver
 		{
 			LockOrTrap lockOrTrap = null;
 
-			if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+			if (maze.getState() == Maze.State.ENCOUNTER_CHEST)
 			{
-				lockOrTrap = Maze.getInstance().getCurrentChest();
+				lockOrTrap = maze.getCurrentChest();
 			}
-			else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+			else if (maze.getState() == Maze.State.ENCOUNTER_PORTAL)
 			{
-				lockOrTrap = Maze.getInstance().getCurrentPortal();
+				lockOrTrap = maze.getCurrentPortal();
 			}
 
 			if (lockOrTrap != null)
@@ -439,11 +451,13 @@ public class ActorActionResolver
 					if (lockOrTrap.isLocked())
 					{
 						events.add(new SetLockState(lockOrTrap, Portal.State.UNLOCKED, true));
+						events.add(new SetStateEvent(maze, Maze.State.MOVEMENT));
 					}
 					else
 					{
 						events.add(new SetLockState(lockOrTrap, Portal.State.LOCKED, true));
 					}
+
 					if (lockOrTrap.isConsumeKeyItem())
 					{
 						events.add(new RemoveItemEvent(lockOrTrap.getKeyItem(), actor));
@@ -657,13 +671,13 @@ public class ActorActionResolver
 
 				LockOrTrap lockOrTrap;
 
-				if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_CHEST)
+				if (maze.getState() == Maze.State.ENCOUNTER_CHEST)
 				{
-					lockOrTrap = Maze.getInstance().getCurrentChest();
+					lockOrTrap = maze.getCurrentChest();
 				}
-				else if (Maze.getInstance().getState() == Maze.State.ENCOUNTER_PORTAL)
+				else if (maze.getState() == Maze.State.ENCOUNTER_PORTAL)
 				{
-					lockOrTrap = Maze.getInstance().getCurrentPortal();
+					lockOrTrap = maze.getCurrentPortal();
 				}
 				else
 				{

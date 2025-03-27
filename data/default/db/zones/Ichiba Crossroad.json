@@ -13578,7 +13578,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "28",
+        "lightLevel": "24",
         "ceilingHeight": "1"
       },
       {
@@ -15972,6 +15972,1335 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SE",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_NW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SE",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_EW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_NW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_NE",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_EW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SE",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_EW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_EW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_C_SW",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
         "lightLevel": "24",
         "ceilingHeight": "1"
       },
@@ -15982,156 +17311,6 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
         "lightLevel": "28",
         "ceilingHeight": "1"
       },
@@ -16143,1185 +17322,6 @@
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SE",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_NW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SE",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_EW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_NW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_NE",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_EW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SE",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_EW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_EW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_C_SW",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "28",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
         "ceilingHeight": "1"
       },
       {
@@ -17632,7 +17632,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -17642,7 +17642,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -17652,7 +17652,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -17964,7 +17964,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -17974,7 +17974,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -18279,7 +18279,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -18289,7 +18289,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -18602,7 +18602,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -18612,329 +18612,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "floorMaskTexture": "SAND_ROAD_NS",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
-        "ceilingHeight": "1"
-      },
-      {
-        "ceilingTexture": "TRANSPARENT",
-        "floorTexture": "GRASS_FLOOR_1",
-        "northWallTexture": "No_WAll",
-        "southWallTexture": "No_WAll",
-        "eastWallTexture": "No_WAll",
-        "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -19225,6 +18903,77 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
         "lightLevel": "32",
         "ceilingHeight": "1"
       },
@@ -19267,6 +19016,257 @@
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
         "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "32",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "floorMaskTexture": "SAND_ROAD_NS",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "24",
+        "ceilingHeight": "1"
+      },
+      {
+        "ceilingTexture": "TRANSPARENT",
+        "floorTexture": "GRASS_FLOOR_1",
+        "northWallTexture": "No_WAll",
+        "southWallTexture": "No_WAll",
+        "eastWallTexture": "No_WAll",
+        "westWallTexture": "No_WAll",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -19570,7 +19570,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -19580,7 +19580,7 @@
         "southWallTexture": "No_WAll",
         "eastWallTexture": "No_WAll",
         "westWallTexture": "No_WAll",
-        "lightLevel": "32",
+        "lightLevel": "28",
         "ceilingHeight": "1"
       },
       {
@@ -23631,10 +23631,8 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -23869,18 +23867,14 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -24129,18 +24123,14 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -24385,10 +24375,8 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -24639,18 +24627,14 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -24899,10 +24883,8 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -25137,26 +25119,20 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -25395,42 +25371,32 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -25640,41 +25606,37 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "No_WAll"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
         "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -25907,36 +25869,30 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
+        "height": "4"
       },
       {
         "textures": [
@@ -26160,43 +26116,43 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "4"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
+        "height": "3"
       },
       {
         "textures": [
@@ -26422,23 +26378,26 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "No_WAll"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
-        "visible": "false",
+        "visible": "true",
         "solid": "false",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1",
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -26446,11 +26405,11 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "3"
       },
       {
         "textures": [
@@ -26673,36 +26632,40 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
+        ],
+        "visible": "true",
         "solid": "false",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1",
+          "TRANSPARENT"
+        ],
+        "maskTextures": [
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -26935,28 +26898,24 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -27186,25 +27145,25 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
-        "visible": "false",
+        "visible": "true",
         "solid": "false",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -27455,10 +27414,8 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -27680,11 +27637,21 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
+        ],
+        "visible": "true",
+        "solid": "false",
+        "height": "2"
       },
       {
         "textures": [
@@ -27696,27 +27663,21 @@
       },
       {
         "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -27942,35 +27903,35 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -28181,26 +28142,20 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -31502,11 +31457,9 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
         "height": "1"
       },
       {
@@ -31764,18 +31717,14 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -32003,7 +31952,7 @@
           "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
-        "solid": "false",
+        "solid": "true",
         "height": "2"
       },
       {
@@ -32024,18 +31973,14 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -32273,26 +32218,20 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -32544,18 +32483,14 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -32806,18 +32741,14 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -33069,18 +33000,14 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -33333,18 +33260,14 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -33588,26 +33511,20 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -33839,42 +33756,35 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -34104,33 +34014,28 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
         "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
@@ -34366,44 +34271,41 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "4"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
+        "height": "4"
       },
       {
         "textures": [
@@ -34627,19 +34529,21 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -34651,19 +34555,19 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "3"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "3"
       },
       {
         "textures": [
@@ -34889,36 +34793,41 @@
         "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1",
+          "TRANSPARENT"
+        ],
+        "maskTextures": [
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1",
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -35166,27 +35075,28 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -35420,23 +35330,22 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
         ],
         "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -35684,175 +35593,22 @@
       },
       {
         "textures": [
-          "No_WAll"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
-        "visible": "false",
+        "visible": "true",
         "solid": "false",
-        "height": "1"
+        "height": "2"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
+        "textures": [],
         "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -35940,22 +35696,6 @@
       },
       {
         "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
           "TREE_WALL_1"
         ],
         "visible": "true",
@@ -35992,70 +35732,6 @@
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "No_WAll"
-        ],
-        "visible": "false",
-        "solid": "false",
         "height": "1"
       },
       {
@@ -36164,6 +35840,56 @@
       },
       {
         "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
+        ],
+        "visible": "true",
+        "solid": "false",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_CLIFF_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
           "TREE_WALL_1"
         ],
         "visible": "true",
@@ -36212,6 +35938,46 @@
       },
       {
         "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
           "TREE_WALL_1"
         ],
         "visible": "true",
@@ -36229,6 +35995,153 @@
       {
         "textures": [
           "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "TREE_WALL_1"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "No_WAll"
+        ],
+        "visible": "false",
+        "solid": "false",
+        "height": "1"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_LEFT",
+          "JUNGLE_TREE_BIG_TOP_LEFT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
+        ],
+        "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -36455,32 +36368,29 @@
         "height": "1"
       },
       {
-        "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_TREE_BIG_BOTTOM_RIGHT",
+          "JUNGLE_TREE_BIG_TOP_RIGHT"
         ],
         "visible": "true",
+        "solid": "true",
+        "height": "2"
+      },
+      {
+        "textures": [],
+        "visible": "false",
         "solid": "true",
         "height": "1"
       },
       {
         "textures": [
-          "TREE_WALL_1"
-        ],
-        "visible": "true",
-        "solid": "true",
-        "height": "1"
-      },
-      {
-        "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -36726,7 +36636,7 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
@@ -36972,11 +36882,11 @@
       },
       {
         "textures": [
-          "TREE_WALL_1"
+          "JUNGLE_CLIFF_1"
         ],
         "visible": "true",
         "solid": "true",
-        "height": "1"
+        "height": "2"
       },
       {
         "textures": [
@@ -38440,16 +38350,6 @@
         "southTexture": "JUNGLE_THICKET_2",
         "eastTexture": "JUNGLE_THICKET_2",
         "westTexture": "JUNGLE_THICKET_2",
-        "tileIndex": "378",
-        "lightSource": "false",
-        "placementMask": "01010101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "JUNGLE_THICKET_2",
-        "southTexture": "JUNGLE_THICKET_2",
-        "eastTexture": "JUNGLE_THICKET_2",
-        "westTexture": "JUNGLE_THICKET_2",
         "tileIndex": "410",
         "lightSource": "false",
         "placementMask": "01010101",
@@ -38763,6 +38663,556 @@
         "tileIndex": "403",
         "lightSource": "false",
         "placementMask": "011001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "379",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "411",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "443",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "347",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "538",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "318",
+        "lightSource": "false",
+        "placementMask": "011000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "348",
+        "lightSource": "false",
+        "placementMask": "010000011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "381",
+        "lightSource": "false",
+        "placementMask": "0010001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "445",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "510",
+        "lightSource": "false",
+        "placementMask": "1000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "540",
+        "lightSource": "false",
+        "placementMask": "00101001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "541",
+        "lightSource": "false",
+        "placementMask": "001000101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "507",
+        "lightSource": "false",
+        "placementMask": "011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "539",
+        "lightSource": "false",
+        "placementMask": "00110101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "316",
+        "lightSource": "false",
+        "placementMask": "110101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "317",
+        "lightSource": "false",
+        "placementMask": "100011001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "349",
+        "lightSource": "false",
+        "placementMask": "0010111",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "350",
+        "lightSource": "false",
+        "placementMask": "100000101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "380",
+        "lightSource": "false",
+        "placementMask": "000100011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "382",
+        "lightSource": "false",
+        "placementMask": "101011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "412",
+        "lightSource": "false",
+        "placementMask": "0001111",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "413",
+        "lightSource": "false",
+        "placementMask": "0100001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "414",
+        "lightSource": "false",
+        "placementMask": "100100011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "444",
+        "lightSource": "false",
+        "placementMask": "0001101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "446",
+        "lightSource": "false",
+        "placementMask": "01000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "476",
+        "lightSource": "false",
+        "placementMask": "011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "477",
+        "lightSource": "false",
+        "placementMask": "00010111",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "478",
+        "lightSource": "false",
+        "placementMask": "00101001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "508",
+        "lightSource": "false",
+        "placementMask": "100000011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "509",
+        "lightSource": "false",
+        "placementMask": "010000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "542",
+        "lightSource": "false",
+        "placementMask": "110001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "570",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "571",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "572",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "603",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "604",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "636",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "635",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "668",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "637",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "700",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "734",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "766",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "765",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "798",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "799",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "767",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "735",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "858",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "892",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "893",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_2",
+        "southTexture": "JUNGLE_THICKET_2",
+        "eastTexture": "JUNGLE_THICKET_2",
+        "westTexture": "JUNGLE_THICKET_2",
+        "tileIndex": "861",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "894",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "862",
+        "lightSource": "false",
+        "placementMask": "01010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "JUNGLE_THICKET_1",
+        "southTexture": "JUNGLE_THICKET_1",
+        "eastTexture": "JUNGLE_THICKET_1",
+        "westTexture": "JUNGLE_THICKET_1",
+        "tileIndex": "830",
+        "lightSource": "false",
+        "placementMask": "01010101",
         "verticalAlignment": "BOTTOM"
       }
     ],

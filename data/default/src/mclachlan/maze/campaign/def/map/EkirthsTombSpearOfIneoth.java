@@ -10,7 +10,7 @@ import mclachlan.maze.map.TileScript;
 import mclachlan.maze.map.script.FlavourTextEvent;
 import mclachlan.maze.map.script.RemoveObjectEvent;
 import mclachlan.maze.stat.Item;
-import mclachlan.maze.stat.PlayerCharacter;
+import mclachlan.maze.stat.UnifiedActor;
 import mclachlan.maze.stat.combat.event.DelayEvent;
 import mclachlan.maze.stat.combat.event.SoundEffectEvent;
 
@@ -27,7 +27,7 @@ public class EkirthsTombSpearOfIneoth extends TileScript
 		Point tile,
 		int facing,
 		Item item,
-		PlayerCharacter user)
+		UnifiedActor user)
 	{
 		if (facing == CrusaderEngine.Facing.WEST &&
 			item.getName().equals("Spear Of Ineoth") &&

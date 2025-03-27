@@ -683,8 +683,8 @@ public class PlayerCharacterWidget extends DIYPanel
 			}
 			else
 			{
-				GameSys.getInstance().processPlayerCharacterIntentionOutsideCombat(
-					intention, playerCharacter);
+				GameSys.getInstance().resolveActorActionIntention(
+					Maze.getInstance(), playerCharacter, intention);
 			}
 		}
 	}
