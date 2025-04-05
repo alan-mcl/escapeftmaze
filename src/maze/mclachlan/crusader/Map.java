@@ -41,11 +41,6 @@ public class Map
 	/** The base width and height of images in this map (in pixels) */
 	int baseImageSize;
 
-	/** @deprecated */
-	ImageGroup paletteImage;
-
-	int skyTextureIndex;
-	
 	Tile[] tiles;
 	Wall[] horizontalWalls;
 	Wall[] verticalWalls;
@@ -55,20 +50,13 @@ public class Map
 	/* the original configured objects from the db */
 	List<EngineObject> originalObjects;
 
+	/** Sky configs, in render order */
+	Map.SkyConfig[] skyConfigs;
+
 	Texture[] textures;
 	MapScript[] scripts;
-	SkyTextureType skyTextureType;
 
 	private final Object scriptMutex = new Object();
-	int currentSkyImage;
-
-	public enum SkyTextureType
-	{
-		/** sky texture is rendered as if it were a cylinder around the map */
-		CYLINDER,
-		/** sky texture is rendered as if it were a very high flat ceiling */
-		HIGH_CEILING
-	}
 
 	public Map()
 	{
@@ -86,8 +74,8 @@ public class Map
 	 * 	The width of the map (ie east-west), in grid blocks.
 	 * @param baseImageSize
 	 * 	The base width and height of images in this map (in pixels) 
-	 * @param skyTextureIndex
-	 * 	The sky texture.
+	 * @param skyConfigs
+	 * 	The sky configs, in render order.
 	 * @param tiles
 	 * 	The grid blocks in this map.  Wall data in this is ignored.
 	 * @param horizontalWalls
@@ -101,24 +89,22 @@ public class Map
 		int length, 
 		int width, 
 		int baseImageSize,
-		int skyTextureIndex,
-		SkyTextureType skyTextureType,
 		Tile[] tiles,
 		Texture[] textures,
 		Wall[] horizontalWalls,
 		Wall[] verticalWalls,
+		SkyConfig[] skyConfigs,
 		List<EngineObject> originalObjects,
 		MapScript[] scripts)
 	{
 		this.length = length;
 		this.width = width;
 		this.baseImageSize = baseImageSize;
-		this.skyTextureIndex = skyTextureIndex;
-		this.skyTextureType = skyTextureType;
 		this.tiles = tiles;
 		this.textures = textures;
 		this.horizontalWalls = horizontalWalls;
 		this.verticalWalls = verticalWalls;
+		this.skyConfigs = skyConfigs;
 		this.originalObjects = originalObjects;
 		this.scripts = scripts;
 
@@ -148,7 +134,6 @@ public class Map
 			if (w.isVisible() && w.getTextures().length == 0)
 			{
 				errors.append("Invalid wall textures: horiz ").append(i).append("\n");
-//				w.setTextures(new Texture[]{Database.getInstance().getMazeTexture("WEBS_1").getTexture()});
 			}
 		}
 		for (int i = 0; i < verticalWalls.length; i++)
@@ -157,7 +142,6 @@ public class Map
 			if (w.isVisible() && w.getTextures().length == 0)
 			{
 				errors.append("Invalid wall textures: vert ").append(i).append("\n");
-//				w.setTextures(new Texture[]{Database.getInstance().getMazeTexture("WEBS_1").getTexture()});
 			}
 		}
 
@@ -172,11 +156,7 @@ public class Map
 	{
 		java.util.Map<String, Texture> texturesMap = new HashMap<>();
 
-		Texture skyTexture = getSkyTexture();
 		this.textures = new Texture[0];
-
-		texturesMap.put(skyTexture.getName(), skyTexture);
-		addTexture(skyTexture);
 
 		for (Tile t : tiles)
 		{
@@ -228,13 +208,22 @@ public class Map
 			}
 		}
 
+		for (SkyConfig skyConfig : skyConfigs)
+		{
+			_addTexture(skyConfig.cylinderSkyImage, texturesMap);
+			_addTexture(skyConfig.ceilingImage, texturesMap);
+			_addTexture(skyConfig.cubeNorth, texturesMap);
+			_addTexture(skyConfig.cubeSouth, texturesMap);
+			_addTexture(skyConfig.cubeEast, texturesMap);
+			_addTexture(skyConfig.cubeWest, texturesMap);
+			_addTexture(skyConfig.objectTexture, texturesMap);
+		}
+
 		// add to the array
 		for (Texture t : texturesMap.values())
 		{
 			addTexture(t);
 		}
-
-		setSkyTexture(skyTexture);
 	}
 
 	private void _addTexture(Texture t, java.util.Map<String, Texture> texturesMap)
@@ -592,12 +581,6 @@ public class Map
 	}
 	
 	/*-------------------------------------------------------------------------*/
-	public void setCurrentSkyImage(int index)
-	{
-		this.currentSkyImage = index;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	public void setRenderObjects(EngineObject[] renderObjects)
 	{
 		this.renderObjects = renderObjects;
@@ -632,39 +615,19 @@ public class Map
 		return horizontalWalls;
 	}
 
-	public ImageGroup getPaletteImage()
-	{
-		return paletteImage;
-	}
-
 	public MapScript[] getScripts()
 	{
 		return scripts;
 	}
 
-	public int getSkyTextureIndex()
+	public SkyConfig[] getSkyConfigs()
 	{
-		return skyTextureIndex;
+		return skyConfigs;
 	}
 
-	public void setSkyTextureIndex(int skyTextureIndex)
+	public void setSkyConfigs(SkyConfig[] skyConfigs)
 	{
-		this.skyTextureIndex = skyTextureIndex;
-	}
-
-	public Texture getSkyTexture()
-	{
-		return textures[skyTextureIndex];
-	}
-
-	public void setSkyTexture(Texture txt)
-	{
-		skyTextureIndex = Arrays.binarySearch(textures, txt);
-
-		if (skyTextureIndex < 0)
-		{
-			skyTextureIndex = addTexture(txt);
-		}
+		this.skyConfigs = skyConfigs;
 	}
 
 	public int addTexture(Texture txt)
@@ -691,11 +654,6 @@ public class Map
 	public Wall[] getVerticalWalls()
 	{
 		return verticalWalls;
-	}
-
-	public SkyTextureType getSkyTextureType()
-	{
-		return skyTextureType;
 	}
 
 	public void setWidth(int width)
@@ -728,20 +686,12 @@ public class Map
 		this.baseImageSize = baseImageSize;
 	}
 
-	public void setPaletteImage(ImageGroup paletteImage)
-	{
-		this.paletteImage = paletteImage;
-	}
-
 	public void setTextures(Texture[] textures)
 	{
 		this.textures = textures;
 	}
 
-	public void setSkyTextureType(SkyTextureType skyTextureType)
-	{
-		this.skyTextureType = skyTextureType;
-	}
+	/*-------------------------------------------------------------------------*/
 
 	/*-------------------------------------------------------------------------*/
 	public int getIndex(Tile t)
@@ -792,89 +742,181 @@ public class Map
 	}
 
 	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	public static class SkyConfig
 	{
-		if (this == o)
+		public enum Type
 		{
-			return true;
-		}
-		if (!(o instanceof Map))
-		{
-			return false;
+			CYLINDER_IMAGE,
+			CYLINDER_GRADIENT,
+			HIGH_CEILING_IMAGE,
+			CUBEMAP_IMAGES,
+			OBJECTS_HIGH_CEILING,
+			OBJECTS_SPHERE
 		}
 
-		Map map = (Map)o;
+		Type type;
 
-		if (getWidth() != map.getWidth())
-		{
-			return false;
-		}
-		if (getLength() != map.getLength())
-		{
-			return false;
-		}
-		if (getBaseImageSize() != map.getBaseImageSize())
-		{
-			return false;
-		}
-		if (getSkyTextureIndex() != map.getSkyTextureIndex())
-		{
-			return false;
-		}
-		if (getPaletteImage() != null ? !getPaletteImage().equals(map.getPaletteImage()) : map.getPaletteImage() != null)
-		{
-			return false;
-		}
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getTiles(), map.getTiles()))
-		{
-			return false;
-		}
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getHorizontalWalls(), map.getHorizontalWalls()))
-		{
-			return false;
-		}
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getVerticalWalls(), map.getVerticalWalls()))
-		{
-			return false;
-		}
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getRenderObjects(), map.getRenderObjects()))
-		{
-			return false;
-		}
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getTextures(), map.getTextures()))
-		{
-			return false;
-		}
-		// Probably incorrect - comparing Object[] arrays with Arrays.equals
-		if (!Arrays.equals(getScripts(), map.getScripts()))
-		{
-			return false;
-		}
-		return getSkyTextureType() == map.getSkyTextureType();
-	}
+		// cylinder image
+		Texture cylinderSkyImage;
 
-	@Override
-	public int hashCode()
-	{
-		int result = getWidth();
-		result = 31 * result + getLength();
-		result = 31 * result + getBaseImageSize();
-		result = 31 * result + (getPaletteImage() != null ? getPaletteImage().hashCode() : 0);
-		result = 31 * result + getSkyTextureIndex();
-		result = 31 * result + Arrays.hashCode(getTiles());
-		result = 31 * result + Arrays.hashCode(getHorizontalWalls());
-		result = 31 * result + Arrays.hashCode(getVerticalWalls());
-		result = 31 * result + Arrays.hashCode(getRenderObjects());
-		result = 31 * result + Arrays.hashCode(getTextures());
-		result = 31 * result + Arrays.hashCode(getScripts());
-		result = 31 * result + (getSkyTextureType() != null ? getSkyTextureType().hashCode() : 0);
-		return result;
+		// cylinder gradient
+		int bottomColour, topColour;
+
+		// ceiling image
+		Texture ceilingImage;
+		int ceilingHeight;
+
+		// cubemap images
+		Texture cubeNorth, cubeSouth, cubeEast, cubeWest;
+
+		// objects
+		Texture objectTexture;
+		// reuse ceilingHeight
+		int sphereRadius;
+
+		public SkyConfig()
+		{
+		}
+
+		public SkyConfig(Type type, Texture cylinderSkyImage, int bottomColour,
+			int topColour, Texture ceilingImage, int ceilingHeight,
+			Texture cubeNorth,
+			Texture cubeSouth, Texture cubeEast, Texture cubeWest,
+			Texture objectTexture,
+			int sphereRadius)
+		{
+			this.type = type;
+			this.cylinderSkyImage = cylinderSkyImage;
+			this.bottomColour = bottomColour;
+			this.topColour = topColour;
+			this.ceilingImage = ceilingImage;
+			this.ceilingHeight = ceilingHeight;
+			this.cubeNorth = cubeNorth;
+			this.cubeSouth = cubeSouth;
+			this.cubeEast = cubeEast;
+			this.cubeWest = cubeWest;
+			this.objectTexture = objectTexture;
+			this.sphereRadius = sphereRadius;
+		}
+
+		public Type getType()
+		{
+			return type;
+		}
+
+		public void setType(Type type)
+		{
+			this.type = type;
+		}
+
+		public Texture getCylinderSkyImage()
+		{
+			return cylinderSkyImage;
+		}
+
+		public void setCylinderSkyImage(Texture cylinderSkyImage)
+		{
+			this.cylinderSkyImage = cylinderSkyImage;
+		}
+
+		public int getBottomColour()
+		{
+			return bottomColour;
+		}
+
+		public void setBottomColour(int bottomColour)
+		{
+			this.bottomColour = bottomColour;
+		}
+
+		public int getTopColour()
+		{
+			return topColour;
+		}
+
+		public void setTopColour(int topColour)
+		{
+			this.topColour = topColour;
+		}
+
+		public Texture getCeilingImage()
+		{
+			return ceilingImage;
+		}
+
+		public void setCeilingImage(Texture ceilingImage)
+		{
+			this.ceilingImage = ceilingImage;
+		}
+
+		public int getCeilingHeight()
+		{
+			return ceilingHeight;
+		}
+
+		public void setCeilingHeight(int ceilingHeight)
+		{
+			this.ceilingHeight = ceilingHeight;
+		}
+
+		public Texture getCubeNorth()
+		{
+			return cubeNorth;
+		}
+
+		public void setCubeNorth(Texture cubeNorth)
+		{
+			this.cubeNorth = cubeNorth;
+		}
+
+		public Texture getCubeSouth()
+		{
+			return cubeSouth;
+		}
+
+		public void setCubeSouth(Texture cubeSouth)
+		{
+			this.cubeSouth = cubeSouth;
+		}
+
+		public Texture getCubeEast()
+		{
+			return cubeEast;
+		}
+
+		public void setCubeEast(Texture cubeEast)
+		{
+			this.cubeEast = cubeEast;
+		}
+
+		public Texture getCubeWest()
+		{
+			return cubeWest;
+		}
+
+		public void setCubeWest(Texture cubeWest)
+		{
+			this.cubeWest = cubeWest;
+		}
+
+		public Texture getObjectTexture()
+		{
+			return objectTexture;
+		}
+
+		public void setObjectTexture(Texture objectTexture)
+		{
+			this.objectTexture = objectTexture;
+		}
+
+		public int getSphereRadius()
+		{
+			return sphereRadius;
+		}
+
+		public void setSphereRadius(int sphereRadius)
+		{
+			this.sphereRadius = sphereRadius;
+		}
 	}
 }

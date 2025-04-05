@@ -1,20 +1,32 @@
 {
-  "1~Ascxs": [],
   "1~Silvia": [],
+  "1~Ascxs": [],
   "1~Haakon": [],
-  "1~Gibby": [],
   "1~Ug": [],
-  "1~Brunswick": [],
+  "1~Brunswick": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Abstract Actor",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~Gibby": [],
+  "1~Agar": [],
   "1~Dwaf": [],
-  "1~Tenzin": [],
   "1~Rowan": [],
-  "1~Andon": [],
-  "1~Ru Muri": [],
-  "1~Sreka": [],
   "1~Anba": [],
+  "1~Sreka": [],
   "1~Wa Na": [],
-  "1~Th\u0027shaa": [],
+  "1~Casteneaba": [],
   "1~IG-87": [],
-  "1~Saras": [],
+  "1~Aelfred": [],
   "1~Khalif": []
 }

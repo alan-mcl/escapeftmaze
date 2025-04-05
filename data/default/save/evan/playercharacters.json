@@ -1468,25 +1468,29 @@
       "template": "Suede Doublet",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "legArmour": {
       "template": "Suede Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "gloves": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Quarterstaff",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -1495,7 +1499,8 @@
           "template": "Bardic Harp",
           "cursedState": "1",
           "identificationState": "2",
-          "stack": "1-1"
+          "stack": "1-1",
+          "charges": "0-0"
         }
       ]
     },

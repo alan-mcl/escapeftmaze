@@ -41270,8 +41270,16 @@
     "length": "64",
     "width": "64",
     "baseImageSize": "512",
-    "skyTexture": "sky.red",
-    "skyTextureType": "CYLINDER",
+    "skyConfigs": [
+      {
+        "type": "CYLINDER_IMAGE",
+        "cylinderSkyImage": "sky.red",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingHeight": "0",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",

@@ -26,8 +26,10 @@ import java.awt.image.PixelGrabber;
 import java.util.List;
 import java.util.*;
 import java.util.concurrent.*;
+import mclachlan.crusader.Map.SkyConfig;
 import mclachlan.crusader.postprocessor.*;
 import mclachlan.crusader.script.MoveTo;
+import mclachlan.maze.util.MazeException;
 
 /**
  * Implementation with 32-bit colour
@@ -37,32 +39,27 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/**
 	 * Container for tiles, textures and map information.
 	 */
-	private Map map;
+	private final Map map;
 
 	/**
 	 * Helper class for colour-management.  
 	 */ 
-	private ColorModel colourModel = new CrusaderColourModel();
+	private final ColorModel colourModel = new CrusaderColourModel();
 	
-	/**
-	 * The texture to use for the sky.
-	 */ 
-	private Texture skyImage;
-
 	/**
 	 * Textures in use in this map.
 	 */
 	private Texture[] textures;
 
 	/** The color to shade with */
-	private int shadeRed;
-	private int shadeGreen;
-	private int shadeBlue;
+	private final int shadeRed;
+	private final int shadeGreen;
+	private final int shadeBlue;
 	
 	/** The distance (in units) at which shading starts */
-	private int shadingDistance;
+	private final int shadingDistance;
 	/** The distance (in units) for the shading effect to double */
-	private int shadingThickness;
+	private final int shadingThickness;
 
 	/**
 	 * Objects in the map.  The engine sorts them in descending 
@@ -73,36 +70,36 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private final Object objectMutex = new Object();
 
 	// functionality flags
-	private boolean doShading, doLighting;
+	private final boolean doShading, doLighting;
 
 	/** pipeline of post processors (eg for anti-aliasing)*/
 	private PostProcessor[] filters;
 	private final Object filterMutex = new Object();
 	
 	/** The pixels that the engine returns to the outside world. */
-	private int[] renderBuffer;
+	private final int[] renderBuffer;
 	/** A back-buffer for the post-processors to work with */
-	private int[] postProcessingBuffer;
+	private final int[] postProcessingBuffer;
 	
 	/** The width of the map (ie east-west), in grid cells */
-	private int mapWidth;
+	private final int mapWidth;
 	/** The length of the map (ie north-south), in grid cells */
-	private int mapLength;
+	private final int mapLength;
 
 	/** The length of the edge of a tile, in units */
 	public int tileSize;
 	
 	/** width of the projection plane, in cast columns (ie pixels) */  
-	private int projectionPlaneWidth;
+	private final int projectionPlaneWidth;
 	/** height of the projection plane, in cast columns (ie pixels) */
-	private int projectionPlaneHeight;
+	private final int projectionPlaneHeight;
 
 	// Note the difference between measurement units (eg tileSize) and
 	// pixels (eg PROJECTION_PLANE_HEIGHT)
-	private int playerHeightInUnits;
+	private final int playerHeightInUnits;
 
 	/** A constant from {@link CrusaderEngine.FieldOfView} */
-	private int playerFovOption;
+	private final int playerFovOption;
 	/** various degrees of arc, expressed in cast columns (ie pixels)*/
 	private static int
 		ANGLE360,
@@ -152,22 +149,20 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/** Scales the player distance to the projection plane */
 	private double playerDistanceMult = 1.0;
 	/** Translates the projection plane (in pixels downwards) */
-	private int projPlaneOffset;
+	private final int projPlaneOffset;
 	/** How far the player moves for each forward movement, in units */
 	private int playerSpeed;
 	/** How far the player rotates, an angle expressed in cast columns (ie pixels)*/
 	private int playerRotation;
 	/** How high the player is */
-	private int playerHeight;
-	/** Scales the player height */
-	private double playerHeightMult = 1.0;
+	private final int playerHeight;
 
 	/** A record of grid block hits, indexed on cast column and then depth */
-	private BlockHitRecord[][] blockHitRecord;
+	private final BlockHitRecord[][] blockHitRecord;
 	private int maxHitDepth = 20;
 	
 	/** A record of applicable mouse click scripts, by index in the render buffer */
-	private MouseClickScriptRecord[] mouseClickScriptRecords;
+	private final MouseClickScriptRecord[] mouseClickScriptRecords;
 	
 	/** Incremented each frame, used for animation */
 	private long frameCount;
@@ -179,16 +174,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private int movementMode;
 	
 	// AWT fields
-	private MemoryImageSource pictureArray;
-	private Image displayImage;
+	private final MemoryImageSource pictureArray;
+	private final Image displayImage;
 
 	// multi threading support
-	private ExecutorCompletionService executor;
-	private DrawColumn[] columnRenderers;
-	private FilterColumn[] columnFilterers;
+	private final ExecutorCompletionService<Object> executor;
+	private final DrawColumn[] columnRenderers;
+	private final FilterColumn[] columnFilterers;
 
 	// admin
-	private static Random r = new Random();
+	private final static Random r = new Random();
 	private long timeNow;
 
 	/*-------------------------------------------------------------------------*/
@@ -269,8 +264,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		
 		this.projectionPlaneWidth = screenWidth;
 		this.projectionPlaneHeight = screenHeight;
-		this.playerHeight = (int)(projectionPlaneHeight/2 *playerHeightMult);
-		this.playerHeightInUnits = (int)(tileSize /2 *playerHeightMult);
+		this.playerHeight = (int)(projectionPlaneHeight/2);
+		this.playerHeightInUnits = (int)(tileSize /2);
 		this.projPlaneOffset = projectionPlaneOffset;
 		this.playerFovOption = playerFieldOfView;
 		this.playerDistanceMult = scaleDistFromProjPlane;
@@ -284,6 +279,58 @@ public class CrusaderEngine32 implements CrusaderEngine
 		this.doLighting = doLighting;
 		this.doShading = doShading;
 
+		buildFilters(filters);
+
+		this.renderBuffer = new int[screenWidth * screenHeight];
+		this.postProcessingBuffer = new int[screenWidth * screenHeight];
+		this.mouseClickScriptRecords = new MouseClickScriptRecord[screenWidth * screenHeight];
+		for (int i = 0; i < mouseClickScriptRecords.length; i++)
+		{
+			mouseClickScriptRecords[i] = new MouseClickScriptRecord();
+		}
+
+		this.blockHitRecord = new BlockHitRecord[screenWidth][this.maxHitDepth];
+		for (int i = 0; i < blockHitRecord.length; i++)
+		{
+			for (int j = 0; j < this.maxHitDepth; j++)
+			{
+				blockHitRecord[i][j] = new BlockHitRecord();
+			}
+		}
+		
+		mapWidth = map.width;
+		mapLength = map.length;
+
+		this.objects = (EngineObject[])map.renderObjects.clone();
+		
+		pictureArray = new MemoryImageSource(
+			screenWidth, 
+			screenHeight, 
+			getColourModel(),
+			renderBuffer,
+			0,
+			screenWidth);
+		
+		pictureArray.setAnimated(true);
+		pictureArray.setFullBufferUpdates(true);
+		displayImage = component.createImage(pictureArray);
+		
+		initMouseClickScripts();
+
+		executor = new ExecutorCompletionService(Executors.newFixedThreadPool(nrThreads));
+		columnRenderers = new DrawColumn[projectionPlaneWidth];
+		columnFilterers = new FilterColumn[projectionPlaneWidth];
+
+		for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
+		{
+			 columnRenderers[screenX] = new DrawColumn(0, screenX);
+			 columnFilterers[screenX] = new FilterColumn(screenX, postProcessingBuffer);
+		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private void buildFilters(Filter[] filters)
+	{
 		if (filters != null)
 		{
 			List<PostProcessor> processors = new ArrayList<>();
@@ -355,54 +402,8 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			this.filters = null;
 		}
-
-		this.renderBuffer = new int[screenWidth * screenHeight];
-		this.postProcessingBuffer = new int[screenWidth * screenHeight];
-		this.mouseClickScriptRecords = new MouseClickScriptRecord[screenWidth * screenHeight];
-		for (int i = 0; i < mouseClickScriptRecords.length; i++)
-		{
-			mouseClickScriptRecords[i] = new MouseClickScriptRecord();
-		}
-
-		this.blockHitRecord = new BlockHitRecord[screenWidth][this.maxHitDepth];
-		for (int i = 0; i < blockHitRecord.length; i++)
-		{
-			for (int j = 0; j < this.maxHitDepth; j++)
-			{
-				blockHitRecord[i][j] = new BlockHitRecord();
-			}
-		}
-		
-		mapWidth = map.width;
-		mapLength = map.length;
-
-		this.objects = (EngineObject[])map.renderObjects.clone();
-		
-		pictureArray = new MemoryImageSource(
-			screenWidth, 
-			screenHeight, 
-			getColourModel(),
-			renderBuffer,
-			0,
-			screenWidth);
-		
-		pictureArray.setAnimated(true);
-		pictureArray.setFullBufferUpdates(true);
-		displayImage = component.createImage(pictureArray);
-		
-		initMouseClickScripts();
-
-		executor = new ExecutorCompletionService(Executors.newFixedThreadPool(nrThreads));
-		columnRenderers = new DrawColumn[projectionPlaneWidth];
-		columnFilterers = new FilterColumn[projectionPlaneWidth];
-
-		for (int screenX = 0; screenX < projectionPlaneWidth; screenX++)
-		{
-			 columnRenderers[screenX] = new DrawColumn(0, screenX);
-			 columnFilterers[screenX] = new FilterColumn(screenX, postProcessingBuffer);
-		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private void initMouseClickScripts()
 	{
@@ -904,6 +905,30 @@ public class CrusaderEngine32 implements CrusaderEngine
 		}
 
 		return arc;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private int getGeneralFacing(int arc)
+	{
+		arc = arc % ANGLE360;
+
+		if (arc > ANGLE315 || arc <= ANGLE45)
+		{
+			return Facing.EAST;
+		}
+		else if (arc > ANGLE45 && arc <= ANGLE135)
+		{
+			return Facing.SOUTH;
+		}
+		else if (arc > ANGLE135 && arc <= ANGLE225)
+		{
+			return Facing.WEST;
+		}
+		else if (arc > ANGLE225 && arc <= ANGLE315)
+		{
+			return Facing.NORTH;
+		}
+		throw new CrusaderException("Invalid: " + arc);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -1585,17 +1610,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 	/*-------------------------------------------------------------------------*/
 	private void initImages()
 	{
-		if (map.paletteImage != null)
-		{
-			this.initImageGroup(map.paletteImage);
-		}
-
 		for (Texture texture : map.textures)
 		{
 			this.addTexture(texture);
 		}
-
-		this.skyImage = this.textures[map.skyTextureIndex];
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -2836,51 +2854,138 @@ public class CrusaderEngine32 implements CrusaderEngine
 	 */
 	private int getSkyPixel(int castArc, int screenY)
 	{
+		int result = 0;
+
+		for (SkyConfig config : map.skyConfigs)
+		{
+			int pixel = renderSkyConfig(config, castArc, screenY);
+			result = (result == 0) ? pixel : alphaBlend(pixel, result);
+			if (!hasAlpha(result))
+			{
+				return result; // Fully opaque, stop rendering
+			}
+		}
+		return result;
+	}
+
+	private int renderSkyConfig(SkyConfig skyConfig, int castArc, int screenY)
+	{
+		switch (skyConfig.type)
+		{
+			case CYLINDER_IMAGE ->
+			{
+				return renderCylinderImageSky(skyConfig, castArc, screenY);
+			}
+			case CYLINDER_GRADIENT ->
+			{
+				return computeCylinderGradient(skyConfig, castArc, screenY);
+			}
+			case HIGH_CEILING_IMAGE ->
+			{
+				return renderHighCeilingSky(skyConfig, castArc, screenY);
+			}
+			case CUBEMAP_IMAGES ->
+			{
+				return renderCubemapImages(skyConfig, castArc, screenY);
+			}
+			case OBJECTS_HIGH_CEILING ->
+			{
+				return 0;
+			}
+			case OBJECTS_SPHERE ->
+			{
+				return 0;
+			}
+			default -> throw new MazeException("invalid: "+skyConfig.type);
+		}
+	}
+
+	private int renderCubemapImages(SkyConfig config, int castArc, int screenY)
+	{
+		double angle = ((double)castArc / ANGLE360) * 4.0; // Map arc to one of 4 orientations
+		double u = angle +0.5 -(int)angle; // Texture coordinate within the face
+
+		int facing = getGeneralFacing(castArc);
+		Texture texture = switch (facing)
+			{
+				case Facing.NORTH -> config.cubeNorth;
+				case Facing.EAST -> config.cubeEast;
+				case Facing.SOUTH -> config.cubeSouth;
+				case Facing.WEST -> config.cubeWest;
+				default -> throw new MazeException("invalid: "+facing);
+			};
+
+		int skyTextureX = (int)(u * texture.imageWidth);
+		int skyTextureY = (int)(screenY * texture.imageHeight / projectionPlaneHeight);
+		return texture.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
+	}
+
+	private int computeCylinderGradient(SkyConfig config, int castArc, int screenY)
+	{
+		float gradientRatio = (float)screenY / projectionPlaneHeight;
+		int bottomColor = config.bottomColour;
+		int topColor = config.topColour;
+
+		int r1 = (bottomColor >> 16) & 0xFF;
+		int g1 = (bottomColor >> 8) & 0xFF;
+		int b1 = bottomColor & 0xFF;
+
+		int r2 = (topColor >> 16) & 0xFF;
+		int g2 = (topColor >> 8) & 0xFF;
+		int b2 = topColor & 0xFF;
+
+		int r = (int)(r1 + gradientRatio * (r2 - r1));
+		int g = (int)(g1 + gradientRatio * (g2 - g1));
+		int b = (int)(b1 + gradientRatio * (b2 - b1));
+
+		return (255 << 24) | (r << 16) | (g << 8) | b;
+	}
+
+	private int renderCylinderImageSky(SkyConfig skyConfig, int castArc, int screenY)
+	{
+		Texture image = skyConfig.cylinderSkyImage;
+
+		int skyTextureX = castArc % image.imageWidth;
+		int skyTextureY = screenY * image.imageHeight / playerHeight;
+
+		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
+	}
+
+	private int renderHighCeilingSky(SkyConfig skyConfig, int castArc, int screenY)
+	{
 		int skyTextureX;
 		int skyTextureY;
 
-		// tile the sky texture as if were a giant cylinder around the map
-		switch (map.skyTextureType)
+		Texture image = skyConfig.ceilingImage;
+
+		double heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
+
+		// this scaling makes the sky appear higher than normal
+		heightOnProjectionPlane /= skyConfig.ceilingHeight;
+		double straightDistance = playerDistToProjectionPlane
+			* playerHeightInUnits / (float)(heightOnProjectionPlane);
+		int beta = playerArc - castArc;
+		if (beta < 0)
 		{
-			case CYLINDER ->
-			{
-				skyTextureX = castArc % this.skyImage.imageWidth;
-				skyTextureY = screenY * this.skyImage.imageHeight / playerHeight;
-			}
-			case HIGH_CEILING ->
-			{
-				double heightOnProjectionPlane = (projectionPlaneHeight - this.playerHeight) - screenY + projPlaneOffset;
-
-				// this scaling makes the sky appear higher than normal
-				heightOnProjectionPlane /= 10;
-				double straightDistance = playerDistToProjectionPlane
-					* playerHeightInUnits / (float)(heightOnProjectionPlane);
-				int beta = playerArc - castArc;
-				if (beta < 0)
-				{
-					beta += ANGLE360;
-				}
-				else if (beta > ANGLE360)
-				{
-					beta -= ANGLE360;
-				}
-				double actualDistance = straightDistance / cosTable[beta];
-
-				// now we know that the ray intersects with the floor at an
-				// angle of (castArc) and a distance of (actualDistance)
-
-				double xDistance = actualDistance * cosTable[castArc];
-				double yDistance = actualDistance * sinTable[castArc];
-				int xIntersection = (int)(playerX + xDistance);
-				int yIntersection = (int)(playerY + yDistance);
-				skyTextureX = xIntersection % this.skyImage.imageWidth;
-				skyTextureY = yIntersection % this.skyImage.imageHeight;
-			}
-			default ->
-				throw new CrusaderException("invalid sky texture type: " + map.skyTextureType);
+			beta += ANGLE360;
 		}
+		else if (beta > ANGLE360)
+		{
+			beta -= ANGLE360;
+		}
+		double actualDistance = straightDistance / cosTable[beta];
 
-		return this.skyImage.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
+		// now we know that the ray intersects with the floor at an
+		// angle of (castArc) and a distance of (actualDistance)
+
+		double xDistance = actualDistance * cosTable[castArc];
+		double yDistance = actualDistance * sinTable[castArc];
+		int xIntersection = (int)(playerX + xDistance);
+		int yIntersection = (int)(playerY + yDistance);
+		skyTextureX = xIntersection % image.imageWidth;
+		skyTextureY = yIntersection % image.imageHeight;
+
+		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -3492,10 +3597,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	class DrawColumn implements Callable<Object>
+	private class DrawColumn implements Callable<Object>
 	{
 		private float castArc;
-		private int screenX;
+		private final int screenX;
 
 		public DrawColumn(float castArc, int screenX)
 		{
@@ -3543,10 +3648,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 	}
 
 	/*-------------------------------------------------------------------------*/
-	class FilterColumn implements Callable
+	private class FilterColumn implements Callable<Object>
 	{
-		private int screenX;
-		private int[] outputBuffer;
+		private final int screenX;
+		private final int[] outputBuffer;
 		private PostProcessor filter;
 
 		public FilterColumn(int screenX, int[] outputBuffer)

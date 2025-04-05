@@ -2620,8 +2620,16 @@
     "length": "16",
     "width": "16",
     "baseImageSize": "512",
-    "skyTexture": "sky.ichiba.flat",
-    "skyTextureType": "HIGH_CEILING",
+    "skyConfigs": [
+      {
+        "type": "HIGH_CEILING_IMAGE",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingImage": "sky.ichiba.flat",
+        "ceilingHeight": "10",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",

@@ -140,7 +140,7 @@ public class ClientMapLoader
 		String line = reader.readLine();
 		
 		String mapName = null;
-		Map.SkyTextureType skyTextureType = null;
+//		Map.SkyTextureType skyTextureType = null;
 		int mapWidth = -1, mapLength = -1;
 		Tile[] tiles = null;
 		BufferedImage[] baseImages = null;
@@ -161,7 +161,7 @@ public class ClientMapLoader
 				mapName = mapProp.getProperty(MAP_NAME);
 				mapWidth = Integer.parseInt(mapProp.getProperty(MAP_WIDTH));
 				mapLength = Integer.parseInt(mapProp.getProperty(MAP_LENGTH));
-				skyTextureType = Map.SkyTextureType.valueOf(mapProp.getProperty(SKY_TEXTURE_TYPE));
+//				skyTextureType = Map.SkyTextureType.valueOf(mapProp.getProperty(SKY_TEXTURE_TYPE));
 				foundHeader = true;
 			}
 			else if (line.equalsIgnoreCase(BASE_IMG_HEADER))
@@ -374,17 +374,22 @@ public class ClientMapLoader
 		{
 			scripts = new MapScript[0];
 		}
+
+		Map.SkyConfig skyConfig = new Map.SkyConfig(
+			Map.SkyConfig.Type.CYLINDER_IMAGE,
+			textures[skyTextureIndex],
+			0, 0, null, 0, null, null, null, null, null, 0);
+
 		
 		return new Map(
 			mapLength,
 			mapWidth,
 			baseImageSize, 
-			skyTextureIndex,
-			skyTextureType,
 			tiles,
 			textures,
 			horizontalWalls,
 			verticalWalls,
+			new Map.SkyConfig[]{skyConfig},
 			Arrays.asList(objects),
 			scripts);
 	}

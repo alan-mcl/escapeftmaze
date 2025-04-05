@@ -47,7 +47,7 @@ public class ZonePanel extends EditorPanel
 	private JSpinner defaultZoneScriptTurns;
 	private JSpinner defaultZoneScriptLightLevelDiff;
 	private JTextField customZoneScript;
-	private JComboBox skyTextureType, skyTexture;
+	private SkyConfigsPanel skyConfigsPanel;
 	private JButton editMap;
 	private JButton shadeTargetColour, transparentColour;
 	private JCheckBox doLighting, doShading;
@@ -227,30 +227,6 @@ public class ZonePanel extends EditorPanel
 		gbc.gridx = 0;
 		gbc.gridy++;
 		gbc.weightx = 0.0;
-		result.add(new JLabel("Sky Texture Type:"), gbc);
-
-		gbc.gridx++;
-		gbc.weightx = 1.0;
-		skyTextureType = new JComboBox(Map.SkyTextureType.values());
-		skyTextureType.addActionListener(this);
-		result.add(skyTextureType, gbc);
-
-		gbc.gridx = 0;
-		gbc.gridy++;
-		gbc.weightx = 0.0;
-		result.add(new JLabel("Sky Texture:"), gbc);
-
-		gbc.gridx++;
-		gbc.weightx = 1.0;
-		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
-		Collections.sort(textures);
-		skyTexture = new JComboBox(textures);
-		skyTexture.addActionListener(this);
-		result.add(skyTexture, gbc);
-
-		gbc.gridx = 0;
-		gbc.gridy++;
-		gbc.weightx = 0.0;
 		result.add(new JLabel("Shade Target Colour:"), gbc);
 
 		gbc.gridx++;
@@ -361,6 +337,16 @@ public class ZonePanel extends EditorPanel
 		editMap = new JButton("Edit Map");
 		editMap.addActionListener(this);
 		result.add(editMap, gbc);
+
+		gbc.gridx = 2;
+		gbc.gridy = 0;
+		gbc.gridwidth = 2;
+		gbc.gridheight = 20;
+		gbc.weightx = 3.0;
+		gbc.weighty = 1.0;
+		skyConfigsPanel = new SkyConfigsPanel(dirtyFlag);
+		result.add(skyConfigsPanel, gbc);
+
 		return result;
 	}
 
@@ -398,8 +384,6 @@ public class ZonePanel extends EditorPanel
 		customZoneScript.removeKeyListener(this);
 		defaultZoneScriptTurns.removeChangeListener(this);
 		defaultZoneScriptLightLevelDiff.removeChangeListener(this);
-		skyTexture.removeActionListener(this);
-		skyTextureType.removeActionListener(this);
 		doShading.removeActionListener(this);
 		doLighting.removeActionListener(this);
 		shadingDistance.removeChangeListener(this);
@@ -445,6 +429,8 @@ public class ZonePanel extends EditorPanel
 			ambientScripts.refresh(null);
 		}
 
+		skyConfigsPanel.refresh(Arrays.asList(zone.getMap().getSkyConfigs()));
+
 		mapScripts.refresh(zone.getMap().getScripts());		
 		doShading.setSelected(zone.doShading());
 		doLighting.setSelected(zone.doLighting());
@@ -455,8 +441,6 @@ public class ZonePanel extends EditorPanel
 		scaleDistFromProjPlane.setValue(zone.getScaleDistFromProjPlane());
 		shadeTargetColour.setBackground(zone.getShadeTargetColor());
 		transparentColour.setBackground(zone.getTransparentColor());
-		skyTexture.setSelectedItem(zone.getMap().getSkyTexture().getName());
-		skyTextureType.setSelectedItem(zone.getMap().getSkyTextureType());
 
 		order.setValue(zone.getOrder());
 		playerOriginX.setValue(zone.getPlayerOrigin().x);
@@ -464,8 +448,6 @@ public class ZonePanel extends EditorPanel
 
 		isCustomZoneScript.addActionListener(this);
 		customZoneScript.addKeyListener(this);
-		skyTexture.addActionListener(this);
-		skyTextureType.addActionListener(this);
 		defaultZoneScriptTurns.addChangeListener(this);
 		defaultZoneScriptLightLevelDiff.addChangeListener(this);
 		doShading.addActionListener(this);
@@ -560,7 +542,7 @@ public class ZonePanel extends EditorPanel
 		JSpinner widthSpinner = new JSpinner(new SpinnerNumberModel(16, 1, 1024, 1));
 		JSpinner textureSizeSpinner = new JSpinner(new SpinnerNumberModel(512, 1, 1024, 1));
 		
-		Vector<String> textures = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
 		
 		JComboBox initialWallTexture = new JComboBox(textures);
@@ -667,16 +649,21 @@ public class ZonePanel extends EditorPanel
 			}
 		}
 
+		Map.SkyConfig skyConfig = new Map.SkyConfig(
+			Map.SkyConfig.Type.CYLINDER_IMAGE,
+			skyTexture.getTexture(),
+			0, 0, null, 0, null, null, null, null, null, 0);
+
+
 		Map map = new Map(
 			length, 
 			width, 
 			textureSize,
-			Arrays.binarySearch(textureArray, skyTexture.getTexture()),
-			Map.SkyTextureType.CYLINDER,
-			tiles, 
+			tiles,
 			textureArray, 
 			horiz,
 			vert,
+			new Map.SkyConfig[]{skyConfig},
 			new ArrayList<>(),
 			new MapScript[0]);
 		
@@ -755,13 +742,6 @@ public class ZonePanel extends EditorPanel
 			zone.setPlayerOrigin(new Point(
 				(Integer)playerOriginX.getValue(), (Integer)playerOriginY.getValue()));
 
-			// set the sky texture
-			MazeTexture txt = Database.getInstance().getMazeTexture(
-				(String)skyTexture.getSelectedItem());
-			zone.getMap().setSkyTextureType((Map.SkyTextureType)skyTextureType.getSelectedItem());
-
-			zone.getMap().setSkyTexture(txt.getTexture());
-			
 			if (isCustomZoneScript.isSelected())
 			{
 				try
@@ -786,6 +766,8 @@ public class ZonePanel extends EditorPanel
 			zone.getMap().setScripts(
 				mapScripts.getMapScripts().toArray(
 					new MapScript[mapScripts.getMapScripts().size()]));
+
+			zone.getMap().setSkyConfigs(skyConfigsPanel.getSkyConfigs().toArray(Map.SkyConfig[]::new));
 			
 			try
 			{

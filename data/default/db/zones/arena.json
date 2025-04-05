@@ -3176,8 +3176,26 @@
     "length": "16",
     "width": "16",
     "baseImageSize": "512",
-    "skyTexture": "sky.ichiba",
-    "skyTextureType": "CYLINDER",
+    "skyConfigs": [
+      {
+        "type": "CUBEMAP_IMAGES",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingHeight": "0",
+        "cubeNorth": "sky.ichiba.crater.rim.1",
+        "cubeSouth": "sky.ichiba.crater.rim.2",
+        "cubeEast": "sky.ichiba.crater.rim.3",
+        "cubeWest": "sky.ichiba.crater.rim.4",
+        "sphereRadius": "0"
+      },
+      {
+        "type": "CYLINDER_GRADIENT",
+        "bottomColour": "-10066177",
+        "topColour": "-1",
+        "ceilingHeight": "0",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",

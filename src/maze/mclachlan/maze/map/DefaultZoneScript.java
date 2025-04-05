@@ -79,8 +79,9 @@ public class DefaultZoneScript extends ZoneScript
 		if (turnsBetweenChange != -1)
 		{
 			//
-			// Sky texture change
+			// Sky texture change: todo
 			//
+/*
 			int nrSkyImages = zone.getMap().getSkyTexture().getNrFrames();
 			int skyImageIndex = (int)((turnNr/turnsBetweenChange)%nrSkyImages);
 
@@ -104,6 +105,7 @@ public class DefaultZoneScript extends ZoneScript
 					zone.getMap().incLightLevel(lightLevelDiff);
 				}
 			}
+*/
 		}
 
 		//

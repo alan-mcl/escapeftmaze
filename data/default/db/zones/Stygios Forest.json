@@ -10464,8 +10464,16 @@
     "length": "32",
     "width": "32",
     "baseImageSize": "512",
-    "skyTexture": "sky.stygios.forest",
-    "skyTextureType": "CYLINDER",
+    "skyConfigs": [
+      {
+        "type": "CYLINDER_IMAGE",
+        "cylinderSkyImage": "sky.stygios.forest",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingHeight": "0",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",

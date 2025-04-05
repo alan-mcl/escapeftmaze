@@ -12412,8 +12412,16 @@
     "length": "32",
     "width": "32",
     "baseImageSize": "512",
-    "skyTexture": "DEFAULT_SKY",
-    "skyTextureType": "CYLINDER",
+    "skyConfigs": [
+      {
+        "type": "CYLINDER_IMAGE",
+        "cylinderSkyImage": "DEFAULT_SKY",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingHeight": "0",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "CITY_CEILING_1",

@@ -395,16 +395,20 @@ public class V1Zone
 			}
 		}
 
+		Map.SkyConfig skyConfig = new Map.SkyConfig(
+			Map.SkyConfig.Type.CYLINDER_IMAGE,
+			skyTexture,
+			0, 0, null, 0, null, null, null, null, null, 0);
+
 		Map crusaderMap = new Map(
 			mapLength,
 			mapWidth,
 			baseImageSize,
-			skyImageIndex,
-			Map.SkyTextureType.CYLINDER, // todo
 			crusaderTiles,
 			textureArray,
 			horizontalWalls,
 			verticalWalls,
+			new Map.SkyConfig[]{skyConfig},
 			Arrays.asList(objects),
 			scripts);
 
@@ -489,7 +493,7 @@ public class V1Zone
 		Map map = zone.getMap();
 
 		writer.writeln(CRUSADER_SKY_IMG_HEADER);
-		writer.writeln(0+": "+ map.getSkyTexture().getName());
+		writer.writeln(0+": "+ map.getSkyConfigs()[0].getCylinderSkyImage());
 		writer.writeln();
 
 		Tile[] tiles = map.getTiles();

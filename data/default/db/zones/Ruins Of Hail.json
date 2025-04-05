@@ -17155,8 +17155,16 @@
     "length": "40",
     "width": "40",
     "baseImageSize": "512",
-    "skyTexture": "sky.hail",
-    "skyTextureType": "CYLINDER",
+    "skyConfigs": [
+      {
+        "type": "CYLINDER_IMAGE",
+        "cylinderSkyImage": "sky.hail",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingHeight": "0",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",

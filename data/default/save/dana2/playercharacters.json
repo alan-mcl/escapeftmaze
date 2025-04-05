@@ -17,31 +17,36 @@
       "template": "Iron Helm",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "torsoArmour": {
       "template": "Suede Doublet",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "legArmour": {
       "template": "Suede Pants",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "boots": {
       "template": "Buskins",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "primaryWeapon": {
       "template": "Greatsword",
       "cursedState": "1",
       "identificationState": "2",
-      "stack": "1-1"
+      "stack": "1-1",
+      "charges": "0-0"
     },
     "inventory": {
       "nrSlots": "20",
@@ -50,13 +55,15 @@
           "template": "Mitre",
           "cursedState": "0",
           "identificationState": "2",
-          "stack": "1-1"
+          "stack": "1-1",
+          "charges": "0-0"
         },
         {
           "template": "Shrike Arrow",
           "cursedState": "0",
           "identificationState": "1",
-          "stack": "19-100"
+          "stack": "19-100",
+          "charges": "0-0"
         }
       ]
     },

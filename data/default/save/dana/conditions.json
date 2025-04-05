@@ -2,9 +2,23 @@
   "1~Silvia": [],
   "1~Ascxs": [],
   "1~Haakon": [],
-  "1~Brunswick": [],
-  "1~Gibby": [],
   "1~Ug": [],
+  "1~Brunswick": [
+    {
+      "template": "test spell effect",
+      "duration": "99",
+      "strength": "1",
+      "castingLevel": "1",
+      "type": "WATER",
+      "subtype": "NONE",
+      "source": "Abstract Actor",
+      "identified": "true",
+      "strengthIdentified": "false",
+      "createdTurn": "3261",
+      "hostile": "false"
+    }
+  ],
+  "1~Gibby": [],
   "1~Agar": [],
   "1~Dwaf": [],
   "1~Rowan": [],

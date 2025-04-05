@@ -554,7 +554,16 @@ public class V2Loader extends Loader
 				ConditionBearer cb = V1ConditionBearer.fromString((String)key, playerCharacterCache);
 				List<Condition> list = conditionsSerialiser.fromObject(map.get(key), db);
 
-				result.put(cb, list);
+				if (cb != null)
+				{
+					for (Condition c : list)
+					{
+						c.setTarget(cb);
+						cb.addCondition(c);
+					}
+
+					result.put(cb, list);
+				}
 			}
 
 			return result;

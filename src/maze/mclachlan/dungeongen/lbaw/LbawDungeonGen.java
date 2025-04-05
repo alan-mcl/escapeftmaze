@@ -34,12 +34,11 @@ public class LbawDungeonGen implements DungeonGen
 			length,
 			width,
 			baseMap.getBaseImageSize(),
-			baseMap.getSkyTextureIndex(),
-			baseMap.getSkyTextureType(),
 			baseMap.getTiles(),
 			baseMap.getTextures(),
 			baseMap.getHorizontalWalls(),
 			baseMap.getVerticalWalls(),
+			baseMap.getSkyConfigs(),
 			baseMap.getOriginalObjects(),
 			baseMap.getScripts());
 

@@ -932,7 +932,7 @@
         "DEFAULT_TAIL",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -949,7 +949,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.dragon.1"
@@ -982,6 +982,7 @@
     "appearanceScript": {
       "NAME": "sound - dragon"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "wind dragon claw"
@@ -995,6 +996,7 @@
         "Asphixiation"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -4488,7 +4490,7 @@
         "DEFAULT_BODY",
         "DEFAULT_LEG"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -4505,7 +4507,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.stick.man"
@@ -4534,6 +4536,7 @@
     "fleeChance": "0",
     "stealthBehaviour": "1",
     "npc": "false",
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "owlbear bite",
@@ -4542,6 +4545,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -11252,7 +11256,7 @@
         "DEFAULT_LEG",
         "DEFAULT_ARM"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -11269,7 +11273,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.gnoll.1"
@@ -11302,7 +11306,9 @@
     "appearanceScript": {
       "NAME": "sound - growl"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": [
         "Whipping Rocks",
@@ -11310,6 +11316,7 @@
         "Freeze"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -13760,7 +13767,7 @@
         "DEFAULT_BODY",
         "DEFAULT_WING"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -13777,7 +13784,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.bat.1"
@@ -13809,6 +13816,7 @@
     "appearanceScript": {
       "NAME": "sound - wings"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "mephit bite",
@@ -13820,6 +13828,7 @@
         "Faerie Fire"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -17200,7 +17209,7 @@
         "DEFAULT_LEG",
         "DEFAULT_ROOT"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -17217,7 +17226,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.moulder"
@@ -17249,6 +17258,7 @@
     "appearanceScript": {
       "NAME": "sound - rustle"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "thorn elemental punch",
@@ -17257,6 +17267,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -18153,21 +18164,21 @@
       "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.flyinglizard.1"
+      "NAME": "foe.lorelei"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.flyinglizard.1"
+      "NAME": "foe.lorelei"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.flyinglizard.1"
+      "NAME": "foe.lorelei"
     },
     "castSpellTexture": {
-      "NAME": "foe.flyinglizard.1"
+      "NAME": "foe.lorelei"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.flyinglizard.1"
+      "NAME": "foe.lorelei"
     },
-    "verticalAlignment": "CENTER",
+    "verticalAlignment": "BOTTOM",
     "loot": {
       "NAME": "TestingFoeLoot"
     },

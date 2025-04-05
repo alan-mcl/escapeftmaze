@@ -1139,7 +1139,8 @@ public class V2SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<PlayerCharacter> getPlayerCharacterSerialiser(Database db)
+	public static V2SerialiserMap<PlayerCharacter> getPlayerCharacterSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser<PlayerCharacter> result = getReflectiveSerialiser(
 			PlayerCharacter.class,
@@ -1259,7 +1260,8 @@ public class V2SerialiserFactory
 		return result;
 	}
 
-	private static V2SerialiserObject<ZoneScript> getZoneScriptSerialiser(Database db)
+	private static V2SerialiserObject<ZoneScript> getZoneScriptSerialiser(
+		Database db)
 	{
 
 		ReflectiveSerialiser<ZoneScript> defaultSerialiser = getReflectiveSerialiser(
@@ -1322,15 +1324,15 @@ public class V2SerialiserFactory
 		return result;
 	}
 
-	private static V2SerialiserObject<mclachlan.crusader.Map> getMapSerialiser(Database db)
+	private static V2SerialiserObject<mclachlan.crusader.Map> getMapSerialiser(
+		Database db)
 	{
 		// "textures", done separately by init
 		ReflectiveSerialiser result = getReflectiveSerialiser(mclachlan.crusader.Map.class,
 			"length",
 			"width",
 			"baseImageSize",
-			"skyTexture",
-			"skyTextureType",
+			"skyConfigs",
 			"tiles",
 			"horizontalWalls",
 			"verticalWalls",
@@ -1342,11 +1344,36 @@ public class V2SerialiserFactory
 		result.addCustomSerialiser(Wall[].class, new ArraySerialiser<>(Wall.class, getCrusaderWallSerialiser(db)));
 		result.addCustomSerialiser("originalObjects", new ListSerialiser<>(getCrusaderObjectSerialiser(db)));
 		result.addCustomSerialiser("scripts", new ArraySerialiser<>(MapScript.class, getMapScriptSerialiser(db)));
+		result.addCustomSerialiser("skyConfigs", new ArraySerialiser<>(mclachlan.crusader.Map.SkyConfig.class, getSkyConfigSerialiser(db)));
 
 		return result;
 	}
 
-	private static V2SerialiserObject<MapScript> getMapScriptSerialiser(Database db)
+	private static V2SerialiserObject<mclachlan.crusader.Map.SkyConfig> getSkyConfigSerialiser(
+		Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(
+			mclachlan.crusader.Map.SkyConfig.class,
+			"type",
+			"cylinderSkyImage",
+			"bottomColour",
+			"topColour",
+			"ceilingImage",
+			"ceilingHeight",
+			"cubeNorth",
+			"cubeSouth",
+			"cubeEast",
+			"cubeWest",
+			"objectTexture",
+			"sphereRadius");
+
+		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));
+
+		return result;
+	}
+
+	private static V2SerialiserObject<MapScript> getMapScriptSerialiser(
+		Database db)
 	{
 		HashMap map = new HashMap();
 
@@ -1380,7 +1407,8 @@ public class V2SerialiserFactory
 		return result;
 	}
 
-	private static V2SerialiserObject<Wall> getCrusaderWallSerialiser(Database db)
+	private static V2SerialiserObject<Wall> getCrusaderWallSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(Wall.class,
 			"textures",
@@ -1431,7 +1459,8 @@ public class V2SerialiserFactory
 		};
 	}
 
-	private static V2SerialiserObject<mclachlan.crusader.Tile> getCrusaderTileSerialiser(Database db)
+	private static V2SerialiserObject<mclachlan.crusader.Tile> getCrusaderTileSerialiser(
+		Database db)
 	{
 		ReflectiveSerialiser result = getReflectiveSerialiser(mclachlan.crusader.Tile.class,
 			"ceilingTexture",
@@ -1541,7 +1570,8 @@ public class V2SerialiserFactory
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public static V2SerialiserMap<Map<Point, List>> getItemCacheSerialiser(Database db)
+	public static V2SerialiserMap<Map<Point, List>> getItemCacheSerialiser(
+		Database db)
 	{
 		V2SerialiserObject<Point> keySerialiser = new PointSerialiser();
 		V2SerialiserObject<List> valueSerialiser = new ListSerialiser(getItemSerialiser(db));
@@ -1578,7 +1608,9 @@ public class V2SerialiserFactory
 				"hostile");
 
 		conditionSerialiser.addCustomSerialiser("template", new NameSerialiser<>(db::getConditionTemplate));
-		conditionSerialiser.addCustomSerialiser("source", new NameSerialiser<>(playerCharacterCache::get, null, new AbstractActor(){}));
+		conditionSerialiser.addCustomSerialiser("source", new NameSerialiser<>(playerCharacterCache::get, null, new AbstractActor()
+		{
+		}));
 
 		return new ListSerialiser<Condition>(new V2SerialiserObject<>()
 		{

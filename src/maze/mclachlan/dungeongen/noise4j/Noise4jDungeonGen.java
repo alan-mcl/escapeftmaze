@@ -101,12 +101,11 @@ public class Noise4jDungeonGen implements DungeonGen
 			length,
 			width,
 			baseMap.getBaseImageSize(),
-			baseMap.getSkyTextureIndex(),
-			baseMap.getSkyTextureType(),
 			crusaderTiles, //baseMap.getTiles(),
 			textures.values().toArray(new Texture[]{}),
 			horizWalls,
 			vertWalls,
+			baseMap.getSkyConfigs(),
 			baseMap.getOriginalObjects(),
 			baseMap.getScripts());
 		map.setHorizontalWalls(horizWalls);

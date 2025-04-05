@@ -10558,8 +10558,16 @@
     "length": "32",
     "width": "32",
     "baseImageSize": "512",
-    "skyTexture": "sky.ichiba",
-    "skyTextureType": "CYLINDER",
+    "skyConfigs": [
+      {
+        "type": "CYLINDER_IMAGE",
+        "cylinderSkyImage": "sky.ichiba",
+        "bottomColour": "0",
+        "topColour": "0",
+        "ceilingHeight": "0",
+        "sphereRadius": "0"
+      }
+    ],
     "tiles": [
       {
         "ceilingTexture": "TRANSPARENT",
