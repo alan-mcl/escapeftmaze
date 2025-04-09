@@ -62,13 +62,11 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 	private JButton bottomColour;
 	private JButton topColour;
 	private JComboBox ceilingImage;
-	private JSpinner ceilingHeight, ceilingHeightObject;
+	private JSpinner ceilingHeight, ceilingImageScale;
 	private JComboBox cubeNorth;
 	private JComboBox cubeSouth;
 	private JComboBox cubeEast;
 	private JComboBox cubeWest;
-	private JComboBox objectTexture, objectTextureSphere;
-	private JSpinner sphereRadius;
 
 	/*-------------------------------------------------------------------------*/
 	public SkyConfigEditor(Frame owner, SkyConfig event, int dirtyFlag) throws HeadlessException
@@ -149,6 +147,7 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 				if (e.getCeilingImage() != null)
 					ceilingImage.setSelectedItem(e.getCeilingImage().getName());
 				ceilingHeight.setValue(e.getCeilingHeight());
+				ceilingImageScale.setValue(e.getImageScale());
 			}
 			case CUBEMAP_IMAGES ->
 			{
@@ -160,18 +159,6 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 					cubeEast.setSelectedItem(e.getCubeEast().getName());
 				if (e.getCubeWest() != null)
 					cubeWest.setSelectedItem(e.getCubeWest().getName());
-			}
-			case OBJECTS_HIGH_CEILING ->
-			{
-				if (e.getObjectTexture() != null)
-					objectTexture.setSelectedItem(e.getObjectTexture().getName());
-				ceilingHeightObject.setValue(e.getCeilingHeight());
-			}
-			case OBJECTS_SPHERE ->
-			{
-				if (e.getObjectTexture() != null)
-					objectTextureSphere.setSelectedItem(e.getObjectTexture().getName());
-				sphereRadius.setValue(e.getSphereRadius());
 			}
 			default -> throw new MazeException("invalid "+e.getType());
 		}
@@ -187,7 +174,7 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 				result = new SkyConfig(
 					SkyConfig.Type.CYLINDER_IMAGE,
 					Database.getInstance().getMazeTexture((String)cylinderSkyImage.getSelectedItem()).getTexture(),
-					0,0,null, 0, null, null, null, null, null, 0);
+					0,0,null, 0, null, null, null, null, 0);
 			}
 			case CYLINDER_GRADIENT ->
 			{
@@ -196,7 +183,7 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 					null,
 					bottomColour.getBackground().getRGB(),
 					topColour.getBackground().getRGB(),
-					null, 0, null, null, null, null, null, 0);
+					null, 0, null, null, null, null, 0);
 			}
 			case HIGH_CEILING_IMAGE ->
 			{
@@ -205,7 +192,8 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 					null, 0,0,
 					Database.getInstance().getMazeTexture((String)ceilingImage.getSelectedItem()).getTexture(),
 					(int)ceilingHeight.getValue(),
-					null, null, null, null, null, 0);
+					null, null, null, null,
+					(Integer)ceilingImageScale.getValue());
 
 			}
 			case CUBEMAP_IMAGES ->
@@ -218,28 +206,7 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 					Database.getInstance().getMazeTexture((String)cubeSouth.getSelectedItem()).getTexture(),
 					Database.getInstance().getMazeTexture((String)cubeEast.getSelectedItem()).getTexture(),
 					Database.getInstance().getMazeTexture((String)cubeWest.getSelectedItem()).getTexture(),
-					null, 0);
-			}
-			case OBJECTS_HIGH_CEILING ->
-			{
-				result = new SkyConfig(
-					SkyConfig.Type.OBJECTS_HIGH_CEILING,
-					null, 0,0,
-					null,
-					(int)ceilingHeightObject.getValue(),
-					null, null, null, null,
-					Database.getInstance().getMazeTexture((String)objectTexture.getSelectedItem()).getTexture(), 0);
-			}
-			case OBJECTS_SPHERE ->
-			{
-				result = new SkyConfig(
-					SkyConfig.Type.OBJECTS_SPHERE,
-					null, 0,0,
-					null,
-					0,
-					null, null, null, null,
-					Database.getInstance().getMazeTexture((String)objectTextureSphere.getSelectedItem()).getTexture(),
-					(int)sphereRadius.getValue());
+					0);
 			}
 		}
 	}
@@ -259,38 +226,8 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 			case CYLINDER_GRADIENT -> getCylinderGradientPanel();
 			case HIGH_CEILING_IMAGE -> getHighCeilingImagePanel();
 			case CUBEMAP_IMAGES -> getCubeMapPanel();
-			case OBJECTS_HIGH_CEILING -> getObjectsHighCeilingPanel();
-			case OBJECTS_SPHERE -> getObjectsSpherePanel();
 			default -> throw new MazeException("invalid "+type);
 		};
-	}
-
-	private JPanel getObjectsSpherePanel()
-	{
-		Vector<String> vec =
-			new Vector<>(Database.getInstance().getMazeTextures().keySet());
-		Collections.sort(vec);
-
-		objectTextureSphere = new JComboBox(vec);
-		sphereRadius = new JSpinner(new SpinnerNumberModel(10, 10, 99, 1));
-
-		return dirtyGridBagCrap(
-			new JLabel("Object Texture:"), objectTextureSphere,
-			new JLabel("Sphere Radius:"), sphereRadius);
-	}
-
-	private JPanel getObjectsHighCeilingPanel()
-	{
-		Vector<String> vec =
-			new Vector<>(Database.getInstance().getMazeTextures().keySet());
-		Collections.sort(vec);
-
-		ceilingHeightObject = new JSpinner(new SpinnerNumberModel(10, 1, 99, 1));
-		objectTexture = new JComboBox(vec);
-
-		return dirtyGridBagCrap(
-			new JLabel("Object Texture:"), objectTexture,
-			new JLabel("Ceiling Height:"), ceilingHeightObject);
 	}
 
 	private JPanel getCubeMapPanel()
@@ -319,9 +256,11 @@ public class SkyConfigEditor extends JDialog implements ActionListener
 
 		ceilingImage = new JComboBox(vec);
 		ceilingHeight = new JSpinner(new SpinnerNumberModel(10, 1, 99, 1));
+		ceilingImageScale = new JSpinner(new SpinnerNumberModel(1, 1, 99, 1));
 
 		return dirtyGridBagCrap(
 			new JLabel("Ceiling Image:"), ceilingImage,
+			new JLabel("Ceiling Image Scale:"), ceilingImageScale,
 			new JLabel("Ceiling Height:"), ceilingHeight);
 	}
 

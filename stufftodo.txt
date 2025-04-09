@@ -5,7 +5,6 @@ STUFFTODO
 ICHIBA CROSSROADS
 -----------------
 more of the better trees
-ichiba flat sky
 bug: zone change flickering
 finer grained object placement
 mirror image foe textures

@@ -652,7 +652,7 @@ public class ZonePanel extends EditorPanel
 		Map.SkyConfig skyConfig = new Map.SkyConfig(
 			Map.SkyConfig.Type.CYLINDER_IMAGE,
 			skyTexture.getTexture(),
-			0, 0, null, 0, null, null, null, null, null, 0);
+			0, 0, null, 0, null, null, null, null, 0);
 
 
 		Map map = new Map(

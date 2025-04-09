@@ -1359,13 +1359,12 @@ public class V2SerialiserFactory
 			"bottomColour",
 			"topColour",
 			"ceilingImage",
+			"imageScale",
 			"ceilingHeight",
 			"cubeNorth",
 			"cubeSouth",
 			"cubeEast",
-			"cubeWest",
-			"objectTexture",
-			"sphereRadius");
+			"cubeWest");
 
 		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));
 

@@ -245,7 +245,7 @@ public class Texture implements Comparable<Texture>
 	 * @return
 	 * 	Current image data, taking all frames and transformations into account
 	 */
-	public int getCurrentImageData(int textureX, int textureY, long timeNow)
+	public int getCurrentImageData(int textureX, int textureY, double timeNow)
 	{
 		if (scrollBehaviour != null)
 		{

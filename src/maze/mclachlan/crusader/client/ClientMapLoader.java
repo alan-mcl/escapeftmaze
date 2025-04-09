@@ -378,7 +378,7 @@ public class ClientMapLoader
 		Map.SkyConfig skyConfig = new Map.SkyConfig(
 			Map.SkyConfig.Type.CYLINDER_IMAGE,
 			textures[skyTextureIndex],
-			0, 0, null, 0, null, null, null, null, null, 0);
+			0, 0, null, 0, null, null, null, null, 0);
 
 		
 		return new Map(

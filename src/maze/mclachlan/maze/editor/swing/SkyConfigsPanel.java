@@ -98,7 +98,7 @@ public class SkyConfigsPanel extends JPanel
 				null,
 				0,
 				0,
-				null, 0, null, null, null, null, null, 0);
+				null, 0, null, null, null, null, 0);
 			SkyConfigEditor dialog = new SkyConfigEditor(SwingEditor.instance, sk, dirtyFlag);
 			if (dialog.getResult() != null)
 			{

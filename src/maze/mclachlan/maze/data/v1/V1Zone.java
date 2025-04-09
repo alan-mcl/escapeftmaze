@@ -398,7 +398,7 @@ public class V1Zone
 		Map.SkyConfig skyConfig = new Map.SkyConfig(
 			Map.SkyConfig.Type.CYLINDER_IMAGE,
 			skyTexture,
-			0, 0, null, 0, null, null, null, null, null, 0);
+			0, 0, null, 0, null, null, null, null, 0);
 
 		Map crusaderMap = new Map(
 			mapLength,

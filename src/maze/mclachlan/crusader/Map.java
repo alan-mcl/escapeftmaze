@@ -216,7 +216,6 @@ public class Map
 			_addTexture(skyConfig.cubeSouth, texturesMap);
 			_addTexture(skyConfig.cubeEast, texturesMap);
 			_addTexture(skyConfig.cubeWest, texturesMap);
-			_addTexture(skyConfig.objectTexture, texturesMap);
 		}
 
 		// add to the array
@@ -750,8 +749,6 @@ public class Map
 			CYLINDER_GRADIENT,
 			HIGH_CEILING_IMAGE,
 			CUBEMAP_IMAGES,
-			OBJECTS_HIGH_CEILING,
-			OBJECTS_SPHERE
 		}
 
 		Type type;
@@ -765,14 +762,10 @@ public class Map
 		// ceiling image
 		Texture ceilingImage;
 		int ceilingHeight;
+		int imageScale;
 
 		// cubemap images
 		Texture cubeNorth, cubeSouth, cubeEast, cubeWest;
-
-		// objects
-		Texture objectTexture;
-		// reuse ceilingHeight
-		int sphereRadius;
 
 		public SkyConfig()
 		{
@@ -781,9 +774,7 @@ public class Map
 		public SkyConfig(Type type, Texture cylinderSkyImage, int bottomColour,
 			int topColour, Texture ceilingImage, int ceilingHeight,
 			Texture cubeNorth,
-			Texture cubeSouth, Texture cubeEast, Texture cubeWest,
-			Texture objectTexture,
-			int sphereRadius)
+			Texture cubeSouth, Texture cubeEast, Texture cubeWest, int imageScale)
 		{
 			this.type = type;
 			this.cylinderSkyImage = cylinderSkyImage;
@@ -795,9 +786,10 @@ public class Map
 			this.cubeSouth = cubeSouth;
 			this.cubeEast = cubeEast;
 			this.cubeWest = cubeWest;
-			this.objectTexture = objectTexture;
-			this.sphereRadius = sphereRadius;
+			this.imageScale = imageScale;
 		}
+
+		/*----------------------------------------------------------------------*/
 
 		public Type getType()
 		{
@@ -899,24 +891,14 @@ public class Map
 			this.cubeWest = cubeWest;
 		}
 
-		public Texture getObjectTexture()
+		public int getImageScale()
 		{
-			return objectTexture;
+			return imageScale;
 		}
 
-		public void setObjectTexture(Texture objectTexture)
+		public void setImageScale(int imageScale)
 		{
-			this.objectTexture = objectTexture;
-		}
-
-		public int getSphereRadius()
-		{
-			return sphereRadius;
-		}
-
-		public void setSphereRadius(int sphereRadius)
-		{
-			this.sphereRadius = sphereRadius;
+			this.imageScale = imageScale;
 		}
 	}
 }

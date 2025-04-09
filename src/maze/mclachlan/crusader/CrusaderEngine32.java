@@ -2888,14 +2888,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 			{
 				return renderCubemapImages(skyConfig, castArc, screenY);
 			}
-			case OBJECTS_HIGH_CEILING ->
-			{
-				return 0;
-			}
-			case OBJECTS_SPHERE ->
-			{
-				return 0;
-			}
 			default -> throw new MazeException("invalid: "+skyConfig.type);
 		}
 	}
@@ -2980,10 +2972,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		double xDistance = actualDistance * cosTable[castArc];
 		double yDistance = actualDistance * sinTable[castArc];
-		int xIntersection = (int)(playerX + xDistance);
-		int yIntersection = (int)(playerY + yDistance);
-		skyTextureX = xIntersection % image.imageWidth;
-		skyTextureY = yIntersection % image.imageHeight;
+
+		// not adding player x/y means the sky stays static as the player moves
+		int xIntersection = (int)(/*playerX +*/ xDistance);
+		int yIntersection = (int)(/*playerY +*/ yDistance);
+
+		// adding half the texture dimension so that any tiling happens off to the side of the player eyeline
+		skyTextureX = (xIntersection / skyConfig.imageScale +image.imageWidth/2) % image.imageWidth;
+		skyTextureY = (yIntersection / skyConfig.imageScale +image.imageHeight/2) % image.imageHeight;
 
 		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
 	}
