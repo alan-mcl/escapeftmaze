@@ -43,18 +43,33 @@ public class UpdateZones
 		dbv2.initImpls();
 		dbv2.initCaches(null);
 
-		List<String> zones = dbv2.getZoneNames();
-
-		for (String zoneName : zones)
+		if (args.length > 0)
 		{
-//			Zone z1 = dbv1.getZone(zoneName);
-
-			Zone z2 = dbv2.getZone(zoneName);
-
-			System.out.print(z2.getName()+" ");
-
-			v2Saver.saveZone(z2);
-			System.out.println("done!");
+			String zoneName = args[0];
+			updateZone(v2Saver, dbv2, zoneName);
 		}
+		else
+		{
+
+			List<String> zones = dbv2.getZoneNames();
+
+			for (String zoneName : zones)
+			{
+				//			Zone z1 = dbv1.getZone(zoneName);
+
+				updateZone(v2Saver, dbv2, zoneName);
+			}
+		}
+	}
+
+	private static void updateZone(V2Saver v2Saver, Database dbv2,
+		String zoneName) throws Exception
+	{
+		Zone z2 = dbv2.getZone(zoneName);
+
+		System.out.print(z2.getName() + " ");
+
+		v2Saver.saveZone(z2);
+		System.out.println("done!");
 	}
 }

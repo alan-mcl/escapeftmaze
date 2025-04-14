@@ -1714,8 +1714,9 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 				return;
 			}
 
-			this.raycaster.addScript(
-				new TempChangeTexture(obj, Foe.Animation.MELEE_ATTACK, raycaster));
+			// todo: fix after object texture refactor
+//			this.raycaster.addScript(
+//				new TempChangeTexture(obj, Foe.Animation.MELEE_ATTACK, raycaster));
 		}
 	}
 
@@ -1864,7 +1865,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 						foe.getSpecialAbilityTexture().getTexture(),
 					};
 
-				EngineObject obj = new EngineObject(textures, 0, false);
+				EngineObject obj = new EngineObject(textures, false);
 
 				obj.setVerticalAlignment(foe.getVerticalAlignment());
 				obj.setMouseClickScript(new FoeInfoMouseClickScript(foe));

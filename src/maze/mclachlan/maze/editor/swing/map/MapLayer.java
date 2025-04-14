@@ -20,12 +20,10 @@
 package mclachlan.maze.editor.swing.map;
 
 import java.awt.*;
-import java.util.*;
 import java.util.List;
-import mclachlan.crusader.*;
 import mclachlan.crusader.Map;
+import mclachlan.crusader.*;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.util.MazeException;
 
 /**
  *
@@ -183,28 +181,11 @@ public class MapLayer extends Layer
 		
 		if (display.displayFeatures.get(MapDisplay.Display.OBJECTS))
 		{
-			List<EngineObject> objects = map.getOriginalObjects();
+			List<EngineObject> objects = map.getExpandedObjects();
 			for (EngineObject object : objects)
 			{
-				Rectangle r = display.getTileBounds(object.getTileIndex());
-
-				BitSet placementMask = object.getPlacementMask();
-
-				if (placementMask == null)
-				{
-					placementMask = new BitSet();
-					placementMask.set(EngineObject.Placement.CENTER);
-				}
-				for (int j=0; j<=9; j++)
-				{
-					if (placementMask.get(j))
-					{
-						Point p = getCoords(r, j);
-
-						int radius = r.width / 5;
-						drawObject(g2d, p.x, p.y, radius, radius);
-					}
-				}
+				Rectangle r = display.getObjectBounds(object.getXPos(), object.getYPos());
+				drawObject(g2d, r.x, r.y, r.width, r.height);
 			}
 		}
 	}
@@ -215,69 +196,5 @@ public class MapLayer extends Layer
 		g2d.fillOval(x, y, w, h);
 		g2d.setColor(Color.BLACK);
 		g2d.drawOval(x, y, w, h);
-	}
-
-	Point getCoords(Rectangle r, int placement)
-	{
-		int radius = r.width/5;
-
-		int midX = r.x +r.width/2 -radius/2;
-		int midY = r.y +r.height/2 -radius/2;
-
-		int xOffset;
-		int yOffset;
-
-		switch (placement)
-		{
-			case EngineObject.Placement.CENTER ->
-			{
-				xOffset = 0;
-				yOffset = 0;
-			}
-			case EngineObject.Placement.NORTH_WEST ->
-			{
-				xOffset = -radius*2;
-				yOffset = -radius*2;
-			}
-			case EngineObject.Placement.NORTH ->
-			{
-				xOffset = 0;
-				yOffset = -radius*2;
-			}
-			case EngineObject.Placement.NORTH_EAST ->
-			{
-				xOffset = radius*2;
-				yOffset = -radius*2;
-			}
-			case EngineObject.Placement.WEST ->
-			{
-				xOffset = -radius*2;
-				yOffset = 0;
-			}
-			case EngineObject.Placement.EAST ->
-			{
-				xOffset = radius*2;
-				yOffset = 0;
-			}
-			case EngineObject.Placement.SOUTH_WEST ->
-			{
-				xOffset = -radius*2;
-				yOffset = radius*2;
-			}
-			case EngineObject.Placement.SOUTH ->
-			{
-				xOffset = 0;
-				yOffset = radius*2;
-			}
-			case EngineObject.Placement.SOUTH_EAST ->
-			{
-				xOffset = radius*2;
-				yOffset = radius*2;
-			}
-			default ->
-				throw new MazeException("Invalid placement index: " + placement);
-		}
-
-		return new Point(midX+xOffset, midY+yOffset);
 	}
 }

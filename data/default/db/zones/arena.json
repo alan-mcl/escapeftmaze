@@ -10183,15 +10183,15 @@
         "height": "1"
       }
     ],
-    "originalObjects": [
+    "expandedObjects": [
       {
         "northTexture": "objects.plant.5",
         "southTexture": "objects.plant.5",
         "eastTexture": "objects.plant.5",
         "westTexture": "objects.plant.5",
-        "tileIndex": "201",
+        "xPos": "4864",
+        "yPos": "6400",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10199,9 +10199,9 @@
         "southTexture": "objects.plant.1",
         "eastTexture": "objects.plant.1",
         "westTexture": "objects.plant.1",
-        "tileIndex": "230",
+        "xPos": "3328",
+        "yPos": "7424",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10209,9 +10209,9 @@
         "southTexture": "objects.plant.1",
         "eastTexture": "objects.plant.1",
         "westTexture": "objects.plant.1",
-        "tileIndex": "235",
+        "xPos": "6058",
+        "yPos": "7424",
         "lightSource": "false",
-        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10219,9 +10219,9 @@
         "southTexture": "objects.plant.2",
         "eastTexture": "objects.plant.2",
         "westTexture": "objects.plant.2",
-        "tileIndex": "198",
+        "xPos": "3158",
+        "yPos": "6570",
         "lightSource": "false",
-        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10229,7 +10229,8 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "202",
+        "xPos": "5376",
+        "yPos": "6400",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.DisplayOptions",
@@ -10250,7 +10251,6 @@
             "Aenen Outskirts solar array flava"
           ]
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -10258,7 +10258,8 @@
         "southTexture": "objects.plant.2",
         "eastTexture": "objects.plant.2",
         "westTexture": "objects.plant.2",
-        "tileIndex": "231",
+        "xPos": "3840",
+        "yPos": "7424",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
@@ -10267,7 +10268,8 @@
         "southTexture": "objects.plant.3",
         "eastTexture": "objects.plant.3",
         "westTexture": "objects.plant.3",
-        "tileIndex": "232",
+        "xPos": "4352",
+        "yPos": "7424",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
@@ -10276,7 +10278,8 @@
         "southTexture": "objects.plant.4",
         "eastTexture": "objects.plant.4",
         "westTexture": "objects.plant.4",
-        "tileIndex": "217",
+        "xPos": "4864",
+        "yPos": "6912",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

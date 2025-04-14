@@ -12418,8 +12418,8 @@
         "cylinderSkyImage": "DEFAULT_SKY",
         "bottomColour": "0",
         "topColour": "0",
-        "ceilingHeight": "0",
-        "sphereRadius": "0"
+        "imageScale": "0",
+        "ceilingHeight": "0"
       }
     ],
     "tiles": [
@@ -39844,6 +39844,106 @@
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
         "tileIndex": "345",
+        "lightSource": "false",
+        "placementMask": "001",
+        "verticalAlignment": "BOTTOM"
+      }
+    ],
+    "expandedObjects": [
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "9984",
+        "yPos": "10496",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "12886",
+        "yPos": "4182",
+        "lightSource": "false",
+        "placementMask": "1",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "13738",
+        "yPos": "3840",
+        "lightSource": "false",
+        "placementMask": "000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "14762",
+        "yPos": "4010",
+        "lightSource": "false",
+        "placementMask": "000000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "15104",
+        "yPos": "4522",
+        "lightSource": "false",
+        "placementMask": "00000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "14934",
+        "yPos": "5206",
+        "lightSource": "false",
+        "placementMask": "1",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "14762",
+        "yPos": "6058",
+        "lightSource": "false",
+        "placementMask": "000000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "13738",
+        "yPos": "5718",
+        "lightSource": "false",
+        "placementMask": "001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "13226",
+        "yPos": "5206",
         "lightSource": "false",
         "placementMask": "001",
         "verticalAlignment": "BOTTOM"

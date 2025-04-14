@@ -12864,8 +12864,8 @@
         "cylinderSkyImage": "sky.ichiba",
         "bottomColour": "0",
         "topColour": "0",
-        "ceilingHeight": "0",
-        "sphereRadius": "0"
+        "imageScale": "0",
+        "ceilingHeight": "0"
       }
     ],
     "tiles": [
@@ -40366,15 +40366,15 @@
         "height": "1"
       }
     ],
-    "originalObjects": [
+    "expandedObjects": [
       {
         "northTexture": "objects.pillar.1",
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "717",
+        "xPos": "6912",
+        "yPos": "11520",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40382,9 +40382,9 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "719",
+        "xPos": "7936",
+        "yPos": "11520",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40392,9 +40392,9 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "813",
+        "xPos": "6912",
+        "yPos": "13056",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40402,9 +40402,9 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "815",
+        "xPos": "7936",
+        "yPos": "13056",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40412,7 +40412,8 @@
         "southTexture": "objects.bones.2",
         "eastTexture": "objects.bones.2",
         "westTexture": "objects.bones.2",
-        "tileIndex": "870",
+        "xPos": "3498",
+        "yPos": "14080",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
@@ -40421,7 +40422,6 @@
           "scoutSecretDifficulty": "0",
           "mazeScript": "Gatehouse hidden stuff 1 contents"
         },
-        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40429,7 +40429,8 @@
         "southTexture": "objects.fungus.1",
         "eastTexture": "objects.fungus.1",
         "westTexture": "objects.fungus.1",
-        "tileIndex": "820",
+        "xPos": "10326",
+        "yPos": "12886",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40437,7 +40438,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40445,7 +40445,8 @@
         "southTexture": "objects.fungus.2",
         "eastTexture": "objects.fungus.2",
         "westTexture": "objects.fungus.2",
-        "tileIndex": "854",
+        "xPos": "11690",
+        "yPos": "13738",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40453,7 +40454,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40461,7 +40461,8 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "948",
+        "xPos": "10666",
+        "yPos": "14934",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40469,7 +40470,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40477,7 +40477,8 @@
         "southTexture": "objects.fungus.2",
         "eastTexture": "objects.fungus.2",
         "westTexture": "objects.fungus.2",
-        "tileIndex": "979",
+        "xPos": "9984",
+        "yPos": "15786",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40485,7 +40486,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40493,9 +40493,29 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "944",
+        "xPos": "8278",
+        "yPos": "14934",
         "lightSource": "false",
-        "placementMask": "1000011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8618",
+        "yPos": "15104",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8278",
+        "yPos": "15274",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40503,7 +40523,8 @@
         "southTexture": "objects.fungus.2",
         "eastTexture": "objects.fungus.2",
         "westTexture": "objects.fungus.2",
-        "tileIndex": "845",
+        "xPos": "6742",
+        "yPos": "13398",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40511,7 +40532,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40519,9 +40539,9 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "134",
+        "xPos": "3498",
+        "yPos": "2134",
         "lightSource": "false",
-        "placementMask": "0010101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40529,99 +40549,259 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "198",
+        "xPos": "3328",
+        "yPos": "2304",
         "lightSource": "false",
-        "placementMask": "100010001",
         "verticalAlignment": "BOTTOM"
       },
       {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "34",
-        "lightSource": "true",
-        "placementMask": "0101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "66",
-        "lightSource": "true",
-        "placementMask": "000100101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "100",
-        "lightSource": "true",
-        "placementMask": "000000101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "69",
-        "lightSource": "true",
-        "placementMask": "01100101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "35",
-        "lightSource": "true",
-        "placementMask": "010000101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "99",
-        "lightSource": "true",
-        "placementMask": "001000101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "68",
-        "lightSource": "true",
-        "placementMask": "00001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "101",
-        "lightSource": "true",
-        "placementMask": "0010001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.3",
-        "southTexture": "objects.fungus.3",
-        "eastTexture": "objects.fungus.3",
-        "westTexture": "objects.fungus.3",
-        "tileIndex": "102",
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "3158",
+        "yPos": "2474",
         "lightSource": "false",
-        "placementMask": "1",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "3158",
+        "yPos": "3158",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "3328",
+        "yPos": "3328",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "3498",
+        "yPos": "3498",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1280",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1110",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1110",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1110",
+        "yPos": "1450",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1450",
+        "yPos": "1450",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2134",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2474",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2816",
+        "yPos": "1110",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2986",
+        "yPos": "1110",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2986",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2816",
+        "yPos": "1450",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1792",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1622",
+        "yPos": "938",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1962",
+        "yPos": "938",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1962",
+        "yPos": "1622",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1622",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "1962",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2304",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2986",
+        "yPos": "1622",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2646",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3158",
+        "yPos": "1622",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40629,9 +40809,19 @@
         "southTexture": "objects.fungus.1",
         "eastTexture": "objects.fungus.1",
         "westTexture": "objects.fungus.1",
-        "tileIndex": "286",
+        "xPos": "15786",
+        "yPos": "4352",
         "lightSource": "false",
-        "placementMask": "0000011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.1",
+        "southTexture": "objects.fungus.1",
+        "eastTexture": "objects.fungus.1",
+        "westTexture": "objects.fungus.1",
+        "xPos": "15446",
+        "yPos": "4522",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40639,9 +40829,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "116",
+        "xPos": "10326",
+        "yPos": "1622",
         "lightSource": "false",
-        "placementMask": "100110011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40649,9 +40839,49 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "36",
+        "xPos": "10326",
+        "yPos": "1792",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "10496",
+        "yPos": "1792",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "10496",
+        "yPos": "1962",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "10666",
+        "yPos": "1962",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2134",
+        "yPos": "598",
         "lightSource": "true",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40659,7 +40889,8 @@
         "southTexture": "objects.bones.2",
         "eastTexture": "objects.bones.2",
         "westTexture": "objects.bones.2",
-        "tileIndex": "894",
+        "xPos": "15616",
+        "yPos": "14080",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
@@ -40668,7 +40899,6 @@
           "scoutSecretDifficulty": "0",
           "mazeScript": "Gatehouse bones2 hidden stuff"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40676,7 +40906,8 @@
         "southTexture": "objects.fungus.2",
         "eastTexture": "objects.fungus.2",
         "westTexture": "objects.fungus.2",
-        "tileIndex": "844",
+        "xPos": "6570",
+        "yPos": "13398",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40684,7 +40915,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40692,7 +40922,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "846",
+        "xPos": "7424",
+        "yPos": "13568",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -40701,7 +40932,8 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "811",
+        "xPos": "5718",
+        "yPos": "12886",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40709,7 +40941,22 @@
           "scoutSecretDifficulty": "-1",
           "text": "The fungus looks toxic. You decide to leave it alone."
         },
-        "placementMask": "101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "6058",
+        "yPos": "12886",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The fungus looks toxic. You decide to leave it alone."
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40717,7 +40964,8 @@
         "southTexture": "objects.bones.2",
         "eastTexture": "objects.bones.2",
         "westTexture": "objects.bones.2",
-        "tileIndex": "912",
+        "xPos": "8448",
+        "yPos": "14592",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
@@ -40726,7 +40974,6 @@
           "scoutSecretDifficulty": "0",
           "mazeScript": "Gatehouse Bonebrood bones"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40734,9 +40981,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "913",
+        "xPos": "8790",
+        "yPos": "14422",
         "lightSource": "false",
-        "placementMask": "10101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40744,9 +40991,59 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "945",
+        "xPos": "9130",
+        "yPos": "14422",
         "lightSource": "false",
-        "placementMask": "01110001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8960",
+        "yPos": "14592",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8960",
+        "yPos": "14934",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "9130",
+        "yPos": "14934",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8790",
+        "yPos": "15104",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8960",
+        "yPos": "15274",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40754,9 +41051,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "850",
+        "xPos": "9472",
+        "yPos": "13568",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40764,9 +41061,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "757",
+        "xPos": "11008",
+        "yPos": "12032",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40774,9 +41071,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "752",
+        "xPos": "8448",
+        "yPos": "12032",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40784,9 +41081,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "782",
+        "xPos": "7424",
+        "yPos": "12544",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40794,9 +41091,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "750",
+        "xPos": "7424",
+        "yPos": "12032",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40804,9 +41101,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "656",
+        "xPos": "8448",
+        "yPos": "10496",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40814,9 +41111,9 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "660",
+        "xPos": "10496",
+        "yPos": "10496",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40824,9 +41121,9 @@
         "southTexture": "objects.hanging.sign.front",
         "eastTexture": "objects.hanging.sign.side",
         "westTexture": "objects.hanging.sign.side",
-        "tileIndex": "784",
+        "xPos": "8448",
+        "yPos": "12714",
         "lightSource": "false",
-        "placementMask": "00000001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40834,9 +41131,9 @@
         "southTexture": "objects.hanging.sign.front",
         "eastTexture": "objects.hanging.sign.side",
         "westTexture": "objects.hanging.sign.side",
-        "tileIndex": "686",
+        "xPos": "7424",
+        "yPos": "11178",
         "lightSource": "false",
-        "placementMask": "00000001",
         "verticalAlignment": "TOP"
       },
       {
@@ -40844,7 +41141,8 @@
         "southTexture": "objects.slime_ceiling",
         "eastTexture": "objects.slime_ceiling",
         "westTexture": "objects.slime_ceiling",
-        "tileIndex": "662",
+        "xPos": "11520",
+        "yPos": "10326",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40852,7 +41150,70 @@
           "scoutSecretDifficulty": "-1",
           "text": "You poke the slime. It\u0027s disgusting."
         },
-        "placementMask": "01011101",
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "objects.slime_ceiling",
+        "southTexture": "objects.slime_ceiling",
+        "eastTexture": "objects.slime_ceiling",
+        "westTexture": "objects.slime_ceiling",
+        "xPos": "11350",
+        "yPos": "10496",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "You poke the slime. It\u0027s disgusting."
+        },
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "objects.slime_ceiling",
+        "southTexture": "objects.slime_ceiling",
+        "eastTexture": "objects.slime_ceiling",
+        "westTexture": "objects.slime_ceiling",
+        "xPos": "11520",
+        "yPos": "10496",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "You poke the slime. It\u0027s disgusting."
+        },
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "objects.slime_ceiling",
+        "southTexture": "objects.slime_ceiling",
+        "eastTexture": "objects.slime_ceiling",
+        "westTexture": "objects.slime_ceiling",
+        "xPos": "11690",
+        "yPos": "10496",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "You poke the slime. It\u0027s disgusting."
+        },
+        "verticalAlignment": "TOP"
+      },
+      {
+        "northTexture": "objects.slime_ceiling",
+        "southTexture": "objects.slime_ceiling",
+        "eastTexture": "objects.slime_ceiling",
+        "westTexture": "objects.slime_ceiling",
+        "xPos": "11520",
+        "yPos": "10666",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "You poke the slime. It\u0027s disgusting."
+        },
         "verticalAlignment": "TOP"
       },
       {
@@ -40860,7 +41221,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "214",
+        "xPos": "11520",
+        "yPos": "3328",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -40869,7 +41231,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "187",
+        "xPos": "13910",
+        "yPos": "2646",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40877,7 +41240,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "101000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40885,7 +41247,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "219",
+        "xPos": "14250",
+        "yPos": "2646",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40893,7 +41256,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "0010011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40901,7 +41263,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "218",
+        "xPos": "14250",
+        "yPos": "2986",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40909,7 +41272,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "1000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40917,7 +41279,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "720",
+        "xPos": "14250",
+        "yPos": "3158",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40925,7 +41288,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "00000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40933,7 +41295,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "721",
+        "xPos": "14250",
+        "yPos": "3328",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40941,7 +41304,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "0010011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40949,7 +41311,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "725",
+        "xPos": "13910",
+        "yPos": "3498",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40957,7 +41320,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "00000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40965,7 +41327,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "693",
+        "xPos": "13398",
+        "yPos": "3158",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40973,7 +41336,182 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "010000001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "13568",
+        "yPos": "3328",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "13398",
+        "yPos": "3498",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "8278",
+        "yPos": "11690",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "8448",
+        "yPos": "11690",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "9130",
+        "yPos": "11350",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "9130",
+        "yPos": "11520",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "8790",
+        "yPos": "11690",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "11178",
+        "yPos": "11520",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "11008",
+        "yPos": "11690",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "11008",
+        "yPos": "10838",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "11178",
+        "yPos": "11178",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40981,7 +41519,8 @@
         "southTexture": "objects.eggs.1",
         "eastTexture": "objects.eggs.1",
         "westTexture": "objects.eggs.1",
-        "tileIndex": "158",
+        "xPos": "15616",
+        "yPos": "2134",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -40989,7 +41528,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
         },
-        "placementMask": "011001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -40997,7 +41535,8 @@
         "southTexture": "objects.eggs.1",
         "eastTexture": "objects.eggs.1",
         "westTexture": "objects.eggs.1",
-        "tileIndex": "62",
+        "xPos": "15786",
+        "yPos": "2134",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41005,7 +41544,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
         },
-        "placementMask": "001000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41013,7 +41551,8 @@
         "southTexture": "objects.eggs.1",
         "eastTexture": "objects.eggs.1",
         "westTexture": "objects.eggs.1",
-        "tileIndex": "92",
+        "xPos": "15786",
+        "yPos": "2304",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41021,97 +41560,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
         },
-        "placementMask": "000100001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "729",
-        "lightSource": "true",
-        "placementMask": "0001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "730",
-        "lightSource": "true",
-        "placementMask": "000000101",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "766",
-        "lightSource": "true",
-        "placementMask": "0001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "828",
-        "lightSource": "true",
-        "placementMask": "100001001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "829",
-        "lightSource": "true",
-        "placementMask": "11",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "891",
-        "lightSource": "true",
-        "placementMask": "001001001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "893",
-        "lightSource": "true",
-        "placementMask": "1000001",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "922",
-        "lightSource": "true",
-        "placementMask": "01",
-        "verticalAlignment": "BOTTOM"
-      },
-      {
-        "northTexture": "objects.fungus.2",
-        "southTexture": "objects.fungus.2",
-        "eastTexture": "objects.fungus.2",
-        "westTexture": "objects.fungus.2",
-        "tileIndex": "958",
-        "lightSource": "true",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41119,7 +41567,8 @@
         "southTexture": "objects.eggs.1",
         "eastTexture": "objects.eggs.1",
         "westTexture": "objects.eggs.1",
-        "tileIndex": "701",
+        "xPos": "15786",
+        "yPos": "598",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41127,7 +41576,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
         },
-        "placementMask": "0001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41135,7 +41583,8 @@
         "southTexture": "objects.eggs.1",
         "eastTexture": "objects.eggs.1",
         "westTexture": "objects.eggs.1",
-        "tileIndex": "989",
+        "xPos": "15786",
+        "yPos": "938",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41143,7 +41592,262 @@
           "scoutSecretDifficulty": "-1",
           "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
         },
-        "placementMask": "000000011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1",
+        "southTexture": "objects.eggs.1",
+        "eastTexture": "objects.eggs.1",
+        "westTexture": "objects.eggs.1",
+        "xPos": "14422",
+        "yPos": "1280",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1",
+        "southTexture": "objects.eggs.1",
+        "eastTexture": "objects.eggs.1",
+        "westTexture": "objects.eggs.1",
+        "xPos": "14762",
+        "yPos": "1450",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "12886",
+        "yPos": "11520",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "13398",
+        "yPos": "11690",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "13738",
+        "yPos": "11690",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "15446",
+        "yPos": "12032",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14422",
+        "yPos": "12886",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14762",
+        "yPos": "13056",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14762",
+        "yPos": "13226",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14934",
+        "yPos": "12886",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "15104",
+        "yPos": "12886",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14250",
+        "yPos": "13910",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14250",
+        "yPos": "14080",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14250",
+        "yPos": "14250",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14934",
+        "yPos": "13910",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "14934",
+        "yPos": "14250",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "13568",
+        "yPos": "14422",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "15786",
+        "yPos": "15274",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1",
+        "southTexture": "objects.eggs.1",
+        "eastTexture": "objects.eggs.1",
+        "westTexture": "objects.eggs.1",
+        "xPos": "14934",
+        "yPos": "11008",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1",
+        "southTexture": "objects.eggs.1",
+        "eastTexture": "objects.eggs.1",
+        "westTexture": "objects.eggs.1",
+        "xPos": "14934",
+        "yPos": "11178",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1",
+        "southTexture": "objects.eggs.1",
+        "eastTexture": "objects.eggs.1",
+        "westTexture": "objects.eggs.1",
+        "xPos": "15104",
+        "yPos": "15786",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1",
+        "southTexture": "objects.eggs.1",
+        "eastTexture": "objects.eggs.1",
+        "westTexture": "objects.eggs.1",
+        "xPos": "15274",
+        "yPos": "15786",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The eggs are covered in some kind of sticky paste, and are stuck fast to the floor and walls."
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41151,7 +41855,8 @@
         "southTexture": "objects.eggs.1.hatched",
         "eastTexture": "objects.eggs.1.hatched",
         "westTexture": "objects.eggs.1.hatched",
-        "tileIndex": "700",
+        "xPos": "14422",
+        "yPos": "10838",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41159,7 +41864,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "Some of these eggs have hatched and are mere empty husks..."
         },
-        "placementMask": "1011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41167,7 +41871,8 @@
         "southTexture": "objects.eggs.1.hatched",
         "eastTexture": "objects.eggs.1.hatched",
         "westTexture": "objects.eggs.1.hatched",
-        "tileIndex": "830",
+        "xPos": "14762",
+        "yPos": "10838",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41175,7 +41880,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "Some of these eggs have hatched and are mere empty husks..."
         },
-        "placementMask": "011000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41183,7 +41887,8 @@
         "southTexture": "objects.eggs.1.hatched",
         "eastTexture": "objects.eggs.1.hatched",
         "westTexture": "objects.eggs.1.hatched",
-        "tileIndex": "955",
+        "xPos": "14422",
+        "yPos": "11008",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41191,7 +41896,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "Some of these eggs have hatched and are mere empty husks..."
         },
-        "placementMask": "110010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41199,7 +41903,8 @@
         "southTexture": "objects.eggs.1.hatched",
         "eastTexture": "objects.eggs.1.hatched",
         "westTexture": "objects.eggs.1.hatched",
-        "tileIndex": "957",
+        "xPos": "15616",
+        "yPos": "12886",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41207,7 +41912,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "Some of these eggs have hatched and are mere empty husks..."
         },
-        "placementMask": "01000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41215,7 +41919,8 @@
         "southTexture": "objects.eggs.1.hatched",
         "eastTexture": "objects.eggs.1.hatched",
         "westTexture": "objects.eggs.1.hatched",
-        "tileIndex": "826",
+        "xPos": "15786",
+        "yPos": "12886",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41223,7 +41928,166 @@
           "scoutSecretDifficulty": "-1",
           "text": "Some of these eggs have hatched and are mere empty husks..."
         },
-        "placementMask": "1001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "15616",
+        "yPos": "13226",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "15786",
+        "yPos": "13226",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "13910",
+        "yPos": "14934",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "14080",
+        "yPos": "14934",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "14080",
+        "yPos": "15104",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "14250",
+        "yPos": "15274",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "15104",
+        "yPos": "14934",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "15104",
+        "yPos": "15274",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "13398",
+        "yPos": "12886",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.eggs.1.hatched",
+        "southTexture": "objects.eggs.1.hatched",
+        "eastTexture": "objects.eggs.1.hatched",
+        "westTexture": "objects.eggs.1.hatched",
+        "xPos": "13398",
+        "yPos": "13056",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "Some of these eggs have hatched and are mere empty husks..."
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41231,9 +42095,9 @@
         "southTexture": "objects.fungus.1",
         "eastTexture": "objects.fungus.1",
         "westTexture": "objects.fungus.1",
-        "tileIndex": "254",
+        "xPos": "15446",
+        "yPos": "3670",
         "lightSource": "false",
-        "placementMask": "101000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41241,9 +42105,9 @@
         "southTexture": "objects.fungus.1",
         "eastTexture": "objects.fungus.1",
         "westTexture": "objects.fungus.1",
-        "tileIndex": "253",
+        "xPos": "15786",
+        "yPos": "3670",
         "lightSource": "false",
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41251,9 +42115,59 @@
         "southTexture": "objects.fungus.1",
         "eastTexture": "objects.fungus.1",
         "westTexture": "objects.fungus.1",
-        "tileIndex": "285",
+        "xPos": "15786",
+        "yPos": "4010",
         "lightSource": "false",
-        "placementMask": "110011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.1",
+        "southTexture": "objects.fungus.1",
+        "eastTexture": "objects.fungus.1",
+        "westTexture": "objects.fungus.1",
+        "xPos": "15274",
+        "yPos": "3670",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.1",
+        "southTexture": "objects.fungus.1",
+        "eastTexture": "objects.fungus.1",
+        "westTexture": "objects.fungus.1",
+        "xPos": "14934",
+        "yPos": "4182",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.1",
+        "southTexture": "objects.fungus.1",
+        "eastTexture": "objects.fungus.1",
+        "westTexture": "objects.fungus.1",
+        "xPos": "15104",
+        "yPos": "4182",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.1",
+        "southTexture": "objects.fungus.1",
+        "eastTexture": "objects.fungus.1",
+        "westTexture": "objects.fungus.1",
+        "xPos": "15104",
+        "yPos": "4352",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.1",
+        "southTexture": "objects.fungus.1",
+        "eastTexture": "objects.fungus.1",
+        "westTexture": "objects.fungus.1",
+        "xPos": "15274",
+        "yPos": "4352",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41261,7 +42175,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "247",
+        "xPos": "11862",
+        "yPos": "3670",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41269,7 +42184,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "1001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41277,7 +42191,8 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "279",
+        "xPos": "11862",
+        "yPos": "3840",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -41285,7 +42200,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The barrel is empty."
         },
-        "placementMask": "10010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41293,7 +42207,72 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "280",
+        "xPos": "11862",
+        "yPos": "4010",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "11862",
+        "yPos": "4182",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "11862",
+        "yPos": "4352",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "12032",
+        "yPos": "4522",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "text": "The barrel is empty."
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "12544",
+        "yPos": "4352",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
@@ -41301,7 +42280,38 @@
           "scoutSecretDifficulty": "-1",
           "mazeScript": "Gatehouse supplies 1 iron rations"
         },
-        "placementMask": "000010101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "12374",
+        "yPos": "4522",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Gatehouse supplies 1 iron rations"
+        },
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "12714",
+        "yPos": "4522",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Gatehouse supplies 1 iron rations"
+        },
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41309,7 +42319,8 @@
         "southTexture": "objects.bones.2",
         "eastTexture": "objects.bones.2",
         "westTexture": "objects.bones.2",
-        "tileIndex": "184",
+        "xPos": "12544",
+        "yPos": "2816",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
@@ -41318,7 +42329,6 @@
           "scoutSecretDifficulty": "0",
           "mazeScript": "Gatehouse bones2 hidden stuff"
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41326,7 +42336,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "145",
+        "xPos": "8960",
+        "yPos": "2304",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41335,7 +42346,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "300",
+        "xPos": "6400",
+        "yPos": "4864",
         "lightSource": "false",
         "verticalAlignment": "TOP"
       },
@@ -41344,7 +42356,8 @@
         "southTexture": "objects.pillar.1",
         "eastTexture": "objects.pillar.1",
         "westTexture": "objects.pillar.1",
-        "tileIndex": "292",
+        "xPos": "2304",
+        "yPos": "4864",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
@@ -41353,7 +42366,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "744",
+        "xPos": "4352",
+        "yPos": "12032",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41362,7 +42376,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "805",
+        "xPos": "2816",
+        "yPos": "13056",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41371,7 +42386,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "963",
+        "xPos": "1792",
+        "yPos": "15616",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41380,9 +42396,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "677",
+        "xPos": "2816",
+        "yPos": "11008",
         "lightSource": "false",
-        "placementMask": "000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41390,9 +42406,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "741",
+        "xPos": "2986",
+        "yPos": "11008",
         "lightSource": "false",
-        "placementMask": "0101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41400,9 +42416,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "773",
+        "xPos": "2816",
+        "yPos": "11862",
         "lightSource": "false",
-        "placementMask": "000100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41410,9 +42426,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "774",
+        "xPos": "2646",
+        "yPos": "12032",
         "lightSource": "false",
-        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41420,9 +42436,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "775",
+        "xPos": "2646",
+        "yPos": "12544",
         "lightSource": "false",
-        "placementMask": "10001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41430,9 +42446,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "804",
+        "xPos": "2986",
+        "yPos": "12714",
         "lightSource": "false",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41440,9 +42456,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "803",
+        "xPos": "3328",
+        "yPos": "12714",
         "lightSource": "false",
-        "placementMask": "0100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41450,9 +42466,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "802",
+        "xPos": "3670",
+        "yPos": "12374",
         "lightSource": "false",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41460,9 +42476,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "833",
+        "xPos": "3840",
+        "yPos": "12544",
         "lightSource": "false",
-        "placementMask": "00000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41470,9 +42486,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "835",
+        "xPos": "2474",
+        "yPos": "13226",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41480,9 +42496,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "836",
+        "xPos": "1792",
+        "yPos": "12886",
         "lightSource": "false",
-        "placementMask": "0000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41490,9 +42506,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "931",
+        "xPos": "1622",
+        "yPos": "13226",
         "lightSource": "false",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41500,9 +42516,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "964",
+        "xPos": "1450",
+        "yPos": "13226",
         "lightSource": "false",
-        "placementMask": "10000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41510,9 +42526,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "965",
+        "xPos": "938",
+        "yPos": "13568",
         "lightSource": "false",
-        "placementMask": "00001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41520,9 +42536,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "935",
+        "xPos": "768",
+        "yPos": "13738",
         "lightSource": "false",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41530,9 +42546,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "968",
+        "xPos": "1792",
+        "yPos": "13568",
         "lightSource": "false",
-        "placementMask": "01",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41540,9 +42556,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "969",
+        "xPos": "2134",
+        "yPos": "13738",
         "lightSource": "false",
-        "placementMask": "1000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41550,9 +42566,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "971",
+        "xPos": "1622",
+        "yPos": "14934",
         "lightSource": "false",
-        "placementMask": "00010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41560,9 +42576,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "940",
+        "xPos": "2134",
+        "yPos": "15446",
         "lightSource": "false",
-        "placementMask": "001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41570,9 +42586,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "907",
+        "xPos": "2304",
+        "yPos": "15786",
         "lightSource": "false",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41580,9 +42596,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "939",
+        "xPos": "2816",
+        "yPos": "15616",
         "lightSource": "false",
-        "placementMask": "0000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41590,9 +42606,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "938",
+        "xPos": "2816",
+        "yPos": "15786",
         "lightSource": "false",
-        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41600,9 +42616,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "905",
+        "xPos": "3840",
+        "yPos": "15104",
         "lightSource": "false",
-        "placementMask": "000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41610,9 +42626,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "646",
+        "xPos": "4352",
+        "yPos": "15446",
         "lightSource": "false",
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41620,9 +42636,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "647",
+        "xPos": "4694",
+        "yPos": "15446",
         "lightSource": "false",
-        "placementMask": "10001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41630,9 +42646,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "743",
+        "xPos": "4694",
+        "yPos": "15786",
         "lightSource": "false",
-        "placementMask": "100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41640,9 +42656,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "745",
+        "xPos": "5718",
+        "yPos": "15616",
         "lightSource": "false",
-        "placementMask": "1001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41650,9 +42666,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "746",
+        "xPos": "5888",
+        "yPos": "15786",
         "lightSource": "false",
-        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41660,9 +42676,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "683",
+        "xPos": "6570",
+        "yPos": "14934",
         "lightSource": "false",
-        "placementMask": "00100001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41670,9 +42686,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "776",
+        "xPos": "6570",
+        "yPos": "15104",
         "lightSource": "false",
-        "placementMask": "01001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41680,9 +42696,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "840",
+        "xPos": "5718",
+        "yPos": "14422",
         "lightSource": "false",
-        "placementMask": "000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41690,9 +42706,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "841",
+        "xPos": "5888",
+        "yPos": "15104",
         "lightSource": "false",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41700,9 +42716,199 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "809",
+        "xPos": "5718",
+        "yPos": "15274",
         "lightSource": "false",
-        "placementMask": "1001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "5546",
+        "yPos": "15104",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4864",
+        "yPos": "14592",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "5034",
+        "yPos": "14592",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3498",
+        "yPos": "10326",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3670",
+        "yPos": "10326",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3840",
+        "yPos": "10496",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3670",
+        "yPos": "11862",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4010",
+        "yPos": "12032",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4694",
+        "yPos": "11862",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4694",
+        "yPos": "12032",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "5206",
+        "yPos": "12032",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "6058",
+        "yPos": "10838",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "5888",
+        "yPos": "11178",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4352",
+        "yPos": "12374",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4352",
+        "yPos": "12544",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4522",
+        "yPos": "13568",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4694",
+        "yPos": "13398",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4694",
+        "yPos": "12886",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4694",
+        "yPos": "13056",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41710,7 +42916,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "234",
+        "xPos": "5376",
+        "yPos": "3840",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41719,7 +42926,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "238",
+        "xPos": "7424",
+        "yPos": "3840",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41728,7 +42936,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "108",
+        "xPos": "6400",
+        "yPos": "1792",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41737,7 +42946,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "164",
+        "xPos": "2304",
+        "yPos": "2816",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -41746,9 +42956,9 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "237",
+        "xPos": "6742",
+        "yPos": "3840",
         "lightSource": "false",
-        "placementMask": "00010101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41756,9 +42966,9 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "233",
+        "xPos": "7082",
+        "yPos": "3840",
         "lightSource": "false",
-        "placementMask": "010001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41766,9 +42976,9 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "107",
+        "xPos": "6912",
+        "yPos": "4010",
         "lightSource": "false",
-        "placementMask": "011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41776,9 +42986,9 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "139",
+        "xPos": "4864",
+        "yPos": "3670",
         "lightSource": "false",
-        "placementMask": "00101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41786,9 +42996,9 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "205",
+        "xPos": "5034",
+        "yPos": "3840",
         "lightSource": "false",
-        "placementMask": "000000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41796,9 +43006,99 @@
         "southTexture": "objects.barrel.1",
         "eastTexture": "objects.barrel.1",
         "westTexture": "objects.barrel.1",
-        "tileIndex": "201",
+        "xPos": "5034",
+        "yPos": "4010",
         "lightSource": "false",
-        "placementMask": "001011",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "5888",
+        "yPos": "1622",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "6058",
+        "yPos": "1622",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "6058",
+        "yPos": "2134",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "5888",
+        "yPos": "2304",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "6912",
+        "yPos": "3498",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "7082",
+        "yPos": "3498",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "5034",
+        "yPos": "3158",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "4864",
+        "yPos": "3328",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.barrel.1",
+        "southTexture": "objects.barrel.1",
+        "eastTexture": "objects.barrel.1",
+        "westTexture": "objects.barrel.1",
+        "xPos": "5034",
+        "yPos": "3328",
+        "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41807,9 +43107,9 @@
         "southTexture": "foe.block.golem",
         "eastTexture": "foe.block.golem",
         "westTexture": "foe.block.golem",
-        "tileIndex": "165",
+        "xPos": "2646",
+        "yPos": "2816",
         "lightSource": "false",
-        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41817,9 +43117,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "39",
+        "xPos": "3670",
+        "yPos": "598",
         "lightSource": "true",
-        "placementMask": "1000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41827,9 +43127,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "40",
+        "xPos": "4010",
+        "yPos": "768",
         "lightSource": "true",
-        "placementMask": "001000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41837,9 +43137,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "41",
+        "xPos": "3670",
+        "yPos": "938",
         "lightSource": "true",
-        "placementMask": "000010101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41847,9 +43147,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "72",
+        "xPos": "4522",
+        "yPos": "598",
         "lightSource": "true",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41857,9 +43157,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "73",
+        "xPos": "4522",
+        "yPos": "938",
         "lightSource": "true",
-        "placementMask": "11",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41867,9 +43167,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "105",
+        "xPos": "4864",
+        "yPos": "768",
         "lightSource": "true",
-        "placementMask": "001000101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41877,9 +43177,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "106",
+        "xPos": "4694",
+        "yPos": "938",
         "lightSource": "true",
-        "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41887,9 +43187,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "138",
+        "xPos": "5034",
+        "yPos": "938",
         "lightSource": "true",
-        "placementMask": "000010001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41897,9 +43197,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "75",
+        "xPos": "4522",
+        "yPos": "1450",
         "lightSource": "true",
-        "placementMask": "00001011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41907,9 +43207,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "76",
+        "xPos": "4694",
+        "yPos": "1110",
         "lightSource": "true",
-        "placementMask": "00100101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41917,9 +43217,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "44",
+        "xPos": "4864",
+        "yPos": "1110",
         "lightSource": "true",
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41927,9 +43227,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "109",
+        "xPos": "5034",
+        "yPos": "1622",
         "lightSource": "true",
-        "placementMask": "01000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41937,9 +43237,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "110",
+        "xPos": "4694",
+        "yPos": "1962",
         "lightSource": "true",
-        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41947,9 +43247,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "112",
+        "xPos": "5034",
+        "yPos": "1962",
         "lightSource": "true",
-        "placementMask": "000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41957,9 +43257,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "80",
+        "xPos": "5376",
+        "yPos": "1962",
         "lightSource": "true",
-        "placementMask": "000011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41967,9 +43267,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "47",
+        "xPos": "5376",
+        "yPos": "2304",
         "lightSource": "true",
-        "placementMask": "0001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41977,9 +43277,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "48",
+        "xPos": "5546",
+        "yPos": "2474",
         "lightSource": "true",
-        "placementMask": "0001011",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41987,9 +43287,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "78",
+        "xPos": "5888",
+        "yPos": "1280",
         "lightSource": "true",
-        "placementMask": "001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -41997,9 +43297,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "136",
+        "xPos": "5718",
+        "yPos": "1450",
         "lightSource": "true",
-        "placementMask": "100000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42007,9 +43307,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "104",
+        "xPos": "5888",
+        "yPos": "1450",
         "lightSource": "true",
-        "placementMask": "000000001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42017,9 +43317,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "103",
+        "xPos": "6570",
+        "yPos": "1110",
         "lightSource": "true",
-        "placementMask": "110101",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42027,9 +43327,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "71",
+        "xPos": "6570",
+        "yPos": "1280",
         "lightSource": "true",
-        "placementMask": "001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42037,9 +43337,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "70",
+        "xPos": "6400",
+        "yPos": "1450",
         "lightSource": "true",
-        "placementMask": "000001001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42047,9 +43347,9 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "38",
+        "xPos": "6400",
+        "yPos": "768",
         "lightSource": "true",
-        "placementMask": "1",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42057,9 +43357,289 @@
         "southTexture": "objects.fungus.3",
         "eastTexture": "objects.fungus.3",
         "westTexture": "objects.fungus.3",
-        "tileIndex": "37",
+        "xPos": "6912",
+        "yPos": "1622",
         "lightSource": "true",
-        "placementMask": "011101",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "6912",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "7254",
+        "yPos": "1792",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8448",
+        "yPos": "1792",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8618",
+        "yPos": "1792",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8448",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8618",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "7766",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "7766",
+        "yPos": "938",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8278",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8618",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "8278",
+        "yPos": "938",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "7594",
+        "yPos": "1110",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "7594",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4182",
+        "yPos": "2134",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4522",
+        "yPos": "2474",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4522",
+        "yPos": "1962",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3670",
+        "yPos": "1622",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3840",
+        "yPos": "1622",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3670",
+        "yPos": "1792",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4010",
+        "yPos": "1792",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "4010",
+        "yPos": "1110",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3498",
+        "yPos": "1280",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3498",
+        "yPos": "1450",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "3158",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2816",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2986",
+        "yPos": "598",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2646",
+        "yPos": "768",
+        "lightSource": "true",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.3",
+        "southTexture": "objects.fungus.3",
+        "eastTexture": "objects.fungus.3",
+        "westTexture": "objects.fungus.3",
+        "xPos": "2986",
+        "yPos": "768",
+        "lightSource": "true",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42067,7 +43647,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "46",
+        "xPos": "7424",
+        "yPos": "768",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -42076,7 +43657,8 @@
         "southTexture": "CEILING_LIGHT_2",
         "eastTexture": "CEILING_LIGHT_2",
         "westTexture": "CEILING_LIGHT_2",
-        "tileIndex": "42",
+        "xPos": "5376",
+        "yPos": "768",
         "lightSource": "true",
         "verticalAlignment": "TOP"
       },
@@ -42085,7 +43667,8 @@
         "southTexture": "objects.shrine.1.front",
         "eastTexture": "objects.shrine.1.front",
         "westTexture": "objects.shrine.1.front",
-        "tileIndex": "807",
+        "xPos": "3840",
+        "yPos": "13056",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.FlavourText",
@@ -42093,7 +43676,6 @@
           "scoutSecretDifficulty": "-1",
           "text": "The shrine is dusty and does not appear to have been visited for a long time. You find nothing."
         },
-        "placementMask": "00001",
         "verticalAlignment": "BOTTOM"
       },
       {
@@ -42102,7 +43684,8 @@
         "southTexture": "objects.fungus.ambercap",
         "eastTexture": "objects.fungus.ambercap",
         "westTexture": "objects.fungus.ambercap",
-        "tileIndex": "921",
+        "xPos": "12886",
+        "yPos": "14592",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.DisplayOptions",
@@ -42120,7 +43703,6 @@
             " - "
           ]
         },
-        "placementMask": "0001",
         "verticalAlignment": "BOTTOM"
       }
     ],

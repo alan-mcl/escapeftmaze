@@ -10716,8 +10716,8 @@
         "cylinderSkyImage": "sky.writhing.mire",
         "bottomColour": "0",
         "topColour": "0",
-        "ceilingHeight": "0",
-        "sphereRadius": "0"
+        "imageScale": "0",
+        "ceilingHeight": "0"
       }
     ],
     "tiles": [
@@ -37905,6 +37905,47 @@
         "eastTexture": "objects.fungus.2",
         "westTexture": "objects.fungus.2",
         "tileIndex": "238",
+        "lightSource": "false",
+        "placementMask": "00000001",
+        "verticalAlignment": "BOTTOM"
+      }
+    ],
+    "expandedObjects": [
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "7936",
+        "yPos": "1792",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Writhing Mire to Ruins Of Hail"
+        },
+        "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.woodsign.side",
+        "southTexture": "objects.woodsign.side",
+        "eastTexture": "objects.woodsign.front",
+        "westTexture": "objects.woodsign.front",
+        "xPos": "7766",
+        "yPos": "2816",
+        "lightSource": "false",
+        "placementMask": "0001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.fungus.2",
+        "southTexture": "objects.fungus.2",
+        "eastTexture": "objects.fungus.2",
+        "westTexture": "objects.fungus.2",
+        "xPos": "7424",
+        "yPos": "4010",
         "lightSource": "false",
         "placementMask": "00000001",
         "verticalAlignment": "BOTTOM"

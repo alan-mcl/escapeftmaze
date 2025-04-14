@@ -1336,13 +1336,15 @@ public class V2SerialiserFactory
 			"tiles",
 			"horizontalWalls",
 			"verticalWalls",
-			"originalObjects",
+//			"originalObjects",
+			"expandedObjects",
 			"scripts");
 
 		result.addCustomSerialiser("skyTexture", getCrusaderTextureSerialiser(db));
 		result.addCustomSerialiser("tiles", new ArraySerialiser<>(mclachlan.crusader.Tile.class, getCrusaderTileSerialiser(db)));
 		result.addCustomSerialiser(Wall[].class, new ArraySerialiser<>(Wall.class, getCrusaderWallSerialiser(db)));
-		result.addCustomSerialiser("originalObjects", new ListSerialiser<>(getCrusaderObjectSerialiser(db)));
+//		result.addCustomSerialiser("originalObjects", new ListSerialiser<>(getCrusaderObjectSerialiser(db)));
+		result.addCustomSerialiser("expandedObjects", new ListSerialiser<>(getCrusaderObjectSerialiser2(db)));
 		result.addCustomSerialiser("scripts", new ArraySerialiser<>(MapScript.class, getMapScriptSerialiser(db)));
 		result.addCustomSerialiser("skyConfigs", new ArraySerialiser<>(mclachlan.crusader.Map.SkyConfig.class, getSkyConfigSerialiser(db)));
 
@@ -1398,6 +1400,26 @@ public class V2SerialiserFactory
 			"lightSource",
 			"mouseClickScript",
 			"placementMask",
+			"verticalAlignment");
+
+		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));
+		result.addCustomSerialiser(MouseClickScript.class, getMouseClickScriptSerialiser(db));
+
+		return result;
+	}
+	private static V2SerialiserObject<EngineObject> getCrusaderObjectSerialiser2(
+		Database db)
+	{
+		ReflectiveSerialiser result = getReflectiveSerialiser(EngineObject.class,
+			"name",
+			"northTexture",
+			"southTexture",
+			"eastTexture",
+			"westTexture",
+			"xPos",
+			"yPos",
+			"lightSource",
+			"mouseClickScript",
 			"verticalAlignment");
 
 		result.addCustomSerialiser(Texture.class, getCrusaderTextureSerialiser(db));

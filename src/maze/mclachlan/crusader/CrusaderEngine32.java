@@ -187,13 +187,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 	private long timeNow;
 
 	/*-------------------------------------------------------------------------*/
-	private static class MouseClickScriptRecord
-	{
-		MouseClickScript script;
-		double distance;
-	}
-
-	/*-------------------------------------------------------------------------*/
 	/**
 	 * @param screenWidth
 	 * 	The width of the projection plane, in pixels
@@ -317,7 +310,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		
 		initMouseClickScripts();
 
-		executor = new ExecutorCompletionService(Executors.newFixedThreadPool(nrThreads));
+		executor = new ExecutorCompletionService<>(Executors.newFixedThreadPool(nrThreads));
 		columnRenderers = new DrawColumn[projectionPlaneWidth];
 		columnFilterers = new FilterColumn[projectionPlaneWidth];
 
@@ -455,19 +448,22 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		switch (this.movementMode)
 		{
-			case MovementMode.DISCRETE:
+			case MovementMode.DISCRETE ->
+			{
 				this.playerSpeed = tileSize;
 				this.playerRotation = ANGLE90;
-				break;
-			case MovementMode.CONTINUOUS:
+			}
+			case MovementMode.CONTINUOUS ->
+			{
 				this.playerSpeed = tileSize / 8;
 				this.playerRotation = ANGLE5;
-				break;
-			case MovementMode.OCTO:
+			}
+			case MovementMode.OCTO ->
+			{
 				this.playerSpeed = tileSize;
 				this.playerRotation = ANGLE90 / 2;
-				break;
-			default:
+			}
+			default ->
 				throw new CrusaderException("Unrecognised mode [" + movementMode + "]");
 		}
 	}
@@ -665,32 +661,16 @@ public class CrusaderEngine32 implements CrusaderEngine
 		// set facing
 		switch (facing)
 		{
-			case Facing.NORTH:
-				this.playerArc = ANGLE270;
-				break;
-			case Facing.SOUTH:
-				this.playerArc = ANGLE90;
-				break;
-			case Facing.EAST:
-				this.playerArc = ANGLE0;
-				break;
-			case Facing.WEST:
-				this.playerArc = ANGLE180;
-				break;
-			case Facing.NORTH_EAST:
-				this.playerArc = ANGLE315;
-				break;
-			case Facing.NORTH_WEST:
-				this.playerArc = ANGLE225;
-				break;
-			case Facing.SOUTH_EAST:
-				this.playerArc = ANGLE45;
-				break;
-			case Facing.SOUTH_WEST:
-				this.playerArc = ANGLE135;
-				break;
-			default:
-				throw new CrusaderException("Unrecognized facing: "+facing);
+			case Facing.NORTH -> this.playerArc = ANGLE270;
+			case Facing.SOUTH -> this.playerArc = ANGLE90;
+			case Facing.EAST -> this.playerArc = ANGLE0;
+			case Facing.WEST -> this.playerArc = ANGLE180;
+			case Facing.NORTH_EAST -> this.playerArc = ANGLE315;
+			case Facing.NORTH_WEST -> this.playerArc = ANGLE225;
+			case Facing.SOUTH_EAST -> this.playerArc = ANGLE45;
+			case Facing.SOUTH_WEST -> this.playerArc = ANGLE135;
+			default ->
+				throw new CrusaderException("Unrecognized facing: " + facing);
 		}
 
 		if (this.movementMode == MovementMode.DISCRETE || movementMode == MovementMode.OCTO)
@@ -789,16 +769,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 
 		int y;
 		int topY = projectionPlaneHeight/2 -projectedWallHeight/2 +projectedTextureOffset;
-		switch (obj.verticalAlignment)
-		{
-			case TOP: y = topY +projPlaneOffset;
-				break;
-			case CENTER: y = topY +projectedWallHeight/2 -projectedObjectHeight/2 +projPlaneOffset;
-				break;
-			case BOTTOM: y = topY +projectedWallHeight -projectedObjectHeight +projPlaneOffset;
-				break;
-			default: throw new CrusaderException("invalid alignment "+obj.verticalAlignment);
-		}
+		y = switch (obj.verticalAlignment)
+			{
+				case TOP -> topY + projPlaneOffset;
+				case CENTER -> topY + projectedWallHeight / 2 - projectedObjectHeight / 2 + projPlaneOffset;
+				case BOTTOM -> topY + projectedWallHeight - projectedObjectHeight + projPlaneOffset;
+				default ->
+					throw new CrusaderException("invalid alignment " + obj.verticalAlignment);
+			};
 
 		return new Rectangle(x, y, projectedObjectWidth, projectedObjectHeight);
 	}
@@ -1670,30 +1648,6 @@ public class CrusaderEngine32 implements CrusaderEngine
 			throw new CrusaderException(e);
 		}
 		
-		return result;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * Initializes the given image group.
-	 * 
-	 * @return 
-	 * 	A 2d array, first index image nr, second index image data
-	 */ 
-	private int[][] initImageGroup(ImageGroup imageGroup)
-	{
-		int[][] result = 
-			new int[imageGroup.images.length]
-				[imageGroup.imageHeight*imageGroup.imageWidth];
-		
-		for (int i = 0; i < imageGroup.images.length; i++)
-		{
-			result[i] = this.grabPixels(
-				imageGroup.images[i],
-				imageGroup.imageWidth,
-				imageGroup.imageHeight);
-		}
-
 		return result;
 	}
 
@@ -2868,6 +2822,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return result;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private int renderSkyConfig(SkyConfig skyConfig, int castArc, int screenY)
 	{
 		switch (skyConfig.type)
@@ -2892,6 +2847,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		}
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private int renderCubemapImages(SkyConfig config, int castArc, int screenY)
 	{
 		double angle = ((double)castArc / ANGLE360) * 4.0; // Map arc to one of 4 orientations
@@ -2912,6 +2868,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return texture.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private int computeCylinderGradient(SkyConfig config, int castArc, int screenY)
 	{
 		float gradientRatio = (float)screenY / projectionPlaneHeight;
@@ -2933,6 +2890,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return (255 << 24) | (r << 16) | (g << 8) | b;
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private int renderCylinderImageSky(SkyConfig skyConfig, int castArc, int screenY)
 	{
 		Texture image = skyConfig.cylinderSkyImage;
@@ -2943,6 +2901,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		return image.getCurrentImageData(skyTextureX, skyTextureY, timeNow);
 	}
 
+	/*-------------------------------------------------------------------------*/
 	private int renderHighCeilingSky(SkyConfig skyConfig, int castArc, int screenY)
 	{
 		int skyTextureX;
@@ -3132,16 +3091,14 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			int startScreenY;
 			int topY = projectionPlaneHeight/2 -obj.projectedWallHeight/2 +obj.projectedTextureOffset;
-			switch (obj.verticalAlignment)
-			{
-				case TOP: startScreenY = topY +projPlaneOffset;
-					break;
-				case CENTER: startScreenY = topY +obj.projectedWallHeight/2 -obj.projectedObjectHeight/2 +projPlaneOffset;
-					break;
-				case BOTTOM: startScreenY = topY +obj.projectedWallHeight -obj.projectedObjectHeight +projPlaneOffset;
-					break;
-				default: throw new CrusaderException("invalid alignment "+obj.verticalAlignment);
-			}
+			startScreenY = switch (obj.verticalAlignment)
+				{
+					case TOP		-> topY + projPlaneOffset;
+					case CENTER	-> topY + obj.projectedWallHeight / 2 - obj.projectedObjectHeight / 2 + projPlaneOffset;
+					case BOTTOM	-> topY + obj.projectedWallHeight - obj.projectedObjectHeight + projPlaneOffset;
+					default ->
+						throw new CrusaderException("invalid alignment " + obj.verticalAlignment);
+				};
 
 			int currentScreenY = startScreenY;
 			int endScreenY = startScreenY + obj.projectedObjectHeight;
@@ -3374,7 +3331,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 		new_array[objects.length] = obj;
 		this.objects = new_array;
 
-		for (Texture texture : obj.textures)
+		for (Texture texture : obj.getTextures())
 		{
 			this.addTexture(texture);
 		}
@@ -3397,7 +3354,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				arc += ANGLE360;
 			}
 
-			obj.currentTextureFrame =  r.nextInt(obj.textures[obj.northTexture].nrFrames);
+			obj.currentTextureFrame =  r.nextInt(obj.northTexture.nrFrames);
 
 			int x = (int)(dist * cosTable[arc]);
 			int y = (int)(dist * sinTable[arc]);
@@ -3466,13 +3423,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 		{
 			//todo: multi-sided objects?
 			Texture texture;
-			if (object.currentTexture != -1)
+			if (object.currentTexture != null)
 			{
-				texture = object.textures[object.currentTexture];
+				texture = object.currentTexture;
 			}
 			else
 			{
-				texture = object.textures[object.northTexture];
+				texture = object.northTexture;
 			}
 
 			if (texture.animationDelay > -1 && timeNow - object.textureLastChanged >= texture.animationDelay)
@@ -3552,29 +3509,10 @@ public class CrusaderEngine32 implements CrusaderEngine
 		 */
 		byte hitType;
 
-		/**
-		 * Clones the given BHR
-		 */
-		public BlockHitRecord(BlockHitRecord other)
-		{
-			this.blockHit = other.blockHit;
-			this.textures = other.textures;
-			this.textureXRecord = other.textureXRecord;
-			this.textureYRecord = other.textureYRecord;
-			this.distance = other.distance;
-			this.wall = other.wall;
-			this.hitType = other.hitType;
-		}
-
-		public BlockHitRecord()
-		{
-		}
-
 		public String toString()
 		{
 			return "blockHit=["+blockHit+"], " +
 				"wall=["+wall+"]" +
-				"texture=["+ textures +"], " +
 				"distance=["+distance+"], " +
 				"projectedWallHeight=["+projectedWallHeight+"], " +
 				"hitType=["+hitType+"]"; 
@@ -3590,6 +3528,13 @@ public class CrusaderEngine32 implements CrusaderEngine
 			this.wall = other.wall;
 			this.hitType = other.hitType;
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	private static class MouseClickScriptRecord
+	{
+		MouseClickScript script;
+		double distance;
 	}
 
 	/*-------------------------------------------------------------------------*/

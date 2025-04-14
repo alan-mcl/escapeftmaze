@@ -10632,8 +10632,8 @@
         "cylinderSkyImage": "DEFAULT_SKY",
         "bottomColour": "0",
         "topColour": "0",
-        "ceilingHeight": "0",
-        "sphereRadius": "0"
+        "imageScale": "0",
+        "ceilingHeight": "0"
       }
     ],
     "tiles": [
@@ -37842,6 +37842,76 @@
         "eastTexture": "objects.ladder.up",
         "westTexture": "objects.ladder.up",
         "tileIndex": "284",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Ichiba Depths to City (gsc2)"
+        },
+        "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      }
+    ],
+    "expandedObjects": [
+      {
+        "northTexture": "objects.ladder.up",
+        "southTexture": "objects.ladder.up",
+        "eastTexture": "objects.ladder.up",
+        "westTexture": "objects.ladder.up",
+        "xPos": "6912",
+        "yPos": "3328",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Ichiba Depths to City (gnolls)"
+        },
+        "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.ladder.up",
+        "southTexture": "objects.ladder.up",
+        "eastTexture": "objects.ladder.up",
+        "westTexture": "objects.ladder.up",
+        "xPos": "11008",
+        "yPos": "2304",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Ichiba Depths to Gnoll Village"
+        },
+        "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.ladder.up",
+        "southTexture": "objects.ladder.up",
+        "eastTexture": "objects.ladder.up",
+        "westTexture": "objects.ladder.up",
+        "xPos": "1280",
+        "yPos": "8448",
+        "lightSource": "false",
+        "mouseClickScript": {
+          "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",
+          "reexecuteOnSameTile": "false",
+          "scoutSecretDifficulty": "-1",
+          "mazeScript": "Ichiba Depths to City (gsc1)"
+        },
+        "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.ladder.up",
+        "southTexture": "objects.ladder.up",
+        "eastTexture": "objects.ladder.up",
+        "westTexture": "objects.ladder.up",
+        "xPos": "14592",
+        "yPos": "4352",
         "lightSource": "false",
         "mouseClickScript": {
           "TYPE_KEY": "mclachlan.maze.map.script.ExecuteMazeScript",

@@ -19,7 +19,6 @@
 
 package mclachlan.crusader;
 
-import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.util.MazeException;
@@ -35,16 +34,14 @@ public class EngineObject
 
 	String name;
 
-	Texture[] textures;
-
 	/** texture when viewed from the north */
-	int northTexture;
+	Texture northTexture;
 	/** texture when viewed from the west */
-	int southTexture;
+	Texture southTexture;
 	/** texture when viewed from the east */
-	int eastTexture;
+	Texture eastTexture;
 	/** texture when viewed from the west */
-	int westTexture;
+	Texture westTexture;
 
 	/** whether this object is subject to shading */
 	boolean isLightSource;
@@ -55,6 +52,7 @@ public class EngineObject
 	/**
 	 * A bitmap used when adding this object to the Map, determining where to
 	 * place it inside the tile and whether to spawn additional objects.
+	 * @deprecated
 	 */
 	BitSet placementMask;
 
@@ -65,12 +63,17 @@ public class EngineObject
 	ObjectScript[] scripts;
 	private final Object scriptMutex = new Object();
 
+	/** object location */
+	int xPos, yPos;
+
 	//
 	// volatile data:
 	//
 
+	/** For when we just want one texture at a time, not directional */
+	Texture[] alternateTextures;
+
 	// calculate when added to the map
-	int xPos, yPos;
 	int gridX, gridY;
 	int tileIndex;
 
@@ -86,8 +89,8 @@ public class EngineObject
 	double shadeMult;
 	Texture renderTexture;
 
-	/** if not -1, this is the texture index that will be used from all angles */
-	int currentTexture = -1;
+	/** if not null, this is the texture index that will be used from all angles */
+	Texture currentTexture = null;
 
 	/** The current image */
 	int currentTextureFrame;
@@ -100,11 +103,23 @@ public class EngineObject
 
 	public EngineObject()
 	{
-		this.textures = new Texture[]{null, null, null, null};
-		this.northTexture = 0;
-		this.southTexture = 1;
-		this.eastTexture = 2;
-		this.westTexture = 3;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	/**
+	 * @param textures
+	 *      The textures of this object, the first one is the default
+	 * @param isLightSource
+	 *      Sets whether or not this object is a light source
+	 */
+	public EngineObject(
+		Texture[] textures,
+		boolean isLightSource)
+	{
+		this.alternateTextures = textures;
+		this.currentTexture = textures[0];
+		this.isLightSource = isLightSource;
+		this.verticalAlignment = Alignment.BOTTOM;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -148,17 +163,10 @@ public class EngineObject
 		this.mouseClickScript = mouseClickScript;
 		this.placementMask = placementMask;
 		this.verticalAlignment = verticalAlignment;
-		this.textures = new Texture[]
-		{
-			northTexture,
-			southTexture,
-			eastTexture,
-			westTexture
-		};
-		this.northTexture = 0;
-		this.southTexture = 1;
-		this.eastTexture = 2;
-		this.westTexture = 3;
+		this.northTexture = northTexture;
+		this.southTexture = southTexture;
+		this.eastTexture = eastTexture;
+		this.westTexture = westTexture;
 		this.tileIndex = tileIndex;
 		this.isLightSource = isLightSource;
 	}
@@ -167,7 +175,6 @@ public class EngineObject
 	public EngineObject(EngineObject clone)
 	{
 		this.name = clone.name;
-		this.textures = clone.textures;
 		this.mouseClickScript = clone.mouseClickScript;
 		this.northTexture = clone.northTexture;
 		this.southTexture = clone.southTexture;
@@ -177,27 +184,6 @@ public class EngineObject
 		this.isLightSource = clone.isLightSource;
 		this.verticalAlignment = clone.verticalAlignment;
 		this.placementMask = clone.placementMask;
-	}
-
-	/*-------------------------------------------------------------------------*/
-	/**
-	 * @param textures
-	 * 	The textures of this object, the first one is the default
-	 * @param tileIndex
-	 * 	The position of this object in the map
-	 * @param isLightSource
-	 * 	Sets whether or not this object is a light source
-	 */
-	public EngineObject(
-		Texture[] textures,
-		int tileIndex,
-		boolean isLightSource)
-	{
-		this.textures = textures;
-		this.tileIndex = tileIndex;
-		northTexture = southTexture = eastTexture = westTexture = currentTexture = 0;
-		this.isLightSource = isLightSource;
-		this.verticalAlignment = Alignment.BOTTOM;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -217,35 +203,35 @@ public class EngineObject
 		//
 		// pick the object texture
 		//
-		if (movementMode == CrusaderEngine.MovementMode.DISCRETE && this.currentTexture == -1)
+		if (movementMode == CrusaderEngine.MovementMode.DISCRETE && this.currentTexture == null)
 		{
 			switch (playerFacing)
 			{
 				case CrusaderEngine.Facing.NORTH ->
-					renderTexture = this.textures[this.northTexture];
+					renderTexture = this.northTexture;
 				case CrusaderEngine.Facing.SOUTH ->
-					renderTexture = this.textures[this.southTexture];
+					renderTexture = this.southTexture;
 				case CrusaderEngine.Facing.EAST ->
-					renderTexture = this.textures[this.eastTexture];
+					renderTexture = this.eastTexture;
 				case CrusaderEngine.Facing.WEST ->
-					renderTexture = this.textures[this.westTexture];
+					renderTexture = this.westTexture;
 				default -> throw new CrusaderException(
 					"invalid facing: " + playerFacing);
 			}
 		}
-		else if (movementMode == CrusaderEngine.MovementMode.OCTO && this.currentTexture == -1)
+		else if (movementMode == CrusaderEngine.MovementMode.OCTO && this.currentTexture == null)
 		{
 			// yeah this fudges it a bit
 			switch (playerFacing)
 			{
 				case CrusaderEngine.Facing.NORTH, CrusaderEngine.Facing.NORTH_EAST, CrusaderEngine.Facing.NORTH_WEST ->
-					renderTexture = this.textures[this.northTexture];
+					renderTexture = this.northTexture;
 				case CrusaderEngine.Facing.SOUTH, CrusaderEngine.Facing.SOUTH_EAST, CrusaderEngine.Facing.SOUTH_WEST ->
-					renderTexture = this.textures[this.southTexture];
+					renderTexture = this.southTexture;
 				case CrusaderEngine.Facing.EAST ->
-					renderTexture = this.textures[this.eastTexture];
+					renderTexture = this.eastTexture;
 				case CrusaderEngine.Facing.WEST ->
-					renderTexture = this.textures[this.westTexture];
+					renderTexture = this.westTexture;
 				default -> throw new CrusaderException(
 					"invalid facing: " + playerFacing);
 			}
@@ -253,12 +239,12 @@ public class EngineObject
 		else if (movementMode == CrusaderEngine.MovementMode.CONTINUOUS)
 		{
 			// object facings only supported for DISCRETE mode
-			renderTexture = this.textures[this.northTexture];
+			renderTexture = this.northTexture;
 		}
 		else
 		{
 			// the current texture has been set.
-			renderTexture = this.textures[this.currentTexture];
+			renderTexture = this.currentTexture;
 		}
 
 		//
@@ -353,8 +339,7 @@ public class EngineObject
 		double yDiff = engine.getPlayerPos().y - this.yPos;
 
 		double apparentDistance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
-		int textureHeight = textures[0].imageHeight;
-//		int textureWidth = renderTexture.imageWidth;
+		int textureHeight = northTexture.imageHeight;
 
 		// correct distance (compensate for the fishbowl effect)
 		if (this.center > 0 && this.center < projectionPlaneWidth)
@@ -374,18 +359,15 @@ public class EngineObject
 
 		double scale = playerDistToProjectionPlane / apparentDistance;
 		int projectedObjectHeight = (int)(textureHeight * scale);
-//		int projectedObjectWidth = (int)(textureWidth * scale);
 		int projectedWallHeight = (int)(tile_size * scale);
-//		int projectedTextureOffset = (int)(textureOffset * scale);
 
 		int skySize = ((CrusaderEngine32)engine).getProjectionPlaneHeight()/2 - projectedWallHeight/2;
 
 		return switch (getVerticalAlignment())
 			{
-				case TOP -> -projectedObjectHeight - skySize;
-				case CENTER ->
-					-(projectedWallHeight / 2 + projectedObjectHeight / 2) - skySize;
-				case BOTTOM -> -projectedWallHeight - skySize;
+				case TOP		-> -projectedObjectHeight - skySize;
+				case CENTER	-> -(projectedWallHeight / 2 + projectedObjectHeight / 2) - skySize;
+				case BOTTOM	-> -projectedWallHeight - skySize;
 				default ->
 					throw new MazeException("invalid " + getVerticalAlignment());
 			};
@@ -418,16 +400,7 @@ public class EngineObject
 	}
 
 	/*-------------------------------------------------------------------------*/
-	public void applyTint(Color tint)
-	{
-		for (Texture t : this.textures)
-		{
-			t.applyTint(tint);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	public void setCurrentTexture(int currentTexture)
+	public void setCurrentTexture(Texture currentTexture)
 	{
 		this.currentTexture = currentTexture;
 	}
@@ -446,22 +419,22 @@ public class EngineObject
 	/*-------------------------------------------------------------------------*/
 	public Texture getNorthTexture()
 	{
-		return textures[northTexture];
+		return northTexture;
 	}
 
 	public Texture getSouthTexture()
 	{
-		return textures[southTexture];
+		return southTexture;
 	}
 
 	public Texture getEastTexture()
 	{
-		return textures[eastTexture];
+		return eastTexture;
 	}
 
 	public Texture getWestTexture()
 	{
-		return textures[westTexture];
+		return westTexture;
 	}
 
 	public void setLightSource(boolean lightSource)
@@ -476,22 +449,22 @@ public class EngineObject
 
 	public void setNorthTexture(Texture northTexture)
 	{
-		this.textures[this.northTexture] = northTexture;
+		this.northTexture = northTexture;
 	}
 
 	public void setSouthTexture(Texture southTexture)
 	{
-		this.textures[this.southTexture] = southTexture;
+		this.southTexture = southTexture;
 	}
 	
 	public void setEastTexture(Texture eastTexture)
 	{
-		this.textures[this.eastTexture] = eastTexture;
+		this.eastTexture = eastTexture;
 	}
 
 	public void setWestTexture(Texture westTexture)
 	{
-		this.textures[this.westTexture] = westTexture;
+		this.westTexture = westTexture;
 	}
 
 	public int getTileIndex()
@@ -554,7 +527,7 @@ public class EngineObject
 		this.gridY = gridY;
 	}
 
-	public int getCurrentTexture()
+	public Texture getCurrentTexture()
 	{
 		return currentTexture;
 	}
@@ -571,7 +544,12 @@ public class EngineObject
 
 	public Texture[] getTextures()
 	{
-		return textures;
+		return new Texture[] {
+			northTexture,
+			southTexture,
+			eastTexture,
+			westTexture
+		};
 	}
 
 	public MouseClickScript getMouseClickScript()
@@ -608,11 +586,6 @@ public class EngineObject
 	public void setTextureOffset(int textureOffset)
 	{
 		this.textureOffset = textureOffset;
-	}
-
-	public void setTextures(Texture[] textures)
-	{
-		this.textures = textures;
 	}
 
 	public ObjectScript[] getScripts()

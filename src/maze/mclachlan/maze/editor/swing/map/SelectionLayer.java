@@ -19,6 +19,7 @@
 
 package mclachlan.maze.editor.swing.map;
 
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import java.awt.*;
 import java.util.ArrayList;
@@ -29,7 +30,7 @@ import java.util.List;
  */
 public class SelectionLayer extends Layer
 {
-	List<Object> selected = new ArrayList<Object>();
+	List<Object> selected = new ArrayList<>();
 	Rectangle activeSelection;
 
 	private MapDisplay display;
@@ -88,6 +89,16 @@ public class SelectionLayer extends Layer
 				Rectangle bounds = display.getVerticalWallBounds(i);
 				bounds.grow(2,2);
 				g2d.fillRect(bounds.x, bounds.y, bounds.width, bounds.height);
+			}
+		}
+
+		for (EngineObject obj : map.getExpandedObjects())
+		{
+			if (selected.contains(obj))
+			{
+				Rectangle bounds = display.getObjectBounds(obj.getXPos(), obj.getYPos());
+				bounds.grow(2,2);
+				g2d.fillOval(bounds.x, bounds.y, bounds.width, bounds.height);
 			}
 		}
 	}

@@ -19,10 +19,7 @@
 
 package mclachlan.crusader.script;
 
-import mclachlan.crusader.CrusaderEngine;
-import mclachlan.crusader.EngineObject;
-import mclachlan.crusader.Map;
-import mclachlan.crusader.MapScript;
+import mclachlan.crusader.*;
 
 /**
  * Temporarily changes EngineObject texture, for the duration of the texture
@@ -33,12 +30,12 @@ public class TempChangeTexture extends MapScript
 	EngineObject obj;
 	long timeToRemove;
 	CrusaderEngine engine;
-	int txt;
+	Texture txt;
 
 	/*-------------------------------------------------------------------------*/
 	public TempChangeTexture(
 		EngineObject obj,
-		int texture,
+		Texture texture,
 		CrusaderEngine engine)
 	{
 		this.engine = engine;
@@ -48,8 +45,7 @@ public class TempChangeTexture extends MapScript
 
 		long now = System.currentTimeMillis();
 		obj.setTextureLastChanged(now);
-		timeToRemove = now + ((long)obj.getTextures()[texture].getAnimationDelay() *
-			obj.getTextures()[texture].getImages().length);
+		timeToRemove = now + ((long)texture.getAnimationDelay() * texture.getImages().length);
 	}
 
 	/*-------------------------------------------------------------------------*/

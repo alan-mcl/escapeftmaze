@@ -50,8 +50,10 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	private Point mousePressed;
 	private TileDisplayPanel tileDisplayPanel;
 	private WallDisplayPanel wallDisplayPanel;
+	private ObjectDisplayPanel objectDisplayPanel;
 	private MultipleTileEditingPanel multipleTileEditingPanel;
 	private MultipleWallEditingPanel multipleWallEditingPanel;
+	private MultipleObjectEditingPanel multipleObjectEditingPanel;
 	private PortalDisplayPanel portalDisplayPanel;
 	private SelectionSummaryPanel selectionSummaryPanel;
 	private JPanel selectionCards;
@@ -59,10 +61,12 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	private static final String NO_SELECTION = "NO SELECTION";
 	private static final String TILE_SELECTED = "TILE SELECTED";
 	private static final String WALL_SELECTED = "WALL SELECTED";
+	private static final String OBJECT_SELECTED = "OBJECT SELECTED";
 	private static final String SELECTION_SUMMARY = "SELECTION SUMMARY";
 	private static final String PORTAL_SELECTED = "PORTAL SELECTED";
 	private static final String EDIT_MULTIPLE_TILES = "EDIT MULTIPLE TILES";
 	private static final String EDIT_MULTIPLE_WALLS = "EDIT MULTIPLE WALLS";
+	private static final String EDIT_MULTIPLE_OBJECTS = "EDIT MULTIPLE OBJECTS";
 	private JDialog dialog;
 	private ZonePanel panel;
 	private Map<String, Tool> selectionTools = new HashMap<>();
@@ -129,18 +133,22 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		noSelection.add(new JLabel("no selection"), BorderLayout.NORTH);
 		tileDisplayPanel = new TileDisplayPanel(zone);
 		wallDisplayPanel = new WallDisplayPanel(zone);
+		objectDisplayPanel = new ObjectDisplayPanel(zone);
 		portalDisplayPanel = new PortalDisplayPanel(zone, this);
 		selectionSummaryPanel = new SelectionSummaryPanel(display, this, zone);
 		multipleTileEditingPanel = new MultipleTileEditingPanel(zone, this);
 		multipleWallEditingPanel = new MultipleWallEditingPanel(zone);
+		multipleObjectEditingPanel = new MultipleObjectEditingPanel(zone);
 		
 		selectionCards.add(noSelection, NO_SELECTION);
 		selectionCards.add(tileDisplayPanel, TILE_SELECTED);
 		selectionCards.add(wallDisplayPanel, WALL_SELECTED);
+		selectionCards.add(objectDisplayPanel, OBJECT_SELECTED);
 		selectionCards.add(portalDisplayPanel, PORTAL_SELECTED);
 		selectionCards.add(multipleTileEditingPanel, EDIT_MULTIPLE_TILES);
 		selectionCards.add(multipleWallEditingPanel, EDIT_MULTIPLE_WALLS);
-		
+		selectionCards.add(multipleObjectEditingPanel, EDIT_MULTIPLE_OBJECTS);
+
 		selected.add(selectionCards, BorderLayout.CENTER);
 		
 		JPanel displayFeatures = new JPanel(new GridLayout(15,1));
@@ -167,6 +175,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		addSelectionFeatureCheckbox("Tiles", MapDisplay.Selection.TILES, selectionFeatures);
 		addSelectionFeatureCheckbox("Horiz Walls", MapDisplay.Selection.HORIZ_WALLS, selectionFeatures);
 		addSelectionFeatureCheckbox("Vert Walls", MapDisplay.Selection.VERT_WALLS, selectionFeatures);
+		addSelectionFeatureCheckbox("Objects", MapDisplay.Selection.OBJECTS, selectionFeatures);
 
 		for (Tool t : this.getSelectionTools())
 		{
@@ -300,6 +309,11 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		{
 			refreshSelectionSummary();
 		}
+		else if (obj instanceof EngineObject)
+		{
+			objectDisplayPanel.setObject((EngineObject)obj);
+			selectionCardLayout.show(selectionCards, OBJECT_SELECTED);
+		}
 		else if (obj instanceof Tile)
 		{
 			tileDisplayPanel.setTile((Tile)obj);
@@ -368,14 +382,15 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 		{
 			boolean foundWall = false;
 			boolean foundTile = false;
-			
+			boolean foundObject = false;
+
 			// check if all tiles or all walls are selected
 			for (Object obj : display.selectionLayer.selected)
 			{
 				if (obj instanceof Tile)
 				{
 					foundTile = true;
-					if (foundWall)
+					if (foundWall || foundObject)
 					{
 						break;
 					}
@@ -383,7 +398,15 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 				else if (obj instanceof Wall)
 				{
 					foundWall = true;
-					if (foundTile)
+					if (foundTile || foundObject)
+					{
+						break;
+					}
+				}
+				else if (obj instanceof EngineObject)
+				{
+					foundObject = true;
+					if (foundTile || foundWall)
 					{
 						break;
 					}
@@ -394,16 +417,22 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 				}
 			}
 			
-			if (foundWall && !foundTile)
+			if (foundWall && !foundTile && !foundObject)
 			{
 				multipleWallEditingPanel.setWalls(display.selectionLayer.selected);
 				selectionCardLayout.show(selectionCards, EDIT_MULTIPLE_WALLS);
 				return;
 			}
-			else if (foundTile && !foundWall)
+			else if (foundTile && !foundWall && !foundObject)
 			{
 				multipleTileEditingPanel.setTiles(display.selectionLayer.selected);
 				selectionCardLayout.show(selectionCards, EDIT_MULTIPLE_TILES);
+				return;
+			}
+			else if (foundObject && !foundWall && !foundTile)
+			{
+				multipleObjectEditingPanel.setObjects(display.selectionLayer.selected);
+				selectionCardLayout.show(selectionCards, EDIT_MULTIPLE_OBJECTS);
 				return;
 			}
 		}

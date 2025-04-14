@@ -19,13 +19,12 @@
 
 package mclachlan.maze.editor.swing.map;
 
-import java.util.*;
-import java.util.List;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.*;
 import javax.swing.*;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
@@ -33,9 +32,6 @@ import mclachlan.maze.data.Database;
 import mclachlan.maze.editor.swing.*;
 import mclachlan.maze.map.Tile;
 import mclachlan.maze.map.Zone;
-import mclachlan.maze.map.crusader.MouseClickScriptAdapter;
-import mclachlan.crusader.EngineObject;
-import mclachlan.crusader.Texture;
 
 /**
  *
@@ -65,16 +61,6 @@ public class TileDetailsPanel extends JPanel
 	private final JComboBox ceilingMaskTexture, floorMaskTexture;
 	private final JSpinner lightLevel, ceilingHeight;
 	
-	// object properties
-	private final JCheckBox hasObject;
-	private final JTextField objectName;
-	private final JComboBox northTexture, southTexture, eastTexture, westTexture;
-	private final JCheckBox isLightSource;
-	private final SingleTileScriptComponent mouseClickScript;
-	private final List<JCheckBox> placementMask;
-	private final JButton quickObjectTexture;
-	private final JComboBox<EngineObject.Alignment> verticalAlignment;
-
 	/*-------------------------------------------------------------------------*/
 	public TileDetailsPanel(Zone zone, boolean multiSelect)
 	{
@@ -134,7 +120,7 @@ public class TileDetailsPanel extends JPanel
 		
 		dodgyGridBagShite(content, new JLabel("Crusader Properties"), new JLabel(), gbc);
 
-		Vector<String> vec1 = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
+		Vector<String> vec1 = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		if (multiSelect)
 		{
 			vec1.insertElementAt(EditorPanel.NONE, 0);
@@ -174,80 +160,20 @@ public class TileDetailsPanel extends JPanel
 
 		ceilingHeight = new JSpinner(new SpinnerNumberModel(1, 1, 32, 1));
 		ceilingHeight.addChangeListener(this);
-		dodgyGridBagShite(content, new JLabel("Ceiling Height:"), ceilingHeight, gbc);
-
-		hasObject = new JCheckBox("?");
-		hasObject.addActionListener(this);
-		dodgyGridBagShite(content, new JLabel("Object"), hasObject, gbc);
-
-		objectName = new JTextField(20);
-		objectName.addActionListener(this);
-		dodgyGridBagShite(content, new JLabel("Object Name:"), objectName, gbc);
-		
-		Vector<String> textures = new Vector<String>(Database.getInstance().getMazeTextures().keySet());
-		Collections.sort(textures);
-		
-		quickObjectTexture = new JButton("North Texture:");
-		quickObjectTexture.addActionListener(this);
-		quickObjectTexture.setToolTipText("Assign other textures to this.");
-
-		northTexture = new JComboBox(textures);
-		northTexture.addActionListener(this);
-		dodgyGridBagShite(content, quickObjectTexture, northTexture, gbc);
-		
-		southTexture = new JComboBox(textures);
-		southTexture.addActionListener(this);
-		dodgyGridBagShite(content, new JLabel("South Texture:"), southTexture, gbc);
-		
-		eastTexture = new JComboBox(textures);
-		eastTexture.addActionListener(this);
-		dodgyGridBagShite(content, new JLabel("East Texture:"), eastTexture, gbc);
-		
-		westTexture = new JComboBox(textures);
-		westTexture.addActionListener(this);
-		dodgyGridBagShite(content, new JLabel("West Texture:"), westTexture, gbc);
-
-		verticalAlignment = new JComboBox<>(EngineObject.Alignment.values());
-		verticalAlignment.setSelectedItem(EngineObject.Alignment.BOTTOM);
-		verticalAlignment.addActionListener(this);
-		dodgyGridBagShite(content, new JLabel("Vertical Alignment:"), verticalAlignment, gbc);
-		
-		isLightSource = new JCheckBox("Light Source?");
-		isLightSource.addActionListener(this);
-		dodgyGridBagShite(content, isLightSource, new JLabel(), gbc);
-		
-		mouseClickScript = new SingleTileScriptComponent(null, -1, this, zone);
-		dodgyGridBagShite(content, new JLabel("Click Script:"), mouseClickScript, gbc);
-		
-		JPanel placementPanel = new JPanel(new GridLayout(3,3));
-		placementMask = new ArrayList<>(9);
-		for (int i = 0; i < 9; i++)
-		{
-			placementMask.add(new JCheckBox());
-			placementMask.get(i).addActionListener(this);
-			placementPanel.add(placementMask.get(i));
-		}
-
 		gbc.weightx = 0.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		content.add(new JLabel("Placement:"), gbc);
+		content.add(new JLabel("Ceiling Height:"), gbc);
 		gbc.weightx = 1.0;
 		gbc.gridx++;
-		content.add(placementPanel, gbc);
+		content.add(ceilingHeight, gbc);
 
 		JScrollPane scroller = new JScrollPane(
 			content,
 			ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED,
 			ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		this.add(scroller, BorderLayout.CENTER);
-		
-		if (multiSelect)
-		{
-			hasObject.setEnabled(false);
-			disableObjectWidgets();
-		}
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -269,19 +195,7 @@ public class TileDetailsPanel extends JPanel
 		ceilingMaskTexture.removeActionListener(this);
 		lightLevel.removeChangeListener(this);
 		ceilingHeight.removeChangeListener(this);
-		hasObject.removeActionListener(this);
-		objectName.removeActionListener(this);
-		northTexture.removeActionListener(this);
-		southTexture.removeActionListener(this);
-		eastTexture.removeActionListener(this);
-		westTexture.removeActionListener(this);
-		verticalAlignment.removeActionListener(this);
-		isLightSource.removeActionListener(this);
-		for (JCheckBox b : placementMask)
-		{
-			b.removeActionListener(this);
-		}
-		
+
 		terrainType.setSelectedItem(tile.getTerrainType()==null?"":tile.getTerrainType());
 		terrainSubType.setText(tile.getTerrainSubType() == null ? "" : tile.getTerrainSubType());
 		statModifier.refresh(tile.getStatModifier());
@@ -301,71 +215,9 @@ public class TileDetailsPanel extends JPanel
 
 		if (index >= 0)
 		{
-			this.indexLabel.setText(index+" = ("+x+","+y+")");
-
-			//
-			// todo
-			// yes, i know that this doesn't allow more than one object per tile.
-			// go hack the txt file.
-			//
-			EngineObject obj = null;
-			for (EngineObject o : zone.getMap().getOriginalObjects())
-			{
-				if (o.getTileIndex() == index)
-				{
-					obj = o;
-					break;
-				}
-			}
-			if (obj != null)
-			{
-				enableObjectWidgets();
-
-				if (obj.getName() != null)
-				{
-					objectName.setText(obj.getName());
-				}
-				else
-				{
-					objectName.setText("");
-				}
-				northTexture.setSelectedItem(obj.getNorthTexture().getName());
-				southTexture.setSelectedItem(obj.getSouthTexture().getName());
-				eastTexture.setSelectedItem(obj.getEastTexture().getName());
-				westTexture.setSelectedItem(obj.getWestTexture().getName());
-				verticalAlignment.setSelectedItem(obj.getVerticalAlignment());
-				isLightSource.setSelected(obj.isLightSource());
-				BitSet mask = obj.getPlacementMask();
-				MouseClickScriptAdapter m = ((MouseClickScriptAdapter)obj.getMouseClickScript());
-				mouseClickScript.refresh(m==null?null:m.getScript(), zone);
-				if (mask == null)
-				{
-					mask = new BitSet();
-					mask.set(EngineObject.Placement.CENTER);
-				}
-				for (int i= EngineObject.Placement.NORTH_WEST; i<= EngineObject.Placement.SOUTH_EAST; i++)
-				{
-					placementMask.get(i).setSelected(mask.get(i));
-				}
-			}
-			else
-			{
-				disableObjectWidgets();
-
-				objectName.setText("");
-				northTexture.setSelectedIndex(0);
-				southTexture.setSelectedIndex(0);
-				eastTexture.setSelectedIndex(0);
-				westTexture.setSelectedIndex(0);
-				verticalAlignment.setSelectedItem(EngineObject.Alignment.BOTTOM);
-				isLightSource.setSelected(false);
-				mouseClickScript.refresh(null, zone);
-				for (JCheckBox b : placementMask)
-				{
-					b.setSelected(false);
-				}
-			}
+			this.indexLabel.setText(index + " = (" + x + "," + y + ")");
 		}
+
 		terrainType.addKeyListener(this);
 		terrainSubType.addKeyListener(this);
 		restingDanger.addActionListener(this);
@@ -379,54 +231,6 @@ public class TileDetailsPanel extends JPanel
 		ceilingMaskTexture.addActionListener(this);
 		lightLevel.addChangeListener(this);
 		ceilingHeight.addChangeListener(this);
-		hasObject.addActionListener(this);
-		objectName.addActionListener(this);
-		northTexture.addActionListener(this);
-		southTexture.addActionListener(this);
-		eastTexture.addActionListener(this);
-		westTexture.addActionListener(this);
-		verticalAlignment.addActionListener(this);
-		isLightSource.addActionListener(this);
-		for (JCheckBox b : placementMask)
-		{
-			b.addActionListener(this);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void enableObjectWidgets()
-	{
-		hasObject.setSelected(true);
-		objectName.setEnabled(true);
-		northTexture.setEnabled(true);
-		southTexture.setEnabled(true);
-		eastTexture.setEnabled(true);
-		westTexture.setEnabled(true);
-		verticalAlignment.setEnabled(true);
-		mouseClickScript.setEnabled(true);
-		isLightSource.setEnabled(true);
-		for (JCheckBox b : placementMask)
-		{
-			b.setEnabled(true);
-		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private void disableObjectWidgets()
-	{
-		hasObject.setSelected(false);
-		objectName.setEnabled(false);
-		northTexture.setEnabled(false);
-		southTexture.setEnabled(false);
-		eastTexture.setEnabled(false);
-		westTexture.setEnabled(false);
-		verticalAlignment.setEnabled(false);
-		isLightSource.setEnabled(false);
-		mouseClickScript.setEnabled(false);
-		for (JCheckBox b : placementMask)
-		{
-			b.setEnabled(false);
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -517,8 +321,6 @@ public class TileDetailsPanel extends JPanel
 	/*-------------------------------------------------------------------------*/
 	public void actionPerformed(ActionEvent e)
 	{
-		mclachlan.crusader.Map map = zone.getMap();
-		
 		if (e.getSource() == randomEncounterTable)
 		{
 			if (tile != null)
@@ -608,91 +410,6 @@ public class TileDetailsPanel extends JPanel
 				}
 			}
 		}
-		else if (e.getSource() == hasObject)
-		{
-			if (hasObject.isSelected())
-			{
-				enableObjectWidgets();
-				Texture tx = Database.getInstance().getMazeTexture(
-					(String)northTexture.getSelectedItem()).getTexture();
-				String name = objectName.getText();
-				if (name.length() == 0)
-				{
-					name = null;
-				}
-				map.addObject(new EngineObject(
-					name,tx,tx,tx,tx, index, false, null, null, EngineObject.Alignment.BOTTOM));
-			}
-			else
-			{
-				disableObjectWidgets();
-				map.removeObject(index);
-			}
-		}
-		else if (e.getSource() == northTexture)
-		{
-			map.getObject(index).setNorthTexture(
-				Database.getInstance().getMazeTexture((String)northTexture.getSelectedItem()).getTexture());
-		}
-		else if (e.getSource() == southTexture)
-		{
-			map.getObject(index).setSouthTexture(
-				Database.getInstance().getMazeTexture((String)southTexture.getSelectedItem()).getTexture());
-		}
-		else if (e.getSource() == eastTexture)
-		{
-			map.getObject(index).setEastTexture(
-				Database.getInstance().getMazeTexture((String)eastTexture.getSelectedItem()).getTexture());
-		}
-		else if (e.getSource() == westTexture)
-		{
-			map.getObject(index).setWestTexture(
-				Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture());
-		}
-		else if (e.getSource() == verticalAlignment)
-		{
-			map.getObject(index).setVerticalAlignment((EngineObject.Alignment)verticalAlignment.getSelectedItem());
-		}
-		else if (e.getSource() == isLightSource)
-		{
-			map.getObject(index).setLightSource(isLightSource.isSelected());
-		}
-		else if (placementMask.contains(e.getSource()))
-		{
-			int i = placementMask.indexOf(e.getSource());
-			EngineObject obj = map.getObject(this.index);
-			BitSet mask = obj.getPlacementMask();
-			if (mask == null)
-			{
-				mask = new BitSet();
-			}
-			mask.set(i, placementMask.get(i).isSelected());
-			obj.setPlacementMask(mask);
-		}
-		else if (e.getSource() == quickObjectTexture)
-		{
-			southTexture.setSelectedItem(northTexture.getSelectedItem());
-			eastTexture.setSelectedItem(northTexture.getSelectedItem());
-			westTexture.setSelectedItem(northTexture.getSelectedItem());
-
-			map.getObject(index).setSouthTexture(
-				Database.getInstance().getMazeTexture((String)southTexture.getSelectedItem()).getTexture());
-			map.getObject(index).setEastTexture(
-				Database.getInstance().getMazeTexture((String)eastTexture.getSelectedItem()).getTexture());
-			map.getObject(index).setWestTexture(
-				Database.getInstance().getMazeTexture((String)westTexture.getSelectedItem()).getTexture());
-		}
-		else if (e.getSource() == objectName)
-		{
-			if (objectName.getText().length() > 0)
-			{
-				map.getObject(index).setName(objectName.getText());
-			}
-			else
-			{
-				map.getObject(index).setName(null);
-			}
-		}
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -710,12 +427,6 @@ public class TileDetailsPanel extends JPanel
 		if (component == tileScript)
 		{
 			tile.setScripts(tileScript.getScripts());
-		}
-		else if (component == mouseClickScript)
-		{
-			EngineObject obj = zone.getMap().getObject(this.index);
-			obj.setMouseClickScript(
-				new MouseClickScriptAdapter(mouseClickScript.getScript()));
 		}
 	}
 }

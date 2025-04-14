@@ -48,7 +48,8 @@ public class Map
 	/** these are the objects that are rendered */
 	EngineObject[] renderObjects;
 	/* the original configured objects from the db */
-	List<EngineObject> originalObjects;
+//	List<EngineObject> originalObjects;
+	List<EngineObject> expandedObjects;
 
 	/** Sky configs, in render order */
 	Map.SkyConfig[] skyConfigs;
@@ -82,7 +83,7 @@ public class Map
 	 * 	The horizontal walls in this map.  
 	 * @param verticalWalls
 	 * 	The vertical walls in this map
-	 * @param originalObjects
+	 * @param objects
 	 * 	The objects in this map
 	 */ 
 	public Map(
@@ -94,7 +95,7 @@ public class Map
 		Wall[] horizontalWalls,
 		Wall[] verticalWalls,
 		SkyConfig[] skyConfigs,
-		List<EngineObject> originalObjects,
+		List<EngineObject> objects,
 		MapScript[] scripts)
 	{
 		this.length = length;
@@ -105,10 +106,10 @@ public class Map
 		this.horizontalWalls = horizontalWalls;
 		this.verticalWalls = verticalWalls;
 		this.skyConfigs = skyConfigs;
-		this.originalObjects = originalObjects;
+		this.expandedObjects = objects;
 		this.scripts = scripts;
 
-		if (this.originalObjects != null)
+		if (this.expandedObjects != null)
 		{
 			this.initObjectsFromArray();
 		}
@@ -200,7 +201,7 @@ public class Map
 			}
 		}
 
-		for (EngineObject obj : originalObjects)
+		for (EngineObject obj : expandedObjects)
 		{
 			for (Texture t : obj.getTextures())
 			{
@@ -242,7 +243,7 @@ public class Map
 		List<EngineObject> newObjects = new ArrayList<>();
 
 		// place each object in the middle of it's grid block
-		for (int i = 0; i < this.originalObjects.size(); i++)
+/*		for (int i = 0; i < this.originalObjects.size(); i++)
 		{
 			EngineObject obj = originalObjects.get(i);
 			
@@ -263,9 +264,12 @@ public class Map
 					}
 				}
 			}
-		}
+		}*/
+
+//		this.expandedObjects = new ArrayList<>(newObjects);
 		
-		this.renderObjects = (EngineObject[])newObjects.toArray(new EngineObject[0]);
+//		this.renderObjects = (EngineObject[])newObjects.toArray(new EngineObject[0]);
+		this.renderObjects = (EngineObject[])expandedObjects.toArray(new EngineObject[0]);
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -339,7 +343,8 @@ public class Map
 	 */
 	public void addObject(EngineObject obj)
 	{
-		originalObjects.add(obj);
+		expandedObjects.add(obj);
+//		originalObjects.add(obj);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -350,15 +355,17 @@ public class Map
 	{
 		List<EngineObject> newObjects = new ArrayList<>();
 		
-		for (EngineObject obj : originalObjects)
+//		for (EngineObject obj : originalObjects)
+		for (EngineObject obj : expandedObjects)
 		{
 			if (obj.getTileIndex() != tileIndex)
 			{
 				newObjects.add(obj);
 			}
 		}
-		
-		originalObjects = newObjects;
+
+		expandedObjects = newObjects;
+//		originalObjects = newObjects;
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -367,7 +374,8 @@ public class Map
 	 */
 	public EngineObject getObject(int tileIndex)
 	{
-		for (EngineObject obj : originalObjects)
+//		for (EngineObject obj : originalObjects)
+		for (EngineObject obj : expandedObjects)
 		{
 			if (obj.getTileIndex() == tileIndex)
 			{
@@ -580,28 +588,50 @@ public class Map
 	}
 	
 	/*-------------------------------------------------------------------------*/
+/*
 	public void setRenderObjects(EngineObject[] renderObjects)
 	{
 		this.renderObjects = renderObjects;
-		this.originalObjects = new ArrayList<>(Arrays.asList(renderObjects));
+
+		if (renderObjects != null)
+		{
+			this.originalObjects = new ArrayList<>(Arrays.asList(renderObjects));
+		}
+		else
+		{
+			this.originalObjects = new ArrayList<>();
+		}
 	}
 
 	public EngineObject[] getRenderObjects()
 	{
 		return renderObjects;
 	}
+*/
 
+/*
 	public void setOriginalObjects(
 		List<EngineObject> originalObjects)
 	{
 		this.originalObjects = originalObjects;
 	}
+*/
 
-	public List<EngineObject> getOriginalObjects()
+//	public List<EngineObject> getOriginalObjects()
+//	{
+//		return originalObjects;
+//	}
+
+	public List<EngineObject> getExpandedObjects()
 	{
-		return originalObjects;
+		return expandedObjects;
 	}
 
+	public void setExpandedObjects(
+		List<EngineObject> expandedObjects)
+	{
+		this.expandedObjects = expandedObjects;
+	}
 
 	/*-------------------------------------------------------------------------*/
 	public int getBaseImageSize()

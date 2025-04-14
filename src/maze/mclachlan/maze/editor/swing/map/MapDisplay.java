@@ -25,6 +25,7 @@ import java.awt.image.BufferedImage;
 import java.util.List;
 import java.util.*;
 import javax.swing.*;
+import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.crusader.Wall;
@@ -192,6 +193,20 @@ public class MapDisplay extends JPanel implements Scrollable
 
 		Point point = e.getPoint();
 		Map map = zone.getMap();
+
+		if (selectionFeatures.get(Selection.OBJECTS))
+		{
+			for (EngineObject obj : map.getExpandedObjects())
+			{
+				Rectangle r = getObjectBounds(obj.getXPos(), obj.getYPos());
+				if (r.contains(point))
+				{
+					selectionLayer.selected.add(obj);
+					repaint();
+					return obj;
+				}
+			}
+		}
 		
 		if (selectionFeatures.get(Selection.HORIZ_WALLS))
 		{
@@ -255,7 +270,19 @@ public class MapDisplay extends JPanel implements Scrollable
 		// proceed with a brute force approach.  nasty but i'm lazy. and I cut and paste
 
 		Map map = zone.getMap();
-		
+
+		if (selectionFeatures.get(Selection.OBJECTS))
+		{
+			for (EngineObject obj : map.getExpandedObjects())
+			{
+				Rectangle r = getObjectBounds(obj.getXPos(), obj.getYPos());
+				if (selectionLayer.activeSelection.contains(r))
+				{
+					selectionLayer.selected.add(obj);
+				}
+			}
+		}
+
 		if (selectionFeatures.get(Selection.HORIZ_WALLS))
 		{
 			Wall[] horizontalWalls = map.getHorizontalWalls();
@@ -294,6 +321,25 @@ public class MapDisplay extends JPanel implements Scrollable
 				}
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	Rectangle getObjectBounds(int x, int y)
+	{
+		int width = zone.getWidth();
+		int length = zone.getLength();
+		int tileSize = this.tileSize*this.zoomLevel;
+		int wallSize = this.wallSize+this.zoomLevel;
+
+		int diameter = tileSize/5 +2;
+
+		double maxWidth = width * zone.getMap().getBaseImageSize();
+		double maxLength = length * zone.getMap().getBaseImageSize();
+
+		int x1 = (int)((wallSize+tileSize)*width * (x / maxWidth)) -diameter/2;
+		int y1 = (int)((wallSize+tileSize)*length * (y / maxLength)) -diameter/2;
+
+		return new Rectangle(x1, y1, diameter, diameter);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -432,5 +478,6 @@ public class MapDisplay extends JPanel implements Scrollable
 		public static final int TILES = 0;
 		public static final int HORIZ_WALLS = 1;
 		public static final int VERT_WALLS = 2;
+		public static final int OBJECTS = 3;
 	}
 }

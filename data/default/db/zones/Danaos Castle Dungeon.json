@@ -2684,8 +2684,8 @@
         "cylinderSkyImage": "sky.danaos",
         "bottomColour": "0",
         "topColour": "0",
-        "ceilingHeight": "0",
-        "sphereRadius": "0"
+        "imageScale": "0",
+        "ceilingHeight": "0"
       }
     ],
     "tiles": [
@@ -9643,6 +9643,49 @@
         "eastTexture": "SHIMMERING_PORTAL",
         "westTexture": "SHIMMERING_PORTAL",
         "tileIndex": "72",
+        "lightSource": "true",
+        "placementMask": "00001",
+        "verticalAlignment": "BOTTOM"
+      }
+    ],
+    "expandedObjects": [
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "3328",
+        "yPos": "2304",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "4352",
+        "yPos": "1280",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.pillar.1",
+        "southTexture": "objects.pillar.1",
+        "eastTexture": "objects.pillar.1",
+        "westTexture": "objects.pillar.1",
+        "xPos": "5376",
+        "yPos": "2304",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "SHIMMERING_PORTAL",
+        "southTexture": "SHIMMERING_PORTAL",
+        "eastTexture": "SHIMMERING_PORTAL",
+        "westTexture": "SHIMMERING_PORTAL",
+        "xPos": "4352",
+        "yPos": "2304",
         "lightSource": "true",
         "placementMask": "00001",
         "verticalAlignment": "BOTTOM"

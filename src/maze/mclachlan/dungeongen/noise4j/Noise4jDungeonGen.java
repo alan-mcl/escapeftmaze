@@ -106,7 +106,7 @@ public class Noise4jDungeonGen implements DungeonGen
 			horizWalls,
 			vertWalls,
 			baseMap.getSkyConfigs(),
-			baseMap.getOriginalObjects(),
+			baseMap.getExpandedObjects(),
 			baseMap.getScripts());
 		map.setHorizontalWalls(horizWalls);
 		map.setVerticalWalls(vertWalls);

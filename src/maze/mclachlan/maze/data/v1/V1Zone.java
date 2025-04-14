@@ -606,7 +606,7 @@ public class V1Zone
 		writer.writeln();
 
 		// only persist the original objects
-		List<EngineObject> objects = map.getOriginalObjects();
+		List<EngineObject> objects = map.getExpandedObjects();
 		writer.writeln(CRUSADER_OBJECT_HEADER);
 		for (int i = 0; i < objects.size(); i++)
 		{
