@@ -331,8 +331,7 @@ public class V1Zone
 					int tileIndex = Integer.parseInt(strs[4]);
 					boolean isLightSource = Boolean.valueOf(strs[5]);
 					MouseClickScript mouseClickScript = V1MouseClickScript.fromString(strs[6]);
-					BitSet placementMask = V1BitSet.fromString(strs[7]);
-					String name = "".equals(strs[8])?null:strs[8];
+					String name = "".equals(strs[7])?null:strs[7];
 
 					String va = strs[9];
 
@@ -340,6 +339,7 @@ public class V1Zone
 
 					list.add(new EngineObject(
 						name,
+						0,0,
 						northTexture, 
 						southTexture, 
 						eastTexture, 
@@ -347,7 +347,6 @@ public class V1Zone
 						tileIndex, 
 						isLightSource,
 						mouseClickScript,
-						placementMask,
 						alignment));
 
 					addTexture(northTexture, textures);
@@ -626,8 +625,6 @@ public class V1Zone
 			writer.write(String.valueOf(obj.isLightSource()));
 			writer.write(WALL_SEP);
 			writer.write(V1MouseClickScript.toString(obj.getMouseClickScript()));
-			writer.write(WALL_SEP);
-			writer.write(V1BitSet.toString(obj.getPlacementMask()));
 			writer.write(WALL_SEP);
 			writer.write(obj.getName()==null?"":obj.getName());
 			writer.write(WALL_SEP);

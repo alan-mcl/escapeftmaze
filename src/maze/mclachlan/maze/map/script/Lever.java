@@ -64,13 +64,13 @@ public class Lever extends TileScript
 	{
 		this.engineObject = new EngineObject(
 			null,
+			0,0,
 			getTexture(northTexture),
 			getTexture(southTexture),
 			getTexture(eastTexture),
 			getTexture(westTexture),
 			0,
 			false,
-			null,
 			null,
 			EngineObject.Alignment.BOTTOM);
 	}

@@ -77,7 +77,7 @@ public class Emmons extends NpcScript
 				new NpcSpeechEvent("All will take ye to places in the crater.\n\nIf I were ye I'd take the center and make for the city. It's where all the action is.", npc),
 				new NpcSpeechEvent("Emmons has his own ways out!\n\nFarewell, mayhap we'll meet again in Ichiba City!", npc),
 				new FlavourTextEvent("With a casual but surprisingly fast saunter, the goblin steps around the corner and out of sight.", WAIT_ON_CLICK, true, BOTTOM),
-				new ChangeNpcLocationEvent((Npc)npc, new Point(1,1), SirKay.ICHIBA_CITY), // todo: place within Ichiba city
+				new ChangeNpcLocationEvent((Npc)npc, new Point(1,1), NpcScript.ICHIBA_CITY), // todo: place within Ichiba city
 				new SetMazeVariableEvent(EMMONS_FIRST_ENCOUNTER_COMPLETE, "true"),
 				new ActorsLeaveEvent());
 		}

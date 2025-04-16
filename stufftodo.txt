@@ -6,9 +6,9 @@ ICHIBA CROSSROADS
 -----------------
 more of the better trees
 bug: zone change flickering
-finer grained object placement
 mirror image foe textures
 foe attack/alternate textures fix
+npc entry speech conflict with entrance animation
 
 BACKLOG
 ----------

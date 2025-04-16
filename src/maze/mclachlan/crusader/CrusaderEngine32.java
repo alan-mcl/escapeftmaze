@@ -3323,7 +3323,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 	{
 		if (init)
 		{
-			this.map.initObject(obj, EngineObject.Placement.CENTER);
+			this.map.initObjectFromTileIndex(obj, EngineObject.Placement.CENTER);
 		}
 
 		EngineObject[] new_array = new EngineObject[objects.length+1];
@@ -3354,7 +3354,7 @@ public class CrusaderEngine32 implements CrusaderEngine
 				arc += ANGLE360;
 			}
 
-			obj.currentTextureFrame =  r.nextInt(obj.northTexture.nrFrames);
+			obj.currentTextureFrame =  r.nextInt(obj.currentTexture.nrFrames);
 
 			int x = (int)(dist * cosTable[arc]);
 			int y = (int)(dist * sinTable[arc]);

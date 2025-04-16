@@ -19,23 +19,25 @@
 
 package mclachlan.maze.editor.swing.map;
 
-import java.util.List;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.crusader.EngineObject;
+import mclachlan.crusader.Map;
 import mclachlan.crusader.Tile;
 import mclachlan.maze.map.Zone;
+import mclachlan.maze.stat.Dice;
 
 /**
- *
+ * Shuffles objects within their selected tiles
  */
-public class DeleteObjects extends Tool
+public class ShuffleObjects extends Tool
 {
 	private MapEditor editor;
 
 	/*-------------------------------------------------------------------------*/
 	public String getName()
 	{
-		return "Delete Objects";
+		return "Shuffle Objects";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -76,7 +78,6 @@ public class DeleteObjects extends Tool
 		try
 		{
 			applyToTiles();
-			editor.display.repaint();
 		}
 		catch (Exception x)
 		{
@@ -84,21 +85,44 @@ public class DeleteObjects extends Tool
 			JOptionPane.showMessageDialog(editor, x.getMessage());
 		}
 	}
-	
+
 	/*-------------------------------------------------------------------------*/
 	private void applyToTiles()
 	{
 		List<Object> selection = editor.getSelection();
-		
+		Map map = editor.getMap();
+
 		for (Object obj : selection)
 		{
 			if (obj instanceof Tile)
 			{
 				Tile t = (Tile)obj;
-				
-				int index = editor.getCrusaderIndexOfTile(t);
-				editor.getMap().removeObject(index);
+
+				// Get the objects in the tile
+				int tileIndex = editor.getCrusaderIndexOfTile(t);
+				List<EngineObject> objects = map.getObjects(tileIndex);
+
+				moveObject(map, tileIndex, objects);
 			}
+			else if (obj instanceof EngineObject)
+			{
+				moveObject(map, ((EngineObject)obj).getTileIndex(), Collections.singletonList((EngineObject)obj));
+			}
+		}
+	}
+
+	private void moveObject(Map map, int tileIndex, List<EngineObject> objects)
+	{
+		int tileX = tileIndex % map.getWidth();
+		int tileY = tileIndex / map.getWidth();
+
+		for (EngineObject eo : objects)
+		{
+			int xPos = new Dice(1, map.getBaseImageSize(), tileX * map.getBaseImageSize()).roll("shuffle object x");
+			int yPos = new Dice(1, map.getBaseImageSize(), tileY * map.getBaseImageSize()).roll("shuffle object y");
+
+			eo.setXPos(xPos);
+			eo.setYPos(yPos);
 		}
 	}
 }

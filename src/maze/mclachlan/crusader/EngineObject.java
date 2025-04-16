@@ -49,13 +49,6 @@ public class EngineObject
 	/** Any script to run when the user clicks on this object */
 	MouseClickScript mouseClickScript;
 
-	/**
-	 * A bitmap used when adding this object to the Map, determining where to
-	 * place it inside the tile and whether to spawn additional objects.
-	 * @deprecated
-	 */
-	BitSet placementMask;
-
 	/** How to align the object, if the texture size is less than the tile size*/
 	Alignment verticalAlignment; // todo configure
 
@@ -142,13 +135,13 @@ public class EngineObject
 	 * 	Sets whether or not this object is a light source
 	 * @param mouseClickScript
 	 * 	Any script to run when the user clicks on this object
-	 * @param placementMask
-	 * 	A bitmap used when adding this object to the Map
 	 * @param verticalAlignment
 	 * 	Where to align the object vertically, if the texture is smaller than the tile size
 	 */ 
 	public EngineObject(
 		String name,
+		int xPos,
+		int yPos,
 		Texture northTexture,
 		Texture southTexture,
 		Texture eastTexture,
@@ -156,12 +149,12 @@ public class EngineObject
 		int tileIndex,
 		boolean isLightSource,
 		MouseClickScript mouseClickScript,
-		BitSet placementMask,
 		Alignment verticalAlignment)
 	{
 		this.name = name;
+		this.xPos = xPos;
+		this.yPos = yPos;
 		this.mouseClickScript = mouseClickScript;
-		this.placementMask = placementMask;
 		this.verticalAlignment = verticalAlignment;
 		this.northTexture = northTexture;
 		this.southTexture = southTexture;
@@ -169,12 +162,16 @@ public class EngineObject
 		this.westTexture = westTexture;
 		this.tileIndex = tileIndex;
 		this.isLightSource = isLightSource;
+
+		this.currentTexture = northTexture;
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	public EngineObject(EngineObject clone)
 	{
 		this.name = clone.name;
+		this.xPos = clone.xPos;
+		this.yPos = clone.yPos;
 		this.mouseClickScript = clone.mouseClickScript;
 		this.northTexture = clone.northTexture;
 		this.southTexture = clone.southTexture;
@@ -183,7 +180,6 @@ public class EngineObject
 		this.tileIndex = clone.tileIndex;
 		this.isLightSource = clone.isLightSource;
 		this.verticalAlignment = clone.verticalAlignment;
-		this.placementMask = clone.placementMask;
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -339,7 +335,7 @@ public class EngineObject
 		double yDiff = engine.getPlayerPos().y - this.yPos;
 
 		double apparentDistance = Math.sqrt(xDiff*xDiff + yDiff*yDiff);
-		int textureHeight = northTexture.imageHeight;
+		int textureHeight = currentTexture.imageHeight;
 
 		// correct distance (compensate for the fishbowl effect)
 		if (this.center > 0 && this.center < projectionPlaneWidth)
@@ -544,27 +540,36 @@ public class EngineObject
 
 	public Texture[] getTextures()
 	{
-		return new Texture[] {
-			northTexture,
-			southTexture,
-			eastTexture,
-			westTexture
-		};
+		List<Texture> result = new ArrayList<>();
+
+		if (northTexture != null)
+		{
+			result.add(northTexture);
+		}
+		if (southTexture != null)
+		{
+			result.add(southTexture);
+		}
+		if (eastTexture != null)
+		{
+			result.add(eastTexture);
+		}
+		if (westTexture != null)
+		{
+			result.add(westTexture);
+		}
+
+		if (alternateTextures != null)
+		{
+			result.addAll(Arrays.asList(alternateTextures));
+		}
+
+		return result.toArray(Texture[]::new);
 	}
 
 	public MouseClickScript getMouseClickScript()
 	{
 		return mouseClickScript;
-	}
-
-	public BitSet getPlacementMask()
-	{
-		return placementMask;
-	}
-
-	public void setPlacementMask(BitSet placementMask)
-	{
-		this.placementMask = placementMask;
 	}
 
 	public Alignment getVerticalAlignment()

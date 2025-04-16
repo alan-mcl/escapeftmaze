@@ -93,13 +93,14 @@ public class Chest extends TileScript implements SpellTarget, ChestOptionsCallba
 	{
 		this.engineObject = new EngineObject(
 			null,
+			0,
+			0,
 			Database.getInstance().getMazeTexture(northTexture).getTexture(),
 			Database.getInstance().getMazeTexture(southTexture).getTexture(),
 			Database.getInstance().getMazeTexture(eastTexture).getTexture(),
 			Database.getInstance().getMazeTexture(westTexture).getTexture(),
 			0,
 			false,
-			null,
 			null,
 			EngineObject.Alignment.BOTTOM);
 

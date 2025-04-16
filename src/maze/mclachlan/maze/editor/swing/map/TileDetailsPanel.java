@@ -42,6 +42,9 @@ public class TileDetailsPanel extends JPanel
 {
 	private final JLabel indexLabel;
 	private final Zone zone;
+	private final MapEditor editor;
+	private final JButton placeObjectButton;
+	private final Tool placeObject;
 	private int index;
 	private TileProxy tile;
 	
@@ -62,9 +65,10 @@ public class TileDetailsPanel extends JPanel
 	private final JSpinner lightLevel, ceilingHeight;
 	
 	/*-------------------------------------------------------------------------*/
-	public TileDetailsPanel(Zone zone, boolean multiSelect)
+	public TileDetailsPanel(Zone zone, MapEditor editor, boolean multiSelect)
 	{
 		this.zone = zone;
+		this.editor = editor;
 
 		this.setLayout(new BorderLayout());
 
@@ -160,14 +164,18 @@ public class TileDetailsPanel extends JPanel
 
 		ceilingHeight = new JSpinner(new SpinnerNumberModel(1, 1, 32, 1));
 		ceilingHeight.addChangeListener(this);
-		gbc.weightx = 0.0;
+		dodgyGridBagShite(content, new JLabel("Ceiling Height:"), ceilingHeight, gbc);
+
+		placeObject = new PlaceObjects();
+		String toolName = placeObject.getName();
+		placeObjectButton = new JButton(toolName);
+		placeObjectButton.addActionListener(this);
+
+		gbc.weightx = 1.0;
 		gbc.weighty = 1.0;
 		gbc.gridx=0;
 		gbc.gridy++;
-		content.add(new JLabel("Ceiling Height:"), gbc);
-		gbc.weightx = 1.0;
-		gbc.gridx++;
-		content.add(ceilingHeight, gbc);
+		content.add(placeObjectButton, gbc);
 
 		JScrollPane scroller = new JScrollPane(
 			content,
@@ -409,6 +417,10 @@ public class TileDetailsPanel extends JPanel
 					tile.setCeilingMaskTexture(null);
 				}
 			}
+		}
+		else if (e.getSource() == placeObjectButton)
+		{
+			placeObject.execute(editor, zone);
 		}
 	}
 

@@ -52,7 +52,7 @@ public class MagicSignBoardTrigger extends TileScript
 		
 		Texture front = Database.getInstance().getMazeTexture("objects.woodsign.front").getTexture();
 		Texture side = Database.getInstance().getMazeTexture("objects.woodsign.side").getTexture();
-		maze.addObject(new EngineObject(null,front,front,side,side,45,true,null,null, EngineObject.Alignment.BOTTOM));
+		maze.addObject(new EngineObject(null,0,0,front,front,side,side,45,true,null, EngineObject.Alignment.BOTTOM));
 		MazeVariables.set(VAR, "true");
 
 		return null;

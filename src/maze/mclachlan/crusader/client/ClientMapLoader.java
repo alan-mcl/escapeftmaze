@@ -331,13 +331,13 @@ public class ClientMapLoader
 					result.add(
 						new EngineObject(
 							null,
+							0,0,
 							northTexture, 
 							southTexture, 
 							eastTexture, 
 							westTexture, 
 							tileIndex, 
 							isLightSource,
-							null,
 							null,
 							EngineObject.Alignment.BOTTOM));
 				}

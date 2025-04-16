@@ -33,11 +33,11 @@ public class MultipleObjectEditingPanel extends JPanel
 	private final ObjectDetailsPanel details;
 
 	/*-------------------------------------------------------------------------*/
-	public MultipleObjectEditingPanel(Zone zone)
+	public MultipleObjectEditingPanel(MapEditor editor, Zone zone)
 	{
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Edit Multiple Objects --- "), BorderLayout.NORTH);
-		details = new ObjectDetailsPanel(true, zone);
+		details = new ObjectDetailsPanel(editor, true, zone);
 		add(details, BorderLayout.CENTER);
 	}
 

@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat;
 
+import java.awt.Color;
 import java.util.*;
 import mclachlan.crusader.EngineObject;
 import mclachlan.crusader.ObjectScript;

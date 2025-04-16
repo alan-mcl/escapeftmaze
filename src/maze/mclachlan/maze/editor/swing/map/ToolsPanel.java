@@ -33,9 +33,9 @@ import mclachlan.maze.map.Zone;
  */
 public class ToolsPanel extends JPanel implements ActionListener
 {
-	private MapEditor editor;
-	private Zone zone;
-	private Map<String, Tool> tools = new HashMap<String, Tool>();
+	private final MapEditor editor;
+	private final Zone zone;
+	private final Map<String, Tool> tools = new HashMap<>();
 
 	/*-------------------------------------------------------------------------*/
 	public ToolsPanel(MapEditor editor, Zone zone)

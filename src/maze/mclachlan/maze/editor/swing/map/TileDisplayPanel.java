@@ -34,12 +34,12 @@ public class TileDisplayPanel extends JPanel
 	private TileDetailsPanel details;
 
 	/*-------------------------------------------------------------------------*/
-	public TileDisplayPanel(Zone zone)
+	public TileDisplayPanel(Zone zone, MapEditor editor)
 	{
 		this.zone = zone;
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Tile Details --- "), BorderLayout.NORTH);
-		details = new TileDetailsPanel(zone, false);
+		details = new TileDetailsPanel(zone, editor, false);
 		add(details, BorderLayout.CENTER);
 	}
 

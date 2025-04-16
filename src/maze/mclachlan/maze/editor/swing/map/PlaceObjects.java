@@ -41,7 +41,7 @@ import mclachlan.maze.util.MazeException;
 /**
  *
  */
-public class ScatterObject extends Tool implements ActionListener
+public class PlaceObjects extends Tool implements ActionListener
 {
 	private JButton ok, cancel;
 	private JDialog dialog;
@@ -51,7 +51,7 @@ public class ScatterObject extends Tool implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public String getName()
 	{
-		return "Scatter Object";
+		return "Add Object(s)";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -94,7 +94,7 @@ public class ScatterObject extends Tool implements ActionListener
 
 		dialog = new JDialog(SwingEditor.instance, getName(), true);
 		dialog.setLayout(new BorderLayout());
-		optionsPanel = new ScatterObject.OptionsPanel();
+		optionsPanel = new PlaceObjects.OptionsPanel();
 		dialog.add(optionsPanel, BorderLayout.CENTER);
 		dialog.add(buttons, BorderLayout.SOUTH);
 		dialog.setLocationRelativeTo(SwingEditor.instance);
@@ -125,6 +125,7 @@ public class ScatterObject extends Tool implements ActionListener
 				getDice(optionsPanel.amountPerTile),
 				(Integer)optionsPanel.probabilityPerTile.getValue());
 			dialog.setVisible(false);
+			editor.display.repaint();
 		}
 		catch (Exception x)
 		{
@@ -155,9 +156,21 @@ public class ScatterObject extends Tool implements ActionListener
 				
 				if (Dice.d100.roll("scatter object 1") <= prob)
 				{
-					int index = editor.getCrusaderIndexOfTile(t);
+					int tileIndex = editor.getCrusaderIndexOfTile(t);
 					
 					int nr = nrPerTile.roll("scatter object 2");
+
+					BitSet maskAllowed = new BitSet();
+					for (int i=0; i<optionsPanel.placementMask.length; i++)
+					{
+						if (optionsPanel.placementMask[i].isSelected())
+						{
+							maskAllowed.set(i);
+						}
+					}
+
+					nr = Math.min(nr, maskAllowed.cardinality());
+
 					BitSet mask = new BitSet();
 					
 					for (int i=0; i<nr; i++)
@@ -167,17 +180,25 @@ public class ScatterObject extends Tool implements ActionListener
 						{
 							pos = posD.roll("scatter object 3");
 						}
-						while (mask.get(pos));
+						while (mask.get(pos) && !maskAllowed.get(pos));
 												
 						mask.set(pos);
 					}
 					
 					// remove any duplicate
-					editor.getMap().removeObject(index);
-					
-					editor.getMap().addObject(
-						new EngineObject(
-							null, tx, tx, tx, tx, index, false, null, mask, EngineObject.Alignment.BOTTOM));
+//					editor.getMap().removeObject(index);
+
+					for (int i=0; i< 9; i++)
+					{
+						if (mask.get(i))
+						{
+							EngineObject eo = new EngineObject(
+								null, 0, 0, tx, tx, tx, tx, tileIndex, false, null, EngineObject.Alignment.BOTTOM);
+							editor.getMap().initObjectFromTileIndex(eo, i);
+
+							editor.getMap().addObject(eo);
+						}
+					}
 				}
 			}
 		}
@@ -211,25 +232,49 @@ public class ScatterObject extends Tool implements ActionListener
 		JComboBox objectTexture;
 		JTextField amountPerTile;
 		JSpinner probabilityPerTile;
+		private JCheckBox[] placementMask;
 
 		/*----------------------------------------------------------------------*/
 		public OptionsPanel()
 		{
-			setLayout(new GridLayout(3, 2));
+			setLayout(new BorderLayout(5,5));
+
+			JPanel top = new JPanel(new GridLayout(3, 2, 5, 5));
 			
-			Vector<String> vec = new Vector<String>(
+			Vector<String> vec = new Vector<>(
 				Database.getInstance().getMazeTextures().keySet());
 			Collections.sort(vec);
 			objectTexture = new JComboBox(vec);
 			amountPerTile = new JTextField(20);
-			probabilityPerTile = new JSpinner(new SpinnerNumberModel(1, 1, 100, 1));
+			amountPerTile.setText("1d1");
+			probabilityPerTile = new JSpinner(new SpinnerNumberModel(100, 1, 100, 1));
+
+
+			JPanel placementPanel = new JPanel(new BorderLayout(5,5));
+
+			JPanel maskPanel = new JPanel(new GridLayout(3, 3));
+			placementMask = new JCheckBox[9];
+
+			for (int i=0; i<placementMask.length; i++)
+			{
+				placementMask[i] = new JCheckBox();
+				maskPanel.add(placementMask[i]);
+			}
+
+			placementMask[EngineObject.Placement.CENTER].setSelected(true);
+
+			placementPanel.add(new JLabel("Placement mask:"), BorderLayout.NORTH);
+			placementPanel.add(maskPanel, BorderLayout.CENTER);
 			
-			add(new JLabel("Object texture:"));
-			add(objectTexture);
-			add(new JLabel("Nr per tile:"));
-			add(amountPerTile);
-			add(new JLabel("Probability per tile (%):"));
-			add(probabilityPerTile);
+			top.add(new JLabel("Object texture:"));
+			top.add(objectTexture);
+			top.add(new JLabel("Nr per tile:"));
+			top.add(amountPerTile);
+			top.add(new JLabel("Probability per tile (%):"));
+			top.add(probabilityPerTile);
+
+			this.add(top, BorderLayout.NORTH);
+			this.add(placementPanel, BorderLayout.CENTER);
 		}
 	}
 }

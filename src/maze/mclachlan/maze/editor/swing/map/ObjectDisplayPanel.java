@@ -32,11 +32,11 @@ public class ObjectDisplayPanel extends JPanel
 	private ObjectDetailsPanel details;
 
 	/*-------------------------------------------------------------------------*/
-	public ObjectDisplayPanel(Zone zone)
+	public ObjectDisplayPanel(MapEditor editor, Zone zone)
 	{
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Object Details --- "), BorderLayout.NORTH);
-		details = new ObjectDetailsPanel(false, zone);
+		details = new ObjectDetailsPanel(editor, false, zone);
 		add(details, BorderLayout.CENTER);
 	}
 

@@ -870,6 +870,7 @@ public class V2SerialiserFactory
 			"resistSteal",
 			"theftCounter",
 			"dialogue",
+			"speechColour",
 			"zone",
 			"tile",
 			"found",

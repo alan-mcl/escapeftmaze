@@ -131,14 +131,14 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 
 		JComponent noSelection = new JPanel(new BorderLayout());
 		noSelection.add(new JLabel("no selection"), BorderLayout.NORTH);
-		tileDisplayPanel = new TileDisplayPanel(zone);
+		tileDisplayPanel = new TileDisplayPanel(zone, this);
 		wallDisplayPanel = new WallDisplayPanel(zone);
-		objectDisplayPanel = new ObjectDisplayPanel(zone);
+		objectDisplayPanel = new ObjectDisplayPanel(this, zone);
 		portalDisplayPanel = new PortalDisplayPanel(zone, this);
 		selectionSummaryPanel = new SelectionSummaryPanel(display, this, zone);
 		multipleTileEditingPanel = new MultipleTileEditingPanel(zone, this);
 		multipleWallEditingPanel = new MultipleWallEditingPanel(zone);
-		multipleObjectEditingPanel = new MultipleObjectEditingPanel(zone);
+		multipleObjectEditingPanel = new MultipleObjectEditingPanel(this, zone);
 		
 		selectionCards.add(noSelection, NO_SELECTION);
 		selectionCards.add(tileDisplayPanel, TILE_SELECTED);
@@ -552,10 +552,11 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	/*-------------------------------------------------------------------------*/
 	public List<Tool> getTools()
 	{
-		List<Tool> result = new ArrayList<Tool>();
+		List<Tool> result = new ArrayList<>();
 		
 		result.add(new PaintTileMagic());
-		result.add(new ScatterObject());
+		result.add(new PlaceObjects());
+		result.add(new ShuffleObjects());
 		result.add(new DeleteObjects());
 		result.add(new PaintEncounters());
 		result.add(new PaintWater());
@@ -568,7 +569,7 @@ public class MapEditor extends JPanel implements ActionListener, MouseListener, 
 	/*-------------------------------------------------------------------------*/
 	public List<Tool> getSelectionTools()
 	{
-		List<Tool> result = new ArrayList<Tool>();
+		List<Tool> result = new ArrayList<>();
 
 		result.add(new RouteFinder());
 		result.add(new InvertSelection());

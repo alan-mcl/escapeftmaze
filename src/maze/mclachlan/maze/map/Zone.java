@@ -200,18 +200,22 @@ public class Zone extends DataObject
 				}
 			}
 		}
-		EngineObject object = maze.getCurrentZone().getMap().getObject(getTileIndex(tile));
-		if (object != null && object.getMouseClickScript() != null &&
-			object.getMouseClickScript() instanceof MouseClickScriptAdapter)
+		List<EngineObject> objects = maze.getCurrentZone().getMap().getObjects(getTileIndex(tile));
+
+		for (EngineObject object : objects)
 		{
-			TileScript objMouseClickScript = ((MouseClickScriptAdapter)object.getMouseClickScript()).getScript();
-			if (objMouseClickScript.isHiddenSecret())
+			if (object != null && object.getMouseClickScript() != null &&
+				object.getMouseClickScript() instanceof MouseClickScriptAdapter)
 			{
-				PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
-					objMouseClickScript.getScoutSecretDifficulty());
-				if (pc != null)
+				TileScript objMouseClickScript = ((MouseClickScriptAdapter)object.getMouseClickScript()).getScript();
+				if (objMouseClickScript.isHiddenSecret())
 				{
-					secretSpottedPc = pc;
+					PlayerCharacter pc = GameSys.getInstance().scoutingSpotsStash(maze,
+						objMouseClickScript.getScoutSecretDifficulty());
+					if (pc != null)
+					{
+						secretSpottedPc = pc;
+					}
 				}
 			}
 		}

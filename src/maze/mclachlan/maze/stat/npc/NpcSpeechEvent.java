@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.awt.Color;
 import java.awt.Rectangle;
 import java.util.*;
 import mclachlan.maze.data.StringUtil;
@@ -68,8 +69,9 @@ public class NpcSpeechEvent extends MazeEvent
 					throw new MazeException("Invalid vertical alignment: " + npc.getSprite().getVerticalAlignment());
 			};
 
+		Color speechColour = ((Npc)npc).getSpeechColour();
 		SpeechBubbleDialog dialog = new SpeechBubbleDialog(
-			Constants.Colour.STEALTH_GREEN, //todo: NPC speech colour
+			speechColour == null ? Constants.Colour.STEALTH_GREEN : speechColour,
 			text,
 			origination,
 			orientation);

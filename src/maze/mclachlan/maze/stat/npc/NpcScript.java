@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.StringUtil;
@@ -38,6 +39,11 @@ import mclachlan.maze.ui.diygui.GeneralOptionsCallback;
  */
 public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 {
+	public static final String ICHIBA_CITY = "Ichiba City";
+	public static final String ICHIBA_CROSSROAD= "Ichiba Crossroad";
+	public static final String ICHIBA_DOMAIN_NORTH= "Ichiba Domain North";
+	public static final String ICHIBA_DOMAIN_SOUTH= "Ichiba Domain South";
+
 	protected Foe npc;
 
 	/*-------------------------------------------------------------------------*/
@@ -107,7 +113,7 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	}
 
 	/*-------------------------------------------------------------------------*/
-	protected List<MazeEvent> getList(MazeEvent... events)
+	protected static List<MazeEvent> getList(MazeEvent... events)
 	{
 		return new ArrayList<>(Arrays.asList(events));
 	}
@@ -558,5 +564,34 @@ public abstract class NpcScript implements GeneralOptionsCallback, V2Seralisable
 	public boolean equals(Object o)
 	{
 		return o != null && getClass() == o.getClass();
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * Moves the NPC towards the party, if the party is in the same zone
+	 * @return null if this NPC is not in the same zone as the party
+	 */
+	public List<MazeEvent> moveNpcTowardsParty()
+	{
+		String npcZone = ((Npc)npc).getZone();
+		String partyZone = Maze.getInstance().getCurrentZone().getName();
+
+		if (!npcZone.equals(partyZone))
+		{
+			return null;
+		}
+
+		Point partyTile = Maze.getInstance().getPlayerPos();
+		Point tile = ((Npc)npc).getTile();
+
+		// halve the distance between Kay and the party
+		int diffX = (partyTile.x - tile.x) / 2;
+		int diffY = (partyTile.y - tile.y) / 2;
+
+		int nX = diffX<5 ? partyTile.x : tile.x + diffX;
+		int nY = diffY<5 ? partyTile.y : tile.y + diffY;
+
+		return getList(new ChangeNpcLocationEvent(((Npc)npc), new Point(nX, nY), partyZone));
 	}
 }

@@ -26,6 +26,11 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
+    "name": "The Last Accord",
+    "startingAttitude": "NEUTRAL"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.npc.NpcFactionTemplate",
     "name": "Stick Men",
     "startingAttitude": "NEUTRAL"
   },

@@ -29,6 +29,7 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.npc.NpcFaction;
+import mclachlan.maze.ui.diygui.Constants;
 
 /**
  *

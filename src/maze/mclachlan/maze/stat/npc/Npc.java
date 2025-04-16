@@ -19,6 +19,7 @@
 
 package mclachlan.maze.stat.npc;
 
+import java.awt.Color;
 import java.awt.Point;
 import java.util.*;
 import mclachlan.maze.stat.*;
@@ -422,75 +423,9 @@ public class Npc extends Foe
 		this.theftCounter = theftCounter;
 	}
 
-	/*-------------------------------------------------------------------------*/
-
-	@Override
-	public boolean equals(Object o)
+	public Color getSpeechColour()
 	{
-		if (this == o)
-		{
-			return true;
-		}
-		if (!(o instanceof Npc))
-		{
-			return false;
-		}
-
-		Npc npc = (Npc)o;
-
-		if (getTheftCounter() != npc.getTheftCounter())
-		{
-			return false;
-		}
-		if (isFound() != npc.isFound())
-		{
-			return false;
-		}
-		if (isDead() != npc.isDead())
-		{
-			return false;
-		}
-		if (isGuildMaster() != npc.isGuildMaster())
-		{
-			return false;
-		}
-		if (getTemplate() != null ? !getTemplate().equals(npc.getTemplate()) : npc.getTemplate() != null)
-		{
-			return false;
-		}
-		if (getAttitude() != npc.getAttitude())
-		{
-			return false;
-		}
-		if (getCurrentInventory() != null ? !getCurrentInventory().equals(npc.getCurrentInventory()) : npc.getCurrentInventory() != null)
-		{
-			return false;
-		}
-		if (getZone() != null ? !getZone().equals(npc.getZone()) : npc.getZone() != null)
-		{
-			return false;
-		}
-		if (getTile() != null ? !getTile().equals(npc.getTile()) : npc.getTile() != null)
-		{
-			return false;
-		}
-		return getGuild() != null ? getGuild().equals(npc.getGuild()) : npc.getGuild() == null;
-	}
-
-	@Override
-	public int hashCode()
-	{
-		int result = getTemplate() != null ? getTemplate().hashCode() : 0;
-		result = 31 * result + (getAttitude() != null ? getAttitude().hashCode() : 0);
-		result = 31 * result + (getCurrentInventory() != null ? getCurrentInventory().hashCode() : 0);
-		result = 31 * result + getTheftCounter();
-		result = 31 * result + (getZone() != null ? getZone().hashCode() : 0);
-		result = 31 * result + (getTile() != null ? getTile().hashCode() : 0);
-		result = 31 * result + (isFound() ? 1 : 0);
-		result = 31 * result + (isDead() ? 1 : 0);
-		result = 31 * result + (isGuildMaster() ? 1 : 0);
-		result = 31 * result + (getGuild() != null ? getGuild().hashCode() : 0);
-		return result;
+		return template.getSpeechColour();
 	}
 
 	/*-------------------------------------------------------------------------*/

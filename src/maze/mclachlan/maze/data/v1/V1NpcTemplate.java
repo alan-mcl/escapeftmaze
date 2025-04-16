@@ -24,6 +24,7 @@ import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.util.*;
 import mclachlan.maze.stat.npc.*;
+import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -231,6 +232,7 @@ public class V1NpcTemplate
 				resistSteal,
 				theftCounter,
 				new NpcSpeech(), // loaded later in the process
+				Constants.Colour.STEALTH_GREEN,
 				zone,
 				tile,
 				found,

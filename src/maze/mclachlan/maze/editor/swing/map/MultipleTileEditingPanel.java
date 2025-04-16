@@ -39,7 +39,7 @@ public class MultipleTileEditingPanel extends JPanel
 		this.editor = editor;
 		setLayout(new BorderLayout());
 		add(new JLabel(" --- Edit Multiple Tiles --- "), BorderLayout.NORTH);
-		details = new TileDetailsPanel(zone, true);
+		details = new TileDetailsPanel(zone, editor, true);
 		add(details, BorderLayout.CENTER);
 	}
 

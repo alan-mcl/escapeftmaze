@@ -838,6 +838,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.eva.wingfield",
+    "imageResources": [
+      "crusader/foe/eva_wingfield"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "foe.dragon.1",
     "imageResources": [
       "crusader/foe/dragon"
@@ -1178,6 +1187,15 @@
     "name": "DUNGEON_WALL_1",
     "imageResources": [
       "crusader/scene/dungeon_wall_1"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_THICKET_3_SOLID",
+    "imageResources": [
+      "crusader/scene/jungle_thicket_3_solid"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

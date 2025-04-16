@@ -10219,8 +10219,8 @@
         "southTexture": "objects.plant.2",
         "eastTexture": "objects.plant.2",
         "westTexture": "objects.plant.2",
-        "xPos": "3158",
-        "yPos": "6570",
+        "xPos": "3198",
+        "yPos": "6028",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       },
@@ -10280,6 +10280,26 @@
         "westTexture": "objects.plant.4",
         "xPos": "4864",
         "yPos": "6912",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.solar.array",
+        "southTexture": "objects.solar.array",
+        "eastTexture": "objects.solar.array",
+        "westTexture": "objects.solar.array",
+        "xPos": "3228",
+        "yPos": "6567",
+        "lightSource": "false",
+        "verticalAlignment": "BOTTOM"
+      },
+      {
+        "northTexture": "objects.bell",
+        "southTexture": "objects.bell",
+        "eastTexture": "objects.bell",
+        "westTexture": "objects.bell",
+        "xPos": "3091",
+        "yPos": "6256",
         "lightSource": "false",
         "verticalAlignment": "BOTTOM"
       }

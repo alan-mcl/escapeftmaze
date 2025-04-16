@@ -3,7 +3,6 @@ package mclachlan.maze.campaign.def.npc;
 
 import java.awt.Point;
 import java.util.*;
-import mclachlan.maze.game.Maze;
 import mclachlan.maze.game.MazeEvent;
 import mclachlan.maze.game.MazeVariables;
 import mclachlan.maze.map.script.*;
@@ -24,8 +23,6 @@ public class SirKay extends NpcScript
 	public static final String SIR_KAY_WAIT_FOR_RESPONSE_2 = "sir.kay.wait.for.response.2";
 	public static final String SIR_KAY_OWED_500GP = "sir.kay.owed.500.gp";
 	public static final String SIGNED_UP_WITH_THIEVES_GUILD = "gsc.signed.up";
-	public static final String ICHIBA_CITY = "Ichiba City";
-	public static final String ICHIBA_CROSSROAD= "Ichiba Crossroad";
 
 	public static final String CORROSIVE_SLIME_SLAIN = "sir.kay.corrosive.slime.slain";
 	public static final String CORROSIVE_SLIME_REWARD = "sir.kay.corrosive.slime.reward";
@@ -555,49 +552,27 @@ public class SirKay extends NpcScript
 
 			if (moveTowardsParty)
 			{
-				return moveSirKayTowardsParty();
+				List<MazeEvent> mazeEvents = moveNpcTowardsParty();
+				if (mazeEvents != null)
+				{
+					return mazeEvents;
+				}
+			}
+			// random movement
+			if (Dice.d20.roll("Sir Kay zone") == 1)
+			{
+				// change zone
+				return changeSirKayZone();
 			}
 			else
 			{
-				// random movement
-				if (Dice.d20.roll("Sir Kay zone") == 1)
-				{
-					// change zone
-					return changeSirKayZone();
-				}
-				else
-				{
-					return moveSirKayWithinZone();
-				}
+				return moveSirKayWithinZone();
 			}
 		}
 		else
 		{
 			return new ArrayList<>();
 		}
-	}
-
-	/*-------------------------------------------------------------------------*/
-	private List<MazeEvent> moveSirKayTowardsParty()
-	{
-		String partyZone = Maze.getInstance().getCurrentZone().getName();
-
-		if (!(ICHIBA_CITY.equals(partyZone) || ICHIBA_CROSSROAD.equals(partyZone)))
-		{
-			return moveSirKayWithinZone();
-		}
-
-		Point partyTile = Maze.getInstance().getPlayerPos();
-		Point tile = ((Npc)npc).getTile();
-
-		// halve the distance between Kay and the party
-		int diffX = (partyTile.x - tile.x) / 2;
-		int diffY = (partyTile.y - tile.y) / 2;
-
-		int nX = diffX<5 ? partyTile.x : tile.x + diffX;
-		int nY = diffY<5 ? partyTile.y : tile.y + diffY;
-
-		return getList(new ChangeNpcLocationEvent(((Npc)npc), new Point(nX, nY), partyZone));
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -609,11 +584,11 @@ public class SirKay extends NpcScript
 
 		if (ICHIBA_CITY.equals(zone))
 		{
-			newTile = getRandomIchibaCrossroadTile();
+			newTile = getRandomIchibaCityTile();
 		}
 		else if (ICHIBA_CROSSROAD.equals(zone))
 		{
-			newTile = getRandomIchibaCityTile();
+			newTile = getRandomIchibaCrossroadTile();
 		}
 		else
 		{

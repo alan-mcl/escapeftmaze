@@ -42,6 +42,7 @@ public class ObjectDetailsPanel extends JPanel
 {
 	// crusader wall properties
 	private final JTextField objectName;
+	private final JSpinner xPos, yPos;
 	private final JComboBox northTexture, southTexture, eastTexture, westTexture;
 	private final JCheckBox isLightSource;
 	private final SingleTileScriptComponent mouseClickScript;
@@ -51,10 +52,12 @@ public class ObjectDetailsPanel extends JPanel
 	// the object(s) being edited
 	private ObjectProxy object;
 	private final Zone zone;
+	private MapEditor editor;
 
 	/*-------------------------------------------------------------------------*/
-	public ObjectDetailsPanel(boolean multiSelect, Zone zone)
+	public ObjectDetailsPanel(MapEditor editor, boolean multiSelect, Zone zone)
 	{
+		this.editor = editor;
 		setLayout(new GridBagLayout());
 
 		this.zone = zone;
@@ -64,6 +67,16 @@ public class ObjectDetailsPanel extends JPanel
 		objectName = new JTextField(20);
 		objectName.addActionListener(this);
 		dodgyGridBagShite(this, new JLabel("Object Name:"), objectName, gbc);
+
+		xPos = new JSpinner(new SpinnerNumberModel(0, 0,
+			Math.max(zone.getWidth()*zone.getMap().getBaseImageSize(), zone.getLength()*zone.getMap().getBaseImageSize()), 1));
+		xPos.addChangeListener(this);
+		yPos = new JSpinner(new SpinnerNumberModel(0, 0,
+			Math.max(zone.getWidth()*zone.getMap().getBaseImageSize(), zone.getLength()*zone.getMap().getBaseImageSize()), 1));
+		yPos.addChangeListener(this);
+
+		dodgyGridBagShite(this, new JLabel("X Pos:"), xPos, gbc);
+		dodgyGridBagShite(this, new JLabel("Y Pos:"), yPos, gbc);
 
 		Vector<String> textures = new Vector<>(Database.getInstance().getMazeTextures().keySet());
 		Collections.sort(textures);
@@ -129,6 +142,8 @@ public class ObjectDetailsPanel extends JPanel
 		this.object = obj;
 
 		objectName.removeActionListener(this);
+		xPos.removeChangeListener(this);
+		yPos.removeChangeListener(this);
 		northTexture.removeActionListener(this);
 		southTexture.removeActionListener(this);
 		eastTexture.removeActionListener(this);
@@ -144,22 +159,20 @@ public class ObjectDetailsPanel extends JPanel
 		{
 			objectName.setText("");
 		}
+		xPos.setValue(obj.getXPos());
+		yPos.setValue(obj.getYPos());
 		northTexture.setSelectedItem(obj.getNorthTexture() == null ? EditorPanel.NONE : obj.getNorthTexture().getName());
 		southTexture.setSelectedItem(obj.getSouthTexture() == null ? EditorPanel.NONE : obj.getSouthTexture().getName());
 		eastTexture.setSelectedItem(obj.getEastTexture() == null ? EditorPanel.NONE : obj.getEastTexture().getName());
 		westTexture.setSelectedItem(obj.getWestTexture() == null ? EditorPanel.NONE : obj.getWestTexture().getName());
 		verticalAlignment.setSelectedItem(obj.getVerticalAlignment());
 		isLightSource.setSelected(obj.isLightSource());
-		BitSet mask = new BitSet(); // todo remove
 		MouseClickScriptAdapter m = ((MouseClickScriptAdapter)obj.getMouseClickScript());
 		mouseClickScript.refresh(m==null?null:m.getScript(), zone);
-		if (mask == null)
-		{
-			mask = new BitSet();
-			mask.set(EngineObject.Placement.CENTER);
-		}
 
 		objectName.addActionListener(this);
+		xPos.addChangeListener(this);
+		yPos.addChangeListener(this);
 		northTexture.addActionListener(this);
 		southTexture.addActionListener(this);
 		eastTexture.addActionListener(this);
@@ -268,5 +281,31 @@ public class ObjectDetailsPanel extends JPanel
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{
+		if (e.getSource() == xPos)
+		{
+			object.setXPos((Integer)xPos.getValue());
+			editor.display.repaint();
+
+			for (Object oo : editor.getSelection())
+			{
+				if (oo instanceof EngineObject)
+				{
+					editor.getMap().initObjectFromXY((EngineObject)oo);
+				}
+			}
+		}
+		else if (e.getSource() == yPos)
+		{
+			object.setYPos((Integer)yPos.getValue());
+			editor.display.repaint();
+
+			for (Object oo : editor.getSelection())
+			{
+				if (oo instanceof EngineObject)
+				{
+					editor.getMap().initObjectFromXY((EngineObject)oo);
+				}
+			}
+		}
 	}
 }

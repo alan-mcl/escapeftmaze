@@ -4927,7 +4927,7 @@
         "DEFAULT_BODY",
         "DEFAULT_ARM"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -4944,7 +4944,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.gnome.clockwork.1"
@@ -4976,6 +4976,7 @@
     "appearanceScript": {
       "NAME": "sound - clockwork"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "resolution engine punch",
@@ -4984,6 +4985,7 @@
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -12842,6 +12844,7 @@
     "pluralName": "Lorelei",
     "unidentifiedName": "?woman",
     "unidentifiedPluralName": "?women",
+    "types": [],
     "race": "Human",
     "characterClass": "Druid",
     "hitPointsRange": "15d3+15",
@@ -12865,7 +12868,7 @@
         "human foot",
         "human hand"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -12882,7 +12885,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.lorelei"
@@ -12914,7 +12917,9 @@
     "appearanceScript": {
       "NAME": "sound - faerie"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": [
         "Barkskin",
@@ -12929,6 +12934,7 @@
         "Fey Voice"
       ]
     },
+    "spellLikeAbilities": [],
     "focus": "MAGIC",
     "defaultAttitude": "ATTACKING"
   },
@@ -13739,6 +13745,106 @@
     },
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",
+    "name": "Eva Wingfield",
+    "pluralName": "Eva Wingfield",
+    "unidentifiedName": "?woman",
+    "unidentifiedPluralName": "?women",
+    "types": [],
+    "race": "Human",
+    "characterClass": "Amazon",
+    "hitPointsRange": "15d10+15",
+    "actionPointsRange": "1d1",
+    "magicPointsRange": "15d10+150",
+    "levelRange": "15d1",
+    "experience": "1500",
+    "stats": "100007e00000000000001ff,0202020f0e05040d0c323232321e5a1e",
+    "bodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "DEFAULT_HEAD",
+        "DEFAULT_BODY",
+        "DEFAULT_LEG",
+        "human foot",
+        "human hand"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "playerBodyParts": {
+      "PERCENTAGES": [
+        20,
+        20,
+        20,
+        20,
+        20
+      ],
+      "ITEMS": [
+        "head",
+        "torso",
+        "leg",
+        "hand",
+        "foot"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    },
+    "baseTexture": {
+      "NAME": "foe.eva.wingfield"
+    },
+    "meleeAttackTexture": {
+      "NAME": "foe.eva.wingfield"
+    },
+    "rangedAttackTexture": {
+      "NAME": "foe.eva.wingfield"
+    },
+    "castSpellTexture": {
+      "NAME": "foe.eva.wingfield"
+    },
+    "specialAbilityTexture": {
+      "NAME": "foe.eva.wingfield"
+    },
+    "verticalAlignment": "BOTTOM",
+    "loot": {
+      "NAME": "Eva.Wingfield.loot"
+    },
+    "evasionBehaviour": "1",
+    "cannotBeEvaded": "false",
+    "identificationDifficulty": "0",
+    "foeGroupBannerModifiers": "0,",
+    "allFoesBannerModifiers": "0,",
+    "fleeChance": "5",
+    "stealthBehaviour": "1",
+    "npc": "true",
+    "appearanceScript": {
+      "NAME": "sound - marching"
+    },
+    "animationScripts": [],
+    "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
+    "spellBook": {
+      "spells": [
+        "Barkskin",
+        "Thorns",
+        "Flame Blade",
+        "Dire Wasps",
+        "Disease",
+        "Entangle",
+        "Icicle",
+        "Spit Venom",
+        "Hailstorm",
+        "Fey Voice"
+      ]
+    },
+    "spellLikeAbilities": [],
+    "focus": "COMBAT",
+    "defaultAttitude": "NEUTRAL"
   },
   {
     "TYPE_KEY": "mclachlan.maze.stat.FoeTemplate",

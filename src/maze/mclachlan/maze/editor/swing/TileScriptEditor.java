@@ -1150,8 +1150,8 @@ public class TileScriptEditor extends JDialog implements ActionListener
 					}
 				}
 
-				EngineObject object = zone.getMap().getObject(zone.getTileIndex(point));
-				if (object != null)
+				List<EngineObject> objects = zone.getMap().getObjects(zone.getTileIndex(point));
+				for (EngineObject object : objects)
 				{
 					MouseClickScriptAdapter objectClickScript = (MouseClickScriptAdapter)object.getMouseClickScript();
 					if (objectClickScript != null && objectClickScript.getScript().getExecuteOnceMazeVariable() != null)

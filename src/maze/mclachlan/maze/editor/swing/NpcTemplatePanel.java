@@ -20,14 +20,14 @@
 package mclachlan.maze.editor.swing;
 
 import java.awt.*;
-import java.util.BitSet;
-import java.util.Collections;
-import java.util.Vector;
+import java.awt.event.ActionEvent;
+import java.util.*;
 import javax.swing.*;
 import mclachlan.maze.arena.StickManVendor;
 import mclachlan.maze.data.Database;
 import mclachlan.maze.data.v1.DataObject;
 import mclachlan.maze.stat.npc.*;
+import mclachlan.maze.ui.diygui.Constants;
 import mclachlan.maze.util.MazeException;
 
 /**
@@ -43,6 +43,7 @@ public class NpcTemplatePanel extends EditorPanel
 	private NpcInventoryTemplateComponent npcInventoryTemplate;
 	private JCheckBox found, dead, guildMaster;
 	private NpcSpeechPanel npcSpeechPanel;
+	private JButton colourButton;
 
 	/*-------------------------------------------------------------------------*/
 	public NpcTemplatePanel()
@@ -195,7 +196,11 @@ public class NpcTemplatePanel extends EditorPanel
 		tileY = new JSpinner(new SpinnerNumberModel(0, 0, Integer.MAX_VALUE, 1));
 		tileY.addChangeListener(this);
 		dodgyGridBagShite(result, new JLabel("Tile Y:"), tileY, gbc);
-		
+
+		colourButton = new JButton(" ... ");
+		colourButton.addActionListener(this);
+		dodgyGridBagShite(result, new JLabel("Speech Colour:"), colourButton, gbc);
+
 		guildMaster = new JCheckBox("Guild Master?");
 		guildMaster.addActionListener(this);
 		dodgyGridBagShite(result, guildMaster, new JLabel(), gbc);
@@ -296,6 +301,7 @@ public class NpcTemplatePanel extends EditorPanel
 			npcInventoryTemplate.refresh(null);
 		}
 		npcSpeechPanel.refresh(npc.getDialogue());
+		colourButton.setBackground(npc.getSpeechColour());
 
 		attitude.addActionListener(this);
 		buysAt.addChangeListener(this);
@@ -332,7 +338,8 @@ public class NpcTemplatePanel extends EditorPanel
 			0,
 			0,
 			0,
-			new NpcSpeech(), 
+			new NpcSpeech(),
+			Constants.Colour.STEALTH_GREEN,
 			(String)zone.getItemAt(0),
 			new Point(),
 			false,
@@ -372,7 +379,8 @@ public class NpcTemplatePanel extends EditorPanel
 			current.getResistBribes(),
 			current.getResistSteal(),
 			current.getTheftCounter(),
-			current.getDialogue(), 
+			current.getDialogue(),
+			current.getSpeechColour(),
 			current.getZone(),
 			current.getTile(),
 			current.isFound(),
@@ -423,7 +431,33 @@ public class NpcTemplatePanel extends EditorPanel
 		npc.setGuildMaster(guildMaster.isSelected());
 		npc.setFaction((String)faction.getSelectedItem());
 		npc.setDialogue(npcSpeechPanel.getDialogue());
+		npc.setSpeechColour(colourButton.getBackground());
 
 		return npc;
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e)
+	{
+		if (e.getSource() == colourButton)
+		{
+			NpcTemplate current = Database.getInstance().getNpcTemplates().get(currentName);
+
+			Color c = JColorChooser.showDialog(
+				SwingEditor.instance,
+				"Choose Colour",
+				current.getSpeechColour());
+
+			if (c != null)
+			{
+				colourButton.setBackground(c);
+			}
+
+			SwingEditor.instance.setDirty(dirtyFlag);
+		}
+		else
+		{
+			super.actionPerformed(e);
+		}
 	}
 }

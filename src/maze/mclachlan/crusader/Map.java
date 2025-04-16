@@ -240,40 +240,22 @@ public class Map
 	 */ 
 	private void initObjectsFromArray()
 	{
-		List<EngineObject> newObjects = new ArrayList<>();
-
-		// place each object in the middle of it's grid block
-/*		for (int i = 0; i < this.originalObjects.size(); i++)
+		for (EngineObject eo : expandedObjects)
 		{
-			EngineObject obj = originalObjects.get(i);
-			
-			if (obj.placementMask == null)
-			{
-				initObject(obj, EngineObject.Placement.CENTER);
-				newObjects.add(obj);
-			}
-			else
-			{
-				for (int j=0; j<=9; j++)
-				{
-					if (obj.placementMask.get(j))
-					{
-						EngineObject clone = new EngineObject(obj);
-						initObject(clone, j);
-						newObjects.add(clone);
-					}
-				}
-			}
-		}*/
+			initObjectFromXY(eo);
+		}
 
-//		this.expandedObjects = new ArrayList<>(newObjects);
-		
-//		this.renderObjects = (EngineObject[])newObjects.toArray(new EngineObject[0]);
 		this.renderObjects = (EngineObject[])expandedObjects.toArray(new EngineObject[0]);
 	}
 
 	/*-------------------------------------------------------------------------*/
-	void initObject(EngineObject obj, int placement)
+	public void initObjectFromXY(EngineObject obj)
+	{
+		obj.tileIndex = obj.xPos/baseImageSize + (obj.yPos/baseImageSize)*width;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public void initObjectFromTileIndex(EngineObject obj, int placement)
 	{
 		obj.gridX = obj.tileIndex%width;
 		obj.gridY = obj.tileIndex/width;
@@ -344,7 +326,6 @@ public class Map
 	public void addObject(EngineObject obj)
 	{
 		expandedObjects.add(obj);
-//		originalObjects.add(obj);
 	}
 	
 	/*-------------------------------------------------------------------------*/
@@ -355,7 +336,6 @@ public class Map
 	{
 		List<EngineObject> newObjects = new ArrayList<>();
 		
-//		for (EngineObject obj : originalObjects)
 		for (EngineObject obj : expandedObjects)
 		{
 			if (obj.getTileIndex() != tileIndex)
@@ -365,25 +345,25 @@ public class Map
 		}
 
 		expandedObjects = newObjects;
-//		originalObjects = newObjects;
 	}
 	
 	/*-------------------------------------------------------------------------*/
 	/**
 	 * For map editing only
 	 */
-	public EngineObject getObject(int tileIndex)
+	public List<EngineObject> getObjects(int tileIndex)
 	{
-//		for (EngineObject obj : originalObjects)
+		List<EngineObject> result = new ArrayList<>();
+
 		for (EngineObject obj : expandedObjects)
 		{
 			if (obj.getTileIndex() == tileIndex)
 			{
-				return obj;
+				result.add(obj);
 			}
 		}
 		
-		return null;
+		return result;
 	}
 
 	/*-------------------------------------------------------------------------*/

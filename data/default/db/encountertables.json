@@ -263,7 +263,7 @@
         "hungry.mist.1",
         "living.hive.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -338,7 +338,7 @@
         "lost.souls.1",
         "bat.vampires.1"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
@@ -1412,6 +1412,21 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
+    "name": "eva.wingfield.allies.on.call",
+    "encounterTable": {
+      "PERCENTAGES": [
+        90,
+        10
+      ],
+      "ITEMS": [
+        "einherjar.berserkers.1",
+        "avenging.angel.1"
+      ],
+      "SHOULD_SUM_TO_100": "true"
+    }
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.map.EncounterTable",
     "name": "phantasm.spell.5",
     "encounterTable": {
       "PERCENTAGES": [
@@ -1461,7 +1476,7 @@
       "ITEMS": [
         "angry.swarm.2"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     }
   },
   {
