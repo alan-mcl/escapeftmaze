@@ -346,6 +346,11 @@ public class Map
 
 		expandedObjects = newObjects;
 	}
+
+	public void removeObject(EngineObject obj)
+	{
+		expandedObjects.remove(obj);
+	}
 	
 	/*-------------------------------------------------------------------------*/
 	/**

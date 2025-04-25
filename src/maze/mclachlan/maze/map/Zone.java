@@ -364,7 +364,7 @@ public class Zone extends DataObject
 
 	public Portal[] getPortals()
 	{
-		return portals.toArray(new Portal[portals.size()]);
+		return portals.toArray(new Portal[0]);
 	}
 
 	public Tile[][] getTiles()
@@ -515,7 +515,7 @@ public class Zone extends DataObject
 
 	public void setPortals(Portal[] portals)
 	{
-		this.portals = Arrays.asList(portals);
+		this.portals = new ArrayList<>(Arrays.asList(portals));
 	}
 
 	public void setWidth(int width)

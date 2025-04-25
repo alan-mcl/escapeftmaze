@@ -6146,6 +6146,7 @@
     "pluralName": "Sir Kays",
     "unidentifiedName": "?thief",
     "unidentifiedPluralName": "?thieves",
+    "types": [],
     "race": "Human",
     "characterClass": "Burglar",
     "hitPointsRange": "20d3+40",
@@ -6169,7 +6170,7 @@
         "buskins foot",
         "chamois gloves hand"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -6186,22 +6187,22 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
-      "NAME": "foe.human.thief"
+      "NAME": "foe.sir.kay"
     },
     "meleeAttackTexture": {
-      "NAME": "foe.human.thief"
+      "NAME": "foe.sir.kay"
     },
     "rangedAttackTexture": {
-      "NAME": "foe.human.thief"
+      "NAME": "foe.sir.kay"
     },
     "castSpellTexture": {
-      "NAME": "foe.human.thief"
+      "NAME": "foe.sir.kay"
     },
     "specialAbilityTexture": {
-      "NAME": "foe.human.thief"
+      "NAME": "foe.sir.kay"
     },
     "verticalAlignment": "BOTTOM",
     "loot": {
@@ -6219,10 +6220,13 @@
     "appearanceScript": {
       "NAME": "sound - running"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
+    "naturalWeapons": [],
     "spellBook": {
       "spells": []
     },
+    "spellLikeAbilities": [],
     "focus": "COMBAT",
     "defaultAttitude": "ATTACKING"
   },
@@ -21939,7 +21943,7 @@
         "DEFAULT_LEG",
         "DEFAULT_TAIL"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "playerBodyParts": {
       "PERCENTAGES": [
@@ -21956,7 +21960,7 @@
         "hand",
         "foot"
       ],
-      "SHOULD_SUM_TO_100": "false"
+      "SHOULD_SUM_TO_100": "true"
     },
     "baseTexture": {
       "NAME": "foe.ovoraptor.1"
@@ -21989,6 +21993,7 @@
     "appearanceScript": {
       "NAME": "sound - reptile-screech"
     },
+    "animationScripts": [],
     "appearanceDirection": "FROM_LEFT_OR_RIGHT",
     "naturalWeapons": [
       "saliopod bite",

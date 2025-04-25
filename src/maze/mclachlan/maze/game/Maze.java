@@ -1404,30 +1404,22 @@ public class Maze implements Runnable
 			Maze.getPerfLog().enter(perfTag);
 		}
 
-		List<MazeEvent> subEvents = event.resolve();
-		
-		// event resolution may alter some of it's state - thus only display
-		// the event now.
-		this.ui.displayMazeEvent(event, displayEventText);
-
-		// journal the text
-//		if (displayEventText)
-//		{
-//			JournalManager.getInstance().getJournal(
-//				JournalManager.JournalType.ZONE).addJournalEntry(
-//				GameTime.getTurnNr(), getZone().getName(), event.getText());
-//		}
-
-		// only wait on delays and stuff if the event text needs to be shown
-		if (displayEventText)
+		List<MazeEvent> subEvents;
+		synchronized (getEventMutex())
 		{
-			// (WAIT_ON_READLINE events have wait()'s in their resolve methods)
-			if (event.getDelay() == MazeEvent.Delay.WAIT_ON_CLICK)
+			subEvents = event.resolve();
+
+			// event resolution may alter some of it's state - thus only display the event now.
+			this.ui.displayMazeEvent(event, displayEventText);
+
+			// only wait on delays and stuff if the event text needs to be shown
+			if (displayEventText)
 			{
-				log(Log.DEBUG, "waiting on ["+event.getClass().getSimpleName()+
-					"] ["+event.toString()+"]");
-				synchronized(Maze.getInstance().getEventMutex())
+				// (WAIT_ON_READLINE events have wait()'s in their resolve methods)
+				if (event.getDelay() == MazeEvent.Delay.WAIT_ON_CLICK)
 				{
+					log(Log.DEBUG, "waiting on ["+event.getClass().getSimpleName()+ "] ["+ event +"]");
+
 					try
 					{
 						getEventMutex().wait();
@@ -1437,14 +1429,10 @@ public class Maze implements Runnable
 						throw new MazeException(e);
 					}
 				}
-			}
-			else if (event.getDelay() > MazeEvent.Delay.NONE &&
-				Maze.getInstance().getCurrentCombat() != null)
-			{
-				// only apply the combat delay in combat
-
-				synchronized(Maze.getInstance().getEventMutex())
+				else if (event.getDelay() > MazeEvent.Delay.NONE && Maze.getInstance().getCurrentCombat() != null)
 				{
+					// only apply the combat delay in combat
+
 					try
 					{
 						// wait instead of sleep so that the user can

@@ -28,6 +28,15 @@
   },
   {
     "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "JUNGLE_CLIFF_1_CAVE",
+    "imageResources": [
+      "crusader/scene/jungle_cliff_1_cave"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
     "name": "objects.woodsign.side",
     "imageResources": [
       "crusader/scene/wood_sign_side"
@@ -1802,6 +1811,15 @@
     "name": "foe.kami",
     "imageResources": [
       "crusader/foe/kami"
+    ],
+    "animationDelay": "-1",
+    "scrollSpeed": "-1"
+  },
+  {
+    "TYPE_KEY": "mclachlan.maze.data.MazeTexture",
+    "name": "foe.sir.kay",
+    "imageResources": [
+      "crusader/foe/sir_kay"
     ],
     "animationDelay": "-1",
     "scrollSpeed": "-1"

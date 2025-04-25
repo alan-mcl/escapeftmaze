@@ -99,6 +99,10 @@ public class DeleteObjects extends Tool
 				int index = editor.getCrusaderIndexOfTile(t);
 				editor.getMap().removeObject(index);
 			}
+			else if (obj instanceof EngineObject)
+			{
+				editor.getMap().removeObject((EngineObject)obj);
+			}
 		}
 	}
 }

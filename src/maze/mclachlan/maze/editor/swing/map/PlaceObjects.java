@@ -51,7 +51,7 @@ public class PlaceObjects extends Tool implements ActionListener
 	/*-------------------------------------------------------------------------*/
 	public String getName()
 	{
-		return "Add Object(s)";
+		return "Place Object(s)";
 	}
 
 	/*-------------------------------------------------------------------------*/
@@ -180,7 +180,7 @@ public class PlaceObjects extends Tool implements ActionListener
 						{
 							pos = posD.roll("scatter object 3");
 						}
-						while (mask.get(pos) && !maskAllowed.get(pos));
+						while (mask.get(pos) || !maskAllowed.get(pos));
 												
 						mask.set(pos);
 					}

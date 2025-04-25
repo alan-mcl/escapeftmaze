@@ -47,7 +47,7 @@ Foes:
 ... the smell of humidity and fresh vegetation assaults your nostrils and your eyes are dazzled by sudden brightness. You freeze momentarily as your senses recover. You are standing in a lush tropical forest. Broad leaved trees sway overhead and the foliage under foot is springy and moist. In the distance you hear a strange bird's shriek that is answered by a chorus of other foreign sounds. The air is thick and clammy. What you can see of the horizon is dominated by jagged cliffs on all sides; perhaps you are in some kind of basin? Of more interest to you is a dirt path nearby. It appears that you may be approaching inhabited areas.
 ----
 
-Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this Domain, and there are much-used Gates to Aenen and Danaos. The player appears from thin air - the Gates from Gatehouse dungeon are one way only.
+Ichiba is the first Domain that one encounters on entering the Second Realm. It is a warm, forested jungle basin set in a very large and very old volcanic crater. Good roads of pale dirt traverse this Domain, and there are much-used Gates to Aenen and Danaos. The player appears from thin air - the Gates from Gatehouse dungeon are one way only.
 
 A large road runs north-south through most of the Domain, crossed by an east-west road that leads to Ichiba City in the west.
 
@@ -59,11 +59,11 @@ bushes are dotted around the area.
 * A cache of items (including a few Resurrection Powders) is hidden in a secluded glade and is guarded by a giant mantis's who stalk the party and attack
 * A glade on the north road is overgrown with Omnifids. Lurching mobile Omnifids attack
 out of the trees when the party enters.
-* _A trio of velociraptors lurk in the underbrush on the west road, waiting for prey to enter the clearing before pouncing in coordinated attacks. Closer inspection of their territory reveals an old dinosaur nest with shattered eggshells—something bigger may still be nearby._
+* A trio of velociraptors lurk in the underbrush on the west road, waiting for prey to enter the clearing before pouncing in coordinated attacks. _Closer inspection of their territory reveals an old dinosaur nest with shattered eggshells—something bigger may still be nearby._
 * _A small cave opening is visible at the base of the cliffs, partially hidden by ferns.
     Inside, bioluminescent moths flutter around glowing mushrooms. A giant snail slumbers in the dark, but disturbing the fungi might wake it._
-* _On the south road, a massive flying lizard circles overhead, watching the party from above.
- It lets out a shriek that attracts smaller flying lizards to attack from the trees._
+* On the south road, a massive flying lizard circles overhead, watching the party from above.
+ It lets out a shriek that attracts smaller flying lizards to attack from the trees.
 * _Following the overgrown eastern path, the players find remnants of old stone milestones leading into the jungle. The way is blocked by a massive tree covered in strange red moss: touching it causes hallucinations of whispering voices._
 
 Foes:

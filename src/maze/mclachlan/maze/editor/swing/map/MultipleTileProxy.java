@@ -432,9 +432,19 @@ public class MultipleTileProxy extends TileProxy
 
 		for (mclachlan.maze.map.Tile t : mazeTiles)
 		{
-			if (!(x == null && t.getSector() == null || x.equals(t.getSector())))
+			if (x == null)
 			{
-				return null;
+				if (t.getSector() != null)
+				{
+					return null;
+				}
+			}
+			else
+			{
+				if (!x.equals(t.getSector()))
+				{
+					return null;
+				}
 			}
 		}
 
