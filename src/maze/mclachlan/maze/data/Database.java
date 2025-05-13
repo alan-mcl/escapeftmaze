@@ -101,12 +101,12 @@ public class Database
 	private Map<String, FoeType> foeTypes;
 	private Map<String, NaturalWeapon> naturalWeapons;
 
-	private Map<String, Map<String, String>> strings = new HashMap<>();
+	private final Map<String, Map<String, String>> strings = new HashMap<>();
 	private Map<String, PlayerCharacter> characterGuild;
-	private Map<String, BufferedImage> images = new HashMap<>();
-	private Loader loader;
-	private Saver saver;
-	private Campaign campaign;
+	private final BufferedImageCache images = new BufferedImageCache();
+	private final Loader loader;
+	private final Saver saver;
+	private final Campaign campaign;
 
 
 	/*-------------------------------------------------------------------------*/
@@ -1411,7 +1411,7 @@ public class Database
 	{
 		synchronized(mutex)
 		{
-			if (!images.containsKey(resourceName))
+			if (!images.containsImage(resourceName))
 			{
 				// check all the campaigns, return the first image we find
 				for (CampaignCache campaignCache : campaignCaches)
@@ -1419,7 +1419,7 @@ public class Database
 					BufferedImage image = campaignCache.loader.getImage(resourceName);
 					if (image != null)
 					{
-						images.put(resourceName, image);
+						images.putImage(resourceName, image);
 						return image;
 					}
 				}
@@ -1428,9 +1428,15 @@ public class Database
 			}
 			else
 			{
-				return images.get(resourceName);
+				return images.getImage(resourceName);
 			}
 		}
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public BufferedImageCache getImageCache()
+	{
+		return images;
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -1856,6 +1856,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
 			{
 				Foe foe = (Foe)group.get(foeIndex);
+
 				Texture[] textures = new Texture[]
 					{
 						foe.getBaseTexture().getTexture(),
@@ -1864,6 +1865,14 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 						foe.getCastSpellTexture().getTexture(),
 						foe.getSpecialAbilityTexture().getTexture(),
 					};
+
+				if (Dice.d2.roll("mirror") == 1)
+				{
+					for (int i = 0; i < textures.length; i++)
+					{
+						textures[i] = textures[i].mirrorHorizontal();
+					}
+				}
 
 				EngineObject obj = new EngineObject(textures, false);
 

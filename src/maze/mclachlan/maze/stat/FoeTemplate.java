@@ -29,7 +29,6 @@ import mclachlan.maze.game.MazeScript;
 import mclachlan.maze.map.LootTable;
 import mclachlan.maze.stat.magic.SpellBook;
 import mclachlan.maze.stat.npc.NpcFaction;
-import mclachlan.maze.ui.diygui.Constants;
 
 /**
  *
@@ -225,6 +224,7 @@ public class FoeTemplate extends DataObject
 		// if there is a tint, clone any textures so that the originals are not tinted
 		if (textureTint != null)
 		{
+			// todo: cache tinted textures so as to avoid bloat
 			baseTexture = baseTexture.cloneWithTint(textureTint);
 			meleeAttackTexture = baseTexture.cloneWithTint(textureTint);
 			rangedAttackTexture = baseTexture.cloneWithTint(textureTint);

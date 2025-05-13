@@ -21,6 +21,8 @@
 package mclachlan.crusader;
 
 import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.util.*;
 
@@ -193,6 +195,40 @@ public class Texture implements Comparable<Texture>
 	public void setAnimationDelay(int animationDelay)
 	{
 		this.animationDelay = animationDelay;
+	}
+
+	/*-------------------------------------------------------------------------*/
+	public Texture mirrorHorizontal()
+	{
+		BufferedImage[] mirroredImages = new BufferedImage[images.length];
+
+		for (int i = 0; i < images.length; i++)
+		{
+			BufferedImage image = images[i];
+
+			int width = image.getWidth();
+			int height = image.getHeight();
+
+			BufferedImage mirrored = new BufferedImage(width, height, image.getType());
+			Graphics2D g = mirrored.createGraphics();
+
+			// AffineTransform to mirror the image horizontally
+			AffineTransform transform = AffineTransform.getScaleInstance(-1, 1); // flip horizontally
+			transform.translate(-width, 0); // shift back into position
+
+			g.drawImage(image, transform, null);
+			g.dispose();
+
+			mirroredImages[i] = mirrored;
+		}
+
+		return new Texture(
+			name+"_$$$_MIRROR",
+			mirroredImages,
+			this.animationDelay,
+			this.scrollBehaviour,
+			this.scrollSpeed,
+			this.tint);
 	}
 
 	/*-------------------------------------------------------------------------*/
