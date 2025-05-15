@@ -45,8 +45,7 @@ public class ConditionEvent extends MazeEvent
 	/*-------------------------------------------------------------------------*/
 	public List<MazeEvent> resolve()
 	{
-		List<MazeEvent> result = target.addCondition(condition);
-		return result;
+		return target.addCondition(condition);
 	}
 
 	/*-------------------------------------------------------------------------*/

@@ -657,7 +657,7 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 		return stats;
 	}
 
-	public void setStats(Stats stats)
+	public void 	setStats(Stats stats)
 	{
 		this.stats = stats;
 	}
@@ -1660,7 +1660,7 @@ public abstract class UnifiedActor extends DataObject implements ConditionBearer
 		ConditionManager.getInstance().addCondition(this, c);
 
 		// should this be in the subclass?
-		if (Maze.getInstance() != null && this instanceof PlayerCharacter)
+		if (Maze.getInstance() != null && Maze.getInstance().getParty() != null && this instanceof PlayerCharacter)
 		{
 			result.addAll(SpeechUtil.getInstance().conditionSpeech(c, (PlayerCharacter)this));
 

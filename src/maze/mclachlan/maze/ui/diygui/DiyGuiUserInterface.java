@@ -1833,17 +1833,21 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		//
 		// Add to the internal cache of foe groups
 		//
-		int groupOffset;
+
+		// this is an offset if we are adding groupd (e.g. leader calling for help)
+		int startingRank;
 		if (this.foeGroups == null)
 		{
-			groupOffset = 0;
+			startingRank = 0;
 			this.foeGroups = new ArrayList<>(others);
 		}
 		else
 		{
-			groupOffset = foeGroups.size();
+			startingRank = foeGroups.size();
 			this.foeGroups.addAll(others);
 		}
+
+		List<List<double[]>> coordList = placeFoeSprites2(startingRank, others);
 
 		//
 		// Add the foe sprites to the raycasting engine
@@ -1852,8 +1856,7 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 		{
 			List<UnifiedActor> group = others.get(foeGroup).getActors();
 
-			int maxFoeIndex = group.size();
-			for (int foeIndex = 0; foeIndex < maxFoeIndex; foeIndex++)
+			for (int foeIndex = 0; foeIndex < group.size(); foeIndex++)
 			{
 				Foe foe = (Foe)group.get(foeIndex);
 
@@ -1894,12 +1897,12 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					// - more than one row for big groups
 					// - less space between groups
 
-					int rank = groupOffset + foeGroup;
+					int rank = startingRank + foeGroup;
 
-					double increment = 1.0 / (maxFoeIndex + 1);
-					double arc = increment + increment*foeIndex;
-					double distance = 0.51 + (0.2 * rank);
-					this.raycaster.initObjectInFrontOfPlayer(obj, distance, arc, true);
+//					double[] coords = placeFoeSprite(group, foe, rank);
+					double[] coords = coordList.get(foeGroup).get(foeIndex);
+
+					this.raycaster.initObjectInFrontOfPlayer(obj, coords[0], coords[1], true);
 
 					if (runAppearanceAnimations)
 					{
@@ -1942,6 +1945,156 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 	}
 
 	/*-------------------------------------------------------------------------*/
+	private double[] placeFoeSprite(List<UnifiedActor> group, Foe foe, int rank)
+	{
+		int foeIndex = group.indexOf(foe);
+
+		double increment = 1.0 / (group.size() + 1);
+		double arc = increment + increment* foeIndex;
+		double distance = 0.51 + (0.2 * rank);
+
+		double[] coords = new double[]{distance, arc};
+		return coords;
+	}
+
+	/*-------------------------------------------------------------------------*/
+
+	/**
+	 * @param startingRank
+	 * 	The rank at which to start adding
+	 */
+	private List<List<double[]>> placeFoeSprites2(int startingRank,
+		List<FoeGroup> foeGroups)
+	{
+		final double baseDistance = 0.5;
+		final double rankStep = 0.2;
+
+		List<List<double[]>> result = new ArrayList<>();
+
+		for (int g = 0; g < foeGroups.size(); g++)
+		{
+			FoeGroup group = foeGroups.get(g);
+			List<Foe> foes = group.getFoes();
+//			int count = foes.size();
+			int count = group.numAlive();
+
+			List<double[]> groupCoords = new ArrayList<>(count);
+
+			// Compute center-out arc spacing
+			double spacing = 1.0 / (count + 1); // Leaves margin on edges
+			double center = 0.5;
+
+			for (int i = 0; i < count; i++)
+			{
+				int centerIndex = count / 2;
+				double arcOffset = (i - centerIndex + (count % 2 == 0 ? 0.5 : 0)) * spacing;
+				double arc = center + arcOffset;
+
+				arc = Math.max(0.0, Math.min(1.0, arc)); // Clamp to [0,1]
+
+				double distance = baseDistance + (startingRank + g) * rankStep;
+
+				groupCoords.add(new double[]{distance, arc});
+			}
+
+			result.add(groupCoords);
+		}
+
+		return result;
+	}
+
+	private List<List<double[]>> placeFoeSprites3(
+		int startingRank,
+		List<FoeGroup> foeGroups)
+	{
+		final double baseDistance = 0.5;
+		final double rankStep = 0.2;
+		final double arcMargin = 0.01; // spacing between sprites
+
+		// Flatten all foes and track group index
+		List<Foe> allFoes = new ArrayList<>();
+		List<Integer> groupIndices = new ArrayList<>();
+		for (int gi = 0; gi < foeGroups.size(); gi++)
+		{
+			for (Foe f : foeGroups.get(gi).getFoes())
+			{
+				allFoes.add(f);
+				groupIndices.add(gi);
+			}
+		}
+
+		// Result placeholder: one list per original group
+		List<List<double[]>> result = new ArrayList<>();
+		for (int i = 0; i < foeGroups.size(); i++)
+		{
+			result.add(new ArrayList<>());
+		}
+
+		int index = 0;
+		int currentRank = startingRank;
+
+		while (index < allFoes.size())
+		{
+			double distance = baseDistance + currentRank * rankStep;
+
+			// Try to fit foes in this rank
+			List<Foe> rankFoes = new ArrayList<>();
+			List<Integer> rankGroups = new ArrayList<>();
+			List<Double> arcWidths = new ArrayList<>();
+
+			double totalArcUsed = 0.0;
+			int tempIndex = index;
+
+			while (tempIndex < allFoes.size())
+			{
+				Foe foe = allFoes.get(tempIndex);
+				int spriteWidthPx = foe.getBaseTexture().getImageWidth();
+				double arcWidth = computeArcWidth(spriteWidthPx, distance, SCREEN_WIDTH);
+				double requiredArc = arcWidth + arcMargin;
+
+				if (totalArcUsed + requiredArc > 1.0)
+				{
+					break;
+				}
+
+				totalArcUsed += requiredArc;
+				rankFoes.add(foe);
+				rankGroups.add(groupIndices.get(tempIndex));
+				arcWidths.add(arcWidth);
+				tempIndex++;
+			}
+
+			// Place foes symmetrically around arc = 0.5
+			double arcStart = 0.5 - (totalArcUsed / 2.0);
+			double currentArc = arcStart;
+
+			for (int i = 0; i < rankFoes.size(); i++)
+			{
+				double arcWidth = arcWidths.get(i);
+				double arcCenter = currentArc + arcWidth / 2.0;
+
+				result.get(rankGroups.get(i)).add(new double[]{distance, arcCenter});
+				currentArc += arcWidth + arcMargin;
+			}
+
+			index += rankFoes.size();
+			currentRank++;
+		}
+
+		return result;
+	}
+
+	private double computeArcWidth(int imageWidthPx, double distanceInTiles,
+		int screenWidthPx)
+	{
+		if (distanceInTiles <= 0.0)
+		{
+			distanceInTiles = 0.01; // Prevent divide-by-zero or extreme scaling
+		}
+		return imageWidthPx / (screenWidthPx * distanceInTiles);
+	}
+
+	/*-------------------------------------------------------------------------*/
 	@Override
 	public void rebalanceFoeSprites(Combat combat)
 	{
@@ -1964,6 +2117,8 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 			}
 		}
 
+		List<List<double[]>> coordList = placeFoeSprites2(0, this.foeGroups);
+
 		// determine locations of live foes and move them there
 		int rank = 0;
 		for (FoeGroup fg : combat.getFoes())
@@ -1979,10 +2134,13 @@ public class DiyGuiUserInterface extends Frame implements UserInterface
 					// - more than one row for big groups
 					// - less space between groups
 
-					double increment = 1.0 / (maxFoeIndex + 1);
-					double arc = increment * (foeIndex + 1) + (-0.1 * (rank % 2)); // stagger the groups
-					double distance = 0.51 + (0.2 * rank);
-					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), distance, arc);
+//					double increment = 1.0 / (maxFoeIndex + 1);
+//					double arc = increment * (foeIndex + 1) + (-0.1 * (rank % 2)); // stagger the groups
+//					double distance = 0.51 + (0.2 * rank);
+//					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), distance, arc);
+
+					double[] coords = coordList.get(foeGroups.indexOf(fg)).get(foeIndex);
+					this.raycaster.moveObjectToFrontOfPlayer(foe.getSprite(), coords[0], coords[1]);
 				}
 			}
 

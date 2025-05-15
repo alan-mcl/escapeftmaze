@@ -4045,18 +4045,6 @@
     "guild": []
   },
   {
-    "template": "Emmons",
-    "attitude": "FRIENDLY",
-    "currentInventory": [],
-    "theftCounter": "1",
-    "tile": "19:5",
-    "zone": "Gatehouse",
-    "found": "false",
-    "dead": "false",
-    "guildMaster": "false",
-    "guild": []
-  },
-  {
     "template": "Scrymgeour",
     "attitude": "NEUTRAL",
     "currentInventory": [

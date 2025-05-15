@@ -133,7 +133,7 @@ public class FoeGroup implements ActorGroup
 	/*-------------------------------------------------------------------------*/
 	public List<Foe> getFoes()
 	{
-		ArrayList<Foe> result = new ArrayList<Foe>();
+		ArrayList<Foe> result = new ArrayList<>();
 
 		for (UnifiedActor a : foes)
 		{
